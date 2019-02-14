@@ -1,0 +1,25 @@
+.body--sectionIndex {
+  background-color: $white-3;
+}
+
+.SectionIndex {
+  padding-bottom: get-spacing('x-large');
+  background-color: transparent;
+
+  h1,
+  h2 {
+    border: 0;
+  }
+
+  .Row {
+    margin-top: 0;
+  }
+
+  ul.list--with-descriptions,
+  ul.list--multicolumn {
+    padding-top: get-spacing('small');
+    a {
+      font-size: 18px;
+    }
+  }
+}

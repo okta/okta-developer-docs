@@ -1,0 +1,43 @@
+.Footer {
+  a {
+    text-decoration: none;
+  }
+
+  .Wrap {
+    padding: 0;
+  }
+
+  &-links {
+    margin-top: 28px;
+
+    li {
+      a {
+        padding: 0;
+      }
+    }
+
+    &--github,
+    &--twitter,
+    &--forum,
+    &--rss,
+    &--youtube {
+      margin-bottom: 10px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h4 {
+    @include font-size('h6');
+  }
+}
+
+@media (max-width: 859px) {
+  .Footer {
+    .Logo {
+      margin-left: 0;
+    }
+  }
+}

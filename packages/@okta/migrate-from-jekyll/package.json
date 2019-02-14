@@ -1,0 +1,14 @@
+{
+  "name": "@okta/migrate-from-jekyll",
+  "version": "0.0.1-alpha.1",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@vuepress/shared-utils": "^1.0.0-alpha.0",
+    "fs-extra": "^7.0.1",
+    "gray-matter": "^4.0.1"
+  },
+  "scripts": {
+    "migrate": "node index.js run"
+  }
+}

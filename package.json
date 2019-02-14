@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/@okta/*"
+  ],
+  "scripts": {
+    "dev": "yarn workspace @okta/vuepress-site dev",
+    "build": "yarn workspace @okta/vuepress-site build",
+    "migrate": "yarn workspace @okta/migrate-from-jekyll migrate",
+    "test": "yarn dev & yarn test:test-local && yarn stop-all",
+    "test-only": "yarn test:update-web-driver && protractor tests/selenium/conf.js && yarn stop",
+    "test:test-local": "wait-on http-get://localhost:8080/assets/js/10.js && yarn test-only || (yarn stop && exit 1)",
+    "test:update-web-driver": "./node_modules/protractor/bin/webdriver-manager update --gecko false",
+    "test:stop-web-driver": "pkill -f 'webdriver-manager/selenium' || echo 'no Selenium processes found'",
+    "posttest": "yarn stop",
+    "stop": "if-env CI=true && exit 0 || yarn test:stop-web-driver || echo 'done'",
+    "stop-all": "if-env CI=true && exit 0 || pkill -f 'yarn' || echo 'done'"
+  },
+  "repository": "git@github.com:okta/okta.github.io",
+  "author": "Brian Retterer <brian.retterer@okta.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "*",
+    "chalk": "^2.4.2",
+    "cross-env": "^5.2.0",
+    "if-env": "^1.0.4",
+    "mocha": "^5.2.0",
+    "protractor": "^5.4.2",
+    "recursive-readdir": "^2.2.2",
+    "remove": "^0.1.5",
+    "wait-on": "^3.2.0"
+  },
+  "dependencies": {
+    "hoek": "^6.1.2",
+    "joi": "^14.3.1"
+  }
+}
