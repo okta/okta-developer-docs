@@ -1,0 +1,13 @@
+.swiftype-widget {
+  ul {
+    li {
+      a {
+        color: get-color('cerise');
+        &:hover,
+        &:active {
+          color: $red-orange;
+        }
+      }
+    }
+  }
+}

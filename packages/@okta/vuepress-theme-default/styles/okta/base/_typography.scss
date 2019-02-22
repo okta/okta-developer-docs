@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'okticon';
+  src: url('/assets/fonts/okticon.eot');
+  src: url('/assets/fonts/okticon.eot?#iefix') format('embedded-opentype'),
+    url('/assets/fonts/okticon.woff') format('woff'),
+    url('/assets/fonts/okticon.ttf') format('truetype'),
+    url('/assets/fonts/okticon.svg#okticon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h6 {
+	font-family: $font-family--alt;
+}
+
+strong {
+	font-weight: 600;
+}
+
+p,
+ul,
+ol {
+	@include margin(small 0);
+}
+
+blockquote {
+	@include margin(medium 0);
+	@include padding(x-small small);
+	border-left: 2px solid get-color('blue');
+}
+
+table {
+	tbody {
+		border-top: 0;
+		border-bottom: 1px solid get-color('gray-lighter');
+	}
+
+	th {
+		@include padding(x-small x-small small);
+		border-bottom: 1px solid get-color('gray-medium');
+		font-weight: 500;
+		vertical-align: top;
+
+		p {
+			display: inline-block;
+			vertical-align: top;
+			margin: 0;
+		}
+
+		img {
+			@include margin(0 x-small);
+			display: inline-block;
+			vertical-align: text-top;
+		}
+	}
+
+	td {
+		@include padding(x-small);
+		border-bottom: 1px solid get-color('gray-light');
+
+		img {
+			max-width: 15px;
+		}
+	}
+}
+
+%all-caps {
+  font-weight: get-font-weight('button');
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}

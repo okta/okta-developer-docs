@@ -1,0 +1,312 @@
+benjamin_wesson:
+  full_name: Benjamin Wesson
+  display_name: Benjamin
+  avatar: 'https://avatars2.githubusercontent.com/u/12162125?v=3&s=460'
+  email: benjamin.wesson@okta.com
+  web: https://developer.okta.com
+  twitter: https://twitter.com/benjaminwesson
+  github: https://github.com/benjaminwesson-okta
+
+victor_ronin:
+  full_name: Victor Ronin
+  display_name: Victor
+  avatar: avatar-victor_ronin.png
+  email: victor.ronin@okta.com
+  web: http://victorronin.com/en/
+  github: https://github.com/vronin
+
+jon_todd:
+  full_name: Jon Todd
+  display_name: Jon
+  avatar: avatar-jon_todd.jpg
+  email: jtodd@okta.com
+  twitter: https://twitter.com/JonToddDotCom
+  github: https://github.com/jontodd
+
+hector_aguilar:
+  full_name: Hector Aguilar
+  display_name: Hector
+  avatar: avatar-hector_aguilar.jpg
+  email: haguilar@okta.com
+  github: https://github.com/haguilar-okta
+
+matt_loughran:
+  full_name: Matt Loughran
+  display_name: Matt Loughran
+  avatar: avatar-mloughran.png
+  email: matt.loughran@okta.com
+  github: https://github.com/mattloughran-okta
+
+vimarsh_karbhari:
+  full_name: Vimarsh Karbhari
+  display_name: Vimarsh
+  avatar: avatar-vimarsh_karbhari.jpg
+  email: vimarsh.karbhari@okta.com
+  web: https://medium.com/@vimarshk/
+  twitter: https://twitter.com/VimarshApi
+  github: https://github.com/vimarshkarbhari-okta
+
+william_dawson:
+  full_name: William Dawson
+  display_name: Wils Dawson
+  avatar: avatar-william_dawson.jpg
+  email: wdawson@okta.com
+  twitter: https://twitter.com/wilsdawson
+  github: https://github.com/wdawson
+  linkedin: https://linkedin.com/in/wilsdawson
+
+karl_mcguinness:
+  full_name: Karl McGuinness
+  display_name: Karl McGuinness
+  avatar: avatar-karl.png
+  email: kmcguinness@okta.com
+  web: https://www.linkedin.com/in/karlmcguinness
+  twitter: https://twitter.com/jankytweet
+  github: https://github.com/mcguinness
+
+raphael_londner:
+  full_name: Raphael Londner
+  display_name: Raphael
+  avatar: avatar-raphael.jpg
+  email: raphael.londner@okta.com
+  web: https://www.linkedin.com/in/londner
+  twitter: https://twitter.com/rlondner
+  github: https://github.com/rlondner
+
+okta_generic_blogger:
+  full_name: Okta Staff
+  display_name: Okta Staff
+  avatar: avatar-okta_logo.jpg
+  email: eng_docs@okta.com
+
+mraible:
+  full_name: Matt Raible
+  display_name: Matt Raible
+  avatar: avatar-matt_raible.jpg
+  email: matt.raible@okta.com
+  web: http://raibledesigns.com
+  twitter: https://twitter.com/mraible
+  github: https://github.com/mraible
+
+leebrandt:
+  full_name: Lee Brandt
+  display_name: Lee Brandt
+  avatar: avatar-leebrandt.jpg
+  email: lee.brandt@okta.com
+  web: http://leebrandt.me
+  twitter: https://twitter.com/leebrandt
+  github: https://github.com/leebrandt
+
+bdemers:
+  full_name: Brian Demers
+  display_name: Brian Demers
+  avatar: avatar-bdemers.jpg
+  email: brian.demers@okta.com
+  web: https://www.linkedin.com/in/bdemers/
+  twitter: https://twitter.com/briandemers
+  github: https://github.com/bdemers
+
+dogeared:
+  full_name: Micah Silverman
+  display_name: Micah Silverman
+  avatar: avatar-dogeared.jpg
+  web: https://afitnerd.com
+  twitter: https://twitter.com/afitnerd
+  github: https://github.com/dogeared
+
+rdegges:
+  full_name: Randall Degges
+  display_name: Randall Degges
+  avatar: avatar-rdegges.jpg
+  web: https://www.rdegges.com
+  twitter: https://twitter.com/rdegges
+  github: https://github.com/rdegges
+
+nbarbettini:
+  full_name: Nate Barbettini
+  display_name: Nate Barbettini
+  avatar: avatar-nbarbettini.jpg
+  web: https://www.recaffeinate.co
+  twitter: https://twitter.com/nbarbettini
+  github: https://github.com/nbarbettini
+
+alexsalazar:
+  full_name: Alex Salazar
+  display_name: Alex Salazar
+  avatar: avatar-alex_salazar.jpg
+  email: alex.salazar@okta.com
+  twitter: https://twitter.com/SalaTzar
+
+robert:
+  full_name: Robert Damphousse
+  display_name: Robert Damphousse
+  avatar: avatar-robert.png
+  email: robert.damphousse@okta.com
+  twitter: https://twitter.com/robertjd_
+
+jf:
+  full_name: Joël Franusic
+  display_name: Joël Franusic
+  avatar: avatar-jf.jpg
+  email: joel.franusic@okta.com
+  twitter: https://twitter.com/jf
+  github: https://github.com/jpf
+  web: http://joel.franusic.com
+
+silas-b:
+  full_name: Silas Brazil
+  display_name: Silas Brazil
+  avatar: avatar-silas-b.jpg
+  github: https://github.com/silas-b
+  web: https://www.linkedin.com/in/silas-brazil
+
+jmelberg:
+  full_name: Jordan Melberg
+  display_name: Jordan Melberg
+  avatar: avatar-jmelberg.jpg
+  email: jordan.melberg@okta.com
+  github: https://github.com/jmelberg
+
+bparise:
+  full_name: Brandon Parise
+  display_name: Brandon Parise
+  avatar: avatar-brandon_parise.jpg
+  email: brandon@modernup.io
+  web: https://modernup.io/
+  github: https://github.com/bparise
+
+aaronpk:
+  full_name: Aaron Parecki
+  display_name: Aaron Parecki
+  avatar: avatar-aaronpk.jpg
+  email: aaron.parecki@okta.com
+  web: https://aaronparecki.com/
+  twitter: https://twitter.com/aaronpk
+  github: https://github.com/aaronpk
+
+adahl:
+  full_name: Alex Dahl
+  display_name: Alex Dahl
+  avatar: avatar-adahl.jpg
+  email: alex.dahl@okta.com
+  web: https://alexdahl.com
+  github: https://github.com/alexdahl
+
+moksamedia:
+  full_name: Andrew Hughes
+  display_name: Andrew Hughes
+  avatar: avatar-moksamedia.jpg
+  github: https://github.com/moksamedia
+
+drnugent:
+  full_name: Dave Nugent
+  display_name: Dave Nugent
+  avatar: avatar-drnugent.jpg
+  email: dave.nugent@okta.com
+  web: http://davetech.com/
+  twitter: https://twitter.com/drnugent
+  github: https://github.com/drnugent
+
+bkelley:
+  full_name: Braden Kelley
+  display_name: Braden Kelley
+  avatar: avatar-bkelley.jpg
+  email: braden@coupleofgingers.com
+  github: https://github.com/redbmk
+
+team_okta:
+  full_name: Team Okta
+  display_name: Team Okta
+  avatar: avatar-oktadev.png
+  email: devrel@okta.com
+  github: https://github.com/oktadeveloper
+
+tom_smith:
+  full_name: Tom Smith
+  display_name: Tom Smith
+  avatar: avatar-tom_smith.jpg
+  email: tom.smith@okta.com
+  github: https://github.com/tom-smith-okta
+
+krasimir:
+  full_name: Krasimir Hristozov
+  display_name: Krasimir Hristozov
+  avatar: avatar-krasimir.jpg
+
+ibrahim:
+  full_name: Ibrahim Šuta
+  display_name: Ibrahim Šuta
+  avatar: avatar-isuta.png
+
+pmcdowell:
+  full_name: Patrick McDowell
+  display_name: Patrick McDowell
+  avatar: avatar-pmcdowell.jpg
+
+kpenzhorn:
+  full_name: Karl Penzhorn
+  display_name: Karl Penzhorn
+  avatar: avatar-kpenzhorn.jpg
+
+reverentgeek:
+  full_name: David Neal
+  display_name: David Neal
+  avatar: avatar-reverentgeek.jpg
+  web: https://reverentgeek.com
+  twitter: https://twitter.com/reverentgeek
+  github: https://github.com/reverentgeek
+
+cgilsenan:
+  full_name: Conor Gilsenan
+  display_name: Conor Gilsenan
+  avatar: avatar-cgilsenan.jpg
+  web: https://www.allthingsauth.com/
+  twitter: https://twitter.com/conorgil
+  github: https://github.com/conorgil
+
+avanbeek:
+  full_name: Andrew Van Beek
+  display_name: Andrew Van Beek
+  avatar: avatar-avanbeek.jpg
+  web: https://videogame-resume.herokuapp.com/
+  twitter: https://twitter.com/andrewvanbeek1
+  github: https://github.com/andrewvanbeek-okta
+
+keith_casey:
+  full_name: Keith Casey
+  display_name: Keith Casey
+  avatar: avatar-keith-casey.jpg
+  github: https://github.com/caseysoftware
+  twitter: https://twitter.com/caseysoftware
+  web: http://caseysoftware.com/
+
+kcorreia:
+  full_name: Kleber Correia
+  display_name: Kleber Correia
+  avatar: avatar-kcorreia.jpg
+  github: https://github.com/klebervirgilio
+  twitter: https://twitter.com/klebervirgilio
+  web: https://medium.com/@klebervirgilio
+
+holgerschmitz:
+  full_name: Holger Schmitz
+  display_name: Holger Schmitz
+  avatar: avatar-holger_schmitz.jpg
+  email: holger@notjustphysics.com
+  web: http://notjustphysics.com
+  github: https://github.com/holgerschmitz
+
+jonathan-ray:
+  full_name: Jonathan Ray
+  display_name: Jonathan Ray
+  avatar: avatar-jonathan-ray.jpg
+  email: jonathan.ray@toptal.com
+  web: http://notjustphysics.com
+  github: https://github.com/jonathan-ray
+
+raphaeldovale:
+  full_name: Raphael do Vale
+  display_name: Raphael do Vale
+  avatar: avatar-raphaeldovale.jpg
+  email: raphael@dovale.net
+  github: https://github.com/raphaeldovale/

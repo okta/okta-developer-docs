@@ -1,0 +1,366 @@
+[
+  {
+    "path": "/code",
+    "redirect": "/documentation/"
+  },
+  {
+    "path": "/use_cases/api_security",
+    "redirect": "/use_cases/api_access_management/"
+  },
+  {
+    "path": "/code/dotnet/index.html",
+    "redirect": "/code/dotnet/aspnetcore/"
+  },
+  {
+    "path": "/code/dotnet/sdk/index.html",
+    "redirect": "https://github.com/okta/okta-sdk-dotnet"
+  },
+  {
+    "path": "/code/java/jwt-validation/index.html",
+    "redirect": "https://github.com/okta/okta-jwt-verifier-java"
+  },
+  {
+    "path": "/code/javascript/okta_auth_sdk_ref/index.html",
+    "redirect": "https://github.com/okta/okta-auth-js"
+  },
+  {
+    "path": "/code/javascript/okta_sign-in_widget_ref/index.html",
+    "redirect": "https://github.com/okta/okta-signin-widget"
+  },
+  {
+    "path": "/code/php/jwt-validation/index.html",
+    "redirect": "https://github.com/okta/okta-jwt-verifier-php"
+  },
+  {
+    "path": "/code/php/quickstart-signin-widget/index.html",
+    "redirect": "/quickstart/#/okta-sign-in-page/php/generic"
+  },
+  {
+    "path": "/code/python/sdk/index.html",
+    "redirect": "https://github.com/okta/okta-sdk-python"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-23/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-24/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-25/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-26/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-27/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-28/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-29/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-30/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-31/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-33/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-34/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-35/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-36/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-37/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-39/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-40/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-41/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-43/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-45/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-46/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-47/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-49/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-50/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-51/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-52/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2016-index/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-02/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-03/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-04/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-05/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-09/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-10/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-11/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-12/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-15/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-16/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-17/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-18/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-19/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-20/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-21/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-22/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-23/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-24/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-25/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-26/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-27/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-28/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-29/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-30/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-31/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-32/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-33/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-34/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-35/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-36/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-38/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-40/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-41/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-42/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-43/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-44/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-45/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-46/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-47/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-49/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-50/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/docs/platform-release-notes/platform-release-notes2017-index/index.html",
+    "redirect": "/docs/change-log/"
+  },
+  {
+    "path": "/standards/SAML/index.html",
+    "redirect": "https://www.okta.com/integrate/documentation/saml/"
+  },
+  {
+    "path": "/standards/SCIM/index.html",
+    "redirect": "https://www.okta.com/integrate/documentation/scim/"
+  },
+  {
+    "path": "/use_cases/integrate_with_okta/index.html",
+    "redirect": "https://www.okta.com/integrate/"
+  },
+  {
+    "path": "/use_cases/integrate_with_okta/oan-faqs/index.html",
+    "redirect": "https://www.okta.com/integrate/documentation/oin-faq/"
+  },
+  {
+    "path": "/use_cases/integrate_with_okta/promotion/index.html",
+    "redirect": "https://www.okta.com/integrate/documentation/promotion/"
+  },
+  {
+    "path": "/use_cases/integrate_with_okta/provisioning/index.html",
+    "redirect": "https://www.okta.com/integrate/documentation/provisioning/"
+  },
+  {
+    "path": "/use_cases/integrate_with_okta/sso-with-saml/index.html",
+    "redirect": "https://www.okta.com/integrate/documentation/single-sign-on/"
+  },
+  {
+    "path": "/use_cases/isv/embedded-occ/index.html",
+    "redirect": "https://www.okta.com/integrate/documentation/embedded-okta-cloud-connect/"
+  },
+  {
+    "path": "/use_cases/isv/isv-syslog-references/index.html",
+    "redirect": "https://www.okta.com/integrate/documentation/security-enforcement-integrations/"
+  },
+  {
+    "path": "/use_cases/isv/security-analytics/index.html",
+    "redirect": "https://www.okta.com/integrate/documentation/security-enforcement-integrations/security-analytics/"
+  },
+  {
+    "path": "/use_cases/isv/security-enforcement/index.html",
+    "redirect": "https://www.okta.com/integrate/documentation/security-enforcement-integrations/"
+  },
+  {
+    "path": "/use_cases/isv/zindex/index.html",
+    "redirect": "https://www.okta.com/integrate/documentation/isv-partner-integrations/"
+  }
+]

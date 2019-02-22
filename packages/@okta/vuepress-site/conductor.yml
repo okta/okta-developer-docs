@@ -1,0 +1,14 @@
+# This file instructs conductor to set up S3 redirections. Each redirect has a from and to property, and
+# conductor will set up a 301 redirect for each entry.
+# For the 'from:' attribute, include the leading slash, but not a leading slash.
+# For the 'to:' attribute, any valid URL path can be used, but make sure to include the leading slash.
+# Some examples:
+#   - from: /old.html
+#     to: /new.html
+#   - from: /old-path
+#     to: /new-path
+#   - from: /iossetupinstructions.html
+#     to: /ios/setup/instructions.html
+
+redirects:
+

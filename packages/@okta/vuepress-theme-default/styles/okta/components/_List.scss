@@ -1,0 +1,160 @@
+ul.list--with-bullets {
+	margin-left: 0;
+	padding-left: 0;
+
+	li {
+		padding-left: 6 + get-spacing('x-small');
+		position: relative;
+
+		&:before {
+			background: get-color('green-dark');
+			border-radius: 3px;
+			content: "";
+			display: block;
+			height: 6px;
+			left: 0;
+			margin-top: -3px;
+			position: absolute;
+			top: get-line-height('base') * 0.5;
+			width: 6px;
+		}
+
+		+ li {
+			margin-top: get-spacing('xx-small');
+		}
+	}
+}
+
+ul.toc {
+	@include padding(x-small xx-small);
+	background: mix(get-color('gray-light'), get-color('white'), 20%);
+	border: 1px solid get-color('gray-light');
+	border-radius: 3px;
+
+	ul {
+		margin: 0;
+		padding-left: $gutter-width / 2;
+	}
+
+	li {
+		@include font-size('small');
+		@include margin(xx-small 0);
+
+		&:before {
+			font-family: fontawesome;
+			content: '\f097';
+			@include font-size('new-small');
+			color: $very-light-gray;
+			margin-right: 6px;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+}
+
+ol.list--numbered {
+	list-style: decimal;
+	padding-left: 6px + $gutter-width / 4;
+
+	li + li {
+		margin-top: get-spacing('xx-small');
+	}
+}
+
+ul.list--with-mark {
+	margin-left: 0;
+	padding-left: 0;
+
+	li {
+		padding-left: 10 + get-spacing('x-small');
+		position: relative;
+
+		&:before {
+			font-family: FontAwesome;
+			content: "\f00c";
+			display: block;
+			@include font-size('new-small');
+			left: 0;
+			position: absolute;
+		}
+
+		+ li {
+			margin-top: get-spacing('xx-small');
+		}
+	}
+}
+
+ul.list--with-icons {
+	margin-left: 0;
+	padding-left: 0;
+
+	li {
+		padding-left: 10 + get-spacing('x-small');
+		position: relative;
+
+		+ li {
+			margin-top: get-spacing('xx-small');
+		}
+
+		.fa {
+			@include margin(0 10px 0 0);
+		}
+	}
+}
+
+ul.list--multicolumn {
+	column-width: 200px;
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+
+	li {
+		padding-right: $gutter-width;
+	}
+}
+
+ul.list--with-horizontal-icons {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 0;
+	margin-left: 0;
+	padding-left: 0;
+
+	li {
+		display: inline-block;
+
+		a {
+			@extend %all-caps;
+			display: flex;
+			margin-right: get-spacing('medium');
+			padding: get-spacing('small') 0;
+			font-size: get-font-size('button');
+
+			img {
+				display: block;
+				margin: 0 10px;
+				width: 24px;
+				height: 24px;
+			}
+
+			span {
+				display: block;
+				line-height: 24px;
+			}
+		}
+	}
+}
+
+ul.list--with-descriptions {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+	li {
+		.description {
+			display: block;
+			margin-bottom: get-spacing('small');
+		}
+	}
+}

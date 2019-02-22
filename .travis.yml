@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - "10"
+addons:
+  chrome: stable
+before_install:
+- yarn install
+script: "./scripts/travis.sh"
+dist: trusty
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - SAUCE_BROWSER_NAME="chrome"
+  - SAUCE_BROWSER_VERSION=""
+  - SAUCE_PLATFORM="Windows 10"
+  - SAUCE_APPIUM_VERSION=""
+  - SAUCE_DEVICE_NAME=""
+  - SAUCE_DEVICE_ORIENTATION=""
+  - SAUCE_PLATFORM_VERSION=""
+  - SAUCE_PLATFORM_NAME=""
+  - secure: RW99TW7YvGgWt/P8fQQziPbxNITaJMO/4q2iCX72u/PtTu2dkeaCqUiRUi7qyV8jIIk7U4oruxJRFQpTaCIX5+JWZsSwLskoTsspOI9aTzyPdhVNckM1vpA5VfwstdyQTkX7zzKPLdvXK0xj0ZzQ+ACH/SobQNYKiAMvW7FVkIc=
+  - secure: gFSORYQLSBNIK8peGgUOhd0Yj6GzE18HA0GLrmp0PMtobe003poalkNgLsPy2W2QFZbG3bCjbqFMmCbUh5uRnX8eCy/whe+lwXeQsv5uh0EIGWgxVxhk79dCx5cakERusoj2BUgJJ432R7nRXjEW5v2AK9QAOeCG2Dvwdb8WSes=
+notifications:
+  slack:
+    on_pull_requests: false
+    on_success: never
+    on_failure: always
+    rooms:
+     - secure: Qu0iD73/wFwthPAcIfbg5oaD/4nOGW58N5dpsBQjbuIQM4wNBOyQSUszWy5iDm78kA8rxj6r2mVgSDSw28oHQczguv8iCLdAkzOZmPWDxNa4o34thM1pOaKI54cmJcnvigqjxcPybajYah7/ucthjUvf4V3NE5QOXb9fgnP6rPg=

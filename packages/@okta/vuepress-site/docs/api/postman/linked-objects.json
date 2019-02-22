@@ -1,0 +1,311 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Linked Objects (Okta API)",
+		"_postman_id": "85c3e09a-8457-424d-41e5-441404d0fff1",
+		"description": "Operations involving Linked Object properties.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Linked Object Definition to User Schema",
+			"request": {
+				"url": "{{url}}/api/v1/meta/schemas/user/default/linkedObjects",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"primary\": {\n        \"name\": \"{{primary}}\",\n        \"title\": \"Manager\",\n        \"description\": \"Unique manager of a user\",\n        \"type\": \"USER\"\n    },\n    \"associated\": {\n        \"name\": \"{{associated}}\",\n        \"title\": \"Subordinate\",\n        \"description\": \"One of possibly many subordinates of a user\",\n        \"type\": \"USER\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Linked Object Definition",
+			"request": {
+				"url": "{{url}}/api/v1/meta/schemas/user/default/linkedObjects/{{primary}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"primary\": {\n        \"name\": \"primary\",\n        \"title\": \"Primary\",\n        \"description\": \"Primary link property\",\n        \"type\": \"USER\"\n    },\n    \"associated\": {\n        \"name\": \"associated\",\n        \"title\": \"Associated\",\n        \"description\": \"Associated link property\",\n        \"type\": \"USER\"\n    },\n    \"cardinality\": \"MANY_TO_ONE\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Linked Object Definition by Associated name",
+			"request": {
+				"url": "{{url}}/api/v1/meta/schemas/user/default/linkedObjects/{{associated}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"primary\": {\n        \"name\": \"primary\",\n        \"title\": \"Primary\",\n        \"description\": \"Primary link property\",\n        \"type\": \"USER\"\n    },\n    \"associated\": {\n        \"name\": \"associated\",\n        \"title\": \"Associated\",\n        \"description\": \"Associated link property\",\n        \"type\": \"USER\"\n    },\n    \"cardinality\": \"MANY_TO_ONE\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Linked Object Definitions",
+			"request": {
+				"url": "{{url}}/api/v1/meta/schemas/user/default/linkedObjects",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"primary\": {\n        \"name\": \"primary\",\n        \"title\": \"Primary\",\n        \"description\": \"Primary link property\",\n        \"type\": \"USER\"\n    },\n    \"associated\": {\n        \"name\": \"associated\",\n        \"title\": \"Associated\",\n        \"description\": \"Associated link property\",\n        \"type\": \"USER\"\n    },\n    \"cardinality\": \"MANY_TO_ONE\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Linked Object Definition",
+			"request": {
+				"url": "{{url}}/api/v1/meta/schemas/user/default/linkedObjects/{{primary}}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"reverse\": \"children\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Linked Object Definition by Associated name",
+			"request": {
+				"url": "{{url}}/api/v1/meta/schemas/user/default/linkedObjects/{{associated}}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"reverse\": \"children\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Set Linked Object Value",
+			"request": {
+				"url": "{{url}}/api/v1/users/{{userId}}/linkedObjects/{{primary}}/{{targetId}}",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Primary Linked Object Value",
+			"request": {
+				"url": "{{url}}/api/v1/users/{{userId}}/linkedObjects/{{primary}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"primary\": {\n        \"name\": \"primary\",\n        \"title\": \"Primary\",\n        \"description\": \"Primary link property\",\n        \"type\": \"USER\"\n    },\n    \"associated\": {\n        \"name\": \"associated\",\n        \"title\": \"Associated\",\n        \"description\": \"Associated link property\",\n        \"type\": \"USER\"\n    },\n    \"cardinality\": \"MANY_TO_ONE\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Associated Linked Object Values (for a given primary target)",
+			"request": {
+				"url": "{{url}}/api/v1/users/{{targetId}}/linkedObjects/{{associated}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"primary\": {\n        \"name\": \"primary\",\n        \"title\": \"Primary\",\n        \"description\": \"Primary link property\",\n        \"type\": \"USER\"\n    },\n    \"associated\": {\n        \"name\": \"associated\",\n        \"title\": \"Associated\",\n        \"description\": \"Associated link property\",\n        \"type\": \"USER\"\n    },\n    \"cardinality\": \"MANY_TO_ONE\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Linked Object Value",
+			"request": {
+				"url": "{{url}}/api/v1/users/{{userId}}/linkedObjects/{{primary}}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

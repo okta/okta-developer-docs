@@ -1,0 +1,25 @@
+{
+  "name": "@okta/vuepress-site",
+  "version": "1.0.0-alpha.3",
+  "description": "NPM dependencies for testing and building developer.okta.com",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vuepress dev .",
+    "build": "vuepress build . && cp conductor.yml dist/conductor.yml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okta/okta.github.io.git"
+  },
+  "author": "{OKTA} <developer@okta.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/okta/okta.github.io/issues"
+  },
+  "devDependencies": {
+    "@okta/vuepress-theme-default": "^0.1.0-alpha.1",
+    "vuepress": "^1.0.0-alpha.33"
+  }
+}

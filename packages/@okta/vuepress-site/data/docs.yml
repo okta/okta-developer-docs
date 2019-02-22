@@ -1,0 +1,91 @@
+# -- Okta API Products Change Log
+- section: change-log
+  slug: Change Log
+  title: Change Log
+  pages:
+    - index
+
+# -- APIS
+- section: api/getting_started
+  slug: api
+  title: Getting Started
+  pages:
+    - design_principles
+    - error_codes
+    - getting_a_token
+    - enabling_cors
+    - okta_expression_lang
+
+- section: api/resources
+  slug: api
+  title: Sign in Your Users
+  pages:
+    - authn
+    - oidc
+
+- section: api/resources
+  slug: api
+  title: Manage Okta Resources
+  pages:
+    - apps
+    - authorization-servers
+    - events
+    - event-types
+    - oauth-clients
+    - factor_admin
+    - factors
+    - groups
+    - idps
+    - linked-objects
+    - policy
+    - roles
+    - schemas
+    - sessions
+    - system_log
+    - templates
+    - tokens
+    - trusted-origins
+    - users
+    - zones
+
+# -- GUIDES
+- section: guides
+  slug: guides
+  title: Guides
+  pages:
+    - oan_guidance
+    - okta_mobile_connect
+    - okta_sign-in_widget
+    - add_mfa
+    - events-api-migration
+
+- section: guides
+  slug: guides
+  title: SAML
+  pages:
+    - saml_guidance
+    - setting_up_a_saml_application_in_okta
+    - spring_security_saml
+    - pysaml2
+    - simplesamlphp
+
+- section: guides
+  slug: guides
+  title: SCIM
+  pages:
+
+
+# -- EXAMPLES
+- section: examples
+  slug: examples
+  title: Examples
+  pages:
+    - session_cookie
+    - dotnet_sample_application
+
+# -- SDK
+- section: sdk/core
+  slug: sdk
+  title: SDKs
+  pages:
+    - api

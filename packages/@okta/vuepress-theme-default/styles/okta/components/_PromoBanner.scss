@@ -1,0 +1,53 @@
+.DocsPromoBanner {
+  display: block;
+  position: relative;
+  top: 75px;
+  padding: 10px 0 8px;
+  color: get-color('white');
+  background: get-color('green');
+  z-index: 90;
+  @media (min-width: 600px) {
+    top: 0;
+    margin-top: 5px;
+  }
+  @media (min-width: 860px) {
+    top: 0;
+    margin-top: 25px;
+  }
+	@include media('>medium') {
+    top: 75px;
+    margin-top: 20px;
+  }
+  &:focus,
+  &:hover {
+    color: get-color('white');
+    text-decoration: none;
+  }
+
+  .Wrap {
+    padding: 0 20px;
+  }
+
+  svg {
+    display: none;
+    @media (min-width: 600px) {
+      display: inline;
+      margin-right: 28px;
+      vertical-align: middle;
+    }
+  }
+
+  .cta {
+    @extend %all-caps;
+    display: block;
+    font-size: get-font-size('button');
+    @media (min-width: 600px) {
+      display: inline-block;
+      margin-left: 46px;
+    }
+  }
+
+  .cir-arrow-16::before {
+    color: get-color('white');
+  }
+}

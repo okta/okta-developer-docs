@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="15px" viewBox="0 0 12 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="User_Profile" transform="translate(1.000000, 1.000000)" stroke-width="0.6" stroke="#5D5D5D">
+            <g id="Group">
+                <ellipse id="Oval" cx="4.93268938" cy="2.58269091" rx="2.58269091" ry="2.58269091"></ellipse>
+                <path d="M8.63588819,7.41294545 L9.7689791,10.9000727 C10.0136336,11.6535273 9.55952455,12.4541091 8.78716092,12.6292364 C7.90745182,12.8288 6.61581546,13.0222545 4.9177791,13.0222545 C3.21974273,13.0222545 1.92839728,12.8285091 1.04839728,12.6292364 C0.275742734,12.4541091 -0.178366357,11.6535273 0.0665790972,10.9000727 L1.19967001,7.41294545 C1.47341546,6.57047273 2.2585791,6 3.14439728,6 L6.69116092,6 C7.5769791,6.00029091 8.36214273,6.57047273 8.63588819,7.41294545 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,60 @@
+.idea
+*.iml
+*.ipr
+*.iws
+build2
+activemq-data
+build
+target
+*.pyc
+.ant_targets
+test-app-icons.html
+/junit*.properties
+atlassian-ide-plugin.xml
+classes
+
+# Include files from snapshotted ide config (which are ignored otherwise)
+!buildtools/ide/idea/.idea
+!buildtools/ide/idea/*.iml
+!buildtools/ide/idea/*/*.iml
+!buildtools/ide/idea/*/*/*.iml
+
+# ignore vim swap files
+*.sw[a-p]
+
+# ignore Emacs auto-save files
+*~
+
+.vscode
+
+# ignore mac specific files
+.DS_Store
+reload_views.rb
+
+# Ignore the vendor folder.
+vendor/*
+
+dist
+
+_source/
+_source/.asset-cache
+.asset-cache
+.sass-cache
+.bundle
+bin/*
+.jekyll-metadata
+assets/.sprockets-manifest-*.json
+
+# Ignore html-proofer cache
+tmp
+
+# Ignore node packages added for tests added via npm
+node_modules/*
+npm-debug.log*
+
+# no log files
+**/*.log
+
+node_modules
+
+.vuepress/dist

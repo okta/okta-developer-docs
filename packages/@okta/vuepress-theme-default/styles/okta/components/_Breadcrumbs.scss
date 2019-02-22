@@ -1,0 +1,29 @@
+@import '../icons/functions';
+@import '../icons/variables-unicode';
+
+.PageContent-main ol.breadcrumb {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li.breadcrumb-item {
+		display: flex;
+		&::after {
+			margin: 0 8px;
+			font-family: 'okticon';
+			font-size: 16px;
+			font-style: normal;
+			font-weight: 300;
+			color: get-color('iron');
+			content: $chevron-small;
+		}
+
+		a {
+			@extend %all-caps;
+			font-size: get-font-size('button');
+			color: $periglacial-blue;
+		}
+	}
+}
