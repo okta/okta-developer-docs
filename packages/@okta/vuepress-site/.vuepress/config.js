@@ -171,5 +171,6 @@ module.exports = {
       promo_text: 'Learn how to build your app on Okta, fast.',
       cta_text: 'QUICK STARTS'
     }
+
   }
 }
