@@ -135,7 +135,7 @@ Found ${badFiles.length} files with ${nameCount} invalid substrings and/or chara
 To Fix:
 1. Find the source .md files
 2. Search in the source file for the problem links
-3. Change the invalid substrings and/or charaters based on the regex error:
+3. Change the invalid substrings and/or characters based on the regex error:
   - [http://your-org.okta]
       - use either 'https://{yourOktaDomain}' or 'https://{yourOktaDomain}/oauth2/default'
   - [https://example.okta]
