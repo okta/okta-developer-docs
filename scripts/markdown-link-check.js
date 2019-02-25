@@ -95,13 +95,14 @@ async function runMarkdownLinkCheck(dir, options) {
   }, function done(result) {
     if (result) {
       if (isError) {
-        console.log("Link validation errors occurred.");
+        console.log(chalk.bold.red('\nValidation problems found!\n'));
         process.exit(1);
       } else {
-        console.log("Link validation successful.");
+        console.log(chalk.bold.green('\nNo problems found!\n'));
       }
     } else {
-      console.log("Link validation did not complete within allowed time. (" + checkForDoneTimeInterval * checkForDoneIterations / 1000 + " seconds)");
+      console.log(chalk.bold.red('\nValidation did not complete within the allowed time. ('
+        + checkForDoneTimeInterval * checkForDoneIterations / 1000 + ' seconds)\n'));
       process.exit(1);
     }
   });
