@@ -12,6 +12,7 @@
     "test:test-local": "wait-on http-get://localhost:8080/assets/js/10.js && yarn test-only || (yarn stop && exit 1)",
     "test:update-web-driver": "./node_modules/protractor/bin/webdriver-manager update --gecko false",
     "test:stop-web-driver": "pkill -f 'webdriver-manager/selenium' || echo 'no Selenium processes found'",
+    "markdown-lint": "node scripts/lint",
     "posttest": "yarn stop",
     "stop": "if-env CI=true && exit 0 || yarn test:stop-web-driver || echo 'done'",
     "stop-all": "if-env CI=true && exit 0 || pkill -f 'yarn' || echo 'done'"
@@ -26,10 +27,12 @@
     "cross-env": "^5.2.0",
     "if-env": "^1.0.4",
     "mocha": "^5.2.0",
+    "markdown-link-check": "^3.7.2",
     "protractor": "^5.4.2",
     "recursive-readdir": "^2.2.2",
     "remove": "^0.1.5",
-    "wait-on": "^3.2.0"
+    "wait-on": "^3.2.0",
+    "wait-until": "^0.0.2"
   },
   "dependencies": {
     "hoek": "^6.1.2",

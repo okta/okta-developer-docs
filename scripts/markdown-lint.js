@@ -23,14 +23,14 @@ const regexValidator = [
   // (Optional) - Pass in a list of files that can be ignored from the check.
   // For global ignores, update the getFiles() method.
   {
-    regex: 'https?:\/\/(your-org|example|rain|your-subdomain|your-domain|{org}).okta*',
+    regex: 'https?:\/\/(your-org|example|rain|your-subdomain|your-domain|{org}).okta',
     omitFiles: [
-      '/_docs/api/postman/apps.json',
-      '/_docs/api/postman/example.oktapreview.com.environment'
+      '/docs/api/postman/apps.json',
+      '/docs/api/postman/example.oktapreview.com.environment'
     ]
   },
   {
-    regex: 'https?:\/\/{yourOktaDomain}.com*',
+    regex: 'https?:\/\/{yourOktaDomain}.com',
     omitFiles: []
   },
   {
@@ -51,6 +51,13 @@ const regexValidator = [
   }
 ];
 
+const globalOmitDirectories = [
+  '_sdk/',
+  '/_assets',
+  '/.asset-cache',
+  '/img'
+];
+
 function header(str) {
   console.log(`\n${chalk.bold(str)}`);
 }
@@ -67,11 +74,14 @@ async function getFiles(dir) {
   for (let file of files) {
     const relative = file.replace(dir, '');
     fileMap[relative] = true;
-    if (!file.includes('_sdk/')
-      && !file.includes('/_assets')
-      && !file.includes('/.asset-cache')
-      ) {
-      filesToCheck.push({ orig: file, relative });
+    var shouldOmit = false;
+    await globalOmitDirectories.forEach(directory => {
+      if (!shouldOmit && file.includes(directory)) {
+        shouldOmit = true;
+      }
+    });
+    if (!shouldOmit) {
+      filesToCheck.push({ orig: file, relative })
     }
   }
 
@@ -92,7 +102,7 @@ function findWithRegex(file, regexItem) {
 }
 
 async function run(dir) {
-  const files = await getFiles(path.resolve(dir));
+  const files = await getFiles(dir);
   const badFiles = [];
   header(`Checking source and dist for invalid substrings and characters (${__filename})`);
   header(`Found ${files.filesToCheck.length} files to check in ${dir}`);
