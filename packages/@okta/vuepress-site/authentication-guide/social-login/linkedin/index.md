@@ -4,6 +4,8 @@ title: LinkedIn
 
 # LinkedIn
 
+> **Important:** LinkedIn is deprecating their Social Login V1 API on March 1, 2019. Functionality to add new LinkedIn identity providers has been disabled while we upgrade to LinkedIn's Social Login V2 API.
+
 ##### 1. Set Up a LinkedIn App
 
 1.1. Go to <https://developer.linkedin.com/> and register for a developer account if you haven't already done so.

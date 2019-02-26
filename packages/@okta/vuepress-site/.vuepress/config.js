@@ -155,6 +155,40 @@ module.exports = {
       ]
     },
 
+    quickstarts: {
+      clients: [
+        { name: 'okta-sign-in-page', label: 'Okta Sign-In Page', serverExampleType: 'auth-code', default: true },
+        { name: 'widget', label: 'Okta Sign-In Widget', serverExampleType: 'implicit', codeIconName: 'javascript' },
+        { name: 'angular', label: 'Angular', serverExampleType: 'implicit' },
+        { name: 'react', label: 'React', serverExampleType: 'implicit' },
+        { name: 'vue', label: 'Vue', serverExampleType: 'implicit' },
+        { name: 'android', label: 'Android', serverExampleType: 'implicit' },
+        { name: 'ios', label: 'iOS', serverExampleType: 'implicit' },
+        { name: 'react-native', label: 'React Native', serverExampleType: 'implicit', codeIconName: 'react' },
+      ],
+      servers: [
+        { name: 'nodejs', label: 'Node JS', default: true, frameworks: [
+            { name: 'express', label: 'Express.js', default: true },
+            { name: 'generic', label: 'Generic Node' }
+          ]
+        },
+        { name: 'java', label: 'Java', frameworks: [
+            { name: 'spring', label: 'Spring', default: true },
+            { name: 'generic', label: 'Generic Java' }
+          ]
+        },
+        { name: 'php', label: 'PHP', frameworks: [
+            { name: 'generic', label: 'Generic PHP', default: true }
+          ]
+        },
+        { name: 'dotnet', label: '.NET', frameworks: [
+            { name: 'aspnetcore', label: 'ASP.NET Core', default: true },
+            { name: 'aspnet4', label: 'ASP.NET 4.x' }
+          ]
+        }
+      ]
+    },
+
     /**
      * Config used for primary header (TopNavigation)
      */
@@ -171,6 +205,5 @@ module.exports = {
       promo_text: 'Learn how to build your app on Okta, fast.',
       cta_text: 'QUICK STARTS'
     }
-
   }
 }

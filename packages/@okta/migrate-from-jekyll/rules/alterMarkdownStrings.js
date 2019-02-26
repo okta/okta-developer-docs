@@ -100,6 +100,12 @@ function alterMarkdownStrings(file) {
 
     }
 
+    if( line.includes('{% include quickstart-coming-soon.html %}')) {
+      line = 'Sorry! We\'re still working on this quickstart.\n' +
+        '\n' +
+        'Please check back soon or try our [Developer Forums](https://devforum.okta.com/)!'
+    }
+
 
     // convert image to markdown image
     // ![alt text](image.png "Logo Title Text 1")

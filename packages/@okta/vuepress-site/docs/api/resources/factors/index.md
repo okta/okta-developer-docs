@@ -3088,20 +3088,20 @@ curl -v -X POST \
 
 Factors have the following properties:
 
-|----------------+------------------------------------------------------------------+--------------------------------------------------------------------------------+----------+--------+----------+-----------+-----------+------------|
-| Property       | Description                                                      | DataType                                                                       | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
-| -------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------- | ------ | -------- | --------- | --------- | ---------- |
-| id             | unique key for factor                                            | String                                                                         | FALSE    | TRUE   | TRUE     |           |           |            |
-| factorType     | type of a factor                                                   | [Factor Type](#factor-type)                                                    | FALSE    | TRUE   | TRUE     |           |           |            |
-| provider       | factor provider                                                  | [Provider Type](#provider-type)                                                | FALSE    | TRUE   | TRUE     |           |           |            |
-| status         | status of a factor                                                 | `NOT_SETUP`, `PENDING_ACTIVATION`, `ENROLLED`, `ACTIVE`, `INACTIVE`, `EXPIRED` | FALSE    | FALSE  | TRUE     |           |           |            |
-| created        | timestamp when factor was created                                | Date                                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
-| lastUpdated    | timestamp when factor was last updated                           | Date                                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
-| profile        | profile of a [supported factor](#supported-factors-for-providers)| [Factor Profile Object](#factor-profile-object)                                | TRUE     | FALSE  | FALSE    |           |           |            |
-| verify         | optional verification  for factor enrollment                     | [Factor Verification Object](#factor-verification-object)                      | TRUE     | FALSE  | FALSE    |           |           |            |
-| _links         | [discoverable resources](#links-object) related to the factor    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                 | TRUE     | FALSE  | TRUE     |           |           |            |
-| _embedded      | [embedded resources](#embedded-resources) related to the factor  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                 | TRUE     | FALSE  | TRUE     |           |           |            |
-|----------------+------------------------------------------------------------------+--------------------------------------------------------------------------------+----------+--------+----------+-----------+-----------+------------|
+|----------------+------------------------------------------------------------------+--------------------------------------------------------------------------------+----------+--------+----------|
+| Property       | Description                                                      | DataType                                                                       | Nullable | Unique | Readonly |
+| -------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------- | ------ | -------- |
+| id             | unique key for factor, a 20 character long system generated id   | String                                                                         | FALSE    | TRUE   | TRUE     |
+| factorType     | type of a factor                                                   | [Factor Type](#factor-type)                                                    | FALSE    | TRUE   | TRUE   |
+| provider       | factor provider                                                  | [Provider Type](#provider-type)                                                | FALSE    | TRUE   | TRUE     |
+| status         | status of a factor                                                 | `NOT_SETUP`, `PENDING_ACTIVATION`, `ENROLLED`, `ACTIVE`, `INACTIVE`, `EXPIRED` | FALSE    | FALSE  | TRUE   |
+| created        | timestamp when factor was created                                | Date                                                                           | FALSE    | FALSE  | TRUE     |
+| lastUpdated    | timestamp when factor was last updated                           | Date                                                                           | FALSE    | FALSE  | TRUE     |
+| profile        | profile of a [supported factor](#supported-factors-for-providers)| [Factor Profile Object](#factor-profile-object)                                | TRUE     | FALSE  | FALSE    |
+| verify         | optional verification  for factor enrollment                     | [Factor Verification Object](#factor-verification-object)                      | TRUE     | FALSE  | FALSE    |
+| _links         | [discoverable resources](#links-object) related to the factor    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                 | TRUE     | FALSE  | TRUE     |
+| _embedded      | [embedded resources](#embedded-resources) related to the factor  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                 | TRUE     | FALSE  | TRUE     |
+|----------------+------------------------------------------------------------------+--------------------------------------------------------------------------------+----------+--------+----------|
 
 > `id`, `created`, `lastUpdated`, `status`, `_links`, and `_embedded` are only available after a factor is enrolled.
 
@@ -3165,13 +3165,13 @@ Profiles are specific to the [factor type](#factor-type).
 
 Specifies the profile for a `question` factor
 
-|---------------+---------------------------+-----------+---------+---------+----------+-----------+-----------+------------|
-| Property      | Description               | DataType  | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
-| ------------- | ------------------------- | --------- | -------- | -------| -------- | --------- | --------- | ---------- |
-| question      | unique key for question   | String    | FALSE    | TRUE   | TRUE     |           |           |            |
-| questionText  | display text for question | String    | FALSE    | FALSE  | TRUE     |           |           |            |
-| answer        | answer to question        | String    | TRUE     | FALSE  | FALSE    |           |           |            |
-|---------------+---------------------------+-----------+---------+---------+----------+-----------+-----------+------------|
+|---------------+---------------------------+-----------+---------+---------+----------|
+| Property      | Description               | DataType  | Nullable | Unique | Readonly |
+| ------------- | ------------------------- | --------- | -------- | -------| -------- |
+| question      | unique key for question   | String    | FALSE    | TRUE   | TRUE     |
+| questionText  | display text for question | String    | FALSE    | FALSE  | TRUE     |
+| answer        | answer to question, min 4 char long | String    | TRUE     | FALSE  | FALSE    |
+|---------------+---------------------------+-----------+---------+---------+----------|
 
 ```json
 {
@@ -3186,11 +3186,11 @@ Specifies the profile for a `question` factor
 
 Specifies the profile for a `sms` factor
 
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------+-----------+-----------+------------|
-| Property      | Description                   | DataType                                                        | Nullable | Unique  | Readonly | MinLength | MaxLength | Validation |
-| ------------- | ----------------------------- | --------------------------------------------------------------- | -------- | ------- | -------- | --------- | --------- | ---------- |
-| phoneNumber   | phone number of mobile device | String [E.164 formatted](http://en.wikipedia.org/wiki/E.164)    | FALSE    | TRUE    | FALSE    |           | 15        |            |
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------+-----------+-----------+------------|
+|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
+| Property      | Description                   | DataType                                                        | Nullable | Unique  | Readonly |
+| ------------- | ----------------------------- | --------------------------------------------------------------- | -------- | ------- | -------- |
+| phoneNumber   | phone number of mobile device, max 15 char long | String [E.164 formatted](http://en.wikipedia.org/wiki/E.164)    | FALSE    | TRUE    | FALSE    |
+|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
 
 ```json
 {
@@ -3208,12 +3208,12 @@ For example, to convert a US phone number (415 599 2671) to E.164 format, one wo
 
 Specifies the profile for a `call` factor
 
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------+-----------+-----------+------------|
-| Property      | Description                   | DataType                                                        | Nullable | Unique  | Readonly | MinLength | MaxLength | Validation |
-| ------------- | ----------------------------- | --------------------------------------------------------------- | -------- | ------- | -------- | --------- | --------- | ---------- |
-| phoneNumber   | phone number of the device    | String [E.164 formatted](http://en.wikipedia.org/wiki/E.164)    | FALSE    | TRUE    | FALSE    |           | 15        |            |
-| phoneExtension| extension of the device       | String                                                          | TRUE     | FALSE   | FALSE    |           | 15        |            |
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------+-----------+-----------+------------|
+|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
+| Property      | Description                   | DataType                                                        | Nullable | Unique  | Readonly |
+| ------------- | ----------------------------- | --------------------------------------------------------------- | -------- | ------- | -------- |
+| phoneNumber   | phone number of the device, max 15 char long    | String [E.164 formatted](http://en.wikipedia.org/wiki/E.164)    | FALSE    | TRUE    | FALSE    |
+| phoneExtension| extension of the device, max 15 char long       | String                                                          | TRUE     | FALSE   | FALSE    |
+|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
 
 ```json
 {
@@ -3234,11 +3234,11 @@ PhoneExtension is optional.
 
 Specifies the profile for a `token`, `token:hardware`, `token:software`, or `token:software:totp` factor
 
-|---------------+--------------------+-----------+----------+---------+----------+-----------+-----------+------------|
-| Property      | Description        | DataType  | Nullable | Unique  | Readonly | MinLength | MaxLength | Validation |
-| ------------- | ------------------ | --------- | -------- | ------- | -------- | --------- | --------- | ---------- |
-| credentialId  | id for credential  | String    | FALSE    | FALSE   | TRUE     |           |           |            |
-|---------------+--------------------+-----------+----------+---------+----------+-----------+-----------+------------|
+|---------------+--------------------+-----------+----------+---------+----------|
+| Property      | Description        | DataType  | Nullable | Unique  | Readonly |
+| ------------- | ------------------ | --------- | -------- | ------- | -------- |
+| credentialId  | id for credential  | String    | FALSE    | FALSE   | TRUE     |
+|---------------+--------------------+-----------+----------+---------+----------|
 
 ```json
 {
@@ -3252,11 +3252,11 @@ Specifies the profile for a `token`, `token:hardware`, `token:software`, or `tok
 
 Specifies the profile for a `web` factor
 
-|---------------+--------------------+-----------+----------+---------+----------+-----------+-----------+------------|
-| Property      | Description        | DataType  | Nullable | Unique  | Readonly | MinLength | MaxLength | Validation |
-| ------------- | ------------------ | --------- | -------- | ------- | -------- | --------- | --------- | ---------- |
-| credentialId  | id for credential  | String    | FALSE    | FALSE   | TRUE     |           |           |            |
-|---------------+--------------------+-----------+----------+---------+----------+-----------+-----------+------------|
+|---------------+--------------------+-----------+----------+---------+----------|
+| Property      | Description        | DataType  | Nullable | Unique  | Readonly |
+| ------------- | ------------------ | --------- | -------- | ------- | -------- |
+| credentialId  | id for credential  | String    | FALSE    | FALSE   | TRUE     |
+|---------------+--------------------+-----------+----------+---------+----------|
 
 ```json
 {
@@ -3270,11 +3270,11 @@ Specifies the profile for a `web` factor
 
 Specifies the profile for a `email` factor
 
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------+-----------+-----------+------------|
-| Property      | Description                   | DataType                                                        | Nullable | Unique  | Readonly | MinLength | MaxLength | Validation |
-| ------------- | ----------------------------- | --------------------------------------------------------------- | -------- | ------- | -------- | --------- | --------- | ---------- |
-| email   | email address of the user | String  | FALSE    | TRUE    | FALSE    |           | 100        |            |
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------+-----------+-----------+------------|
+|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
+| Property      | Description                   | DataType                                                        | Nullable | Unique  | Readonly |
+| ------------- | ----------------------------- | --------------------------------------------------------------- | -------- | ------- | -------- |
+| email   | email address of the user, max 100 char long | String  | FALSE    | TRUE    | FALSE    |
+|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
 
 ```json
 {
@@ -3296,12 +3296,12 @@ Email factor can be used
 
 Specifies additional verification data for `token` or `token:hardware` factors
 
-|---------------+----------------------------+-----------+----------+---------+----------+-----------+-----------+------------|
-| Property      | Description                | DataType  | Nullable | Unique  | Readonly | MinLength | MaxLength | Validation |
-| ------------- | -------------------------- | --------- | -------- | ------- | -------- | --------- | --------- | ---------- |
-| passCode     | OTP for current time window | String    | FALSE    | FALSE   | FALSE    |           |           |            |
-| nextPassCode | OTP for next time window    | String    | TRUE     | FALSE   | FALSE    |           |           |            |
-|--------------+-----------------------------+-----------+----------+---------+----------+-----------+-----------+------------|
+|---------------+----------------------------+-----------+----------+---------+----------|
+| Property      | Description                | DataType  | Nullable | Unique  | Readonly |
+| ------------- | -------------------------- | --------- | -------- | ------- | -------- |
+| passCode     | OTP for current time window | String    | FALSE    | FALSE   | FALSE    |
+| nextPassCode | OTP for next time window    | String    | TRUE     | FALSE   | FALSE    |
+|--------------+-----------------------------+-----------+----------+---------+----------|
 
 ```json
 {
@@ -3336,15 +3336,15 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 TOTP factors when activated have an embedded activation object which describes the [TOTP](http://tools.ietf.org/html/rfc6238) algorithm parameters.
 
-|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------+-----------+-----------+------------|
-| Property       | Description                                       | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
-| -------------- | ------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| timeStep       | time-step size for TOTP                           | String                                                         | FALSE    | FALSE  | TRUE     |           |           |            |
-| sharedSecret   | unique secret key for prover                      | String                                                         | FALSE    | FALSE  | TRUE     |           |           |            |
-| encoding       | encoding of `sharedSecret`                        | `base32` or `base64`                                           | FALSE    | FALSE  | TRUE     |           |           |            |
-| keyLength      | number of digits in an HOTP value                 | Number                                                         | FALSE    | FALSE  | TRUE     |           |           |            |
-| _links         | discoverable resources related to the activation  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
-|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------+-----------+-----------+------------|
+|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------|
+| Property       | Description                                       | DataType                                                       | Nullable | Unique | Readonly |
+| -------------- | ------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- |
+| timeStep       | time-step size for TOTP                           | String                                                         | FALSE    | FALSE  | TRUE     |
+| sharedSecret   | unique secret key for prover                      | String                                                         | FALSE    | FALSE  | TRUE     |
+| encoding       | encoding of `sharedSecret`                        | `base32` or `base64`                                           | FALSE    | FALSE  | TRUE     |
+| keyLength      | number of digits in an HOTP value                 | Number                                                         | FALSE    | FALSE  | TRUE     |
+| _links         | discoverable resources related to the activation  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
+|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------|
 
 ```json
 {
@@ -3361,13 +3361,13 @@ TOTP factors when activated have an embedded activation object which describes t
 
 Push factors must complete activation on the device by scanning the QR code or visiting activation link sent via email or sms.
 
-|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------+-----------+-----------+------------|
-| Property       | Description                                       | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
-| -------------- | ------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| expiresAt      | lifetime of activation                            | Date                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
-| factorResult   | result of a factor activation                       | `WAITING`, `CANCELLED`, `TIMEOUT`, or `ERROR`                  | FALSE    | FALSE  | TRUE     |           |           |            |
-| _links         | discoverable resources related to the activation  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | FALSE    | FALSE  | TRUE     |           |           |            |
-|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------+-----------+-----------+------------|
+|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------|
+| Property       | Description                                       | DataType                                                       | Nullable | Unique | Readonly |
+| -------------- | ------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- |
+| expiresAt      | lifetime of activation                            | Date                                                           | FALSE    | FALSE  | TRUE     |
+| factorResult   | result of a factor activation                       | `WAITING`, `CANCELLED`, `TIMEOUT`, or `ERROR`                  | FALSE    | FALSE  | TRUE     |
+| _links         | discoverable resources related to the activation  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | FALSE    | FALSE  | TRUE     |
+|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------|
 
 ```json
 {
@@ -3420,12 +3420,12 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 Describes the outcome of a factor verification request
 
-|---------------+---------------------------------------------------+---------------------------------+----------+--------+----------|-----------|-----------+------------|
-| Property      | Description                                       | DataType                        | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
-| ------------- | ------------------------------------------------- | ------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| factorResult  | result of a factor verification                     | [Factor Result](#factor-result) | FALSE    | FALSE  | TRUE     |           |           |            |
-| factorMessage | optional display message for factor verification  | String                          | TRUE     | FALSE  | TRUE     |           |           |            |
-|---------------+---------------------------------------------------+---------------------------------+----------+--------+----------|-----------|-----------+------------|
+|---------------+---------------------------------------------------+---------------------------------+----------+--------+----------|
+| Property      | Description                                       | DataType                        | Nullable | Unique | Readonly |
+| ------------- | ------------------------------------------------- | ------------------------------- | -------- | ------ | -------- |
+| factorResult  | result of a factor verification                     | [Factor Result](#factor-result) | FALSE    | FALSE  | TRUE     |
+| factorMessage | optional display message for factor verification  | String                          | TRUE     | FALSE  | TRUE     |
+|---------------+---------------------------------------------------+---------------------------------+----------+--------+----------|
 
 #### Factor Result
 

@@ -271,9 +271,7 @@ curl -v -X POST \
 #### Create User with Imported Hashed Password
 
 
-> Creating or updating users with an imported hashed password is an <ApiLifecycle access="ea" /> feature.
-
-Creates a user with a specified [hashed password](#hashed-password-object)
+Creates a user with a specified [hashed password](#hashed-password-object).
 
 The new user is able to login immediately after activation with the specified password.
 This flow is common when migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
@@ -4068,8 +4066,6 @@ The password specified in the value property must meet the default password poli
 
 ##### Hashed Password Object
 
-<ApiLifecycle access="ea" />
-
 Specifies a hashed password that can be imported into Okta.  This allows an existing password to be imported into Okta directly from some other store.
 A hashed password may be specified in a Password Object when creating or updating a user, but not for other operations.  When updating a user with a hashed password the user must have the `STAGED` status.
 
@@ -4138,8 +4134,6 @@ Specifies the authentication provider that validates the user's password credent
 > Users with a `FEDERATION` or `SOCIAL` authentication provider do not support a `password` or `recovery_question` credential and must authenticate via a trusted Identity Provider.
 
 >`IMPORT` specifies a hashed password that was imported from an external source.
-
-> Creating or updating users with an imported hashed password is an <ApiLifecycle access="ea" /> feature.
 
 ### Links Object
 

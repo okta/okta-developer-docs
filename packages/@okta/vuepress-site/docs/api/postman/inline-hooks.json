@@ -1,0 +1,195 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Inline Hooks",
+		"_postman_id": "5dc02c22-c226-30a6-e41d-df34d46c7bf0",
+		"description": "APIs to use for Okta's Inline Hooks features",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all inline hooks",
+			"request": {
+				"url": "{{url}}/api/v1/inlineHooks",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get inline hook by id",
+			"request": {
+				"url": "{{url}}/api/v1/inlineHooks/{{inlineHookId}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create new inline hook",
+			"request": {
+				"url": "{{url}}/api/v1/inlineHooks",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"OIDC/OAuth token inline hook\",\n    \"type\": \"com.okta.oauth2.tokens.transform\",\n    \"version\": \"1.0.0\",\n    \"channel\": {\n        \"type\": \"HTTP\",\n        \"version\": \"1.0.0\",\n        \"config\": {\n            \"uri\": \"https://example.com\",\n            \"headers\": [\n            \t{\n\t\t\t\t\t\"key\": \"x-any-key\",\n\t\t\t\t\t\"value\": \"my-header-value\"\n\t\t\t\t}\n            ],\n            \"method\": \"POST\",\n            \"authScheme\": {\n                \"type\": \"HEADER\",\n                \"key\": \"Authorization\",\n                \"value\": \"my-shared-secret\"\n            }\n        }\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Test and execute an inline hook",
+			"request": {
+				"url": "{{url}}/api/v1/inlineHooks/{{inlineHookId}}/execute",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n   \"source\":\"https://okta.okta.com/oauth2/default/v1/authorize\",\n   \"eventId\":\"3OWo4oo-QQ-rBWfRyTmQYw\",\n   \"eventTime\":\"2019-01-15T23:20:47.000Z\",\n   \"data\":{  \n      \"context\":{  \n         \"request\":{  \n            \"id\":\"reqv66CbCaCStGEFc8AdfS0ng\",\n            \"method\":\"GET\",\n            \"url\":{  \n               \"value\":\"https://okta.okta.com/oauth2/default/v1/authorize?scope=openid+profile+email&response_type=token+id_token&redirect_uri=https%3A%2F%2Fhttpbin.org%2Fget&state=foobareere&nonce=asf&client_id=customClientIdNative\"\n            },\n            \"ipAddress\":\"127.0.0.1\"\n         },\n         \"protocol\":{  \n            \"type\":\"OAUTH2.0\",\n            \"request\":{  \n               \"scope\":\"openid profile email\",\n               \"state\":\"foobareere\",\n               \"redirect_uri\":\"https://httpbin.org/get\",\n               \"response_mode\":\"fragment\",\n               \"response_type\":\"token id_token\",\n               \"client_id\":\"customClientIdNative\"\n            },\n            \"issuer\":{  \n               \"uri\":\"https://okta.okta.com/oauth2/default\"\n            },\n            \"client\":{  \n               \"id\":\"customClientIdNative\",\n               \"name\":\"Native client\",\n               \"type\":\"PUBLIC\"\n            }\n         },\n         \"session\":{  \n            \"id\":\"102Qoe7t5PcRnSxr8j3I8I6pA\",\n            \"userId\":\"00uq8tMo3zV0OfJON0g3\",\n            \"login\":\"administrator1@clouditude.net\",\n            \"createdAt\":\"2019-01-15T23:17:09.000Z\",\n            \"expiresAt\":\"2019-01-16T01:20:46.000Z\",\n            \"status\":\"ACTIVE\",\n            \"lastPasswordVerification\":\"2019-01-15T23:17:09.000Z\",\n            \"amr\":[  \n               \"PASSWORD\"\n            ],\n            \"idp\":{  \n               \"id\":\"00oq6kcVwvrDY2YsS0g3\",\n               \"type\":\"OKTA\"\n            },\n            \"mfaActive\":false\n         },\n         \"user\":{  \n            \"id\":\"00uq8tMo3zV0OfJON0g3\",\n            \"passwordChanged\":\"2018-09-11T23:19:12.000Z\",\n            \"profile\":{  \n               \"login\":\"administrator1@clouditude.net\",\n               \"firstName\":\"Add-Min\",\n               \"lastName\":\"O'Cloudy Tud\",\n               \"locale\":\"en\",\n               \"timeZone\":\"America/Los_Angeles\"\n            },\n            \"_links\":{  \n               \"groups\":{  \n                  \"href\":\"https://{yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups\"\n               },\n               \"factors\":{  \n                  \"href\":\"https://{yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors\"\n               }\n            }\n         },\n         \"policy\":{  \n            \"id\":\"00pq8lGaLlI8APuqY0g3\",\n            \"rule\":{  \n               \"id\":\"0prq8mLKuKAmavOvq0g3\"\n            }\n         }\n      },\n      \"identity\":{  \n         \"claims\":{  \n            \"sub\":\"00uq8tMo3zV0OfJON0g3\",\n            \"name\":\"Add-Min O'Cloudy Tud\",\n            \"email\":\"webmaster@clouditude.net\",\n            \"ver\":1,\n            \"iss\":\"https://okta.okta.com/oauth2/default\",\n            \"aud\":\"customClientIdNative\",\n            \"jti\":\"ID.YxF2whJfB3Eu4ktG_7aClqtCgjDq6ab_hgpiV7-ZZn0\",\n            \"amr\":[  \n               \"pwd\"\n            ],\n            \"idp\":\"00oq6kcVwvrDY2YsS0g3\",\n            \"nonce\":\"asf\",\n            \"preferred_username\":\"administrator1@clouditude.net\",\n            \"auth_time\":1547594229\n         },\n         \"token\":{  \n            \"lifetime\":{  \n               \"expiration\":3600\n            }\n         }\n      },\n      \"access\":{  \n         \"claims\":{  \n            \"ver\":1,\n            \"jti\":\"AT.W-rrB-z-kkZQmHW0e6VS3Or--QfEN_YvoWJa46A7HAA\",\n            \"iss\":\"https://okta.okta.com/oauth2/default\",\n            \"aud\":\"api://default\",\n            \"cid\":\"customClientIdNative\",\n            \"uid\":\"00uq8tMo3zV0OfJON0g3\",\n            \"sub\":\"administrator1@clouditude.net\",\n            \"firstName\":\"Add-Min\",\n            \"preferred_username\":\"administrator1@clouditude.net\"\n         },\n         \"token\":{  \n            \"lifetime\":{  \n               \"expiration\":3600\n            }\n         },\n         \"scopes\":{  \n            \"openid\":{  \n               \"id\":\"scpq7bW1cp6dcvrz80g3\",\n               \"action\":\"GRANT\"\n            },\n            \"profile\":{  \n               \"id\":\"scpq7cWJ81CIP5Qkr0g3\",\n               \"action\":\"GRANT\"\n            },\n            \"email\":{  \n               \"id\":\"scpq7dxsoz6LQlRj00g3\",\n               \"action\":\"GRANT\"\n            }\n         }\n      }\n   },\n   \"eventTypeVersion\":\"1.0\",\n   \"cloudEventVersion\":\"0.1\",\n   \"contentType\":\"application/json\",\n   \"eventType\":\"com.okta.oauth2.tokens.transform\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate an inline hook",
+			"request": {
+				"url": "{{url}}/api/v1/inlineHooks/{{inlineHookId}}/lifecycle/deactivate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Activate an inline hook",
+			"request": {
+				"url": "{{url}}/api/v1/inlineHooks/{{inlineHookId}}/lifecycle/activate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an inline hook",
+			"request": {
+				"url": "{{url}}/api/v1/inlineHooks/{{inlineHookId}}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update existing inline hook",
+			"request": {
+				"url": "{{url}}/api/v1/inlineHooks/{{inlineHookId}}",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"OIDC/OAuth token inline hook updated\",\n    \"type\": \"com.okta.oauth2.tokens.transform\",\n    \"version\": \"1.0.0\",\n    \"channel\": {\n        \"type\": \"HTTP\",\n        \"version\": \"1.0.0\",\n        \"config\": {\n            \"uri\": \"https://example.com\",\n            \"headers\": [\n            \t{\n\t\t\t\t\t\"key\": \"x-any-key\",\n\t\t\t\t\t\"value\": \"my-header-value-updated\"\n\t\t\t\t}\n            ],\n            \"method\": \"POST\",\n            \"authScheme\": {\n                \"type\": \"HEADER\",\n                \"key\": \"Authorization\",\n                \"value\": \"my-shared-secret-updated\"\n            }\n        }\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -20,6 +20,10 @@ function removeFrontmatterExtra(file) {
     if( 'weight' in file.frontmatter) {
       delete file.frontmatter.weight
     }
+
+    if( 'layout: quickstart_partial' in file.frontmatter) {
+      delete file.frontmatter.layout
+    }
   }
 
   return file

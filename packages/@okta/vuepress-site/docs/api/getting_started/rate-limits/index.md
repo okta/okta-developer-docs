@@ -31,7 +31,9 @@ You can anticipate hitting the rate limit by checking [Okta's rate limiting head
 
 Rate limits differ depending on the level of service you have purchased from Okta. See the [pricing page](https://developer.okta.com/pricing/) for more details.
 
-> If you have a One App or Enterprise organization, the admin console will display a banner and you will receive an email notification when your org reaches its rate limit.
+High capacity rate limits apply to a variety of endpoints across different APIs for customers that purchased this add-on. These rate limits can be found [below](#high-capacity-rate-limits).
+
+> If you have a One App or Enterprise organization, the admin console will display a banner and you will receive an email notification when your org approaches its rate limit.
 
 ### Okta API Endpoints and Per Minute Limits
 
@@ -39,24 +41,26 @@ Note that limits for more specific endpoints override the limits for less specif
 
 | Action and Okta API Endpoint | Developer (free) | Developer (paid) | One App | Enterprise     |
 |----------------------------- | ---------------- | ---------------- | ------- | -------------- |
-| **Authenticate different end users:**<br>`/api/v1/authn`                                              | 100 | 300 | 300 | 600  |
-| **Verify a factor:**<br>`/api/v1/authn/factors/{id}/verify` only                                      | 100 | 300 | 300 | 600  |
+| **Authenticate different end users:**<br>`/api/v1/authn`                                              | 100 | 300 | 300* | 600*  |
+| **Verify a factor:**<br>`/api/v1/authn/factors/{id}/verify` only                                      | 100 | 300 | 300* | 600*  |
 | **Create or list applications:**<br>`/api/v1/apps` except `/api/v1/apps/{id}`                         | 20  | 25  | 25  | 50   |
-| **Get, update, or delete an application by ID:**<br>`/api/v1/apps/{id}` only                          | 100 | 300 | 300 | 600  |
+| **Get, update, or delete an application by ID:**<br>`/api/v1/apps/{id}` only                          | 100 | 300 | 300* | 600*  |
 | **Create or list groups:**<br>`/api/v1/groups` except `/api/v1/groups/{id}`                           | 100 | 300 | 300 | 600  |
-| **Get, update, or delete a group by ID:**<br>`/api/v1/groups/{id}` only                               | 100 | 300 | 300 | 600  |
+| **Get, update, or delete a group by ID:**<br>`/api/v1/groups/{id}` only                               | 100 | 300 | 300* | 600*  |
 | **Create or list users:**<br>Only `GET` or `POST` to `/api/v1/users`                                  | 100 | 300 | 300 | 600  |
-| **Get a user by ID or login:**<br>Only `GET` to `/api/v1/users/{idOrLogin}`                           | 100 | 300 | 300 | 1000 |
-| **Update or delete a user by ID or login:**<br>Only `POST`, `PUT` or `DELETE` to `/api/v1/users/{idOrLogin}`  | 100 | 300 | 300 | 600  |
+| **Get a user by ID or login:**<br>Only `GET` to `/api/v1/users/{idOrLogin}`                           | 100 | 300 | 300* | 1000* |
+| **Update or delete a user by ID or login:**<br>Only `POST`, `PUT` or `DELETE` to `/api/v1/users/{idOrLogin}`  | 100 | 300 | 300* | 600*  |
 | **Get System Log data:**<br>`/api/v1/logs`                                                            | 20  | 25  | 25  | 50   |
 | **Get System Log data:**<br>`/api/v1/events`                                                          | 20  | 25  | 25  | 50   |
-| **Get session information:**<br>`/api/v1/sessions`                                                    | 100 | 300 | 300 | 600  |
+| **Get session information:**<br>`/api/v1/sessions`                                                    | 100 | 300 | 300* | 600*  |
 | **Create an organization:**<br>`/api/v1/orgs`                                                         | N/A | N/A | N/A | 50   |
-| **Authorize request to a custom Authorization Server:**<br>`/oauth2/{authServerId}/v1/authorize`      | 100 | 300 | 300 | 600  |
-| **Token request to a custom Authorization Server:**<br>`/oauth2/{authServerId}/v1/token`              | 100 | 300 | 300 | 600  |
-| **All other actions:**<br>`/api/v1/`                                                                  | 100 | 300 | 300 | 600  |
+| **Authorize request to a custom Authorization Server:**<br>`/oauth2/{authServerId}/v1/authorize`      | 100 | 300 | 300* | 600*  |
+| **Token request to a custom Authorization Server:**<br>`/oauth2/{authServerId}/v1/token`              | 100 | 300 | 300* | 600*  |
+| **All other actions:**<br>`/api/v1/`                                                                  | 100 | 300 | 300* | 600*  |
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
+
+* The limits for these endpoints can be increased by purchasing the [High-Capacity add-on](#high-capacity-rate-limits).
 
 ### Okta API Endpoints and Per-User Limits
 API endpoints that take username and password credentials, including the [Authentication API](/docs/api/resources/authn) and the [OAuth 2.0 resource owner password flow](/authentication-guide/implementing-authentication/password), have a per-username rate limit to prevent brute force attacks with the user's password:
@@ -82,19 +86,46 @@ The following endpoints are used by the Okta home page for authentication and si
 
 | Okta Home Page Endpoints                 | Developer (free) | Developer (paid) | One App | Enterprise    |
 | ---------------------------------------- | ---------------- | ---------------- | ------- | ------------- |
-| `/app/{app}/{key}/sso/saml`              | 100              | 300              | 300     | 600           |
+| `/app/{app}/{key}/sso/saml`              | 100              | 300              | 300*     | 600*           |
 | `/app/office365/{key}/sso/wsfed/active`  | N/A              | N/A              | N/A     | 2000          |
 | `/app/office365/{key}/sso/wsfed/passive` | N/A              | N/A              | N/A     | 250           |
-| `/app/template_saml_2_0/{key}/sso/saml`  | 100              | 300              | 300     | 600           |
+| `/app/template_saml_2_0/{key}/sso/saml`  | 100              | 300              | 300*     | 600*          |
 | `/login/do-login`                        | 100              | 300              | 300     | 600           |
 | `/login/login.htm`                       | 100              | 300              | 300     | 600           |
 | `/login/sso_iwa_auth`                    | 100              | 300              | 300     | 600           |
-| `/api/plugin/{protocolVersion}/form-cred/{appUserIds}/{formSiteOption}` | 100 | 300 | 300 | 600          |
+| `/api/plugin/{protocolVersion}/form-cred/{appUserIds}/{formSiteOption}` | 100 | 300 | 300* | 600*          |
 | `/api/plugin/{protocolVersion}/sites`    | 20               | 50               | 50      | 100           |
-| `/bc/image/fileStoreRecord`              | 100              | 300              | 300     | 600           |
-| `/bc/globalFileStoreRecord`              | 100              | 300              | 300     | 600           |
+| `/bc/image/fileStoreRecord`              | 100              | 300              | 300*     | 600*           |
+| `/bc/globalFileStoreRecord`              | 100              | 300              | 300*     | 600*           |
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
+
+*The limits for these endpoints can be increased by purchasing the [High-Capacity add-on](#high-capacity-rate-limits).
+
+### High Capacity Rate Limits
+
+If your needs exceed Okta's rate limits, you can purchase the "High Capacity Rate Limit" add-on. Customers who purchase the "High Capacity Rate Limit" add-on service may not use the service in excess of the "static" rate limit, as set forth in the table below.  If Okta makes any change to the rate limit, such change will be communicated to customers via an updated version of this product documentation.
+
+The following are the high capacity rate limits per minute that apply across the Okta API for these endpoints:
+
+| Endpoint                                                                 | One App | Enterprise |
+|--------------------------------------------------------------------------|---------|------------|
+| `/api/v1`                                                                | 1500    | 3000       |
+| `/oauth2/{authorizationServerId}/v1/token`                               | 1500    | 3000       |
+| `/oauth2/{authorizationServerId}/v1/authorize`                           | 1500    | 3000       |
+| `/api/v1/sessions`                                                       | 1500    | 3000       |
+| `/app/template_saml_2_0/{key}/sso/saml`                                  | 1500    | 3000       |
+| `/app/{app}/{key}/sso/saml`                                              | 1500    | 3000       |
+| `/api/v1/groups/{id}`                                                    | 1500    | 3000       |
+| `/api/v1/users/{id}`                                                     | 1500    | 3000       |
+| `/api/v1/authn`                                                          | 1500    | 3000       |
+| `/api/plugin/{protocolVersion}/form-creds/{appUserIds}/{formSiteOption}` | 1500    | 3000       |
+| `/api/v1/authn/factors/{id}/verify`                                      | 1500    | 3000       |
+| `/api/v1/apps/{id}`                                                      | 1500    | 3000       |
+| `/bc/image/fileStoreRecord`                                              | 1500    | 3000       |
+| `/bc/globalFileStoreRecord`                                              | 1500    | 3000       |
+
+If your usage needs exceed the rate limits applicable to the "High Capacity Rate Limit" add-on service, please contact your Okta Sales Representative regarding other options.
 
 ### End-User Rate Limit
 
@@ -312,6 +343,8 @@ To request an exception, contact [Support](https://support.okta.com/help/open_ca
 * Start date and time
 * End date and time
 * Business justification: why you need the temporary increase
+
+If you have an application that requires sustained rate limits higher than the posted limits, please consult an Okta Sales Representative for more options.
 
 ## Previous Rate Limits
 

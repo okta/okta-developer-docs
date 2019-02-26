@@ -45,7 +45,8 @@ const whitelist = [
   'okta.github.io/_source/_standards',
   'okta.github.io/_source/_use_cases',
   'okta.github.io/_source/books',
-  'okta.github.io/_source/test_page'
+  'okta.github.io/_source/test_page',
+  'okta.github.io/_source/quickstart-fragments'
 ];
 
 // define which files can not be processed

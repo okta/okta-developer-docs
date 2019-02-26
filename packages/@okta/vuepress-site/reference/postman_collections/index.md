@@ -20,6 +20,7 @@ Import any Okta API collection for Postman from the following list:
 | Factors                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9fdda657d134039fcaba){:target="_blank"} |
 | Groups                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/0bb414f9594ed93672a0){:target="_blank"} |
 | Identity Providers (IdP)          | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00a7a643fc0ab3bb54c8){:target="_blank"} |
+| Inline Hooks                      | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b9651dc833b18e4c4666){:target="_blank"} |
 | Linked Objects                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ed4c5606d25d1014b7ea){:target="_blank"} |
 | OpenID Connect                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fd92d7c1ab0fbfdecab2){:target="_blank"} |
 | Policy                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/0dfd99e544a12ea3db5b){:target="_blank"} |
