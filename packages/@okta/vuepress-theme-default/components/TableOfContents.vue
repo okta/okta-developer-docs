@@ -107,7 +107,7 @@ export default {
       let footerRect = document.querySelectorAll('.Footer')[0].getBoundingClientRect();
 
       if (footerRect.top < window.innerHeight) {
-        this.tocStyle.bottom = window.innerHeight - footerRect.top + 'px'
+        this.tocStyle.bottom = (window.innerHeight - footerRect.top) + 'px'
         this.tocStyle.top = "auto"
       } else {
         this.tocStyle.bottom = 0
@@ -169,9 +169,7 @@ export default {
           const level = getLevel(node);
           return level ? level < activeLevel : false;
         });
-      // console.log(siblings, activeLevel, afterActive, nextItem)
 
-        // let nextItem = this.nextAll(this.activeItem.node)
         let toc = document.querySelectorAll('.TableOfContents')[0]
         let scrollTop = toc.scrollTop
         let firstRect = document.querySelectorAll('.TableOfContents-item')[0].getBoundingClientRect()
@@ -195,6 +193,10 @@ export default {
 
         this.indicatorStyle.height = scale+'px'
         this.indicatorStyle.transform = '0, ' + indicatorOffset + 'px'
+
+        if (scrollTop != tocOffset) {
+          toc.scrollTo(0,tocOffset);
+        }
 
 
       }
