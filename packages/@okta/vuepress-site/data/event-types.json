@@ -6724,6 +6724,18 @@
       "tags" : [ "iwa" ],
       "mappings" : [ "system.iwa.go_offline" ]
     }, {
+      "id" : "iwa.agent.fetch-logs",
+      "category" : "directories",
+      "description" : "IWA agent had logs uploaded.",
+      "tags" : [ "directory" ],
+      "mappings" : [ "system.agent.ad.upload_iwa_log" ]
+    }, {
+      "id" : "iwa.agent.fetch-logs.error",
+      "category" : "directories",
+      "description" : "IWA Agent encountered an error performing a FetchIWALogs action.",
+      "tags" : [ "directory" ],
+      "mappings" : [ "system.agent.ad.upload_iwa_log" ]
+    }, {
       "id" : "iwa.agentless.auth.failure",
       "category" : "directories",
       "description" : "Agentless IWA authentication failure.",
@@ -7150,23 +7162,47 @@
       "tags" : [ "system-task" ],
       "mappings" : [ "task.lifecycle.update" ]
     }, {
-      "id" : "platform.tokens.transform.process.failure",
+      "id" : "platform.tokens.transform.oauth2.process.failure",
       "category" : "federation",
-      "description" : "Failed to process command.",
+      "description" : "Failed to process OAuth2 command.",
       "tags" : [ "tokens-transform" ],
-      "mappings" : [ "tokens.transform.process" ]
+      "mappings" : [ "oauth2.tokens.transform.process" ]
     }, {
-      "id" : "platform.tokens.transform.response",
+      "id" : "platform.tokens.transform.oauth2.response",
       "category" : "federation",
-      "description" : "Received response from callback.",
+      "description" : "Received response from OAuth2 inline hook.",
       "tags" : [ "tokens-transform" ],
-      "mappings" : [ "tokens.transform.response" ]
+      "mappings" : [ "oauth2.tokens.transform.response" ]
     }, {
-      "id" : "platform.tokens.transform.response.failure",
+      "id" : "platform.tokens.transform.oauth2.response.error",
       "category" : "federation",
-      "description" : "Failed to received response from callback.",
+      "description" : "Received error response from OAuth2 inline hook.",
       "tags" : [ "tokens-transform" ],
-      "mappings" : [ "tokens.transform.response" ]
+      "mappings" : [ "oauth2.tokens.transform.error.response" ]
+    }, {
+      "id" : "platform.tokens.transform.oauth2.response.failure",
+      "category" : "federation",
+      "description" : "Failed to receive response from OAuth2 inline hook.",
+      "tags" : [ "tokens-transform" ],
+      "mappings" : [ "oauth2.tokens.transform.response" ]
+    }, {
+      "id" : "platform.tokens.transform.saml.process.failure",
+      "category" : "federation",
+      "description" : "Failed to process SAML command.",
+      "tags" : [ "tokens-transform" ],
+      "mappings" : [ "saml.tokens.transform.process" ]
+    }, {
+      "id" : "platform.tokens.transform.saml.response",
+      "category" : "federation",
+      "description" : "Received response from SAML callback.",
+      "tags" : [ "tokens-transform" ],
+      "mappings" : [ "saml.tokens.transform.response" ]
+    }, {
+      "id" : "platform.tokens.transform.saml.response.failure",
+      "category" : "federation",
+      "description" : "Failed to receive response from SAML callback.",
+      "tags" : [ "tokens-transform" ],
+      "mappings" : [ "saml.tokens.transform.response" ]
     }, {
       "id" : "platform.union_gaa_failure_event",
       "category" : "sync",
@@ -10921,6 +10957,36 @@
       "tags" : [ "oauth2", "oauth2-scope" ],
       "mappings" : [ "api.oauth2.scope.updated" ]
     }, {
+      "id" : "oauth2.tokens.transform.error.response",
+      "category" : "federation",
+      "description" : "Fired when Okta's authorization server receives a response from an external service and the response format is valid, but the response contains an error. This can also be used to debug why command response erred. When fired, the event contains information about the error summary. Related events include: oauth2_tokens_transform_response.",
+      "info" : {
+        "created" : "2019-01-25",
+        "release" : "2019.01.3"
+      },
+      "tags" : [ "token", "tokens-transform" ],
+      "mappings" : [ "platform.tokens.transform.oauth2.response.error" ]
+    }, {
+      "id" : "oauth2.tokens.transform.process",
+      "category" : "federation",
+      "description" : "Fired when Okta's authorization server used the command response for token transform, and the token transform failed. This event fires only when the token transform has failed due to the command response from the external server, for example  that the response contained info to transform an access token and an access token was not requested in the request. This can also be used to debug why a token transformation failed. When fired, this event contains information about the entities involved in the inline hook request and response - including the relevant application, user, authorization server, and policy. This event also contains information about why the token transformation failed. Related events include: oauth2_tokens_transform_response.",
+      "info" : {
+        "created" : "2019-01-25",
+        "release" : "2019.01.3"
+      },
+      "tags" : [ "token", "tokens-transform" ],
+      "mappings" : [ "platform.tokens.transform.oauth2.process.failure" ]
+    }, {
+      "id" : "oauth2.tokens.transform.response",
+      "category" : "federation",
+      "description" : "Fired when Okta's authorization server sends an inline hook to an external service. This event fires when the response is successful or when a response is not received. This can be used to audit the details of the entities involved in the inline hook request and response. When fired, this event contains information about the entities involved in the inline hook request and response - including the relevant application, user, authorization server, and policy.",
+      "info" : {
+        "created" : "2019-01-25",
+        "release" : "2019.01.3"
+      },
+      "tags" : [ "token", "tokens-transform" ],
+      "mappings" : [ "platform.tokens.transform.oauth2.response", "platform.tokens.transform.oauth2.response.failure" ]
+    }, {
       "id" : "omm.app.VPN.settings.changed",
       "category" : "mobile-omm",
       "description" : "",
@@ -11230,6 +11296,26 @@
       },
       "tags" : [ "policy" ],
       "mappings" : [ "policy.scheduled.execute" ]
+    }, {
+      "id" : "saml.tokens.transform.process",
+      "category" : "federation",
+      "description" : "Processed SAML transform command.",
+      "info" : {
+        "created" : "2018-07-01",
+        "release" : "2018.28"
+      },
+      "tags" : [ "token", "tokens-transform" ],
+      "mappings" : [ "platform.tokens.transform.saml.process.failure" ]
+    }, {
+      "id" : "saml.tokens.transform.response",
+      "category" : "federation",
+      "description" : "Received response from SAML callback.",
+      "info" : {
+        "created" : "2018-07-01",
+        "release" : "2018.28"
+      },
+      "tags" : [ "token", "tokens-transform" ],
+      "mappings" : [ "platform.tokens.transform.saml.response", "platform.tokens.transform.saml.response.failure" ]
     }, {
       "id" : "scheduled_action.user_suspension.canceled",
       "category" : "lca",
@@ -11570,6 +11656,16 @@
       },
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.upgrade", "app.ad.agent.upgrade.error" ]
+    }, {
+      "id" : "system.agent.ad.upload_iwa_log",
+      "category" : "directories",
+      "description" : "Fired when an AD agent has fetched and uploaded IWA agent log file. This event fires when the log file upload is successful or fails. This can be used to audit that logs files are being fetched successfully, have been uploaded successfully, and troubleshoot why an IWA log upload has failed. When fired, this event indicates whether a log file upload has been successful or failed. This event also indicates whether the event was initiated by the Okta system or a user. Related events: none, all debugging context is included in this event.",
+      "info" : {
+        "created" : "2019-01-28",
+        "release" : "2019.02.1"
+      },
+      "tags" : [ "ad-agent" ],
+      "mappings" : [ "iwa.agent.fetch-logs", "iwa.agent.fetch-logs.error" ]
     }, {
       "id" : "system.agent.ad.upload_log",
       "category" : "directories",
@@ -12430,26 +12526,6 @@
       },
       "tags" : [ "task" ],
       "mappings" : [ "platform.task.lifecycle.update" ]
-    }, {
-      "id" : "tokens.transform.process",
-      "category" : "federation",
-      "description" : "Processed SAML transform command.",
-      "info" : {
-        "created" : "2018-07-01",
-        "release" : "2018.28"
-      },
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.process.failure" ]
-    }, {
-      "id" : "tokens.transform.response",
-      "category" : "federation",
-      "description" : "Received response from SAML callback.",
-      "info" : {
-        "created" : "2018-07-01",
-        "release" : "2018.28"
-      },
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.response", "platform.tokens.transform.response.failure" ]
     }, {
       "id" : "user.account.access_super_user_app",
       "category" : "authn",

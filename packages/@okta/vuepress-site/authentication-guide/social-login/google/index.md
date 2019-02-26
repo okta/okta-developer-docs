@@ -12,12 +12,6 @@ title: Google
 
 1.3. Save the OAuth client ID and secret values so you can add them to the Okta configuration in the next section.
 
-1.4. Click on "Dashboard" on the left-hand side and click **Enable API**.
-
-1.5. Search for "Google+" and then click on **Google+ API**.
-
-1.6. On the "Google+ API" page, click **Enable** at the top.
-
 ##### 2. Configure Google as an Identity Provider in Okta
 
 2.1. Sign in to your Okta org.
@@ -63,11 +57,9 @@ title: Google
 
 4.6. Assign the group that you chose under "Group Assignments" in Step 2.4 above or assign "Everyone".
 
-4.7. Under "Grant type allowed", make sure "Implicit" is enabled.
+4.7. Click **Done** and you will arrive on the page for your new application.
 
-4.8. Click **Done** and you will arrive on the page for your new application.
-
-4.9. In the "Client Credentials" section, copy your "Client ID", which you will use to complete your Authorize URL in the next step.
+4.8. In the "Client Credentials" section, copy your "Client ID", which you will use to complete your Authorize URL in the next step.
 
 ##### 5. Complete Your Authorize URL
 
@@ -75,7 +67,7 @@ The Okta Identity Provider that you created in section 2 above generated an Auth
 
 * **client_id:** use the client_id value you copied in step 4.10.
 * **scope:** Determines the claims that are returned in the ID token. This should have at least `openid`.
-* **response_type:** Determines which flow is used. This should be `id_token`.
+* **response_type:** Determines which flow is used. This should be `code`.
 * **response_mode:** Determines how the authorization response should be returned. This should be `fragment`.
 * **state:** Protects against cross-site request forgery (CSRF).
 * **nonce:** A string included in the returned ID Token. Use it to associate a client session with an ID Token, and to mitigate replay attacks.

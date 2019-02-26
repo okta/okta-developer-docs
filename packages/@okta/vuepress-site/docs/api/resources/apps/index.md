@@ -3212,6 +3212,7 @@ Parameter | Description                                                      | P
 applicationId       | `id` of an [app](#application-model)                   | URL        | String   | TRUE     |
 limit     | Specifies the number of results per page (maximum 500)           | Query      | Number   | FALSE    | 50
 after     | Specifies the pagination cursor for the next page of assignments | Query      | String   | FALSE    |
+q         | Returns a filtered list of app users. The value of `q` is matched against an application user profile's `userName`, `firstName`, `lastName`, and `email`. **Note:** This operation only supports `startsWith`, which matches what the string starts with to the query. | Query      | String   | FALSE    |
 
 The results will be [paginated][pagination] according to the `limit` parameter.
 If there are multiple pages of results, the Link header will contain a `next` link, which should be treated as an opaque value (follow it, don't parse it).
@@ -5499,6 +5500,7 @@ All application groups have the following properties:
 | id           | unique key of group                             | String                                                         | FALSE    | TRUE   | TRUE     |           |           |            |
 | lastUpdated  | timestamp when app group was last updated       | Date                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
 | priority     | priority of group assignment                    | Number                                                         | TRUE     | FALSE  | FALSE    | 0         | 100       |            |
+| profile     | Valid JSON schema for specifying properties                    | [JSON](#profile-object)                                                         | TRUE     | FALSE  | FALSE    |          |        |            |
 | _links       | discoverable resources related to the app group | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05) | TRUE     | FALSE  | TRUE     |           |           |            |
 | _embedded    | embedded resources related to the app group     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
 |--------------+-------------------------------------------------+----------------------------------------------------------------|----------+--------|----------|-----------|-----------+------------|

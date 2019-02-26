@@ -36,7 +36,7 @@ For brevity, the Events API will often be referred to as `/events` and the Syste
 
 Each of the API resources has an associated data structure, also referred to as the resource "representation" or data model. The System Log API's representation is the [LogEvent object](/docs/api/resources/system_log#logevent-object). It captures the occurrence of notable system events. The Events API's representation is the [Event object](/docs/api/resources/events#event-model). LogEvent has more structure and a much richer set of data elements than Event. It is one of the principal improvements of the System Log API over the Events API.
 
-One of the most important attributes of an event in the Okta system is its "event type" designation. In the Events API, the [`action.objectType` attribute](/docs/api/resources/events#action-object) attribute denotes the event type. In the Logs API, the [`eventType` attribute](/docs/api/resources/system_log#event-types) represents the event type. The values in each of these fields are generally different, although there is some overlap for historical purposes. In the interest of easing the transition from the Events API to the System Log API, LogEvent's [`legacyEventType` attribute](/docs/api/resources/system_log#attributes) identifies the equivalent Event `action.objectType` value. The [Event Type Mapping](#event-type-mappings) section of this guide provides a static mapping of Events API event types to System Log API event types.
+One of the most important attributes of an event in the Okta system is its "event type" designation. In the Events API, the [`action.objectType` attribute](/docs/api/resources/events#action-object) attribute denotes the event type. In the System Log API, the [`eventType` attribute](/docs/api/resources/system_log#event-types) represents the event type. The values in each of these fields are generally different, although there is some overlap for historical purposes. In the interest of easing the transition from the Events API to the System Log API, LogEvent's [`legacyEventType` attribute](/docs/api/resources/system_log#attributes) identifies the equivalent Event `action.objectType` value. The [Event Type Mapping](#event-type-mappings) section of this guide provides a static mapping of Events API event types to System Log API event types.
 
 Another essential difference between the two systems is the manner in which detailed information is encoded. The Events API textually encodes the specifics of a particular event instance into the [`action.message` attribute](/docs/api/resources/events#action-object). This encoding burdened consumers with having to correctly parse data themselves and led to brittleness in downstream systems when wording changed. The System Log API expands and enriches the data model to support storing these values as atomic, independent attributes. Context objects, such as the [AuthenticationContext object](/docs/api/resources/system_log#authenticationcontext-object) and [GeographicalContext objects](/docs/api/resources/system_log#geographicalcontext-object) objects, provide attributes that are common across event types. The [DebugContext object](/docs/api/resources/system_log#debugcontext-object) houses event-type-specific attributes.
 
@@ -254,7 +254,7 @@ Given the above events from each API, the following compares each leaf-level att
 | `/eventId`                | `/uuid`                                                  | Different values |
 |                           | `/version`                                               | New |
 
-Note that there is only one `actor` in System Log API compared to potentially multiple values in Events API's `actors` attribute. Instead, the System Log API adds a `client` attribute to hold any secondary actor to make it easier for consumers to access. 
+Note that there is only one `actor` in System Log API compared to potentially multiple values in Events API's `actors` attribute. Instead, the System Log API adds a `client` attribute to hold any secondary actor to make it easier for consumers to access.
 
 ### Identity
 
@@ -318,7 +318,7 @@ A new "keyword filtering" feature has been introduced via the [`q` parameter](/d
 
 #### Time Range
 
-In the Events API, there is only one formal query parameter that supports defining the temporal scope of the events returned: `startDate`. In the Logs API, there is now `since` (the equivalent of `startDate`) and a new [`until` parameter](/docs/api/resources/system_log#request-parameters) which defines the end time bound of the query interval. Both of these operate against the [`published ` attribute](/docs/api/resources/system_log#attributes). 
+In the Events API, there is only one formal query parameter that supports defining the temporal scope of the events returned: `startDate`. In the System Log API, there is now `since` (the equivalent of `startDate`) and a new [`until` parameter](/docs/api/resources/system_log#request-parameters) which defines the end time bound of the query interval. Both of these operate against the [`published ` attribute](/docs/api/resources/system_log#attributes).
 
 A subtle difference between `startDate` and `since`/`until` is that the former was very liberal in the format that was accepted. In the System Log API, `since`/`until` values are required to conform to [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). The intention of this requirement is to reduce the risk of format ambiguity (e.g., timezone offsets) causing accidental misuse by consumers.
 
@@ -336,7 +336,7 @@ Both APIs support a `limit` query parameter that governs the number of events pe
 
 ### Polling
 
-Polling is the process used to reliably ingest data from Okta into an external system. Both APIs use the `after` parameter in conjunction with `Link` response headers to safely pull the event stream. 
+Polling is the process used to reliably ingest data from Okta into an external system. Both APIs use the `after` parameter in conjunction with `Link` response headers to safely pull the event stream.
 
 When you first make an API call and get a cursor-paged list of objects, the end of the list will be the point at which you do not receive another `next` link value with the response. This holds true for all but two cases:
 
@@ -347,7 +347,7 @@ Please see [Transferring Data to a Separate System](/docs/api/resources/system_l
 
 ## Event Type Mappings
 
-The listing in [Event Type catalog](/docs/api/resources/event-types#catalog) describes the complete relationship between the Events API and System Log API event type systems. It describes how events types of one system map to the other, making it an invaluable resource for the migration process. 
+The listing in [Event Type catalog](/docs/api/resources/event-types#catalog) describes the complete relationship between the Events API and System Log API event type systems. It describes how events types of one system map to the other, making it an invaluable resource for the migration process.
 
 > **Important:** Going forward the Events API will not be tracking new event types added to the System Log API. For this reason we highly recommend upgrading to the System Log API.
 
@@ -360,7 +360,7 @@ This section contains a collection of useful resources that may help in making t
 The following are the formal developer documentation pages of each API:
 
 - [Events API](/docs/api/resources/events)
-- [Logs API](/docs/api/resources/system_log)
+- [System Log API](/docs/api/resources/system_log)
 
 ### [help.okta.com](http://help.okta.com)
 

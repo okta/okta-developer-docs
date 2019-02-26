@@ -241,7 +241,7 @@ Ternary operator example:<br>If group code is 123, assign value of Sales, else a
 
 ## Conditional Expressions
 
-You can specify IF...THEN...ELSE statements with the Okta EL. The primary use of these expressions is profile mappings and group rules. Group rules do not usually specificy an ELSE component.
+You can specify IF...THEN...ELSE statements with the Okta EL. The primary use of these expressions is profile mappings and group rules. Group rules do not usually specify an ELSE component.
 
 
 The format for conditional expressions is
@@ -292,16 +292,13 @@ isContractor | Boolean
 
 ##### Samples Using Profile Mapping
 
-The following samples are valid conditional expressions that apply to profile mapping. The attribute *courtesyTitle* is from another system being mapped to Okta.
+The following samples are valid conditional expressions that apply to profile mapping. The attribute `courtesyTitle` is from another system being mapped to Okta.
 
-<p>If the middle initial is not blank, the full name is the first name, middle initial, a period, and the last name; otherwise it is the first name and the last name.<br>
-<code>String.len(middleInitial) > 0 ? String.join(firstName, " ", middleInitial, ". ", lastName) : String.join(firstName, " ", lastName)</code></p>
+If the middle initial is not empty, include it as part of the full name, using just the first character and appending a period.<br>
+`firstName + " " + (String.len(middleInitial) == 0 ? "" : (String.substring(middleInitial, 0, 1) + ". ")) + lastName`
 
-<p>If there is a courtesy title, use it for the honorific prefix.<br>
-<code>courtesyTitle != "" ? courtesyTitle : ""</code></p>
-
-<p>If either email2 or email3 exists, make additionalEmail true; otherwise, make it false.<br>
-<code>String.len(email2) > 0 OR String.len(email3) > 0 ? True : False</code></p>
+Include the honorific prefix in front of the full name, or use the courtesy title instead if it exists. If both are absent, don't use any title.<br>
+`(courtesyTitle != "" ? (courtesyTitle + " ") : honorificPrefix != "" ? (honorificPrefix + " ") : "") + firstName + " " + (String.len(middleInitial) == 0 ? "" : (String.substring(middleInitial, 0, 1) + ". ")) + lastName`
 
 ##### Samples Using Group Rules
 
