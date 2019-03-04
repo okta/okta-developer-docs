@@ -28,7 +28,10 @@
           </ul>
         </div>
 
-        <Content :pageKey="activeClientComponent" id="client_content" class="example-content-well"/>
+        <div id="client_content" class="example-content-well">
+          <div v-if="clientContentLoading">Loading... </div>
+          <div v-else v-html="clientContent"></div>
+        </div>
 
         <h2 id="server_setup">Server Setup</h2>
 
@@ -54,7 +57,10 @@
           </ul>
         </div>
 
-        <div id="server_content" class="example-content-well"></div>
+        <div id="server_content" class="example-content-well">
+          <div v-if="serverContentLoading">Loading... </div>
+          <div v-else v-html="serverContent"></div>
+        </div>
       </div>
 
       <div class="TableOfContents TableOfContentsPreload">
@@ -64,6 +70,8 @@
       </div>
       <!-- END Page Content -->
     </section>
+    <iframe style="display:none;" id="clientContentIframe" :src="clientContentUrl"></iframe>
+    <iframe style="display:none;" id="serverContentIframe" :src="serverContentUrl"></iframe>
     <Footer/>
   </div>
 </template>
@@ -80,7 +88,13 @@
         activeClient: null,
         activeServer: null,
         activeFramework: null,
-        activeTab: null
+        activeTab: null,
+        clientContentUrl: null,
+        serverContentUrl: null,
+        clientContentLoading: true,
+        serverContentLoading: true,
+        clientContent: "",
+        serverContent: ""
       }
     },
     created: function () {
@@ -109,6 +123,7 @@
         })
         this.activeFramework = defaultServerFramework.name
       }
+
     },
     computed: {
       activeServerFrameworks: function () {
@@ -128,7 +143,7 @@
     },
     watch: {
       activeClient: function () {
-        this.loadContent()
+        this.loadClientContent()
         window.location.hash = '/'+this.activeClient+'/'+this.activeServer+'/'+this.activeFramework
       },
       activeServer: function () {
@@ -165,11 +180,11 @@
 
         this.activeFramework = frameworkToSet
 
-        this.loadContent()
+        this.loadServerContent()
         window.location.hash = '/'+this.activeClient+'/'+this.activeServer+'/'+this.activeFramework
       },
       activeFramework: function () {
-        this.loadContent()
+        this.loadServerContent()
         window.location.hash = '/'+this.activeClient+'/'+this.activeServer+'/'+this.activeFramework
       }
     },
@@ -190,28 +205,30 @@
         window.scrollTo(0, document.querySelectorAll(element)[0].offsetTop - 150)
       },
 
-      loadContent: function () {
+      loadClientContent: function () {
+        this.clientContentLoading = true
+
+        this.clientContentUrl = '/quickstart-fragments/' + this.activeClient + '/default-example/'
+
+
+        document.getElementById('clientContentIframe').onload = () => {
+          this.clientContentLoading = false
+          this.clientContent = document.getElementById('clientContentIframe').contentDocument.querySelector('.PageContent-main').innerHTML
+        }
+      },
+
+      loadServerContent: function () {
+        this.serverContentLoading = true
         let client = this.$themeConfig.quickstarts.clients.filter((client) => {
           return client.name === this.activeClient
         })[0];
-        let clientContentUrl = '/quickstart-fragments/' + this.activeClient + '/default-example/'
-        let serverContentUrl = '/quickstart-fragments/' + this.activeServer + '/' + this.activeFramework + '-' + client.serverExampleType
 
-        fetch(clientContentUrl)
-          .then( response => {
-            if( response.ok ) {
-              return response.text();
-            }
-            // Here's where you can handle error status codes
-          })
-          .then( text => {
-            const element = document.createElement('div')
-            element.innerHTML = text
-            console.log(element.getElementById('app'))
-          })
-          .catch( err => {
-            // Here's where you handle network errors
-          });
+        this.serverContentUrl = '/quickstart-fragments/' + this.activeServer + '/' + this.activeFramework + '-' + client.serverExampleType + '/'
+
+        document.getElementById('serverContentIframe').onload = () => {
+          this.serverContentLoading = false
+          this.serverContent = document.getElementById('serverContentIframe').contentDocument.querySelector('.PageContent-main').innerHTML
+        }
       }
     }
   }
