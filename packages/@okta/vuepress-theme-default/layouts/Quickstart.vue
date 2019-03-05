@@ -29,8 +29,7 @@
         </div>
 
         <div id="client_content" class="example-content-well">
-          <div v-if="clientContentLoading">Loading... </div>
-          <div v-else v-html="clientContent"></div>
+          <div v-html="clientContent"></div>
         </div>
 
         <h2 id="server_setup">Server Setup</h2>
@@ -58,8 +57,7 @@
         </div>
 
         <div id="server_content" class="example-content-well">
-          <div v-if="serverContentLoading">Loading... </div>
-          <div v-else v-html="serverContent"></div>
+          <div v-html="serverContent"></div>
         </div>
       </div>
 
