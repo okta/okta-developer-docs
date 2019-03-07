@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <Content v-for="page in changelogPages" :key="page.key" :pageKey="page.key"/>
   </div>
 </template>
 
