@@ -39,18 +39,18 @@ const signInPageContentHeaderId = 'okta-sign-in-page-quickstart';
 const signInWidgetContentHeaderId = 'okta-sign-in-widget-quickstart';
 const angularContentHeaderId = 'okta-angular-quickstart';
 const reactContentHeaderId = 'okta-react-quickstart';
-const vueContentHeaderId = 'okta-vuejs-quickstart';
+const vueContentHeaderId = 'okta-vue-js-quickstart';
 const androidContentHeaderId = 'okta-android-quickstart';
 const iosContentHeaderId = 'okta-ios-quickstart';
 const reactNativeContentHeaderId = 'okta-react-native-quickstart';
 
-const nodeExpressJsContentHeaderId = 'okta-nodejsexpressjs-quickstart';
-const nodeGenericContentHeaderId = 'okta-nodejs-quickstart';
-const javaSpringContentHeaderId = 'okta-javaspring-quickstart';
+const nodeExpressJsContentHeaderId = 'okta-node-js-express-js-quickstart';
+const nodeGenericContentHeaderId = 'okta-node-js-quickstart';
+const javaSpringContentHeaderId = 'okta-java-spring-quickstart';
 const javaGenericContentHeaderId = 'okta-java-quickstart';
 const phpGenericContentHeaderId = 'okta-php-quickstart';
-const dotNetAspCoreContentHeaderId = 'okta-aspnet-core-mvc-quickstart';
-const dotNetAspFourContentHeaderId = 'okta-aspnet-4x-quickstart';
+const dotNetAspCoreContentHeaderId = 'okta-asp-net-core-mvc-quickstart';
+const dotNetAspFourContentHeaderId = 'okta-asp-net-4-x-quickstart';
 
 const signInPageUrlFragment = '/okta-sign-in-page';
 const signInWidgetUrlFragment = '/widget';
