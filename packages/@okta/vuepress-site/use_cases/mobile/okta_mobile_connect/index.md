@@ -44,7 +44,7 @@ criteria below:
    the app to foreground when called.
 
 If your app meets these two criteria, you are encouraged to submit it
-to Okta for testing by sending an email to <developers@okta.com> with
+to Okta for testing by sending an email to [mailto:developers@okta.com] with
 the following information:
 
 * The name of your mobile app.
