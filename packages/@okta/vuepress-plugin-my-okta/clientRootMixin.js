@@ -1,15 +1,15 @@
 export default {
   mounted() {
-    let iframe = document.createElement('iframe')
+    const iframe = document.createElement('iframe')
     iframe.id = 'myOktaIFrame'
     iframe.src = 'https://login.okta.com'
     iframe.style = 'display:none'
     document.body.appendChild(iframe)
 
-    window.addEventListener('message', this.receiveMessage, false);
-    document.addEventListener('visibilitychange', this.checkSuccess, false);
+    window.addEventListener('message', this.receiveMessage, false)
+    document.addEventListener('visibilitychange', this.checkSuccess, false)
 
-    window.addEventListener("load", () => {
+    window.addEventListener('load', () => {
       document.querySelector('.content').innerHTML = document.querySelector('.content').innerHTML.replace(/https:\/\/{yourOktaDomain}/gi, '<span class="okta-preview-domain">https://{yourOktaDomain}</span>')
       this.getMyOktaAccounts()
     })
@@ -17,14 +17,14 @@ export default {
 
   methods: {
     checkSuccess: () => {
-      if (typeof document.hidden !== "undefined") {
+      if (typeof document.hidden !== 'undefined') {
         if (!document.hidden) {
           if ( document.querySelector('.okta-preview-domain').innerHTML == 'https://{yourOktaDomain}' ) {
             // We haven't replaced yet: try again.
-            this.getMyOktaAccounts();
+            this.getMyOktaAccounts()
           } else {
             // We've succeeded: don't try again in the future.
-            document.removeEventListener('visibilitychange', this.checkSuccess, false);
+            document.removeEventListener('visibilitychange', this.checkSuccess, false)
           }
         }
       }
@@ -36,21 +36,21 @@ export default {
 
     receiveMessage: () => {
       if (event.origin !== 'https://login.okta.com' || !event.data) {
-        return;
+        return
       }
 
-      var accountsExist = event.data.length;
+      const accountsExist = event.data.length
       if (!accountsExist) {
         return;
       }
 
-      var domain = event.data[0].origin;
-      var myOktaAccountFound = new CustomEvent('myOktaAccountFound', {
+      const domain = event.data[0].origin
+      const myOktaAccountFound = new CustomEvent('myOktaAccountFound', {
         detail: {
           domain: domain
         }
       });
-      window.dispatchEvent(myOktaAccountFound);
+      window.dispatchEvent(myOktaAccountFound)
 
       document.querySelector('.content').innerHTML = document.querySelector('.content').innerHTML.replace(/https:\/\/{yourOktaDomain}/gi, domain)
     }
