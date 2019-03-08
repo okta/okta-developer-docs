@@ -10,7 +10,7 @@ export default {
 
     switch (domain) {
       case 'vuepress-site.trexcloud.com':
-      case 'localhost:8000':
+      case 'localhost:8080':
         this.iframeSrc = 'https://login.trexcloud.com'
         break;
     }
