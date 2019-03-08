@@ -34,7 +34,7 @@ export default {
       document.querySelector('#myOktaIFrame').contentWindow.postMessage({messageType: 'get_accounts_json'}, 'https://login.okta.com')
     },
 
-    receiveMessage: () => {
+    receiveMessage: (event) => {
       if (event.origin !== 'https://login.okta.com' || !event.data) {
         return
       }
