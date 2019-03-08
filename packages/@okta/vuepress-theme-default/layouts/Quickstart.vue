@@ -84,6 +84,7 @@
       }
     },
     beforeMount: function () {
+      window.location.hash = '/'+this.activeClient+'/'+this.activeServer+'/'+this.activeFramework
       let matches = window.location.hash.match('/([^\/]*)?\/?([^\/]*)?\/?([^\/]*)');
       this.activeClient = matches && matches[1];
       this.activeServer = matches && matches[2];
