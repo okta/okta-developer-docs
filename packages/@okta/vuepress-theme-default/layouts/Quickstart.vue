@@ -30,6 +30,7 @@
 
         <Content :pageKey="activeClientComponent" id="client_content" class="example-content-well"></Content>
 
+
         <h2 id="server_setup">Server Setup</h2>
 
         <div class="code-selector" id="server-selector">
@@ -55,6 +56,7 @@
         </div>
 
         <Content :pageKey="activeServerComponent" id="server_content" class="example-content-well"></Content>
+
       </div>
 
       <div class="TableOfContents TableOfContentsPreload">
@@ -69,87 +71,70 @@
 </template>
 
 <script>
-  import axios from 'axios'
   export default {
     components: {
       TopNavigation: () => import('../components/TopNavigation.vue'),
       Footer: () => import('../components/Footer.vue')
     },
+
     data() {
       return {
-        activeClient: 'okta-sign-in-page',
-        activeServer: 'nodejs',
-        activeFramework: 'express',
-        activeTab: null
+        activeTab: null,
+        currentHash: null,
+        activeClient: null,
+        activeClientComponent: null,
+        activeServer: null,
+        activeServerComponent: null,
+        activeFramework: null
       }
     },
+
     beforeMount: function () {
-      window.location.hash = '/'+this.activeClient+'/'+this.activeServer+'/'+this.activeFramework
-      let matches = window.location.hash.match('/([^\/]*)?\/?([^\/]*)?\/?([^\/]*)');
+      if(window.location.hash == "") {
+        window.location.hash = this.defaultUriHash
+      }
+
+      this.currentHash = window.location.hash
+
+      const matches = window.location.hash.match('/([^/]*)?/?([^/]*)?/?([^/]*)');
       this.activeClient = matches && matches[1];
       this.activeServer = matches && matches[2];
       this.activeFramework = matches && matches[3];
-
-      if(this.activeClient == null) {
-        let defaultClient = this.$themeConfig.quickstarts.clients.find((client) => {
-          return client.default && client.default == true
-        })
-        this.activeClient = defaultClient.name
-      }
-
-      if(this.activeServer == null) {
-        let defaultServer = this.$themeConfig.quickstarts.servers.find((server) => {
-          return server.default && server.default == true
-        })
-        this.activeServer = defaultServer.name
-      }
-
-      if(this.activeFramework == null) {
-        let defaultServerFramework = this.activeServerFrameworks.find((framework) => {
-          return framework.default && framework.default == true
-        })
-        this.activeFramework = defaultServerFramework.name
-      }
-
     },
-    computed: {
-      activeServerFrameworks: function () {
-        if(this.activeServer == null) return []
-        let activeServerFrameworks = this.$themeConfig.quickstarts.servers.find((server) => {
-          return server.name == this.activeServer
-        })
-        return activeServerFrameworks.frameworks
-      },
 
-      activeClientComponent: function () {
-        let component = this.$site.pages.find((page) => {
+    watch: {
+      currentHash: function () {
+        let clientComponent = this.$site.pages.find((page) => {
           return page.regularPath.startsWith('/quickstart-fragments/'+this.activeClient+'/default-example')
         })
+        if(clientComponent) {
+          this.activeClientComponent = clientComponent.key
+        }
 
-        return component.key
-      },
 
-      activeServerComponent: function () {
         let client = this.$themeConfig.quickstarts.clients.filter((client) => {
           return client.name === this.activeClient
         })[0];
-        let component = this.$site.pages.find((page) => {
+        let serverComponent = this.$site.pages.find((page) => {
           return page.regularPath.startsWith('/quickstart-fragments/' + this.activeServer + '/' + this.activeFramework + '-' + client.serverExampleType + '/')
         })
+        if(serverComponent) {
+          this.activeServerComponent = serverComponent.key
+        }
 
-        return component.key
-      }
-    },
-    watch: {
+
+      },
+
       activeClient: function () {
         window.location.hash = '/'+this.activeClient+'/'+this.activeServer+'/'+this.activeFramework
+        this.currentHash = window.location.hash
       },
+
       activeServer: function () {
         let frameworkToSet = null
         // is current Framework available for current Server
         this.$themeConfig.quickstarts.servers.find((server) => {
           if (server.name == this.activeServer) {
-
             return server.frameworks.find((framework) => {
               // console.log(framework.name, this.activeFramework)
               if (framework.name == this.activeFramework) {
@@ -159,12 +144,10 @@
             })
           }
         })
-
         // get Default Framework for server if current one is not available
         if (frameworkToSet === null) {
           this.$themeConfig.quickstarts.servers.find((server) => {
             if (server.name == this.activeServer) {
-
               return server.frameworks.find((framework) => {
                 // console.log(framework.name, this.activeFramework)
                 if (framework.default && framework.default===true) {
@@ -175,15 +158,62 @@
             }
           })
         }
-
         this.activeFramework = frameworkToSet
 
         window.location.hash = '/'+this.activeClient+'/'+this.activeServer+'/'+this.activeFramework
+        this.currentHash = window.location.hash
       },
+
       activeFramework: function () {
         window.location.hash = '/'+this.activeClient+'/'+this.activeServer+'/'+this.activeFramework
+        this.currentHash = window.location.hash
       }
     },
+
+    computed: {
+      defaultClient: function () {
+        return this.$themeConfig.quickstarts.clients.find((client) => {
+          if(client.default && client.default == true) {
+            return client
+          }
+        })
+      },
+
+      defaultServer: function () {
+        return this.$themeConfig.quickstarts.servers.find((server) => {
+          if(server.default && server.default == true) {
+            return server
+          }
+        })
+      },
+
+      defaultServerFramework: function () {
+        let defaultServer = this.$themeConfig.quickstarts.servers.find((server) => {
+          if(server.default && server.default == true) {
+            return server
+          }
+        })
+
+        return defaultServer.frameworks.find((framework) => {
+          if(framework.default && framework.default == true) {
+            return framework
+          }
+        })
+      },
+
+      defaultUriHash: function () {
+        return '/' + this.defaultClient.name + '/' + this.defaultServer.name + '/' + this.defaultServerFramework.name + '/'
+      },
+
+      activeServerFrameworks: function () {
+        if(this.activeServer == null) return []
+        let activeServerFrameworks = this.$themeConfig.quickstarts.servers.find((server) => {
+          return server.name == this.activeServer
+        })
+        return activeServerFrameworks.frameworks
+      }
+    },
+
     methods: {
       scrollToAccount: function () {
         this.scrollTo('#account')
