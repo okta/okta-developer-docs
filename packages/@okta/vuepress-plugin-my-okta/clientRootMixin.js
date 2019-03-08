@@ -1,8 +1,23 @@
 export default {
+  data () {
+    return {
+      iframeSrc: 'https://login.okta.com'
+    }
+  },
+
   mounted() {
+    const domain = window.location.hostname
+
+    switch (domain) {
+      case 'vuepress-site.trexcloud.com':
+      case 'localhost:8000':
+        this.iframeSrc = 'https://login.trexcloud.com'
+        break;
+    }
+
     const iframe = document.createElement('iframe')
     iframe.id = 'myOktaIFrame'
-    iframe.src = 'https://login.okta.com'
+    iframe.src = this.iframeSrc
     iframe.style = 'display:none'
     document.body.appendChild(iframe)
 
@@ -31,11 +46,11 @@ export default {
     },
 
     getMyOktaAccounts: () => {
-      document.querySelector('#myOktaIFrame').contentWindow.postMessage({messageType: 'get_accounts_json'}, 'https://login.okta.com')
+      document.querySelector('#myOktaIFrame').contentWindow.postMessage({messageType: 'get_accounts_json'}, this.iframeSrc)
     },
 
     receiveMessage: (event) => {
-      if (event.origin !== 'https://login.okta.com' || !event.data) {
+      if (event.origin !== this.iframeSrc || !event.data) {
         return
       }
 
