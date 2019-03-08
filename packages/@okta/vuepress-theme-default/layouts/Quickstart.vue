@@ -77,13 +77,13 @@
     },
     data() {
       return {
-        activeClient: null,
-        activeServer: null,
-        activeFramework: null,
+        activeClient: 'okta-sign-in-page',
+        activeServer: 'nodejs',
+        activeFramework: 'express',
         activeTab: null
       }
     },
-    created: function () {
+    beforeMount: function () {
       let matches = window.location.hash.match('/([^\/]*)?\/?([^\/]*)?\/?([^\/]*)');
       this.activeClient = matches && matches[1];
       this.activeServer = matches && matches[2];
