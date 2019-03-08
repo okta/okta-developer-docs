@@ -1,5 +1,5 @@
 <template>
-  <section class="PageContent DynamicSidebar" :class="{'has-tableOfContents': showToc}">
+  <section class="PageContent DynamicSidebar has-tableOfContents">
     <!-- Begin Sidebar -->
     <Sidebar />
     <!-- End Sidebar -->
