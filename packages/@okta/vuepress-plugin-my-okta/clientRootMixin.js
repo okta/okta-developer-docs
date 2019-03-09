@@ -1,23 +1,18 @@
 export default {
-  data () {
-    return {
-      iframeSrc: 'https://login.okta.com'
-    }
-  },
-
   mounted() {
     const domain = window.location.hostname
+    let iframeSrc = 'https://login.okta.com'
 
     switch (domain) {
       case 'vuepress-site.trexcloud.com':
-      case 'localhost:8080':
-        this.iframeSrc = 'https://login.trexcloud.com'
+      case 'localhost':
+        iframeSrc = 'https://login.trexcloud.com'
         break;
     }
 
     const iframe = document.createElement('iframe')
     iframe.id = 'myOktaIFrame'
-    iframe.src = this.iframeSrc
+    iframe.src = iframeSrc
     iframe.style = 'display:none'
     document.body.appendChild(iframe)
 
@@ -34,7 +29,7 @@ export default {
     checkSuccess: () => {
       if (typeof document.hidden !== 'undefined') {
         if (!document.hidden) {
-          if ( document.querySelector('.okta-preview-domain').innerHTML == 'https://{yourOktaDomain}' ) {
+          if ( document.querySelectorAll('.okta-preview-domain').length > 1 && document.querySelector('.okta-preview-domain').innerHTML == 'https://{yourOktaDomain}' ) {
             // We haven't replaced yet: try again.
             this.getMyOktaAccounts()
           } else {
@@ -46,11 +41,11 @@ export default {
     },
 
     getMyOktaAccounts: () => {
-      document.querySelector('#myOktaIFrame').contentWindow.postMessage({messageType: 'get_accounts_json'}, this.iframeSrc)
+      document.querySelector('#myOktaIFrame').contentWindow.postMessage({messageType: 'get_accounts_json'}, document.querySelector('#myOktaIFrame').getAttribute('src'))
     },
 
     receiveMessage: (event) => {
-      if (event.origin !== this.iframeSrc || !event.data) {
+      if (event.origin !== document.querySelector('#myOktaIFrame').getAttribute('src') || !event.data) {
         return
       }
 
