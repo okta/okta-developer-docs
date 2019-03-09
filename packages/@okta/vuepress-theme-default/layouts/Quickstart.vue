@@ -100,10 +100,15 @@
       this.activeClient = matches && matches[1];
       this.activeServer = matches && matches[2];
       this.activeFramework = matches && matches[3];
+
+
     },
 
     watch: {
       currentHash: function () {
+        this.checkActiveClient()
+        this.checkActiveServer()
+
         let clientComponent = this.$site.pages.find((page) => {
           return page.regularPath.startsWith('/quickstart-fragments/'+this.activeClient+'/default-example')
         })
@@ -229,6 +234,30 @@
       },
       scrollTo: function (element) {
         window.scrollTo(0, document.querySelectorAll(element)[0].offsetTop - 150)
+      },
+
+      checkActiveClient: function () {
+        let found =  this.$themeConfig.quickstarts.clients.find((client) => {
+          if(client.name == this.activeClient) {
+            return true
+          }
+        })
+
+        if (!found) {
+          this.activeClient = this.defaultClient.name
+        }
+      },
+
+      checkActiveServer: function () {
+        let found =  this.$themeConfig.quickstarts.servers.find((server) => {
+          if(server.name == this.activeServer) {
+            return true
+          }
+        })
+
+        if (!found) {
+          this.activeServer = this.defaultServer.name
+        }
       }
     }
   }
