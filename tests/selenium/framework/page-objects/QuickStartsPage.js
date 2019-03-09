@@ -73,6 +73,15 @@ const nodeExpressJsUrlLongFragment = 'okta-sign-in-page/nodejs/express';
 const javaSpringUrlLongFragment = 'okta-sign-in-page/java/spring';
 const dotNetAspCoreUrlLongFragment = 'okta-sign-in-page/dotnet/aspnetcore';
 
+const signinPageNodeExpressFragment = 'okta-sign-in-page/nodejs/express';
+const widgetNodeExpressFragment = 'widget/nodejs/express';
+const angularNodeExpressFragment = 'angular/nodejs/express';
+const reactNodeExpressFragment = 'react/nodejs/express';
+const vueNodeExpressFragment = 'vue/nodejs/express';
+const androidNodeExpressFragment = 'android/nodejs/express';
+const iosNodeExpressFragment = 'ios/nodejs/express';
+const reactNativeNodeExpressFragment = 'react-native/nodejs/express';
+
 class QuickStartsPage extends BasePage {
   constructor(url) {
     super(url, QuickStartsPage.getPageLoadElement());
@@ -282,6 +291,31 @@ class QuickStartsPage extends BasePage {
   }
   static getDotNetAspCoreUrlLongFragment() {
     return dotNetAspCoreUrlLongFragment;
+  }
+
+  static getSigninPageNodeExpressFragment() {
+    return signinPageNodeExpressFragment;
+  }
+  static getWidgetNodeExpressFragment() {
+    return widgetNodeExpressFragment;
+  }
+  static getAngularNodeExpressFragment() {
+    return angularNodeExpressFragment;
+  }
+  static getReactNodeExpressFragment() {
+    return reactNodeExpressFragment;
+  }
+  static getVueNodeExpressFragment() {
+    return vueNodeExpressFragment;
+  }
+  static getAndroidNodeExpressFragment() {
+    return androidNodeExpressFragment;
+  }
+  static getIosNodeExpressFragment() {
+    return iosNodeExpressFragment;
+  }
+  static getReactNativeNodeExpressFragment() {
+    return reactNativeNodeExpressFragment;
   }
 
   activeLinksContain(links) {

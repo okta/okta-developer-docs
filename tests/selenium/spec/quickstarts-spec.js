@@ -47,6 +47,149 @@ describe('quickstarts page default selections spec', () => {
     ]);
   }));
 
+  it('selects okta-sign-in-page + nodejs + express if invalid client in hash', util.itHelper(async () => {
+    await quickstartsPage.navigate('/quickstart/#/undefined/nodejs/express');
+    await quickstartsPage.refresh();
+    expect(await quickstartsPage.getCurrentURL())
+      .to.contain(QuickStartsPage.getSigninPageNodeExpressFragment());
+    expect(await quickstartsPage.getActiveLinkText())
+      .to.include.members([
+      'Okta Sign-In Page',
+      'Node JS',
+      'Express.js'
+    ]);
+  }));
+
+  it('selects okta-sign-in-page + nodejs + express if invalid server in hash', util.itHelper(async () => {
+    await quickstartsPage.navigate('/quickstart/#/okta-sign-in-page/undefined/express');
+    await quickstartsPage.refresh();
+    expect(await quickstartsPage.getCurrentURL())
+      .to.contain(QuickStartsPage.getSigninPageNodeExpressFragment());
+    expect(await quickstartsPage.getActiveLinkText())
+      .to.include.members([
+      'Okta Sign-In Page',
+      'Node JS',
+      'Express.js'
+    ]);
+  }));
+
+  it('selects okta-sign-in-page + nodejs + express if invalid server framework in hash', util.itHelper(async () => {
+    await quickstartsPage.navigate('/quickstart/#/okta-sign-in-page/nodejs/null');
+    await quickstartsPage.refresh();
+    expect(await quickstartsPage.getCurrentURL())
+      .to.contain(QuickStartsPage.getSigninPageNodeExpressFragment());
+    expect(await quickstartsPage.getActiveLinkText())
+      .to.include.members([
+      'Okta Sign-In Page',
+      'Node JS',
+      'Express.js'
+    ]);
+  }));
+
+  it('selects okta-sign-in-page + nodejs + express if only okta-sign-in-page is in url', util.itHelper(async () => {
+    await quickstartsPage.navigate('/quickstart/#/okta-sign-in-page');
+    await quickstartsPage.refresh();
+    expect(await quickstartsPage.getCurrentURL())
+      .to.contain(QuickStartsPage.getSigninPageNodeExpressFragment());
+    expect(await quickstartsPage.getActiveLinkText())
+      .to.include.members([
+      'Okta Sign-In Page',
+      'Node JS',
+      'Express.js'
+    ]);
+  }));
+
+  it('selects okta-sign-in-page + nodejs + express if only widget is in url', util.itHelper(async () => {
+    await quickstartsPage.navigate('/quickstart/#/widget');
+    await quickstartsPage.refresh();
+    expect(await quickstartsPage.getCurrentURL())
+      .to.contain(QuickStartsPage.getWidgetNodeExpressFragment());
+    expect(await quickstartsPage.getActiveLinkText())
+      .to.include.members([
+      'Okta Sign-In Widget',
+      'Node JS',
+      'Express.js'
+    ]);
+  }));
+
+  it('selects okta-sign-in-page + nodejs + express if only angular is in url', util.itHelper(async () => {
+    await quickstartsPage.navigate('/quickstart/#/angular');
+    await quickstartsPage.refresh();
+    expect(await quickstartsPage.getCurrentURL())
+      .to.contain(QuickStartsPage.getAngularNodeExpressFragment());
+    expect(await quickstartsPage.getActiveLinkText())
+      .to.include.members([
+      'Angular',
+      'Node JS',
+      'Express.js'
+    ]);
+  }));
+
+  it('selects okta-sign-in-page + nodejs + express if only React is in url', util.itHelper(async () => {
+    await quickstartsPage.navigate('/quickstart/#/react');
+    await quickstartsPage.refresh();
+    expect(await quickstartsPage.getCurrentURL())
+      .to.contain(QuickStartsPage.getReactNodeExpressFragment());
+    expect(await quickstartsPage.getActiveLinkText())
+      .to.include.members([
+      'React',
+      'Node JS',
+      'Express.js'
+    ]);
+  }));
+
+  it('selects okta-sign-in-page + nodejs + express if only Vue is in url', util.itHelper(async () => {
+    await quickstartsPage.navigate('/quickstart/#/vue');
+    await quickstartsPage.refresh();
+    expect(await quickstartsPage.getCurrentURL())
+      .to.contain(QuickStartsPage.getVueNodeExpressFragment());
+    expect(await quickstartsPage.getActiveLinkText())
+      .to.include.members([
+      'Vue',
+      'Node JS',
+      'Express.js'
+    ]);
+  }));
+
+  it('selects okta-sign-in-page + nodejs + express if only Android is in url', util.itHelper(async () => {
+    await quickstartsPage.navigate('/quickstart/#/android');
+    await quickstartsPage.refresh();
+    expect(await quickstartsPage.getCurrentURL())
+      .to.contain(QuickStartsPage.getAndroidNodeExpressFragment());
+    expect(await quickstartsPage.getActiveLinkText())
+      .to.include.members([
+      'Android',
+      'Node JS',
+      'Express.js'
+    ]);
+  }));
+
+  it('selects okta-sign-in-page + nodejs + express if only iOS is in url', util.itHelper(async () => {
+    await quickstartsPage.navigate('/quickstart/#/ios');
+    await quickstartsPage.refresh();
+    expect(await quickstartsPage.getCurrentURL())
+      .to.contain(QuickStartsPage.getIosNodeExpressFragment());
+    expect(await quickstartsPage.getActiveLinkText())
+      .to.include.members([
+      'iOS',
+      'Node JS',
+      'Express.js'
+    ]);
+  }));
+
+  it('selects okta-sign-in-page + nodejs + express if only React Native is in url', util.itHelper(async () => {
+    await quickstartsPage.navigate('/quickstart/#/react-native');
+    await quickstartsPage.refresh();
+    expect(await quickstartsPage.getCurrentURL())
+      .to.contain(QuickStartsPage.getReactNativeNodeExpressFragment());
+    expect(await quickstartsPage.getActiveLinkText())
+      .to.include.members([
+      'React Native',
+      'Node JS',
+      'Express.js'
+    ]);
+  }));
+
   it('selects spring if only java is specified', util.itHelper(async () => {
     await quickstartsPage.navigate('/quickstart/#/okta-sign-in-page/java');
     await quickstartsPage.refresh();
