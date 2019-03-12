@@ -17,7 +17,7 @@ excerpt: 'Additional events in log, token preview UI,  and API bug fix'
 Configuring an application or integration to use OpenID Connect  ID tokens or OAuth 2.0 access tokens can take a lot of trial-and-error.
 Okta has made it easier to choose configuration settings and see the resulting tokens in the **Token Preview** tab of the Authorization Server page:
 
-![Screen shot of token preview tab](/assets/img/release_notes/token_preview.png "Screen shot of token preview tab")
+![Screen shot of token preview tab](/img/release_notes/token_preview.png "Screen shot of token preview tab")
 
 Add values on the left side to see how they would affect the token on the right. All the fields are selection boxes except User.
 For User, type in the first few letters to see a choice of user names.

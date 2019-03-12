@@ -15,7 +15,7 @@ To improve usability, we've moved some of the panels in the administrator UI rel
 * The **Signing credentials rotation** option was on the **Client Registration** panel, but since it helps you configure tokens, we've
  moved it to the **Authorization Server** tab.
 
-![New Tab for Managing OAuth-Related Configuration](/assets/img/changed_tabs.png "New Tab for Managing OAuth-Related Configuration")
+![New Tab for Managing OAuth-Related Configuration](/img/changed_tabs.png "New Tab for Managing OAuth-Related Configuration")
 
 #### Okta Sign-In Widget Updated
 

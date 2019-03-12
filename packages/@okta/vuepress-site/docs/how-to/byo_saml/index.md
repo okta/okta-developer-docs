@@ -344,7 +344,7 @@ For Outbound SAML, complete the following four steps.
 
 1. In the administrator UI, select **Applications** and choose your app.
 2. Select **Sign-On Options**.
-3.Click**ViewSetupInstructions**,asshownbelow.<br/>{%imgsaml_setup_link.pngalt:"AccessingSAMLSetupInstructions"%}![](/assets/img/ "")
+3.Click**ViewSetupInstructions**,asshownbelow.<br/>{%imgsaml_setup_link.pngalt:"AccessingSAMLSetupInstructions"%}![](/img/ "")
 4. Perform the setup for your app again, using the instructions provided. During this setup, you will upload the certificate in a specified format, the metadata, or the certificate fingerprint.
 
 For Inbound SAML, follow the existing procedures for your setup.

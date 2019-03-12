@@ -10,7 +10,7 @@ excerpt: Add a user consent to your authentication or authorization flow
 
 If you want users to acknowledge and accept that they are giving an app access to their data, you can configure an Okta-hosted user consent dialog for OAuth 2.0 or OpenID Connect authentication flows. With the correct configuration, Okta displays a consent dialog showing which app is asking for access. The dialog displays the app logo you specify, and also provides details about what data will be shared if the user consents.
 
-![](/assets/img/user-consent-howto.png "")
+![](/img/user-consent-howto.png "")
 
 You can optionally configure the consent dialog to link to your terms of service or privacy policy documents.
 
@@ -34,7 +34,7 @@ Use the following procedure to display the user consent dialog as part of an Ope
 
     Note: You can also create and configure an app in the administrator UI by navigating to **Applications > Add Application**.
 
-![](/assets/img/user-consent-panel.png "")
+![](/img/user-consent-panel.png "")
 
 3. [Enable consent](/docs/api/resources/authorization-servers#create-a-scope) for the scopes that you want to require consent. To do this, set the `consent` property to `REQUIRED`.
 

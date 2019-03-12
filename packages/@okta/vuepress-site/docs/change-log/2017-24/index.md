@@ -52,7 +52,7 @@ Using either the administrator UI or API, you can configure default scopes for a
 If the client omits the scope parameter in an authorization request,
 Okta returns all default scopes in the Access Token that are permitted by the access policy rule.
 
-![Default Scope Configuration UI](/assets/img/release_notes/default-scope.png "Default Scope Configuration UI")
+![Default Scope Configuration UI](/img/release_notes/default-scope.png "Default Scope Configuration UI")
 
 For more information about setting default scopes in the API, see [OAuth 2.0 API](/docs/api/resources/authorization-servers#scope-properties).
 <!-- OKTA-122185 OKTA-122072 -->
@@ -61,7 +61,7 @@ For more information about setting default scopes in the API, see [OAuth 2.0 API
 
 The wizard for creating an OpenID Connect app has been improved and consolidated onto a single screen.
 
-![New OpenID Connect Create Wizard](/assets/img/release_notes/single-oidc-screen.png "New OpenID Connect Create Wizard")
+![New OpenID Connect Create Wizard](/img/release_notes/single-oidc-screen.png "New OpenID Connect Create Wizard")
 
 <!-- OKTA-129127 -->
 

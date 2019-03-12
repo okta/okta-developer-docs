@@ -14,7 +14,7 @@ Okta uses the Widget as part of its normal sign-in page. If you would like to cu
 
 > A version of the Widget that you can edit in real time can be found here: <https://developer.okta.com/live-widget/>
 
-![Screenshot of basic Okta Sign-In Widget](/assets/img/okta-signin.png "Screenshot of basic Okta Sign-In Widget")
+![Screenshot of basic Okta Sign-In Widget](/img/okta-signin.png "Screenshot of basic Okta Sign-In Widget")
 
 
 ## Installation
@@ -242,7 +242,7 @@ The Okta Sign-In Widget is fully customizable via CSS and JavaScript.
 
 You can modify the look of the initial login screen using parameters in the `config` section of the main Widget initialization block.
 
-![Screenshot of basic Okta Sign-In Widget](/assets/img/widget_theming.png "Screenshot of basic Okta Sign-In Widget")
+![Screenshot of basic Okta Sign-In Widget](/img/widget_theming.png "Screenshot of basic Okta Sign-In Widget")
 
 **Logo**
 

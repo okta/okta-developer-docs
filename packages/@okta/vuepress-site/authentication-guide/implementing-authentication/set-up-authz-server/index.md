@@ -26,7 +26,7 @@ If you only need one Authorization Server, but you'd like to know more about cus
 > NOTE: If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you can skip this step because you already have a custom Authorization Server created for you, called "default". The `{authServerId}` for the default server is `default`.
 
 1. In the administration UI, navigate to **API > Authorization Servers**.
-![Authorization Server](/assets/img/ "Authorization Server")
+![Authorization Server](/img/ "Authorization Server")
 
 2. Choose **Add Authorization Server** and supply the requested information.
 
@@ -36,7 +36,7 @@ If you only need one Authorization Server, but you'd like to know more about cus
     * **Description**
 
 When complete, your Authorization Server's **Settings** tab displays the information that you provided and allows you to edit it.
-![Add Authorization Server width:](/assets/img/auth_server2.png "Add Authorization Server width:")
+![Add Authorization Server width:](/img/auth_server2.png "Add Authorization Server width:")
 
 Once the Authorization Server is created you can also edit the Signing Key Rotation setting. You can find out more about Okta's signing keys by reading about [token validation](/authentication-guide/tokens/validating-access-tokens#what-to-check-when-validating-an-access-token).
 
@@ -47,17 +47,17 @@ Access policies are containers for rules. Each access policy applies to a partic
 1. In the administration UI, navigate to **API > Authorization Servers**.
 2. Choose the name of an Authorization Server.
 3. Choose **Access Policies > Add Policy**
-![Add Access Policy width:](/assets/img/access_policy1.png "Add Access Policy width:")
+![Add Access Policy width:](/img/access_policy1.png "Add Access Policy width:")
 4. Provide the requested information:
     * **Name**
     * **Description**
     * Assign to **All clients**, or select **The following clients:** and enter the name of the Okta OpenID Connect applications covered by this access policy. This field will auto-complete the names of your OpenID Connect applications as you type.
-![Access Policy Configuration width:](/assets/img/access_policy2.png "Access Policy Configuration width:")
+![Access Policy Configuration width:](/img/access_policy2.png "Access Policy Configuration width:")
 
 While in the Access Policy list, you can:
 * Set access policies to be active or deactivate them for testing or debugging purposes.
 * Reorder any policies you create using drag-n-drop.
-![Access Policy List width:](/assets/img/access_policy3.png "Access Policy List width:")
+![Access Policy List width:](/img/access_policy3.png "Access Policy List width:")
 
 Polices are evaluated in priority order, as are the rules in a policy.
 The first policy and rule that matches the client request is applied and no further rule or policy processing occurs. If a client matches no policies, the authentication attempt will fail and an error will be returned.
@@ -69,7 +69,7 @@ Rules define particular token lifetimes for a given combination of grant type, u
 1. In the administration UI, navigate to **API > Authorization Servers**.
 2. Choose the name of an authorization server, and select **Access Policies**.
 3. Choose the name of an access policy, and select **Add Rule**.
-![Add Rule width:](/assets/img/rule1.png "Add Rule width:")
+![Add Rule width:](/img/rule1.png "Add Rule width:")
 4. Enter the requested information:
     * **Rule Name**
     * **IF Grant type is:** Select one or more OAuth 2.0 grant types.
@@ -78,7 +78,7 @@ Rules define particular token lifetimes for a given combination of grant type, u
     * **THEN Access token lifetime is:** Choose the length of time before an access token expires.
     * **THEN Refresh token lifetime is:** Choose the length of time before a refresh token expires.
 5. Choose **Create Rule** to save the rule.
-![Rules List width:](/assets/img/rule2.png "Rules List width:")
+![Rules List width:](/img/rule2.png "Rules List width:")
 
 While in the Rules list for an access policy, you can:
 
@@ -114,10 +114,10 @@ If you need scopes in addition to the reserved scopes provided, you can create t
 
 1. In the administrator UI, navigate to **API > Authorization Servers**.
 2. Choose the name of the Authorization Server to display, and then select **Scopes**.
-![Add Scopes width:](/assets/img/scope1.png "Add Scopes width:")
+![Add Scopes width:](/img/scope1.png "Add Scopes width:")
 
 3. Choose **Scopes > Add Scope**, and provide a name and description, then choose **Create** to save the scope.
-![View Scopes width:](/assets/img/scope2.png "View Scopes width:")
+![View Scopes width:](/img/scope2.png "View Scopes width:")
 
 These scopes are referenced by the **Claims** dialog.
 
@@ -131,10 +131,10 @@ Create ID Token claims for OpenID Connect, or access tokens for OAuth 2.0:
 
 1. In the administrator UI, navigate to **API > Authorization Servers**.
 2. Choose the name of the Authorization Server to display, and choose **Claims**.
-![Choose Claims width:](/assets/img/claims1.png "Choose Claims width:")
+![Choose Claims width:](/img/claims1.png "Choose Claims width:")
  Okta provides a default subject claim. You can edit the mapping, or create your own claims.
 3. Choose **Add Claim** and provide the requested information.
-![Edit Claims width:](/assets/img/claim.png "Edit Claims width:")
+![Edit Claims width:](/img/claim.png "Edit Claims width:")
 
     * **Name**
     * **Include in token type**: Choose Access Token (OAuth 2.0) or ID Token (OpenID Connect). If you choose ID Token, you can also choose if the claim should be included only when requested, or always.
@@ -150,7 +150,7 @@ While in the Claims list, you can:
 * Sort claims by type.
 * Delete claims you've created, or disable claims for testing or debugging purposes.
 
-![Claims List width:](/assets/img/claims2.png "Claims List width:")
+![Claims List width:](/img/claims2.png "Claims List width:")
 
 ## Test Your Authorization Server Configuration
 

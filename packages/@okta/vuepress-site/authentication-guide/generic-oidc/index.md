@@ -23,7 +23,7 @@ By default, all OIDC IdPs are configured with the Authorization Code grant type 
 
 ## The Generic OIDC IdP Process
 
-![Generic OIDC Flow width:](/assets/img/OIDC-Okta-scenario.png "Generic OIDC Flow width:")
+![Generic OIDC Flow width:](/img/OIDC-Okta-scenario.png "Generic OIDC Flow width:")
 
 Note: Okta is acting as an app in this scenario, being authenticated by the IdP.
 

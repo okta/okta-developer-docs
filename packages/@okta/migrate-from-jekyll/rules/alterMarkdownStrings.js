@@ -160,7 +160,7 @@ function alterMarkdownStrings(file) {
 
       })
 
-      string += (`![${altTag.join(' ')}](/assets/img/${imageString} \"${altTag.join(' ')}\")`)
+      string += (`![${altTag.join(' ')}](/img/${imageString} \"${altTag.join(' ')}\")`)
 
       line = string
     }

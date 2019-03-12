@@ -117,8 +117,8 @@ function buildFile(file) {
 
 function run() {
   // console.log(`${chalk.bold.green("Migrating from okta.github.io source repo.")}\n`)
-  execSync(`rm -rf okta.github.io`);
-  cloneRepo('https://github.com/okta/okta.github.io.git')
+  // execSync(`rm -rf okta.github.io`);
+  // cloneRepo('https://github.com/okta/okta.github.io.git')
   cleanupFiles()
 
   let getFiles = (directory, filelist) => {
@@ -184,10 +184,14 @@ function run() {
         rootPath = docsRoot+'/.vuepress/public/'
       }
 
+      if(file.origPath.includes('_assets/fonts/')) {
+        rootPath = docsRoot+'/.vuepress/public/'
+      }
+
     }
 
     if(file.origPath.includes('books/') && file.origPath.includes('images')) {
-        rootPath = docsRoot+'/.vuepress/public/assets/img/'
+        rootPath = docsRoot+'/.vuepress/public/img/'
     }
 
     if (file.origPath.includes('_change-log')) {
