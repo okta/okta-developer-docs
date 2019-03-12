@@ -25,7 +25,7 @@ You can now search (exact match) for an authorization server name or resource UR
 To see the new search box, log into your Okta org, click the **Admin** button, and visit **Security > API > Authorization Servers**.
 <!-- OKTA-97833 -->
 
-![Search box for authorization servers](/assets/img/release_notes/rn-search-as.png "Search box for authorization servers")
+![Search box for authorization servers](/img/release_notes/rn-search-as.png "Search box for authorization servers")
 
 #### Manual Key Rotation (Key Pinning)
 

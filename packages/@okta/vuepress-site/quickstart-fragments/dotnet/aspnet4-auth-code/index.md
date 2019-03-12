@@ -85,7 +85,7 @@ If you are creating an Okta application from scratch, click **Done** to see the 
 
 The local port may be different on your machine. Right-click on the project and choose  **Properties**, then **Web**. If it's different than 8080, update the **Project Url** and save your changes.
 
-![Project port settings](/assets/img/vs-project-port.png "Project port settings")
+![Project port settings](/img/vs-project-port.png "Project port settings")
 
 **Note**: You can also find the assigned port by running the application.
 

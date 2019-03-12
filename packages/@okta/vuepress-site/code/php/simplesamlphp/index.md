@@ -243,7 +243,7 @@ There are two ways to test a SAML application:
 You will use both methods to test your application. In each case, you will know if the
 test worked when you see a screen that looks like the one below:
 
-![Authenticated user](/assets/img/example-application-authenticated-user.png "Authenticated user")
+![Authenticated user](/img/example-application-authenticated-user.png "Authenticated user")
 
 
 1.  Login from the Okta SimpleSAMLphp example application (This is
@@ -262,7 +262,7 @@ test worked when you see a screen that looks like the one below:
 
     -   Click the button for the application you created earlier
         "Configuring Okta to work with SimpleSAMLphp" section
-above:![SimpleSAMLphp Example](/assets/img/simplesamlphp-example-okta-chiclet.png "SimpleSAMLphp Example")
+above:![SimpleSAMLphp Example](/img/simplesamlphp-example-okta-chiclet.png "SimpleSAMLphp Example")
 
 You will know that your testing was successful if are able to get to the "Logged in"
 page pictured above using both "SP initated" and "IdP initated" login.

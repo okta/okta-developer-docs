@@ -53,7 +53,7 @@
   }
 </script>
 
-<style src="../styles/okta.scss" lang="scss"></style>
+<style src="../assets/css/okta.scss" lang="scss"></style>
 <style scoped>
   .Sidebar-group {
     margin: 0 0 60px

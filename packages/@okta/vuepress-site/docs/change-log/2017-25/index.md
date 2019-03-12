@@ -40,7 +40,7 @@ For more information, see [Identity Provider Signing Key Store Operations](/docs
 or [Update Key Credential for Application](/docs/api/resources/apps#update-key-credential-for-application).
 
 Here is a response from `/api/v1/logs`
-![Logged Key Rotation Event](/assets/img/release_notes/KeyRotateLog.png "Logged Key Rotation Event")
+![Logged Key Rotation Event](/img/release_notes/KeyRotateLog.png "Logged Key Rotation Event")
 <!-- (OKTA-76607) -->
 
 #### Client Registration API Is an Early Access Feature
@@ -58,7 +58,7 @@ to create and manage clients.
 Logged information about OAuth 2.0 client updates is now available by using GET requests to
 either log endpoint: `/api/v1/events` or `/api/v1/logs`.
 
-![Logged Key Rotation Event](/assets/img/release_notes/DeactClientLog.png "Logged Key Rotation Event")
+![Logged Key Rotation Event](/img/release_notes/DeactClientLog.png "Logged Key Rotation Event")
 <!-- (OKTA-86738, OKTA-127445) -->
 
 #### Support for RP-Initiated Logout

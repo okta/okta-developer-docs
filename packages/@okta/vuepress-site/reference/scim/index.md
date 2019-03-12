@@ -11,7 +11,7 @@ redirect_from:
 
 Your SCIM API must support the following SCIM API endpoints to work with Okta:
 
-![scim api endpoints required to work with Okta width:](/assets/img/scim_flowchart.png "scim api endpoints required to work with Okta width:")
+![scim api endpoints required to work with Okta width:](/img/scim_flowchart.png "scim api endpoints required to work with Okta width:")
 
 ### Create Account: POST /Users
 

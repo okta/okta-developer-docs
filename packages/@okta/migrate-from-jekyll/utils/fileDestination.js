@@ -4,6 +4,10 @@ module.exports = {
     pathParts.shift()
     pathParts.shift()
 
+    if(rootPath.endsWith('/')) {
+      rootPath = rootPath.slice(0, -1)
+    }
+
     pathParts.forEach((part, index) => {
       if( part.startsWith("_") && part.length > 1) {
         pathParts[index] = part.slice(1)
@@ -17,6 +21,9 @@ module.exports = {
       pathParts.push("index.md")
     }
 
+    if(pathParts[0] == 'assets' && (pathParts[1] == 'img' || pathParts[1] == 'fonts')) {
+      pathParts.shift()
+    }
 
     return rootPath + '/' + pathParts.join('/')
   })

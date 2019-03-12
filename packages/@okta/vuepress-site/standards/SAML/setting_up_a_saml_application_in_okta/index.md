@@ -25,21 +25,21 @@ If you see a <b>< > Developer</b> prompt in the top left, click it and select <b
     <a href="https://developer.okta.com/signup/" target="_blank">Developer Edition organization</a>.
 
 2.  Click on the blue "Admin" button
-![Admin"](/assets/img/okta-admin-ui-button-admin.png "Admin"")
+![Admin"](/img/okta-admin-ui-button-admin.png "Admin"")
 
 3.  Click on the "Add Applications" shortcut
-![Add Applications](/assets/img/okta-admin-ui-add-applications.png "Add Applications")
+![Add Applications](/img/okta-admin-ui-add-applications.png "Add Applications")
 
 4.  Click on the green "Create New App" button
-![Create New App](/assets/img/okta-admin-ui-button-create-new-app.png "Create New App")
+![Create New App](/img/okta-admin-ui-button-create-new-app.png "Create New App")
 
 5.  In the dialog that opens, select the "SAML 2.0" option, then click
     the green "Create" button
-![Create a New Application Integration](/assets/img/okta-admin-ui-create-new-application-integration.png "Create a New Application Integration")
+![Create a New Application Integration](/img/okta-admin-ui-create-new-application-integration.png "Create a New Application Integration")
 
 6.  In Step 1 "General Settings", enter "Example SAML Application" in the
     "App name" field, then click the green "Next" button.
-![General Settings](/assets/img/example-saml-application-okta-general-settings.png "General Settings")
+![General Settings](/img/example-saml-application-okta-general-settings.png "General Settings")
 
 7.  In Step 2 "Configure SAML," section A "SAML Settings", paste the URL below into the "Single sign on URL" and "Audience URI (SP Entity ID)" fields:
 
@@ -47,42 +47,42 @@ If you see a <b>< > Developer</b> prompt in the top left, click it and select <b
       http://example.com/saml/sso/example-okta-com
       ```
      
-![SAML Settings](/assets/img/example-saml-application-okta-configure-settings1.png "SAML Settings")
+![SAML Settings](/img/example-saml-application-okta-configure-settings1.png "SAML Settings")
 
 8. In the "Attribute Statements" section, add three attribute statements:
       1. "FirstName" set to "user.firstName"
       2. "LastName" set to "user.lastName"
       3. "Email" set to "user.email"
 
-![SAML Settings](/assets/img/example-saml-application-okta-configure-settings2.png "SAML Settings")
+![SAML Settings](/img/example-saml-application-okta-configure-settings2.png "SAML Settings")
 
     Click Next to continue.
 
 9. In Step 3 "Feedback", select "I'm an Okta customer adding an internal app", and "This is an internal app that we have created," then click Finish.
 
-![App type](/assets/img/example-saml-application-okta-configure-settings3.png "App type")
+![App type](/img/example-saml-application-okta-configure-settings3.png "App type")
 
 10.  The "Sign On" section of your newly created "Example
     SAML Application" application appears. Keep this page open it a separate tab or browser window. You will
     return to this page later in this guide and copy the
     "Identity Provider metadata" link. (To copy that link, right-click
     on the "Identity Provider metadata" link and select "Copy")
-![Sign on methods](/assets/img/okta-admin-ui-identity-provider-metadata-link.png "Sign on methods")
+![Sign on methods](/img/okta-admin-ui-identity-provider-metadata-link.png "Sign on methods")
 
 11. Right-click on the "Assignments" section of the "Example SAML Application"
     application and select "Open Link In New Tab" (so that you can come
     back to the "Sign On" section later).
 
     In the new tab that opens, click on the "Assign" button and select "Assign to People"
-![Assign Application width:](/assets/img/example-saml-application-okta-assign-people-to-application.png "Assign Application width:")
+![Assign Application width:](/img/example-saml-application-okta-assign-people-to-application.png "Assign Application width:")
 
 12. A dialog titled "Assign Example SAML Application to People"
     will open. Type your username into the search box, select the
     "Assign" button next to your username. 
-![People search box width:](/assets/img/okta-admin-ui-confirm-assignments.png "People search box width:")
+![People search box width:](/img/okta-admin-ui-confirm-assignments.png "People search box width:")
 
 13. Verify the user-specific attributes, then select "Save and Go Back".
-![Enter user attributes width:](/assets/img/example-saml-application-okta-confirm-assignments.png "Enter user attributes width:")
+![Enter user attributes width:](/img/example-saml-application-okta-confirm-assignments.png "Enter user attributes width:")
 
 14. Click "Done" to exit the assignment wizard.
 

@@ -6408,7 +6408,7 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 
 ### Transaction State
 
-![State Model Diagram](/assets/img/auth-state-model.png "State Model Diagram")
+![State Model Diagram](/img/auth-state-model.png "State Model Diagram")
 
 An authentication or recovery transaction has one of the following states:
 

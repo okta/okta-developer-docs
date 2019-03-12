@@ -142,7 +142,7 @@ There are two ways to test a SAML application:
 You will use both methods to test your application. In each case, you will know iff the
 test worked when you see a screen that looks like the one below:
 
-![Authenticated user](/assets/img/pysaml2-authenticated-user.png "Authenticated user")
+![Authenticated user](/img/pysaml2-authenticated-user.png "Authenticated user")
 
 
 1.  Login from the Okta PySAML2 example application (This is
@@ -174,7 +174,7 @@ test worked when you see a screen that looks like the one below:
 
     -   Click the button for the application you created earlier
         "Configuring Okta to work with PySAML2" section
-above:![PySAML2 Example](/assets/img/pysaml2-example-okta-chiclet.png "PySAML2 Example")
+above:![PySAML2 Example](/img/pysaml2-example-okta-chiclet.png "PySAML2 Example")
 
 If you can to get to the "Logged in" page using both of the
 methods above, the test are successful.

@@ -57,7 +57,7 @@ Version 1.13.0 of the [Okta Sign-In Widget](https://github.com/okta/okta-signin-
 
 You can configure the JIT settings for a SAML identity provider (IdP) to enable unsuspending users during inbound SAML login. See the [Identity Providers API](https://developer.okta.com/docs/api/resources/idps) for more information.<!-- OKTA-128384 -->
 
-![JIT settings for SAML IdP](/assets/img/release_notes/JIT_settings.png "JIT settings for SAML IdP")
+![JIT settings for SAML IdP](/img/release_notes/JIT_settings.png "JIT settings for SAML IdP")
 
 #### Email Factor
 

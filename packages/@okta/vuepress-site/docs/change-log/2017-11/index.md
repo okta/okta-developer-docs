@@ -37,7 +37,7 @@ For a full description of the rate limit changes, see [API Rate Limits](/docs/ap
  to use multi-factor authentication for a user trying to log in. This log entry includes
  the user's zone.
 
-![Log screen](/assets/img/graphics/SysLogMFA.png "Log screen")
+![Log screen](/img/graphics/SysLogMFA.png "Log screen")
 <!-- (OKTA-114417) -->
 
 ### Platform Bug Fixed

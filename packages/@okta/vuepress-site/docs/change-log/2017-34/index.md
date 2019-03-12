@@ -19,12 +19,12 @@ Dates for preview and production release are the earliest possible release date.
 
 The new developer dashboard is available in all new developer orgs in preview:
 
-![New Developer Dashboard](/assets/img/release_notes/dev-dashboard.png "New Developer Dashboard")
+![New Developer Dashboard](/img/release_notes/dev-dashboard.png "New Developer Dashboard")
 
 Use the developer dashboard to access quick-start guides for your favorite language and view recent system log events.
 You can also create an OpenID Connect app more easily with this simplified flow:
 
-![New Developer Dashboard](/assets/img/release_notes/new-oidc-app-dashboard.png "New Developer Dashboard")
+![New Developer Dashboard](/img/release_notes/new-oidc-app-dashboard.png "New Developer Dashboard")
 
 #### Zones API is an Early Access Release
 <!-- OKTA-129115 -->

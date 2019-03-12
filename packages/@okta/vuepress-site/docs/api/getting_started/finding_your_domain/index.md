@@ -13,7 +13,7 @@ To find your Okta URL (also called an Okta domain), use the following steps:
 1. Sign in to your Okta organization with your administrator account.
 2. Look for the Okta domain in the top right corner of the dashboard:
 
-![Okta domain in the top right corner of the dashboard](/assets/img/okta-domain.png "Okta domain in the top right corner of the dashboard")
+![Okta domain in the top right corner of the dashboard](/img/okta-domain.png "Okta domain in the top right corner of the dashboard")
 
 Your Okta domain will look like:
 
