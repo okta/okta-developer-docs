@@ -8,7 +8,7 @@ The [Okta developer site][doc] serves Okta's API documentation and guides, inclu
 - [API references](https://developer.okta.com/docs/api/resources/)
 - [SDK references and sample code](https://developer.okta.com/documentation/)
 - [Authentication quickstarts](https://developer.okta.com/quickstart/)
-- [Developer Blog](https://developer.okta.com/blog/)
+- [Developer Blog](https://developer.okta.com/blog/) (not published from this repo, see [https://github.com/okta/okta.github.io](okta/okta.github.io))
 
 If you have questions or need help with Okta's APIs or SDKs, visit the **[Developer Forum][devforum]**. You can also email developers@okta.com to create a support ticket.
 
@@ -21,27 +21,26 @@ There are currently 2 parts to the site, the content and the themeing/plugins.
  - Yarn: >1.9.4 <1.10.1
 
 ### Installing the site.
- - Fork this repository
- - Open Terminal and clone your fork
+ - Clone this repository (or fork if you aren't a core contributor):
+
  ```sh
- git clone https://github.com/YOUR-USERNAME/okta.github.io
+ git clone https://github.com/okta-developer-docs/okta.github.io
  ```
- - Go into your cloned repo
- - Checkout the `VuePress` branch (only needed until site is fully migrated to VuePress)
- ```sh
- git checkout VuePress
- ```
- - Run `yarn install`
+
+- Install the dependencie with `yarn`:
+```sh
+yarn install
+```
 
 This will install all the modules you need for the site to run on your machine
-
 
 ### Viewing the Site Locally
 Once you have the site cloned to your machine and installed, you will have to run the development environment for you to view the site.
 
  - Open Terminal and change directories into your cloned repo
  - Issue the `yarn dev` command
- - Once the command is done running, you can visit `localhost:8080` in the web browser to view the site.
+ - Once the command is done running, you can visit http://localhost:8080/documentation/ in your web browser to view the site.
+ > Note: if you try to visit the root, you will get a 404 page.  You must visit a sub-path.
 
 ## Adding and Updating Content
 As an example, lets say you want to edit the `Okta Angular Sign-in Widget` code page. The URL of this page is `/code/angular/okta_angular_sign-in_widget/`.
