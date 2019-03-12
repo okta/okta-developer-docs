@@ -13,7 +13,7 @@ A refresh token is a special token that is used to generate additional access to
 
 Refresh tokens are available for a subset of Okta OAuth 2.0 Client Applications, specifically web or native applications. For more about creating an OpenID Connect application see [Implementing Authentication](/authentication-guide/implementing-authentication/).
 
-Once you have an application, you need to make sure that the "Allowed grant types" include "Refresh Token".
+After you have an application, you need to make sure that the "Allowed grant types" include "Refresh Token".
 
 ## How to Get a Refresh Token
 
@@ -61,7 +61,7 @@ For more information on the `/authorize` endpoint, see the [Authentication Reque
 
 ## How to Use a Refresh Token
 
-To refresh your access token, you send a token request with a `grant_type` of `refresh_token`.
+To refresh your access token as well as an ID token, you send a token request with a `grant_type` of `refresh_token`. Be sure to include the `openid` scope when you want to refresh the ID token.
 
 ```
 http --form POST https://{yourOktaDomain}/oauth2/default/v1/token \
@@ -71,7 +71,7 @@ http --form POST https://{yourOktaDomain}/oauth2/default/v1/token \
   content-type:application/x-www-form-urlencoded \
   grant_type=refresh_token \
   redirect_uri=http://localhost:8080 \
-  scope=offline_access \
+  scope=offline_access%20openid \
   refresh_token=MIOf-U1zQbyfa3MUfJHhvnUqIut9ClH0xjlDXGJAyqo
 ```
 
@@ -82,7 +82,8 @@ If the refresh token is valid, then you get back a new access/refresh token comb
     "access_token": "eyJhbGciOiJ[...]K1Sun9bA",
     "token_type": "Bearer",
     "expires_in": 3600,
-    "scope": "offline_access",
-    "refresh_token": "MIOf-U1zQbyfa3MUfJHhvnUqIut9ClH0xjlDXGJAyqo"
+    "scope": "offline_access%20openid",
+    "refresh_token": "MIOf-U1zQbyfa3MUfJHhvnUqIut9ClH0xjlDXGJAyqo",
+    "id_token": "eyJraWQiO[...]hMEJQX6WRQ"
 }
 ```

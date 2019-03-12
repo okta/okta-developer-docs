@@ -7,11 +7,11 @@ redirect_from: docs/api/rest/idps.html
 # Identity Providers API
 
 The Okta Identity Providers API provides operations to manage federations with external Identity Providers (IDP).
-For example, your app can support logging in with credentials from Facebook, Google, LinkedIn, Microsoft, or an enterprise IdP using SAML 2.0 protocol.
+For example, your app can support logging in with credentials from Facebook, Google, LinkedIn, Microsoft, an enterprise IdP using SAML 2.0, or an IdP using the OpenID Connect (`OIDC`) protocol.
 
 ## Getting Started
 
-Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00a7a643fc0ab3bb54c8)
+Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c778cb5f0792b0682a79)
 
 ## Setup Guides
 
@@ -31,6 +31,7 @@ Each identity provider (IdP) requires some setup. Use the Okta setup guide for y
 
 Adds a new IdP to your organization
 
+- [Add Generic OIDC Identity Provider](#add-generic-openid-connect-identity-provider)
 - [Add SAML 2.0 Identity Provider](#add-saml-20-identity-provider)
 - [Add Facebook Identity Provider](#add-facebook-identity-provider)
 - [Add Google Identity Provider](#add-google-identity-provider)
@@ -48,6 +49,201 @@ idp       | IdP settings      | Body       | [Identity Provider](#identity-provi
 
 
 The created [Identity Provider](#identity-provider-model)
+
+#### Add Generic OpenID Connect Identity Provider
+
+
+Adds a new `OIDC` type IdP to your organization
+
+##### Request Example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "type": "OIDC",
+  "name": "Example OpenID Connect IdP",
+  "protocol": {
+    "algorithms": {
+      "request": {
+        "signature": {
+          "algorithm": "SHA-256",
+          "scope": "REQUEST"
+        }
+      },
+      "response": {
+        "signature": {
+          "algorithm": "SHA-256",
+          "scope": "ANY"
+        }
+      }
+    },
+    "endpoints": {
+      "acs": {
+        "binding": "HTTP-POST",
+        "type": "INSTANCE"
+      },
+      "authorization": {
+        "binding": "HTTP-REDIRECT",
+        "url": "https://idp.example.com/authorize"
+      },
+      "token": {
+        "binding": "HTTP-POST",
+        "url": "https://idp.example.com/token"
+      },
+      "userInfo": {
+        "binding": "HTTP-REDIRECT",
+        "url": "https://idp.example.com/userinfo"
+      },
+      "jwks": {
+        "binding": "HTTP-REDIRECT",
+        "url": "https://idp.example.com/keys"
+      }
+    },
+    "scopes": [
+      "openid",
+      "profile",
+      "email"
+    ],
+    "type": "OIDC",
+    "credentials": {
+      "client": {
+        "client_id": "your-client-id",
+        "client_secret": "your-client-secret"
+      }
+    },
+    "issuer": {
+      "url": "https://idp.example.com"
+    }
+  },
+  "policy": {
+    "accountLink": {
+      "action": "AUTO",
+      "filter": null
+    },
+    "provisioning": {
+      "action": "AUTO",
+      "conditions": {
+        "deprovisioned": {
+          "action": "NONE"
+        },
+        "suspended": {
+          "action": "NONE"
+        }
+      },
+      "groups": {
+        "action": "NONE"
+      }
+    },
+    "maxClockSkew": 120000,
+    "subject": {
+      "userNameTemplate": {
+        "template": "idpuser.email"
+      },
+      "matchType": "USERNAME"
+    }
+  }
+}' "https://{yourOktaDomain}/api/v1/idps"
+```
+
+##### Response Example
+
+
+```json
+{
+    "id": "0oaulob4BFVa4zQvt0g3",
+    "type": "OIDC",
+    "name": "Example OpenID Connect IdP",
+    "status": "ACTIVE",
+    "created": "2019-02-07T20:07:47.000Z",
+    "lastUpdated": "2019-02-07T20:07:47.000Z",
+    "protocol": {
+        "type": "OIDC",
+        "endpoints": {
+            "authorization": {
+                "url": "https://idp.example.com/authorize",
+                "binding": "HTTP-REDIRECT"
+            },
+            "token": {
+                "url": "https://idp.example.com/token",
+                "binding": "HTTP-POST"
+            },
+            "userInfo": {
+                "url": "https://idp.example.com/userinfo",
+                "binding": "HTTP-REDIRECT"
+            },
+            "jwks": {
+                "url": "https://idp.example.com/keys",
+                "binding": "HTTP-REDIRECT"
+            }
+        },
+        "scopes": [
+            "openid"
+        ],
+        "issuer": {
+            "url": "https://idp.example.com"
+        },
+        "credentials": {
+            "client": {
+                "client_id": "your-client-id",
+                "client_secret": "your-client-secret"
+            }
+        }
+    },
+    "policy": {
+        "provisioning": {
+            "action": "AUTO",
+            "profileMaster": false,
+            "groups": {
+                "action": "NONE"
+            },
+            "conditions": {
+                "deprovisioned": {
+                    "action": "NONE"
+                },
+                "suspended": {
+                    "action": "NONE"
+                }
+            }
+        },
+        "accountLink": {
+            "filter": null,
+            "action": "AUTO"
+        },
+        "subject": {
+            "userNameTemplate": {
+                "template": "idpuser.email"
+            },
+            "filter": null,
+            "matchType": "USERNAME",
+            "matchAttribute": null
+        },
+        "maxClockSkew": 0
+    },
+    "_links": {
+        "authorize": {
+            "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+            "templated": true,
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "clientRedirectUri": {
+            "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
 
 #### Add SAML 2.0 Identity Provider
 
@@ -69,7 +265,7 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "SAML2",
-  "name": "Example IdP",
+  "name": "Example SAML IdP",
   "protocol": {
     "type": "SAML2",
     "endpoints": {
@@ -146,7 +342,7 @@ curl -v -X POST \
 {
   "id": "0oa62bc8wppPw0UGr0h7",
   "type": "SAML2",
-  "name": "Example IdP",
+  "name": "Example SAML IdP",
   "status": "ACTIVE",
   "created": "2016-03-24T23:14:54.000Z",
   "lastUpdated": "2016-03-24T23:14:54.000Z",
@@ -840,7 +1036,7 @@ curl -v -X POST \
   },
   "_links": {
     "authorize": {
-      "href": "your-domain.okta.com/oauth2/v1/authorize?idp=0oajmvdFawBih4gey0g3&
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oajmvdFawBih4gey0g3&
           client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
           scope={scopes}&redirect_uri={redirectUri}&state={state}",
       "templated": true,
@@ -851,7 +1047,7 @@ curl -v -X POST \
       }
     },
     "clientRedirectUri": {
-      "href": "your-domain.okta.com:1802/oauth2/v1/authorize/callback",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -1115,7 +1311,7 @@ curl -v -X GET \
   {
     "id": "0oa62bc8wppPw0UGr0h7",
     "type": "SAML2",
-    "name": "Example IdP",
+    "name": "Example SAML IdP",
     "status": "ACTIVE",
     "created": "2016-03-24T23:14:54.000Z",
     "lastUpdated": "2016-03-24T23:14:54.000Z",
@@ -1385,6 +1581,179 @@ curl -v -X GET \
         }
       }
     }
+  },
+  {
+    "id": "0oajmvdFawBih4gey0g3",
+    "type": "MICROSOFT",
+    "name": "Microsoft",
+    "status": "ACTIVE",
+    "created": "2016-03-29T16:47:36.000Z",
+    "lastUpdated": "2016-03-29T16:47:36.000Z",
+    "protocol": {
+      "type": "OIDC",
+      "endpoints": {
+        "authorization": {
+          "url": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+          "binding": "HTTP-REDIRECT"
+        },
+        "token": {
+          "url": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+          "binding": "HTTP-POST"
+        }
+      },
+      "scopes": [
+        "openid",
+        "email",
+        "profile",
+        "https://graph.microsoft.com/User.Read"
+      ],
+      "credentials": {
+        "client": {
+          "client_id": "your-client-id",
+          "client_secret": "your-client-secret"
+        }
+      }
+    },
+    "policy": {
+      "provisioning": {
+        "action": "AUTO",
+        "profileMaster": true,
+        "groups": {
+          "action": "NONE"
+        },
+        "conditions": {
+          "deprovisioned": {
+            "action": "NONE"
+          },
+          "suspended": {
+            "action": "NONE"
+          }
+        }
+      },
+      "accountLink": {
+        "filter": null,
+        "action": "AUTO"
+      },
+      "subject": {
+        "userNameTemplate": {
+          "template": "idpuser.userPrincipalName"
+        },
+        "filter": null,
+        "matchType": "USERNAME"
+      },
+      "maxClockSkew": 0
+    },
+    "_links": {
+      "authorize": {
+        "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oajmvdFawBih4gey0g3&
+            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+            scope={scopes}&redirect_uri={redirectUri}&state={state}",
+        "templated": true,
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      "clientRedirectUri": {
+        "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    }
+  },
+  {
+      "id": "0oaulob4BFVa4zQvt0g3",
+      "type": "OIDC",
+      "name": "Example OpenID Connect IdP",
+      "status": "ACTIVE",
+      "created": "2019-02-07T20:07:47.000Z",
+      "lastUpdated": "2019-02-07T20:07:47.000Z",
+      "protocol": {
+          "type": "OIDC",
+          "endpoints": {
+              "authorization": {
+                  "url": "https://idp.example.com/authorize",
+                  "binding": "HTTP-REDIRECT"
+              },
+              "token": {
+                  "url": "https://idp.example.com/token",
+                  "binding": "HTTP-POST"
+              },
+              "userInfo": {
+                  "url": "https://idp.example.com/userinfo",
+                  "binding": "HTTP-REDIRECT"
+              },
+              "jwks": {
+                  "url": "https://idp.example.com/keys",
+                  "binding": "HTTP-REDIRECT"
+              }
+          },
+          "scopes": [
+              "openid"
+          ],
+          "issuer": {
+              "url": "https://idp.example.com"
+          },
+          "credentials": {
+              "client": {
+                  "client_id": "your-client-id",
+                  "client_secret": "your-client-secret"
+              }
+          }
+      },
+      "policy": {
+          "provisioning": {
+              "action": "AUTO",
+              "profileMaster": false,
+              "groups": {
+                  "action": "NONE"
+              },
+              "conditions": {
+                  "deprovisioned": {
+                      "action": "NONE"
+                  },
+                  "suspended": {
+                      "action": "NONE"
+                  }
+              }
+          },
+          "accountLink": {
+              "filter": null,
+              "action": "AUTO"
+          },
+          "subject": {
+              "userNameTemplate": {
+                  "template": "idpuser.email"
+              },
+              "filter": null,
+              "matchType": "USERNAME",
+              "matchAttribute": null
+          },
+          "maxClockSkew": 0
+      },
+      "_links": {
+          "authorize": {
+              "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+              "templated": true,
+              "hints": {
+                  "allow": [
+                      "GET"
+                  ]
+              }
+          },
+          "clientRedirectUri": {
+              "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
+              "hints": {
+                  "allow": [
+                      "POST"
+                  ]
+              }
+          }
+      }
   }
 ]
 ```
@@ -1405,7 +1774,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/idps?q=Example&limit=10"
+"https://{yourOktaDomain}/api/v1/idps?q=Example SAML&limit=10"
 ```
 
 ##### Response Example
@@ -1416,7 +1785,7 @@ curl -v -X GET \
   {
     "id": "0oa62bc8wppPw0UGr0h7",
     "type": "SAML2",
-    "name": "Example IdP",
+    "name": "Example SAML IdP",
     "status": "ACTIVE",
     "created": "2016-03-24T23:14:54.000Z",
     "lastUpdated": "2016-03-24T23:14:54.000Z",
@@ -1556,7 +1925,7 @@ Link: <https://{yourOktaDomain}/api/v1/idps?after=0oaxdqpA88PtFNmhu0g3&limit=20>
   {
     "id": "0oa62bc8wppPw0UGr0h7",
     "type": "SAML2",
-    "name": "Example IdP",
+    "name": "Example SAML IdP",
     "status": "ACTIVE",
     "created": "2016-03-24T23:14:54.000Z",
     "lastUpdated": "2016-03-24T23:14:54.000Z",
@@ -1708,7 +2077,7 @@ curl -v -X PUT \
 {
   "id": "0oa62bc8wppPw0UGr0h7",
   "type": "SAML2",
-  "name": "Example IdP",
+  "name": "Example SAML IdP",
   "status": "INACTIVE",
   "created": null,
   "lastUpdated": "2016-03-29T21:23:45.000Z",
@@ -4026,7 +4395,7 @@ curl -v -X GET \
   "id": "0oa1k5d68qR2954hb0g4",
   "type": "SAML2",
   "issuerMode": "ORG_URL",
-  "name": "Example IdP",
+  "name": "Example SAML IdP",
   "status": "ACTIVE",
   "created": "2015-03-05T20:24:09.000Z",
   "lastUpdated": "2015-12-18T05:19:40.000Z",
@@ -4179,6 +4548,7 @@ Okta supports the following enterprise and social providers:
 |------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Type         | Description                                                                                                                                           |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)                                                     |
 | `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) |
 | `FACEBOOK`   | [Facebook Login](https://developers.facebook.com/docs/facebook-login/overview/)                                                                       |
 | `GOOGLE`     | [Google Sign-In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect)                                                  |
@@ -4192,6 +4562,7 @@ The Protocol object contains IdP-specific protocol settings for endpoints, bindi
 |------------- | ------------------------------------------ |
 | Provider     | Protocol                                   |
 | ------------ | -------------------------------------------|
+| `OIDC`       | [OpenID Connect](#openid-connect-protocol) |
 | `SAML2`      | [SAML 2.0](#saml-20-protocol)              |
 | `FACEBOOK`   | [OAuth 2.0](#oauth-20-protocol)            |
 | `GOOGLE`     | [OpenID Connect](#openid-connect-protocol) |
@@ -4626,12 +4997,20 @@ The [IdP setup guides](#setup-guides) list the scopes that are supported [per-Id
     "type": "OIDC",
     "endpoints": {
       "authorization": {
-        "url": "https://accounts.google.com/o/oauth2/auth",
+        "url": "https://idp.example.com/authorize",
         "binding": "HTTP-REDIRECT"
       },
       "token": {
-        "url": "https://www.googleapis.com/oauth2/v3/token",
+        "url": "https://idp.example.com/token",
         "binding": "HTTP-POST"
+      },
+      "userInfo": {
+        "url": "https://idp.example.com/userinfo",
+        "binding": "HTTP-REDIRECT"
+      },
+      "jwks": {
+        "url": "https://idp.example.com/keys",
+        "binding": "HTTP-REDIRECT"
       }
     },
     "scopes": [
@@ -4651,15 +5030,17 @@ The [IdP setup guides](#setup-guides) list the scopes that are supported [per-Id
 
 ##### OAuth 2.0 and OpenID Connect Endpoints Object
 
-The `OAUTH2` and `OIDC` protocols support the `authorization` and `token` endpoints.
+The `OAUTH2` and `OIDC` protocols support the `authorization` and `token` endpoints. Additionally, the `OIDC` protocol supports the `userInfo` and `jwks` endpoints.
 
 The IdP Authorization Server (AS) endpoints are currently defined as part of the [IdP provider](#identity-provider-type) and are read only.
 
 |-------------- | ----------------------------------------------------------------------------------- | ----------------------------------------- | ---------- | ------------- |
 | Property      | Description                                                                               | DataType                                   | Nullable | Readonly |
 | ------------- | ----------------------------------------------------------------------------------- | ----------------------------------------- | ----------- | ------------ |
-| authorization | IdP Authorization Server (AS) endpoint to request consent from user and obtain an authorization code grant | [OAuth 2.0 Authorization Server Endpoint Object](#oauth-20-authorization-server-endpoint-object)| TRUE     | TRUE     |
-| token         | IdP Authorization Server (AS) endpoint to exchange authorization code grant for an access token            | [OAuth 2.0 Authorization Server Endpoint Object](#oauth-20-authorization-server-endpoint-object)| TRUE     | TRUE     |
+| authorization | IdP Authorization Server (AS) endpoint to request consent from the user and obtain an authorization code grant | [OAuth 2.0 Authorization Server Authorization Endpoint Object](#oauth-20-authorization-server-authorization-endpoint-object)| TRUE     | TRUE     |
+| token         | IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token            | [OAuth 2.0 Authorization Server Token Endpoint Object](#oauth-20-authorization-server-token-endpoint-object)| TRUE     | TRUE     |
+| userInfo      | Protected resource endpoint that returns claims about the authenticated user                                   | [OpenID Connect Userinfo Endpoint Object](#openid-connect-userinfo-endpoint-object)| TRUE     | TRUE     |
+| jwks          | Endpoint where the signer of the keys publishes its keys in a JWK Set                                          | [OpenID Connect JWKs Endpoint Object](#openid-connect-jwks-endpoint-object)| TRUE     | TRUE     |
 
 ```json
 {
@@ -4685,12 +5066,20 @@ The IdP Authorization Server (AS) endpoints are currently defined as part of the
     "type": "OIDC",
     "endpoints": {
       "authorization": {
-        "url": "https://accounts.google.com/o/oauth2/auth",
+        "url": "https://idp.example.com/authorize",
         "binding": "HTTP-REDIRECT"
       },
       "token": {
-        "url": "https://www.googleapis.com/oauth2/v3/token",
+        "url": "https://idp.example.com/token",
         "binding": "HTTP-POST"
+      },
+      "userInfo": {
+        "url": "https://idp.example.com/userinfo",
+        "binding": "HTTP-REDIRECT"
+      },
+      "jwks": {
+        "url": "https://idp.example.com/keys",
+        "binding": "HTTP-REDIRECT"
       }
     }
   }
@@ -5061,6 +5450,7 @@ The follow-account link actions are supported by each IdP provider:
 |------------- | ----------------------------- | -------------------- |
 | Type         | Account Link Actions          | Account Link Filters |
 | ------------ | ----------------------------- | -------------------- |
+| `OIDC`       | `AUTO`                        |                      |
 | `SAML2`      | `AUTO`                        |                      |
 | `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `groups`             |
 | `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `groups`             |
@@ -5199,22 +5589,85 @@ Property Details
 }
 ```
 
-#### OAuth 2.0 Authorization Server Endpoint Object
+#### OAuth 2.0 Authorization Server Authorization Endpoint Object
 
 Endpoint for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#page-18).
 
 The IdP Authorization Server (AS) endpoints are defined as part of the [IdP provider](#identity-provider-type) and are read only.
 
+|------------ | ------------------------------------------------- | ----------------------------- | ----------- | ------------ | -------------- | ---------------- |
+| Property    | Description                                       | DataType                      | Nullable    | Readonly     | MinLength      | Validation    |
+|------------ | ------------------------------------------------- | ----------------------------- | ----------- | ------------ | -------------- | ---------------- |
+| url         | URL of the IdP Authorization Server (AS) authorization endpoint                   | String     | TRUE      | TRUE        | 11        | [RFC 3986](https://tools.ietf.org/html/rfc3986) |
+| binding     | HTTP binding used to send a request to the IdP Authorization Server (AS) endpoint | `HTTP-POST` or `HTTP-Redirect`   | TRUE     | TRUE     |           |           |
+
+```json
+{
+  "authorization": {
+    "url": "https://idp.example.com/authorize",
+    "binding": "HTTP-REDIRECT"
+  }
+}
+```
+
+#### OAuth 2.0 Authorization Server Token Endpoint Object
+
+Endpoint for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#page-18).
+
+The IdP Authorization Server (AS) endpoints are defined as part of the [IdP provider](#identity-provider-type) and are read-only.
+
 |------------ | ------------------------------------------------- | ---------------------------- | ----------- | ------------ | -------------- | ---------------- |
-| Property    | Description                                      | DataType                   | Nullable | Readonly | MinLength | Validation    |
+| Property    | Description                                       | DataType                     | Nullable    | Readonly     | MinLength      | Validation    |
 |------------ | ------------------------------------------------- | ---------------------------- | ----------- | ------------ | -------------- | ---------------- |
-| url         | URL of IdP Authorization Server (AS) endpoint                       | String     | TRUE      | TRUE        | 11        | [RFC 3986](https://tools.ietf.org/html/rfc3986) |
+| url         | URL of the IdP Authorization Server (AS) token endpoint      | String     | TRUE      | TRUE        | 11        | [RFC 3986](https://tools.ietf.org/html/rfc3986) |
 | binding     | HTTP binding used to send request to IdP Authorization Server (AS) endpoint | `HTTP-POST` or `HTTP-Redirect`   | TRUE     | TRUE     |           |           |
 
 ```json
 {
   "token": {
-    "url": "https://graph.facebook.com/v2.5/oauth/access_token",
+    "url": "https://idp.example.com/token",
+    "binding": "HTTP-POST"
+  }
+}
+```
+
+#### OpenID Connect Userinfo Endpoint Object
+
+Endpoint for getting identity information about the user. For more information on the `/userinfo` endpoint, see [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo).
+
+The `OIDC` endpoints are defined as part of the [IdP provider](#identity-provider-type) and are read-only.
+
+|------------ | ------------------------------------------------- | ---------------------------- | ----------- | ------------ | -------------- | ---------------- |
+| Property    | Description                                       | DataType                     | Nullable    | Readonly     | MinLength      | Validation    |
+|------------ | ------------------------------------------------- | ---------------------------- | ----------- | ------------ | -------------- | ---------------- |
+| url         | URL of the resource server's `/userinfo` endpoint | String     | TRUE      | TRUE        | 11        | [RFC 3986](https://tools.ietf.org/html/rfc3986) |
+| binding     | HTTP binding used to send a request to the protected resource | `HTTP-POST` or `HTTP-Redirect`   | TRUE     | TRUE     |           |           |
+
+```json
+{
+  "userInfo": {
+    "url": "https://idp.example.com/userinfo",
+    "binding": "HTTP-POST"
+  }
+}
+```
+
+#### OpenID Connect JWKs Endpoint Object
+
+Endpoint for the JSON Web Key Set (JWKS) document. This document contains signing keys that are used to validate the signatures from the provider. For more information on JWKS, see [JSON Web Key](https://tools.ietf.org/html/rfc7517).
+
+The `OIDC` endpoints are defined as part of the [IdP provider](#identity-provider-type) and are read-only.
+
+|------------ | ------------------------------------------------- | ---------------------------- | ----------- | ------------ | -------------- | ---------------- |
+| Property    | Description                                       | DataType                     | Nullable    | Readonly     | MinLength      | Validation    |
+|------------ | ------------------------------------------------- | ---------------------------- | ----------- | ------------ | -------------- | ---------------- |
+| url         | URL of the endpoint to the JWK Set                | String     | TRUE      | TRUE        | 11        | [RFC 3986](https://tools.ietf.org/html/rfc3986) |
+| binding     | HTTP binding used to send the request             | `HTTP-POST` or `HTTP-Redirect`   | TRUE     | TRUE     |           |           |
+
+```json
+{
+  "jwks": {
+    "url": "https://idp.example.com/keys",
     "binding": "HTTP-POST"
   }
 }

@@ -71,7 +71,7 @@ Okta's integration with ASP.NET Core makes it easy to add sign-in to your ASP.NE
 ## Recommended Guides
 
 {: .language-list }
-- [Manual JWT Validation in .NETManual JWT Validation in .NET](/code/dotnet/jwt-validation)
+- [Manual JWT Validation in .NET](/code/dotnet/jwt-validation)
 
 ## Related Blog Posts
 

@@ -33,8 +33,7 @@ curl --request POST \
   --header 'authorization: Basic MG9hY...' \
   --header 'cache-control: no-cache' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'grant_type=client_credentials&redirect_uri=http%3A%2F%2Flocalhost%3A8080&
-  scope=customScope'
+  --data 'grant_type=client_credentials&scope=customScope'
 ```
 
 > NOTE: The Client ID and Secret aren't included in the POST body, but rather are placed in the HTTP Authorization header following the rules of HTTP Basic Auth.
@@ -42,7 +41,6 @@ curl --request POST \
 Note the parameters that are being passed:
 
 - `grant_type` is `client_credentials`, indicating that we are using the Client Credentials grant type.
-- `redirectUri` must match one of the "Login redirect URIs" you specified when you were creating your Okta application in Step 1.
 - `scope` must be at least one custom scope that you have created. For more information about this, see the [Custom Authorization Server chapter](/authentication-guide/implementing-authentication/set-up-authz-server#create-scopes-optional).
 
 If the credentials are valid, the application will receive back an access token:

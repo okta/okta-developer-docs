@@ -1,4 +1,6 @@
 {
+  "release" : "2019.03.1",
+  "build" : "2019.03.1-begin-70-g948b50c2dbed",
   "categories" : [ {
     "id" : "adaptive",
     "name" : "Adaptive"
@@ -119,6 +121,10 @@
   }, {
     "id" : "password-spray",
     "description" : "Password Spray Attack Detection.",
+    "tags" : [ ]
+  }, {
+    "id" : "threat-insight",
+    "description" : "Threat Insight Detection.",
     "tags" : [ ]
   }, {
     "id" : "amazon-aws-client",
@@ -970,18 +976,6 @@
       "tags" : [ "directory" ],
       "mappings" : [ "system.agent.ad.connect" ]
     }, {
-      "id" : "app.ad.agent.scan",
-      "category" : "directories",
-      "description" : "Directory agent performed an import.",
-      "tags" : [ "directory" ],
-      "mappings" : [ ]
-    }, {
-      "id" : "app.ad.agent.scan.error",
-      "category" : "directories",
-      "description" : "Directory agent encountered an import error.",
-      "tags" : [ "directory" ],
-      "mappings" : [ ]
-    }, {
       "id" : "app.ad.agent.start",
       "category" : "directories",
       "description" : "Directory agent started.",
@@ -1010,7 +1004,7 @@
       "category" : "directories",
       "description" : "Directory Agent encountered an error performing a User Auth and Update action.",
       "tags" : [ "directory" ],
-      "mappings" : [ ]
+      "mappings" : [ "system.agent.ad.update_user" ]
     }, {
       "id" : "app.ad.agent.user_auth",
       "category" : "directories",
@@ -1118,7 +1112,7 @@
       "category" : "directories",
       "description" : "Active Directory agent created.",
       "tags" : [ "ad-app" ],
-      "mappings" : [ ]
+      "mappings" : [ "system.agent.ad.create" ]
     }, {
       "id" : "app.ad.config.agent.agent_deactivated",
       "category" : "directories",
@@ -2554,6 +2548,12 @@
       "tags" : [ "app" ],
       "mappings" : [ "system.import.roadblock.resume" ]
     }, {
+      "id" : "app.generic.import.full_import_required",
+      "category" : "directories",
+      "description" : "The next import for this application will run as a full import even if an incremental import is requested. Customers for whom full imports take a long time should monitor for this event to understand the reason why a full import is being performed.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.full_import_required" ]
+    }, {
       "id" : "app.generic.import.import_groups",
       "category" : "sync",
       "description" : "Started importing groups for app.",
@@ -2565,6 +2565,12 @@
       "description" : "Started importing users for app.",
       "tags" : [ "app" ],
       "mappings" : [ "system.import.user.start" ]
+    }, {
+      "id" : "app.generic.import.incremental_converted_to_full",
+      "category" : "directories",
+      "description" : "An incremental import was requested but a full import is being performed. Customers for whom full imports take a long time should monitor for this event to understand the reason why a full import is being performed.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.incremental_converted_to_full" ]
     }, {
       "id" : "app.generic.import.provisioning_data",
       "category" : "app-platform",
@@ -4548,9 +4554,9 @@
     }, {
       "id" : "app.rich_client.invalid_org",
       "category" : "msft-apps",
-      "description" : "",
+      "description" : "Rich client authentication failed: Unknown org for instance.",
       "tags" : [ "app" ],
-      "mappings" : [ ]
+      "mappings" : [ "user.authentication.auth_via_richclient" ]
     }, {
       "id" : "app.rich_client.login_failure",
       "category" : "msft-apps",
@@ -5680,6 +5686,18 @@
       "tags" : [ "rate-limit" ],
       "mappings" : [ "system.org.rate_limit.warning" ]
     }, {
+      "id" : "core.group.admin_privilege.granted",
+      "category" : "aelm",
+      "description" : "Privileges granted.",
+      "tags" : [ "group" ],
+      "mappings" : [ "group.privilege.grant" ]
+    }, {
+      "id" : "core.group.admin_privilege.revoked",
+      "category" : "aelm",
+      "description" : "Revoked all administrator privileges.",
+      "tags" : [ "group" ],
+      "mappings" : [ "group.privilege.revoke" ]
+    }, {
       "id" : "core.org.config.org_creation.failure",
       "category" : "aelm",
       "description" : "Org creation failed.",
@@ -5717,13 +5735,13 @@
       "mappings" : [ "group.user_membership.rule.add_exclusion" ]
     }, {
       "id" : "core.user.admin_privilege.granted",
-      "category" : "authn",
+      "category" : "aelm",
       "description" : "Privileges granted.",
       "tags" : [ "user" ],
       "mappings" : [ "user.account.privilege.grant" ]
     }, {
       "id" : "core.user.admin_privilege.revoked",
-      "category" : "authn",
+      "category" : "aelm",
       "description" : "Revoked all administrator privileges.",
       "tags" : [ "user" ],
       "mappings" : [ "user.account.privilege.revoke" ]
@@ -6184,6 +6202,12 @@
       "tags" : [ "social-idp" ],
       "mappings" : [ "user.authentication.auth_via_social" ]
     }, {
+      "id" : "core.user_auth.idp.social.invalid_userinfo_response",
+      "category" : "federation",
+      "description" : "The UserInfo response is invalid.",
+      "tags" : [ "social-idp" ],
+      "mappings" : [ "user.authentication.auth_via_social" ]
+    }, {
       "id" : "core.user_auth.idp.social.jit_callout_denied_by_callout",
       "category" : "federation",
       "description" : "Account provisioning of incoming subject denied via external callout.",
@@ -6513,6 +6537,18 @@
       "description" : "User removed from group by trigger.",
       "tags" : [ "group-user-modification" ],
       "mappings" : [ "group.user_membership.remove" ]
+    }, {
+      "id" : "credential.register",
+      "category" : "enterprise-auth",
+      "description" : "Fired when a credential is registered. This event fires when the registration of a credential is successful or fails. This can be used to audit that a credential has been successfully registered, and troubleshoot why a credential registration attempt has failed.",
+      "tags" : [ "user-factor" ],
+      "mappings" : [ "credential.register" ]
+    }, {
+      "id" : "credential.revoke",
+      "category" : "enterprise-auth",
+      "description" : "Fired when a credential is revoked. This event fires when the revocation of a credential is successful or fails. This can be used to audit that a credential has been successfully revoked, and troubleshoot why a credential revocation attempt has failed.",
+      "tags" : [ "user-factor" ],
+      "mappings" : [ "credential.revoke" ]
     }, {
       "id" : "cvd.appuser_profile_bootstrapped",
       "category" : "lca",
@@ -7222,6 +7258,18 @@
       "tags" : [ "webhook" ],
       "mappings" : [ "webhook.delete" ]
     }, {
+      "id" : "platform.webhook.delivery.failure",
+      "category" : "extensibility",
+      "description" : "Webhook delivery failed.",
+      "tags" : [ "webhook" ],
+      "mappings" : [ "webhook.delivery" ]
+    }, {
+      "id" : "platform.webhook.delivery.success",
+      "category" : "extensibility",
+      "description" : "Webhook was delivered.",
+      "tags" : [ "webhook" ],
+      "mappings" : [ "webhook.delivery" ]
+    }, {
       "id" : "platform.webhook.modify",
       "category" : "extensibility",
       "description" : "Webhook was modified.",
@@ -7402,6 +7450,12 @@
       "tags" : [ "security" ],
       "mappings" : [ "security.session.detect_client_roaming" ]
     }, {
+      "id" : "security.threat.detected",
+      "category" : "adaptive",
+      "description" : "Fired when an IP has been deemed malicious by Okta. This event fires only when an organization has configured their Okta ThreatInsight security settings to monitor auth attempts OR monitor auth attempts and block malicious IPs. This can be used to see details about the IPs Okta has deemed malicious, including the type of security threat (eg: Brute Force, Password Spray) and the resulting action. When fired, this event contains information about the type of security threat detected, the IP, and the result of the detection. The result of this event is determined by the security settings configured - if an organization has configured Okta to monitor authorization attempts, then the result will be 'ALLOW'; if an organization has configured Okta ThreatInsight security settings to monitor authorization attempts and block malicious IPs then the result will be 'DENY'. Related events include: In the case of 'monitor only' (versus monitor and block), when this event fires, the debug context for the related user.auth or user.session event will contain information about the detected threat.",
+      "tags" : [ "threat-insight" ],
+      "mappings" : [ "security.threat.detected" ]
+    }, {
       "id" : "security.zone.make_blacklist",
       "category" : "security",
       "description" : "Added IPs to blacklist zone.",
@@ -7514,6 +7568,7 @@
         "created" : "2017-10-14",
         "release" : "2017.43"
       },
+      "beta" : false,
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.approver.approve" ]
     }, {
@@ -7524,6 +7579,7 @@
         "created" : "2017-10-14",
         "release" : "2017.43"
       },
+      "beta" : false,
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.approver.deny" ]
     }, {
@@ -7534,6 +7590,7 @@
         "created" : "2017-10-14",
         "release" : "2017.43"
       },
+      "beta" : false,
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.delete" ]
     }, {
@@ -7544,6 +7601,7 @@
         "created" : "2017-10-14",
         "release" : "2017.43"
       },
+      "beta" : false,
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.deny" ]
     }, {
@@ -7554,6 +7612,7 @@
         "created" : "2017-10-14",
         "release" : "2017.43"
       },
+      "beta" : false,
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.expire" ]
     }, {
@@ -7564,6 +7623,7 @@
         "created" : "2017-10-14",
         "release" : "2017.43"
       },
+      "beta" : false,
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.grant" ]
     }, {
@@ -7574,6 +7634,7 @@
         "created" : "2017-10-14",
         "release" : "2017.43"
       },
+      "beta" : false,
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.request" ]
     }, {
@@ -7584,6 +7645,7 @@
         "created" : "2016-02-19",
         "release" : "2016.10"
       },
+      "beta" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ "app.ad.api.user_import.account_locked" ]
     }, {
@@ -7594,6 +7656,7 @@
         "created" : "2015-11-11",
         "release" : "2015.47"
       },
+      "beta" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ "app.ad.api.user_import.warn.skipped_contact.attribute_invalid_value" ]
     }, {
@@ -7604,6 +7667,7 @@
         "created" : "2011-11-11",
         "release" : "2015.47"
       },
+      "beta" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ "app.ad.api.user_import.warn.skipped_user.attribute_invalid_value" ]
     }, {
@@ -7614,6 +7678,7 @@
         "created" : "2010-11-26",
         "release" : "2011.01"
       },
+      "beta" : false,
       "tags" : [ "ad-app" ],
       "mappings" : [ ]
     }, {
@@ -7624,6 +7689,7 @@
         "created" : "2017-04-06",
         "release" : "2017.15"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.csr.generate" ]
     }, {
@@ -7634,6 +7700,7 @@
         "created" : "2017-04-06",
         "release" : "2017.15"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.csr.publish" ]
     }, {
@@ -7644,6 +7711,7 @@
         "created" : "2017-04-06",
         "release" : "2017.15"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.csr.revoke" ]
     }, {
@@ -7654,6 +7722,7 @@
         "created" : "2017-12-18",
         "release" : "2017.52"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.audit_report.download" ]
     }, {
@@ -7664,6 +7733,7 @@
         "created" : "2017-12-18",
         "release" : "2017.52"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.audit_report.download.local.active" ]
     }, {
@@ -7674,6 +7744,7 @@
         "created" : "2017-12-18",
         "release" : "2017.52"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.audit_report.download.local.deprov" ]
     }, {
@@ -7684,6 +7755,7 @@
         "created" : "2017-12-18",
         "release" : "2017.52"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.audit_report.download.rogue.report" ]
     }, {
@@ -7694,6 +7766,7 @@
         "created" : "2016-02-05",
         "release" : "2016.06"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.generic.unauth_app_access_attempt" ]
     }, {
@@ -7704,6 +7777,7 @@
         "created" : "2016-04-29",
         "release" : "2016.18"
       },
+      "beta" : false,
       "tags" : [ "delegated-auth" ],
       "mappings" : [ "app.inbound_del_auth.login_success" ]
     }, {
@@ -7714,6 +7788,7 @@
         "created" : "2017-12-04",
         "release" : "2017.50"
       },
+      "beta" : false,
       "tags" : [ "app", "kerberos-rich-client" ],
       "mappings" : [ "app.kerberos_rich_client.account_not_found" ]
     }, {
@@ -7724,6 +7799,7 @@
         "created" : "2017-12-04",
         "release" : "2017.50"
       },
+      "beta" : false,
       "tags" : [ "app", "kerberos-rich-client" ],
       "mappings" : [ "app.kerberos_rich_client.instance_not_found" ]
     }, {
@@ -7734,6 +7810,7 @@
         "created" : "2017-12-04",
         "release" : "2017.50"
       },
+      "beta" : false,
       "tags" : [ "app", "kerberos-rich-client" ],
       "mappings" : [ "app.kerberos_rich_client.invalid_org" ]
     }, {
@@ -7744,6 +7821,7 @@
         "created" : "2017-12-04",
         "release" : "2017.50"
       },
+      "beta" : false,
       "tags" : [ "app", "kerberos-rich-client" ],
       "mappings" : [ "app.kerberos_rich_client.multiple_accounts_found" ]
     }, {
@@ -7754,6 +7832,7 @@
         "created" : "2017-12-21",
         "release" : "2017.52"
       },
+      "beta" : false,
       "tags" : [ "app", "kerberos-rich-client" ],
       "mappings" : [ "app.kerberos_rich_client.user_authentication_successful" ]
     }, {
@@ -7764,6 +7843,7 @@
         "created" : "2017-06-16",
         "release" : "2017.25"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.keys.clone_legacy" ]
     }, {
@@ -7774,6 +7854,7 @@
         "created" : "2017-06-16",
         "release" : "2017.25"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.keys.generate_legacy" ]
     }, {
@@ -7784,6 +7865,7 @@
         "created" : "2017-06-16",
         "release" : "2017.25"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.keys.rotate_legacy" ]
     }, {
@@ -7794,6 +7876,7 @@
         "created" : "2014-04-25",
         "release" : "2014.18"
       },
+      "beta" : false,
       "tags" : [ "ldap-app" ],
       "mappings" : [ "app.ldap.password.change.failed" ]
     }, {
@@ -7804,6 +7887,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.authorize_failure" ]
     }, {
@@ -7814,6 +7898,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.authorize.code_success" ]
     }, {
@@ -7824,6 +7909,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.authorize.implicit.access_token_success" ]
     }, {
@@ -7834,6 +7920,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.authorize.implicit.id_token_success" ]
     }, {
@@ -7844,6 +7931,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.authorize.scope_denied_failure" ]
     }, {
@@ -7854,6 +7942,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.grant_failure", "app.oauth2.as.consent.grant_success" ]
     }, {
@@ -7864,6 +7953,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke_failure", "app.oauth2.as.consent.revoke_success" ]
     }, {
@@ -7874,6 +7964,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.implicit.as_success" ]
     }, {
@@ -7884,6 +7975,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.implicit.client_success" ]
     }, {
@@ -7894,6 +7986,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.implicit.scope_success" ]
     }, {
@@ -7904,6 +7997,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.implicit.user_success" ]
     }, {
@@ -7914,6 +8008,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.user_failure", "app.oauth2.as.consent.revoke.user_success" ]
     }, {
@@ -7924,6 +8019,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.user.client_failure", "app.oauth2.as.consent.revoke.user.client_success" ]
     }, {
@@ -7934,6 +8030,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.evaluate.claim_failure" ]
     }, {
@@ -7944,6 +8041,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.key.rollover.legacy" ]
     }, {
@@ -7954,6 +8052,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.token.grant_failure" ]
     }, {
@@ -7964,6 +8063,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.token.grant.access_token_success" ]
     }, {
@@ -7974,6 +8074,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.token.grant.id_token_success" ]
     }, {
@@ -7984,6 +8085,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.token.grant.refresh_token_success" ]
     }, {
@@ -7994,6 +8096,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.token.revoke_failure", "app.oauth2.as.token.revoke_success" ]
     }, {
@@ -8004,6 +8107,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.authorize_failure" ]
     }, {
@@ -8014,6 +8118,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.authorize.code_success" ]
     }, {
@@ -8024,6 +8129,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.authorize.implicit.access_token_success" ]
     }, {
@@ -8034,6 +8140,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.authorize.implicit.id_token_success" ]
     }, {
@@ -8044,6 +8151,7 @@
         "created" : "2017-06-12",
         "release" : "2017.24"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-client", "oauth2-client-lifecycle" ],
       "mappings" : [ "app.oauth2.client.lifecycle.activate" ]
     }, {
@@ -8054,6 +8162,7 @@
         "created" : "2017-06-12",
         "release" : "2017.24"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-client", "oauth2-client-lifecycle" ],
       "mappings" : [ "app.oauth2.client.lifecycle.create" ]
     }, {
@@ -8064,6 +8173,7 @@
         "created" : "2017-06-12",
         "release" : "2017.24"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-client", "oauth2-client-lifecycle" ],
       "mappings" : [ "app.oauth2.client.lifecycle.deactivate" ]
     }, {
@@ -8074,6 +8184,7 @@
         "created" : "2017-06-12",
         "release" : "2017.24"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-client", "oauth2-client-lifecycle" ],
       "mappings" : [ "app.oauth2.client.lifecycle.delete" ]
     }, {
@@ -8084,6 +8195,7 @@
         "created" : "2017-06-12",
         "release" : "2017.24"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-client", "oauth2-client-lifecycle" ],
       "mappings" : [ "app.oauth2.client.lifecycle.update" ]
     }, {
@@ -8094,6 +8206,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.invalid_client_credentials_failure" ]
     }, {
@@ -8104,6 +8217,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.invalid_client_ids_failure" ]
     }, {
@@ -8114,6 +8228,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.key.rollover.legacy" ]
     }, {
@@ -8124,6 +8239,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-client" ],
       "mappings" : [ "app.oauth2.signon_failure", "app.oauth2.signon_success" ]
     }, {
@@ -8134,6 +8250,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.token.grant_failure" ]
     }, {
@@ -8144,6 +8261,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.token.grant.access_token_success" ]
     }, {
@@ -8154,6 +8272,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.token.grant.id_token_success" ]
     }, {
@@ -8164,6 +8283,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.token.grant.refresh_token_success" ]
     }, {
@@ -8174,6 +8294,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.token.revoke_failure", "app.oauth2.token.revoke_success" ]
     }, {
@@ -8184,6 +8305,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.token.revoke.implicit.as_success" ]
     }, {
@@ -8194,6 +8316,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.token.revoke.implicit.client_success" ]
     }, {
@@ -8204,6 +8327,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
       "mappings" : [ "app.oauth2.token.revoke.implicit.user_success" ]
     }, {
@@ -8214,6 +8338,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.change.domain.federation.success" ]
     }, {
@@ -8224,6 +8349,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.ad.user" ]
     }, {
@@ -8234,6 +8360,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.check.user.exists" ]
     }, {
@@ -8244,6 +8371,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.create.user" ]
     }, {
@@ -8254,6 +8382,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.deactivate.user" ]
     }, {
@@ -8264,6 +8393,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.download.custom.objects" ]
     }, {
@@ -8274,6 +8404,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.download.groups" ]
     }, {
@@ -8284,6 +8415,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.download.users" ]
     }, {
@@ -8294,6 +8426,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.endpoint.unavailable" ]
     }, {
@@ -8304,6 +8437,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.get.company.dirsync.failure" ]
     }, {
@@ -8314,6 +8448,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.get.company.dirsync.status.failure" ]
     }, {
@@ -8324,6 +8459,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.get.company.dirsync.status.pending" ]
     }, {
@@ -8334,6 +8470,7 @@
         "created" : "2018-09-04",
         "release" : "2018.37"
       },
+      "beta" : false,
       "tags" : [ "office365-app" ],
       "mappings" : [ "app.office365.api.error.get.object.ids.by.group.id" ]
     }, {
@@ -8344,6 +8481,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.group.create.failure" ]
     }, {
@@ -8354,6 +8492,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.group.create.failure.name.in.use" ]
     }, {
@@ -8364,6 +8503,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.group.delete.failure" ]
     }, {
@@ -8374,6 +8514,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.group.membership.update.assignment.failure" ]
     }, {
@@ -8384,6 +8525,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.group.membership.update.failure" ]
     }, {
@@ -8394,6 +8536,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.group.membership.update.group.not.found.failure" ]
     }, {
@@ -8404,6 +8547,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.group.membership.update.removal.failure" ]
     }, {
@@ -8414,6 +8558,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.group.update.failure" ]
     }, {
@@ -8424,6 +8569,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.group.update.failure.not.found" ]
     }, {
@@ -8434,6 +8580,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.import.profile" ]
     }, {
@@ -8444,6 +8591,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.import.profile.photo" ]
     }, {
@@ -8454,6 +8602,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.no.endpoints.found" ]
     }, {
@@ -8464,6 +8613,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.push.password" ]
     }, {
@@ -8474,6 +8624,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.push.profile" ]
     }, {
@@ -8484,6 +8635,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.push.profile.object" ]
     }, {
@@ -8494,6 +8646,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.reactivate.user" ]
     }, {
@@ -8504,6 +8657,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.remove.domain.federation.failure" ]
     }, {
@@ -8514,6 +8668,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.remove.domain.federation.failure.access.denied" ]
     }, {
@@ -8524,6 +8679,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.remove.domain.federation.failure.domain.not.found" ]
     }, {
@@ -8534,6 +8690,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.revoke.refresh.token" ]
     }, {
@@ -8544,6 +8701,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.set.company.dirsync.failure" ]
     }, {
@@ -8554,6 +8712,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.set.company.dirsync.status.failure" ]
     }, {
@@ -8564,6 +8723,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.set.domain.federation.failure" ]
     }, {
@@ -8574,6 +8734,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.set.domain.federation.failure.access.denied" ]
     }, {
@@ -8584,6 +8745,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.set.domain.federation.failure.domain.default" ]
     }, {
@@ -8594,6 +8756,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.set.domain.federation.failure.domain.not.found" ]
     }, {
@@ -8604,6 +8767,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.sync.contact" ]
     }, {
@@ -8614,6 +8778,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.sync.finalize" ]
     }, {
@@ -8624,6 +8789,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.sync.group" ]
     }, {
@@ -8634,6 +8800,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.sync.not.activated" ]
     }, {
@@ -8644,6 +8811,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.sync.set.attribute" ]
     }, {
@@ -8654,6 +8822,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.sync.user" ]
     }, {
@@ -8664,6 +8833,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.unable.to.create.graph.client" ]
     }, {
@@ -8674,6 +8844,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.validate.admin.creds" ]
     }, {
@@ -8684,6 +8855,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.validate.creds" ]
     }, {
@@ -8694,6 +8866,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.validate.creds.unknown.exception" ]
     }, {
@@ -8704,6 +8877,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.x-ms-forwarded-client-ip-header.absent" ]
     }, {
@@ -8714,6 +8888,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.remove.domain.federation.success" ]
     }, {
@@ -8724,6 +8899,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.set.domain.federation.success" ]
     }, {
@@ -8734,6 +8910,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.set.wsfed.configure.type.success" ]
     }, {
@@ -8744,6 +8921,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.sync.complete" ]
     }, {
@@ -8754,6 +8932,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.sync.heartbeat.sent" ]
     }, {
@@ -8764,6 +8943,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.sync.job.complete" ]
     }, {
@@ -8774,6 +8954,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.sync.job.complete.contact" ]
     }, {
@@ -8784,6 +8965,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.sync.job.complete.group" ]
     }, {
@@ -8794,6 +8976,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.sync.job.complete.user" ]
     }, {
@@ -8804,6 +8987,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.clientplatform.conversion.job.processing.app.instance" ]
     }, {
@@ -8814,6 +8998,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.clientplatform.conversion.job.skipping.migration" ]
     }, {
@@ -8824,6 +9009,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.dirsync.skipping.conflict-object" ]
     }, {
@@ -8834,6 +9020,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.dirsync.skipping.critical-system-object" ]
     }, {
@@ -8844,6 +9031,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.dirsync.skipping.non-security-group-invalid-mail" ]
     }, {
@@ -8854,6 +9042,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.dirsync.skipping.reserved-attribute-value" ]
     }, {
@@ -8864,6 +9053,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.dirsync.skipping.systemmailbox" ]
     }, {
@@ -8874,6 +9064,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.dirsync.skipping.without-name-and-displayname" ]
     }, {
@@ -8884,6 +9075,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.error.importing.user" ]
     }, {
@@ -8894,6 +9086,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.graph.api.error.no.mailbox.found" ]
     }, {
@@ -8904,6 +9097,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.graph.api.error.rate-limit.exceeded" ]
     }, {
@@ -8914,6 +9108,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "office365-app" ],
       "mappings" : [ "app.office365.graph.api.error.service.principal.creation.failed.no.workaround" ]
     }, {
@@ -8924,6 +9119,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "office365-app" ],
       "mappings" : [ "app.office365.graph.api.error.service.principal.creation.failed.workaround" ]
     }, {
@@ -8934,6 +9130,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.jo.begin.migration.gaas.v1.to.v0" ]
     }, {
@@ -8944,6 +9141,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.begin.downloading.custom.objects" ]
     }, {
@@ -8954,6 +9152,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.begin.migration.gaas.v0.to.v1" ]
     }, {
@@ -8964,6 +9163,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.begin.migration.users.v0.to.v1" ]
     }, {
@@ -8974,6 +9174,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.begin.migration.users.v1.to.v0" ]
     }, {
@@ -8984,6 +9185,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.download.or.migration.failed" ]
     }, {
@@ -8994,6 +9196,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.end.count.migration.gaas.v0.to.v1" ]
     }, {
@@ -9004,6 +9207,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.end.count.migration.gaas.v1.to.v0" ]
     }, {
@@ -9014,6 +9218,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.end.count.migration.users.v0.to.v1" ]
     }, {
@@ -9024,6 +9229,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.end.count.migration.users.v1.to.v0" ]
     }, {
@@ -9034,6 +9240,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.end.downloading.custom.objects" ]
     }, {
@@ -9044,6 +9251,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.end.migration.gaas.v0.to.v1" ]
     }, {
@@ -9054,6 +9262,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.end.migration.gaas.v1.to.v0" ]
     }, {
@@ -9064,6 +9273,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.end.migration.users.v0.to.v1" ]
     }, {
@@ -9074,6 +9284,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.end.migration.users.v1.to.v0" ]
     }, {
@@ -9084,6 +9295,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.migration.gaas.v0.to.v1.failed" ]
     }, {
@@ -9094,6 +9306,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.migration.gaas.v1.to.v0.failed" ]
     }, {
@@ -9104,6 +9317,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.migration.users.v0.to.v1.failed" ]
     }, {
@@ -9114,6 +9328,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.migration.users.v1.to.v0.failed" ]
     }, {
@@ -9124,6 +9339,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.no.custom.objects.downloaded" ]
     }, {
@@ -9134,6 +9350,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.processing.app.instance" ]
     }, {
@@ -9144,6 +9361,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.skipping.inactive.app.instance" ]
     }, {
@@ -9154,6 +9372,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.skipping.migration.gaa.v0.to.v1" ]
     }, {
@@ -9164,6 +9383,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.skipping.migration.gaa.v1.to.v0" ]
     }, {
@@ -9174,6 +9394,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.skipping.migration.user.v0.to.v1" ]
     }, {
@@ -9184,6 +9405,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.skipping.migration.user.v1.to.v0" ]
     }, {
@@ -9194,6 +9416,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.skipping.missing.creds.app.instance" ]
     }, {
@@ -9204,6 +9427,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.license.conversion.job.skipping.no.change.licenses.app.instance" ]
     }, {
@@ -9214,6 +9438,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.service.principal.cleanup.job.complete" ]
     }, {
@@ -9224,6 +9449,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.service.principal.cleanup.job.invalid.credentials" ]
     }, {
@@ -9234,6 +9460,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.service.principal.cleanup.job.processing" ]
     }, {
@@ -9244,6 +9471,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.service.principal.cleanup.job.skipping.missing.creds" ]
     }, {
@@ -9254,6 +9482,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.service.principal.cleanup.job.skipping.no.service.principal" ]
     }, {
@@ -9264,6 +9493,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.service.principal.cleanup.job.unable.to.delete.service.principal" ]
     }, {
@@ -9274,6 +9504,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.user.delete.success" ]
     }, {
@@ -9284,6 +9515,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.user.lifecycle.action.failed" ]
     }, {
@@ -9294,6 +9526,7 @@
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
+      "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.user.remove.licenses.success" ]
     }, {
@@ -9304,6 +9537,7 @@
         "created" : "2018-02-05",
         "release" : "2018.13"
       },
+      "beta" : false,
       "tags" : [ "app", "radius" ],
       "mappings" : [ ]
     }, {
@@ -9314,6 +9548,7 @@
         "created" : "2018-02-05",
         "release" : "2018.13"
       },
+      "beta" : false,
       "tags" : [ "app", "radius" ],
       "mappings" : [ ]
     }, {
@@ -9324,6 +9559,7 @@
         "created" : "2018-02-05",
         "release" : "2018.13"
       },
+      "beta" : false,
       "tags" : [ "app", "radius" ],
       "mappings" : [ "app.radius.agent.port_inaccessible" ]
     }, {
@@ -9334,6 +9570,7 @@
         "created" : "2018-02-05",
         "release" : "2018.13"
       },
+      "beta" : false,
       "tags" : [ "app", "radius" ],
       "mappings" : [ "app.radius.agent.port_reaccessible" ]
     }, {
@@ -9344,6 +9581,7 @@
         "created" : "2014-06-18",
         "release" : "2014.25"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.realtimesync.import.details.add_user" ]
     }, {
@@ -9354,6 +9592,7 @@
         "created" : "2014-06-18",
         "release" : "2014.25"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.realtimesync.import.details.delete_user" ]
     }, {
@@ -9364,6 +9603,7 @@
         "created" : "2014-06-18",
         "release" : "2014.25"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.realtimesync.import.details.update_user" ]
     }, {
@@ -9374,6 +9614,7 @@
         "created" : "2018-10-03",
         "release" : "2018.42"
       },
+      "beta" : false,
       "tags" : [ "rum" ],
       "mappings" : [ "app.rum.config.validation.error" ]
     }, {
@@ -9384,6 +9625,7 @@
         "created" : "2018-10-03",
         "release" : "2018.42"
       },
+      "beta" : false,
       "tags" : [ "rum" ],
       "mappings" : [ "app.rum.is.api.account.error" ]
     }, {
@@ -9394,6 +9636,7 @@
         "created" : "2018-10-03",
         "release" : "2018.42"
       },
+      "beta" : false,
       "tags" : [ "rum" ],
       "mappings" : [ "app.rum.package.thrown.error" ]
     }, {
@@ -9404,6 +9647,7 @@
         "created" : "2018-10-03",
         "release" : "2018.42"
       },
+      "beta" : false,
       "tags" : [ "rum" ],
       "mappings" : [ "app.rum.validation.error" ]
     }, {
@@ -9414,6 +9658,7 @@
         "created" : "2019-01-07",
         "release" : "2019.01.1"
       },
+      "beta" : false,
       "tags" : [ "app", "cvd" ],
       "mappings" : [ "app.saml.sensitive.attribute.update" ]
     }, {
@@ -9424,6 +9669,7 @@
         "created" : "2016-01-21",
         "release" : "2016.04"
       },
+      "beta" : false,
       "tags" : [ "app-user-management" ],
       "mappings" : [ "app.user_management.app_group_member_import.delete_failure", "app.user_management.app_group_member_import.delete_success", "app.user_management.app_group_member_import.insert_failure", "app.user_management.app_group_member_import.insert_success" ]
     }, {
@@ -9434,6 +9680,7 @@
         "created" : "2017-12-14",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.created.from.rule" ]
     }, {
@@ -9444,6 +9691,7 @@
         "created" : "2017-12-14",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.created.from.rule.error.duplicate" ]
     }, {
@@ -9454,6 +9702,7 @@
         "created" : "2017-12-14",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.created.from.rule.error.validation" ]
     }, {
@@ -9464,6 +9713,7 @@
         "created" : "2017-12-14",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.created.from.rule.errors" ]
     }, {
@@ -9474,6 +9724,7 @@
         "created" : "2018-01-10",
         "release" : "2018.03"
       },
+      "beta" : false,
       "tags" : [ "app", "app-user-management" ],
       "mappings" : [ "app.user_management.grouppush.mapping.okta.users.ignored" ]
     }, {
@@ -9484,6 +9735,7 @@
         "created" : "2017-12-14",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.import.csv.line.error" ]
     }, {
@@ -9494,6 +9746,7 @@
         "created" : "2017-12-14",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.push_new_user_success" ]
     }, {
@@ -9504,6 +9757,7 @@
         "created" : "2017-12-14",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.update_from_master_failed" ]
     }, {
@@ -9514,6 +9768,7 @@
         "created" : "2018-01-10",
         "release" : "2018.03"
       },
+      "beta" : false,
       "tags" : [ "app", "app-user-management" ],
       "mappings" : [ "app.user_management.user_group_import.create_failure" ]
     }, {
@@ -9524,6 +9779,7 @@
         "created" : "2018-01-10",
         "release" : "2018.03"
       },
+      "beta" : false,
       "tags" : [ "app", "app-user-management" ],
       "mappings" : [ "app.user_management.user_group_import.delete_success" ]
     }, {
@@ -9534,6 +9790,7 @@
         "created" : "2018-01-10",
         "release" : "2018.03"
       },
+      "beta" : false,
       "tags" : [ "app", "app-user-management" ],
       "mappings" : [ "app.user_management.user_group_import.update_failure" ]
     }, {
@@ -9544,6 +9801,7 @@
         "created" : "2018-01-10",
         "release" : "2018.03"
       },
+      "beta" : false,
       "tags" : [ "app", "app-user-management" ],
       "mappings" : [ "app.user_management.user_group_import.upsert_success" ]
     }, {
@@ -9554,6 +9812,7 @@
         "created" : "2018-11-11",
         "release" : "2018.47"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "application.appuser.mapping.invalid.expression" ]
     }, {
@@ -9564,6 +9823,7 @@
         "created" : "2018-10-03",
         "release" : "2018.42"
       },
+      "beta" : false,
       "tags" : [ "invalidate-app-list-cache" ],
       "mappings" : [ "invalidate_app_list.app.created", "invalidate_app_list.app.updated", "invalidate_app_list.app_details.updated", "invalidate_app_list.metadata.changed" ]
     }, {
@@ -9574,6 +9834,7 @@
         "created" : "2016-03-29",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.config-error" ]
     }, {
@@ -9584,6 +9845,7 @@
         "created" : "2016-03-29",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.outbound_delauth_disabled" ]
     }, {
@@ -9594,6 +9856,7 @@
         "created" : "2017-06-09",
         "release" : "2017.24"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.generic.config.fed_broker_mode_disabled" ]
     }, {
@@ -9604,6 +9867,7 @@
         "created" : "2016-03-29",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.outbound_delauth_enabled" ]
     }, {
@@ -9614,6 +9878,7 @@
         "created" : "2017-06-09",
         "release" : "2017.24"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.generic.config.fed_broker_mode_enabled" ]
     }, {
@@ -9624,6 +9889,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.download_app_schema", "app.google.user_management.error.download_app_schema", "app.jira.api.error.download.server.set.values", "app.okta_org2org.user_management.error.download_app_schema", "app.okta_org2org.user_management.error.download_user_type", "app.okta_org2org.user_management.error.parse_schema", "app.okta_org2org.user_management.error.schema.property.not.exist", "app.salesforce.user_management.failure.download_user_schema", "app.servicenow.api.error.get.costcenters", "app.servicenow.api.error.get.departments", "app.servicenow.api.error.get.locations", "app.servicenow_app2.api.error.get.costcenters", "app.servicenow_app2.api.error.get.departments", "app.servicenow_app2.api.error.get.locations", "app.veeva_vault.api.error.download.custom.objects", "app.workday.api.error.user-management-error-download-app-schema" ]
     }, {
@@ -9634,6 +9900,7 @@
         "created" : "2016-03-29",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.logo_reset" ]
     }, {
@@ -9644,6 +9911,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.api.validation", "app.api.error.download_custom_objects", "app.api.error.download_schema_enum_values", "app.boxnet.api.error.validate_parent_folder", "app.google.user_management.error.download_custom_objects", "app.hipchat.api.error.validation", "app.jira.api.error.binding", "app.jira.api.error.login", "app.jira.api.error.logout", "app.netsuite.api.error.download_custom_objects", "app.rightscale.api.error.validate", "app.sendwordnow.api.error.auth", "app.workday.api.error.validate", "app.zendesk.api.error.role.restriction", "verificationFailed" ]
     }, {
@@ -9654,6 +9922,7 @@
         "created" : "2016-03-29",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.updating_api_credentials_for_password_change" ]
     }, {
@@ -9664,6 +9933,7 @@
         "created" : "2016-03-29",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.logo_update" ]
     }, {
@@ -9674,6 +9944,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.hipchat.api.error.query" ]
     }, {
@@ -9684,6 +9955,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.auth", "app.api.error.oauth.get.token", "app.api.error.oauth.refresh.token", "app.auth_error.INVALID_CREDENTIALS", "app.bigmachines.api.error.connection", "app.bigmachines.api.error.login", "app.bigmachines.api.error.logout", "app.bloomfire.api.error.api.validation", "app.bloomfire.sso.error.api_key_empty", "app.bloomfire.sso.error.api_key_invalid", "app.bloomfire.sso.error.user_not_extracted", "app.confluence.api.error.login", "app.confluence.api.error.logout", "app.cornerstone.api.error.api.validation", "app.cornerstone.api.error.init", "app.coupa.api.connection.error", "app.crashplanpro.api.auth.invalid_login_url", "app.crashplanpro.api.invalid_set_of_roles", "app.docusign.api.error.no.accounts", "app.docusign.api.error.not.account.member", "app.dropbox.api.error.validation", "app.echosign.api.error.connection", "app.egnyte.auth.type.validation.failure", "app.egnyte.username.validation.failure", "app.evernote_business.api.error.validation", "app.gotomeeting.user_management.config.failure.api_login_failure", "app.gotomeeting_rest.user_management.config.failure.api_auth_failed", "app.netsuite.api.error.auth", "app.pagerduty.api.auth.error.invalid.admin.role", "app.pagerduty.api.auth.error.invalid.admin.username", "app.pagerduty.api.auth.error.invalid.api.key", "app.postini.user_management.config.failure.api_login_failed", "app.rightscale.api.error.login", "app.salesforce.user_management.failure.api_service_not_available", "app.salesforce.user_management.failure.general_api_login_failure", "app.salesforce.user_management.failure.invalid_api_credentials", "app.salesforce.user_management.failure.password_expired", "app.servicenow.api.error.validation", "app.servicenow_app2.api.error.validation", "app.sugarcrm.api.error.login", "app.sugarcrm.api.error.logout", "app.veeva_vault.api.error.validation", "app.yammer.api.error.validation", "app.zendesk.api.error.validation.error", "github.api.error.empty_oauth_token", "github.api.error.not_a_member_of_the_org", "github.api.error.not_admin_user" ]
     }, {
@@ -9694,6 +9966,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.generic", "app.bloomfire.api.error.generic", "app.coupa.api.error", "app.crashplanpro.api.rest.unexpected_response_status", "app.eqanalyzer.url.encoding", "app.exacttarget.api.error.init", "app.google.sso.failure.domain_not_found", "app.google.sso.failure.invalid_continue_url", "app.google.sso.failure.invalid_domain", "app.google.sso.failure.relay_state_not_found", "app.gotomeeting.user_management.config.failure.api_not_available", "app.gotomeeting.user_management.config.failure.api_url_is_malformed", "app.gotomeeting_rest.user_management.config.failure.api_not_available", "app.rightscale.api.error.idp", "app.scim.is.api.account.error", "app.sugarcrm.api.error.get.entry.list", "app.sugarcrm.api.error.hash.password", "app.sugarcrm.api.error.set.entry", "app.workday.api.error.bind", "huddle.company_id.validation.failure", "roambi.api.error.auth.empty.account.response", "roambi.api.error.auth.empty.code", "roambi.api.error.auth.unexpected.response" ]
     }, {
@@ -9704,6 +9977,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.rate.limit.exceeded", "app.boxnet.api.error.rate_limit_exceeded", "app.clarizen.api.error.rate_limit.exceeded", "app.dropbox.api.error.rateLimit.exceeded", "app.egnyte.rate.limiting.exceeded", "app.google.user_management.error.rateLimit", "app.hipchat.rateLimit.exceeded", "app.litmos.import.rate_limit_exceeded", "github.api.error.rate_limit.remaining", "github.api.error.rate_limit.reset_date", "huddle.rate.limit.exceeded" ]
     }, {
@@ -9714,6 +9988,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.boxnet.api.error.transfer.files" ]
     }, {
@@ -9724,6 +9999,7 @@
         "created" : "2016-03-29",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.generic.config.app_activated" ]
     }, {
@@ -9734,6 +10010,7 @@
         "created" : "2016-03-29",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_editor.app.create" ]
     }, {
@@ -9744,6 +10021,7 @@
         "created" : "2016-03-29",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.generic.config.app_deactivated" ]
     }, {
@@ -9754,6 +10032,7 @@
         "created" : "2016-03-29",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.generic.config.app_deleted" ]
     }, {
@@ -9764,6 +10043,7 @@
         "created" : "2016-03-29",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_editor.app.update", "app.generic.config.app_updated" ]
     }, {
@@ -9774,6 +10054,7 @@
         "created" : "2016-03-24",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.sign_on_policy.access_denied" ]
     }, {
@@ -9784,6 +10065,7 @@
         "created" : "2016-03-24",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.sign_on_policy.new_rule" ]
     }, {
@@ -9794,6 +10076,7 @@
         "created" : "2016-03-24",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.sign_on_policy.delete_rule" ]
     }, {
@@ -9804,6 +10087,7 @@
         "created" : "2016-03-24",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.app_instance.sign_on_policy.change" ]
     }, {
@@ -9814,6 +10098,7 @@
         "created" : "2018-10-03",
         "release" : "2018.42"
       },
+      "beta" : false,
       "tags" : [ "field-mapping-rule-modification" ],
       "mappings" : [ "platform.field_mapping_rule.assign.change", "platform.field_mapping_rule.import.change" ]
     }, {
@@ -9824,6 +10109,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.create.group", "app.api.error.upsert_group", "app.api.error.upsert_group_duplicate", "app.boxnet.api.error.create.group", "app.confluence.api.error.create.new.group", "app.google.user_management.error.create_group", "app.google.user_management.error.create_group_duplicate", "app.jira.api.error.create.group", "app.jira.api.error.upsert.group", "app.samanage.api.error.long_group_name", "app.servicenow_app2.api.error.upsert.group" ]
     }, {
@@ -9834,6 +10120,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.download_groups", "app.api.error.get_group_by_id", "app.boxnet.api.error.download.groups", "app.confluence.api.error.parse.groups", "app.google.user_management.error.download_groups", "app.jira.api.error.download.groups", "app.rightscale.api.error.download.groups", "app.servicenow_app2.api.error.download.groups", "app.workday.api.error.get-groups", "app.workday.api.error.parse-groups" ]
     }, {
@@ -9844,6 +10131,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.delete_group", "app.boxnet.api.error.delete.group", "app.confluence.api.error.remove.group", "app.google.user_management.error.delete_group", "app.jira.api.error.delete.group", "app.servicenow_app2.api.error.delete.group" ]
     }, {
@@ -9854,6 +10142,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.group_name_long_length", "app.api.error.update.group", "app.boxnet.api.error.update.group", "app.clarizen.api.error.update_group", "app.google.user_management.error.update_group", "app.jira.api.error.update.group" ]
     }, {
@@ -9864,6 +10153,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.check_group_exists", "app.api.error.group.more_than_one_with_same_id", "app.api.error.group.not_found", "app.boxnet.api.error.check_group_exists", "app.confluence.api.error.check.group.exists", "app.google.user_management.error.check_group_exists", "app.google.user_management.error.check_group_exists.invalid_domain", "app.jira.api.error.check.group.exists", "app.servicenow_app2.api.warn.upsert.group" ]
     }, {
@@ -9874,6 +10164,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.add_group_membership", "app.boxnet.api.error.push.groups_set", "app.confluence.api.error.add.user.to.group", "app.google.user_management.error.add_member_to_group", "app.servicenow_app2.api.error.add.group.memberships" ]
     }, {
@@ -9884,6 +10175,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.download_memberships", "app.boxnet.api.error.download.group_users", "app.google.user_management.error.download_group_members", "app.servicenow_app2.api.error.download.group.memberships", "app.workday.api.error.get-group-assignments", "app.workday.api.error.parse-group-assignments" ]
     }, {
@@ -9894,6 +10186,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.remove_group_membership", "app.boxnet.api.error.push.remove_from_groups", "app.confluence.api.error.remove.user.to.group", "app.google.user_management.error.remove_member_from_group", "app.servicenow_app2.api.error.delete.group.memberships" ]
     }, {
@@ -9904,6 +10197,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.update_group_membership", "app.jira.api.error.update.group.membership", "app.salesforce.user_management.failure.add_user_to_public_group", "app.salesforce.user_management.failure.remove_user_from_public_group" ]
     }, {
@@ -9914,6 +10208,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ ]
     }, {
@@ -9924,6 +10219,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "platform.group_push.activate_mapping" ]
     }, {
@@ -9934,6 +10230,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "platform.group_push.delete_appgroup" ]
     }, {
@@ -9944,6 +10241,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.and.groups.deleted.rule.deleted" ]
     }, {
@@ -9954,6 +10252,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.app.group.renamed" ]
     }, {
@@ -9964,6 +10263,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.app.group.renamed.failed" ]
     }, {
@@ -9974,6 +10274,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.created" ]
     }, {
@@ -9984,6 +10285,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.created.from.rule.warning.duplicate.name" ]
     }, {
@@ -9994,6 +10296,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.created.from.rule.warning.duplicate.name.tobecreated" ]
     }, {
@@ -10004,6 +10307,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.created.from.rule.warning.upsertGroup.duplicate.name" ]
     }, {
@@ -10014,6 +10318,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.deactivated.source.group.renamed" ]
     }, {
@@ -10024,6 +10329,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.deactivated.source.group.renamed.failed" ]
     }, {
@@ -10034,6 +10340,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.update.or.delete.failed" ]
     }, {
@@ -10044,6 +10351,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.mapping.update.or.delete.failed.with.error" ]
     }, {
@@ -10054,6 +10362,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "platform.group_push.push_memberships" ]
     }, {
@@ -10064,6 +10373,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.pushed" ]
     }, {
@@ -10074,6 +10384,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.removed" ]
     }, {
@@ -10084,6 +10395,7 @@
         "created" : "2017-07-13",
         "release" : "2017.29"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.grouppush.updated" ]
     }, {
@@ -10094,6 +10406,7 @@
         "created" : "2016-04-06",
         "release" : "2016.15"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.amazon_aws.api.error.get.roles", "app.rum.execution.security.exception", "app.rum.execution.standard.attributes.exception", "app.rum.failure.timeout.reschedule" ]
     }, {
@@ -10104,6 +10417,7 @@
         "created" : "2016-03-31",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.activate_user", "app.user_management.activate_user" ]
     }, {
@@ -10114,6 +10428,7 @@
         "created" : "2016-03-31",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.deactivate_user", "app.bigmachines.api.error.deactivate", "app.boxnet.api.error.deactivate_user", "app.clarizen.api.error.entity.not_found", "app.confluence.api.error.deactivate.user", "app.confluence.api.error.remove.user", "app.cornerstone.api.error.api.deactivate_user", "app.dropbox.api.error.deactivation", "app.evernote_business.api.error.deactivation", "app.exacttarget.api.error.deactivate_user", "app.google.user_management.error.deactivate_user", "app.hipchat.api.error.deactivation", "app.netsuite.api.error.deactivate_user", "app.pagerduty.api.deactivate.user.unexpected.status", "app.servicenow.api.error.deactivate.user", "app.servicenow_app2.api.error.deactivate.user", "app.sugarcrm.api.error.deactivate.user", "app.user_management.deactivate_user", "app.user_management.deactivate_user.api_account", "app.veeva_vault.api.error.deactivate.user", "app.yammer.api.error.deactivation", "roambi.api.error.deactivate_user.confirmation" ]
     }, {
@@ -10124,6 +10439,7 @@
         "created" : "2016-03-31",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.deprovision_task_complete" ]
     }, {
@@ -10134,6 +10450,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.download_users", "app.bloomfire.api.error.download_users", "app.boxnet.api.error.download.users", "app.confluence.api.error.download.users", "app.dropbox.api.error.download.users", "app.echosign.api.error.download.users", "app.exacttarget.api.error.download_users", "app.google.user_management.error.download_org_units", "app.google.user_management.error.download_users", "app.gotomeeting.user_management.config.failure.user_import", "app.gotomeeting_rest.user_management.config.failure.user_import", "app.hipchat.api.error.download.users", "app.jira.api.error.download.users", "app.netsuite.api.error.download_users", "app.postini.user_management.failure.download_users", "app.rightscale.api.error.download.users", "app.salesforce.user_management.failure.user_import", "app.sendwordnow.api.error.service", "app.servicenow.api.error.download.users", "app.servicenow_app2.api.error.download.users", "app.sugarcrm.api.error.download.users", "app.veeva_vault.api.error.download.users", "app.workday.api.error.connect-custom-report", "app.workday.api.error.custom-report-unknown-failure", "app.workday.api.error.get-locations", "app.workday.api.error.get-tx-logs", "app.workday.api.error.get-worker-by-username", "app.workday.api.error.get-workers", "app.workday.api.error.parse-custom-report", "app.workday.api.error.parse-workers", "app.workday.api.error.universal-directory-setup-error", "app.workday.api.get-custom-report-data-empty", "app.yammer.api.error.download.users", "gooddata.api.error.project.access.forbidden" ]
     }, {
@@ -10144,6 +10461,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.import_user_by_id", "app.api.error.import_user_profile", "app.bigmachines.api.error.import", "app.boxnet.api.error.import.user.profile", "app.confluence.api.error.convert.remote.user.to.app.user", "app.confluence.api.error.get.user", "app.confluence.api.error.get.user.groups", "app.confluence.api.error.import.user.profile", "app.cornerstone.api.error.api.import_profile", "app.crashplanpro.api.user_not_found", "app.docusign.api.error.import.inactive.user", "app.docusign.api.error.import.permission.profile", "app.dropbox.api.error.import.profile", "app.dropbox.api.error.query", "app.echosign.api.error.import.profile", "app.exacttarget.api.error.import_user_profile", "app.google.user_management.error.import_user_profile", "app.hipchat.api.error.import.profile", "app.jira.api.error.check.get.user", "app.jira.api.error.convert.remote.user.to.app.user", "app.jira.api.error.import.user.profile", "app.netsuite.api.error.import_user_profile", "app.rightscale.api.error.get.users", "app.sendwordnow.api.error.get_user", "app.sendwordnow.api.error.import_user_profile", "app.servicenow.api.error.import.user.profile", "app.servicenow_app2.api.error.import.manager.profile", "app.servicenow_app2.api.error.import.user.profile", "app.sugarcrm.api.error.import.user.profile", "app.veeva_vault.api.error.import.user.profile", "app.workday.api.error.get-worker-by-id", "app.yammer.api.error.import.profile" ]
     }, {
@@ -10154,6 +10472,7 @@
         "created" : "2017-09-14",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.empty_password", "app.api.error.push_password_update", "app.confluence.api.error.push.password.update", "app.cornerstone.api.error.api.password_push", "app.dropbox.api.error.push.password.update", "app.exacttarget.api.error.push_password_update", "app.google.user_management.error.push_password_update", "app.hipchat.api.error.push.password", "app.jira.api.error.push.password.update", "app.netsuite.api.error.push_password_update", "app.salesforce.user_management.failure.cant.push.password", "app.salesforce.user_management.sso.only.user.password.rejected", "app.servicenow.api.error.push.password.update", "app.servicenow_app2.api.error.push.password.update", "app.sugarcrm.api.error.push.password.update" ]
     }, {
@@ -10164,6 +10483,7 @@
         "created" : "2016-03-31",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.create_pending_user", "app.api.error.create_user", "app.api.error.user.not_found", "app.api.error.user.not_found_or_deleted", "app.bigmachines.api.error.create", "app.bloomfire.api.error.create_user", "app.boxnet.api.error.assign_folder_permissions", "app.boxnet.api.error.create_new_user", "app.boxnet.api.error.create_personal_folder", "app.boxnet.api.error.create_personal_folder.conflict", "app.boxnet.api.error.invalid_user_login", "app.boxnet.api.error.personal_folder_name", "app.boxnet.api.error.personal_folder_sync_state", "app.confluence.api.error.create.new.user", "app.cornerstone.api.error.api.create_user", "app.dropbox.api.error.create.user", "app.echosign.api.error.create", "app.evernote_business.api.error.create.user", "app.evernote_business.api.error.create.user.limit.reached", "app.exacttarget.api.error.create_user", "app.google.user_management.error.create_new_user", "app.google.user_management.error.invalid_manager", "app.google.user_management.error.invalid_orgunit_id", "app.gotomeeting.user_management.config.failure.user_provisioning", "app.gotomeeting_rest.user_management.config.failure.user_provisioning", "app.hipchat.api.error.create.user", "app.jira.api.error.create.new.user", "app.netsuite.api.error.create_user", "app.postini.user_management.config.failure.provisioning", "app.rightscale.api.error.create.user", "app.salesforce.user_management.failure.provisioning", "app.samanage.api.error.incorrect.attribute", "app.sendwordnow.api.error.create_user", "app.servicenow.api.error.create.new.user", "app.servicenow_app2.api.error.create.new.user", "app.sugarcrm.api.error.create.new.user", "app.user_management.push_new_user", "app.user_management.push_pending_user", "app.veeva_vault.api.error.create.new.user", "app.yammer.api.error.create.user", "app.yammer.api.warn.send.invite", "gooddata.api.error.incorrect.roles.count", "gooddata.api.error.project.assignment.failed", "gooddata.api.error.project.not.found" ]
     }, {
@@ -10174,6 +10494,7 @@
         "created" : "2016-03-31",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.push_okta_password_update" ]
     }, {
@@ -10184,6 +10505,7 @@
         "created" : "2016-03-31",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.push_unique_password_update" ]
     }, {
@@ -10194,6 +10516,7 @@
         "created" : "2016-03-31",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.manager.not_found_for_user", "app.api.error.push_profile_update", "app.bigmachines.api.error.profile.update", "app.boxnet.api.error.add.email.alias", "app.boxnet.api.error.push.profile.update", "app.boxnet.api.error.user.push.conflict_in_group", "app.confluence.api.error.convert.app.user.to.remote.user", "app.confluence.api.error.push.profile.update", "app.cornerstone.api.error.api.push_profile", "app.crashplanpro.api.user_has_invalid_fields", "app.docusign.api.error.update.inactive.user", "app.docusign.api.error.update.permission.profile", "app.dropbox.api.error.push.profile", "app.dropbox.api.error.set.user.permissions", "app.exacttarget.api.error.push_profile_update", "app.generic.user_management.error.add_manager_to_user", "app.google.api.error.InsufficientPermission", "app.google.license_management.error.assign_license", "app.google.license_management.error.remove_license", "app.google.user_management.error.push_profile_update", "app.google.user_management.error.reconcile_email_aliases", "app.hipchat.api.error.push.profile", "app.jira.api.error.convert.app.user.to.remote.user", "app.jira.api.error.push.profile.update", "app.netsuite.api.error.push_profile_update", "app.pagerduty.api.push.profile.update.unexpected.status", "app.rightscale.api.error.push.profile", "app.sendwordnow.api.error.update_user_profile", "app.servicenow.api.error.import.manager.profile", "app.servicenow.api.error.push.profile.update", "app.servicenow_app2.api.error.push.profile.update", "app.sugarcrm.api.error.push.profile.update", "app.user_management.provision_user.user_inactive", "app.user_management.push_profile_failure", "app.user_management.push_profile_success", "app.user_management.push_profile_update", "app.veeva_vault.api.error.push.profile.update", "app.workday.api.error.get-employee-personal-info", "app.workday.api.error.update-employee-personal-info", "app.workday.api.error.user-management-error-push-profile-update", "app.yammer.api.error.push.profile", "moveit_dmz.error.too.long.username.or.email" ]
     }, {
@@ -10204,6 +10527,7 @@
         "created" : "2016-03-31",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.reactivate_user", "app.bigmachines.api.error.activate", "app.boxnet.api.error.reactivate_user", "app.confluence.api.error.reactivate.user", "app.cornerstone.api.error.api.reactivate_user", "app.exacttarget.api.error.reactivate_user", "app.google.user_management.error.reactivate_user", "app.hipchat.api.error.reactivation", "app.netsuite.api.error.reactivate_user", "app.servicenow.api.error.reactivate.user", "app.servicenow_app2.api.error.reactivate.user", "app.sugarcrm.api.error.reactivate.user", "app.user_management.reactivate_user", "app.veeva_vault.api.error.reactivate.user", "roambi.api.error.reactivate_user.confirmation" ]
     }, {
@@ -10214,6 +10538,7 @@
         "created" : "2016-03-31",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.user_management.provision_user", "app.user_management.provision_user_failed" ]
     }, {
@@ -10224,6 +10549,7 @@
         "created" : "2016-03-31",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "app-api" ],
       "mappings" : [ "app.api.error.check_user_exists", "app.api.error.user.more_than_one_with_same_id", "app.bigmachines.api.error.check.user.exists", "app.bloomfire.api.error.check_user_exists", "app.boxnet.api.error.check_user_exists", "app.confluence.api.error.check.user.exists", "app.cornerstone.api.error.api.check_user_exists", "app.crashplanpro.api.ambiguous_search_results_by_user", "app.dropbox.api.error.check.user", "app.echosign.api.error.search.by.id", "app.echosign.api.error.search.by.login", "app.exacttarget.api.error.check_user_exists", "app.google.user_management.error.check_user_exists", "app.google.user_management.error.check_user_exists.invalid_domain", "app.hipchat.api.error.check.user", "app.jira.api.error.check.user.exists", "app.netsuite.api.error.check_user_exists", "app.sendwordnow.api.error.user_exists", "app.servicenow.api.error.check.user.exists", "app.servicenow_app2.api.error.check.user.exists", "app.sugarcrm.api.error.check.user.exists", "app.user_management.verified_user_with_thirdparty", "app.veeva_vault.api.error.check.user.exists", "app.yammer.api.error.check.user", "github.api.error.user_not_found" ]
     }, {
@@ -10234,6 +10560,7 @@
         "created" : "2017-12-20",
         "release" : "2017.52"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.registration_policy.lifecycle.create" ]
     }, {
@@ -10244,6 +10571,7 @@
         "created" : "2017-12-20",
         "release" : "2017.52"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.registration_policy.lifecycle.update" ]
     }, {
@@ -10254,6 +10582,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "user-provision", "webhook-eligible" ],
       "mappings" : [ "app.generic.provision.assign_user_to_app" ]
     }, {
@@ -10264,6 +10593,7 @@
         "created" : "2016-08-05",
         "release" : "2016.33"
       },
+      "beta" : false,
       "tags" : [ "user-provision" ],
       "mappings" : [ "app.generic.provision.approve_user_for_app" ]
     }, {
@@ -10274,6 +10604,7 @@
         "created" : "2016-03-08",
         "release" : "2016.11"
       },
+      "beta" : false,
       "tags" : [ "app", "webhook-eligible" ],
       "mappings" : [ "app.generic.config.app_password_update" ]
     }, {
@@ -10284,6 +10615,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.generic.config.app_username_update" ]
     }, {
@@ -10294,6 +10626,7 @@
         "created" : "2016-08-05",
         "release" : "2016.33"
       },
+      "beta" : false,
       "tags" : [ "user-provision" ],
       "mappings" : [ "app.generic.provision.deprovision_user_from_app" ]
     }, {
@@ -10304,6 +10637,7 @@
         "created" : "2016-08-05",
         "release" : "2016.33"
       },
+      "beta" : false,
       "tags" : [ "user-provision" ],
       "mappings" : [ "app.generic.provision.provision_user_for_app" ]
     }, {
@@ -10314,6 +10648,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "user-provision", "webhook-eligible" ],
       "mappings" : [ "app.generic.provision.deactivate_user_from_app" ]
     }, {
@@ -10324,6 +10659,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.generic.reversibility.individual.app.recovery", "app.generic.reversibility.personal.app.recovery" ]
     }, {
@@ -10334,6 +10670,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.generic.reversibility.credentials.recovery" ]
     }, {
@@ -10344,6 +10681,7 @@
         "created" : "2016-08-05",
         "release" : "2016.33"
       },
+      "beta" : false,
       "tags" : [ "user-provision" ],
       "mappings" : [ "app.generic.provision.revoke_user_from_app" ]
     }, {
@@ -10354,6 +10692,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.generic.show.password" ]
     }, {
@@ -10364,6 +10703,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.generic.config.app_user_property_update" ]
     }, {
@@ -10374,6 +10714,7 @@
         "created" : "2017-09-22",
         "release" : "2017.39"
       },
+      "beta" : false,
       "tags" : [ "concurrency-limit" ],
       "mappings" : [ "core.concurrency.org.limit.violation" ]
     }, {
@@ -10384,6 +10725,7 @@
         "created" : "2017-05-12",
         "release" : "2017.20"
       },
+      "beta" : false,
       "tags" : [ "okta-el" ],
       "mappings" : [ "core.el.evaluate_failure" ]
     }, {
@@ -10394,8 +10736,31 @@
         "created" : "2017-12-20",
         "release" : "2017.52"
       },
+      "beta" : false,
       "tags" : [ "x509-idp-auth" ],
       "mappings" : [ "core.user_auth.idp.x509.crl_download_failure" ]
+    }, {
+      "id" : "credential.register",
+      "category" : "enterprise-auth",
+      "description" : "Fired when a credential is registered. This event fires when the registration of a credential is successful or fails. This can be used to audit that a credential has been successfully registered, and troubleshoot why a credential registration attempt has failed.",
+      "info" : {
+        "created" : "2019-02-21",
+        "release" : "2019.02.3"
+      },
+      "beta" : false,
+      "tags" : [ "user-factor" ],
+      "mappings" : [ "credential.register" ]
+    }, {
+      "id" : "credential.revoke",
+      "category" : "enterprise-auth",
+      "description" : "Fired when a credential is revoked. This event fires when the revocation of a credential is successful or fails. This can be used to audit that a credential has been successfully revoked, and troubleshoot why a credential revocation attempt has failed.",
+      "info" : {
+        "created" : "2019-02-21",
+        "release" : "2019.02.3"
+      },
+      "beta" : false,
+      "tags" : [ "user-factor" ],
+      "mappings" : [ "credential.revoke" ]
     }, {
       "id" : "directory.app_user_profile.bootstrap",
       "category" : "lca",
@@ -10404,6 +10769,7 @@
         "created" : "2016-03-17",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "cvd", "directory" ],
       "mappings" : [ "cvd.appuser_profile_bootstrapped" ]
     }, {
@@ -10414,6 +10780,7 @@
         "created" : "2016-03-17",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "cvd", "directory" ],
       "mappings" : [ "cvd.appuser_profile_updated" ]
     }, {
@@ -10424,6 +10791,7 @@
         "created" : "2016-03-17",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "cvd", "directory" ],
       "mappings" : [ "cvd.mappings_updated" ]
     }, {
@@ -10434,6 +10802,7 @@
         "created" : "2016-03-17",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "cvd", "directory" ],
       "mappings" : [ "cvd.user_profile_bootstrapped" ]
     }, {
@@ -10444,6 +10813,7 @@
         "created" : "2016-03-17",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "cvd", "directory" ],
       "mappings" : [ "cvd.user_profile_updated" ]
     }, {
@@ -10454,6 +10824,7 @@
         "created" : "2016-02-05",
         "release" : "2016.06"
       },
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "group.application_assignment.add" ]
     }, {
@@ -10464,6 +10835,7 @@
         "created" : "2016-01-28",
         "release" : "2016.05"
       },
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "group.application_assignment.remove" ]
     }, {
@@ -10474,6 +10846,7 @@
         "created" : "2017-12-12",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "group.application_assignment.skip_assignment_reconcile" ]
     }, {
@@ -10484,8 +10857,31 @@
         "created" : "2016-03-22",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "group.application_assignment.update" ]
+    }, {
+      "id" : "group.privilege.grant",
+      "category" : "aelm",
+      "description" : "Fired when a group within Okta has been granted admin privileges. The group granted privileges can be an Okta mastered group, and AD mastered group, or an LDAP mastered group. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been granted, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
+      "info" : {
+        "created" : "2019-02-25",
+        "release" : "2019.03.0"
+      },
+      "beta" : true,
+      "tags" : [ "group" ],
+      "mappings" : [ "core.group.admin_privilege.granted" ]
+    }, {
+      "id" : "group.privilege.revoke",
+      "category" : "aelm",
+      "description" : "Fired when a group within Okta has had admin privileges revoked. The group with revoked privileges can be an Okta mastered group, and AD mastered group, or an LDAP mastered group. This can be used to can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been revoked, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
+      "info" : {
+        "created" : "2019-02-25",
+        "release" : "2019.03.0"
+      },
+      "beta" : true,
+      "tags" : [ "group" ],
+      "mappings" : [ "core.group.admin_privilege.revoked" ]
     }, {
       "id" : "group.user_membership.add",
       "category" : "sync",
@@ -10494,6 +10890,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "group", "webhook-eligible" ],
       "mappings" : [ "core.user_group_member.user_add" ]
     }, {
@@ -10504,6 +10901,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "group", "webhook-eligible" ],
       "mappings" : [ "core.user_group_member.user_remove" ]
     }, {
@@ -10514,6 +10912,7 @@
         "created" : "2017-12-13",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "core.user.added_to_rule_exclusion" ]
     }, {
@@ -10524,6 +10923,7 @@
         "created" : "2017-12-13",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "cvd.group_rule_deactivated" ]
     }, {
@@ -10534,6 +10934,7 @@
         "created" : "2017-12-13",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "cvd.group.user_membership.rule.error" ]
     }, {
@@ -10544,6 +10945,7 @@
         "created" : "2017-12-13",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "cvd.group.user_membership.rule.evaluation" ]
     }, {
@@ -10554,6 +10956,7 @@
         "created" : "2017-12-13",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "cvd.group_rule_invalidated" ]
     }, {
@@ -10564,6 +10967,7 @@
         "created" : "2017-12-13",
         "release" : "2017.51"
       },
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "cvd.group_rule_triggered" ]
     }, {
@@ -10574,6 +10978,7 @@
         "created" : "2019-01-17",
         "release" : "2019.01.2"
       },
+      "beta" : false,
       "tags" : [ "inline-hook" ],
       "mappings" : [ "platform.inline_hook.activated" ]
     }, {
@@ -10584,6 +10989,7 @@
         "created" : "2019-01-14",
         "release" : "2019.01.2"
       },
+      "beta" : false,
       "tags" : [ "inline-hook" ],
       "mappings" : [ "platform.inline_hook.created" ]
     }, {
@@ -10594,6 +11000,7 @@
         "created" : "2019-01-17",
         "release" : "2019.01.2"
       },
+      "beta" : false,
       "tags" : [ "inline-hook" ],
       "mappings" : [ "platform.inline_hook.deactivated" ]
     }, {
@@ -10604,6 +11011,7 @@
         "created" : "2019-01-14",
         "release" : "2019.01.2"
       },
+      "beta" : false,
       "tags" : [ "inline-hook" ],
       "mappings" : [ "platform.inline_hook.deleted" ]
     }, {
@@ -10614,6 +11022,7 @@
         "created" : "2019-01-14",
         "release" : "2019.01.2"
       },
+      "beta" : false,
       "tags" : [ "inline-hook" ],
       "mappings" : [ "platform.inline_hook.executed.failure", "platform.inline_hook.executed.success" ]
     }, {
@@ -10624,6 +11033,7 @@
         "created" : "2019-01-14",
         "release" : "2019.01.2"
       },
+      "beta" : false,
       "tags" : [ "inline-hook" ],
       "mappings" : [ "platform.inline_hook.response.processed.failure", "platform.inline_hook.response.processed.success" ]
     }, {
@@ -10634,6 +11044,7 @@
         "created" : "2019-01-14",
         "release" : "2019.01.2"
       },
+      "beta" : false,
       "tags" : [ "inline-hook" ],
       "mappings" : [ "platform.inline_hook.updated" ]
     }, {
@@ -10644,6 +11055,7 @@
         "created" : "2019-01-14",
         "release" : "2019.01.2"
       },
+      "beta" : false,
       "tags" : [ "inline-hook" ],
       "mappings" : [ "platform.inline_hook.verified.failure", "platform.inline_hook.verified.success" ]
     }, {
@@ -10654,6 +11066,7 @@
         "created" : "2018-01-29",
         "release" : "2018.06"
       },
+      "beta" : false,
       "tags" : [ "uncategorized" ],
       "mappings" : [ "app.generic.provision.assign_user_to_app" ]
     }, {
@@ -10664,6 +11077,7 @@
         "created" : "2016-03-25",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.command.generic.acknowledged" ]
     }, {
@@ -10674,6 +11088,7 @@
         "created" : "2016-03-25",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.command.generic.cancelled" ]
     }, {
@@ -10684,6 +11099,7 @@
         "created" : "2016-03-25",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.command.generic.delegated" ]
     }, {
@@ -10694,6 +11110,7 @@
         "created" : "2016-03-25",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.command.generic.error" ]
     }, {
@@ -10704,6 +11121,7 @@
         "created" : "2016-03-25",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.command.generic.new" ]
     }, {
@@ -10714,6 +11132,7 @@
         "created" : "2016-03-25",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.command.generic.notnow" ]
     }, {
@@ -10724,6 +11143,7 @@
         "created" : "2016-03-25",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.command.ios.acknowledged" ]
     }, {
@@ -10734,6 +11154,7 @@
         "created" : "2016-03-25",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.command.ios.cancelled" ]
     }, {
@@ -10744,6 +11165,7 @@
         "created" : "2016-03-25",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.command.ios.error" ]
     }, {
@@ -10754,6 +11176,7 @@
         "created" : "2016-03-25",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.command.ios.formaterror" ]
     }, {
@@ -10764,6 +11187,7 @@
         "created" : "2016-03-25",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.command.ios.new" ]
     }, {
@@ -10774,6 +11198,7 @@
         "created" : "2016-09-20",
         "release" : "2016.39"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.createEnrollment.ANDROID" ]
     }, {
@@ -10784,6 +11209,7 @@
         "created" : "2016-09-20",
         "release" : "2016.39"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.createEnrollment.IOS" ]
     }, {
@@ -10794,6 +11220,7 @@
         "created" : "2016-09-20",
         "release" : "2016.39"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.createEnrollment.OSX" ]
     }, {
@@ -10804,6 +11231,7 @@
         "created" : "2016-09-20",
         "release" : "2016.39"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.createEnrollment.UNKNOWN" ]
     }, {
@@ -10814,6 +11242,7 @@
         "created" : "2016-09-20",
         "release" : "2016.39"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.createEnrollment.WINDOWS" ]
     }, {
@@ -10824,6 +11253,7 @@
         "created" : "2016-09-20",
         "release" : "2016.39"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.streamDevicesAppListCSVDownload" ]
     }, {
@@ -10834,6 +11264,7 @@
         "created" : "2016-09-20",
         "release" : "2016.39"
       },
+      "beta" : false,
       "tags" : [ "mim" ],
       "mappings" : [ "mim.streamDevicesCSVDownload" ]
     }, {
@@ -10844,6 +11275,7 @@
         "created" : "2016-03-30",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "network-zone" ],
       "mappings" : [ "network_zone.rule.disabled" ]
     }, {
@@ -10854,6 +11286,7 @@
         "created" : "2017-05-30",
         "release" : "2017.22"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-lifecycle" ],
       "mappings" : [ "api.oauth2.as.activated" ]
     }, {
@@ -10864,6 +11297,7 @@
         "created" : "2016-12-06",
         "release" : "2016.50"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-lifecycle" ],
       "mappings" : [ "api.oauth2.as.created" ]
     }, {
@@ -10874,6 +11308,7 @@
         "created" : "2017-05-30",
         "release" : "2017.22"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-lifecycle" ],
       "mappings" : [ "api.oauth2.as.deactivated" ]
     }, {
@@ -10884,6 +11319,7 @@
         "created" : "2016-12-06",
         "release" : "2016.50"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-lifecycle" ],
       "mappings" : [ "api.oauth2.as.deleted" ]
     }, {
@@ -10894,6 +11330,7 @@
         "created" : "2016-12-06",
         "release" : "2016.50"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-lifecycle" ],
       "mappings" : [ "api.oauth2.as.updated" ]
     }, {
@@ -10904,6 +11341,7 @@
         "created" : "2016-12-06",
         "release" : "2016.50"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-claim" ],
       "mappings" : [ "api.oauth2.claim.created" ]
     }, {
@@ -10914,6 +11352,7 @@
         "created" : "2016-12-06",
         "release" : "2016.50"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-claim" ],
       "mappings" : [ "api.oauth2.claim.deleted" ]
     }, {
@@ -10924,6 +11363,7 @@
         "created" : "2016-12-06",
         "release" : "2016.50"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-claim" ],
       "mappings" : [ "api.oauth2.claim.updated" ]
     }, {
@@ -10934,6 +11374,7 @@
         "created" : "2016-12-06",
         "release" : "2016.50"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-scope" ],
       "mappings" : [ "api.oauth2.scope.created" ]
     }, {
@@ -10944,6 +11385,7 @@
         "created" : "2016-12-06",
         "release" : "2016.50"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-scope" ],
       "mappings" : [ "api.oauth2.scope.deleted" ]
     }, {
@@ -10954,6 +11396,7 @@
         "created" : "2016-12-06",
         "release" : "2016.50"
       },
+      "beta" : false,
       "tags" : [ "oauth2", "oauth2-scope" ],
       "mappings" : [ "api.oauth2.scope.updated" ]
     }, {
@@ -10964,6 +11407,7 @@
         "created" : "2019-01-25",
         "release" : "2019.01.3"
       },
+      "beta" : false,
       "tags" : [ "token", "tokens-transform" ],
       "mappings" : [ "platform.tokens.transform.oauth2.response.error" ]
     }, {
@@ -10974,6 +11418,7 @@
         "created" : "2019-01-25",
         "release" : "2019.01.3"
       },
+      "beta" : false,
       "tags" : [ "token", "tokens-transform" ],
       "mappings" : [ "platform.tokens.transform.oauth2.process.failure" ]
     }, {
@@ -10984,6 +11429,7 @@
         "created" : "2019-01-25",
         "release" : "2019.01.3"
       },
+      "beta" : false,
       "tags" : [ "token", "tokens-transform" ],
       "mappings" : [ "platform.tokens.transform.oauth2.response", "platform.tokens.transform.oauth2.response.failure" ]
     }, {
@@ -10994,6 +11440,7 @@
         "created" : "2017-12-28",
         "release" : "2018.01"
       },
+      "beta" : false,
       "tags" : [ "omm" ],
       "mappings" : [ "omm.app.VPN.settings.changed" ]
     }, {
@@ -11004,6 +11451,7 @@
         "created" : "2017-12-28",
         "release" : "2018.01"
       },
+      "beta" : false,
       "tags" : [ "omm" ],
       "mappings" : [ "omm.app.WIFI.settings.changed" ]
     }, {
@@ -11014,6 +11462,7 @@
         "created" : "2017-12-28",
         "release" : "2018.01"
       },
+      "beta" : false,
       "tags" : [ "omm" ],
       "mappings" : [ "omm.app.eas.cert_based.settings.changed" ]
     }, {
@@ -11024,6 +11473,7 @@
         "created" : "2017-12-28",
         "release" : "2018.01"
       },
+      "beta" : false,
       "tags" : [ "omm" ],
       "mappings" : [ "omm.app.eas.disabled" ]
     }, {
@@ -11034,6 +11484,7 @@
         "created" : "2017-12-28",
         "release" : "2018.01"
       },
+      "beta" : false,
       "tags" : [ "omm" ],
       "mappings" : [ "omm.app.eas.settings.changed" ]
     }, {
@@ -11044,6 +11495,7 @@
         "created" : "2017-12-28",
         "release" : "2018.01"
       },
+      "beta" : false,
       "tags" : [ "omm" ],
       "mappings" : [ "omm.cma.created" ]
     }, {
@@ -11054,6 +11506,7 @@
         "created" : "2017-12-28",
         "release" : "2018.01"
       },
+      "beta" : false,
       "tags" : [ "omm" ],
       "mappings" : [ "omm.cma.deleted" ]
     }, {
@@ -11064,6 +11517,7 @@
         "created" : "2017-12-28",
         "release" : "2018.01"
       },
+      "beta" : false,
       "tags" : [ "omm" ],
       "mappings" : [ "omm.cma.updated" ]
     }, {
@@ -11074,6 +11528,7 @@
         "created" : "2017-12-28",
         "release" : "2018.01"
       },
+      "beta" : false,
       "tags" : [ "omm" ],
       "mappings" : [ "omm.enrollment.changed" ]
     }, {
@@ -11084,6 +11539,7 @@
         "created" : "2017-10-21",
         "release" : "2017.44"
       },
+      "beta" : false,
       "tags" : [ "admin", "org" ],
       "mappings" : [ "org.not_configured_origin.redirection.usage" ]
     }, {
@@ -11094,6 +11550,7 @@
         "created" : "2017-10-27",
         "release" : "2017.45"
       },
+      "beta" : false,
       "tags" : [ "device-trust-cert-distribution-and-binding" ],
       "mappings" : [ "core.user_auth.pki.cert.issue" ]
     }, {
@@ -11104,6 +11561,7 @@
         "created" : "2017-10-27",
         "release" : "2017.45"
       },
+      "beta" : false,
       "tags" : [ "device-trust-cert-distribution-and-binding" ],
       "mappings" : [ "core.user_auth.pki.cert.renew" ]
     }, {
@@ -11114,6 +11572,7 @@
         "created" : "2017-10-27",
         "release" : "2017.45"
       },
+      "beta" : false,
       "tags" : [ "device-trust-cert-distribution-and-binding" ],
       "mappings" : [ "core.user_auth.pki.cert.revoke" ]
     }, {
@@ -11124,6 +11583,7 @@
         "created" : "2016-12-02",
         "release" : "2016.48"
       },
+      "beta" : false,
       "tags" : [ "plugin" ],
       "mappings" : [ "plugin.downloaded" ]
     }, {
@@ -11134,6 +11594,7 @@
         "created" : "2016-12-02",
         "release" : "2016.48"
       },
+      "beta" : false,
       "tags" : [ "plugin" ],
       "mappings" : [ "plugin.script_status" ]
     }, {
@@ -11144,6 +11605,7 @@
         "created" : "2017-03-10",
         "release" : "2017.11"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ ]
     }, {
@@ -11154,6 +11616,7 @@
         "created" : "2018-03-30",
         "release" : "2018.15"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.execute.user.start" ]
     }, {
@@ -11164,6 +11627,7 @@
         "created" : "2016-03-30",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "policy", "webhook-eligible" ],
       "mappings" : [ "policy.activated" ]
     }, {
@@ -11174,6 +11638,7 @@
         "created" : "2016-03-30",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.created" ]
     }, {
@@ -11184,6 +11649,7 @@
         "created" : "2016-03-30",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "policy", "webhook-eligible" ],
       "mappings" : [ "policy.deactivated" ]
     }, {
@@ -11194,6 +11660,7 @@
         "created" : "2016-03-30",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.deleted" ]
     }, {
@@ -11204,6 +11671,7 @@
         "created" : "2017-10-28",
         "release" : "2017.45"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.overwritten" ]
     }, {
@@ -11214,6 +11682,7 @@
         "created" : "2016-03-30",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "policy", "webhook-eligible" ],
       "mappings" : [ "policy.updated" ]
     }, {
@@ -11224,6 +11693,7 @@
         "created" : "2018-03-30",
         "release" : "2018.15"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.rule.action.execute" ]
     }, {
@@ -11234,6 +11704,7 @@
         "created" : "2016-03-30",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.rule.activated" ]
     }, {
@@ -11244,6 +11715,7 @@
         "created" : "2016-03-30",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.rule.added" ]
     }, {
@@ -11254,6 +11726,7 @@
         "created" : "2016-03-30",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.rule.deactivated" ]
     }, {
@@ -11264,6 +11737,7 @@
         "created" : "2016-03-30",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.rule.deleted" ]
     }, {
@@ -11274,6 +11748,7 @@
         "created" : "2016-03-30",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.rule.invalidated" ]
     }, {
@@ -11284,6 +11759,7 @@
         "created" : "2016-03-30",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.rule.updated" ]
     }, {
@@ -11294,6 +11770,7 @@
         "created" : "2018-03-30",
         "release" : "2018.15"
       },
+      "beta" : false,
       "tags" : [ "policy" ],
       "mappings" : [ "policy.scheduled.execute" ]
     }, {
@@ -11304,6 +11781,7 @@
         "created" : "2018-07-01",
         "release" : "2018.28"
       },
+      "beta" : false,
       "tags" : [ "token", "tokens-transform" ],
       "mappings" : [ "platform.tokens.transform.saml.process.failure" ]
     }, {
@@ -11314,6 +11792,7 @@
         "created" : "2018-07-01",
         "release" : "2018.28"
       },
+      "beta" : false,
       "tags" : [ "token", "tokens-transform" ],
       "mappings" : [ "platform.tokens.transform.saml.response", "platform.tokens.transform.saml.response.failure" ]
     }, {
@@ -11324,6 +11803,7 @@
         "created" : "2017-08-02",
         "release" : "2017.32"
       },
+      "beta" : false,
       "tags" : [ "uncategorized" ],
       "mappings" : [ "cvd.scheduled_action.user_suspension.canceled" ]
     }, {
@@ -11334,6 +11814,7 @@
         "created" : "2017-08-02",
         "release" : "2017.32"
       },
+      "beta" : false,
       "tags" : [ "uncategorized" ],
       "mappings" : [ "cvd.scheduled_action.user_suspension.completed" ]
     }, {
@@ -11344,6 +11825,7 @@
         "created" : "2017-08-02",
         "release" : "2017.32"
       },
+      "beta" : false,
       "tags" : [ "uncategorized" ],
       "mappings" : [ "cvd.scheduled_action.user_suspension.scheduled" ]
     }, {
@@ -11354,6 +11836,7 @@
         "created" : "2017-08-02",
         "release" : "2017.32"
       },
+      "beta" : false,
       "tags" : [ "uncategorized" ],
       "mappings" : [ "cvd.scheduled_action.user_suspension.updated" ]
     }, {
@@ -11364,6 +11847,7 @@
         "created" : "2018-02-16",
         "release" : "2018.08"
       },
+      "beta" : false,
       "tags" : [ "device", "security" ],
       "mappings" : [ "security.device.add_request_blacklist_policy" ]
     }, {
@@ -11374,6 +11858,7 @@
         "created" : "2018-02-16",
         "release" : "2018.08"
       },
+      "beta" : false,
       "tags" : [ "device", "security" ],
       "mappings" : [ "security.device.remove_request_blacklist_policy" ]
     }, {
@@ -11384,6 +11869,7 @@
         "created" : "2018-01-24",
         "release" : "2018.05"
       },
+      "beta" : false,
       "tags" : [ "device", "security" ],
       "mappings" : [ "security.device.temporarily_disable_blacklisting" ]
     }, {
@@ -11394,6 +11880,7 @@
         "created" : "2018-09-27",
         "release" : "2018.40"
       },
+      "beta" : false,
       "tags" : [ "password-spray" ],
       "mappings" : [ "security.password_spray.detected" ]
     }, {
@@ -11404,6 +11891,7 @@
         "created" : "2018-08-01",
         "release" : "2018.32"
       },
+      "beta" : false,
       "tags" : [ "security" ],
       "mappings" : [ "security.zone.request.blocked" ]
     }, {
@@ -11414,8 +11902,20 @@
         "created" : "2017-07-07",
         "release" : "2017.28"
       },
+      "beta" : false,
       "tags" : [ "security", "session" ],
       "mappings" : [ "security.session.detect_client_roaming" ]
+    }, {
+      "id" : "security.threat.detected",
+      "category" : "adaptive",
+      "description" : "Fired when an IP has been deemed malicious by Okta. This event fires only when an organization has configured their Okta ThreatInsight security settings to monitor auth attempts OR monitor auth attempts and block malicious IPs. This can be used to see details about the IPs Okta has deemed malicious, including the type of security threat (eg: Brute Force, Password Spray) and the resulting action. When fired, this event contains information about the type of security threat detected, the IP, and the result of the detection. The result of this event is determined by the security settings configured - if an organization has configured Okta to monitor authorization attempts, then the result will be 'ALLOW'; if an organization has configured Okta ThreatInsight security settings to monitor authorization attempts and block malicious IPs then the result will be 'DENY'. Related events include: In the case of 'monitor only' (versus monitor and block), when this event fires, the debug context for the related user.auth or user.session event will contain information about the detected threat.",
+      "info" : {
+        "created" : "2019-02-11",
+        "release" : "2019.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "threat-insight" ],
+      "mappings" : [ "security.threat.detected" ]
     }, {
       "id" : "security.zone.make_blacklist",
       "category" : "security",
@@ -11424,6 +11924,7 @@
         "created" : "2017-03-10",
         "release" : "2017.06"
       },
+      "beta" : false,
       "tags" : [ "network-zone", "security" ],
       "mappings" : [ "security.zone.make_blacklist" ]
     }, {
@@ -11434,6 +11935,7 @@
         "created" : "2017-03-10",
         "release" : "2017.06"
       },
+      "beta" : false,
       "tags" : [ "network-zone", "security" ],
       "mappings" : [ "security.zone.remove_blacklist" ]
     }, {
@@ -11444,6 +11946,7 @@
         "created" : "2017-11-20",
         "release" : "2017.48"
       },
+      "beta" : false,
       "tags" : [ "self-service" ],
       "mappings" : [ "app.self_service.disabled" ]
     }, {
@@ -11454,6 +11957,7 @@
         "created" : "2017-11-20",
         "release" : "2017.48"
       },
+      "beta" : false,
       "tags" : [ "self-service" ],
       "mappings" : [ "app.self_service.enabled" ]
     }, {
@@ -11464,6 +11968,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.disconnected", "app.ad.agent.reconnected" ]
     }, {
@@ -11474,8 +11979,9 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
-      "mappings" : [ ]
+      "mappings" : [ "app.ad.config.agent.agent_created" ]
     }, {
       "id" : "system.agent.ad.deactivate",
       "category" : "directories",
@@ -11484,6 +11990,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.config.agent.agent_deactivated" ]
     }, {
@@ -11494,6 +12001,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.config.agent.agent_deleted" ]
     }, {
@@ -11504,6 +12012,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.api.user_import.warn.skipped_ou.missing_required_attribute" ]
     }, {
@@ -11514,6 +12023,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.api.user_import.warn.skipped_user.attribute_too_long", "app.ad.api.user_import.warn.skipped_user.internal_object", "app.ad.api.user_import.warn.skipped_user.internal_object.unknown_user", "app.ad.api.user_import.warn.skipped_user.invalid_user_account_control", "app.ad.api.user_import.warn.skipped_user.invalid_user_account_control.unknown_user", "app.ad.api.user_import.warn.skipped_user.invalid_user_account_control_computed", "app.ad.api.user_import.warn.skipped_user.invalid_user_account_control_computed.unknown_user", "app.ad.api.user_import.warn.skipped_user.missing_required_attribute", "app.ad.api.user_import.warn.skipped_user.missing_required_attribute.unknown_user" ]
     }, {
@@ -11524,6 +12034,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.dir-invoke", "app.ad.agent.dir-invoke.error" ]
     }, {
@@ -11534,6 +12045,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.config.agent.agent_reactivate_failed_missing_token", "app.ad.config.agent.agent_reactivated" ]
     }, {
@@ -11544,6 +12056,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.read-config", "app.ad.agent.read-config.error" ]
     }, {
@@ -11554,6 +12067,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.read-dirsync", "app.ad.agent.read-dirsync.error" ]
     }, {
@@ -11564,6 +12078,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.read-ldap", "app.ad.agent.read-ldap.error" ]
     }, {
@@ -11574,6 +12089,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.read-schema", "app.ad.agent.read-schema.error" ]
     }, {
@@ -11584,6 +12100,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.read-forest-topology", "app.ad.agent.read-forest-topology.error" ]
     }, {
@@ -11594,6 +12111,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.real-time-sync", "app.ad.agent.real-time-sync.error" ]
     }, {
@@ -11604,6 +12122,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.password.reset.failure", "app.ad.password.reset.success", "app.ad.password.reset.unlock-failed" ]
     }, {
@@ -11614,6 +12133,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.start" ]
     }, {
@@ -11624,6 +12144,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.user.account.unlock.failure", "app.ad.user.account.unlock.success" ]
     }, {
@@ -11634,6 +12155,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.config", "app.ad.agent.config.error", "app.ad.agent.modify-config", "app.ad.agent.modify-config.error" ]
     }, {
@@ -11644,8 +12166,9 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
-      "mappings" : [ "app.ad.agent.user-auth-and-update" ]
+      "mappings" : [ "app.ad.agent.user-auth-and-update", "app.ad.agent.user-auth-and-update.error" ]
     }, {
       "id" : "system.agent.ad.upgrade",
       "category" : "directories",
@@ -11654,6 +12177,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.upgrade", "app.ad.agent.upgrade.error" ]
     }, {
@@ -11664,6 +12188,7 @@
         "created" : "2019-01-28",
         "release" : "2019.02.1"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "iwa.agent.fetch-logs", "iwa.agent.fetch-logs.error" ]
     }, {
@@ -11674,6 +12199,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.fetch-logs", "app.ad.agent.fetch-logs.error" ]
     }, {
@@ -11684,6 +12210,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ad-agent" ],
       "mappings" : [ "app.ad.agent.write-ldap", "app.ad.agent.write-ldap.error" ]
     }, {
@@ -11694,6 +12221,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "connector-agent" ],
       "mappings" : [ "agents.connector_agent.agent_disconnected", "agents.connector_agent.agent_reconnected" ]
     }, {
@@ -11704,6 +12232,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "connector-agent" ],
       "mappings" : [ "agents.connector_agent.agent_deactivated" ]
     }, {
@@ -11714,6 +12243,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "connector-agent" ],
       "mappings" : [ "agents.connector_agent.agent_deleted" ]
     }, {
@@ -11724,6 +12254,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "connector-agent" ],
       "mappings" : [ "agents.connector_agent.agent_reactivate_failed_missing_token", "agents.connector_agent.agent_reactivated" ]
     }, {
@@ -11734,6 +12265,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ldap-app" ],
       "mappings" : [ "app.ldap.agent.password_change", "app.ldap.agent.password_change.timeout" ]
     }, {
@@ -11744,6 +12276,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ldap-app" ],
       "mappings" : [ "app.ldap.jit.ambiguous" ]
     }, {
@@ -11754,6 +12287,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ldap-app" ],
       "mappings" : [ "app.ldap.agent.disconnected" ]
     }, {
@@ -11764,6 +12298,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ldap-app" ],
       "mappings" : [ "app.ldap.agent.reconnected" ]
     }, {
@@ -11774,6 +12309,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ldap-app" ],
       "mappings" : [ "app.ldap.agent.password_reset", "app.ldap.agent.password_reset.error", "app.ldap.agent.password_reset.timeout", "app.ldap.password.reset.constraint.error", "app.ldap.password.reset.failed", "app.ldap.password.reset.invalid.old.password", "app.ldap.password.reset.succeeded", "app.ldap.password.reset.systemic.error", "app.ldap.password_reset.attribs_not_set", "app.ldap.password_reset.new_confirm_password_empty", "app.ldap.password_reset.new_password_empty", "app.ldap.password_reset.old_new_passwords_equal", "app.ldap.password_reset.old_password_empty", "app.ldap.password_reset.passwords_do_not_match", "app.ldap.password_reset.restriction.error" ]
     }, {
@@ -11784,6 +12320,7 @@
         "created" : "2016-10-28",
         "release" : "2016.45"
       },
+      "beta" : false,
       "tags" : [ "ldap-app" ],
       "mappings" : [ "app.ldap.unlock.account.failed", "app.ldap.unlock.account.succeeded" ]
     }, {
@@ -11794,6 +12331,7 @@
         "created" : "2016-05-09",
         "release" : "2016.20"
       },
+      "beta" : false,
       "tags" : [ "ldap-app" ],
       "mappings" : [ "app.ldap.agent.password_update", "app.ldap.agent.password_update.error" ]
     }, {
@@ -11804,6 +12342,7 @@
         "created" : "2016-03-17",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "token" ],
       "mappings" : [ "api.token.create" ]
     }, {
@@ -11814,6 +12353,7 @@
         "created" : "2016-03-17",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "token" ],
       "mappings" : [ "api.token.enable" ]
     }, {
@@ -11824,6 +12364,7 @@
         "created" : "2016-03-17",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "token" ],
       "mappings" : [ "api.token.revoke" ]
     }, {
@@ -11834,6 +12375,7 @@
         "created" : "2018-08-30",
         "release" : "2018.36"
       },
+      "beta" : false,
       "tags" : [ "admin", "billing" ],
       "mappings" : [ "core.billing.sms_usage_sent" ]
     }, {
@@ -11844,6 +12386,7 @@
         "created" : "2018-07-05",
         "release" : "2018.28"
       },
+      "beta" : false,
       "tags" : [ "system" ],
       "mappings" : [ "app.csv.import_user.skipped_user", "app.csv.import_user.skipped_user.unknown_user" ]
     }, {
@@ -11854,6 +12397,7 @@
         "created" : "2016-03-17",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "email" ],
       "mappings" : [ "core.user.email.message_sent.self_service.account_unlock" ]
     }, {
@@ -11862,8 +12406,9 @@
       "description" : "MFA enrollment notification email sent. Used to notify admins MFA enrollment notification email has been sent.",
       "info" : {
         "created" : "2018-12-10",
-        "release" : "2019.04.1"
+        "release" : "2019.01.1"
       },
+      "beta" : false,
       "tags" : [ "email" ],
       "mappings" : [ "core.user.email.message_sent.mfa_enroll_notification" ]
     }, {
@@ -11872,8 +12417,9 @@
       "description" : "MFA reset notification email sent. Used to notify admins MFA reset notification email has been sent.",
       "info" : {
         "created" : "2018-12-10",
-        "release" : "2019.04.1"
+        "release" : "2019.01.1"
       },
+      "beta" : false,
       "tags" : [ "email" ],
       "mappings" : [ "core.user.email.message_sent.mfa_reset_notification" ]
     }, {
@@ -11884,6 +12430,7 @@
         "created" : "2016-03-17",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "email" ],
       "mappings" : [ "core.user.email.message_sent.new_device_notification" ]
     }, {
@@ -11894,6 +12441,7 @@
         "created" : "2016-03-17",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "email" ],
       "mappings" : [ "core.user.email.message_sent.self_service.password_reset" ]
     }, {
@@ -11904,6 +12452,7 @@
         "created" : "2018-10-26",
         "release" : "2018.45"
       },
+      "beta" : false,
       "tags" : [ "idp" ],
       "mappings" : [ "system.idp.select" ]
     }, {
@@ -11914,6 +12463,7 @@
         "created" : "2019-01-02",
         "release" : "2019.01.1"
       },
+      "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "system.import.clear.unconfirmed.users.summary" ]
     }, {
@@ -11924,6 +12474,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.complete" ]
     }, {
@@ -11934,6 +12485,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.batch.complete" ]
     }, {
@@ -11944,6 +12496,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.summary.custom_object" ]
     }, {
@@ -11954,6 +12507,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.add_custom_object" ]
     }, {
@@ -11964,6 +12518,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.update_custom_object" ]
     }, {
@@ -11974,8 +12529,20 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.delete_custom_object" ]
+    }, {
+      "id" : "system.import.full_import_required",
+      "category" : "sync",
+      "description" : "The next import for this application will run as a full import even if an incremental import is requested. Customers for whom full imports take a long time should monitor for this event to understand the reason why a full import is being performed.",
+      "info" : {
+        "created" : "2018-02-26",
+        "release" : "2019.03.0"
+      },
+      "beta" : true,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "app.generic.import.full_import_required" ]
     }, {
       "id" : "system.import.group.complete",
       "category" : "sync",
@@ -11984,6 +12551,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.summary.group" ]
     }, {
@@ -11994,6 +12562,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.add_group" ]
     }, {
@@ -12004,6 +12573,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.delete_group" ]
     }, {
@@ -12014,6 +12584,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.import_groups" ]
     }, {
@@ -12024,6 +12595,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.update_group" ]
     }, {
@@ -12034,6 +12606,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.summary.group_membership" ]
     }, {
@@ -12044,6 +12617,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.user_management.importing_profile", "app.user_management.importing_profile_failed.email_length", "app.user_management.importing_profile_failed.missing_externalid" ]
     }, {
@@ -12054,8 +12628,20 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.provisioning_data" ]
+    }, {
+      "id" : "system.import.incremental_converted_to_full",
+      "category" : "sync",
+      "description" : "An incremental import was requested but a full import is being performed. Customers for whom full imports take a long time should monitor for this event to understand the reason why a full import is being performed.",
+      "info" : {
+        "created" : "2018-02-26",
+        "release" : "2019.03.0"
+      },
+      "beta" : true,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "app.generic.import.incremental_converted_to_full" ]
     }, {
       "id" : "system.import.roadblock",
       "category" : "sync",
@@ -12064,6 +12650,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.fail.roadblock" ]
     }, {
@@ -12074,6 +12661,7 @@
         "created" : "2017-05-02",
         "release" : "2017.19"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.fail.roadblock.reschedule_and_resume" ]
     }, {
@@ -12084,6 +12672,7 @@
         "created" : "2017-05-02",
         "release" : "2017.19"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.fail.roadblock.resume" ]
     }, {
@@ -12094,6 +12683,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.started" ]
     }, {
@@ -12104,6 +12694,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.summary.user" ]
     }, {
@@ -12114,6 +12705,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.add_user" ]
     }, {
@@ -12124,6 +12716,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.delete_user" ]
     }, {
@@ -12134,6 +12727,7 @@
         "created" : "2018-10-10",
         "release" : "2018.43"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.match_user" ]
     }, {
@@ -12144,6 +12738,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.import_user" ]
     }, {
@@ -12154,6 +12749,7 @@
         "created" : "2016-06-09",
         "release" : "2016.24"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.suspend_user" ]
     }, {
@@ -12164,6 +12760,7 @@
         "created" : "2016-06-09",
         "release" : "2016.24"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.unsuspend_user" ]
     }, {
@@ -12174,6 +12771,7 @@
         "created" : "2016-06-09",
         "release" : "2016.24"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.user_match.unsuspend_after_confirm", "app.user_management.unsuspend_user_after_confirm_failed" ]
     }, {
@@ -12184,6 +12782,7 @@
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.details.update_user" ]
     }, {
@@ -12194,6 +12793,7 @@
         "created" : "2016-06-09",
         "release" : "2016.24"
       },
+      "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.user_management.update_user_lifecycle_from_master_failed" ]
     }, {
@@ -12204,6 +12804,7 @@
         "created" : "2016-03-23",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "iwa", "system" ],
       "mappings" : [ "iwa.created_successfully", "iwa.creating_failed" ]
     }, {
@@ -12214,6 +12815,7 @@
         "created" : "2016-03-23",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "iwa", "system" ],
       "mappings" : [ "iwa.ad_agents_went_offline" ]
     }, {
@@ -12224,6 +12826,7 @@
         "created" : "2016-03-23",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "iwa", "system" ],
       "mappings" : [ "iwa.went_online" ]
     }, {
@@ -12234,6 +12837,7 @@
         "created" : "2016-03-23",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "iwa", "system" ],
       "mappings" : [ "iwa.no_agents_promoted_to_primary", "iwa.promoted_to_primary" ]
     }, {
@@ -12244,6 +12848,7 @@
         "created" : "2016-03-23",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "iwa", "system" ],
       "mappings" : [ "iwa.removed" ]
     }, {
@@ -12254,6 +12859,7 @@
         "created" : "2016-03-23",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "iwa", "system" ],
       "mappings" : [ "iwa.updated_successfully", "iwa.updating_failed" ]
     }, {
@@ -12264,6 +12870,7 @@
         "created" : "2016-03-23",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "iwa", "system" ],
       "mappings" : [ "iwa.primary_not_found" ]
     }, {
@@ -12274,6 +12881,7 @@
         "created" : "2018-05-18",
         "release" : "2018.22"
       },
+      "beta" : false,
       "tags" : [ "iwa", "system" ],
       "mappings" : [ "iwa.agentless.auth.failure", "iwa.agentless.auth.success" ]
     }, {
@@ -12284,6 +12892,7 @@
         "created" : "2018-05-18",
         "release" : "2018.22"
       },
+      "beta" : false,
       "tags" : [ "iwa", "system" ],
       "mappings" : [ "iwa.agentless.update.failure", "iwa.agentless.update.success" ]
     }, {
@@ -12294,6 +12903,7 @@
         "created" : "2018-10-21",
         "release" : "2018.10"
       },
+      "beta" : false,
       "tags" : [ "ldapi" ],
       "mappings" : [ "system.ldapi.bind" ]
     }, {
@@ -12304,6 +12914,7 @@
         "created" : "2016-10-21",
         "release" : "2018.10"
       },
+      "beta" : false,
       "tags" : [ "ldapi" ],
       "mappings" : [ "system.ldapi.search" ]
     }, {
@@ -12314,6 +12925,7 @@
         "created" : "2018-10-21",
         "release" : "2018.10"
       },
+      "beta" : false,
       "tags" : [ "ldapi" ],
       "mappings" : [ "system.ldapi.unbind" ]
     }, {
@@ -12324,6 +12936,7 @@
         "created" : "2016-12-12",
         "release" : "2016.51"
       },
+      "beta" : false,
       "tags" : [ "system" ],
       "mappings" : [ "core.org.config.org_creation.failure", "core.org.config.org_creation.success" ]
     }, {
@@ -12334,6 +12947,7 @@
         "created" : "2018-08-21",
         "release" : "2018.35"
       },
+      "beta" : false,
       "tags" : [ "system" ],
       "mappings" : [ "core.framework.ratelimit.expiration.warning" ]
     }, {
@@ -12344,6 +12958,7 @@
         "created" : "2017-01-04",
         "release" : "2017.02"
       },
+      "beta" : false,
       "tags" : [ "system" ],
       "mappings" : [ "core.framework.ratelimit.exceeded" ]
     }, {
@@ -12354,6 +12969,7 @@
         "created" : "2017-01-04",
         "release" : "2017.02"
       },
+      "beta" : false,
       "tags" : [ "system" ],
       "mappings" : [ "core.framework.ratelimit.warning" ]
     }, {
@@ -12364,6 +12980,7 @@
         "created" : "2018-06-30",
         "release" : "2018.28"
       },
+      "beta" : false,
       "tags" : [ "system" ],
       "mappings" : [ "core.framework.ratelimit.suspicious.ip.exceeded" ]
     }, {
@@ -12374,6 +12991,7 @@
         "created" : "2017-08-11",
         "release" : "2017.33"
       },
+      "beta" : false,
       "tags" : [ "system" ],
       "mappings" : [ "core.org.task.remove" ]
     }, {
@@ -12384,6 +13002,7 @@
         "created" : "2016-03-16",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "sms", "system" ],
       "mappings" : [ "core.user.sms.message_sent.self_service.account_unlock" ]
     }, {
@@ -12394,6 +13013,7 @@
         "created" : "2016-03-16",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "sms", "system" ],
       "mappings" : [ "core.user.sms.message_sent.factor" ]
     }, {
@@ -12404,6 +13024,7 @@
         "created" : "2016-03-16",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "sms", "system" ],
       "mappings" : [ "core.user.sms.message_sent.push_verify.activation" ]
     }, {
@@ -12414,6 +13035,7 @@
         "created" : "2016-03-16",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "sms", "system" ],
       "mappings" : [ "core.user.sms.message_sent.self_service.password_reset" ]
     }, {
@@ -12424,6 +13046,7 @@
         "created" : "2016-03-16",
         "release" : "2016.12"
       },
+      "beta" : false,
       "tags" : [ "sms", "system" ],
       "mappings" : [ "core.user.sms.message_sent.verify" ]
     }, {
@@ -12434,6 +13057,7 @@
         "created" : "2017-10-27",
         "release" : "2017.44"
       },
+      "beta" : false,
       "tags" : [ "voice" ],
       "mappings" : [ "core.user.call_to_send_otp.message_sent.self_service.account_unlock" ]
     }, {
@@ -12444,6 +13068,7 @@
         "created" : "2017-10-27",
         "release" : "2017.44"
       },
+      "beta" : false,
       "tags" : [ "voice" ],
       "mappings" : [ "core.user.call_made.factor" ]
     }, {
@@ -12454,6 +13079,7 @@
         "created" : "2017-10-27",
         "release" : "2017.44"
       },
+      "beta" : false,
       "tags" : [ "voice" ],
       "mappings" : [ "core.user.call_to_send_otp.message_sent.mfa.challenge" ]
     }, {
@@ -12464,6 +13090,7 @@
         "created" : "2017-10-27",
         "release" : "2017.44"
       },
+      "beta" : false,
       "tags" : [ "voice" ],
       "mappings" : [ "core.user.call_to_send_otp.message_sent.self_service.password_reset" ]
     }, {
@@ -12474,6 +13101,7 @@
         "created" : "2017-10-27",
         "release" : "2017.44"
       },
+      "beta" : false,
       "tags" : [ "voice" ],
       "mappings" : [ "core.user.call_to_send_otp.message_sent.verify" ]
     }, {
@@ -12484,6 +13112,7 @@
         "created" : "2018-03-30",
         "release" : "2018.15"
       },
+      "beta" : false,
       "tags" : [ "task" ],
       "mappings" : [ "platform.task.lifecycle.activate" ]
     }, {
@@ -12494,6 +13123,7 @@
         "created" : "2018-03-30",
         "release" : "2018.15"
       },
+      "beta" : false,
       "tags" : [ "task" ],
       "mappings" : [ "platform.task.lifecycle.create" ]
     }, {
@@ -12504,6 +13134,7 @@
         "created" : "2018-03-30",
         "release" : "2018.15"
       },
+      "beta" : false,
       "tags" : [ "task" ],
       "mappings" : [ "platform.task.lifecycle.deactivate" ]
     }, {
@@ -12514,6 +13145,7 @@
         "created" : "2018-03-30",
         "release" : "2018.15"
       },
+      "beta" : false,
       "tags" : [ "task" ],
       "mappings" : [ "platform.task.lifecycle.delete" ]
     }, {
@@ -12524,6 +13156,7 @@
         "created" : "2018-03-30",
         "release" : "2018.15"
       },
+      "beta" : false,
       "tags" : [ "task" ],
       "mappings" : [ "platform.task.lifecycle.update" ]
     }, {
@@ -12534,6 +13167,7 @@
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
+      "beta" : false,
       "tags" : [ "account", "user" ],
       "mappings" : [ "core.user_auth.super_user_app_accessed" ]
     }, {
@@ -12544,26 +13178,29 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "account", "user" ],
       "mappings" : [ "core.user_auth.account_locked" ]
     }, {
       "id" : "user.account.privilege.grant",
-      "category" : "authn",
+      "category" : "aelm",
       "description" : "Grant user privilege.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "core.user.admin_privilege.granted" ]
     }, {
       "id" : "user.account.privilege.revoke",
-      "category" : "authn",
+      "category" : "aelm",
       "description" : "Revoke user privilege.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "core.user.admin_privilege.revoked" ]
     }, {
@@ -12572,8 +13209,9 @@
       "description" : "User reported suspicious activity. This event is used to identify user account suspicious activity.",
       "info" : {
         "created" : "2018-12-07",
-        "release" : "2019.04.1"
+        "release" : "2019.01.1"
       },
+      "beta" : false,
       "tags" : [ "user", "webhook-eligible" ],
       "mappings" : [ "core.user.account.report_suspicious_activity_by_enduser" ]
     }, {
@@ -12584,6 +13222,7 @@
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
+      "beta" : false,
       "tags" : [ "account", "user", "webhook-eligible" ],
       "mappings" : [ "core.user.config.user_status.password_reset", "core.user_auth.self_service.password_reset", "core.user_auth.self_service.password_reset.invalid_recovery_token", "core.user_auth.self_service.password_reset.invalid_security_answer", "core.user_auth.self_service.password_reset.invalid_sms_code", "core.user_auth.self_service.password_reset.invalid_user_state", "core.user_auth.self_service.password_reset.issued_recovery_token", "core.user_auth.self_service.password_reset.shared_email", "core.user_auth.self_service.password_reset.suspended_user", "core.user_auth.self_service.password_reset.unknown_user" ]
     }, {
@@ -12594,6 +13233,7 @@
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
+      "beta" : false,
       "tags" : [ "account", "user" ],
       "mappings" : [ "core.user_auth.account_auto_unlocked", "core.user_auth.self_service.account_unlock", "core.user_auth.self_service.account_unlock.already_unlocked", "core.user_auth.self_service.account_unlock.invalid_recovery_token", "core.user_auth.self_service.account_unlock.invalid_security_answer", "core.user_auth.self_service.account_unlock.invalid_sms_code", "core.user_auth.self_service.account_unlock.shared_email", "core.user_auth.self_service.account_unlock.unknown_user" ]
     }, {
@@ -12604,6 +13244,7 @@
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
+      "beta" : false,
       "tags" : [ "account", "user" ],
       "mappings" : [ "core.user_auth.account_unlocked_by_admin" ]
     }, {
@@ -12614,6 +13255,7 @@
         "created" : "2018-05-31",
         "release" : "2018.23"
       },
+      "beta" : false,
       "tags" : [ "account", "user" ],
       "mappings" : [ "core.user_auth.user.account.unlock_failure" ]
     }, {
@@ -12624,6 +13266,7 @@
         "created" : "2017-11-15",
         "release" : "2017.47"
       },
+      "beta" : false,
       "tags" : [ "account", "user" ],
       "mappings" : [ "core.user_auth.self_service.account_unlock.issued_recovery_token" ]
     }, {
@@ -12634,6 +13277,7 @@
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
+      "beta" : false,
       "tags" : [ "account", "user", "webhook-eligible" ],
       "mappings" : [ "core.user.config.password_update.failure", "core.user.config.password_update.success" ]
     }, {
@@ -12644,6 +13288,7 @@
         "created" : "2018-01-24",
         "release" : "2018.05"
       },
+      "beta" : false,
       "tags" : [ "account", "user", "user-config" ],
       "mappings" : [ "core.user.config.update_primary_email" ]
     }, {
@@ -12654,6 +13299,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "account", "user", "user-config", "webhook-eligible" ],
       "mappings" : [ "core.user.config.profile_update.success" ]
     }, {
@@ -12664,6 +13310,7 @@
         "created" : "2018-06-14",
         "release" : "2018.25"
       },
+      "beta" : false,
       "tags" : [ "account", "user", "user-config" ],
       "mappings" : [ "core.user.config.update_secondary_email" ]
     }, {
@@ -12674,6 +13321,7 @@
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
+      "beta" : false,
       "tags" : [ "account", "user" ],
       "mappings" : [ "core.user_auth.self_service.invalid_recovery_token" ]
     }, {
@@ -12684,6 +13332,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "core.user_auth.invalid_certificate", "core.user_auth.login_failed", "core.user_auth.login_success" ]
     }, {
@@ -12694,6 +13343,7 @@
         "created" : "2016-04-29",
         "release" : "2016.18"
       },
+      "beta" : false,
       "tags" : [ "directory", "user" ],
       "mappings" : [ "app.ad.agent.user_auth", "app.ad.agent.user_auth.error", "app.ad.login.bad_password", "app.ad.login.expired_password", "app.ad.login.locked_account", "app.ad.login.success", "app.ad.login.unknown_failure", "app.ad.outbound.delauth.no_connected_agent", "app.ad.outbound.delauth.timeout" ]
     }, {
@@ -12704,6 +13354,7 @@
         "created" : "2016-04-29",
         "release" : "2016.18"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "core.user_auth.idp.cannot_update_user_profile_or_groups", "core.user_auth.idp.cannot_update_user_profile_or_groups.server_read_only", "core.user_auth.idp.general_schema_warning", "core.user_auth.idp.invalid_user_status", "core.user_auth.idp.login_failed", "core.user_auth.idp.multiple_matching_users", "core.user_auth.idp.no_matching_users", "core.user_auth.idp.saml.assertion_received_same_assertion_id", "core.user_auth.idp.saml.login_success", "core.user_auth.idp.saml.response_received_in_response_to_no_matching_key", "core.user_auth.idp.saml.saml_validation_failed", "core.user_auth.idp.saml.unknown_endpoint", "core.user_auth.idp.saml.unknown_profile_attribute", "core.user_auth.idp.username_filtered", "core.user_auth.idp.username_transform_failed", "core.user_auth.idp.x509.login_success" ]
     }, {
@@ -12714,6 +13365,7 @@
         "created" : "2016-04-29",
         "release" : "2016.18"
       },
+      "beta" : false,
       "tags" : [ "directory", "user" ],
       "mappings" : [ "app.ldap.login.bad_password", "app.ldap.login.disabled_account", "app.ldap.login.expired_password", "app.ldap.login.locked_account", "app.ldap.login.success", "app.ldap.login.unknown_failure" ]
     }, {
@@ -12724,6 +13376,7 @@
         "created" : "2016-06-30",
         "release" : "2016.27"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "core.user_auth.saml2.inbound_saml_login_failed" ]
     }, {
@@ -12734,6 +13387,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "app.inbound_del_auth.failure.account_not_found", "app.inbound_del_auth.failure.duplicate_accounts_found", "app.inbound_del_auth.failure.instance_not_found", "app.inbound_del_auth.failure.invalid_login_credentials", "app.inbound_del_auth.failure.invalid_request.could_not_parse_credentials", "app.inbound_del_auth.failure.not_supported" ]
     }, {
@@ -12744,6 +13398,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "iwa.auth", "iwa.invalid_certificate", "iwa.invalid_token", "iwa.invalid_xml_signature", "iwa.no_certificate" ]
     }, {
@@ -12754,6 +13409,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "mfa" ],
       "mappings" : [ "core.user.factor.attempt_fail", "core.user.factor.attempt_success", "core.user_auth.duo.disabled_lockout", "core.user_auth.duo.duo_down", "core.user_auth.duo.invalid_integration" ]
     }, {
@@ -12764,6 +13420,7 @@
         "created" : "2016-04-29",
         "release" : "2016.18"
       },
+      "beta" : false,
       "tags" : [ "app", "radius" ],
       "mappings" : [ "core.user_auth.radius.login.failed", "core.user_auth.radius.login.succeeded" ]
     }, {
@@ -12774,8 +13431,9 @@
         "created" : "2016-04-29",
         "release" : "2016.18"
       },
+      "beta" : false,
       "tags" : [ "user" ],
-      "mappings" : [ "app.rich_client.account_not_found", "app.rich_client.instance_not_found", "app.rich_client.login_failure", "app.rich_client.login_success", "app.rich_client.multiple_accounts_found" ]
+      "mappings" : [ "app.rich_client.account_not_found", "app.rich_client.instance_not_found", "app.rich_client.invalid_org", "app.rich_client.login_failure", "app.rich_client.login_success", "app.rich_client.multiple_accounts_found" ]
     }, {
       "id" : "user.authentication.auth_via_social",
       "category" : "federation",
@@ -12784,8 +13442,9 @@
         "created" : "2016-04-29",
         "release" : "2016.18"
       },
+      "beta" : false,
       "tags" : [ "user" ],
-      "mappings" : [ "core.user_auth.idp.social.cannot_acquire_access_token", "core.user_auth.idp.social.cannot_acquire_profile", "core.user_auth.idp.social.jit_callout_denied_by_callout", "core.user_auth.idp.social.jit_callout_redirect", "core.user_auth.idp.social.jit_callout_response_invalid", "core.user_auth.idp.social.jit_callout_success", "core.user_auth.idp.social.jit_error", "core.user_auth.idp.social.link_callout_denied_by_callout", "core.user_auth.idp.social.link_callout_redirect", "core.user_auth.idp.social.link_callout_response_invalid", "core.user_auth.idp.social.link_callout_success", "core.user_auth.idp.social.link_denied_for_groups", "core.user_auth.idp.social.login_success" ]
+      "mappings" : [ "core.user_auth.idp.social.cannot_acquire_access_token", "core.user_auth.idp.social.cannot_acquire_profile", "core.user_auth.idp.social.invalid_userinfo_response", "core.user_auth.idp.social.jit_callout_denied_by_callout", "core.user_auth.idp.social.jit_callout_redirect", "core.user_auth.idp.social.jit_callout_response_invalid", "core.user_auth.idp.social.jit_callout_success", "core.user_auth.idp.social.jit_error", "core.user_auth.idp.social.link_callout_denied_by_callout", "core.user_auth.idp.social.link_callout_redirect", "core.user_auth.idp.social.link_callout_response_invalid", "core.user_auth.idp.social.link_callout_success", "core.user_auth.idp.social.link_denied_for_groups", "core.user_auth.idp.social.login_success" ]
     }, {
       "id" : "user.authentication.authenticate",
       "category" : "mobile-device-trust",
@@ -12794,6 +13453,7 @@
         "created" : "2017-10-25",
         "release" : "2017.44"
       },
+      "beta" : false,
       "tags" : [ "device-trust-authentication", "user" ],
       "mappings" : [ "core.user_auth.authentication.auth_via_3rd_party_failure", "core.user_auth.authentication.auth_via_3rd_party_success", "core.user_auth.authentication.auth_via_okta_mobile_failure", "core.user_auth.authentication.auth_via_okta_mobile_success", "core.user_auth.authentication.auth_via_omm_failure", "core.user_auth.authentication.auth_via_omm_success", "core.user_auth.authentication.auth_via_saml_idp_failure", "core.user_auth.authentication.auth_via_saml_idp_success", "core.user_auth.authentication.authenticate" ]
     }, {
@@ -12804,6 +13464,7 @@
         "created" : "2016-03-08",
         "release" : "2016.11"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "app.auth.slo", "app.auth.slo.saml.invalid_issuer", "app.auth.slo.saml.invalid_nameid", "app.auth.slo.saml.invalid_signature", "app.auth.slo.saml.malformed_request", "app.auth.slo.saml.malformed_request.invalid_type", "app.auth.slo.with_reason" ]
     }, {
@@ -12814,6 +13475,7 @@
         "created" : "2016-03-08",
         "release" : "2016.11"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "app.auth.sso" ]
     }, {
@@ -12824,6 +13486,7 @@
         "created" : "2017-06-30",
         "release" : "2017.27"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "user.authentication.verify" ]
     }, {
@@ -12834,6 +13497,7 @@
         "created" : "2017-10-27",
         "release" : "2017.45"
       },
+      "beta" : false,
       "tags" : [ "device-trust-cert-distribution-and-binding", "user" ],
       "mappings" : [ "core.user_auth.credential.enroll" ]
     }, {
@@ -12844,6 +13508,7 @@
         "created" : "2016-03-24",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "user", "webhook-eligible" ],
       "mappings" : [ "core.user.config.user_activated" ]
     }, {
@@ -12854,6 +13519,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "user", "webhook-eligible" ],
       "mappings" : [ "core.user.config.user_creation.failure", "core.user.config.user_creation.success" ]
     }, {
@@ -12864,6 +13530,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "user", "webhook-eligible" ],
       "mappings" : [ "core.user.config.user_deactivated" ]
     }, {
@@ -12874,6 +13541,7 @@
         "created" : "2016-07-14",
         "release" : "2016.29"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "core.user.config.user_status.delete.completed" ]
     }, {
@@ -12884,6 +13552,7 @@
         "created" : "2016-07-14",
         "release" : "2016.29"
       },
+      "beta" : false,
       "tags" : [ "user", "webhook-eligible" ],
       "mappings" : [ "core.user.config.user_status.delete.initiated" ]
     }, {
@@ -12894,6 +13563,7 @@
         "created" : "2018-01-29",
         "release" : "2018.06"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "core.user.jit.error.read_only" ]
     }, {
@@ -12904,6 +13574,7 @@
         "created" : "2018-01-17",
         "release" : "2018.04"
       },
+      "beta" : false,
       "tags" : [ "user" ],
       "mappings" : [ "core.user.config.user_status.password_mass_expiry" ]
     }, {
@@ -12914,6 +13585,7 @@
         "created" : "2016-03-24",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "user", "webhook-eligible" ],
       "mappings" : [ "core.user.config.user_reactivation.success" ]
     }, {
@@ -12924,6 +13596,7 @@
         "created" : "2016-03-24",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "user", "webhook-eligible" ],
       "mappings" : [ "core.user.config.user_status.suspended" ]
     }, {
@@ -12934,6 +13607,7 @@
         "created" : "2016-03-24",
         "release" : "2016.13"
       },
+      "beta" : false,
       "tags" : [ "user", "webhook-eligible" ],
       "mappings" : [ "core.user.config.user_status.unsuspended" ]
     }, {
@@ -12944,6 +13618,7 @@
         "created" : "2016-03-08",
         "release" : "2016.11"
       },
+      "beta" : false,
       "tags" : [ "mfa" ],
       "mappings" : [ "core.user_auth.mfa_bypass_attempted" ]
     }, {
@@ -12954,6 +13629,7 @@
         "created" : "2016-03-08",
         "release" : "2016.11"
       },
+      "beta" : false,
       "tags" : [ "mfa" ],
       "mappings" : [ "core.user.factor.activate" ]
     }, {
@@ -12964,6 +13640,7 @@
         "created" : "2016-03-08",
         "release" : "2016.11"
       },
+      "beta" : false,
       "tags" : [ "mfa" ],
       "mappings" : [ "core.user.factor.deactivate" ]
     }, {
@@ -12974,6 +13651,7 @@
         "created" : "2016-03-08",
         "release" : "2016.11"
       },
+      "beta" : false,
       "tags" : [ "mfa" ],
       "mappings" : [ "core.user.factor.reset_all" ]
     }, {
@@ -12984,6 +13662,7 @@
         "created" : "2016-03-08",
         "release" : "2016.11"
       },
+      "beta" : false,
       "tags" : [ "mfa" ],
       "mappings" : [ "core.user.factor.update" ]
     }, {
@@ -12994,6 +13673,7 @@
         "created" : "2016-03-08",
         "release" : "2016.11"
       },
+      "beta" : false,
       "tags" : [ "mfa" ],
       "mappings" : [ "core.user_auth.mfa_okta_verify_response" ]
     }, {
@@ -13004,6 +13684,7 @@
         "created" : "2018-01-09",
         "release" : "2018.03"
       },
+      "beta" : false,
       "tags" : [ "mfa" ],
       "mappings" : [ "core.user.factor.push_rejected" ]
     }, {
@@ -13014,6 +13695,7 @@
         "created" : "2016-03-31",
         "release" : "2016.14"
       },
+      "beta" : false,
       "tags" : [ "admin", "app", "session", "user" ],
       "mappings" : [ "app.admin.sso.bad_response", "app.admin.sso.login.success", "app.admin.sso.no_response" ]
     }, {
@@ -13024,6 +13706,7 @@
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
+      "beta" : false,
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user_auth.session_clear" ]
     }, {
@@ -13034,6 +13717,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user_auth.logout_success" ]
     }, {
@@ -13044,6 +13728,7 @@
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
+      "beta" : false,
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user_auth.session_expired" ]
     }, {
@@ -13054,6 +13739,7 @@
         "created" : "2016-02-23",
         "release" : "2016.09"
       },
+      "beta" : false,
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user.impersonation.session.ended" ]
     }, {
@@ -13064,6 +13750,7 @@
         "created" : "2016-02-23",
         "release" : "2016.09"
       },
+      "beta" : false,
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user.impersonation.grant.extended" ]
     }, {
@@ -13074,6 +13761,7 @@
         "created" : "2016-02-23",
         "release" : "2016.09"
       },
+      "beta" : false,
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user.impersonation.grant.enabled" ]
     }, {
@@ -13084,6 +13772,7 @@
         "created" : "2016-02-23",
         "release" : "2016.09"
       },
+      "beta" : false,
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user.impersonation.session.initiated" ]
     }, {
@@ -13094,6 +13783,7 @@
         "created" : "2016-02-23",
         "release" : "2016.09"
       },
+      "beta" : false,
       "tags" : [ "session", "user" ],
       "mappings" : [ "core.user.impersonation.grant.revoked" ]
     }, {
@@ -13104,6 +13794,7 @@
         "created" : "2016-01-08",
         "release" : "2016.02"
       },
+      "beta" : false,
       "tags" : [ "session", "user", "webhook-eligible" ],
       "mappings" : [ "core.user_auth.invalid_certificate", "core.user_auth.login_denied", "core.user_auth.login_failed", "core.user_auth.login_failed.policy_denied", "core.user_auth.login_success", "core.user_auth.session_created_using_api_token", "core.user_auth.session_created_using_token" ]
     }, {
@@ -13114,6 +13805,7 @@
         "created" : "2018-08-10",
         "release" : "2018.33"
       },
+      "beta" : false,
       "tags" : [ "webhook" ],
       "mappings" : [ "platform.webhook.create" ]
     }, {
@@ -13124,8 +13816,20 @@
         "created" : "2018-08-10",
         "release" : "2018.33"
       },
+      "beta" : false,
       "tags" : [ "webhook" ],
       "mappings" : [ "platform.webhook.delete" ]
+    }, {
+      "id" : "webhook.delivery",
+      "category" : "extensibility",
+      "description" : "Triggered when a webhook delivery fails. Used to identify when a webhook from Okta is not successfully delivered to the configured endpoint.",
+      "info" : {
+        "created" : "2019-02-27",
+        "release" : "2019.04.0"
+      },
+      "beta" : true,
+      "tags" : [ "webhook" ],
+      "mappings" : [ "platform.webhook.delivery.failure", "platform.webhook.delivery.success" ]
     }, {
       "id" : "webhook.modify",
       "category" : "extensibility",
@@ -13134,6 +13838,7 @@
         "created" : "2018-08-10",
         "release" : "2018.33"
       },
+      "beta" : false,
       "tags" : [ "webhook" ],
       "mappings" : [ "platform.webhook.modify" ]
     }, {
@@ -13144,6 +13849,7 @@
         "created" : "2018-08-10",
         "release" : "2018.33"
       },
+      "beta" : false,
       "tags" : [ "webhook" ],
       "mappings" : [ "platform.webhook.verify.failure", "platform.webhook.verify.success" ]
     }, {
@@ -13154,6 +13860,7 @@
         "created" : "2017-11-29",
         "release" : "2017.49"
       },
+      "beta" : false,
       "tags" : [ "network-zone" ],
       "mappings" : [ "zone.activate" ]
     }, {
@@ -13164,6 +13871,7 @@
         "created" : "2017-11-29",
         "release" : "2017.49"
       },
+      "beta" : false,
       "tags" : [ "network-zone" ],
       "mappings" : [ "zone.create" ]
     }, {
@@ -13174,6 +13882,7 @@
         "created" : "2017-11-29",
         "release" : "2017.49"
       },
+      "beta" : false,
       "tags" : [ "network-zone" ],
       "mappings" : [ "zone.deactivate" ]
     }, {
@@ -13184,6 +13893,7 @@
         "created" : "2017-11-29",
         "release" : "2017.49"
       },
+      "beta" : false,
       "tags" : [ "network-zone" ],
       "mappings" : [ "zone.delete" ]
     }, {
@@ -13194,6 +13904,7 @@
         "created" : "2017-11-29",
         "release" : "2017.49"
       },
+      "beta" : false,
       "tags" : [ "network-zone" ],
       "mappings" : [ "zone.make_blacklist" ]
     }, {
@@ -13204,6 +13915,7 @@
         "created" : "2017-11-29",
         "release" : "2017.49"
       },
+      "beta" : false,
       "tags" : [ "network-zone" ],
       "mappings" : [ "zone.remove_blacklist" ]
     }, {
@@ -13214,6 +13926,7 @@
         "created" : "2017-11-29",
         "release" : "2017.49"
       },
+      "beta" : false,
       "tags" : [ "network-zone" ],
       "mappings" : [ "zone.update" ]
     } ]

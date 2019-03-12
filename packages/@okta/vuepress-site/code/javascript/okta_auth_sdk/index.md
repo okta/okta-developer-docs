@@ -60,7 +60,7 @@ var authClient = new OktaAuth({
 });
 ```
 
-Replace each of these property values with ones from your Okta org and application. For more information about these properties, see the [Client Configuration section of the Auth SDK reference][authjs-client-configuration].
+Replace each of these property values with ones from your Okta org and application. For more information about these properties, see the [Client Configuration section of the Auth SDK reference][authjs-reference-client-configuration].
 
 ### Retrieve ID Token from Okta
 
@@ -254,7 +254,7 @@ else {
 ```
 
 [authjs-reference]: https://github.com/okta/okta-auth-js
-[authjs-reference-client-configuration]: https://github.com/okta/okta-auth-js#client-configuration
+[authjs-reference-client-configuration]: https://github.com/okta/okta-auth-js#configuration-reference
 [authjs-reference-token-getwithredirect]: https://github.com/okta/okta-auth-js#tokengetwithredirectoptions
 [authjs-reference-token-parsefromurl]: https://github.com/okta/okta-auth-js#tokenparsefromurloptions
 [authjs-reference-tokenmanager-add]: https://github.com/okta/okta-auth-js#tokenmanageraddkey-token
