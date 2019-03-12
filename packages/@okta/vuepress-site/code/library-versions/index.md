@@ -57,8 +57,9 @@ This table lists the current (and historical) major versions of our open-source 
 | [Android AppAuth SDK][appauth-android]                          | 0.1.0                              | Beta                                 |
 | [Angular SDK][sdk-angular]                                      | 0.1.0<br>**1.x**                   | Retired<br>**Stable**                |
 | [JWT verifier for Go][go-jwt-verifier]                          | 0.x                                | Beta                                 |
-| [iOS AppAuth SDK][appauth-ios]                                  | 0.3.0<br>**1.x**                   | Retired<br>**Stable**                |
+| [iOS AppAuth SDK][appauth-ios]                                  | 1.x<br>**2.x**                     | Retiring on 2019-07-19<br>**Stable** |
 | [iOS OktaJWT][ios-oktajwt]                                      | 0.1.0<br>**1.x**                   | Retired<br>**Stable**                |
+| [iOS authentication SDK][authsdk-ios]                           | 0.1.0                              | Beta                                 |
 | [Java management SDK][sdk-java]                                 | 0.0.4<br>**1.x**                   | Retiring on 2019-04-09<br>**Stable** |
 | [Java authentication SDK][authsdk-java]                         | **0.x**                            | **Stable**                           |
 | [JWT verifier for Java][java-jwt-verifier]                      | **0.x**                            | **Stable**                           |
@@ -91,6 +92,7 @@ This table lists the current (and historical) major versions of our open-source 
 [appauth-android]: https://github.com/okta/okta-sdk-appauth-android
 [appauth-ios]: https://github.com/okta/okta-sdk-appauth-ios
 [ios-oktajwt]: https://github.com/okta/okta-ios-jwt
+[authsdk-ios]: https://github.com/okta/okta-auth-swift
 [spring-boot-starter]: https://github.com/okta/okta-spring-boot
 [signin-widget]: https://github.com/okta/okta-signin-widget
 [authjs]: https://github.com/okta/okta-auth-js

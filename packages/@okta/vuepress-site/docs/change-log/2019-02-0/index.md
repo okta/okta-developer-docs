@@ -6,16 +6,16 @@ title: Okta API Products Change Log
 
 > NOTE: Okta has changed our release model and version numbering. For more information, see here: <https://support.okta.com/help/s/article/New-Okta-Release-Model>
 
-| Change                                                                                                                | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
-|-----------------------------------------------------------------------------------------------------------------------|--------------------------|----------------------------------------------|
-| [Imported Hashed User Passwords Generally Available](#imported-hashed-user-passwords-generally-available)             | February 6, 2019         | March 11                                     |
-| [Inline Hooks](#inline-hooks)                                                                                         | February 6, 2019         | February 19                                  |
-| [Token Inline Hook](#token-inline-hook)                                               | February 6, 2019         | February 19                                  |
-| [Signature and Digest Algorithms for Template WS-FED Apps](#signature-and-digest-algorithms-for-template-ws-fed-apps) | February 6, 2019         | February 19                                  |
-| [Google Integration Updated](#google-integration-updated) | February 6, 2019         | February 19, 2019                                  |
-| [High Capacity Rate Limits](#high-capacity-rate-limits) | February 6, 2019         | February 19, 2019                                  |
-| [Creation of LinkedIn IdPs Temporarily Disabled](#creation-of-linkedin-idps-temporarily-disabled)| February 14, 2019 | February 19, 2019|
-| [Bug Fixed in 2019.02.0](#bug-fixed-in-2019010)                                                                       | February 6, 2018         | February 19, 2019
+| Change                                                                                                                  | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
+| [Imported Hashed User Passwords Generally Available](#imported-hashed-user-passwords-generally-available)               | February 6, 2019         | March 11, 2019                               |
+| [Inline Hooks](#inline-hooks)                                                                                           | February 6, 2019         | February 19, 2019                            |
+| [Token Inline Hook](#token-inline-hook)                                                                                 | February 6, 2019         | February 19, 2019                            |
+| [Signature and Digest Algorithms for Template WS-FED Apps](#signature-and-digest-algorithms-for-template-ws-fed-apps)   | February 6, 2019         | February 19, 2019                            |
+| [Google Integration Updated](#google-integration-updated)                                                               | February 6, 2019         | February 19, 2019                            |
+| [High Capacity Rate Limits](#high-capacity-rate-limits)                                                                 | February 6, 2019         | February 19, 2019                            |
+| [Creation of LinkedIn IdPs Temporarily Disabled](#creation-of-linkedin-idps-temporarily-disabled)                       | February 14, 2019        | February 19, 2019                            |
+| [Bug Fixed in 2019.02.0](#bug-fixed-in-2019010)                                                                         | February 6, 2018         | February 19, 2019                            |
 | [Previously Released Early Access Features 2019.02.0 Update](#previously-released-early-access-features-2019010-update) | Available Now            | Available Now                                |
 
 ### Imported Hashed User Passwords Generally Available
@@ -28,7 +28,7 @@ Use of imported hashed passwords when creating or updating users in the [Users A
 
 ### Token Inline Hook
 
-The [Token Inline Hook](/use_cases/inline_hooks/api_am_hook/api_am_hook) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
+The [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
 
 ### Signature and Digest Algorithms for Template WS-Fed Apps
 

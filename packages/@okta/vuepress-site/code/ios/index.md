@@ -50,6 +50,12 @@ The Okta AppAuth iOS SDK is a wrapper around the AppAuth-iOS SDK for communicati
 			<span>Okta JWT Verifier for iOS</span>
 		</a>
 	</li>
+        <li>
+            <i class='fa fa-github'></i>
+            <a href="https://github.com/okta/okta-auth-swift">
+                    <span>iOS authentication SDK</span>
+            </a>
+        </li>
 </ul>
 
 ## Recommended Guides

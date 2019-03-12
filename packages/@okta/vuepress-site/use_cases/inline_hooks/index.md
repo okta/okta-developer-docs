@@ -23,9 +23,10 @@ Okta defines several different types of inline hooks. Each type of inline hook m
 
 ### Currently-Supported Types
 
-| Name                                                                                 | Description                                               |
-|--------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| [Token Inline Hook](/use_cases/inline_hooks/api_am_hook/api_am_hook) | Customizes tokens returned by Okta API Access Management. |
+| Name                                                                                 | Description                                      |
+|--------------------------------------------------------------------------------------|--------------------------------------------------|
+| [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)    | Customizes tokens returned by Okta API Access Management.       |
+| [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook) | Adds custom logic to the user import process.                   |
 
 ## Inline Hook Process Flow
 

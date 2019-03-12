@@ -4,7 +4,6 @@ meta:
   - name: description
     content: List of changes to the Okta API and related API...
 component: ChangeLog
-showToc: false
 ---
 
 # Okta API Products Change Log
