@@ -221,6 +221,17 @@ function run() {
 
 
   fs.writeFileSync(docsRoot+'/.vuepress/redirects.json', JSON.stringify(redirects, null, 2))
+
+  try {
+    fs.writeFileSync(docsRoot + '/conductor.yml', 'redirects: \r\n')
+    //Build conductor redirects
+    redirects.forEach((redirect) => {
+      fs.appendFile(docsRoot + '/conductor.yml', ' - from: ' + redirect.path + '\r\n   to: ' + redirect.redirect + '\r\n')
+    })
+  } catch (e) {
+    console.log(e)
+  }
+
 }
 
 run()
