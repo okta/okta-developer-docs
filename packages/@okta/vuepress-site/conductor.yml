@@ -3,18 +3,24 @@ redirects:
    to: /documentation/
  - from: /use_cases/api_security
    to: /use_cases/api_access_management/
- - from: /docs/how-to/set-up-auth-server.html
-   to: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
  - from: /3rd_party_notices/Okta_Rum_Tool
    to: /3rd_party_notices/Okta_Cloud_Provisioning_Connector_Tool/index.html
+ - from: /docs/how-to/set-up-auth-server.html
+   to: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
+ - from: /docs/how-to/inbound-saml-with-oidc
+   to: /authentication-guide/saml-login/index.html
+ - from: /docs/api/resources/social_authentication
+   to: /authentication-guide/social-login/index.html
  - from: /code/dotnet/
    to: /code/dotnet/aspnetcore/index.html
  - from: /code/dotnet/index.html
    to: /code/dotnet/aspnetcore/
  - from: /code/dotnet/okta-oidc-spa-osw-aspnet
    to: /code/dotnet/index.html
- - from: /docs/api/resources/social_authentication
-   to: /authentication-guide/social-login/index.html
+ - from: /code/dotnet/okta-oauth-spa-authjs-osw
+   to: /code/dotnet/index.html
+ - from: /code/dotnet/okta-oauth-aspnet-codeflow
+   to: /code/dotnet/index.html
  - from: /docs/examples/dotnet_sample_application.html
    to: /code/dotnet/sample_application/index.html
  - from: /code/dotnet/sdk/index.html
@@ -111,10 +117,10 @@ redirects:
    to: /docs/api/resources/oidc/index.html
  - from: /docs/getting_started/policy.html
    to: /docs/api/resources/policy/index.html
- - from: /docs/api/rest/templates.html
-   to: /docs/api/resources/templates/index.html
  - from: /docs/api/rest/sessions.html
    to: /docs/api/resources/sessions/index.html
+ - from: /docs/api/rest/templates.html
+   to: /docs/api/resources/templates/index.html
  - from: /docs/getting_started/tokens.html
    to: /docs/api/resources/tokens/index.html
  - from: /docs/api/rest/users.html
@@ -155,9 +161,9 @@ redirects:
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2016-40/index.html
    to: /docs/change-log/
- - from: /docs/platform-release-notes/platform-release-notes2016-43/index.html
-   to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2016-41/index.html
+   to: /docs/change-log/
+ - from: /docs/platform-release-notes/platform-release-notes2016-43/index.html
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2016-45/index.html
    to: /docs/change-log/
@@ -169,11 +175,11 @@ redirects:
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2016-50/index.html
    to: /docs/change-log/
- - from: /docs/platform-release-notes/platform-release-notes2016-index/index.html
+ - from: /docs/platform-release-notes/platform-release-notes2016-51/index.html
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2016-52/index.html
    to: /docs/change-log/
- - from: /docs/platform-release-notes/platform-release-notes2016-51/index.html
+ - from: /docs/platform-release-notes/platform-release-notes2016-index/index.html
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2017-02/index.html
    to: /docs/change-log/
@@ -185,19 +191,19 @@ redirects:
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2017-09/index.html
    to: /docs/change-log/
- - from: /docs/how-to/inbound-saml-with-oidc
-   to: /authentication-guide/saml-login/index.html
  - from: /docs/platform-release-notes/platform-release-notes2017-10/index.html
+   to: /docs/change-log/
+ - from: /docs/platform-release-notes/platform-release-notes2017-11/index.html
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2017-12/index.html
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2017-15/index.html
    to: /docs/change-log/
- - from: /docs/platform-release-notes/platform-release-notes2017-18/index.html
-   to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2017-16/index.html
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2017-17/index.html
+   to: /docs/change-log/
+ - from: /docs/platform-release-notes/platform-release-notes2017-18/index.html
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2017-19/index.html
    to: /docs/change-log/
@@ -233,9 +239,9 @@ redirects:
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2017-35/index.html
    to: /docs/change-log/
- - from: /docs/platform-release-notes/platform-release-notes2017-38/index.html
-   to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2017-36/index.html
+   to: /docs/change-log/
+ - from: /docs/platform-release-notes/platform-release-notes2017-38/index.html
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2017-40/index.html
    to: /docs/change-log/
@@ -259,8 +265,8 @@ redirects:
    to: /docs/change-log/
  - from: /docs/platform-release-notes/platform-release-notes2017-index/index.html
    to: /docs/change-log/
- - from: /code/dotnet/okta-oauth-spa-authjs-osw
-   to: /code/dotnet/index.html
+ - from: /docs/getting_started/error_codes
+   to: /reference/error_codes/index.html
  - from: /docs/api/getting_started/error_codes
    to: /reference/error_codes/index.html
  - from: /docs/getting_started/okta_expression_lang
@@ -287,9 +293,9 @@ redirects:
    to: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
  - from: /standards/SCIM/index.html
    to: https://www.okta.com/integrate/documentation/scim/
- - from: /docs/guides/scim_developer_program.html
-   to: /standards/SCIM/index.html
  - from: /docs/guides/scim_guidance.html
+   to: /standards/SCIM/index.html
+ - from: /docs/guides/scim_developer_program.html
    to: /standards/SCIM/index.html
  - from: /docs/api/resources/resource-server-beta/
    to: /use_cases/api_access_management/index.html
@@ -305,12 +311,6 @@ redirects:
    to: https://www.okta.com/integrate/
  - from: /docs/api/getting_started/oan_guidance
    to: /use_cases/integrate_with_okta/index.html
- - from: /docs/getting_started/error_codes
-   to: /reference/error_codes/index.html
- - from: /code/dotnet/okta-oauth-aspnet-codeflow
-   to: /code/dotnet/index.html
- - from: /docs/platform-release-notes/platform-release-notes2017-11/index.html
-   to: /docs/change-log/
  - from: /docs/guides/oan_guidance
    to: /use_cases/integrate_with_okta/index.html
  - from: /use_cases/sso_and_provisioning/draft
@@ -323,17 +323,17 @@ redirects:
    to: https://www.okta.com/integrate/documentation/provisioning/
  - from: /use_cases/integrate_with_okta/sso-with-saml/index.html
    to: https://www.okta.com/integrate/documentation/single-sign-on/
- - from: /use_cases/isv/security-analytics/index.html
-   to: https://www.okta.com/integrate/documentation/security-enforcement-integrations/security-analytics/
  - from: /use_cases/isv/embedded-occ/index.html
    to: https://www.okta.com/integrate/documentation/embedded-okta-cloud-connect/
+ - from: /use_cases/isv/isv-syslog-references/index.html
+   to: https://www.okta.com/integrate/documentation/security-enforcement-integrations/
+ - from: /use_cases/isv/security-analytics/index.html
+   to: https://www.okta.com/integrate/documentation/security-enforcement-integrations/security-analytics/
+ - from: /use_cases/isv/security-enforcement/index.html
+   to: https://www.okta.com/integrate/documentation/security-enforcement-integrations/
  - from: /use_cases/isv/zindex/index.html
    to: https://www.okta.com/integrate/documentation/isv-partner-integrations/
  - from: /docs/guides/add_mfa.html
    to: /use_cases/mfa/index.html
  - from: /docs/guides/okta_mobile_connect.html
    to: /use_cases/mobile/okta_mobile_connect/index.html
- - from: /use_cases/isv/security-enforcement/index.html
-   to: https://www.okta.com/integrate/documentation/security-enforcement-integrations/
- - from: /use_cases/isv/isv-syslog-references/index.html
-   to: https://www.okta.com/integrate/documentation/security-enforcement-integrations/
