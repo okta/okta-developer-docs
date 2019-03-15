@@ -225,7 +225,7 @@ function run() {
   fs.writeFileSync(docsRoot + '/conductor.yml', 'redirects: \r\n')
   //Build conductor redirects
   redirects.forEach((redirect) => {
-    fs.appendFileSync(docsRoot + '/conductor.yml', ' - from: ' + redirect.path + '\r\n   to: ' + redirect.redirect + '\r\n')
+    fs.appendFileSync(docsRoot + '/conductor.yml', '  - from: ' + redirect.path + '\r\n    to: ' + redirect.redirect + '\r\n')
   })
 
 }
