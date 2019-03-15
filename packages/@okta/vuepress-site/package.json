@@ -25,5 +25,5 @@
   "dependencies": {
     "@okta/vuepress-plugin-my-okta": "^1.0.0"
   },
-  "browserslist": "> 0.25%, not dead"
+  "browserslist": "> 0.25%"
 }
