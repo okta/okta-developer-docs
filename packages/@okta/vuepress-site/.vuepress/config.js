@@ -212,5 +212,7 @@ module.exports = {
 
   plugins: [
     '@okta/vuepress-plugin-my-okta'
-  ]
+  ],
+
+  evergreen: false
 }
