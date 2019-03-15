@@ -18,7 +18,7 @@ There are currently 2 parts to the site, the content and the themeing/plugins.
 
 ### Requirements
  - Node: 10.9+
- - Yarn: >1.9.4 <1.10.1
+ - Yarn: 1.9.4+
 
 ### Installing the site.
  - Clone this repository (or fork if you aren't a core contributor):
@@ -81,6 +81,44 @@ post => $sea-buckthorn (Orange)
 put => $cerulean-5 (Blue)
 
 delete => $valencia (Red)
+
+#### Api Lifecycle
+The API Lifecycle tag allows you to mark items as beta, ea, or deprecated.
+
+In the markdown, you can add
+```html
+<ApiLifecycle access="beta" />
+```
+and this would render as:
+
+<img src=".github/images/api-lifecycle-rendered.png" width="150px"/>
+
+#### Category Links
+If you need to include a list of links for a category group which was defined in the frontmatter, you can use the `CategoryLinks` component.
+
+As long as you have the category defined in your markdowns frontmatter such as:
+
+```
+---
+category: myCategory
+---
+```
+
+You can then use the category links component:
+
+```html
+<CategoryLinks category="myCategory" />
+```
+
+A few options are provided for you to allow for some customization
+
+| Property    | Description                                                                                   |
+|-------------|-----------------------------------------------------------------------------------------------|
+| category    | The category you want to display for the links. This is based on your markdown frontmatter    |
+| linkPrefix  | [ADVANCED] This property allows you to include links based on the path, instead of a category |
+| sort        | Allows you to sort based on the defined property                                              |
+| showExcerpt | This property defaults to `true` and will display the frontmatter excerpt                     |
+
 
 ### What About Building the Site Before Committing?
 There is no need to build the rendered site before committing and submitting a PR. This will all happen on the CI side to test and build the rendered site.
