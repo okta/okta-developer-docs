@@ -5,6 +5,7 @@ module.exports = {
    * Custom head elements here
    */
   head: [
+    ['script', { src: "https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js" }],
     ['link', { rel: 'icon', href: '/assets/favicon/logo.png' }],
     ['link', { rel: 'stylesheet', href: 'https://developer.okta.com/sites/all/themes/developer/css/master.css' }],
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
