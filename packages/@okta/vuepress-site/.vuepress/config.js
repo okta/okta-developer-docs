@@ -7,7 +7,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/assets/favicon/logo.png' }],
     ['link', { rel: 'stylesheet', href: 'https://developer.okta.com/sites/all/themes/developer/css/master.css' }],
-    ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}]
+    ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
 
     /**
      * Header scripts for typekit, GA, GTM, and Heap Analytics (WIP)
