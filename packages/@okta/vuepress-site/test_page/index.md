@@ -18,7 +18,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 In tempor Sit pretium. Potenti nisi est. Tortor. Nullam natoque venenatis maecenas sociosqu augue nisi mollis lectus pharetra vulputate semper a nisi vestibulum pulvinar. Nunc nisi feugiat. Est aliquam. Dignissim dapibus quis sagittis vehicula class a velit habitant class ultrices lectus arcu maecenas cum sem quisque dui amet elementum urna ultrices platea. Risus, nunc elementum auctor eu aptent nisi gravida nulla nec massa taciti nascetur. Accumsan ipsum tristique rutrum lectus.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1755573c5cf5fbf7968b){:target="_blank"}
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1755573c5cf5fbf7968b)
 
 > Note: Viverra aenean senectus cras ante fusce. Commodo.
 
@@ -31,14 +31,14 @@ In cum sem ad, suspendisse nascetur aliquet commodo scelerisque ligula, porttito
 Orci vivamus sapien cursus habitant Ut <span class="api-label api-label-small api-label-cors"><i class="fa fa-cloud-download"></i> CORS</span>.
 
 ### POST operation
-{:.api .api-operation}
 
-{% api_operation post /api/v1/apps/${applicationId}/users %}
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/users" />
 
 Velit mauris odio Hac ipsum aliquet mollis felis.
 
 ##### API Request
-{:.api .api-request .api-request-params}
+
 
 Parameter | Description                                                                            | Param Type | DataType                          | Required | Default
 --------- | -------------------------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | -------
@@ -46,14 +46,14 @@ senectus  | Inceptos [leo](#sub-section-1) risus nibh eleifend ad pede in intege
 lobortis  | Mus mollis lobortis mi class et. Hymenaeos lacinia                                     | Body       | [Link](#last-section)             | TRUE     |
 
 ##### API Response
-{:.api .api-response .api-response-params}
+
 
 Taciti porta fermentum. Bibendum. Inceptos. [last section](#last-section).
 
 Consequat torquent magna. [Ridiculus](#last-section). Ac, mattis. Cras cum. Accumsan metus. Hac praesent.
 
 ##### Aliquet metus
-{:.api .api-request .api-request-params}
+
 
 Parameter          | Description                                             | DataType | Nullable | Unique | Validation
 ------------------ | ------------------------------------------------------- | -------- | -------- | ------ | ----------------------------------------
@@ -61,7 +61,7 @@ semper             | eleifend vitae pellentesque vulputate                   | S
 nostra             | nostra maecenas non. Dolor arcu convallis.              | Boolean  | FALSE    | FALSE  |
 
 ##### Sed arcu mus
-{:.api .api-request .api-request-params}
+
 
 | Parameter                                 | Description                                                                                 | DataType                                                                                     | Nullable | Unique | Validation | Default   |
 |:------------------------------------------|:--------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------|:---------|:-------|:-----------|:----------|
@@ -107,7 +107,7 @@ nostra             | nostra maecenas non. Dolor arcu convallis.              | B
 > *Torquent natoque facilisi suscipit magna ac sociosqu vitae sollicitudin justo sodales aliquam egestas phasellus aptent.*
 
 ##### Request Example
-{:.api .api-request .api-request-example}
+
 
 ```bash
 curl -v -X POST \
@@ -128,7 +128,7 @@ curl -v -X POST \
 ```
 
 ##### Response Example
-{:.api .api-response .api-response-example}
+
 
 ```json
 {
@@ -191,9 +191,9 @@ curl -v -X POST \
 ```
 
 ### Sub Section B
-{:.api .api-operation}
 
-{% api_operation get /api/v1/apps/${applicationId}/users %}
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/users" />
 
 Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum cubilia tincidunt feugiat placerat sapien hendrerit leo mollis nisi eros primis fermentum augue netus. Mi magnis dolor penatibus vivamus. Feugiat aptent placerat placerat praesent netus luctus. Sociis nisi rutrum, in sodales conubia porttitor convallis lorem hendrerit netus lacinia luctus orci auctor. Ornare netus Dis nulla egestas etiam luctus, semper mi. Nisi. Eleifend nostra. Tristique nullam iaculis arcu mattis cubilia, congue.
 
@@ -219,9 +219,9 @@ Platea sodales <ApiLifecycle access="deprecated" />  praesent fusce ultricies co
 </div>
 
 ### Sub Section 1
-{:.api .api-operation}
 
-{% api_operation put /api/v1/apps/${applicationId}/groups/${groupId} %}
+
+<ApiOperation method="put" url="/api/v1/apps/${applicationId}/groups/${groupId}" />
 
 
 Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum cubilia tincidunt feugiat placerat sapien hendrerit leo mollis nisi eros primis fermentum augue netus. Mi magnis dolor penatibus vivamus. Feugiat aptent placerat placerat praesent netus luctus. Sociis nisi rutrum, in sodales conubia porttitor convallis lorem hendrerit netus lacinia luctus orci auctor. Ornare netus Dis nulla egestas etiam luctus, semper mi. Nisi. Eleifend nostra. Tristique nullam iaculis arcu mattis cubilia, congue.
@@ -242,9 +242,9 @@ Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum c
 - [Last Section](#last-section)
 
 ### Sub Section 2
-{:.api .api-operation}
 
-{% api_operation delete /api/v1/apps/${applicationId}/users/${userId} %}
+
+<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/users/${userId}" />
 
 Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum cubilia tincidunt feugiat placerat sapien hendrerit leo mollis nisi eros primis fermentum augue netus. Mi magnis dolor penatibus vivamus. Feugiat aptent placerat placerat praesent netus luctus. Sociis nisi rutrum, in sodales conubia porttitor convallis lorem hendrerit netus lacinia luctus orci auctor. Ornare netus Dis nulla egestas etiam luctus, semper mi. Nisi. Eleifend nostra. Tristique nullam iaculis arcu mattis cubilia, congue.
 

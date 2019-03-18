@@ -729,7 +729,7 @@ Returns an empty object.
 Passing an invalid trusted origin ID returns a `404 Not Found` status code with error code `E0000007`.
 
 ## Trusted Origin Model
-{: #trusted-origin-model }
+
 
 ### Trusted Origin Properties
 

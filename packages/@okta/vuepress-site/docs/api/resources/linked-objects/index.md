@@ -27,7 +27,7 @@ The Expression Language function for [linked objects](/reference/okta_expression
 
 Explore the Linked Objects API:
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ed4c5606d25d1014b7ea){:target="_blank"}
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ed4c5606d25d1014b7ea)
 
 ## Link Definition Operations
 

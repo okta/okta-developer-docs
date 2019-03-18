@@ -9,7 +9,7 @@ redirect_from:
 
 Okta Mobile Connect enables SSO for native mobile
 apps that support SAML. Once users have established a session in
-[Okta Mobile](https://itunes.apple.com/us/app/okta-mobile/id580709251){:target="_blank"},
+[Okta Mobile](https://itunes.apple.com/us/app/okta-mobile/id580709251),
 logging in to mobile apps that support SAML and Okta Mobile Connect is
 as simple as entering an email address or company domain.
 
@@ -130,5 +130,5 @@ Okta's [Single Sign-On guidance](/docs/guides/saml_guidance).
 
 * If your website already supports SAML, and you want to add
 SAML support to your mobile app, start with the
-[technical overview of Okta Mobile Connect](https://github.com/okta/okta-mobile-connect){:target="_blank"},
+[technical overview of Okta Mobile Connect](https://github.com/okta/okta-mobile-connect),
 which includes an example of how to add SAML support to an iOS app.
