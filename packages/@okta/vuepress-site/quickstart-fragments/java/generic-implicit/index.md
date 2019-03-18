@@ -25,7 +25,7 @@ compile 'com.okta.jwt:okta-jwt-verifier:{{ site.versions.jwt_validator_java }}'
 ### Use the API
 
 We can create a simple Servlet example by creating a `Filter`:
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```java
 @WebFilter(urlPatterns = {"/api/*"})

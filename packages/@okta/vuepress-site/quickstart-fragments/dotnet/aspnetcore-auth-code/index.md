@@ -24,7 +24,7 @@ using Okta.AspNetCore;
 ```
 
 Add the following code anywhere in your `ConfigureServices` method, and add your Okta configuration:
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```csharp
 services.AddAuthentication(options =>

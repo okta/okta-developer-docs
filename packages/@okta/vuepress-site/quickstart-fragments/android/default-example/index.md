@@ -44,7 +44,7 @@ compile 'com.okta.android:appauth-android:0.1.0'
 ```
 
 ### Configuration
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 Create a new `okta_app_auth_config.json` file in your application's `res/raw` directory with the following contents:
 ```json
 {

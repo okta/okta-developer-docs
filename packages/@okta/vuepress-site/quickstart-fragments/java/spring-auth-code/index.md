@@ -26,7 +26,7 @@ compile 'com.okta.spring:okta-spring-boot-starter:{{ site.versions.spring_boot_s
 You can configure your applications properties with environment variables, system properties, or configuration files. Take a look at the [Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) for more details.
 
 An example `application.properties` file would look like:
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```properties
 okta.oauth2.issuer=https://{yourOktaDomain}/oauth2/default

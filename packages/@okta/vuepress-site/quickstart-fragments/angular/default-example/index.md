@@ -55,7 +55,7 @@ npm install @okta/okta-angular --save
 You will need the values from the OIDC client that you created in the previous step to instantiate the middleware. You will also need to know your Okta org URL, which you can see on the home page of the Okta Developer console.
 
 In your application's `module.ts` file, import the following objects and create a configuration object:
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```typescript
 // myApp.module.ts

@@ -38,7 +38,7 @@ You'll need a free Okta developer organization to get started. If you don't have
 
 6. Click **Update** to save your changes.
 
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ## Import a Collection
 
