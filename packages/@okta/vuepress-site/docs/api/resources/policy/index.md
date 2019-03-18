@@ -599,7 +599,7 @@ If the user is not a member of the "Administrators" group, then policy B would b
 ```
 
 ### Policy Object
-{: #PolicyObject }
+
 
 The Policy model defines several attributes:
 
@@ -620,20 +620,20 @@ _links | Hyperlinks | <a href="#LinksObject">Links Object</a> | No |
 
 
 ### Policy Settings Object
-{: #PolicySettingsObject }
+
 
 The policy settings object contains the policy level settings for the particular policy type.  Not all policy types have policy level settings.  For example, in Password Policy the settings object contains, among other items, the password complexity settings.   In Sign On policy, on the other hand, there are no policy level settings; all of the policy data is contained in the rules.  Each policy type section explains the settings objects specific to that type.
 
 
 ### Conditions Object
-{: #PolicyConditionsObject }
+
 
 The Conditions Object(s) specify the conditions that must be met during policy evaluation in order to apply the policy in question.   All policy conditions, as well as conditions for at least one rule must be met in order to apply the settings specified in the policy and the associated rule.  Policies and rules may contain different conditions depending on the policy type.  The conditions which can be used with a particular policy depends on the policy type.
 See <a href="#conditions">conditions</a>
 
 
 ### Links Object
-{: #LinksObject }
+
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current policy.  The Links Object is used for dynamic discovery of related resources.  The Links Object is **read-only**.
 
@@ -723,7 +723,7 @@ This occurs because, even though requests coming from anywhere would match the A
 ```
 
 ### Rules Object
-{: #RulesObject }
+
 
 The Rules model defines several attributes:
 
@@ -742,18 +742,18 @@ The Rules model defines several attributes:
 | _links      | Hyperlinks                                                       | <a href="#RulesLinksObject">Links Object</a>            | No       |                        |
 
 ### Actions Objects
-{: #RulesActionsObject }
+
 
 Just as policies contains settings, rules contain "Actions", which typically specify actions to be taken, or operations that may be allowed, if the rule conditions are satisfied.  For example, in Password Policy rule actions govern whether or not self-service operations such as reset password or unlock are permitted.   Just as different policy types have different settings, rules have different actions depending on the type of the policy they belong to.
 
 ### Conditions Object
-{: #RuleConditionsObject }
+
 
 The Conditions Object(s) specify the conditions that must be met during policy evaluation in order to apply the rule in question.   All policy conditions, as well as conditions for at least one rule must be met in order to apply the settings specified in the policy and the associated rule.  Policies and rules may contain different conditions depending on the policy type.  The conditions which can be used with a particular policy depends on the policy type.
 See <a href="#Conditions">conditions</a>
 
 ### Links Object
-{: #RulesLinksObject }
+
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current rule.  The Links Object is used for dynamic discovery of related resources.  The Links Object is **read-only**.
 
@@ -764,10 +764,10 @@ activate | Action to activate the rule (present if the rules is currently inacti
 deactivate | Action to deactivate the rule (present if the rule is currently active) | String | Yes |
 
 ### Conditions
-{: #Conditions }
+
 
 #### People Condition Object
-{: #PeopleObject }
+
 
 The people condition identifies users and groups that are used together. For policies, you can only include a group.
 
@@ -777,7 +777,7 @@ groups | The groups condition | <a href="#UserConditionObject">User Condition Ob
 users | The users condition | <a href="#GroupConditionObject">Group Condition Object</a> | Yes |
 
 ##### User Condition Object
-{: #UserConditionObject }
+
 
 Specifies a set of users to be included or excluded
 
@@ -788,7 +788,7 @@ exclude | The users to be excluded | Array | Yes |
 
 
 ##### Group Condition Object
-{: #GroupConditionObject }
+
 
 Specifies a set of groups whose users to be included or excluded
 
@@ -815,7 +815,7 @@ exclude | The groups to be excluded | Array | Yes |
 ```
 
 #### AuthContext Condition Object
-{: #AuthContextConditionObject }
+
 
 Specifies an authentication entry point.
 
@@ -824,7 +824,7 @@ Parameter | Description | Data Type | Required | Default
 authType |  | `ANY` or `RADIUS` | No |
 
 #### Network Condition Object
-{: #NetworkConditionObject }
+
 
 Specifies a network selection mode, and a set of network zones to be included or excluded. If the connection parameter's data type is `ZONE`, exactly one of the include or exclude arrays is required.
 Specific zone ids to include or exclude are enumerated in the respective arrays. The [Zones API](zones) can be used to manage network zones.
@@ -838,7 +838,7 @@ exclude | The zones to exclude | Array | Only if connection data type is `ZONE` 
 > The connection parameter may be set to the `ZONE` data type to select individual network zones.
 
 #### Network Condition Object Example
-{: #NetworkConditionObjectExample }
+
 
 ```json
   "network": {
@@ -852,7 +852,7 @@ exclude | The zones to exclude | Array | Only if connection data type is `ZONE` 
 If you want to include or exclude all zones, you should pass in "ALL_ZONES" as the only element in the include or exclude array
 
 #### Network Condition Object Example (exclude all zones)
-{: #NetworkConditionObjectExample }
+
 
 ```json
   "network": {
@@ -865,7 +865,7 @@ If you want to include or exclude all zones, you should pass in "ALL_ZONES" as t
 
 
 #### Authentication Provider Condition Object
-{: #AuthProviderConditionObject }
+
 
 Specifies an authentication provider, which masters some or all users.
 
@@ -886,7 +886,7 @@ include | The AD integrations this policy applies to | Array | No | Include all 
 ```
 
 #### User Identifier Condition Object
-{: #UserIdentifierConditionObject }
+
 
 Specifies a user identifier condition to match on.
 
@@ -956,7 +956,7 @@ value | The regex expression or simple match string | String | Yes |
 ```
 
 #### Application and App Instance Condition Object
-{: #AppAndAppInstanceConditionObject }
+
 
 Specifies either a general application or specific app instance to match on.
 
@@ -983,7 +983,7 @@ include | The list of applications or app instances to match on  | Array | Yes
 ```
 
 #### Platform Condition Object
-{: #PlatformConditionObject }
+
 
 Specifies a particular platform or device to match on.
 
@@ -992,7 +992,7 @@ Parameter | Description | Data Type | Required |
 include | The platforms to include | Array | Yes |
 
 #### Platform Condition Object Example
-{: #PlatformConditionObjectExample }
+
 
 ```json
   "platform": {
@@ -1028,7 +1028,7 @@ include | The platforms to include | Array | Yes |
 ## Type-Specific Policy Data Structures
 
 ## Okta Sign On Policy
-{: #OktaSignOnPolicy }
+
 
 Okta Sign On Policy controls the manner in which a user is allowed to sign on to Okta, including whether they are challenged for multifactor authentication (MFA) and how long they are allowed to remain signed in before re-authenticating.
 
@@ -1067,7 +1067,7 @@ The following conditions may be applied to Okta Sign On Policy
 
 
 #### Signon Action Object
-{: #SignonObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | --- | ---
@@ -1080,7 +1080,7 @@ session | Properties governing the user's session lifetime | <a href="#SignonSes
 
 
 ##### Signon Session Object
-{: #SignonSessionObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | --- | ---
@@ -1099,7 +1099,7 @@ The following conditions may be applied to the rules associated with Okta Sign O
 
 
 ## Multifactor (MFA) Enrollment Policy
-{: #OktaMFAPolicy }
+
 
 > The MFA Policy API is a <ApiLifecycle access="beta" /> release.
 
@@ -1134,7 +1134,7 @@ Note that policy settings are included only for those factors which have been en
 ### Policy Settings Data
 
 #### Policy Factors Configuration Object
-{: #PolicyFactorsConfigurationObject }
+
 
 Parameter | Description | Data Type | Required
 | --- | --- | --- | ---
@@ -1154,7 +1154,7 @@ symantec_vip | Symantec VIP | <a href="#PolicyFactorObject">Policy MFA Factor Ob
 yubikey_token | Yubikey Token | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No
 
 #### Policy MFA Factor Object
-{: #PolicyFactorObject }
+
 
 Parameter | Description | Data Type | Required
 | --- | --- | --- | ---
@@ -1163,14 +1163,14 @@ enroll | Enrollment requirements for the factor | <a href="#PolicyFactorEnrollOb
 
 
 #### Policy Factor Enroll Object
-{: #PolicyFactorEnrollObject }
+
 
 Parameter | Description | Data Type | Required | Default
 | --- | --- | --- | --- | ---
 self | Requirements for use-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL` or `REQUIRED` | No | `NOT_ALLOWED`
 
 #### Policy Factor Consent Object
-{: #PolicyFactorConsentObject }
+
 
 The Policy Factor Consent Object is an extensibility point.  In the future, policy may be configurable to require user consent to specified terms when enrolling in a factor.   At present settings other than type = `NONE` are ignored.
 
@@ -1180,7 +1180,7 @@ terms | Specifies the consent terms to be offered the user upon enrolling in the
 type | User consent type required before enrolling in the factor: `NONE` or `TERMS_OF_SERVICE`. | String | No | NONE
 
 #### Policy Factor Consent Terms
-{: #PolicyFactorConsentTerms }
+
 
 At present the Policy Factor Consent Terms settings are ignored.
 
@@ -1208,7 +1208,7 @@ The following conditions may be applied to Multifactor Policy
 
 
 #### Rules Actions Enroll Object
-{: #RulesActionsEnrollObject }
+
 
 Parameter | Description | Data Type | Required | Default
 | --- | --- | --- | --- | ---
@@ -1222,7 +1222,7 @@ The following conditions may be applied to the rules associated with MFA Enrollm
 <a href="#NetworkConditionObject">Network Condition</a>
 
 ## Password Policy
-{: #GroupPasswordPolicy }
+
 
 The Password policy determines the requirements for a user's password length and complexity, as well as the frequency with which a password must be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock.
 
@@ -1296,7 +1296,7 @@ recovery | Recovery settings | <a href="#RecoveryObject">Password Policy Recover
 delegation | Delegation settings | <a href="#DelegationObject">Password Policy Delegation Object</a> | No
 
 #### Password Object
-{: #PasswordObject }
+
 
 Property | Description | Data Type | Required |
 | --- | --- | --- | ---
@@ -1305,7 +1305,7 @@ age | Age settings | <a href="#PasswordAgeObject">Password Age Object</a> | No
 lockout | Lockout settings | <a href="#PasswordLockoutObject">Password Lockout Object</a> | No
 
 ##### Complexity Object
-{: #PasswordComplexityObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | --- | ---
@@ -1319,7 +1319,7 @@ excludeAttributes | The user profile attributes whose values must be excluded fr
 dictionary {%api_lifecycle beta %} | Weak password dictionary lookup settings | <a href="#WeakPasswordDictionaryObject">Weak Password Dictionary Object</a> | No | N/A
 
 ###### Weak Password Dictionary Object
-{: #WeakPasswordDictionaryObject }
+
 
 > Weak password lookup is a <ApiLifecycle access="beta" /> feature.
 
@@ -1331,14 +1331,14 @@ common | Lookup settings for commonly used passwords  | <a href="#CommonPassword
 
 Common Password Lookup Object
 
-{: #CommonPasswordLookupObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | ---| --- | ---
 exclude | Indicates whether to check passwords against common password dictionary | Boolean | No | false
 
 ##### Age Object
-{: #PasswordAgeObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | ---
@@ -1348,7 +1348,7 @@ minAgeMinutes | Specifies the minimum time interval (in minutes) between passwor
 historyCount | Specifies the number of distinct passwords that a user must create before they can reuse a previous password: 0 indicates none  | integer | No | 0
 
 ##### Lockout Object
-{: #PasswordLockoutObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | ---
@@ -1357,14 +1357,14 @@ autoUnlockMinutes | Specifies the time interval (in minutes) a locked account re
 showLockoutFailures | Inidcates if the user should be informed when their account is locked | Boolean | No | false
 
 #### Recovery Object
-{: #RecoveryObject }
+
 
 Property | Description | Data Type | Required |
 | --- | --- | --- | ---
 factors | Settings for the factors that may be used for recovery | <a href="#RecoveryFactorsObject">Recovery Factors Object</a> | No
 
 ##### Recovery Factors Object
-{: #RecoveryFactorsObject }
+
 
 Property | Description | Data Type | Required |
 | --- | --- | --- | ---
@@ -1373,7 +1373,7 @@ okta_email | Settings for email factor | <a href="#EmailFactorObject">Email Fact
 okta_sms | Settings for SMS factor | <a href="#SMSFactorObject">SMS Factor Object</a> | No
 
 ###### Recovery Question Factor Object
-{: #RecoveryQuestionFactorObject }
+
 
 Property | Description | Data Type | Required |
 | --- | --- | --- | ---
@@ -1381,21 +1381,21 @@ status | Indicates if the factor is enabled. | `ACTIVE`, `INACTIVE` <ApiLifecycl
 properties | Configuration settings for security question factor | <a href="#RecoveryQuestionFactorPropertiesObject">Recovery Question Factor Properties Object</a> | No
 
 ###### Recovery Question Factor Properties Object
-{: #RecoveryQuestionFactorPropertiesObject }
+
 
 Property | Description | Data Type | Required |
 | --- | --- | --- | ---
 complexity | Complexity settings for recovery question | <a href="#RecoveryQuestionFactorPropertiesComplexityObject">Recovery Question Factor Properties Complexity Object</a> | No
 
 ###### Recovery Question Factor Properties Complexity Object
-{: #RecoveryQuestionFactorPropertiesComplexityObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | ---
 minLength | Minimum length of the password recovery question answer | Integer | No | 4
 
 ###### Email Factor Object
-{: #EmailFactorObject }
+
 
 Property | Description | Data Type | Required |
 | --- | --- | --- | ---
@@ -1403,35 +1403,35 @@ status | Indicates if the factor is enabled.  This property is read-only | `ACTI
 properties | Configuration settings for okta email factor | <a href="#EmailFactorPropertiesObject">Email Factor Properties Object</a> | No
 
 ###### Email Factor Properties Object
-{: #EmailFactorPropertiesObject }
+
 
 Property | Description | Data Type | Required |
 | --- | --- | --- | ---
 recoveryToken | Recovery token settings | <a href="#EmailFactorPropertiesREcoveryTokenObject">Email Factor Properties Recovery Token Object</a> | No
 
 ###### Email Factor Properties Recovery Token Object
-{: #EmailFactorPropertiesREcoveryTokenObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | --- | ---
 tokenLifetimeMinutes | Lifetime (in minutes) of the recovery token | Integer | No | 10080
 
 ###### SMS Factor Object
-{: #SMSFactorObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | --- | ---
 status | Indicates if the factor is enabled. | `ACTIVE`, `INACTIVE` | No | 'INACTIVE'
 
 #### Delegation Object
-{: #DelegationObject }
+
 
 Property | Description | Data Type | Required |
 | --- | --- | --- | ---
 options | Delegation options | <a href="#DelegationOptionsObject">Delegation Options Object</a> | No
 
 ##### Options Object
-{: #DelegationOptionsObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | ---
@@ -1463,7 +1463,7 @@ The following conditions may be applied to Password Policy
 ```
 
 #### Password Action Object
-{: #PaswordActionObject }
+
 
 Property | Description | Data Type | Required |
 | --- | --- | --- | ---
@@ -1472,21 +1472,21 @@ selfServicePasswordReset | Properties governing the self-service password reset 
 selfServiceUnlock | Properties governing the self-service unlock operation | <a href="#SelfServiceUnockActionObject">Self Service Unlock Object</a> | No |
 
 ##### Password Change Action Object
-{: #PasswordChangeActionObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | --- | ---
 access | Indicates if the action is permitted | `ALLOW`, `DENY` | No | `DENY`
 
 ##### Self Service Password Reset Action Object
-{: #PasswordResetActionObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | --- | ---
 access | Indicates if the action is permitted | `ALLOW`, `DENY` | No | `DENY`
 
 ##### Self Service Unlock Action Object
-{: #SelfServiceUnockActionObject }
+
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | --- | ---
@@ -1500,7 +1500,7 @@ The following conditions may be applied to the rules associated with Password Po
 <a href="#NetworkConditionObject">Network Condition</a>
 
 ## IdP Discovery Policy
-{: #IdPDiscoveryPolicy }
+
 
 The IdP Discovery Policy determines where to route users when they are attempting to log in to your org. Users can be routed to a variety of identity providers (`SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`) based on multiple conditions listed below.
 
@@ -1518,10 +1518,10 @@ The following conditions may be applied to IdP Discovery Policy
 <a href="#AppAndAppInstanceConditionObject">Application and App Instance Condition</a>
 
 ### Policy Action Data
-{: #IdPDiscoveryPolicyActionData }
+
 
 #### Policy Action Object
-{: #IdPDiscoveryPolicyActionObject }
+
 
 Property | Description | Data Type | Required
 | --- | --- | --- | --- | ---

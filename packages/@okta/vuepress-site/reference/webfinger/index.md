@@ -13,12 +13,12 @@ This is a public, unprotected interface that can be queried without supplying an
 
 ## Finding a User's IdP 
 
-{% api_operation get /.well-known/webfinger %}
+<ApiOperation method="get" url="/.well-known/webfinger" />
 
 Fetch the IdP to be used for a particular user. You must supply a `resource` query parameter.
 
 ### Request Parameters
-{:.api .api-request .api-request-params}
+
 
 The table below summarizes the supported query parameters:
 
@@ -30,7 +30,7 @@ The table below summarizes the supported query parameters:
 >Note: Valid values for `rel` are `http://openid.net/specs/connect/1.0/issuer` and `okta:idp`, the first value being an Okta org, and the second being any configurable IdP.
 
 #### Request Example
-{:.api .api-request .api-request-example}
+
 
 ```bash
 curl -v -X GET \
@@ -40,7 +40,7 @@ curl -v -X GET \
 ```
 
 #### Response Example
-{:.api .api-response .api-response-example}
+
 
 In this example, there is a rule configured that has a user identifier condition which says that users with the domain `example.com` should be routed to a configured SAML IdP:
 
@@ -65,7 +65,7 @@ In this example, there is a rule configured that has a user identifier condition
 ```
 
 #### Request Example
-{:.api .api-request .api-request-example}
+
 
 ```bash
 curl -v -X GET \
@@ -77,7 +77,7 @@ curl -v -X GET \
 >Note: This request looks similar to the previous one, but it includes a `rel` parameter that limits the results to a particular set of IdPs.
 
 #### Response Example
-{:.api .api-response .api-response-example}
+
 
 In this example, there is already a rule configured that has a user identifier condition which says that users with the domain `example.com` should be routed to a configured SAML IdP. However, we supplied a `rel` parameter of `http://openid.net/specs/connect/1.0/issuer` that limited the result to Okta:
 

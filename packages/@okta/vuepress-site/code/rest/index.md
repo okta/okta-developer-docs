@@ -19,12 +19,12 @@ To use these collections, you'll need to set up your local environment and impor
 
 ## Sign Up for Okta
 
-You'll need a free Okta developer organization to get started. If you don't have one already, [sign up](https://developer.okta.com/signup/){:target="_blank"} to create one. When you create a new Okta organization, it will be assigned a base URL like `dev-12345.okta.com`. This is your unique subdomain in Okta.
+You'll need a free Okta developer organization to get started. If you don't have one already, [sign up](https://developer.okta.com/signup/) to create one. When you create a new Okta organization, it will be assigned a base URL like `dev-12345.okta.com`. This is your unique subdomain in Okta.
 
 ## Set Up Your Environment
 
-1. [Create an API token](/docs/api/getting_started/getting_a_token){:target="_blank"} for your org.
-2. [Install the Postman app](https://www.getpostman.com/apps){:target="_blank"}.
+1. [Create an API token](/docs/api/getting_started/getting_a_token) for your org.
+2. [Install the Postman app](https://www.getpostman.com/apps).
 3. Launch Postman and click the **Import** button. Select **Import From Link**, and paste this link into the textbox: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`
 ![Importing the Okta Example Environment](/img/import_enviro.png "Importing the Okta Example Environment")
 
@@ -44,7 +44,7 @@ You'll need a free Okta developer organization to get started. If you don't have
 
 Import the collection for the Users API:
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1755573c5cf5fbf7968b){:target="_blank"}
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1755573c5cf5fbf7968b)
 
 If you have Postman installed, clicking the button above gives you the option of importing the collection into Postman.
 

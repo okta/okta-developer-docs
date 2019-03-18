@@ -106,6 +106,10 @@ function alterMarkdownStrings(file) {
         'Please check back soon or try our [Developer Forums](https://devforum.okta.com/)!'
     }
 
+    if( line.includes('../resources/events#client-objecttype')) {
+      line = line.replace('../resources/events#client-objecttype', '/docs/api/resources/events/#client-objecttype')
+    }
+
 
     // convert image to markdown image
     // ![alt text](image.png "Logo Title Text 1")

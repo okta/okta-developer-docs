@@ -19,7 +19,7 @@ Once a session token is obtained, it can be passed into the [OpenID Connect auth
 > The session token may only be used **once** to establish a session. If the session expires or the user logs out of Okta after using the token, the user won't be able to reuse the same session token to get a new session cookie.
 
 ##### Request Example
-{:.api .api-request .api-request-example}
+
 
 ```
 https://{yourOktaDomain}/oauth2/v1/authorize?client_id={clientId}&response_type=id_token&scope=openid&prompt=none&redirect_uri=https%3A%2F%2Fyour-app.example.com&state=Af0ifjslDkj&nonce=n-0S6_WzA2Mj&sessionToken=0HsohZYpJgMSHwmL9TQy7RRzuY
@@ -30,7 +30,7 @@ https://{yourOktaDomain}/oauth2/v1/authorize?client_id={clientId}&response_type=
 > The `sessionToken` param serves as the primary credentials. It represents the authentication that was already performed via the [Authentication API](/docs/api/resources/authn).
 
 ##### Response Example
-{:.api .api-response .api-response-example}
+
 
 ``` http
 HTTP/1.1 302 Moved Temporarily
@@ -58,7 +58,7 @@ Be aware of the following requirements:
     If the `redirectUrl` is only going to Okta and the request parameters are longer, then use a POST request to this API and provide additional request parameters as POST form parameters. For more information about the character limitation, see the [Microsoft documentation](https://support.microsoft.com/en-us/help/208427/maximum-url-length-is-2-083-characters-in-internet-explorer).
 
 ##### Response Example
-{:.api .api-response .api-response-example}
+
 
 ``` http
 HTTP/1.1 302 Moved Temporarily
@@ -69,7 +69,7 @@ Location: https://{yourOktaDomain}/login/sessionCookieRedirect?token=0HsohZYpJgM
 The user's browser will set your app's session cookie and follow the redirect to Okta.  Okta will validate the session token and return a 302 status response that sets a session cookie for Okta and redirects the user's browser back to your landing page.  After the page has loaded the user will have an active session with Okta and will be able to SSO into their applications until the session is expired or the user closes the session (logout) or browser application.
 
 ##### Request Example
-{:.api .api-request .api-request-example}
+
 
 ``` http
 GET /login/sessionCookieRedirect?token=0HsohZYpJgMSHwmL9TQy7RRzuY&redirectUrl=https%3A%2F%2Fyour-app.example.com HTTP/1.1
@@ -78,7 +78,7 @@ Accept: */*
 ```
 
 ##### Response Example
-{:.api .api-response .api-response-example}
+
 
 ``` http
 HTTP/1.1 302 Moved Temporarily
@@ -99,7 +99,7 @@ The session token can then be passed as a query parameter to an Okta application
 After your login flow is complete you can launch an Okta application for the user with an [embed link](/docs/api/resources/users#get-assigned-app-links) that contains the the session token as a query parameter `sessionToken`.
 
 ##### Response Example
-{:.api .api-response .api-response-example}
+
 
 ``` http
 HTTP/1.1 302 Moved Temporarily
@@ -109,7 +109,7 @@ Location: https://your-subdomain/app/google/go1013td3mXAQOJCHEHQ/mail?sessionTok
 When the link is visited, the token in the request will be used to initiate the user's session before processing the application launch request. A session cookie will be set in the browser and the user will have an active session with Okta and will be able to SSO into additional applications until the session is expired or the user closes the session (logout) or browser application.
 
 ##### Response Example
-{:.api .api-response .api-response-example}
+
 
 ``` http
 HTTP/1.1 302 Moved Temporarily
@@ -125,7 +125,7 @@ After your login flow is complete you can also initiate a SAML SSO into an Okta 
 that contains the the session token as query parameter `sessionToken`.
 
 ##### Request Example
-{:.api .api-request .api-request-example}
+
 
 ``` http
 GET /home/appwizardsaml_1/0oalkgr25YMb5reZp0g4/alnlkriVMi9J5WYmk0g4?RelayState=%2Fcustom%2Fdeep%2Flink&sessionToken=0HsohZYpJgMSHwmL9TQy7RRzuY HTTP/1.1
@@ -136,7 +136,7 @@ Accept: */*
 When the link is visited, the token in the request will be used to initiate the user's session before processing the SAML SSO request. A session cookie will be set in the browser and the user will have an active session with Okta and will be able to SSO into additional applications until the session is expired or the user closes the session (logout) or browser application.
 
 ##### Response Example
-{:.api .api-response .api-response-example}
+
 
 ``` http
 HTTP/1.1 200 OK
@@ -167,7 +167,7 @@ Set-Cookie: sid=000aC_z7AZKTpSqtHFc0Ak6Vg; Path=/
 You can also use the same [flow as SAML](#initiate-a-saml-sso-with-the-session-token) for template WS-Federation application as well by passing the session token as query parameter `sessionToken`.
 
 ##### Request Example
-{:.api .api-request .api-request-example}
+
 
 ``` http
 GET /app/template_wsfed/k9x69oiKYSUWMIYZBKTY/sso/wsfed/passive?wa=wsignin1.0&wtrealm=https%3A%2F%2Fexample.com%2FApp%2F&wctx=rm%3D0%26id%3Dpassive%26ru%3D%2FApp%2FHome%2FAbout&sessionToken=0HsohZYpJgMSHwmL9TQy7RRzuY HTTP/1.1

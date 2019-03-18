@@ -14,7 +14,7 @@ The Inline Hooks Management API provides a CRUD interface for registering extern
 
 ## Getting Started
 
-Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b9651dc833b18e4c4666){:target="_blank"}
+Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b9651dc833b18e4c4666)
 
 
 ## Inline Hook Operations
