@@ -50,7 +50,7 @@ pod install && open project.xcworkspace
 
 ### Configuration
 Create a new `Okta.plist` file in your application's bundle with the following fields:
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

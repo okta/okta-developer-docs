@@ -19,7 +19,7 @@ npm install @okta/oidc-middleware
 ### Configure The OIDC Router
 
 To use ExpressOIDC you create an instance of the middleware by passing the needed configuration, then attaching its router to your Express app.  You will also need to add session support to your app, so that ExpressOIDC can create an Express session after authentication is complete.  Here is an example configuration:
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```javascript
 const session = require('express-session');

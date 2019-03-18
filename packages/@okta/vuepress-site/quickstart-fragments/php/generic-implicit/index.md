@@ -91,7 +91,7 @@ Now we are ready to use our verifier library to make sure the token is valid. Th
  All of this will be wrapped inside of a try catch block. If there are any exceptions, we will respond with a `401
  Unauthorized` to tell the client there was an issue.
 
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```php?start_inline=true
 try {

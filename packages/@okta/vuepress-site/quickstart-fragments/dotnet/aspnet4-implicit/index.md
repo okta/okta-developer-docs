@@ -32,7 +32,7 @@ using System.Configuration;
 ```
 
 Add the following code to your `Configuration` method:
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```csharp
 public void Configuration(IAppBuilder app)

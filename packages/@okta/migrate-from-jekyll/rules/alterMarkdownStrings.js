@@ -110,6 +110,10 @@ function alterMarkdownStrings(file) {
       line = line.replace('../resources/events#client-objecttype', '/docs/api/resources/events/#client-objecttype')
     }
 
+    if( line.includes('{% include domain-admin-warning.html %}')) {
+      line = line.replace('{% include domain-admin-warning.html %}', '<DomainAdminWarning />')
+    }
+
 
     // convert image to markdown image
     // ![alt text](image.png "Logo Title Text 1")

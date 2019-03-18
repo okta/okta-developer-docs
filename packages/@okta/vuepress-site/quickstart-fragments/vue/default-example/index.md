@@ -55,7 +55,7 @@ npm install @okta/okta-vue --save
 You will need the values from the OIDC client that you created in the previous step to instantiate the middleware. You will also need to know your Okta org URL, which you can see on the home page of the Okta Developer console.
 
 In your application's [vue-router](https://router.vuejs.org/en/essentials/getting-started.html) configuration, import the `@okta/okta-vue` plugin and pass it your OpenID Connect client information:
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```typescript
 // router/index.js

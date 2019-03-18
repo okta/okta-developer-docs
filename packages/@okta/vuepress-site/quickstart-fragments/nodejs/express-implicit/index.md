@@ -10,7 +10,7 @@ To learn more about validating Okta access tokens, please see [Validating Access
 
 > If you would prefer to download a complete sample application instead, please visit [Express Sample Applications for Okta][] and follow those instructions.
 
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```javascript
 const express = require('express');

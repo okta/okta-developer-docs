@@ -8,7 +8,7 @@ Now that your users can sign in, let's add authentication to your server.
 
 ## Redirecting to Authorization Endpoint
 First you need to generate a URL to the authorization endpoint for the Authorization Server and redirect the user.
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```php
 <?php

@@ -55,7 +55,7 @@ npm install @okta/okta-react --save
 You will need the values from the OIDC client that you created in the previous step to instantiate the middleware. You will also need to know your Okta org URL, which you can see on the home page of the Okta Developer console. Your Okta org URL + `oauth2/default` will be the `issuer` param.
 
 In your application's `App.js` file, import the following objects and pass in your configuration:
-{% include domain-admin-warning.html %}
+<DomainAdminWarning />
 
 ```typescript
 import { Security, ImplicitCallback } from '@okta/okta-react';
