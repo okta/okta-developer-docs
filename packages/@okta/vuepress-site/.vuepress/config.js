@@ -214,5 +214,14 @@ module.exports = {
     '@okta/vuepress-plugin-my-okta'
   ],
 
-  evergreen: false
+  evergreen: false,
+
+  markdown: {
+    anchor: {
+      permalinkBefore: false,
+      permalinkSymbol: '<i class="fa fa-link"></i>',
+      permalinkClass: 'header-anchor header-link',
+      level: 2
+    }
+  }
 }
