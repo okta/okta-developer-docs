@@ -52,7 +52,4 @@ export default {
   @import '../assets/css/okta';
   @import '~prismjs/themes/prism-solarizedlight.css';
 
-  .header-anchor {
-    display:none;
-  }
 </style>
