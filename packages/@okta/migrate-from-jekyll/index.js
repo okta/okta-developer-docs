@@ -223,6 +223,9 @@ function run() {
   fs.writeFileSync(docsRoot+'/.vuepress/redirects.json', JSON.stringify(redirects, null, 2))
 
   fs.writeFileSync(docsRoot + '/conductor.yml', 'redirects: \r\n')
+
+  //TODO: REMOVE BEFORE LAUNCHHING SITE!
+  fs.appendFileSync(docsRoot + '/conductor.yml', '  - from: / \r\n    to: /documentation/ \r\n')
   //Build conductor redirects
   redirects.forEach((redirect) => {
     fs.appendFileSync(docsRoot + '/conductor.yml', '  - from: ' + redirect.path + '\r\n    to: ' + redirect.redirect + '\r\n')
