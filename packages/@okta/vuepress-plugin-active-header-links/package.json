@@ -1,0 +1,9 @@
+{
+  "name": "@okta/vuepress-plugin-active-header-links",
+  "version": "1.0.0-alpha.1",
+  "description": "active-header-links plugin for oktas vuepress,  Temporary placeholder until updated in core",
+  "main": "index.js",
+  "dependencies": {
+    "lodash.throttle": "^4.1.1"
+  }
+}

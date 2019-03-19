@@ -16,6 +16,7 @@
         v-for="item in items"
         :key="item.href"
         :style="'display: '+item.display+';'"
+        v-on:click.prevent="scrollToItem(item.href)"
       >
         {{item.title}}
       </a>
@@ -50,7 +51,7 @@ export default {
         top: '100px;'
       },
       headerData: [],
-      offset: 140,
+      offset: 160,
       activeItem: null,
       activeToCItem: null
     }
@@ -68,6 +69,12 @@ export default {
     }
   },
   methods: {
+    scrollToItem(hash) {
+      let target = document.querySelector(hash)
+      if(target) {
+        window.scrollTo(0, (target.offsetTop - 40))
+      }
+    },
     buildHeaderData(event) {
       let pageRect = document.querySelectorAll('.PageContent')[0].getBoundingClientRect()
       this.items.forEach((item, index) => {

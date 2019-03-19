@@ -37,7 +37,32 @@ export default {
     PromoBanner: () => import('../components/PromoBanner.vue')
   },
   mounted () {
-    window.addEventListener('scroll', this.onScroll)
+    window.addEventListener('load', () => {
+
+        let anchor = window.location.href.split('#')[1]
+        if (anchor) {
+          let target = document.getElementById(anchor)
+          if (target) {
+            window.scrollTo(0, (target.offsetTop - 160))
+          }
+        }
+
+      let links = document.querySelectorAll('a[href*="#"]:not([href="#"])')
+
+      Array.from(links).forEach((link) => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault()
+          let target = document.querySelector(this.hash)
+          if(target) {
+            window.scrollTo(0, (target.offsetTop - 40))
+          }
+
+        })
+      })
+    })
+
+
+
   },
   computed: {
     isDocsPage() {
