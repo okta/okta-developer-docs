@@ -17,7 +17,7 @@
           <h1>{{ $page.title }}</h1>
           <ul class="list--with-horizontal-icons">
             <li v-for="link in $page.frontmatter.top_links" :key="link.path">
-              <router-link :to="link.path"><img :src="'/assets/img/'+link.icon"><span>{{link.name}}</span></router-link>
+              <router-link :to="link.path"><img :src="'/img/'+link.icon"><span>{{link.name}}</span></router-link>
             </li>
           </ul>
 
