@@ -127,7 +127,7 @@ All requests that result in an error will return the appropriate 4xx or 5xx erro
 }
 ```
 
-See [Error Codes](error_codes) for a list of API error codes.
+See [Error Codes](/reference/error_codes/) for a list of API error codes.
 
 > Only the `errorCode` property is supported for runtime error flow control.  The `errorSummary` property is only intended for troubleshooting and may change over time.
 
@@ -139,7 +139,7 @@ The Okta API currently requires the custom HTTP authentication scheme `SSWS` for
 
 > See [Obtaining a token](getting_a_token) for instructions on how to get an API key for your organization.
 
-The API key (API token) isn't interchangeable with an Okta [session token](/docs/api/resources/authn#session-token), access tokens or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/api/resources/oauth2).
+The API key (API token) isn't interchangeable with an Okta [session token](/docs/api/resources/authn#session-token), access tokens or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/api/resources/oauth2/).
 
 ## Pagination
 
@@ -299,7 +299,7 @@ X-Okta-Request-Id: reqVy8wsvmBQN27h4soUE3ZEnA
 
 [Cross-Origin Resource Sharing (CORS)](http://en.wikipedia.org/wiki/Cross-Origin_Resource_Sharing) is a mechanism that allows a web page to make an AJAX call using [XMLHttpRequest (XHR)](http://en.wikipedia.org/wiki/XMLHttpRequest) to a domain that is  different from the one from where the script was loaded.  Such "cross-domain" requests would otherwise be forbidden by web browsers, per the [same origin security policy](http://en.wikipedia.org/wiki/Same_origin_policy).  CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether or not to allow the cross-origin request.
 
-In Okta, CORS allows JavaScript hosted on your websites to make an XHR to the Okta API with the Okta session cookie. Every website origin must be explicitly permitted via the administrator UI for CORS.  See [Enabling CORS](enabling_cors) for details on how to allow your website to make cross-origin requests.
+In Okta, CORS allows JavaScript hosted on your websites to make an XHR to the Okta API with the Okta session cookie. Every website origin must be explicitly permitted via the administrator UI for CORS.  See [Enabling CORS](/docs/api/getting_started/enabling_cors/) for details on how to allow your website to make cross-origin requests.
 
 > **Caution:** Only grant access to specific origins (websites) that you control and trust to access the Okta API.
 
