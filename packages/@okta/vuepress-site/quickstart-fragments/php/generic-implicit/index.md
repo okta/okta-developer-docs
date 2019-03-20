@@ -45,7 +45,7 @@ Our first step is to include the composer autoload file.  In your new `messages.
 
 > NOTE: All code blocks will be added progressively to the file. The full file is provided at the end of this quickstart.
 
-```php?start_inline=true
+```php
 require __DIR__ . '/../vendor/autoload.php'; // This path may be different for you.
 ```
 
@@ -55,7 +55,7 @@ get all available options, but will not send the authorization header. If we ret
 prefetch, the client side application will quit trying to make the call, and will no longer respond to the messages
 api.
 
-```php?start_inline=true
+```php
 // Don't do anything for prefetch requests.
 if ( $_SERVER['REQUEST_METHOD'] === 'OPTIONS' ) {
     return false;
@@ -72,7 +72,7 @@ is present, we can now begin our verification process.  First, we set up some va
  Next we extract the authentication type and the token from the Authorization header then we need to make sure that
  the authentication type is a Bearer token.
 
-```php?start_inline=true
+```php
 $authType = null;
 $authData = null;
 
@@ -93,7 +93,7 @@ Now we are ready to use our verifier library to make sure the token is valid. Th
 
 <DomainAdminWarning />
 
-```php?start_inline=true
+```php
 try {
     // Setup the JWT Verifier.
     $jwtVerifier = ( new \Okta\JwtVerifier\JwtVerifierBuilder() )
@@ -113,7 +113,7 @@ try {
 Finally, if we have made it to this point, everything checks out and you can respond with the messages you want to
 supply the client application.
 
-```php?start_inline=true
+```php
 //JWT is valid!
 print json_encode([
     'messages' => [

@@ -1,9 +1,5 @@
 [
   {
-    "path": "/",
-    "redirect": "/documentation/"
-  },
-  {
     "path": "/code",
     "redirect": "/documentation/"
   },

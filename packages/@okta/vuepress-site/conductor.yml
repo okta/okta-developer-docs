@@ -1,6 +1,6 @@
-redirects:
-  - from: /
-    to: /documentation/
+redirects: 
+  - from: / 
+    to: /documentation/ 
   - from: /code
     to: /documentation/
   - from: /use_cases/api_security

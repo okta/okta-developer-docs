@@ -77,7 +77,7 @@ function exchangeCode($code) {
 
 The result of this will provide you with an access token for that user.
 
-```php?start_inline=true
+```php
 $jwt = $exchange->access_token;
 ```
 
@@ -86,7 +86,7 @@ This access token is a JWT and should be verified according to the process descr
 ### Handling Errors
 If an error is present in the login, an `error` query parameter will be present.
 
-```php?start_inline=true
+```php
 if(array_key_exists('error', $_REQUEST)) {
     throw new \Exception($_REQUEST['error']);
 }

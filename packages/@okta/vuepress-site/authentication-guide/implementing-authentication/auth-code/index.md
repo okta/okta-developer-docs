@@ -79,7 +79,7 @@ For more information on these parameters, see the [OAuth 2.0 API reference](http
 
 If the code is still valid, your application will receive back access and ID tokens:
 
-```jwt
+```json
 {
     "access_token": "eyJhbG[...]9pDQ",
     "token_type": "Bearer",
