@@ -2,6 +2,7 @@
 title: Okta Auth JS and Angular
 language: Angular
 excerpt: Integrate Okta with an Angular application using Auth JS.
+component: Code
 ---
 
 # Overview

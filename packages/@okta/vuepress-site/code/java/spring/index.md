@@ -2,6 +2,7 @@
 title: Add Identity Management to Your Spring App
 language: Java
 integration: back-end
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-spring'></i> Add Identity Management to Your Spring App
@@ -57,7 +58,7 @@ The Okta Spring Boot Starter can be used to add OAuth 2.0 authorization to Sprin
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Okta Authentication Quickstart Guides](/quickstart/#/okta-sign-in-page/java/spring)
 - [Social Login](/authentication-guide/social-login/)
 - [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
@@ -65,7 +66,7 @@ The Okta Spring Boot Starter can be used to add OAuth 2.0 authorization to Sprin
 
 ## Related Blog Posts
 
-{: .language-list }
+
 - [Build a Basic CRUD App with Angular 5.0 and Spring Boot 2.0](/blog/2017/12/04/basic-crud-angular-and-spring-boot)
 - [Use React and Spring Boot to Build a Simple CRUD App](/blog/2018/07/19/simple-crud-react-and-spring-boot)
 - [Secure a Spring Microservices Architecture with Spring Security and OAuth 2.0](/blog/2018/02/13/secure-spring-microservices-with-oauth)

@@ -4,6 +4,7 @@ language: .NET
 integration: back-end
 redirect_from:
   - /code/dotnet/
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-dotnet'></i> Add Identity Management to Your ASP.NET Core App
@@ -70,12 +71,12 @@ Okta's integration with ASP.NET Core makes it easy to add sign-in to your ASP.NE
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Manual JWT Validation in .NET](/code/dotnet/jwt-validation)
 
 ## Related Blog Posts
 
-{: .language-list }
+
 - [Build a CRUD App with ASP.NET Core and Angular](/blog/2018/04/26/build-crud-app-aspnetcore-angular)
 - [How to Secure Your .NET Web API with Token Authentication](/blog/2018/02/01/secure-aspnetcore-webapi-token-auth)
 - [Token Authentication in ASP.NET Core 2.0 - A Complete Guide](/blog/2018/03/23/token-authentication-aspnetcore-complete-guide)

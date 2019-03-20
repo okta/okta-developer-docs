@@ -2,6 +2,7 @@
 title: Okta Auth JS and React
 language: React
 excerpt: Integrate Okta with a React app using Auth JS.
+component: Code
 ---
 
 # Overview

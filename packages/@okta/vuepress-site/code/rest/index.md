@@ -7,6 +7,7 @@ redirect_from:
   - /docs/api/getting_started/api_test_client.html
   - /docs/api/getting_started/index.html
   - /docs/api/getting_started/
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-rest'></i> Get Started with the Okta REST APIs

@@ -2,6 +2,7 @@
 title: Add Okta authentication to your Node.js app
 language: Node.js
 integration: back-end
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-nodejs'></i> Add Identity Management to Your Node.js App 
@@ -59,14 +60,14 @@ The Okta Node.js SDK can be used in your server-side code to create and update u
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code)
 - [Social Login](/authentication-guide/social-login/)
 - [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
 
 ## Related Blog Posts
 
-{: .language-list }
+
 - [Build a Basic CRUD App with Vue.js and Node](/blog/2018/02/15/build-crud-app-vuejs-node)
 - [Build a Simple REST API with Node and OAuth 2.0](/blog/2018/08/21/build-secure-rest-api-with-node)
 - [Tutorial: Build a Basic CRUD App with Node.js](/blog/2018/06/28/tutorial-build-a-basic-crud-app-with-node)

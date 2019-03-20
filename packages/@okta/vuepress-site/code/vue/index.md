@@ -2,6 +2,7 @@
 title: Add Identity Management to Your Vue.js App
 language: Vue
 integration: front-end
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-vue'></i> Add Identity Management to Your Vue.js App
@@ -44,14 +45,14 @@ The Okta Vue SDK is a wrapper around the Okta Auth SDK for communicating with OA
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Implementing the Implicit Flow](https://developer.okta.com/authentication-guide/implementing-authentication/implicit)
 - [Social Login](https://developer.okta.com/authentication-guide/social-login/)
 - [Working With OAuth 2.0 Tokens](https://developer.okta.com/authentication-guide/tokens/)
 
 ## Related Blog Posts
 
-{: .language-list }
+
 - [The Lazy Developer's Guide to Authentication with Vue.js](https://developer.okta.com/blog/2017/09/14/lazy-developers-guide-to-auth-with-vue)
 - [Tutorial: Build a Basic CRUD App with Symfony 4 and Vue](https://developer.okta.com/blog/2018/06/14/php-crud-app-symfony-vue)
 - [Deploy Your Secure Vue.js App to AWS](https://developer.okta.com/blog/2018/07/03/deploy-vue-app-aws)

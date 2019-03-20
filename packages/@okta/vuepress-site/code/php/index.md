@@ -2,6 +2,7 @@
 title: Add Identity Management to Your PHP App
 language: PHP
 integration: back-end
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-php'></i> Add Identity Management to Your PHP App
@@ -59,14 +60,14 @@ The Okta PHP SDK can be used in your server-side code to create and update users
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code)
 - [Social Login](/authentication-guide/social-login/)
 - [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
 
 ## Related Blog Posts
 
-{: .language-list }
+
 - [Add Authentication to your PHP App in 5 Minutes](/blog/2018/07/09/five-minute-php-app-auth)
 - [Tutorial: Build a Basic CRUD App with Symfony 4 and Vue](/blog/2018/06/14/php-crud-app-symfony-vue)
 - [Tutorial: Build Your First CRUD App with Symfony and Angular](/blog/2018/08/14/php-crud-app-symfony-angular)

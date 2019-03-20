@@ -1,9 +1,5 @@
 <template>
-  <div class="PageWrap Page"
-  :class="{
-    'Page--docs-page': isDocsPage
-       }"
-  >
+  <div :class="pageClasses">
     <!-- Begin Header -->
     <TopNavigation></TopNavigation>
     <!-- End Header -->
@@ -34,6 +30,7 @@ export default {
     Documentation: () => import('../components/Documentation.vue'),
     Page: () => import('../components/Page.vue'),
     ChangeLog: () => import('../components/ChangeLog.vue'),
+    Code: () => import('../components/Code.vue'),
     PromoBanner: () => import('../components/PromoBanner.vue')
   },
   mounted () {
@@ -67,6 +64,19 @@ export default {
   computed: {
     isDocsPage() {
       return this.$page.path.includes('/docs/api/resources/') || this.$page.path.includes('/test_page')
+    },
+
+    pageClasses() {
+      if (this.$page.path.includes('/docs/api/resources/') ||
+      this.$page.path.includes('/code/')) {
+        return 'Page Page--docs-page'
+      }
+
+      if (this.$page.path.includes('/test_page')) {
+        return 'Page test-page Page--docs-page'
+      }
+
+      return 'PageWrap Page'
     }
   }
 }

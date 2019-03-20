@@ -2,6 +2,7 @@
 title: Add Identity Management to Your Go App
 language: Go
 integration: back-end
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-go'></i> Add Identity Management to Your Go App
@@ -47,7 +48,7 @@ go get https://github.com/okta/okta-sdk-golang
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code)
 - [Social Login](/authentication-guide/social-login/)
 - [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)

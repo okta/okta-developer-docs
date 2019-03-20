@@ -7,5 +7,6 @@ redirect_from:
   - /code/dotnet/okta-oidc-spa-osw-aspnet
   - /code/dotnet/okta-oauth-spa-authjs-osw
   - /code/dotnet/okta-oauth-aspnet-codeflow
+component: Code
 ---
 
