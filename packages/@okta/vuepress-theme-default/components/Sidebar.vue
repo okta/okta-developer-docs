@@ -1,9 +1,9 @@
 <template>
 
-  <aside class="Sidebar">
+  <aside class="Sidebar" :class="{'Sidebar-active': sidebarActive}">
 
     <h2 class="Sidebar-location Sidebar-toggle h6">Navigation</h2>
-    <div class="Sidebar-close Sidebar-toggle"></div>
+    <div class="Sidebar-close Sidebar-toggle" v-on:click="sidebarActive = !sidebarActive"></div>
     <div>
       <div v-for="section in navigation" :key="section.title" class="Sidebar-group">
         <h3 class="Sidebar-title">{{section.title | capitalize}}</h3>
@@ -25,6 +25,11 @@
 <script>
   export default {
     name: 'Sidebar',
+    data () {
+      return {
+        sidebarActive: true
+      }
+    },
     computed: {
       navigation() {
         if (this.$page.path.includes('/code/')) {
