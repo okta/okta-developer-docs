@@ -6,6 +6,7 @@ excerpt: >-
   demonstration of how to add Okta as an identity provider for an existing
   application.
 redirect_from: /docs/examples/dotnet_sample_application.html
+component: Code
 ---
 
 # About

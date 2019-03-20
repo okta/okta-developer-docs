@@ -2,6 +2,7 @@
 title: Add Identity Management to Your JavaScript App
 language: JavaScript
 integration: front-end
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-javascript'></i> Add Identity Management to Your JavaScript App
@@ -52,7 +53,7 @@ Auth.js is a library wrapper for the Okta Authentication API. Use it when you ne
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Okta Auth SDK Guide](/code/javascript/okta_auth_sdk)
 - [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget)
 - [Implementing the Implicit Flow](/authentication-guide/implementing-authentication/implicit)
@@ -61,7 +62,7 @@ Auth.js is a library wrapper for the Okta Authentication API. Use it when you ne
 
 ## Related Blog Posts
 
-{: .language-list }
+
 - [Add Authentication to Your Vanilla JavaScript App in 20 Minutes](/blog/2018/06/05/authentication-vanilla-js)
 - [Build a Video Chat Service with JavaScript, WebRTC, and Okta](/blog/2018/05/08/build-video-chat-app-with-javascript-webrtc-and-okta)
 

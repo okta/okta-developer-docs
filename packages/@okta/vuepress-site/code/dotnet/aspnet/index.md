@@ -2,6 +2,7 @@
 title: Add Identity Management to Your ASP.NET App
 language: .NET
 integration: back-end
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-dotnet'></i> Add Identity Management to Your ASP.NET App
@@ -66,12 +67,12 @@ Okta's integration with ASP.NET makes it easy to add sign-in to your ASP.NET MVC
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Manual JWT Validation in .NET](/code/dotnet/jwt-validation)
 
 ## Related Blog Posts
 
-{: .language-list }
+
 - [Build a CRUD App with ASP.NET Framework 4.x Web API and Angular](/blog/2018/07/27/build-crud-app-in-aspnet-framework-webapi-and-angular)
 - [Use OpenID Connect for Authorization in Your ASP.NET MVC Framework 4.x App](/blog/2018/04/18/authorization-in-your-aspnet-mvc-4-application)
 

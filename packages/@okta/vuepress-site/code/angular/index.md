@@ -2,6 +2,7 @@
 title: Add Identity Management to Your Angular App
 language: Angular
 integration: front-end
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-angular'></i> Add Identity Management to Your Angular App
@@ -41,7 +42,7 @@ The Okta Angular SDK builds on top of the Okta OpenID Connect API to help you cr
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Angular Sign in widget](/code/angular/okta_angular_sign-in_widget)
 - [Okta Auth JS and Angular](/code/angular/okta_angular_auth_js)
 - [Implementing the Implicit Flow](/authentication-guide/implementing-authentication/implicit)
@@ -51,7 +52,7 @@ The Okta Angular SDK builds on top of the Okta OpenID Connect API to help you cr
 
 ## Related Blog Posts
 
-{: .language-list }
+
 - [Build a SPA with ASP.NET Core 2.1, Stripe, and Angular 6](/blog/2018/08/08/aspnet-core-angular-stripe-ticket-sales)
 - [Add Authentication to Your Angular PWA](/blog/2017/06/13/add-authentication-angular-pwa)
 - [Build a CRUD-y SPA with Node and Angular](/blog/2018/08/07/node-angular-crud)
