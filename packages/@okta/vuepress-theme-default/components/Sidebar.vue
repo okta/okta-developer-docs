@@ -27,7 +27,7 @@
     name: 'Sidebar',
     data () {
       return {
-        sidebarActive: true
+        sidebarActive: false
       }
     },
     computed: {
@@ -60,7 +60,7 @@
 
 <style src="../assets/css/okta.scss" lang="scss"></style>
 <style scoped>
-  .Sidebar-group {
-    margin: 0 0 60px
-  }
+    .Sidebar-nav {
+      margin-bottom: 60px;
+    }
 </style>
