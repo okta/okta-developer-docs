@@ -118,7 +118,7 @@
         }
 	    .Sidebar-close {
 		    @include transition(normal transform);
-		    background: image_url("icons/close.svg") no-repeat center;
+		    background: url("/img/icons/close.svg") no-repeat center;
 		    cursor: pointer;
 		    position: absolute;
 		    width: 22px;

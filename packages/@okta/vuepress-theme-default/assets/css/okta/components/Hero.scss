@@ -1,7 +1,7 @@
 %Hero {
 	@include padding(xx-large 0);
 	background: get-color('blue-bright');
-	background-image: image_url("bg--hero.png");
+	background-image: url("/img/bg--hero.png");
 	background-repeat: no-repeat;
 	background-position: right center;
 	background-size: cover;

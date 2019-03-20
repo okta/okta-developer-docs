@@ -13,7 +13,7 @@ const supportNavSelector = '.Header-nav .expanded';
 const supportLinkSelector = 'span';
 const supportLinkText = 'Support';
 
-const mobileNavsSelector = '.PrimaryNav-is-active';
+const mobileNavsSelector = '.PrimaryNav.is-active';
 const mobileToggleIconsSelector = '.PrimaryNav-toggle';
 const menusSelector = '.menu';
 
