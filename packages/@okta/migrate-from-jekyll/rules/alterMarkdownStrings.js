@@ -51,6 +51,18 @@ function alterMarkdownStrings(file) {
       line = line.replace('~~~ shell', '```bash')
     }
 
+    if( line.includes('```php?start_inline=true') ) {
+      line = line.replace('```php?start_inline=true', '```php')
+    }
+
+    if( line.includes('```chsarp') ) {
+      line = line.replace('```chsarp', '```csharp')
+    }
+
+    if( line.includes('```jwt') ) {
+      line = line.replace('```jwt', '```json')
+    }
+
     if( line.includes('<%= ') ) {
       line = line.replace('<%= ', '{')
     }
