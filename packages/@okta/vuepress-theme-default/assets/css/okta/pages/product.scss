@@ -9,31 +9,31 @@
 	z-index: 10;
 
 	&.rounded-onboarding {
-		background-image: image_url("icons/rounded-onboarding.png");
+		background-image: url("/img/icons/rounded-onboarding.png");
 	}
 	&.rounded-password {
-		background-image: image_url("icons/rounded-password.png");
+		background-image: url("/img/icons/rounded-password.png");
 	}
 	&.rounded-authentication {
-		background-image: image_url("icons/rounded-authentication.png");
+		background-image: url("/img/icons/rounded-authentication.png");
 	}
 	&.rounded-authentication--blue {
-		background-image: image_url("icons/rounded-authentication--blue.png");
+		background-image: url("/img/icons/rounded-authentication--blue.png");
 	}
 	&.rounded-profile {
-		background-image: image_url("icons/rounded-profile.png");
+		background-image: url("/img/icons/rounded-profile.png");
 	}
 	&.rounded-groups {
-		background-image: image_url("icons/rounded-groups.png");
+		background-image: url("/img/icons/rounded-groups.png");
 	}
 	&.rounded-policy {
-		background-image: image_url("icons/rounded-policy.png");
+		background-image: url("/img/icons/rounded-policy.png");
 	}
 
 }
 
 .rounded-user--blue {
-	background-image: image_url("icons/rounded-user--blue.png");
+	background-image: url("/img/icons/rounded-user--blue.png");
 }
 
 .logo-placard {

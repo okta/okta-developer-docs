@@ -9,7 +9,7 @@ module.exports = {
     let inFrontmatter = false
     let frontmatterDone = false
 
-    const { data } = parseFrontmatter(file)
+    const { content, data } = parseFrontmatter(file)
 
     allLines.forEach(line => {
       if(line.startsWith('---') && path.endsWith('.md') && !line.includes('|')) {

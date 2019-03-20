@@ -16,6 +16,11 @@ function updateFontUrlInCss(file) {
       line = line.replace('url(\'/assets/fonts/', 'url(\'/fonts/')
     }
     file.bodyLines[index] = line
+
+    if(line.includes('image_url("')) {
+      line = line.replace('image_url("', 'url("/img/')
+    }
+    file.bodyLines[index] = line
   })
 
   return file
