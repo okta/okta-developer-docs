@@ -4,6 +4,7 @@ language: PHP
 excerpt: How to use SimpleSAMLphp to add support for Okta via SAML.
 redirect_from:
   - /docs/guides/simplesamlphp.html
+component: Code
 ---
 
 # Overview

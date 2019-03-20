@@ -209,6 +209,10 @@ function alterMarkdownStrings(file) {
       line = string
     }
 
+    if( line.startsWith('{: ')) {
+      line = ""
+    }
+
 
   file.bodyLines[index] = line
   });

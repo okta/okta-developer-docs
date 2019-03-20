@@ -5,6 +5,9 @@ function convertLayouts(file) {
   }
 
   if( 'frontmatter' in file && file.frontmatter != undefined ) {
+    if(file.origPath.includes('/_code/')) {
+      file.frontmatter.component = 'Code'
+    }
     delete file.frontmatter.layout
   }
 

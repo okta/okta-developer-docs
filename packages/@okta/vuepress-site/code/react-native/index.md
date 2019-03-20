@@ -2,6 +2,7 @@
 title: Add Identity Management to Your React Native App
 language: React Native
 integration: mobile
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-react'></i> Add Identity Management to Your React Native App
@@ -41,14 +42,14 @@ The Okta React Native client makes it easy to add authentication to your React N
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Implementing the Authorization Code Flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce)
 - [Social Login](/authentication-guide/social-login/)
 - [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
 
 ## Related Blog Posts
 
-{: .language-list }
+
 - [Build a React Native Application and Authenticate with OAuth 2.0](/blog/2018/03/16/build-react-native-authentication-oauth-2)
 - [Build a React Application with User Authentication in 15 Minutes](/blog/2017/03/30/react-okta-sign-in-widget)
 

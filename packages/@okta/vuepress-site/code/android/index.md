@@ -2,6 +2,7 @@
 title: Add Identity Management to Your Android App
 language: Android
 integration: mobile
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-android'></i> Add Identity Management to Your Android App
@@ -48,14 +49,14 @@ The Okta AppAuth Android SDK is a wrapper around the AppAuth-Android SDK for com
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Implementing the Authorization Code Flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce)
 - [Social Login](/authentication-guide/social-login/)
 - [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
 
 ## Related Blog Posts
 
-{: .language-list }
+
 - [Create a Basic Android App without an IDE](/blog/2018/08/10/basic-android-without-an-ide)
 - [Tutorial: Develop a Mobile App With Ionic and Spring Boot](/blog/2017/05/17/develop-a-mobile-app-with-ionic-and-spring-boot)
 - [Build an Ionic App with User Authentication](/blog/2017/08/22/build-an-ionic-app-with-user-authentication)

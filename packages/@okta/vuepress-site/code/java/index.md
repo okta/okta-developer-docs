@@ -2,6 +2,7 @@
 title: Add Identity Management to Your Java App
 language: Java
 integration: back-end
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-java'></i> Add Identity Management to Your Java App
@@ -65,14 +66,14 @@ The Okta Java SDK can be used in your server-side code to create and update user
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code)
 - [Social Login](/authentication-guide/social-login/)
 - [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
 
 ## Related Blog Posts
 
-{: .language-list }
+
 - [5 Tips for Building your Java API](/blog/2017/08/23/five-java-tips)
 - [NoSQL Options for Java Developers](/blog/2017/09/08/nosql-options-for-java-developers)
 - [TLS Client Authentication for Internal Services](/blog/2015/12/02/tls-client-authentication-for-services)

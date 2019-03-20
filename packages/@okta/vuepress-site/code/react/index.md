@@ -2,6 +2,7 @@
 title: Add Identity Management to Your React App
 language: React
 integration: front-end
+component: Code
 ---
 
 # <i class='icon-48 docsPage code-react'></i> Add Identity Management to Your React App
@@ -41,7 +42,7 @@ The Okta React SDK makes it easy to integrate react-router with Okta's OpenID Co
 
 ## Recommended Guides
 
-{: .language-list }
+
 - [Okta React Overview](/code/react/okta_react)
 - [Implementing the Implicit Flow](/authentication-guide/implementing-authentication/implicit)
 - [Social Login](/authentication-guide/social-login/)
@@ -49,7 +50,7 @@ The Okta React SDK makes it easy to integrate react-router with Okta's OpenID Co
 
 ## Related Blog Posts
 
-{: .language-list }
+
 
 - [Build a Health Tracking App with React, GraphQL, and User Authentication](/blog/2018/07/11/build-react-graphql-api-user-authentication)
 - [Build User Registration with Node, React, and Okta](/blog/2018/02/06/build-user-registration-with-node-react-and-okta)

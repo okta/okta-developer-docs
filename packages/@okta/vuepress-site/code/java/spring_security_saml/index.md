@@ -7,6 +7,7 @@ excerpt: >-
 redirect_from:
   - /docs/examples/spring_security_saml.html
   - /docs/guides/spring_security_saml.html
+component: Code
 ---
 
 # Overview

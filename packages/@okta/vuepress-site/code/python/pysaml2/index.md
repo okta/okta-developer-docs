@@ -7,6 +7,7 @@ excerpt: >-
 redirect_from:
   - /docs/examples/pysaml2.html
   - /docs/guides/pysaml2.html
+component: Code
 ---
 
 # Overview

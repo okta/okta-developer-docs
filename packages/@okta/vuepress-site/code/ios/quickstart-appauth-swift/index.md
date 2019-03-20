@@ -2,6 +2,7 @@
 title: Okta + AppAuth Auth SDK
 language: iOS
 excerpt: Integrate Okta with an iOS native application using OktaAuth.
+component: Code
 ---
 
 # Overview

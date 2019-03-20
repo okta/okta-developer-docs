@@ -4,6 +4,7 @@ language: JavaScript
 excerpt: A drop-in widget with custom UI capabilities to power sign-in with Okta.
 redirect_from:
   - /docs/guides/okta_sign-in_widget.html
+component: Code
 ---
 
 # Okta Sign-In Widget Guide

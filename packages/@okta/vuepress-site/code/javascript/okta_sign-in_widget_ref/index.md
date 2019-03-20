@@ -7,5 +7,6 @@ redirect_from:
   - /code/javascript/okta_sign-in_widget_external_ref.html
   - /docs/api/resources/okta_signin_widget.html
 redirect_to: 'https://github.com/okta/okta-signin-widget'
+component: Code
 ---
 
