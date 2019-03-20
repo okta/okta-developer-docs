@@ -2,12 +2,8 @@ export default {
   mounted() {
     const domain = window.location.hostname
     let iframeSrc = 'https://login.okta.com'
-
-    switch (domain) {
-      case 'vuepress-site.trexcloud.com':
-      case 'localhost':
-        iframeSrc = 'https://login.trexcloud.com'
-        break;
+    if(domain !== 'developer.okta.com') {
+      return
     }
 
     const iframe = document.createElement('iframe')
