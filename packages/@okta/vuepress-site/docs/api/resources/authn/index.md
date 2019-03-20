@@ -26,7 +26,7 @@ The behavior of the Okta Authentication API varies depending on the type of your
 
 ### Public Application
 
-A public application is an application that anonymously starts an authentication or recovery transaction without an API token, such as the [Okta Sign-In Widget](/docs/guides/okta_sign-in_widget).  Public applications are aggressively rate-limited to prevent abuse and require primary authentication to be successfully completed before releasing any metadata about a user.
+A public application is an application that anonymously starts an authentication or recovery transaction without an API token, such as the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/).  Public applications are aggressively rate-limited to prevent abuse and require primary authentication to be successfully completed before releasing any metadata about a user.
 
 ### Trusted Application
 
@@ -37,7 +37,7 @@ Trusted applications are backend applications that act as authentication broker 
 
 ## Getting Started with Authentication
 
-1. Make sure you need the API. Check out the [Okta Sign-In Widget](/docs/guides/okta_sign-in_widget) which is built on the Authentication API. The Sign-In Widget is easier to use and supports basic use cases.
+1. Make sure you need the API. Check out the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) which is built on the Authentication API. The Sign-In Widget is easier to use and supports basic use cases.
 2. For more advanced use cases, learn [the Okta API basics](/code/rest/).
 3. Explore the Authentication API:
 
@@ -6542,7 +6542,7 @@ The `recoveryToken` is sent via an out-of-band channel to the end user's verifie
 
 One-time token issued as `sessionToken` response parameter when an authentication transaction completes with the `SUCCESS` status.
 
-* The token can be exchanged for a session with the [Session API](sessions#create-session-with-session-token) or converted to a [session cookie](/use_cases/authentication/session_cookie).
+* The token can be exchanged for a session with the [Session API](/docs/api/resources/sessions#create-session-with-session-token) or converted to a [session cookie](/use_cases/authentication/session_cookie).
 * The lifetime of the `sessionToken` is the same as the lifetime of a user's session and managed by the organization's security policy.
 
 ### Factor Result

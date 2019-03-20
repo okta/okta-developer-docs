@@ -70,7 +70,7 @@ provides several options for secure SSO.  SAML has been
 widely used as the single sign-on protocol by many ISVs and is
 supported by many identity management solutions.  Okta provides
 comprehensive guidance for developers to implement a proper
-[SAML service provider](/docs/guides/saml_guidance).
+[SAML service provider](https://www.okta.com/integrate/documentation/saml/).
 For IT building internal apps and would like to support SSO, SAML is
 also a good option.
 
