@@ -2,11 +2,24 @@
 
 source ${OKTA_HOME}/${REPO}/scripts/setup.sh
 cd ${OKTA_HOME}/${REPO}/packages/@okta/vuepress-site
+DEPLOY_ENVIRONMENT=""
 REGISTRY="${ARTIFACTORY_URL}/api/npm/npm-okta"
+
+declare -A branch_environment_map
+branch_environment_map[master]=vuepress-site-prod
+branch_environment_map[staging]=vuepress-site-preprod
 
 if ! yarn build; then
     echo "Error building site"
     exit ${BUILD_FAILURE}
+fi
+
+# Check if we are in one of our publish branches
+if [[ -z "${branch_environment_map[$BRANCH]+unset}" ]]; then
+    echo "Current branch is not a publish branch"
+    exit ${SUCCESS}
+else
+    DEPLOY_ENVIRONMENT=${branch_environment_map[$BRANCH]}
 fi
 
 interject "Generating conductor file in $(pwd)"
@@ -44,7 +57,7 @@ ARTIFACT_FILE="$([[ ${DATALOAD} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REM
 DEPLOY_VERSION="$([[ ${ARTIFACT_FILE} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH[1]})"
 ARTIFACT="@okta/vuepress-site/-/@okta/${ARTIFACT_FILE}"
 
-if ! send_promotion_message "vuepress-site-preprod" "${ARTIFACT}" "${DEPLOY_VERSION}"; then
+if ! send_promotion_message "${DEPLOY_ENVIRONMENT}" "${ARTIFACT}" "${DEPLOY_VERSION}"; then
   echo "Error sending promotion event to aperture"
   exit ${BUILD_FAILURE}
 fi
