@@ -126,6 +126,30 @@ function alterMarkdownStrings(file) {
       line = line.replace('{% include domain-admin-warning.html %}', '<DomainAdminWarning />')
     }
 
+    if( line.includes('/docs/guides/okta_sign-in_widget')) {
+      line = line.replace('/docs/guides/okta_sign-in_widget', '/code/javascript/okta_sign-in_widget/')
+    }
+
+    if( line.includes('[Session API](sessions#create-session-with-session-token)')) {
+      line = line.replace('[Session API](sessions#create-session-with-session-token)', '[Session API](/docs/api/resources/sessions#create-session-with-session-token)')
+    }
+
+    if( line.includes('[Enabling CORS](enabling_cors)')) {
+      line = line.replace('[Enabling CORS](enabling_cors)', '[Enabling CORS](/docs/api/getting_started/enabling_cors/)')
+    }
+
+    if( line.includes('[OAuth 2.0 and OpenID Connect](/docs/api/resources/oauth2)')) {
+      line = line.replace('[OAuth 2.0 and OpenID Connect](/docs/api/resources/oauth2)', '[OAuth 2.0 and OpenID Connect](/docs/api/resources/oauth2/)')
+    }
+
+    if( line.includes('[Error Codes](error_codes)')) {
+      line = line.replace('[Error Codes](error_codes)', '[Error Codes](/reference/error_codes/)')
+    }
+
+    if( line.includes('(/docs/guides/saml_guidance)')) {
+      line = line.replace('(/docs/guides/saml_guidance)', '(https://www.okta.com/integrate/documentation/saml/)')
+    }
+
 
     // convert image to markdown image
     // ![alt text](image.png "Logo Title Text 1")

@@ -40,7 +40,7 @@ Location: https://your-app.example.com?id_token=S4sx3uixdsalasd&state=Af0ifjslDk
 
 The response also includes an [ID Token](/docs/api/resources/oidc#id-token) that describes the authenticated user and can contain additional claims such as user profile attributes or email.
 
-The [Okta Sign-In Widget](/docs/guides/okta_sign-in_widget) uses this flow. This flow can also be used by Single Page Applications with the [`okta_post_messsage`](/docs/api/resources/oidc#parameter-details) response type, which doesn't require a browser redirect.
+The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) uses this flow. This flow can also be used by Single Page Applications with the [`okta_post_messsage`](/docs/api/resources/oidc#parameter-details) response type, which doesn't require a browser redirect.
 
 ## Retrieving a session cookie by visiting a session redirect link
 
