@@ -21,7 +21,6 @@ describe('table of contents navigation spec', () => {
   it('has basic table of contents in the test page', util.itHelper(async () => {
     expect(await tocPage.getLevelOneItemText()).to.equal('Test Page');
     expect(await tocPage.getLevelTwoItemsText()).to.include.members([
-      'Overview',
       'First Section',
       'Second Section',
       'Third Section',
