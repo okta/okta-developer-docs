@@ -73,7 +73,7 @@ The [Custom Authorization Server](#authorization-server-object) you just created
 #### List Authorization Servers
 
 
-{% api_operation GET /api/v1/authorizationServers %}
+<ApiOperation method="GET" url="/api/v1/authorizationServers" />
 
 Lists all Custom Authorization Servers in this Okta organization
 
@@ -421,7 +421,7 @@ Returns the [policy](#policy-object) you updated
 
 #### Delete a Policy
 
-{% api_operation DELETE /api/v1/authorizationServers/${authServerId}/policies/${policyId} %}
+<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${authServerId}/policies/${policyId}" />
 
 Delete a policy specified by the `policyId`
 
@@ -592,7 +592,7 @@ Returns the [scope](#scope-object) you updated
 
 #### Delete a Scope
 
-{% api_operation DELETE /api/v1/authorizationServers/${authServerId}/scopes/${scopeId} %}
+<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${authServerId}/scopes/${scopeId}" />
 
 Delete a scope specified by the `scopeId`
 
@@ -778,7 +778,7 @@ Returns the [claim](#claim-object) you updated
 
 #### Delete a Claim
 
-{% api_operation DELETE /api/v1/authorizationServers/${authServerId}/claims/${claimId} %}
+<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${authServerId}/claims/${claimId}" />
 
 Delete a claim specified by the `claimId`
 
