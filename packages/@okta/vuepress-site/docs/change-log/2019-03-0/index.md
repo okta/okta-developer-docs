@@ -6,15 +6,15 @@ title: Okta API Products Change Log
 
 > NOTE: Okta has changed our release model and version numbering. For more information, see: <https://support.okta.com/help/s/article/New-Okta-Release-Model>
 
-| Change                                      | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
-|-----------------------------------------------------------------------------------------------------------------------|--------------------------|----------------------------------------------|
-| [Password Import Supports SHA-1 and MD5](#password-import-supports-sha-1-and-md5)                       | March 6, 2019  | March 11, 2019 |
-| [Enable Role Assignment to Every Member of a Group](#enable-role-assignment-to-every-member-of-a-group) | March 6, 2019  | March 11, 2019 |
-| [New Rate Limits for /users/me](#new-rate-limits-for-usersme)                                         | March 6, 2019  | March 11, 2019 |
-| [Generic OIDC IdP is now GA in Preview](#generic-oidc-idp-is-now-ga-in-preview)                         | March 6, 2019  | March 11, 2109 |
-| [User Search is now GA in Production](#user-search-is-now-ga-in-production)                             | March 6, 2019  | March 11, 2019 |
-| [The Import Inline Hook is in EA](#the-import-inline-hook-is-in-ea)                                     | March 6, 2019  | March 11, 2019 |
-| [Previously Released Early Access Features 2019.03.0 Update](#previously-released-early-access-features-2019010-update) | Available Now   | Available Now  |
+| Change                                      | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------------------------|--------------------------|
+| [Password Import Supports SHA-1 and MD5](#password-import-supports-sha-1-and-md5)                       | March 6, 2019  |
+| [Enable Role Assignment to Every Member of a Group](#enable-role-assignment-to-every-member-of-a-group) | March 6, 2019  |
+| [New Rate Limits for /users/me](#new-rate-limits-for-usersme)                                         | March 6, 2019  |
+| [Generic OIDC IdP is now GA in Preview](#generic-oidc-idp-is-now-ga-in-preview)                         | March 6, 2019  |
+| [User Search is now GA in Production](#user-search-is-now-ga-in-production)                             | March 6, 2019  |
+| [The Import Inline Hook is in EA](#the-import-inline-hook-is-in-ea)                                     | March 6, 2019  |
+| [Previously Released Early Access Features 2019.03.0 Update](#previously-released-early-access-features-2019010-update) | Available Now   |
 
 ### Password Import Supports SHA-1 and MD5
 

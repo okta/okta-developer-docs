@@ -553,7 +553,7 @@ HTTP/1.1 204 No Content
 ##### Add Group Target to Group Administrator Role given to a Group
 
 
-<ApiOperation method="put" url="/api/v1/users/${groupId}/roles/${roleId}/targets/groups/${targetGroupId}" />
+<ApiOperation method="put" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/groups/${targetGroupId}" />
 
 Adds a group target for a `USER_ADMIN` or `HELP_DESK_ADMIN` role assigned to a group.
 

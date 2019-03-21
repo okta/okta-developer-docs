@@ -13,7 +13,7 @@ title: Okta API Products Change Log
 
 ### Bug Fixed in 2019.01.2
 
-* Admin roles that were granted, scoped, or revoked through the Roles API did not appear in the System Log. (OKTA-197083)
+* Admin roles that were granted, scoped, or revoked through the Roles API did not appear in the System Log. <!--OKTA-197083-->
 
 * Verifying an OTP using the Voice Call MFA factor failed when the user tried to verify with the OTP within 30 seconds after auto-activation of the Voice Call MFA factor.
 

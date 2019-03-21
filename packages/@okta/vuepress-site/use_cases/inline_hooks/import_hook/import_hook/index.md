@@ -79,13 +79,14 @@ The `commands` object is where you can provide commands to Okta. It is an array,
 
 The following commands are supported for the Token Inline Hook type:
 
-| Command                         | Description                                                                                                               |
-|---------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| com.okta.appUser.profile.update | Change values of attributes in the user's app user profile.                                                               |
-| com.okta.user.profile.update    | Change values of attributes in the user's Okta user profile.                                                              |
+| Command                         | Description                                                                                                              |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| com.okta.appUser.profile.update | Change values of attributes in the user's app user profile.                                                              |
+| com.okta.user.profile.update    | Change values of attributes in the user's Okta user profile.                                                             |
 | com.okta.action.update          | Specify whether to create a new Okta user for the user being imported or treat them as a match of an existing Okta user. |
+| com.okta.user.update            | Specify the existing Okta user that the imported user should be treated as a match of.                                   |                                      |
 
-When using the `com.okta.action.update` command to specify that the user should be treated as a match, you need to also provide a `com.okta.user.profile.update` command that serves to specify which Okta user to match to. See [Specifying that the User is a Match](#specifying-that-the-user-is-a-match) below.
+When using the `com.okta.action.update` command to specify that the user should be treated as a match, you need to also provide a `com.okta.user.update` command that serves to specify which Okta user to match to. See [Specifying that the User is a Match](#specifying-that-the-user-is-a-match) below.
 
 #### value
 
@@ -117,7 +118,7 @@ In the case of the `com.okta.action.update` command, the parameter should be a `
 
 #### Specifying that the User is a Match
 
-When using the `com.okta.action.update` command to specify that the user should be treated as a match, you need to also provide a `com.okta.user.profile.update` command that sets the `id` of the Okta user, for example:
+When using the `com.okta.action.update` command to specify that the user should be treated as a match, you need to also provide a `com.okta.user.update` command that sets the `id` of the Okta user, for example:
 
 ```json
 {
@@ -288,5 +289,7 @@ You then need to associate the registered inline hook with an app by completing 
 1. In the **Inline Hooks** section, click the **User Creation** dropdown menu. Any inline hooks you have registered will be listed. Select the one to use.
 
 1. Click **Save**.
+
+> Note: The above procedure for associating an Import Inline Hook with an app using Admin Console cannot be used with AD or LDAP.
 
 
