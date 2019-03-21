@@ -1,4 +1,4 @@
-redirects: 
+redirects:
   - from: /code
     to: /documentation/
   - from: /use_cases/api_security
@@ -337,3 +337,5 @@ redirects:
     to: /use_cases/mfa/index.html
   - from: /use_cases/mobile/okta_mobile_connect/index.html
     to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
+  - from: /docs/api/reference/apps.html
+    to: /docs/api/resources/apps/
