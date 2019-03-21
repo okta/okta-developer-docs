@@ -672,7 +672,9 @@
     "redirect": "/use_cases/mfa/index.html"
   },
   {
-    "path": "/docs/guides/okta_mobile_connect.html",
-    "redirect": "/use_cases/mobile/okta_mobile_connect/index.html"
+    "path": "/use_cases/mobile/okta_mobile_connect/index.html",
+    "redirect": [
+      "https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect"
+    ]
   }
 ]

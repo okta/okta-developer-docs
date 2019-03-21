@@ -65,7 +65,8 @@ This table lists the current (and historical) major versions of our open-source 
 | [Java authentication SDK][authsdk-java]                         | **0.x**                            | **Stable**                           |
 | [JWT verifier for Java][java-jwt-verifier]                      | **0.x**                            | **Stable**                           |
 | [Spring Boot Starter][spring-boot-starter]                      | **0.x**                            | **Stable**                           |
-| [.NET management SDK][sdk-dotnet]                               | [**0.3.3**][sdk-dotnet-033]<br>1.x | **Stable**<br>Beta                   |
+| [.NET management SDK][sdk-dotnet]                               | [0.3.3][sdk-dotnet-033]<br>**1.x** | Retiring on 2019-12-11<br>**Stable** |
+| [.NET authentication SDK][sdk-auth-dotnet]                      | **1.x**                            | Beta                                 |
 | [Node.js management SDK][sdk-nodejs]                            | 0.4.0<br>**1.x**                   | Retired<br>**Stable**                |
 | [JWT verifier for Node.js][nodejs-jwt-verifier]                 | **0.x**                            | **Stable**                           |
 | [OpenID Connect middleware for Node.js][nodejs-oidc-middleware] | 0.1.2                              | Beta                                 |
@@ -78,6 +79,7 @@ This table lists the current (and historical) major versions of our open-source 
 [sdk-angular]: https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular
 [sdk-dotnet]: https://github.com/okta/okta-sdk-dotnet
 [sdk-dotnet-033]: https://github.com/okta/okta-sdk-dotnet/releases/tag/0.3.3.0
+[sdk-auth-dotnet]: https://github.com/okta/okta-auth-dotnet
 [sdk-java]: https://github.com/okta/okta-sdk-java
 [java-jwt-verifier]: https://github.com/okta/okta-jwt-verifier-java
 [authsdk-java]: https://github.com/okta/okta-auth-java

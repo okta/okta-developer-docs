@@ -35,7 +35,6 @@ services.AddAuthentication(options =>
 .AddOktaWebApi(new OktaWebApiOptions()
 {
     OktaDomain = "https://{yourOktaDomain}"
-    ClientId = "{clientId}"
 });
 
 // ... the rest of ConfigureServices
@@ -50,11 +49,10 @@ app.UseAuthentication();
 
 ### Additional middleware configuration
 
-The `OktaMvcOptions` class configures the Okta middleware. You can see all the available options in the project's `README` [on GitHub][github-aspnetcore]. Once you have the middleware working, you can place the Okta configuration in `appsettings.json` and reference it with the Configuration pattern:
+The `OktaMvcOptions` class configures the Okta middleware. You can see all the available options in the project's `README` [on GitHub][config reference]. Once you have the middleware working, you can place the Okta configuration in `appsettings.json` and reference it with the Configuration pattern:
 
 ```csharp
-OktaDomain = Configuration["Okta:Domain"],
-ClientId = Configuration["Okta:ClientId"],
+OktaDomain = Configuration["Okta:OktaDomain"]
 ```
 
 ### Protect application resources
@@ -75,7 +73,7 @@ public class MessagesController : Controller
 {
     [HttpGet]
     [Route("~/api/messages")]
-    public IEnumerable<dynamic> Get()
+    public JsonResult Get()
     {
         var principal = HttpContext.User.Identity as ClaimsIdentity;
 
@@ -83,11 +81,14 @@ public class MessagesController : Controller
             .SingleOrDefault(c => c.Type == ClaimTypes.NameIdentifier)
             ?.Value;
 
-        return new dynamic[]
+        return Json(new
         {
-            new { Date = DateTime.Now, Text = "I am a Robot." },
-            new { Date = DateTime.Now, Text = "Hello, world!" },
-        };
+            messages = new dynamic[]
+            {
+                new { Date = DateTime.Now, Text = "I am a Robot." },
+                new { Date = DateTime.Now, Text = "Hello, world!" },
+            }
+        });
     }
 }
 ```
@@ -98,9 +99,9 @@ The Okta middleware automatically validates tokens and populates `HttpContext.Us
 
 If you want to do more with the user, you can use the [Okta .NET SDK] to get or update the user's details stored in Okta.
 
-> Note: If your client application is running on a different server (or port) than your ASP.NET Core server, you'll need to add [CORS middleware](https://docs.microsoft.com/en-us/aspnet/core/security/cors) to the pipeline as well.
+> Note: If your client application is running on a different server (or port) than your ASP.NET Core server, you'll need to add [CORS middleware](https://docs.microsoft.com/en-us/aspnet/core/security/cors) to the pipeline as well. Check out our [`resource server` sample](https://github.com/okta/samples-aspnetcore/tree/master/resource-server) which is pre-configured with an open CORS policy to make it easy to test with frontend projects!
 
-
+[config reference]:https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-webapi.md#configuration-reference
 [example-repo]: https://github.com/okta/samples-aspnetcore/
 [Microsoft.AspNetCore.All]: https://www.nuget.org/packages/Microsoft.AspNetCore.All 
 [Okta.AspNetCore]: https://www.nuget.org/packages/Okta.AspNetCore

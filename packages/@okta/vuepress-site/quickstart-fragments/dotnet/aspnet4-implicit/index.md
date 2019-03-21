@@ -40,7 +40,6 @@ public void Configuration(IAppBuilder app)
     app.UseOktaWebApi(new OktaWebApiOptions()
     {
         OktaDomain = ConfigurationManager.AppSettings["okta:OktaDomain"],
-        ClientId = ConfigurationManager.AppSettings["okta:ClientId"]
     });
 }
 ```
@@ -69,7 +68,7 @@ public class MessagesController : ApiController
 {
     [HttpGet]
     [Route("~/api/messages")]
-    public IEnumerable<dynamic> Get()
+    public IHttpActionResult Get()
     {
         var principal = RequestContext.Principal.Identity as ClaimsIdentity;
 
@@ -77,11 +76,14 @@ public class MessagesController : ApiController
             .SingleOrDefault(c => c.Type == System.IdentityModel.Claims.ClaimTypes.NameIdentifier)
             ?.Value;
 
-        return new dynamic[]
+        return Json(new
         {
-            new { Date = DateTime.Now, Text = "I am a Robot." },
-            new { Date = DateTime.Now, Text = "Hello, world!" },
-        };
+            messages = new dynamic[]
+            {
+                new { date = DateTime.Now, text = "I am a Robot." },
+                new { date = DateTime.Now, text = "Hello, world!" },
+            },
+        });
     }
 }
 ```
@@ -92,7 +94,7 @@ The Okta middleware automatically validates tokens and populates `HttpContext.Us
 
 If you want to do more with the user, you can use the [Okta .NET SDK] to get or update the user's details stored in Okta.
 
-> Note: If your client application is running on a different server (or port) than your ASP.NET Core server, you'll need to add [CORS middleware] to the pipeline as well.
+> Note: If your client application is running on a different server (or port) than your ASP.NET Core server, you'll need to add [CORS middleware] to the pipeline as well. Check out our [`resource server` sample](https://github.com/okta/samples-aspnet/tree/master/resource-server) which is pre-configured with an open CORS policy to make it easy to test with frontend projects!
 
 
 [ASP.NET examples]: https://github.com/okta/samples-aspnet/

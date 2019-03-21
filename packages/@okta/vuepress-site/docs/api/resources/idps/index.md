@@ -21,6 +21,8 @@ Each identity provider (IdP) requires some setup. Use the Okta setup guide for y
 * [Google](/authentication-guide/social-login/google)
 * [LinkedIn](/authentication-guide/social-login/linkedin)
 * [Microsoft](/authentication-guide/social-login/microsoft)
+* [Generic OIDC Identity Providers](/authentication-guide/generic-oidc/#set-up-a-generic-openid-connect-identity-provider)
+
 
 ## Identity Provider Operations
 
@@ -4706,7 +4708,7 @@ The Assertion Consumer Service (ACS) endpoint is Okta's `SPSSODescriptor` endpoi
 **Trust-specific ACS Endpoint Example**
 
 ```xml
-<md:EntityDescriptor entityID="https://idp.example.com/saml2/sso" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+<md:EntityDescriptor entityID="https://sp.example.com/saml2/sso" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
   <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://{yourOktaDomain}/sso/saml2/0oamxfD9Jvaxvr0M00g3" index="0" isDefault="true"/>
   </md:SPSSODescriptor>
@@ -4718,7 +4720,7 @@ The Assertion Consumer Service (ACS) endpoint is Okta's `SPSSODescriptor` endpoi
 **Organization (shared) ACS Endpoint Example**
 
 ```xml
-<md:EntityDescriptor entityID="https://idp.example.com/saml2/sso" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+<md:EntityDescriptor entityID="https://sp.example.com/saml2/sso" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
   <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://{yourOktaDomain}/sso/saml2" index="0" isDefault="true"/>
   </md:SPSSODescriptor>
