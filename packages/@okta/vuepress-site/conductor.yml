@@ -1,6 +1,4 @@
 redirects: 
-  - from: / 
-    to: /documentation/ 
   - from: /code
     to: /documentation/
   - from: /use_cases/api_security
@@ -337,5 +335,5 @@ redirects:
     to: https://www.okta.com/integrate/documentation/isv-partner-integrations/
   - from: /docs/guides/add_mfa.html
     to: /use_cases/mfa/index.html
-  - from: /docs/guides/okta_mobile_connect.html
-    to: /use_cases/mobile/okta_mobile_connect/index.html
+  - from: /use_cases/mobile/okta_mobile_connect/index.html
+    to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
