@@ -1,4 +1,5 @@
 ---
+showToc: false
 title: Okta Auth SDK product
 ---
 

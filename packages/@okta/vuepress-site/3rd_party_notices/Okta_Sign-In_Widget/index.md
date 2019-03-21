@@ -1,4 +1,5 @@
 ---
+showToc: false
 title: Okta Sign-In Widget product
 ---
 
@@ -675,7 +676,7 @@ _jQuery.placeholder_
   |BRIEF DESCRIPTION:|   A jQuery plugin that enables HTML5 placeholder behavior for browsers that aren't trying hard enough yet.|
   LICENSE              MIT
 
-COPYRIGHT MATHIAS BYNENS 
+COPYRIGHT MATHIAS BYNENS
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
