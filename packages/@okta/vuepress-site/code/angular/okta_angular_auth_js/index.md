@@ -5,7 +5,7 @@ excerpt: Integrate Okta with an Angular application using Auth JS.
 component: Code
 ---
 
-# Overview
+# <i class='icon-48 docsPage code-angular'></i> Overview
 
 This guide will walk you through integrating authentication and authorization into an Angular application with Okta.
 
