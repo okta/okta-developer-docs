@@ -6,6 +6,7 @@
 
     <!-- Begin Content -->
     <div class="PageContent-main language-content">
+      <Breadcrumb></Breadcrumb>
       <Content />
     </div>
     <!-- End Content -->
