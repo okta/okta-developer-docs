@@ -11,9 +11,6 @@
 </template>
 
 <style scoped lang="scss">
-  p {
-    font-weight: bold;
-  }
 </style>
 
 <script>
@@ -32,6 +29,10 @@
     filters: {
       uppercase: function (value) {
         return value.toUpperCase()
+      },
+
+      formatUrl: function (value) {
+      //.replace(/{% api_operation (get|post|delete|put) ([^ ]*) %}/gm, (match, method, url) => `<ApiOperation method="${method}" url="${url}" />`);
       }
     }
   }

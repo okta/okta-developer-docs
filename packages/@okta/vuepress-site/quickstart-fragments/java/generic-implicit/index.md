@@ -13,13 +13,13 @@ For Apache Maven:
 <dependency>
     <groupId>com.okta.jwt</groupId>
     <artifactId>okta-jwt-verifier</artifactId>
-    <version>{{ site.versions.jwt_validator_java }}</version>
+    <version>0.3.2</version>
 </dependency>
 ```
 
 For Gradle:
 ```groovy
-compile 'com.okta.jwt:okta-jwt-verifier:{{ site.versions.jwt_validator_java }}'
+compile 'com.okta.jwt:okta-jwt-verifier:0.3.2'
 ```
 
 ### Use the API
