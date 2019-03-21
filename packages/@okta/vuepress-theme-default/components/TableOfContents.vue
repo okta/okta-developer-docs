@@ -7,16 +7,16 @@
     <div v-if="!loading">
       <div class="TableOfContents-indicator" :style="'height: ' + indicatorStyle.height + '; transform: translate(' + indicatorStyle.transform + ');'"></div>
       <a
-        :href="item.href"
+        :href="'#'+item.slug"
         class="TableOfContents-item sidebar-link"
         :class="[{
           'is-active': activeItem==item
           },
           'is-level'+item.level]"
-        v-for="item in items"
-        :key="item.href"
+        v-for="item in $page.fullHeaders"
+        :key="item.slug"
         :style="'display: '+item.display+';'"
-        v-on:click.prevent="scrollToItem(item.href)"
+        v-on:click.prevent="scrollToItem(item.slug)"
       >
         {{item.title}}
       </a>
@@ -27,21 +27,13 @@
 
 <script>
 export default {
-  props: {
-    items: {
-      type: Array,
-      default: []
-    }
-  },
   mounted() {
-    window.addEventListener("load", this.buildHeaderData)
-    window.addEventListener("load", this.onScroll)
     window.addEventListener('scroll', this.onScroll)
-
+    this.setActiveItem(0)
   },
   data () {
     return {
-      loading: true,
+      loading: false,
       indicatorStyle: {
         height: '30px',
         transform: '0px, 0px'
@@ -50,7 +42,6 @@ export default {
         bottom: '0px',
         top: '100px;'
       },
-      headerData: [],
       offset: 160,
       activeItem: null,
       activeToCItem: null
@@ -62,46 +53,31 @@ export default {
     }
   },
   watch: {
-    items: function (val) {
-      if (val.length > 0) {
-        this.loading = false
-      }
+    "$route": function () {
+        if (this.$route.hash) {
+          let index = this.$page.fullHeaders.findIndex((header) => {
+            return header.slug == this.$route.hash.substr(1)
+          })
+          if (!index) {
+            index = 0
+          }
+          this.setActiveItem(index)
+        }
     }
   },
+
   methods: {
     scrollToItem(hash) {
-      let target = document.querySelector(hash)
+      let target = document.getElementById(hash)
       if(target) {
         window.scrollTo(0, (target.offsetTop - 40))
       }
     },
-    buildHeaderData(event) {
-      let pageRect = document.querySelectorAll('.PageContent')[0].getBoundingClientRect()
-      this.items.forEach((item, index) => {
-
-        let itemRect = item.node.getBoundingClientRect()
-        let sectionHeight = 0
-
-        if (index < this.items.length - 1) {
-          let nextEle = this.items[index+1].node
-          let nextRect = nextEle.getBoundingClientRect()
-          sectionHeight = nextRect.top - itemRect.top
-        } else {
-          sectionHeight = pageRect.bottom - itemRect.top
-        }
-
-        this.headerData.push({
-          'headerEle': item.node,
-          'height': sectionHeight
-        })
-      })
-    },
 
     onScroll(event) {
-      for (let i = 0; i < this.headerData.length; i++) {
-        let ele = this.headerData[i].headerEle
+      for (let i = 0; i < this.$page.fullHeaders.length; i++) {
+        let ele = document.getElementById(this.$page.fullHeaders[i].slug)
         let rect = ele.getBoundingClientRect()
-
         if (rect.top > this.offset + (window.innerHeight - this.offset) / 2) {
           this.setActiveItem(i - 1)
           break
@@ -125,37 +101,38 @@ export default {
     setActiveItem(i) {
       if ( !this.isMobile) {
         this.activeToCItem = document.querySelectorAll('.TableOfContents-item')[i]
-        this.activeItem = this.items[i]
+
+        this.activeItem = this.$page.fullHeaders[i]
         let currentLevel = parseInt(this.activeItem.level)
 
         for (let j = i; j > 0; j--) {
-          let siblingLevel = parseInt(this.items[j].level)
+          let siblingLevel = parseInt(this.$page.fullHeaders[j].level)
 
           if (siblingLevel < currentLevel) {
             currentLevel = siblingLevel
           }
 
           if (siblingLevel == currentLevel) {
-            this.items[j].display = 'block'
+            this.$page.fullHeaders[j].display = 'block'
           } else {
-            this.items[j].display = 'none'
+            this.$page.fullHeaders[j].display = 'none'
           }
         }
 
-        if (i < this.items.length - 1) {
-          currentLevel = this.items[i + 1].level
+        if (i < this.$page.fullHeaders.length - 1) {
+          currentLevel = this.$page.fullHeaders[i + 1].level
 
-          for (let j = (i + 1); j < this.items.length; j++) {
-            let siblingLevel = parseInt(this.items[j].level)
+          for (let j = (i + 1); j < this.$page.fullHeaders.length; j++) {
+            let siblingLevel = parseInt(this.$page.fullHeaders[j].level)
 
             if (siblingLevel < currentLevel) {
               currentLevel = siblingLevel;
             }
 
             if (siblingLevel == currentLevel) {
-              this.items[j].display = 'block'
+              this.$page.fullHeaders[j].display = 'block'
             } else {
-              this.items[j].display = 'none'
+              this.$page.fullHeaders[j].display = 'none'
             }
           }
         }
@@ -226,7 +203,6 @@ export default {
     }
   },
   beforeDestroy() {
-    window.removeEventListener('load', this.buildHeaderData);
     window.removeEventListener('scroll', this.onScroll);
   }
 
