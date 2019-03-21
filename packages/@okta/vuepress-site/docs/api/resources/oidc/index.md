@@ -29,8 +29,8 @@ This page contains detailed information about the OAuth 2.0 and OpenID Connect e
 | [/logout](#logout) | Ends the session associated with the given ID token. |
 | [/keys](#keys) | Returns public keys used to sign responses. |
 | [/userinfo](#userinfo) | Returns claims about the authenticated end user. |
-| [/.well-known/oauth-authorization-server](#well-knownoauth-authorization-server) | Returns OAuth 2.0 metadata related to the specified authorization server. |
-| [/.well-known/openid-configuration](#well-knownopenid-configuration) | Returns OpenID Connect metadata related to the specified authorization server. |
+| [/.well-known/oauth-authorization-server](#well-known-oauth-authorization-server) | Returns OAuth 2.0 metadata related to the specified authorization server. |
+| [/.well-known/openid-configuration](#well-known-openid-configuration) | Returns OpenID Connect metadata related to the specified authorization server. |
 
 ### Composing Your Base URL
 
