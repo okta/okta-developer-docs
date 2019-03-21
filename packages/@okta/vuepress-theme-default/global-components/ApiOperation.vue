@@ -5,7 +5,7 @@
        <span class="api-label">
         {{ method | uppercase }}
       </span>
-       {{ url }}
+       <span v-html="formattedUrl"></span>
      </span>
   </p>
 </template>
@@ -26,13 +26,18 @@
         default: '',
       }
     },
+    computed: {
+      formattedUrl: function() {
+        return this.url.replace(/\${([^ ]*)}/gm, (match, prop) => '<strong>${'+prop+'}</strong>');
+      }
+    },
     filters: {
       uppercase: function (value) {
         return value.toUpperCase()
       },
 
       formatUrl: function (value) {
-      //.replace(/{% api_operation (get|post|delete|put) ([^ ]*) %}/gm, (match, method, url) => `<ApiOperation method="${method}" url="${url}" />`);
+        return value.replace(/\${([^ ]*)}/gm, (match, prop) => `<strong>"${prop}"</strong>`);
       }
     }
   }
