@@ -44,14 +44,14 @@ The easiest way to get started with the [Okta Sign-In Widget](https://github.com
 To use our CDN, include the following links to your HTML:
 ```html
 <script
-src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/{{ site.versions.okta_signin_widget }}/js/okta-sign-in.min.js"
+src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.14.0/js/okta-sign-in.min.js"
 type="text/javascript"></script>
 <link
-href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/{{ site.versions.okta_signin_widget }}/css/okta-sign-in.min.css"
+href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.14.0/css/okta-sign-in.min.css"
 type="text/css"
 rel="stylesheet"/>
 <link
-href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/{{ site.versions.okta_signin_widget }}/css/okta-theme.css"
+href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.14.0/css/okta-theme.css"
 type="text/css"
 rel="stylesheet"/>
 ```

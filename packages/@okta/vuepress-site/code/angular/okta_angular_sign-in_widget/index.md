@@ -72,11 +72,11 @@ First, update `src/app/app.component.html` to provide the Login logic:
 <!-- src/app/app.component.html -->
 
 <link
-  href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/{{ site.versions.okta_signin_widget }}/css/okta-sign-in.min.css"
+  href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.14.0/css/okta-sign-in.min.css"
   type="text/css"
   rel="stylesheet"/>
 <link
-  href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/{{ site.versions.okta_signin_widget }}/css/okta-theme.css"
+  href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.14.0/css/okta-theme.css"
   type="text/css"
   rel="stylesheet"/>
 

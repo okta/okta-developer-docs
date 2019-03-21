@@ -5,15 +5,12 @@
        <span class="api-label">
         {{ method | uppercase }}
       </span>
-       {{ url }}
+       <span v-html="formattedUrl"></span>
      </span>
   </p>
 </template>
 
 <style scoped lang="scss">
-  p {
-    font-weight: bold;
-  }
 </style>
 
 <script>
@@ -29,9 +26,18 @@
         default: '',
       }
     },
+    computed: {
+      formattedUrl: function() {
+        return this.url.replace(/\${([^ ]*)}/gm, (match, prop) => '<strong>${'+prop+'}</strong>');
+      }
+    },
     filters: {
       uppercase: function (value) {
         return value.toUpperCase()
+      },
+
+      formatUrl: function (value) {
+        return value.replace(/\${([^ ]*)}/gm, (match, prop) => `<strong>"${prop}"</strong>`);
       }
     }
   }
