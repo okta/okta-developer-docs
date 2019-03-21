@@ -5,7 +5,7 @@ excerpt: Integrate Okta with an iOS native application using OktaAuth.
 component: Code
 ---
 
-# Overview
+# <i class='icon-48 docsPage code-ios'></i> Overview
 This guide will walk you through integrating authentication and authorization into a Swift iOS native application with Okta.
 
 ## Prerequisites
@@ -80,8 +80,8 @@ Then, you can start the authorization flow by simply calling `login`:
 OktaAuth
     .login()
     .start(self) {
-        response, error in    
-        
+        response, error in
+
         if error != nil { print(error!) }
 
         // Success
@@ -102,8 +102,8 @@ Tokens are securly stored in the Keychain. They are easily set and retrieved wit
 OktaAuth
     .login()
     .start(self) {
-        response, error in    
-        
+        response, error in
+
         if error != nil { print(error!) }
 
         // Success
@@ -133,10 +133,10 @@ OktaAuth
     .introspect()
     .validate(token: currentToken) {
         response, error in
-        
+
         if error != nil { print("Error: \(error!)") }
-            
-        if let isValid = response { 
+
+        if let isValid = response {
             if !isValid {
                 // Token is not valid, prompt the user to login
             }
@@ -149,9 +149,9 @@ Now that the `access_token` has been stored and validated, use it to retrieve mo
 ```swift
 OktaAuth.userinfo() {
     response, error in
-            
+
     if error != nil { print("Error: \(error!)") }
-            
+
     if let userinfo = response {
         // userinfo["name"]
         // userinfo["email"]
@@ -162,5 +162,5 @@ OktaAuth.userinfo() {
 ## Conclusion
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/api/resources/oidc).
 
-## Support 
+## Support
 Have a question or see a bug? Post your question on [Okta Developer Forums](https://devforum.okta.com/).

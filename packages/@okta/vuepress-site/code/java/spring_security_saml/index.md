@@ -10,7 +10,7 @@ redirect_from:
 component: Code
 ---
 
-# Overview
+# <i class='icon-48 docsPage code-spring'></i> Overview
 
 This guide describes how to use Spring Security SAML to add support
 for Okta (via SAML) to Java applications that use the Spring framework.

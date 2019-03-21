@@ -5,7 +5,7 @@ excerpt: 'How to manually validate Okta JWTs with .NET (C#).'
 component: Code
 ---
 
-# Overview
+# <i class='icon-48 docsPage code-dotnet'></i> Overview
 
 When you use Okta to [get OAuth 2.0 or OpenID Connect tokens for a user](/authentication-guide/implementing-authentication/), the response contains a signed JWT (`id_token` and/or `access_token`).
 
@@ -136,7 +136,7 @@ You also must verify that the `alg` claim matches the expected algorithm which w
 ```csharp
 // Validate alg
 var validatedToken = await ValidateToken(accessToken, issuer, configurationManager);
-var expectedAlg = SecurityAlgorithms.RsaSha256; //Okta uses RS256 
+var expectedAlg = SecurityAlgorithms.RsaSha256; //Okta uses RS256
 
 if (validatedToken.Header?.Alg == null || validatedToken.Header?.Alg != expectedAlg)
 {
@@ -160,7 +160,7 @@ You also must verify that the `alg` claim matches the expected algorithm which w
 ```csharp
 // Validate alg
 var validatedToken = await ValidateToken(idToken, issuer, configurationManager);
-var expectedAlg = SecurityAlgorithms.RsaSha256; //Okta uses RS256 
+var expectedAlg = SecurityAlgorithms.RsaSha256; //Okta uses RS256
 
 if (validatedToken.Header?.Alg == null || validatedToken.Header?.Alg != expectedAlg)
 {

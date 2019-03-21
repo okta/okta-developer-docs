@@ -5,7 +5,7 @@ excerpt: Integrate Okta with a React app using Auth JS.
 component: Code
 ---
 
-# Overview
+# <i class='icon-48 docsPage code-react'></i> Overview
 This guide will walk you through integrating authentication into a React app with Okta by performing these steps:
 1. [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
 2. [Create a React App](#create-a-react-app)
@@ -162,7 +162,7 @@ export default withAuth(class Home extends Component {
     const button = this.state.authenticated ?
       <button onClick={this.props.auth.logout}>Logout</button> :
       <button onClick={this.props.auth.login}>Login</button>;
-    
+
     return (
       <div>
         <Link to='/'>Home</Link><br/>
@@ -219,7 +219,7 @@ export default withAuth(class Login extends Component {
   componentDidUpdate() {
     this.checkAuthentication();
   }
-  
+
   render() {
     if (this.state.authenticated === null) return null;
     return this.state.authenticated ?
@@ -283,5 +283,5 @@ You have now successfully authenticated with Okta! Now what? With a user's `id_t
 
 Want to learn how to use the user's `access_token`? Check out our <a href='/quickstart/#/react/nodejs/generic' data-proofer-ignore>React Quickstart integrations</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
-## Support 
+## Support
 Have a question or see a bug? Post your question on [Okta Developer Forums](https://devforum.okta.com/).
