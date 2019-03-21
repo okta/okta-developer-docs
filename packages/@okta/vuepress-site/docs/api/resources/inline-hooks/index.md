@@ -173,7 +173,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/inlineHooks?type=${type}" />
 
-|| Parameter | Description                                                             | Param Type | DataType | Required |
+| Parameter | Description                                                             | Param Type | DataType | Required |
 |-----------|-------------------------------------------------------------------------|------------|----------|----------|
 | `type`    | One of the [supported inline hook types](#supported-inline-hook-types). | Query      | String   | FALSE    |
 
