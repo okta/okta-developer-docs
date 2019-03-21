@@ -6,7 +6,7 @@ excerpt: >-
   inline hook endpoints.
 ---
 
-# Inline Hooks Management API 
+# Inline Hooks Management API
 
 <ApiLifecycle access="ea" />
 
@@ -20,13 +20,13 @@ Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io
 
 ### Create Inline Hook
 
-{% api_operation post /api/v1/inlineHooks%}
+<ApiOperation method="post" url="/api/v1/inlineHooks" />
 
 Registers a new inline hook to your organization in `ACTIVE` status. You need to pass an [Inline Hook object](#inline-hook-object) in the JSON payload of your request. That object represents the set of required information about the inline hook you are registering, including:
 
  - The URI of your external service endpoint.
  - The type of inline hook you are registering.
- 
+
 In addition, the object lets you specify a secret API key that you want Okta to pass to your external service endpoint (so that your external service can check for its presence as a security measure).
 
 Note that the API key you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs.
@@ -111,7 +111,7 @@ curl -v -X POST \
 }
 ```
 
-> Note: The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses. 
+> Note: The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses.
 
 ### Get Inline Hook
 
@@ -350,7 +350,7 @@ Executes the Inline Hook matching the provided `inlineHookId` using the request 
 
 A timeout of 3 seconds is enforcd on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
 
-Note that this execution endpoint is not tied to any other functionality in Okta and should only be used for testing purposes. 
+Note that this execution endpoint is not tied to any other functionality in Okta and should only be used for testing purposes.
 
 #### Response Parameters
 
