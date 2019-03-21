@@ -65,10 +65,7 @@ fi
 # Get the Runscope trigger ID
 get_secret prod/tokens/vuepress_runscope_trigger_id RUNSCOPE_TRIGGER_ID
 
-# Get the staging url for vuepress site
-get_secret prod/env/vuepress_staging_url STAGING_BASE_URL_RUNSCOPE
-
 # Trigger the runscope tests
-curl -I -X GET "https://api.runscope.com/radar/bucket/${RUNSCOPE_TRIGGER_ID}/trigger?base_url=${STAGING_BASE_URL_RUNSCOPE}"
+curl -I -X GET "https://api.runscope.com/radar/bucket/${RUNSCOPE_TRIGGER_ID}/trigger?base_url=https://developer.okta.com"
 
 exit ${SUCCESS}
