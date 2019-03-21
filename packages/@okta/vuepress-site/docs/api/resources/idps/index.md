@@ -2944,7 +2944,7 @@ curl -v -X POST \
 ### Finish Identity Provider Transaction
 
 
-{% api_operation POST /api/v1/idps/tx/${transactionId}/finish %}
+<ApiOperation method="POST" url=" /api/v1/idps/tx/${transactionId}/finish" />
 
 Finishes an IdP transaction
 
@@ -2977,7 +2977,7 @@ HTTP/1.1 200 OK
 ### Cancel Identity Provider Transaction
 
 
-{% api_operation POST /api/v1/idps/tx/${transactionId}/cancel %}
+<ApiOperation method="POST" url="/api/v1/idps/tx/${transactionId}/cancel" />
 
 Cancels an IdP transaction
 
@@ -4004,7 +4004,7 @@ curl -v -X GET \
 ### List IdPs Associated with a User
 
 
-{% api_operation GET /api/v1/users/${userId}/idps %}
+<ApiOperation method="GET" url="/api/v1/users/${userId}/idps" />
 
 Lists the IdPs associated with the user.
 
@@ -4145,7 +4145,7 @@ Content-Type: application/json
 ### Get a Linked Identity Provider User
 
 
-{% api_operation GET /api/v1/idps/${idpId}/users/${userId} %}
+<ApiOperation method="GET" url="/api/v1/idps/${idpId}/users/${userId}" />
 
 Fetches a linked [IdP user](#identity-provider-user-model) by ID.
 
@@ -4230,7 +4230,7 @@ Content-Type: application/json
 ### Link a User to a Social Provider without a Transaction
 
 
-{% api_operation POST /api/v1/idps/${idpId}/users/${userId} %}
+<ApiOperation method="POST" url="/api/v1/idps/${idpId}/users/${userId}" />
 
 Links an Okta user to an existing [social provider](#identity-provider-model). This endpoint doesn't support the SAML2 [Identity Provider Type](#identity-provider-type).
 
@@ -4346,7 +4346,7 @@ curl -v -X DELETE \
 ### Social Authentication Token Operation
 
 
-{% api_operation GET /api/v1/idps/${idpId}/users/${userId}/credentials/tokens %}
+<ApiOperation method="GET" url="/api/v1/idps/${idpId}/users/${userId}/credentials/tokens" />
 
 Okta doesn't import all the user information from a social provider. If the app needs information which isn't imported, it can get the user token from this endpoint, then make an API call to the social provider with the token to request the additional information.
 
@@ -4734,7 +4734,7 @@ The Assertion Consumer Service (ACS) endpoint is Okta's `SPSSODescriptor` endpoi
 |------------ | --------------------- | ----------- | -------- | -------- |
 | Property    | Description           | DataType    | Nullable | Readonly |
 |------------ | --------------------- | ----------- | -------- | -------- |
-| format      | The format used to generate the RelayState in SAML request. `FROM_URL` will be used if this value is null.     | `OPAQUE` or `FROM_URL` | TRUE     | FALSE 
+| format      | The format used to generate the RelayState in SAML request. `FROM_URL` will be used if this value is null.     | `OPAQUE` or `FROM_URL` | TRUE     | FALSE
 
 ```json
 {

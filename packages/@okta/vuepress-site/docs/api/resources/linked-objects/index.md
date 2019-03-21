@@ -23,7 +23,7 @@ For details, see the [Linked Object Model](#linked-object-model).
 
 The Expression Language function for [linked objects](/reference/okta_expression_language/#linked-object-function) provides access to the details about a linked user.
 
-## Getting Started 
+## Getting Started
 
 Explore the Linked Objects API:
 
@@ -109,7 +109,7 @@ HTTP/1.1 201 Created
 ### Get a Linked Object Definition by Name
 
 
-{% api_operation GET /api/v1/meta/schemas/user/default/linkedObjects/${name} %}
+<ApiOperation method="GET" url=/api/v1/meta/schemas/user/default/linkedObjects/${name}"" />
 
 Gets a single linked object definition
 
@@ -422,8 +422,7 @@ curl -v -X GET \
 ### Delete Linked Object Value
 
 
-{% api_operation delete  /api/v1/users/${id}/linkedObjects/${primary.name}
- %}
+ <ApiOperation method="delete" url="/api/v1/users/${id}/linkedObjects/${primary.name}" />
 
 For the `associated` user specified by ID and the relationship specified by `primary` name, deletes any existing relationship between the `associated` and `primary` user.
 
