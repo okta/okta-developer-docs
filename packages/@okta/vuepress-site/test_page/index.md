@@ -78,7 +78,6 @@ nostra             | nostra maecenas non. Dolor arcu convallis.              | B
 
 * Malesuada sodales litora fermentum urna tincidunt, porttitor nam:
 
-    |-------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------|
     | Application Type  | Valid Grant Type                                              | Requirements                                                                      |
     | ----------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
     | `web`             | `commodo_semper`, `implicit`, `fusce_arcu`                    | Must have at least `commodo_semper`                                               |

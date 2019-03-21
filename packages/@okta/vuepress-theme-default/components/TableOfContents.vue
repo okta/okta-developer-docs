@@ -30,6 +30,10 @@ export default {
   mounted() {
     window.addEventListener('scroll', this.onScroll)
     this.setActiveItem(0)
+    this.windowWidth = window.innerWidth
+      window.addEventListener('resize', () => {
+        this.windowWidth = window.innerWidth
+      })
   },
   data () {
     return {
@@ -44,12 +48,9 @@ export default {
       },
       offset: 160,
       activeItem: null,
-      activeToCItem: null
-    }
-  },
-  computed: {
-    isMobile() {
-      return window.getComputedStyle(document.body,':before').content.includes("toc-mobile");
+      activeToCItem: null,
+      windowWidth: 0,
+      isMobile: false
     }
   },
   watch: {
@@ -63,6 +64,10 @@ export default {
           }
           this.setActiveItem(index)
         }
+    },
+
+    windowWidth: function () {
+      this.isMobile = this.windowWidth <= 1264
     }
   },
 
@@ -183,6 +188,11 @@ export default {
         }
 
 
+      }
+      else {
+        this.$page.fullHeaders.forEach((header, index) => {
+          this.$page.fullHeaders[index].display = 'block'
+        })
       }
     },
 
