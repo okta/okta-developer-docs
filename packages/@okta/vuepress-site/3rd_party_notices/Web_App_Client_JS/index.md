@@ -1,4 +1,5 @@
 ---
+showToc: false
 title: Okta Web App Client JS product
 ---
 
