@@ -11,11 +11,16 @@
     name: "Breadcrumb",
     computed: {
       breadcrumb() {
+        const crumbs = [];
+        if(this.$page.path == '/reference/') {
+          crumbs.push({path: '/documentation/', title: 'DOCS'})
+          return crumbs
+        }
+
         const pathParts = this.$page.path.split("/")
         if (!pathParts[pathParts.length - 1].length) { pathParts.pop(); }
 
         let link = "";
-        const crumbs = [];
         pathParts.forEach((part) => {
           link += part;
           const page = this.$site.pages.find((el) => el.path === link || el.path === link + "/");
