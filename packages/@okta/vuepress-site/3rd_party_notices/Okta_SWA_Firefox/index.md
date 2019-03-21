@@ -1,4 +1,5 @@
 ---
+showToc: false
 title: Okta SWA Firefox product
 ---
 
