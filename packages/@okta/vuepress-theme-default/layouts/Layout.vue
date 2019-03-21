@@ -87,4 +87,7 @@ export default {
   @import '../assets/css/okta';
   @import '~prismjs/themes/prism-solarizedlight.css';
 
+  .icon.outbound {
+    display: none !important
+  }
 </style>
