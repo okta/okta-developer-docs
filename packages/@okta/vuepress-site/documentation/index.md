@@ -106,17 +106,4 @@ sections:
          description: Upgrade SAML Apps to SHA256
          link:  /docs/how-to/updating_saml_cert/
 
-   - title: Standards
-     links:
-       - title: SAML
-         description: Enable SSO for your web and mobile applications with SAML.
-         link: /standards/SAML/
-       - title: SCIM Provisioning with Lifecycle Management
-         description: Enable SCIM-based provisioning from Okta to your application.
-         link: /standards/SCIM/
-promo_banner:
-  show: true
-  promo_url: https://okta.com
-  promo_text: From the front matter!
-  cta_text: Click Me
 ---
