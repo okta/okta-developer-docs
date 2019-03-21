@@ -100,7 +100,7 @@
 .DynamicSidebar {
     @include media('<doc-min-toc') {
 	    .Sidebar {
-		    @include padding(x-small small x-small 0);
+		    padding: 20px 20px 10px 0;
 		    background: get-color('white');
 		    min-width: 100%;
 		    position: relative;
@@ -125,7 +125,7 @@
 		    height: 22px;
 		    z-index: 3;
 		    right: 30px;
-		    top: 14px;
+		    top: 24px;
 	    }
 	    .Sidebar-location {
 			margin: 0 30px;
