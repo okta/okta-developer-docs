@@ -24,7 +24,7 @@ There are currently 2 parts to the site, the content and the themeing/plugins.
  - Clone this repository (or fork if you aren't a core contributor):
 
  ```sh
- git clone https://github.com/okta-developer-docs/okta.github.io
+ git clone https://github.com/okta/okta-developer-docs
  ```
 
 - Install the dependencie with `yarn`:
