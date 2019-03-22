@@ -33,9 +33,9 @@ Adds a new client application to your organization
 ##### Request Parameters
 
 
-| Parameter | Description                        | ParamType | DataType                                      | Required |
-|:----------|:-----------------------------------|:----------|:----------------------------------------------|:---------|
-| settings  | OAuth client registration settings | Body      | [Client Settings](#client-application-model)  | TRUE     |
+| Parameter   | Description                          | ParamType   | DataType                                        | Required |
+| :---------- | :----------------------------------- | :---------- | :---------------------------------------------- | :------- |
+| settings    | OAuth client registration settings   | Body        | [Client Settings](#client-application-model)    | TRUE     |
 
 ##### Response Parameters
 
@@ -275,11 +275,11 @@ Lists all clients that match a search filter on `client_name`
 ##### Request Parameters
 
 
-Parameter | Description                                                                                | ParamType | DataType | Required | Default | Maximum |
---------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- | ------- |
-q         | Searches the `client_name` property of clients for matching value                          | Query     | String   | FALSE    |
-limit     | Specifies the number of client results in a page                                           | Query     | Number   | FALSE    | 20  | 200 |
-after     | Specifies the pagination cursor for the next page of clients                               | Query     | String   | FALSE    |
+| Parameter | Description                                                                                | ParamType | DataType | Required | Default | Maximum |
+| -------   | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- | ------- |
+| q         | Searches the `client_name` property of clients for matching value                          | Query     | String   | FALSE    |         |         |
+| limit     | Specifies the number of client results in a page                                           | Query     | Number   | FALSE    | 20      | 200     |
+| after     | Specifies the pagination cursor for the next page of clients                               | Query     | String   | FALSE    |         |         |
 
 >Note:
 *  The `after` cursor should treated as an opaque value and obtained through [the next link relation](/docs/api/getting_started/design_principles#pagination).
@@ -350,9 +350,9 @@ Fetches a specific client by `clientId` from your organization
 ##### Request Parameters
 
 
-| Parameter | Description                      | ParamType | DataType | Required |
-|:----------|:---------------------------------|:----------|:---------|:---------|
-| clientId| `client_id` of a specific client | URL       | String   | TRUE     |
+| Parameter   | Description                        | ParamType   | DataType   | Required |
+| :---------- | :--------------------------------- | :---------- | :--------- | :------- |
+| clientId    | `client_id` of a specific client   | URL         | String     | TRUE     |
 
 ##### Response Parameters
 
@@ -428,10 +428,10 @@ Updates the settings for a client application from your organization.
 ##### Request Parameters
 
 
-Parameter | Description                        | ParamType | DataType                               | Required |
---------- | ---------------------------------- | --------- | -------------------------------------- | -------- |
-clientId | `client_id` of a specific client    | URL       | String                                 | TRUE     |
-settings  | OAuth client registration settings | Body      | [Client Settings](#client-application-model) | TRUE     |
+| Parameter | Description                        | ParamType | DataType                                     | Required |
+| --------- | ---------------------------------- | --------- | --------------------------------------       | -------- |
+| clientId  | `client_id` of a specific client   | URL       | String                                       | TRUE     |
+| settings  | OAuth client registration settings | Body      | [Client Settings](#client-application-model) | TRUE     |
 
 > All settings must be specified when updating a client application, **partial updates are not supported.** If any settings are missing when updating a client application the update fails. The exceptions are: `client_secret_expires_at`, or `client_id_issued_at` must not be included in the request, and the `client_secret` can be omitted.
 
@@ -532,9 +532,9 @@ Generates a new client secret for the specified client application.
 ##### Request Parameters
 
 
-Parameter | Description                        | ParamType | DataType                               | Required |
---------- | ---------------------------------- | --------- | -------------------------------------- | -------- |
-clientId | `client_id` of a specific client    | URL       | String                                 | TRUE     |
+| Parameter | Description                        | ParamType | DataType                               | Required |
+| --------- | ---------------------------------- | --------- | -------------------------------------- | -------- |
+| clientId  | `client_id` of a specific client   | URL       | String                                 | TRUE     |
 
 > This operation only applies to client applications which use the `client_secret_post` or `client_secret_basic` method for token endpoint authorization.
 
@@ -617,9 +617,9 @@ Removes a client application from your organization.
 ##### Request Parameters
 
 
-| Parameter | Description                      | ParamType | DataType | Required |
-|:----------|:---------------------------------|:----------|:---------|:---------|
-| clientId| `client_id` of a specific client | URL       | String   | TRUE     |
+| Parameter   | Description                        | ParamType   | DataType   | Required |
+| :---------- | :--------------------------------- | :---------- | :--------- | :------- |
+| clientId    | `client_id` of a specific client   | URL         | String     | TRUE     |
 
 ##### Response Parameters
 
@@ -698,24 +698,24 @@ Content-Type: application/json;charset=UTF-8
 
 Client applications have the following properties:
 
-| Property                            | Description                                                                                                                | DataType                                                                                     | Nullable | Unique | Readonly  |
-|:------------------------------------|:---------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------|:---------|:-------|:----------|
-| client_id                           | Unique key for the client application                                                                                      | String                                                                                       | FALSE    | TRUE   | TRUE      |
-| client_id_issued_at                 | Time at which the client_id was issued (measured in unix seconds)                                                          | Number                                                                                       | TRUE     | FALSE  | TRUE      |
-| client_name                         | Human-readable string name of the client application                                                                       | String                                                                                       | FALSE    | TRUE   | FALSE     |
-| client_secret                       | OAuth 2.0 client secret string (used for confidential clients)                                                             | String                                                                                       | TRUE     | TRUE   | TRUE      |
-| client_secret_expires_at            | Time at which the client_secret will expire or 0 if it will not expire(measured in unix seconds)                           | Number                                                                                       | TRUE     | FALSE  | TRUE      |
-| logo_uri                            | (Not currently implemented in Okta) URL string that references a logo for the client consent dialogs (not sign-in dialogs) | String                                                                                       | TRUE     | FALSE  | FALSE     |
-| application_type                    | The type of client application. Default value: `web`                                                                       | `web`, `native`, `browser`, or `service`                                                     | TRUE     | FALSE  | TRUE      |
-| redirect_uris                       | Array of redirection URI strings for use in redirect-based flows                                                           | Array                                                                                        | TRUE     | FALSE  | FALSE     |
-| post_logout_redirect_uris           | Array of redirection URI strings for use for relying party initiated logouts                                               | Array                                                                                        | TRUE     | FALSE  | FALSE     |
-| response_types                      | Array of OAuth 2.0 response type strings. Default value: `code`                                                            | Array of `code`, `token`, `id_token`                                                         | TRUE     | FALSE  | FALSE     |
-| grant_types                         | Array of OAuth 2.0 grant type strings. Default value: `authorization_code`                                                 | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials` | TRUE     | FALSE  | FALSE     |
-| token_endpoint_auth_method          | requested authentication method for the token endpoint. Default value: `client_secret_basic`                               | `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`                  | TRUE     | FALSE  | FALSE     |
-| initiate_login_uri                  | URL that a third party can use to initiate a login by the client                                                           | String                                                                                       | TRUE     | FALSE  | FALSE     |
-| jwks                                | A [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                 | [JSON Web Key Set](#json-web-key-set)                                                        | TRUE     | FALSE  | FALSE     |
-| tos_uri <ApiLifecycle access="ea" />    | URL string of a web page providing the client's terms of service document                                                                                         | URL                                                                                          | TRUE     | FALSE  | FALSE     |
-| policy_uri <ApiLifecycle access="ea" /> | URL string of a web page providing the client's policy document                                                                                                   | URL                                                                                          | TRUE     | FALSE  | FALSE     |
+| Property                                | Description                                                                                                                  | DataType                                                                                       | Nullable   | Unique   | Readonly  |
+| :------------------------------------   | :--------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- | :--------- | :------- | :-------- |
+| client_id                               | Unique key for the client application                                                                                        | String                                                                                         | FALSE      | TRUE     | TRUE      |
+| client_id_issued_at                     | Time at which the client_id was issued (measured in unix seconds)                                                            | Number                                                                                         | TRUE       | FALSE    | TRUE      |
+| client_name                             | Human-readable string name of the client application                                                                         | String                                                                                         | FALSE      | TRUE     | FALSE     |
+| client_secret                           | OAuth 2.0 client secret string (used for confidential clients)                                                               | String                                                                                         | TRUE       | TRUE     | TRUE      |
+| client_secret_expires_at                | Time at which the client_secret will expire or 0 if it will not expire(measured in unix seconds)                             | Number                                                                                         | TRUE       | FALSE    | TRUE      |
+| logo_uri                                | (Not currently implemented in Okta) URL string that references a logo for the client consent dialogs (not sign-in dialogs)   | String                                                                                         | TRUE       | FALSE    | FALSE     |
+| application_type                        | The type of client application. Default value: `web`                                                                         | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE      |
+| redirect_uris                           | Array of redirection URI strings for use in redirect-based flows                                                             | Array                                                                                          | TRUE       | FALSE    | FALSE     |
+| post_logout_redirect_uris               | Array of redirection URI strings for use for relying party initiated logouts                                                 | Array                                                                                          | TRUE       | FALSE    | FALSE     |
+| response_types                          | Array of OAuth 2.0 response type strings. Default value: `code`                                                              | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | FALSE     |
+| grant_types                             | Array of OAuth 2.0 grant type strings. Default value: `authorization_code`                                                   | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`   | TRUE       | FALSE    | FALSE     |
+| token_endpoint_auth_method              | requested authentication method for the token endpoint. Default value: `client_secret_basic`                                 | `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`                    | TRUE       | FALSE    | FALSE     |
+| initiate_login_uri                      | URL that a third party can use to initiate a login by the client                                                             | String                                                                                         | TRUE       | FALSE    | FALSE     |
+| jwks                                    | A [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                   | [JSON Web Key Set](#json-web-key-set)                                                          | TRUE       | FALSE    | FALSE     |
+| tos_uri <ApiLifecycle access="ea" />    | URL string of a web page providing the client's terms of service document                                                    | URL                                                                                            | TRUE       | FALSE    | FALSE     |
+| policy_uri <ApiLifecycle access="ea" /> | URL string of a web page providing the client's policy document                                                              | URL                                                                                            | TRUE       | FALSE    | FALSE     |
 
 
 Property Details
@@ -735,12 +735,12 @@ Property Details
 
 * Different application types have different valid values for the corresponding grant type:
 
-    | Application Type  | Valid Grant Type                                                           | Requirements                                   |
-    | :---------------- | :------------------------------------------------------------------------- | :--------------------------------------------- |
-    | `web`             | `authorization_code`, `implicit`, `refresh_token`, `client_credentials`(*) | Must have at least `authorization_code`        |
-    | `native`          | `authorization_code`, `implicit`, `password`, `refresh_token`              | Must have at least `authorization_code`        |
-    | `browser`         | `implicit`                                                                 |                                                |
-    | `service`         | `client_credentials`                                                       | Works with OAuth 2.0 flow (not OpenID Connect) |
+| Application Type  | Valid Grant Type                                                           | Requirements                                   |
+| :---------------- | :------------------------------------------------------------------------- | :--------------------------------------------- |
+| `web`             | `authorization_code`, `implicit`, `refresh_token`, `client_credentials`(*) | Must have at least `authorization_code`        |
+| `native`          | `authorization_code`, `implicit`, `password`, `refresh_token`              | Must have at least `authorization_code`        |
+| `browser`         | `implicit`                                                                 |                                                |
+| `service`         | `client_credentials`                                                       | Works with OAuth 2.0 flow (not OpenID Connect) |
 
     (*) `client_credentials` with a `web` application type allows you to use one `client_id` for an application that needs to make user-specific calls and back-end calls for data.
 
@@ -756,20 +756,20 @@ The JSON Web Key Set (`jwks`) is a set of public keys registered for the client 
 
 The `jwks` object has precisely one attribute: `keys`, which is an array of JSON Web Key.
 
-| Property   | DataType                      | Nullable | Unique | Readonly  |
-|------------|:----------------------------- |:-------- |:------ |:--------- |
-| keys       | An array of JSON Web Keys     | TRUE     | FALSE  | FALSE     |
+| Property   | DataType                       | Nullable  | Unique  | Readonly   |
+| ---------- | :----------------------------- | :-------- | :------ | :--------- |
+| keys       | An array of JSON Web Keys      | TRUE      | FALSE   | FALSE      |
 
 ## JSON Web Key
 
 A [JSON Web Key (JWK)](https://tools.ietf.org/html/rfc7517) is a JSON representation of a cryptographic key. Okta can use these keys to verify the signature of a JWT when provided for the `private_key_jwt` client authentication method, or for a signed authorize request object.
 Okta supports both RSA and Elliptic Curve (EC) keys.
 
-| Property   | Description                                          | DataType      | Nullable                              | Unique                | Readonly  |
-|------------|:---------------------------------------------------- |:------------- |:------------------------------------- |:--------------------- |:--------- |
-| kty        | The type of public key this is                       | `RSA` or `EC` | FALSE                                 | FALSE                 | FALSE     |
-| kid        | The unique identifier of the key                     | String        | TRUE, if only one key in the JWKS     | TRUE, within the JWKS | FALSE     |
-| e          | The key exponent of a RSA key                        | String        | TRUE, unless the kty is `RSA`         | FALSE                 | FALSE     |
-| n          | The modulus of a RSA key                             | String        | TRUE, unless the kty is `RSA`         | FALSE                 | FALSE     |
-| x          | The public x coordinate for the elliptic curve point | String        | TRUE, unless the kty is `EC`          | FALSE                 | FALSE     |
-| y          | The public y coordinate for the elliptic curve point | String        | TRUE, unless the kty is `EC`          | FALSE                 | FALSE     |
+| Property   | Description                                           | DataType       | Nullable                               | Unique                 | Readonly   |
+| ---------- | :---------------------------------------------------- | :------------- | :------------------------------------- | :--------------------- | :--------- |
+| kty        | The type of public key this is                        | `RSA` or `EC`  | FALSE                                  | FALSE                  | FALSE      |
+| kid        | The unique identifier of the key                      | String         | TRUE, if only one key in the JWKS      | TRUE, within the JWKS  | FALSE      |
+| e          | The key exponent of a RSA key                         | String         | TRUE, unless the kty is `RSA`          | FALSE                  | FALSE      |
+| n          | The modulus of a RSA key                              | String         | TRUE, unless the kty is `RSA`          | FALSE                  | FALSE      |
+| x          | The public x coordinate for the elliptic curve point  | String         | TRUE, unless the kty is `EC`           | FALSE                  | FALSE      |
+| y          | The public y coordinate for the elliptic curve point  | String         | TRUE, unless the kty is `EC`           | FALSE                  | FALSE      |
