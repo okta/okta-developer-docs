@@ -135,11 +135,11 @@ Lists all the client applications in your organization (with optional pagination
 ##### Request Parameters
 
 
-Parameter | Description                                                                                | ParamType | DataType | Required | Default | Maximum |
---------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | -------
-q         | Searches the `client_name` property of clients for matching value                          | Query     | String   | FALSE    |
-limit     | Specifies the number of client results in a page                                           | Query     | Number   | FALSE    | 20  | 200 |
-after     | Specifies the pagination cursor for the next page of clients                               | Query     | String   | FALSE    |
+| Parameter | Description                                                                                | ParamType | DataType | Required | Default | Maximum |
+| --------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- | ------- |
+| q         | Searches the `client_name` property of clients for matching value                          | Query     | String   | FALSE    |         |         |
+| limit     | Specifies the number of client results in a page                                           | Query     | Number   | FALSE    | 20      | 200     |
+| after     | Specifies the pagination cursor for the next page of clients                               | Query     | String   | FALSE    |         |         |
 
 >Note:
 *  The `after` cursor should treated as an opaque value and obtained through [the next link relation](/docs/api/getting_started/design_principles#pagination).
@@ -276,7 +276,7 @@ Lists all clients that match a search filter on `client_name`
 
 
 Parameter | Description                                                                                | ParamType | DataType | Required | Default | Maximum |
---------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | -------
+--------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- | ------- |
 q         | Searches the `client_name` property of clients for matching value                          | Query     | String   | FALSE    |
 limit     | Specifies the number of client results in a page                                           | Query     | Number   | FALSE    | 20  | 200 |
 after     | Specifies the pagination cursor for the next page of clients                               | Query     | String   | FALSE    |
@@ -735,7 +735,6 @@ Property Details
 
 * Different application types have different valid values for the corresponding grant type:
 
-    |------------------ | -------------------------------------------------------------------------- | ---------------------------------------------- |
     | Application Type  | Valid Grant Type                                                           | Requirements                                   |
     | :---------------- | :------------------------------------------------------------------------- | :--------------------------------------------- |
     | `web`             | `authorization_code`, `implicit`, `refresh_token`, `client_credentials`(*) | Must have at least `authorization_code`        |
