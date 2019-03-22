@@ -1028,7 +1028,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
     | ----------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
     | `web`             | `authorization_code`, `implicit`, `refresh_token`             | Must have at least `authorization_code`                                           |
     | `native`          | `authorization_code`, `implicit`, `password`, `refresh_token` | Must have at least `authorization_code`                                           |
-    | `browser`         | `implicit`                                                    |                                                                                   |
+    | `browser`         | `authorization_code`, `implicit`                                                    |                                                                                   |
     | `service`         | `client_credentials`                                          | Works with OAuth 2.0 flow (not OpenID Connect)                                    |
 
 * The `grant_types` and `response_types` values described above are partially orthogonal, as they refer to arguments passed to different
