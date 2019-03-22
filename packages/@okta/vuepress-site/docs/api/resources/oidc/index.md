@@ -57,11 +57,13 @@ If you have a developer account, you can use the `default` authorization server 
 
 <ApiOperation method="get" url="${baseUrl}/v1/authorize" />
 
-> This endpoint's base URL will vary depending on whether you are using a custom authorization server or not. For more information, see [Composing Your Base URL](#composing-your-base-url).
+> This endpoint's base URL varies depending on whether you are using a custom authorization server or not. For more information, see [Composing Your Base URL](#composing-your-base-url).
 
 This is a starting point for browser-based OpenID Connect flows such as the implicit and authorization code flows. This request
 authenticates the user and returns tokens along with an authorization grant to the client application as a part
 of the callback response.
+
+> When making requests to the `/authorize` endpoint, the browser (user agent) should be redirected to the endpoint. You can't use AJAX with this endpoint.
 
 #### Request Parameters
 
@@ -522,6 +524,8 @@ Use this operation to log out a user by removing their Okta browser session.
 This endpoint takes an ID token and logs the user out of Okta if the subject matches the current Okta session. A `post_logout_redirect_uri` may be specified to redirect the browser after the logout has been performed. Otherwise, the browser is redirected to the Okta login page.
 
 If no Okta session exists, this endpoint has no effect and the browser is redirected immediately to the Okta login page or the `post_logout_redirect_uri` (if specified).
+
+> When making requests to the `/logout` endpoint, the browser (user agent) should be redirected to the endpoint. You can't use AJAX with this endpoint.
 
 #### Request Parameters
 
