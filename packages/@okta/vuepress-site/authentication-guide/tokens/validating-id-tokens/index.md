@@ -29,7 +29,7 @@ The ID Token is a security token granted by the OpenID Provider that contains in
 
 You can pass an ID Token around different components of your client, and these components can use the ID Token to confirm that the user is authenticated and also to retrieve information about them.
 
-Access tokens, on the other hand, are not intended to carry information about the user. They simply allow access to certain defined server resources. More discussion about when to use access tokens can be found in [Validating Access Tokens](validating-access-tokens).
+Access tokens, on the other hand, are not intended to carry information about the user. They simply allow access to certain defined server resources. More discussion about when to use access tokens can be found in [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens).
 
 ## What to Check When Validating an ID Token
 

@@ -45,6 +45,9 @@ languages:
 sections:
    - title: Use Cases
      links:
+       - title: Inline Hooks
+         description: Integrate custom functionality into Okta process flows.
+         link: /use_cases/inline_hooks/
        - title: Authentication
          description: Overview of the ways Okta can be used to authenticate users depending on your needs.
          link: /use_cases/authentication/
@@ -66,6 +69,12 @@ sections:
        - title: Sign in Your Users
          description: API endpoints to authenticate your users, challenge for factors, recover passwords, and more.
          link: /docs/api/resources/oidc/
+       - title: WebFinger
+         description: Determine the Identity Provider that a user should be routed to.
+         link: /reference/webfinger/
+       - title: SCIM Protocol
+         description: Enable SCIM-based provisioning from Okta to your application.
+         link: /reference/scim/
        - title: Manage Okta Resources
          description: REST endpoints to configure resources such as users, apps, sessions, and factors whenever you need.
          link: /docs/api/resources/roles/

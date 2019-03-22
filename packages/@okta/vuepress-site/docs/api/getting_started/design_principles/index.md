@@ -137,7 +137,7 @@ The Okta API currently requires the custom HTTP authentication scheme `SSWS` for
 
     Authorization: SSWS 00QCjAl4MlV-WPXM...0HmjFx-vbGua
 
-> See [Obtaining a token](getting_a_token) for instructions on how to get an API key for your organization.
+> See [Obtaining a token](/docs/api/getting_started/getting_a_token/) for instructions on how to get an API key for your organization.
 
 The API key (API token) isn't interchangeable with an Okta [session token](/docs/api/resources/authn#session-token), access tokens or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/api/resources/oauth2/).
 
