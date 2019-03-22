@@ -66,6 +66,9 @@ sections:
 
    - title: API Reference
      links:
+       - title: Sign in Your Users
+         description: API endpoints to authenticate your users, challenge for factors, recover passwords, and more.
+         link: /docs/api/resources/oidc/
        - title: WebFinger
          description: Determine the Identity Provider that a user should be routed to.
          link: /reference/webfinger/
