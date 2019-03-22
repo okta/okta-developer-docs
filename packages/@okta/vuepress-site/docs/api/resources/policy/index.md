@@ -35,7 +35,7 @@ Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](htt
 
 #### Request Parameters
 
-The policy ID described in the [Policy Object](#PolicyObject) is required.
+The policy ID described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -52,7 +52,7 @@ curl -v -X GET \
 
 
 HTTP 200:
-<a href="#PolicyObject">Policy Object</a>
+<a href="#policy-object">Policy Object</a>
 
 ### Get a Policy with Rules
 
@@ -61,7 +61,7 @@ HTTP 200:
 
 #### Request Parameters
 
-* The policy ID described in the [Policy Object](#PolicyObject) is required.
+* The policy ID described in the [Policy Object](#policy-object) is required.
 * The `expand=rules` query parameter returns up to twenty rules for the specified policy. If the policy has more than 20 rules, this request returns an error.
 
 ##### Request Example
@@ -79,7 +79,7 @@ curl -v -X GET \
 
 
 HTTP 200:
-<a href="#PolicyObject">Policy Object</a>
+<a href="#policy-object">Policy Object</a>
 
 Included as embedded objects, one or more <a href="#rules">Policy Rules</a>.
 
@@ -90,7 +90,7 @@ Included as embedded objects, one or more <a href="#rules">Policy Rules</a>.
 
 #### Request Parameters
 
-The policy type described in the [Policy Object](#PolicyObject) is required.
+The policy type described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -107,9 +107,9 @@ curl -v -X GET \
 
 
 HTTP 200:
-<a href="#PolicyObject">Policy Object</a>
+<a href="#policy-object">Policy Object</a>
 HTTP 204:
-<a href="#PolicyObject">Policy Object</a>
+<a href="#policy-object">Policy Object</a>
 
 ### Delete Policy
 
@@ -118,7 +118,7 @@ HTTP 204:
 
 #### Request Parameters
 
-The policy ID described in the [Policy Object](#PolicyObject) is required.
+The policy ID described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -144,7 +144,7 @@ HTTP 204:
 
 #### Request Parameters
 
-The policy ID described in the [Policy Object](#PolicyObject) is required.
+The policy ID described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -177,7 +177,7 @@ curl -v -X PUT \
 
 
 HTTP 200:
-<a href="#PolicyObject">Policy Object</a>
+<a href="#policy-object">Policy Object</a>
 
 ### Create a Policy
 
@@ -213,7 +213,7 @@ curl -v -X POST \
 
 
 HTTP 204:
-<a href="#PolicyObject">Policy Object</a>
+<a href="#policy-object">Policy Object</a>
 
 ### Activate a Policy
 
@@ -222,7 +222,7 @@ HTTP 204:
 
 #### Request Parameters
 
-The policy id described in the [Policy Object](#PolicyObject) is required.
+The policy id described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -248,7 +248,7 @@ HTTP 204:
 
 #### Request Parameters
 
-The policy ID described in the [Policy Object](#PolicyObject) is required.
+The policy ID described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -276,7 +276,7 @@ HTTP 200:
 
 #### Request Parameters
 
-The policy ID described in the [Policy Object](#PolicyObject) is required.
+The policy ID described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -293,7 +293,7 @@ curl -v -X GET \
 
 
 HTTP 200:
-<a href="#RulesObject">Rules Object</a>
+<a href="#rules-object">Rules Object</a>
 
 ### Create a rule
 
@@ -302,7 +302,7 @@ HTTP 200:
 
 #### Request Parameters
 
-The policy ID described in the [Policy Object](#PolicyObject) is required.
+The policy ID described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -343,7 +343,7 @@ curl -v -X POST \
 
 
 HTTP 200:
-<a href="#RulesObject">Rules Object</a>
+<a href="#rules-object">Rules Object</a>
 
 ### Delete a rule
 
@@ -352,7 +352,7 @@ HTTP 200:
 
 #### Request Parameters
 
-The policy ID described in the [Policy Object](#PolicyObject) is required.
+The policy ID described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -378,7 +378,7 @@ HTTP 204:
 
 #### Request Parameters
 
-The policy ID described in the [Policy Object](#PolicyObject) is required.
+The policy ID described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -395,7 +395,7 @@ curl -v -X GET \
 
 
 HTTP 200:
-<a href="#RulesObject">Rules Object</a>
+<a href="#rules-object">Rules Object</a>
 
 ### Update a rule
 
@@ -404,7 +404,7 @@ HTTP 200:
 
 #### Request Parameters
 
-The policy ID described in the [Policy Object](#PolicyObject) is required.
+The policy ID described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -445,7 +445,7 @@ curl -v -X PUT \
 
 
 HTTP 200:
-<a href="#RulesObject">Rules Object</a>
+<a href="#rules-object">Rules Object</a>
 
 ### Activate A Rule
 
@@ -454,7 +454,7 @@ HTTP 200:
 
 #### Request Parameters
 
-The policy ID described in the [Policy Object](#PolicyObject) is required.
+The policy ID described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -480,7 +480,7 @@ HTTP 204:
 
 #### Request Parameters
 
-The policy ID described in the [Policy Object](#PolicyObject) is required.
+The policy ID described in the [Policy Object](#policy-object) is required.
 
 ##### Request Example
 
@@ -511,13 +511,13 @@ Policies that have no rules are not considered during evaluation, and will never
 ### Policy Types
 Different policy types control settings for different operations.  All policy types share a common framework, message structure and API, but have different policy settings and rule data. The data structures specific to each policy type are discussed in the various sections below.
 
-<a href="#OktaSignOnPolicy">Okta Sign On Policy</a>
+<a href="#okta-sign-on-policy">Okta Sign On Policy</a>
 
-<a href="#OktaMFAPolicy">Okta MFA Policy</a>
+<a href="#multifactor-mfa-enrollment-policy">Okta MFA Policy</a>
 
-<a href="#GroupPasswordPolicy">Password Policy</a>
+<a href="#password-policy">Password Policy</a>
 
-<a href="#IdPDiscoveryPolicy">IdP Discovery Policy</a>
+<a href="#idp-discovery-policy">IdP Discovery Policy</a>
 
 [OAuth Authorization Policy](/docs/api/resources/authorization-servers#policy-object)
 
@@ -529,7 +529,7 @@ There is always a default policy created for each type of policy. The default po
 
  - A default policy is required and cannot be deleted.
  - The default policy is always the last policy in the priority order. Any added policies of this type have higher priority than the default policy.
- - The default policy always has one default rule that cannot be deleted. It is always the last rule in the priority order. If you add rules to the default policy, they have a higher priority than the default rule. For information on default rules, see [Rules Model and Defaults](#RulesObject).
+ - The default policy always has one default rule that cannot be deleted. It is always the last rule in the priority order. If you add rules to the default policy, they have a higher priority than the default rule. For information on default rules, see [Rules Model and Defaults](#rules-object).
  - The `system` attribute determines whether a policy is created by a system or by a user.
 
 ### Policy Priorities
@@ -603,20 +603,20 @@ If the user is not a member of the "Administrators" group, then policy B would b
 
 The Policy model defines several attributes:
 
-| Parameter   | Description                                                                                                                                          | Data Type                                                  | Required | Default                |
-| ---------   | -----------                                                                                                                                          | ---------                                                  | -------- | -------                |
-| id          | Identifier of the policy                                                                                                                             | String                                                     | No       | Assigned               |
-| type        | Specifies the [type of policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, `IDP_DISCOVERY` | String                                                     | Yes      |                        |
-| name        | Name of the policy                                                                                                                                   | String                                                     | Yes      |                        |
-| system      | This is set to `true` on system policies, which cannot be deleted.                                                                                   | Boolean                                                    | No       | `false`                |
-| description | Description of the policy.                                                                                                                           | String                                                     | No       | Null                   |
-| priority    | Priority of the policy                                                                                                                               | Int                                                        | No       | Last / Lowest Priority |
-| status      | Status of the policy: ACTIVE or INACTIVE                                                                                                             | String                                                     | No       | ACTIVE                 |
-| conditions  | Conditions for policy                                                                                                                                | <a href="#PolicyConditionsObject">Conditions Object</a>    | No       |                        |
-| settings    | Settings for policy                                                                                                                                  | <a href="#PolicySettingsObject">Policy Settings Object</a> | No       |                        |
-| created     | Timestamp when the policy was created                                                                                                                | Date                                                       | No       | Assigned               |
-| lastUpdated | Timestamp when the policy was last modified                                                                                                          | Date                                                       | No       | Assigned               |
-| _links      | Hyperlinks                                                                                                                                           | <a href="#LinksObject">Links Object</a>                    | No       |                        |
+| Parameter   | Description                                                                                                                                          | Data Type                                                    | Required | Default                |
+| ---------   | -----------                                                                                                                                          | ---------                                                    | -------- | -------                |
+| id          | Identifier of the policy                                                                                                                             | String                                                       | No       | Assigned               |
+| type        | Specifies the [type of policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, `IDP_DISCOVERY` | String                                                       | Yes      |                        |
+| name        | Name of the policy                                                                                                                                   | String                                                       | Yes      |                        |
+| system      | This is set to `true` on system policies, which cannot be deleted.                                                                                   | Boolean                                                      | No       | `false`                |
+| description | Description of the policy.                                                                                                                           | String                                                       | No       | Null                   |
+| priority    | Priority of the policy                                                                                                                               | Int                                                          | No       | Last / Lowest Priority |
+| status      | Status of the policy: ACTIVE or INACTIVE                                                                                                             | String                                                       | No       | ACTIVE                 |
+| conditions  | Conditions for policy                                                                                                                                | <a href="#conditions-object">Conditions Object</a>           | No       |                        |
+| settings    | Settings for policy                                                                                                                                  | <a href="#policy-settings-object">Policy Settings Object</a> | No       |                        |
+| created     | Timestamp when the policy was created                                                                                                                | Date                                                         | No       | Assigned               |
+| lastUpdated | Timestamp when the policy was last modified                                                                                                          | Date                                                         | No       | Assigned               |
+| _links      | Hyperlinks                                                                                                                                           | <a href="#links-object">Links Object</a>                     | No       |                        |
 
 
 ### Policy Settings Object
@@ -737,9 +737,9 @@ The Rules model defines several attributes:
 | system        | This is set to 'true' on system rules, which cannot be deleted.    | Boolean                                                   | No         | false                  |
 | created       | Timestamp when the rule was created                                | Date                                                      | No         | Assigned               |
 | lastUpdated   | Timestamp when the rule was last modified                          | Date                                                      | No         | Assigned               |
-| conditions    | Conditions for rule                                                | <a href="#RuleConditionsObject">Conditions Object</a>     | No         |                        |
-| actions       | Actions for rule                                                   | <a href="#RulesActionsObject">Rules Actions Objects</a>   | No         |                        |
-| _links        | Hyperlinks                                                         | <a href="#RulesLinksObject">Links Object</a>              | No         |                        |
+| conditions    | Conditions for rule                                                | <a href="#conditions-object-2">Conditions Object</a>      | No         |                        |
+| actions       | Actions for rule                                                   | <a href="#actions-objects">Rules Actions Objects</a>      | No         |                        |
+| _links        | Hyperlinks                                                         | <a href="#links-object-2">Links Object</a>                | No         |                        |
 
 ### Actions Objects
 
@@ -750,7 +750,7 @@ Just as policies contains settings, rules contain "Actions", which typically spe
 
 
 The Conditions Object(s) specify the conditions that must be met during policy evaluation in order to apply the rule in question.   All policy conditions, as well as conditions for at least one rule must be met in order to apply the settings specified in the policy and the associated rule.  Policies and rules may contain different conditions depending on the policy type.  The conditions which can be used with a particular policy depends on the policy type.
-See <a href="#Conditions">conditions</a>
+See <a href="#conditions">conditions</a>
 
 ### Links Object
 
@@ -771,10 +771,10 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 The people condition identifies users and groups that are used together. For policies, you can only include a group.
 
-| Parameter | Description          | Data Type                                                  | Required |
-| ---       | ---                  | ---                                                        | ---      |
-| groups    | The groups condition | <a href="#UserConditionObject">User Condition Object</a>   | Yes      |
-| users     | The users condition  | <a href="#GroupConditionObject">Group Condition Object</a> | Yes      |
+| Parameter | Description          | Data Type                                                    | Required |
+| ---       | ---                  | ---                                                          | ---      |
+| groups    | The groups condition | <a href="#user-condition-object">User Condition Object</a>   | Yes      |
+| users     | The users condition  | <a href="#group-condition-object">Group Condition Object</a> | Yes      |
 
 ##### User Condition Object
 
@@ -827,7 +827,7 @@ Specifies an authentication entry point.
 
 
 Specifies a network selection mode, and a set of network zones to be included or excluded. If the connection parameter's data type is `ZONE`, exactly one of the include or exclude arrays is required.
-Specific zone ids to include or exclude are enumerated in the respective arrays. The [Zones API](zones) can be used to manage network zones.
+Specific zone ids to include or exclude are enumerated in the respective arrays. The [Zones API](/docs/api/resources/zones) can be used to manage network zones.
 
 | Parameter  | Description            | Data Type          | Required                               |
 | ---------  | ---------------------- | ------------------ | -------------------------------------- |
@@ -1042,7 +1042,7 @@ Okta sign on policy does not contain policy settings data.  In the case of sign 
 ### Policy Conditions
 The following conditions may be applied to Okta Sign On Policy
 
-<a href="#PeopleObject">People Condition</a>
+<a href="#people-condition-object">People Condition</a>
 
 ### Okta Sign On Rules Action Data
 
@@ -1069,14 +1069,14 @@ The following conditions may be applied to Okta Sign On Policy
 #### Signon Action Object
 
 
-| Property                | Description                                                                                                                                                               | Data Type                                                | Required                      | Default |
-| ---                     | ---                                                                                                                                                                       | ---                                                      | ---                           | ---     |
-| access                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                                        | Yes                           | N/A     |
-| requireFactor           | Indicates if multi-factor authentication is required                                                                                                                      | Boolean                                                  | No                            | false   |
-| factorPromptMode        | Indicates if the user should be challenged for second factor authentication (MFA) based on the device being used, a factor session lifetime, or on every sign on attempt. | `DEVICE`, `SESSION` or `ALWAYS`                          | Yes, if requireFactor is true | N/A     |
-| rememberDeviceByDefault | Indicates if Okta should automatically remember the device                                                                                                                | Boolean                                                  | No                            | false   |
-| factorLifetime          | Interval of time that must elapse before the user is challenged for MFA, if the factor prompt mode is set to 'SESSION'                                                    | Integer                                                  | Yes, if requireFactor is true | N/A     |
-| session                 | Properties governing the user's session lifetime                                                                                                                          | <a href="#SignonSessionObject">Signon Session Object</a> | No                            |         |
+| Property                | Description                                                                                                                                                               | Data Type                                                  | Required                      | Default |
+| ---                     | ---                                                                                                                                                                       | ---                                                        | ---                           | ---     |
+| access                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                                          | Yes                           | N/A     |
+| requireFactor           | Indicates if multi-factor authentication is required                                                                                                                      | Boolean                                                    | No                            | false   |
+| factorPromptMode        | Indicates if the user should be challenged for second factor authentication (MFA) based on the device being used, a factor session lifetime, or on every sign on attempt. | `DEVICE`, `SESSION` or `ALWAYS`                            | Yes, if requireFactor is true | N/A     |
+| rememberDeviceByDefault | Indicates if Okta should automatically remember the device                                                                                                                | Boolean                                                    | No                            | false   |
+| factorLifetime          | Interval of time that must elapse before the user is challenged for MFA, if the factor prompt mode is set to 'SESSION'                                                    | Integer                                                    | Yes, if requireFactor is true | N/A     |
+| session                 | Properties governing the user's session lifetime                                                                                                                          | <a href="#signon-session-object">Signon Session Object</a> | No                            |         |
 
 
 ##### Signon Session Object
@@ -1091,11 +1091,11 @@ The following conditions may be applied to Okta Sign On Policy
 ### Rules Conditions
 The following conditions may be applied to the rules associated with Okta Sign On Policy
 
-<a href="#PeopleObject">People Condition</a>
+<a href="#people-condition-object">People Condition</a>
 
-<a href="#NetworkConditionObject">Network Condition</a>
+<a href="#network-condition-object">Network Condition</a>
 
-<a href="#AuthContextConditionObject">AuthContext Condition</a>
+<a href="#authcontext-condition-object">AuthContext Condition</a>
 
 
 ## Multifactor (MFA) Enrollment Policy
@@ -1127,7 +1127,19 @@ Note that policy settings are included only for those factors which have been en
            "type": "NONE"
          }
        }
-     }
+     },
+     "adoption": {
+        "gracePeriod": {
+          "duration": "P3M",
+          "startDate": {
+            "type": "urn:okta:expression:1.0",
+            "value": "user.hireDate"
+          }
+        },
+        "prompt": {
+          "frequency": "P5D"
+        }
+      }
    }
 ```
 
@@ -1136,30 +1148,30 @@ Note that policy settings are included only for those factors which have been en
 #### Policy Factors Configuration Object
 
 
-| Parameter     | Description            | Data Type                                                  | Required |
-| ---           | ---                    | ---                                                        | ---      |
-| duo           | Duo Security           | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| fido_u2f      | FIDO U2F               | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| fido_webauthn | Windows Hello          | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| google_otp    | Google Authenticator   | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| okta_call     | Okta Voice Call        | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| okta_email    | Okta Email             | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| okta_otp      | Okta Verify TOTP       | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| okta_password | Okta Password          | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| okta_push     | Okta Verify Push       | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| okta_question | Okta Security Question | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| okta_sms      | Okta SMS               | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| rsa_token     | RSA Token              | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| symantec_vip  | Symantec VIP           | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
-| yubikey_token | Yubikey Token          | <a href="#PolicyFactorObject">Policy MFA Factor Object</a> | No       |
+| Parameter     | Description            | Data Type                                                        | Required |
+| ---           | ---                    | ---                                                              | ---      |
+| duo           | Duo Security           | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| fido_u2f      | FIDO U2F               | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| fido_webauthn | Windows Hello          | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| google_otp    | Google Authenticator   | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| okta_call     | Okta Voice Call        | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| okta_email    | Okta Email             | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| okta_otp      | Okta Verify TOTP       | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| okta_password | Okta Password          | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| okta_push     | Okta Verify Push       | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| okta_question | Okta Security Question | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| okta_sms      | Okta SMS               | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| rsa_token     | RSA Token              | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| symantec_vip  | Symantec VIP           | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
+| yubikey_token | Yubikey Token          | <a href="#policy-mfa-factor-object">Policy MFA Factor Object</a> | No       |
 
 #### Policy MFA Factor Object
 
 
-| Parameter | Description                            | Data Type                                                             | Required |
-| ---       | ---                                    | ---                                                                   | ---      |
-| consent   | Consent requirements for the factor    | <a href="#PolicyFactorConsentObject">Policy Factor Consent Object</a> | No       |
-| enroll    | Enrollment requirements for the factor | <a href="#PolicyFactorEnrollObject">Policy Factor Enroll Object</a>   | No       |
+| Parameter | Description                            | Data Type                                                                | Required |
+| ---       | ---                                    | ---                                                                      | ---      |
+| consent   | Consent requirements for the factor    | <a href="#policy-factor-consent-object">Policy Factor Consent Object</a> | No       |
+| enroll    | Enrollment requirements for the factor | <a href="#policy-factor-enroll-object">Policy Factor Enroll Object</a>   | No       |
 
 
 #### Policy Factor Enroll Object
@@ -1174,10 +1186,10 @@ Note that policy settings are included only for those factors which have been en
 
 The Policy Factor Consent Object is an extensibility point.  In the future, policy may be configurable to require user consent to specified terms when enrolling in a factor.   At present settings other than type = `NONE` are ignored.
 
-| Parameter | Description                                                                              | Data Type                                                           | Required | Default |
-| ---       | ---                                                                                      | ---                                                                 | ---      | ---     |
-| terms     | Specifies the consent terms to be offered the user upon enrolling in the factor.         | <a href="#PolicyFactorConsentTerms">Policy Factor Consent Terms</a> | No       |         |
-| type      | User consent type required before enrolling in the factor: `NONE` or `TERMS_OF_SERVICE`. | String                                                              | No       | NONE    |
+| Parameter | Description                                                                              | Data Type                                                              | Required | Default |
+| ---       | ---                                                                                      | ---                                                                    | ---      | ---     |
+| terms     | Specifies the consent terms to be offered the user upon enrolling in the factor.         | <a href="#policy-factor-consent-terms">Policy Factor Consent Terms</a> | No       |         |
+| type      | User consent type required before enrolling in the factor: `NONE` or `TERMS_OF_SERVICE`. | String                                                                 | No       | NONE    |
 
 #### Policy Factor Consent Terms
 
@@ -1189,10 +1201,41 @@ At present the Policy Factor Consent Terms settings are ignored.
 | format    | The format of the consent dialog to be presented. | `TEXT`, `RTF`, `MARKDOWN` or `URL` | No       | N/A     |
 | value     | The contents of the consent dialog.               | String                             | No       | N/A     |
 
+#### Policy Factor Adoption Object
+
+
+| Parameter   | Description                                                                                       | Data Type                                                            | Required |
+| ---         | ---                                                                                               | ---                                                                  | ---      |
+| gracePeriod | Settings for defining the period of time a user has to finish enrolling in all `REQUIRED` factors | <a href="#policy-grace-period-object">Policy Grace Period Object</a> | No       |
+| prompt      | Settings for defining how often a user is reminded that they have unenrolled `REQUIRED` factors   | <a href="#policy-prompt-object">Policy Prompt Object</a>             | No       |
+
+#### Policy Grace Period Object
+
+
+| Parameter | Description         | Data Type                                                                                  | Required | Default |
+| ---       | ---                 | ---                                                                                        | ---      | ---     |
+| duration  | Grace period length | [ISO 8601 Duration String](https://tools.ietf.org/html/rfc3339)                            | No       | `P0D`   |
+| startDate | Grace period start  | <a href="#policy-grace-period-start-date-object">Policy Grace Period Start Date Object</a> | No       | `null`  |
+
+#### Policy Grace Period Start Date Object
+
+
+| Parameter | Description                                                                                                | Data Type | Required |
+| ---       | ---                                                                                                        | ---       | ---      |
+| type      | Currently it is : `urn:okta:expression:1.0`                                                                | String    | Yes      |
+| value     | Okta expression which would result in an [ISO 8601 Date](https://tools.ietf.org/html/rfc3339) String value | String    | Yes      |
+
+#### Policy Prompt Object
+
+
+| Parameter | Description                                                     | Data Type                                                       | Required | Default |
+| ---       | ---                                                             | ---                                                             | ---      | ---     |
+| frequency | Amount of time that must pass for user to be reminded to enroll | [ISO 8601 Duration String](https://tools.ietf.org/html/rfc3339) | No       | `P0D`   |
+
 ### Policy Conditions
 The following conditions may be applied to Multifactor Policy
 
-<a href="#PeopleObject">People Condition</a>
+<a href="#people-condition-object">People Condition</a>
 
 ### Multifactor Rules Action Data
 
@@ -1217,9 +1260,9 @@ The following conditions may be applied to Multifactor Policy
 ### Rules Conditions
 The following conditions may be applied to the rules associated with MFA Enrollment Policy
 
-<a href="#PeopleObject">People Condition</a>
+<a href="#people-condition-object">People Condition</a>
 
-<a href="#NetworkConditionObject">Network Condition</a>
+<a href="#network-condition-object">Network Condition</a>
 
 ## Password Policy
 
@@ -1289,34 +1332,34 @@ The Password policy determines the requirements for a user's password length and
 
 ### Policy Settings Data
 
-| Property   | Description         | Data Type                                                         | Required |
-| ---        | ---                 | ---                                                               | ---      |
-| password   | Password settings   | <a href="#PasswordObject">Password Policy Password Object</a>     | No       |
-| recovery   | Recovery settings   | <a href="#RecoveryObject">Password Policy Recovery Object</a>     | No       |
-| delegation | Delegation settings | <a href="#DelegationObject">Password Policy Delegation Object</a> | No       |
+| Property   | Description         | Data Type                                                          | Required |
+| ---        | ---                 | ---                                                                | ---      |
+| password   | Password settings   | <a href="#password-object">Password Policy Password Object</a>     | No       |
+| recovery   | Recovery settings   | <a href="#recovery-object">Password Policy Recovery Object</a>     | No       |
+| delegation | Delegation settings | <a href="#delegation-object">Password Policy Delegation Object</a> | No       |
 
 #### Password Object
 
 
 | Property   | Description         | Data Type                                                          | Required |
 | ---        | ---                 | ---                                                                | ---      |
-| complexity | Complexity settings | <a href="#PasswordComplexityObject">Password Complexity Object</a> | No       |
-| age        | Age settings        | <a href="#PasswordAgeObject">Password Age Object</a>               | No       |
-| lockout    | Lockout settings    | <a href="#PasswordLockoutObject">Password Lockout Object</a>       | No       |
+| complexity | Complexity settings | <a href="#complexity-object">Password Complexity Object</a>        | No       |
+| age        | Age settings        | <a href="#age-object">Password Age Object</a>                      | No       |
+| lockout    | Lockout settings    | <a href="#lockout-object">Password Lockout Object</a>              | No       |
 
 ##### Complexity Object
 
 
-Property | Description | Data Type | Required | Default
-| --- | --- | --- | --- | ---
-| minLength                          | Minimum password length                                                                                                         | integer                                                                     | No | 8           |
-| minLowerCase                       | Indicates if a password must contain at least one lower case letter: 0 indicates no, 1 indicates yes                            | integer                                                                     | No | 1           |
-| minUpperCase                       | Indicates if a password must contain at least one upper case letter: 0 indicates no, 1 indicates yes                            | integer                                                                     | No | 1           |
-| minNumber                          | Indicates if a password must contain at least one number: 0 indicates no, 1 indicates yes                                       | integer                                                                     | No | 1           |
-| minSymbol                          | Indicates if a password must contain at least one symbol (e.g., !@#$%^&*): 0 indicates no, 1 indicates yes                      | integer                                                                     | No | 1           |
-| excludeUsername                    | Indicates if the user name must be excluded from the password                                                                   | boolean                                                                     | No | true        |
-| excludeAttributes                  | The user profile attributes whose values must be excluded from the password: currently only supports `firstName` and `lastName` | Array                                                                       | No | Empty Array |
-| dictionary {%api_lifecycle beta %} | Weak password dictionary lookup settings                                                                                        | <a href="#WeakPasswordDictionaryObject">Weak Password Dictionary Object</a> | No | N/A         |
+| Property                           | Description                                                                                                                     | Data Type                                                                      | Required | Default     |
+| ---                                | ---                                                                                                                             | ---                                                                            | ---      | ---         |
+| minLength                          | Minimum password length                                                                                                         | integer                                                                        | No       | 8           |
+| minLowerCase                       | Indicates if a password must contain at least one lower case letter: 0 indicates no, 1 indicates yes                            | integer                                                                        | No       | 1           |
+| minUpperCase                       | Indicates if a password must contain at least one upper case letter: 0 indicates no, 1 indicates yes                            | integer                                                                        | No       | 1           |
+| minNumber                          | Indicates if a password must contain at least one number: 0 indicates no, 1 indicates yes                                       | integer                                                                        | No       | 1           |
+| minSymbol                          | Indicates if a password must contain at least one symbol (e.g., !@#$%^&*): 0 indicates no, 1 indicates yes                      | integer                                                                        | No       | 1           |
+| excludeUsername                    | Indicates if the user name must be excluded from the password                                                                   | boolean                                                                        | No       | true        |
+| excludeAttributes                  | The user profile attributes whose values must be excluded from the password: currently only supports `firstName` and `lastName` | Array                                                                          | No       | Empty Array |
+| dictionary {%api_lifecycle beta %} | Weak password dictionary lookup settings                                                                                        | <a href="#weak-password-dictionary-object">Weak Password Dictionary Object</a> | No       | N/A         |
 
 ###### Weak Password Dictionary Object
 
@@ -1325,17 +1368,16 @@ Property | Description | Data Type | Required | Default
 
 Specifies how lookups for weak passwords are done. Designed to be extensible with multiple possible dictionary types against which to do lookups.
 
-Property | Description | Data Type | Required
-| --- | --- | --- | ---
-common | Lookup settings for commonly used passwords  | <a href="#CommonPasswordLookupObject">Common Password Lookup Object</a> | No
+| Property | Description                                 | Data Type                                                                  | Required |
+| ---      | ---                                         | ---                                                                        | ---      |
+| common   | Lookup settings for commonly used passwords | <a href="#common-password-lookup-object">Common Password Lookup Object</a> | No       |
 
 Common Password Lookup Object
 
 
-
-Property | Description | Data Type | Required | Default
-| --- | --- | ---| --- | ---
-exclude | Indicates whether to check passwords against common password dictionary | Boolean | No | false
+| Property | Description                                                             | Data Type | Required | Default |
+| ---      | ---                                                                     | ---       | ---      | ---     |
+| exclude  | Indicates whether to check passwords against common password dictionary | Boolean   | No       | false   |
 
 ##### Age Object
 
@@ -1359,33 +1401,33 @@ exclude | Indicates whether to check passwords against common password dictionar
 #### Recovery Object
 
 
-| Property | Description                                            | Data Type                                                    | Required |
-| ---      | ---                                                    | ---                                                          | ---      |
-| factors  | Settings for the factors that may be used for recovery | <a href="#RecoveryFactorsObject">Recovery Factors Object</a> | No       |
+| Property | Description                                            | Data Type                                                      | Required |
+| ---      | ---                                                    | ---                                                            | ---      |
+| factors  | Settings for the factors that may be used for recovery | <a href="#recovery-factors-object">Recovery Factors Object</a> | No       |
 
 ##### Recovery Factors Object
 
 
-| Property          | Description                           | Data Type                                                                   | Required |
-| ---               | ---                                   | ---                                                                         | ---      |
-| recovery_question | Settings for security question factor | <a href="#RecoveryQuestionFactorObject">Recovery Question Factor Object</a> | No       |
-| okta_email        | Settings for email factor             | <a href="#EmailFactorObject">Email Factor Object</a>                        | No       |
-| okta_sms          | Settings for SMS factor               | <a href="#SMSFactorObject">SMS Factor Object</a>                            | No       |
+| Property          | Description                           | Data Type                                                                      | Required |
+| ---               | ---                                   | ---                                                                            | ---      |
+| recovery_question | Settings for security question factor | <a href="#recovery-question-factor-object">Recovery Question Factor Object</a> | No       |
+| okta_email        | Settings for email factor             | <a href="#email-factor-object">Email Factor Object</a>                         | No       |
+| okta_sms          | Settings for SMS factor               | <a href="#sms-factor-object">SMS Factor Object</a>                             | No       |
 
 ###### Recovery Question Factor Object
 
 
-| Property   | Description                                         | Data Type                                                                                        | Required |
-| ---        | ---                                                 | ---                                                                                              | ---      |
-| status     | Indicates if the factor is enabled.                 | `ACTIVE`, `INACTIVE` <ApiLifecycle access="ea" />                                                | Yes      |
-| properties | Configuration settings for security question factor | <a href="#RecoveryQuestionFactorPropertiesObject">Recovery Question Factor Properties Object</a> | No       |
+| Property   | Description                                         | Data Type                                                                                            | Required |
+| ---        | ---                                                 | ---                                                                                                  | ---      |
+| status     | Indicates if the factor is enabled.                 | `ACTIVE`, `INACTIVE` <ApiLifecycle access="ea" />                                                    | Yes      |
+| properties | Configuration settings for security question factor | <a href="#recovery-question-factor-properties-object">Recovery Question Factor Properties Object</a> | No       |
 
 ###### Recovery Question Factor Properties Object
 
 
-| Property   | Description                               | Data Type                                                                                                             | Required |
-| ---        | ---                                       | ---                                                                                                                   | ---      |
-| complexity | Complexity settings for recovery question | <a href="#RecoveryQuestionFactorPropertiesComplexityObject">Recovery Question Factor Properties Complexity Object</a> | No       |
+| Property   | Description                               | Data Type                                                                                                                  | Required |
+| ---        | ---                                       | ---                                                                                                                        | ---      |
+| complexity | Complexity settings for recovery question | <a href="#recovery-question-factor-properties-complexity-object">Recovery Question Factor Properties Complexity Object</a> | No       |
 
 ###### Recovery Question Factor Properties Complexity Object
 
@@ -1397,17 +1439,17 @@ exclude | Indicates whether to check passwords against common password dictionar
 ###### Email Factor Object
 
 
-| Property   | Description                                                     | Data Type                                                                 | Required |
-| ---        | ---                                                             | ---                                                                       | ---      |
-| status     | Indicates if the factor is enabled.  This property is read-only | `ACTIVE`                                                                  | Yes      |
-| properties | Configuration settings for okta email factor                    | <a href="#EmailFactorPropertiesObject">Email Factor Properties Object</a> | No       |
+| Property   | Description                                                     | Data Type                                                                    | Required |
+| ---        | ---                                                             | ---                                                                          | ---      |
+| status     | Indicates if the factor is enabled.  This property is read-only | `ACTIVE`                                                                     | Yes      |
+| properties | Configuration settings for okta email factor                    | <a href="#email-factor-properties-object">Email Factor Properties Object</a> | No       |
 
 ###### Email Factor Properties Object
 
 
-| Property      | Description             | Data Type                                                                                             | Required |
-| ---           | ---                     | ---                                                                                                   | ---      |
-| recoveryToken | Recovery token settings | <a href="#EmailFactorPropertiesREcoveryTokenObject">Email Factor Properties Recovery Token Object</a> | No       |
+| Property      | Description             | Data Type                                                                                                  | Required |
+| ---           | ---                     | ---                                                                                                        | ---      |
+| recoveryToken | Recovery token settings | <a href="#email-factor-properties-recovery-token-object">Email Factor Properties Recovery Token Object</a> | No       |
 
 ###### Email Factor Properties Recovery Token Object
 
@@ -1426,9 +1468,9 @@ exclude | Indicates whether to check passwords against common password dictionar
 #### Delegation Object
 
 
-| Property | Description        | Data Type                                                        | Required |
-| ---      | ---                | ---                                                              | ---      |
-| options  | Delegation options | <a href="#DelegationOptionsObject">Delegation Options Object</a> | No       |
+| Property | Description        | Data Type                                               | Required |
+| ---      | ---                | ---                                                     | ---      |
+| options  | Delegation options | <a href="#options-object">Delegation Options Object</a> | No       |
 
 ##### Options Object
 
@@ -1440,9 +1482,9 @@ exclude | Indicates whether to check passwords against common password dictionar
 ### Policy Conditions
 The following conditions may be applied to Password Policy
 
-<a href="#PeopleObject">People Condition</a>
+<a href="#people-condition-object">People Condition</a>
 
-<a href="#AuthProviderConditionObject">Authentication Provider Condition</a>
+<a href="#authentication-provider-condition-object">Authentication Provider Condition</a>
 
 ### Password Rules Action Data
 
@@ -1465,11 +1507,11 @@ The following conditions may be applied to Password Policy
 #### Password Action Object
 
 
-| Property                 | Description                                                                      | Data Type                                                                   | Required |
-| ---                      | ---                                                                              | ---                                                                         | ---      |
-| passwordChange           | Properties governing the change password operation                               | <a href="#PasswordChangeActionObject">Password Change Object</a>            | No       |
-| selfServicePasswordReset | Properties governing the self-service password reset (forgot password) operation | <a href="#PasswordResetActionObject">Self Service Password Reset Object</a> | No       |
-| selfServiceUnlock        | Properties governing the self-service unlock operation                           | <a href="#SelfServiceUnockActionObject">Self Service Unlock Object</a>      | No       |
+| Property                 | Description                                                                      | Data Type                                                                                   | Required |
+| ---                      | ---                                                                              | ---                                                                                         | ---      |
+| passwordChange           | Properties governing the change password operation                               | <a href="#password-change-action-object">Password Change Object</a>                         | No       |
+| selfServicePasswordReset | Properties governing the self-service password reset (forgot password) operation | <a href="#self-service-password-reset-action-object">Self Service Password Reset Object</a> | No       |
+| selfServiceUnlock        | Properties governing the self-service unlock operation                           | <a href="#self-service-unlock-action-object">Self Service Unlock Object</a>                 | No       |
 
 ##### Password Change Action Object
 
@@ -1495,9 +1537,9 @@ The following conditions may be applied to Password Policy
 ### Rules Conditions
 The following conditions may be applied to the rules associated with Password Policy
 
-<a href="#PeopleObject">People Condition</a>
+<a href="#people-condition-object">People Condition</a>
 
-<a href="#NetworkConditionObject">Network Condition</a>
+<a href="#network-condition-object">Network Condition</a>
 
 ## IdP Discovery Policy
 
@@ -1509,13 +1551,13 @@ The IdP Discovery Policy determines where to route users when they are attemptin
 ### Policy Conditions
 The following conditions may be applied to IdP Discovery Policy
 
-<a href="#NetworkConditionObject">Network Condition</a>
+<a href="#network-condition-object">Network Condition</a>
 
-<a href="#PlatformConditionObject">Platform Condition</a>
+<a href="#platform-condition-object">Platform Condition</a>
 
-<a href="#UserIdentifierConditionObject">User Identifier Condition</a>
+<a href="#user-identifier-condition-object">User Identifier Condition</a>
 
-<a href="#AppAndAppInstanceConditionObject">Application and App Instance Condition</a>
+<a href="#application-and-app-instance-condition-object">Application and App Instance Condition</a>
 
 ### Policy Action Data
 

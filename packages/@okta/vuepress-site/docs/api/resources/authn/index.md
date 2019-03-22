@@ -6931,3 +6931,27 @@ The Factor Links Object is read only.
 | verify             | [Verifies a factor](#verify-factor)                         |
 | questions          | Lists all possible questions for the `question` factor type |
 | resend             | Resends a challenge or OTP to a device                      |
+
+### Enroll Policy Object
+
+A subset of policy settings of the multifactor enrollment policy published during `MFA_ENROLL` state
+
+| Property    | Description                                                                 | DataType                                                  | Nullable | Unique | Readonly |
+| ----------- | --------------------------------------------------------------------------- | --------------------------------------------------------- | -------- | ------ | -------- |
+| gracePeriod | The period of time a user has to finish enrolling in all `REQUIRED` factors | [Enroll Grace Period Object](#enroll-grace-period-object) | FALSE    | FALSE  | TRUE     |
+
+##### When user is in grace period
+
+```json
+{
+  "gracePeriod": {
+    "endDate": "2019-02-01T00:00:00.000Z"
+  }
+}
+```
+
+#### Enroll Grace Period Object
+
+| Property | Description                    | DataType | Nullable | Unique | Readonly |
+| -------- | ------------------------------ | -------- | -------- | ------ | -------- |
+| endDate  | When the grace period will end | Date     | FALSE    | FALSE  | TRUE     |
