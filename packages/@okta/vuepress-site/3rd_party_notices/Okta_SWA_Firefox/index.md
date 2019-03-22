@@ -16,8 +16,8 @@ THIRD PARTY NOTICES
 
 _Apache Ant Contrib_
 
-  |VERSION (IF ANY):|     1.0b3|
-  |-
+| VERSION (IF ANY): | 1.0b3 |
+| ---               | ---   |
   |BRIEF DESCRIPTION:|   A home for additional useful tasks and types for Ant.
   |LICENSE:|              Apache 2.0|
 
@@ -43,10 +43,10 @@ _*Modifications by Okta, Inc._
 
 _Apache Commons IO_
 
-  |VERSION (IF ANY):|    1.4|
-  |-
-  |BRIEF DESCRIPTION:|   Commons IO is a library of utilities to assist with developing IO functionality.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  | 1.4                                                                              |
+| ---                | ---                                                                              |
+| BRIEF DESCRIPTION: | Commons IO is a library of utilities to assist with developing IO functionality. |
+| LICENSE:           | Apache 2.0                                                                       |
 
 Copyright (c) 2002-2016 The Apache Software Foundation.
 
@@ -70,10 +70,10 @@ license._
 
 _Backbone_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                                                                                                                                                                                                                   |
+| ---                | ---                                                                                                                                                                                                                                                                               |
+| BRIEF DESCRIPTION: | Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface. |
+| LICENSE:           | MIT                                                                                                                                                                                                                                                                               |
 
 Copyright (c) 2010-2015 Jeremy Ashkenas, DocumentCloud and Investigative
 Reporters & Editors.
@@ -99,10 +99,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _BeautifulSoup_
 
-  |VERSION (IF ANY):|    2.5.3|
-  |-
-  |BRIEF DESCRIPTION:|   Beautiful Soup is a Python library designed for quick turnaround projects like screen-scraping.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  | 2.5.3                                                                                           |
+| ---                | ---                                                                                             |
+| BRIEF DESCRIPTION: | Beautiful Soup is a Python library designed for quick turnaround projects like screen-scraping. |
+| LICENSE:           | BSD 3-Clause                                                                                    |
 
 Copyright (c) 2004-2015 Leonard Richardson.
 
@@ -136,10 +136,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _Bouncy Castle Crypto_
 
-  |VERSION (IF ANY):|    1.36|
-  |-
-  |BRIEF DESCRIPTION:|   The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms.|
-  |LICENSE:|             Legion of the Bouncy Castle License|
+| VERSION (IF ANY):  | 1.36                                                                                   |
+| ---                | ---                                                                                    |
+| BRIEF DESCRIPTION: | The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms. |
+| LICENSE:           | Legion of the Bouncy Castle License                                                    |
 
 Copyright (c) 2000 - 2013 The Legion Of The Bouncy Castle
 (http://www.bouncycastle.org).
@@ -165,10 +165,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _CasperJS_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Navigation scripting & testing utility for PhantomJS and SlimerJS.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                    |
+| ---                | ---                                                                |
+| BRIEF DESCRIPTION: | Navigation scripting & testing utility for PhantomJS and SlimerJS. |
+| LICENSE:           | MIT                                                                |
 
 Copyright (c) 2011-2015 Nicolas Perriault.
 
@@ -193,10 +193,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _CryptoJS_
 
-  |VERSION (IF ANY):|    2.5.3|
-  |-
-  |BRIEF DESCRIPTION:|   CryptoJS is a growing collection of standard and secure cryptographic algorithms implemented in JavaScript using best practices and patterns. They are fast, and they have a consistent and simple interface.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  | 2.5.3                                                                                                                                                                                                         |
+| ---                | ---                                                                                                                                                                                                           |
+| BRIEF DESCRIPTION: | CryptoJS is a growing collection of standard and secure cryptographic algorithms implemented in JavaScript using best practices and patterns. They are fast, and they have a consistent and simple interface. |
+| LICENSE:           | BSD 3-Clause                                                                                                                                                                                                  |
 
 Copyright (c) 2009-2013 by Jeff Mott. All rights reserved.
 
@@ -229,10 +229,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _Grunt_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   The JavaScript Task Runner|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                            |
+| ---                | ---                        |
+| BRIEF DESCRIPTION: | The JavaScript Task Runner |
+| LICENSE:           | MIT                        |
 
 Copyright (c) 2015 "Cowboy" Ben Alman.
 
@@ -257,10 +257,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Info-ZIP_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Info-ZIP's purpose is to provide free, portable, high-quality versions of the Zip and UnZip compressor-archiver utilities that are compatible with the DOS-based PKZIP by PKWARE, Inc.|
-  |LICENSE:|             Info-Zip License|
+| VERSION (IF ANY):  |                                                                                                                                                                                        |
+| ---                | ---                                                                                                                                                                                    |
+| BRIEF DESCRIPTION: | Info-ZIP's purpose is to provide free, portable, high-quality versions of the Zip and UnZip compressor-archiver utilities that are compatible with the DOS-based PKZIP by PKWARE, Inc. |
+| LICENSE:           | Info-Zip License                                                                                                                                                                       |
 
 This is version 1999-Oct-05 of the Info-ZIP copyright and license.
 
@@ -314,10 +314,10 @@ source and binary releases.
 
 _jasmine-fixture_
 
-  |VERSION (IF ANY):|    1.0.5|
-  |-
-  |BRIEF DESCRIPTION:|   Makes injecting HTML snippets into the DOM easy & clean.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 1.0.5                                                    |
+| ---                | ---                                                      |
+| BRIEF DESCRIPTION: | Makes injecting HTML snippets into the DOM easy & clean. |
+| LICENSE:           | MIT                                                      |
 
 Copyright (c) 2013 Test Double, Inc.
 
@@ -342,10 +342,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _jQuery_
 
-  |VERSION (IF ANY):|    2.0.2|
-  |-
-  |BRIEF DESCRIPTION:|   jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 2.0.2                                                                                                                                                                                                                                 |
+| ---                | ---                                                                                                                                                                                                                                   |
+| BRIEF DESCRIPTION: | jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript. |
+| LICENSE:           | MIT                                                                                                                                                                                                                                   |
 
 Copyright (c) 2005, 2013 jQuery Foundation, Inc. and other contributors.
 
@@ -370,10 +370,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Mechanize_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Stateful programmatic web browsing in Python, after Andy Lester's Perl module.|
-  |LICENSE:|             ZPL 2.1 or BSD 3-Clause, BSD 3-Clause selected|
+| VERSION (IF ANY):  |                                                                                |
+| ---                | ---                                                                            |
+| BRIEF DESCRIPTION: | Stateful programmatic web browsing in Python, after Andy Lester's Perl module. |
+| LICENSE:           | ZPL 2.1 or BSD 3-Clause, BSD 3-Clause selected                                 |
 
 Copyright (c) 2002-2010 John J. Lee <jjl@pobox.com>.
 
@@ -414,10 +414,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _Mozilla Addon SDK_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Using the Add-on SDK you can create Firefox add-ons using standard Web technologies: JavaScript, HTML, and CSS.|
-  |LICENSE:|             MPL 2.0|
+| VERSION (IF ANY):  |                                                                                                                 |
+| ---                | ---                                                                                                             |
+| BRIEF DESCRIPTION: | Using the Add-on SDK you can create Firefox add-ons using standard Web technologies: JavaScript, HTML, and CSS. |
+| LICENSE:           | MPL 2.0                                                                                                         |
 
 The files which make up the SDK are developed by Mozilla and licensed
 under the MPL 2.0 (http://mozilla.org/MPL/2.0/)
@@ -427,10 +427,10 @@ License 2.0 license._
 
 _Serpent S Boxes_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Customized search engine to search for S boxes.|
-  |LICENSE:|             Custom|
+| VERSION (IF ANY):  |                                                 |
+| ---                | ---                                             |
+| BRIEF DESCRIPTION: | Customized search engine to search for S boxes. |
+| LICENSE:           | Custom                                          |
 
 Copyright (c) Dr B. R Gladman (gladman@seven77.demon.co.uk) and Sam
 Simpson (s.simpson@mia.co.uk). 17th December 1998.
@@ -440,10 +440,10 @@ subject only to acknowledgement of its origin.
 
 _Sizzle_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   A pure-JavaScript CSS selector engine designed to be easily dropped in to a host library.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                           |
+| ---                | ---                                                                                       |
+| BRIEF DESCRIPTION: | A pure-JavaScript CSS selector engine designed to be easily dropped in to a host library. |
+| LICENSE:           | MIT                                                                                       |
 
 Copyright (c) 2012 jQuery Foundation and other contributors.
 
@@ -468,10 +468,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _UnderscoreJS_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Underscore is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                                                                                |
+| ---                | ---                                                                                                                                            |
+| BRIEF DESCRIPTION: | Underscore is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. |
+| LICENSE:           | MIT                                                                                                                                            |
 
 Copyright (c) 2009-2013 Jeremy Ashkenas, DocumentCloud Inc.
 
@@ -496,10 +496,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _XAR_
 
-  |VERSION (IF ANY):|    1.6.1|
-  |-
-  |BRIEF DESCRIPTION:|   The XAR project aims to provide an easily extensible archive format.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  | 1.6.1                                                                |
+| ---                | ---                                                                  |
+| BRIEF DESCRIPTION: | The XAR project aims to provide an easily extensible archive format. |
+| LICENSE:           | BSD 3-Clause                                                         |
 
 Copyright (c) 2005-2007 Rob Braun. All rights reserved.
 
@@ -532,10 +532,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _XPISigner_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   XPISigner is a commandline tool that simplifies signing Firefox and Thunderbird extensions.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  |                                                                                             |
+| ---                | ---                                                                                         |
+| BRIEF DESCRIPTION: | XPISigner is a commandline tool that simplifies signing Firefox and Thunderbird extensions. |
+| LICENSE:           | BSD 3-Clause                                                                                |
 
 Copyright (c) 2007 Kevin O'Regan (http//o-regan.org)
 
@@ -568,10 +568,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _YUI Compressor_
 
-  |VERSION (IF ANY):|    2.4.2|
-  |-
-  |BRIEF DESCRIPTION:|   The YUI Compressor is a JavaScript compressor which, in addition to removing comments and white-spaces, obfuscates local variables using the smallest possible variable name.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  | 2.4.2                                                                                                                                                                         |
+| ---                | ---                                                                                                                                                                           |
+| BRIEF DESCRIPTION: | The YUI Compressor is a JavaScript compressor which, in addition to removing comments and white-spaces, obfuscates local variables using the smallest possible variable name. |
+| LICENSE:           | BSD 3-Clause                                                                                                                                                                  |
 
 Copyright (c) 2013, Yahoo! Inc. All rights reserved.
 
@@ -604,10 +604,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _zlib_
 
-  |VERSION (IF ANY):|    1.1.3|
-  |-
-  |BRIEF DESCRIPTION:|   A free, lossless data compression lib for use on virtually any computer hardware and operating system.|
-  |LICENSE:|             zlib License|
+| VERSION (IF ANY):  | 1.1.3                                                                                                  |
+| ---                | ---                                                                                                    |
+| BRIEF DESCRIPTION: | A free, lossless data compression lib for use on virtually any computer hardware and operating system. |
+| LICENSE:           | zlib License                                                                                           |
 
 Copyright (c) 1995-2013 Jean-loup Gailly and Mark Adler.
 

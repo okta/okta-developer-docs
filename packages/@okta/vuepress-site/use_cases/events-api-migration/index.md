@@ -204,55 +204,55 @@ Note the System Log API representation's improved structure and additional embed
 
 Given the above events from each API, the following compares each leaf-level attribute. [JSON Pointer](https://tools.ietf.org/html/rfc6901) notation is used to specify the compared attribute values.
 
-| Event                     | LogEvent                                                 | Notes                                        |
-| ------------------------- | -------------------------------------------------------- | -------------------------------------------- |
-| `/action/categories`      |                                                          | Always empty |
-| `/actors/0/login`         | `/actor/alternateId`                                     | Generally same values |
-| `/actors/0/displayName`   | `/actor/displayName`                                     | Generally same values |
-| `/actors/0/id`            | `/actor/id`                                              | Generally same values |
-| `/actors/0/objectType`    | `/actor/type`                                            | Generally same values |
-|                           | `/authenticationContext/authenticationStep`              | New |
-| `/sessionId`              | `/authenticationContext/externalSessionId`               | New |
-| `/actors/1/objectType`    | `/client/device`                                         | Different values |
-|                           | `/client/geographicalContext/city`                       | New |
-|                           | `/client/geographicalContext/country`                    | New |
-|                           | `/client/geographicalContext/geolocation`                | New |
-|                           | `/client/geographicalContext/geolocation/lat`            | New |
-|                           | `/client/geographicalContext/geolocation/lon`            | New |
-|                           | `/client/geographicalContext/postalCode`                 | New |
-|                           | `/client/geographicalContext/state`                      | New |
-| `/actors/1/ipAddress`     | `/client/ipAddress`                                      | New |
-| `/actors/1/displayName`   | `/client/userAgent/browser`                              | New |
-|                           | `/client/userAgent/os`                                   | New |
-| `/actors/1/id`            | `/client/userAgent/rawUserAgent`                         | New |
-|                           | `/client/zone`                                           | New |
-| `/action/requestUri`      | `/debugContext/debugData/requestUri`                     | New |
-| `/action/message`         | `/displayMessage`                                        | Generally less content |
+| Event                     | LogEvent                                                 | Notes                                                                              |
+| ------------------------- | -------------------------------------------------------- | --------------------------------------------                                       |
+| `/action/categories`      |                                                          | Always empty                                                                       |
+| `/actors/0/login`         | `/actor/alternateId`                                     | Generally same values                                                              |
+| `/actors/0/displayName`   | `/actor/displayName`                                     | Generally same values                                                              |
+| `/actors/0/id`            | `/actor/id`                                              | Generally same values                                                              |
+| `/actors/0/objectType`    | `/actor/type`                                            | Generally same values                                                              |
+|                           | `/authenticationContext/authenticationStep`              | New                                                                                |
+| `/sessionId`              | `/authenticationContext/externalSessionId`               | New                                                                                |
+| `/actors/1/objectType`    | `/client/device`                                         | Different values                                                                   |
+|                           | `/client/geographicalContext/city`                       | New                                                                                |
+|                           | `/client/geographicalContext/country`                    | New                                                                                |
+|                           | `/client/geographicalContext/geolocation`                | New                                                                                |
+|                           | `/client/geographicalContext/geolocation/lat`            | New                                                                                |
+|                           | `/client/geographicalContext/geolocation/lon`            | New                                                                                |
+|                           | `/client/geographicalContext/postalCode`                 | New                                                                                |
+|                           | `/client/geographicalContext/state`                      | New                                                                                |
+| `/actors/1/ipAddress`     | `/client/ipAddress`                                      | New                                                                                |
+| `/actors/1/displayName`   | `/client/userAgent/browser`                              | New                                                                                |
+|                           | `/client/userAgent/os`                                   | New                                                                                |
+| `/actors/1/id`            | `/client/userAgent/rawUserAgent`                         | New                                                                                |
+|                           | `/client/zone`                                           | New                                                                                |
+| `/action/requestUri`      | `/debugContext/debugData/requestUri`                     | New                                                                                |
+| `/action/message`         | `/displayMessage`                                        | Generally less content                                                             |
 | `/action/objectType`      | `/eventType`                                             | Generally contains different ids (see [Event Type Mappings](#event-type-mappings)) |
-|                           | `/legacyEventType`                                       | Contains `/action/objectType` as its value |
-|                           | `/outcome/result`                                        | Contains value that is encoded in `/action/objectType` suffix |
-| `/published`              | `/published`                                             | Contains slightly different values |
-|                           | `/request/ipChain/0/geographicalContext`                 | New |
-|                           | `/request/ipChain/0/geographicalContext/city`            | New |
-|                           | `/request/ipChain/0/geographicalContext/country`         | New |
-|                           | `/request/ipChain/0/geographicalContext/geolocation`     | New |
-|                           | `/request/ipChain/0/geographicalContext/geolocation/lat` | New |
-|                           | `/request/ipChain/0/geographicalContext/geolocation/lon` | New |
-|                           | `/request/ipChain/0/geographicalContext/postalCode`      | New |
-|                           | `/request/ipChain/0/geographicalContext/state`           | New |
-| `/actors/1/ipAddress`     | `/request/ipChain/0/ip`                                  | New |
-|                           | `/request/ipChain/0/version`                             | New |
-|                           | `/securityContext`                                       | New |
-|                           | `/severity`                                              | New |
-| `/targets/0/displayName`  | `/target/0/displayName`                                  | Generally same values |
-| `/targets/0/id`           | `/target/0/id`                                           | Generally same values |
-| `/targets/0/login`        | `/target/0/alternateId`                                  | Generally same values |
-| `/targets/0/objectType`   | `/target/0/type`                                         | Generally same values |
-|                           | `/transaction/detail`                                    | Generally same values |
-| `/requestId`              | `/transaction/id`                                        | When `/transaction/type` is `WEB` |
-|                           | `/transaction/type`                                      | New |
-| `/eventId`                | `/uuid`                                                  | Different values |
-|                           | `/version`                                               | New |
+|                           | `/legacyEventType`                                       | Contains `/action/objectType` as its value                                         |
+|                           | `/outcome/result`                                        | Contains value that is encoded in `/action/objectType` suffix                      |
+| `/published`              | `/published`                                             | Contains slightly different values                                                 |
+|                           | `/request/ipChain/0/geographicalContext`                 | New                                                                                |
+|                           | `/request/ipChain/0/geographicalContext/city`            | New                                                                                |
+|                           | `/request/ipChain/0/geographicalContext/country`         | New                                                                                |
+|                           | `/request/ipChain/0/geographicalContext/geolocation`     | New                                                                                |
+|                           | `/request/ipChain/0/geographicalContext/geolocation/lat` | New                                                                                |
+|                           | `/request/ipChain/0/geographicalContext/geolocation/lon` | New                                                                                |
+|                           | `/request/ipChain/0/geographicalContext/postalCode`      | New                                                                                |
+|                           | `/request/ipChain/0/geographicalContext/state`           | New                                                                                |
+| `/actors/1/ipAddress`     | `/request/ipChain/0/ip`                                  | New                                                                                |
+|                           | `/request/ipChain/0/version`                             | New                                                                                |
+|                           | `/securityContext`                                       | New                                                                                |
+|                           | `/severity`                                              | New                                                                                |
+| `/targets/0/displayName`  | `/target/0/displayName`                                  | Generally same values                                                              |
+| `/targets/0/id`           | `/target/0/id`                                           | Generally same values                                                              |
+| `/targets/0/login`        | `/target/0/alternateId`                                  | Generally same values                                                              |
+| `/targets/0/objectType`   | `/target/0/type`                                         | Generally same values                                                              |
+|                           | `/transaction/detail`                                    | Generally same values                                                              |
+| `/requestId`              | `/transaction/id`                                        | When `/transaction/type` is `WEB`                                                  |
+|                           | `/transaction/type`                                      | New                                                                                |
+| `/eventId`                | `/uuid`                                                  | Different values                                                                   |
+|                           | `/version`                                               | New                                                                                |
 
 Note that there is only one `actor` in System Log API compared to potentially multiple values in Events API's `actors` attribute. Instead, the System Log API adds a `client` attribute to hold any secondary actor to make it easier for consumers to access.
 

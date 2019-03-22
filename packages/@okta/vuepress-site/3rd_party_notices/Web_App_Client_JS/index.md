@@ -16,10 +16,10 @@ THIRD PARTY NOTICES
 
 _Almond_
 
-  |VERSION (IF ANY):|    0.2.9|
-  |-
-  |BRIEF DESCRIPTION:|   A minimal AMD API implementation for use after optimized builds.|
-  |LICENSE:|             MIT or BSD 3-Clause, MIT selected|
+| VERSION (IF ANY):  | 0.2.9                                                            |
+| ---                | ---                                                              |
+| BRIEF DESCRIPTION: | A minimal AMD API implementation for use after optimized builds. |
+| LICENSE:           | MIT or BSD 3-Clause, MIT selected                                |
 
 Copyright (c) 2011-2014, The Dojo Foundation All Rights Reserved.
 
@@ -44,10 +44,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Backbone.Events_
 
-  |VERSION (IF ANY):|    1.0.0|
-  |-
-  |BRIEF DESCRIPTION:|   Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 1.0.0                                                                                                                                                                                                                                                                             |
+| ---                | ---                                                                                                                                                                                                                                                                               |
+| BRIEF DESCRIPTION: | Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface. |
+| LICENSE:           | MIT                                                                                                                                                                                                                                                                               |
 
 Copyright (c) 2010-2015 Jeremy Ashkenas, DocumentCloud.
 
@@ -72,10 +72,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _BackboneJS_
 
-  |VERSION (IF ANY):|    1.1.0|
-  |-
-  |BRIEF DESCRIPTION:|   Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 1.1.0                                                                                                                                                                                                                                                                             |
+| ---                | ---                                                                                                                                                                                                                                                                               |
+| BRIEF DESCRIPTION: | Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface. |
+| LICENSE:           | MIT                                                                                                                                                                                                                                                                               |
 
 Copyright (c) 2010-2011 Jeremy Ashkenas, DocumentCloud Inc.
 
@@ -103,10 +103,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Grunt_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   The JavaScript Task Runner.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                             |
+| ---                | ---                         |
+| BRIEF DESCRIPTION: | The JavaScript Task Runner. |
+| LICENSE:           | MIT                         |
 
 Copyright (c) 2015 "Cowboy" Ben Alman.
 
@@ -131,10 +131,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _HUE2RGB.as_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   ActionScript 3 framework, tools, libraries and utilities.|
-  |LICENSE:|             GPL 2.0 or LGPL 2.1 or MPL 1.1, LGPL 2.1 selected|
+| VERSION (IF ANY):  |                                                           |
+| ---                | ---                                                       |
+| BRIEF DESCRIPTION: | ActionScript 3 framework, tools, libraries and utilities. |
+| LICENSE:           | GPL 2.0 or LGPL 2.1 or MPL 1.1, LGPL 2.1 selected         |
 
 Version: MPL 1.1/GPL 2.0/LGPL 2.1
 
@@ -178,10 +178,10 @@ _*Modifications by Okta, Inc._
 
 _jasmine-fixture_
 
-  |VERSION (IF ANY):|    1.0.5|
-  |-
-  |BRIEF DESCRIPTION:|   Makes injecting HTML snippets into the DOM easy & clean.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 1.0.5                                                    |
+| ---                | ---                                                      |
+| BRIEF DESCRIPTION: | Makes injecting HTML snippets into the DOM easy & clean. |
+| LICENSE:           | MIT                                                      |
 
 Copyright (c) 2013 Test Double, Inc.
 
@@ -206,10 +206,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _jQuery_
 
-  |VERSION (IF ANY):|    1.11.1|
-  |-
-  |BRIEF DESCRIPTION:|   jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 1.11.1                                                                                                                                                                                                                                |
+| ---                | ---                                                                                                                                                                                                                                   |
+| BRIEF DESCRIPTION: | jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript. |
+| LICENSE:           | MIT                                                                                                                                                                                                                                   |
 
 Copyright (c) 2005, 2014 jQuery Foundation, Inc. and other contributors.
 
@@ -234,10 +234,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _jQuery Browser Plugin_
 
-  |VERSION (IF ANY):|    0.0.3|
-  |-
-  |BRIEF DESCRIPTION:|   A jQuery plugin for browser detection.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 0.0.3                                  |
+| ---                | ---                                    |
+| BRIEF DESCRIPTION: | A jQuery plugin for browser detection. |
+| LICENSE:           | MIT                                    |
 
 Original jquery-browser code Copyright (c) 2005, 2013 jQuery Foundation,
 Inc. and other contributors. http://jquery.org/license.
@@ -266,10 +266,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _jQuery Color_
 
-  |VERSION (IF ANY):|    2.1.2|
-  |-
-  |BRIEF DESCRIPTION:|   jQuery plugin for color manipulation and animation support.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 2.1.2                                                       |
+| ---                | ---                                                         |
+| BRIEF DESCRIPTION: | jQuery plugin for color manipulation and animation support. |
+| LICENSE:           | MIT                                                         |
 
 Copyright (c) 2013 jQuery Foundation and other contributors.
 
@@ -294,10 +294,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _jQuery customSelect_
 
-  |VERSION (IF ANY):|    0.5.1|
-  |-
-  |BRIEF DESCRIPTION:|   Lightweight, unobtrusive, custom style select boxes with jQuery.|
-  |LICENSE:|             GPL 2.0 or MIT, MIT selected|
+| VERSION (IF ANY):  | 0.5.1                                                            |
+| ---                | ---                                                              |
+| BRIEF DESCRIPTION: | Lightweight, unobtrusive, custom style select boxes with jQuery. |
+| LICENSE:           | GPL 2.0 or MIT, MIT selected                                     |
 
 Copyright (c) 2013 Adam Coulombe.
 
@@ -322,10 +322,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _jQuery Placeholder Plugin_
 
-  |VERSION (IF ANY):|    2.0.7|
-  |-
-  |BRIEF DESCRIPTION:|   A jQuery plugin that enables HTML5 placeholder behavior.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 2.0.7                                                    |
+| ---                | ---                                                      |
+| BRIEF DESCRIPTION: | A jQuery plugin that enables HTML5 placeholder behavior. |
+| LICENSE:           | MIT                                                      |
 
 Copyright (c) Mathias Bynens.
 
@@ -350,10 +350,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _jQuery Simulate_
 
-  |VERSION (IF ANY):|    0.0.1|
-  |-
-  |BRIEF DESCRIPTION:|   Simulate events to help unit test user interactions.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 0.0.1                                                |
+| ---                | ---                                                  |
+| BRIEF DESCRIPTION: | Simulate events to help unit test user interactions. |
+| LICENSE:           | MIT                                                  |
 
 Copyright (c) 2012 jQuery Foundation and other contributors.
 
@@ -378,10 +378,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _link-headers_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   JavaScript parsing of link headers as described by RFC 5988.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                              |
+| ---                | ---                                                          |
+| BRIEF DESCRIPTION: | JavaScript parsing of link headers as described by RFC 5988. |
+| LICENSE:           | MIT                                                          |
 
 Copyright (c) Rowan Crawford (wombleton@gmail.com).
 
@@ -406,10 +406,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _parseUri_
 
-  |VERSION (IF ANY):|    2.2.2|
-  |-
-  |BRIEF DESCRIPTION:|   parseUri is a function which splits any well-formed URI into its parts, all of which are optional.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 2.2.2                                                                                              |
+| ---                | ---                                                                                                |
+| BRIEF DESCRIPTION: | parseUri is a function which splits any well-formed URI into its parts, all of which are optional. |
+| LICENSE:           | MIT                                                                                                |
 
 Copyright (c) Steven Levithan <stevenlevithan.com>.
 
@@ -434,10 +434,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Q_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   A tool for creating and composing asynchronous promises in JavaScript.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                        |
+| ---                | ---                                                                    |
+| BRIEF DESCRIPTION: | A tool for creating and composing asynchronous promises in JavaScript. |
+| LICENSE:           | MIT                                                                    |
 
 Copyright (c) 2009-2012 Kris Kowal.
 
@@ -462,10 +462,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _rangeslider.js_
 
-  |VERSION (IF ANY):|    1.2.0|
-  |-
-  |BRIEF DESCRIPTION:|   Simple, small and fast JavaScript/jQuery polyfill for the HTML5 slider element.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 1.2.0                                                                           |
+| ---                | ---                                                                             |
+| BRIEF DESCRIPTION: | Simple, small and fast JavaScript/jQuery polyfill for the HTML5 slider element. |
+| LICENSE:           | MIT                                                                             |
 
 Copyright (c) 2016 André Ruffert, http://andreruffert.com.
 
@@ -490,10 +490,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _RequireJS_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   A file and module loader for JavaScript.|
-  |LICENSE:|             MIT or BSD 3-Clause, MIT selected|
+| VERSION (IF ANY):  |                                          |
+| ---                | ---                                      |
+| BRIEF DESCRIPTION: | A file and module loader for JavaScript. |
+| LICENSE:           | MIT or BSD 3-Clause, MIT selected        |
 
 Copyright (c) 2010-2014, The Dojo Foundation All Rights Reserved.
 
@@ -518,10 +518,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _SHA 256 WebToolkit_
 
-  |-
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   The SHA (Secure Hash Algorithm) is one of the many cryptographic hash functions. It is suggested that SHA256 or greater must used for critical technology. This script is used to process variable length message into a fixed-length|
+| ---                | ---                                                                                                                                                                                                                                   |
+| VERSION (IF ANY):  |                                                                                                                                                                                                                                       |
+| ---                | ---                                                                                                                                                                                                                                   |
+| BRIEF DESCRIPTION: | The SHA (Secure Hash Algorithm) is one of the many cryptographic hash functions. It is suggested that SHA256 or greater must used for critical technology. This script is used to process variable length message into a fixed-length |
 
                        output using the SHA256 algorithm. It is fully compatible with UTF-8 encoding.
 
@@ -533,10 +533,10 @@ Commons Attribution 2.0 UK license._
 
 _Spin.js_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   An animated CSS3 loading spinner with VML fallback for IE.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                            |
+| ---                | ---                                                        |
+| BRIEF DESCRIPTION: | An animated CSS3 loading spinner with VML fallback for IE. |
+| LICENSE:           | MIT                                                        |
 
 Copyright (c) 2011-2013 Felix Gnass.
 
@@ -561,10 +561,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _UnderscoreJS_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Underscore is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                                                                                |
+| ---                | ---                                                                                                                                            |
+| BRIEF DESCRIPTION: | Underscore is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. |
+| LICENSE:           | MIT                                                                                                                                            |
 
 Copyright (c) 2009-2013 Jeremy Ashkenas, DocumentCloud Inc.
 
@@ -589,10 +589,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _URI Template Library_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   This is a set of tests for implementations of RFC6570 - URI Template. It is designed to be reused by any implementation, to improve interoperability and implementation quality.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                                                                                                                                                                                  |
+| ---                | ---                                                                                                                                                                              |
+| BRIEF DESCRIPTION: | This is a set of tests for implementations of RFC6570 - URI Template. It is designed to be reused by any implementation, to improve interoperability and implementation quality. |
+| LICENSE:           | Apache 2.0                                                                                                                                                                       |
 
 Copyright (c) 2011-2012 The Authors.
 

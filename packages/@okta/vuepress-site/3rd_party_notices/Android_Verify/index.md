@@ -16,10 +16,10 @@ THIRD PARTY NOTICES
 
 _android-keystore NativeCryptoConstants.java_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Direct access to Android's credential storage (keystore).|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                                                           |
+| ---                | ---                                                       |
+| BRIEF DESCRIPTION: | Direct access to Android's credential storage (keystore). |
+| LICENSE:           | Apache 2.0                                                |
 
 Copyright (c) 2012 Nikolay Elenkov.
 
@@ -41,10 +41,10 @@ license._
 _Blogspot article, "Storing application secrets in Android's credential
 storage"_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |            |
+| ---                | ---        |
+| BRIEF DESCRIPTION: |            |
+| LICENSE:           | Apache 2.0 |
 
 Copyright (c) 2009 The Android Open Source Project.
 
@@ -65,10 +65,10 @@ license._
 
 _google-authenticator-android_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   The Google Authenticator project includes implementations of one-time passcode generators for several mobile platforms, as well as a pluggable authentication module (PAM).|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                                                                                                                                                                             |
+| ---                | ---                                                                                                                                                                         |
+| BRIEF DESCRIPTION: | The Google Authenticator project includes implementations of one-time passcode generators for several mobile platforms, as well as a pluggable authentication module (PAM). |
+| LICENSE:           | Apache 2.0                                                                                                                                                                  |
 
 Copyright (c) 2009 Google Inc. All Rights Reserved.
 
@@ -89,10 +89,10 @@ license._
 
 _Gradle_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   The modern open source polyglot build automation system.|
-  |LICENSE:|             Commercial or Apache 2.0, Apache 2.0 selected|
+| VERSION (IF ANY):  |                                                          |
+| ---                | ---                                                      |
+| BRIEF DESCRIPTION: | The modern open source polyglot build automation system. |
+| LICENSE:           | Commercial or Apache 2.0, Apache 2.0 selected            |
 
 PROJECT LICENSE
 
@@ -126,10 +126,10 @@ license._
 
 _Guava Libraries_
 
-  |VERSION (IF ANY):|    14.0.1|
-  |-
-  |BRIEF DESCRIPTION:|   The Guava project contains several of Google's core libraries that we rely on in our Java-based projects: collections, caching, primitives support, concurrency libraries, common annotations, string processing, I/O, and so forth.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  | 14.0.1                                                                                                                                                                                                                               |
+| ---                | ---                                                                                                                                                                                                                                  |
+| BRIEF DESCRIPTION: | The Guava project contains several of Google's core libraries that we rely on in our Java-based projects: collections, caching, primitives support, concurrency libraries, common annotations, string processing, I/O, and so forth. |
+| LICENSE:           | Apache 2.0                                                                                                                                                                                                                           |
 
 Copyright (c) 2016 The Guava Authors.
 
@@ -150,10 +150,10 @@ license._
 
 _The Android Open Source Project_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Android is an open source software stack for a wide range of mobile devices and a corresponding open source project led by Google.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                                                                                                                                    |
+| ---                | ---                                                                                                                                |
+| BRIEF DESCRIPTION: | Android is an open source software stack for a wide range of mobile devices and a corresponding open source project led by Google. |
+| LICENSE:           | Apache 2.0                                                                                                                         |
 
 Copyright (c) 2012 The Android Open Source Project.
 
@@ -174,10 +174,10 @@ license._
 
 _Robolectric_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Test-Drive Your Android Code.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                               |
+| ---                | ---                           |
+| BRIEF DESCRIPTION: | Test-Drive Your Android Code. |
+| LICENSE:           | MIT                           |
 
 Copyright (c) 2010 Xtreme Labs and Pivotal Labs.
 

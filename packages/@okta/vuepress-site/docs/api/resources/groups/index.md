@@ -27,9 +27,9 @@ Adds a new group with `OKTA_GROUP` type to your organization.
 ##### Request Parameters
 
 
-Parameter | Description                               | ParamType | DataType                          | Required | Default
---------- | ----------------------------------------- | --------- | --------------------------------- | -------- | ---
-profile   | `okta:user_group` profile for a new group | Body      | [Profile-Object](#profile-object) | TRUE     |
+| Parameter | Description                               | ParamType | DataType                          | Required | Default |
+| --------- | ----------------------------------------- | --------- | --------------------------------- | -------- | ---     |
+| profile   | `okta:user_group` profile for a new group | Body      | [Profile-Object](#profile-object) | TRUE     |         |
 
 ##### Response Parameters
 
@@ -102,9 +102,9 @@ Fetches a specific group by `id` from your organization
 ##### Request Parameters
 
 
-Parameter | Description     | ParamType | DataType | Required | Default
---------- | --------------- | --------- | -------- | -------- | -------
-id        | `id` of a group | URL       | String   | TRUE     |
+| Parameter | Description     | ParamType | DataType | Required | Default |
+| --------- | --------------- | --------- | -------- | -------- | ------- |
+| id        | `id` of a group | URL       | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -179,12 +179,12 @@ Enumerates groups in your organization with pagination. A subset of groups can b
 ##### Request Parameters
 
 
-Parameter | Description                                                                                | ParamType | DataType | Required | Default
---------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | -------
-q         | Searches the `name` property of groups for matching value                                  | Query     | String   | FALSE    |
-filter    | [Filter expression](/docs/api/getting_started/design_principles#filtering) for groups | Query     | String   | FALSE    |
-limit     | Specifies the number of group results in a page                                            | Query     | Number   | FALSE    | 10000
-after     | Specifies the pagination cursor for the next page of groups                                | Query     | String   | FALSE    |
+| Parameter | Description                                                                                | ParamType | DataType | Required | Default |
+| --------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- |
+| q         | Searches the `name` property of groups for matching value                                  | Query     | String   | FALSE    |         |
+| filter    | [Filter expression](/docs/api/getting_started/design_principles#filtering) for groups      | Query     | String   | FALSE    |         |
+| limit     | Specifies the number of group results in a page                                            | Query     | Number   | FALSE    | 10000   |
+| after     | Specifies the pagination cursor for the next page of groups                                | Query     | String   | FALSE    |         |
 
 > The `after` cursor should treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/api/getting_started/design_principles#pagination)
 
@@ -194,18 +194,18 @@ after     | Specifies the pagination cursor for the next page of groups         
 
 The following expressions are supported for groups with the `filter` query parameter:
 
-Filter                                                   | Description
-----------------------------------------------           | -------------------------------------------------------------------
-`type eq "OKTA_GROUP"`                                   | Groups that have a `type` of `OKTA_GROUP`
-`type eq "APP_GROUP"`                                    | Groups that have a `type` of `APP_GROUP`
-`type eq "BUILT_IN"`                                     | Groups that have a `type` of `BUILT_IN`
-`lastUpdated lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`            | Groups with profile last updated before a specific timestamp
-`lastUpdated eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`            | Groups with profile last updated at a specific timestamp
-`lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`            | Groups with profile last updated after a specific timestamp
-`lastMembershipUpdated lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`  | Groups with memberships last updated before a specific timestamp
-`lastMembershipUpdated eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`  | Groups with memberships last updated at a specific timestamp
-`lastMembershipUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`  | Groups with memberships last updated after a specific timestamp
-`id eq "00g1emaKYZTWRYYRRTSK"`                           | Group with a specified `id`
+| Filter                                                  | Description                                                         |
+| ----------------------------------------------          | ------------------------------------------------------------------- |
+| `type eq "OKTA_GROUP"`                                  | Groups that have a `type` of `OKTA_GROUP`                           |
+| `type eq "APP_GROUP"`                                   | Groups that have a `type` of `APP_GROUP`                            |
+| `type eq "BUILT_IN"`                                    | Groups that have a `type` of `BUILT_IN`                             |
+| `lastUpdated lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`           | Groups with profile last updated before a specific timestamp        |
+| `lastUpdated eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`           | Groups with profile last updated at a specific timestamp            |
+| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`           | Groups with profile last updated after a specific timestamp         |
+| `lastMembershipUpdated lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"` | Groups with memberships last updated before a specific timestamp    |
+| `lastMembershipUpdated eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"` | Groups with memberships last updated at a specific timestamp        |
+| `lastMembershipUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"` | Groups with memberships last updated after a specific timestamp     |
+| `id eq "00g1emaKYZTWRYYRRTSK"`                          | Group with a specified `id`                                         |
 
 See [Filtering](/docs/api/getting_started/design_principles#filtering) for more information on expressions
 
@@ -776,10 +776,10 @@ Updates the profile for a group with `OKTA_GROUP` type from your organization.
 ##### Request Parameters
 
 
-Parameter | Description                   | ParamType | DataType                          | Required | Default
---------- | ----------------------------- | --------- | --------------------------------- | -------- | -------
-id        | id of the group to update     | URL       | String                            | TRUE     |
-profile   | Updated profile for the group | Body      | [Profile Object](#profile-object) | TRUE     |
+| Parameter | Description                   | ParamType | DataType                          | Required | Default |
+| --------- | ----------------------------- | --------- | --------------------------------- | -------- | ------- |
+| id        | id of the group to update     | URL       | String                            | TRUE     |         |
+| profile   | Updated profile for the group | Body      | [Profile Object](#profile-object) | TRUE     |         |
 
 > All profile properties must be specified when updating a groups's profile, **partial updates are not supported!**
 
@@ -858,9 +858,9 @@ Removes a group with `OKTA_GROUP` type from your organization.
 ##### Request Parameters
 
 
-Parameter | Description                 | ParamType | DataType | Required | Default
---------- | --------------------------- | --------- | -------- | -------- | -------
-id        | `id` of the group to delete | URL       | String   | TRUE     |
+| Parameter | Description                 | ParamType | DataType | Required | Default |
+| --------- | --------------------------- | --------- | -------- | -------- | ------- |
+| id        | `id` of the group to delete | URL       | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -898,11 +898,11 @@ Enumerates all [users](/docs/api/resources/users#user-model) that are a member o
 ##### Request Parameters
 
 
-Parameter | Description                                                | ParamType | DataType | Required | Default
---------- | ---------------------------------------------------------- | --------- | -------- | -------- | -------
-id        | `id` of the group                                          | URL       | String   | TRUE     |
-limit     | Specifies the number of user results in a page             | Query     | Number   | FALSE    | 10000
-after     | Specifies the pagination cursor for the next page of users | Query     | String   | FALSE    |
+| Parameter | Description                                                | ParamType | DataType | Required | Default |
+| --------- | ---------------------------------------------------------- | --------- | -------- | -------- | ------- |
+| id        | `id` of the group                                          | URL       | String   | TRUE     |         |
+| limit     | Specifies the number of user results in a page             | Query     | Number   | FALSE    | 10000   |
+| after     | Specifies the pagination cursor for the next page of users | Query     | String   | FALSE    |         |
 
 > The `after` cursor should treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/api/getting_started/design_principles#pagination)
 
@@ -1010,10 +1010,10 @@ Adds a [user](users#user-model) to a group with `OKTA_GROUP` type.
 ##### Request Parameters
 
 
-Parameter | Description     | ParamType | DataType | Required | Default
---------- | --------------- | --------- | -------- | -------- | -------
-groupId      | id of the group | URL       | String   | TRUE     |
-userId       | `id` of a user  | URL       | String   | TRUE     |
+| Parameter | Description     | ParamType | DataType | Required | Default |
+| --------- | --------------- | --------- | -------- | -------- | ------- |
+| groupId   | id of the group | URL       | String   | TRUE     |         |
+| userId    | `id` of a user  | URL       | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1051,10 +1051,10 @@ Removes a [user](users#user-model) from a group with `OKTA_GROUP` type.
 ##### Request Parameters
 
 
-Parameter | Description       | ParamType | DataType | Required | Default
---------- | ----------------- | --------- | -------- | -------- | -------
-groupId      | `id` of the group | URL       | String   | TRUE     |
-userId       | `id` of a user  | URL       | String   | TRUE     |
+| Parameter | Description       | ParamType | DataType | Required | Default |
+| --------- | ----------------- | --------- | -------- | -------- | ------- |
+| groupId   | `id` of the group | URL       | String   | TRUE     |         |
+| userId    | `id` of a user    | URL       | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1093,13 +1093,13 @@ Creates a group rule to dynamically add users to the specified group if they mat
 ##### Request Parameters
 
 
-Parameter                           | Description                                                                                             | ParamType | DataType                          | Required | Default
------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- | --------------------------------- | -------- | -------
-condition.expression.value          | Okta expression which would result in a boolean value                                                   | Body      | String                            | TRUE     |
-condition.expression.type           | currently it is : urn:okta:expression:1.0                                                               | Body      | String                            | TRUE     |
-condition.people.users.exclude      | userIds which would be excluded when rules are processed                                                | Body      | String                            | FALSE    |
-condition.people.groups.exclude     | is currently not supported                                                                              | Body      | String                            | FALSE    |
-actions.assignUserToGroups.groupIds | List of groupIds to which users would be added. Currently we support only one group as target group     | Body      | String                            | TRUE     |
+| Parameter                           | Description                                                                                             | ParamType | DataType                          | Required | Default |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------- | --------- | --------------------------------- | -------- | ------- |
+| condition.expression.value          | Okta expression which would result in a boolean value                                                   | Body      | String                            | TRUE     |         |
+| condition.expression.type           | currently it is : urn:okta:expression:1.0                                                               | Body      | String                            | TRUE     |         |
+| condition.people.users.exclude      | userIds which would be excluded when rules are processed                                                | Body      | String                            | FALSE    |         |
+| condition.people.groups.exclude     | is currently not supported                                                                              | Body      | String                            | FALSE    |         |
+| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added. Currently we support only one group as target group     | Body      | String                            | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1194,15 +1194,15 @@ Updates a group rule.
 ##### Request Parameters
 
 
-Parameter                           | Description                                                                                             | ParamType | DataType                          | Required | Default
------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------- | --------------------------------- | -------- | -------
-id                                  | id of the rule to be updated                                                                            | Body      | String                            | TRUE     |
-status                              | valid statuses are ACTIVE, INACTIVE and INVALID                                                         | Body      | String                            | TRUE     |
-condition.expression.value          | okta expression which would result in a boolean value                                                   | Body      | String                            | TRUE     |
-condition.expression.type           | currently it is : urn:okta:expression:1.0                                                               | Body      | String                            | TRUE     |
-condition.people.users.exclude      | userIds which would be excluded when rules are processed                                                | Body      | String                            | FALSE    |
-condition.people.groups.exclude     | is currently not supported                                                                              | Body      | String                            | FALSE    |
-actions.assignUserToGroups.groupIds | List of groupIds to which users would be added. Currently we support only one group as target group     | Body      | String                            | TRUE     |
+| Parameter                           | Description                                                                                             | ParamType | DataType                          | Required | Default |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------- | --------- | --------------------------------- | -------- | ------- |
+| id                                  | id of the rule to be updated                                                                            | Body      | String                            | TRUE     |         |
+| status                              | valid statuses are ACTIVE, INACTIVE and INVALID                                                         | Body      | String                            | TRUE     |         |
+| condition.expression.value          | okta expression which would result in a boolean value                                                   | Body      | String                            | TRUE     |         |
+| condition.expression.type           | currently it is : urn:okta:expression:1.0                                                               | Body      | String                            | TRUE     |         |
+| condition.people.users.exclude      | userIds which would be excluded when rules are processed                                                | Body      | String                            | FALSE    |         |
+| condition.people.groups.exclude     | is currently not supported                                                                              | Body      | String                            | FALSE    |         |
+| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added. Currently we support only one group as target group     | Body      | String                            | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1298,10 +1298,10 @@ Lists all group rules for your organization.
 ##### Request Parameters
 
 
-Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default
--------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | -------
-limit          | Specifies the number of rule results in a page               | Query      | Number                            | FALSE    | 50
-after          | Specifies the pagination cursor for the next page of rules   | Query      | String                            | FALSE    |
+| Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
+| -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
+| limit          | Specifies the number of rule results in a page               | Query      | Number                            | FALSE    | 50      |
+| after          | Specifies the pagination cursor for the next page of rules   | Query      | String                            | FALSE    |         |
 
 ##### Response Parameters
 
@@ -1414,9 +1414,9 @@ Fetches a specific group rule by id from your organization
 ##### Request Parameters
 
 
-Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default
--------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | -------
-id             | id of a group rule                                           | URL        | String                            | TRUE     |
+| Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
+| -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
+| id             | id of a group rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1481,9 +1481,9 @@ Removes a specific group rule by id from your organization
 ##### Request Parameters
 
 
-Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default
--------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | -------
-id             | id of a group rule                                           | URL        | String                            | TRUE     |
+| Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
+| -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
+| id             | id of a group rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1518,9 +1518,9 @@ Activates a specific group rule by id from your organization
 ##### Request Parameters
 
 
-Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default
--------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | -------
-id             | id of a group rule                                           | URL        | String                            | TRUE     |
+| Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
+| -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
+| id             | id of a group rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1555,9 +1555,9 @@ Deactivates a specific group rule by id from your organization
 ##### Request Parameters
 
 
-Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default
--------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | -------
-id             | id of a group rule                                           | URL        | String                            | TRUE     |
+| Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
+| -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
+| id             | id of a group rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1594,11 +1594,11 @@ Enumerates all [applications](apps#application-model) that are assigned to a gro
 ##### Request Parameters
 
 
-Parameter | Description                                               | ParamType | DataType | Required | Default
---------- | --------------------------------------------------------- | --------- | -------- | -------- | -------
-id        | id of the group                                           | URL       | String   | TRUE     |
-limit     | Specifies the number of app results for a page            | Query     | Number   | FALSE    | 20
-after     | Specifies the pagination cursor for the next page of apps | Query     | String   | FALSE    |
+| Parameter | Description                                               | ParamType | DataType | Required | Default |
+| --------- | --------------------------------------------------------- | --------- | -------- | -------- | ------- |
+| id        | id of the group                                           | URL       | String   | TRUE     |         |
+| limit     | Specifies the number of app results for a page            | Query     | Number   | FALSE    | 20      |
+| after     | Specifies the pagination cursor for the next page of apps | Query     | String   | FALSE    |         |
 
 > The page cursor should treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/api/getting_started/design_principles#pagination)
 
@@ -1796,7 +1796,7 @@ All groups have the following properties:
 | type                  | determines how a group's profile and memberships are managed | [Group Type](#group-type)                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 | profile               | the group's profile properties                               | [Profile Object](#profile-object)                              | FALSE    | FALSE  | FALSE    |           |           |            |
 | _links                | [discoverable resources](#links-object) related to the group | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
-| _embedded             | embedded resources related to the group  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
+| _embedded             | embedded resources related to the group                      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
 |-----------------------+--------------------------------------------------------------+----------------------------------------------------------------+----------|--------|----------|-----------|-----------+------------|
 
 > `id`, `created`, `lastUpdated`, `lastMembershipUpdated`, `objectClass`, `type`, and `_links` are only available after a group is created
@@ -1910,12 +1910,12 @@ Profile for a group that is imported from Active Directory
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the group using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.  This object is used for dynamic discovery of related resources and lifecycle operations.
 
 |--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Link Relation Type | Description                                                                                                                                                      |
-| ------------------ | -----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| self               | The primary URL for the group                                                                                                                                    |
-| logo               | Provides links to logo images for the group if available                                                                                                         |
-| users              | Provides [group member operations](#group-member-operations) for the group                                                                                       |
-| apps               | Lists all [applications](apps#application-model) that are assigned to the group. See [Application Group Operations](apps#application-group-operations) |
+| Link Relation Type | Description                                                                                                                                                     |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| self               | The primary URL for the group                                                                                                                                   |
+| logo               | Provides links to logo images for the group if available                                                                                                        |
+| users              | Provides [group member operations](#group-member-operations) for the group                                                                                      |
+| apps               | Lists all [applications](apps#application-model) that are assigned to the group. See [Application Group Operations](apps#application-group-operations)          |
 |--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 > The Links Object is read only.

@@ -16,10 +16,10 @@ THIRD PARTY NOTICES
 
 _.NET Logging Framework_
 
-  |VERSION (IF ANY):|    15.2|
-  |-
-  |BRIEF DESCRIPTION:|   The logging framework provides you with an easy means to log information to any destination. It comes complete with loggers that support writing to the system console, a file on disk, a TCP/IP socket, and more.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  | 15.2                                                                                                                                                                                                               |
+| ---                | ---                                                                                                                                                                                                                |
+| BRIEF DESCRIPTION: | The logging framework provides you with an easy means to log information to any destination. It comes complete with loggers that support writing to the system console, a file on disk, a TCP/IP socket, and more. |
+| LICENSE:           | BSD 3-Clause                                                                                                                                                                                                       |
 
 Copyright (c) 2002, 2005 - Lorne Brinkman - All rights reserved.
 
@@ -54,8 +54,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _Apache Commons Daemon_
 
-  |VERSION (IF ANY):|     1.0.13|
-  |-
+| VERSION (IF ANY): | 1.0.13 |
+| ---               | ---    |
   |BRIEF DESCRIPTION:|   Apache Commons Daemon provides a portable means of starting and stopping a Java Virtual Machine (JVM) that is running server-side applications.
   |LICENSE:|              Apache 2.0|
 
@@ -82,10 +82,10 @@ license._
 _ASP.NET Weblog Article, "Encrypting Passwords in a .NET app.config
 File"_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   ASP.NET Weblog Article by Jon Galloway - Encrypting Passwords in a .NET app.config File|
-  |LICENSE:|             Ms-Pl|
+| VERSION (IF ANY):  |                                                                                         |
+| ---                | ---                                                                                     |
+| BRIEF DESCRIPTION: | ASP.NET Weblog Article by Jon Galloway - Encrypting Passwords in a .NET app.config File |
+| LICENSE:           | Ms-Pl                                                                                   |
 
 Microsoft Public License (Ms-PL)
 
@@ -152,10 +152,10 @@ fitness for a particular purpose and non-infringement.
 _CodeProject Article, "Allow write/modify access to
 CommonApplicationData"_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             CPOL|
+| VERSION (IF ANY):  |      |
+| ---                | ---  |
+| BRIEF DESCRIPTION: |      |
+| LICENSE:           | CPOL |
 
 License
 
@@ -171,10 +171,10 @@ _*Modifications by Okta, Inc._
 
 _CodeProject Article, "LSA Functions - Privileges and Impersonation"_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             CPOL|
+| VERSION (IF ANY):  |      |
+| ---                | ---  |
+| BRIEF DESCRIPTION: |      |
+| LICENSE:           | CPOL |
 
 License
 
@@ -190,10 +190,10 @@ _*Modifications by Okta, Inc._
 
 _CommandLine Parser Library_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                                                                               |
+| ---                | ---                                                                                                                                           |
+| BRIEF DESCRIPTION: | The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks. |
+| LICENSE:           | MIT                                                                                                                                           |
 
 Copyright (c) 2005 - 2012 Giacomo Stelluti Scala.
 
@@ -218,10 +218,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Lightweight Directory Access Protocol_
 
-  |VERSION (IF ANY):|    3|
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             Custom|
+| VERSION (IF ANY):  | 3      |
+| ---                | ---    |
+| BRIEF DESCRIPTION: |        |
+| LICENSE:           | Custom |
 
 Copyright (c) The Internet Society (1997). All Rights Reserved.
 
@@ -250,10 +250,10 @@ FITNESS FOR A PARTICULAR PURPOSE.
 
 _Json.NET_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Json.NET is a popular high-performance JSON framework for .NET.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                 |
+| ---                | ---                                                             |
+| BRIEF DESCRIPTION: | Json.NET is a popular high-performance JSON framework for .NET. |
+| LICENSE:           | MIT                                                             |
 
 Copyright (c) 2007 James Newton-King.
 
@@ -278,10 +278,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Moq_
 
-  |VERSION (IF ANY):|    3.1.416.3|
-  |-
-  |BRIEF DESCRIPTION:|   Mocking library for .NET 3.5 and C# 3.0, heavily based on Linq.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  | 3.1.416.3                                                       |
+| ---                | ---                                                             |
+| BRIEF DESCRIPTION: | Mocking library for .NET 3.5 and C# 3.0, heavily based on Linq. |
+| LICENSE:           | BSD 3-Clause                                                    |
 
 Copyright (c) 2007. Clarius Consulting, Manas Technology Solutions,
 InSTEDD http://www.moqthis.com/. All rights reserved.
@@ -316,10 +316,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _Ms-Pl_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   DotNetZip is a FAST, FREE class library and toolset for manipulating zip files. Use VB, C# or any .NET language to easily create, extract, or update zip files.|
-  |LICENSE:|             Ms-Pl|
+| VERSION (IF ANY):  |                                                                                                                                                                 |
+| ---                | ---                                                                                                                                                             |
+| BRIEF DESCRIPTION: | DotNetZip is a FAST, FREE class library and toolset for manipulating zip files. Use VB, C# or any .NET language to easily create, extract, or update zip files. |
+| LICENSE:           | Ms-Pl                                                                                                                                                           |
 
 Microsoft Public License (Ms-PL)
 
@@ -385,10 +385,10 @@ fitness for a particular purpose and non-infringement.
 
 _SpringFramework Spring Beans_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Core support for dependency injection, transaction management, web applications, data access, messaging, testing and more.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                                                                                                                            |
+| ---                | ---                                                                                                                        |
+| BRIEF DESCRIPTION: | Core support for dependency injection, transaction management, web applications, data access, messaging, testing and more. |
+| LICENSE:           | Apache 2.0                                                                                                                 |
 
 Copyright (c) 2002-2014 the original author or authors.
 

@@ -25,11 +25,11 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 * Log into the Okta Developer Dashboard, and **Create New App**
 * Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values similar to:
 
-| Setting             | Value                                               |
-| ------------------- | --------------------------------------------------- |
-| Application Name    | OpenId Connect App *(must be unique)*               |
-| Login redirect URIs | http://localhost:4200/callback                      |
-| Logout redirect URIs| http://localhost:4200/login                         |
+| Setting              | Value                                               |
+| -------------------  | --------------------------------------------------- |
+| Application Name     | OpenId Connect App *(must be unique)*               |
+| Login redirect URIs  | http://localhost:4200/callback                      |
+| Logout redirect URIs | http://localhost:4200/login                         |
 
 ## Create an Angular App
 
