@@ -14,17 +14,17 @@ If you have questions or need help with Okta's APIs or SDKs, visit the **[Develo
 
 ## Contributing
 The [Okta developer site][doc] is using [VuePress][vuepress] site generator. This allows the use of only yarn to install and build the site locally.
-There are currently 2 parts to the site, the content and the themeing/plugins.
+There are currently 2 parts to the site, the content and the theming/plugins.
 
 ### Requirements
- - Node: 10.9+
- - Yarn: 1.9.4+
+ - Node: 8+
+ - Yarn: 1.7+
 
 ### Installing the site.
  - Clone this repository (or fork if you aren't a core contributor):
 
  ```sh
- git clone https://github.com/okta/okta-developer-docs
+ git clone git@github.com:okta/okta-developer-docs.git
  ```
 
 - Install the dependencie with `yarn`:
@@ -35,7 +35,7 @@ yarn install
 This will install all the modules you need for the site to run on your machine
 
 ### Viewing the Site Locally
-Once you have the site cloned to your machine and installed, you will have to run the development environment for you to view the site.
+Once you have the site cloned to your machine and installed, you will have to run the development environment to view the site.
 
  - Open Terminal and change directories into your cloned repo
  - Issue the `yarn dev` command
@@ -43,23 +43,23 @@ Once you have the site cloned to your machine and installed, you will have to ru
  > Note: if you try to visit the root, you will get a 404 page.  You must visit a sub-path.
 
 ## Adding and Updating Content
-As an example, lets say you want to edit the `Okta Angular Sign-in Widget` code page. The URL of this page is `/code/angular/okta_angular_sign-in_widget/`.
-To edit this page, you would navigate to `/packages/docs/code/angular/okta_angular_sign-in_widget/index.md` to edit the content of this page.
+As an example, lets say you want to edit the [Okta Angular Sign-in Widget](https://developer.okta.com/code/angular/okta_angular_sign-in_widget/) code page. The URL of this page is `/code/angular/okta_angular_sign-in_widget/`.
+To edit this page, you would navigate to `/packages/@okta/vuepress-site/code/angular/okta_angular_sign-in_widget/index.md` to edit the content of this page.
 
-The directory structure from the `/packages/docs` folder relates directly to the URL you want to show. The `index.md` file that lives in the last folder in the sture will be rendered.
+The directory structure from the `/packages/@okta/vuepress-site` folder relates directly to the URL you want to show. The `index.md` file that lives in the last folder in the structure will be rendered.
 If you name the file anything other than `index.md`, it will be required that you also include `.html` to the url when you go to view the page in the browser
 
 Part of the power that the VuePress development server gives us is live reloading of the content. When you make any changes to the markdown of the file, you will see the changes on the browser within seconds.
-However, if you make any chnages to the frontmatter of the page, you may have to restart the development server.
+However, if you make any chnages to the [front matter](https://github.com/vuejs/vuepress/blob/master/packages/docs/docs/guide/frontmatter.md) of the page, you may have to restart the development server.
 
 ## Testing Locally
 Running the tests before committing should be done and can be accomplished by running `yarn test` from the terminal. This will run a series of tests to make sure that everything is working as expected and that your changes did not affect anything that was not planned.
 
 ### Where do Pictures and Assets go?
-All images and other assets will live in the folder `/docs/.vuepress/public/assets` and should be referenced as such.
+All images and other assets will live in the folder `/packages/@okta/vuepress-site/.vuepress/public` and should be referenced as such.
 
 ### Using Components in Markdown
-There are a few different components that can be used inside of the markdown files to render some design specific html
+There are a few different components that can be used inside the markdown files to render some design specific html
 
 #### Api Operations
 The Api Operations component is used to render the html for defining an operation in our API reference
