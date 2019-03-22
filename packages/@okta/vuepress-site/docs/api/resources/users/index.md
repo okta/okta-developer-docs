@@ -557,7 +557,7 @@ curl -v -X POST \
 ### Get User
 
 
-<ApiOperation method="get" url="/api/v1/users/${userId}" /> {% api_cors %}
+<ApiOperation method="get" url="/api/v1/users/${userId}" /> <SupportsCors />
 
 Fetches a user from your Okta organization
 
@@ -1722,7 +1722,9 @@ curl -v -X POST \
 ### Get Assigned App Links
 
 
-<ApiOperation method="get" url="/api/v1/users/${userId}/appLinks" /> {% api_cors %}
+<ApiOperation method="get" url="/api/v1/users/${userId}/appLinks" />
+
+<SupportsCors />
 
 Fetches appLinks for all direct or indirect (via group membership) assigned applications
 
@@ -1808,7 +1810,7 @@ curl -v -X GET \
 ### Get Member Groups
 
 
-<ApiOperation method="get" url="/api/v1/users/${userId}/groups" /> {% api_cors %}
+<ApiOperation method="get" url="/api/v1/users/${userId}/groups" /> <SupportsCors />
 
 Fetches the groups of which the user is a member
 
