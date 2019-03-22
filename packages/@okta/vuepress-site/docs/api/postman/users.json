@@ -530,7 +530,7 @@
 		{
 			"id": "c3fdeecb-9df7-b31b-895d-2ff4c83ba0bf",
 			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users?q=admin&limit=25",
+			"url": "{{url}}/api/v1/users?search=profile.department eq \"Engineering\"",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
