@@ -12,7 +12,7 @@
     computed: {
       breadcrumb() {
         const crumbs = [];
-        if(this.$page.path == '/reference/') {
+        if(this.$page.path == '/reference/' || this.$page.path.startsWith('/code/')) {
           crumbs.push({path: '/documentation/', title: 'DOCS'})
           return crumbs
         }
