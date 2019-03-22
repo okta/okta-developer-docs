@@ -416,7 +416,7 @@ HTTP/1.1 204 No Content
 ### Get Current Session
 
 
-<ApiOperation method="get" url="/api/v1/sessions/me" /> {% api_cors %}
+<ApiOperation method="get" url="/api/v1/sessions/me" /> <SupportsCors />
 
 Get session information for the current user. Use this method in a browser based application to determine if the user is logged in.
 
@@ -495,7 +495,7 @@ Refresh the session for the current user.
 
 > This operation requires a session cookie for the user. API token is not allowed for this operation.
 
-<ApiOperation method="post" url="/api/v1/sessions/me/lifecycle/refresh" /> {% api_cors %}
+<ApiOperation method="post" url="/api/v1/sessions/me/lifecycle/refresh" /> <SupportsCors />
 
 ##### Request Example
 
@@ -595,7 +595,7 @@ Close the session for the currently logged in user. Use this method in a browser
 
 > This operation requires a session cookie for the user. API token is not allowed for this operation.
 
-<ApiOperation method="delete" url="/api/v1/sessions/me" /> {% api_cors %}
+<ApiOperation method="delete" url="/api/v1/sessions/me" /> <SupportsCors />
 
 ##### Request Example
 
