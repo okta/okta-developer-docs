@@ -6,7 +6,7 @@ title: Generic OpenID Connect Identity Provider
 
 Generic OpenID Connect (OIDC) allows users to sign in to an Okta org using their credentials from their existing account at an OIDC Identity Provider (IdP). A generic OIDC IdP can be a third-party IdP that supports OIDC, such as Salesforce or Yahoo or your own custom IdP. You can also configure federation between Okta orgs using OIDC as a replacement for SAML. If you want your users to be able to sign in using an existing database of credentials and sync their accounts in to Universal Directory from the external IdP, configure your Okta org to use a generic OIDC IdP. 
 
-Note: This guide walks you through how to configure federation between Okta orgs using OIDC as a replacement for SAML. But, you can also use these steps to configure generic support of any third-party IdP that is OIDC-compliant. See [Set Up Supported Identity Providers](#set-up-supported-identity-providers).
+> Note: This guide walks you through how to configure federation between Okta orgs using OIDC as a replacement for SAML. But, you can also use these steps to configure generic support of any third-party IdP that is OIDC-compliant. See [Set Up Supported Identity Providers](#set-up-supported-identity-providers).
 
 ## Features
 
@@ -25,7 +25,7 @@ By default, all OIDC IdPs are configured with the Authorization Code grant type 
 
 ![Generic OIDC Flow width:](/img/OIDC-Okta-scenario.png "Generic OIDC Flow width:")
 
-Note: Okta is acting as an app in this scenario, being authenticated by the IdP.
+> Note: Okta is acting as an app in this scenario, being authenticated by the IdP.
 
 1. A user that wants access to Okta clicks a **Sign in with X** link to use an OIDC IdP to authenticate.
 2. An authentication and authorization request is sent to the IdP `/authorize` endpoint (an IdP acting as the OIDC IdP and the authorization server in this example).
@@ -53,7 +53,7 @@ This section walks through the steps to set up a generic OIDC IdP with Okta.
 
 Create a client application that you want to use for authenticating and authorizing your users.
 
-Note: These steps cover the Okta org to Okta org scenario. When configuring another generic OIDC IdP, refer to the IdP's documentation to configure a client application.
+> Note: These steps cover the Okta org to Okta org scenario. When configuring another generic OIDC IdP, refer to the IdP's documentation to configure a client application.
 
 1. At the Okta org that represents the IdP, select **Applications** and then click **Add Application**.
 2. You need a trusted client, so select **Web** as the platform. OpenID Connect is the sign-in method by default.
@@ -74,7 +74,7 @@ To connect your org to the IdP, add the IdP that you just created.
 4. Paste the **Client ID** and **Client Secret** that you copied when you created the IdP app in the last section.
 5. In the **Scopes** box, leave the default of `openid`, `email` and `profile` scopes. These scopes are included when Okta makes an OIDC request to the IdP.
 
-Note: By default, Okta requires the email attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory. If your IdP doesn't support this attribute, you can make it optional. See [Manage User Profiles](https://help.okta.com/en/prod/Content/Topics/Directory/eu-profile-editor.htm).
+> Note: By default, Okta requires the email attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory. If your IdP doesn't support this attribute, you can make it optional. See [Manage User Profiles](https://help.okta.com/en/prod/Content/Topics/Directory/eu-profile-editor.htm).
 
 6. Add the following endpoint URIs for the generic OIDC IdP that you are configuring. You can find the endpoints in the well-known configuration document for the IdP, for example: `https://theIdPorg.com/.well-known/openid-configuration`. For a list of fully-tested IdPs that are supported, see [Set Up Supported Identity Providers](#set-up-supported-identity-providers).
 
@@ -106,7 +106,7 @@ See [Manage User Profiles](https://help.okta.com/en/prod/Content/Topics/Director
 
 The redirect URI sent in the authorize request from the client needs to match the redirect URI in the IdP. This is the URL where the IdP returns the authentication response (the access token and the ID token). It needs to be a secure domain that you own.
 
-Note: These steps cover the Okta org to Okta org scenario. When configuring another generic OIDC IdP, go to the IdP and add the Okta redirect URI there.
+> Note: These steps cover the Okta org to Okta org scenario. When configuring another generic OIDC IdP, go to the IdP and add the Okta redirect URI there.
 
 1. In the IdP Okta org, from the Developer's Console select **Applications**, and then select the IdP application.
 2. Click **General**.
@@ -132,7 +132,7 @@ The IdP that you configured in the [Configure the IdP in Okta](#configure-the-Id
  
 - `client_id`: Use the `client_id` value that you copied in the [Create an App in Okta](#create-an-app-in-okta) section. This is not the `client_id` from the IdP.
 - `scope`: Determines the claims that are returned in the ID token. Include the scopes that you want to request authorization for and separate each by a space. You need to include at least the `openid` scope. You can request any of the standard OIDC scopes about users, such as `profile` and `email` as well as any custom scopes specific to your IdP.
-Note: In this example, the `email` and `profile` scopes are required to create and link the user to Okta's Universal Directory by default.
+> Note: In this example, the `email` and `profile` scopes are required to create and link the user to Okta's Universal Directory by default.
 - `response_type`: Determines which flow is used. This should be `code`, because in this example Authorization Code is the flow that is defined. For more information, see [Authorization Code Flow](https://developer.okta.com/authentication-guide/auth-overview/#authorization-code-flow).
 - `response_mode`: Determines how the authorization response should be returned. In this example, we are using `fragment`.
 - `state`: Protects against cross-site request forgery (CSRF).
