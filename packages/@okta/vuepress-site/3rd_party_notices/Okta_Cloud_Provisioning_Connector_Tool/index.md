@@ -17,10 +17,10 @@ THIRD PARTY NOTICES
 
 _Apache Commons BSF_
 
-  |VERSION (IF ANY):|     3.1|
-  |-
-  |BRIEF DESCRIPTION:|   Bean Scripting Framework (BSF) is a set of Java classes which provides scripting language support within Java applications, and access to Java objects and methods from scripting languages. BSF allows one to write JSPs in languages other than Java while providing access to the Java class library.
-  |LICENSE:|              Apache 2.0|
+| VERSION (IF ANY):  | 3.1                                                                                                                                                                                                                                                                                                      |
+| ---                | ---                                                                                                                                                                                                                                                                                                      |
+| BRIEF DESCRIPTION: | Bean Scripting Framework (BSF) is a set of Java classes which provides scripting language support within Java applications, and access to Java objects and methods from scripting languages. BSF allows one to write JSPs in languages other than Java while providing access to the Java class library. |
+| LICENSE:           | Apache 2.0                                                                                                                                                                                                                                                                                               |
 
 Copyright (c) 2002-2016 The Apache Software Foundation.
 
@@ -44,10 +44,10 @@ license._
 
 _Apache Commons Exec_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   The package shall create and maintain a process execution package written in the Java language to be distributed under the ASF license. |
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                                                                                                                                          |
+| ---                | ---                                                                                                                                      |
+| BRIEF DESCRIPTION: | The package shall create and maintain a process execution package written in the Java language to be distributed under the ASF license.  |
+| LICENSE:           | Apache 2.0                                                                                                                               |
 
 Copyright (c) 2005-2016 The Apache Software Foundation.
 
@@ -71,10 +71,10 @@ license._
 
 _Apache Commons Logging_
 
-  |VERSION (IF ANY):|    1.1.1|
-  |-
-  |BRIEF DESCRIPTION:|   Commons Logging is a thin adapter allowing configurable bridging to other, well known logging systems.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  | 1.1.1                                                                                                  |
+| ---                | ---                                                                                                    |
+| BRIEF DESCRIPTION: | Commons Logging is a thin adapter allowing configurable bridging to other, well known logging systems. |
+| LICENSE:           | Apache 2.0                                                                                             |
 
 Copyright (c) 2003-2016 The Apache Software Foundation.
 
@@ -98,10 +98,10 @@ license._
 
 _Bouncy Castle Crypto_
 
-  |VERSION (IF ANY):|    1.47|
-  |-
-  |BRIEF DESCRIPTION:|   The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms.|
-  |LICENSE:|             Legion of the Bouncy Castle License|
+| VERSION (IF ANY):  | 1.47                                                                                   |
+| ---                | ---                                                                                    |
+| BRIEF DESCRIPTION: | The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms. |
+| LICENSE:           | Legion of the Bouncy Castle License                                                    |
 
 Copyright (c) 2000 - 2013 The Legion Of The Bouncy Castle
 (http://www.bouncycastle.org)
@@ -127,10 +127,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Logback_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Logging Framework.|
-  |LICENSE:|             EPL 1.0 or LGPL 2.1, LGPL 2.1 selected|
+| VERSION (IF ANY):  |                                        |
+| ---                | ---                                    |
+| BRIEF DESCRIPTION: | Logging Framework.                     |
+| LICENSE:           | EPL 1.0 or LGPL 2.1, LGPL 2.1 selected |
 
 As of release 0.9.18, logback source code and binaries are dual-licensed
 under the EPL v1.0 and the LGPL 2.1, or more formally:
@@ -153,10 +153,10 @@ General Public License 2.1 license._
 
 _Schema for SOAP/ 1.1 envelope_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Schema for SOAP/1.1 envelope.|
-  |LICENSE:|             Permissive|
+| VERSION (IF ANY):  |                               |
+| ---                | ---                           |
+| BRIEF DESCRIPTION: | Schema for SOAP/1.1 envelope. |
+| LICENSE:           | Permissive                    |
 
 Portions copyright (c) 2001 DevelopMentor.
 
@@ -227,10 +227,10 @@ holders.
 
 _Serpent S Boxes_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Customized search engine to search for S boxes.|
-  |LICENSE:|             Custom|
+| VERSION (IF ANY):  |                                                 |
+| ---                | ---                                             |
+| BRIEF DESCRIPTION: | Customized search engine to search for S boxes. |
+| LICENSE:           | Custom                                          |
 
 Copyright (c) Dr B. R Gladman (gladman@seven77.demon.co.uk) and Sam
 Simpson (s.simpson@mia.co.uk). 17th December 1998.

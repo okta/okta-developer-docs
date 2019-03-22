@@ -48,11 +48,11 @@ These functions return all the groups that match the specified criteria. Use thi
 
 You can use this function anywhere to get a list of groups of which the current user is a member, including both user groups and app groups that originate from sources outside Okta, such as from Active Directory and Workday. Additionally, you can use this combined, custom-formatted list for customizable claims into Access and ID Tokens that drive authorization flows. All three functions have the same parameters:
 
-| Parameter | Description | Nullable | Example Values |
-| :------------- | :-------------- | :---------- | :--------------------- |
-| app | Application type or App ID | FALSE | `"OKTA"`, `"0oa13c5hnZFqZsoS00g4"`, `"active_directory"` |
-| pattern | Search term | FALSE | `"Eastern-Region"`, `"Eastern"`, `"-Region"` |
-| limit | Maximum number of groups returned. Must be a valid EL expression and evaluate to a value from 1 to 100. | FALSE | `1`, `50`, `100` |
+| Parameter      | Description                                                                                             | Nullable    | Example Values                                           |
+| :------------- | :--------------                                                                                         | :---------- | :---------------------                                   |
+| app            | Application type or App ID                                                                              | FALSE       | `"OKTA"`, `"0oa13c5hnZFqZsoS00g4"`, `"active_directory"` |
+| pattern        | Search term                                                                                             | FALSE       | `"Eastern-Region"`, `"Eastern"`, `"-Region"`             |
+| limit          | Maximum number of groups returned. Must be a valid EL expression and evaluate to a value from 1 to 100. | FALSE       | `1`, `50`, `100`                                         |
 
 To use these functions to create a token using a dynamic group whitelist, create a Groups claim on an app:
 
@@ -538,11 +538,11 @@ You can use this function anywhere to get a list of groups of which the current 
 
 This function takes Okta EL expressions for all parameters that evaluate to the correct data type. With these expressions you can create complex definitions for the whitelist, the group format, and for the number of groups to return that can include `if` logic and customized formatting.
 
-| Parameter        | Description                                                                                                                            | Nullable |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:---------|
-| whitelist        | Valid Okta EL expression that evaluates to a string array of group ids                                                                 | FALSE    |
-| group_expression | Valid Okta EL expression that evaluates to a string to use to evaluate the group. This string must also be a valid Okta EL expression. | FALSE    |
-| limit            | Valid Okta EL expression that evaluates to an integer between 1 and 100, inclusive to indicate the maximum number of groups to return  | FALSE    |
+| Parameter          | Description                                                                                                                              | Nullable |
+| :----------------- | :--------------------------------------------------------------------------------------------------------------------------------------- | :------- |
+| whitelist          | Valid Okta EL expression that evaluates to a string array of group ids                                                                   | FALSE    |
+| group_expression   | Valid Okta EL expression that evaluates to a string to use to evaluate the group. This string must also be a valid Okta EL expression.   | FALSE    |
+| limit              | Valid Okta EL expression that evaluates to an integer between 1 and 100, inclusive to indicate the maximum number of groups to return    | FALSE    |
 
 All parameters must be valid Okta EL expressions that evaluate as described above. Okta EL expressions can be comprised of strings, integers, arrays, etc.
 

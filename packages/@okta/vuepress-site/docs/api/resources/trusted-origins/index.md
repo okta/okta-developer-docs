@@ -129,9 +129,9 @@ Gets a trusted origin by ID
 #### Request Parameters
 
 
-Parameter         | Description              | Param Type | DataType | Required |
------------------ | ------------------------ | ---------- | -------- | -------- |
-`trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
+| Parameter         | Description              | Param Type | DataType | Required |
+| ----------------- | ------------------------ | ---------- | -------- | -------- |
+| `trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
 
 #### Response Parameters
 
@@ -203,10 +203,10 @@ A subset of trusted origins can be returned that match a supported filter expres
 - [List All Trusted Origins](#list-all-trusted-origins) (no parameters)
 - [List Trusted Origins with a Filter](#list-trusted-origins-with-a-filter) (`filter`)
 
-| Parameter  | Description                                                                                                                                     | Param Type | DataType | Required |
-|:-----------|:------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|:---------|:---------|
-| filter     | [Filter](/docs/api/getting_started/design_principles#filtering) Trusted origins with a supported expression for a subset of properties     | Query      | String   |    No    |
-| limit      | Specifies the number of results returned                                                                                                        | Query      | Integer  |    No    |
+| Parameter    | Description                                                                                                                                       | Param Type   | DataType   | Required |
+| :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :----------- | :--------- | :------- |
+| filter       | [Filter](/docs/api/getting_started/design_principles#filtering) Trusted origins with a supported expression for a subset of properties            | Query        | String     | No       |
+| limit        | Specifies the number of results returned                                                                                                          | Query        | Integer    | No       |
 
 ##### Response Parameters
 
@@ -455,9 +455,9 @@ Updates an existing trusted origin
 #### Request Parameters
 
 
-Parameter         | Description              | Param Type | DataType | Required |
------------------ | ------------------------ | ---------- | -------- | -------- |
-`trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
+| Parameter         | Description              | Param Type | DataType | Required |
+| ----------------- | ------------------------ | ---------- | -------- | -------- |
+| `trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
 
 #### Response Parameters
 
@@ -564,9 +564,9 @@ Activates an existing trusted origin
 #### Request Parameters
 
 
-Parameter         | Description              | Param Type | DataType | Required |
------------------ | ------------------------ | ---------- | -------- | -------- |
-`trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
+| Parameter         | Description              | Param Type | DataType | Required |
+| ----------------- | ------------------------ | ---------- | -------- | -------- |
+| `trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
 
 #### Response Parameters
 
@@ -633,9 +633,9 @@ Deactivates an existing trusted origin
 #### Request Parameters
 
 
-Parameter         | Description              | Param Type | DataType | Required |
------------------ | ------------------------ | ---------- | -------- | -------- |
-`trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
+| Parameter         | Description              | Param Type | DataType | Required |
+| ----------------- | ------------------------ | ---------- | -------- | -------- |
+| `trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
 
 #### Response Parameters
 
@@ -702,9 +702,9 @@ Deletes an existing trusted origin
 #### Request Parameters
 
 
-Parameter         | Description              | Param Type | DataType | Required |
------------------ | ------------------------ | ---------- | -------- | -------- |
-`trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
+| Parameter         | Description              | Param Type | DataType | Required |
+| ----------------- | ------------------------ | ---------- | -------- | -------- |
+| `trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
 
 #### Response Parameters
 
@@ -735,20 +735,20 @@ Passing an invalid trusted origin ID returns a `404 Not Found` status code with 
 
 A trusted origin defines several attributes:
 
-|Field Name    | Description                                                | Data Type                               | Required      | Max Length      |
-|:-------------|:-----------------------------------------------------------|:----------------------------------------|:--------------|:----------------|
-|id            | Unique identifier for this trusted origin                  | String                                  | No (Assigned) | N/A             |
-|name          | Unique name for this trusted origin                        | String                                  | Yes           | 255 (chars)     |
-|origin        | Unique origin URL for this trusted origin                  | String                                  | Yes           | 255 (chars)     |
-|scopes        | Array of scope types for which this trusted origin is used | Array of [Scope Objects](#scope-object) | Yes           | 2 (scope types) |
+| Field Name     | Description                                                  | Data Type                                 | Required        | Max Length      |
+| :------------- | :----------------------------------------------------------- | :---------------------------------------- | :-------------- | :-------------- |
+| id             | Unique identifier for this trusted origin                    | String                                    | No (Assigned)   | N/A             |
+| name           | Unique name for this trusted origin                          | String                                    | Yes             | 255 (chars)     |
+| origin         | Unique origin URL for this trusted origin                    | String                                    | Yes             | 255 (chars)     |
+| scopes         | Array of scope types for which this trusted origin is used   | Array of [Scope Objects](#scope-object)   | Yes             | 2 (scope types) |
 
 #### Scope Object
 
 Each scope object specifies the type of scope for which its trusted origin is used
 
-|Field Name | Description                                                  | Data Type                       | Required |
-|:----------|:-------------------------------------------------------------|:--------------------------------|:---------|
-|type       | Type of the scope: either "CORS" or "REDIRECT"               | String                          |   Yes    |
+| Field Name  | Description                                                    | Data Type                         | Required |
+| :---------- | :------------------------------------------------------------- | :-------------------------------- | :------- |
+| type        | Type of the scope: either "CORS" or "REDIRECT                  | String                            | Yes      |
 
 #### Scope Object Example (CORS)
 ```json

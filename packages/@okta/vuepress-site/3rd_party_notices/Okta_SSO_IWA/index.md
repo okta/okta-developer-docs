@@ -16,10 +16,10 @@ THIRD PARTY NOTICES
 
 _.NET Logging Framework_
 
-  |VERSION (IF ANY):|    15.2|
-  |-
-  |BRIEF DESCRIPTION:|   The logging framework provides you with an easy means to log information to any destination. It comes complete with loggers that support writing to the system console, a file on disk, a TCP/IP socket, and more.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  | 15.2                                                                                                                                                                                                               |
+| ---                | ---                                                                                                                                                                                                                |
+| BRIEF DESCRIPTION: | The logging framework provides you with an easy means to log information to any destination. It comes complete with loggers that support writing to the system console, a file on disk, a TCP/IP socket, and more. |
+| LICENSE:           | BSD 3-Clause                                                                                                                                                                                                       |
 
 Copyright (c) 2002, 2005 - Lorne Brinkman - All rights reserved.
 
@@ -54,10 +54,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _Code from MSDN blog article "Creating a self-signed certificate in C#"_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             Microsoft Limited Public License|
+| VERSION (IF ANY):  |                                  |
+| ---                | ---                              |
+| BRIEF DESCRIPTION: |                                  |
+| LICENSE:           | Microsoft Limited Public License |
 
 Microsoft Limited Public License
 
@@ -129,10 +129,10 @@ on a Microsoft Windows operating system product.
 
 _CodeProject Article, "LSA Functions - Privileges and Impersonation"_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             CPOL|
+| VERSION (IF ANY):  |      |
+| ---                | ---  |
+| BRIEF DESCRIPTION: |      |
+| LICENSE:           | CPOL |
 
 License
 
@@ -148,10 +148,10 @@ _*Modifications by Okta, Inc._
 
 _CommandLine Parser Library_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                                                                               |
+| ---                | ---                                                                                                                                           |
+| BRIEF DESCRIPTION: | The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks. |
+| LICENSE:           | MIT                                                                                                                                           |
 
 Copyright (c) 2005 - 2012 Giacomo Stelluti Scala.
 
@@ -176,10 +176,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Json.NET_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Json.NET is a popular high-performance JSON framework for .NET.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                 |
+| ---                | ---                                                             |
+| BRIEF DESCRIPTION: | Json.NET is a popular high-performance JSON framework for .NET. |
+| LICENSE:           | MIT                                                             |
 
 Copyright (c) 2007 James Newton-King.
 

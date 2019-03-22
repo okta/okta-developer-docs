@@ -32,10 +32,10 @@ At the end of this section can choose your server type to learn more about post-
 
 After you have created the application there are two more values you will need to gather before continuing, these values will be used in your application to setup the OpenID Connect flow with Okta.
 
-| Setting       | Where to Find                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------------- |
-| Client ID     | On the "General" tab of the application you just created, or the parent list of applications. |
-| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right.                            |
+| Setting       | Where to Find                                                                                                                       |
+| ------------- | ---------------------------------------------------------------------------------------------                                       |
+| Client ID     | On the "General" tab of the application you just created, or the parent list of applications.                                       |
+| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right. |
 
 ## Add Sign-In Widget Assets To Your Project
 

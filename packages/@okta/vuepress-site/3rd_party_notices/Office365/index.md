@@ -17,10 +17,10 @@ THIRD PARTY NOTICES
 _Code from MSDN blog article "How do I calculate a MD5 hash from a
 string?"_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             Microsoft Limited Public License|
+| VERSION (IF ANY):  |                                  |
+| ---                | ---                              |
+| BRIEF DESCRIPTION: |                                  |
+| LICENSE:           | Microsoft Limited Public License |
 
 Microsoft Limited Public License
 
@@ -92,10 +92,10 @@ on a Microsoft Windows operating system product.
 
 _Moq_
 
-  |VERSION (IF ANY):|    4|
-  |-
-  |BRIEF DESCRIPTION:|   Mocking library for .NET 3.5 and C# 3.0, heavily based on Linq.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  | 4                                                               |
+| ---                | ---                                                             |
+| BRIEF DESCRIPTION: | Mocking library for .NET 3.5 and C# 3.0, heavily based on Linq. |
+| LICENSE:           | BSD 3-Clause                                                    |
 
 Copyright (c) 2007. Clarius Consulting, Manas Technology Solutions,
 InSTEDD http://www.moqthis.com/. All rights reserved.
@@ -130,11 +130,11 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _NSubstitute_
 
-  |VERSION (IF ANY):|    1.4.3|
-  |-
-  |BRIEF DESCRIPTION:|   A friendly substitute for .NET mocking frameworks.|
-
-  |LICENSE:|   BSD 3-Clause|
+| VERSION (IF ANY):  | 1.4.3                                              |
+| ---                | ---                                                |
+| BRIEF DESCRIPTION: | A friendly substitute for .NET mocking frameworks. |
+|                    |                                                    |
+| LICENSE:           | BSD 3-Clause                                       |
   |-
 
 Copyright (c) 2009 Anthony Egerton (nsubstitute@delfish.com) and David
@@ -169,10 +169,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _Rhino Mocks_
 
-  |VERSION (IF ANY):|    3.6.0|
-  |-
-  |BRIEF DESCRIPTION:|   Rhino Mocks is a dynamic mock object framework for the .Net platform.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  | 3.6.0                                                                 |
+| ---                | ---                                                                   |
+| BRIEF DESCRIPTION: | Rhino Mocks is a dynamic mock object framework for the .Net platform. |
+| LICENSE:           | BSD 3-Clause                                                          |
 
 Copyright (c) 2005 - 2009 Ayende Rahien (ayende@ayende.com). All rights
 reserved.
@@ -206,10 +206,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _The Object Guy's Logging Framework_
 
-  |VERSION (IF ANY):|    1.5.2|
-  |-
-  |BRIEF DESCRIPTION:|   A complete logging framework for .NET.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  | 1.5.2                                  |
+| ---                | ---                                    |
+| BRIEF DESCRIPTION: | A complete logging framework for .NET. |
+| LICENSE:           | BSD 3-Clause                           |
 
 Copyright (c) 2002, 2005 - Lorne Brinkman - www.TheObjectGuy.com - All
 rights reserved.

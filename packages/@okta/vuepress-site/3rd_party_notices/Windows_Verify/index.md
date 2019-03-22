@@ -16,10 +16,10 @@ THIRD PARTY NOTICES
 
 _Coding4Funtoolkit_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Coding4FunToolkit is a set of controls, converters and helper classes for Windows Runtime XAML applications.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                                              |
+| ---                | ---                                                                                                          |
+| BRIEF DESCRIPTION: | Coding4FunToolkit is a set of controls, converters and helper classes for Windows Runtime XAML applications. |
+| LICENSE:           | MIT                                                                                                          |
 
 Copyright (c) by Marijn Haverbeke and others.
 
@@ -44,10 +44,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Microsoft Application Insights_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Application Insights main repository for documentation of overall SDK offerings for all platforms.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                                    |
+| ---                | ---                                                                                                |
+| BRIEF DESCRIPTION: | Application Insights main repository for documentation of overall SDK offerings for all platforms. |
+| LICENSE:           | MIT                                                                                                |
 
 Copyright (c) Microsoft Corporation.
 
@@ -72,10 +72,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _NuGet_
 
-  |VERSION (IF ANY):|    2.8.3|
-  |-
-  |BRIEF DESCRIPTION:|   NuGet is the package manager for the Microsoft development platform including .NET.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  | 2.8.3                                                                               |
+| ---                | ---                                                                                 |
+| BRIEF DESCRIPTION: | NuGet is the package manager for the Microsoft development platform including .NET. |
+| LICENSE:           | Apache 2.0                                                                          |
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may
 not use this file except in compliance with the License.
