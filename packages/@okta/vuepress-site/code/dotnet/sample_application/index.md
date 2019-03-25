@@ -9,7 +9,7 @@ redirect_from: /docs/examples/dotnet_sample_application.html
 component: Code
 ---
 
-# About
+# <i class='icon-48 docsPage code-dotnet'></i> About
 
 > <i class="fa fa-github"></i> [Visit the GitHub repository for the "Okta Music Store" .NET Sample Application.](https://github.com/okta/okta-music-store)
 

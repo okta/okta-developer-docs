@@ -40,10 +40,10 @@ Velit mauris odio Hac ipsum aliquet mollis felis.
 ##### API Request
 
 
-Parameter | Description                                                                            | Param Type | DataType                          | Required | Default
---------- | -------------------------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | -------
-senectus  | Inceptos [leo](#sub-section-1) risus nibh eleifend ad pede in integer, nam sapien      | Query      | Boolean                           | FALSE    | TRUE
-lobortis  | Mus mollis lobortis mi class et. Hymenaeos lacinia                                     | Body       | [Link](#last-section)             | TRUE     |
+| Parameter | Description                                                                            | Param Type | DataType                          | Required | Default |
+| --------- | -------------------------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ------- |
+| senectus  | Inceptos [leo](#sub-section-1) risus nibh eleifend ad pede in integer, nam sapien      | Query      | Boolean                           | FALSE    | TRUE    |
+| lobortis  | Mus mollis lobortis mi class et. Hymenaeos lacinia                                     | Body       | [Link](#last-section)             | TRUE     |         |
 
 ##### API Response
 
@@ -55,35 +55,35 @@ Consequat torquent magna. [Ridiculus](#last-section). Ac, mattis. Cras cum. Accu
 ##### Aliquet metus
 
 
-Parameter          | Description                                             | DataType | Nullable | Unique | Validation
------------------- | ------------------------------------------------------- | -------- | -------- | ------ | ----------------------------------------
-semper             | eleifend vitae pellentesque vulputate                   | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986)
-nostra             | nostra maecenas non. Dolor arcu convallis.              | Boolean  | FALSE    | FALSE  |
+| Parameter          | Description                                             | DataType | Nullable | Unique | Validation                                |
+| ------------------ | ------------------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
+| semper             | eleifend vitae pellentesque vulputate                   | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| nostra             | nostra maecenas non. Dolor arcu convallis.              | Boolean  | FALSE    | FALSE  |                                           |
 
 ##### Sed arcu mus
 
 
-| Parameter                                 | Description                                                                                 | DataType                                                                                     | Nullable | Unique | Validation | Default   |
-|:------------------------------------------|:--------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------|:---------|:-------|:-----------|:----------|
-| lacinia                                | Justo fames luctus urna.      | String  | TRUE     | FALSE  | FALSE      |           |
-| lobortis                               | Mi. Mattis sit nisi elit massa neque fringilla.                                            | URL                                                                                          | TRUE     | FALSE  | FALSE      |           |
-| porttitor                             | Nullam. Leo fusce condimentum tellus.  | Array         | TRUE     | FALSE  | TRUE       |           |
-| malesuada                            | Array of OAuth 2.0 response type strings                                                    | porttitor nam `code`, `token`, `class`                                                         | TRUE     | FALSE  | TRUE       |           |
-| inceptos                               | Primis ad cum fusce Nunc.       | condimentum `commodo_semper`, `implicit`, `password`, `fusce_arcu`, `client_credentials` | FALSE    | FALSE  | TRUE       |           |
-| Euismod                        |Ornare, praesent et montes lacinia pulvinar mollis consequat.                    | String                                                                                       | TRUE     | FALSE  | TRUE       |           |
-| habitant                          | Justo fames luctus urna.                                                           | `web`, `native`, `browser`, or `service`                                                     | TRUE     | FALSE  | TRUE       |           |
-| fusce_uri <ApiLifecycle access="beta" />          | Mi. Mattis sit nisi elit massa neque fringilla.                 | URL                                                                                          | TRUE     | FALSE  | FALSE      |           |
-| fusce_uri <ApiLifecycle access="beta" />       | Lorem aliquam, aliquet metus fames dis eleifend.                            | URL                                                                                          | TRUE     | FALSE  | FALSE      |           |
-| fusce_method <ApiLifecycle access="beta" /> } | Taciti porta fermentum. Bibendum. Inceptos. vehicula: `REQUIRED`, `TRUSTED` | String                                                                                       | TRUE     | FALSE  | TRUE       | `TRUSTED` |
+| Parameter                                     | Description                                                                                   | DataType                                                                                       | Nullable   | Unique   | Validation   | Default   |
+| :------------------------------------------   | :-------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- | :--------- | :------- | :----------- | :-------- |
+| lacinia                                       | Justo fames luctus urna.                                                                      | String                                                                                         | TRUE       | FALSE    | FALSE        |           |
+| lobortis                                      | Mi. Mattis sit nisi elit massa neque fringilla.                                               | URL                                                                                            | TRUE       | FALSE    | FALSE        |           |
+| porttitor                                     | Nullam. Leo fusce condimentum tellus.                                                         | Array                                                                                          | TRUE       | FALSE    | TRUE         |           |
+| malesuada                                     | Array of OAuth 2.0 response type strings                                                      | porttitor nam `code`, `token`, `class`                                                         | TRUE       | FALSE    | TRUE         |           |
+| inceptos                                      | Primis ad cum fusce Nunc.                                                                     | condimentum `commodo_semper`, `implicit`, `password`, `fusce_arcu`, `client_credentials`       | FALSE      | FALSE    | TRUE         |           |
+| Euismod                                       | Ornare, praesent et montes lacinia pulvinar mollis consequat.                                 | String                                                                                         | TRUE       | FALSE    | TRUE         |           |
+| habitant                                      | Justo fames luctus urna.                                                                      | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE         |           |
+| fusce_uri <ApiLifecycle access="beta" />      | Mi. Mattis sit nisi elit massa neque fringilla.                                               | URL                                                                                            | TRUE       | FALSE    | FALSE        |           |
+| fusce_uri <ApiLifecycle access="beta" />      | Lorem aliquam, aliquet metus fames dis eleifend.                                              | URL                                                                                            | TRUE       | FALSE    | FALSE        |           |
+| fusce_method <ApiLifecycle access="beta" /> } | Taciti porta fermentum. Bibendum. Inceptos. vehicula: `REQUIRED`, `TRUSTED`                   | String                                                                                         | TRUE       | FALSE    | TRUE         | `TRUSTED` |
 
 * Malesuada sodales litora fermentum urna tincidunt, porttitor nam:
 
-    | Application Type  | Valid Grant Type                                              | Requirements                                                                      |
-    | ----------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-    | `web`             | `commodo_semper`, `implicit`, `fusce_arcu`                    | Must have at least `commodo_semper`                                               |
-    | `native`          | `commodo_semper`, `implicit`, `password`, `fusce_arcu`        | Must have at least `commodo_semper`                                               |
-    | `browser`         | `implicit`                                                    | &#10004;                                                                          |
-    | `service`         | `client_credentials`                                          | Cubilia semper ut aenean arcu                                                     |
+| Application Type  | Valid Grant Type                                              | Requirements                                                                      |
+| ----------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `web`             | `commodo_semper`, `implicit`, `fusce_arcu`                    | Must have at least `commodo_semper`                                               |
+| `native`          | `commodo_semper`, `implicit`, `password`, `fusce_arcu`        | Must have at least `commodo_semper`                                               |
+| `browser`         | `implicit`                                                    | &#10004;                                                                          |
+| `service`         | `client_credentials`                                          | Cubilia semper ut aenean arcu                                                     |
 
 * Platea `vulputate` `lacinia` integer et facilisis elementum blandit congue quam. Nec turpis semper amet metus ridiculus porta, dolor eu diam. [ridiculus](https://tools.ietf.org/html/rfc6749).
 
@@ -92,13 +92,13 @@ nostra             | nostra maecenas non. Dolor arcu convallis.              | B
     * `consent_method`, magnis nisi euismod penatibus posuere
     * `consent`, integer taciti [scopes](/docs/api/resources/authorization-servers#scope-properties)
 
-    | `prompt` Value    | `consent_method`                 | `consent`                   | Result       |
-    |:------------------|:---------------------------------|:----------------------------|:-------------|
-    | `CONSENT`         | `TRUSTED` or `REQUIRED`          | `REQUIRED`                  | Prompted     |
-    | `CONSENT`         | `TRUSTED`                        | `IMPLICIT`                  | Not prompted |
-    | `NONE`            | `TRUSTED`                        | `REQUIRED` or `IMPLICIT`    | Not prompted |
-    | `NONE`            | `REQUIRED`                       | `REQUIRED`                  | Prompted     |
-    | `NONE`            | `REQUIRED`                       | `IMPLICIT`                  | Not prompted |
+| `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
+| :------------------ | :--------------------------------- | :---------------------------- | :----------- |
+| `CONSENT`           | `TRUSTED` or `REQUIRED`            | `REQUIRED`                    | Prompted     |
+| `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
+| `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
+| `NONE`              | `REQUIRED`                         | `REQUIRED`                    | Prompted     |
+| `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
 
 > <ApiLifecycle access="beta" /> Note: Cubilia `semper` ut aenean arcu. Quam lobortis duis.Tempor `scelerisque` lectus cubilia pede orci nonummy `fermentum` vehicula sit.
 

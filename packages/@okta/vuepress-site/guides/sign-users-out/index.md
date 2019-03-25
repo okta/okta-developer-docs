@@ -1,0 +1,3 @@
+---
+title: Sign Users Out
+---

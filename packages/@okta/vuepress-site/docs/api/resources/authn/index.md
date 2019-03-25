@@ -10,7 +10,7 @@ redirect_from:
 
 # Authentication API
 
-The Okta Authentication API provides operations to authenticate users, perform multi-factor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application, or it can be integrated with the Okta [Sessions API](sessions) to obtain an Okta [session cookie](/use_cases/authentication/session_cookie) and access apps within Okta.
+The Okta Authentication API provides operations to authenticate users, perform multi-factor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application, or it can be integrated with the Okta [Sessions API](/docs/api/resources/sessions/) to obtain an Okta [session cookie](/use_cases/authentication/session_cookie/) and access apps within Okta.
 
 The API is targeted for developers who want to build their own end-to-end login experience to replace the built-in Okta login experience and addresses the following key scenarios:
 
@@ -1786,11 +1786,11 @@ This operation changes a user's password by providing the existing password and 
 #### Request Parameters for Change Password
 
 
-Parameter   | Description                                                      | Param Type | DataType  | Required |
------------ | ---------------------------------------------------------------- | ---------- | --------- | -------- |
-stateToken  | [state token](#state-token) for current transaction              | Body       | String    | TRUE     |
-oldPassword | User's current password that is expired or about to expire | Body       | String    | TRUE     |
-newPassword | New password for user                                            | Body       | String    | TRUE     |
+| Parameter   | Description                                                      | Param Type | DataType  | Required |
+| ----------- | ---------------------------------------------------------------- | ---------- | --------- | -------- |
+| stateToken  | [state token](#state-token) for current transaction              | Body       | String    | TRUE     |
+| oldPassword | User's current password that is expired or about to expire       | Body       | String    | TRUE     |
+| newPassword | New password for user                                            | Body       | String    | TRUE     |
 
 #### Response Parameters for Change Password
 
@@ -1904,12 +1904,12 @@ Enrolls a user with a [factor](factors#supported-factors-for-providers) assigned
 #### Request Parameters for Enroll Factor
 
 
-Parameter   | Description                                                                   | Param Type  | DataType                                                     | Required |
------------ | ----------------------------------------------------------------------------- | ----------- | -------------------------------------------------------------| -------- |
-stateToken  | [state token](#state-token) for current transaction                           | Body        | String                                                       | TRUE     |
-factorType  | type of factor                                                                | Body        | [Factor Type](factors#factor-type)                      | TRUE     |
-provider    | factor provider                                                               | Body        | [Provider Type](factors#provider-type)                  | TRUE     |
-profile     | profile of a [supported factor](factors#supported-factors-for-providers) | Body        | [Factor Profile Object](factors#factor-profile-object)  | TRUE     |
+| Parameter   | Description                                                                   | Param Type  | DataType                                                      | Required |
+| ----------- | ----------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------- | -------- |
+| stateToken  | [state token](#state-token) for current transaction                           | Body        | String                                                        | TRUE     |
+| factorType  | type of factor                                                                | Body        | [Factor Type](factors#factor-type)                            | TRUE     |
+| provider    | factor provider                                                               | Body        | [Provider Type](factors#provider-type)                        | TRUE     |
+| profile     | profile of a [supported factor](factors#supported-factors-for-providers)      | Body        | [Factor Profile Object](factors#factor-profile-object)        | TRUE     |
 
 #### Response Parameters for Enroll Factor
 
@@ -2936,11 +2936,11 @@ Activates a `token:software:totp` factor by verifying the OTP.
 #### Request Parameters for Activate TOTP Factor
 
 
-Parameter    | Description                                          | Param Type | DataType | Required |
------------- | ---------------------------------------------------- | ---------- | -------- | -------- |
-factorId          | `id` of factor returned from enrollment              | URL        | String   | TRUE     |
-stateToken   | [state token](#state-token)  for current transaction | Body       | String   | TRUE     |
-passCode     | OTP generated by device                              | Body       | String   | TRUE     |
+| Parameter    | Description                                          | Param Type | DataType | Required |
+| ------------ | ---------------------------------------------------- | ---------- | -------- | -------- |
+| factorId     | `id` of factor returned from enrollment              | URL        | String   | TRUE     |
+| stateToken   | [state token](#state-token)  for current transaction | Body       | String   | TRUE     |
+| passCode     | OTP generated by device                              | Body       | String   | TRUE     |
 
 #### Response Parameters for Activate TOTP Factor
 
@@ -3012,11 +3012,11 @@ Activates a `sms` factor by verifying the OTP.  The request and response is iden
 ##### Activate SMS Factor Request Parameters
 
 
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-factorId          | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-passCode     | OTP sent to mobile device                           | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| factorId     | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| passCode     | OTP sent to mobile device                           | Body       | String   | TRUE     |
 
 ##### Activate SMS Factor Response Parameters
 
@@ -3089,11 +3089,11 @@ Activates a `call` factor by verifying the OTP.  The request and response is ide
 ##### Activate Call Factor Request Parameters
 
 
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-factorId          | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-passCode     | Passcode received via the voice call                | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| factorId     | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| passCode     | Passcode received via the voice call                | Body       | String   | TRUE     |
 
 ##### Activate Call Factor Response Parameters
 
@@ -3168,10 +3168,10 @@ Activations have a short lifetime (minutes) and will `TIMEOUT` if they are not c
 ##### Activate Push Factor Request Parameters
 
 
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-factorId          | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| factorId     | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
 
 ##### Activate Push Factor Response Parameters
 
@@ -3662,12 +3662,12 @@ Activate a `u2f` factor by verifying the registration data and client data.
 ##### Activate U2F Request Parameters
 
 
-Parameter        | Description                                               | Param Type | DataType | Required |
------------------| ----------------------------------------------------------| ---------- | -------- | -------- |
-factorId              | `id` of factor returned from enrollment                   | URL        | String   | TRUE     |
-stateToken       | [state token](#state-token) for current transaction       | Body       | String   | TRUE     |
-registrationData | base64 encoded registration data from U2F javascript call | Body       | String   | TRUE     |
-clientData       | base64 encoded client data from U2F javascript call       | Body       | String   | TRUE     |
+| Parameter         | Description                                                | Param Type | DataType | Required |
+| ----------------- | ---------------------------------------------------------- | ---------- | -------- | -------- |
+| factorId          | `id` of factor returned from enrollment                    | URL        | String   | TRUE     |
+| stateToken        | [state token](#state-token) for current transaction        | Body       | String   | TRUE     |
+| registrationData  | base64 encoded registration data from U2F javascript call  | Body       | String   | TRUE     |
+| clientData        | base64 encoded client data from U2F javascript call        | Body       | String   | TRUE     |
 
 ##### Activate U2F Response Parameters
 
@@ -3756,12 +3756,12 @@ Verifies an answer to a `question` factor.
 ##### Request Parameters for Verify Security Question Factor
 
 
-Parameter      | Description                                         | Param Type | DataType | Required |
--------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-factorId            | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-answer         | answer to security question                         | Body       | String   | TRUE     |
-rememberDevice | user's decision to remember device            | URL        | Boolean  | FALSE    |
+| Parameter      | Description                                         | Param Type | DataType | Required |
+| -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
+| factorId       | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| answer         | answer to security question                         | Body       | String   | TRUE     |
+| rememberDevice | user's decision to remember device                  | URL        | Boolean  | FALSE    |
 
 ##### Response Parameters for Verify Security Question Factor
 
@@ -3830,12 +3830,12 @@ curl -v -X POST \
 ##### Request Parameters for Verify SMS Factor
 
 
-Parameter      | Description                                         | Param Type | DataType | Required |
--------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-factorId            | `id` of factor                                      | URL        | String   | TRUE     |
-stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
-rememberDevice | user's decision to remember device            | URL        | Boolean  | FALSE    |
+| Parameter      | Description                                         | Param Type | DataType | Required |
+| -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
+| factorId       | `id` of factor                                      | URL        | String   | TRUE     |
+| stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
+| rememberDevice | user's decision to remember device                  | URL        | Boolean  | FALSE    |
 
 > If you omit `passCode` in the request a new OTP will be sent to the device, otherwise the request will attempt to verify the `passCode`
 
@@ -4001,12 +4001,12 @@ Verifies an OTP for a `token:software:totp` factor.
 ##### Request Parameters for Verify TOTP Factor
 
 
-Parameter      | Description                                         | Param Type | DataType | Required |
--------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-factorId            | `id` of factor                                      | URL        | String   | TRUE     |
-stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
-rememberDevice | user's decision to remember device            | URL        | Boolean  | FALSE    |
+| Parameter      | Description                                         | Param Type | DataType | Required |
+| -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
+| factorId       | `id` of factor                                      | URL        | String   | TRUE     |
+| stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
+| rememberDevice | user's decision to remember device                  | URL        | Boolean  | FALSE    |
 
 ##### Response Parameters for Verify TOTP Factor
 
@@ -4077,12 +4077,12 @@ Sends an asynchronous push notification (challenge) to the device for the user t
 ##### Request Parameters for Verify Push Factor
 
 
-Parameter      | Description                                         | Param Type | DataType | Required |
--------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-factorId            | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-rememberDevice | user's decision to remember device            | URL        | Boolean  | FALSE    |
-autoPush       | user's decision to send push to device automatically | URL | Boolean  | FALSE    |
+| Parameter      | Description                                          | Param Type | DataType | Required |
+| -------------- | ---------------------------------------------------  | ---------- | -------- | -------- |
+| factorId       | `id` of factor returned from enrollment              | URL        | String   | TRUE     |
+| stateToken     | [state token](#state-token) for current transaction  | Body       | String   | TRUE     |
+| rememberDevice | user's decision to remember device                   | URL        | Boolean  | FALSE    |
+| autoPush       | user's decision to send push to device automatically | URL        | Boolean  | FALSE    |
 
 **Okta Verify Push Details Pertaining to Auto-Push**
 
@@ -4548,13 +4548,13 @@ example, if a user enrolled a U2F device via Okta Sign-in widget that is hosted 
 ##### Request Parameters for Verify U2F Factor
 
 
-Parameter      | Description                                         | Param Type | DataType | Required |
--------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-factorId            | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-clientData     | base64 encoded client data from the U2F token       | Body       | String   | TRUE     |
-signatureData  | base64 encoded signature data from the U2F token    | Body       | String   | TRUE     |
-rememberDevice | user's decision to remember device            | URL        | Boolean  | FALSE    |
+| Parameter      | Description                                         | Param Type | DataType | Required |
+| -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
+| factorId       | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| clientData     | base64 encoded client data from the U2F token       | Body       | String   | TRUE     |
+| signatureData  | base64 encoded signature data from the U2F token    | Body       | String   | TRUE     |
+| rememberDevice | user's decision to remember device                  | URL        | Boolean  | FALSE    |
 
 ##### Start Verification to Get Challenge Nonce
 
@@ -4730,12 +4730,12 @@ curl -v -X POST \
 ##### Request Parameters for Verify Call Factor
 
 
-Parameter      | Description                                         | Param Type | DataType | Required |
--------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-factorId            | `id` of factor                                      | URL        | String   | TRUE     |
-stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
-rememberDevice | user's decision to remember device            | URL        | Boolean  | FALSE    |
+| Parameter      | Description                                         | Param Type | DataType | Required |
+| -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
+| factorId       | `id` of factor                                      | URL        | String   | TRUE     |
+| stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
+| rememberDevice | user's decision to remember device                  | URL        | Boolean  | FALSE    |
 
 > If you omit `passCode` in the request a new OTP will be sent to the device, otherwise the request will attempt to verify the `passCode`
 
@@ -4898,11 +4898,11 @@ Starts a new password recovery transaction for a given user and issues a [recove
 ##### Request Parameters for Forgot Password
 
 
-Parameter   | Description                                                                                                       | Param Type | DataType                          | Required | MaxLength |
------------ | ----------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | --------- |
-username    | User's non-qualified short-name (e.g. dade.murphy) or unique fully-qualified login (dade.murphy@example.com)| Body       | String                            | TRUE     |           |
-factorType  | Recovery factor to use for primary authentication                                                                 | Body       | `EMAIL` or `SMS` or `CALL`  | FALSE    |           |
-relayState  | Optional state value that is persisted for the lifetime of the recovery transaction                               | Body       | String                            | FALSE    |   2048    |
+| Parameter   | Description                                                                                                       | Param Type | DataType                          | Required | MaxLength |
+| ----------- | ----------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | --------- |
+| username    | User's non-qualified short-name (e.g. dade.murphy) or unique fully-qualified login (dade.murphy@example.com)      | Body       | String                            | TRUE     |           |
+| factorType  | Recovery factor to use for primary authentication                                                                 | Body       | `EMAIL` or `SMS` or `CALL`        | FALSE    |           |
+| relayState  | Optional state value that is persisted for the lifetime of the recovery transaction                               | Body       | String                            | FALSE    | 2048      |
 
 > A valid `factorType` is required for requests without an API token with administrator privileges. For more information, see [Forgot Password with Trusted Application](#forgot-password-with-trusted-application).
 
@@ -5191,11 +5191,11 @@ Starts a new unlock recovery transaction for a given user and issues a [recovery
 ##### Request Parameters for Unlock Account
 
 
-Parameter   | Description                                                                                                      | Param Type | DataType                          | Required | Max Length |
------------ | ---------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ---------- |
-username    | User's non-qualified short-name (dade.murphy) or unique fully-qualified login (dade.murphy@example.com)    | Body       | String                            | TRUE     |            |
-factorType  | Recovery factor to use for primary authentication                                                                | Body       | `EMAIL` or `SMS`                  | FALSE    |            |
-relayState  | Optional state value that is persisted for the lifetime of the recovery transaction                              | Body       | String                            | FALSE    |  2048      |
+| Parameter   | Description                                                                                                      | Param Type | DataType                          | Required | Max Length |
+| ----------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ---------- |
+| username    | User's non-qualified short-name (dade.murphy) or unique fully-qualified login (dade.murphy@example.com)          | Body       | String                            | TRUE     |            |
+| factorType  | Recovery factor to use for primary authentication                                                                | Body       | `EMAIL` or `SMS`                  | FALSE    |            |
+| relayState  | Optional state value that is persisted for the lifetime of the recovery transaction                              | Body       | String                            | FALSE    | 2048       |
 
 > A valid `factorType` is required for requests without an API token with administrator privileges. (See [Unlock Account with Trusted Application](#unlock-account-with-trusted-application))
 
@@ -5414,10 +5414,10 @@ Verifies a SMS OTP (`passCode`) sent to the user's mobile phone for primary auth
 ##### Request Parameters for Verify SMS Recovery Factor
 
 
-Parameter    | Description                                                  | Param Type | DataType | Required |
------------- | ------------------------------------------------------------ | ---------- | -------- | -------- |
-stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
-passCode     | OTP sent to device                                           | Body       | String   | TRUE     |
+| Parameter    | Description                                                  | Param Type | DataType | Required |
+| ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
+| stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
+| passCode     | OTP sent to device                                           | Body       | String   | TRUE     |
 
 ##### Response Parameters for Verify SMS Recovery Factor
 
@@ -5510,9 +5510,9 @@ Resends a SMS OTP (`passCode`) to the user's mobile phone
 #### Request Parameters for Resend SMS Recovery Challenge
 
 
-Parameter    | Description                                                  | Param Type | DataType | Required |
------------- | ------------------------------------------------------------ | ---------- | -------- | -------- |
-stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
+| Parameter    | Description                                                  | Param Type | DataType | Required |
+| ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
+| stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
 
 #### Response Parameters for Resend SMS Recovery Challenge
 
@@ -5584,10 +5584,10 @@ Verifies a Voice Call OTP (`passCode`) sent to the user's device for primary aut
 ##### Request Parameters for Verify Call Recovery Factor
 
 
-Parameter    | Description                                                  | Param Type | DataType | Required |
------------- | ------------------------------------------------------------ | ---------- | -------- | -------- |
-stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
-passCode     | Passcode received via the voice call                         | Body       | String   | TRUE     |
+| Parameter    | Description                                                  | Param Type | DataType | Required |
+| ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
+| stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
+| passCode     | Passcode received via the voice call                         | Body       | String   | TRUE     |
 
 ##### Response Parameters for Verify Call Recovery Factor
 
@@ -5680,9 +5680,9 @@ Resends a Voice Call with OTP (`passCode`) to the user's phone
 #### Request Parameters for Resend Call Recovery Challenge
 
 
-Parameter    | Description                                                  | Param Type | DataType | Required |
------------- | ------------------------------------------------------------ | ---------- | -------- | -------- |
-stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
+| Parameter    | Description                                                  | Param Type | DataType | Required |
+| ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
+| stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
 
 #### Response Parameters for Resend Call Recovery Challenge
 
@@ -5754,9 +5754,9 @@ Validates a [recovery token](#recovery-token) that was distributed to the end us
 ##### Request Parameters for Verify Recovery Token
 
 
-Parameter     | Description                                                                                                | Param Type | DataType | Required |
-------------- | ---------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- |
-recoveryToken | [Recovery token](#recovery-token) that was distributed to the end user via out-of-band mechanism such as email | Body       | String   | TRUE     |
+| Parameter     | Description                                                                                                    | Param Type | DataType | Required |
+| ------------- | ----------------------------------------------------------------------------------------------------------     | ---------- | -------- | -------- |
+| recoveryToken | [Recovery token](#recovery-token) that was distributed to the end user via out-of-band mechanism such as email | Body       | String   | TRUE     |
 
 ##### Response Parameters for Verify Recovery Token
 
@@ -5847,10 +5847,10 @@ Answers the user's recovery question to ensure only the end user redeemed the [r
 ##### Request Parameters for Answer Recovery Question
 
 
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-answer       | answer to user's recovery question            | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| answer       | answer to user's recovery question                  | Body       | String   | TRUE     |
 
 ##### Response Parameters for Answer Recovery Question
 
@@ -5957,10 +5957,10 @@ Resets a user's password to complete a recovery transaction with a `PASSWORD_RES
 ##### Request Parameters for Reset Password
 
 
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-newPassword  | User's new password                           | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| newPassword  | User's new password                                 | Body       | String   | TRUE     |
 
 ##### Response Parameters for Reset Password
 
@@ -6052,9 +6052,9 @@ Retrieves the current [transaction state](#transaction-state) for a [state token
 ##### Request Parameters for Get Transaction State
 
 
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
 
 ##### Response Parameters for Get Transaction State
 
@@ -6146,9 +6146,9 @@ the user's phone might stop working. Since the user can't see the QR code, the t
 ##### Request Parameters for Previous Transaction State
 
 
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
 
 ##### Response Parameters for Previous Transaction State
 
@@ -6279,9 +6279,9 @@ to skip the other factors.
 ##### Request Parameters for Skip Transaction State
 
 
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
 
 ##### Response Parameters for Skip Transaction State
 
@@ -6335,16 +6335,16 @@ Cancels the current transaction and revokes the [state token](#state-token).
 ##### Request Parameters for Cancel Transaction
 
 
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
 
 ##### Response Parameters for Cancel Transaction
 
 
-Parameter    | Description                                                                            | Param Type | DataType | Required |
------------- | -------------------------------------------------------------------------------------- | ---------- | -------- | -------- |
-relayState   | Optional state value that was persisted for the authentication or recovery transaction | Body       | String   | TRUE     |
+| Parameter    | Description                                                                            | Param Type | DataType | Required |
+| ------------ | -------------------------------------------------------------------------------------- | ---------- | -------- | -------- |
+| relayState   | Optional state value that was persisted for the authentication or recovery transaction | Body       | String   | TRUE     |
 
 ##### Request Example for Cancel Transaction
 
@@ -6375,17 +6375,17 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 
 ### Authentication Transaction Model
 
-| Property      | Description                                                                                            | DataType                                                       | Nullable | Readonly | MaxLength |
-| ------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | -------- | -------- | --------- |
-| stateToken    | ephemeral [token](#state-token) that encodes the current state of an authentication transaction        | String                                                         | TRUE     | TRUE     |           |
-| type <ApiLifecycle access="ea" />  | type of authentication transaction. Currently available during step-up authentication   | [Authentication Type](#authentication-type)                    | TRUE     | TRUE     |           |
-| sessionToken  | ephemeral [one-time token](#session-token) used to bootstrap an Okta session                           | String                                                         | TRUE     | TRUE     |           |
-| expiresAt     | lifetime of the `stateToken` or `sessionToken` (See [Tokens](#tokens))                                 | Date                                                           | TRUE     | TRUE     |           |
-| status        | current [state](#transaction-state) of the authentication transaction                                  | [Transaction State](#transaction-state)                        | FALSE    | TRUE     |           |
-| relayState    | optional opaque value that is persisted for the lifetime of the authentication transaction             | String                                                         | TRUE     | TRUE     |   2048    |
-| factorResult  | optional status of last verification attempt for a given factor                                        | [Factor Result](#factor-result)                                | TRUE     | TRUE     |           |
-| _embedded     | [embedded resources](#embedded-resources) for the current `status`                                     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
-| _links        | [link relations](#links-object) for the current `status`                                               | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
+| Property                          | Description                                                                                            | DataType                                                       | Nullable | Readonly | MaxLength |
+| -------------                     | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | -------- | -------- | --------- |
+| stateToken                        | ephemeral [token](#state-token) that encodes the current state of an authentication transaction        | String                                                         | TRUE     | TRUE     |           |
+| type <ApiLifecycle access="ea" /> | type of authentication transaction. Currently available during step-up authentication                  | [Authentication Type](#authentication-type)                    | TRUE     | TRUE     |           |
+| sessionToken                      | ephemeral [one-time token](#session-token) used to bootstrap an Okta session                           | String                                                         | TRUE     | TRUE     |           |
+| expiresAt                         | lifetime of the `stateToken` or `sessionToken` (See [Tokens](#tokens))                                 | Date                                                           | TRUE     | TRUE     |           |
+| status                            | current [state](#transaction-state) of the authentication transaction                                  | [Transaction State](#transaction-state)                        | FALSE    | TRUE     |           |
+| relayState                        | optional opaque value that is persisted for the lifetime of the authentication transaction             | String                                                         | TRUE     | TRUE     | 2048      |
+| factorResult                      | optional status of last verification attempt for a given factor                                        | [Factor Result](#factor-result)                                | TRUE     | TRUE     |           |
+| _embedded                         | [embedded resources](#embedded-resources) for the current `status`                                     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
+| _links                            | [link relations](#links-object) for the current `status`                                               | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
 
 > The `relayState` parameter is an opaque value for the transaction and processed as untrusted data which is just echoed in a response.  It is the client's responsibility to escape/encode this value before displaying in a UI such as a HTML document using [best practices](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet)
 
@@ -6397,7 +6397,7 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 | recoveryToken | ephemeral [one-time token](#recovery-token) for recovery transaction to be distributed to the end user | String                                                         | TRUE     | TRUE     |           |
 | expiresAt     | lifetime of the `stateToken` or `recoveryToken` (See [Tokens](#tokens))                                | Date                                                           | TRUE     | TRUE     |           |
 | status        | current [state](#transaction-state) of the recovery transaction                                        | [Transaction State](#transaction-state)                        | FALSE    | TRUE     |           |
-| relayState    | optional opaque value that is persisted for the lifetime of the recovery transaction                   | String                                                         | TRUE     | TRUE     |   2048    |
+| relayState    | optional opaque value that is persisted for the lifetime of the recovery transaction                   | String                                                         | TRUE     | TRUE     | 2048      |
 | factorType    | type of selected factor for the recovery transaction                                                   | `EMAIL` or `SMS`                                               | FALSE    | TRUE     |           |
 | recoveryType  | type of recovery operation                                                                             | `PASSWORD` or `UNLOCK`                                         | FALSE    | TRUE     |           |
 | factorResult  | optional status of last verification attempt for the `factorType`                                      | [Factor Result](#factor-result)                                | TRUE     | TRUE     |           |
@@ -6412,20 +6412,20 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 
 An authentication or recovery transaction has one of the following states:
 
-| Value                 | Description                                                                                               | Next Action                                                                                                          |
-| --------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------|
-| `UNAUTHENTICATED` <ApiLifecycle access="ea" />    | User tried to access protected resource (ex: an app) but user is not authenticated  | POST to the `next` link relation to [authenticate user credentials](#step-up-authentication-without-okta-session).   |
-| `PASSWORD_WARN`       | The user's password was successfully validated but is about to expire and should be changed.        | POST to the `next` link relation to [change the user's password](#change-password).                            |
-| `PASSWORD_EXPIRED`    | The user's password was successfully validated but is expired.                                      | POST to the `next` link relation to [change the user's expired password](#change-password).                    |
-| `RECOVERY`            | The user has requested a recovery token to reset their password or unlock their account.                  | POST to the `next` link relation to [answer the user's recovery question](#answer-recovery-question).          |
-| `RECOVERY_CHALLENGE`  | The user must verify the factor-specific recovery challenge.                                              | POST to the `verify` link relation to [verify the recovery factor](#verify-recovery-factor).                         |
-| `PASSWORD_RESET`      | The user successfully answered their recovery question and must to set a new password.                    | POST to the `next` link relation to [reset the user's password](#reset-password).                              |
-| `LOCKED_OUT`          | The user account is locked; self-service unlock or administrator unlock is required.                              | POST to the `unlock` link relation to perform a [self-service unlock](#unlock-account).                              |
-| `MFA_ENROLL`          | The user must select and enroll an available factor for additional verification.                          | POST to the `enroll` link relation for a specific factor to [enroll the factor](#enroll-factor).                     |
-| `MFA_ENROLL_ACTIVATE` | The user must activate the factor to complete enrollment.                                                 | POST to the `next` link relation to [activate the factor](#activate-factor).                                         |
-| `MFA_REQUIRED`        | The user must provide additional verification with a previously enrolled factor.                          | POST to the `verify` link relation for a specific factor to [provide additional verification](#verify-factor).       |
-| `MFA_CHALLENGE`       | The user must verify the factor-specific challenge.                                                       | POST to the `verify` link relation to [verify the factor](#verify-factor).                                           |
-| `SUCCESS`             | The transaction has completed successfully                                                                |                                                                                                                      |
+| Value                                          | Description                                                                                               | Next Action                                                                                                         |
+| ---------------------                          | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `UNAUTHENTICATED` <ApiLifecycle access="ea" /> | User tried to access protected resource (ex: an app) but user is not authenticated                        | POST to the `next` link relation to [authenticate user credentials](#step-up-authentication-without-okta-session).  |
+| `PASSWORD_WARN`                                | The user's password was successfully validated but is about to expire and should be changed.              | POST to the `next` link relation to [change the user's password](#change-password).                                 |
+| `PASSWORD_EXPIRED`                             | The user's password was successfully validated but is expired.                                            | POST to the `next` link relation to [change the user's expired password](#change-password).                         |
+| `RECOVERY`                                     | The user has requested a recovery token to reset their password or unlock their account.                  | POST to the `next` link relation to [answer the user's recovery question](#answer-recovery-question).               |
+| `RECOVERY_CHALLENGE`                           | The user must verify the factor-specific recovery challenge.                                              | POST to the `verify` link relation to [verify the recovery factor](#verify-recovery-factor).                        |
+| `PASSWORD_RESET`                               | The user successfully answered their recovery question and must to set a new password.                    | POST to the `next` link relation to [reset the user's password](#reset-password).                                   |
+| `LOCKED_OUT`                                   | The user account is locked; self-service unlock or administrator unlock is required.                      | POST to the `unlock` link relation to perform a [self-service unlock](#unlock-account).                             |
+| `MFA_ENROLL`                                   | The user must select and enroll an available factor for additional verification.                          | POST to the `enroll` link relation for a specific factor to [enroll the factor](#enroll-factor).                    |
+| `MFA_ENROLL_ACTIVATE`                          | The user must activate the factor to complete enrollment.                                                 | POST to the `next` link relation to [activate the factor](#activate-factor).                                        |
+| `MFA_REQUIRED`                                 | The user must provide additional verification with a previously enrolled factor.                          | POST to the `verify` link relation for a specific factor to [provide additional verification](#verify-factor).      |
+| `MFA_CHALLENGE`                                | The user must verify the factor-specific challenge.                                                       | POST to the `verify` link relation to [verify the factor](#verify-factor).                                          |
+| `SUCCESS`                                      | The transaction has completed successfully                                                                |                                                                                                                     |
 
 You advance the authentication or recovery transaction to the next state by posting a request with a valid [state token](#state-token) to the the `next` link relation published in the [JSON HAL links object](#links-object) for the response.
 
@@ -6552,8 +6552,8 @@ The `MFA_CHALLENGE` or `RECOVERY_CHALLENGE` state can return an additional prope
 The following table shows the possible values for this property:
 
 | factorResult           | Description                                                                                                                         |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------|
-| `WAITING`              | Factor verification has started but not yet completed (e.g user hasn't answered phone call yet)                               |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------  |
+| `WAITING`              | Factor verification has started but not yet completed (e.g user hasn't answered phone call yet)                                     |
 | `CANCELLED`            | Factor verification was canceled by user                                                                                            |
 | `TIMEOUT`              | Unable to verify factor within the allowed time window                                                                              |
 | `TIME_WINDOW_EXCEEDED` | Factor was successfully verified but outside of the computed time window.  Another verification is required in current time window. |
@@ -6566,13 +6566,13 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 The Links Object is read only.
 
-| Link Relation Type | Description                                                                                                                                                               |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| next               | Transitions the  [state machine](#transaction-state) to the next state.  **Note: The `name` of the link relationship provides a hint of the next operation required** |
-| prev               | Transitions the  [state machine](#transaction-state) to the previous state.                                                                                               |
-| cancel             | Cancels the current  transaction and revokes the [state token](#state-token).                                                                                             |
-| skip               | Skips over the current  transaction state to the next valid [state](#transaction-state)                                                                                   |
-| resend             | Resends a challenge or OTP to a device                                                                                                                                    |
+| Link Relation Type | Description                                                                                                                                                              |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| next               | Transitions the  [state machine](#transaction-state) to the next state.  **Note: The `name` of the link relationship provides a hint of the next operation required**    |
+| prev               | Transitions the  [state machine](#transaction-state) to the previous state.                                                                                              |
+| cancel             | Cancels the current  transaction and revokes the [state token](#state-token).                                                                                            |
+| skip               | Skips over the current  transaction state to the next valid [state](#transaction-state)                                                                                  |
+| resend             | Resends a challenge or OTP to a device                                                                                                                                   |
 
 ## Embedded Resources
 
@@ -6583,9 +6583,9 @@ A subset of [user properties](users#user-model) published in an authentication o
 | Property          | Description                                       | DataType                                              | Nullable | Unique | Readonly |
 | ----------------- | ------------------------------------------------- | ----------------------------------------------------- | -------- | ------ | -------- |
 | id                | Unique key for user                               | String                                                | FALSE    | TRUE   | TRUE     |
-| passwordChanged   | Timestamp when user's password last changed | Date                                                  | TRUE     | FALSE  | TRUE     |
-| profile           | User's profile                              | [User Profile Object](#user-profile-object)           | FALSE    | FALSE  | TRUE     |
-| recovery_question | User's recovery question                    | [Recovery Question Object](#recovery-question-object) | TRUE     | FALSE  | TRUE     |
+| passwordChanged   | Timestamp when user's password last changed       | Date                                                  | TRUE     | FALSE  | TRUE     |
+| profile           | User's profile                                    | [User Profile Object](#user-profile-object)           | FALSE    | FALSE  | TRUE     |
+| recovery_question | User's recovery question                          | [Recovery Question Object](#recovery-question-object) | TRUE     | FALSE  | TRUE     |
 
 ```json
 {
@@ -6608,13 +6608,13 @@ A subset of [user properties](users#user-model) published in an authentication o
 
 Subset of [profile properties](users#profile-object) for a user
 
-| Property  | Description                                                                                                                        | DataType | Nullable | Unique | Readonly | Validation                                                            |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------| -------- | ------ | -------- | --------------------------------------------------------------------- |
-| login     | Unique login for user                                                                                                              | String   | FALSE    | TRUE   | TRUE     |                                                                       |
-| firstName | First name of user                                                                                                                 | String   | FALSE    | FALSE  | TRUE     |                                                                       |
-| lastName  | Last name of user                                                                                                                  | String   | FALSE    | FALSE  | TRUE     |                                                                       |
-| locale    | User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc. | String   | TRUE     | FALSE  | TRUE     | [RFC 5646](https://tools.ietf.org/html/rfc5646)                       |
-| timeZone  | User's time zone                                                                                                             | String   | TRUE     | FALSE  | TRUE     | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557) |
+| Property  | Description                                                                                                                        | DataType  | Nullable | Unique | Readonly | Validation                                                            |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ------ | -------- | --------------------------------------------------------------------- |
+| login     | Unique login for user                                                                                                              | String    | FALSE    | TRUE   | TRUE     |                                                                       |
+| firstName | First name of user                                                                                                                 | String    | FALSE    | FALSE  | TRUE     |                                                                       |
+| lastName  | Last name of user                                                                                                                  | String    | FALSE    | FALSE  | TRUE     |                                                                       |
+| locale    | User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.       | String    | TRUE     | FALSE  | TRUE     | [RFC 5646](https://tools.ietf.org/html/rfc5646)                       |
+| timeZone  | User's time zone                                                                                                                   | String    | TRUE     | FALSE  | TRUE     | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557) |
 
 #### Remember Device Policy Object
 
@@ -6664,7 +6664,7 @@ User's recovery question used for verification of a recovery transaction
 
 | Property          | Description                    | DataType | Nullable | Unique | Readonly |
 | ----------------- | ------------------------------ | -------- | -------- | ------ | -------- |
-| question          | User's recovery question | String   | FALSE    | TRUE   | TRUE     |
+| question          | User's recovery question       | String   | FALSE    | TRUE   | TRUE     |
 
 ### Target Object
 
@@ -6672,11 +6672,11 @@ User's recovery question used for verification of a recovery transaction
 Represents the target resource that user tried accessing. Typically this is the app that user is trying to sign-in.
 Currently this is available only during [SP-initiated step-up authentication](#sp-initiated-step-up-authentication) and [IDP-initiated step-up authentication](#idp-initiated-step-up-authentication).
 
-| Property  | Description                                                                                                                  | DataType | Nullable | Unique | Readonly |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------| -------- | ------ | -------- |
-| type      | Type of the target resource. Currently only 'APP' is the supported type.                                                     | String   | FALSE    | TRUE   | TRUE     |
-| name      | Name of the target resource                                                                                                  | String   | FALSE    | FALSE  | TRUE     |
-| label     | Label of the target resource                                                                                                 | String   | FALSE    | FALSE  | TRUE     |
+| Property  | Description                                                                                                                  | DataType                                                       | Nullable | Unique | Readonly |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------                                                      | -------- | ------ | -------- |
+| type      | Type of the target resource. Currently only 'APP' is the supported type.                                                     | String                                                         | FALSE    | TRUE   | TRUE     |
+| name      | Name of the target resource                                                                                                  | String                                                         | FALSE    | FALSE  | TRUE     |
+| label     | Label of the target resource                                                                                                 | String                                                         | FALSE    | FALSE  | TRUE     |
 | _links    | Discoverable resources for the target                                                                                        | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 
 ### Authentication Object
@@ -6685,10 +6685,10 @@ Currently this is available only during [SP-initiated step-up authentication](#s
 Represents the authentication details that the target resource is using.
 Currently this is available only during [SP-initiated step-up authentication](#sp-initiated-step-up-authentication) and [IDP-initiated step-up authentication](#idp-initiated-step-up-authentication).
 
-| Property  | Description                                                                                                                  | DataType | Nullable | Unique | Readonly |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------| -------- | ------ | -------- |
+| Property  | Description                                                                                                                  | DataType                         | Nullable | Unique | Readonly |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------                        | -------- | ------ | -------- |
 | protocol  | The protocol of authentication.                                                                                              | `SAML2.0`, `SAML1.1` or `WS-FED` | FALSE    | TRUE   | TRUE     |
-| issuer    | The issuer of the assertion.                                                                                                 | [Issuer Object](#issuer-object)| FALSE    | FALSE  | TRUE     |
+| issuer    | The issuer of the assertion.                                                                                                 | [Issuer Object](#issuer-object)  | FALSE    | FALSE  | TRUE     |
 
 ```json
 {
@@ -6704,11 +6704,11 @@ Currently this is available only during [SP-initiated step-up authentication](#s
 #### Issuer Object
 The issuer that generates the assertion after the authentication finishes.
 
-| Property  | Description                                                                                                                  | DataType | Nullable | Unique | Readonly |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------| -------- | ------ | -------- |
-| id        | Id of the issuer.                                                                                                            | String   | TRUE     | TRUE   | TRUE     |
-| name      | Name of the issuer.                                                                                                          | String   | FALSE    | FALSE  | TRUE     |
-| uri       | URI of the issuer.                                                                                                           | String   | FALSE    | FALSE  | TRUE     |
+| Property  | Description                                                                                                                  | DataType  | Nullable | Unique | Readonly |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ------ | -------- |
+| id        | Id of the issuer.                                                                                                            | String    | TRUE     | TRUE   | TRUE     |
+| name      | Name of the issuer.                                                                                                          | String    | FALSE    | FALSE  | TRUE     |
+| uri       | URI of the issuer.                                                                                                           | String    | FALSE    | FALSE  | TRUE     |
 
 ### Password Policy Object
 
@@ -6751,14 +6751,14 @@ Specifies the password age requirements of the assigned password policy
 
 Specifies the password complexity requirements of the assigned password policy
 
-| Property     | Description                                          | DataType | Nullable | Unique | Readonly |
-| ------------ | ---------------------------------------------------- | -------- | -------- | ------ | -------- |
-| minLength    | Minimum number of characters for password            | Number   | FALSE    | FALSE  | TRUE     |
-| minLowerCase | Minimum number of lower case characters for password | Number   | FALSE    | FALSE  | TRUE     |
-| minUpperCase | Minimum number of upper case characters for password | Number   | FALSE    | FALSE  | TRUE     |
-| minNumber    | Minimum number of numeric characters for password    | Number   | FALSE    | FALSE  | TRUE     |
-| minSymbol    | Minimum number of symbol characters for password     | Number   | FALSE    | FALSE  | TRUE     |
-| excludeUsername    | Prevents username or domain from appearing in the password     | Boolean   | FALSE    | FALSE  | TRUE     |
+| Property        | Description                                                | DataType | Nullable | Unique | Readonly |
+| ------------    | ----------------------------------------------------       | -------- | -------- | ------ | -------- |
+| minLength       | Minimum number of characters for password                  | Number   | FALSE    | FALSE  | TRUE     |
+| minLowerCase    | Minimum number of lower case characters for password       | Number   | FALSE    | FALSE  | TRUE     |
+| minUpperCase    | Minimum number of upper case characters for password       | Number   | FALSE    | FALSE  | TRUE     |
+| minNumber       | Minimum number of numeric characters for password          | Number   | FALSE    | FALSE  | TRUE     |
+| minSymbol       | Minimum number of symbol characters for password           | Number   | FALSE    | FALSE  | TRUE     |
+| excludeUsername | Prevents username or domain from appearing in the password | Boolean  | FALSE    | FALSE  | TRUE     |
 
 > Duplicate the minimum Active Directory requirements in these settings for AD-mastered users. No enforcement is triggered by Okta settings for AD-mastered users.
 
@@ -6769,21 +6769,21 @@ Specifies the password requirements related to password age and history
 | Property         | Description                                                              | DataType | Nullable | Unique | Readonly |
 | ---------------- | ------------------------------------------------------------------------ | -------- | -------- | ------ | -------- |
 | minAgeMinutes    | Minimum number of minutes required since the last password change        | Number   | FALSE    | FALSE  | TRUE     |
-| historyCount     | Number of previous passwords that the current password can't match | Number   | FALSE    | FALSE  | TRUE     |
+| historyCount     | Number of previous passwords that the current password can't match       | Number   | FALSE    | FALSE  | TRUE     |
 
 ### Factor Object
 
 A subset of [factor properties](factors#factor-model) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
 
-| Property       | Description                                                                              | DataType                                                       | Nullable | Unique | Readonly |
-| -------------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | ---------|
-| id             | unique key for factor                                                                    | String                                                         | TRUE     | TRUE   | TRUE     |
-| factorType     | type of factor                                                                           | [Factor Type](factors#factor-type)                        | FALSE    | TRUE   | TRUE     |
-| provider       | factor provider                                                                          | [Provider Type](factors#provider-type)                    | FALSE    | TRUE   | TRUE     |
-| vendorName     | factor Vendor Name (Same as provider but for On Prem MFA it depends on Administrator Settings)   | [Provider Type](factors#provider-type)                    | FALSE    | TRUE   | TRUE     |
-| profile        | profile of a [supported factor](factors#supported-factors-for-providers)            | [Factor Profile Object](factors#factor-profile-object)    | TRUE     | FALSE  | TRUE     |
-| _embedded      | [embedded resources](#factor-embedded-resources) related to the factor                   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
-| _links         | [discoverable resources](#factor-links-object) for the factor                            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
+| Property       | Description                                                                                    | DataType                                                       | Nullable | Unique | Readonly |
+| -------------- | ----------------------------------------------------------------------------------------       | -------------------------------------------------------------- | -------- | ------ | -------  |
+| id             | unique key for factor                                                                          | String                                                         | TRUE     | TRUE   | TRUE     |
+| factorType     | type of factor                                                                                 | [Factor Type](factors#factor-type)                             | FALSE    | TRUE   | TRUE     |
+| provider       | factor provider                                                                                | [Provider Type](factors#provider-type)                         | FALSE    | TRUE   | TRUE     |
+| vendorName     | factor Vendor Name (Same as provider but for On Prem MFA it depends on Administrator Settings) | [Provider Type](factors#provider-type)                         | FALSE    | TRUE   | TRUE     |
+| profile        | profile of a [supported factor](factors#supported-factors-for-providers)                       | [Factor Profile Object](factors#factor-profile-object)         | TRUE     | FALSE  | TRUE     |
+| _embedded      | [embedded resources](#factor-embedded-resources) related to the factor                         | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
+| _links         | [discoverable resources](#factor-links-object) for the factor                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 
 ```json
 {
@@ -6863,9 +6863,9 @@ The phone object describes previously enrolled phone numbers for the `sms` facto
 
 ###### Phone Profile Object
 
-| Property      | Description          | DataType | Nullable | Unique | Readonly |
-| ------------- | -------------------- | ---------| -------- | ------ | -------- |
-| phoneNumber   | Masked phone number  | String   | FALSE    | FALSE  | TRUE     |
+| Property      | Description          | DataType  | Nullable | Unique | Readonly |
+| ------------- | -------------------- | --------- | -------- | ------ | -------- |
+| phoneNumber   | Masked phone number  | String    | FALSE    | FALSE  | TRUE     |
 
 ##### Push Factor Activation Object
 
@@ -6917,7 +6917,7 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | Link Relation Type | Description                                                                              |
 | ------------------ | ---------------------------------------------------------------------------------------- |
 | qrcode             | QR code that encodes the push activation code needed for enrollment on the device        |
-| send               | Sends an activation link via `email` or `sms` for users who can't scan the QR code |
+| send               | Sends an activation link via `email` or `sms` for users who can't scan the QR code       |
 
 ##### Factor Links Object
 
@@ -6925,9 +6925,9 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 The Factor Links Object is read only.
 
-| Link Relation Type | Description                                                  |
-| ------------------ | -------------------------------------------------------------|
-| enroll             | [Enrolls a factor](#enroll-factor)                           |
-| verify             | [Verifies a factor](#verify-factor)                          |
-| questions          | Lists all possible questions for the `question` factor type  |
-| resend             | Resends a challenge or OTP to a device                       |
+| Link Relation Type | Description                                                 |
+| ------------------ | ----------------------------------------------------------- |
+| enroll             | [Enrolls a factor](#enroll-factor)                          |
+| verify             | [Verifies a factor](#verify-factor)                         |
+| questions          | Lists all possible questions for the `question` factor type |
+| resend             | Resends a challenge or OTP to a device                      |

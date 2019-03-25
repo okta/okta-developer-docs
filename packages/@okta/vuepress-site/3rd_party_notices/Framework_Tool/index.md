@@ -16,10 +16,10 @@ THIRD PARTY NOTICES
 
 _Logback_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Logging Framework|
-  |LICENSE:|             EPL 1.0 or LGPL 2.1, LGPL 2.1 selected|
+| VERSION (IF ANY):  |                                        |
+| ---                | ---                                    |
+| BRIEF DESCRIPTION: | Logging Framework                      |
+| LICENSE:           | EPL 1.0 or LGPL 2.1, LGPL 2.1 selected |
 
 As of release 0.9.18, logback source code and binaries are dual-licensed
 under the EPL v1.0 and the LGPL 2.1, or more formally:

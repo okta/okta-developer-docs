@@ -44,7 +44,6 @@
         }
 
         return this.eventTypes.filter((eventType) => {
-          console.log(this.search.toLowerCase())
           return eventType.id.toLowerCase().indexOf(this.search.toLowerCase())>=0
         });
 

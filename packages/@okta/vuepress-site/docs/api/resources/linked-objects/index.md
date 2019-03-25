@@ -47,9 +47,9 @@ Adds a linked object definition to the user profile schema. The `name` field fou
 ##### Request Parameters
 
 
-| Parameter | Description | Param Type | DataType  | Required |
-| :------------- | :-------------- | :---------------- | :----------- | :------------ |
-| linkedObject | The linked object definition being created | Body | [Linked Object](#linked-object-model)  | TRUE   |
+| Parameter      | Description                                | Param Type        | DataType                              | Required      |
+| :------------- | :--------------                            | :---------------- | :-----------                          | :------------ |
+| linkedObject   | The linked object definition being created | Body              | [Linked Object](#linked-object-model) | TRUE          |
 
 ##### Response Parameters
 
@@ -118,9 +118,9 @@ You can specify either the `primary` name or the `associated` name.
 ##### Request Parameters
 
 
-| Parameter | Description    | DataType     | Required |
-| :------------- | :---------------- | :---------------- |:------------- |
-| name | Case-sensitive API name of the definition you want returned | String | TRUE     |
+| Parameter      | Description                                                 | DataType          | Required       |
+| :------------- | :----------------                                           | :---------------- | :------------- |
+| name           | Case-sensitive API name of the definition you want returned | String            | TRUE           |
 
 ##### Response Parameters
 
@@ -250,9 +250,9 @@ Removes the linked object definition specified by either `primary` or `associate
 ##### Request Parameters
 
 
-| Parameter   | Description    | DataType   | Required |
-| :--------------- | :----------------- | :------------- |:------------ |
-| name | Primary or associated name | String | TRUE  |
+| Parameter        | Description                | DataType       | Required      |
+| :--------------- | :-----------------         | :------------- | :------------ |
+| name             | Primary or associated name | String         | TRUE          |
 
 ##### Response Parameters
 
@@ -296,11 +296,11 @@ Sets the first user as the `associated` and the second user as the `primary` for
 ##### Request Parameters
 
 
-| Parameter   | Description    | DataType     | Required |
-| :--------------- | :----------------- |:---------------- |:------------ |
-| associated.userId | User ID or `login` value of user to be assigned the `associated` relationship | String | TRUE     |
-| primary.name | Name of the `primary` relationship being assigned | String | TRUE  |
-| primary.userId | User ID to be assigned to `primary` for the `associated` user in the specified relationship. | String | TRUE   |
+| Parameter         | Description                                                                                  | DataType          | Required      |
+| :---------------  | :-----------------                                                                           | :---------------- | :------------ |
+| associated.userId | User ID or `login` value of user to be assigned the `associated` relationship                | String            | TRUE          |
+| primary.name      | Name of the `primary` relationship being assigned                                            | String            | TRUE          |
+| primary.userId    | User ID to be assigned to `primary` for the `associated` user in the specified relationship. | String            | TRUE          |
 
 ##### Response Parameters
 
@@ -337,9 +337,9 @@ Use `me` instead of `id` to specify the current session user.
 ##### Request Parameters
 
 
-| Parameter   | Description    | DataType     | Required |
-| :--------------- | :----------------- |:---------------- |:------------ |
-| id | ID of the user for whom you want to get the `primary` user ID. Can be `me` to represent the current session user. | String | TRUE     |
+| Parameter        | Description                                                                                                       | DataType          | Required      |
+| :--------------- | :-----------------                                                                                                | :---------------- | :------------ |
+| id               | ID of the user for whom you want to get the `primary` user ID. Can be `me` to represent the current session user. | String            | TRUE          |
 
 ##### Response Parameters
 
@@ -384,9 +384,9 @@ Use `me` instead of `id` to specify the current session user.
 ##### Request Parameters
 
 
-| Parameter   | Description    | DataType     | Required |
-| :--------------- | :----------------- |:---------------- |:------------ |
-| id | ID of the user for whom you want to get the `associated` user IDs. Can be `me` to represent the current session user. | String | TRUE     |
+| Parameter        | Description                                                                                                           | DataType          | Required      |
+| :--------------- | :-----------------                                                                                                    | :---------------- | :------------ |
+| id               | ID of the user for whom you want to get the `associated` user IDs. Can be `me` to represent the current session user. | String            | TRUE          |
 
 ##### Response Parameters
 
@@ -429,10 +429,10 @@ For the `associated` user specified by ID and the relationship specified by `pri
 ##### Request Parameters
 
 
-| Parameter   | Description    | DataType     | Required |
-| :--------------- | :----------------- |:---------------- |:------------ |
-| id | ID of the user in the `associated` relationship for the specified primary name. Can be `me` to represent the current session user. | String | TRUE   |
-| primary.name | The name of the `primary` relationship associated with the specified `associated` user. The relationship between these two users is the linked object value being deleted. | String | TRUE |
+| Parameter        | Description                                                                                                                                                                | DataType          | Required      |
+| :--------------- | :-----------------                                                                                                                                                         | :---------------- | :------------ |
+| id               | ID of the user in the `associated` relationship for the specified primary name. Can be `me` to represent the current session user.                                         | String            | TRUE          |
+| primary.name     | The name of the `primary` relationship associated with the specified `associated` user. The relationship between these two users is the linked object value being deleted. | String            | TRUE          |
 
 An HTTP 204 message is returned:
 
@@ -491,15 +491,15 @@ The following model contains example values for each attribute.
 ```
 ### Linked Object Properties
 
-| Parameter   | Description    | DataType          | Required |
-| :--------------- | :----------------- | :-------------------- |:------------ |
-| primary.name | API name of the `primary` link | String  | TRUE   |
-| primary.title    | Display name of the `primary` link | String | TRUE |
-| primary.description | Description of the `primary` relationship | String | FALSE |
-| primary.type | The object type for this `primary` link. Valid value: `USER` | Enum | TRUE |
-| associated.name | API name of the `associated` link | String  | TRUE   |
-| associated.title    | Display name of the `associated` link | String | TRUE |
-| associated.description | Description of the `associated` relationship | String | FALSE |
-| associated.type | The object type for this `associated` relationship. Valid value: `USER` | Enum | TRUE |
+| Parameter              | Description                                                             | DataType              | Required      |
+| :---------------       | :-----------------                                                      | :-------------------- | :------------ |
+| primary.name           | API name of the `primary` link                                          | String                | TRUE          |
+| primary.title          | Display name of the `primary` link                                      | String                | TRUE          |
+| primary.description    | Description of the `primary` relationship                               | String                | FALSE         |
+| primary.type           | The object type for this `primary` link. Valid value: `USER`            | Enum                  | TRUE          |
+| associated.name        | API name of the `associated` link                                       | String                | TRUE          |
+| associated.title       | Display name of the `associated` link                                   | String                | TRUE          |
+| associated.description | Description of the `associated` relationship                            | String                | FALSE         |
+| associated.type        | The object type for this `associated` relationship. Valid value: `USER` | Enum                  | TRUE          |
 
 > The primary.type and associated.type are created as Enums to allow Okta to add more object types in the future. This is not a guarantee that Okta will do so.

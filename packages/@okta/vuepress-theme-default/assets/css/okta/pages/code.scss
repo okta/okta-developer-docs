@@ -8,3 +8,16 @@ ul.code-list {
   padding-left: 0px;
 }
 
+
+.language-content a:not([class="header-anchor header-link"]) {
+  display: block;
+}
+
+.language-content ul:not([class="language-tabs"]) {
+  padding-left: 0;
+}
+
+.language-content li {
+  list-style: none;
+}
+

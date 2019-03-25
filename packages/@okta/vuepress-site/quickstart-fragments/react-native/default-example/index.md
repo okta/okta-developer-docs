@@ -25,19 +25,19 @@ In Okta, applications are OpenID Connect clients that can use Okta Authorization
 * Log into the Okta Developer Dashboard, click **Applications** then **Add Application**.
 * Choose **Native app** as the platform, then populate your new OpenID Connect application with values suitable for your app. If you are running this locally and using the defaults from [React Native's documentation](https://github.com/react-community/create-react-native-app#getting-started), your `port` will be `19000`:
 
-| Setting             | Value                                         |
-| ------------------- | --------------------------------------------  |
-| App Name            | My Native App                                 |
-| Login redirect URIs | {yourOktaScheme}:/+expo-auth-session          |
-|                     | exp://localhost:{port}/+expo-auth-session     |
-| Grant Types Allowed | Authorization Code, Refresh Token             |
+| Setting             | Value                                        |
+| ------------------- | -------------------------------------------- |
+| App Name            | My Native App                                |
+| Login redirect URIs | {yourOktaScheme}:/+expo-auth-session         |
+|                     | exp://localhost:{port}/+expo-auth-session    |
+| Grant Types Allowed | Authorization Code, Refresh Token            |
 
 After you have created the application there are two more values you will need to gather:
 
-| Setting       | Where to Find                                                                  |
-| ------------- | ------------------------------------------------------------------------------ |
-| Client ID     | In the applications list, or on the "General" tab of a specific application.   |
-| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right.             |
+| Setting       | Where to Find                                                                                                                       |
+| ------------- | ------------------------------------------------------------------------------                                                      |
+| Client ID     | In the applications list, or on the "General" tab of a specific application.                                                        |
+| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right. |
 
 These values will be used in your React Native application to setup the OpenID Connect flow with Okta.
 

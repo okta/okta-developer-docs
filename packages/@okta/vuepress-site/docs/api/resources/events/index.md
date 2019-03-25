@@ -31,12 +31,12 @@ Fetches a list of events from your Okta organization system log
 ##### Request Parameters
 
 
-| Parameter | Description                                                                                 | Param Type | DataType | Required | Default |
-|:----------|:--------------------------------------------------------------------------------------------|:-----------|:---------|:---------|:--------|
-| limit     | Specifies the number of results to page                                                     | Query      | Number   | FALSE    | 1000    |
-| startDate | Specifies the timestamp to list events after                                                | Query      | Date     | FALSE    |         |
-| filter    | [Filter expression](/docs/api/getting_started/design_principles#filtering) for events  | Query      | String   | FALSE    |         |
-| after     | Specifies the pagination cursor for the next page of events                                 | Query      | String   | FALSE    |         |
+| Parameter   | Description                                                                                   | Param Type   | DataType   | Required   | Default |
+| :---------- | :-------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
+| limit       | Specifies the number of results to page                                                       | Query        | Number     | FALSE      | 1000    |
+| startDate   | Specifies the timestamp to list events after                                                  | Query        | Date       | FALSE      |         |
+| filter      | [Filter expression](/docs/api/getting_started/design_principles#filtering) for events         | Query        | String     | FALSE      |         |
+| after       | Specifies the pagination cursor for the next page of events                                   | Query        | String     | FALSE      |         |
 
 Parameter Details
 
@@ -65,14 +65,14 @@ Note that if no data is returned, this typically indicates you have caught up wi
 
 The following expressions are supported for events with the `filter` query parameter:
 
-| Filter                                      | Description                                                                          |
-|:--------------------------------------------|:-------------------------------------------------------------------------------------|
-| `action.objectType eq ":actionType"`        | Events that have a specific [action objectType](#action-objecttypes)                 |
-| `target.objectType eq ":objectType"`        | Events published with a specific [target objectType](#actor-and-target-objecttypes)  |
-| `target.id eq ":id"`                        | Events published with a specific target id                                           |
-| `published lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"` | Events published before a specific datetime                                          |
-| `published eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"` | Events published updated at a specific datetime                                      |
-| `published gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"` | Events published updated after a specific datetime                                   |
+| Filter                                        | Description                                                                          |
+| :-------------------------------------------- | :----------------------------------------------------------------------------------- |
+| `action.objectType eq ":actionType"`          | Events that have a specific [action objectType](#action-objecttypes)                 |
+| `target.objectType eq ":objectType"`          | Events published with a specific [target objectType](#actor-and-target-objecttypes)  |
+| `target.id eq ":id"`                          | Events published with a specific target id                                           |
+| `published lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Events published before a specific datetime                                          |
+| `published eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Events published updated at a specific datetime                                      |
+| `published gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Events published updated after a specific datetime                                   |
 
 See [Filtering](/docs/api/getting_started/design_principles#filtering) for more information on expressions.
 
@@ -291,17 +291,17 @@ Every organization has a system log that maintains a history of actions performe
 
 The Event model is read only, with a fixed set of attributes:
 
-| Property  | Description                                                           | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
-|:----------|:----------------------------------------------------------------------|:---------------------------------------------------------------|:---------|:-------|:---------|:----------|:----------|
-| eventId   | Unique key for event                                                  | String                                                         | FALSE    | TRUE   | TRUE     |           |           |
-| published | Timestamp when event was published                                    | Date                                                           | FALSE    | TRUE   | TRUE     | 1         | 255       |
-| requestId | Identifies the request                                                | String                                                         | TRUE     | FALSE  | TRUE     | 1         | 50        |
-| sessionId | Session in which the event occurred                                   | String                                                         | TRUE     | FALSE  | TRUE     |           |           |
-| action    | Identifies the action that the event describes                        | [Action Object](#action-object)                                | FALSE    | FALSE  | TRUE     |           |           |
-| actors    | Describes zero or more entities that performed the action             | Array of [Actor Object](#actor-object)                         | FALSE    | FALSE  | TRUE     |           |           |
-| targets   | Describes zero or more entities that the action was performed against | Array of [Target Object](#target-object)                       | TRUE     | FALSE  | TRUE     |           |           |
-| _links    | discoverable resources related to the event                           | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |
-| _embedded | embedded resources related to the event                               | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |
+| Property    | Description                                                             | DataType                                                         | Nullable   | Unique   | Readonly   | MinLength   | MaxLength |
+| :---------- | :---------------------------------------------------------------------- | :--------------------------------------------------------------- | :--------- | :------- | :--------- | :---------- | :-------- |
+| eventId     | Unique key for event                                                    | String                                                           | FALSE      | TRUE     | TRUE       |             |           |
+| published   | Timestamp when event was published                                      | Date                                                             | FALSE      | TRUE     | TRUE       | 1           | 255       |
+| requestId   | Identifies the request                                                  | String                                                           | TRUE       | FALSE    | TRUE       | 1           | 50        |
+| sessionId   | Session in which the event occurred                                     | String                                                           | TRUE       | FALSE    | TRUE       |             |           |
+| action      | Identifies the action that the event describes                          | [Action Object](#action-object)                                  | FALSE      | FALSE    | TRUE       |             |           |
+| actors      | Describes zero or more entities that performed the action               | Array of [Actor Object](#actor-object)                           | FALSE      | FALSE    | TRUE       |             |           |
+| targets     | Describes zero or more entities that the action was performed against   | Array of [Target Object](#target-object)                         | TRUE       | FALSE    | TRUE       |             |           |
+| _links      | discoverable resources related to the event                             | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)   | TRUE       | FALSE    | TRUE       |             |           |
+| _embedded   | embedded resources related to the event                                 | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)   | TRUE       | FALSE    | TRUE       |             |           |
 
 Property Details
 
@@ -312,12 +312,12 @@ Property Details
 
 Describes an activity performed by a user, app, client, or other entity (actor) on a target:
 
-| Property   | Description                                                     | DataType        | Nullable |
-|:-----------|:----------------------------------------------------------------|:----------------|:---------|
-| message    | Description of an action                                        | String          | FALSE    |
-| categories | [Categories](#action-categories) for an action                  | Array of String | FALSE    |
-| objectType | Identifies the [unique type](#action-objecttypes) of an action  | String          | FALSE    |
-| requestUri | Uri of the request that generated the event.                    | String          | TRUE     |
+| Property     | Description                                                       | DataType          | Nullable |
+| :----------- | :---------------------------------------------------------------- | :---------------- | :------- |
+| message      | Description of an action                                          | String            | FALSE    |
+| categories   | [Categories](#action-categories) for an action                    | Array of String   | FALSE    |
+| objectType   | Identifies the [unique type](#action-objecttypes) of an action    | String            | FALSE    |
+| requestUri   | Uri of the request that generated the event.                      | String            | TRUE     |
 
 Actions that do not define any categories will have a zero element array value.
 
@@ -358,72 +358,72 @@ The action `objectType` identifies the unique action performed.
 
 ##### Application Authentication
 
-| ObjectType                  | Description                                             |
-|:----------------------------|:--------------------------------------------------------|
-| app.auth.sso                | Event occurred during SSO                               |
-| app.auth.delegated.outbound | Event occurred during outbound delegated authentication |
+| ObjectType                    | Description                                             |
+| :---------------------------- | :------------------------------------------------------ |
+| app.auth.sso                  | Event occurred during SSO                               |
+| app.auth.delegated.outbound   | Event occurred during outbound delegated authentication |
 
 ##### Application User Management
 
-| ObjectType                                                       | Description                                                               |
-|:-----------------------------------------------------------------|:--------------------------------------------------------------------------|
-| app.user_management.push_password_update                         | Update user's password in application                                     |
-| app.user_management.push_profile_success                         | Successfully created or updated user's profile in application             |
-| app.user_management.push_profile_failure                         | Failed to create or update user's profile in application                  |
-| app.user_management.push_new_user                                | Create new user in application                                            |
-| app.user_management.push_pending_user                            | Queue update of user for application                                      |
-| app.user_management.provision_user                               | Created or updated user from application                                  |
-| app.user_management.provision_user_failed                        | Failed to create or update user from application                          |
-| app.user_management.importing_profile                            | Create or update user's profile from application                          |
-| app.user_management.update_from_master_failed                    | Failed to master user's profile from application                          |
-| app.user_management.verified_user_with_thirdparty                | Verified user against application                                         |
-| app.user_management.updating_api_credentials_for_password_change | Updating API credentials due to  API administrator user password change           |
-| app.user_management.activate_user                                | Activate user in application                                              |
-| app.user_management.deactivate_user                              | Deactivate user in application                                            |
-| app.user_management.reactivate_user                              | Reactivate user in application                                            |
-| app.user_management.provision_user.user_inactive                 | Attempt to provision a user to an inactive account, and cannot reactivate |
-| app.user_management.deactivate_user.api_account                  | Deactivate API user in application                                        |
-| app.user_management.deprovision_task_complete                    | Deprovisioning task has been marked complete (automatically or manually)  |
+| ObjectType                                                         | Description                                                               |
+| :----------------------------------------------------------------- | :------------------------------------------------------------------------ |
+| app.user_management.push_password_update                           | Update user's password in application                                     |
+| app.user_management.push_profile_success                           | Successfully created or updated user's profile in application             |
+| app.user_management.push_profile_failure                           | Failed to create or update user's profile in application                  |
+| app.user_management.push_new_user                                  | Create new user in application                                            |
+| app.user_management.push_pending_user                              | Queue update of user for application                                      |
+| app.user_management.provision_user                                 | Created or updated user from application                                  |
+| app.user_management.provision_user_failed                          | Failed to create or update user from application                          |
+| app.user_management.importing_profile                              | Create or update user's profile from application                          |
+| app.user_management.update_from_master_failed                      | Failed to master user's profile from application                          |
+| app.user_management.verified_user_with_thirdparty                  | Verified user against application                                         |
+| app.user_management.updating_api_credentials_for_password_change   | Updating API credentials due to  API administrator user password change   |
+| app.user_management.activate_user                                  | Activate user in application                                              |
+| app.user_management.deactivate_user                                | Deactivate user in application                                            |
+| app.user_management.reactivate_user                                | Reactivate user in application                                            |
+| app.user_management.provision_user.user_inactive                   | Attempt to provision a user to an inactive account, and cannot reactivate |
+| app.user_management.deactivate_user.api_account                    | Deactivate API user in application                                        |
+| app.user_management.deprovision_task_complete                      | Deprovisioning task has been marked complete (automatically or manually)  |
 
 ##### Application Group Management
 
-| ObjectType                                                                                 | Description                                                                                                                                    |
-|:-------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------|
-| app.user_management.user_group_import.upsert_success                                       | Successfully created or updated group from application                                                                                         |
-| app.user_management.user_group_import.delete_success                                       | Successfully removed imported group that was deleted from application                                                                          |
-| app.user_management.app_group_member_import.insert_success                                 | Update group memmbership  an AppGroupUserMember from an import succeeded                                                                       |
-| app.user_management.app_group_member_import.delete_success                                 | Deleting an AppGroupUserMember from an import succeeded                                                                                        |
-| app.user_management.app_group_group_member_import.insert_success                           | Upserting an ResolvedAppGroupMember from an import succeeded                                                                                   |
-| app.user_management.app_group_group_member_import.delete_success                           | Deleting an ResolvedAppGroupMember from an import succeeded                                                                                    |
-| app.user_management.grouppush.mapping.created.from.rule                                    | A new mapping has been created from a rule                                                                                                     |
-| app.user_management.grouppush.mapping.created.from.rule.error.duplicate                    | A new mapping from a rule was attempted to be created, but it turned out to be a dupe                                                          |
-| app.user_management.grouppush.mapping.created.from.rule.warning.duplicate.name             | A new mapping from a rule was not created due to a duplicate group name                                                                        |
-| app.user_management.grouppush.mapping.created.from.rule.warning.duplicate.name.tobecreated | A new mapping from a rule was not created due to another mapping will be created that has the same user group name                             |
-| app.user_management.grouppush.mapping.created.from.rule.warning.upsertGroup.duplicate.name | Create or update of source group triggered mapping rule re-evaluation preventing a new application group mapping due to a duplicate group name |
-| app.user_management.grouppush.mapping.created.from.rule.error.validation                   | Failed to create new application group mapping due to a validation error                                                                       |
-| app.user_management.grouppush.mapping.created.from.rule.errors                             | Failed to create new application group mapping due to an error                                                                                 |
-| app.user_management.grouppush.mapping.deactivated.source.group.renamed                     | Successfully deactivate target application group when source group was renamed                                                                 |
-| app.user_management.grouppush.mapping.deactivated.source.group.renamed.failed              | Failed to deactivate target application group when source group was renamed                                                                    |
-| app.user_management.grouppush.mapping.app.group.renamed                                    | Successfully renamed target application group when source group was renamed                                                                    |
-| app.user_management.grouppush.mapping.app.group.renamed.failed                             | Failed to rename target application group when source group was renamed                                                                        |
-| app.user_management.grouppush.mapping.and.groups.deleted.rule.deleted                      | An existing mapping and its target groups have been deleted because a mapping rule was deleted                                                 |
+| ObjectType                                                                                   | Description                                                                                                                                    |
+| :------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| app.user_management.user_group_import.upsert_success                                         | Successfully created or updated group from application                                                                                         |
+| app.user_management.user_group_import.delete_success                                         | Successfully removed imported group that was deleted from application                                                                          |
+| app.user_management.app_group_member_import.insert_success                                   | Update group memmbership  an AppGroupUserMember from an import succeeded                                                                       |
+| app.user_management.app_group_member_import.delete_success                                   | Deleting an AppGroupUserMember from an import succeeded                                                                                        |
+| app.user_management.app_group_group_member_import.insert_success                             | Upserting an ResolvedAppGroupMember from an import succeeded                                                                                   |
+| app.user_management.app_group_group_member_import.delete_success                             | Deleting an ResolvedAppGroupMember from an import succeeded                                                                                    |
+| app.user_management.grouppush.mapping.created.from.rule                                      | A new mapping has been created from a rule                                                                                                     |
+| app.user_management.grouppush.mapping.created.from.rule.error.duplicate                      | A new mapping from a rule was attempted to be created, but it turned out to be a dupe                                                          |
+| app.user_management.grouppush.mapping.created.from.rule.warning.duplicate.name               | A new mapping from a rule was not created due to a duplicate group name                                                                        |
+| app.user_management.grouppush.mapping.created.from.rule.warning.duplicate.name.tobecreated   | A new mapping from a rule was not created due to another mapping will be created that has the same user group name                             |
+| app.user_management.grouppush.mapping.created.from.rule.warning.upsertGroup.duplicate.name   | Create or update of source group triggered mapping rule re-evaluation preventing a new application group mapping due to a duplicate group name |
+| app.user_management.grouppush.mapping.created.from.rule.error.validation                     | Failed to create new application group mapping due to a validation error                                                                       |
+| app.user_management.grouppush.mapping.created.from.rule.errors                               | Failed to create new application group mapping due to an error                                                                                 |
+| app.user_management.grouppush.mapping.deactivated.source.group.renamed                       | Successfully deactivate target application group when source group was renamed                                                                 |
+| app.user_management.grouppush.mapping.deactivated.source.group.renamed.failed                | Failed to deactivate target application group when source group was renamed                                                                    |
+| app.user_management.grouppush.mapping.app.group.renamed                                      | Successfully renamed target application group when source group was renamed                                                                    |
+| app.user_management.grouppush.mapping.app.group.renamed.failed                               | Failed to rename target application group when source group was renamed                                                                        |
+| app.user_management.grouppush.mapping.and.groups.deleted.rule.deleted                        | An existing mapping and its target groups have been deleted because a mapping rule was deleted                                                 |
 
 
 ##### Delegated Authentication
 
-| ObjectType                                                               | Description                                   |
-|:-------------------------------------------------------------------------|:----------------------------------------------|
-| app.inbound_del_auth.failure.not_supported                               | Application doesn't support delauth           |
-| app.inbound_del_auth.failure.instance_not_found                          | Couldn't find delauth app instance            |
-| app.inbound_del_auth.failure.invalid_request.could_not_parse_credentials | Couldn't parse credentials in delauth request |
-| app.inbound_del_auth.failure.account_not_found                           | Inbound delauth account not found             |
-| app.inbound_del_auth.failure.invalid_login_credentials                   | Inbound delauth, invalid login credentials    |
-| app.inbound_del_auth.login_success                                       | Successful delauth login                      |
+| ObjectType                                                                 | Description                                   |
+| :------------------------------------------------------------------------- | :-------------------------------------------- |
+| app.inbound_del_auth.failure.not_supported                                 | Application doesn't support delauth           |
+| app.inbound_del_auth.failure.instance_not_found                            | Couldn't find delauth app instance            |
+| app.inbound_del_auth.failure.invalid_request.could_not_parse_credentials   | Couldn't parse credentials in delauth request |
+| app.inbound_del_auth.failure.account_not_found                             | Inbound delauth account not found             |
+| app.inbound_del_auth.failure.invalid_login_credentials                     | Inbound delauth, invalid login credentials    |
+| app.inbound_del_auth.login_success                                         | Successful delauth login                      |
 
 ##### Rich Client Authentication
 
 | ObjectType                              |
-|:----------------------------------------|
+| :-------------------------------------- |
 | app.rich_client.instance_not_found      |
 | app.rich_client.account_not_found       |
 | app.rich_client.multiple_accounts_found |
@@ -433,48 +433,48 @@ The action `objectType` identifies the unique action performed.
 ##### Administrator Appplication
 
 | ObjectType                    |
-|:------------------------------|
+| :---------------------------- |
 | app.admin.sso.no_response     |
 | app.admin.sso.bad_response    |
 | app.admin.sso.orgapp.notfound |
 
 ##### Applications
 
-| ObjectType                                      | Description                                           |
-|:------------------------------------------------|:------------------------------------------------------|
-| app.generic.provision.assign_user_to_app        | Assign external user to internal Okta user            |
-| app.generic.provision.deactivate_user_from_app  | Deactivate external user to internal Okta user        |
-| app.generic.config.app_activated                | Application has been activated                        |
-| app.generic.config.app_deactivated              | Application has been deactivated                      |
-| app.generic.import.provisioning_data            | Imported data used for provisioning                   |
-| app.generic.import.import_user                  | Started user import                                   |
-| app.generic.config.app_updated                  | Application config has been updated                   |
-| app.generic.import.new_user                     | Application has imported a new user                   |
-| app.generic.import.user_update                  | Application has updated an exsiting user              |
-| app.generic.config.app_username_update          | User credentials for an application have been updated |
-| app.generic.config.app_password_update          | User credentials for an application have been updated |
-| app.generic.import.user_delete                  | Application has deleted user                          |
-| app.generic.import.started                      |
-| app.generic.import.complete                     |
-| app.generic.import.user_match.complete          |
-| app.generic.import.details.add_custom_object    |
-| app.generic.import.details.update_custom_object |
-| app.generic.import.details.delete_custom_object |
-| app.generic.import.details.add_user             |
-| app.generic.import.details.update_user          |
-| app.generic.import.details.delete_user          |
-| app.generic.import.details.add_group            |
-| app.generic.import.details.update_group         |
-| app.generic.import.details.delete_group         |
-| app.generic.import.summary.custom_object        |
-| app.generic.import.summary.user                 |
-| app.generic.import.summary.group                |
-| app.generic.import.summary.group_membership     |
+| ObjectType                                        | Description                                           |
+| :------------------------------------------------ | :---------------------------------------------------- |
+| app.generic.provision.assign_user_to_app          | Assign external user to internal Okta user            |
+| app.generic.provision.deactivate_user_from_app    | Deactivate external user to internal Okta user        |
+| app.generic.config.app_activated                  | Application has been activated                        |
+| app.generic.config.app_deactivated                | Application has been deactivated                      |
+| app.generic.import.provisioning_data              | Imported data used for provisioning                   |
+| app.generic.import.import_user                    | Started user import                                   |
+| app.generic.config.app_updated                    | Application config has been updated                   |
+| app.generic.import.new_user                       | Application has imported a new user                   |
+| app.generic.import.user_update                    | Application has updated an exsiting user              |
+| app.generic.config.app_username_update            | User credentials for an application have been updated |
+| app.generic.config.app_password_update            | User credentials for an application have been updated |
+| app.generic.import.user_delete                    | Application has deleted user                          |
+| app.generic.import.started                        |                                                       |
+| app.generic.import.complete                       |                                                       |
+| app.generic.import.user_match.complete            |                                                       |
+| app.generic.import.details.add_custom_object      |                                                       |
+| app.generic.import.details.update_custom_object   |                                                       |
+| app.generic.import.details.delete_custom_object   |                                                       |
+| app.generic.import.details.add_user               |                                                       |
+| app.generic.import.details.update_user            |                                                       |
+| app.generic.import.details.delete_user            |                                                       |
+| app.generic.import.details.add_group              |                                                       |
+| app.generic.import.details.update_group           |                                                       |
+| app.generic.import.details.delete_group           |                                                       |
+| app.generic.import.summary.custom_object          |                                                       |
+| app.generic.import.summary.user                   |                                                       |
+| app.generic.import.summary.group                  |                                                       |
+| app.generic.import.summary.group_membership       |                                                       |
 
 ##### Credential Recovery
 
 | ObjectType                                        |
-|:--------------------------------------------------|
+| :------------------------------------------------ |
 | app.generic.reversibility.credentials.recover     |
 | app.generic.reversibility.personal.app.recovery   |
 | app.generic.reversibility.individual.app.recovery |
@@ -482,7 +482,7 @@ The action `objectType` identifies the unique action performed.
 ##### Application Instance
 
 | ObjectType                                 |
-|:-------------------------------------------|
+| :----------------------------------------- |
 | app.app_instance.change                    |
 | app.app_instance.logo_update               |
 | app.app_instance.logo_reset                |
@@ -493,7 +493,7 @@ The action `objectType` identifies the unique action performed.
 ##### User Authentication
 
 | ObjectType                          |
-|:------------------------------------|
+| :---------------------------------- |
 | core.user_auth.login_failed         |
 | core.user_auth.login_success        |
 | core.user_auth.logout_success       |
@@ -504,7 +504,7 @@ The action `objectType` identifies the unique action performed.
 ##### User MFA Authentication
 
 | ObjectType                          |
-|:------------------------------------|
+| :---------------------------------- |
 | core.user.sms.message_sent.factor   |
 | core.user.sms.message_sent.verify   |
 | core.user.sms.message_sent.forgotpw |
@@ -512,14 +512,14 @@ The action `objectType` identifies the unique action performed.
 ##### User RADIUS Authentication
 
 | ObjectType                            |
-|:--------------------------------------|
+| :------------------------------------ |
 | core.user_auth.radius.login.succeeded |
 | core.user_auth.radius.login.failed    |
 
 ##### User Status
 
 | ObjectType                                  |
-|:--------------------------------------------|
+| :------------------------------------------ |
 | core.user.config.password_update.success    |
 | core.user.config.password_update.failure    |
 | core.user.config.user_activated             |
@@ -531,7 +531,7 @@ The action `objectType` identifies the unique action performed.
 ##### User Impersonation
 
 | ObjectType                                |
-|:------------------------------------------|
+| :---------------------------------------- |
 | core.user.impersonation.session.initiated |
 | core.user.impersonation.session.ended     |
 | core.user.impersonation.grant.enabled     |
@@ -540,20 +540,20 @@ The action `objectType` identifies the unique action performed.
 
 ##### Group Administrator Roles
 
-ObjectType                        |
---------------------------------- |
-core.user.admin_privilege.granted |
-core.user.admin_privilege.revoked |
+| ObjectType                        |
+| --------------------------------- |
+| core.user.admin_privilege.granted |
+| core.user.admin_privilege.revoked |
 
 ### Actor Object
 
 Describes the user, app, client, or other entity (actor) who performed an action on a target:
 
-| Property    | Description                                                | DataType | Nullable |
-|:------------|:-----------------------------------------------------------|:---------|:---------|
-| id          | Unique key for actor                                       | String   | FALSE    |
-| displayName | Name of actor used for display purposes                    | String   | TRUE     |
-| objectType  | [User](#user-objecttype) or [Client](#client-objecttype)   | String   | FALSE    |
+| Property      | Description                                                  | DataType   | Nullable |
+| :------------ | :----------------------------------------------------------- | :--------- | :------- |
+| id            | Unique key for actor                                         | String     | FALSE    |
+| displayName   | Name of actor used for display purposes                      | String     | TRUE     |
+| objectType    | [User](#user-objecttype) or [Client](#client-objecttype)     | String     | FALSE    |
 
 
 The schema of an actor is dependent on the actor's `objectType`.
@@ -562,11 +562,11 @@ The schema of an actor is dependent on the actor's `objectType`.
 
 The entity upon which an actor performs an action. Targets may be anything, even a login token:
 
-| Property    | Description                                                          | DataType | Nullable |
-|:------------|:---------------------------------------------------------------------|:---------|:---------|
-| id          | Unique key for target                                                | String   | FALSE    |
-| displayName | Name of target used for display purposes                             | String   | TRUE     |
-| objectType  | [User](#user-objecttype) or [AppInstance](#appinstance-objecttype)   | String   | FALSE    |
+| Property      | Description                                                            | DataType   | Nullable |
+| :------------ | :--------------------------------------------------------------------- | :--------- | :------- |
+| id            | Unique key for target                                                  | String     | FALSE    |
+| displayName   | Name of target used for display purposes                               | String     | TRUE     |
+| objectType    | [User](#user-objecttype) or [AppInstance](#appinstance-objecttype)     | String     | FALSE    |
 
 The schema of a target is dependent on the actor's `objectType`
 
@@ -576,12 +576,12 @@ The schema of a target is dependent on the actor's `objectType`
 
 A denormalized reference to a [User](users#user-model):
 
-| Property    | Description                                             | DataType | Nullable |
-|:------------|:--------------------------------------------------------|:---------|:---------|
-| id          | Unique key for [user](users#user-model)            | String   | FALSE    |
-| displayName | [User's](users#profile-object) first and last name | String   | TRUE     |
-| login       | Unique login for [user](users#user-model)          | String   | TRUE     |
-| objectType  | Type of object                                          | `User`   | FALSE    |
+| Property      | Description                                               | DataType   | Nullable |
+| :------------ | :-------------------------------------------------------- | :--------- | :------- |
+| id            | Unique key for [user](users#user-model)                   | String     | FALSE    |
+| displayName   | [User's](users#profile-object) first and last name        | String     | TRUE     |
+| login         | Unique login for [user](users#user-model)                 | String     | TRUE     |
+| objectType    | Type of object                                            | `User`     | FALSE    |
 
 ``` json
 {
@@ -598,11 +598,11 @@ The user can be retrieved by `id` with the [User API](users#get-user-with-id).
 
 Describes an application:
 
-| Property    | Description                                        | DataType      | Nullable |
-|:------------|:---------------------------------------------------|:--------------|:---------|
-| id          | Unique key for [app](apps#application-model)  | String        | FALSE    |
-| displayName | [App's](apps#application-model) label         | String        | TRUE     |
-| objectType  | Type of object                                     | `AppInstance` | FALSE    |
+| Property      | Description                                          | DataType        | Nullable |
+| :------------ | :--------------------------------------------------- | :-------------- | :------- |
+| id            | Unique key for [app](apps#application-model)         | String          | FALSE    |
+| displayName   | [App's](apps#application-model) label                | String          | TRUE     |
+| objectType    | Type of object                                       | `AppInstance`   | FALSE    |
 
 ``` json
 {
@@ -618,12 +618,12 @@ The app can be retrieved by `id` with the [Apps API](apps#get-application).
 
 Describes a client such as a browser:
 
-| Property    | Description          | DataType | Nullable |
-|:------------|:---------------------|:---------|:---------|
-| id          | User agent of client | String   | FALSE    |
-| displayName | Name of client       | String   | TRUE     |
-| ipAddress   | IP Address of client | String   | TRUE     |
-| objectType  | Type of object       | `Client` | FALSE    |
+| Property      | Description            | DataType   | Nullable |
+| :------------ | :--------------------- | :--------- | :------- |
+| id            | User agent of client   | String     | FALSE    |
+| displayName   | Name of client         | String     | TRUE     |
+| ipAddress     | IP Address of client   | String     | TRUE     |
+| objectType    | Type of object         | `Client`   | FALSE    |
 
 ``` json
 {

@@ -30,7 +30,7 @@ describe('quickstarts page default selections spec', () => {
   const quickstartsPage = new QuickStartsPage('/quickstart/');
 
   beforeEach(util.itHelper(async () => {
-    await quickstartsPage.navigate('/quickstart/');
+    await quickstartsPage.navigate('/documentation/');
     await quickstartsPage.refresh();
   }));
 

@@ -7,7 +7,7 @@ redirect_from:
 component: Code
 ---
 
-# Overview
+# <i class='icon-48 docsPage code-php'></i> Overview
 
 This guide describes how to use
 [SimpleSAMLphp](https://simplesamlphp.org/)

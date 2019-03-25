@@ -12,19 +12,74 @@ $big-spacing: 3rem;
 
 .guide-details { 
   display: flex;
+<<<<<<< HEAD
 
   .in-guide-navigation {
     width: 20%;
     min-width: 200px; 
   }
+=======
+>>>>>>> def39456ae42c7cf1d384dd04896a232fe4e4f39
 }
 
 .guides-overview {
   display: flex;
+<<<<<<< HEAD
 
   .guides-navigation { 
     width: 20%;
     min-width: 200px; 
+=======
+}
+
+.guides-navigation { 
+  width: 30%;
+  min-width: 230px; 
+  padding-right: 1rem;
+
+  ul, ol { 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .guides > li {
+    $icon-size: 1.3rem;
+    padding-left: $icon-size;
+    &:before {
+      content: "\f138"; /* chevron-circle-right per https://fontawesome.com/cheatsheet?from=io*/
+      font-family: FontAwesome;
+      display: inline-block;
+      margin-left: -($icon-size);
+      width: $icon-size;
+    }
+    &.active:before { 
+      content: "\f13a"; /* chevron-circle-down per https://fontawesome.com/cheatsheet?from=io*/
+    }
+  }
+
+  a { 
+    color: $text-color;
+    font-size: 0.85rem;
+  }
+
+  .sections { 
+    margin-left: 1.5rem;
+    list-style: decimal;
+    .section {
+      color: $text-color;
+      font-size: 0.85rem;
+    }
+    .active {
+      font-weight: bold;
+      .highlight { 
+        $indent: 20px;
+        border-bottom: 2px solid black;
+        background-color: #e5edfb;
+        margin-left: -($indent);
+        padding-left: $indent;
+      }
+    }
+>>>>>>> def39456ae42c7cf1d384dd04896a232fe4e4f39
   }
 }
 

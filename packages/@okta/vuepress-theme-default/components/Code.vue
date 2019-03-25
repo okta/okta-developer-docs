@@ -6,6 +6,7 @@
 
     <!-- Begin Content -->
     <div class="PageContent-main language-content">
+      <Breadcrumb></Breadcrumb>
       <Content />
     </div>
     <!-- End Content -->
@@ -66,15 +67,5 @@ export default {
 </script>
 
 <style scoped>
-  ul {
-    padding-left: 0 !important;
-  }
 
-  li {
-    list-style: none;
-  }
-
-  ul li  a {
-    font-size: 18px;
-  }
 </style>

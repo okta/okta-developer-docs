@@ -7,7 +7,7 @@ redirect_from:
 component: Code
 ---
 
-## Okta Auth SDK Guide
+## <i class='icon-48 docsPage code-javascript'></i> Okta Auth SDK Guide
 
 The Okta Auth SDK builds on top of our [Authentication API](/docs/api/resources/authn) and [OpenID Connect API](/docs/api/resources/oidc) to enable you to create a fully branded sign-in experience using JavaScript.
 

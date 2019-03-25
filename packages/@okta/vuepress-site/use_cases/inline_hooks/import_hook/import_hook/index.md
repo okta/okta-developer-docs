@@ -39,7 +39,7 @@ Provides the name-value pairs of the attributes contained in the app user profil
 
 Provides information on the Okta user profile currently set to be used for the user who is being imported, based on the matching rules and attribute mappings that were applied.
 
-`data.user.profile` contains the name-value pairs of the attributes in the user profile.  If the user has been matched to an existing Okta user, a `data.user.id` object will be included, containing the unique identifier of the Okta user profile. 
+`data.user.profile` contains the name-value pairs of the attributes in the user profile.  If the user has been matched to an existing Okta user, a `data.user.id` object will be included, containing the unique identifier of the Okta user profile.
 
 You can change the values of the attributes by means of the `commands` object you return.
 
@@ -49,7 +49,7 @@ The current default action that Okta will take in the case of the user being imp
 
  - `CREATE_USER`: A new Okta user profile will be created for the user.
  - `LINK_USER`: The user will be treated as a match for the existing Okta user identified by the value of `data.user.id`.
- 
+
  You can change the action that will be taken by means of the `commands` object you return.
 
 ### data.context
@@ -84,7 +84,7 @@ The following commands are supported for the Token Inline Hook type:
 | com.okta.appUser.profile.update | Change values of attributes in the user's app user profile.                                                              |
 | com.okta.user.profile.update    | Change values of attributes in the user's Okta user profile.                                                             |
 | com.okta.action.update          | Specify whether to create a new Okta user for the user being imported or treat them as a match of an existing Okta user. |
-| com.okta.user.update            | Specify the existing Okta user that the imported user should be treated as a match of.                                   |                                      |
+| com.okta.user.update            | Specify the existing Okta user that the imported user should be treated as a match of.                                   |
 
 When using the `com.okta.action.update` command to specify that the user should be treated as a match, you need to also provide a `com.okta.user.update` command that serves to specify which Okta user to match to. See [Specifying that the User is a Match](#specifying-that-the-user-is-a-match) below.
 
@@ -139,9 +139,9 @@ When using the `com.okta.action.update` command to specify that the user should 
 
 When you return an error object, it should contain an `errorSummary` sub-object:
 
-| Property     | Description                          | Data Type                   |
-|--------------|--------------------------------------|-----------------------------|
-| errorSummary | Human-readable summary of the error. | String                      |
+| Property     | Description                          | Data Type |
+|--------------|--------------------------------------|-----------|
+| errorSummary | Human-readable summary of the error. | String    |
 
 Returning an error object will cause Okta to record a failure event in the Okta System Log. The string you supplied in the `errorSummary` property of the `error` object will be recorded in the System Log event.
 
@@ -173,7 +173,7 @@ Returning an error object will cause Okta to record a failure event in the Okta 
             "type":"import:users"
          },
          "matches":[
- 
+
          ],
          "policy":[
             "EMAIL",
@@ -242,7 +242,7 @@ Returning an error object will cause Okta to record a failure event in the Okta 
     }
   }]
 }
- 
+
 {
   "commands": [{
     "type": "com.okta.user.profile.update",
@@ -251,7 +251,7 @@ Returning an error object will cause Okta to record a failure event in the Okta 
     }
   }]
 }
- 
+
 {
   "commands": [{
     "type": "com.okta.user.profile.update",
@@ -260,7 +260,7 @@ Returning an error object will cause Okta to record a failure event in the Okta 
     }
   }]
 }
- 
+
 {
   "commands": [{
     "type": "com.okta.appUser.profile.update",

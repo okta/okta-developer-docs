@@ -35,9 +35,9 @@ You can also optionally specify extra headers that you wish Okta to pass to your
 
 #### Request Parameters
 
-| Parameter   | Description                                                                                | Param Type | DataType                                  | Required |
-|-------------|--------------------------------------------------------------------------------------------|------------|-------------------------------------------|----------|
-| Inline Hook | A valid Inline Hook object, specifying the details of the inline hook you are registering. | Body       | [Inline Hook object](#inline-hook-object) | TRUE     |
+| Parameter   | Description                                                                                  | Param Type   | DataType                                    | Required |
+| ----------- | -------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
+| Inline Hook | A valid Inline Hook object, specifying the details of the inline hook you are registering.   | Body         | [Inline Hook object](#inline-hook-object)   | TRUE     |
 
 #### Response Parameters
 
@@ -119,9 +119,9 @@ curl -v -X POST \
 
 #### Request Parameters
 
-| Parameter | Description             | Param Type | DataType | Required |
-|-----------|-------------------------|------------|----------|----------|
-| `id`      | A valid Inline Hook ID. | Path       | String   | TRUE     |
+| Parameter | Description               | Param Type   | DataType   | Required |
+| --------- | ------------------------- | ------------ | ---------- | -------- |
+| `id`      | A valid Inline Hook ID.   | Path         | String     | TRUE     |
 
 #### Response Parameters
 
@@ -173,9 +173,9 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/inlineHooks?type=${type}" />
 
-| Parameter | Description                                                             | Param Type | DataType | Required |
-|-----------|-------------------------------------------------------------------------|------------|----------|----------|
-| `type`    | One of the [supported inline hook types](#supported-inline-hook-types). | Query      | String   | FALSE    |
+| Parameter | Description                                                               | Param Type   | DataType   | Required |
+| --------- | ------------------------------------------------------------------------- | ------------ | ---------- | -------- |
+| `type`    | One of the [supported inline hook types](#supported-inline-hook-types).   | Query        | String     | FALSE    |
 
 Returns a list of registered inline hooks, optionally filtered by inline hook type if you supply a `type` query parameter.
 
@@ -229,10 +229,10 @@ curl -v -X GET \
 
 #### Request Parameters
 
-| Parameter  | Description                                                                   | Param Type | DataType                                  | Required |
-|------------|-------------------------------------------------------------------------------|------------|-------------------------------------------|----------|
-| id         | The ID of the inline hook you want to update.                                 | Path       | String                                    | TRUE     |
-| inlineHook | An `inlineHook` object representing the updated properties you wish to apply. | Body       | [Inline Hook Object](#inline-hook-object) | TRUE     |
+| Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
+| ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
+| id         | The ID of the inline hook you want to update.                                   | Path         | String                                      | TRUE     |
+| inlineHook | An `inlineHook` object representing the updated properties you wish to apply.   | Body         | [Inline Hook Object](#inline-hook-object)   | TRUE     |
 
 The submitted inline hook properties will replace the existing properties after passing validation. Note that some properties are immutable and cannot be updated. Refer to the description of each property in the [Inline Hook object](#inline-hook-object) table for information.
 
@@ -313,9 +313,9 @@ curl -v -X PUT \
 
 #### Request Parameters
 
-| Parameter | Description                          | Param Type | DataType | Required |
-|-----------|--------------------------------------|------------|----------|----------|
-| `id`      | The ID of the inline hook to delete. | Path       | String   | TRUE     |
+| Parameter | Description                            | Param Type   | DataType   | Required |
+| --------- | -------------------------------------- | ------------ | ---------- | -------- |
+| `id`      | The ID of the inline hook to delete.   | Path         | String     | TRUE     |
 
 Deletes the inline hook matching the provided `id`. Once deleted, the inline hook is unrecoverable. As a safety precaution, only inline hooks with a status of `INACTIVE` are eligible for deletion.
 
@@ -341,10 +341,10 @@ curl -v -X DELETE \
 
 <ApiOperation method="post" url="/api/v1/inlineHooks/${id}/execute" />
 
-| Parameter                            | Description                                                                       | Param Type | DataType | Required |
-|--------------------------------------|-----------------------------------------------------------------------------------|------------|----------|----------|
-| id                                   | ID of the inline hook to execute.                                                 | Path       | String   | TRUE     |
-| Payload to send to external service. | JSON that matches the data contract of the  `inlineHookType` of this inline hook. | Body       | JSON     | TRUE     |
+| Parameter                            | Description                                                                         | Param Type   | DataType   | Required |
+| ------------------------------------ | ----------------------------------------------------------------------------------- | ------------ | ---------- | -------- |
+| id                                   | ID of the inline hook to execute.                                                   | Path         | String     | TRUE     |
+| Payload to send to external service. | JSON that matches the data contract of the  `inlineHookType` of this inline hook.   | Body         | JSON       | TRUE     |
 
 Executes the Inline Hook matching the provided `inlineHookId` using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. Otherwise it will throw an error. You therefore need to construct a JSON payload that matches the payloads that Okta would send to your external service for this inline hook type.
 
@@ -539,16 +539,16 @@ curl -v -X POST \
 
 ### Inline Hook Object
 
-| Property       | Description                                                                                       | DataType                          | Nullable | Unique | ReadOnly | Validation                                        |
-|----------------|---------------------------------------------------------------------------------------------------|-----------------------------------|----------|--------|----------|---------------------------------------------------|
-| id             | Unique key for the Inline Hook.                                                                   | String                            | FALSE    | TRUE   | TRUE     | Assigned                                          |
-| status         | Status of the Inline Hook. `INACTIVE` will block execution.                                       | String                            | FALSE    | FALSE  | FALSE    | Must be either `ACTIVE` or `INACTIVE`.            |
-| name           | Display name for the Inline Hook.                                                                 | String                            | FALSE    | TRUE   | FALSE    | Must be between 1 and 255 characters in length.   |
-| type           | Type of the Inline Hook. See list of [Supported Inline Hook Types](#supported-inline-hook-types). | inlineHookType                    | FALSE    | FALSE  | TRUE     | Immutable after Inline Hook creation.             |
-| version        | Version of the Channel. The currently-supported version is "1.0.0".                               | String                            | FALSE    | FALSE  | TRUE     | Must match a valid version number.                |
-| channel object | Properties of the communications channel used to contact your external service.                   | [Channel](#channel-object) object | FALSE    | FALSE  | FALSE    | Validation is determined by the specific channel. |
-| created        | Date of Inline Hook creation.                                                                     | String (Date)                     | TRUE     | FALSE  | TRUE     | Assigned                                          |
-| lastUpdated    | Date of Inline Hook update.                                                                       | String (Date)                     | TRUE     | FALSE  | TRUE     | Assigned                                          |
+| Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
+| -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
+| id             | Unique key for the Inline Hook.                                                                     | String                              | FALSE      | TRUE     | TRUE       | Assigned                                          |
+| status         | Status of the Inline Hook. `INACTIVE` will block execution.                                         | String                              | FALSE      | FALSE    | FALSE      | Must be either `ACTIVE` or `INACTIVE`.            |
+| name           | Display name for the Inline Hook.                                                                   | String                              | FALSE      | TRUE     | FALSE      | Must be between 1 and 255 characters in length.   |
+| type           | Type of the Inline Hook. See list of [Supported Inline Hook Types](#supported-inline-hook-types).   | inlineHookType                      | FALSE      | FALSE    | TRUE       | Immutable after Inline Hook creation.             |
+| version        | Version of the Channel. The currently-supported version is "1.0.0".                                 | String                              | FALSE      | FALSE    | TRUE       | Must match a valid version number.                |
+| channel object | Properties of the communications channel used to contact your external service.                     | [Channel](#channel-object) object   | FALSE      | FALSE    | FALSE      | Validation is determined by the specific channel. |
+| created        | Date of Inline Hook creation.                                                                       | String (Date)                       | TRUE       | FALSE    | TRUE       | Assigned                                          |
+| lastUpdated    | Date of Inline Hook update.                                                                         | String (Date)                       | TRUE       | FALSE    | TRUE       | Assigned                                          |
 
 
 ```json
@@ -583,19 +583,19 @@ curl -v -X POST \
 
 ### channel Object
 
-| Property   | Description                                                                                                | DataType                                | Required | Unique | ReadOnly | Validation                                               |
-|------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------|----------|--------|----------|----------------------------------------------------------|
-| uri        | External service endpoint to call to execute the inline hook handler.                                      | String                                  | TRUE     | FALSE  | TRUE     | Maximum length 1024 characters. Must begin with https:// |
-| headers    | Optional list of key/value pairs for headers that should be sent with the request to the external service. | JSON Object                             | FALSE    | FALSE  | FALSE    | Some reserved headers, such as `Accept`, are disallowed. |
-| authScheme | The authentication scheme to use for this request                                                          | [authScheme object](#authscheme-object) | FALSE    | FALSE  | FALSE    | Valid `authscheme` object.                               |
+| Property   | Description                                                                                                  | DataType                                  | Required   | Unique   | ReadOnly   | Validation                                               |
+| ---------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------- | ---------- | -------- | ---------- | -------------------------------------------------------- |
+| uri        | External service endpoint to call to execute the inline hook handler.                                        | String                                    | TRUE       | FALSE    | TRUE       | Maximum length 1024 characters. Must begin with https:// |
+| headers    | Optional list of key/value pairs for headers that should be sent with the request to the external service.   | JSON Object                               | FALSE      | FALSE    | FALSE      | Some reserved headers, such as `Accept`, are disallowed. |
+| authScheme | The authentication scheme to use for this request                                                            | [authScheme object](#authscheme-object)   | FALSE      | FALSE    | FALSE      | Valid `authscheme` object.                               |
 
 ### authScheme Object
 
-| Property | Description                                                                  | DataType | Required | ReadOnly |
-|----------|------------------------------------------------------------------------------|----------|----------|----------|
-| type     | The type of the authentication scheme. Currently only `HEADER` is supported. | String   | TRUE     | FALSE    |
-| key      | The header name for the authorization header.                                | String   | TRUE     | FALSE    |
-| value    | The header value.                                                            | String   | TRUE     | TRUE     |
+| Property | Description                                                                    | DataType   | Required   | ReadOnly |
+| -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |
+| type     | The type of the authentication scheme. Currently only `HEADER` is supported.   | String     | TRUE       | FALSE    |
+| key      | The header name for the authorization header.                                  | String     | TRUE       | FALSE    |
+| value    | The header value.                                                              | String     | TRUE       | TRUE     |
 
 To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, and `value` to the Base64-encoded string of "username:password".
 
@@ -604,6 +604,6 @@ To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, a
 When registering an inline hook, you need to specify what type it is. The following types are currently supported:
 
 | Type Value                         | Name                                                                                            |
-|------------------------------------|-------------------------------------------------------------------------------------------------|
-| `com.okta.oauth2.tokens.transform` | [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)   |
-| `com.okta.import.transform`        | [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook) |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `com.okta.oauth2.tokens.transform` | [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)                              |
+| `com.okta.import.transform`        | [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook)                           |

@@ -29,11 +29,11 @@ For the Resource Owner Password flow, you use the Authorization Server's `/token
 
 The following combinations of grant type and scope, when sent to `/token` endpoint, will return a refresh token:
 
-|Grant Type  | Scope |
-|-------------|-------|
-| `authorization_code`  | `offline_access` (see Note)  |
-| `refresh_token`  | `offline_access` |
-| `password`  | `offline_access`  |
+| Grant Type           | Scope                       |
+| -----------          | -----                       |
+| `authorization_code` | `offline_access` (see Note) |
+| `refresh_token`      | `offline_access`            |
+| `password`           | `offline_access`            |
 
 > NOTE: The authorization code flow is unique, in that the `offline_access` scope has to be requested as part of the code request to the `/authorize` endpoint, and not the request sent to the `/token` endpoint.
 

@@ -29,10 +29,10 @@ To learn more about how this flow works under the hood, please see our [Authenti
 
 After you have created the application there are three more values you will need to gather:
 
-| Setting       | Where to Find                                                                  |
-| ------------- | ------------------------------------------------------------------------------ |
-| Client ID     | In the applications list, or on the "General" tab of a specific application.   |
-| Client Secret | On the "General" tab of a specific application.                                |
-| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right.             |
+| Setting       | Where to Find                                                                                                                       |
+| ------------- | ------------------------------------------------------------------------------                                                      |
+| Client ID     | In the applications list, or on the "General" tab of a specific application.                                                        |
+| Client Secret | On the "General" tab of a specific application.                                                                                     |
+| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right. |
 
 To integrate this flow into your application, select your server technology below.
