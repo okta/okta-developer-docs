@@ -6,14 +6,14 @@ const DEFAULT_SECTION = 1;
 export const guideFromHash = hash => {
   const parts = {};
 
-  [, parts.guide, parts.lang, parts.sectionNum] = hash.match(`#${PATH_LIKE}${PATH_LIKE}${PATH_LIKE}`) || [];
+  [, parts.guide, parts.lang, parts.sectionNum] = hash.match(`#/${PATH_LIKE}${PATH_LIKE}${PATH_LIKE}`) || [];
   parts.lang = parts.lang === DEFAULT_LANG ? '' : parts.lang; // Drop useless default
   parts.sectionNum = parts.sectionNum || DEFAULT_SECTION; // default is useable here
   return parts;
 };
 
 export const makeGuideHash = ({ guide, lang, sectionNum }) => {
-  return `#${guide}/${lang || DEFAULT_LANG}/${sectionNum || DEFAULT_SECTION}`;
+  return `#/${guide}/${lang || DEFAULT_LANG}/${sectionNum || DEFAULT_SECTION}`;
 };
 
 export const alphaSortBy = prop => (a,b) => a[prop] > b[prop] ? 1 : a[prop] < b[prop] ? -1 : 0;
