@@ -43,7 +43,7 @@ Note that limits for more specific endpoints override the limits for less specif
 | ------------------------------------------------------------------------------------------------------------ | ---------------- | ---------------- | ------- | ---------- | ------------------ |
 | **Authenticate different end users:**<br>`/api/v1/authn`                                                     | 100              | 300              | 300*    | 600*       | 500                |
 | **Verify a factor:**<br>`/api/v1/authn/factors/{id}/verify` only                                             | 100              | 300              | 300*    | 600*       | 500                |
-| **Create or list applications:**<br>`/api/v1/apps` except `/api/v1/apps/{id}`                                | 20               | 25               | 25      | 50         | 100                |
+| **Create or list applications:**<br>`/api/v1/apps` except `/api/v1/apps/{id}`                                | 20               | 25               | 25      | 100        | 100                |
 | **Get, update, or delete an application by ID:**<br>`/api/v1/apps/{id}` only                                 | 100              | 300              | 300*    | 600*       | 500                |
 | **Create or list groups:**<br>`/api/v1/groups` except `/api/v1/groups/{id}`                                  | 100              | 300              | 300     | 600        | 500                |
 | **Get, update, or delete a group by ID:**<br>`/api/v1/groups/{id}` only                                      | 100              | 300              | 300*    | 600*       | 1000               |
