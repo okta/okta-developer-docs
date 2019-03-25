@@ -1,6 +1,7 @@
 <template>
   <div class="guides-overview">
-    <GuidesNavigation />
+    <GuidesNavigation
+    />
     <div class="guides-overview-content">
       <h1>Guides</h1>
       <p>Step-by-step guides for your use cases.</p>
