@@ -63,26 +63,26 @@ Okta offers a variety of functions to manipulate attributes or properties to gen
 
 ### String Functions
 
-| Function        | Input Parameter Signature             | Return Type | Example                                       | Output         |
-| --------        | -------------------------             | ----------- | -------                                       | ------         |
-| `String.append` | (String str, String suffix)           | String      | `String.append("This is", " a test")`         | This is a test |
-| `String.join`   | (String separator, String... strings) | String      | `String.join(",", "This", "is", "a", "test")` | This,is,a,test |
- | | | | `String.join("", "This", "is", "a", "test")` | Thisisatest
-| `String.len`            | (String input)                      | Integer | `String.len("This")`                                | 4              |
-| `String.removeSpaces`   | (String input)                      | String  | `String.removeSpaces("This is a test")`             | Thisisatest    |
-| `String.replace`        | (String input, match, replacement)  | String  | `String.replace("This is a test", "is", "at")`      | That at a test |
-| `String.replaceFirst`   | (String input, match, replacement)  | String  | `String.replaceFirst("This is a test", "is", "at")` | That is a test |
-| `String.stringContains` | (String input, String searchString) | Boolean | `String.stringContains("This is a test", "test")`   | true           |
- | | | | `String.stringContains("This is a test", "doesn'tExist")` | false
-`String.stringSwitch` | (String input, String defaultString, String... keyValuePairs) | String | `String.stringSwitch("This is a test", "default", "key1", "value1")`| default
-|  |  |  | `String.stringSwitch("This is a test", "default", "test", "value1")`                                          | value1 |
-|  |  |  | `String.stringSwitch("First match wins", "default", "absent", "value1", "wins", "value2", "match", "value3")` | value2 |
-|  |  |  | `String.stringSwitch("Substrings count", "default", "ring", "value1")`                                        | value1 |
-| `String.substring `      | (String input, int startIndex, int endIndex) | String | `String.substring("This is a test", 2, 9)`    | is is a  |
-| `String.substringAfter`  | (String input, String searchString)          | String | `String.substringAfter("abc@okta.com", "@")`  | okta.com |
-| `String.substringBefore` | (String input, String searchString)          | String | `String.substringBefore("abc@okta.com", "@")` | abc      |
-| `String.toUpperCase`     | (String input)                               | String | `String.toUpperCase("This")`                  | THIS     |
-| `String.toLowerCase`     | (String input)                               | String | `String.toLowerCase("ThiS")`                  | this     |
+| Function                 | Input Parameter Signature                                     | Return Type | Example                                                                                                       | Output         |
+| --------                 | -------------------------                                     | ----------- | -------                                                                                                       | ------         |
+| `String.append`          | (String str, String suffix)                                   | String      | `String.append("This is", " a test")`                                                                         | This is a test |
+| `String.join`            | (String separator, String... strings)                         | String      | `String.join(",", "This", "is", "a", "test")`                                                                 | This,is,a,test |
+|                          |                                                               |             | `String.join(", "This", "is", "a", "test")`                                                                   | Thisisatest    |
+| `String.len`             | (String input)                                                | Integer     | `String.len("This")`                                                                                          | 4              |
+| `String.removeSpaces`    | (String input)                                                | String      | `String.removeSpaces("This is a test")`                                                                       | Thisisatest    |
+| `String.replace`         | (String input, match, replacement)                            | String      | `String.replace("This is a test", "is", "at")`                                                                | That at a test |
+| `String.replaceFirst`    | (String input, match, replacement)                            | String      | `String.replaceFirst("This is a test", "is", "at")`                                                           | That is a test |
+| `String.stringContains`  | (String input, String searchString)                           | Boolean     | `String.stringContains("This is a test", "test")`                                                             | true           |
+|                          |                                                               |             | `String.stringContains("This is a test", "doesn'tExist")`                                                     | false          |
+| `String.stringSwitch`    | (String input, String defaultString, String... keyValuePairs) | String      | `String.stringSwitch("This is a test", "default", "key1", "value1")`                                          | default        |
+|                          |                                                               |             | `String.stringSwitch("This is a test", "default", "test", "value1")`                                          | value1         |
+|                          |                                                               |             | `String.stringSwitch("First match wins", "default", "absent", "value1", "wins", "value2", "match", "value3")` | value2         |
+|                          |                                                               |             | `String.stringSwitch("Substrings count", "default", "ring", "value1")`                                        | value1         |
+| `String.substring `      | (String input, int startIndex, int endIndex)                  | String      | `String.substring("This is a test", 2, 9)`                                                                    | is is a        |
+| `String.substringAfter`  | (String input, String searchString)                           | String      | `String.substringAfter("abc@okta.com", "@")`                                                                  | okta.com       |
+| `String.substringBefore` | (String input, String searchString)                           | String      | `String.substringBefore("abc@okta.com", "@")`                                                                 | abc            |
+| `String.toUpperCase`     | (String input)                                                | String      | `String.toUpperCase("This")`                                                                                  | THIS           |
+| `String.toLowerCase`     | (String input)                                                | String      | `String.toLowerCase("ThiS")`                                                                                  | this           |
 
 
 
@@ -132,12 +132,12 @@ integer type range limitations when converting from a number to an integer with 
 
 These functions convert between ISO 3166-1 2-character country codes (Alpha 2), 3-character country codes (Alpha 3), numeric country codes, and full ISO country names.
 
-Function  | Return Type | Example  | Output
--------- | ---------| --------- |  | --------
-| `Iso3166Convert.toAlpha2(string)`  | String | `Iso3166Convert.toAlpha2("IND")`  | IN    |
-| `Iso3166Convert.toAlpha3(string)`  | String | `Iso3166Convert.toAlpha3("840")`  | USA   |
-| `Iso3166Convert.toNumeric(string)` | String | `Iso3166Convert.toNumeric("USA")` | 840   |
-| `Iso3166Convert.toName(string)`    | String | `Iso3166Convert.toName("IN")`     | India |
+| Function                           | Return Type | Example                           | Output |
+| ---                                | ---         | ---                               | ---    |
+| `Iso3166Convert.toAlpha2(string)`  | String      | `Iso3166Convert.toAlpha2("IND")`  | IN     |
+| `Iso3166Convert.toAlpha3(string)`  | String      | `Iso3166Convert.toAlpha3("840")`  | USA    |
+| `Iso3166Convert.toNumeric(string)` | String      | `Iso3166Convert.toNumeric("USA")` | 840    |
+| `Iso3166Convert.toName(string)`    | String      | `Iso3166Convert.toName("IN")`     | India  |
 
 **Note:**  All these functions take ISO 3166-1 2-character country codes (Alpha 2), 3-character country codes (Alpha 3), and numeric country codes as input. The function determines the input type and returns the output in the format specified by the function name.
 
@@ -148,18 +148,18 @@ For more information on these codes, see the [ISO 3166-1 online lookup tool](htt
 
 Group functions return either an array of groups or **True** or **False**.
 
-| Function                        | Return Type | Example                                                         |         |
-| ---------                       | ----------- | -------                                                         | ------- |
-| `getFilteredGroups`             | Array       | `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40)` |         |
-| `Groups.contains`               | Array       | `contains(app_type/app_instance_id, pattern, limit)`            |         |
-| `Groups.startsWith`             | Array       | `startsWith(app_type/app_instance_id, pattern, limit)`          |         |
-| `Groups.endsWith`               | Array       | `endsWith(app_type/app_instance_id, pattern, limit)`            |         |
-| `isMemberOfGroupName`           | Boolean     | `isMemberOfGroupName("group1")`                                 |         |
-| `isMemberOfGroup`               | Boolean     | `isMemberOfGroup("groupId")`                                    |         |
-| `isMemberOfAnyGroup`            | Boolean     | `isMemberOfAnyGroup("groupId1", "groupId2", "groupId3")`        |         |
-| `isMemberOfGroupNameStartsWith` | Boolean     | `isMemberOfGroupNameStartsWith("San Fr")`                       |         |
-| `isMemberOfGroupNameContains`   | Boolean     | `isMemberOfGroupNameContains("admin")`                          |         |
-| `isMemberOfGroupNameRegex`      | Boolean     | `isMemberOfGroupNameRegex("/.*admin.*")`                        |         |
+| Function                        | Return Type | Example                                                         |
+| ---------                       | ----------- | -------                                                         |
+| `getFilteredGroups`             | Array       | `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40)` |
+| `Groups.contains`               | Array       | `contains(app_type/app_instance_id, pattern, limit)`            |
+| `Groups.startsWith`             | Array       | `startsWith(app_type/app_instance_id, pattern, limit)`          |
+| `Groups.endsWith`               | Array       | `endsWith(app_type/app_instance_id, pattern, limit)`            |
+| `isMemberOfGroupName`           | Boolean     | `isMemberOfGroupName("group1")`                                 |
+| `isMemberOfGroup`               | Boolean     | `isMemberOfGroup("groupId")`                                    |
+| `isMemberOfAnyGroup`            | Boolean     | `isMemberOfAnyGroup("groupId1", "groupId2", "groupId3")`        |
+| `isMemberOfGroupNameStartsWith` | Boolean     | `isMemberOfGroupNameStartsWith("San Fr")`                       |
+| `isMemberOfGroupNameContains`   | Boolean     | `isMemberOfGroupNameContains("admin")`                          |
+| `isMemberOfGroupNameRegex`      | Boolean     | `isMemberOfGroupNameRegex("/.*admin.*")`                        |
 
 **Note:** The **Groups.contains**, **Groups.startsWith**, and **Groups.endsWith** group functions are designed to work only with group claims. You can't use these functions with property mappings.
 
@@ -186,7 +186,7 @@ Use this function to retrieve properties about the user identified with the spec
 ### Time Functions
 
 | Function                    | Input Parameter Signature          | Return Type      | Example                                                                                                            | Output                                                                                                  |
-| :-----------                | :--------------------------        | :--------------- | :-----                                                                                                             | :-                                                                                                      |
+| :-----------                | :--------------------------        | :--------------- | :-----                                                                                                             | :---                                                                                                    |
 | `Time.now`                  | (String timeZoneId, String format) | String           | `Time.now()`                                                                                                       | 2015-07-31T17:18:37.979Z (Current time, UTC format)                                                     |
 |                             |                                    |                  | `Time.now("EST")`                                                                                                  | 2015-07-31T13:30:49.964-04:00 (Specified time zone)                                                     |
 |                             |                                    |                  | `Time.now("EST", "YYYY-MM-dd HH:mm:ss")`                                                                           | 2015-07-31 13:36:48 (Specified time zone and format, military time)                                     |
@@ -306,7 +306,7 @@ The following samples are valid conditional expressions. The actions in these ca
 
 
 | IF (Implicit) | Condition                                      | Assign to this Group Name if Condition is TRUE |
-| ------------- | ---------                                      | ---------------------------------------------- |
+| ---           | ---                                            | ---                                            |
 | IF            | String.stringContains(user.firstName, "dummy") | dummyUsers                                     |
 | IF            | user.city == "San Francisco                    | sfo                                            |
 | IF            | user.salary >= 1000000                         | expensiveEmployee                              |
