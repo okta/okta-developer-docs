@@ -1,11 +1,11 @@
 <template>
   <div class="guide-details">
-    <InGuideNavigation
+    <GuidesNavigation
       :sections="sections"
       :section="section"
       :lang="lang"
       :guide="guide" 
-    />   
+    />
     <Content :pageKey="componentKey" id="guide_content" />
   </div>
 </template>
@@ -15,7 +15,7 @@
     name: 'GuideDetails',
     props: [ 'componentKey', 'sections', 'guide', 'lang', 'section' ],
     components: {
-      InGuideNavigation: () => import('../components/InGuideNavigation.vue'),
+      GuidesNavigation: () => import('../components/GuidesNavigation.vue'),
     },
   }
 </script>
