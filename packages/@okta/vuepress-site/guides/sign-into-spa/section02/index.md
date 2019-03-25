@@ -11,7 +11,7 @@ In Okta, applications are OpenID Connect (OIDC) clients that can use Okta Author
 
 If you are running this app locally and are using the defaults from the appropriate documentation, then your port is:
 
-`<StackSelector snippet="port"/>`
+<StackSelector snippet="port"/>
 
 5. Leave **Implicit** selected for **Grant Types Allowed**.
 6. Click **Done**.
