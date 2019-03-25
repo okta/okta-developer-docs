@@ -70,21 +70,21 @@ The `commands` and `error` objects that you can return in the JSON payload of yo
 
 The `commands` object is where you can provide commands to Okta. It is an array, allowing you to send multiple commands. Each array element needs to consist of the following name-value pair:
 
-| Property   | Description                                             | Data Type         |
-|-- -------- | ------------------------------------------------------- | --------------- --|
-| type       | One of the [supported commands](#supported-commands).   | String            |
-| value      | The parameter to pass to the command.                   | [value](#value)   |
+| Property | Description                                           | Data Type       |
+|----------|-------------------------------------------------------|-----------------|
+| type     | One of the [supported commands](#supported-commands). | String          |
+| value    | The parameter to pass to the command.                 | [value](#value) |
 
 #### Supported Commands
 
 The following commands are supported for the Token Inline Hook type:
 
-| Command                           | Description                                                                                                                |
-|-- ------------------------------- | ------------------------------------------------------------------------------------------------------------------------ --|
-| com.okta.appUser.profile.update   | Change values of attributes in the user's app user profile.                                                                |
-| com.okta.user.profile.update      | Change values of attributes in the user's Okta user profile.                                                               |
-| com.okta.action.update            | Specify whether to create a new Okta user for the user being imported or treat them as a match of an existing Okta user.   |
-| com.okta.user.update            | Specify the existing Okta user that the imported user should be treated as a match of.                                   |                                      |
+| Command                         | Description                                                                                                              |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------------------|
+| com.okta.appUser.profile.update | Change values of attributes in the user's app user profile.                                                              |
+| com.okta.user.profile.update    | Change values of attributes in the user's Okta user profile.                                                             |
+| com.okta.action.update          | Specify whether to create a new Okta user for the user being imported or treat them as a match of an existing Okta user. |
+| com.okta.user.update            | Specify the existing Okta user that the imported user should be treated as a match of.                                   |
 
 When using the `com.okta.action.update` command to specify that the user should be treated as a match, you need to also provide a `com.okta.user.update` command that serves to specify which Okta user to match to. See [Specifying that the User is a Match](#specifying-that-the-user-is-a-match) below.
 
@@ -139,9 +139,9 @@ When using the `com.okta.action.update` command to specify that the user should 
 
 When you return an error object, it should contain an `errorSummary` sub-object:
 
-| Property       | Description                            | Data Type                     |
-|-- ------------ | -------------------------------------- | --------------------------- --|
-| errorSummary   | Human-readable summary of the error.   | String                        |
+| Property     | Description                          | Data Type |
+|--------------|--------------------------------------|-----------|
+| errorSummary | Human-readable summary of the error. | String    |
 
 Returning an error object will cause Okta to record a failure event in the Okta System Log. The string you supplied in the `errorSummary` property of the `error` object will be recorded in the System Log event.
 
