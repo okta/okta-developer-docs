@@ -18,7 +18,7 @@ SAML Identity Provider or "SAML IdP"), with the details of your application
 Here is how to set up a SAML application in Okta:
 
 > If you are using the developer dashboard you will first need to switch to the Classic UI. <br />
-If you see a <b>< > Developer</b> prompt in the top left, click it and select <b>Classic UI</b> to switch to the Classic UI.
+If you see a <b>Developer</b> prompt in the top left, click it and select <b>Classic UI</b> to switch to the Classic UI.
 
 1.  Log in to your Okta organization as a user with administrative
     privileges. If you don't have an Okta organization, you can create a free Okta
