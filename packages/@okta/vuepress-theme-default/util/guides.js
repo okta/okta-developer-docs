@@ -87,3 +87,14 @@ export const findGuideSections = ({ guide, pages }) => {
       };
   });
 }; 
+
+export const findMainLanguagesOfGuide = ({ guide, pages }) => {
+  // Note: assumes sections are all directories named `sectionNN`
+  const prefix = new RegExp(`${FRAGMENTS}${guide}/${PATH_LIKE}${PATH_LIKE}.*?.html$`);
+  return Object.keys( 
+    // Pull all known langages for the given guide, reduce to unique list
+    pages.filter( page => page.regularPath.match(prefix) )
+      .map( page => page.regularPath.match(prefix)[2] )
+      .reduce( (all, lang) => ({ ...all, [lang]: true }), {} )
+  ).sort();
+};

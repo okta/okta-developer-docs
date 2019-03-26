@@ -12,7 +12,7 @@
           :guide="guide" 
           :lang="lang"
         />
-        <GuidesOverview v-else />
+        <GuidesOverview v-else :featured="featured"/>
       </div>
       <!-- END Page Content -->
     </section>
@@ -42,6 +42,11 @@
         sections: [],
         currentHash: null,
       };    
+    },
+    computed: { 
+      featured() { 
+        return this.$frontmatter.featured;
+      },
     },
     methods: { 
       updateHash() { 

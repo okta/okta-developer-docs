@@ -1,5 +1,6 @@
 $border-color: #b7bcc0;
 $text-color: #5c6971;
+$title-color: #3d3d3d;
 $action-base: #1662dd;
 $action-dark: #124a94;
 $gray-000: #fafafa;
@@ -16,6 +17,32 @@ $big-spacing: 3rem;
 
 .guides-overview {
   display: flex;
+
+  .overview-content { 
+    width: 100%;
+  }
+}
+
+.featured { 
+  display: flex;
+}
+
+.guide-featured { 
+  border: 1px solid #EBEBEB;
+  border-radius: 5px;
+  margin-right: 20px;
+  padding: 20px;
+  min-height: 150px;
+
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  a { 
+    color: $title-color;
+    font-size: 1.25rem;
+  }
 }
 
 .guides-navigation { 
