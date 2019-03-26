@@ -42,7 +42,10 @@ export default {
       });
       window.dispatchEvent(myOktaAccountFound)
 
-      document.querySelector('.content').innerHTML = document.querySelector('.content').innerHTML.replace(/https:\/\/{yourOktaDomain}/gi, domain)
+      const fences = document.querySelectorAll("[class*=language-]")
+      fences.forEach((fence, index) => {
+        fences[index].innerHTML = fence.innerHTML.replace(/https:\/\/{yourOktaDomain}\//gi, domain)
+      })
     }
 
   }
