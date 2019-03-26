@@ -1,3 +1,3 @@
 ---
-title: Sign Users into a Single-Page Application
+title: Sign Users into Your Single-Page Application
 ---
