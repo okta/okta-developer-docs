@@ -43,20 +43,20 @@ For the Token Inline Hook, the outbound call from Okta to your external service 
 
 Provides information on the properties of the ID token that Okta has generated, including the existing claims it contains.
 
-| Property   | Description                     | Data Type                      |
-|-- -------- | ------------------------------- | ---------------------------- --|
-| claims     | Claims included in the token.   | [claims](#claims) object       |
-| lifetime   | Lifetime of the token.          | [lifetime](#lifetime) object   |
+| Property | Description                   | Data Type                    |
+|----------|-------------------------------|------------------------------|
+| claims   | Claims included in the token. | [claims](#claims) object     |
+| lifetime | Lifetime of the token.        | [lifetime](#lifetime) object |
 
 ### data.access
 
 Provides information on the properties of the access token that Okta has generated, including the existing claims it contains.
 
-| Property   | Description                          | Data Type                      |
-|-- -------- | ------------------------------------ | ---------------------------- --|
-| claims     | Claims included in the token.        | [claims](#claims) object       |
-| lifetime   | Lifetime of the token.               | [lifetime](#lifetime) object   |
-| scopes     | The scopes contained in the token.   | [scopes](#scopes) object       |
+| Property | Description                        | Data Type                    |
+|----------|------------------------------------|------------------------------|
+| claims   | Claims included in the token.      | [claims](#claims) object     |
+| lifetime | Lifetime of the token.             | [lifetime](#lifetime) object |
+| scopes   | The scopes contained in the token. | [scopes](#scopes) object     |
 
 #### claims
 
@@ -64,13 +64,13 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 
 #### lifetime
 
-| Property     | Description                                                              | Data Type   |
-|-- ---------- | ------------------------------------------------------------------------ | --------- --|
-| expiration   | Time in seconds until the token expires.                                 | Number      |
+| Property   | Description                              | Data Type |
+|------------|------------------------------------------|-----------|
+| expiration | Time in seconds until the token expires. | Number    |
 
 #### scopes
 
-The set of scopes that have been granted. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc#tokens-and-claims).
+The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc#tokens-and-claims).
 
 ## Objects in Response You Send
 
@@ -84,19 +84,19 @@ The `commands` object is an array, allowing you to send multiple commands. In ea
 
 In the case of the Token hook type, the `value` property is itself a nested object, in which you specify a particular operation, a path to act on, and a value.
 
-| Property   | Description                                                                | Data Type         |
-|-- -------- | -------------------------------------------------------------------------- | --------------- --|
-| type       | One of the [supported commands](#supported-commands).                      | String            |
-| value      | Operand to pass to the command. It specifies a particular op to perform.   | [value](#value)   |
+| Property | Description                                                              | Data Type       |
+|----------|--------------------------------------------------------------------------|-----------------|
+| type     | One of the [supported commands](#supported-commands).                    | String          |
+| value    | Operand to pass to the command. It specifies a particular op to perform. | [value](#value) |
 
 #### Supported Commands
 
 The following commands are supported for the Token Inline Hook type:
 
-| Command                   | Description               |
-|-- ----------------------- | ----------------------- --|
-| com.okta.identity.patch   | Modify an ID token.       |
-| com.okta.access.patch     | Modify an access token.   |
+| Command                 | Description             |
+|-------------------------|-------------------------|
+| com.okta.identity.patch | Modify an ID token.     |
+| com.okta.access.patch   | Modify an access token. |
 
 > Note: The `commands` array should only contain commands that can be applied to the requested tokens. For example, if the token is an ID token, the `commands` array should not contain commands of the type `com.okta.access.patch`.
 
@@ -104,17 +104,17 @@ The following commands are supported for the Token Inline Hook type:
 
 The `value` object is where you specify the specific operation to perform. It is an array, allowing you to request more than one operation.
 
-| Property   | Description                                                                                                                                                                                                         | Data Type         |
-|-- -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- --|
-| op         | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                     | String            |
-| path       | Location within the token to apply the operation, specified as a slash-delimited path. When adding a claim, this will always begin with `/claims/`,  and be followed by the name of the new claim you are adding.   | String            |
-| value      | Value to set the claim to.                                                                                                                                                                                          | Any JSON object   |
+| Property | Description                                                                                                                                                                                                       | Data Type       |
+|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                   | String          |
+| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding a claim, this will always begin with `/claims/`,  and be followed by the name of the new claim you are adding. | String          |
+| value    | Value to set the claim to.                                                                                                                                                                                        | Any JSON object |
 
 #### List of Supported Ops
 
-| Op    | Description    |
-|-- --- | ------------ --|
-| add   | Add a claim.   |
+| Op  | Description  |
+|-----|--------------|
+| add | Add a claim. |
 
 > Note: The `add` operation can only be used to add new claims to a token, not to overwrite the value of a claim already included in the token.
 
@@ -122,9 +122,9 @@ The `value` object is where you specify the specific operation to perform. It is
 
 When you return an error object, it should have the following structure:
 
-| Property       | Description                            | Data Type                     |
-|-- ------------ | -------------------------------------- | --------------------------- --|
-| errorSummary   | Human-readable summary of the error.   | String                        |
+| Property     | Description                          | Data Type |
+|--------------|--------------------------------------|-----------|
+| errorSummary | Human-readable summary of the error. | String    |
 
 Returning an error object will cause Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string you supplied in the `errorSummary` property of the `error` object you returned.
 
