@@ -46,7 +46,10 @@ export const findGuides = ({ pages }) => {
     });
 }; 
 
-export const findStackSnippets = ({ section, snippet, pages }) => { 
+export const findStackSnippets = ({ section, snippet, pages }) => {   
+  if( !section ) { 
+    return [];
+  }
   const prefix = new RegExp(`${section.snippetBase}([^/]*)/${snippet}.html`);
   return [ ...pages        
     .filter( page => page.regularPath.match(prefix) )

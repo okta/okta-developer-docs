@@ -8,7 +8,7 @@
       </ul>
     </nav>
     <aside class="stack-content">
-      <Content :pageKey="snippetComponentKey" />
+      <Content v-if="snippetComponentKey" :pageKey="snippetComponentKey" />
     </aside>
   </div>
 </template>
