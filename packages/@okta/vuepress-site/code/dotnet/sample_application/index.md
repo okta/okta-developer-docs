@@ -15,8 +15,7 @@ component: Code
 
 The Okta Music Store is a sample application written in .NET and is a demonstration of how to add Okta as an identity provider for an existing application.
 
-It is based on a pre-existing sample application known as the [MVC Music Store](https://mvcmusicstore.codeplex.com/), a well-known
-introduction to the [open source](https://www.asp.net/open-source) [ASP.NET web application framework](https://www.asp.net/).
+It is based on a pre-existing sample application known as the [MVC Music Store](https://mvcmusicstore.codeplex.com/), a well-known introduction to the [open source](https://www.asp.net/open-source) [ASP.NET web application framework](https://www.asp.net/).
 
 The Okta Music Store builds on top of the MVC Music Store and shows you how to use the Okta SDK to do the following things in an ASP.NET MVC application:
 
