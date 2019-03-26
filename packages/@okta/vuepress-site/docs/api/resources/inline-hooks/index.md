@@ -147,7 +147,7 @@ curl -v -X GET \
     "type": "com.okta.oauth2.tokens.transform",
     "version": "1.0.0",
     "channel": {
-        "type": "HTTPS",
+        "type": "HTTP",
         "version": "1.0.0",
         "config": {
             "uri": "https://127.0.0.1:4567/inlineHooks",
@@ -200,7 +200,7 @@ curl -v -X GET \
 	    "type": "com.okta.oauth2.tokens.transform",
 	    "version": "1.0.0",
 	    "channel": {
-	        "type": "HTTPS",
+	        "type": "HTTP",
 	        "version": "1.0.0",
 	        "config": {
 	            "uri": "https://127.0.0.1:4567/inlineHooks",
