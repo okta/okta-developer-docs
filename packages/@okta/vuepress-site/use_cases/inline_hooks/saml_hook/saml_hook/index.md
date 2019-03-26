@@ -21,7 +21,7 @@ For a general introduction to Okta inline hooks, see [Inline Hooks](/use_cases/i
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks).
 
-For steps to enable this inline hook, see below, [Enabling a Token Inline Hook](#enabling-a-token-inline-hook).
+For steps to enable this inline hook, see below, [Enabling a SAML Assertion Inline Hook](#enabling-a-saml-assertion-inline-hook).
 
 ## About
 
