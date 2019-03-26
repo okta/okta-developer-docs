@@ -229,5 +229,7 @@ module.exports = {
       permalinkClass: 'header-anchor header-link',
       level: 2
     }
-  }
+  },
+
+  shouldPrefetch: () => false
 }
