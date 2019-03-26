@@ -5,7 +5,9 @@
     <!-- End Sidebar -->
 
     <!-- Begin Content -->
-    <Content class="PageContent-main"/>
+    <div class="PageContent-main">
+      <Content />
+    </div>
     <!-- End Content -->
 
     <!-- Begin Table Of Contents -->
