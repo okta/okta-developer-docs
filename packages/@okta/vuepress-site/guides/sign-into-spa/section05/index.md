@@ -1,4 +1,4 @@
---
+---
 title: Require Authentication
 ---
 # Require Authentication
