@@ -18,14 +18,14 @@ SAML Identity Provider or "SAML IdP"), with the details of your application
 Here is how to set up a SAML application in Okta:
 
 > If you are using the developer dashboard you will first need to switch to the Classic UI. <br />
-If you see a <b>< > Developer</b> prompt in the top left, click it and select <b>Classic UI</b> to switch to the Classic UI. 
+If you see a <b>< > Developer</b> prompt in the top left, click it and select <b>Classic UI</b> to switch to the Classic UI.
 
 1.  Log in to your Okta organization as a user with administrative
     privileges. If you don't have an Okta organization, you can create a free Okta
     <a href="https://developer.okta.com/signup/" target="_blank">Developer Edition organization</a>.
 
 2.  Click on the blue "Admin" button
-![Admin"](/img/okta-admin-ui-button-admin.png "Admin"")
+![Admin](/img/okta-admin-ui-button-admin.png "Admin")
 
 3.  Click on the "Add Applications" shortcut
 ![Add Applications](/img/okta-admin-ui-add-applications.png "Add Applications")
@@ -46,7 +46,7 @@ If you see a <b>< > Developer</b> prompt in the top left, click it and select <b
       ```bash
       http://example.com/saml/sso/example-okta-com
       ```
-     
+
 ![SAML Settings](/img/example-saml-application-okta-configure-settings1.png "SAML Settings")
 
 8. In the "Attribute Statements" section, add three attribute statements:
@@ -78,7 +78,7 @@ If you see a <b>< > Developer</b> prompt in the top left, click it and select <b
 
 12. A dialog titled "Assign Example SAML Application to People"
     will open. Type your username into the search box, select the
-    "Assign" button next to your username. 
+    "Assign" button next to your username.
 ![People search box width:](/img/okta-admin-ui-confirm-assignments.png "People search box width:")
 
 13. Verify the user-specific attributes, then select "Save and Go Back".
