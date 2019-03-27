@@ -12,11 +12,11 @@
     computed: { 
       icons() { 
         return this.frameworks
-          .map( framework => commonify[framework] )
+          .map( framework => commonify(framework) )
           .map( 
             framework => ({
               framework, 
-              title: fancify[framework],
+              title: fancify(framework),
               icon: `code-${framework}-32`,
               css: `icon code-${framework}-32`
               })
