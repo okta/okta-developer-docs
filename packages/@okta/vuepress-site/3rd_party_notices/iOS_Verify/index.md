@@ -16,10 +16,10 @@ THIRD PARTY NOTICES
 
 _ALAlertBanner_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   A clean and simple alert banner for iPhone and iPad.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                      |
+| ---                | ---                                                  |
+| BRIEF DESCRIPTION: | A clean and simple alert banner for iPhone and iPad. |
+| LICENSE:           | MIT                                                  |
 
 Copyright (c) 2013 Anthony Lobianco.
 
@@ -44,10 +44,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Apple Code_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             Apple License|
+| VERSION (IF ANY):  |               |
+| ---                | ---           |
+| BRIEF DESCRIPTION: |               |
+| LICENSE:           | Apple License |
 
 Copyright (C) 2016 Apple Inc. All Rights Reserved.
 
@@ -91,10 +91,10 @@ POSSIBILITY OF SUCH DAMAGE.
 
 _Google Authenticator OpenSource_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Open source version of Google Authenticator.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                                              |
+| ---                | ---                                          |
+| BRIEF DESCRIPTION: | Open source version of Google Authenticator. |
+| LICENSE:           | Apache 2.0                                   |
 
 Copyright (c) 2011 Google Inc.
 
@@ -116,10 +116,10 @@ license._
 
 _OCMock_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Mock objects for Objective-C.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                               |
+| ---                | ---                           |
+| BRIEF DESCRIPTION: | Mock objects for Objective-C. |
+| LICENSE:           | Apache 2.0                    |
 
 Copyright (c) 2004-2014 Erik Doernenburg and contributors.
 
@@ -141,10 +141,10 @@ license._
 
 _SlideInView_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   How to present a notification like view from the bottom of a view.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                    |
+| ---                | ---                                                                |
+| BRIEF DESCRIPTION: | How to present a notification like view from the bottom of a view. |
+| LICENSE:           | MIT                                                                |
 
 Copyright (c) 2014 Andrew Drozdov. All rights reserved.
 
@@ -169,10 +169,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _TouchIDAuth_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   A library for passwordless authentication using TouchID & JWT.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                |
+| ---                | ---                                                            |
+| BRIEF DESCRIPTION: | A library for passwordless authentication using TouchID & JWT. |
+| LICENSE:           | MIT                                                            |
 
 Copyright (c) 2014 Auth0 (http://auth0.com).
 
@@ -197,10 +197,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Version.m_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Runtime iOS Version Checking.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                               |
+| ---                | ---                           |
+| BRIEF DESCRIPTION: | Runtime iOS Version Checking. |
+| LICENSE:           | MIT                           |
 
 Copyright (c) Alex Yao Chang.
 
@@ -225,10 +225,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _UIImage-JTColor_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |     |
+| ---                | --- |
+| BRIEF DESCRIPTION: |     |
+| LICENSE:           | MIT |
 
 Copyright (c) 2013 Jamz Tang <jamz@jamztang.com>.
 

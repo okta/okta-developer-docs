@@ -64,13 +64,13 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 
 #### lifetime
 
-| Property   | Description                                                            | Data Type |
-|------------|------------------------------------------------------------------------|-----------|
+| Property   | Description                              | Data Type |
+|------------|------------------------------------------|-----------|
 | expiration | Time in seconds until the token expires. | Number    |
 
 #### scopes
 
-The set of scopes that have been granted. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc#tokens-and-claims).
+The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc#tokens-and-claims).
 
 ## Objects in Response You Send
 
@@ -114,7 +114,7 @@ The `value` object is where you specify the specific operation to perform. It is
 
 | Op  | Description  |
 |-----|--------------|
-| add | Add a claim. | 
+| add | Add a claim. |
 
 > Note: The `add` operation can only be used to add new claims to a token, not to overwrite the value of a claim already included in the token.
 
@@ -122,9 +122,9 @@ The `value` object is where you specify the specific operation to perform. It is
 
 When you return an error object, it should have the following structure:
 
-| Property     | Description                          | Data Type                   |
-|--------------|--------------------------------------|-----------------------------|
-| errorSummary | Human-readable summary of the error. | String                      |
+| Property     | Description                          | Data Type |
+|--------------|--------------------------------------|-----------|
+| errorSummary | Human-readable summary of the error. | String    |
 
 Returning an error object will cause Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string you supplied in the `errorSummary` property of the `error` object you returned.
 

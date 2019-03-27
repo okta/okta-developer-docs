@@ -11,63 +11,63 @@ The Okta Factors Administration API is a subset of the Factors API. It provides 
 
 After activating a factor with this API, it cannot be used until you enable a policy that uses this factor. If there is only one factor enabled in the policy, this API cannot disable that factor.
 
-> This API is a {% api_lifecycle beta%} feature.
+<ApiLifecycle access="beta" /> This API is a beta feature.
 
 
 ## Factor Model
 
-Attribute     | Description                                                     | DataType                                                                       | MinLength | MaxLength | Nullable | Unique | Readonly
-------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------- | --------- | -------- | ------ | --------
-id            | the factor name                                                 | [Factor Name](#factor-name)                                                                        |           |           | FALSE    | TRUE   | TRUE
-provider      | factor provider                                                 | [Provider Type](#provider-type)                                                |           |           | FALSE    | TRUE   | TRUE
-factorType    | type of factor                                                  | [Factor Type](#factor-type)                                                    |           |           | FALSE    | TRUE   | TRUE
-status        | status of factor                                                | `NOT_SETUP`, `PENDING_ACTIVATION`,  `ACTIVE`, `INACTIVE` |           |           | FALSE    | FALSE  | TRUE
-_links        | [discoverable resources](#links-object) related to the factor   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | | | FALSE | FALSE | TRUE
+| Attribute     | Description                                                     | DataType                                                                       | MinLength | MaxLength | Nullable | Unique | Readonly |
+| ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------- | --------- | -------- | ------ | -------- |
+| id            | the factor name                                                 | [Factor Name](#factor-name)                                                    |           |           | FALSE    | TRUE   | TRUE     |
+| provider      | factor provider                                                 | [Provider Type](#provider-type)                                                |           |           | FALSE    | TRUE   | TRUE     |
+| factorType    | type of factor                                                  | [Factor Type](#factor-type)                                                    |           |           | FALSE    | TRUE   | TRUE     |
+| status        | status of factor                                                | `NOT_SETUP`, `PENDING_ACTIVATION`,  `ACTIVE`, `INACTIVE`                       |           |           | FALSE    | FALSE  | TRUE     |
+| _links        | [discoverable resources](#links-object) related to the factor   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                 |           |           | FALSE    | FALSE  | TRUE     |
 
 ### Factor Name
 
 The following factor names are available:
 
-Factor Name           | Description
---------------------- | -----------
-`okta_otp`            | Okta Verify
-`google_otp`          | Google Authenticator
-`okta_sms`            | SMS Authentication
-`symantec_vip`        | Symantec VIP
-`rsa_token`           | RSA SecurID
-`okta_question`       | Security Question
+| Factor Name           | Description          |
+| --------------------- | -----------          |
+| `okta_otp`            | Okta Verify          |
+| `google_otp`          | Google Authenticator |
+| `okta_sms`            | SMS Authentication   |
+| `symantec_vip`        | Symantec VIP         |
+| `rsa_token`           | RSA SecurID          |
+| `okta_question`       | Security Question    |
 
 ### Factor Type
 
 The following factor types are supported:
 
-Factor Type           | Description
---------------------- | -----------
-`sms`                 | SMS
-`token`               | A software or hardware one-time password [OTP](http://en.wikipedia.org/wiki/One-time_password) device
-`token:software:totp` | Software [Time-based One-time Password (TOTP)](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm)
-`question`            | Additional security question
+| Factor Type           | Description                                                                                                         |
+| --------------------- | -----------                                                                                                         |
+| `sms`                 | SMS                                                                                                                 |
+| `token`               | A software or hardware one-time password [OTP](http://en.wikipedia.org/wiki/One-time_password) device               |
+| `token:software:totp` | Software [Time-based One-time Password (TOTP)](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) |
+| `question`            | Additional security question                                                                                        |
 
 ### Provider Type
 
 The following providers are supported:
 
-Provider   | Description
----------- | -----------------------------
-`OKTA`     | Okta
-`RSA`      | RSA SecurID Integration
-`SYMANTEC` | Symantec VIP Integration
-`GOOGLE`   | Google Integration
+| Provider   | Description                   |
+| ---------- | ----------------------------- |
+| `OKTA`     | Okta                          |
+| `RSA`      | RSA SecurID Integration       |
+| `SYMANTEC` | Symantec VIP Integration      |
+| `GOOGLE`   | Google Integration            |
 
 ### Links Object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.  This object is used for dynamic discovery of related resources and lifecycle operations.
 
-Link Relation Type | Description
------------------- | -----------
-self               | The actual factor
-activate           | Permits use of this factor for MFA
-deactivate         | Denies use of this factor for MFA
+| Link Relation Type | Description                        |
+| ------------------ | -----------                        |
+| self               | The actual factor                  |
+| activate           | Permits use of this factor for MFA |
+| deactivate         | Denies use of this factor for MFA  |
 
 > The Links Object is **read-only**
 

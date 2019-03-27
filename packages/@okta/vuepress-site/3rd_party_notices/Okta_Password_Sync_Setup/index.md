@@ -16,10 +16,10 @@ THIRD PARTY NOTICES
 
 _APR_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   The mission of the Apache Portable Runtime (APR) project is to create and maintain software libraries that provide a predictable and consistent interface to underlying platform-specific implementations.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                                                                                                                                                                                                            |
+| ---                | ---                                                                                                                                                                                                        |
+| BRIEF DESCRIPTION: | The mission of the Apache Portable Runtime (APR) project is to create and maintain software libraries that provide a predictable and consistent interface to underlying platform-specific implementations. |
+| LICENSE:           | Apache 2.0                                                                                                                                                                                                 |
 
 Copyright (c) 2000-2016 The Apache Software Foundation.
 
@@ -43,10 +43,10 @@ license._
 
 _APR-util_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   The mission of the Apache Portable Runtime (APR) project is to create and maintain software libraries that provide a predictable and consistent interface to underlying platform-specific implementations.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                                                                                                                                                                                                            |
+| ---                | ---                                                                                                                                                                                                        |
+| BRIEF DESCRIPTION: | The mission of the Apache Portable Runtime (APR) project is to create and maintain software libraries that provide a predictable and consistent interface to underlying platform-specific implementations. |
+| LICENSE:           | Apache 2.0                                                                                                                                                                                                 |
 
 Copyright (c) 2000-2016 The Apache Software Foundation.
 
@@ -70,10 +70,10 @@ license._
 
 _Automake_
 
-  |VERSION (IF ANY):|    1.9.6|
-  |-
-  |BRIEF DESCRIPTION:|   Automake is a tool for automatically generating Makefile.in files compliant with the GNU Coding Standards.|
-  |LICENSE:|             Permissive|
+| VERSION (IF ANY):  | 1.9.6                                                                                                      |
+| ---                | ---                                                                                                        |
+| BRIEF DESCRIPTION: | Automake is a tool for automatically generating Makefile.in files compliant with the GNU Coding Standards. |
+| LICENSE:           | Permissive                                                                                                 |
 
 Copyright (C) 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002,
 2003, 2004, 2005 Free Software Foundation, Inc.
@@ -88,10 +88,10 @@ implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 _jsondiffpatch_
 
-  |VERSION (IF ANY):|    Diff & patch for JavaScript objects.|
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | Diff & patch for JavaScript objects. |
+| ---                | ---                                  |
+| BRIEF DESCRIPTION: |                                      |
+| LICENSE:           | MIT                                  |
 
 Copyright (c) 2014 Benjamín Eidelman twitter.com/beneidel.
 
@@ -116,10 +116,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _The Object Guy's Logging Framework_
 
-  |VERSION (IF ANY):|    1.5.2|
-  |-
-  |BRIEF DESCRIPTION:|   A complete logging framework for .NET.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  | 1.5.2                                  |
+| ---                | ---                                    |
+| BRIEF DESCRIPTION: | A complete logging framework for .NET. |
+| LICENSE:           | BSD 3-Clause                           |
 
 Copyright (c) 2002, 2005 - Lorne Brinkman - www.TheObjectGuy.com - All
 rights reserved.

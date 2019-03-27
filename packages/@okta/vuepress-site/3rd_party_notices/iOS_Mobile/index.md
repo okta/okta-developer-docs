@@ -16,10 +16,10 @@ THIRD PARTY NOTICES
 
 _BHTabBar_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   A web-browser like tab bar implementation for iOS4+.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                      |
+| ---                | ---                                                  |
+| BRIEF DESCRIPTION: | A web-browser like tab bar implementation for iOS4+. |
+| LICENSE:           | MIT                                                  |
 
 Copyright (c) 2011 Fictorial LLC.
 
@@ -44,10 +44,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _iCarousel_
 
-  |VERSION (IF ANY):|    1.8 beta 12|
-  |-
-  |BRIEF DESCRIPTION:|   A simple, highly customisable, data-driven 3D carousel for iOS and Mac OS.|
-  |LICENSE:|             zlib|
+| VERSION (IF ANY):  | 1.8 beta 12                                                                |
+| ---                | ---                                                                        |
+| BRIEF DESCRIPTION: | A simple, highly customisable, data-driven 3D carousel for iOS and Mac OS. |
+| LICENSE:           | zlib                                                                       |
 
 Created by Nick Lockwood on 01/04/2011.
 
@@ -80,10 +80,10 @@ distribution.
 
 _jQuery_
 
-  |VERSION (IF ANY):|    1.4.4|
-  |-
-  |BRIEF DESCRIPTION:|   jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 1.4.4                                                                                                                                                                                                                                 |
+| ---                | ---                                                                                                                                                                                                                                   |
+| BRIEF DESCRIPTION: | jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript. |
+| LICENSE:           | MIT                                                                                                                                                                                                                                   |
 
 Copyright (c) 2005, 2012-2014 jQuery Foundation, Inc. and other
 contributors.
@@ -109,10 +109,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _MKNetworkKit_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Modern NSURLSession based Networking Framework with built in authentication and HTTP 1.1 caching standards support for iOS 8+ devices.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                                                                        |
+| ---                | ---                                                                                                                                    |
+| BRIEF DESCRIPTION: | Modern NSURLSession based Networking Framework with built in authentication and HTTP 1.1 caching standards support for iOS 8+ devices. |
+| LICENSE:           | MIT                                                                                                                                    |
 
 Copyright (c) 2011-2020 by Steinlogic Consulting and Training Pte Ltd.
 
@@ -137,10 +137,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _NHToolkit_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   NHToolKit is a set of classes and categories that I find useful and use in most of my iOS projects.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                                     |
+| ---                | ---                                                                                                 |
+| BRIEF DESCRIPTION: | NHToolKit is a set of classes and categories that I find useful and use in most of my iOS projects. |
+| LICENSE:           | MIT                                                                                                 |
 
 Copyright (c) 2013 Nils Hayat nilsou@gmail.com.
 
@@ -165,10 +165,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _OCMock_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Mock objects for Objective-C.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                               |
+| ---                | ---                           |
+| BRIEF DESCRIPTION: | Mock objects for Objective-C. |
+| LICENSE:           | Apache 2.0                    |
 
 Copyright (c) 2004-2014 Erik Doernenburg and contributors.
 
@@ -190,10 +190,10 @@ license._
 
 _Ruby_
 
-  |VERSION (IF ANY):|    2.2.0|
-  |-
-  |BRIEF DESCRIPTION:|   A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.|
-  |LICENSE:|             Ruby License or BSD 2-Clause, BSD 2-Clause selected|
+| VERSION (IF ANY):  | 2.2.0                                                                                                                                                        |
+| ---                | ---                                                                                                                                                          |
+| BRIEF DESCRIPTION: | A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write. |
+| LICENSE:           | Ruby License or BSD 2-Clause, BSD 2-Clause selected                                                                                                          |
 
 Copyright (c) Yukihiro Matsumoto <matz@netlab.jp>.
 
@@ -222,10 +222,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _SDWebImage_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Asynchronous image downloader with cache support as a UIImageView category.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                             |
+| ---                | ---                                                                         |
+| BRIEF DESCRIPTION: | Asynchronous image downloader with cache support as a UIImageView category. |
+| LICENSE:           | MIT                                                                         |
 
 Copyright (c) 2009 Olivier Poitrey <rs@dailymotion.com>.
 
@@ -250,10 +250,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Shimmer_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   An easy way to add a simple, shimmering effect to any view in an iOS app.|
-  |LICENSE:|             BSD 3-Clause|
+| VERSION (IF ANY):  |                                                                           |
+| ---                | ---                                                                       |
+| BRIEF DESCRIPTION: | An easy way to add a simple, shimmering effect to any view in an iOS app. |
+| LICENSE:           | BSD 3-Clause                                                              |
 
 Copyright (c) 2014, Facebook, Inc. All rights reserved.
 
@@ -286,10 +286,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _Sizzle_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   A pure-JavaScript CSS selector engine designed to be easily dropped in to a host library.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                           |
+| ---                | ---                                                                                       |
+| BRIEF DESCRIPTION: | A pure-JavaScript CSS selector engine designed to be easily dropped in to a host library. |
+| LICENSE:           | MIT                                                                                       |
 
 Copyright (c) 2012 jQuery Foundation and other contributors.
 
@@ -314,10 +314,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Underscore JS_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |     |
+| ---                | --- |
+| BRIEF DESCRIPTION: |     |
+| LICENSE:           | MIT |
 
 Copyright (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative
 Reporters & Editors.
@@ -343,10 +343,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _XCodeCoverage_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Code coverage for Xcode projects.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                   |
+| ---                | ---                               |
+| BRIEF DESCRIPTION: | Code coverage for Xcode projects. |
+| LICENSE:           | MIT                               |
 
 Copyright (c) 2012 Jonathan M. Reid. All rights reserved.
 

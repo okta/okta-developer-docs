@@ -36,14 +36,14 @@ Creates a new user in your Okta organization with or without credentials
 ##### Request Parameters
 
 
-| Parameter   | Description                                                                                                                                                         | Param Type | DataType                                   | Required | Default |
-|:------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|:-------------------------------------------|:---------|:--------|
-| activate    | Executes [activation lifecycle](#activate-user) operation when creating the user                                                                                    | Query      | Boolean                                    | FALSE    | TRUE    |
-| provider    | Indicates whether to create a user with a specified authentication provider                                                                                         | Query      | Boolean                                    | FALSE    | FALSE   |
-| profile     | Profile properties for user                                                                                                                                         | Body       | [Profile Object](#profile-object)         | TRUE     |         |
-| credentials | Credentials for user                                                                                                                                                | Body       | [Credentials Object](#credentials-object) | FALSE    |         |
-| groupIds    | Ids of groups that user will be immediately added to at time of creation                                                                                            | Body       | Array of Group Ids                         | FALSE    |         |
-| nextLogin   | With `activate=true`, if `nextLogin=changePassword`, a user is created, activated, and the password is set to `EXPIRED`, so user must change it the next time they log in. | Query      | String                                     | FALSE    | FALSE   |
+| Parameter     | Description                                                                                                                                                                | Param Type   | DataType                                     | Required   | Default |
+| :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------      | :----------- | :------------------------------------------- | :--------- | :------ |
+| activate      | Executes [activation lifecycle](#activate-user) operation when creating the user                                                                                           | Query        | Boolean                                      | FALSE      | TRUE    |
+| provider      | Indicates whether to create a user with a specified authentication provider                                                                                                | Query        | Boolean                                      | FALSE      | FALSE   |
+| profile       | Profile properties for user                                                                                                                                                | Body         | [Profile Object](#profile-object)            | TRUE       |         |
+| credentials   | Credentials for user                                                                                                                                                       | Body         | [Credentials Object](#credentials-object)    | FALSE      |         |
+| groupIds      | Ids of groups that user will be immediately added to at time of creation                                                                                                   | Body         | Array of Group Ids                           | FALSE      |         |
+| nextLogin     | With `activate=true`, if `nextLogin=changePassword`, a user is created, activated, and the password is set to `EXPIRED`, so user must change it the next time they log in. | Query        | String                                       | FALSE      | FALSE   |
 
 ##### Response Parameters
 
@@ -57,16 +57,16 @@ The user is emailed a one-time activation token if activated without a password.
 
 >Note: If the user is assigned to an application that is configured for provisioning, the activation process triggers downstream provisioning to the application.  It is possible for a user to login before these applications have been successfully provisioned for the user.
 
-| Security Q & A | Password | Activate Query Parameter |  User Status  |    Login Credential    | Welcome Screen |
-|:--------------:|:--------:|:------------------------:|:-------------:|:----------------------:|:--------------:|
-|                |          |          FALSE           |   `STAGED`    |                        |                |
-|                |          |           TRUE           | `PROVISIONED` | One-Time Token (Email) |       X        |
-|       X        |          |          FALSE           |   `STAGED`    |                        |                |
-|       X        |          |           TRUE           | `PROVISIONED` | One-Time Token (Email) |       X        |
-|                |    X     |          FALSE           |   `STAGED`    |                        |                |
-|                |    X     |           TRUE           |   `ACTIVE`    |        Password        |       X        |
-|       X        |    X     |          FALSE           |   `STAGED`    |                        |                |
-|       X        |    X     |           TRUE           |   `ACTIVE`    |        Password        |                |
+| Security Q & A   | Password   | Activate Query Parameter   | User Status     | Login Credential         | Welcome Screen   |
+| :--------------: | :--------: | :------------------------: | :-------------: | :----------------------: | :--------------: |
+|                  |            | FALSE                      | `STAGED`        |                          |                  |
+|                  |            | TRUE                       | `PROVISIONED`   | One-Time Token (Email)   | X                |
+| X                |            | FALSE                      | `STAGED`        |                          |                  |
+| X                |            | TRUE                       | `PROVISIONED`   | One-Time Token (Email)   | X                |
+|                  | X          | FALSE                      | `STAGED`        |                          |                  |
+|                  | X          | TRUE                       | `ACTIVE`        | Password                 | X                |
+| X                | X          | FALSE                      | `STAGED`        |                          |                  |
+| X                | X          | TRUE                       | `ACTIVE`        | Password                 |                  |
 
 Creating users with a `FEDERATION` or `SOCIAL` provider sets the user status to either `ACTIVE` or `STAGED` based on the `activate` query parameter since these two providers don't support a `password` or `recovery_question` credential.
 
@@ -571,9 +571,9 @@ Fetches a user from your Okta organization
 
 Fetch a user by `id`, `login`, or `login shortname` if the short name is unambiguous.
 
-Parameter | Description                                                        | Param Type | DataType | Required |
---------- | ------------------------------------------------------------------ | ---------- | -------- | -------- |
-id        | `id`, `login`, or *login shortname* (as long as it is unambiguous) | URL        | String   | TRUE     |
+| Parameter | Description                                                        | Param Type | DataType | Required |
+| --------- | ------------------------------------------------------------------ | ---------- | -------- | -------- |
+| id        | `id`, `login`, or *login shortname* (as long as it is unambiguous) | URL        | String   | TRUE     |
 
 > When fetching a user by `login` or `login shortname`, you should [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.  Logins with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
 
@@ -914,13 +914,13 @@ The first three parameters correspond to different types of lists:
 - [List Users with a Filter](#list-users-with-a-filter) (`filter`)
 - [List Users with Search](#list-users-with-search) (`search`)
 
-| Parameter | Description                                                                                                                                  | Param Type | DataType | Required |
-|:----------|:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------|:---------|:---------|
-| q         | Finds a user that matches `firstName`, `lastName`, and `email` properties                                                                    | Query      | String   | FALSE    |
-| filter    | [Filters](/docs/api/getting_started/design_principles#filtering) users with a supported expression for a subset of properties           | Query      | String   | FALSE    |
-| search    | Searches for users with a supported [filtering](/docs/api/getting_started/design_principles#filtering) expression for most properties  | Query      | String   | FALSE    |
-| limit     | Specifies the number of results returned (maximum 200)                                                                                       | Query      | Number   | FALSE    |
-| after     | Specifies the pagination cursor for the next page of users                                                                                   | Query      | String   | FALSE    |
+| Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
+| :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
+| q           | Finds a user that matches `firstName`, `lastName`, and `email` properties                                                                      | Query        | String     | FALSE    |
+| filter      | [Filters](/docs/api/getting_started/design_principles#filtering) users with a supported expression for a subset of properties                  | Query        | String     | FALSE    |
+| search      | Searches for users with a supported [filtering](/docs/api/getting_started/design_principles#filtering) expression for most properties          | Query        | String     | FALSE    |
+| limit       | Specifies the number of results returned (maximum 200)                                                                                         | Query        | Number     | FALSE    |
+| after       | Specifies the pagination cursor for the next page of users                                                                                     | Query        | String     | FALSE    |
 
   * If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
   * An HTTP 500 status code usually indicates that you have exceeded the request timeout.  Retry your request with a smaller limit and paginate the results. For more information, see [Pagination](/docs/api/getting_started/design_principles#pagination).
@@ -1106,23 +1106,23 @@ the changes are reflected in your results.
 Examples use cURL-style escaping instead of URL encoding to make them easier to read.
 * Supports only a limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
 
-| Filter                                        | Description                                      |
-|:----------------------------------------------|:-------------------------------------------------|
-| `status eq "STAGED"`                          | Users that have a `status` of `STAGED`           |
-| `status eq "PROVISIONED"`                     | Users that have a `status` of `PROVISIONED`      |
-| `status eq "ACTIVE"`                          | Users that have a `status` of `ACTIVE`           |
-| `status eq "RECOVERY"`                        | Users that have a `status` of `RECOVERY`         |
-| `status eq "PASSWORD_EXPIRED"`                | Users that have a `status` of `PASSWORD_EXPIRED` |
-| `status eq "LOCKED_OUT"`                      | Users that have a `status` of `LOCKED_OUT`       |
-| `status eq "DEPROVISIONED"`                   | Users that have a `status` of `DEPROVISIONED`    |
-| `lastUpdated lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"` | Users last updated before a specific timestamp   |
-| `lastUpdated eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"` | Users last updated at a specific timestamp       |
-| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"` | Users last updated after a specific timestamp    |
-| `id eq "00u1ero7vZFVEIYLWPBN"`                | Users with a specified `id`                      |
-| `profile.login eq "login@example.com"`        | Users with a specified `login`                   |
-| `profile.email eq "email@example.com"`        | Users with a specified `email`*                  |
-| `profile.firstName eq "John"`                 | Users with a specified `firstName`*              |
-| `profile.lastName eq "Smith" `                | Users with a specified `lastName`*               |
+| Filter                                          | Description                                      |
+| :---------------------------------------------- | :----------------------------------------------- |
+| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`           |
+| `status eq "PROVISIONED"`                       | Users that have a `status` of `PROVISIONED`      |
+| `status eq "ACTIVE"`                            | Users that have a `status` of `ACTIVE`           |
+| `status eq "RECOVERY"`                          | Users that have a `status` of `RECOVERY`         |
+| `status eq "PASSWORD_EXPIRED"`                  | Users that have a `status` of `PASSWORD_EXPIRED` |
+| `status eq "LOCKED_OUT"`                        | Users that have a `status` of `LOCKED_OUT`       |
+| `status eq "DEPROVISIONED"`                     | Users that have a `status` of `DEPROVISIONED`    |
+| `lastUpdated lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated before a specific timestamp   |
+| `lastUpdated eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated at a specific timestamp       |
+| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp    |
+| `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                      |
+| `profile.login eq "login@example.com"`          | Users with a specified `login`                   |
+| `profile.email eq "email@example.com"`          | Users with a specified `email`*                  |
+| `profile.firstName eq "John"`                   | Users with a specified `firstName`*              |
+| `profile.lastName eq "Smith" `                  | Users with a specified `lastName`*               |
 
 > Hint: If filtering by `email`, `lastName`, or `firstName`, it may be easier to use `q` instead of `filter`.
 
@@ -1276,14 +1276,14 @@ Use an ID lookup for records that you update to ensure your results contain the 
    - Any user profile property, including custom-defined properties
    - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged` and `lastUpdated`
 
-    | Search Term Example                           | Description                                     |
-    |:----------------------------------------------|:------------------------------------------------|
-    | `status eq "STAGED"`                          | Users that have a `status` of `STAGED`          |
-    | `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"` | Users last updated after a specific timestamp   |
-    | `id eq "00u1ero7vZFVEIYLWPBN"`                | Users with a specified `id`                     |
-    | `profile.department eq "Engineering"`         | Users that have a `department` of `Engineering` |
-    | `profile.occupation eq "Leader"`              | Users that have an `occupation` of `Leader`     |
-    | `profile.lastName sw "Sm" `                   | Users whose `lastName` starts with "Sm"         |
+| Search Term Example                             | Description                                     |
+| :---------------------------------------------- | :---------------------------------------------- |
+| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`          |
+| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp   |
+| `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                     |
+| `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
+| `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
+| `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with "Sm          |
 
 > When paginating a search result set (see [Pagination](/docs/api/getting_started/design_principles#pagination)), the result set is limited to a total of 50,000 results.  Attempting to follow the `next` link from the last page will yield an error.
 
@@ -1443,12 +1443,12 @@ in the request is deleted.
 ##### Request Parameters
 
 
-| Parameter   | Description                                                        | Param Type | DataType                                  | Required |
-|:------------|:-------------------------------------------------------------------|:-----------|:------------------------------------------|:---------|
-| userId      | ID of user to update                                               | URL        | String                                    | TRUE     |
-| strict      | If true, validates against minimum age and history password policy | Query      | String                                    | FALSE    |
-| profile     | Updated profile for user                                           | Body       | [Profile Object](#profile-object)         | FALSE    |
-| credentials | Update credentials for user                                        | Body       | [Credentials Object](#credentials-object) | FALSE    |
+| Parameter     | Description                                                          | Param Type   | DataType                                    | Required |
+| :------------ | :------------------------------------------------------------------- | :----------- | :------------------------------------------ | :------- |
+| userId        | ID of user to update                                                 | URL          | String                                      | TRUE     |
+| strict        | If true, validates against minimum age and history password policy   | Query        | String                                      | FALSE    |
+| profile       | Updated profile for user                                             | Body         | [Profile Object](#profile-object)           | FALSE    |
+| credentials   | Update credentials for user                                          | Body         | [Credentials Object](#credentials-object)   | FALSE    |
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
@@ -1469,12 +1469,12 @@ Updates a user's profile or credentials with partial update semantics
 ##### Request Parameters
 
 
-| Parameter   | Description                                                        | Param Type | DataType                                  | Required |
-|:------------|:-------------------------------------------------------------------|:-----------|:------------------------------------------|:---------|
-| userId      | ID of user to update                                               | URL        | String                                    | TRUE     |
-| strict      | If true, validates against minimum age and history password policy | Query      | String                                    | FALSE    |
-| profile     | Updated profile for user                                           | Body       | [Profile Object](#profile-object)         | FALSE    |
-| credentials | Update credentials for user                                        | Body       | [Credentials Object](#credentials-object) | FALSE    |
+| Parameter     | Description                                                          | Param Type   | DataType                                    | Required |
+| :------------ | :------------------------------------------------------------------- | :----------- | :------------------------------------------ | :------- |
+| userId        | ID of user to update                                                 | URL          | String                                      | TRUE     |
+| strict        | If true, validates against minimum age and history password policy   | Query        | String                                      | FALSE    |
+| profile       | Updated profile for user                                             | Body         | [Profile Object](#profile-object)           | FALSE    |
+| credentials   | Update credentials for user                                          | Body         | [Credentials Object](#credentials-object)   | FALSE    |
 
 `profile` and `credentials` can be updated independently or with a single request.
 
@@ -1731,9 +1731,9 @@ Fetches appLinks for all direct or indirect (via group membership) assigned appl
 ##### Request Parameters
 
 
-Parameter | Description  | Param Type | DataType | Required |
---------- | ------------ | ---------- | -------- | -------- |
-id        | `id` of user | URL        | String   | TRUE     |
+| Parameter | Description  | Param Type | DataType | Required |
+| --------- | ------------ | ---------- | -------- | -------- |
+| id        | `id` of user | URL        | String   | TRUE     |
 
 ##### Response Parameters
 
@@ -1817,9 +1817,9 @@ Fetches the groups of which the user is a member
 ##### Request Parameters
 
 
-Parameter | Description  | Param Type | DataType | Required |
---------- | ------------ | ---------- | -------- | -------- |
-id        | `id` of user | URL        | String   | TRUE     |
+| Parameter | Description  | Param Type | DataType | Required |
+| --------- | ------------ | ---------- | -------- | -------- |
+| id        | `id` of user | URL        | String   | TRUE     |
 
 ##### Response Parameters
 
@@ -1882,10 +1882,10 @@ Users who don't have a password must complete the welcome flow by visiting the a
 ##### Request Parameters
 
 
-Parameter | Description                                     | Param Type | DataType | Required | Default
---------- | ----------------------------------------------- | ---------- | -------- | -------- | -------
-id        | `id` of user                                    | URL        | String   | TRUE     |
-sendEmail | Sends an activation email to the user if `true` | Query      | Boolean  | FALSE    | TRUE
+| Parameter | Description                                     | Param Type | DataType | Required | Default |
+| --------- | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
+| id        | `id` of user                                    | URL        | String   | TRUE     |         |
+| sendEmail | Sends an activation email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
 
 ##### Response Parameters
 
@@ -1937,10 +1937,10 @@ Users that don't have a password must complete the flow by completing [Reset Pas
 ##### Request Parameters
 
 
-Parameter | Description                                                                | Param Type | DataType | Required |
---------- | -------------------------------------------------------------------------- | ---------- | -------- | -------- |
-id        | `id` of user                                                               | URL        | String   | TRUE     |
-sendEmail | Sends an activation email to the user if `true`. Default value is `false`. | Query      | Boolean  | FALSE    |
+| Parameter | Description                                                                | Param Type | DataType | Required |
+| --------- | -------------------------------------------------------------------------- | ---------- | -------- | -------- |
+| id        | `id` of user                                                               | URL        | String   | TRUE     |
+| sendEmail | Sends an activation email to the user if `true`. Default value is `false`. | Query      | Boolean  | FALSE    |
 
 ##### Response Parameters
 
@@ -2009,10 +2009,10 @@ This operation can only be performed on users that do not have a `DEPROVISIONED`
 ##### Request Parameters
 
 
-Parameter | Description                                                                           | Param Type | DataType | Required |
---------- | ------------------------------------------------------------------------------------- | ---------- | -------- | -------- |
-userId    | ID of user                                                                            | URL        | String   | TRUE     |
-sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    |
+| Parameter | Description                                                                           | Param Type | DataType | Required |
+| --------- | ------------------------------------------------------------------------------------- | ---------- | -------- | -------- |
+| userId    | ID of user                                                                            | URL        | String   | TRUE     |
+| sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    |
 
 ##### Response Parameters
 
@@ -2055,9 +2055,9 @@ Suspended users:
 ##### Request Parameters
 
 
-Parameter | Description  | Param Type | DataType | Required |
---------- | ------------ | ---------- | -------- | -------- |
-id        | `id` of user | URL        | String   | TRUE     |
+| Parameter | Description  | Param Type | DataType | Required |
+| --------- | ------------ | ---------- | -------- | -------- |
+| id        | `id` of user | URL        | String   | TRUE     |
 
 ##### Response Parameters
 
@@ -2099,9 +2099,9 @@ This operation can only be performed on users that have a `SUSPENDED` status.
 ##### Request Parameters
 
 
-Parameter | Description  | Param Type | DataType | Required |
---------- | ------------ | ---------- | -------- | -------- |
-id        | `id` of user | URL        | String   | TRUE     |
+| Parameter | Description  | Param Type | DataType | Required |
+| --------- | ------------ | ---------- | -------- | -------- |
+| id        | `id` of user | URL        | String   | TRUE     |
 
 ##### Response Parameters
 
@@ -2145,10 +2145,10 @@ is required to delete the user.
 ##### Request Parameters
 
 
-Parameter | Description                                                                           | Param Type | DataType | Required | Default |
---------- | ------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
-id        | `id` of user                                                                          | URL        | String   | TRUE     |         |
-sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    | FALSE   |
+| Parameter | Description                                                                           | Param Type | DataType | Required | Default |
+| --------- | ------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| id        | `id` of user                                                                          | URL        | String   | TRUE     |         |
+| sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    | FALSE   |
 
 ##### Response Parameters
 
@@ -2190,9 +2190,9 @@ Unlocks a user with a `LOCKED_OUT` status and returns them to `ACTIVE` status.  
 ##### Request Parameters
 
 
-Parameter | Description  | Param Type | DataType | Required | Default
---------- | ------------ | ---------- | -------- | -------- | -------
-id        | `id` of user | URL        | String   | TRUE     |
+| Parameter | Description  | Param Type | DataType | Required | Default |
+| --------- | ------------ | ---------- | -------- | -------- | ------- |
+| id        | `id` of user | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -2232,10 +2232,10 @@ This operation will transition the user to the status of `RECOVERY` and the user
 ##### Request Parameters
 
 
-Parameter | Description                                      | Param Type | DataType | Required | Default
---------- | ------------------------------------------------ | ---------- | -------- | -------- | -------
-id        | `id` of user                                     | URL        | String   | TRUE     |
-sendEmail | Sends reset password email to the user if `true` | Query      | Boolean  | FALSE    | TRUE
+| Parameter | Description                                      | Param Type | DataType | Required | Default |
+| --------- | ------------------------------------------------ | ---------- | -------- | -------- | ------- |
+| id        | `id` of user                                     | URL        | String   | TRUE     |         |
+| sendEmail | Sends reset password email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
 
 To ensure a successful password recovery lookup if an email address is associated with multiple users:
 
@@ -2310,10 +2310,10 @@ and the user is presented with the password-expired page where he or she can cha
 ##### Request Parameters
 
 
-Parameter    | Description                                                        | Param Type | DataType | Required | Default
------------- | ------------------------------------------------------------------ | ---------- | -------- | -------- | -------
-id           | `id` of user                                                       | URL        | String   | TRUE     |
-tempPassword | Sets the user's password to a temporary password,  if `true` | Query      | Boolean  | FALSE    | FALSE
+| Parameter    | Description                                                        | Param Type | DataType | Required | Default |
+| ------------ | ------------------------------------------------------------------ | ---------- | -------- | -------- | ------- |
+| id           | `id` of user                                                       | URL        | String   | TRUE     |         |
+| tempPassword | Sets the user's password to a temporary password,  if `true`       | Query      | Boolean  | FALSE    | FALSE   |
 
 ##### Response Parameters
 
@@ -2404,9 +2404,9 @@ This operation resets all factors for the specified user. All MFA factor enrollm
 ##### Request Parameters
 
 
-Parameter    | Description                                                  | Param Type | DataType | Required | Default
------------- | ------------------------------------------------------------ | ---------- | -------- | -------- | -------
-id           | `id` of user                                                 | URL        | String   | TRUE     |
+| Parameter    | Description                                                  | Param Type | DataType | Required | Default |
+| ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- | ------- |
+| id           | `id` of user                                                 | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -2446,10 +2446,10 @@ Removes all active identity provider sessions. This forces the user to authentic
 #### Request Parameters
 
 
-Parameter    | Description                                                      | Param Type | DataType | Required | Default
------------- | ---------------------------------------------------------------- | ---------- | -------- | -------- | -------
-userId          | `id` of a user                                                     | URL        | String   | TRUE     |
-oauthTokens  | Revoke issued OpenID Connect and OAuth refresh and access tokens | Query      | Boolean  | FALSE    | FALSE
+| Parameter    | Description                                                      | Param Type | DataType | Required | Default |
+| ------------ | ---------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                                   | URL        | String   | TRUE     |         |
+| oauthTokens  | Revoke issued OpenID Connect and OAuth refresh and access tokens | Query      | Boolean  | FALSE    | FALSE   |
 
 #### Response Parameters
 
@@ -2488,10 +2488,10 @@ The user will be required to validate their security question's answer when visi
 ##### Request Parameters
 
 
-Parameter    | Description                                         | Param Type | DataType | Required | Default
------------- | --------------------------------------------------- | ---------- | -------- | -------- | -------
-id           | `id` of user                                        | URL        | String   | TRUE     |
-sendEmail    | Sends a forgot password email to the user if `true` | Query      | Boolean  | FALSE    | TRUE
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| id           | `id` of user                                        | URL        | String   | TRUE     |         |
+| sendEmail    | Sends a forgot password email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
 
 To ensure a successful password recovery lookup if an email address is associated with multiple users:
 
@@ -2543,11 +2543,11 @@ This operation can only be performed on users with an `ACTIVE` status and a vali
 ##### Request Parameters
 
 
-Parameter         | Description                                      | Param Type | DataType                                              | Required |
------------------ | ------------------------------------------------ | ---------- | ----------------------------------------------------- | -------- |
-id                | `id` of user                                     | URL        | String                                                | TRUE     |
-password          | New password for user                            | Body       | [Password Object](#password-object)                   | TRUE     |
-recovery_question | Answer to user's current recovery question | Body       | [Recovery Question Object](#recovery-question-object) | TRUE     |
+| Parameter         | Description                                      | Param Type | DataType                                              | Required |
+| ----------------- | ------------------------------------------------ | ---------- | ----------------------------------------------------- | -------- |
+| id                | `id` of user                                     | URL        | String                                                | TRUE     |
+| password          | New password for user                            | Body       | [Password Object](#password-object)                   | TRUE     |
+| recovery_question | Answer to user's current recovery question       | Body       | [Recovery Question Object](#recovery-question-object) | TRUE     |
 
 ##### Response Parameters
 
@@ -2598,12 +2598,12 @@ This operation can only be performed on users in `STAGED`, `ACTIVE`, `PASSWORD_E
 ##### Request Parameters
 
 
-Parameter   | Description                                            | Param Type | DataType                            | Required |
-------------| -------------------------------------------------------| ---------- | ------------------------------------| -------- |
-id          | `id` of user                                           | URL        | String                              | TRUE     |
-strict      | If true, validates against password minimum age policy | Query      | String                              | FALSE    |
-oldPassword | Current password for user                              | Body       | [Password Object](#password-object) | TRUE     |
-newPassword | New password for user                                  | Body       | [Password Object](#password-object) | TRUE     |
+| Parameter    | Description                                             | Param Type | DataType                             | Required |
+| ------------ | ------------------------------------------------------- | ---------- | ------------------------------------ | -------- |
+| id           | `id` of user                                            | URL        | String                               | TRUE     |
+| strict       | If true, validates against password minimum age policy  | Query      | String                               | FALSE    |
+| oldPassword  | Current password for user                               | Body       | [Password Object](#password-object)  | TRUE     |
+| newPassword  | New password for user                                   | Body       | [Password Object](#password-object)  | TRUE     |
 
 ##### Response Parameters
 
@@ -2654,11 +2654,11 @@ This operation can only be performed on users in **STAGED**, **ACTIVE** or **REC
 ##### Request Parameters
 
 
-Parameter         | Description                             | Param Type | DataType                                              | Required |
------------------ | --------------------------------------- | ---------- | ----------------------------------------------------- | -------- |
-id                | `id` of user                            | URL        | String                                                | TRUE     |
-password          | Current password for user               | Body       | [Password Object](#password-object)                   | TRUE     |
-recovery_question | New recovery question & answer for user | Body       | [Recovery Question Object](#recovery-question-object) | TRUE     |
+| Parameter         | Description                             | Param Type | DataType                                              | Required |
+| ----------------- | --------------------------------------- | ---------- | ----------------------------------------------------- | -------- |
+| id                | `id` of user                            | URL        | String                                                | TRUE     |
+| password          | Current password for user               | Body       | [Password Object](#password-object)                   | TRUE     |
+| recovery_question | New recovery question & answer for user | Body       | [Recovery Question Object](#recovery-question-object) | TRUE     |
 
 ##### Response Parameters
 
@@ -2721,13 +2721,13 @@ Lists all grants for the specified user
 #### Request Parameters
 
 
-| Parameter | Description                                                                                  | Param Type | DataType | Required | Default |
-|:----------|:---------------------------------------------------------------------------------------------|:-----------|:---------|:---------|:--------|
-| userId    | ID of the user for whom you are fetching grants                                              | URL        | String   | TRUE     |         |
-| expand    | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute. | Query      | String   | FALSE    |         |
-| scopeId   | The scope ID to filter on                                                                    | Query      | String   | FALSE    |         |
-| limit     | The number of grants to return (maximum 200)                                                 | Query      | Number   | FALSE    | 20      |
-| after     | Specifies the pagination cursor for the next page of grants                                  | Query      | String   | FALSE    |         |
+| Parameter   | Description                                                                                    | Param Type   | DataType   | Required   | Default |
+| :---------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
+| userId      | ID of the user for whom you are fetching grants                                                | URL          | String     | TRUE       |         |
+| expand      | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
+| scopeId     | The scope ID to filter on                                                                      | Query        | String     | FALSE      |         |
+| limit       | The number of grants to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
+| after       | Specifies the pagination cursor for the next page of grants                                    | Query        | String     | FALSE      |         |
 
 > Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/api/getting_started/design_principles#pagination).
 
@@ -2804,11 +2804,11 @@ Gets a grant for the specified user
 #### Request Parameters
 
 
-| Parameter | Description                                                                                  | Param Type | DataType | Required |
-|:----------|:---------------------------------------------------------------------------------------------|:-----------|:---------|:---------|
-| userId    | ID of the user to whom the grant belongs                                                     | URL        | String   | TRUE     |
-| grantId   | ID of the grant being fetched                                                                | Query      | String   | TRUE     |
-| expand    | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute. | Query      | String   | FALSE    |
+| Parameter   | Description                                                                                    | Param Type   | DataType   | Required |
+| :---------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
+| userId      | ID of the user to whom the grant belongs                                                       | URL          | String     | TRUE     |
+| grantId     | ID of the grant being fetched                                                                  | Query        | String     | TRUE     |
+| expand      | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE    |
 
 #### Request Example
 
@@ -2880,13 +2880,13 @@ Lists all grants for a specified user and client
 #### Request Parameters
 
 
-| Parameter | Description                                                                                  | Parameter Type | DataType | Required | Default |
-|:----------|:---------------------------------------------------------------------------------------------|:---------------|:---------|:---------|:--------|
-| userId    | ID of the user whose grants you are listing for the specified `clientId`                     | URL            | String   | TRUE     |         |
-| clientId  | ID of the client whose grants you are listing for the specified `userId`                     | URL            | String   | TRUE     |         |
-| expand    | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute. | Query          | String   | FALSE    |         |
-| limit     | The number of tokens to return (maximum 200)                                                       | Query          | Number   | FALSE    | 20      |
-| after     | Specifies the pagination cursor for the next page of tokens                                  | Query          | String   | FALSE    |         |
+| Parameter   | Description                                                                                    | Parameter Type   | DataType   | Required   | Default |
+| :---------- | :--------------------------------------------------------------------------------------------- | :--------------- | :--------- | :--------- | :------ |
+| userId      | ID of the user whose grants you are listing for the specified `clientId`                       | URL              | String     | TRUE       |         |
+| clientId    | ID of the client whose grants you are listing for the specified `userId`                       | URL              | String     | TRUE       |         |
+| expand      | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query            | String     | FALSE      |         |
+| limit       | The number of tokens to return (maximum 200)                                                   | Query            | Number     | FALSE      | 20      |
+| after       | Specifies the pagination cursor for the next page of tokens                                    | Query            | String     | FALSE      |         |
 
 #### Request Example
 
@@ -2960,9 +2960,9 @@ Revokes all grants for a specified user
 #### Request Paramters
 
 
-| Parameter | Description                                 | Parameter Type | DataType | Required |
-|:----------|:--------------------------------------------|:---------------|:---------|:---------|
-| userId    | ID of the user whose grant is being revoked | URL            | String   | TRUE     |
+| Parameter   | Description                                   | Parameter Type   | DataType   | Required |
+| :---------- | :-------------------------------------------- | :--------------- | :--------- | :------- |
+| userId      | ID of the user whose grant is being revoked   | URL              | String     | TRUE     |
 
 #### Request Example
 
@@ -2994,10 +2994,10 @@ Revokes one grant for a specified user
 #### Request Paramters
 
 
-| Parameter | Description                                 | Parameter Type | DataType | Required |
-|:----------|:--------------------------------------------|:---------------|:---------|:---------|
-| userId    | ID of the user whose grant is being revoked | URL            | String   | TRUE     |
-| grantId   | ID of the grant being revoked               | URL            | String   | TRUE     |
+| Parameter   | Description                                   | Parameter Type   | DataType   | Required |
+| :---------- | :-------------------------------------------- | :--------------- | :--------- | :------- |
+| userId      | ID of the user whose grant is being revoked   | URL              | String     | TRUE     |
+| grantId     | ID of the grant being revoked                 | URL              | String     | TRUE     |
 
 #### Request Example
 
@@ -3029,10 +3029,10 @@ Revokes all grants for the specified user and client
 #### Request Parameters
 
 
-| Parameter | Description                                                            | Parameter Type | DataType | Required |
-|:----------|:-----------------------------------------------------------------------|:---------------|:---------|:---------|
-| userId    | ID of the user whose grants are being revoked for the specified client | URL            | String   | TRUE     |
-| clientId  | ID of the client who was granted consent by the specified user         | URL            | String   | TRUE     |
+| Parameter   | Description                                                              | Parameter Type   | DataType   | Required |
+| :---------- | :----------------------------------------------------------------------- | :--------------- | :--------- | :------- |
+| userId      | ID of the user whose grants are being revoked for the specified client   | URL              | String     | TRUE     |
+| clientId    | ID of the client who was granted consent by the specified user           | URL              | String     | TRUE     |
 
 #### Request Example
 
@@ -3077,13 +3077,13 @@ Lists all refresh tokens issued for the specified User and Client.
 #### Request Parameters
 
 
-| Parameter | Description                                                                                  | Param Type | DataType | Required | Default |
-|:----------|:---------------------------------------------------------------------------------------------|:-----------|:---------|:---------|:--------|
-| userId    | ID of the user for whom you are fetching tokens                                              | URL        | String   | TRUE     |         |
-| clientId  | ID of the client                                                                             | URL        | String   | TRUE     |         |
-| expand    | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute. | Query      | String   | FALSE    |         |
-| limit     | The number of tokens to return (maximum 200)                                                       | Query      | Number   | FALSE    | 20      |
-| after     | Specifies the pagination cursor for the next page of tokens                                  | Query      | String   | FALSE    |         |
+| Parameter   | Description                                                                                    | Param Type   | DataType   | Required   | Default |
+| :---------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
+| userId      | ID of the user for whom you are fetching tokens                                                | URL          | String     | TRUE       |         |
+| clientId    | ID of the client                                                                               | URL          | String     | TRUE       |         |
+| expand      | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
+| limit       | The number of tokens to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
+| after       | Specifies the pagination cursor for the next page of tokens                                    | Query        | String     | FALSE      |         |
 
 > Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/api/getting_started/design_principles#pagination).
 
@@ -3162,14 +3162,14 @@ Gets a refresh token issued for the specified User and Client.
 #### Request Parameters
 
 
-| Parameter | Description                                                                                  | Param Type | DataType | Required | Default |
-|:----------|:---------------------------------------------------------------------------------------------|:-----------|:---------|:---------|:--------|
-| userId    | ID of the user for whom you are fetching tokens                                              | URL        | String   | TRUE     |         |
-| clientId  | ID of the client                                                                             | URL        | String   | TRUE     |         |
-| tokenId   | ID of the token                                                                             | URL        | String   | TRUE     |         |
-| expand    | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute. | Query      | String   | FALSE    |         |
-| limit     | The number of grants to return (maximum 200)                                                      | Query      | Number   | FALSE    | 20      |
-| after     | Specifies the pagination cursor for the next page of grants                                  | Query      | String   | FALSE    |         |
+| Parameter   | Description                                                                                    | Param Type   | DataType   | Required   | Default |
+| :---------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
+| userId      | ID of the user for whom you are fetching tokens                                                | URL          | String     | TRUE       |         |
+| clientId    | ID of the client                                                                               | URL          | String     | TRUE       |         |
+| tokenId     | ID of the token                                                                                | URL          | String     | TRUE       |         |
+| expand      | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
+| limit       | The number of grants to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
+| after       | Specifies the pagination cursor for the next page of grants                                    | Query        | String     | FALSE      |         |
 
 > Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/api/getting_started/design_principles#pagination).
 
@@ -3273,10 +3273,10 @@ Revokes all refresh tokens issued for the specified User and Client. Any access 
 #### Request Parameters
 
 
-| Parameter | Description                                                            | Parameter Type | DataType | Required |
-|:----------|:-----------------------------------------------------------------------|:---------------|:---------|:---------|
-| userId    | ID of the user whose grants are being revoked for the specified client | URL            | String   | TRUE     |
-| clientId  | ID of the client who was granted consent by the specified user         | URL            | String   | TRUE     |
+| Parameter   | Description                                                              | Parameter Type   | DataType   | Required |
+| :---------- | :----------------------------------------------------------------------- | :--------------- | :--------- | :------- |
+| userId      | ID of the user whose grants are being revoked for the specified client   | URL              | String     | TRUE     |
+| clientId    | ID of the client who was granted consent by the specified user           | URL              | String     | TRUE     |
 
 #### Request Example
 
@@ -3308,11 +3308,11 @@ Revokes the specified refresh token. If an access token was issued with this ref
 #### Request Parameters
 
 
-| Parameter | Description                                                            | Parameter Type | DataType | Required |
-|:----------|:-----------------------------------------------------------------------|:---------------|:---------|:---------|
-| userId    | ID of the user whose grants are being revoked for the specified client | URL            | String   | TRUE     |
-| clientId  | ID of the client who was granted consent by the specified user         | URL            | String   | TRUE     |
-| tokenId   | ID of the token                                                        | URL            | String   | TRUE     |
+| Parameter   | Description                                                              | Parameter Type   | DataType   | Required |
+| :---------- | :----------------------------------------------------------------------- | :--------------- | :--------- | :------- |
+| userId      | ID of the user whose grants are being revoked for the specified client   | URL              | String     | TRUE     |
+| clientId    | ID of the client who was granted consent by the specified user           | URL              | String     | TRUE     |
+| tokenId     | ID of the token                                                          | URL              | String     | TRUE     |
 
 #### Request Example
 
@@ -3348,9 +3348,9 @@ Lists all client resources for which the specified user has grants or tokens.
 #### Request Parameters
 
 
-| Parameter | Description                                     | Parameter Type | DataType | Required |
-|:----------|:------------------------------------------------|:---------------|:---------|:---------|
-| userId    | ID of the user                                  | URL            | String   | TRUE     |
+| Parameter   | Description                                       | Parameter Type   | DataType   | Required |
+| :---------- | :------------------------------------------------ | :--------------- | :--------- | :------- |
+| userId      | ID of the user                                    | URL              | String     | TRUE     |
 
 #### Request Example
 
@@ -3465,21 +3465,21 @@ curl -v -X GET \
 
 The User model defines several read-only properties:
 
-| Property              | Description                                                           | DataType                                                                                                         | Nullable | Unique | Readonly |
-|:----------------------|:----------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:---------|:-------|:---------|
-| userId                | unique key for user                                                   | String                                                                                                           | FALSE    | TRUE   | TRUE     |
-| status                | current [status](#user-status) of user                                |`STAGED`, `PROVISIONED`, `ACTIVE`, `RECOVERY`, `LOCKED_OUT`, `PASSWORD_EXPIRED`, `SUSPENDED`, or `DEPROVISIONED`  | FALSE    | FALSE  | TRUE     |
-| created               | timestamp when user was created                                       | Date                                                                                                             | FALSE    | FALSE  | TRUE     |
-| activated             | timestamp when transition to `ACTIVE` status completed                | Date                                                                                                             | FALSE    | FALSE  | TRUE     |
-| statusChanged         | timestamp when status last changed                                    | Date                                                                                                             | TRUE     | FALSE  | TRUE     |
-| lastLogin             | timestamp of last login                                               | Date                                                                                                             | TRUE     | FALSE  | TRUE     |
-| lastUpdated           | timestamp when user was last updated                                  | Date                                                                                                             | FALSE    | FALSE  | TRUE     |
-| passwordChanged       | timestamp when password last changed                                  | Date                                                                                                             | TRUE     | FALSE  | TRUE     |
-| transitioningToStatus | target status of an in-progress asynchronous status transition        | `PROVISIONED`, `ACTIVE`, or `DEPROVISIONED`                                                                      | TRUE     | FALSE  | TRUE     |
-| profile               | user profile properties                                               | [Profile Object](#profile-object)                                                                                | FALSE    | FALSE  | FALSE    |
-| credentials           | user's primary authentication and recovery credentials          | [Credentials Object](#credentials-object)                                                                        | FALSE    | FALSE  | FALSE    |
-| _links                | [link relations](#links-object) for the user&#8217;s current `status` | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                    | TRUE     | FALSE  | TRUE     |
-| _embedded             | embedded resources related to the user                                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                   | TRUE     | FALSE  | TRUE     |
+| Property                | Description                                                             | DataType                                                                                                           | Nullable   | Unique   | Readonly |
+| :---------------------- | :---------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- | :--------- | :------- | :------- |
+| userId                  | unique key for user                                                     | String                                                                                                             | FALSE      | TRUE     | TRUE     |
+| status                  | current [status](#user-status) of user                                  | `STAGED`, `PROVISIONED`, `ACTIVE`, `RECOVERY`, `LOCKED_OUT`, `PASSWORD_EXPIRED`, `SUSPENDED`, or `DEPROVISIONED`   | FALSE      | FALSE    | TRUE     |
+| created                 | timestamp when user was created                                         | Date                                                                                                               | FALSE      | FALSE    | TRUE     |
+| activated               | timestamp when transition to `ACTIVE` status completed                  | Date                                                                                                               | FALSE      | FALSE    | TRUE     |
+| statusChanged           | timestamp when status last changed                                      | Date                                                                                                               | TRUE       | FALSE    | TRUE     |
+| lastLogin               | timestamp of last login                                                 | Date                                                                                                               | TRUE       | FALSE    | TRUE     |
+| lastUpdated             | timestamp when user was last updated                                    | Date                                                                                                               | FALSE      | FALSE    | TRUE     |
+| passwordChanged         | timestamp when password last changed                                    | Date                                                                                                               | TRUE       | FALSE    | TRUE     |
+| transitioningToStatus   | target status of an in-progress asynchronous status transition          | `PROVISIONED`, `ACTIVE`, or `DEPROVISIONED`                                                                        | TRUE       | FALSE    | TRUE     |
+| profile                 | user profile properties                                                 | [Profile Object](#profile-object)                                                                                  | FALSE      | FALSE    | FALSE    |
+| credentials             | user's primary authentication and recovery credentials                  | [Credentials Object](#credentials-object)                                                                          | FALSE      | FALSE    | FALSE    |
+| _links                  | [link relations](#links-object) for the user&#8217;s current `status`   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | TRUE       | FALSE    | TRUE     |
+| _embedded               | embedded resources related to the user                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | TRUE       | FALSE    | TRUE     |
 
 >Note: Profile image is a <ApiLifecycle access="beta" /> feature.
 
@@ -3554,39 +3554,39 @@ Specifies [standard](#default-profile-properties) and [custom](#custom-profile-p
 
 The default user profile is based on the [System for Cross-Domain Identity Management: Core Schema](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#section-4.1.1) and has following standard properties:
 
-| Property          | Description                                                                                                                        | DataType | Nullable | Unique | Readonly | MinLength | MaxLength | Validation                                                                                                       |
-|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------|:---------|:---------|:-------|:---------|:----------|:----------|:-----------------------------------------------------------------------------------------------------------------|
-| login             | unique identifier for the user (`username`)                                                                                        | String   | FALSE    | TRUE   | FALSE    | 5         | 100       | [pattern](/docs/api/resources/schemas#login-pattern-validation)                                           |
-| email             | primary email address of user                                                                                                      | String   | FALSE    | TRUE   | FALSE    | 5         | 100       | [RFC 5322 Section 3.2.3](http://tools.ietf.org/html/rfc5322#section-3.2.3)                                       |
-| secondEmail       | secondary email address of user typically used for account recovery                                                                | String   | TRUE     | TRUE   | FALSE    | 5         | 100       | [RFC 5322 Section 3.2.3](http://tools.ietf.org/html/rfc5322#section-3.2.3)                                       |
-| firstName         | given name of the user (`givenName`)                                                                                               | String   | FALSE (default)    | FALSE  | FALSE    | 1         | 50        |                                                                                                                  |
-| lastName          | family name of the user (`familyName`)                                                                                             | String   | FALSE (default)   | FALSE  | FALSE    | 1         | 50        |                                                                                                                  |
-| middleName        | middle name(s) of the user                                                                                                         | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| honorificPrefix   | honorific prefix(es) of the user, or title in most Western languages                                                               | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| honorificSuffix   | honorific suffix(es) of the user                                                                                                   | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| title             | user's title, such as "Vice President"                                                                                       | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| displayName       | name of the user, suitable for display to end users                                                                                | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| nickName          | casual way to address the user in real life                                                                                        | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| profileUrl        | url of user's online profile (e.g. a web page)                                                                               | String   | TRUE     | FALSE  | FALSE    |           |           | [URL](https://tools.ietf.org/html/rfc1808)                                                                       |
-| primaryPhone      | primary phone number of user such as home number                                                                                   | String   | TRUE     | FALSE  | FALSE    | 0         | 100       |                                                                                                                  |
-| mobilePhone       | mobile phone number of user                                                                                                        | String   | TRUE     | FALSE  | FALSE    | 0         | 100       |                                                                                                                  |
-| streetAddress     | full street address component of user's address                                                                              | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| city              | city or locality component of user's address (`locality`)                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| state             | state or region component of user's address (`region`)                                                                       | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| zipCode           | zipcode or postal code component of user's address (`postalCode`)                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| countryCode       | country name component of user's address (`country`)                                                                         | String   | TRUE     | FALSE  | FALSE    |           |           | [ISO 3166-1 alpha 2 "short" code format](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#ref-ISO3166) |
-| postalAddress     | mailing address component of user's address                                                                                  | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| preferredLanguage | user's preferred written or spoken languages                                                                                 | String   | TRUE     | FALSE  | FALSE    |           |           | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                      |
-| locale            | user's default location for purposes of localizing items such as currency, date time format, numerical representations, etc. | String   | TRUE     | FALSE  | FALSE    |           |           | See Note for more details.                                                                                       |
-| timezone          | user's time zone                                                                                                             | String   | TRUE     | FALSE  | FALSE    |           |           | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557)                                            |
-| userType          | used to identify the organization to user relationship such as "Employee" or "Contractor"                                          | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| employeeNumber    | organization or company assigned unique identifier for the user                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| costCenter        | name of a cost center assigned to user                                                                                             | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| organization      | name of user's organization                                                                                                  | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| division          | name of user's division                                                                                                      | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| department        | name of user's department                                                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| managerId         | `id` of a user's manager                                                                                                     | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
-| manager           | displayName of the user's manager                                                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                  |
+| Property            | Description                                                                                                                          | DataType   | Nullable        | Unique   | Readonly   | MinLength   | MaxLength   | Validation                                                                                                       |
+| :------------------ | :----------------------------------------------------------------------------------------------------------------------------------- | :--------- | :---------      | :------- | :--------- | :---------- | :---------- | :--------------------------------------------------------------------------------------------------------------- |
+| login               | unique identifier for the user (`username`)                                                                                          | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [pattern](/docs/api/resources/schemas#login-pattern-validation)                                                  |
+| email               | primary email address of user                                                                                                        | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](http://tools.ietf.org/html/rfc5322#section-3.2.3)                                       |
+| secondEmail         | secondary email address of user typically used for account recovery                                                                  | String     | TRUE            | TRUE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](http://tools.ietf.org/html/rfc5322#section-3.2.3)                                       |
+| firstName           | given name of the user (`givenName`)                                                                                                 | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
+| lastName            | family name of the user (`familyName`)                                                                                               | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
+| middleName          | middle name(s) of the user                                                                                                           | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| honorificPrefix     | honorific prefix(es) of the user, or title in most Western languages                                                                 | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| honorificSuffix     | honorific suffix(es) of the user                                                                                                     | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| title               | user's title, such as "Vice President                                                                                                | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| displayName         | name of the user, suitable for display to end users                                                                                  | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| nickName            | casual way to address the user in real life                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| profileUrl          | url of user's online profile (e.g. a web page)                                                                                       | String     | TRUE            | FALSE    | FALSE      |             |             | [URL](https://tools.ietf.org/html/rfc1808)                                                                       |
+| primaryPhone        | primary phone number of user such as home number                                                                                     | String     | TRUE            | FALSE    | FALSE      | 0           | 100         |                                                                                                                  |
+| mobilePhone         | mobile phone number of user                                                                                                          | String     | TRUE            | FALSE    | FALSE      | 0           | 100         |                                                                                                                  |
+| streetAddress       | full street address component of user's address                                                                                      | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| city                | city or locality component of user's address (`locality`)                                                                            | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| state               | state or region component of user's address (`region`)                                                                               | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| zipCode             | zipcode or postal code component of user's address (`postalCode`)                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| countryCode         | country name component of user's address (`country`)                                                                                 | String     | TRUE            | FALSE    | FALSE      |             |             | [ISO 3166-1 alpha 2 "short" code format](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#ref-ISO3166) |
+| postalAddress       | mailing address component of user's address                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| preferredLanguage   | user's preferred written or spoken languages                                                                                         | String     | TRUE            | FALSE    | FALSE      |             |             | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                      |
+| locale              | user's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.         | String     | TRUE            | FALSE    | FALSE      |             |             | See Note for more details.                                                                                       |
+| timezone            | user's time zone                                                                                                                     | String     | TRUE            | FALSE    | FALSE      |             |             | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557)                                            |
+| userType            | used to identify the organization to user relationship such as "Employee" or "Contractor                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| employeeNumber      | organization or company assigned unique identifier for the user                                                                      | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| costCenter          | name of a cost center assigned to user                                                                                               | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| organization        | name of user's organization                                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| division            | name of user's division                                                                                                              | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| department          | name of user's department                                                                                                            | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| managerId           | `id` of a user's manager                                                                                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| manager             | displayName of the user's manager                                                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 
 > Note: A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code. For example, `en_US` specifies the language English and country US.
 
@@ -3612,11 +3612,11 @@ Custom attributes may contain HTML tags. It is the client's responsibility to es
 
 Specifies primary authentication and recovery credentials for a user.  Credential types and requirements vary depending on the provider and security policy of the organization.
 
-| Property          | DataType                                               | Nullable | Unique | Readonly |
-|:------------------|:-------------------------------------------------------|:---------|:-------|:---------|
-| password          | [Password Object](#password-object)                   | TRUE     | FALSE  | FALSE     |
-| recovery_question | [Recovery Question Object](#recovery-question-object) | TRUE     | FALSE  | FALSE     |
-| provider          | [Provider Object](#provider-object)                   | FALSE    | FALSE  | TRUE      |
+| Property            | DataType                                                 | Nullable   | Unique   | Readonly |
+| :------------------ | :------------------------------------------------------- | :--------- | :------- | :------- |
+| password            | [Password Object](#password-object)                      | TRUE       | FALSE    | FALSE    |
+| recovery_question   | [Recovery Question Object](#recovery-question-object)    | TRUE       | FALSE    | FALSE    |
+| provider            | [Provider Object](#provider-object)                      | FALSE      | FALSE    | TRUE     |
 
 ```json
 {
@@ -3638,10 +3638,10 @@ Specifies primary authentication and recovery credentials for a user.  Credentia
 
 Specifies a password for a user
 
-| Property | DataType | Nullable | Unique | Readonly | MinLength       | MaxLength | Validation      |
-|:---------|:---------|:---------|:-------|:---------|:----------------|:----------|:----------------|
-| value    | String   | TRUE     | FALSE  | FALSE    | Password Policy | 72        | Password Policy |
-| hash     | [Hashed Password Object](#hashed-password-object)     | TRUE     | FALSE  | FALSE    | N/A | N/A |  |
+| Property   | DataType                                          | Nullable   | Unique   | Readonly   | MinLength         | MaxLength   | Validation      |
+| :--------- | :---------                                        | :--------- | :------- | :--------- | :---------------- | :---------- | :-------------- |
+| value      | String                                            | TRUE       | FALSE    | FALSE      | Password Policy   | 72          | Password Policy |
+| hash       | [Hashed Password Object](#hashed-password-object) | TRUE       | FALSE    | FALSE      | N/A               | N/A         |                 |
 
 A password value is a **write-only** property.
 A password hash is a **write-only** property.
@@ -3668,13 +3668,13 @@ The password specified in the value property must meet the default password poli
 Specifies a hashed password that can be imported into Okta.  This allows an existing password to be imported into Okta directly from some other store.
 A hashed password may be specified in a Password Object when creating or updating a user, but not for other operations.  When updating a user with a hashed password the user must have the `STAGED` status.
 
-| Property   | DataType | Description                                                                                                 | Required                           | Min Value          | Max Value          |
-|:-----------|:---------|:------------------------------------------------------------------------------------------------------------|:-----------------------------------|:-------------------|:-------------------|
-| algorithm  | String   | The algorithm used to hash the password. Must be set to `BCRYPT`, `SHA-256`, `SHA-1` or `MD5`                               | TRUE                               | N/A                | N/A                |
-| value      | String   | For `SHA-256`, `SHA-1`, `MD5`: This is the actual base64-encoded hashed password. For `BCRYPT`: This is the actual radix64-encoded hashed password.                                                                   | TRUE                               | N/A                | N/A                |
-| salt       | String   | For `SHA-256`, `SHA-1`, `MD5`: Specifies the base64-encoded password salt used to generate the hash. For `BCRYPT`: Specifies the radix64-encoded password salt used to generate the hash.                                                       | TRUE                               | 22 (only for `BCRYPT` algorithm) | 22 (only for `BCRYPT` algorithm) |
-| workFactor | Integer  | Governs the strength of the hash, and the time required to compute it. Only relevant for `BCRYPT` algorithm | Only for `BCRYPT` algorithm        | 1                  | 20                 |
-| saltOrder  | String   | Specifies whether salt was pre- or postfixed to the password before hashing. Only relevant for `SHA-256`, `SHA-1`, `MD5` algorithms. Must be set to `PREFIX` or `POSTFIX`| Only for `SHA-256`, `Salted SHA-1`, `Salted MD5` algorithms                | N/A                | N/A                |
+| Property     | DataType   | Description                                                                                                                                                                               | Required                                                    | Min Value                        | Max Value                        |
+| :----------- | :--------- | :------------------------------------------------------------------------------------------------------------                                                                             | :-----------------------------------                        | :-------------------             | :-----------------               |
+| algorithm    | String     | The algorithm used to hash the password. Must be set to `BCRYPT`, `SHA-256`, `SHA-1` or `MD5`                                                                                             | TRUE                                                        | N/A                              | N/A                              |
+| value        | String     | For `SHA-256`, `SHA-1`, `MD5`: This is the actual base64-encoded hashed password. For `BCRYPT`: This is the actual radix64-encoded hashed password.                                       | TRUE                                                        | N/A                              | N/A                              |
+| salt         | String     | For `SHA-256`, `SHA-1`, `MD5`: Specifies the base64-encoded password salt used to generate the hash. For `BCRYPT`: Specifies the radix64-encoded password salt used to generate the hash. | TRUE                                                        | 22 (only for `BCRYPT` algorithm) | 22 (only for `BCRYPT` algorithm) |
+| workFactor   | Integer    | Governs the strength of the hash, and the time required to compute it. Only relevant for `BCRYPT` algorithm                                                                               | Only for `BCRYPT` algorithm                                 | 1                                | 20                               |
+| saltOrder    | String     | Specifies whether salt was pre- or postfixed to the password before hashing. Only relevant for `SHA-256`, `SHA-1`, `MD5` algorithms. Must be set to `PREFIX` or `POSTFIX`                 | Only for `SHA-256`, `Salted SHA-1`, `Salted MD5` algorithms | N/A                              | N/A                              |
 
 ###### BCRYPT Hashed Password Object Example
 
@@ -3749,10 +3749,10 @@ Specifies a secret question and answer that is validated (case insensitive) when
 
 Specifies the authentication provider that validates the user's password credential. The user's current provider is managed by the Delegated Authentication settings for your organization. The provider object is **read-only**.
 
-| Property | DataType                                                     | Nullable | Unique | Readonly |
-|:---------|:-------------------------------------------------------------|:---------|:-------|:---------|
-| type     | `OKTA`, `ACTIVE_DIRECTORY`,`LDAP`, `FEDERATION`, `SOCIAL` or `IMPORT` | FALSE    | FALSE  | TRUE     |
-| name     | String                                                       | TRUE     | FALSE  | TRUE     |
+| Property   | DataType                                                              | Nullable   | Unique   | Readonly |
+| :--------- | :-------------------------------------------------------------        | :--------- | :------- | :------- |
+| type       | `OKTA`, `ACTIVE_DIRECTORY`,`LDAP`, `FEDERATION`, `SOCIAL` or `IMPORT` | FALSE      | FALSE    | TRUE     |
+| name       | String                                                                | TRUE       | FALSE    | TRUE     |
 
 > `ACTIVE_DIRECTORY` or `LDAP` providers specify the directory instance name as the `name` property.
 
@@ -3770,20 +3770,20 @@ For an individual User result, the Links object contains a full set of link rela
 
 Here are some links that may be available on a User, as determined by your policies:
 
-| Link Relation Type     | Description                                                                                                           |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------|
-| self                   | A self-referential link to this user                                                                                  |
-| activate               | Lifecycle action to [activate the user](#activate-user)                                                               |
-| deactivate             | Lifecycle action to [deactivate the user](#deactivate-user)                                                           |
-| suspend                | Lifecycle action to [suspend the user](#suspend-user)                                                                 |
-| unsuspend              | Lifecycle action to [unsuspend the user](#unsuspend-user)                                                             |
-| resetPassword          | Lifecycle action to [trigger a password reset](#reset-password)                                                       |
-| expirePassword         | Lifecycle action to [expire the user's password](#expire-password)                                                    |
-| resetFactors           | Lifecycle action to [reset all MFA factors](#reset-factors)                                                           |
-| unlock                 | Lifecycle action to [unlock a locked-out user](#unlock-user)                                                          |
-| forgotPassword         | [Resets a user's password](#forgot-password) by validating the user's recovery credential.                            |
-| changePassword         | [Changes a user's password](#change-password) validating the user's current password                                  |
-| changeRecoveryQuestion | [Changes a user's recovery credential](#change-recovery-question) by validating the user's current password           |
+| Link Relation Type       | Description                                                                                                           |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------------------- |
+| self                     | A self-referential link to this user                                                                                  |
+| activate                 | Lifecycle action to [activate the user](#activate-user)                                                               |
+| deactivate               | Lifecycle action to [deactivate the user](#deactivate-user)                                                           |
+| suspend                  | Lifecycle action to [suspend the user](#suspend-user)                                                                 |
+| unsuspend                | Lifecycle action to [unsuspend the user](#unsuspend-user)                                                             |
+| resetPassword            | Lifecycle action to [trigger a password reset](#reset-password)                                                       |
+| expirePassword           | Lifecycle action to [expire the user's password](#expire-password)                                                    |
+| resetFactors             | Lifecycle action to [reset all MFA factors](#reset-factors)                                                           |
+| unlock                   | Lifecycle action to [unlock a locked-out user](#unlock-user)                                                          |
+| forgotPassword           | [Resets a user's password](#forgot-password) by validating the user's recovery credential.                            |
+| changePassword           | [Changes a user's password](#change-password) validating the user's current password                                  |
+| changeRecoveryQuestion   | [Changes a user's recovery credential](#change-recovery-question) by validating the user's current password           |
 
 ### User-Consent Grant Object
 
@@ -3844,18 +3844,18 @@ Here are some links that may be available on a User, as determined by your polic
 
 <ApiLifecycle access="ea" />
 
-| Property    | Description                                                                                                                    | Datatype                                                        |
-|:------------|:-------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|
-| Id          | ID of this grant                                                                                                               | String                                                          |
-| status      | Status of the grant. Valid values: `ACTIVE`, `REVOKED` or `EXPIRED`                                                            | String                                                          |
-| created     | Timestamp when the grant was created                                                                                           | Date                                                            |
-| lastUpdated | Timestamp when the grant was last updated                                                                                      | Date                                                            |
-| issuer      | The complete URL of the authorization server for this grant                                                                    | String                                                          |
-| clientId    | ID of the client for this grant                                                                                                | String                                                          |
-| userId      | ID of the user who consented to this grant                                                                                     | String                                                          |
-| scopeId     | ID of the scope to which this grant applies                                                                                    | String                                                          |
-| _links      | Discoverable resources related to the grant                                                                                    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) |
-| _embedded   | If `expand`=`scope` is included in the request, information about the scope specified by `scopeId` is included in the response. | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) |
+| Property      | Description                                                                                                                      | Datatype                                                        |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------- |
+| Id            | ID of this grant                                                                                                                 | String                                                          |
+| status        | Status of the grant. Valid values: `ACTIVE`, `REVOKED` or `EXPIRED`                                                              | String                                                          |
+| created       | Timestamp when the grant was created                                                                                             | Date                                                            |
+| lastUpdated   | Timestamp when the grant was last updated                                                                                        | Date                                                            |
+| issuer        | The complete URL of the authorization server for this grant                                                                      | String                                                          |
+| clientId      | ID of the client for this grant                                                                                                  | String                                                          |
+| userId        | ID of the user who consented to this grant                                                                                       | String                                                          |
+| scopeId       | ID of the scope to which this grant applies                                                                                      | String                                                          |
+| _links        | Discoverable resources related to the grant                                                                                      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  |
+| _embedded     | If `expand`=`scope` is included in the request, information about the scope specified by `scopeId` is included in the response.  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  |
 
 ### Client Grant Object
 
@@ -3883,10 +3883,10 @@ Here are some links that may be available on a User, as determined by your polic
 
 #### Client Grant Properties
 
-| Property    | Description                                 | Datatype                                                        | Unique |
-|:------------|:--------------------------------------------|:----------------------------------------------------------------|:-------|
-| client_id   | The client ID of the OAuth 2.0 client       | String                                                          | TRUE   |
-| client_name | The name of the OAuth 2.0 client            | String                                                          | TRUE   |
-| client_uri  | The URI of the OAuth 2.0 client             | String                                                          | FALSE  |
-| logo_uri    | The logo URI of the OAuth 2.0 client        | String                                                          | FALSE  |
-| _links      | Discoverable resources related to the grant | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | FALSE  |
+| Property      | Description                                   | Datatype                                                          | Unique |
+| :------------ | :-------------------------------------------- | :---------------------------------------------------------------- | :----- |
+| client_id     | The client ID of the OAuth 2.0 client         | String                                                            | TRUE   |
+| client_name   | The name of the OAuth 2.0 client              | String                                                            | TRUE   |
+| client_uri    | The URI of the OAuth 2.0 client               | String                                                            | FALSE  |
+| logo_uri      | The logo URI of the OAuth 2.0 client          | String                                                            | FALSE  |
+| _links        | Discoverable resources related to the grant   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)    | FALSE  |

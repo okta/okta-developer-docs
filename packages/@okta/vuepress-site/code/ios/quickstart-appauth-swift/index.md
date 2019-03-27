@@ -15,11 +15,11 @@ If you do not already have a **Developer Edition Account**, you can create one a
 * Log into the Okta Developer Dashboard, and **Create New App**
 * Choose **Native app** as the platform, then populate your new OpenID Connect application with values similar to:
 
-| Setting             | Value                                               |
-| ------------------- | --------------------------------------------------- |
-| Application Name    | OpenId Connect App *(must be unique)*               |
-| Login redirect URIs | com.okta.example:/callback                          |
-| Logout redirect URIs| com.okta.example:/logout                            |
+| Setting              | Value                                               |
+| -------------------  | --------------------------------------------------- |
+| Application Name     | OpenId Connect App *(must be unique)*               |
+| Login redirect URIs  | com.okta.example:/callback                          |
+| Logout redirect URIs | com.okta.example:/logout                            |
 
 > *As with any Okta application, make sure you assign Users or Groups to the OpenID Connect Client. Otherwise, no one can use it.*
 

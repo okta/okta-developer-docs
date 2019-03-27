@@ -41,20 +41,20 @@ For the Token Inline Hook, the outbound call from Okta to your external service 
 
 Provides information on the properties of the ID token that Okta has generated, including the existing claims it contains.
 
-| Property | Description                   | Data Type                    |
-|----------|-------------------------------|------------------------------|
-| claims   | Claims included in the token. | [claims](#claims) object     |
-| lifetime | Lifetime of the token.        | [lifetime](#lifetime) object |
+| Property   | Description                     | Data Type                      |
+|-- -------- | ------------------------------- | ---------------------------- --|
+| claims     | Claims included in the token.   | [claims](#claims) object       |
+| lifetime   | Lifetime of the token.          | [lifetime](#lifetime) object   |
 
 ### data.access
 
 Provides information on the properties of the access token that Okta has generated, including the existing claims it contains.
 
-| Property | Description                        | Data Type                    |
-|----------|------------------------------------|------------------------------|
-| claims   | Claims included in the token.      | [claims](#claims) object     |
-| lifetime | Lifetime of the token.             | [lifetime](#lifetime) object |
-| scopes   | The scopes contained in the token. | [scopes](#scopes) object     |
+| Property   | Description                          | Data Type                      |
+|-- -------- | ------------------------------------ | ---------------------------- --|
+| claims     | Claims included in the token.        | [claims](#claims) object       |
+| lifetime   | Lifetime of the token.               | [lifetime](#lifetime) object   |
+| scopes     | The scopes contained in the token.   | [scopes](#scopes) object       |
 
 #### claims
 
@@ -62,9 +62,9 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 
 #### lifetime
 
-| Property   | Description                                                            | Data Type |
-|------------|------------------------------------------------------------------------|-----------|
-| expiration | Time in seconds until the token expires. | Number    |
+| Property     | Description                                                              | Data Type   |
+|-- ---------- | ------------------------------------------------------------------------ | --------- --|
+| expiration   | Time in seconds until the token expires.                                 | Number      |
 
 #### scopes
 
@@ -82,19 +82,19 @@ The `commands` object is an array, allowing you to send multiple commands. In ea
 
 In the case of the Token hook type, the `value` property is itself a nested object, in which you specify a particular operation, a path to act on, and a value.
 
-| Property | Description                                                              | Data Type       |
-|----------|--------------------------------------------------------------------------|-----------------|
-| type     | One of the [supported commands](#supported-commands).                    | String          |
-| value    | Operand to pass to the command. It specifies a particular op to perform. | [value](#value) |
+| Property   | Description                                                                | Data Type         |
+|-- -------- | -------------------------------------------------------------------------- | --------------- --|
+| type       | One of the [supported commands](#supported-commands).                      | String            |
+| value      | Operand to pass to the command. It specifies a particular op to perform.   | [value](#value)   |
 
 #### Supported Commands
 
 The following commands are supported for the Token Inline Hook type:
 
-| Command                 | Description             |
-|-------------------------|-------------------------|
-| com.okta.identity.patch | Modify an ID token.     |
-| com.okta.access.patch   | Modify an access token. |
+| Command                   | Description               |
+|-- ----------------------- | ----------------------- --|
+| com.okta.identity.patch   | Modify an ID token.       |
+| com.okta.access.patch     | Modify an access token.   |
 
 > Note: The `commands` array should only contain commands that can be applied to the requested tokens. For example, if the token is an ID token, the `commands` array should not contain commands of the type `com.okta.access.patch`.
 
@@ -102,17 +102,17 @@ The following commands are supported for the Token Inline Hook type:
 
 The `value` object is where you specify the specific operation to perform. It is an array, allowing you to request more than one operation.
 
-| Property | Description                                                                                                                                                                                                       | Data Type       |
-|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                   | String          |
-| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding a claim, this will always begin with `/claims/`,  and be followed by the name of the new claim you are adding. | String          |
-| value    | Value to set the claim to.                                                                                                                                                                                        | Any JSON object |
+| Property   | Description                                                                                                                                                                                                         | Data Type         |
+|-- -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- --|
+| op         | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                     | String            |
+| path       | Location within the token to apply the operation, specified as a slash-delimited path. When adding a claim, this will always begin with `/claims/`,  and be followed by the name of the new claim you are adding.   | String            |
+| value      | Value to set the claim to.                                                                                                                                                                                          | Any JSON object   |
 
 #### List of Supported Ops
 
-| Op  | Description  |
-|-----|--------------|
-| add | Add a claim. | 
+| Op    | Description    |
+|-- --- | ------------ --|
+| add   | Add a claim.   |
 
 > Note: The `add` operation can only be used to add new claims to a token, not to overwrite the value of a claim already included in the token.
 
@@ -120,32 +120,32 @@ The `value` object is where you specify the specific operation to perform. It is
 
 When you return an error object, it should have the following structure:
 
-| Property     | Description                          | Data Type                   |
-|--------------|--------------------------------------|-----------------------------|
-| errorSummary | Human-readable summary of the error. | String                      |
+| Property       | Description                            | Data Type                     |
+|-- ------------ | -------------------------------------- | --------------------------- --|
+| errorSummary   | Human-readable summary of the error.   | String                        |
 
 Returning an error object will cause Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string you supplied in the `errorSummary` property of the `error` object you returned.
 
 ## Sample Listing of JSON Payload of Request
 
 ```JSON
-{  
+{
    "source":"https://{yourOktaDomain}/oauth2/default/v1/authorize",
    "eventId":"3OWo4oo-QQ-rBWfRyTmQYw",
    "eventTime":"2019-01-15T23:20:47.000Z",
-   "data":{  
-      "context":{  
-         "request":{  
+   "data":{
+      "context":{
+         "request":{
             "id":"reqv66CbCaCStGEFc8AdfS0ng",
             "method":"GET",
-            "url":{  
+            "url":{
                "value":"https://{yourOktaDomain}/oauth2/default/v1/authorize?scope=openid+profile+email&response_type=token+id_token&redirect_uri=https%3A%2F%2Fhttpbin.org%2Fget&state=foobareere&nonce=asf&client_id=customClientIdNative"
             },
             "ipAddress":"127.0.0.1"
          },
-         "protocol":{  
+         "protocol":{
             "type":"OAUTH2.0",
-            "request":{  
+            "request":{
                "scope":"openid profile email",
                "state":"foobareere",
                "redirect_uri":"https://httpbin.org/get",
@@ -153,16 +153,16 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
                "response_type":"token id_token",
                "client_id":"customClientIdNative"
             },
-            "issuer":{  
+            "issuer":{
                "uri":"https://{yourOktaDomain}/oauth2/default"
             },
-            "client":{  
+            "client":{
                "id":"customClientIdNative",
                "name":"Native client",
                "type":"PUBLIC"
             }
          },
-         "session":{  
+         "session":{
             "id":"102Qoe7t5PcRnSxr8j3I8I6pA",
             "userId":"00uq8tMo3zV0OfJON0g3",
             "login":"administrator1@clouditude.net",
@@ -170,43 +170,43 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
             "expiresAt":"2019-01-16T01:20:46.000Z",
             "status":"ACTIVE",
             "lastPasswordVerification":"2019-01-15T23:17:09.000Z",
-            "amr":[  
+            "amr":[
                "PASSWORD"
             ],
-            "idp":{  
+            "idp":{
                "id":"00oq6kcVwvrDY2YsS0g3",
                "type":"OKTA"
             },
             "mfaActive":false
          },
-         "user":{  
+         "user":{
             "id":"00uq8tMo3zV0OfJON0g3",
             "passwordChanged":"2018-09-11T23:19:12.000Z",
-            "profile":{  
+            "profile":{
                "login":"administrator1@clouditude.net",
                "firstName":"Add-Min",
                "lastName":"O'Cloudy Tud",
                "locale":"en",
                "timeZone":"America/Los_Angeles"
             },
-            "_links":{  
-               "groups":{  
+            "_links":{
+               "groups":{
                   "href":"https://{yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups"
                },
-               "factors":{  
+               "factors":{
                   "href":"https://{yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors"
                }
             }
          },
-         "policy":{  
+         "policy":{
             "id":"00pq8lGaLlI8APuqY0g3",
-            "rule":{  
+            "rule":{
                "id":"0prq8mLKuKAmavOvq0g3"
             }
          }
       },
-      "identity":{  
-         "claims":{  
+      "identity":{
+         "claims":{
             "sub":"00uq8tMo3zV0OfJON0g3",
             "name":"Add-Min O'Cloudy Tud",
             "email":"webmaster@clouditude.net",
@@ -214,7 +214,7 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
             "iss":"https://{yourOktaDomain}/oauth2/default",
             "aud":"customClientIdNative",
             "jti":"ID.YxF2whJfB3Eu4ktG_7aClqtCgjDq6ab_hgpiV7-ZZn0",
-            "amr":[  
+            "amr":[
                "pwd"
             ],
             "idp":"00oq6kcVwvrDY2YsS0g3",
@@ -222,14 +222,14 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
             "preferred_username":"administrator1@clouditude.net",
             "auth_time":1547594229
          },
-         "token":{  
-            "lifetime":{  
+         "token":{
+            "lifetime":{
                "expiration":3600
             }
          }
       },
-      "access":{  
-         "claims":{  
+      "access":{
+         "claims":{
             "ver":1,
             "jti":"AT.W-rrB-z-kkZQmHW0e6VS3Or--QfEN_YvoWJa46A7HAA",
             "iss":"https://{yourOktaDomain}/oauth2/default",
@@ -240,21 +240,21 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
             "firstName":"Add-Min",
             "preferred_username":"administrator1@clouditude.net"
          },
-         "token":{  
-            "lifetime":{  
+         "token":{
+            "lifetime":{
                "expiration":3600
             }
          },
-         "scopes":{  
-            "openid":{  
+         "scopes":{
+            "openid":{
                "id":"scpq7bW1cp6dcvrz80g3",
                "action":"GRANT"
             },
-            "profile":{  
+            "profile":{
                "id":"scpq7cWJ81CIP5Qkr0g3",
                "action":"GRANT"
             },
-            "email":{  
+            "email":{
                "id":"scpq7dxsoz6LQlRj00g3",
                "action":"GRANT"
             }

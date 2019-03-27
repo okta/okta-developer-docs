@@ -147,11 +147,11 @@ Requests that return a list of resources may support paging.  Pagination is base
 
 Note that for technical reasons not all APIs respect pagination or the `before` and `limit` parameters, see the [Events API](/docs/api/resources/events) for example.
 
-Param    | Description
--------- | ------------
-`before` | This is the cursor that points to the start of the page of data that has been returned.
-`after`  | This is the cursor that points to the end of the page of data that has been returned.
-`limit`  | This is the number of individual objects that are returned in each page.
+| Param    | Description                                                                             |
+| -------- | ------------                                                                            |
+| `before` | This is the cursor that points to the start of the page of data that has been returned. |
+| `after`  | This is the cursor that points to the end of the page of data that has been returned.   |
+| `limit`  | This is the number of individual objects that are returned in each page.                |
 
 ### Link Header
 
@@ -165,10 +165,10 @@ Link: <https://{yourOktaDomain}/api/v1/users?after=00ubfjQEMYBLRUWIEDKK>; rel="n
 
 The possible `rel` values are:
 
-Link Relation Type | Description
------------------- | ------------
-`self`             | Specifies the URL of the current page of results
-`next`             | Specifies the URL of the immediate next page of results.
+| Link Relation Type | Description                                              |
+| ------------------ | ------------                                             |
+| `self`             | Specifies the URL of the current page of results         |
+| `next`             | Specifies the URL of the immediate next page of results. |
 
 When you first make an API call and get a cursor-paged list of objects, the end of the list will be the point at which you do not receive another `next` link value with the response. This holds true for all but two cases:
 
@@ -196,15 +196,15 @@ The filter and search parameters **must** contain at least one valid Boolean exp
 
 Most of the operators listed in the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) are supported:
 
-Operator | Description | Behavior
--------- | ----------- | --------
-eq | equal | The attribute and operator values must be identical for a match.
-sw |starts with | The entire operator value must be a substring of the attribute value, starting at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.
-pr | present (has value) | If the attribute has a non-empty value, or if it contains a non-empty node for complex attributes there is a match.
-gt | greater than | If the attribute value is greater than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.
-ge | greater than or equal | If the attribute value is greater than or equal to the operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.
-lt | less than | If the attribute value is less than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.
-le | less than or equal | If the attribute value is less than or equal to the operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.
+| Operator | Description           | Behavior                                                                                                                                                                                                                                                                      |
+| -------- | -----------           | --------                                                                                                                                                                                                                                                                      |
+| eq       | equal                 | The attribute and operator values must be identical for a match.                                                                                                                                                                                                              |
+| sw       | starts with           | The entire operator value must be a substring of the attribute value, starting at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.                                                                                         |
+| pr       | present (has value)   | If the attribute has a non-empty value, or if it contains a non-empty node for complex attributes there is a match.                                                                                                                                                           |
+| gt       | greater than          | If the attribute value is greater than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.                 |
+| ge       | greater than or equal | If the attribute value is greater than or equal to the operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison. |
+| lt       | less than             | If the attribute value is less than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.                    |
+| le       | less than or equal    | If the attribute value is less than or equal to the operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.    |
 
 Note: Some resources don't support all the listed operators.
 
@@ -212,16 +212,16 @@ Note: Some resources don't support all the listed operators.
 
 ### Attribute Operators
 
-Operator | Description | Behavior
--------- | ----------- | --------
-and | Logical AND | The filter is only a match if both expressions evaluate to true.
-or | Logical OR | The filter is a match if either expression evaluates to true.
+| Operator | Description | Behavior                                                         |
+| -------- | ----------- | --------                                                         |
+| and      | Logical AND | The filter is only a match if both expressions evaluate to true. |
+| or       | Logical OR  | The filter is a match if either expression evaluates to true.    |
 
 ### Logical Operators
 
-Operator | Description | Behavior
--------- | ----------- | --------
-() | Precedence grouping | Boolean expressions may be grouped using parentheses to change the standard order of operations; i.e., evaluate OR logical operators before logical AND operators.
+| Operator | Description         | Behavior                                                                                                                                                           |
+| -------- | -----------         | --------                                                                                                                                                           |
+| ()       | Precedence grouping | Boolean expressions may be grouped using parentheses to change the standard order of operations; i.e., evaluate OR logical operators before logical AND operators. |
 
 Filters must be evaluated using standard order of operations. Attribute operators have the highest precedence, followed by the grouping operator (i.e, parentheses), followed by the logical `AND` operator, followed by the logical `OR` operator.
 

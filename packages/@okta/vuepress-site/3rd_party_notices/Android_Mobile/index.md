@@ -16,10 +16,10 @@ THIRD PARTY NOTICES
 
 _Google Cloud Messaging_
 
-  |VERSION (IF ANY):|    1.0.2|
-  |-
-  |BRIEF DESCRIPTION:|   Google Cloud Messaging (GCM) is a service that lets developers send data from servers to users' devices, and receive messages from devices on the same connection.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  | 1.0.2                                                                                                                                                              |
+| ---                | ---                                                                                                                                                                |
+| BRIEF DESCRIPTION: | Google Cloud Messaging (GCM) is a service that lets developers send data from servers to users' devices, and receive messages from devices on the same connection. |
+| LICENSE:           | Apache 2.0                                                                                                                                                         |
 
 Copyright 2015 Google Inc.
 
@@ -41,10 +41,10 @@ license._
 
 _Google Gson_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   A Java serialization library that can convert Java Objects into JSON and back.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                                                                                |
+| ---                | ---                                                                            |
+| BRIEF DESCRIPTION: | A Java serialization library that can convert Java Objects into JSON and back. |
+| LICENSE:           | Apache 2.0                                                                     |
 
 Copyright (c) 2008 Google Inc.
 
@@ -66,10 +66,10 @@ license._
 
 _Gradle_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   The modern open source polyglot build automation system.|
-  |LICENSE:|             Commercial or Apache 2.0, Apache 2.0 selected|
+| VERSION (IF ANY):  |                                                          |
+| ---                | ---                                                      |
+| BRIEF DESCRIPTION: | The modern open source polyglot build automation system. |
+| LICENSE:           | Commercial or Apache 2.0, Apache 2.0 selected            |
 
 PROJECT LICENSE
 
@@ -103,10 +103,10 @@ license._
 
 _jQuery_
 
-  |VERSION (IF ANY):|    1.4.4|
-  |-
-  |BRIEF DESCRIPTION:|   jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  | 1.4.4                                                                                                                                                                                                                                 |
+| ---                | ---                                                                                                                                                                                                                                   |
+| BRIEF DESCRIPTION: | jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript. |
+| LICENSE:           | MIT                                                                                                                                                                                                                                   |
 
 Copyright (c) 2005, 2012-2014 jQuery Foundation, Inc. and other
 contributors.
@@ -132,10 +132,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _Sizzle_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   A pure-JavaScript CSS selector engine designed to be easily dropped in to a host library.|
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |                                                                                           |
+| ---                | ---                                                                                       |
+| BRIEF DESCRIPTION: | A pure-JavaScript CSS selector engine designed to be easily dropped in to a host library. |
+| LICENSE:           | MIT                                                                                       |
 
 Copyright (c) 2012 jQuery Foundation and other contributors.
 
@@ -160,10 +160,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 _The Android Open Source Project_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:|   Android is an open source software stack for a wide range of mobile devices and a corresponding open source project led by Google.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  |                                                                                                                                    |
+| ---                | ---                                                                                                                                |
+| BRIEF DESCRIPTION: | Android is an open source software stack for a wide range of mobile devices and a corresponding open source project led by Google. |
+| LICENSE:           | Apache 2.0                                                                                                                         |
 
 Copyright (c) 2012 The Android Open Source Project.
 
@@ -184,10 +184,10 @@ license._
 
 _Underscore JS_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             MIT|
+| VERSION (IF ANY):  |     |
+| ---                | --- |
+| BRIEF DESCRIPTION: |     |
+| LICENSE:           | MIT |
 
 Copyright (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative
 Reporters & Editors.

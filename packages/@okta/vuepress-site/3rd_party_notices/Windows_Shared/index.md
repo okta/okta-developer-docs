@@ -16,8 +16,8 @@ THIRD PARTY NOTICES
 
 _Apache Ant Contrib_
 
-  |VERSION (IF ANY):|     1.0b3|
-  |-
+| VERSION (IF ANY): | 1.0b3 |
+| ---               | ---   |
   |BRIEF DESCRIPTION:|   A home for additional useful tasks and types for Ant.
   |LICENSE:|              Apache 2.0|
 
@@ -43,10 +43,10 @@ _*Modifications by Okta, Inc._
 
 _CodeProject Article, "The MFC CDHtmlDialog class"_
 
-  |VERSION (IF ANY):||
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             CPOL|
+| VERSION (IF ANY):  |      |
+| ---                | ---  |
+| BRIEF DESCRIPTION: |      |
+| LICENSE:           | CPOL |
 
 License
 
