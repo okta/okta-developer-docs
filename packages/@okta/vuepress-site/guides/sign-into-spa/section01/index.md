@@ -1,6 +1,8 @@
 ---
-title: Getting Started
+title: Sign Users into Your Single-Page App
 ---
+
+# Sign Users into Your Single-Page App
 
 This guide walks you through how to sign users into your single-page app (SPA) and supports apps created using:
 
@@ -8,9 +10,10 @@ This guide walks you through how to sign users into your single-page app (SPA) a
 * React
 * Vue
 
-If you are building a web app that is served by a server framework, see [Sign Users into Your Web App](sign-users-into-your-web-applink). If you are building a mobile app, see [Sign Users into Your Mobile App](sign-users-into-your-mobile-applink).
+If you are building a web app that is served by a server framework, see [Sign Users into Your Web App]. If you are building a mobile app, see [Sign Users into Your Mobile App].
 
 # Before You Begin
+
 These instructions assume that you: 
 
 - Have an Okta Developer organization. If you don't, you can get one here: <https://developer.okta.com/signup>

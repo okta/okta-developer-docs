@@ -8,11 +8,3 @@ After your user is authenticated, your application has an access token in local 
 Here is what the component could look like for this hypothetical example:
 
 <StackSelector snippet="getaccesstoken"/>
-
-# Next Steps
-
-Now that you can sign users into your SPA, you may need additional information on other topics to help with other tasks.
-
-[Protect an API Guide]
-[Customization Guide]
-[Sign Users Out Guide]

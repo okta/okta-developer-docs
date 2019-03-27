@@ -1,6 +1,8 @@
 ---
-title: Sign Users into Your Mobile Apps
+title: Sign Users into Your Mobile App
 ---
+# Sign Users into Your Mobile App
+
 This guide walks you through how to sign users into your mobile applications and supports these operating systems:
 
 - Android (Java)
