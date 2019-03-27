@@ -73,8 +73,6 @@ $big-spacing: 3rem;
     &.active:before { 
       content: "\f13a"; /* chevron-circle-down per https://fontawesome.com/cheatsheet?from=io*/
     }
-    &.overview { 
-    }
     &.overview:before { 
       content: '\2022';
       display: inline-block;

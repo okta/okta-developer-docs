@@ -1,7 +1,7 @@
 <template>
   <aside class="guide-featured">
     <a :href="guideInfo.link">{{guideInfo.title}}</a>
-    {{guideInfo.blurb}}
+    {{guideInfo.excerpt}}
     <FrameworkIconBlock :frameworks="mainLanguagesOfGuide"/>
   </aside>
 </template>
