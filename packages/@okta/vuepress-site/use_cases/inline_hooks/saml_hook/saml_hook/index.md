@@ -25,9 +25,9 @@ For steps to enable this inline hook, see below, [Enabling a SAML Assertion Inli
 
 ## About
 
-This type of inline hook is triggered when Okta generates a SAML assertion in response to an authentication request. Before sending the assertion to the app, Okta calls out to your external service, and your service can respond with commands to add or modify attributes in the assertion.
+This type of inline hook is triggered when Okta generates a SAML assertion in response to an authentication request. Before sending the assertion to the app that will consume it, Okta calls out to your external service, and your external service can respond with commands to add attributes to the assertion or modify the existing attributes.
 
-This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, assertions generated for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
+This functionality can be used to add data to the assertion that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, SAML assertions generated for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
 This inline hook works only when using custom SAML apps, not apps in the OIN.
 
@@ -37,7 +37,7 @@ The outbound call from Okta to your external service will include the following 
 
 ### data.assertion.claims
 
-Provides a JSON representation of the attribute statements in the in the assertion Okta has generated.
+Provides a JSON representation of the existing attribute statements contained in the in the assertion Okta has generated.
 
 
 ## Objects in Response You Send
@@ -262,7 +262,7 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
   ]
 }
 ```
-## Enabling a Token Inline Hook
+## Enabling a SAML Assertion Inline Hook
 
 To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/api/resources/inline-hooks).
 
