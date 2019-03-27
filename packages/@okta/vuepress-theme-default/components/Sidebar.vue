@@ -10,6 +10,11 @@
         <ul class="Sidebar-nav">
           <li v-for="link in section.links" :key="link.title" :class="{'is-active': isActive(link)}">
             <a :href="link.link">{{link.title}}</a>
+            <ul v-if=showSublinks(link)>
+              <li v-for="subLink in link.subLinks" :key="subLink.link" :class="{'is-active': $page.path === subLink.link}">
+                <a href="#">{{subLink.title}}</a>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -45,11 +50,23 @@
     },
     methods: {
       isActive: function (link) {
+        if (link.subLinks) {
+          return false
+        }
         if (this.$page.path.includes('/code/')) {
           return this.$page.path.includes(link.activeCheck)
         }
 
         return this.$page.path.includes(link.link)
+      },
+
+      showSublinks(link) {
+        if(link.subLinks) {
+          return link.subLinks.find((subLink) => {
+            return this.$page.regularPath.includes(subLink.link)
+          })
+        }
+        return false
       }
     }
   }
