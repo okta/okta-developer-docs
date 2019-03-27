@@ -56,10 +56,10 @@ curl -v -X POST \
     "type" : "com.okta.oauth2.tokens.transform",
     "version" : "1.0.0",
     "channel" : {
-        "type" : "HTTPS",
+        "type" : "HTTP",
         "version" : "1.0.0",
         "config" : {
-            "uri" : "https://127.0.0.1:4567/inlineHooks",
+            "uri" : "https://www.example.com/inlineHook",
             "headers" : [
                 {
                     "key" : "X-Other-Header",
@@ -89,10 +89,10 @@ curl -v -X POST \
     "type" : "com.okta.oauth2.tokens.transform",
     "version" : "1.0.0",
     "channel" : {
-        "type" : "HTTPS",
+        "type" : "HTTP",
         "version" : "1.0.0",
         "config" : {
-            "uri" : "https://127.0.0.1:4567/inlineHooks",
+            "uri" : "https://www.example.com/inlineHook",
             "method" : "POST",
             "headers" : [
                 {
@@ -147,10 +147,10 @@ curl -v -X GET \
     "type": "com.okta.oauth2.tokens.transform",
     "version": "1.0.0",
     "channel": {
-        "type": "HTTPS",
+        "type": "HTTP",
         "version": "1.0.0",
         "config": {
-            "uri": "https://127.0.0.1:4567/inlineHooks",
+            "uri": "https://www.example.com/inlineHook",
             "headers": [
                 {
                     "key": "X-Other-Header",
@@ -200,10 +200,10 @@ curl -v -X GET \
 	    "type": "com.okta.oauth2.tokens.transform",
 	    "version": "1.0.0",
 	    "channel": {
-	        "type": "HTTPS",
+	        "type": "HTTP",
 	        "version": "1.0.0",
 	        "config": {
-	            "uri": "https://127.0.0.1:4567/inlineHooks",
+	            "uri": "https://www.example.com/inlineHook",
 	            "headers": [
 	                {
 	                    "key": "X-Other-Header",
@@ -253,10 +253,10 @@ curl -v -X PUT \
     "type" : "com.okta.oauth2.tokens.transform",
     "version" : "1.0.0",
     "channel" : {
-        "type" : "HTTPS",
+        "type" : "HTTP",
         "version" : "1.0.0",
         "config" : {
-            "uri" : "HTTPS://127.0.0.1:8080/inlineHooks",
+            "uri" : "https://www.example.com/inlineHook",
             "method" : "POST",
             "headers" : [
                 {
@@ -285,10 +285,10 @@ curl -v -X PUT \
     "type" : "com.okta.oauth2.tokens.transform",
     "version" : "1.0.0",
     "channel" : {
-        "type" : "HTTPS",
+        "type" : "HTTP",
         "version" : "1.0.0",
         "config" : {
-            "uri" : "https://127.0.0.1:8080/inlineHooks",
+            "uri" : "https://www.example.com/inlineHook",
             "method" : "POST",
             "headers" : [
                 {
@@ -559,10 +559,10 @@ curl -v -X POST \
     "type" : "com.okta.oauth2.tokens.transform",
     "version" : "1.0.0",
     "channel" : {
-        "type" : "HTTPS",
+        "type" : "HTTP",
         "version" : "1.0.0",
         "config" : {
-            "uri" : "https://127.0.0.1:8080/inlineHooks",
+            "uri" : "https://127.0.0.1:8080/inlineHook",
             "method" : "POST",
             "headers" : [
                 {
