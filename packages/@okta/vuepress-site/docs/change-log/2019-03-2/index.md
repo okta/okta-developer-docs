@@ -4,9 +4,14 @@ title: Okta API Products Change Log
 
 ## 2019.03.2
 
-| Change                                                                                                                  | Expected in Preview Orgs |
-| ----------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| [Bugs Fixed in 2019.03.2](#bugs-fixed-in-2019032)                                                                       | March 20, 2019           |
+| Change                                                                                                                                 | Expected in Preview Orgs |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| [PKCE for Browser Clients, CORS Headers for OAuth 2 Token Endpoint](#pkce-for-browser-clients-cors-headers-for-oauth-2-token-endpoint) | March 20, 2019           |
+| [Bugs Fixed in 2019.03.2](#bugs-fixed-in-2019032)                                                                                      | March 20, 2019           |
+
+### PKCE for Browser Clients, CORS Headers for OAuth 2 Token Endpoint
+
+Okta now supports Proof Key for Code Exchange (PKCE) for browser clients and returns CORS headers on the OAuth 2.0 Token endpoints.
 
 ### Bugs Fixed in 2019.03.2
 
