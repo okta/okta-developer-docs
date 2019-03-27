@@ -43,7 +43,7 @@ module.exports = [
     ]
   },
   {
-    title: '',
+    title: 'API Reference',
     links: [
       { title: 'Sign In Your Users', link: '/docs/api/resources/oidc/', subLinks: [
           { title: 'OpenID Connect & OAuth 2.0 API', link: '/docs/api/resources/oidc/'},

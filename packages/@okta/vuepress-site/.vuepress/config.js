@@ -202,5 +202,9 @@ module.exports = {
     }
   },
 
-  shouldPrefetch: () => false
+  shouldPrefetch: () => false,
+
+  extraWatchFiles: [
+    '.vuepress/nav/*',
+  ]
 }
