@@ -129,7 +129,7 @@ module.exports = {
     ],
 
     sidebars: {
-      main: "Edit the main sidebar from the 'documentation/index.md' file",
+      main: require('./nav/main'),
       codePages: require('./nav/codePages')
     },
 
