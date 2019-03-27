@@ -5,7 +5,7 @@ title: Get Info About the User
 
 Okta sends back user profile information that you can use in your application.
 
-<StackSelector snippet="getuserinfo"/>
+<StackSelector snippet="getinfo"/>
 
 ## Customize the Claims Returned
 

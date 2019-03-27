@@ -7,7 +7,7 @@ This guide walks you through how to sign users into your mobile applications and
 - iOS (Swift)
 - React Native
 
-If you are building a web app that is served by a server framework, see [Sign Users into Your Web App](linkhere). If you are building a single-page app, see [Sign Users into Your Single-Page App](Linkhere).
+If you are building a web app that is served by a server framework, see [Sign Users into Your Web App]. If you are building a single-page app, see [Sign Users into Your Single-Page App].
 
 # Before You Begin
 
