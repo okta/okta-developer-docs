@@ -1,3 +1,5 @@
+import { commonify, fancify, iconify, cssForIcon } from './frameworks';
+
 const PATH_LIKE = '(?:([^\/]*)\/?)';
 const FRAGMENTS = '/guides/';
 const DEFAULT_LANG = '-';
@@ -55,9 +57,14 @@ export const findStackSnippets = ({ section, snippet, pages }) => {
     .filter( page => page.regularPath.match(prefix) )
     .map( page => {
       const lang = page.regularPath.match(prefix)[1];
+      const name = commonify(lang);
+      const title = fancify(name);
       return { 
         lang,
-        name: lang,
+        name, 
+        title,
+        icon: iconify(name),
+        css: cssForIcon(name),
         link: makeGuideHash({ guide: section.guide, lang, sectionNum: section.sectionNum }),
         key: page.key,
         page

@@ -3,7 +3,7 @@
     <nav class="tabs">
       <ul>
         <li v-for="opt in options" :class="{ current: opt.name === lang }" >
-          <a :href="opt.link">{{opt.name}}</a>
+          <a :href="opt.link"><i :class="opt.css"></i><span class="framework">{{opt.title}}</span></a>
         </li>
       </ul>
     </nav>
