@@ -39,6 +39,7 @@ export const findGuides = ({ pages }) => {
       return { 
         name,
         title: page.frontmatter.title || name,
+        blurb: page.frontmatter.blurb || '',
         link: makeGuideHash({ guide: name }),
         key: page.key,
         page
