@@ -18,4 +18,5 @@ The `issuer` parameter is your Okta Org URL + `oauth2/default`.
 
 > Note: `https://okta.okta.com` is different from your admin URL. Don't include `-admin` in the value.
 
-<StackSelector snippet="attachcomponentsetc">
+<StackSelector snippet="attachcomponentsetc"/>
+
