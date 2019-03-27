@@ -8,16 +8,16 @@ You need to provide these routes in your sample application so that we can sign 
 
 In the relevant location in your application, you want to provide `Login` and `Logout` buttons for the user. You can show/hide the correct button by using the `oktaAuth.isAuthenticated()` method. For example:
 
-{code}
+Code example
 
 ## Create the Callback Handler
 
 In order to handle the redirect back from Okta, you need to capture the token values from the URL. Use `/implicit/callback` as the callback URL and specify the default `OktaCallbackComponent` and declare it in your `NgModule`.
 
-{code}
+Code example
 
 ## Update Your NgModule
 
 Finally, import the `OktaAuthModule` into your `NgModule` and instantiate it by passing in your configuration object:
 
-{code}
+Code example

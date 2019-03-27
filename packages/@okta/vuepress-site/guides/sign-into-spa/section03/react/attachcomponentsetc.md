@@ -9,10 +9,10 @@ You need to provide these routes in your sample application so that we can sign 
 
 In the relevant location in your application, you want to provide `Login` and `Logout` buttons for the user. You can show/hide the correct button by using the `auth.isAuthenticated()` method. For example:
 
-{code}
+Code example
 
 ## Update Your App.js
 
 Finally, pass in your configuration into `Security` and connect your application's paths:
 
-{code}
+Code example
