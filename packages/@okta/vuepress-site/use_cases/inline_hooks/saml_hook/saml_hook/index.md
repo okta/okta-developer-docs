@@ -25,50 +25,20 @@ For steps to enable this inline hook, see below, [Enabling a SAML Assertion Inli
 
 ## About
 
-This type of inline hook is triggered when OAuth 2.0 and OpenID Connect tokens are minted by your Okta Custom Authorization Server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token.
+This type of inline hook is triggered when Okta generates a SAML assertion in response to an authentication request. Before sending the assertion to the app, Okta calls out to your external service, and your service can respond with commands to add or modify attributes in the assertion.
 
-This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
+This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, assertions generated for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
-This inline hook works only when using an Okta Custom Authorization Server, not the built-in Okta Authorization Server.
-
-You cannot use this inline hook to overwrite claims in tokens, only to add new ones.
+This inline hook works only when using custom SAML apps, not apps in the OIN.
 
 ## Objects in the Request from Okta
 
-For the Token Inline Hook, the outbound call from Okta to your external service will include the following objects in its JSON payload:
+The outbound call from Okta to your external service will include the following objects in its JSON payload:
 
-### data.identity
+### data.assertion.claims
 
-Provides information on the properties of the ID token that Okta has generated, including the existing claims it contains.
+Provides a JSON representation of the attribute statements in the in the assertion Okta has generated.
 
-| Property | Description                   | Data Type                    |
-|----------|-------------------------------|------------------------------|
-| claims   | Claims included in the token. | [claims](#claims) object     |
-| lifetime | Lifetime of the token.        | [lifetime](#lifetime) object |
-
-### data.access
-
-Provides information on the properties of the access token that Okta has generated, including the existing claims it contains.
-
-| Property | Description                        | Data Type                    |
-|----------|------------------------------------|------------------------------|
-| claims   | Claims included in the token.      | [claims](#claims) object     |
-| lifetime | Lifetime of the token.             | [lifetime](#lifetime) object |
-| scopes   | The scopes contained in the token. | [scopes](#scopes) object     |
-
-#### claims
-
-Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc#tokens-and-claims).
-
-#### lifetime
-
-| Property   | Description                              | Data Type |
-|------------|------------------------------------------|-----------|
-| expiration | Time in seconds until the token expires. | Number    |
-
-#### scopes
-
-The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc#tokens-and-claims).
 
 ## Objects in Response You Send
 
@@ -89,14 +59,11 @@ In the case of the Token hook type, the `value` property is itself a nested obje
 
 #### Supported Commands
 
-The following commands are supported for the Token Inline Hook type:
+The following commands are supported for the SAML Assertion Inline Hook type:
 
 | Command                 | Description             |
 |-------------------------|-------------------------|
-| com.okta.identity.patch | Modify an ID token.     |
-| com.okta.access.patch   | Modify an access token. |
-
-> Note: The `commands` array should only contain commands that can be applied to the requested tokens. For example, if the token is an ID token, the `commands` array should not contain commands of the type `com.okta.access.patch`.
+| com.okta.assertion.patch | Modify a SAML assertion.     |
 
 #### value
 
@@ -105,7 +72,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | Property | Description                                                                                                                                                                                                       | Data Type       |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                   | String          |
-| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding a claim, this will always begin with `/claims/`,  and be followed by the name of the new claim you are adding. | String          |
+| path     | Location, within the assertion, to apply the operation, specified as a slash-delimited path. When adding a claim, this will always begin with `/claims/`,  and be followed by the name of the new claim you are adding. | String          |
 | value    | Value to set the claim to.                                                                                                                                                                                        | Any JSON object |
 
 #### List of Supported Ops
@@ -113,8 +80,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | Op  | Description  |
 |-----|--------------|
 | add | Add a claim. |
-
-> Note: The `add` operation can only be used to add new claims to a token, not to overwrite the value of a claim already included in the token.
+| replace | Modify an existing attribute statement. |
 
 ### error
 
