@@ -1,6 +1,9 @@
 <template>
   <aside class="guides-navigation">
     <ul class="guides">
+      <li :class="{ overview: true, active: !guide }">
+        <a href="/guides/">Overview</a>
+      </li>
       <li v-for="someGuide in guides" :class="{ active: someGuide.name === guide}">
         <a :href="someGuide.link" class="guide">{{someGuide.title}}</a>
         <ol v-if="someGuide.name === guide" class="sections">
@@ -21,7 +24,7 @@
     computed: { 
       guides() { 
         return findGuides({ pages: this.$site.pages });
-      }
+      },
     },
   };
 </script>
