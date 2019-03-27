@@ -27,7 +27,7 @@ For steps to enable this inline hook, see below, [Enabling a SAML Assertion Inli
 
 This type of inline hook is triggered when Okta generates a SAML assertion in response to an authentication request. Before sending the SAML assertion to the service provider that will consume it, Okta calls out to your external service. Your external service can respond with commands to add attributes to the assertion or modify its existing attributes.
 
-This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, SAML assertions generated for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
+This functionality can be used to add data to assertions, including data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, SAML assertions generated for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
 This inline hook works only when using custom SAML apps, not apps from the OIN.
 
@@ -37,23 +37,53 @@ The outbound call from Okta to your external service will include the following 
 
 ### data.assertion.subject
 
+Provides a JSON representation of the subject of the SAML assertion. The following is an example of how an XML `<saml:Subject>` is represented in JSON in this object:
+
+```json
+"subject":{  
+            "nameId":"administrator1@example.net",
+            "format":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "confirmation":{  
+               "method":"urn:oasis:names:tc:SAML:2.0:cm:bearer",
+               "data":{  
+                  "recipient":"http://www.example.com/saml/sso"
+               }
+``` 
 ### data.assertion.authentication
+
+
 
 ### data.assertion.conditions
 
 ### data.assertion.claims
 
-Provides a JSON representation of the existing `<saml:AttributeStatement>` element contained in the in the SAML assertion Okta has generated. The following table demonstrates how a SAML XML element is represented in a JSON object:
+Provides a JSON representation of the existing `<saml:AttributeStatement>` element contained in the in the SAML assertion Okta has generated. These are the optional attribute statements that you have defined for the app using the *Attribute Statements (Optional)* section of the SAML settings for the app in the Okta Admin Console. The following is an example of how an XML `<saml:AttributeStatement>` is represented in JSON in this object:
 
-| SAML XML | JSON Object |
-
+```json
+"claims": {
+		"foobie": {
+			"attributes": {
+				"NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+			},
+			"attributeValues": [{
+				"attributes": {
+					"xsi:type": "xs:string"
+				},
+				"value": "doobie"
+			}]
+		}
+	}
+```
 ### data.assertion.lifetime
-
 
 ### data.context
 
+This object contains a number of sub-objects, each of which provides some type of contextual information. You cannot affect these objects by means of the commands you return. The following sub-objects are included:
 
-
+ - `data.context.request`: Details of the SAML request that triggered the generation of the SAML assertion.
+ - `data.context.protocol`: Details of the assertion protocol being used.
+ - `data.context.session`: Details of the user session.
+ - `data.context.user`: Identitifes the Okta user that the assertion was generated to authenticate, and provides details of their Okta user profile.
 
 ## Objects in Response You Send
 
