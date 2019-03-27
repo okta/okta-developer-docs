@@ -37,7 +37,7 @@ The outbound call from Okta to your external service will include the following 
 
 ### data.assertion.subject
 
-Provides a JSON representation of the subject of the SAML assertion. The following is an example of how an XML `<saml:Subject>` is represented in JSON in this object:
+Provides a JSON representation of the subject of the SAML assertion. The following is an example of how an XML `<saml:Subject>` element is represented in JSON in this object:
 
 ```json
 "subject":{  
@@ -57,7 +57,7 @@ Provides a JSON representation of the subject of the SAML assertion. The followi
 
 ### data.assertion.claims
 
-Provides a JSON representation of the existing `<saml:AttributeStatement>` element contained in the in the SAML assertion Okta has generated. These are the optional attribute statements that you have defined for the app using the *Attribute Statements (Optional)* section of the SAML settings for the app in the Okta Admin Console. The following is an example of how an XML `<saml:AttributeStatement>` is represented in JSON in this object:
+Provides a JSON representation of the existing `<saml:AttributeStatement>` element contained in the in the generated SAML assertion. This element contains any optional attribute statements that you have defined using the Okta Admin Console's **SAML Settings** for the app. The following is an example of how an XML `<saml:AttributeStatement>` element is represented in JSON in this object:
 
 ```json
 "claims": {
