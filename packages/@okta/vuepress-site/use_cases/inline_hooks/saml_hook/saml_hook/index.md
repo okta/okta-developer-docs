@@ -33,18 +33,17 @@ This inline hook works only when using custom SAML apps, not apps from the OIN.
 
 ## Objects in the Request from Okta
 
-The outbound call from Okta to your external service provides you with the contents of the SAML assertion that was generated, as well as some contextual information about the authentication request.
+The outbound call from Okta to your external service provides you with the contents of the SAML assertion that was generated, which you will be able to augment or modify by means of the commands you return, as well as some contextual information about the authentication request.
 
 Because SAML is XML-based, while the call from Okta to your service uses a JSON payload, the contents of the SAML assertion are converted to a JSON representation.
-
-The following objects are sent:
 
 ### data.assertion.subject
 
 Provides a JSON representation of the subject of the SAML assertion. The following is an example of how an XML `<saml:Subject>` element is represented in JSON in this object:
 
 ```json
-"subject":{  
+{
+  "subject":{  
             "nameId":"administrator1@example.net",
             "nameFormat":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
             "confirmation":{  
@@ -52,6 +51,7 @@ Provides a JSON representation of the subject of the SAML assertion. The followi
                "data":{  
                   "recipient":"http://www.example.com/saml/sso"
                }
+}
 ``` 
 ### data.assertion.authentication
 
@@ -61,10 +61,13 @@ Provides a JSON representation of the subject of the SAML assertion. The followi
 
 ### data.assertion.claims
 
-Provides a JSON representation of the existing `<saml:AttributeStatement>` element contained in the in the generated SAML assertion. This element contains any optional attribute statements that you have defined using the Okta Admin Console's **SAML Settings** for the app. The following is an example of how an XML `<saml:AttributeStatement>` element is represented in JSON in this object:
+Provides a JSON representation of the `<saml:AttributeStatement>` element contained in the in the generated SAML assertion, which will contain any optional SAML attribute statements that you have defined for the app using the Okta Admin Console's **SAML Settings**.
+
+The following is an example of how an XML `<saml:AttributeStatement>` element is represented in JSON in this object:
 
 ```json
-"claims": {
+{
+  "claims": {
 		"foobie": {
 			"attributes": {
 				"NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
@@ -77,12 +80,13 @@ Provides a JSON representation of the existing `<saml:AttributeStatement>` eleme
 			}]
 		}
 	}
+}
 ```
 ### data.assertion.lifetime
 
 ### data.context
 
-This object contains a number of sub-objects, each of which provides some type of contextual information. You cannot affect these objects by means of the commands you return. The following sub-objects are included:
+This object contains a number of sub-objects, each of which provides some type of contextual information. Unlike the `data.assertion.*` objects, you cannot affect the `data.context.*` objects by means of the commands you return. The following sub-objects are included:
 
  - `data.context.request`: Details of the SAML request that triggered the generation of the SAML assertion.
  - `data.context.protocol`: Details of the assertion protocol being used.
@@ -95,7 +99,7 @@ For the Token Inline hook, the `commands` and `error` objects that you can retur
 
 ### commands
 
-The `commands` object is where you can provide commands to Okta. It is where you can tell Okta to add additional claims to the token.
+The `commands` object is where you can provide commands to Okta. It is where you can tell Okta to add additional claims to the assertion or to modify the existing assertion statements.
 
 The `commands` object is an array, allowing you to send multiple commands. In each array element, there needs to be a `type` property and `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply an operand for that command.
 
@@ -108,7 +112,7 @@ In the case of the Token hook type, the `value` property is itself a nested obje
 
 #### Supported Commands
 
-The following commands are supported for the SAML Assertion Inline Hook type:
+The following command is supported for the SAML Assertion Inline Hook type:
 
 | Command                 | Description             |
 |-------------------------|-------------------------|
@@ -118,17 +122,17 @@ The following commands are supported for the SAML Assertion Inline Hook type:
 
 The `value` object is where you specify the specific operation to perform. It is an array, allowing you to request more than one operation.
 
-| Property | Description                                                                                                                                                                                                       | Data Type       |
-|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                   | String          |
-| path     | Location, within the assertion, to apply the operation, specified as a slash-delimited path. When adding a claim, this will always begin with `/claims/`,  and be followed by the name of the new claim you are adding. | String          |
-| value    | Value to set the claim to.                                                                                                                                                                                        | Any JSON object |
+| Property | Description                                                                                                                                                                                                           | Data Type       |
+|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                       | String          |
+| path     | Location, within the assertion, to apply the operation, specified as a slash-delimited path. When adding a claim, this will always begin with `/claims/` and be followed by the name of the new claim you are adding. | String          |
+| value    | Value to set the claim to.                                                                                                                                                                                            | Any JSON object |
 
 #### List of Supported Ops
 
-| Op  | Description  |
-|-----|--------------|
-| add | Add a claim. |
+| Op      | Description                             |
+|---------|-----------------------------------------|
+| add     | Add a new claim to the assertion.       |
 | replace | Modify an existing attribute statement. |
 
 ### error
@@ -144,171 +148,159 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
 ## Sample Listing of JSON Payload of Request
 
 ```json
-{
-  "source": "https://{yourOktaDomain}/oauth2/default/v1/authorize",
-  "eventId": "3OWo4oo-QQ-rBWfRyTmQYw",
-  "eventTime": "2019-01-15T23:20:47.000Z",
-  "eventTypeVersion": "1.0",
-  "cloudEventVersion": "0.1",
-  "contentType": "application/json",
-  "eventType": "com.okta.oauth2.tokens.transform",
-  "data": {
-    "context": {
-      "request": {
-        "id": "reqv66CbCaCStGEFc8AdfS0ng",
-        "method": "GET",
-        "url": {
-          "value": "https://{yourOktaDomain}/oauth2/default/v1/authorize?scope=openid+profile+email&response_type=token+id_token&redirect_uri=https%3A%2F%2Fhttpbin.org%2Fget&state=foobareere&nonce=asf&client_id=customClientIdNative"
-        },
-        "ipAddress": "127.0.0.1"
-      },
-      "protocol": {
-        "type": "OAUTH2.0",
-        "request": {
-          "scope": "openid profile email",
-          "state": "foobareere",
-          "redirect_uri": "https://httpbin.org/get",
-          "response_mode": "fragment",
-          "response_type": "token id_token",
-          "client_id": "customClientIdNative"
-        },
-        "issuer": {
-          "uri": "https://{yourOktaDomain}/oauth2/default"
-        },
-        "client": {
-          "id": "customClientIdNative",
-          "name": "Native client",
-          "type": "PUBLIC"
-        }
-      },
-      "session": {
-        "id": "102Qoe7t5PcRnSxr8j3I8I6pA",
-        "userId": "00uq8tMo3zV0OfJON0g3",
-        "login": "administrator1@clouditude.net",
-        "createdAt": "2019-01-15T23:17:09.000Z",
-        "expiresAt": "2019-01-16T01:20:46.000Z",
-        "status": "ACTIVE",
-        "lastPasswordVerification": "2019-01-15T23:17:09.000Z",
-        "amr": [
-          "PASSWORD"
-        ],
-        "idp": {
-          "id": "00oq6kcVwvrDY2YsS0g3",
-          "type": "OKTA"
-        },
-        "mfaActive": false
-      },
-      "user": {
-        "id": "00uq8tMo3zV0OfJON0g3",
-        "passwordChanged": "2018-09-11T23:19:12.000Z",
-        "profile": {
-          "login": "administrator1@clouditude.net",
-          "firstName": "Add-Min",
-          "lastName": "O'Cloudy Tud",
-          "locale": "en",
-          "timeZone": "America/Los_Angeles"
-        },
-        "_links": {
-          "groups": {
-            "href": "https://{yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups"
-          },
-          "factors": {
-            "href": "https://{yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors"
-          }
-        }
-      },
-      "policy": {
-        "id": "00pq8lGaLlI8APuqY0g3",
-        "rule": {
-          "id": "0prq8mLKuKAmavOvq0g3"
-        }
+{  
+   "eventTypeVersion":"1.0",
+   "cloudEventVersion":"0.1",
+   "eventType":"com.okta.saml.tokens.transform",
+   "contentType":"application/json",
+   "source":"https://{yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml",
+   "eventId":"Nb7xMhjcR9eFpHLxJ-rcKg",
+   "eventTime":"2019-01-11T20:12:41.000Z",
+   "data":{  
+      "context":{  },
+      "assertion":{  
+         "subject":{  },
+         "authentication":{  
+            "sessionIndex":"id1547237557267.1495952828",
+            "authnContext":{  
+               "authnContextClassRef":"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
+            }
+         },
+         "conditions":{  },
+         "claims":{  
+            "foobie":{  
+               "attributes":{  
+                  "NameFormat":"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+               },
+               "attributeValues":[  
+                  {  
+                     "attributes":{  
+                        "xsi:type":"xs:string"
+                     },
+                     "value":"doobie"
+                  }
+               ]
+            },
+            "array":{  
+               "attributes":{  
+                  "NameFormat":"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+               },
+               "attributeValues":[  
+                  {  
+                     "attributes":{  
+                        "xsi:type":"xs:string"
+                     },
+                     "value":"Array 1"
+                  },
+                  {  
+                     "attributes":{  
+                        "xsi:type":"xs:string"
+                     },
+                     "value":"Array2"
+                  },
+                  {  
+                     "attributes":{  
+                        "xsi:type":"xs:string"
+                     },
+                     "value":"Array3"
+                  }
+               ]
+            },
+            "middle":{  
+               "attributes":{  
+                  "NameFormat":"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+               },
+               "attributeValues":[  
+                  {  
+                     "attributes":{  
+                        "xsi:type":"xs:string"
+                     },
+                     "value":"middellllll"
+                  }
+               ]
+            },
+            "firstAndLast":{  
+               "attributes":{  
+                  "NameFormat":"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+               },
+               "attributeValues":[  
+                  {  
+                     "attributes":{  
+                        "xsi:type":"xs:string"
+                     },
+                     "value":"Add-MinOCloudy Tud"
+                  }
+               ]
+            }
+         },
+         "lifetime":{  
+            "expiration":300
+         }
       }
-    },
-    "identity": {
-      "claims": {
-        "sub": "00uq8tMo3zV0OfJON0g3",
-        "name": "Add-Min O'Cloudy Tud",
-        "email": "webmaster@clouditude.net",
-        "ver": 1,
-        "iss": "https://{yourOktaDomain}/oauth2/default",
-        "aud": "customClientIdNative",
-        "jti": "ID.YxF2whJfB3Eu4ktG_7aClqtCgjDq6ab_hgpiV7-ZZn0",
-        "amr": [
-          "pwd"
-        ],
-        "idp": "00oq6kcVwvrDY2YsS0g3",
-        "nonce": "asf",
-        "preferred_username": "administrator1@clouditude.net",
-        "auth_time": 1547594229
-      },
-      "token": {
-        "lifetime": {
-          "expiration": 3600
-        }
-      }
-    },
-    "access": {
-      "claims": {
-        "ver": 1,
-        "jti": "AT.W-rrB-z-kkZQmHW0e6VS3Or--QfEN_YvoWJa46A7HAA",
-        "iss": "https://{yourOktaDomain}/oauth2/default",
-        "aud": "api://default",
-        "cid": "customClientIdNative",
-        "uid": "00uq8tMo3zV0OfJON0g3",
-        "sub": "administrator1@clouditude.net",
-        "firstName": "Add-Min",
-        "preferred_username": "administrator1@clouditude.net"
-      },
-      "token": {
-        "lifetime": {
-          "expiration": 3600
-        }
-      },
-      "scopes": {
-        "openid": {
-          "id": "scpq7bW1cp6dcvrz80g3",
-          "action": "GRANT"
-        },
-        "profile": {
-          "id": "scpq7cWJ81CIP5Qkr0g3",
-          "action": "GRANT"
-        },
-        "email": {
-          "id": "scpq7dxsoz6LQlRj00g3",
-          "action": "GRANT"
-        }
-      }
-    }
-  }
+   }
 }
 ```
 
 ## Sample Listing of JSON Payload of Response
 
 ```json
-{
-  "commands": [
-    {
-      "type": "com.okta.identity.patch",
-      "value": [
-        {
-          "op": "add",
-          "path": "/claims/extPatientId",
-          "value": "1234"
-        }
-      ]
-    },
-    {
-      "type": "com.okta.access.patch",
-      "value": [
-        {
-          "op": "add",
-          "path": "/claims/external_guid",
-          "value": "F0384685-F87D-474B-848D-2058AC5655A7"
-        }
-      ]
-    }
-  ]
+{  
+   "error":null,
+   "commands":[  
+      {  
+         "type":"com.okta.assertion.patch",
+         "value":[  
+            {  
+               "op":"replace",
+               "path":"/claims/array/attributeValues/1/value",
+               "value":"replacementValue"
+            },
+            {  
+               "op":"replace",
+               "path":"/authentication/authnContext",
+               "value":{  
+                  "authnContextClassRef":"Something:different?"
+               }
+            },
+            {  
+               "op":"add",
+               "path":"/claims/foo",
+               "value":{  
+                  "attributes":{  
+                     "NameFormat":"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+                  },
+                  "attributeValues":[  
+                     {  
+                        "attributes":{  
+                           "xsi:type":"xs:string"
+                        },
+                        "value":"barer"
+                     }
+                  ]
+               }
+            },
+            {  
+               "op":"replace",
+               "path":"/conditions/audienceRestriction",
+               "value":[  
+                  "urn:example:sp",
+                  "one:element",
+                  "two:elements"
+               ]
+            }
+         ]
+      },
+      {  
+         "type":"com.okta.assertion.patch",
+         "value":[  
+            {  
+               "op":"replace",
+               "path":"/authentication/sessionIndex",
+               "value":"definitelyARealSession"
+            }
+         ]
+      }
+   ]
 }
 ```
 ## Enabling a SAML Assertion Inline Hook
