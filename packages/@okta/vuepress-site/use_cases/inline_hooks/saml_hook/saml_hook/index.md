@@ -377,7 +377,7 @@ You then need to associate the registered inline hook with a SAML app by complet
 
 1. Click **Next** to get to the **Configure SAML** section.
 
-1. In the *Assertion callback** field, select your registered inline hook.
+1. In the **Assertion callback** field, select your registered inline hook.
 
 > Note: Only one inline hook can be associated with each app.
 
