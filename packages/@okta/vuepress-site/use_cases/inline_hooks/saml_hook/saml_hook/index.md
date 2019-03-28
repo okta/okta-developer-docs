@@ -137,13 +137,7 @@ The `value` object is where you specify the specific operation to perform. It is
 
 ### error
 
-When you return an error object, it should have the following structure:
-
-| Property     | Description                          | Data Type |
-|--------------|--------------------------------------|-----------|
-| errorSummary | Human-readable summary of the error. | String    |
-
-Returning an error object will cause Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string you supplied in the `errorSummary` property of the `error` object you returned.
+Including a non-null `error` object in your response will stop Okta from returning the SAML assertion to the requester. Any content you include in the `error` object is not currently used.
 
 ## Sample Listing of JSON Payload of Request
 
