@@ -65,7 +65,7 @@ Provides a JSON representation of the `<saml:Conditions>` element of the SAML as
 
 Provides a JSON representation of the `<saml:AttributeStatement>` element contained in the in the generated SAML assertion, which will contain any optional SAML attribute statements that you have defined for the app using the Okta Admin Console's **SAML Settings**.
 
-The following is an example of how an XML `<saml:AttributeStatement>` element is represented in JSON in this object:
+The following is an example of how an XML `<saml:AttributeStatement>` element for an optional attribute statement named `foobie`, with a value of `doobie`, is represented in JSON in this object:
 
 ```json
 {
@@ -86,16 +86,18 @@ The following is an example of how an XML `<saml:AttributeStatement>` element is
 ```
 ### data.assertion.lifetime
 
-The time, in seconds, that the assertion will be valid for.
+Specifies the expiration time, in seconds, of the SAML assertion.
 
 ### data.context
 
-This object contains a number of sub-objects, each of which provides some type of contextual information. Unlike the `data.assertion.*` objects, you cannot affect the `data.context.*` objects by means of the commands you return. The following sub-objects are included:
+This object contains a number of sub-objects, each of which provides some type of contextual information. Unlike the `data.assertion.*` objects, you cannot affect the `data.context.*` objects by means of the commands you return.
+
+The following sub-objects are included:
 
  - `data.context.request`: Details of the SAML request that triggered the generation of the SAML assertion.
  - `data.context.protocol`: Details of the assertion protocol being used.
  - `data.context.session`: Details of the user session.
- - `data.context.user`: Identitifes the Okta user that the assertion was generated to authenticate, and provides details of their Okta user profile.
+ - `data.context.user`: Identifies the Okta user that the assertion was generated to authenticate, and provides details of their Okta user profile.
 
 ## Objects in Response You Send
 
