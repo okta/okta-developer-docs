@@ -149,24 +149,86 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
 
 ```json
 {  
-   "eventTypeVersion":"1.0",
-   "cloudEventVersion":"0.1",
-   "eventType":"com.okta.saml.tokens.transform",
-   "contentType":"application/json",
    "source":"https://{yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml",
-   "eventId":"Nb7xMhjcR9eFpHLxJ-rcKg",
-   "eventTime":"2019-01-11T20:12:41.000Z",
+   "eventId":"XMFoHCM1S4Wi_SGWzL8T9A",
+   "eventTime":"2019-03-28T19:15:23.000Z",
    "data":{  
-      "context":{  },
+      "context":{  
+         "request":{  
+            "id":"reqqXypjzYJRSu2j1G1imUovA",
+            "method":"GET",
+            "url":{  
+               "value":"https://{yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml"
+            },
+            "ipAddress":"127.0.0.1"
+         },
+         "protocol":{  
+            "type":"SAML2.0",
+            "issuer":{  
+               "id":"0oath92zlO60urQOP0g3",
+               "name":"SAML 2.0 App",
+               "uri":"http://www.okta.com/exkth8lMzFm0HZOTU0g3"
+            }
+         },
+         "session":{  
+            "id":"102LN9Bnuc4S_ewfc9BYwageA",
+            "userId":"00uq8tMo3zV0OfJON0g3",
+            "login":"administrator1@clouditude.net",
+            "createdAt":"2019-03-28T16:45:55.000Z",
+            "expiresAt":"2019-03-28T21:15:23.000Z",
+            "status":"ACTIVE",
+            "lastPasswordVerification":"2019-03-28T16:45:55.000Z",
+            "amr":[  
+               "PASSWORD"
+            ],
+            "idp":{  
+               "id":"00oq6kcVwvrDY2YsS0g3",
+               "type":"OKTA"
+            },
+            "mfaActive":false
+         },
+         "user":{  
+            "id":"00uq8tMo3zV0OfJON0g3",
+            "passwordChanged":"2018-09-11T23:19:12.000Z",
+            "profile":{  
+               "login":"administrator1@clouditude.net",
+               "firstName":"Add-Mine",
+               "lastName":"O'Cloudy Tud",
+               "locale":"en",
+               "timeZone":"America/Los_Angeles"
+            },
+            "_links":{  
+               "groups":{  
+                  "href":"https://{yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups"
+               },
+               "factors":{  
+                  "href":"https://{yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors"
+               }
+            }
+         }
+      },
       "assertion":{  
-         "subject":{  },
+         "subject":{  
+            "nameId":"administrator1@clouditude.net",
+            "nameFormat":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "confirmation":{  
+               "method":"urn:oasis:names:tc:SAML:2.0:cm:bearer",
+               "data":{  
+                  "recipient":"http://www.example.com:7070/saml/sso"
+               }
+            }
+         },
          "authentication":{  
-            "sessionIndex":"id1547237557267.1495952828",
+            "sessionIndex":"id1553800523546.312669168",
             "authnContext":{  
                "authnContextClassRef":"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
             }
          },
-         "conditions":{  },
+         "conditions":{  
+            "audienceRestriction":[  
+               "urn:example:sp"
+            ]
+         },
          "claims":{  
             "foobie":{  
                "attributes":{  
@@ -228,7 +290,7 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
                      "attributes":{  
                         "xsi:type":"xs:string"
                      },
-                     "value":"Add-MinOCloudy Tud"
+                     "value":"7d6a50c8-4d7e-4058-9c5b-2cc98cecd294"
                   }
                ]
             }
@@ -237,7 +299,11 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
             "expiration":300
          }
       }
-   }
+   },
+   "eventTypeVersion":"1.0",
+   "cloudEventVersion":"0.1",
+   "eventType":"com.okta.saml.tokens.transform",
+   "contentType":"application/json"
 }
 ```
 
