@@ -33,7 +33,11 @@ This inline hook works only when using custom SAML apps, not apps from the OIN.
 
 ## Objects in the Request from Okta
 
-The outbound call from Okta to your external service will include the following objects in its JSON payload:
+The outbound call from Okta to your external service provides you with the contents of the SAML assertion that was generated, as well as some contextual information about the authentication request.
+
+Because SAML is XML-based, while the call from Okta to your service uses a JSON payload, the contents of the SAML assertion are converted to a JSON representation.
+
+The following objects are sent:
 
 ### data.assertion.subject
 
@@ -42,7 +46,7 @@ Provides a JSON representation of the subject of the SAML assertion. The followi
 ```json
 "subject":{  
             "nameId":"administrator1@example.net",
-            "format":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+            "nameFormat":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
             "confirmation":{  
                "method":"urn:oasis:names:tc:SAML:2.0:cm:bearer",
                "data":{  
