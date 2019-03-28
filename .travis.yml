@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "8"
+- '8'
 addons:
   chrome: stable
 before_install:
@@ -26,4 +26,4 @@ notifications:
     on_success: never
     on_failure: always
     rooms:
-     - secure: Qu0iD73/wFwthPAcIfbg5oaD/4nOGW58N5dpsBQjbuIQM4wNBOyQSUszWy5iDm78kA8rxj6r2mVgSDSw28oHQczguv8iCLdAkzOZmPWDxNa4o34thM1pOaKI54cmJcnvigqjxcPybajYah7/ucthjUvf4V3NE5QOXb9fgnP6rPg=
+      - secure: Vih9JPuRAJeJeI6dEAS+6WzDrR/c8MZ7hGQBVm4xRMdMrdtCL7+kZqfApqoEUWyp0tVHVg9GZLwLlqdCRrp7wedUlYodbyongq9Bd3CI7IaAQOu4szQtirMVhczjTuWW5ML6PRMirIfJ+t53DzGkIiXxEFvFLH5jbIpSg70Jm7apxCJ0F9myyVFv6sbpyRWkhYk48p9hNfGiPf2Oe3ePBMG+K6uX2CBYTUdxAUunBFtWPvJHa9TIn/ZRgNz2mfypqBKIM86kmDVPu/qtgJV8ydQ7cMGy+rnp+WJHoTqmVvmqRtgHJCK/blY2ufniN3zf6JErr/aeN1GostNNzD3ebPWV2LzqcnL3Tv9vmw1xT9wUeW5O7o61GDxBUxNit/rpjGcASmS82NUpq8oz8PpgvSf0qn9g8dFgyRT1xiQNej+Nhy4PvyE5cF4B2m3UFj1Pa1fCb9u9osy0fxULAMvFPM4zshktCSXRnVbuNf3EPzexQrW200FO3dSMTyESYj+vb+qLxravHLi59MJbbtiYqv+dSgGstEaD8dtKV36G8t3m4KOIdCrVEBYdozi9NIsIDrcNhIXSvsA5mEqvmMivoDBhaoJJdlUFMCmDzguvXJd+EPxeO4bYXibffmINdappbvpANfDUdQEcErzRzm9HE6Khgs1JXKJBRLega+PNF1k=
