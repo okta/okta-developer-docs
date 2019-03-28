@@ -1,9 +1,21 @@
 <template>
-  <aside class="guide-featured">
-    <a :href="guideInfo.link">{{guideInfo.title}}</a>
-    {{guideInfo.excerpt}}
-    <FrameworkIconBlock :frameworks="mainLanguagesOfGuide"/>
-  </aside>
+  <a :href="guideInfo.link" class="guide-featured">
+    <header>
+      <section>
+        <h1 class="title">
+          {{guideInfo.title}}
+        </h1>
+      </section>
+    </header>
+    <section class="excerpt">
+      {{guideInfo.excerpt}}
+    </section>
+    <footer class="card--footer">
+      <section class="card--actions">
+        <FrameworkIconBlock :frameworks="mainLanguagesOfGuide"/>
+      </section>
+    </footer>
+  </a>
 </template>
 
 <script>
