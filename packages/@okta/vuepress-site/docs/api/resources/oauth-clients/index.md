@@ -230,11 +230,10 @@ Response body:
             "https://httpbin.org/get"
         ],
         "response_types": [
-            "id_token",
-            "token"
+            "code",
         ],
         "grant_types": [
-            "implicit"
+            "authorization_code"
         ],
         "token_endpoint_auth_method": "none",
         "application_type": "browser"
@@ -739,7 +738,7 @@ Property Details
 | :---------------- | :------------------------------------------------------------------------- | :--------------------------------------------- |
 | `web`             | `authorization_code`, `implicit`, `refresh_token`, `client_credentials`(*) | Must have at least `authorization_code`        |
 | `native`          | `authorization_code`, `implicit`, `password`, `refresh_token`              | Must have at least `authorization_code`        |
-| `browser`         | `implicit`                                                                 |                                                |
+| `browser`         | `authorization_code`, `implicit`                                           |                                                |
 | `service`         | `client_credentials`                                                       | Works with OAuth 2.0 flow (not OpenID Connect) |
 
     (*) `client_credentials` with a `web` application type allows you to use one `client_id` for an application that needs to make user-specific calls and back-end calls for data.
