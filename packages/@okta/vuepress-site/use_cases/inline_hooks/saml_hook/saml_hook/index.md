@@ -55,9 +55,11 @@ Provides a JSON representation of the `<saml:Subject>` element of the SAML asser
 ``` 
 ### data.assertion.authentication
 
-
+Provides a JSON representation of the `<saml:AuthnStatement>` element of the SAML assertion.
 
 ### data.assertion.conditions
+
+Provides a JSON representation of the `<saml:Conditions>` element of the SAML assertion.
 
 ### data.assertion.claims
 
@@ -83,6 +85,8 @@ The following is an example of how an XML `<saml:AttributeStatement>` element is
 }
 ```
 ### data.assertion.lifetime
+
+The time, in seconds, that the assertion will be valid for.
 
 ### data.context
 
@@ -114,9 +118,9 @@ In the case of the Token hook type, the `value` property is itself a nested obje
 
 The following command is currently supported for the SAML Assertion Inline Hook type:
 
-| Command                 | Description             |
-|-------------------------|-------------------------|
-| com.okta.assertion.patch | Modify a SAML assertion.     |
+| Command                  | Description              |
+|--------------------------|--------------------------|
+| com.okta.assertion.patch | Modify a SAML assertion. |
 
 #### value
 
@@ -125,8 +129,12 @@ The `value` object is where you specify the specific operation to perform. It is
 | Property | Description                                                                                                                                                                                                           | Data Type       |
 |----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                       | String          |
-| path     | Location, within the assertion, to apply the operation, specified as a slash-delimited path. When adding a claim, this will always begin with `/claims/` and be followed by the name of the new claim you are adding. | String          |
+| path     | Location, within the assertion, to apply the operation. See [Specifying Location within the Assertion](#specifying-location-within-the-assertion] below. | String          |
 | value    | Value to set the claim to.                                                                                                                                                                                            | Any JSON object |
+
+### Specifying Location within the Assertion
+
+You specify the location within the assertion at which to apply your operation using a slash-delimited path. When adding a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding. To modify an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which you want to modify. You then drill down withing that statement using slash-delimited object names, e.g., `/claims/array/attributeValues/1/value`.
 
 #### List of Supported Ops
 
@@ -137,7 +145,7 @@ The `value` object is where you specify the specific operation to perform. It is
 
 ### error
 
-Including a non-null `error` object in your response will stop Okta from returning the SAML assertion to the requester. Any content you include in the `error` object is not currently used.
+If you send an (non-null) `error` object in your response, it will stop Okta from returning the SAML assertion to the requester. Content you include inside the `error` object is not currently used.
 
 ## Sample Listing of JSON Payload of Request
 
