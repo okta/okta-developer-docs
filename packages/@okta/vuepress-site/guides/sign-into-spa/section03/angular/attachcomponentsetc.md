@@ -1,4 +1,5 @@
 ## Attach Components to Routes
+
 You need to provide these routes in your sample application so that we can sign the user in and handle the callback from Okta. We show you how to set these up below using [Angular Router](https://angular.io/guide/router):
 
 - `/`: A default home page to handle basic control of the app.

@@ -1,7 +1,7 @@
 ---
 title: Check for Tokens on Startup
 ---
-# Check for Tokens on Startup
+## Check for Tokens on Startup
 
 When the app is closed and reopened, you need to check for the existence of an `access_token` to see if the user has an existing session. 
 

@@ -1,7 +1,8 @@
 ---
 title: Open the Sign-In Page
 ---
-# Open the Sign-In Page
+## Open the Sign-In Page
+
 To sign in users, open a web view and display the hosted sign-in page.
 
 <StackSelector snippet="signin"/>
