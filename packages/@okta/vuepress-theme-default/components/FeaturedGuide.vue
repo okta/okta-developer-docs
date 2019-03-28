@@ -10,8 +10,8 @@
     <section class="excerpt">
       {{guideInfo.excerpt}}
     </section>
-    <footer class="card--footer">
-      <section class="card--actions">
+    <footer>
+      <section class="icons">
         <FrameworkIconBlock :frameworks="mainLanguagesOfGuide"/>
       </section>
     </footer>
