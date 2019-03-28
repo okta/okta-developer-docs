@@ -52,7 +52,8 @@ Provides a JSON representation of the `<saml:Subject>` element of the SAML asser
                   "recipient":"http://www.example.com/saml/sso"
                }
 }
-``` 
+```
+
 ### data.assertion.authentication
 
 Provides a JSON representation of the `<saml:AuthnStatement>` element of the SAML assertion.
