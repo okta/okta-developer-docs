@@ -25,21 +25,21 @@ For steps to enable this inline hook, see below, [Enabling a SAML Assertion Inli
 
 ## About
 
-This type of inline hook is triggered when Okta generates a SAML assertion in response to an authentication request. Before sending the SAML assertion to the service provider that will consume it, Okta calls out to your external service. Your external service can respond with commands to add attributes to the assertion or modify its existing attributes.
+This type of inline hook is triggered when Okta generates a SAML assertion in response to an authentication request. Before sending the SAML assertion to the app that will consume it, Okta calls out to your external service. Your external service can respond with commands to add attributes to the assertion or to modify its existing attributes.
 
-This functionality can be used to add data to assertions, including data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, SAML assertions generated for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
+This functionality can be used to add data to assertions, which might be data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, SAML assertions generated for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
 This inline hook works only when using custom SAML apps, not apps from the OIN.
 
 ## Objects in the Request from Okta
 
-The outbound call from Okta to your external service provides you with the contents of the SAML assertion that was generated, which you will be able to augment or modify by means of the commands you return, as well as some contextual information about the authentication request.
+The outbound call from Okta to your external service provides you with the contents of the SAML assertion that was generated, which you will be able to augment or modify by means of the commands you return. Also provided is contextual information about the authentication request.
 
-Because SAML is XML-based, while the call from Okta to your service uses a JSON payload, the contents of the SAML assertion are converted to a JSON representation.
+Because SAML is XML-based, but the call from Okta to your service uses a JSON payload, the contents of the SAML assertion are converted to a JSON representation for sending.
 
 ### data.assertion.subject
 
-Provides a JSON representation of the subject of the SAML assertion. The following is an example of how an XML `<saml:Subject>` element is represented in JSON in this object:
+Provides a JSON representation of the `<saml:Subject>` element of the SAML assertion. The following is an example of how the SAML XML is represented in JSON in this object:
 
 ```json
 {
@@ -112,7 +112,7 @@ In the case of the Token hook type, the `value` property is itself a nested obje
 
 #### Supported Commands
 
-The following command is supported for the SAML Assertion Inline Hook type:
+The following command is currently supported for the SAML Assertion Inline Hook type:
 
 | Command                 | Description             |
 |-------------------------|-------------------------|
@@ -367,17 +367,17 @@ Including a non-null `error` object in your response will stop Okta from returni
 
 To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/api/resources/inline-hooks).
 
-You then need to associate the registered inline hook with a Custom Authorization Server Policy Rule by completing the following steps in Admin Console:
+You then need to associate the registered inline hook with a SAML app by completing the following steps in Admin Console:
 
-1. Go to **Security > API Authorization Servers**.
+1. Go to **Applications** and select your SAML app.
 
-1. Select the Custom Authorization Server to use this inline hook with.
+1. Click the **General** tab.
 
-1. One of the rules defined in the Custom Authorization server needs to be used to trigger invocation of the inline hook. Click the pencil icon for that rule to open it for editing.
+1. In the SAML Settings section, click **Edit**.
 
-1. In the **Advanced Settings** section, click the **Assertion Inline Hook** dropdown menu. Any inline hooks you have registered will be listed. Select the one to use.
+1. Click **Next** to get to the **Configure SAML** section.
 
-1. Click **Update Rule**.
+1. In the *Assertion callback** field, select your registered inline hook.
 
-> Note: Only one inline hook can be associated with each rule.
+> Note: Only one inline hook can be associated with each app.
 
