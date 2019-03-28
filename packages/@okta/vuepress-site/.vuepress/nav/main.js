@@ -45,12 +45,12 @@ module.exports = [
   {
     title: 'API Reference',
     links: [
-      { title: 'Sign In Your Users', link: '/docs/api/resources/oidc/', subLinks: [
+      { title: 'Sign in Your Users', link: '/docs/api/resources/oidc/', subLinksId: 'Sidebar_References', subLinks: [
           { title: 'OpenID Connect & OAuth 2.0 API', link: '/docs/api/resources/oidc/'},
           { title: 'Authentication', link: '/docs/api/resources/authn/'}
         ]
       },
-      { title: 'Manage Okta Resources', link: '/docs/api/resources/roles/', activeCheck: '/docs/api/resources/', subLinks: [
+      { title: 'Manage Okta Resources', link: '/docs/api/resources/roles/',  subLinksId: 'Sidebar_Resources',  subLinks: [
           { title: 'Administrator Roles', link: '/docs/api/resources/roles/'},
           { title: 'Apps', link: '/docs/api/resources/apps/'},
           { title: 'Authorization Servers', link: '/docs/api/resources/authorization-servers/'},

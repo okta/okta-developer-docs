@@ -10,7 +10,7 @@
         <ul class="Sidebar-nav">
           <li v-for="link in section.links" :key="link.title" :class="{'is-active': isActive(link)}">
             <a :href="link.link">{{link.title}}</a>
-            <ul v-if=showSublinks(link)>
+            <ul v-if=showSublinks(link) :id=link.subLinksId>
               <li v-for="subLink in link.subLinks" :key="subLink.link" :class="{'is-active': $page.path === subLink.link}">
                 <a href="#">{{subLink.title}}</a>
               </li>
