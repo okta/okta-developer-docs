@@ -71,18 +71,20 @@ The following is an example of how an XML `<saml:AttributeStatement>` element fo
 ```json
 {
   "claims": {
-		"foobie": {
-			"attributes": {
-				"NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
-			},
-			"attributeValues": [{
-				"attributes": {
-					"xsi:type": "xs:string"
-				},
-				"value": "doobie"
-			}]
-		}
-	}
+    "foobie": {
+      "attributes": {
+        "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+      },
+      "attributeValues": [
+        {
+          "attributes": {
+            "xsi:type": "xs:string"
+          },
+          "value": "doobie"
+        }
+      ]
+    }
+  }
 }
 ```
 
@@ -153,225 +155,225 @@ If you send an (non-null) `error` object in your response, it will stop Okta fro
 ## Sample Listing of JSON Payload of Request
 
 ```json
-{  
-   "source":"https://{yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml",
-   "eventId":"XMFoHCM1S4Wi_SGWzL8T9A",
-   "eventTime":"2019-03-28T19:15:23.000Z",
-   "data":{  
-      "context":{  
-         "request":{  
-            "id":"reqqXypjzYJRSu2j1G1imUovA",
-            "method":"GET",
-            "url":{  
-               "value":"https://{yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml"
-            },
-            "ipAddress":"127.0.0.1"
-         },
-         "protocol":{  
-            "type":"SAML2.0",
-            "issuer":{  
-               "id":"0oath92zlO60urQOP0g3",
-               "name":"SAML 2.0 App",
-               "uri":"http://www.okta.com/exkth8lMzFm0HZOTU0g3"
-            }
-         },
-         "session":{  
-            "id":"102LN9Bnuc4S_ewfc9BYwageA",
-            "userId":"00uq8tMo3zV0OfJON0g3",
-            "login":"administrator1@clouditude.net",
-            "createdAt":"2019-03-28T16:45:55.000Z",
-            "expiresAt":"2019-03-28T21:15:23.000Z",
-            "status":"ACTIVE",
-            "lastPasswordVerification":"2019-03-28T16:45:55.000Z",
-            "amr":[  
-               "PASSWORD"
-            ],
-            "idp":{  
-               "id":"00oq6kcVwvrDY2YsS0g3",
-               "type":"OKTA"
-            },
-            "mfaActive":false
-         },
-         "user":{  
-            "id":"00uq8tMo3zV0OfJON0g3",
-            "passwordChanged":"2018-09-11T23:19:12.000Z",
-            "profile":{  
-               "login":"administrator1@clouditude.net",
-               "firstName":"Add-Mine",
-               "lastName":"O'Cloudy Tud",
-               "locale":"en",
-               "timeZone":"America/Los_Angeles"
-            },
-            "_links":{  
-               "groups":{  
-                  "href":"https://{yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups"
-               },
-               "factors":{  
-                  "href":"https://{yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors"
-               }
-            }
-         }
+{
+  "source": "https://{yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml",
+  "eventId": "XMFoHCM1S4Wi_SGWzL8T9A",
+  "eventTime": "2019-03-28T19:15:23.000Z",
+  "data": {
+    "context": {
+      "request": {
+        "id": "reqqXypjzYJRSu2j1G1imUovA",
+        "method": "GET",
+        "url": {
+          "value": "https://{yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml"
+        },
+        "ipAddress": "127.0.0.1"
       },
-      "assertion":{  
-         "subject":{  
-            "nameId":"administrator1@clouditude.net",
-            "nameFormat":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-            "confirmation":{  
-               "method":"urn:oasis:names:tc:SAML:2.0:cm:bearer",
-               "data":{  
-                  "recipient":"http://www.example.com:7070/saml/sso"
-               }
-            }
-         },
-         "authentication":{  
-            "sessionIndex":"id1553800523546.312669168",
-            "authnContext":{  
-               "authnContextClassRef":"urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
-            }
-         },
-         "conditions":{  
-            "audienceRestriction":[  
-               "urn:example:sp"
-            ]
-         },
-         "claims":{  
-            "foobie":{  
-               "attributes":{  
-                  "NameFormat":"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
-               },
-               "attributeValues":[  
-                  {  
-                     "attributes":{  
-                        "xsi:type":"xs:string"
-                     },
-                     "value":"doobie"
-                  }
-               ]
-            },
-            "array":{  
-               "attributes":{  
-                  "NameFormat":"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
-               },
-               "attributeValues":[  
-                  {  
-                     "attributes":{  
-                        "xsi:type":"xs:string"
-                     },
-                     "value":"Array 1"
-                  },
-                  {  
-                     "attributes":{  
-                        "xsi:type":"xs:string"
-                     },
-                     "value":"Array2"
-                  },
-                  {  
-                     "attributes":{  
-                        "xsi:type":"xs:string"
-                     },
-                     "value":"Array3"
-                  }
-               ]
-            },
-            "middle":{  
-               "attributes":{  
-                  "NameFormat":"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
-               },
-               "attributeValues":[  
-                  {  
-                     "attributes":{  
-                        "xsi:type":"xs:string"
-                     },
-                     "value":"middellllll"
-                  }
-               ]
-            },
-            "firstAndLast":{  
-               "attributes":{  
-                  "NameFormat":"urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
-               },
-               "attributeValues":[  
-                  {  
-                     "attributes":{  
-                        "xsi:type":"xs:string"
-                     },
-                     "value":"7d6a50c8-4d7e-4058-9c5b-2cc98cecd294"
-                  }
-               ]
-            }
-         },
-         "lifetime":{  
-            "expiration":300
-         }
+      "protocol": {
+        "type": "SAML2.0",
+        "issuer": {
+          "id": "0oath92zlO60urQOP0g3",
+          "name": "SAML 2.0 App",
+          "uri": "http://www.okta.com/exkth8lMzFm0HZOTU0g3"
+        }
+      },
+      "session": {
+        "id": "102LN9Bnuc4S_ewfc9BYwageA",
+        "userId": "00uq8tMo3zV0OfJON0g3",
+        "login": "administrator1@clouditude.net",
+        "createdAt": "2019-03-28T16:45:55.000Z",
+        "expiresAt": "2019-03-28T21:15:23.000Z",
+        "status": "ACTIVE",
+        "lastPasswordVerification": "2019-03-28T16:45:55.000Z",
+        "amr": [
+          "PASSWORD"
+        ],
+        "idp": {
+          "id": "00oq6kcVwvrDY2YsS0g3",
+          "type": "OKTA"
+        },
+        "mfaActive": false
+      },
+      "user": {
+        "id": "00uq8tMo3zV0OfJON0g3",
+        "passwordChanged": "2018-09-11T23:19:12.000Z",
+        "profile": {
+          "login": "administrator1@clouditude.net",
+          "firstName": "Add-Mine",
+          "lastName": "O'Cloudy Tud",
+          "locale": "en",
+          "timeZone": "America/Los_Angeles"
+        },
+        "_links": {
+          "groups": {
+            "href": "https://{yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups"
+          },
+          "factors": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors"
+          }
+        }
       }
-   },
-   "eventTypeVersion":"1.0",
-   "cloudEventVersion":"0.1",
-   "eventType":"com.okta.saml.tokens.transform",
-   "contentType":"application/json"
+    },
+    "assertion": {
+      "subject": {
+        "nameId": "administrator1@clouditude.net",
+        "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+        "confirmation": {
+          "method": "urn:oasis:names:tc:SAML:2.0:cm:bearer",
+          "data": {
+            "recipient": "http://www.example.com:7070/saml/sso"
+          }
+        }
+      },
+      "authentication": {
+        "sessionIndex": "id1553800523546.312669168",
+        "authnContext": {
+          "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
+        }
+      },
+      "conditions": {
+        "audienceRestriction": [
+          "urn:example:sp"
+        ]
+      },
+      "claims": {
+        "foobie": {
+          "attributes": {
+            "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+          },
+          "attributeValues": [
+            {
+              "attributes": {
+                "xsi:type": "xs:string"
+              },
+              "value": "doobie"
+            }
+          ]
+        },
+        "array": {
+          "attributes": {
+            "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+          },
+          "attributeValues": [
+            {
+              "attributes": {
+                "xsi:type": "xs:string"
+              },
+              "value": "Array 1"
+            },
+            {
+              "attributes": {
+                "xsi:type": "xs:string"
+              },
+              "value": "Array2"
+            },
+            {
+              "attributes": {
+                "xsi:type": "xs:string"
+              },
+              "value": "Array3"
+            }
+          ]
+        },
+        "middle": {
+          "attributes": {
+            "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+          },
+          "attributeValues": [
+            {
+              "attributes": {
+                "xsi:type": "xs:string"
+              },
+              "value": "middellllll"
+            }
+          ]
+        },
+        "firstAndLast": {
+          "attributes": {
+            "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
+          },
+          "attributeValues": [
+            {
+              "attributes": {
+                "xsi:type": "xs:string"
+              },
+              "value": "7d6a50c8-4d7e-4058-9c5b-2cc98cecd294"
+            }
+          ]
+        }
+      },
+      "lifetime": {
+        "expiration": 300
+      }
+    }
+  },
+  "eventTypeVersion": "1.0",
+  "cloudEventVersion": "0.1",
+  "eventType": "com.okta.saml.tokens.transform",
+  "contentType": "application/json"
 }
 ```
 
 ## Sample Listing of JSON Payload of Response
 
 ```json
-{  
-   "error":null,
-   "commands":[  
-      {  
-         "type":"com.okta.assertion.patch",
-         "value":[  
-            {  
-               "op":"replace",
-               "path":"/claims/array/attributeValues/1/value",
-               "value":"replacementValue"
+{
+  "error": null,
+  "commands": [
+    {
+      "type": "com.okta.assertion.patch",
+      "value": [
+        {
+          "op": "replace",
+          "path": "/claims/array/attributeValues/1/value",
+          "value": "replacementValue"
+        },
+        {
+          "op": "replace",
+          "path": "/authentication/authnContext",
+          "value": {
+            "authnContextClassRef": "Something:different?"
+          }
+        },
+        {
+          "op": "add",
+          "path": "/claims/foo",
+          "value": {
+            "attributes": {
+              "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
             },
-            {  
-               "op":"replace",
-               "path":"/authentication/authnContext",
-               "value":{  
-                  "authnContextClassRef":"Something:different?"
-               }
-            },
-            {  
-               "op":"add",
-               "path":"/claims/foo",
-               "value":{  
-                  "attributes":{  
-                     "NameFormat":"urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
-                  },
-                  "attributeValues":[  
-                     {  
-                        "attributes":{  
-                           "xsi:type":"xs:string"
-                        },
-                        "value":"barer"
-                     }
-                  ]
-               }
-            },
-            {  
-               "op":"replace",
-               "path":"/conditions/audienceRestriction",
-               "value":[  
-                  "urn:example:sp",
-                  "one:element",
-                  "two:elements"
-               ]
-            }
-         ]
-      },
-      {  
-         "type":"com.okta.assertion.patch",
-         "value":[  
-            {  
-               "op":"replace",
-               "path":"/authentication/sessionIndex",
-               "value":"definitelyARealSession"
-            }
-         ]
-      }
-   ]
+            "attributeValues": [
+              {
+                "attributes": {
+                  "xsi:type": "xs:string"
+                },
+                "value": "barer"
+              }
+            ]
+          }
+        },
+        {
+          "op": "replace",
+          "path": "/conditions/audienceRestriction",
+          "value": [
+            "urn:example:sp",
+            "one:element",
+            "two:elements"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "com.okta.assertion.patch",
+      "value": [
+        {
+          "op": "replace",
+          "path": "/authentication/sessionIndex",
+          "value": "definitelyARealSession"
+        }
+      ]
+    }
+  ]
 }
 ```
 
