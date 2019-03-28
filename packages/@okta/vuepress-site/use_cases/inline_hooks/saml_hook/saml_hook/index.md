@@ -42,15 +42,17 @@ Because SAML is XML-based, but the call from Okta to your service uses a JSON pa
 Provides a JSON representation of the `<saml:Subject>` element of the SAML assertion. The following is an example of how the SAML XML is represented in JSON in this object:
 
 ```json
-{
-  "subject":{
-            "nameId":"administrator1@example.net",
-            "nameFormat":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-            "confirmation":{
-               "method":"urn:oasis:names:tc:SAML:2.0:cm:bearer",
-               "data":{
-                  "recipient":"http://www.example.com/saml/sso"
-               }
+{  
+   "subject":{
+      "nameId":"administrator1@example.net",
+      "nameFormat":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+      "confirmation":{
+         "method":"urn:oasis:names:tc:SAML:2.0:cm:bearer",
+         "data":{
+            "recipient":"http://www.example.com/saml/sso"
+         }
+      }
+   }
 }
 ```
 
