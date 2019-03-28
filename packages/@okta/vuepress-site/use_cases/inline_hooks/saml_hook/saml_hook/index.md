@@ -43,12 +43,12 @@ Provides a JSON representation of the `<saml:Subject>` element of the SAML asser
 
 ```json
 {
-  "subject":{  
+  "subject":{
             "nameId":"administrator1@example.net",
             "nameFormat":"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-            "confirmation":{  
+            "confirmation":{
                "method":"urn:oasis:names:tc:SAML:2.0:cm:bearer",
-               "data":{  
+               "data":{
                   "recipient":"http://www.example.com/saml/sso"
                }
 }
@@ -137,6 +137,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                       | String          |
 | path     | Location, within the assertion, to apply the operation. See [Specifying Location within the Assertion](##specifying-location-within-the-assertion) below. | String          |
 | value    | Value to set the claim to.                                                                                                                                                                                            | Any JSON object |
+
 ### Specifying Location within the Assertion
 
 You specify the location within the assertion at which to apply your operation using a slash-delimited path. When adding a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding. To modify an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which you want to modify. You then drill down withing that statement using slash-delimited object names, e.g., `/claims/array/attributeValues/1/value`.
