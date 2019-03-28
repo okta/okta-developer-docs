@@ -87,7 +87,7 @@ The following endpoints are used by the Okta home page for authentication and si
 | Okta Home Page Endpoints                                                | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity |
 | ----------------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | ------------------ |
 | `/app/{app}/{key}/sso/saml`                                             | 100              | 300              | 300*    | 600*       | 750                |
-| `/app/office365/{key}/sso/wsfed/active`                                 | N/A              | N/A              | N/A     | 2000       | 2000               |
+| `/app/office365/{key}/sso/wsfed/active`                                 | N/A              | N/A              | N/A     | 2000       | 1000               |
 | `/app/office365/{key}/sso/wsfed/passive`                                | N/A              | N/A              | N/A     | 250        | 250                |
 | `/app/template_saml_2_0/{key}/sso/saml`                                 | 100              | 300              | 300*    | 600*       | 2500               |
 | `/login/do-login`                                                       | 100              | 300              | 300     | 600        | 200                |
