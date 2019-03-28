@@ -1023,12 +1023,14 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * Different application types have different valid values for the corresponding grant type:
 
+|-------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------|
 | Application Type  | Valid Grant Type                                              | Requirements                                                                      |
 | ----------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | `web`             | `authorization_code`, `implicit`, `refresh_token`             | Must have at least `authorization_code`                                           |
 | `native`          | `authorization_code`, `implicit`, `password`, `refresh_token` | Must have at least `authorization_code`                                           |
-| `browser`         | `implicit`                                                    |                                                                                   |
+| `browser`         | `authorization_code`, `implicit`                                                    |                                                             |
 | `service`         | `client_credentials`                                          | Works with OAuth 2.0 flow (not OpenID Connect)                                    |
+
 
 * The `grant_types` and `response_types` values described above are partially orthogonal, as they refer to arguments passed to different
     endpoints in the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749). However, they are related in that the `grant_types`
