@@ -392,6 +392,8 @@ You then need to associate the registered inline hook with a SAML app by complet
 
 1. In the SAML Settings section, click **Edit**.
 
+1. Click **Show Advanced Settings**.
+
 1. Click **Next** to get to the **Configure SAML** section.
 
 1. In the **Assertion callback** field, select your registered inline hook.
