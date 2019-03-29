@@ -252,3 +252,17 @@ Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum c
 Ut mattis, nulla cubilia velit. Etiam. Suspendisse.
 
     Torquent=natoque.facilisi suscipit "magna" ac sociosqu vitae "sollicitudin" justo sodales aliquam egestas phasellus "aptent"
+
+```
+https://{yourOktaDomain}/apiEndpoint
+```
+
+```
+http://{yourOktaDomain}/apiEndpoint
+```
+
+```bash
+"https://{yourOktaDomain}/api/v1/apps"
+```
+
+`https://{yourOktaDomain}/apiEndpoint`
