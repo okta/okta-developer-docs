@@ -6,6 +6,7 @@
 
     <!-- Begin Content -->
     <div class="PageContent-main language-content">
+      <EditLink />
       <Breadcrumb></Breadcrumb>
       <Content />
     </div>
@@ -22,7 +23,8 @@ import { resolveHeaders } from '../util/index'
 export default {
   components: {
     TableOfContents: () => import('./TableOfContents.vue'),
-    Sidebar: () => import('./Sidebar.vue')
+    Sidebar: () => import('./Sidebar.vue'),
+    EditLink: () => import('./EditLink.vue')
   },
 
   data() {
