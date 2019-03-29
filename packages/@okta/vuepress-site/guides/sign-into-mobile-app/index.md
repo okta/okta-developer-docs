@@ -1,5 +1,5 @@
 ---
 title: Sign Users into Your Mobile App
-excerpt: Okta in a convenient travel-size
+excerpt: Learn how to add authentication to your mobile apps and sign users in using Okta's APIs and libraries.
 ---
 
