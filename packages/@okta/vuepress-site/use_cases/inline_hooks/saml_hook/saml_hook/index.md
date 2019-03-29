@@ -39,7 +39,7 @@ Because SAML is XML-based, but the call from Okta to your service uses a JSON pa
 
 ### data.assertion.subject
 
-Provides a JSON representation of the `<saml:Subject>` element of the SAML assertion. The following is an example of how the SAML XML is represented in JSON in this object:
+Provides a JSON representation of the `<saml:Subject>` element of the SAML assertion. The following is an example of how the SAML XML is represented in JSON:
 
 ```json
 {  
@@ -153,7 +153,7 @@ You specify the location within the assertion at which to apply your operation u
 
 When performing an `add` op to add a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding.
 
-When modifying an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the particular attribute statement using slash-delimited element names, e.g., `/claims/array/attributeValues/1/value`.
+When modifying an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, e.g., `/claims/array/attributeValues/1/value`.
 
 ### error
 
