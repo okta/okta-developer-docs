@@ -1,3 +1,3 @@
 ---
-title: Protect Your App
+title: Protect Your API Endpoints
 ---
