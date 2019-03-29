@@ -44,7 +44,7 @@ export default {
           }
         }
 
-      let links = document.querySelectorAll('a[href*="#"]:not([href="#"])')
+      let links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href*="/quickstart/#"])')
 
       Array.from(links).forEach((link) => {
         link.addEventListener('click', function(event) {
