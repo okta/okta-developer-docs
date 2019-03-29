@@ -48,8 +48,7 @@ export default {
 
       const fences = document.querySelectorAll("code")
       fences.forEach((fence, index) => {
-        fences[index].innerHTML = fence.innerHTML.replace(/https:\/\/{yourOktaDomain}/gi, domain)
-        fences[index].innerHTML = fence.innerHTML.replace(/http:\/\/{yourOktaDomain}/gi, domain)
+        fences[index].innerHTML = fence.innerHTML.replace(/https?:\/\/{yourOktaDomain}/gi, domain)
       })
     }
 
