@@ -66,9 +66,9 @@ Provides a JSON representation of the `<saml:Conditions>` element of the SAML as
 
 ### data.assertion.claims
 
-Provides a JSON representation of the `<saml:AttributeStatement>` element contained in the in the generated SAML assertion, which will contain any optional SAML attribute statements that you have defined for the app using the Okta Admin Console's **SAML Settings**.
+Provides a JSON representation of the `<saml:AttributeStatement>` element contained in the generated SAML assertion, which will contain any optional SAML attribute statements that you have defined for the app using the Okta Admin Console's **SAML Settings**.
 
-The following is an example of how an XML `<saml:AttributeStatement>` element for an optional attribute statement named `foobie`, with a value of `doobie`, is represented in JSON in this object:
+The following is an example of how an XML `<saml:AttributeStatement>` element is represented in JSON in this object:
 
 ```json
 {
@@ -111,9 +111,9 @@ For the SAML Assertion Inline Hook, the `commands` and `error` objects that you 
 
 ### commands
 
-The `commands` object is where you can provide commands to Okta. It is where you can tell Okta to add additional claims to the assertion or to modify the existing assertion statements.
+The `commands` object is where you can tell Okta to add additional claims to the assertion or to modify the existing assertion statements.
 
-The `commands` object is an array, allowing you to send multiple commands. In each array element, there needs to be a `type` property and `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply an operand for that command.
+`commands` is an array, allowing you to send multiple commands. In each array element, there needs to be a `type` property and `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply an operand for that command.
 
 In the case of the SAML Assertion Inline Hook, the `value` property is itself a nested object, in which you specify a particular operation, a path to act on, and a value.
 
@@ -139,17 +139,20 @@ The `value` object is where you specify the specific operation to perform. It is
 | op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                       | String          |
 | path     | Location, within the assertion, to apply the operation. See [Specifying Location within the Assertion](##specifying-location-within-the-assertion) below. | String          |
 | value    | Value to set the claim to.                                                                                                                                                                                            | Any JSON object |
-
-### Specifying Location within the Assertion
-
-You specify the location within the assertion at which to apply your operation using a slash-delimited path. When adding a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding. To modify an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which you want to modify. You then drill down within the particular attribute statement using slash-delimited sub-object names, e.g., `/claims/array/attributeValues/1/value`.
-
 #### List of Supported Ops
 
 | Op      | Description                             |
 |---------|-----------------------------------------|
 | add     | Add a new claim to the assertion.       |
 | replace | Modify an existing attribute statement. |
+
+### Specifying Location within the Assertion
+
+You specify the location within the assertion at which to apply your operation using a slash-delimited path.
+
+When performing an `add` op to add a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding.
+
+When modifying an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the particular attribute statement using slash-delimited element names, e.g., `/claims/array/attributeValues/1/value`.
 
 ### error
 
