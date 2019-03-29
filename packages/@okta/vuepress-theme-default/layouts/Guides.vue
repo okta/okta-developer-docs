@@ -68,7 +68,7 @@
 
         if(!lang) { 
           lang = findMainLanguagesOfGuide({ guide, pages })[0];
-          if(window) { 
+          if(window && guide) { 
             window.location.hash = makeGuideHash({ guide, lang, sectionNum });
           }
         }
