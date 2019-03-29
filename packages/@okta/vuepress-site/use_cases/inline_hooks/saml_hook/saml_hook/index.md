@@ -115,7 +115,7 @@ The `commands` object is where you can provide commands to Okta. It is where you
 
 The `commands` object is an array, allowing you to send multiple commands. In each array element, there needs to be a `type` property and `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply an operand for that command.
 
-In the case of the Token hook type, the `value` property is itself a nested object, in which you specify a particular operation, a path to act on, and a value.
+In the case of the SAML Assertion Inline Hook, the `value` property is itself a nested object, in which you specify a particular operation, a path to act on, and a value.
 
 | Property | Description                                                              | Data Type       |
 |----------|--------------------------------------------------------------------------|-----------------|
