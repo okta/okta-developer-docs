@@ -1,28 +1,4 @@
 ---
-<<<<<<< HEAD
-title: Add and Configure Packages
----
-## Add and Configure Packages
-
-Next you need to add Okta to your application. You can use our SDKs to sign the user in by redirecting to Okta.
-
-## Install the SDK
-Install the SDK and add it as a dependency to your project. Using npm:
-
-<StackSelector snippet="installsdk"/>
-
-### Configure the Middleware
-
-You need the Client ID that you copied from the Okta application that you created earlier to instantiate the middleware. You also need to know your Okta org URL, which you can find on the dashboard of the Okta Developer console.
-
-The `issuer` parameter is your Okta Org URL + `oauth2/default`.
-
-<StackSelector snippet="config"/>
-
-> Note: `https://okta.okta.com` is different from your admin URL. Don't include `-admin` in the value.
-
-<StackSelector snippet="attachcomponentsetc"/>
-=======
 title: Creating an Okta Application
 ---
 # Create an Okta Application
@@ -38,5 +14,4 @@ In Okta, applications are OpenID Connect (OIDC) clients that can use Okta Author
 6. Leave **Implicit** selected for **Grant Types Allowed**.
 7. Click **Done**.
 8. On the **General** tab of the app that you just created, click **Edit** and enter the correct URI in the **Logout redirect URIs** box. See [Sign Users Out](sign-users-outlink) for more information.
->>>>>>> bb923a3... further clarification on config
 
