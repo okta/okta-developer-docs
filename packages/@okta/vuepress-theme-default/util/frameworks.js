@@ -4,7 +4,6 @@ const FRAMEWORK_TO_COMMON_NAME = {
   nodejs: 'node',
   vuejs: 'vue',
   '.net': 'dotnet',
-  iOS: 'ios',
 };
 
 const COMMON_NAME_TO_FANCY_NAME = { 
@@ -23,7 +22,12 @@ const COMMON_NAME_TO_FANCY_NAME = {
   reactnative: 'React Native',
 };
 
-export const commonify = framework => FRAMEWORK_TO_COMMON_NAME[framework] || framework;
+const COMMON_NAME_TO_ICON_NAME = { 
+  reactnative: 'react',
+  netcore: 'dotnet',
+};
+
+export const commonify = framework => FRAMEWORK_TO_COMMON_NAME[framework] || framework.toLowerCase();
 export const fancify = framework => COMMON_NAME_TO_FANCY_NAME[framework] || framework.toUpperCase();
-export const iconify = framework => `code-${framework}-32`;
-export const cssForIcon = framework => `icon ${iconify(framework)}`;
+export const iconify = framework => COMMON_NAME_TO_ICON_NAME[framework] || framework;
+export const cssForIcon = framework => `icon code-${iconify(framework)}-32`;
