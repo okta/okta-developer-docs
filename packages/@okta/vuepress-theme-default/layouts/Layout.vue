@@ -40,7 +40,7 @@ export default {
         if (anchor) {
           let target = document.getElementById(anchor)
           if (target) {
-            window.scrollTo(0, (target.offsetTop - 160))
+            window.scrollTo(0, (target.offsetTop - 90))
           }
         }
 
@@ -51,7 +51,7 @@ export default {
           event.preventDefault()
           let target = document.querySelector(this.hash)
           if(target) {
-            window.scrollTo(0, (target.offsetTop - 40))
+            window.scrollTo(0, (target.offsetTop - 90))
           }
 
         })
