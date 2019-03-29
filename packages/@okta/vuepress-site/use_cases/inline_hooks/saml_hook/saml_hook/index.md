@@ -139,6 +139,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                       | String          |
 | path     | Location, within the assertion, to apply the operation. See [Specifying Location within the Assertion](##specifying-location-within-the-assertion) below. | String          |
 | value    | Value to set the claim to.                                                                                                                                                                                            | Any JSON object |
+
 #### List of Supported Ops
 
 | Op      | Description                             |
