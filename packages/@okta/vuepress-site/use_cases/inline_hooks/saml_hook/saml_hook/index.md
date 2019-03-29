@@ -142,7 +142,7 @@ The `value` object is where you specify the specific operation to perform. It is
 
 ### Specifying Location within the Assertion
 
-You specify the location within the assertion at which to apply your operation using a slash-delimited path. When adding a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding. To modify an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which you want to modify. You then drill down withing that statement using slash-delimited object names, e.g., `/claims/array/attributeValues/1/value`.
+You specify the location within the assertion at which to apply your operation using a slash-delimited path. When adding a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding. To modify an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which you want to modify. You then drill down within the particular attribute statement using slash-delimited sub-object names, e.g., `/claims/array/attributeValues/1/value`.
 
 #### List of Supported Ops
 
