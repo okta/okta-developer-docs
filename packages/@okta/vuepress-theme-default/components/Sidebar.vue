@@ -12,7 +12,7 @@
             <a :href="link.link">{{link.title}}</a>
             <ul v-if=showSublinks(link) :id=link.subLinksId>
               <li v-for="subLink in link.subLinks" :key="subLink.link" :class="{'is-active': $page.path === subLink.link}">
-                <a href="#">{{subLink.title}}</a>
+                <a :href="subLink.link">{{subLink.title}}</a>
               </li>
             </ul>
           </li>
