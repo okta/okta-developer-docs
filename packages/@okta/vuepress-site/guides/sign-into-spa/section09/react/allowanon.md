@@ -1,1 +1,1 @@
-placeholder
+By default, all routes not defined using the `SecureRoute` will be accessible to unauthenticated users.
