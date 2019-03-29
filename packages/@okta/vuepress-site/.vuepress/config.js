@@ -182,6 +182,14 @@ module.exports = {
       promo_url: 'https://developer.okta.com/quickstart/',
       promo_text: 'Learn how to build your app on Okta, fast.',
       cta_text: 'QUICK STARTS'
+    },
+
+    editLink: {
+      repo: 'okta/okta-developer-docs',
+      repoLabel: 'Edit Page',
+      editLinks: true,
+      editLinkText: "Edit Page",
+      docsDir: "packages/@okta/vuepress-site"
     }
 
   },
