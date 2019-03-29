@@ -7,6 +7,8 @@ redirects:
     to: /3rd_party_notices/Okta_Cloud_Provisioning_Connector_Tool/index.html
   - from: /docs/how-to/set-up-auth-server.html
     to: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
+  - from: /docs/how-to/set-up-auth-server/
+    to: /authentication-guide/implementing-authentication/set-up-authz-server/
   - from: /docs/how-to/inbound-saml-with-oidc
     to: /authentication-guide/saml-login/index.html
   - from: /docs/api/resources/social_authentication
