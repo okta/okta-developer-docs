@@ -65,7 +65,6 @@ export const findStackSnippets = ({ section, snippet, pages }) => {
         lang,
         name, 
         title,
-        icon: iconify(name),
         css: cssForIcon(name),
         link: makeGuideHash({ guide: section.guide, lang, sectionNum: section.sectionNum }),
         key: page.key,

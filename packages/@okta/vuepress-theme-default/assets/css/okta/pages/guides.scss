@@ -30,12 +30,14 @@ $big-spacing: 3rem;
 .guide-featured { 
     transition: box-shadow 200ms linear;
     border: 0;
+    background: white;
     box-shadow: 0 3px 6px rgba(47, 63, 74, 0.2);
     text-decoration: none;
     cursor: pointer;
-    display: block;
+    // display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
-    align-self: start;
     width: 50%;
     border-radius: 3px;
 
@@ -48,7 +50,15 @@ $big-spacing: 3rem;
       color: inherit;
       text-decoration: none;
     }
-
+  /* reduce icons to 24px */
+  .icon[class*='-32'] { 
+    &:before {
+      font-size: 24px;
+    }
+    &:after { 
+      font-size: 24px;
+    }
+  }
     header { 
       display: flex;
       position: relative;
@@ -78,6 +88,7 @@ $big-spacing: 3rem;
     .excerpt { 
       padding: 0.75rem 1.5rem 0.75rem;
       color: #5c6971;
+      flex: 1 1 auto; /* stretch to fill container */
     }
 
     footer { 
@@ -152,10 +163,21 @@ $big-spacing: 3rem;
 }
 
 .stack-selector {
+
   position: relative;
   border: 1px solid $border-color;
   border-radius: 3px;
   overflow: hidden;
+
+  /* reduce icons to 24px */
+  .icon[class*='-32'] { 
+    &:before {
+      font-size: 24px;
+    }
+    &:after { 
+      font-size: 24px;
+    }
+  }
 
   nav.tabs ul {
     background: $gray-000;
@@ -164,6 +186,7 @@ $big-spacing: 3rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15ch,1fr));
     position: relative;
+    padding: 0;
     top: -1px;
     list-style-type: none;
     border-bottom: 1px solid $border-color;
@@ -171,6 +194,7 @@ $big-spacing: 3rem;
       display: inline-block; /*fallback*/
       flex-grow: 1; /*fallback*/
       max-width: 30ch; /*fallback*/
+      margin: 0;
       &.current a {
         font-weight: 600;
         color: $gray-900;
@@ -182,7 +206,7 @@ $big-spacing: 3rem;
         }
       }
       a {
-        display: block;
+        display: flex;
         box-sizing: border-box;
         position: relative;
         top: 1px;
@@ -204,24 +228,6 @@ $big-spacing: 3rem;
           background: #e5edfb;
           border-bottom-width: 3px;
           border-bottom-color: $action-dark;
-        }
-        &:focus {
-          outline: 0;
-          &::before { 
-            /* same as buttons, except:
-             * width and height _minus_ padding
-             * no border radius */
-            content: '';
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: calc(100% - 0.75em);
-            height: calc(100% - 0.75em);
-            transform: translate(-50%, -50%);
-            border: 2px dotted $text-color;
-            border-radius: 0;
-          }
         }
 
         .framework {
