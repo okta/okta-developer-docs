@@ -1,4 +1,4 @@
-`OktaAuthGuard` is used to require authentication on individual routes. To require authentication in your entire application, you can add the guard to every route. See [canActivate] (https://angular.io/api/router/CanActivate)
+`OktaAuthGuard` is used to require authentication on individual routes. To require authentication in your entire application, you can add the guard to every route. See [canActivate] (https://angular.io/api/router/CanActivate).
 
 ```javascript
 

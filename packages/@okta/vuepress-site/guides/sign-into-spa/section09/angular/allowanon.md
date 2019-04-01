@@ -1,1 +1,1 @@
-By default, all routes without `OktaAuthGuard` will be accessible to unauthenticated users.
+By default, all routes without `OktaAuthGuard` are accessible to unauthenticated users.

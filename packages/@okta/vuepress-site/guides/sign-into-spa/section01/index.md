@@ -1,8 +1,6 @@
 ---
-title: Sign Users into Your Single-Page App
+title: Before You Begin
 ---
-
-# Sign Users into Your Single-Page App
 
 This guide walks you through how to sign users into your single-page app (SPA) and supports apps created using:
 
@@ -26,5 +24,3 @@ If you don't have an app created or are new to creating an app, start with the a
 > Note: If you'd prefer to download a complete sample application, you can use ours:
 
 <StackSelector snippet="samples"/>
-
-If you meet all of the prerequisites, then you can move on to the first step, which is creating an Okta application.

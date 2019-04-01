@@ -1,4 +1,4 @@
-User info ("claims") are available using the `getUser` method on the OktaAuthService.
+User info ("claims") is available using the `getUser` method on the `OktaAuthService`.
 
 ```javascript
 import { Component, OnInit } from '@angular/core';

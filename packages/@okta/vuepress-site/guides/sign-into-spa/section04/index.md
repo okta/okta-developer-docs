@@ -1,9 +1,8 @@
 ---
-title: Your Okta config object
+title: Create Your Okta Config Object
 ---
-# Create your Okta config object
+## Create Your Okta Config Object
 
-### Things You Need
 After you create the application, there are two values that you need:
 
 * **Client ID** - Find it in the applications list or on the **General** tab of a specific application.
@@ -11,7 +10,8 @@ After you create the application, there are two values that you need:
 
 These values are used in your application to set up the OpenID Connect flow with Okta.
 
-Somewhere in your app, construct a config object. This will be used to initialize the Okta services with the values specific to your application.  The required properties are:
+Somewhere in your app, construct a config object. This is used to initialize the Okta services with the values specific to your application.  The required properties are:
+
 * clientId
 * issuer
 * redirectUri
@@ -45,4 +45,4 @@ const config = {
 
 ```
 
-It is not important how you construct this object, but you will need to create an object with the values specific for your app. This object will be used to initialize the Okta SDK. We will refer to this `config` object throughout the guide.
+It's not important how you construct this object, but you need to create an object with the values specific for your app. This object is used to initialize the Okta SDK. We refer to this `config` object throughout the guide.

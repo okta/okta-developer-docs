@@ -1,4 +1,4 @@
-We provide a `SecureRoute` component which extends the `Route` component to require authentication. Use `SecureRoute` on any routes which require authentication.
+We provide a `SecureRoute` component that extends the `Route` component to require authentication. Use `SecureRoute` on any routes that require authentication.
 
 ```javascript
 import React, { Component } from 'react';

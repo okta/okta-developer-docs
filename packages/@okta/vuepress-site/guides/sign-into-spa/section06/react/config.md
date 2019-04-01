@@ -1,5 +1,5 @@
 
-Configure a Security component in your top-level component. We provide the `Security` component which makes an Auth object available to child components and the `withAuth` Higher Order Component (HOC). We show you how to set these up using [React Router DOM](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom):
+Configure a Security component in your top-level component. We provide the `Security` component that makes an Auth object available to child components and the `withAuth` Higher Order Component (HOC). We show you how to set these up using [React Router DOM](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom):
 
 ```javascript
 
@@ -23,13 +23,13 @@ class App extends Component {
 export default App;
 ```
 
-## Outside components
+## Outside Components
 
 You may find that your application needs to interact with the `Auth` object outside of a child component context. 
 
 In this case, you can create the `Auth` object directly and pass it to the `Security` component.
 
-Note that Auth has a dependency on the `history` npm module. You should create an instance of this history object and pass it as a property to the `Auth` constructor. You should pass this same history object instance to `Router`
+Note that `Auth` has a dependency on the `history` npm module. You should create an instance of this history object and pass it as a property to the `Auth` constructor. You should pass this same history object instance to `Router`.
 
 ```javascript
 
