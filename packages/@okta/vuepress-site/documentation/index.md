@@ -1,53 +1,55 @@
 ---
 component: Documentation
-title: Documentation | Okta Developer
+title: Documentation
 meta:
  - name: description
    content: Secure, scalable, and highly available authentication and user management for any app.
+
 languages:
- - name: android
-   link: /code/android/
-   icon: code-android-32
- - name: angular
-   link: /code/angular/
-   icon: code-angular-32
- - name: react
-   link: /code/react/
-   icon: code-react-32
- - name: ios
-   link: /code/ios/
-   icon: code-ios-32
- - name: javascript
-   link: /code/javascript/
-   icon: code-javascript-32
- - name: vue.js
-   link: /code/vue/
-   icon: code-vue-32
- - name: Go
-   link: /code/go/
-   icon: code-go-32
- - name: java
-   link: /code/java/
-   icon: code-java-32
- - name: .net
-   link: /code/dotnet/aspnetcore/
-   icon: code-dotnet-32
- - name: node.js
-   link: /code/nodejs/
-   icon: code-nodejs-32
- - name: php
-   link: /code/php/
-   icon: code-php-32
- - name: rest
-   link: /code/rest/
-   icon: code-rest-32
+ - title: Languages & SDKs
+   description: Code and resources for your platform.
+   links:
+    - name: android
+      link: /code/android/
+      icon: code-android-32
+    - name: angular
+      link: /code/angular/
+      icon: code-angular-32
+    - name: react
+      link: /code/react/
+      icon: code-react-32
+    - name: ios
+      link: /code/ios/
+      icon: code-ios-32
+    - name: javascript
+      link: /code/javascript/
+      icon: code-javascript-32
+    - name: vue.js
+      link: /code/vue/
+      icon: code-vue-32
+    - name: Go
+      link: /code/go/
+      icon: code-go-32
+    - name: java
+      link: /code/java/
+      icon: code-java-32
+    - name: .net
+      link: /code/dotnet/aspnetcore/
+      icon: code-dotnet-32
+    - name: node.js
+      link: /code/nodejs/
+      icon: code-nodejs-32
+    - name: php
+      link: /code/php/
+      icon: code-php-32
+    - name: rest
+      link: /code/rest/
+      icon: code-rest-32
 
 sections:
    - title: Use Cases
+     description: Background and context for building on Okta.
      links:
-       - title: Inline Hooks
-         description: Integrate custom functionality into Okta process flows.
-         link: /use_cases/inline_hooks/
        - title: Authentication
          description: Overview of the ways Okta can be used to authenticate users depending on your needs.
          link: /use_cases/authentication/
@@ -65,16 +67,11 @@ sections:
          link: /use_cases/relationships/
 
    - title: API Reference
+     description: Information on API requests and system resources.
      links:
        - title: Sign in Your Users
          description: API endpoints to authenticate your users, challenge for factors, recover passwords, and more.
          link: /docs/api/resources/oidc/
-       - title: WebFinger
-         description: Determine the Identity Provider that a user should be routed to.
-         link: /reference/webfinger/
-       - title: SCIM Protocol
-         description: Enable SCIM-based provisioning from Okta to your application.
-         link: /reference/scim/
        - title: Manage Okta Resources
          description: REST endpoints to configure resources such as users, apps, sessions, and factors whenever you need.
          link: /docs/api/resources/roles/
@@ -91,13 +88,8 @@ sections:
          description: Import Okta API collections in Postman for easy inspection.
          link: /reference/postman_collections/
 
-   - title: Change Log
-     links:
-      - title: API Products Change Log
-        description: See what's new in API Products releases.
-        link: /docs/change-log/
-
    - title: How-To
+     description: Step-by-step guides for your use cases.
      links:
        - title: Add User Consent to Your Authentication Flow
          description: Add a user consent to your authentication or authorization flow
@@ -114,5 +106,19 @@ sections:
        - title: Upgrade SAML Apps to SHA256
          description: Upgrade SAML Apps to SHA256
          link:  /docs/how-to/updating_saml_cert/
+
+changelog_title: API Products Change Log
+
+band_links:
+  - title: We're Here to Help
+    icon: /img/icons/icon--docs-forum.svg
+    description: Get help from Okta engineers and community developers in our forum.
+    link: https://devforum.okta.com/
+    link_text: Go to Developer Forum
+  - title: Bring Your App to Okta Customers
+    icon: /img/icons/icon--docs-users.svg
+    description: Learn how to integrate Okta SSO and make your apps available to millions of enterprise users.
+    link: https://www.okta.com/integrate/
+    link_text: Go to okta.com/integrate
 
 ---

@@ -1,20 +1,30 @@
 <template>
-    <div>
-        <h2>{{section.title}}</h2>
-        <div class="Row">
-            <div class="Column--4 Column--small-12" v-for="(link, i) in section.links" :key="i">
-                <a :href="link.link">
-                    <h3 class="h4">{{link.title}}</h3>
-                </a>
-                <p>{{link.description}}</p>
-            </div>
-        </div>
-    </div>
+  <div class="Column--4 Column--medium-6 Column--small-12">
+    <h2>{{section.title}}</h2>
+    <p>{{section.description}}</p>
+    <ul>
+      <li v-for="(link, i) in section.links" :key="i">
+        <a :href="link.link">{{link.title}}</a>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-    export default {
-      name: 'GetStartedLinkGroup',
-      props: ['section']
-    }
+  export default {
+    name: 'GetStartedLinkGroup',
+    props: ['section']
+  }
 </script>
+
+<style scoped>
+  ul {
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: 18px;
+  }
+  ul li {
+    margin-bottom: 0.75rem;
+  }
+</style>
