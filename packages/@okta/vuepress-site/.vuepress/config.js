@@ -196,7 +196,13 @@ module.exports = {
 
   plugins: [
     '@okta/vuepress-plugin-my-okta',
-    '@okta/vuepress-plugin-active-header-links'
+    '@okta/vuepress-plugin-active-header-links',
+    [
+      'vuepress-plugin-sitemap', {
+        hostname: 'https://developer.okta.com',
+        outFile: 'docs-sitemap.xml'
+      }
+    ]
   ],
 
   evergreen: false,
