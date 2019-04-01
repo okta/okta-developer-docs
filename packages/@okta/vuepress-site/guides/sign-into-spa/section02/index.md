@@ -6,12 +6,12 @@ title: Define the Login Redirect/Callback
 The login flow for a single-page application (SPA) is similar to the following:
 
 1. The user loads your SPA app at some route, such as **X**.
-1. The user clicks **Login** or attempts access to a secure resource.
-2. The user's browser is redirected to Okta's site for authentication.
-3. The user successfully authenticates with Okta.
-4. Okta redirects the browser back to a specific `Login Redirect URI` that you have defined, along with an access token.
-5. Your SPA application is loaded at the route you defined as the `callback handler` that reads and stores the access token.
-6. The user is redirected back to the original route **X**.
+2. The user clicks **Login** or attempts access to a secure resource.
+3. The user's browser is redirected to Okta's site for authentication.
+4. The user successfully authenticates with Okta.
+5. Okta redirects the browser back to a specific `Login Redirect URI` that you have defined, along with an access token.
+6. Your SPA application is loaded at the route you defined as the `callback handler` that reads and stores the access token.
+7. The user is redirected back to the original route **X**.
 
 ### Login Redirect URI
 
