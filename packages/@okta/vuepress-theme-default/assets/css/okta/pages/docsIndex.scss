@@ -1,48 +1,80 @@
 .Docs {
   padding-bottom: 80px;
 
-  .Hero--docs {
-    padding-bottom: 80px;
-    color: get-color('white');
-    background: get-color('ebony-clay');
-    @media (max-width: 767px) {
-      padding-top: 120px;
-    }
+  .docs-title {
+    padding-top: 120px;
+    text-align: center;
+    color: get-color('default');
+
     @media (min-width: 1024px) {
       padding-top: 218px;
     }
-  	.Hero-subtitle {
-      margin: 64px auto 0;
-      font-size: 20px;
-      font-weight: 400;
-  	}
   }
 
-  #docs-languages {
-    margin: 40px auto 0;
+  .docs-languages {
     max-width: 860px;
+    margin: 40px auto 0;
+    text-align: center;
+
+    p {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
     .docs-page-tiles {
       display: flex;
       flex-wrap: wrap;
+      margin-top: 1.5rem;
+      margin-bottom: -40px;
       justify-content: center;
     }
+
     a {
       @extend %all-caps;
+
       display: inline-block;
       width: 132px;
+      padding: 24px 0 12px;
+      color: get-color('charcoal');
       font-size: 14px;
       text-decoration: none;
-      padding: 24px 0;
-      color: get-color('iron');
+
       &.active,
       &:hover {
-        color: get-color('white');
+        color: get-color('charcoal-hover');
       }
-      i.icon.docsPage {
-        text-shadow: none;
-        &::before,
-        &::after {
-          font-size: 48px;
+    }
+  }
+
+  i.icon.docsPage {
+    &::before,
+    &::after {
+      font-size: 48px;
+    }
+  }
+
+  .docs-changelog {
+    max-width: 24rem;
+    margin: 2rem auto;
+    padding-top: 2.5rem;
+    border-top: 2px solid get-color('iron');
+    text-align: center;
+
+    a {
+      font-size: 18px;
+
+      i.icon {
+        display: inline-block;
+        width: 24px;
+
+        &::before {
+          color: get-color('blue-bright');
+        }
+      }
+
+      &:hover {
+        i.icon::before {
+          color: get-color('blue-bright-hover');
         }
       }
     }
@@ -50,17 +82,17 @@
 
   &-content {
     .Row {
-      margin-left: -32px;
-      margin-right: -32px;
+      /*margin-left: -32px;
+      margin-right: -32px;*/
     }
     [class^='Column-'] {
       padding: 0 32px 32px;
     }
-		h2 {
-			margin: 40px 0 0 0;
-			color: get-color('default');
-		}
-		a {
+    h2 {
+      margin: 40px 0 0 0;
+      color: get-color('default');
+    }
+    a {
       &:hover {
         .h4 {
           color: get-color('blue-bright-hover');
@@ -71,8 +103,41 @@
       }
     }
     p {
-      margin: 10px 0;
+      margin: 1rem 0 2rem;
     }
-	}
+  }
 
+}
+
+.docs-elsewhere {
+  padding: 80px 0 20px;
+  background: get-color('elephant');
+  color: get-color('white');
+  text-align: center;
+
+  .docs-elsewhere-block {
+    padding-bottom: 80px;
+
+    img {
+      width: 36px;
+      height: 36px;
+    }
+
+    h4 {
+      margin-top: 0;
+      color: get-color('white');
+    }
+
+    p {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 40ch;
+    }
+
+    a {
+      @extend %all-caps;
+
+      color: get-color('white');
+    }
+  }
 }
