@@ -157,7 +157,7 @@ When modifying an existing assertions statement, the path could begin with `/sub
 
 ### error
 
-If you send an (non-null) `error` object in your response, it will stop Okta from returning the SAML assertion to the requester. Content you include inside the `error` object is not currently used.
+If you send a (non-null) `error` object in your response, it will stop Okta from returning the SAML assertion to the requester. Content you include inside the `error` object is not currently used.
 
 ## Sample Listing of JSON Payload of Request
 
