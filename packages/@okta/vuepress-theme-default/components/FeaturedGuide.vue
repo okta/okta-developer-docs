@@ -1,5 +1,5 @@
 <template>
-  <a :href="guideInfo.link" class="guide-featured">
+  <router-link :to="guideInfo.link" class="guide-featured">
     <header>
       <section>
         <h1 class="title">
@@ -12,14 +12,14 @@
     </section>
     <footer>
       <section class="icons">
-        <FrameworkIconBlock :frameworks="mainLanguagesOfGuide"/>
+        <FrameworkIconBlock :frameworks="mainFrameworksOfGuide"/>
       </section>
     </footer>
-  </a>
+  </router-link>
 </template>
 
 <script>
-  import { findGuides, findMainLanguagesOfGuide } from '../util/guides';
+  import { findGuides, findMainFrameworksOfGuide } from '../util/guides';
 
   export default {
     name: 'FeaturedGuide',
@@ -28,8 +28,8 @@
       guideInfo() { 
         return findGuides({ pages: this.$site.pages }).find( g => g.name === this.guide );
       },
-      mainLanguagesOfGuide() { 
-        return findMainLanguagesOfGuide({ guide: this.guide, pages: this.$site.pages });
+      mainFrameworksOfGuide() { 
+        return findMainFrameworksOfGuide({ guide: this.guide, pages: this.$site.pages });
       },
     },
   }

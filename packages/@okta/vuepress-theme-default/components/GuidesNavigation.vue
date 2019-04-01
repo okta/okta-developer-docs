@@ -2,13 +2,13 @@
   <aside class="guides-navigation">
     <ul class="guides">
       <li :class="{ overview: true, active: !guide }">
-        <a href="/guides/">Overview</a>
+        <router-link to="/guides/">Overview</router-link>
       </li>
       <li v-for="someGuide in guides" :class="{ active: someGuide.name === guide}">
-        <a :href="someGuide.link" class="guide">{{someGuide.title}}</a>
+        <router-link :to="someGuide.link" class="guide">{{someGuide.title}}</router-link>
         <ol v-if="someGuide.name === guide" class="sections">
           <li v-for="sec in sections" :class="{section: true, active: sec.name === section.name}">
-            <div class="highlight"><a :href="sec.makeLink(lang)">{{sec.title}}</a></div>
+            <div class="highlight"><router-link :to="sec.makeLink(framework)">{{sec.title}}</router-link></div>
           </li>
         </ol>
       </li>
@@ -20,7 +20,7 @@
   import { findGuides } from '../util/guides';
   export default {
     name: 'GuidesNavigation',
-    props: [ 'sections', 'lang', 'section', 'guide' ],
+    props: [ 'sections', 'framework', 'section', 'guide' ],
     computed: { 
       guides() { 
         return findGuides({ pages: this.$site.pages });

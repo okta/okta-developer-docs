@@ -10,7 +10,7 @@
           :sections="sections" 
           :section="section"
           :guide="guide" 
-          :lang="lang"
+          :framework="framework"
         />
         <GuidesOverview v-else :featured="featured"/>
       </div>
@@ -22,11 +22,11 @@
 
 <script>
   import { 
-    guideFromHash,
-    makeGuideHash,
+    guideFromPath,
+    makeGuidePath,
     findGuides,
     findGuideSections,
-    findMainLanguagesOfGuide
+    findMainFrameworksOfGuide
   } from '../util/guides';
   export default {
     components: {
@@ -39,10 +39,10 @@
     data() { 
       return {
         guide: null,
-        lang: null,
+        framework: null,
         section: null,
         sections: [],
-        currentHash: null,
+        currentPath: null,
       };    
     },
     computed: { 
@@ -51,36 +51,36 @@
       },
     },
     methods: { 
-      updateHash() { 
-        this.currentHash = window.location.hash = window.location.hash || '';
+      updatePath() { 
+        this.currentPath = window.location.pathname; 
       },
     },
     beforeMount() {
-      this.updateHash();
+      this.updatePath();
     },
     
     watch: {
-      currentHash() {
-        let { guide, lang, sectionNum } = guideFromHash(this.currentHash);
+      currentPath() {
+        let { guide, framework, sectionNum } = guideFromPath(this.currentPath);
         const pages = this.$site.pages;
         const sections = findGuideSections({ guide, pages });
         const section = sections[sectionNum-1 || 0];
 
-        if(!lang) { 
-          lang = findMainLanguagesOfGuide({ guide, pages })[0];
+        if(!framework) { 
+          framework = findMainFrameworksOfGuide({ guide, pages })[0];
           if(window && guide) { 
-            window.location.hash = makeGuideHash({ guide, lang, sectionNum });
+            window.location.pathname = makeGuidePath({ guide, framework, sectionNum });
           }
         }
 
         this.sections = sections;
         this.section = section;
         this.guide = guide;
-        this.lang = lang;
+        this.framework = framework;
       },
 
       '$route' (to, from) {  
-        this.updateHash();
+        this.updatePath();
       },
     }
   }

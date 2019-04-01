@@ -3,7 +3,7 @@
     <GuidesNavigation
       :sections="sections"
       :section="section"
-      :lang="lang"
+      :framework="framework"
       :guide="guide" 
     />
     <Content :pageKey="componentKey" id="guide_content" />
@@ -13,7 +13,7 @@
 <script>
   export default {
     name: 'GuideDetails',
-    props: [ 'componentKey', 'sections', 'guide', 'lang', 'section' ],
+    props: [ 'componentKey', 'sections', 'guide', 'framework', 'section' ],
     components: {
       GuidesNavigation: () => import('../components/GuidesNavigation.vue'),
     },
