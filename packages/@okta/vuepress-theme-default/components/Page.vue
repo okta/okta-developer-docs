@@ -5,7 +5,10 @@
     <!-- End Sidebar -->
 
     <!-- Begin Content -->
-    <Content class="PageContent-main"/>
+    <div class="PageContent-main">
+      <EditLink />
+      <Content />
+    </div>
     <!-- End Content -->
 
     <!-- Begin Table Of Contents -->
@@ -18,7 +21,8 @@
 export default {
   components: {
     TableOfContents: () => import('./TableOfContents.vue'),
-    Sidebar: () => import('./Sidebar.vue')
+    Sidebar: () => import('./Sidebar.vue'),
+    EditLink: () => import('./EditLink.vue')
   },
 
   computed: {

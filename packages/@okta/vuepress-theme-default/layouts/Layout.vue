@@ -40,18 +40,18 @@ export default {
         if (anchor) {
           let target = document.getElementById(anchor)
           if (target) {
-            window.scrollTo(0, (target.offsetTop - 160))
+            window.scrollTo(0, (target.offsetTop - 90))
           }
         }
 
-      let links = document.querySelectorAll('a[href*="#"]:not([href="#"])')
+      let links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href*="/quickstart/#"])')
 
       Array.from(links).forEach((link) => {
         link.addEventListener('click', function(event) {
           event.preventDefault()
           let target = document.querySelector(this.hash)
           if(target) {
-            window.scrollTo(0, (target.offsetTop - 40))
+            window.scrollTo(0, (target.offsetTop - 90))
           }
 
         })
