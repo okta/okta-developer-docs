@@ -30,8 +30,6 @@ command line and editing text files.
 If you're already familiar with Okta, you can skip to the
 section titled "Configuring SimpleSAMLphp to work with Okta."
 
-* Will be replaced with the ToC
-{:toc .list-unstyled .toc}
 
 ## Configuring Okta to work with SimpleSAMLphp
 
