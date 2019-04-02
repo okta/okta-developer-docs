@@ -31,8 +31,6 @@ using [virtualenv](https://virtualenv.pypa.io/en/latest/), and using
 If you're already familiar with Okta, you can skip to the
 section titled "Configuring PySAML2 to work with Okta."
 
-* Will be replaced with the ToC
-{:toc .list-unstyled .toc}
 
 ## Configuring Okta to work with PySAML2
 
