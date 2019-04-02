@@ -79,10 +79,10 @@
         this.framework = framework;
       },
 
-      '$route' (to, from) {  
+      '$route' () {  
         this.updatePath();
       },
-    }
+    },
   }
 
 </script>

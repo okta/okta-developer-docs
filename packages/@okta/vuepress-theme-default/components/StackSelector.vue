@@ -18,6 +18,24 @@
   export default {
     name: 'StackSelector',
     props: [ 'snippet' ],
+    data() { 
+      return { 
+        offsetFromViewport: null,
+      };
+    },
+    methods: { 
+      handleScroll() { 
+        // beforeUpdated was somehow AFTER the viewport offsets were calculated for new content
+        // thus we need to save this from before they swap tabs within the StackSelector
+        this.offsetFromViewport = this.$el.getBoundingClientRect().top;
+      },
+    },
+    created () {
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed () {
+      window.removeEventListener('scroll', this.handleScroll);
+    },
     computed: { 
       framework() { 
         // Default to first available framework
@@ -30,6 +48,16 @@
         const option = this.options.find( option => option.framework === this.framework );
         return (option ? option.key : '');
       },
+    },
+    updated() { 
+      // If we are the Stack Selector that was focused (clicked on), 
+      // scroll that we stay in the same position relative to the viewport
+      const isActive = Array.from(this.$el.querySelectorAll('.tabs a')).includes(document.activeElement);
+      if( isActive && this.offsetFromViewport ) { 
+        this.$nextTick(() => { // postponed to allow child components to rerender
+          window.scroll(0, this.$el.offsetTop - this.offsetFromViewport );
+        });
+      }
     },
   };
 </script>
