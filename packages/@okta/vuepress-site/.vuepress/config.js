@@ -208,6 +208,9 @@ module.exports = {
   evergreen: false,
 
   markdown: {
+    extendMarkdown: md => {
+      md.use(require('markdown-it-attrs'))
+    },
     anchor: {
       permalinkBefore: false,
       permalinkSymbol: '<i class="fa fa-link"></i>',
