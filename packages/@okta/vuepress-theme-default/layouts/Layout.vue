@@ -48,7 +48,6 @@ export default {
 
       Array.from(links).forEach((link) => {
         link.addEventListener('click', function(event) {
-          event.preventDefault()
           let target = document.querySelector(this.hash)
           if(target) {
             window.scrollTo(0, (target.offsetTop - 90))
