@@ -9,21 +9,22 @@ excerpt: Automated notifications of Okta events to drive your own proces flows.
 
 ## What Are Okta Event Hooks?
 
-Event hooks are outbound calls from Okta to your own custom code, triggered when particular Okta system events occur. They allow you to use these events to trigger process flows within your own software systems.
+Event hooks are outbound calls from Okta to your own custom code, triggered by the occurence of Okta system events related to your organization. 
+They enable you to use these events as triggers for process flows within your own software systems.
 
 You implement your custom code as a web service with an Internet-accessible endpoint. It's your responsibility to arrange hosting of your code on a system external to Okta. Okta defines the REST API contract for the HTTPS requests it sends to your custom code.
 
 The outbound call from Okta is called an event hook. Your code, which receives the call, is referred to as your external service.
 
-Event hooks use asynchronous calls, which means that the Okta process that triggered the event hook proceeds without waiting for any response from your code.
+Event hooks are asynchronous calls, which means that the Okta process that triggered the event hook proceeds without waiting for any response from your code.
 
 ## Eligible System Log Events
 
-When configuring an event hook, you specify the specific Okta System Log event types that you want the event hook to deliver to your external service. The set of event types that you can use is a sub-set of the event types that are logged by the Okta System Log. You can see the list of event types that are currently eligible for use in event hooks by querying the catalog of event types with the query parameter `webhook-eligible`:
+When configuring an event hook, you specify the specific event types that you want this event hook to deliver notifications of. The event types you can specify are a sub-set of the catalog of event types logged by the Okta System Log. You can see the list of event types currently-eligible for use with event hooks by querying the Event Types catalog with the query parameter `webhook-eligible`:
 
 [https://developer.okta.com/docs/api/resources/event-types?q=webhook-eligible](/docs/api/resources/event-types?q=webhook-eligible)
 
-## Inline Hook Process Flow
+## Event Hook Process Flow
 
 ### Extension Points
 
@@ -99,23 +100,6 @@ You need to return an HTTP status code with your response. Typically, your servi
 
 Don't use the HTTP status code to return information to Okta regarding problems your service has detected in the data; use an [error](#error) object sent in the JSON payload of the response. HTTP error codes should not be used unless your service could not parse the request from Okta.
 
-### JSON Payload Objects
-
-You can include any of the following types of objects in the JSON payload:
-
-#### commands
-
-Lets you return commands to Okta to affect the process flow being executed and to modify values within Okta objects. The available commands differ by inline hook type and are defined in the specific documentation for each inline hook type.
-
-The `commands` object is an array, allowing you to return more than one command in your response. Each element within the array needs to consist of a pair of `type` and `value` elements. Each `type` element needs to be the name of a supported command you wish to invoke. The corresponding `value` element is the operand you wish to specify for the command.
-
-The names of commands follow Java-style reverse DNS name format, beginning with `com.okta`, followed by an Okta object that the command operates on, and then an action.
-
-#### error
-
-Lets you return error messages. How the error data is used varies by inline hook type.
-
-Within an `error` object, you need to provide an `errorSummary` property set to a text string. Additionally, you can use an `errorCauses` object to supply more information. A single error object can contain multiple `errorCauses` objects. The fields within errorCauses are: `errorSummary`, `reason`, `locationType`, `location`, and `domain`.
 
 ## Inline Hook Setup
 
@@ -129,6 +113,10 @@ After creating your external service, you need to tell Okta it exists, and enabl
 
 For more information on implementing inline hooks, see the documentation for specific inline hook types linked to in [Currently-Supported Types](#currently-supported-types).
 
+## Sample Event Delivery Payload
+
+The following is an example of what the JSON payload of a request from Okta to your external service looks like:
+
 ```json
 {
   "eventType": "com.okta.event_hook",
@@ -136,7 +124,7 @@ For more information on implementing inline hooks, see the documentation for spe
   "cloudEventsVersion": "0.1",
   "eventID": "b5a188b9-5ece-4636-b041-482ffda96311",
   "eventTime": "2019-03-27T16:59:53.032Z",
-  "source": "https://{yourOrg}.okta.com/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
+  "source": "https://{yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
   "data": {
     "events": [
       {
@@ -168,11 +156,6 @@ For more information on implementing inline hooks, see the documentation for spe
         "transaction": {
           "type": "WEB",
           "id": "V04Oy4ubUOc5UuG6s9DyNQAABtc"
-        },
-        "debugContext": {
-          "debugData": {
-            "requestUri": "/login/do-login"
-          }
         },
         "legacyEventType": "core.user_auth.login_success",
         "authenticationContext": {
