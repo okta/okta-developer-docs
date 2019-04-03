@@ -9,9 +9,9 @@ excerpt: Use Okta events to drive custom process flows.
 
 ## What Are Okta Event Hooks?
 
-Event hooks are outbound calls from Okta to your own custom code, sent by Okta when specified events occur in your org. They take the form of REST calls to a URL you specify, encapsulating information about events that occurred in JSON objects in the request body. You can use these calls from Okta as realtime triggers for process flows within your own software systems.
+Event hooks are outbound calls from Okta to your own custom code, sent by Okta when specified events occur in your org. They take the form of REST calls to the URL you specify, encapsulating information about events in JSON objects in the request body. You can use these calls from Okta as triggers for process flows within your own software systems.
 
-To handle these calls from Okta, you need to implement a web service with an Internet-accessible endpoint. It's your responsibility to develop the code and to arrange the hosting of the web service on a system external to Okta. Okta defines the REST API contract for the HTTPS requests it sends to your external service.
+To handle these calls from Okta, you need to implement a web service with an Internet-accessible endpoint. It's your responsibility to develop the code and to arrange the hosting of the web service on a system external to Okta. Okta defines the REST API contract for the HTTPS requests it will send to your external service.
 
 Okta event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/). Event hooks let you receive notification of events, but do not let you affect Okta's internal execution of its process flows.
 
@@ -19,26 +19,11 @@ Event hooks are asynchronous calls, which means that the process flow that trigg
 
 ## Which Events are Eligible?
 
-When configuring an event hook, you specify the event types that you want the event hook to notify you of. You can choose from a subset of the event types captured in the Okta System Log. The list of event types currently eligible is available by querying the Event Types catalog with the query parameter `webhook-eligible`:
+When configuring an event hook, you specify the event types that you want the event hook to send notifications for. You can choose from a subset of the event types that the Okta System Log captures. Query the Event Types catalog with the query parameter `webhook-eligible` tor return the list of event types that are currently eligible:
 
 [https://developer.okta.com/docs/api/resources/event-types/?q=webhook-eligible](/docs/api/resources/event-types/?q=webhook-eligible)
 
-## Event Hook Process Flow
-
-### Request Overview
-
-Okta's request to your external service consists of an HTTPS POST request with a JSON payload. The objects included in the JSON payload provide data relevant to the event type. The set of objects varies depending on the type of event.
-
-## One-Time Verification Request
-
-After registering an event hook and before you can use it, you need to have Okta perform a one-time HTTPS GET request to your endpoint, performing a verification test that proves you control the endpoint. Your web service therefore needs to be handle this type of GET verificationrequest, in addition to the ongoing POST requests it will receive.
-
-
-## Ongoing Event Delivery Requests
-
-### HTTP Method
-
-Okta uses an HTTPS POST request to call your service.
+## Request Sent by Okta
 
 ### HTTP Header
 
@@ -49,22 +34,23 @@ Accept: application/json
 Content-Type: application/json
 Authorization: ${key}
 ```
-
-#### Authorization Header
+### Authorization Header
 
 The Authorization header is a secret string you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This is not an Okta authorization token, it is simply a text string you decide on.)
 
-### JSON Payload Objects
+## One-Time Verification Request
 
-The JSON payload is where Okta provides specific information about the process flow that's being executed, so that your external service can evaluate the specific situation. Information is encapsulated in JSON objects. The set of objects sent depends on the type of inline hook you're using. Objects are defined in the specific documentation for each type of inline hook.
+After registering an event hook, but before you can use it, you need to have Okta perform a one-time HTTPS GET request to your endpoint, which serves as a test proving that you control the endpoint. Your web service therefore needs to implement logic to handle this one-time GET verification request process, in addition to the ongoing requests it will receive containing notifications of events. The ongoing requests will be HTTPS POST requests; this one-time verification request is the only GET request Okta will send to your external service
 
-The objects providing this information are nested within a larger object called `data`.
+This one-time verification request from Okta contains a header named `X-Okta-Verification-Token`. Your external service needs to take the value that that header is set to, and return it in the response body in a JSON object named `verification`, i.e.: `{ "verificationToken" : "value_from_header" }`
 
-Always included is `data.context`, providing context information. In general, `data.context` encapsulates Okta objects that your external service cannot affect, while objects in `data` that are outside of `data.context` encapsulate objects that your external service does have the ability to affect, by means of the commands it sends in its response.
+## Ongoing Event Delivery Requests
 
-### Timeout and Retry
+For ongoing notification of events, Okta uses an HTTPS POST request to call your service. The JSON payload is where Okta provides specific information about events that have occurred. Information is encapsulated in the `data.events` object, which is an array in order to support multiple events. Each element of the array provides information on one event, using the format of the [LogEvent](/docs/api/resources/system_log/#example-logevent-object) that the [System Log API](/docs/api/resources/system_log/) defines.
 
-When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. If the external service endpoint responds with a redirect, it is not followed.
+## Timeout and Retry
+
+When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry.
 
 ### Security
 
@@ -72,17 +58,13 @@ To secure the communication channel between Okta and your external service, HTTP
 
 ## Response
 
-Your external service's response to Okta's POST should be empty.
-
-### HTTP Status Code
-
-Your service should return an HTTP status code of 200 (OK) or 204 (No Content).
+Your external service's response to Okta's POST should be empty and should have an HTTP status code of 200 (OK) or 204 (No Content).
 
 ## Event Hook Setup
 
 ### Registering an Event Hook
 
-After creating your external service, you need to tell Okta it exists, and enable it for a particular process flow. The steps are:
+After creating your external service, you need to tell Okta it exists, select the event types that it should send information for, and configure its authentication scheme. The steps are:
 
 1. Create an external service.
 
