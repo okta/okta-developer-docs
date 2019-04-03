@@ -1,23 +1,23 @@
 ---
-title: Inline Hooks
-excerpt: Integrate custom functionality into Okta process flows.
+title: Event Hooks
+excerpt: Use automated notifications of Okta events to drive your own proces flows.
 ---
 
-# Inline Hooks
+# Event Hooks
 
 <ApiLifecycle access="ea" />
 
-## What Are Okta Inline Hooks?
+## What Are Okta Event Hooks?
 
-Inline hooks are outbound calls from Okta to your own custom code, triggered at specific points in Okta process flows. They allow you to integrate custom functionality into those flows.
+Event hooks are outbound calls from Okta to your own custom code, triggered when particular Okta system events occur. They allow you to use these events to trigger process flows within your own software systems.
 
-You implement your custom code as a web service with an Internet-accessible endpoint. It's your responsibility to arrange hosting of your code on a system external to Okta. Okta defines the REST API contract for the requests it sends to your custom code, as well as for the responses your custom code can send back.
+You implement your custom code as a web service with an Internet-accessible endpoint. It's your responsibility to arrange hosting of your code on a system external to Okta. Okta defines the REST API contract for the requests it sends to your custom code.
 
-The outbound call from Okta is called a hook. Your code, which receives the call, is referred to as your external service.
+The outbound call from Okta is called an event hook. Your code, which receives the call, is referred to as your external service.
 
-Inline hooks use synchronous calls, which means that the Okta process that triggered the hook is paused until a response from your service is received.
+Event hooks use asynchronous calls, which means that the Okta process that triggered the event hook proceeds without waiting for any response from your code.
 
-## Multiple Types of Okta Inline Hooks
+## Eligible Events
 
 Okta defines several different types of inline hooks. Each type of inline hook makes it possible to customize a different Okta process flow. All the types share the same general syntax for requests and responses sent between Okta and the external service, but each differs in the specifics of the JSON objects that are sent and received. When implementing your external service, you need to develop your code according to the details of the particular type of hook you intend to use.
 
