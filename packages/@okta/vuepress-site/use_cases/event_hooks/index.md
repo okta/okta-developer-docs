@@ -27,7 +27,10 @@ When configuring an event hook, you specify the specific event types that you wa
 
 Okta's request to your external service consists of an HTTPS POST request with a JSON payload. The objects included in the JSON payload provide data relevant to the event type. The set of objects varies depending on the type of event.
 
-## The Request
+## One-Time Verification Requests
+
+
+## Ongoing Event Delivery Requests
 
 ### HTTP Method
 
@@ -71,7 +74,9 @@ Your external service's response to Okta's POST should be empty.
 
 Your service should return an HTTP status code of 200 (OK) or 204 (No Content).
 
-## Inline Hook Setup
+## Event Hook Setup
+
+### Registering an Event Hook
 
 After creating your external service, you need to tell Okta it exists, and enable it for a particular process flow. The steps are:
 
@@ -82,6 +87,10 @@ After creating your external service, you need to tell Okta it exists, and enabl
 1. Associate the endpoint with a particular Okta process flow. How to do this varies by inline hook type.
 
 For more information on implementing inline hooks, see the documentation for specific inline hook types linked to in [Currently-Supported Types](#currently-supported-types).
+
+### Verifying an Event Hook
+
+
 
 ## Sample Event Delivery Payload
 
