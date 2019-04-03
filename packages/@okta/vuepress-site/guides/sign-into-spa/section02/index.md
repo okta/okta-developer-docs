@@ -1,29 +1,40 @@
 ---
-title: Create an Okta Application
+title: Define the Login Redirect/Callback
 ---
-## Create an Okta Application
+## Define the Login Redirect/Callback
 
-In Okta, applications are OpenID Connect (OIDC) clients that can use Okta Authorization Servers to authenticate users. Your Okta org already has a default Authorization Server, so you just need to create an OIDC client that uses it.
+The login flow for a single-page application (SPA) is similar to the following:
 
-1. Sign in to the Okta Developer Console, click **Applications**, and then **Add Application**.
-2. Select **Single-Page App (SPA)** as the platform, and then click **Next**.
-3. Provide a name for your SPA application or leave the default value.
-4. Enter the correct port in the **Base URIs** box, for example: `http://localhost:{port}`, and then enter the correct port in the **Login redirect URIs** box, for example: `http://localhost:{port}/implicit/callback`. 
+1. The user loads your SPA app at some route, such as **X**.
+2. The user clicks **Login** or attempts access to a secure resource.
+3. The user's browser is redirected to Okta's site for authentication.
+4. The user successfully authenticates with Okta.
+5. Okta redirects the browser back to a specific `Login Redirect URI` that you have defined, along with an access token.
+6. Your SPA application is loaded at the route you defined as the `callback handler` that reads and stores the access token.
+7. The user is redirected back to the original route **X**.
 
-If you are running this app locally and are using the defaults from the appropriate documentation, then your port is:
+### Login Redirect URI
 
-<StackSelector snippet="port"/>
+In your SPA app, you should define a new route where your app can handle the redirect callback.
 
-5. Leave **Implicit** selected for **Grant Types Allowed**.
-6. Click **Done**.
-7. On the **General** tab of the app that you just created, click **Edit** and enter the correct URI in the **Logout redirect URIs** box. <!-- See [Sign Users Out]for more information. -->
+On successful authentication, an access token is present in the hash fragment of this URI for your app to consume.
 
-### Things You Need
-After you create the application, there are two values that you need:
+Ultimately, your app is responsible to read this token from the URI and pass it to the `handleAuthorization()` method, which  stores the access token in `localStorage`. After this, your app should complete the flow by redirecting to the original route. 
 
-* **Client ID** - Find it in the applications list or on the **General** tab of a specific application.
-* **Org URL** - Find it on the Developer console dashboard in the upper-right corner. 
+Luckily, we have provided components that implement this logic for you. See [Handle the Callback from Okta](handle-the-callback-from-Okta).
 
-These values are used in your application to set up the OpenID Connect flow with Okta.
+#### Background: Routing in a SPA
+
+Unlike traditional web applications where all HTML is rendered on a server and returned to the client, a SPA usually includes only a minimal amount of HTML returned from the server. The vast majority of HTML is rendered client-side and the DOM is updated dynamically using Javascript.
+
+To create the illusion of multiple 'pages' while also maintaining support for browser reload on any 'page', most SPAs define a set of 'routes' mapped from a path element or hash fragment of the URI.
+
+On the server side, all paths that are handled by the SPA are usually set in a wildcard fashion to return the same response: a static HTML document that loads the SPA.
+
+The path you choose for the `Login Redirect URI` should serve your SPA even after a 'hard' browser reload. Depending on your setup and the path you choose, this may require additional server configuration.
+
+
+
+
 
 

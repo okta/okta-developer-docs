@@ -1,0 +1,1 @@
+`npm i -S @okta/okta-angular`

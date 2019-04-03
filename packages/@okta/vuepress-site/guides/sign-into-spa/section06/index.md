@@ -1,12 +1,9 @@
 ---
-title: Get Info About the User
+title: Configure the SDK
 ---
-## Get Info About the User
+## Configure the SDK
 
-Okta sends back user profile information that you can use in your application.
+Initialize and configure the Okta SDK using the config object you created in the previous step. 
 
-<StackSelector snippet="getuserinfo"/>
+<StackSelector snippet="config"/>
 
-### Customize the Claims Returned
-
-You can also customize the items (called claims) that are returned from Okta. <!-- See [Token customization guide]. -->

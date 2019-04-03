@@ -1,10 +1,12 @@
 ---
-title: Use the Access Token
+title: Provide the Login/Logout Buttons
 ---
-## Use the Access Token
+## Provide the Login/Logout Buttons (Redirect to the Sign-in Page) 
 
-After your user is authenticated, your application has an access token in local storage that was issued by your Okta authorization server. You can use this token to authenticate requests for resources on your server or API. As a hypothetical example, let's say that you have an API that provides messages for a user. You could create a `MessageList` component that gets the access token from local storage and uses it to make an authenticated request to your server.
+In the relevant location in your application, you want to provide `Login` and `Logout` buttons for the user.
 
-Here is what the component could look like for this hypothetical example:
+When a user clicks the **Login** button, they are redirected to the Okta hosted sign-in page where they can authenticate.
 
-<StackSelector snippet="getaccesstoken"/>
+<!-- >> Note: To customize this sign-in page, see the [Customization Guide](customization-guide-link). -->
+
+<StackSelector snippet="login-redirect"/>
