@@ -107,7 +107,7 @@ The following sub-objects are included:
 
 ## Objects in Response You Send
 
-For the SAML Assertion Inline Hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
+For the SAML Assertion Inline Hook, the `commands` object that you can return in the JSON payload of your response is defined as follows:
 
 ### commands
 
@@ -154,10 +154,6 @@ You specify the location within the assertion at which to apply your operation u
 When performing an `add` op to add a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding.
 
 When modifying an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, e.g., `/claims/array/attributeValues/1/value`.
-
-### error
-
-If you send a (non-null) `error` object in your response, it will stop Okta from returning the SAML assertion to the requester. Content you include inside the `error` object is not currently used.
 
 ## Sample Listing of JSON Payload of Request
 
@@ -357,15 +353,6 @@ If you send a (non-null) `error` object in your response, it will stop Okta from
               }
             ]
           }
-        },
-        {
-          "op": "replace",
-          "path": "/conditions/audienceRestriction",
-          "value": [
-            "urn:example:sp",
-            "one:element",
-            "two:elements"
-          ]
         }
       ]
     },
