@@ -9,15 +9,17 @@ excerpt: Use Okta events to drive custom process flows.
 
 ## What Are Okta Event Hooks?
 
-Event hooks are outbound calls from Okta to your own custom code, sent when specified events occur in your Okta org. At the time of the event, Okta makes a REST call to a URL you specify, sending information about the event in the request body. You can use these calls from Okta as triggers for process flows within your own software systems.
+Event hooks are outbound calls from Okta to your own custom code, which Okta sends when specified events occur in your Okta org.
 
-You need to develop the custom code that will handle the calls from Okta. Your code needs to implement a web service with an Internet-accessible endpoint. It's your responsibility to arrange the hosting of your code on a system external to Okta. Okta defines the REST API contract for the HTTPS requests it sends to your custom code.
+At the time of the event, Okta makes a REST call to a URL you specify, sending information about the event in the request body. You can use these calls from Okta as triggers for process flows within your own software systems.
 
-The outbound call from Okta is called an event hook. Your code, which receives the call, is referred to as your external service. Event hooks are asynchronous calls, which means that the Okta process that triggered the event hook proceeds without waiting for any response from your code.
+You need to develop the custom code that handles the calls from Okta. Your code needs to implement a web service with an Internet-accessible endpoint. It's your responsibility to arrange the hosting of your code on a system external to Okta. Okta defines the REST API contract for the HTTPS requests it sends to your custom code.
+
+The outbound call from Okta is called an event hook. Your code, which receives the call, is referred to as your external service. Event hooks are asynchronous calls, which means that the Okta process that triggered the event hook continues without waiting for any response from your code.
 
 ## Eligible System Log Events
 
-When configuring an event hook, you specify the specific event types that you want the event hook to send information for. The event types you can choose are a subset of the catalog of event types used in the Okta System Log. You can see the list of event types currently-eligible for use with event hooks by querying the Event Types catalog with the query parameter `webhook-eligible`:
+When configuring an event hook, you specify the specific event types that you want that event hook to send information for. The event types you can choose from are a subset of the catalog of event types used in the Okta System Log. You can see the list of event types currently-eligible for use with event hooks by querying the Event Types catalog with the query parameter `webhook-eligible`:
 
 [https://developer.okta.com/docs/api/resources/event-types/?q=webhook-eligible](/docs/api/resources/event-types/?q=webhook-eligible)
 
@@ -27,7 +29,7 @@ When configuring an event hook, you specify the specific event types that you wa
 
 Okta's request to your external service consists of an HTTPS POST request with a JSON payload. The objects included in the JSON payload provide data relevant to the event type. The set of objects varies depending on the type of event.
 
-## One-Time Verification Requests
+## One-Time Verification Request
 
 
 ## Ongoing Event Delivery Requests
