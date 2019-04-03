@@ -22,7 +22,7 @@ Event hooks are asynchronous calls, which means that the Okta process that trigg
 
 When configuring an event hook, you specify the specific event types that you want this event hook to deliver notifications of. The event types you can specify are a sub-set of the catalog of event types logged by the Okta System Log. You can see the list of event types currently-eligible for use with event hooks by querying the Event Types catalog with the query parameter `webhook-eligible`:
 
-[https://developer.okta.com/docs/api/resources/event-types?q=webhook-eligible](/docs/api/resources/event-types?q=webhook-eligible)
+[https://developer.okta.com/docs/api/resources/event-types/?q=webhook-eligible](/docs/api/resources/event-types/?q=webhook-eligible)
 
 ## Event Hook Process Flow
 
