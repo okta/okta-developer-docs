@@ -6578,7 +6578,7 @@ The Links Object is read only.
 
 ### User Object
 
-A subset of [user properties](users#user-model) published in an authentication or recovery transaction after the user successfully completes primary authentication.
+A subset of [user properties](/docs/api/resources/users/#user-model) published in an authentication or recovery transaction after the user successfully completes primary authentication.
 
 | Property          | Description                                       | DataType                                              | Nullable | Unique | Readonly |
 | ----------------- | ------------------------------------------------- | ----------------------------------------------------- | -------- | ------ | -------- |
