@@ -1487,7 +1487,6 @@ Example from a Policy Object
 
 #### Credentials Properties
 
-| -------------   | ------------------------------------------------------------------------------------------------------------------------   | ----------   | ----------   | ---------- |
 | Property        | Description                                                                                                                | DataType     | Required     | Updatable  |
 | :-------------- | :------------------------------------------------------------------------------------------------------------------------- | :----------- | :----------- | :--------- |
 | kid             | The ID of the JSON Web Key used for signing tokens issued by the authorization server.                                     | String       | FALSE        | FALSE      |

@@ -1023,7 +1023,6 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * Different application types have different valid values for the corresponding grant type:
 
-|-------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------|
 | Application Type  | Valid Grant Type                                              | Requirements                                                                      |
 | ----------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | `web`             | `authorization_code`, `implicit`, `refresh_token`             | Must have at least `authorization_code`                                           |

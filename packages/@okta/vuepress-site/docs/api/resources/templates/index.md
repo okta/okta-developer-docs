@@ -364,7 +364,6 @@ HTTP/1.1 204 No Content
 
 All templates have the following properties:
 
-|------------------------+--------------------------------------------------------------+----------------------------------------------------------------|----------|-----------|-----------|
 | Property               | Description                                                         | DataType                                                       | Readonly | MinLength | MaxLength |
 | ---------------------- | ------------------------------------------------------------        | -------------------------------------------------------------- | -------- | --------- | --------- |
 | id                     | Unique key for template                                             | String                                                         | TRUE     | 20        | 20        |
@@ -374,7 +373,6 @@ All templates have the following properties:
 | created                | Timestamp when template was created                                 | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
 | lastUpdated            | Timestamp when template was last updated                            | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
 | translations           | Array of [translations](#translation-attributes)                    | Array                                                          | N/A      | N/A       | N/A       |
-|------------------------+--------------------------------------------------------------+----------------------------------------------------------------|----------|-----------|-----------|
 
 > NOTE: The final length of your SMS message cannot exceed 160 characters. If the verification code portion of the message falls outside of the 160-character limit, your message will not be sent.
 
@@ -396,19 +394,15 @@ The key portion is a two-letter country code conforming to [ISO 639-1](https://e
 
 ### SMS Template Types
 
-|-------------------+--------------------------------------------------------------------------------------------------+
 | Type              | Description                                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------ |
 | `SMS_VERIFY_CODE` | This template is used when the SMS for code verification is sent.                                |
-|-------------------+--------------------------------------------------------------------------------------------------+
 
 ### SMS Template Macros
 
 Currently only two macros are supported for SMS templates.
 
-|-------------------+--------------------------------------------------------------------------------------------------+
 | Type              | Description                                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------ |
 | `${code}`         | The one-time verification code that is required for login.                                       |
 | `${org.name}`     | The name of the Okta organization that the user is trying to authenticate into.                  |
-|-------------------+--------------------------------------------------------------------------------------------------+

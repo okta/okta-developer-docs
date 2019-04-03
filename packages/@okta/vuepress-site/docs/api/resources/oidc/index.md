@@ -1040,7 +1040,6 @@ OpenID Connect uses scope values to specify what access privileges are being req
 The scopes associated with access tokens determine which claims are available when they are used
 to access the OIDC `/userinfo` [endpoint](/docs/api/resources/oidc#userinfo). The following scopes are supported:
 
-| -------------    | -------------------------------------------------------------------------------                                 | -------------- |
 | Property         | Description                                                                                                     | Required       |
 | :--------------- | :-------------------------------------------------------------------------------------------------------------- | :------------- |
 | openid           | Identifies the request as an OpenID Connect request.                                                            | Yes            |
