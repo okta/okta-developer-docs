@@ -1,6 +1,6 @@
 ---
 title: Event Hooks
-excerpt: Automated notifications of Okta events to drive your own proces flows.
+excerpt: Use Okta events to drive custom process flows.
 ---
 
 # Event Hooks
@@ -9,14 +9,11 @@ excerpt: Automated notifications of Okta events to drive your own proces flows.
 
 ## What Are Okta Event Hooks?
 
-Event hooks are outbound calls from Okta to your own custom code, triggered by the occurence of Okta system events related to your organization. 
-They enable you to use these events as triggers for process flows within your own software systems.
+Event hooks are outbound calls from Okta to your own custom code that occur when specified events happen in your Okta org. When an event occurs, Okta makes a REST call to a URL you specify, sending information about the event. You can use these calls as triggers for process flows within your own software systems.
 
-You implement your custom code as a web service with an Internet-accessible endpoint. It's your responsibility to arrange hosting of your code on a system external to Okta. Okta defines the REST API contract for the HTTPS requests it sends to your custom code.
+You need to implement your custom code for handling the calls from Okta. This needs to be a web service with an Internet-accessible endpoint. It's your responsibility to arrange hosting of your code on a system external to Okta. Okta defines the REST API contract for the HTTPS requests it sends to your custom code.
 
-The outbound call from Okta is called an event hook. Your code, which receives the call, is referred to as your external service.
-
-Event hooks are asynchronous calls, which means that the Okta process that triggered the event hook proceeds without waiting for any response from your code.
+The outbound call from Okta is called an event hook. Your code, which receives the call, is referred to as your external service. Event hooks are asynchronous calls, which means that the Okta process that triggered the event hook proceeds without waiting for any response from your code.
 
 ## Eligible System Log Events
 
@@ -26,25 +23,7 @@ When configuring an event hook, you specify the specific event types that you wa
 
 ## Event Hook Process Flow
 
-### Extension Points
-
-The points in Okta process flows where inline hooks can be triggered are called extension points, because they are where you can extend Okta functionality. Each type of inline hook is triggered at a particular extension point in a particular Okta process flow. At an extension point, if you have configured an inline hook, Okta calls your external service, and waits for a response. When the response is received, Okta resumes the process flow.
-
-### Inline Hook Call within an Okta Process Flow
-
-The graphic below illustrates the sequence of steps:
-
-![Hook Call Steps Diagram](/img/hook-call-steps.png "Hook Call Steps Diagram")
-
-1. During the execution of an Okta process flow, at the extension point between points A and B, Okta sends a request to your external service.
-
-1. Your external service performs some processing.
-
-1. Your external service sends a response back to Okta.
-
-1. Okta receives the response, acts on any commands it includes, and resumes the process flow that originally triggered the inline hook.
-
-### Request and Response Overview
+### Request Overview
 
 Okta's request to your external service consists of an HTTPS POST request with a JSON payload. The objects included in the JSON payload provide data relevant to the process flow that triggered the inline hook. The set of objects varies depending on the type of inline hook you're using.
 
@@ -88,18 +67,13 @@ When Okta calls your external service, it enforces a default timeout of 3 second
 
 To secure the communication channel between Okta and your external service, HTTPS is used for requests, and support is provided for header-based authentication. Okta recommends that you implement an authentication scheme using the authentication header, to be used to authenticate every request received by your external service.
 
-## The Response
+## Response
 
-Your service receives the request from Okta and needs to respond to it. The response needs to include an HTTP response code and will usually also include a JSON payload. In particular, you will typically include a `commands` object in the JSON payload to specify actions for Okta to execute or to communicate information back to Okta.
+Your external service's response to Okta's POST should be empty.
 
 ### HTTP Status Code
 
-You need to return an HTTP status code with your response. Typically, your service should return an HTTP status code of 200 (OK). In inline hook types that support empty responses, HTTP status code 204 (No Content) needs to be provided when sending an empty response.
-
-#### Don't Use HTTP Status Code to Return Information
-
-Don't use the HTTP status code to return information to Okta regarding problems your service has detected in the data; use an [error](#error) object sent in the JSON payload of the response. HTTP error codes should not be used unless your service could not parse the request from Okta.
-
+Your service should return an HTTP status code of 200 (OK) or 204 (No Content).
 
 ## Inline Hook Setup
 
