@@ -151,7 +151,6 @@ When your users are authenticated, your Vue application has an access token that
 
 Here is what the Vue component could look like for this hypothetical example using [axios](https://github.com/axios/axios):
 
-{% raw %}
 
 ```typescript
 // src/components/MessageList.vue
@@ -187,7 +186,6 @@ export default {
 </script>
 ```
 
-{% endraw %}
 
 In the next section you can select your server technology to see how your server can read this incoming token and validate it.
 
