@@ -9,7 +9,7 @@ excerpt: Use Okta events to drive custom process flows.
 
 ## What Are Okta Event Hooks?
 
-Event hooks are outbound calls from Okta to your own custom code sent when specified events occur in your Okta org. At the time of the event, Okta makes a REST call to a URL you specify, sending information about the event in the request body. You can use these REST calls from Okta as triggers for process flows within your own software systems.
+Event hooks are outbound calls from Okta to your own custom code, sent when specified events occur in your Okta org. At the time of the event, Okta makes a REST call to a URL you specify, sending information about the event in the request body. You can use these calls from Okta as triggers for process flows within your own software systems.
 
 You need to develop the custom code that will handle the calls from Okta. Your code needs to implement a web service with an Internet-accessible endpoint. It's your responsibility to arrange the hosting of your code on a system external to Okta. Okta defines the REST API contract for the HTTPS requests it sends to your custom code.
 
@@ -17,7 +17,7 @@ The outbound call from Okta is called an event hook. Your code, which receives t
 
 ## Eligible System Log Events
 
-When configuring an event hook, you specify the specific event types that you want this event hook to send information for. The event types you can choose are a subset of the catalog of event types used in the Okta System Log. You can see the list of event types currently-eligible for use with event hooks by querying the Event Types catalog with the query parameter `webhook-eligible`:
+When configuring an event hook, you specify the specific event types that you want the event hook to send information for. The event types you can choose are a subset of the catalog of event types used in the Okta System Log. You can see the list of event types currently-eligible for use with event hooks by querying the Event Types catalog with the query parameter `webhook-eligible`:
 
 [https://developer.okta.com/docs/api/resources/event-types/?q=webhook-eligible](/docs/api/resources/event-types/?q=webhook-eligible)
 
@@ -57,7 +57,7 @@ Always included is `data.context`, providing context information. In general, `d
 
 ### Timeout and Retry
 
-When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. A request is not retried if the customer endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful and not retried. If the external service endpoint responds with a redirect, it is not followed.
+When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. If the external service endpoint responds with a redirect, it is not followed.
 
 ### Security
 
