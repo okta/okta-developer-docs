@@ -1,7 +1,6 @@
 const FRAMEWORK_TO_COMMON_NAME = { 
   js: 'javascript',
   reactjs: 'react',
-  // nodejs: 'node',
   node: 'nodejs',
   vuejs: 'vue',
   '.net': 'dotnet',
