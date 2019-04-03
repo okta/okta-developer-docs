@@ -1,25 +1,32 @@
 const FRAMEWORK_TO_COMMON_NAME = { 
   js: 'javascript',
   reactjs: 'react',
-  nodejs: 'node',
+  node: 'nodejs',
   vuejs: 'vue',
   '.net': 'dotnet',
+  net: 'dotnet',
 };
 
 const COMMON_NAME_TO_FANCY_NAME = { 
   javascript: 'JS',
   angular: 'Angular',
   react: 'React',
+  preact: 'Preact',
   vue: 'Vue.js',
   java: 'Java',
-  node: 'Node.js',
+  nodejs: 'Node.js',
   android: 'Android',
   ios: 'iOS',
+  osx: 'OSX',
   go: 'Go',
+  spring: 'Spring',
   dotnet: '.NET',
+  netcore: '.NET Core',
   php: 'PHP',
+  python: 'Python',
   rest: 'REST',
   reactnative: 'React Native',
+  xamarin: 'Xamarin',
 };
 
 const COMMON_NAME_TO_ICON_NAME = { 

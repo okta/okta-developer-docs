@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import { commonify, fancify } from '../util/frameworks';
+  import { commonify, fancify, iconify, cssForIcon } from '../util/frameworks';
   export default {
     name: 'FrameworkIconBlock',
     props: ['frameworks'],
@@ -17,8 +17,7 @@
             framework => ({
               framework, 
               title: fancify(framework),
-              icon: `code-${framework}-32`,
-              css: `icon code-${framework}-32`
+              css: cssForIcon(framework)
               })
             );
       },
