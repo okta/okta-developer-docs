@@ -9,19 +9,17 @@ excerpt: Use Okta events to drive custom process flows.
 
 ## What Are Okta Event Hooks?
 
-Event hooks are outbound calls from Okta to your own custom code, which Okta sends when specified events occur in your org. These are REST calls to a URL you specify, and contain information about the event in the request body. You can use these calls from Okta as triggers for process flows within your own software systems.
+Event hooks are outbound calls from Okta to your own custom code, sent by Okta when specified events occur in your org. They take the form of REST calls to a URL you specify, with information about the event that occurred encapsulated in JSON objects in the request body. You can use these calls from Okta as triggers for process flows within your own software systems.
 
-You need to develop the custom code that handles the calls from Okta. Your code needs to implement a web service with an Internet-accessible endpoint. It's your responsibility to arrange the hosting of your code on a system external to Okta. Okta defines the REST API contract for the HTTPS requests it sends to your custom code.
+To handle the calls from Okta, you need to implement a web service with an Internet-accessible endpoint. It's your responsibility to arrange the hosting of your web service on a system external to Okta. Okta defines the REST API contract for the HTTPS requests it sends to your external service.
 
-The outbound call from Okta is called an event hook. Your code, which receives the call, is referred to as your external service. 
+Okta event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/). Event hooks do not let you affect Okta's internal execution of process flows.
 
-Okta event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/). Event hooks just let you receive notification of events, while inline hooks let you send commands to Okta, affecting Okta's internal execution of process flows. 
+Event hooks are asynchronous calls, which means that the process flow that triggered the event hook continues without stopping.
 
-Event hooks are asynchronous calls, which means that the Okta process that triggered the event hook continues without stopping for the event hook.
+## Which Events are Eligible?
 
-## Eligible System Log Events
-
-When configuring an event hook, you specify the specific event types that you want that event hook to send information for. The event types you can choose from are a subset of the catalog of event types used in the Okta System Log. You can see the list of event types currently-eligible for use with event hooks by querying the Event Types catalog with the query parameter `webhook-eligible`:
+When configuring an event hook, you specify the event types that you want the event hook to send you information about. The event types you can choose from are a subset of the catalog of event types used within the Okta System Log. You can see the list of event types currently-eligible for use with event hooks by querying the Event Types catalog with the query parameter `webhook-eligible`:
 
 [https://developer.okta.com/docs/api/resources/event-types/?q=webhook-eligible](/docs/api/resources/event-types/?q=webhook-eligible)
 
