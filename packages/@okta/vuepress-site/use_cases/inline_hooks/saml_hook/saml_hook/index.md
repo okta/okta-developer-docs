@@ -107,7 +107,7 @@ The following sub-objects are included:
 
 ## Objects in Response You Send
 
-For the SAML Assertion Inline Hook, the `commands` object that you can return in the JSON payload of your response is defined as follows:
+For the SAML Assertion Inline Hook, the objects you can return in the JSON payload of your response are defined as follows:
 
 ### commands
 
