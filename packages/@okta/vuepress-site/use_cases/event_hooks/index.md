@@ -41,7 +41,7 @@ Information is encapsulated in the JSON payload in the `data.events` object. The
 
  The content of each array element is an object of the [LogEvent](/docs/api/resources/system_log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/api/resources/system_log/) defines for System Log events. See the documentation there for information on the object and its sub-objects.
 
- Delivery of events is best effort. Events are delivered at least once. If you have more than one event hook configured to deliver the same event, it will only be sent by one of them. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event.
+ Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event.
 
 ### Timeout and Retry
 
