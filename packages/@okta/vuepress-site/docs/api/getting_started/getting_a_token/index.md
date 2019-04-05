@@ -15,7 +15,8 @@ If you don't have an Okta organization, you can create a free Okta
     - If you use the administrator's UI (Classic UI), select **API** from the **Security** menu, and then select **Tokens**.
 
 3.  Click **Create Token**.
-	{%imgokta-create-api-token-button.pngalt:"CreateToken"%}![](/img/ "")
+
+	![CreateToken](/img/okta-create-api-token-button.png)
 
 4.  Name your token and click **Create Token**.
 
