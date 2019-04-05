@@ -1309,14 +1309,14 @@ The Password policy determines the requirements for a user's password length and
 
 Property | Description | Data Type | Required | Default
 | --- | --- | --- | --- | ---
-| minLength                          | Minimum password length                                                                                                         | integer                                                                     | No | 8           |
-| minLowerCase                       | Indicates if a password must contain at least one lower case letter: 0 indicates no, 1 indicates yes                            | integer                                                                     | No | 1           |
-| minUpperCase                       | Indicates if a password must contain at least one upper case letter: 0 indicates no, 1 indicates yes                            | integer                                                                     | No | 1           |
-| minNumber                          | Indicates if a password must contain at least one number: 0 indicates no, 1 indicates yes                                       | integer                                                                     | No | 1           |
-| minSymbol                          | Indicates if a password must contain at least one symbol (e.g., !@#$%^&*): 0 indicates no, 1 indicates yes                      | integer                                                                     | No | 1           |
-| excludeUsername                    | Indicates if the user name must be excluded from the password                                                                   | boolean                                                                     | No | true        |
-| excludeAttributes                  | The user profile attributes whose values must be excluded from the password: currently only supports `firstName` and `lastName` | Array                                                                       | No | Empty Array |
-| dictionary {%api_lifecycle beta %} | Weak password dictionary lookup settings                                                                                        | <a href="#WeakPasswordDictionaryObject">Weak Password Dictionary Object</a> | No | N/A         |
+| minLength                                 | Minimum password length                                                                                                         | integer                                                                     | No | 8           |
+| minLowerCase                              | Indicates if a password must contain at least one lower case letter: 0 indicates no, 1 indicates yes                            | integer                                                                     | No | 1           |
+| minUpperCase                              | Indicates if a password must contain at least one upper case letter: 0 indicates no, 1 indicates yes                            | integer                                                                     | No | 1           |
+| minNumber                                 | Indicates if a password must contain at least one number: 0 indicates no, 1 indicates yes                                       | integer                                                                     | No | 1           |
+| minSymbol                                 | Indicates if a password must contain at least one symbol (e.g., !@#$%^&*): 0 indicates no, 1 indicates yes                      | integer                                                                     | No | 1           |
+| excludeUsername                           | Indicates if the user name must be excluded from the password                                                                   | boolean                                                                     | No | true        |
+| excludeAttributes                         | The user profile attributes whose values must be excluded from the password: currently only supports `firstName` and `lastName` | Array                                                                       | No | Empty Array |
+| dictionary <ApiLifecycle access="beta" /> | Weak password dictionary lookup settings                                                                                        | <a href="#WeakPasswordDictionaryObject">Weak Password Dictionary Object</a> | No | N/A         |
 
 ###### Weak Password Dictionary Object
 
