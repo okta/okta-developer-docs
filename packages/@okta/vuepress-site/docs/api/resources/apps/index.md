@@ -3421,7 +3421,7 @@ Your request is rejected with a `403 Forbidden` status for applications with the
 
 > The Okta API currently doesn't support entity tags for conditional updates.  It is only safe to fetch the most recent profile with [Get Assigned User for Application](#get-assigned-user-for-application), apply your profile update, then `POST` back the updated profile as long as you are the **only** user updating a user's application profile.
 
-
+<ApiLifecycle access="beta" />
 During the profile image Beta, image property definitions in the schema are of the `Object` data type with an additional `extendedType` of `Image`.
 When a user's app profile is retrieved via the API, however, the value is a URL (represented as a String).  Some caveats apply:
 
