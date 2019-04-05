@@ -4358,6 +4358,22 @@ curl -v -X POST \
 }
 ```
 
+##### Resend Push Notification
+
+Use the `resend` link to send another push notification if the user didn't receive the previous one due to timeout or error.
+
+###### Request Example for Resend Push Notification
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb"
+}' "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend"
+```
+
 #### Verify Duo Factor
 
 
