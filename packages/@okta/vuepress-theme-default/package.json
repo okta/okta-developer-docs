@@ -23,12 +23,21 @@
   },
   "homepage": "https://github.com/okta/okta.github.io",
   "dependencies": {
-    "@vuepress/plugin-active-header-links": "^1.0.0-alpha.33",
     "@okta/vuepress-plugin-active-header-links": "^1.0.0",
+    "@vuepress/plugin-active-header-links": "^1.0.0-alpha.33",
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.9.4",
     "sass-loader": "^7.1.0",
     "vuepress": "^1.0.0-alpha.33"
+  },
+  "devDependencies": {
+    "stylelint": "^9.10.1",
+    "stylelint-checkstyle-formatter": "^0.1.2",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-sass-guidelines": "^5.3.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^2.1.0",
+    "stylelint-scss": "^3.5.4"
   }
 }

@@ -90,5 +90,5 @@
 </script>
 
 <style scoped lang="scss">
-  @import '../assets/css/event-types';
+  @import '../assets/css/okta/components/EventTypes';
 </style>
