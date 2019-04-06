@@ -1,12 +1,11 @@
 ---
-title: Provide the Login/Logout Buttons
+title: Add a Button to Sign In
 ---
-## Provide the Login/Logout Buttons (Redirect to the Sign-in Page) 
 
-In the relevant location in your application, you want to provide `Login` and `Logout` buttons for the user.
-
-When a user clicks the **Login** button, they are redirected to the Okta hosted sign-in page where they can authenticate.
+In your application, you'll want to provide a button to sign the user in. When the user clicks this button, they'll be redirected to the Okta-hosted sign-in page so they can authenticate.
 
 <!-- >> Note: To customize this sign-in page, see the [Customization Guide](customization-guide-link). -->
 
 <StackSelector snippet="login-redirect"/>
+
+<button>I've created a button</button>

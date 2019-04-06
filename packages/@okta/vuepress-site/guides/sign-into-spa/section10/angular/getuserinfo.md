@@ -1,4 +1,4 @@
-User info ("claims") is available using the `getUser` method on the `OktaAuthService`.
+Your code can get the user's profile using the `getUser` method on the `OktaAuthService`.
 
 ```javascript
 import { Component, OnInit } from '@angular/core';

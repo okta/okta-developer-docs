@@ -1,22 +1,11 @@
-
-The `Auth` object is provided on the component's props via the `withAuth` Higher Order Component (HOC).
-You can show/hide the correct button by checking the value returned from the `auth.isAuthenticated()` method. 
+The `Auth` object is provided on your component's props via the `withAuth` component. You can use the `auth.isAuthenticated()` method to show or hide a button depending on whether the user is signed in.
 
 ```javascript
-
 import { withAuth } from '@okta/okta-react';
 import React, { Component } from 'react';
 
 async function checkAuthentication() {
   const authenticated = await this.props.auth.isAuthenticated();
-  if (authenticated !== this.state.authenticated) {
-    if (authenticated && !this.state.userinfo) {
-      const userinfo = await this.props.auth.getUser();
-      this.setState({ authenticated, userinfo });
-    } else {
-      this.setState({ authenticated });
-    }
-  }
 }
 
 export default withAuth(class Home extends Component {
@@ -36,7 +25,7 @@ export default withAuth(class Home extends Component {
   }
 
   async login() {
-    this.props.auth.login('/');
+    this.props.auth.login('/profile');
   }
 
   render() {
@@ -44,11 +33,6 @@ export default withAuth(class Home extends Component {
       <div>
         {this.state.authenticated !== null &&
         <div>
-          {this.state.authenticated &&
-            <div>
-              <p>Welcome back, {this.state.userinfo.name}!</p>
-            </div>
-          }
           {!this.state.authenticated &&
             <div>
               <a onClick={this.login}>Login</a>
@@ -62,3 +46,4 @@ export default withAuth(class Home extends Component {
 });
 ```
 
+The `login()` method lets you specify the path you'd like the user to be navigated to after authenticating.

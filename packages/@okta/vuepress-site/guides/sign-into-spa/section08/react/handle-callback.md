@@ -1,6 +1,4 @@
-
-In order to handle the redirect back from Okta, you need to capture the token values from the `Login Redirect URI` callback and pass them to the `handleAuthentication()` method of the `Auth` object. We have provided the `ImplicitCallback` component that implements this logic. You can map the `ImplicitCallback` component to a route as shown:
-
+The React SDK contains a component that can handle the callback route automatically. The `ImplicitCallback` component contains logic to parse the response Okta sends back to your application.
 
 ```javascript
 import React, { Component } from 'react';

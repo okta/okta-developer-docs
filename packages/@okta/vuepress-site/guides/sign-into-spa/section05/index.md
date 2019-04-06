@@ -1,8 +1,11 @@
 ---
 title: Install the SDK
 ---
-## Install the SDK
 
-Install the SDK and add it as a dependency to your project using npm:
+All of our JavaScript SDKs are hosted on [npmjs.com](https://www.npmjs.com). These instructions show you how to install the SDK with npm, but you can also use other package managers like Yarn.
+
+Install the SDK and add it as a dependency to your project:
 
 <StackSelector snippet="installsdk"/>
+
+<button>I've installed the SDK</button>

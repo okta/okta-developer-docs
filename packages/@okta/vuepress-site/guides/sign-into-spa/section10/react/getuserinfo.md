@@ -1,4 +1,4 @@
-User info ("claims") is returned from the `getUser()` method on the `Auth` object. The `Auth` object is made available in your components as `props.auth` via the `withAuth` Higher Order Component (HOC).
+Your code can get the user's profile using the `getUser()` method on the `Auth` object. The `Auth` object is made available in your components as `props.auth` via the `withAuth` higher-order component.
 
 ```javascript
 
