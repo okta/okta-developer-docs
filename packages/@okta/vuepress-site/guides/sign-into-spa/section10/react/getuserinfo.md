@@ -7,20 +7,16 @@ import React, { Component } from 'react';
 
 async function checkAuthentication() {
   const authenticated = await this.props.auth.isAuthenticated();
-  if (authenticated !== this.state.authenticated) {
-    if (authenticated && !this.state.userinfo) {
-      const userinfo = await this.props.auth.getUser();
-      this.setState({ authenticated, userinfo });
-    } else {
-      this.setState({ authenticated });
-    }
+  if (authenticated && !this.state.userinfo) {
+    const userinfo = await this.props.auth.getUser();
+    this.setState({ userinfo });
   }
 }
 
 export default withAuth(class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { authenticated: null, userinfo: null };
+    this.state = { userinfo: null };
     this.checkAuthentication = checkAuthentication.bind(this);
   }
 
@@ -35,14 +31,10 @@ export default withAuth(class Home extends Component {
   render() {
     return (
       <div>
-        {this.state.authenticated !== null &&
-        <div>
-          {this.state.authenticated &&
-            <div>
-              <p>Welcome back, {this.state.userinfo.name}!</p>
-            </div>
-          }
-        </div>
+        {this.state.userinfo !== null &&
+          <div>
+            <p>Welcome back, {this.state.userinfo.name}!</p>
+          </div>
         }
       </div>
     );
