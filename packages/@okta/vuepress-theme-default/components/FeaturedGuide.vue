@@ -1,14 +1,14 @@
 <template>
-  <router-link :to="guideInfo.link" class="guide-featured">
+  <router-link :to="guide.makeLink(guide.mainFramework)" class="guide-featured">
     <header>
       <section>
         <h1 class="title">
-          {{guideInfo.title}}
+          {{guide.title}}
         </h1>
       </section>
     </header>
     <section class="excerpt">
-      {{guideInfo.excerpt}}
+      {{guide.excerpt}}
     </section>
     <footer>
       <section class="icons">
@@ -19,17 +19,17 @@
 </template>
 
 <script>
-  import { findGuides, findMainFrameworksOfGuide } from '../util/guides';
+  import { getGuidesInfo } from '../util/guides';
 
   export default {
     name: 'FeaturedGuide',
-    props: ['guide'],
+    props: ['guideName'],
     computed: { 
-      guideInfo() { 
-        return findGuides({ pages: this.$site.pages }).find( g => g.name === this.guide );
+      guide() { 
+        return getGuidesInfo({ pages: this.$site.pages }).byName[this.guideName];
       },
       mainFrameworksOfGuide() { 
-        return findMainFrameworksOfGuide({ guide: this.guide, pages: this.$site.pages });
+        return this.guide.frameworks;
       },
     },
   }
