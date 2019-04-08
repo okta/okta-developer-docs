@@ -1,18 +1,25 @@
-User info ("claims") is available using the `getUser` method on the `OktaAuthService`.
+User info ("claims") is available using the [getUser](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#oktaauthgetuser) method on the [OktaAuthService](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#oktaauthservice).
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
 
+@Component({
+  template: 'Welcome back, {{ userName }}'
+})
 class MyComponent implements OnInit {
+  userName: string;
 
   constructor(public oktaAuth: OktaAuthService) {
 
   }
 
   async ngOnInit() {
-    // returns an array
+    // returns an array of claims
     const userClaims = await this.oktaAuth.getUser();
+
+    // user name is exposed directly as property
+    this.userName = userClaims.name;
 
   }
 }
