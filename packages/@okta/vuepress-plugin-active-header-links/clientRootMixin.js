@@ -28,8 +28,8 @@ export default {
         const nextAnchor = anchors[i + 1]
 
         const isActive = i === 0 && scrollTop === 0
-          || (scrollTop >= anchor.parentElement.offsetTop - 40
-            && (!nextAnchor || scrollTop < nextAnchor.parentElement.offsetTop - 40))
+          || (scrollTop >= anchor.parentElement.offsetTop - AHL_HEADER_TOP_OFFSET
+            && (!nextAnchor || scrollTop < nextAnchor.parentElement.offsetTop - AHL_HEADER_TOP_OFFSET))
 
         if (isActive && decodeURIComponent(this.$route.hash) !== decodeURIComponent(anchor.hash)) {
           this.$vuepress.$set('disableScrollBehavior', true)

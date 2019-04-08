@@ -42,7 +42,7 @@ Note that limits for more specific endpoints override the limits for less specif
 | Action and Okta API Endpoint                                                                                 | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity |
 | ------------------------------------------------------------------------------------------------------------ | ---------------- | ---------------- | ------- | ---------- | ------------------ |
 | **Authenticate different end users:**<br>`/api/v1/authn`                                                     | 100              | 300              | 300*    | 600*       | 500                |
-| **Verify a factor:**<br>`/api/v1/authn/factors/{id}/verify` only                                             | 100              | 300              | 300*    | 600*       | 500                |
+| **Verify a factor:**<br>`/api/v1/authn/factors/{id}/verify` only                                             | 100              | 300              | 300*    | 600*       | - (Shared with `/api/v1/authn`) |
 | **Create or list applications:**<br>`/api/v1/apps` except `/api/v1/apps/{id}`                                | 20               | 25               | 25      | 100        | 100                |
 | **Get, update, or delete an application by ID:**<br>`/api/v1/apps/{id}` only                                 | 100              | 300              | 300*    | 600*       | 500                |
 | **Create or list groups:**<br>`/api/v1/groups` except `/api/v1/groups/{id}`                                  | 100              | 300              | 300     | 600        | 500                |
@@ -51,12 +51,12 @@ Note that limits for more specific endpoints override the limits for less specif
 | **Get a user by ID or login:**<br>Only `GET` to `/api/v1/users/{idOrLogin}`                                  | 100              | 300              | 300*    | 1000*      | 2000               |
 | **Update or delete a user by ID:**<br>Only `POST`, `PUT` or `DELETE` to `/api/v1/users/{id}`                 | 100              | 300              | 300*    | 600*       | 600                |
 | **Get System Log data:**<br>`/api/v1/logs`                                                                   | 20               | 25               | 25      | 50         | 120                |
-| **Get System Log data:**<br>`/api/v1/events`                                                                 | 20               | 25               | 25      | 50         | 1000               |
+| **Get System Log data:**<br>`/api/v1/events`                                                                 | 20               | 25               | 25      | 50         | - (Shared with `/api/v1`)               |
 | **Get session information:**<br>`/api/v1/sessions`                                                           | 100              | 300              | 300*    | 600*       | 750                |
 | **Create an organization:**<br>`/api/v1/orgs`                                                                | N/A              | N/A              | N/A     | 50         | 50                 |
 | **Authorize request to a custom Authorization Server:**<br>`/oauth2/{authServerId}/v1/authorize`             | 100              | 300              | 300*    | 600*       | 10000              |
 | **Token request to a custom Authorization Server:**<br>`/oauth2/{authServerId}/v1/token`                     | 100              | 300              | 300*    | 600*       | 10000              |
-| **All other actions:**<br>`/api/v1/`                                                                         | 100              | 300              | 300*    | 600*       | 1200               |
+| **All other actions:**<br>`/api/v1`                                                                         | 100              | 300              | 300*    | 600*       | 1000               |
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
 
@@ -87,7 +87,7 @@ The following endpoints are used by the Okta home page for authentication and si
 | Okta Home Page Endpoints                                                | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity |
 | ----------------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | ------------------ |
 | `/app/{app}/{key}/sso/saml`                                             | 100              | 300              | 300*    | 600*       | 750                |
-| `/app/office365/{key}/sso/wsfed/active`                                 | N/A              | N/A              | N/A     | 2000       | 2000               |
+| `/app/office365/{key}/sso/wsfed/active`                                 | N/A              | N/A              | N/A     | 2000       | 1000               |
 | `/app/office365/{key}/sso/wsfed/passive`                                | N/A              | N/A              | N/A     | 250        | 250                |
 | `/app/template_saml_2_0/{key}/sso/saml`                                 | 100              | 300              | 300*    | 600*       | 2500               |
 | `/login/do-login`                                                       | 100              | 300              | 300     | 600        | 200                |
@@ -109,7 +109,7 @@ If your needs exceed Okta's rate limits, you can purchase the "High Capacity Rat
 The following are the high capacity rate limits per minute that apply across the Okta API for these endpoints:
 
 | Endpoint                                                                   | One App   | Enterprise   |
-|-- ------------------------------------------------------------------------ | --------- | ---------- --|
+| -------------------------------------------------------------------------- | --------- | ------------ |
 | `/api/v1`                                                                  | 1500      | 3000         |
 | `/oauth2/{authorizationServerId}/v1/token`                                 | 1500      | 3000         |
 | `/oauth2/{authorizationServerId}/v1/authorize`                             | 1500      | 3000         |

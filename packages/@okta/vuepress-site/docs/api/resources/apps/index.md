@@ -31,8 +31,8 @@ Adds a new application to your Okta organization.
 
 | Parameter | Description                                                                            | Param Type | DataType                          | Required | Default |
 | --------- | -------------------------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ------- |
-| activate  | Executes [activation lifecycle](#activate-application) operation when creating the app | Query      | Boolean                           | FALSE    | TRUE |
-| app       | App-specific name, signOnMode and settings                                             | Body       | [Application](#application-model) | TRUE     | |
+| activate  | Executes [activation lifecycle](#activate-application) operation when creating the app | Query      | Boolean                           | FALSE    | TRUE    |
+| app       | App-specific name, signOnMode and settings                                             | Body       | [Application](#application-model) | TRUE     |         |
 
 ##### Response Parameters
 
@@ -47,10 +47,10 @@ Adds an new bookmark application to your organization.
 ##### Settings
 
 
-| Parameter          | Description                                             | DataType | Nullable | Unique | Validation |
-| ------------------ | ------------------------------------------------------- | -------- | -------- | ------ | ---------------------------------------- |
+| Parameter          | Description                                             | DataType | Nullable | Unique | Validation                                |
+| ------------------ | ------------------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
 | url                | The URL of the launch page for this app                 | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
-| requestIntegration | Would you like Okta to add an integration for this app? | Boolean  | FALSE    | FALSE  | |
+| requestIntegration | Would you like Okta to add an integration for this app? | Boolean  | FALSE    | FALSE  |                                           |
 
 ##### Request Example
 
@@ -144,8 +144,8 @@ Adds an new application that uses HTTP Basic Authentication Scheme and requires 
 ##### Settings
 
 
-| Parameter | Description                                     | DataType | Nullable | Unique | Validation |
-| --------- | ----------------------------------------------- | -------- | -------- | ------ | ---------------------------------------- |
+| Parameter | Description                                     | DataType | Nullable | Unique | Validation                                |
+| --------- | ----------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
 | url       | The URL of the login page for this app          | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | authURL   | The URL of the authenticating site for this app | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 
@@ -242,13 +242,13 @@ Adds a SWA application that requires a browser plugin.
 ##### Settings
 
 
-| Parameter     | Description                                           | DataType | Nullable | Unique | Validation |
-| ------------- | ----------------------------------------------------- | -------- | -------- | ------ | ---------------------------------------- |
-| url           | The URL of the login page for this app                | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
-| usernameField | CSS selector for the username field in the login form | String   | FALSE    | FALSE  | |
-| passwordField | CSS selector for the password field in the login form | String   | FALSE    | FALSE  | |
-| buttonField   | CSS selector for the login button in the login form   | String   | FALSE    | FALSE  | |
-| loginUrlRegex     | A regular expression that further restricts `url` to the specified regular expression | String | FALSE | FALSE | |
+| Parameter     | Description                                                                           | DataType | Nullable | Unique | Validation                                |
+| ------------- | -----------------------------------------------------                                 | -------- | -------- | ------ | ----------------------------------------  |
+| url           | The URL of the login page for this app                                                | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| usernameField | CSS selector for the username field in the login form                                 | String   | FALSE    | FALSE  |                                           |
+| passwordField | CSS selector for the password field in the login form                                 | String   | FALSE    | FALSE  |                                           |
+| buttonField   | CSS selector for the login button in the login form                                   | String   | FALSE    | FALSE  |                                           |
+| loginUrlRegex | A regular expression that further restricts `url` to the specified regular expression | String   | FALSE    | FALSE  |                                           |
 
 ##### Request Example
 
@@ -349,15 +349,15 @@ Adds a SWA application that requires a browser plugin and supports 3 CSS selecto
 ##### Settings
 
 
-| Parameter          | Description                                           | DataType | Nullable | Unique | Validation |
-| ------------------ | ----------------------------------------------------- | -------- | -------- | ------ | ---------------------------------------- |
-| targetURL                | The URL of the login page for this app                | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
-| usernameSelector      | CSS selector for the username field in the login form | String   | FALSE    | FALSE  | |
-| passwordSelector      | CSS selector for the password field in the login form | String   | FALSE    | FALSE  | |
-| buttonSelector        | CSS selector for the login button in the login form   | String   | FALSE    | FALSE  | |
-| extraFieldSelector | CSS selector for the extra field in the form          | String   | FALSE    | FALSE  | |
-| extraFieldValue    | Value for extra field form field                      | String   | FALSE    | FALSE  | |
-| loginUrlRegex     | A regular expression that further restricts `targetURL` to the specified regular expression | String | FALSE | FALSE | |
+| Parameter          | Description                                                                                 | DataType | Nullable | Unique | Validation                                |
+| ------------------ | -----------------------------------------------------                                       | -------- | -------- | ------ | ----------------------------------------  |
+| targetURL          | The URL of the login page for this app                                                      | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| usernameSelector   | CSS selector for the username field in the login form                                       | String   | FALSE    | FALSE  |                                           |
+| passwordSelector   | CSS selector for the password field in the login form                                       | String   | FALSE    | FALSE  |                                           |
+| buttonSelector     | CSS selector for the login button in the login form                                         | String   | FALSE    | FALSE  |                                           |
+| extraFieldSelector | CSS selector for the extra field in the form                                                | String   | FALSE    | FALSE  |                                           |
+| extraFieldValue    | Value for extra field form field                                                            | String   | FALSE    | FALSE  |                                           |
+| loginUrlRegex      | A regular expression that further restricts `targetURL` to the specified regular expression | String   | FALSE    | FALSE  |                                           |
 
 ##### Request Example
 
@@ -462,17 +462,17 @@ Adds a SWA application that uses HTTP POST and does not require a browser plugin
 ##### Settings
 
 
-| Parameter           | Description                                           | DataType  | Nullable | Unique | Validation |
-| ------------------- | ----------------------------------------------------- | --------- | -------- | ------ | ---------------------------------------- |
+| Parameter           | Description                                           | DataType  | Nullable | Unique | Validation                                |
+| ------------------- | ----------------------------------------------------- | --------- | -------- | ------ | ----------------------------------------  |
 | url                 | The URL of the login page for this app                | String    | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
-| usernameField       | CSS selector for the username field in the login form | String    | FALSE    | FALSE  | |
-| passwordField       | CSS selector for the password field in the login form | String    | FALSE    | FALSE  | |
-| optionalField1      | Name of the optional parameter in the login form      | String    | TRUE     | FALSE  | |
-| optionalField1Value | Name of the optional value in the login form          | String    | TRUE     | FALSE  | |
-| optionalField2      | Name of the optional parameter in the login form      | String    | TRUE     | FALSE  | |
-| optionalField2Value | Name of the optional value in the login form          | String    | TRUE     | FALSE  | |
-| optionalField3      | Name of the optional parameter in the login form      | String    | TRUE     | FALSE  | |
-| optionalField3Value | Name of the optional value in the login form          | String    | TRUE     | FALSE  | |
+| usernameField       | CSS selector for the username field in the login form | String    | FALSE    | FALSE  |                                           |
+| passwordField       | CSS selector for the password field in the login form | String    | FALSE    | FALSE  |                                           |
+| optionalField1      | Name of the optional parameter in the login form      | String    | TRUE     | FALSE  |                                           |
+| optionalField1Value | Name of the optional value in the login form          | String    | TRUE     | FALSE  |                                           |
+| optionalField2      | Name of the optional parameter in the login form      | String    | TRUE     | FALSE  |                                           |
+| optionalField2Value | Name of the optional value in the login form          | String    | TRUE     | FALSE  |                                           |
+| optionalField3      | Name of the optional parameter in the login form      | String    | TRUE     | FALSE  |                                           |
+| optionalField3Value | Name of the optional value in the login form          | String    | TRUE     | FALSE  |                                           |
 
 
 ##### Request Example
@@ -582,8 +582,8 @@ Adds a SWA application. This application is only available to the org that creat
 ##### Settings
 
 
-| Parameter           | Description                                           | DataType  | Nullable | Unique | Validation |
-| ------------------- | ----------------------------------------------------- | --------- | -------- | ------ | ---------------------------------------- |
+| Parameter           | Description                                           | DataType  | Nullable | Unique | Validation                                |
+| ------------------- | ----------------------------------------------------- | --------- | -------- | ------ | ----------------------------------------  |
 | loginUrl            | Primary URL of the login page for this app            | String    | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | redirectUrl         | Secondary URL of the login page for this app          | String    | TRUE     | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 
@@ -706,28 +706,28 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 ##### Settings
 
 
-| Parameter             | Description                                                                                                       | DataType                                             | Nullable | Unique | Validation |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | -------- | ----- | ---------------------------------------- |
-| defaultRelayState     | Identifies a specific application resource in an IDP initiated SSO scenario.                                      | String                                               | TRUE     | FALSE | |
-| ssoAcsUrl             | Single Sign On Url                                                                                                | String                                               | FALSE    | FALSE |  [URL](http://tools.ietf.org/html/rfc3986) |
-| ssoAcsUrlOverride     | Overrides the `ssoAcsUrl` setting                                                                                 | String                                               | TRUE     | FALSE |  [URL](http://tools.ietf.org/html/rfc3986) |
-| recipient             | The location where the app may present the SAML assertion                                                         | String                                               | FALSE    | FALSE |  [URL](http://tools.ietf.org/html/rfc3986) |
-| recipientOverride     | Overrides the `recipient` setting                                                                                 | String                                               | TRUE     | FALSE |  [URL](http://tools.ietf.org/html/rfc3986) |
-| destination           | Identifies the location where the SAML response is intended to be sent inside of the SAML assertion               | String                                               | FALSE    | FALSE |  [URL](http://tools.ietf.org/html/rfc3986) |
-| destinationOverride   | Overrides the `destination` setting                                                                               | String                                               | TRUE     | FALSE | |
-| audience              | Audience URI (SP Entity ID)                                                                                       | String                                               | FALSE    | FALSE | |
-| audienceOverride      | Overrides the `audience` setting                                                                                  | String                                               | TRUE     | FALSE | |
-| idpIssuer             | SAML Issuer ID                                                                                                    | String                                               | FALSE    | FALSE | |
-| subjectNameIdTemplate | Template for app user's username when a user is assigned to the app.                                              | String                                               | FALSE    | FALSE | |
-| subjectNameIdFormat   | Identifies the SAML processing rules.                                                                             | String                                               | FALSE    | FALSE | |
-| responseSigned        | Determines whether the SAML authentication response message is digitally signed by the IDP or not                 | Boolean                                              | FALSE    | FALSE | |
-| assertionSigned       | Determines whether the SAML assertion is digitally signed or not                                                  | Boolean                                              | FALSE    | FALSE | |
-| signatureAlgorithm    | Determines the signing algorithm used to digitally sign the SAML assertion and response                           | String                                               | FALSE    | FALSE | |
-| digestAlgorithm       | Determines the digest algorithm used to digitally sign the SAML assertion and response                            | String                                               | FALSE    | FALSE | |
-| honorForceAuthn       | Prompt user to re-authenticate if SP asks for it                                                                  | Boolean                                              | FALSE    | FALSE | |
-| authnContextClassRef  | Identifies the SAML authentication context class for the assertion's authentication statement                     | String                                               | FALSE    | FALSE | |
-| requestCompressed     | Determines whether the SAML request is expected to be compressed or not                                           | Boolean                                              | FALSE    | FALSE | |
-| attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | [Attribute Statements](#attribute-statements-object) | TRUE    | FALSE | |
+| Parameter             | Description                                                                                                       | DataType                                             | Nullable | Unique | Validation                                |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | -------- | -----  | ----------------------------------------  |
+| defaultRelayState     | Identifies a specific application resource in an IDP initiated SSO scenario.                                      | String                                               | TRUE     | FALSE  |                                           |
+| ssoAcsUrl             | Single Sign On Url                                                                                                | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| ssoAcsUrlOverride     | Overrides the `ssoAcsUrl` setting                                                                                 | String                                               | TRUE     | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| recipient             | The location where the app may present the SAML assertion                                                         | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| recipientOverride     | Overrides the `recipient` setting                                                                                 | String                                               | TRUE     | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| destination           | Identifies the location where the SAML response is intended to be sent inside of the SAML assertion               | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| destinationOverride   | Overrides the `destination` setting                                                                               | String                                               | TRUE     | FALSE  |                                           |
+| audience              | Audience URI (SP Entity ID)                                                                                       | String                                               | FALSE    | FALSE  |                                           |
+| audienceOverride      | Overrides the `audience` setting                                                                                  | String                                               | TRUE     | FALSE  |                                           |
+| idpIssuer             | SAML Issuer ID                                                                                                    | String                                               | FALSE    | FALSE  |                                           |
+| subjectNameIdTemplate | Template for app user's username when a user is assigned to the app.                                              | String                                               | FALSE    | FALSE  |                                           |
+| subjectNameIdFormat   | Identifies the SAML processing rules.                                                                             | String                                               | FALSE    | FALSE  |                                           |
+| responseSigned        | Determines whether the SAML authentication response message is digitally signed by the IDP or not                 | Boolean                                              | FALSE    | FALSE  |                                           |
+| assertionSigned       | Determines whether the SAML assertion is digitally signed or not                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
+| signatureAlgorithm    | Determines the signing algorithm used to digitally sign the SAML assertion and response                           | String                                               | FALSE    | FALSE  |                                           |
+| digestAlgorithm       | Determines the digest algorithm used to digitally sign the SAML assertion and response                            | String                                               | FALSE    | FALSE  |                                           |
+| honorForceAuthn       | Prompt user to re-authenticate if SP asks for it                                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
+| authnContextClassRef  | Identifies the SAML authentication context class for the assertion's authentication statement                     | String                                               | FALSE    | FALSE  |                                           |
+| requestCompressed     | Determines whether the SAML request is expected to be compressed or not                                           | Boolean                                              | FALSE    | FALSE  |                                           |
+| attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |                                           |
 
 * Fields that require certificate uploads can't be enabled through the API, such as Single Log Out and Assertion Encryption. These must be updated through the UI.
 * Either (or both) "responseSigned" or "assertionSigned" must be TRUE.
@@ -743,39 +743,39 @@ The following values are support for creating custom SAML 2.0 Apps. Check [Attri
 
 ###### Name ID Format
 
-| Label           | Value |
-| --------------- | ------------ |
-| Unspecified     | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified |
-| Email Address   | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| Label           | Value                                                     |
+| --------------- | ------------                                              |
+| Unspecified     | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified     |
+| Email Address   | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress    |
 | x509SubjectName | urn:oasis:names:tc:SAML:1.1:nameid-format:x509SubjectName |
-| Persistent      | urn:oasis:names:tc:SAML:2.0:nameid-format:persistent |
-| Transient       | urn:oasis:names:tc:SAML:2.0:nameid-format:transient |
+| Persistent      | urn:oasis:names:tc:SAML:2.0:nameid-format:persistent      |
+| Transient       | urn:oasis:names:tc:SAML:2.0:nameid-format:transient       |
 
 ###### Signature Algorithm
 
-| Label            | Value |
-| ---------------- | --------- |
+| Label            | Value      |
+| ---------------- | ---------  |
 | RSA-SHA256       | RSA_SHA256 |
-| RSA-SHA1         | RSA_SHA1 |
+| RSA-SHA1         | RSA_SHA1   |
 
 ###### Digest Algorithm
 
-| Label            | Value |
+| Label            | Value     |
 | ---------------- | --------- |
-| SHA256           | SHA256 |
-| SHA1             | SHA1 |
+| SHA256           | SHA256    |
+| SHA1             | SHA1      |
 
 ###### Authentication Context Class
 
-| Label                              | Value |
+| Label                              | Value                                                               |
 | ---------------------------------- | ------------------------------------------------------------------- |
-| PasswordProtectedTransport         | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
-| Password                           | urn:oasis:names:tc:SAML:2.0:ac:classes:Password |
-| Unspecified                        | urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified |
-| TLS Client                         | urn:oasis:names:tc:SAML:2.0:ac:classes:TLSClient |
-| X509 Certificate                   | urn:oasis:names:tc:SAML:2.0:ac:classes:X509 |
-| Integrated Windows Authentication  | urn:federation:authentication:windows |
-| Kerberos                           | oasis:names:tc:SAML:2.0:ac:classes:Kerberos |
+| PasswordProtectedTransport         | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport   |
+| Password                           | urn:oasis:names:tc:SAML:2.0:ac:classes:Password                     |
+| Unspecified                        | urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified                  |
+| TLS Client                         | urn:oasis:names:tc:SAML:2.0:ac:classes:TLSClient                    |
+| X509 Certificate                   | urn:oasis:names:tc:SAML:2.0:ac:classes:X509                         |
+| Integrated Windows Authentication  | urn:federation:authentication:windows                               |
+| Kerberos                           | oasis:names:tc:SAML:2.0:ac:classes:Kerberos                         |
 
 ##### Request Example
 
@@ -986,12 +986,12 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 ##### Credentials
 
 
-| Parameter                  | Description                                                                                                                                       | DataType | Default               |
-|:---------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:---------|:----------------------|
-| client_id                  | Unique identifier for the client application                                                                                                      | String   |                       |
-| client_secret              | OAuth 2.0 client secret string (used for confidential clients)                                                                                    | String   |                       |
-| token_endpoint_auth_method | Requested authentication method for the token endpoint. Valid values: `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt` | String   | `client_secret_basic` |
-| autoKeyRotation            | Requested key rotation mode                                                                                                                       | Boolean  | `true`                |
+| Parameter                    | Description                                                                                                                                         | DataType   | Default               |
+| :--------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------------- |
+| client_id                    | Unique identifier for the client application                                                                                                        | String     |                       |
+| client_secret                | OAuth 2.0 client secret string (used for confidential clients)                                                                                      | String     |                       |
+| token_endpoint_auth_method   | Requested authentication method for the token endpoint. Valid values: `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`   | String     | `client_secret_basic` |
+| autoKeyRotation              | Requested key rotation mode                                                                                                                         | Boolean    | `true`                |
 
 ##### Settings
 
@@ -1023,13 +1023,14 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * Different application types have different valid values for the corresponding grant type:
 
-    |-------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------|
-    | Application Type  | Valid Grant Type                                              | Requirements                                                                      |
-    | ----------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-    | `web`             | `authorization_code`, `implicit`, `refresh_token`             | Must have at least `authorization_code`                                           |
-    | `native`          | `authorization_code`, `implicit`, `password`, `refresh_token` | Must have at least `authorization_code`                                           |
-    | `browser`         | `implicit`                                                    |                                                                                   |
-    | `service`         | `client_credentials`                                          | Works with OAuth 2.0 flow (not OpenID Connect)                                    |
+|-------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------|
+| Application Type  | Valid Grant Type                                              | Requirements                                                                      |
+| ----------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `web`             | `authorization_code`, `implicit`, `refresh_token`             | Must have at least `authorization_code`                                           |
+| `native`          | `authorization_code`, `implicit`, `password`, `refresh_token` | Must have at least `authorization_code`                                           |
+| `browser`         | `authorization_code`, `implicit`                                                    |                                                             |
+| `service`         | `client_credentials`                                          | Works with OAuth 2.0 flow (not OpenID Connect)                                    |
+
 
 * The `grant_types` and `response_types` values described above are partially orthogonal, as they refer to arguments passed to different
     endpoints in the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749). However, they are related in that the `grant_types`
@@ -1042,13 +1043,14 @@ Adds an OAuth 2.0 client application. This application is only available to the 
     * `consent_method`, a property listed in the Settings table above
     * `consent`, a property on [scopes](/docs/api/resources/authorization-servers#scope-properties)
 
-    | `prompt` Value    | `consent_method`                 | `consent`                   | Result       |
-    |:------------------|:---------------------------------|:----------------------------|:-------------|
-    | `CONSENT`         | `TRUSTED` or `REQUIRED`          | `REQUIRED`                  | Prompted     |
-    | `CONSENT`         | `TRUSTED`                        | `IMPLICIT`                  | Not prompted |
-    | `NONE`            | `TRUSTED`                        | `REQUIRED` or `IMPLICIT`    | Not prompted |
-    | `NONE`            | `REQUIRED`                       | `REQUIRED`                  | Prompted     |
-    | `NONE`            | `REQUIRED`                       | `IMPLICIT`                  | Not prompted | <!-- If you change this section, change it in authorization-servers.md as well. Add 'LOGIN' to first three rows when supported -->
+| `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
+| :------------------ | :--------------------------------- | :---------------------------- | :----------- |
+| `CONSENT`           | `TRUSTED` or `REQUIRED`            | `REQUIRED`                    | Prompted     |
+| `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
+| `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
+| `NONE`              | `REQUIRED`                         | `REQUIRED`                    | Prompted     |
+| `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
+<!-- If you change this section, change it in authorization-servers.md as well. Add 'LOGIN' to first three rows when supported --> |
 
 >Notes
   * Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
@@ -1357,11 +1359,11 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 
 | Parameter | Description                                                                                                      | Param Type | DataType | Required | Default |
 | --------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| q         | Searches the `name` or `displayName` property of applications                                                    | Query      | String    | FALSE |
-| limit  | Specifies the number of results per page (maximum 200)                                                         | Query | Number | FALSE | 20 |
-| filter | Filters apps by `status`, `user.id`, `group.id` or `credentials.signing.kid` expression                        | Query | String | FALSE |    |
-| after  | Specifies the pagination cursor for the next page of apps                                                      | Query | String | FALSE |    |
-| expand | Traverses `users` link relationship and optionally embeds [Application User](#application-user-model) resource | Query | String | FALSE |    |
+| q         | Searches the `name` or `displayName` property of applications                                                    | Query      | String   | FALSE    |         |
+| limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
+| filter    | Filters apps by `status`, `user.id`, `group.id` or `credentials.signing.kid` expression                          | Query      | String   | FALSE    |         |
+| after     | Specifies the pagination cursor for the next page of apps                                                        | Query      | String   | FALSE    |         |
+| expand    | Traverses `users` link relationship and optionally embeds [Application User](#application-user-model) resource   | Query      | String   | FALSE    |         |
 
 The results will be [paginated][pagination] according to the `limit` parameter.
 If there are multiple pages of results, the Link header will contain a `next` link, which should be treated as an opaque value (follow it, don't parse it).
@@ -3824,8 +3826,8 @@ For step-by-step instructions to clone a credential, see [Share Application Key 
 | Parameter           | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | -------------       | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | sourceApplicationId | Unique key of the source [Application](#application-properties)                 | URL        | String                                        | TRUE     |         |
-| kid          | Unique key of [Application Key Credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |                                      |      | |
-| targetAid |  Unique key of the target [Application](#application-properties)   | Query      | String                                        | TRUE     | |
+| kid                 | Unique key of [Application Key Credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
+| targetAid           | Unique key of the target [Application](#application-properties)                 | Query      | String                                        | TRUE     |         |
 
 ##### Response Parameters
 
@@ -4850,7 +4852,6 @@ HTTP/1.1 204 No Content
 
 Applications have the following properties:
 
-| ----------------   | --------------------------------------------   | ------------------------------------------------------------------   | ----------   | --------   | ----------   | -----------   | ----------- |
 | Property           | Description                                    | DataType                                                             | Nullable     | Unique     | Readonly     | MinLength     | MaxLength   |
 | :----------------- | :--------------------------------------------- | :------------------------------------------------------------------- | :----------- | :--------- | :----------- | :------------ | :---------- |
 | id                 | unique key for app                             | String                                                               | FALSE        | TRUE       | TRUE         |               |             |
@@ -4868,7 +4869,6 @@ Applications have the following properties:
 | profile            | Valid JSON schema for specifying properties    | [JSON](#profile-object)                                              | TRUE         | FALSE      | FALSE        |               |             |
 | _links             | discoverable resources related to the app      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)       | TRUE         | FALSE      | TRUE         |               |             |
 | _embedded          | embedded resources related to the app          | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)       | TRUE         | FALSE      | TRUE         |               |             |
-| ----------------   | --------------------------------------------   | ------------------------------------------------------------------   | ----------   | --------   | ----------   | -----------   | ----------- |
 
 Property details
 
@@ -4881,7 +4881,6 @@ The Okta Integration Network (OIN) defines the catalog of applications that can 
 
 The catalog is currently not exposed via an API.  While additional apps may be added via the API, only the following template applications are documented:
 
-|---------------------+-------------------------------------------------------------------------------|
 | Name                | Example                                                                       |
 | ------------------- | ----------------------------------------------------------------------------  |
 | bookmark            | [Add Bookmark Application](#add-bookmark-application)                         |
@@ -4893,7 +4892,6 @@ The catalog is currently not exposed via an API.  While additional apps may be a
 | oidc_client         | [Add OAuth 2.0 client Application](#add-oauth-20-client-application)          |
 | Custom SAML 2.0     | [Add Custom SAML 2.0 Application](#add-custom-saml-application)               |
 | Custom SWA          | [Add Custom SWA Application](#add-custom-swa-application)                     |
-|---------------------+-------------------------------------------------------------------------------|
 
 The current workaround is to manually configure the desired application via the administrator UI in a preview (sandbox) organization and view the application via [Get Application](#get-application)
 
@@ -4907,7 +4905,6 @@ Applications may support optional provisioning features on a per-app basis.
 
 The list of provisioning features an app may support are:
 
-|------------------------+------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | App Feature            | Name in the Administrator UI | Description                                                                                                                                                                                                                                   |
 | ---------------------- | ----------------------       | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | IMPORT_NEW_USERS       | User Import                  | Creates or links a user in Okta to a user from the application.                                                                                                                                                                               |
@@ -4920,7 +4917,6 @@ The list of provisioning features an app may support are:
 | REACTIVATE_USERS       | Deactivate Users             | Reactivates an existing inactive user when provisioning a user to the app.                                                                                                                                                                    |
 | PUSH_PASSWORD_UPDATES  | Sync Okta Password           | Updates the user's app password when their password changes in Okta.                                                                                                                                                                          |
 | GROUP_PUSH             | Group Push                   | Creates or links a group in the app when a mapping is defined for a group in Okta.  Okta is the the master for group memberships and all group members in Okta who are also assigned to the app are synced as group members to the app.       |
-|------------------------+------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 ##### SignOn Modes
 
@@ -4928,7 +4924,6 @@ Applications support a limited set of sign-on modes that specify how a user is a
 
 The list of possible modes an app may support are:
 
-|-----------------------+-------------------------------------------------------------------------|
 | Mode                  | Description                                                            |
 | --------------------- | ---------------------------------------------------------------------- |
 | BOOKMARK              | Just a bookmark (no-authentication)                                    |
@@ -4940,7 +4935,6 @@ The list of possible modes an app may support are:
 | AUTO_LOGIN            | Secure Web Authentication (SWA)                                        |
 | OPENID_CONNECT        | Federated Authentication with OpenID Connect                           |
 | Custom                | App-Specific SignOn Mode                                               |
-|-----------------------+-------------------------------------------------------------------------|
 
 This setting modifies the same settings as the `Sign On` tab when editing an application in your Okta Administration app.
 
@@ -4948,13 +4942,11 @@ This setting modifies the same settings as the `Sign On` tab when editing an app
 
 Specifies access settings for the application.
 
-|------------------+--------------------------------------------+----------+----------+---------+-----------+-----------+------------|
 | Property         | Description                                | DataType | Nullable | Default | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------ | -------- | -------- | ------- | --------- | --------- | ---------- |
 | selfService      | Enable self-service application assignment | Boolean  | TRUE     | FALSE   |           |           |            |
 | errorRedirectUrl | Custom error page for this application     | String   | TRUE     | NULL    |           |           |            |
 | loginRedirectUrl | Custom login page for this application     | String   | TRUE     | NULL    |           |           |            |
-|------------------+--------------------------------------------+----------+----------+---------+-----------+------------------------|
 
 > The `errorRedirectUrl` and `loginRedirectUrl` default to the organization default pages when empty
 
@@ -4972,13 +4964,11 @@ Specifies access settings for the application.
 
 Specifies visibility settings for the application.
 
-|-------------------+----------------------------------------------------|-------------------------------------+----------+---------|-----------|-----------+------------|
 | Property          | Description                                        | DataType                            | Nullable | Default | MinLength | MaxLength | Validation |
 | ----------------- | -------------------------------------------------- | ----------------------------------- | -------- | ------- | --------- | --------- | ---------- |
 | autoSubmitToolbar | Automatically log in when user lands on login page | Boolean                             | FALSE    | FALSE   |           |           |            |
 | hide              | Hides this app for specific end-user apps          | [Hide Object](#hide-object)         | FALSE    | FALSE   |           |           |            |
 | appLinks          | Displays specific appLinks for the app             | [AppLinks Object](#applinks-object) | FALSE    |         |           |           |            |
-|-------------------+----------------------------------------------------|-------------------------------------+----------+---------|-----------|-----------+------------|
 
 ```json
 {
@@ -4997,12 +4987,10 @@ Specifies visibility settings for the application.
 
 #### Hide Object
 
-|-----------+----------------------------------------------------|----------|----------|---------|-----------|-----------+------------|
 | Property  | Description                                        | DataType | Nullable | Default | MinLength | MaxLength | Validation |
 | --------- | -------------------------------------------------- | -------- | -------- | ------- | --------- | --------- | ---------- |
 | iOS       | Okta Mobile for iOS or Android (pre-dates Android) | Boolean  | FALSE    | FALSE   |           |           |            |
 | web       | Okta Web Browser Home Page                         | Boolean  | FALSE    | FALSE   |           |           |            |
-|-----------+----------------------------------------------------|----------|----------|---------|-----------|-----------+------------|
 
 #### AppLinks Object
 
@@ -5014,7 +5002,6 @@ Specifies credentials and scheme for the application's `signOnMode`.
 
 > Note: To update the app you can provide just the [Signing Credential Object](#signing-credential-object) instead of the entire Application Credential Object.
 
-|------------------+----------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+----------+-----------------+-----------+-----------+------------|
 | Property         | Description                                                                                                    | DataType                                                  | Nullable | Default         | MinLength | MaxLength | Validation |
 | ---------------- | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | -------- | --------------- | --------- | --------- | ---------- |
 | scheme           | Determines how credentials are managed for the `signOnMode`                                                    | [Authentication Scheme](#authentication-schemes)          | TRUE     |                 |           |           |            |
@@ -5023,7 +5010,6 @@ Specifies credentials and scheme for the application's `signOnMode`.
 | userName         | Shared username for app                                                                                        | String                                                    | TRUE     |                 | 1         | 100       |            |
 | password         | Shared password for app                                                                                        | [Password Object](#password-object)                       | TRUE     |                 |           |           |            |
 | oauthClient      | Credential for OAuth 2.0 client                                                                                | [OAuth Credential Object](#oauth-credential-object)       | FALSE    |                 |           |           |            |
-|------------------+----------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------+----------+-----------------+-----------+-----------+------------|
 
 ```json
 {
@@ -5046,15 +5032,13 @@ Specifies credentials and scheme for the application's `signOnMode`.
 
 Applications that are configured with the `BASIC_AUTH`, `BROWSER_PLUGIN`, or `SECURE_PASSWORD_STORE`  have credentials vaulted by Okta and can be configured with the following schemes:
 
-|------------------------------+---------------------------------------------------------------------------+-----------------+-----------------+------------------+--------------------------|
 | Scheme                       | Description                                                               | Shared UserName | Shared Password | App UserName     | App Password            |
 | ---------------------------- | ------------------------------------------------------------------------- | --------------- | --------------- | ---------------- | ----------------------- |
 | SHARED_USERNAME_AND_PASSWORD | Users share a single username and password set by administrator           | Admin:`R/W`     | Admin:`W`       |                  |                         |
 | EXTERNAL_PASSWORD_SYNC       | Administrator sets username, password is the same as user's Okta password |                 |                 | Admin:`R/W`      | *Current User Password* |
 | EDIT_USERNAME_AND_PASSWORD   | User sets username and password                                           |                 |                 | Admin/User:`R/W` | Admin/User:`W`          |
 | EDIT_PASSWORD_ONLY           | Administrator sets username, user sets password                           |                 |                 | Admin:`R/W`      | Admin/User:`W`          |
-| ADMIN_SETS_CREDENTIALS       | Administrator sets username and password                                  |                 |                 | Admin: `R/W`     | Admin: `W`
-|------------------------------+---------------------------------------------------------------------------+-----------------+-----------------+------------------+--------------------------|
+| ADMIN_SETS_CREDENTIALS       | Administrator sets username and password                                  |                 |                 | Admin: `R/W`     | Admin: `W`              |
 
 > `BOOKMARK`, `SAML_2_0`, and `WS_FEDERATION` signOnModes do not support an authentication scheme as they use a federated SSO protocol.  The `scheme` property should be omitted for apps with these signOnModes
 
@@ -5062,13 +5046,11 @@ Applications that are configured with the `BASIC_AUTH`, `BROWSER_PLUGIN`, or `SE
 
 Specifies the template used to generate a user's username when the application is assigned via a group or directly to a user
 
-|------------+-----------------------------------------+----------------------------------+----------+-------------------+-----------+-----------+------------|
 | Property   | Description                             | DataType                         | Nullable | Default           | MinLength | MaxLength  | Validation |
 | ---------- | --------------------------------------- | -------------------------------- | -------- | ----------------- | --------- | ---------- | ---------- |
 | template   | mapping expression for username         | String                           | TRUE     | `${source.login}` |           | 1024       |            |
 | type       | type of mapping expression              | `NONE`,  `BUILT_IN`, or `CUSTOM` | FALSE    | BUILT_IN          |           |            |            |
 | userSuffix | suffix for built-in mapping expressions | String                           | TRUE     | NULL              |           |            |            |
-|------------+-----------------------------------------+----------------------------------+----------+-------------------+-----------+-----------+------------|
 
 > You must use the `CUSTOM` type when defining your own expression that is not built-in
 
@@ -5085,11 +5067,9 @@ Specifies the template used to generate a user's username when the application i
 
 Determines the [key](#application-key-credential-model) used for signing assertions for the `signOnMode`
 
-|------------+----------------------------------------------------------------------------------+----------+----------|
-| Property   | Description                                                                      | DataType | Nullable |
-| ---------- | ------------------------------------------------------------------------------------------- | -------- |
-| kid       | Reference for [key credential for the app](#application-key-store-operations)    | String   | FALSE    |
-|------------+----------------------------------------------------------------------------------+----------+----------|
+| Property   | Description                                                                                 | DataType | Nullable |
+| ---------- | ------------------------------------------------------------------------------------------- | -------- | ---      |
+| kid        | Reference for [key credential for the app](#application-key-store-operations)               | String   | FALSE    |
 
 > Only apps with `SAML_2_0`, `SAML_1_1`, `WS_FEDERATION` or `OPENID_CONNECT` `signOnMode` support the key rollover feature.
 
@@ -5105,14 +5085,12 @@ Determines the [key](#application-key-credential-model) used for signing asserti
 
 Determines how to authenticate the OAuth 2.0 client
 
-|----------------------------+----------------------------------------------------------------------------------+----------+----------|
 | Property                   | Description                                                                      | DataType | Nullable |
-| -------------------------- | ------------------------------------------------------------------------------------------- | -------- |
-| client_id                  | Unique identifier for the OAuth 2.0 client application | String  | TRUE  |
-| client_secret              | OAuth 2.0 client secret string                         | String  | TRUE  |
-| token_endpoint_auth_method | Requested authentication method for the token endpoint | String  | FALSE |
-| autoKeyRotation            | Requested key rotation mode                            | Boolean | TRUE  |
-|----------------------------+----------------------------------------------------------------------------------+----------+----------|
+| -------------------------- | -------------------------------------------------------------------------------- | -------- | -------- |
+| client_id                  | Unique identifier for the OAuth 2.0 client application                           | String   | TRUE     |
+| client_secret              | OAuth 2.0 client secret string                                                   | String   | TRUE     |
+| token_endpoint_auth_method | Requested authentication method for the token endpoint                           | String   | FALSE    |
+| autoKeyRotation            | Requested key rotation mode                                                      | Boolean  | TRUE     |
 
 * When creating an OAuth 2.0 client application, you can specify the `client_id`, or Okta will set it the same value as the application ID. Thereafter, the client_id is immutable.
 
@@ -5137,7 +5115,6 @@ Determines how to authenticate the OAuth 2.0 client
 
 The following expressions are built-in and may be used with the `BUILT_IN` template type:
 
-|---------------------------------+-----------------------------------------------|
 | Name                            | Template Expression                          |
 | ------------------------------- | -------------------------------------------- |
 | Okta username                   | ${source.login}                              |
@@ -5151,23 +5128,19 @@ The following expressions are built-in and may be used with the `BUILT_IN` templ
 | AD User Principal Name prefix   | ${fn:substringBefore(source.userName, "@")}  |
 | AD Employee ID                  | ${source.employeeID}                         |
 | LDAP UID + custom suffix        | ${source.userName}${instance.userSuffix}     |
-|---------------------------------+-----------------------------------------------|
 
 ### Password Object
 
 Specifies a password for a user.  A password value is a **write-only** property.  When a user has a valid password and a response object contains a password credential, then the Password Object is a bare object without the `value`  property defined (e.g. `password: {}` ) to indicate that a password value exists.
 
-|-----------+-------------+----------+----------+---------+-----------+-----------+------------|
 | Property  | Description | DataType | Nullable | Default | MinLength | MaxLength | Validation |
 | --------- | ----------- | -------- | -------- | ------- | --------- | --------- | ---------- |
 | value     |             | String   | TRUE     |         |           |           |            |
-|-----------+-------------+----------+----------+---------+-----------+-----------+------------|
 
 ### Application Links Object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.  This object is used for dynamic discovery of related resources and lifecycle operations.  The Links Object is **read-only**.
 
-|--------------------+---------------------------------------------------------------------------------------------|
 | Link Relation Type | Description                                                                                |
 | ------------------ | ------------------------------------------------------------------------------------------ |
 | self               | The actual application                                                                     |
@@ -5177,17 +5150,14 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | users              | [User](#application-user-operations) assignments for application                           |
 | groups             | [Group](#application-group-operations) assignments for application                         |
 | logo               | Application logo image                                                                     |
-|--------------------+---------------------------------------------------------------------------------------------|
 
 ### Notifications Object
 
 Specifies notifications settings for the application. The VPN notification feature allows admins to communicate a requirement for signing into VPN-required apps.
 
-|-------------------+----------------------------------------------------+------------------------------------------------------+----------+---------+-----------+-----------+------------|
 | Property          | Description                                        | DataType                                             | Nullable | Default | MinLength | MaxLength | Validation |
 | ----------------- | -------------------------------------------------- | ---------------------------------------------------- | -------- | ------- | --------- | --------- | ---------- |
 | vpn               | VPN notification settings                          | [VPN Notification Object](#vpn-notification-object)  | FALSE    |         |           |           |            |
-|-------------------+----------------------------------------------------+------------------------------------------------------+----------+---------+-----------+-----------+------------|
 
 ```json
 {
@@ -5207,21 +5177,17 @@ Specifies notifications settings for the application. The VPN notification featu
 
 Specifies properties for a VPN notification
 
-|-----------+--------------------------------------------------------------------------------------------+-----------------------------------+----------+---------+-----------+-----------+------------|
 | Property  | Description                                                                                | DataType                          | Nullable | Default | MinLength | MaxLength  | Validation |
 | --------- | ------------------------------------------------------------------------------------------ | --------------------------------  | -------- | ------- | --------- | ---------- | ---------- |
 | network   | The network connections for the VPN.                                                       | [Network Object](#network-object) | FALSE    |         |           |            |            |
 | message   | An optional message to your end users.                                                     | String                            | TRUE     |         |           |            |            |
 | helpurl   | An optional URL to help page URL to assist your end users in signing into your company VPN | String                            | TRUE     |         |           |            |            |
-|-----------+--------------------------------------------------------------------------------------------+-----------------------------------+----------+---------+-----------+-----------+------------|
 
 #### Network Object
 
-|------------+-------------------------------------------------------+--------------------------------------------------------+----------+------------+-----------+-----------+------------|
 | Property   | Description                                           | DataType                                               | Nullable | Default     | MinLength | MaxLength  | Validation |
 | ---------- | ----------------------------------------------------- | ------------------------------------------------------ | -------- | ----------- | --------- | ---------- | ---------- |
 | connection | The VPN settings on the app. Choices are shown below. | `DISABLED`, `ANYWHERE`, `ON_NETWORK`, or `OFF_NETWORK` | FALSE    | `DISABLED`  |           |            |            |
-|------------+-------------------------------------------------------+--------------------------------------------------------+----------+------------+-----------+-----------+------------|
 
 There are four choices for the `connection` property.
 
@@ -5234,15 +5200,11 @@ There are four choices for the `connection` property.
 
 Specifies (optional) attribute statements for a SAML application.
 
-|------------+----------------------------------------------------------------------------------------------+-------------+----------|
 | Property   | Description                                                                                  | DataType    | Nullable |
 | ---------- | -------------------------------------------------------------------------------------------- | ----------- | -------- |
 | name       | The reference name of the attribute statement                                                | String      | FALSE    |
-| ---------- | -------------------------------------------------------------------------------------------- | ----------- | -------- |
 | namespace  | The name format of the attribute                                                             | String      | FALSE    |
-| ---------- | -------------------------------------------------------------------------------------------- | ----------- | -------- |
 | values     | The value of the attribute; Supports [Okta EL](../getting_started/okta_expression_lang)      | String      | FALSE    |
-|------------+--------------------------------------------------------------------------------------------- | ----------- | -------- |
 
 ##### Supported Namespaces
 
@@ -5342,7 +5304,6 @@ The application user model defines a user's app-specific profile and credentials
 
 All application user assignments have the following properties:
 
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | id               | unique key of [User](/docs/api/resources/users)              | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
@@ -5359,7 +5320,6 @@ All application user assignments have the following properties:
 | profile          | app-specific profile for the user                            | [Application User Profile Object](#application-user-profile-object)         | FALSE    | FALSE  | TRUE     |           |           |            |
 | _embedded        | embedded resources related to the app user                   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE     | FALSE  | TRUE     |           |           |            |
 | _links           | discoverable resources related to the app user               | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE     | FALSE  | TRUE     |           |           |            |
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 
 > `lastSync` is only updated for applications with the `IMPORT_PROFILE_UPDATES` or `PUSH PROFILE_UPDATES` feature
 
@@ -5391,14 +5351,12 @@ User provisioning in Okta is an asynchronous background job that is triggered du
 
 When the `PUSH_PROFILE_UPDATES` feature is enabled, updates to an upstream profile are pushed downstream to the application according to profile mastering priority.  The app user's `syncState` has the following values:
 
-|--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | syncState    | Description                                                                                                                                                                               |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------     |
 | OUT_OF_SYNC  | Application user has changes that have not been pushed to the target application                                                                                                          |
 | SYNCING      | Background provisioning job is running to update the user's profile in the target application                                                                                             |
 | SYNCHRONIZED | All changes to the app user profile have successfully been synchronized with the target application                                                                                       |
 | ERROR        | Background provisioning job failed to update the user's profile in the target application. A provisioning task is created in the administrator UI that must be resolved to retry the job. |
-|--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 > User provisioning currently must be configured via the administrator UI and is only available with specific editions.
 
@@ -5406,12 +5364,10 @@ When the `PUSH_PROFILE_UPDATES` feature is enabled, updates to an upstream profi
 
 Specifies a user's credentials for the application.  The [Authentication Scheme](#authentication-schemes) of the application determines whether a userName or password can be assigned to a user.
 
-|-----------+------------------+-------------------------------------+----------+---------+-----------+-----------+------------|
 | Property  | Description      | DataType                            | Nullable | Default | MinLength | MaxLength | Validation |
 | --------- | ---------------- | ----------------------------------- | -------- | ------- | --------- | --------- | ---------- |
 | userName  | username for app | String                              | TRUE     |         | 1         | 100       |            |
 | password  | password for app | [Password Object](#password-object) | TRUE     |         |           |           |            |
-|-----------+------------------+-------------------------------------+----------+---------+-----------+-----------+------------|
 
 ```json
 {
@@ -5494,7 +5450,6 @@ Application User profiles are app-specific but may be customized by the Profile 
 
 All application groups have the following properties:
 
-|--------------+-------------------------------------------------+----------------------------------------------------------------|----------+--------|----------|-----------|-----------+------------|
 | Property     | Description                                     | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ------------ | ----------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | id           | unique key of group                             | String                                                         | FALSE    | TRUE   | TRUE     |           |           |            |
@@ -5503,7 +5458,6 @@ All application groups have the following properties:
 | profile      | Valid JSON schema for specifying properties     | [JSON](#profile-object)                                        | TRUE     | FALSE  | FALSE    |           |           |            |
 | _links       | discoverable resources related to the app group | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05) | TRUE     | FALSE  | TRUE     |           |           |            |
 | _embedded    | embedded resources related to the app group     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
-|--------------+-------------------------------------------------+----------------------------------------------------------------|----------+--------|----------|-----------|-----------+------------|
 
 ### Application Key Credential Model
 
@@ -5531,7 +5485,6 @@ The application key credential model defines a [JSON Web Key](https://tools.ietf
 
 #### Application Key Credential (Certificate) Properties
 
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | created          | timestamp when certificate was created                       | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
@@ -5543,7 +5496,6 @@ The application key credential model defines a [JSON Web Key](https://tools.ietf
 | kid              | unique identifier for the certificate                        | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | kty              | cryptographic algorithm family for the certificate's keypair | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 | use              | acceptable usage of the certificate                          | String                                                                      | TRUE     | FALSE  | TRUE     |           |           |            |
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 
 ### CSR Metadata Object
 
@@ -5569,16 +5521,13 @@ The metadata for a CSR
 
 #### CSR Metadata Properties
 
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | subject          | Subject of the CSR                                           | [Subject Object](#subject-object)                                           | FALSE    | FALSE  | FALSE    |           |           |            |
 | subjectAltNames  | Subject Alternative Name of the CSR                          | [Subject Alternative Name Object](#subject-alternative-name-object)         | TRUE     | FALSE  | FALSE    |           |           |            |
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 
 ##### Subject Object
 
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 | Property               | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ----------------       | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | commonName             | Common name of the subject                                   | String                                                                      | TRUE     | FALSE  | FALSE    |           |           |            |
@@ -5587,15 +5536,12 @@ The metadata for a CSR
 | localityName           | locality (city) name                                         | String                                                                      | TRUE     | FALSE  | FALSE    |           |           |            |
 | stateOrProvinceName    | state or province name                                       | String                                                                      | TRUE     | FALSE  | FALSE    |           |           |            |
 | countryName            | country name or code                                         | String                                                                      | TRUE     | FALSE  | FALSE    |           |           |            |
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 
 ##### Subject Alternative Name Object
 
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | dnsNames         | DNS names of the subject                                     | Array                                                                       | TRUE     | FALSE  | FALSE    |           |           |            |
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 
 
 ### Application CSR Model
@@ -5634,7 +5580,6 @@ The application CSR model defines a certificate signing request for a signature 
 
 #### Application CSR Properties
 
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | id               | unique identifier for the CSR                                | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
@@ -5642,7 +5587,6 @@ The application CSR model defines a certificate signing request for a signature 
 | csr              | Base64 encoded CSR in DER format                             | String                                                                      | TRUE     | TRUE   | TRUE     |           |           |            |
 | kty              | cryptographic algorithm family for the CSR's keypair         | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 | _links           | discoverable resources related to the CSR                    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)              | TRUE     | FALSE  | TRUE     |           |           |            |
-|------------------+--------------------------------------------------------------+-----------------------------------------------------------------------------|----------|--------|----------|-----------|-----------+------------|
 
 
 [pagination]: /docs/api/getting_started/design_principles#pagination
