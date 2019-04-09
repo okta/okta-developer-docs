@@ -5,11 +5,9 @@
       <!-- START Page Content -->
       <div class="PageContent-main" id="guides-body">
         <GuideDetails 
-          v-if="section && section.key" 
-          :componentKey="section.key" 
-          :sections="sections" 
-          :section="section"
-          :guide="guide" 
+          v-if="section && section.componentKey"
+          :sectionName="sectionName"
+          :guideName="guideName" 
           :framework="framework"
         />
         <GuidesOverview v-else :featured="featured"/>
@@ -24,9 +22,7 @@
   import { 
     guideFromPath,
     makeGuidePath,
-    findGuides,
-    findGuideSections,
-    findMainFrameworksOfGuide
+    getGuidesInfo, 
   } from '../util/guides';
   export default {
     components: {
@@ -38,17 +34,14 @@
 
     data() { 
       return {
-        guide: null,
-        framework: null,
         section: null,
-        sections: [],
+        guideName: null,
+        guides: null,
+        featured: null,
+        framework: null,
+        sectionName: null,
         currentPath: null,
       };    
-    },
-    computed: { 
-      featured() { 
-        return this.$frontmatter.featured;
-      },
     },
     methods: { 
       updatePath() { 
@@ -61,21 +54,24 @@
     
     watch: {
       currentPath() {
-        let { guide, framework, sectionNum } = guideFromPath(this.currentPath);
+        let { guideName, framework, sectionName } = guideFromPath(this.currentPath);
         const pages = this.$site.pages;
-        const sections = findGuideSections({ guide, pages });
-        const section = sections[sectionNum-1 || 0];
+        const guides = getGuidesInfo({pages});
+        const guide = guides.byName[guideName];
 
-        if(!framework) { 
-          framework = findMainFrameworksOfGuide({ guide, pages })[0];
-          if(window && guide) { 
-            window.location.pathname = makeGuidePath({ guide, framework, sectionNum });
+        if(!framework && guideName) { 
+          framework = guide.mainFramework;
+          if(window) { 
+            window.location.pathname = makeGuidePath({ guideName, framework, sectionName });
           }
         }
 
-        this.sections = sections;
-        this.section = section;
-        this.guide = guide;
+        // this.sections = sectionName && guide.sections;
+        this.featured = guides.featured;
+        this.sectionName  = sectionName;
+        // && guide.sectionByName[sectionName];
+        this.section = sectionName && guide.sectionByName[sectionName];
+        this.guideName = guideName;
         this.framework = framework;
       },
 
