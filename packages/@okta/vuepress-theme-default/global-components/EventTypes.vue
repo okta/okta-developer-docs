@@ -26,13 +26,16 @@
 
 <script>
   import eventTypes from './../../vuepress-site/data/event-types.json'
+  import _ from 'lodash'
+
   export default {
+
     created() {
       this.eventTypes = eventTypes.versions[1].eventTypes
     },
     data() {
       return {
-        search: '',
+        search: this.$route.query.q ? this.$route.query.q : '',
         eventTypes: null
       }
     },
@@ -44,8 +47,17 @@
         }
 
         return this.eventTypes.filter((eventType) => {
-          console.log(this.search.toLowerCase())
-          return eventType.id.toLowerCase().indexOf(this.search.toLowerCase())>=0
+          return (eventType.id.toLowerCase().indexOf(this.search.toLowerCase())>=0
+          || eventType.description.toLowerCase().includes(this.search.toLowerCase())
+          || eventType.info.release.includes(this.search)
+          || eventType.info.created.includes(this.search)
+          || eventType.category.includes(this.search)
+          || eventType.tags.find((tag) => {
+              return tag.toLowerCase().includes(this.search.toLowerCase())
+            })
+          || eventType.mappings.find((mapping) => {
+              return mapping.toLowerCase().includes(this.search.toLowerCase())
+            }))
         });
 
 
@@ -65,6 +77,14 @@
       titleAsId: function (value) {
         return value.replace(/[\s_.]/g, '');
       }
+    },
+
+    watch: {
+      search: _.debounce((value) => {
+        if (history.pushState) {
+          history.pushState(null, '', '?q=' + encodeURI(value));
+        }
+      }, 100)
     }
   }
 </script>

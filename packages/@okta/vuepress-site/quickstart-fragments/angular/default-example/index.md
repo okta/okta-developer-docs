@@ -35,10 +35,10 @@ In Okta, applications are OpenID Connect clients that can use Okta Authorization
 
 After you have created the application there are two more values you will need to gather:
 
-| Setting       | Where to Find                                                                  |
-| ------------- | ------------------------------------------------------------------------------ |
-| Client ID     | In the applications list, or on the "General" tab of a specific application.   |
-| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right.             |
+| Setting       | Where to Find                                                                                                                       |
+| ------------- | ------------------------------------------------------------------------------                                                      |
+| Client ID     | In the applications list, or on the "General" tab of a specific application.                                                        |
+| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right. |
 
 These values will be used in your Angular application to setup the OpenID Connect flow with Okta.
 
@@ -157,7 +157,6 @@ Your Angular application now has an access token in local storage that was issue
 
 Here is what the Angular component could look like for this hypothetical example:
 
-{% raw %}
 
 ```typescript
 // messagelist.component.ts
@@ -202,7 +201,6 @@ export class MessageListComponent implements OnInit{
 }
 ```
 
-{% endraw %}
 
 In the next section you can select your server technology to see how your server can read this incoming token and validate it.
 

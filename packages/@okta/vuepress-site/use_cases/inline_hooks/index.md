@@ -11,7 +11,7 @@ excerpt: Integrate custom functionality into Okta process flows.
 
 Inline hooks are outbound calls from Okta to your own custom code, triggered at specific points in Okta process flows. They allow you to integrate custom functionality into those flows.
 
-You implement your custom code as a web service with an Internet-accessible endpoint. It's your responsibility to arrange hosting of your code on a system external to Okta. Okta defines the REST API contract for the requests it sends to your custom code, as well as for the responses your custom code can send back. 
+You implement your custom code as a web service with an Internet-accessible endpoint. It's your responsibility to arrange hosting of your code on a system external to Okta. Okta defines the REST API contract for the requests it sends to your custom code, as well as for the responses your custom code can send back.
 
 The outbound call from Okta is called a hook. Your code, which receives the call, is referred to as your external service.
 
@@ -23,10 +23,10 @@ Okta defines several different types of inline hooks. Each type of inline hook m
 
 ### Currently-Supported Types
 
-| Name                                                                                 | Description                                      |
-|--------------------------------------------------------------------------------------|--------------------------------------------------|
-| [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)    | Customizes tokens returned by Okta API Access Management.       |
-| [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook) | Adds custom logic to the user import process.                   |
+| Name                                                                                 | Description                                               |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------          |
+| [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)                   | Customizes tokens returned by Okta API Access Management. |
+| [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook)                | Adds custom logic to the user import process.             |
 
 ## Inline Hook Process Flow
 
@@ -40,7 +40,7 @@ The graphic below illustrates the sequence of steps:
 
 ![Hook Call Steps Diagram](/img/hook-call-steps.png "Hook Call Steps Diagram")
 
-1. During the execution of an Okta process flow, at the extension point between points A and B, Okta sends a request to your external service. 
+1. During the execution of an Okta process flow, at the extension point between points A and B, Okta sends a request to your external service.
 
 1. Your external service performs some processing.
 
@@ -54,7 +54,7 @@ Okta's request to your external service consists of an HTTPS POST request with a
 
 ![Hook Request and Response](/img/hook-request-response.png "Hook Request and Response")
 
-Your service needs to handle the inline hook by responding to Okta's request. The JSON payload of the response your service sends can contain a `commands` object, in which you send commands to Okta that affect the course of the Okta process flow. The commands available vary depending on the type of inline hook you're using. 
+Your service needs to handle the inline hook by responding to Okta's request. The JSON payload of the response your service sends can contain a `commands` object, in which you send commands to Okta that affect the course of the Okta process flow. The commands available vary depending on the type of inline hook you're using.
 
 ## The Request
 
@@ -120,7 +120,7 @@ The names of commands follow Java-style reverse DNS name format, beginning with 
 
 Lets you return error messages. How the error data is used varies by inline hook type.
 
-Within an `error` object, you need to provide an `errorSummary` property set to a text string. Additionally, you can use an `errorCauses` object to supply more information. A single error object can contain multiple `errorCauses` objects. The fields within errorCauses are: `errorSummary`, `reason`, `locationType`, `location`, and `domain`. 
+Within an `error` object, you need to provide an `errorSummary` property set to a text string. Additionally, you can use an `errorCauses` object to supply more information. A single error object can contain multiple `errorCauses` objects. The fields within errorCauses are: `errorSummary`, `reason`, `locationType`, `location`, and `domain`.
 
 ## Inline Hook Setup
 

@@ -20,26 +20,22 @@ Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 ### Get Factor
 
-
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/${factorId}" />
 
 Fetches a factor for the specified user
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of a factor                                      | URL        | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
 
 #### Response Parameters
-
 
 [Factor](#factor-model)
 
 #### Request Example
-
 
 ```bash
 curl -v -X GET \
@@ -51,12 +47,12 @@ curl -v -X GET \
 
 #### Response Example
 
-
 ```json
 {
   "id": "sms2gt8gzgEBPUWBIFHN",
   "factorType": "sms",
   "provider": "OKTA",
+  "vendorName": "OKTA",
   "status": "ACTIVE",
   "created": "2014-06-27T20:27:26.000Z",
   "lastUpdated": "2014-06-27T20:27:26.000Z",
@@ -95,25 +91,21 @@ curl -v -X GET \
 
 ### List Enrolled Factors
 
-
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors" />
 
 Enumerates all the enrolled factors for the specified user
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
 
 #### Response Parameters
-
 
 Array of [Factors](#factor-model)
 
 #### Request Example
-
 
 ```bash
 curl -v -X GET \
@@ -125,13 +117,13 @@ curl -v -X GET \
 
 #### Response Example
 
-
 ```json
 [
   {
     "id": "ufs2bysphxKODSZKWVCT",
     "factorType": "question",
     "provider": "OKTA",
+    "vendorName": "OKTA",
     "status": "ACTIVE",
     "created": "2014-04-15T18:10:06.000Z",
     "lastUpdated": "2014-04-15T18:10:06.000Z",
@@ -256,25 +248,21 @@ curl -v -X GET \
 
 ### List Factors to Enroll
 
-
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/catalog" />
 
 Enumerates all the [supported factors](#supported-factors-for-providers) that can be enrolled for the specified user
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
 
 #### Response Parameters
-
 
 Array of [Factors](#factor-model)
 
 #### Request Example
-
 
 ```bash
 curl -v -X GET \
@@ -286,12 +274,12 @@ curl -v -X GET \
 
 #### Response Example
 
-
 ```json
 [
   {
     "factorType": "question",
     "provider": "OKTA",
+    "vendorName": "OKTA",
     "_links": {
       "questions": {
         "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/questions",
@@ -411,9 +399,7 @@ curl -v -X GET \
 
 > Notice that the `sms` factor type includes an existing phone number in `_embedded`. You can either use the existing phone number or update it with a new number. See [Enroll Okta SMS factor](#enroll-okta-sms-factor) for more information.
 
-
 ### List Security Questions
-
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/questions" />
 
@@ -421,25 +407,20 @@ Enumerates all available security questions for a user's `question` factor
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
 
 #### Response Parameters
 
-
 Array of Questions
 
-|---------------+---------------------------+-----------+----------+--------+----------|
-| Property      | Description               | DataType  | Nullable | Unique | Readonly |
-| ------------- | ------------------------- | --------- | -------- | -------| -------- |
-| question      | unique key for question   | String    | FALSE    | TRUE   | TRUE     |
-| questionText  | display text for question | String    | FALSE    | FALSE  | TRUE     |
-|---------------+---------------------------+-----------+----------+--------+----------|
+| Property      | Description               | DataType  | Nullable | Unique  | Readonly |
+| ------------- | ------------------------- | --------- | -------- | ------- | -------- |
+| question      | unique key for question   | String    | FALSE    | TRUE    | TRUE     |
+| questionText  | display text for question | String    | FALSE    | FALSE   | TRUE     |
 
 #### Request Example
-
 
 ```bash
 curl -v -X GET \
@@ -450,7 +431,6 @@ curl -v -X GET \
 ```
 
 #### Response Example
-
 
 ```json
 [
@@ -473,7 +453,6 @@ curl -v -X GET \
 
 ### Enroll Factor
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors" />
 
 Enrolls a user with a supported [factor](#list-factors-to-enroll)
@@ -492,15 +471,13 @@ Enrolls a user with a supported [factor](#list-factors-to-enroll)
 
 ##### Request Parameters
 
-
-Parameter    | Description                                   | Param Type  | DataType                | Required |
------------- | --------------------------------------------- | ----------- | ----------------------- | -------- |
-id           | `id` of user                                  | URL         | String                  | TRUE     |
-templateId   | `id` of an SMS template (only for SMS factor)    | Query       | String                  | FALSE    |
-factor       | Factor                                        | Body        | [Factor](#factor-model) | TRUE     |
+| Parameter    | Description                                   | Param Type  | DataType                | Required |
+| ------------ | --------------------------------------------- | ----------- | ----------------------- | -------- |
+| id           | `id` of user                                  | URL         | String                  | TRUE     |
+| templateId   | `id` of an SMS template (only for SMS factor) | Query       | String                  | FALSE    |
+| factor       | Factor                                        | Body        | [Factor](#factor-model) | TRUE     |
 
 ##### Response Parameters
-
 
 All responses return the enrolled [Factor](#factor-model) with a status of either `PENDING_ACTIVATION` or `ACTIVE`.
 
@@ -508,13 +485,11 @@ All responses return the enrolled [Factor](#factor-model) with a status of eithe
 
 #### Enroll Okta Security Question Factor
 
-
 Enrolls a user with the `question` factor and [question profile](#question-profile).
 
 > The Security Question factor does not require activation and is `ACTIVE` after enrollment.
 
 ##### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -533,12 +508,12 @@ curl -v -X POST \
 
 ##### Response Example
 
-
 ```json
 {
   "id": "ufs1o01OTMGHLAJPVHDZ",
   "factorType": "question",
   "provider": "OKTA",
+  "vendorName": "OKTA",
   "status": "ACTIVE",
   "created": "2014-08-05T22:58:49.000Z",
   "lastUpdated": "2014-08-05T22:58:49.000Z",
@@ -578,11 +553,9 @@ curl -v -X POST \
 
 #### Enroll Okta SMS Factor
 
-
 Enrolls a user with the Okta `sms` factor and an [SMS profile](#sms-profile).  A text message with an OTP is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `activate` link relation to complete the enrollment process.
 
 ##### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -600,12 +573,12 @@ curl -v -X POST \
 
 ##### Response Example
 
-
 ```json
 {
   "id": "mbl1nz9JHJGHWRKMTLHP",
   "factorType": "sms",
   "provider": "OKTA",
+  "vendorName": "OKTA",
   "status": "PENDING_ACTIVATION",
   "created": "2014-08-05T20:59:49.000Z",
   "lastUpdated": "2014-08-06T03:59:49.000Z",
@@ -692,11 +665,9 @@ A `400 Bad Request` status code may be returned if you attempt to enroll with a 
 
 ##### Enroll Okta SMS Factor by Updating Phone Number
 
-
 If the user wants to use a different phone number (instead of the existing phone number) then the enroll API call needs to supply `updatePhone` option with `true`.
 
 ###### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -714,12 +685,10 @@ curl -v -X POST \
 
 ##### Enroll Okta SMS Factor by Using Existing Phone Number
 
-
 If the user wants to use the existing phone number then the enroll API doesn't need to pass the phone number.
 Or, you can pass the existing phone number in a profile object.
 
 ###### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -734,7 +703,6 @@ curl -v -X POST \
 
 ##### Enroll Okta SMS Factor Using Custom Template
 
-
 Customize (and optionally localize) the SMS message sent to the user on enrollment.
 * If the request has an `Accept-Language` header and the template contains a translation for that language, the SMS message is sent using the translated template.
 * If the language provided in the `Accept-Language` header doesn't exist, the SMS message is sent using the template text.
@@ -742,9 +710,7 @@ Customize (and optionally localize) the SMS message sent to the user on enrollme
 
 > For instructions about how to create custom templates, see [SMS Template](/docs/api/resources/templates#add-sms-template).
 
-
 ###### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -762,11 +728,9 @@ curl -v -X POST \
 
 ##### Resend SMS as Part of Enrollment
 
-
 Use the `resend` link to send another OTP if user doesn't receive the original activation SMS OTP.
 
 ###### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -782,17 +746,13 @@ curl -v -X POST \
 }' "https://{yourOktaDomain}/api/v1/users/${userId}/factors/${factorId}/resend"
 ```
 
-
 ##### Resend SMS as Part of Enrollment Using a Custom Template
-
 
 Customize (and optionally localize) the SMS message sent to the user in case Okta needs to resend the message as part of enrollment.
 
 > For instructions about how to create custom templates, see [SMS Template](/docs/api/resources/templates#add-sms-template).
 
-
 ###### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -811,11 +771,9 @@ curl -v -X POST \
 
 ##### Enroll and Auto-Activate Okta SMS Factor
 
-
 To enroll and immediately activate the Okta `sms` factor, add the `activate` option to the enroll API and set it `true`.  An activation text message will not be sent to the device.
 
 ###### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -833,11 +791,9 @@ curl -v -X POST \
 
 #### Enroll Okta Call Factor
 
-
 Enrolls a user with the Okta `call` factor and a [Call profile](#call-profile).  A voice call with an OTP is made to the device during enrollment and must be [activated](#activate-call-factor).
 
 ##### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -856,12 +812,12 @@ curl -v -X POST \
 
 ##### Response Example
 
-
 ```json
 {
   "id": "clf1nz9JHJGHWRKMTLHP",
   "factorType": "call",
   "provider": "OKTA",
+  "vendorName": "OKTA",
   "status": "PENDING_ACTIVATION",
   "created": "2014-08-05T20:59:49.000Z",
   "lastUpdated": "2014-08-06T03:59:49.000Z",
@@ -947,11 +903,9 @@ A `400 Bad Request` status code may be returned if you attempt to enroll with a 
 
 ##### Resend Voice Call as Part of Enrollment
 
-
 Use the `resend` link to send another OTP if user doesn't receive the original activation Voice Call OTP.
 
 ###### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -969,11 +923,9 @@ curl -v -X POST \
 
 ##### Enroll and Auto-Activate Okta Call Factor
 
-
 To enroll and immediately activate the Okta `call` factor, add the `activate` option to the enroll API and set it `true`.  An activation call will not be made to the device.
 
 ##### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -992,11 +944,9 @@ curl -v -X POST \
 
 #### Enroll Okta Verify TOTP Factor
 
-
 Enrolls a user with an Okta `token:software:totp` factor.  The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
 
 ##### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -1011,12 +961,12 @@ curl -v -X POST \
 
 ##### Response Example
 
-
 ```json
 {
   "id": "ostf1fmaMGJLMNGNLIVG",
   "factorType": "token:software:totp",
   "provider": "OKTA",
+  "vendorName": "OKTA",
   "status": "PENDING_ACTIVATION",
   "created": "2014-07-16T16:13:56.000Z",
   "lastUpdated": "2014-07-16T16:13:56.000Z",
@@ -1068,13 +1018,11 @@ curl -v -X POST \
 
 #### Enroll Okta Verify Push Factor
 
-
 Enrolls a user with the Okta verify `push` factor. The factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent via email or sms.
 
 > Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
 
 ##### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -1089,12 +1037,12 @@ curl -v -X POST \
 
 ##### Response Example
 
-
 ```json
 {
   "id": "opfbtzzrjgwauUsxO0g4",
   "factorType": "push",
   "provider": "OKTA",
+  "vendorName": "OKTA",
   "status": "PENDING_ACTIVATION",
   "created": "2015-11-13T07:34:22.000Z",
   "lastUpdated": "2015-11-13T07:34:22.000Z",
@@ -1161,11 +1109,9 @@ curl -v -X POST \
 
 #### Enroll Google Authenticator Factor
 
-
 Enrolls a user with the Google `token:software:totp` factor.  The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
 
 ##### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -1180,12 +1126,12 @@ curl -v -X POST \
 
 ##### Response Example
 
-
 ```json
 {
   "id": "ostf1fmaMGJLMNGNLIVG",
   "factorType": "token:software:totp",
   "provider": "GOOGLE",
+  "vendorName": "GOOGLE",
   "status": "PENDING_ACTIVATION",
   "created": "2014-07-16T16:13:56.000Z",
   "lastUpdated": "2014-07-16T16:13:56.000Z",
@@ -1237,11 +1183,9 @@ curl -v -X POST \
 
 #### Enroll RSA SecurID Factor
 
-
 Enrolls a user with a RSA SecurID factor and a [token profile](#token-profile).  RSA tokens must be verified with the [current pin+passcode](#factor-verification-object) as part of the enrollment request.
 
 ##### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -1262,12 +1206,12 @@ curl -v -X POST \
 
 ##### Response Example
 
-
 ```json
 {
   "id": "rsabtznMn6cp94ez20g4",
   "factorType": "token",
   "provider": "RSA",
+  "vendorName": "RSA",
   "status": "ACTIVE",
   "created": "2015-11-13T07:05:53.000Z",
   "lastUpdated": "2015-11-13T07:05:53.000Z",
@@ -1306,11 +1250,9 @@ curl -v -X POST \
 
 #### Enroll Symantec VIP Factor
 
-
 Enrolls a user with a Symantec VIP factor and a [token profile](#token-profile).  Symantec tokens must be verified with the [current and next passcodes](#factor-verification-object) as part of the enrollment request.
 
 ##### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -1332,12 +1274,12 @@ curl -v -X POST \
 
 ##### Response Example
 
-
 ```json
 {
   "id": "ufvbtzgkYaA7zTKdQ0g4",
   "factorType": "token",
   "provider": "SYMANTEC",
+  "vendorName": "SYMANTEC",
   "status": "ACTIVE",
   "created": "2015-11-13T06:52:08.000Z",
   "lastUpdated": "2015-11-13T06:52:08.000Z",
@@ -1376,11 +1318,9 @@ curl -v -X POST \
 
 #### Enroll YubiKey Factor
 
-
 Enrolls a user with a YubiCo factor (YubiKey).  YubiKeys must be verified with the [current passcode](#factor-verification-object) as part of the enrollment request.
 
 ##### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -1398,12 +1338,12 @@ curl -v -X POST \
 
 ##### Response Example
 
-
 ```json
 {
   "id": "ykfbty3BJeBgUi3750g4",
   "factorType": "token:hardware",
   "provider": "YUBICO",
+  "vendorName": "YUBICO",
   "status": "ACTIVE",
   "created": "2015-11-13T05:27:49.000Z",
   "lastUpdated": "2015-11-13T05:27:49.000Z",
@@ -1448,7 +1388,6 @@ Enrolls a user with an email factor. An email with an OTP is sent to the primary
 
 ##### Request Example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -1464,7 +1403,6 @@ curl -v -X POST \
 ```
 
 ##### Response Example
-
 
 ```json
 {
@@ -1527,7 +1465,6 @@ curl -v -X POST \
 
 ##### Enroll and Auto-Activate Okta Email Factor
 
-
 To enroll and immediately activate the Okta `email` factor, add the `activate` option to the enroll API and set it `true`.  An activation email will not be sent to the user.
 
 ```bash
@@ -1546,12 +1483,10 @@ curl -v -X POST \
 
 #### Enroll U2F Factor
 
-
 Enrolls a user with a U2F factor. The enrollment process starts with getting a nonce from Okta and using that to get registration information from the U2F key using the U2F Javascript API.
 
 
 ##### Enroll U2F Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -1565,7 +1500,6 @@ curl -v -X POST \
 ```
 
 ##### Enroll U2F Response Example
-
 
 ```json
 {
@@ -1612,9 +1546,7 @@ curl -v -X POST \
 }
 ```
 
-
 ### Activate Factor
-
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/lifecycle/activate" />
 
@@ -1627,23 +1559,19 @@ The `sms` and `token:software:totp` [factor types](#factor-type) require activat
 - [Activate Email Factor](#activate-email-factor)
 - [Activate U2F Factor](#activate-u2f-factor)
 
-
 #### Activate TOTP Factor
-
 
 Activates a `token:software:totp` factor by verifying the OTP.
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required | Default
------------- | --------------------------------------------------- | ---------- | -------- | -------- | -------
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of a factor returned from enrollment             | URL        | String   | TRUE     |
-passCode     | OTP generated by device                             | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of a factor returned from enrollment           | URL        | String   | TRUE     |         |
+| passCode     | OTP generated by device                             | Body       | String   | TRUE     |         |
 
 #### Response Parameters
-
 
 If the passcode is correct you will receive the [Factor](#factor-model) with an `ACTIVE` status.
 
@@ -1665,7 +1593,6 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 
 #### Request Example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -1678,12 +1605,12 @@ curl -v -X POST \
 
 #### Response Example
 
-
 ```json
 {
   "id": "ostf1fmaMGJLMNGNLIVG",
   "factorType": "token:software:totp",
   "provider": "OKTA",
+  "vendorName": "OKTA",
   "status": "ACTIVE",
   "created": "2014-07-16T16:13:56.000Z",
   "lastUpdated": "2014-08-06T00:31:07.000Z",
@@ -1722,20 +1649,17 @@ curl -v -X POST \
 
 #### Activate SMS Factor
 
-
 Activates a `sms` factor by verifying the OTP.  The request/response is identical to [activating a TOTP factor](#activate-totp-factor).
 
 ##### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of a factor returned from enrollment             | URL        | String   | TRUE     |
-passCode     | OTP sent to mobile device                           | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| factorId     | `id` of a factor returned from enrollment           | URL        | String   | TRUE     |
+| passCode     | OTP sent to mobile device                           | Body       | String   | TRUE     |
 
 ##### Response Parameters
-
 
 If the passcode is correct you will receive the [Factor](#factor-model) with an `ACTIVE` status.
 
@@ -1757,7 +1681,6 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 
 ##### Request Example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -1770,12 +1693,12 @@ curl -v -X POST \
 
 ##### Response Example
 
-
 ```json
 {
   "id": "sms1o51EADOTFXHHBXBP",
   "factorType": "sms",
   "provider": "OKTA",
+  "vendorName": "OKTA",
   "status": "ACTIVE",
   "created": "2014-08-06T16:56:31.000Z",
   "lastUpdated": "2014-08-06T16:56:31.000Z",
@@ -1814,20 +1737,17 @@ curl -v -X POST \
 
 #### Activate Call Factor
 
-
 Activates a `call` factor by verifying the OTP.  The request/response is identical to [activating a TOTP factor](#activate-totp-factor).
 
 ##### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required | Default
------------- | --------------------------------------------------- | ---------- | -------- | -------- | -------
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of a factor returned from enrollment             | URL        | String   | TRUE     |
-passCode     | OTP sent to mobile device                           | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of a factor returned from enrollment           | URL        | String   | TRUE     |         |
+| passCode     | OTP sent to mobile device                           | Body       | String   | TRUE     |         |
 
 ##### Response Parameters
-
 
 If the passcode is correct you will receive the [Factor](#factor-model) with an `ACTIVE` status.
 
@@ -1862,12 +1782,12 @@ curl -v -X POST \
 
 ##### Response Example
 
-
 ```json
 {
   "id": "clf1o51EADOTFXHHBXBP",
   "factorType": "call",
   "provider": "OKTA",
+  "vendorName": "OKTA",
   "status": "ACTIVE",
   "created": "2014-08-06T16:56:31.000Z",
   "lastUpdated": "2014-08-06T16:56:31.000Z",
@@ -1907,28 +1827,24 @@ curl -v -X POST \
 
 #### Activate Push Factor
 
-
 Activation of `push` factors are asynchronous and must be polled for completion when the `factorResult` returns a `WAITING` status.
 
 Activations have a short lifetime (minutes) and will `TIMEOUT` if they are not completed before the `expireAt` timestamp.  Use the published `activate` link to restart the activation process if the activation is expired.
 
 ##### Request Parameters
 
-
-Parameter | Description    | Param Type | DataType | Required | Default
---------- | -------------- | ---------- | -------- | -------- | -------
-userId       | `id` of a user   | URL        | String   | TRUE     |
-factorId       | `id` of a factor | URL        | String   | TRUE     |
+| Parameter | Description      | Param Type | DataType | Required | Default |
+| --------- | --------------   | ---------- | -------- | -------- | ------- |
+| userId    | `id` of a user   | URL        | String   | TRUE     |         |
+| factorId  | `id` of a factor | URL        | String   | TRUE     |         |
 
 #### Response Parameters
 
-
-Parameter        | Description                    | Param Type | DataType                                                        | Required | Default
----------------- | ------------------------------ | ---------- | --------------------------------------------------------------- | -------- | -------
-activationResult | asynchronous activation result | Body       | [Push Factor Activation Object](#push-factor-activation-object) | TRUE     |
+| Parameter        | Description                    | Param Type | DataType                                                        | Required | Default |
+| ---------------- | ------------------------------ | ---------- | --------------------------------------------------------------- | -------- | ------- |
+| activationResult | asynchronous activation result | Body       | [Push Factor Activation Object](#push-factor-activation-object) | TRUE     |         |
 
 #### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -1939,7 +1855,6 @@ curl -v -X POST \
 ```
 
 #### Response Example (Waiting)
-
 
 ```json
 {
@@ -1984,7 +1899,6 @@ curl -v -X POST \
 
 #### Response Example (Timeout)
 
-
 ```json
 {
     "factorResult": "TIMEOUT",
@@ -2003,12 +1917,12 @@ curl -v -X POST \
 
 #### Response Example (Activated)
 
-
 ```json
 {
     "id": "opf3hkfocI4JTLAju0g4",
     "factorType": "push",
     "provider": "OKTA",
+    "vendorName": "OKTA",
     "status": "ACTIVE",
     "created": "2015-03-16T18:01:28.000Z",
     "lastUpdated": "2015-08-27T14:25:17.000Z",
@@ -2057,15 +1971,13 @@ Activates an `email` factor by verifying the OTP.
 
 ##### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required
------------- | --------------------------------------------------- | ---------- | -------- | --------
-userId          | `id` of a user                                        | URL        | String   | TRUE
-factorId          | `id` of a factor returned from enrollment             | URL        | String   | TRUE
-passCode     | OTP sent to email                           | Body       | String   | TRUE
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| factorId     | `id` of a factor returned from enrollment           | URL        | String   | TRUE     |
+| passCode     | OTP sent to email                                   | Body       | String   | TRUE     |
 
 ##### Response Parameters
-
 
 If the passcode is correct the response contains [Factor](#factor-model) with an `ACTIVE` status.
 
@@ -2087,7 +1999,6 @@ If the passcode is invalid response will be `403 Forbidden` with the following e
 
 #### Request Example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2099,7 +2010,6 @@ curl -v -X POST \
 ```
 
 #### Response Example (Activated)
-
 
 ```json
 {
@@ -2147,7 +2057,6 @@ Activation gets the registration information from the U2F token using the API an
 
 ##### Get registration information from U2F token by calling the U2F Javascript API
 
-
 ```html
 <!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
 <script src="/u2f-api.js"></script>
@@ -2181,7 +2090,6 @@ Activate a U2F factor by verifying the registration data and client data.
 
 ##### Activate U2F Request Parameters
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2194,7 +2102,6 @@ curl -v -X POST \
 ```
 
 ##### Activate U2F Response Parameters
-
 
 ```json
 {
@@ -2241,26 +2148,22 @@ curl -v -X POST \
 
 ### Reset Factor
 
-
 <ApiOperation method="delete" url="/api/v1/users/${userId}/factors/${factorId}" />
 
 Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required | Default
------------- | --------------------------------------------------- | ---------- | -------- | -------- | -------
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of the factor to reset                         | URL        | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of the factor to reset                         | URL        | String   | TRUE     |         |
 
 #### Response Parameters
-
 
 `204 No Content`
 
 #### Request Example
-
 
 ```bash
 curl -v -X DELETE \
@@ -2272,13 +2175,11 @@ curl -v -X DELETE \
 
 #### Response Example
 
-
 `204 No Content`
 
 ## Factor Verification Operations
 
 ### Verify Security Question Factor
-
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
@@ -2286,19 +2187,17 @@ Verifies an answer to a `question` factor.
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required | Default
------------- | --------------------------------------------------- | ---------- | -------- | -------- | -------
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of a factor                                      | URL        | String   | TRUE     |
-answer       | answer to security question                         | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
+| answer       | answer to security question                         | Body       | String   | TRUE     |         |
 
 #### Response Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType                                            | Required | Default
------------- | --------------------------------------------------- | ---------- | --------------------------------------------------- | -------- | -------
-factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
 
 If the `answer` is invalid you will receive a `403 Forbidden` status code with the following error:
 
@@ -2318,7 +2217,6 @@ If the `answer` is invalid you will receive a `403 Forbidden` status code with t
 
 #### Request Example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2331,16 +2229,13 @@ curl -v -X POST \
 
 #### Response Example
 
-
 ```json
 {
   "factorResult": "SUCCESS"
 }
 ```
 
-
 ### Verify SMS Factor
-
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
@@ -2348,22 +2243,20 @@ Verifies an OTP for a `sms` factor.
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of a factor                                      | URL        | String   | TRUE     |
-templateId   | `id` of an SMS template                                | Query      | String   | FALSE    |
-passCode     | OTP sent to device                                  | Body       | String   | FALSE    |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
+| templateId   | `id` of an SMS template                             | Query      | String   | FALSE    |
+| passCode     | OTP sent to device                                  | Body       | String   | FALSE    |
 
 > If you omit `passCode` in the request a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`.
 
 #### Response Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType                                            | Required | Default
------------- | --------------------------------------------------- | ---------- | --------------------------------------------------- | -------- | -------
-factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
 
 If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
 
@@ -2399,7 +2292,6 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 
 #### Request Example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2412,7 +2304,6 @@ curl -v -X POST \
 
 #### Response Example
 
-
 ```json
 {
   "factorResult": "SUCCESS"
@@ -2420,7 +2311,6 @@ curl -v -X POST \
 ```
 
 #### Verify SMS Factor Using A Custom Template
-
 
 Customize (and optionally localize) the SMS message sent to the user on verification.
 * If the request has an `Accept-Language` header and the template contains translation for that language, the SMS message is sent in that language.
@@ -2430,7 +2320,6 @@ Customize (and optionally localize) the SMS message sent to the user on verifica
 To create custom templates, see [Templates](/docs/api/resources/templates#add-sms-template).
 
 ###### Request Example
-
 
 Sends the verification message in German, assuming that the SMS template is configured with a German translation
 
@@ -2446,28 +2335,25 @@ curl -v -X POST \
 
 ### Verify Call Factor
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
 Verifies an OTP for a `call` factor
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required | Default
------------- | --------------------------------------------------- | ---------- | -------- | -------- | -------
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of a factor                                      | URL        | String   | TRUE     |
-passCode     | OTP sent to device                                  | Body       | String   | FALSE    |
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
+| passCode     | OTP sent to device                                  | Body       | String   | FALSE    |         |
 
 > If you omit `passCode` in the request a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`.
 
 #### Response Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType                                            | Required | Default
------------- | --------------------------------------------------- | ---------- | --------------------------------------------------- | -------- | -------
-factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
 
 If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
 
@@ -2501,7 +2387,6 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 
 #### Request Example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2514,7 +2399,6 @@ curl -v -X POST \
 
 #### Response Example
 
-
 ```json
 {
   "factorResult": "SUCCESS"
@@ -2523,26 +2407,23 @@ curl -v -X POST \
 
 ### Verify TOTP Factor
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
 Verifies an OTP for a `token:software:totp` factor
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of a factor                                      | URL        | String   | TRUE     |
-passCode     | OTP generated by device                             | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
+| passCode     | OTP generated by device                             | Body       | String   | TRUE     |
 
 #### Response Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType                                            | Required |
------------- | --------------------------------------------------- | ---------- | --------------------------------------------------- | -------- |
-factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType                                             | Required |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
 
 If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
 
@@ -2562,7 +2443,6 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 
 #### Request Example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2575,7 +2455,6 @@ curl -v -X POST \
 
 #### Response Example
 
-
 ```json
 {
   "factorResult": "SUCCESS"
@@ -2583,7 +2462,6 @@ curl -v -X POST \
 ```
 
 ### Verify Push Factor
-
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
@@ -2593,11 +2471,10 @@ Creates a new verification transaction and sends an asynchronous push notificati
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required | Default
------------- | --------------------------------------------------- | ---------- | -------- | -------- | -------
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of a factor                                      | URL        | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
 
 > The client `IP Address` & `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br>You should [always send a valid User-Agent HTTP header](../getting_started/design_principles#user-agent) when verifying a push factor.
 
@@ -2605,13 +2482,11 @@ factorId          | `id` of a factor                                      | URL 
 
 #### Response Parameters
 
-
-Parameter    | Description                                                          | Param Type | DataType                                             | Required |
------------- | -------------------------------------------------------------------- | ---------- | ---------------------------------------------------- | -------- |
-factorResult | verification result (`WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`) | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
+| Parameter    | Description                                                          | Param Type | DataType                                             | Required |
+| ------------ | -------------------------------------------------------------------- | ---------- | ---------------------------------------------------- | -------- |
+| factorResult | verification result (`WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`) | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
 
 #### Request Example
-
 
 ```bash
 curl -v -X POST \
@@ -2624,7 +2499,6 @@ curl -v -X POST \
 ```
 
 #### Response Example
-
 
 ```json
 {
@@ -2653,7 +2527,6 @@ curl -v -X POST \
 
 #### Poll for Verify Transaction Completion
 
-
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/${factorId}/transactions/${transactionId}" />
 
 Polls a push verification transaction for completion.  The transaction result is `WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`.
@@ -2662,22 +2535,19 @@ Polls a push verification transaction for completion.  The transaction result is
 
 ##### Request Parameters
 
-
-Parameter    | Description         | Param Type | DataType | Required |
------------- | ------------------- | ---------- | -------- | -------- |
-userId          | `id` of a user        | URL        | String   | TRUE     |
-factorId          | `id` of a factor      | URL        | String   | TRUE     |
-transactionId          | `id` of a transaction | URL        | String   | TRUE     |
+| Parameter     | Description           | Param Type | DataType | Required |
+| ------------  | -------------------   | ---------- | -------- | -------- |
+| userId        | `id` of a user        | URL        | String   | TRUE     |
+| factorId      | `id` of a factor      | URL        | String   | TRUE     |
+| transactionId | `id` of a transaction | URL        | String   | TRUE     |
 
 ##### Response Parameters
 
-
-Parameter    | Description         | Param Type | DataType                                             | Required |
------------- | ------------------- | ---------- | ---------------------------------------------------- | -------- |
-factorResult | verification result | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
+| Parameter    | Description         | Param Type | DataType                                             | Required |
+| ------------ | ------------------- | ---------- | ---------------------------------------------------- | -------- |
+| factorResult | verification result | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
 
 ##### Response Example (Waiting)
-
 
 ```json
 {
@@ -2706,7 +2576,6 @@ factorResult | verification result | Body       | [Factor Verify Result](#factor
 
 #### Response Example (Approved)
 
-
 ```json
 {
   "factorResult": "SUCCESS"
@@ -2714,7 +2583,6 @@ factorResult | verification result | Body       | [Factor Verify Result](#factor
 ```
 
 #### Response Example (Rejected)
-
 
 ```json
 {
@@ -2743,7 +2611,6 @@ factorResult | verification result | Body       | [Factor Verify Result](#factor
 
 #### Response Example (Timeout)
 
-
 ```json
 {
   "factorResult": "TIMEOUT",
@@ -2771,26 +2638,23 @@ factorResult | verification result | Body       | [Factor Verify Result](#factor
 
 ### Verify Token Factor
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
 Verifies an OTP for a `token` or `token:hardware` factor
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required |
------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of a factor                                      | URL        | String   | TRUE     |
-passCode     | OTP generated by device                             | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
+| passCode     | OTP generated by device                             | Body       | String   | TRUE     |
 
 #### Response Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType                                             | Required |
------------- | --------------------------------------------------- | ---------- | ---------------------------------------------------- | -------- |
-factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType                                             | Required |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------- | -------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
 
 If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
 
@@ -2810,7 +2674,6 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 
 #### Request Example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2822,7 +2685,6 @@ curl -v -X POST \
 ```
 
 #### Response Example
-
 
 ```json
 {
@@ -2840,11 +2702,10 @@ Verifies an OTP for an `email` factor
 
 #### Request Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType | Required | Default
------------- | --------------------------------------------------- | ---------- | -------- | -------- | -------
-userId          | `id` of a user                                        | URL        | String   | TRUE     |
-factorId          | `id` of a factor                                      | URL        | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
 passCode     | OTP sent to email address                                  | Body       | String   | FALSE    | ""                              |
 tokenLifetimeSeconds | Lifetime of the OTP when requesting one                        | QueryString | Int | FALSE        | 300
 
@@ -2852,10 +2713,9 @@ tokenLifetimeSeconds | Lifetime of the OTP when requesting one                  
 
 #### Response Parameters
 
-
-Parameter    | Description                                         | Param Type | DataType                                            | Required | Default
------------- | --------------------------------------------------- | ---------- | --------------------------------------------------- | -------- | -------
-factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
 
 If the passcode is invalid response will be `403 Forbidden` with the following error:
 
@@ -2889,7 +2749,6 @@ If the passcode is invalid response will be `403 Forbidden` with the following e
 
 #### Request Example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2902,7 +2761,6 @@ curl -v -X POST \
 
 #### Response Example
 
-
 ```json
 {
   "factorResult": "SUCCESS"
@@ -2910,7 +2768,6 @@ curl -v -X POST \
 ```
 
 ### Verify U2F Factor
-
 
 <span class="api-uri-template api-uri-post"><span class="api-label">POST</span> /api/v1/users/${userId}/factors/${factorId}/verify</span>
 
@@ -2927,7 +2784,6 @@ JavaScript API to get the signed assertion from the U2F token.
 
 ##### Request Example for Verify U2F Factor
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2937,7 +2793,6 @@ curl -v -X POST \
 ```
 
 ##### Response Example for Verify U2F Factor
-
 
 ```json
 {
@@ -2976,7 +2831,6 @@ curl -v -X POST \
 
 ##### Get the Signed Assertion from the U2F Token by calling the U2F Javascript API
 
-
 ```html
 <!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
 <script src="/u2f-api.js"></script>
@@ -3014,7 +2868,6 @@ curl -v -X POST \
 
 ##### Request Example for Signed Assertion
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -3027,7 +2880,6 @@ curl -v -X POST \
 ```
 
 ##### Response of U2F Verification Example
-
 
 ```json
 {
@@ -3088,20 +2940,18 @@ curl -v -X POST \
 
 Factors have the following properties:
 
-|----------------+------------------------------------------------------------------+--------------------------------------------------------------------------------+----------+--------+----------|
-| Property       | Description                                                      | DataType                                                                       | Nullable | Unique | Readonly |
-| -------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------- | ------ | -------- |
-| id             | unique key for factor, a 20 character long system generated id   | String                                                                         | FALSE    | TRUE   | TRUE     |
-| factorType     | type of a factor                                                   | [Factor Type](#factor-type)                                                    | FALSE    | TRUE   | TRUE   |
-| provider       | factor provider                                                  | [Provider Type](#provider-type)                                                | FALSE    | TRUE   | TRUE     |
-| status         | status of a factor                                                 | `NOT_SETUP`, `PENDING_ACTIVATION`, `ENROLLED`, `ACTIVE`, `INACTIVE`, `EXPIRED` | FALSE    | FALSE  | TRUE   |
-| created        | timestamp when factor was created                                | Date                                                                           | FALSE    | FALSE  | TRUE     |
-| lastUpdated    | timestamp when factor was last updated                           | Date                                                                           | FALSE    | FALSE  | TRUE     |
-| profile        | profile of a [supported factor](#supported-factors-for-providers)| [Factor Profile Object](#factor-profile-object)                                | TRUE     | FALSE  | FALSE    |
-| verify         | optional verification  for factor enrollment                     | [Factor Verification Object](#factor-verification-object)                      | TRUE     | FALSE  | FALSE    |
-| _links         | [discoverable resources](#links-object) related to the factor    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                 | TRUE     | FALSE  | TRUE     |
-| _embedded      | [embedded resources](#embedded-resources) related to the factor  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                 | TRUE     | FALSE  | TRUE     |
-|----------------+------------------------------------------------------------------+--------------------------------------------------------------------------------+----------+--------+----------|
+| Property       | Description                                                       | DataType                                                                       | Nullable | Unique | Readonly |
+| -------------- | ----------------------------------------------------------------  | ------------------------------------------------------------------------------ | -------- | ------ | -------- |
+| id             | unique key for factor, a 20 character long system generated id    | String                                                                         | FALSE    | TRUE   | TRUE     |
+| factorType     | type of a factor                                                  | [Factor Type](#factor-type)                                                    | FALSE    | TRUE   | TRUE     |
+| provider       | factor provider                                                   | [Provider Type](#provider-type)                                                | FALSE    | TRUE   | TRUE     |
+| status         | status of a factor                                                | `NOT_SETUP`, `PENDING_ACTIVATION`, `ENROLLED`, `ACTIVE`, `INACTIVE`, `EXPIRED` | FALSE    | FALSE  | TRUE     |
+| created        | timestamp when factor was created                                 | Date                                                                           | FALSE    | FALSE  | TRUE     |
+| lastUpdated    | timestamp when factor was last updated                            | Date                                                                           | FALSE    | FALSE  | TRUE     |
+| profile        | profile of a [supported factor](#supported-factors-for-providers) | [Factor Profile Object](#factor-profile-object)                                | TRUE     | FALSE  | FALSE    |
+| verify         | optional verification  for factor enrollment                      | [Factor Verification Object](#factor-verification-object)                      | TRUE     | FALSE  | FALSE    |
+| _links         | [discoverable resources](#links-object) related to the factor     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                 | TRUE     | FALSE  | TRUE     |
+| _embedded      | [embedded resources](#embedded-resources) related to the factor   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                 | TRUE     | FALSE  | TRUE     |
 
 > `id`, `created`, `lastUpdated`, `status`, `_links`, and `_embedded` are only available after a factor is enrolled.
 
@@ -3109,9 +2959,8 @@ Factors have the following properties:
 
 The following factor types are supported:
 
-|-----------------------+---------------------------------------------------------------------------------------------------------------------|
 | Factor Type           | Description                                                                                                         |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------|
+| --------------------- | ------------------------------------------------------------------------------------------------------------------  |
 | `push`                | Out-of-band verification via push notification to a device and transaction verification with digital signature      |
 | `sms`                 | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent via SMS to a registered phone number            |
 | `call`                | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent via Voice Call to a registered phone number     |
@@ -3120,13 +2969,11 @@ The following factor types are supported:
 | `token:hardware`      | Hardware one-time password [OTP](http://en.wikipedia.org/wiki/One-time_password) device                             |
 | `question`            | Additional knowledge based security question                                                                        |
 | `web`                 | HTML inline frame (iframe) for embedding verification from a 3rd party                                              |
-|-----------------------+---------------------------------------------------------------------------------------------------------------------|
 
 #### Provider Type
 
 The following providers are supported:
 
-|------------+-------------------------------|
 | Provider   | Description                   |
 | ---------- | ----------------------------- |
 | `OKTA`     | Okta                          |
@@ -3135,27 +2982,24 @@ The following providers are supported:
 | `GOOGLE`   | Google                        |
 | `DUO`      | Duo Security                  |
 | `YUBICO`   | Yubico                        |
-|------------+-------------------------------|
 
 #### Supported Factors for Providers
 
 Each provider supports a subset of a factor types.  The following table lists the factor types supported for each provider:
 
-|------------+------------------------|
-| Provider   | Factor Type            |
-| ---------- | -----------------------|
-| `OKTA`     | `push`                 |
-| `OKTA`     | `question`             |
-| `OKTA`     | `sms`                  |
-| `OKTA`     | `call`                 |
-| `OKTA`     | `token:software:totp`  |
-| `OKTA`     | `email`                |
-| `GOOGLE`   | `token:software:totp`  |
-| `SYMANTEC` | `token`                |
-| `RSA`      | `token`                |
-| `DUO`      | `web`                  |
-| `YUBICO`   | `token:hardware`       |
-|------------+------------------------|
+| Provider   | Factor Type           |
+| ---------- | --------------------- |
+| `OKTA`     | `push`                |
+| `OKTA`     | `question`            |
+| `OKTA`     | `sms`                 |
+| `OKTA`     | `call`                |
+| `OKTA`     | `token:software:totp` |
+| `OKTA`     | `email`               |
+| `GOOGLE`   | `token:software:totp` |
+| `SYMANTEC` | `token`               |
+| `RSA`      | `token`               |
+| `DUO`      | `web`                 |
+| `YUBICO`   | `token:hardware`      |
 
 ### Factor Profile Object
 
@@ -3165,13 +3009,11 @@ Profiles are specific to the [factor type](#factor-type).
 
 Specifies the profile for a `question` factor
 
-|---------------+---------------------------+-----------+---------+---------+----------|
-| Property      | Description               | DataType  | Nullable | Unique | Readonly |
-| ------------- | ------------------------- | --------- | -------- | -------| -------- |
-| question      | unique key for question   | String    | FALSE    | TRUE   | TRUE     |
-| questionText  | display text for question | String    | FALSE    | FALSE  | TRUE     |
-| answer        | answer to question, min 4 char long | String    | TRUE     | FALSE  | FALSE    |
-|---------------+---------------------------+-----------+---------+---------+----------|
+| Property      | Description                         | DataType  | Nullable | Unique  | Readonly |
+| ------------- | -------------------------           | --------- | -------- | ------- | -------- |
+| question      | unique key for question             | String    | FALSE    | TRUE    | TRUE     |
+| questionText  | display text for question           | String    | FALSE    | FALSE   | TRUE     |
+| answer        | answer to question, min 4 char long | String    | TRUE     | FALSE   | FALSE    |
 
 ```json
 {
@@ -3186,11 +3028,9 @@ Specifies the profile for a `question` factor
 
 Specifies the profile for a `sms` factor
 
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
-| Property      | Description                   | DataType                                                        | Nullable | Unique  | Readonly |
-| ------------- | ----------------------------- | --------------------------------------------------------------- | -------- | ------- | -------- |
+| Property      | Description                                     | DataType                                                        | Nullable | Unique  | Readonly |
+| ------------- | -----------------------------                   | --------------------------------------------------------------- | -------- | ------- | -------- |
 | phoneNumber   | phone number of mobile device, max 15 char long | String [E.164 formatted](http://en.wikipedia.org/wiki/E.164)    | FALSE    | TRUE    | FALSE    |
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
 
 ```json
 {
@@ -3208,12 +3048,10 @@ For example, to convert a US phone number (415 599 2671) to E.164 format, one wo
 
 Specifies the profile for a `call` factor
 
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
-| Property      | Description                   | DataType                                                        | Nullable | Unique  | Readonly |
-| ------------- | ----------------------------- | --------------------------------------------------------------- | -------- | ------- | -------- |
-| phoneNumber   | phone number of the device, max 15 char long    | String [E.164 formatted](http://en.wikipedia.org/wiki/E.164)    | FALSE    | TRUE    | FALSE    |
-| phoneExtension| extension of the device, max 15 char long       | String                                                          | TRUE     | FALSE   | FALSE    |
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
+| Property       | Description                                  | DataType                                                        | Nullable | Unique  | Readonly |
+| -------------  | -----------------------------                | --------------------------------------------------------------- | -------- | ------- | -------- |
+| phoneNumber    | phone number of the device, max 15 char long | String [E.164 formatted](http://en.wikipedia.org/wiki/E.164)    | FALSE    | TRUE    | FALSE    |
+| phoneExtension | extension of the device, max 15 char long    | String                                                          | TRUE     | FALSE   | FALSE    |
 
 ```json
 {
@@ -3234,11 +3072,9 @@ PhoneExtension is optional.
 
 Specifies the profile for a `token`, `token:hardware`, `token:software`, or `token:software:totp` factor
 
-|---------------+--------------------+-----------+----------+---------+----------|
 | Property      | Description        | DataType  | Nullable | Unique  | Readonly |
 | ------------- | ------------------ | --------- | -------- | ------- | -------- |
 | credentialId  | id for credential  | String    | FALSE    | FALSE   | TRUE     |
-|---------------+--------------------+-----------+----------+---------+----------|
 
 ```json
 {
@@ -3252,11 +3088,9 @@ Specifies the profile for a `token`, `token:hardware`, `token:software`, or `tok
 
 Specifies the profile for a `web` factor
 
-|---------------+--------------------+-----------+----------+---------+----------|
 | Property      | Description        | DataType  | Nullable | Unique  | Readonly |
 | ------------- | ------------------ | --------- | -------- | ------- | -------- |
 | credentialId  | id for credential  | String    | FALSE    | FALSE   | TRUE     |
-|---------------+--------------------+-----------+----------+---------+----------|
 
 ```json
 {
@@ -3270,11 +3104,9 @@ Specifies the profile for a `web` factor
 
 Specifies the profile for a `email` factor
 
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
-| Property      | Description                   | DataType                                                        | Nullable | Unique  | Readonly |
-| ------------- | ----------------------------- | --------------------------------------------------------------- | -------- | ------- | -------- |
-| email   | email address of the user, max 100 char long | String  | FALSE    | TRUE    | FALSE    |
-|---------------+-------------------------------+-----------------------------------------------------------------+----------+---------+----------|
+| Property      | Description                                  | DataType                                                        | Nullable | Unique  | Readonly |
+| ------------- | -----------------------------                | --------------------------------------------------------------- | -------- | ------- | -------- |
+| email         | email address of the user, max 100 char long | String                                                          | FALSE    | TRUE    | FALSE    |
 
 ```json
 {
@@ -3296,12 +3128,10 @@ Email factor can be used
 
 Specifies additional verification data for `token` or `token:hardware` factors
 
-|---------------+----------------------------+-----------+----------+---------+----------|
-| Property      | Description                | DataType  | Nullable | Unique  | Readonly |
-| ------------- | -------------------------- | --------- | -------- | ------- | -------- |
-| passCode     | OTP for current time window | String    | FALSE    | FALSE   | FALSE    |
-| nextPassCode | OTP for next time window    | String    | TRUE     | FALSE   | FALSE    |
-|--------------+-----------------------------+-----------+----------+---------+----------|
+| Property      | Description                 | DataType  | Nullable | Unique  | Readonly |
+| ------------- | --------------------------  | --------- | -------- | ------- | -------- |
+| passCode      | OTP for current time window | String    | FALSE    | FALSE   | FALSE    |
+| nextPassCode  | OTP for next time window    | String    | TRUE     | FALSE   | FALSE    |
 
 ```json
 {
@@ -3316,7 +3146,6 @@ Specifies additional verification data for `token` or `token:hardware` factors
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.  This object is used for dynamic discovery of related resources and lifecycle operations.
 
-|--------------------+--------------------------------------------------------------------------------- |
 | Link Relation Type | Description                                                                      |
 | ------------------ | -------------------------------------------------------------------------------- |
 | self               | The actual factor                                                                |
@@ -3326,7 +3155,6 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | send               | List of delivery options to send an activation or factor challenge               |
 | resend             | List of delivery options to resend activation or factor challenge                |
 | poll               | Polls factor for completion of activation of verification                        |
-|--------------------+--------------------------------------------------------------------------------- |
 
 > The Links Object is **read-only**.
 
@@ -3336,7 +3164,6 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 TOTP factors when activated have an embedded activation object which describes the [TOTP](http://tools.ietf.org/html/rfc6238) algorithm parameters.
 
-|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------|
 | Property       | Description                                       | DataType                                                       | Nullable | Unique | Readonly |
 | -------------- | ------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- |
 | timeStep       | time-step size for TOTP                           | String                                                         | FALSE    | FALSE  | TRUE     |
@@ -3344,7 +3171,6 @@ TOTP factors when activated have an embedded activation object which describes t
 | encoding       | encoding of `sharedSecret`                        | `base32` or `base64`                                           | FALSE    | FALSE  | TRUE     |
 | keyLength      | number of digits in an HOTP value                 | Number                                                         | FALSE    | FALSE  | TRUE     |
 | _links         | discoverable resources related to the activation  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
-|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------|
 
 ```json
 {
@@ -3361,13 +3187,11 @@ TOTP factors when activated have an embedded activation object which describes t
 
 Push factors must complete activation on the device by scanning the QR code or visiting activation link sent via email or sms.
 
-|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------|
 | Property       | Description                                       | DataType                                                       | Nullable | Unique | Readonly |
 | -------------- | ------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- |
 | expiresAt      | lifetime of activation                            | Date                                                           | FALSE    | FALSE  | TRUE     |
-| factorResult   | result of a factor activation                       | `WAITING`, `CANCELLED`, `TIMEOUT`, or `ERROR`                  | FALSE    | FALSE  | TRUE     |
+| factorResult   | result of a factor activation                     | `WAITING`, `CANCELLED`, `TIMEOUT`, or `ERROR`                  | FALSE    | FALSE  | TRUE     |
 | _links         | discoverable resources related to the activation  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | FALSE    | FALSE  | TRUE     |
-|----------------+---------------------------------------------------+----------------------------------------------------------------+----------+--------+----------|
 
 ```json
 {
@@ -3408,40 +3232,34 @@ Push factors must complete activation on the device by scanning the QR code or v
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the push factor activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.  This object is used for dynamic discovery of related resources and operations.
 
-|--------------------+------------------------------------------------------------------------------------|
 | Link Relation Type | Description                                                                        |
 | ------------------ | ---------------------------------------------------------------------------------- |
 | qrcode             | QR code that encodes the push activation code needed for enrollment on the device  |
 | send               | Sends an activation link via `email` or `sms` for users who can't scan the QR code |
-|--------------------+------------------------------------------------------------------------------------|
 
 
 ### Factor Verify Result Object
 
 Describes the outcome of a factor verification request
 
-|---------------+---------------------------------------------------+---------------------------------+----------+--------+----------|
 | Property      | Description                                       | DataType                        | Nullable | Unique | Readonly |
 | ------------- | ------------------------------------------------- | ------------------------------- | -------- | ------ | -------- |
-| factorResult  | result of a factor verification                     | [Factor Result](#factor-result) | FALSE    | FALSE  | TRUE     |
+| factorResult  | result of a factor verification                   | [Factor Result](#factor-result) | FALSE    | FALSE  | TRUE     |
 | factorMessage | optional display message for factor verification  | String                          | TRUE     | FALSE  | TRUE     |
-|---------------+---------------------------------------------------+---------------------------------+----------+--------+----------|
 
 #### Factor Result
 
 Specifies the status of a factor verification attempt
 
-|------------------------+-------------------------------------------------------------------------------------------------------------------------------------|
-| Result                 | Description                                                                                                                         |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------|
-| `SUCCESS`              | The factor was successfully verified.                                                                                                    |
-| `CHALLENGE`            | Another verification is required.                                                                                                    |
-| `WAITING`              | The factor verification has started but not yet completed (e.g user hasn't answered phone call yet).                                     |
-| `FAILED`               | The factor verification failed.                                                                                                          |
-| `REJECTED`             | The factor verification was denied by user.                                                                                              |
-| `CANCELLED`            | The factor verification was canceled by user.                                                                                            |
-| `TIMEOUT`              | Okta was unable to verify the factor within the allowed time window.                                                                              |
-| `TIME_WINDOW_EXCEEDED` | The factor was successfully verified but outside of the computed time window.  Another verification is required in current time window. |
-| `PASSCODE_REPLAYED`    | The factor was previously verified within the same time window.  The user must wait another time window and retry with a new verification.  |
-| `ERROR`                | An unexpected server error occurred verifying factor.                                                                                  |
-|------------------------+-------------------------------------------------------------------------------------------------------------------------------------|
+| Result                 | Description                                                                                                                                |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------         |
+| `SUCCESS`              | The factor was successfully verified.                                                                                                      |
+| `CHALLENGE`            | Another verification is required.                                                                                                          |
+| `WAITING`              | The factor verification has started but not yet completed (e.g user hasn't answered phone call yet).                                       |
+| `FAILED`               | The factor verification failed.                                                                                                            |
+| `REJECTED`             | The factor verification was denied by user.                                                                                                |
+| `CANCELLED`            | The factor verification was canceled by user.                                                                                              |
+| `TIMEOUT`              | Okta was unable to verify the factor within the allowed time window.                                                                       |
+| `TIME_WINDOW_EXCEEDED` | The factor was successfully verified but outside of the computed time window.  Another verification is required in current time window.    |
+| `PASSCODE_REPLAYED`    | The factor was previously verified within the same time window.  The user must wait another time window and retry with a new verification. |
+| `ERROR`                | An unexpected server error occurred verifying factor.                                                                                      |

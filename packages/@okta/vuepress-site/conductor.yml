@@ -7,6 +7,8 @@ redirects:
     to: /3rd_party_notices/Okta_Cloud_Provisioning_Connector_Tool/index.html
   - from: /docs/how-to/set-up-auth-server.html
     to: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
+  - from: /docs/how-to/set-up-auth-server/
+    to: /authentication-guide/implementing-authentication/set-up-authz-server/
   - from: /docs/how-to/inbound-saml-with-oidc
     to: /authentication-guide/saml-login/index.html
   - from: /docs/api/resources/social_authentication
@@ -359,3 +361,33 @@ redirects:
     to: /docs/how-to/creating-token-with-groups-claim/
   - from: /docs/sdk/core/api.html
     to: /documentation/
+  - from: /3rd_party_notices/iOS_Verify.html
+    to: /3rd_party_notices/iOS_Verify/
+  - from: /3rd_party_notices/Android_verify.html
+    to: /3rd_party_notices/Android_verify/
+  - from: /3rd_party_notices/Android_Mobile.html
+    to: /3rd_party_notices/Android_Mobile/
+  - from: /docs/api/resources/oidc.html
+    to: /docs/api/resources/oidc/
+  - from: /standards/OAuth/
+    to: /docs/api/resources/oidc/
+  - from: /docs/api/resources/oauth2.html
+    to: /docs/api/resources/oidc/
+  - from: /standards/OIDC/
+    to: /docs/api/resources/oidc/
+  - from: /docs/api/getting_started/design_principles.html
+    to: /docs/api/getting_started/design_principles/
+  - from: /standards/SAML/index
+    to: https://www.okta.com/integrate/documentation/saml/
+  - from: /docs/api/resources/sessions.html
+    to: /docs/api/resources/sessions/
+  - from: /docs/guides/okta_mobile_connect
+    to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
+  - from: /reference/okta_expression_language/index
+    to: /reference/okta_expression_language/
+  - from: /docs/api/getting_started/design_principles/getting_a_token/
+    to: /docs/api/getting_started/getting_a_token/
+  - from: /docs/api/getting_started/enabling_cors.html
+    to: /docs/api/getting_started/enabling_cors/
+  - from: /docs/api/getting_started/okta_expression_lang.html
+    to: /reference/okta_expression_language/

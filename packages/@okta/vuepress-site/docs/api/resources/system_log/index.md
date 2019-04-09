@@ -202,25 +202,23 @@ Each LogEvent object describes a single logged action or "event" performed by a 
 
 LogEvent objects are read-only. The following properties are available:
 
-|-----------+-----------------------------------------------------------------------+----------------------------------------------------------------+----------+--------+----------+-----------+-----------|
-| Property  | Description                                                           | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
-| -------   | --------------------------------------------------------------------- | ---------------------------------------------------------------| -------- | ------ | -------- | --------- | --------- |
-| uuid      | Unique identifier for an individual event                             | String                                                         | FALSE    | TRUE   | TRUE     |           |           |
-| published | Timestamp when event was published                                    | Date                                                           | FALSE    | FALSE  | TRUE     | 1         | 255       |
-| eventType | Type of event that was published                                      | String                                                         | FALSE    | FALSE  | TRUE     | 1         | 255       |
-| version   | Versioning indicator                                                  | String                                                         | FALSE    | FALSE  | TRUE     | 1         | 255       |
-| severity  | Indicates how severe the event is: `DEBUG`, `INFO`, `WARN`, `ERROR`   | String                                                         | FALSE    | FALSE  | TRUE     | 1         | 255       |
-| legacyEventType | Associated Events API [Action `objectType`](events#action-objecttypes) attribute value| String                                                         | TRUE     | FALSE  | TRUE     | 1         | 255       |
-| displayMessage | The display message for an event                                 | String                                                         | TRUE     | FALSE  | TRUE     | 1         | 255       |
-| actor     | Describes the entity that performed an action                         | Array of [Actor Object](#actor-object)                         | TRUE     | FALSE  | TRUE     |           |           |
-| client    | The client that requested an action                                   | [Client Object](#client-object)                                | TRUE     | FALSE  | TRUE     |           |           |
-| outcome   | The outcome of an action                                              | [Outcome Object](#outcome-object)                              | TRUE     | FALSE  | TRUE     |           |           |
-| target    | Zero or more targets of an action                                     | [Target Object](#target-object)                                | TRUE     | FALSE  | TRUE     |           |           |
-| transaction   |  The transaction details of an action                             | [Transaction Object](#transaction-object)                      | TRUE     | FALSE  | TRUE     |           |           |
-| debugContext   | The debug request data of an action                              | [DebugContext Object](#debugcontext-object)                    | TRUE     | FALSE  | TRUE     |           |           |
-| authenticationContext | The authentication data of an action                      | [AuthenticationContext Object](#authenticationcontext-object)  | TRUE     | FALSE  | TRUE     |           |           |
-| securityContext | The security data of an action                                  | [SecurityContext Object](#securitycontext-object)              | TRUE     | FALSE  | TRUE     |           |           |
-|-----------+-----------------------------------------------------------------------+----------------------------------------------------------------+----------+--------+----------+-----------+-----------|
+| Property              | Description                                                                            | DataType                                                        | Nullable | Unique | Readonly | MinLength | MaxLength |
+| -------               | ---------------------------------------------------------------------                  | --------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
+| uuid                  | Unique identifier for an individual event                                              | String                                                          | FALSE    | TRUE   | TRUE     |           |           |
+| published             | Timestamp when event was published                                                     | Date                                                            | FALSE    | FALSE  | TRUE     | 1         | 255       |
+| eventType             | Type of event that was published                                                       | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
+| version               | Versioning indicator                                                                   | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
+| severity              | Indicates how severe the event is: `DEBUG`, `INFO`, `WARN`, `ERROR`                    | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
+| legacyEventType       | Associated Events API [Action `objectType`](events#action-objecttypes) attribute value | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
+| displayMessage        | The display message for an event                                                       | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
+| actor                 | Describes the entity that performed an action                                          | Array of [Actor Object](#actor-object)                          | TRUE     | FALSE  | TRUE     |           |           |
+| client                | The client that requested an action                                                    | [Client Object](#client-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
+| outcome               | The outcome of an action                                                               | [Outcome Object](#outcome-object)                               | TRUE     | FALSE  | TRUE     |           |           |
+| target                | Zero or more targets of an action                                                      | [Target Object](#target-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
+| transaction           | The transaction details of an action                                                   | [Transaction Object](#transaction-object)                       | TRUE     | FALSE  | TRUE     |           |           |
+| debugContext          | The debug request data of an action                                                    | [DebugContext Object](#debugcontext-object)                     | TRUE     | FALSE  | TRUE     |           |           |
+| authenticationContext | The authentication data of an action                                                   | [AuthenticationContext Object](#authenticationcontext-object)   | TRUE     | FALSE  | TRUE     |           |           |
+| securityContext       | The security data of an action                                                         | [SecurityContext Object](#securitycontext-object)               | TRUE     | FALSE  | TRUE     |           |           |
 
 > The actor and/or target of an event is dependent on the action performed. All events have actors but not all have targets.
 
@@ -230,29 +228,25 @@ LogEvent objects are read-only. The following properties are available:
 
 Describes the user, app, client, or other entity (actor) who performed an action on a target
 
-|-------------+-----------------------------------------------+-------------------+----------|
-| Property    | Description                                   | DataType          | Nullable |
-| ----------- | ----------------------------------------------| ----------------- | -------- |
-| id          | ID of actor                                   | String            | FALSE    |
-| type        | Type of actor                                 | String            | FALSE    |
-| alternateId | Alternative ID of actor                       | String            | TRUE     |
-| displayName | Display name of actor                         | String            | TRUE     |
-| detail      | Details about actor                           | Map[String->Object]| TRUE    |
-|-------------+-----------------------------------------------+-------------------+----------|
+| Property    | Description                                    | DataType            | Nullable |
+| ----------- | ---------------------------------------------- | -----------------   | -------- |
+| id          | ID of actor                                    | String              | FALSE    |
+| type        | Type of actor                                  | String              | FALSE    |
+| alternateId | Alternative ID of actor                        | String              | TRUE     |
+| displayName | Display name of actor                          | String              | TRUE     |
+| detail      | Details about actor                            | Map[String->Object] | TRUE     |
 
 ### Target Object
 
 The entity upon which an actor performs an action. Targets may be anything: an app user, a login token or anything else.
 
-|-------------+--------------------------------------------------------------+-----------------+----------|
-| Property    | Description                                                  | DataType        | Nullable |
-| ----------- | ------------------------------------------------------------ | --------------- | -------- |
-| id          | ID of a target                                               | String          | FALSE    |
-| type        | Type of a target                                             | String          | FALSE    |
-| alternateId | Alternative id of a target                                   | String          | TRUE     |
-| displayName | Display name of a target                                     | String          | TRUE     |
-| detail      | Details about target                                         | Map[String->Object] | TRUE |
-|-------------+--------------------------------------------------------------+-----------------+----------|
+| Property    | Description                                                  | DataType            | Nullable |
+| ----------- | ------------------------------------------------------------ | ---------------     | -------- |
+| id          | ID of a target                                               | String              | FALSE    |
+| type        | Type of a target                                             | String              | FALSE    |
+| alternateId | Alternative id of a target                                   | String              | TRUE     |
+| displayName | Display name of a target                                     | String              | TRUE     |
+| detail      | Details about target                                         | Map[String->Object] | TRUE     |
 
 ```json
 {
@@ -268,16 +262,14 @@ The entity upon which an actor performs an action. Targets may be anything: an a
 
 When an event is triggered by an HTTP request, the `client` object describes the [client](https://en.wikipedia.org/wiki/Category:Hypertext_Transfer_Protocol_clients) that issues that HTTP request. For instance, the web browser is the client when a user accesses Okta. When this request is received and processed, a login event is fired. When the event is not sourced to an HTTP request, such as in the case of an automatic update, the Client Object field is blank.
 
-|------------+--------------------------------------------------------------------------------------------------------------------+-----------------+----------|
-| Property   | Description                                                                                                        | DataType        | Nullable |
-| ---------- | ------------------------------------------------------------------------------------------------------------------ | --------------- | -------- |
-| id  | For OAuth requests this is the id of the OAuth [client](https://tools.ietf.org/html/rfc6749#section-1.1) making the request. For SSWS token requests, this is the id of the agent making the request. | [UserAgent Object](#useragent-object) | TRUE |
-| userAgent  | The [user agent](https://en.wikipedia.org/wiki/User_agent) used by an actor to perform an action | [UserAgent Object](#useragent-object) | TRUE |
-| geographicalContext | The physical location where the client made its request from | [GeographicalContext Object](#geographicalcontext-object)    | TRUE     |
-| zone       | The `name` of the [Zone](/docs/api/resources/zones#ZoneModel) that the client's location is mapped to       | String          | TRUE     |
-| ipAddress  | Ip address that the client made its request from                                                                   | String          | TRUE     |
-| device     | Type of device that the client operated from (e.g. Computer)                                                       | String          | TRUE     |
-|------------+--------------------------------------------------------------------------------------------------------------------+-----------------+----------|
+| Property            | Description                                                                                                                                                                                           | DataType                                                  | Nullable |
+| ----------          | ------------------------------------------------------------------------------------------------------------------                                                                                    | ---------------                                           | -------- |
+| id                  | For OAuth requests this is the id of the OAuth [client](https://tools.ietf.org/html/rfc6749#section-1.1) making the request. For SSWS token requests, this is the id of the agent making the request. | [UserAgent Object](#useragent-object)                     | TRUE     |
+| userAgent           | The [user agent](https://en.wikipedia.org/wiki/User_agent) used by an actor to perform an action                                                                                                      | [UserAgent Object](#useragent-object)                     | TRUE     |
+| geographicalContext | The physical location where the client made its request from                                                                                                                                          | [GeographicalContext Object](#geographicalcontext-object) | TRUE     |
+| zone                | The `name` of the [Zone](/docs/api/resources/zones#ZoneModel) that the client's location is mapped to                                                                                                 | String                                                    | TRUE     |
+| ipAddress           | Ip address that the client made its request from                                                                                                                                                      | String                                                    | TRUE     |
+| device              | Type of device that the client operated from (e.g. Computer)                                                                                                                                          | String                                                    | TRUE     |
 
 ### UserAgent Object
 
@@ -285,59 +277,49 @@ When an event is triggered by an HTTP request, the `client` object describes the
 
 In the Okta event data model, the UserAgent object provides specifications about the client software that makes event-triggering HTTP requests. User agent identification is often useful for identifying interoperability problems between servers and clients, and also for browser and operating system usage analytics.
 
-|--------------+---------------------------------------------------------------------------------------------------+----------------+----------|
-| Property     | Description                                                                                       | DataType       | Nullable |
-| ------------ | ------------------------------------------------------------------------------------------------- | -------------- | -------- |
-| Browser      | If the client is a web browser, this field identifies the type of web browser (e.g. CHROME, FIREFOX) | String      | TRUE     |
-| OS           | The [Operating System](https://en.wikipedia.org/wiki/Operating_system) the client runs on (e.g. Windows 10) | String | TRUE   |
-| RawUserAgent | A raw string representation of the user agent, formatted according to [section 5.5.3 of HTTP/1.1 Semantics and Content](https://tools.ietf.org/html/rfc7231#section-5.5.3). Both the `browser` and the `OS` fields can be derived from this field.                                                                                                             | String         | TRUE     |
-|--------------+---------------------------------------------------------------------------------------------------+----------------+----------|
+| Property     | Description                                                                                                                                                                                                                                        | DataType       | Nullable |
+| ------------ | -------------------------------------------------------------------------------------------------                                                                                                                                                  | -------------- | -------- |
+| Browser      | If the client is a web browser, this field identifies the type of web browser (e.g. CHROME, FIREFOX)                                                                                                                                               | String         | TRUE     |
+| OS           | The [Operating System](https://en.wikipedia.org/wiki/Operating_system) the client runs on (e.g. Windows 10)                                                                                                                                        | String         | TRUE     |
+| RawUserAgent | A raw string representation of the user agent, formatted according to [section 5.5.3 of HTTP/1.1 Semantics and Content](https://tools.ietf.org/html/rfc7231#section-5.5.3). Both the `browser` and the `OS` fields can be derived from this field. | String         | TRUE     |
 
 ### Request Object
 
 The request object describes details related to the HTTP request that triggers this event, if available. When the event is not sourced to an http request, such as in the case of an automatic update on the Okta servers, the Request object will still exist, but the `ipChain` field will be empty.
 
-|--------------|---------------------------------------------------------------------------------------------------|----------------|----------|
-| Property     | Description                                                                                       | DataType       | Nullable |
-| ------------ | ------------------------------------------------------------------------------------------------- | -------------- | -------- |
-| ipChain      | If the incoming request passes through any proxies, the IP addresses of those proxies will be stored here in the format (clientIp, proxy1, proxy2, ...). This field is useful when working with trusted proxies.                             | Array of [IpAddress](#ipaddress-object) | TRUE     |
-|--------------+---------------------------------------------------------------------------------------------------+----------------+----------|
+| Property       | Description                                                                                                                                                                                                      | DataType                                | Nullable   |
+| ------------   | -------------------------------------------------------------------------------------------------                                                                                                                | --------------                          | --------   |
+| ipChain        | If the incoming request passes through any proxies, the IP addresses of those proxies will be stored here in the format (clientIp, proxy1, proxy2, ...). This field is useful when working with trusted proxies. | Array of [IpAddress](#ipaddress-object) | TRUE       |
 
 ### GeographicalContext Object
 
 Geographical Context describes a set of geographic coordinates. In addition to containing latitude and longitude data, this object also contains address data of postal code-level granularity. Within the [Client](#client-object) object, the geographical context refers to the physical location of the client when it sends the request that triggers this event.
 
-|-------------+------------------------------------------------------------------------------------+---------------------------------------+----------|
-| Property    | Description                                                                        | DataType                              | Nullable |
-| ----------- | ---------------------------------------------------------------------------------- | ------------------------------------- | -------- |
-| geolocation | Contains the geolocation coordinates (latitude, longitude)                         | [Geolocation Object](#geolocation-object) | TRUE |
-| city        | The city encompassing the area containing the geolocation coordinates, if available (e.g. Seattle, San Francisco) | String | TRUE     |
-| state       | Full name of the state/province encompassing the area containing the geolocation coordinates (e.g. Montana, Incheon) | String | TRUE  |
-| country     | Full name of the country encompassing the area containing the geolocation coordinates (e.g. France, Uganda) | String       | TRUE     |
-| postalCode  | Postal code of the area encompassing the geolocation coordinates                   | String                                | TRUE     |
-|-------------+------------------------------------------------------------------------------------+---------------------------------------+----------|
+| Property    | Description                                                                                                          | DataType                                  | Nullable |
+| ----------- | ----------------------------------------------------------------------------------                                   | -------------------------------------     | -------- |
+| geolocation | Contains the geolocation coordinates (latitude, longitude)                                                           | [Geolocation Object](#geolocation-object) | TRUE     |
+| city        | The city encompassing the area containing the geolocation coordinates, if available (e.g. Seattle, San Francisco)    | String                                    | TRUE     |
+| state       | Full name of the state/province encompassing the area containing the geolocation coordinates (e.g. Montana, Incheon) | String                                    | TRUE     |
+| country     | Full name of the country encompassing the area containing the geolocation coordinates (e.g. France, Uganda)          | String                                    | TRUE     |
+| postalCode  | Postal code of the area encompassing the geolocation coordinates                                                     | String                                    | TRUE     |
 
 ### Geolocation Object
 
 Latitude and longitude of the geolocation where an action was performed, formatted according to the [ISO-6709](https://en.wikipedia.org/wiki/ISO_6709) standard.
 
-|------------+---------------------------------------------------------------------------------------------------+-----------------+----------|
 | Property   | Description                                                                                       | DataType        | Nullable |
 | ---------- | ------------------------------------------------------------------------------------------------- | --------------- | -------- |
 | lat        | Latitude. Uses 2 digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Latitude)   | Double          | FALSE    |
 | lon        | Longitude. Uses 3 digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Longitude) | Double          | FALSE    |
-|------------+---------------------------------------------------------------------------------------------------+-----------------+----------|
 
 ### Outcome Object
 
 Describes the result of an action and the reason for that result.
 
-|------------+------------------------------------------------------------------------+-----------------+----------+---------+-----------+-----------|
 | Property   | Description                                                            | DataType        | Nullable | Default | MinLength | MaxLength |
 | ---------- | ---------------------------------------------------------------------- | --------------- | -------- | ------- | --------- | --------- |
 | result     | Result of the action: `SUCCESS`, `FAILURE`, `SKIPPED`, `UNKNOWN`       | String          | FALSE    |         |           |           |
 | reason     | Reason for the result, for example `INVALID_CREDENTIALS`               | String          | TRUE     |         | 1         | 255       |
-|------------+------------------------------------------------------------------------+-----------------+----------+---------+-----------+-----------|
 
 ### Transaction Object
 
@@ -356,13 +338,11 @@ For example, a Transaction Object such as:
 
 indicates that a `WEB` request with `id` `Wn4f-0RQ8D8lTSLkAmkKdQAADqo` created this event.
 
-|------------+---------------------------------------------------------------------------------------------------------+----------------------+----------|
 | Property   | Description                                                                                             | DataType             | Nullable |
 | ---------- | ------------------------------------------------------------------------------------------------------- | -------------------- | -------- |
 | id         | Unique identifier for this transaction.                                                                 | String               | TRUE     |
 | type       | Describes the kind of transaction. `WEB` indicates a web request. `JOB` indicates an asynchronous task. | String               | TRUE     |
 | detail     | Details for this transaction.                                                                           | Map[String → Object] | TRUE     |
-|------------+---------------------------------------------------------------------------------------------------------+----------------------+----------|
 
 ### DebugContext Object
 
@@ -385,11 +365,9 @@ By inspection of the `debugData` field, one can find the URI used to trigger the
 
 If for some reason the information needed to implement a feature is not provided in other response objects, it is advised to scan the `debugContext.debugData` field for potentially useful fields.
 
-|------------+---------------------------------------------------------------------------------+-----------------+----------|
-| Property   | Description                                                                     | DataType        | Nullable |
-| ---------- | ------------------------------------------------------------------------------- | --------------- | -------- |
-| debugData  | Dynamic field containing miscellaneous information dependent on the event type. | Map[String->Object] | TRUE |
-|------------+---------------------------------------------------------------------------------+-----------------+----------|
+| Property   | Description                                                                     | DataType            | Nullable |
+| ---------- | ------------------------------------------------------------------------------- | ---------------     | -------- |
+| debugData  | Dynamic field containing miscellaneous information dependent on the event type. | Map[String->Object] | TRUE     |
 
 ### AuthenticationContext Object
 
@@ -412,66 +390,56 @@ In such a case, one can recognize that the user used an IWA credential to authen
 
 Among other operations, this response object can be used to scan for suspicious login activity or perform analytics on user authentication habits (e.g. how often authentication scheme X is used versus authentication scheme Y).
 
-|------------+----------------------------------------------------------------+-----------------+----------+-----------+-----------|
-| Property   | Description                                                    | DataType        | Nullable | MinLength | MaxLength |
-| ---------- | -------------------------------------------------------------- | --------------- | -------- | --------- | --------- |
-| authenticationProvider | The system that proves the identity of an actor using the credentials provided to it | String | TRUE  | | |
-| credentialProvider | A credential provider is a software service that manages identities and their associated credentials. When authentication occurs via credentials provided by a credential provider, that credential provider will be recorded here. | String | TRUE | | |
-| credentialType | The underlying technology/scheme used in the credential    | String          | TRUE     |           |           |
-| issuer     | The specific software entity that created and issued the credential. | [Issuer Object](#issuer-object) | TRUE | |   |
-| externalSessionId | A proxy for the actor's [session ID](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet) | String | TRUE | 1 | 255 |
-| interface  | The third party user interface that the actor authenticates through, if any. | String | TRUE | 1        | 255       |
-|------------+----------------------------------------------------------------+-----------------+----------+-----------+-----------|
+| Property               | Description                                                                                                                                                                                                                         | DataType                        | Nullable | MinLength | MaxLength |
+| ----------             | --------------------------------------------------------------                                                                                                                                                                      | ---------------                 | -------- | --------- | --------- |
+| authenticationProvider | The system that proves the identity of an actor using the credentials provided to it                                                                                                                                                | String                          | TRUE     |           |           |
+| credentialProvider     | A credential provider is a software service that manages identities and their associated credentials. When authentication occurs via credentials provided by a credential provider, that credential provider will be recorded here. | String                          | TRUE     |           |           |
+| credentialType         | The underlying technology/scheme used in the credential                                                                                                                                                                             | String                          | TRUE     |           |           |
+| issuer                 | The specific software entity that created and issued the credential.                                                                                                                                                                | [Issuer Object](#issuer-object) | TRUE     |           |           |
+| externalSessionId      | A proxy for the actor's [session ID](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)                                                                                                                                | String                          | TRUE     | 1         | 255       |
+| interface              | The third party user interface that the actor authenticates through, if any.                                                                                                                                                        | String                          | TRUE     | 1         | 255       |
 
 ###### Possible Values
 
 Some of the fields listed above have a finite set of possible values.
 
-|------------------------+-------------------------------------------------------------------------------------------------------|
-| Property               | Possible Values                                                                                       |
-| ---------------------- | ----------------------------------------------------------------------------------------------------- |
-| authenticationProvider | `OKTA_AUTHENTICATION_PROVIDER`, `ACTIVE_DIRECTORY`, `LDAP`, `FEDERATION`, `SOCIAL`, `FACTOR_PROVIDER` |
-| credentialProvider     | `OKTA_CREDENTIAL_PROVIDER`, `RSA`, `SYMANTEC`, `GOOGLE`, `DUO`, `YUBIKEY`                             |
-| credentialType         | `OTP`, `SMS`, `PASSWORD`, `ASSERTION`, `IWA`, `EMAIL`, `OAUTH2`, `JWT`, `CERTIFICATE`, `PRE_SHARED_SYMMETRIC_KEY`, `OKTA_CLIENT_SESSION`, `DEVICE_UDID`                                |
-|------------------------+-------------------------------------------------------------------------------------------------------|
+| Property               | Possible Values                                                                                                                                         |
+| ---------------------- | -----------------------------------------------------------------------------------------------------                                                   |
+| authenticationProvider | `OKTA_AUTHENTICATION_PROVIDER`, `ACTIVE_DIRECTORY`, `LDAP`, `FEDERATION`, `SOCIAL`, `FACTOR_PROVIDER`                                                   |
+| credentialProvider     | `OKTA_CREDENTIAL_PROVIDER`, `RSA`, `SYMANTEC`, `GOOGLE`, `DUO`, `YUBIKEY`                                                                               |
+| credentialType         | `OTP`, `SMS`, `PASSWORD`, `ASSERTION`, `IWA`, `EMAIL`, `OAUTH2`, `JWT`, `CERTIFICATE`, `PRE_SHARED_SYMMETRIC_KEY`, `OKTA_CLIENT_SESSION`, `DEVICE_UDID` |
 
 ### Issuer Object
 
 Describes the `issuer` of the authorization server when the authentication is performed via OAuth. This is the location where well-known resources regarding details of the authorization servers are published.
 
-|------------+----------------------------------------------------------------+-----------------+----------|
-| Property   | Description                                                    | DataType        | Nullable |
-| ---------- | -------------------------------------------------------------- | --------------- | -------- |
-| id         | Varies depending on the type of authentication. If authentication is SAML 2.0, `id` is the issuer in the SAML assertion. For social login, `id` is the issuer of the token.                                         | String          | TRUE     |
-| type       | Information regarding `issuer` and source of the SAML assertion or token.                                         | String          | TRUE     |
-|------------+----------------------------------------------------------------+-----------------+----------|
+| Property   | Description                                                                                                                                                                 | DataType        | Nullable |
+| ---------- | --------------------------------------------------------------                                                                                                              | --------------- | -------- |
+| id         | Varies depending on the type of authentication. If authentication is SAML 2.0, `id` is the issuer in the SAML assertion. For social login, `id` is the issuer of the token. | String          | TRUE     |
+| type       | Information regarding `issuer` and source of the SAML assertion or token.                                                                                                   | String          | TRUE     |
 
 ### SecurityContext Object
 
 The `securityContext` object provides security information directly related to the evaluation of the event's IP reputation. IP reputation is a trustworthiness rating that evaluates how likely a sender is to be malicious based on the sender's IP address. As the name implies, the `securityContext` object is useful for security applications-flagging and inspecting suspicious events.
 
-|----------+-------------------------------------------------------------------------------------------------+----------+----------|
-| Property | Description                                                                                     | DataType | Nullable |
-| -------- | ----------------------------------------------------------------------------------------------- | -------- | -------- |
-| asNumber | [Autonomous system](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) number associated with the autonomous system that the event request was sourced to | Integer | TRUE |
-| asOrg    | Organization associated with the autonomous system that the event request was sourced to        | String   | TRUE     |
-| isp      | [Internet service provider](https://en.wikipedia.org/wiki/Internet_service_provider) used to sent the event's request | String | TRUE |
-| domain   | The [domain name](https://en.wikipedia.org/wiki/Domain_name) associated with the IP address of the inbound event request | String | TRUE |
-| isProxy  | Specifies whether an event's request is from a known proxy                                      | Bool     | TRUE     |
-|----------+-------------------------------------------------------------------------------------------------+----------+----------|
+| Property | Description                                                                                                                                                        | DataType | Nullable |
+| -------- | -----------------------------------------------------------------------------------------------                                                                    | -------- | -------- |
+| asNumber | [Autonomous system](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) number associated with the autonomous system that the event request was sourced to | Integer  | TRUE     |
+| asOrg    | Organization associated with the autonomous system that the event request was sourced to                                                                           | String   | TRUE     |
+| isp      | [Internet service provider](https://en.wikipedia.org/wiki/Internet_service_provider) used to sent the event's request                                              | String   | TRUE     |
+| domain   | The [domain name](https://en.wikipedia.org/wiki/Domain_name) associated with the IP address of the inbound event request                                           | String   | TRUE     |
+| isProxy  | Specifies whether an event's request is from a known proxy                                                                                                         | Bool     | TRUE     |
 
 ### IpAddress Object
 
 Describes an IP address used in a request.
 
-| ------------+----------------------------------------------------------------+-----------------+---------- |
-| Property                                                                                                   | Description                            | DataType                                                    | Nullable |
-|:-----------------------------------------------------------------------------------------------------------|:---------------------------------------|:------------------------------------------------------------|:---------|
-| ip                                                                                                         | IP address                             | String                                                      | TRUE     |
-| geographicalContext                                                                                        | Geographical context of the IP address | [GeographicalContext Object](#geographicalcontext-object) | TRUE     |
-| version                                                                                                    | IP address version                     | V4 or V6                                                    | TRUE     |
-| source                                                                                                     | Details regarding the source           | String                                                      | TRUE     |
-| ------------+----------------------------------------------------------------+-----------------+---------- |
+| Property                                                                                                     | Description                              | DataType                                                      | Nullable |
+| :----------------------------------------------------------------------------------------------------------- | :--------------------------------------- | :------------------------------------------------------------ | :------- |
+| ip                                                                                                           | IP address                               | String                                                        | TRUE     |
+| geographicalContext                                                                                          | Geographical context of the IP address   | [GeographicalContext Object](#geographicalcontext-object)     | TRUE     |
+| version                                                                                                      | IP address version                       | V4 or V6                                                      | TRUE     |
+| source                                                                                                       | Details regarding the source             | String                                                        | TRUE     |
 
 ## Event Types
 
@@ -482,38 +450,38 @@ The following sections outline the key event types captured by the system log. F
 
 ### Application Event
 
-| Event                                        | Description                                                |
-|:---------------------------------------------|:-----------------------------------------------------------|
-| application.lifecycle.activate               | An application was activated.                              |
-| application.lifecycle.create                 | An application was created.                                |
-| application.lifecycle.deactivate             | An application was deactivated.                            |
-| application.lifecycle.delete                 | An application was deleted.                                |
-| application.lifecycle.update                 | An application was updated.                                |
-| application.user_membership.add              | A user was assigned to an application.                     |
-| application.user_membership.change_username  | The name of a user assigned to an application was changed. |
-| application.user_membership.remove           | A user was removed from an application.                    |
+| Event                                          | Description                                                |
+| :--------------------------------------------- | :--------------------------------------------------------- |
+| application.lifecycle.activate                 | An application was activated.                              |
+| application.lifecycle.create                   | An application was created.                                |
+| application.lifecycle.deactivate               | An application was deactivated.                            |
+| application.lifecycle.delete                   | An application was deleted.                                |
+| application.lifecycle.update                   | An application was updated.                                |
+| application.user_membership.add                | A user was assigned to an application.                     |
+| application.user_membership.change_username    | The name of a user assigned to an application was changed. |
+| application.user_membership.remove             | A user was removed from an application.                    |
 
 ### Group Event
 
-| Event                        | Description                      |
-|:-----------------------------|:---------------------------------|
-| group.user_membership.add    | A user was added to a group.     |
-| group.user_membership.remove | A user was removed from a group. |
+| Event                          | Description                      |
+| :----------------------------- | :------------------------------- |
+| group.user_membership.add      | A user was added to a group.     |
+| group.user_membership.remove   | A user was removed from a group. |
 
 ### Policy Events
 
-| Event                       | Description                         |
-|:----------------------------|:------------------------------------|
-| policy.lifecycle.activate   | A rule in a policy was activated.   |
-| policy.lifecycle.create     | A rule in a policy was created.     |
-| policy.lifecycle.deactivate | A rule in a policy was deactivated. |
-| policy.lifecycle.delete     | A rule in a policy was deleted.     |
-| policy.lifecycle.update     | A rule in a policy was updated.     |
-| policy.rule.activate        | A rule in a policy was activated.   |
-| policy.rule.add             | A rule was added to a policy.       |
-| policy.rule.deactivate      | A rule in a policy was deactivated. |
-| policy.rule.delete          | A rule was deleted from a policy.   |
-| policy.rule.update          | A rule in a policy was updated.     |
+| Event                         | Description                         |
+| :---------------------------- | :---------------------------------- |
+| policy.lifecycle.activate     | A rule in a policy was activated.   |
+| policy.lifecycle.create       | A rule in a policy was created.     |
+| policy.lifecycle.deactivate   | A rule in a policy was deactivated. |
+| policy.lifecycle.delete       | A rule in a policy was deleted.     |
+| policy.lifecycle.update       | A rule in a policy was updated.     |
+| policy.rule.activate          | A rule in a policy was activated.   |
+| policy.rule.add               | A rule was added to a policy.       |
+| policy.rule.deactivate        | A rule in a policy was deactivated. |
+| policy.rule.delete            | A rule was deleted from a policy.   |
+| policy.rule.update            | A rule in a policy was updated.     |
 
 #### Policy Event Details
 
@@ -522,10 +490,10 @@ The following sections outline the key event types captured by the system log. F
 
 ### System Events
 
-| Event              | Description                         |
-|:-------------------|:------------------------------------|
-| system.org.rate_limit.warning | An endpoint is near its [rate limit](/docs/api/getting_started/rate-limits).  |
-| system.org.rate_limit.violation | An endpoint has exceeded its [rate limit](/docs/api/getting_started/rate-limits). |
+| Event                                | Description                                                                                                                  |
+| :-------------------                 | :----------------------------------                                                                                          |
+| system.org.rate_limit.warning        | An endpoint is near its [rate limit](/docs/api/getting_started/rate-limits).                                                 |
+| system.org.rate_limit.violation      | An endpoint has exceeded its [rate limit](/docs/api/getting_started/rate-limits).                                            |
 | core.concurrency.org.limit.violation | A request has exceeded the org's allotted [concurrency limit](/docs/api/getting_started/rate-limits#concurrent-rate-limits). |
 
 Rate limit warnings are sent at different times, depending on the org type. For One App and Enterprise orgs, the warning is sent when the org is at 60% of its limit.
@@ -536,21 +504,21 @@ Rate limit violations are sent when a rate limit is exceeded.
 
 ### Security Events
 
-| Event              | Description                         |
-|:-------------------|:------------------------------------|
+| Event                    | Description                                                                                  |
+| :-------------------     | :----------------------------------                                                          |
 | security.request.blocked | A request was blocked due to a blacklist rule (such as an IP network zone or location rule). |
 
 ### User Events
 
-| Event                     | Description                                               |
-|:--------------------------|:----------------------------------------------------------|
-| user.authentication.sso   | A user attempted to SSO to an application managed in Okta |
-| user.lifecycle.activate   | A user account was activated.                             |
-| user.lifecycle.create     | A user account was created.                               |
-| user.lifecycle.deactivate | A user account was deactivated.                           |
-| user.lifecycle.suspend    | A user account was suspended.                             |
-| user.lifecycle.unsuspend  | A user account was moved from suspended status.           |
-| user.session.start        | Okta issued a session to a user who is authenticating     |
+| Event                       | Description                                               |
+| :-------------------------- | :-------------------------------------------------------- |
+| user.authentication.sso     | A user attempted to SSO to an application managed in Okta |
+| user.lifecycle.activate     | A user account was activated.                             |
+| user.lifecycle.create       | A user account was created.                               |
+| user.lifecycle.deactivate   | A user account was deactivated.                           |
+| user.lifecycle.suspend      | A user account was suspended.                             |
+| user.lifecycle.unsuspend    | A user account was moved from suspended status.           |
+| user.session.start          | Okta issued a session to a user who is authenticating     |
 
 #### User Event Details
 
@@ -569,27 +537,27 @@ The `LogResponse` object offers two identifiers in this respect:
 
 The table below shows 18 events produced from 13 transactions over 6 different sessions, all performed by one user. Note that `authenticationContext.externalSessionId` is abbreviated to `sessionId` in this table.
 
-| `sessionId`               | `transaction.id`             | `uuid`                             | `eventType`                                  | `displayMessage`                  |
-|:--------------------------|:----------------------------|:-------------------------------------|:--------------------------------------------|:----------------------------------|
-| trs5JnlvlaIQTOqOj9imLy7lA | WcKPxq1f8QLfFvv3UPHhhgAACGM | f24790d0-d324-47f8-aac5-c27a31ab928d | user.session.access_admin_app               | User accessing Okta administrator app     |
-|                           | WcKPxq1f8QLfFvv3UPHhhgAACGM | ed317758-8776-4240-a540-277c44dcb408 | application.lifecycle.update                | Update application                |
-|                           |                             | 421c1551-71b2-4ebe-a70d-b5f7d3698429 | application.lifecycle.update                | Update application                |
-|                           |                             | 06a50bbe-44fd-40de-83e6-2e4cc2a17d16 | application.lifecycle.update                | Update application                |
-| trsUz2TG3wKS6ar1lvWzHo71w | Wij-6q4YuniRd9yTmWHpfwAAADc | 3e240ff4-6af7-47f2-b107-a2ef661ffc01 | application.user_membership.change_username | Change users application username |
-|                           |                             | 572b05e9-b6be-4dfe-8bc3-01bb3a5a1af5 | application.user_membership.add            | Add user to application membership |
-|                           |                             | 30f29bbf-3218-429b-827a-0a93809591db | application.user_membership.remove        | Remove users application membership |
-|                           | Wij-964YuniRd9yTmWHu1AAAAEA | 5f98d062-05a9-4ede-89a0-8a2ce27efdd4 | user.session.access_admin_app               | User accessing Okta administrator app     |
-|                           | Wij-95eCbHF7In2MKNavlgAAD9I | 45f71ac2-e8b2-4c19-b4cc-d2560108c889 | application.lifecycle.update                | Update application                |
-|                           |                             | 46b85d65-01c6-44d2-86d2-25704804b1c5 | application.lifecycle.update                | Update application                |
-| 102GALFw8CzRT2KXoqnca8Jdg | Wij-AJeCbHF7In2MKNaOpAAAEC4 | b9ab9263-a4ae-4780-9981-377ec8f2da86 | user.session.start                          | User login to Okta                |
-|                           | Wij-7q4YuniRd9yTmWHrBQAAAKQ | ff325685-0220-484c-82cf-5f8dc596acbe | user.authentication.sso                     | User single sign on to app        |
-| trsf8nlpDJZTZeFlcc8nszbjw | Wij-7a4YuniRd9yTmWHqqAAAAKY | 5526a4c4-7f68-4b2a-bab7-2d10ebaeeb1c | mim.checkOSXAccessEligibility.true          | *blank*                           |
-|                           | Wij-764YuniRd9yTmWHrkAAAAGw | 232774ba-8feb-4b00-a732-e0ec99a24434 | user.session.start                          | User login to Okta                |
-| trswPONv4wIRaKDNWVVcmtceg | Wij-6K4YuniRd9yTmWHo9wAAAAY | d31d819a-1427-45b0-a8b4-8a8fb40c72f1 | user.session.start                          | User login to Okta                |
-|                           | Wij-564YuniRd9yTmWHoaQAAAII | 0cc6f4c8-9b91-4a70-b5c4-09d6ad159d32 | mim.checkOSXAccessEligibility.true          | *blank*                           |
-|                           | Wij-2q4YuniRd9yTmWHjRAAAADA | 92606da8-7eeb-4ad7-8ffb-502dd0ec64cc | user.authentication.sso                     | User single sign on to app        |
-| *null*                    | Wm@-R2s5lEMbNIB03krtvAAACyo | 566671be-ec0b-400d-ad2e-6fc73ed12fb1 | user.session.start                          | User login to Okta                |
-
+| sessionId                   | transaction.id                | uuid                                   | eventType                                     | displayMessage                        |
+| :-------------------------- | :---------------------------- | :------------------------------------- | :-------------------------------------------- | :--------------------------------     |
+| trs5JnlvlaIQTOqOj9imLy7lA   | WcKPxq1f8QLfFvv3UPHhhgAACGM   | f24790d0-d324-47f8-aac5-c27a31ab928d   | user.session.access_admin_app                 | User accessing Okta administrator app |
+|                             | WcKPxq1f8QLfFvv3UPHhhgAACGM   | ed317758-8776-4240-a540-277c44dcb408   | application.lifecycle.update                  | Update application                    |
+|                             |                               | 421c1551-71b2-4ebe-a70d-b5f7d3698429   | application.lifecycle.update                  | Update application                    |
+|                             |                               | 06a50bbe-44fd-40de-83e6-2e4cc2a17d16   | application.lifecycle.update                  | Update application                    |
+| trsUz2TG3wKS6ar1lvWzHo71w   | Wij-6q4YuniRd9yTmWHpfwAAADc   | 3e240ff4-6af7-47f2-b107-a2ef661ffc01   | application.user_membership.change_username   | Change users application username     |
+|                             |                               | 572b05e9-b6be-4dfe-8bc3-01bb3a5a1af5   | application.user_membership.add               | Add user to application membership    |
+|                             |                               | 30f29bbf-3218-429b-827a-0a93809591db   | application.user_membership.remove            | Remove users application membership   |
+|                             | Wij-964YuniRd9yTmWHu1AAAAEA   | 5f98d062-05a9-4ede-89a0-8a2ce27efdd4   | user.session.access_admin_app                 | User accessing Okta administrator app |
+|                             | Wij-95eCbHF7In2MKNavlgAAD9I   | 45f71ac2-e8b2-4c19-b4cc-d2560108c889   | application.lifecycle.update                  | Update application                    |
+|                             |                               | 46b85d65-01c6-44d2-86d2-25704804b1c5   | application.lifecycle.update                  | Update application                    |
+| 102GALFw8CzRT2KXoqnca8Jdg   | Wij-AJeCbHF7In2MKNaOpAAAEC4   | b9ab9263-a4ae-4780-9981-377ec8f2da86   | user.session.start                            | User login to Okta                    |
+|                             | Wij-7q4YuniRd9yTmWHrBQAAAKQ   | ff325685-0220-484c-82cf-5f8dc596acbe   | user.authentication.sso                       | User single sign on to app            |
+| trsf8nlpDJZTZeFlcc8nszbjw   | Wij-7a4YuniRd9yTmWHqqAAAAKY   | 5526a4c4-7f68-4b2a-bab7-2d10ebaeeb1c   | mim.checkOSXAccessEligibility.true            | *blank*                               |
+|                             | Wij-764YuniRd9yTmWHrkAAAAGw   | 232774ba-8feb-4b00-a732-e0ec99a24434   | user.session.start                            | User login to Okta                    |
+| trswPONv4wIRaKDNWVVcmtceg   | Wij-6K4YuniRd9yTmWHo9wAAAAY   | d31d819a-1427-45b0-a8b4-8a8fb40c72f1   | user.session.start                            | User login to Okta                    |
+|                             | Wij-564YuniRd9yTmWHoaQAAAII   | 0cc6f4c8-9b91-4a70-b5c4-09d6ad159d32   | mim.checkOSXAccessEligibility.true            | *blank*                               |
+|                             | Wij-2q4YuniRd9yTmWHjRAAAADA   | 92606da8-7eeb-4ad7-8ffb-502dd0ec64cc   | user.authentication.sso                       | User single sign on to app            |
+| *null*                      | Wm@-R2s5lEMbNIB03krtvAAACyo   | 566671be-ec0b-400d-ad2e-6fc73ed12fb1   | user.session.start                            | User login to Okta                    |
+{.table-word-break}
 
 As evidenced by the `null` `authenticationContext.externalSessionId` field in the last row, neither `transaction.id` nor `uuid` maintain a many-to-one relationship with `authenticationContext.externalSessionId`. In this particular case, the `null` `authenticationContext.externalSessionId` field can be explained by a failed user login. There was no session granted to the user's client since the login failed.
 
@@ -608,17 +576,15 @@ Fetch a list of ordered log events from your Okta organization's system log.
 
 The table below summarizes the supported query parameters:
 
-|------------ + ------------------------------------------------------------------------------------------------------+----------------------------------------------------------+-------------------------|
-| Parameter   | Description                                                                                           | Format                                                   | Default                 |
-| ----------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------------------- |
-| `since`     | Filters the lower time bound of the log events `published` property | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z` | 7 days prior to `until` |
-| `until`     | Filters the upper time bound of the log events `published` property | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z` | Current time |
-| `after`     | Used to retrieve the next page of results. Okta returns a link in the HTTP Header (`rel=next`) that includes the after query parameter. | Opaque token           |                         |
-| `filter`    | [Filter Expression](#expression-filter) that filters the results                                      | [SCIM Filter expression](/docs/api/getting_started/design_principles#filtering) |  |
-| `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                       | URL encoded string                                       |                         |
-| `sortOrder` | The order of the returned events sorted by `published`                                                | `ASCENDING` or `DESCENDING`                              | `ASCENDING`             |
-| `limit`     | Sets the number of results returned in the response                                                   | Integer between 0 and 1000                                | 100                     |
-|-------------+-------------------------------------------------------------------------------------------------------+----------------------------------------------------------+-------------------------|
+| Parameter   | Description                                                                                                                             | Format                                                                                                                              | Default                 |
+| ----------- | -----------------------------------------------------------------------------------------------------                                   | --------------------------------------------------------                                                                            | ----------------------- |
+| `since`     | Filters the lower time bound of the log events `published` property                                                                     | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z` | 7 days prior to `until` |
+| `until`     | Filters the upper time bound of the log events `published` property                                                                     | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z` | Current time            |
+| `after`     | Used to retrieve the next page of results. Okta returns a link in the HTTP Header (`rel=next`) that includes the after query parameter. | Opaque token                                                                                                                        |                         |
+| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/api/getting_started/design_principles#filtering)                                                     |                         |
+| `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string                                                                                                                  |                         |
+| `sortOrder` | The order of the returned events sorted by `published`                                                                                  | `ASCENDING` or `DESCENDING`                                                                                                         | `ASCENDING`             |
+| `limit`     | Sets the number of results returned in the response                                                                                     | Integer between 0 and 1000                                                                                                          | 100                     |
 
 ##### Request Types
 
@@ -667,11 +633,11 @@ An expression filter is useful for performing structured queries where constrain
 
 The following expressions are supported for events with the `filter` query parameter:
 
-Filter                                       | Description
--------------------------------------------- | ------------------------------------------------------------------------------
-`eventType eq ":eventType"`                  | Events that have a specific action [eventType](#attributes)
-`target.id eq ":id"`                         | Events published with a specific target id
-`actor.id eq ":id"`                          | Events published with a specific actor id
+| Filter                                       | Description                                                                    |
+| -------------------------------------------- | ------------------------------------------------------------------------------ |
+| `eventType eq ":eventType"`                  | Events that have a specific action [eventType](#attributes)                    |
+| `target.id eq ":id"`                         | Events published with a specific target id                                     |
+| `actor.id eq ":id"`                          | Events published with a specific actor id                                      |
 
 See [Filtering](/docs/api/getting_started/design_principles#filtering) for more information about expressions.
 

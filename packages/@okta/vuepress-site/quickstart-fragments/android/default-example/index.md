@@ -20,18 +20,18 @@ At the end of the Android instructions you can choose your server type to learn 
 * Log into the Okta Developer Dashboard, click **Applications** then **Add Application**.
 * Choose **Native app** as the platform, then populate your new OpenID Connect application with values similar to:
 
-| Setting             | Value                                               |
-| ------------------- | --------------------------------------------------- |
-| Application Name    | My Android App                                      |
-| Login redirect URIs | {yourOktaScheme}:/callback                          |
-| Logout redirect URIs| {yourOktaScheme:/logout                             |
+| Setting              | Value                                               |
+| -------------------  | --------------------------------------------------- |
+| Application Name     | My Android App                                      |
+| Login redirect URIs  | {yourOktaScheme}:/callback                          |
+| Logout redirect URIs | {yourOktaScheme:/logout                             |
 
 After you have created the application there are two more values you will need to gather:
 
-| Setting       | Where to Find                                                                  |
-| ------------- | ------------------------------------------------------------------------------ |
-| Client ID     | In the applications list, or on the "General" tab of a specific application.    |
-| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right.             |
+| Setting       | Where to Find                                                                                                                       |
+| ------------- | ------------------------------------------------------------------------------                                                      |
+| Client ID     | In the applications list, or on the "General" tab of a specific application.                                                        |
+| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right. |
 
 
 These values will be used in your Android application to setup the OpenID Connect flow with Okta.

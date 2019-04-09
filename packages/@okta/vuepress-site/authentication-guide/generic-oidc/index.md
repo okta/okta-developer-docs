@@ -188,14 +188,14 @@ The following fully-tested IdPs are supported. To set up these IdPs, follow the 
 **Details**: In the URL, replace `{tenant}` with the appropriate value.<br>
 
 **IdP:** PayPal<br>
-**Well-Known Configuration URL**: `https://api.sandbox.paypal.com/v1/identity/openidconnect/userinfo/?schema=openid`<br>
-**Details**: Use the `/userinfo` endpoint, as it returns a well-formatted email for Okta to consume.<br>
+**Well-Known Configuration URL**: `https://www.paypal.com/.well-known/openid-configuration`<br>
+**Details**: Use this `/userinfo` endpoint, as it returns a well-formatted email for Okta to consume: `https://api.sandbox.paypal.com/v1/identity/openidconnect/userinfo/?schema=openid`<br>
 
 **IdP**: Salesforce<br>
-**Well-Known Configuration URL**: `https://github.com/okta/samples-nodejs-express-4`<br>
+**Well-Known Configuration URL**: `https://login.salesforce.com/.well-known/openid-configuration`<br>
 
 **IdP** TrustedKey<br>
-**Well-Known Configuration URL**: `https://github.com/okta/samples-java-spring-mvc`<br>
+**Well-Known Configuration URL**: `https://wallet.trustedkey.com/.well-known/openid-configuration`<br>
 
 **IdP**: Twitch<br>
 **Well-Known Configuration URL**: `https://id.twitch.tv/oauth2/.well-known/openid-configuration`<br>

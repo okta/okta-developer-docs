@@ -25,9 +25,9 @@ Lists all roles assigned to a user.
 ##### Request Parameters
 
 
-| Parameter    | Description                                         | Param Type | DataType | Required |
-|:------------ |:--------------------------------------------------- |:---------- |:-------- |:-------- |
-| userId          | `id` of a user                                        | URL        | String   | TRUE     |
+| Parameter     | Description                                          | Param Type  | DataType  | Required  |
+| :------------ | :--------------------------------------------------- | :---------- | :-------- | :-------- |
+| userId        | `id` of a user                                       | URL         | String    | TRUE      |
 
 ##### Response Parameters
 
@@ -119,9 +119,9 @@ Lists all roles assigned to a group.
 ##### Request Parameters
 
 
-| Parameter        | Description                                            | Param Type | DataType | Required |
-|:---------------- |:------------------------------------------------------ |:---------- |:-------- |:-------- |
-| groupId          | `id` of a group                                        | URL        | String   | TRUE     |
+| Parameter         | Description                                             | Param Type  | DataType  | Required  |
+| :---------------- | :------------------------------------------------------ | :---------- | :-------- | :-------- |
+| groupId           | `id` of a group                                         | URL         | String    | TRUE      |
 
 ##### Response Parameters
 
@@ -173,10 +173,10 @@ Assigns a role to a user.
 ##### Request Parameters
 
 
-| Parameter | Description            | Param Type | DataType                  | Required |
-|:----------|:-----------------------|:-----------|:--------------------------|:---------|
-| userId       | `id` of a user           | URL        | String                    | TRUE     |
-| type      | type of role to assign | Body       | [Role Type](#role-types)  | TRUE     |
+| Parameter   | Description              | Param Type   | DataType                    | Required |
+| :---------- | :----------------------- | :----------- | :-------------------------- | :------- |
+| userId      | `id` of a user           | URL          | String                      | TRUE     |
+| type        | type of role to assign   | Body         | [Role Type](#role-types)    | TRUE     |
 
 ##### Response Parameters
 
@@ -220,10 +220,10 @@ Assigns a role to a group.
 ##### Request Parameters
 
 
-| Parameter     | Description               | Param Type | DataType                  | Required |
-|:--------------|:--------------------------|:-----------|:--------------------------|:---------|
-| groupId       | `id` of a group           | URL        | String                    | TRUE     |
-| type          | type of role to assign    | Body       | [Role Type](#role-types)  | TRUE     |
+| Parameter       | Description                 | Param Type   | DataType                    | Required |
+| :-------------- | :-------------------------- | :----------- | :-------------------------- | :------- |
+| groupId         | `id` of a group             | URL          | String                      | TRUE     |
+| type            | type of role to assign      | Body         | [Role Type](#role-types)    | TRUE     |
 
 ##### Response Parameters
 
@@ -275,10 +275,10 @@ Unassigns a role from a user.
 ##### Request Parameters
 
 
-| Parameter | Description  | Param Type | DataType | Required |
-|:----------|:-------------|:-----------|:---------|:---------|
-| userId       | `id` of a user | URL        | String   | TRUE     |
-| roleId       | `id` of a role | URL        | String   | TRUE     |
+| Parameter   | Description    | Param Type   | DataType   | Required |
+| :---------- | :------------- | :----------- | :--------- | :------- |
+| userId      | `id` of a user | URL          | String     | TRUE     |
+| roleId      | `id` of a role | URL          | String     | TRUE     |
 
 ##### Response Parameters
 
@@ -315,10 +315,10 @@ Unassigns a role from a group.
 ##### Request Parameters
 
 
-| Parameter     | Description     | Param Type | DataType | Required |
-|:--------------|:----------------|:-----------|:---------|:---------|
-| groupId       | `id` of a group | URL        | String   | TRUE     |
-| roleId        | `id` of a role  | URL        | String   | TRUE     |
+| Parameter       | Description       | Param Type   | DataType   | Required |
+| :-------------- | :---------------- | :----------- | :--------- | :------- |
+| groupId         | `id` of a group   | URL          | String     | TRUE     |
+| roleId          | `id` of a role    | URL          | String     | TRUE     |
 
 ##### Response Parameters
 
@@ -361,12 +361,12 @@ Lists all group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` role assigned to
 ###### Request Parameters
 
 
-| Parameter | Description                                                  | Param Type | DataType | Required |
-|:----------|:-------------------------------------------------------------|:-----------|:---------|:---------|
-| userId       | `id` of a user                                                 | URL        | String   | TRUE     |
-| roleId       | `id` of a role                                                 | URL        | String   | TRUE     |
-| limit     | Specifies the number of results for a page (default is 20)   | Query      | Number   | FALSE    |
-| after     | Specifies the pagination cursor for the next page of targets | Query      | String   | FALSE    |
+| Parameter   | Description                                                    | Param Type   | DataType   | Required |
+| :---------- | :------------------------------------------------------------- | :----------- | :--------- | :------- |
+| userId      | `id` of a user                                                 | URL          | String     | TRUE     |
+| roleId      | `id` of a role                                                 | URL          | String     | TRUE     |
+| limit       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
+| after       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
 
 Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/api/getting_started/design_principles#pagination).
 
@@ -436,12 +436,12 @@ Lists all group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` role assigned to
 ###### Request Parameters
 
 
-| Parameter     | Description                                                  | Param Type | DataType | Required |
-|:--------------|:-------------------------------------------------------------|:-----------|:---------|:---------|
-| groupId       | `id` of a group                                              | URL        | String   | TRUE     |
-| roleId        | `id` of a role                                               | URL        | String   | TRUE     |
-| limit         | Specifies the number of results for a page (default is 20)   | Query      | Number   | FALSE    |
-| after         | Specifies the pagination cursor for the next page of targets | Query      | String   | FALSE    |
+| Parameter       | Description                                                    | Param Type   | DataType   | Required |
+| :-------------- | :------------------------------------------------------------- | :----------- | :--------- | :------- |
+| groupId         | `id` of a group                                                | URL          | String     | TRUE     |
+| roleId          | `id` of a role                                                 | URL          | String     | TRUE     |
+| limit           | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
+| after           | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
 
 Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/api/getting_started/design_principles#pagination).
 
@@ -519,11 +519,11 @@ Adding the first group target changes the scope of the role assignment from appl
 ###### Request Parameters
 
 
-| Parameter | Description                                   | Param Type | DataType | Required |
-|:----------|:----------------------------------------------|:-----------|:---------|:---------|
-| userId       | `id` of a user                                  | URL        | String   | TRUE     |
-| roleId       | `id` of a role                                  | URL        | String   | TRUE     |
-| groupId      | `id` of group target to scope role assignment | URL        | String   | TRUE     |
+| Parameter   | Description                                     | Param Type   | DataType   | Required |
+| :---------- | :---------------------------------------------- | :----------- | :--------- | :------- |
+| userId      | `id` of a user                                  | URL          | String     | TRUE     |
+| roleId      | `id` of a role                                  | URL          | String     | TRUE     |
+| groupId     | `id` of group target to scope role assignment   | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -562,11 +562,11 @@ Adding the first group target changes the scope of the role assignment from appl
 ###### Request Parameters
 
 
-| Parameter          | Description                                   | Param Type | DataType | Required |
-|:-------------------|:----------------------------------------------|:-----------|:---------|:---------|
-| groupId            | `id` of an admin group                        | URL        | String   | TRUE     |
-| roleId             | `id` of a role                                | URL        | String   | TRUE     |
-| targetGroupId      | `id` of group target to scope role assignment | URL        | String   | TRUE     |
+| Parameter            | Description                                     | Param Type   | DataType   | Required |
+| :------------------- | :---------------------------------------------- | :----------- | :--------- | :------- |
+| groupId              | `id` of an admin group                          | URL          | String     | TRUE     |
+| roleId               | `id` of a role                                  | URL          | String     | TRUE     |
+| targetGroupId        | `id` of group target to scope role assignment   | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -607,11 +607,11 @@ Removes a group target from a `USER_ADMIN` or `HELP_DESK_ADMIN` role assigned to
 ###### Request Parameters
 
 
-| Parameter | Description                              | Param Type | DataType | Required |
-|:----------|:-----------------------------------------|:-----------|:---------|:---------|
-| userId       | `id` of a user                             | URL        | String   | TRUE     |
-| roleId       | `id` of a role                             | URL        | String   | TRUE     |
-| groupId      | `id` of group target for role assignment | URL        | String   | TRUE     |
+| Parameter   | Description                                | Param Type   | DataType   | Required |
+| :---------- | :----------------------------------------- | :----------- | :--------- | :------- |
+| userId      | `id` of a user                             | URL          | String     | TRUE     |
+| roleId      | `id` of a role                             | URL          | String     | TRUE     |
+| groupId     | `id` of group target for role assignment   | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -650,11 +650,11 @@ Removes a group target from a `USER_ADMIN` or `HELP_DESK_ADMIN` role assigned to
 ###### Request Parameters
 
 
-| Parameter     | Description                              | Param Type | DataType | Required |
-|:--------------|:-----------------------------------------|:-----------|:---------|:---------|
-| groupId       | `id` of an admin group                   | URL        | String   | TRUE     |
-| roleId        | `id` of a role                           | URL        | String   | TRUE     |
-| targetGroupId | `id` of group target for role assignment | URL        | String   | TRUE     |
+| Parameter       | Description                                | Param Type   | DataType   | Required |
+| :-------------- | :----------------------------------------- | :----------- | :--------- | :------- |
+| groupId         | `id` of an admin group                     | URL          | String     | TRUE     |
+| roleId          | `id` of a role                             | URL          | String     | TRUE     |
+| targetGroupId   | `id` of group target for role assignment   | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -695,12 +695,12 @@ Lists all app targets for an `APP_ADMIN` role assigned to a user.
 ###### Request Parameters
 
 
-| Parameter | Description                                                  | Param Type | DataType | Required |
-|:----------|:-------------------------------------------------------------|:-----------|:---------|:---------|
-| userId       | `id` of a user                                                 | URL        | String   | TRUE     |
-| roleId       | `id` of a role                                                 | URL        | String   | TRUE     |
-| limit     | Specifies the number of results for a page (default is 20)   | Query      | Number   | FALSE    |
-| after     | Specifies the pagination cursor for the next page of targets | Query      | String   | FALSE    |
+| Parameter   | Description                                                    | Param Type   | DataType   | Required |
+| :---------- | :------------------------------------------------------------- | :----------- | :--------- | :------- |
+| userId      | `id` of a user                                                 | URL          | String     | TRUE     |
+| roleId      | `id` of a role                                                 | URL          | String     | TRUE     |
+| limit       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
+| after       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
 
 Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/api/getting_started/design_principles#pagination)
 
@@ -833,12 +833,12 @@ Lists all app targets for an `APP_ADMIN` role assigned to a group.
 ###### Request Parameters
 
 
-| Parameter | Description                                                  | Param Type | DataType | Required |
-|:----------|:-------------------------------------------------------------|:-----------|:---------|:---------|
-| groupId   | `id` of a group                                              | URL        | String   | TRUE     |
-| roleId    | `id` of a role                                               | URL        | String   | TRUE     |
-| limit     | Specifies the number of results for a page (default is 20)   | Query      | Number   | FALSE    |
-| after     | Specifies the pagination cursor for the next page of targets | Query      | String   | FALSE    |
+| Parameter   | Description                                                    | Param Type   | DataType   | Required |
+| :---------- | :------------------------------------------------------------- | :----------- | :--------- | :------- |
+| groupId     | `id` of a group                                                | URL          | String     | TRUE     |
+| roleId      | `id` of a role                                                 | URL          | String     | TRUE     |
+| limit       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
+| after       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
 
 Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/api/getting_started/design_principles#pagination)
 
@@ -921,11 +921,11 @@ Adding an app target will override any existing instance targets of the app. For
 ###### Request Parameters
 
 
-| Parameter | Description                                                | Param Type | DataType | Required |
-|:----------|:-----------------------------------------------------------|:-----------|:---------|:---------|
-| userId       | `id` of a user                                               | URL        | String   | TRUE     |
-| roleId       | `id` of a role                                               | URL        | String   | TRUE     |
-| appName   | `name` of app target from catalog to scope role assignment | URL        | String   | TRUE     |
+| Parameter   | Description                                                  | Param Type   | DataType   | Required |
+| :---------- | :----------------------------------------------------------- | :----------- | :--------- | :------- |
+| userId      | `id` of a user                                               | URL          | String     | TRUE     |
+| roleId      | `id` of a role                                               | URL          | String     | TRUE     |
+| appName     | `name` of app target from catalog to scope role assignment   | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -966,11 +966,11 @@ Adding an app target will override any existing instance targets of the app. For
 ###### Request Parameters
 
 
-| Parameter | Description                                                | Param Type | DataType | Required |
-|:----------|:-----------------------------------------------------------|:-----------|:---------|:---------|
-| groupId   | `id` of a group                                            | URL        | String   | TRUE     |
-| roleId    | `id` of a role                                             | URL        | String   | TRUE     |
-| appName   | `name` of app target from catalog to scope role assignment | URL        | String   | TRUE     |
+| Parameter   | Description                                                  | Param Type   | DataType   | Required |
+| :---------- | :----------------------------------------------------------- | :----------- | :--------- | :------- |
+| groupId     | `id` of a group                                              | URL          | String     | TRUE     |
+| roleId      | `id` of a role                                               | URL          | String     | TRUE     |
+| appName     | `name` of app target from catalog to scope role assignment   | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -1013,12 +1013,12 @@ App Targets and App Instance Targets cannot be mixed for the same app name. For 
 ###### Request Parameters
 
 
-| Parameter | Description                                                | Param Type | DataType | Required |
-|:----------|:-----------------------------------------------------------|:-----------|:---------|:---------|
-| userId       | `id` of a user                                               | URL        | String   | TRUE     |
-| roleId       | `id` of a role                                               | URL        | String   | TRUE     |
-| appName   | `name` of app target from catalog to scope role assignment | URL        | String   | TRUE     |
-| appInstanceId   | `id` of the app instance target to scope role assignment | URL        | String   | TRUE     |
+| Parameter     | Description                                                  | Param Type   | DataType   | Required |
+| :----------   | :----------------------------------------------------------- | :----------- | :--------- | :------- |
+| userId        | `id` of a user                                               | URL          | String     | TRUE     |
+| roleId        | `id` of a role                                               | URL          | String     | TRUE     |
+| appName       | `name` of app target from catalog to scope role assignment   | URL          | String     | TRUE     |
+| appInstanceId | `id` of the app instance target to scope role assignment     | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -1059,12 +1059,12 @@ App Targets and App Instance Targets cannot be mixed for the same app name. For 
 ###### Request Parameters
 
 
-| Parameter       | Description                                                | Param Type | DataType | Required |
-|:----------------|:-----------------------------------------------------------|:-----------|:---------|:---------|
-| groupId         | `id` of a group                                            | URL        | String   | TRUE     |
-| roleId          | `id` of a role                                             | URL        | String   | TRUE     |
-| appName         | `name` of app target from catalog to scope role assignment | URL        | String   | TRUE     |
-| appInstanceId   | `id` of the app instance target to scope role assignment   | URL        | String   | TRUE     |
+| Parameter         | Description                                                  | Param Type   | DataType   | Required |
+| :---------------- | :----------------------------------------------------------- | :----------- | :--------- | :------- |
+| groupId           | `id` of a group                                              | URL          | String     | TRUE     |
+| roleId            | `id` of a role                                               | URL          | String     | TRUE     |
+| appName           | `name` of app target from catalog to scope role assignment   | URL          | String     | TRUE     |
+| appInstanceId     | `id` of the app instance target to scope role assignment     | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -1105,11 +1105,11 @@ Removes an app target from an `APP_ADMIN` role assigned to a user
 ###### Request Parameters
 
 
-| Parameter | Description                              | Param Type | DataType | Required |
-|:----------|:-----------------------------------------|:-----------|:---------|:---------|
-| userId       | `id` of a user                             | URL        | String   | TRUE     |
-| roleId       | `id` of a role                             | URL        | String   | TRUE     |
-| appName   | `name` of app target for role assignment | URL        | String   | TRUE     |
+| Parameter   | Description                                | Param Type   | DataType   | Required |
+| :---------- | :----------------------------------------- | :----------- | :--------- | :------- |
+| userId      | `id` of a user                             | URL          | String     | TRUE     |
+| roleId      | `id` of a role                             | URL          | String     | TRUE     |
+| appName     | `name` of app target for role assignment   | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -1148,11 +1148,11 @@ Removes an app target from an `APP_ADMIN` role assigned to a group
 ###### Request Parameters
 
 
-| Parameter | Description                              | Param Type | DataType | Required |
-|:----------|:-----------------------------------------|:-----------|:---------|:---------|
-| groupId   | `id` of a group                          | URL        | String   | TRUE     |
-| roleId    | `id` of a role                           | URL        | String   | TRUE     |
-| appName   | `name` of app target for role assignment | URL        | String   | TRUE     |
+| Parameter   | Description                                | Param Type   | DataType   | Required |
+| :---------- | :----------------------------------------- | :----------- | :--------- | :------- |
+| groupId     | `id` of a group                            | URL          | String     | TRUE     |
+| roleId      | `id` of a role                             | URL          | String     | TRUE     |
+| appName     | `name` of app target for role assignment   | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -1193,12 +1193,12 @@ Removes an app instance target from an `APP_ADMIN` role assigned to a user.
 ###### Request Parameters
 
 
-| Parameter | Description                              | Param Type | DataType | Required |
-|:----------|:-----------------------------------------|:-----------|:---------|:---------|
-| userId       | `id` of a user                             | URL        | String   | TRUE     |
-| roleId       | `id` of a role                             | URL        | String   | TRUE     |
-| appName   | `name` of app target for role assignment | URL        | String   | TRUE     |
-| appInstanceId   | `id` of the app instance target for role assignment | URL        | String   | TRUE     |
+| Parameter     | Description                                         | Param Type   | DataType   | Required |
+| :----------   | :-----------------------------------------          | :----------- | :--------- | :------- |
+| userId        | `id` of a user                                      | URL          | String     | TRUE     |
+| roleId        | `id` of a role                                      | URL          | String     | TRUE     |
+| appName       | `name` of app target for role assignment            | URL          | String     | TRUE     |
+| appInstanceId | `id` of the app instance target for role assignment | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -1237,12 +1237,12 @@ Removes an app instance target from an `APP_ADMIN` role assigned to a group.
 ###### Request Parameters
 
 
-| Parameter       | Description                                         | Param Type | DataType | Required |
-|:----------------|:----------------------------------------------------|:-----------|:---------|:---------|
-| groupId         | `id` of a group                                     | URL        | String   | TRUE     |
-| roleId          | `id` of a role                                      | URL        | String   | TRUE     |
-| appName         | `name` of app target for role assignment            | URL        | String   | TRUE     |
-| appInstanceId   | `id` of the app instance target for role assignment | URL        | String   | TRUE     |
+| Parameter         | Description                                           | Param Type   | DataType   | Required |
+| :---------------- | :---------------------------------------------------- | :----------- | :--------- | :------- |
+| groupId           | `id` of a group                                       | URL          | String     | TRUE     |
+| roleId            | `id` of a role                                        | URL          | String     | TRUE     |
+| appName           | `name` of app target for role assignment              | URL          | String     | TRUE     |
+| appInstanceId     | `id` of the app instance target for role assignment   | URL          | String     | TRUE     |
 
 ###### Response Parameters
 
@@ -1313,17 +1313,17 @@ HTTP/1.1 204 No Content
 
 The role model defines several **read-only** properties:
 
-| Property       | Description                                           | DataType                                                                                                    | Nullable | Unique | Read Only |
-|:---------------|:------------------------------------------------------|:------------------------------------------------------------------------------------------------------------|:---------|:-------|:----------|
-| id             | Unique key for the role assignment                    | String                                                                                                      | FALSE    | TRUE   | TRUE      |
-| label          | Display name of role                                  | String                                                                                                      | FALSE    | FALSE  | TRUE      |
-| type           | Type of role                                          | `SUPER_ADMIN`, `ORG_ADMIN`, `API_ACCESS_MANAGEMENT_ADMIN`, `APP_ADMIN`, `USER_ADMIN`, `MOBILE_ADMIN`, `READ_ONLY_ADMIN`, `HELP_DESK_ADMIN` | FALSE    | FALSE  | TRUE      |
-| status         | Status of role assignment                             | `ACTIVE`                                                                                                    | FALSE    | FALSE  | TRUE      |
-| assignmentType | The type of assignment                                | `USER`, `GROUP`                                                                                             | FALSE    | FALSE  | TRUE      |
-| created        | Timestamp when app user was created                   | Date                                                                                                        | FALSE    | FALSE  | TRUE      |
-| lastUpdated    | Timestamp when app user was last updated              | Date                                                                                                        | FALSE    | FALSE  | TRUE      |
-| _embedded      | Embedded resources related to the role assignment     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                              | TRUE     | FALSE  | TRUE      |
-| _links         | Discoverable resources related to the role assignment | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                              | TRUE     | FALSE  | TRUE      |
+| Property         | Description                                             | DataType                                                                                                                                   | Nullable   | Unique   | Read Only |
+| :--------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------                              | :--------- | :------- | :-------- |
+| id               | Unique key for the role assignment                      | String                                                                                                                                     | FALSE      | TRUE     | TRUE      |
+| label            | Display name of role                                    | String                                                                                                                                     | FALSE      | FALSE    | TRUE      |
+| type             | Type of role                                            | `SUPER_ADMIN`, `ORG_ADMIN`, `API_ACCESS_MANAGEMENT_ADMIN`, `APP_ADMIN`, `USER_ADMIN`, `MOBILE_ADMIN`, `READ_ONLY_ADMIN`, `HELP_DESK_ADMIN` | FALSE      | FALSE    | TRUE      |
+| status           | Status of role assignment                               | `ACTIVE`                                                                                                                                   | FALSE      | FALSE    | TRUE      |
+| assignmentType   | The type of assignment                                  | `USER`, `GROUP`                                                                                                                            | FALSE      | FALSE    | TRUE      |
+| created          | Timestamp when app user was created                     | Date                                                                                                                                       | FALSE      | FALSE    | TRUE      |
+| lastUpdated      | Timestamp when app user was last updated                | Date                                                                                                                                       | FALSE      | FALSE    | TRUE      |
+| _embedded        | Embedded resources related to the role assignment       | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                                             | TRUE       | FALSE    | TRUE      |
+| _links           | Discoverable resources related to the role assignment   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                                             | TRUE       | FALSE    | TRUE      |
 
 #### Role Types
 
@@ -1331,15 +1331,15 @@ Some roles support optional targets that constrain the role to a specific set of
 
 Refer to the [product documentation](https://help.okta.com/en/prod/Content/Topics/Security/Administrators.htm?cshid=Security_Administrators#Security_Administrators) for a complete definition of permissions granted to each role.
 
-| Role Type         | Label                        | Optional Targets        |
-|:----------------- |:---------------------------- |:----------------------- |
-| `SUPER_ADMIN`     | Super Administrator          |                         |
-| `ORG_ADMIN`       | Organizational Administrator |                         |
+| Role Type          | Label                         | Optional Targets         |
+| :----------------- | :---------------------------- | :----------------------- |
+| `SUPER_ADMIN`      | Super Administrator           |                          |
+| `ORG_ADMIN`        | Organizational Administrator  |                          |
 | `API_ACCESS_MANAGEMENT_ADMIN` | API Access Management Administrator |
-| `APP_ADMIN`       | Application Administrator    | Apps                    |
-| `USER_ADMIN`      | Group Administrator          | [Groups](groups) |
-| `MOBILE_ADMIN`    | Mobile Administrator         |                         |
-| `READ_ONLY_ADMIN` | Read-only Administrator      |                         |
+| `APP_ADMIN`       | Application Administrator | Apps             |
+| `USER_ADMIN`      | Group Administrator       | [Groups](groups) |
+| `MOBILE_ADMIN`    | Mobile Administrator      |                  |
+| `READ_ONLY_ADMIN` | Read-only Administrator   |                  |
 
 `API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature be enabled. For a description of what the role can do, see [API Access Management Best Practices](/use_cases/api_access_management/#recommended-practices-for-api-access-management).
 
@@ -1347,7 +1347,7 @@ Refer to the [product documentation](https://help.okta.com/en/prod/Content/Topic
 
 A role could either be assigned to the user directly or be assigned to a group, of which the user is a member. The `assignee` in `_links` provides more details about the user or the group to which the assignment was made.
 
-| Assignment Type   | Description                                                        |
-|:------------------|:-------------------------------------------------------------------|
-| `USER`            | Role was assigned to the user directly                             |
-| `GROUP`           | Role was assigned to an admin group, of which the user is a member |
+| Assignment Type     | Description                                                        |
+| :------------------ | :----------------------------------------------------------------- |
+| `USER`              | Role was assigned to the user directly                             |
+| `GROUP`             | Role was assigned to an admin group, of which the user is a member |

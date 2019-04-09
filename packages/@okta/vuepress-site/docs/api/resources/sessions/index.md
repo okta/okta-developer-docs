@@ -48,10 +48,10 @@ Creates a new session for a user with a valid session token. Use this API if, fo
 ##### Request Parameters
 
 
-Parameter        | Description                                                   | Param Type | DataType                        | Required | Default
----------------- | ------------------------------------------------------------- | ---------- | ------------------------------- | -------- | -------
-additionalFields | Optional [session properties](#optional-session-properties)   | Query      | String (comma separated values) | FALSE    |
-sessionToken     | Session token obtained via [Authentication API](authn) | Body       | String                          | TRUE     |
+| Parameter        | Description                                                   | Param Type | DataType                        | Required | Default |
+| ---------------- | ------------------------------------------------------------- | ---------- | ------------------------------- | -------- | ------- |
+| additionalFields | Optional [session properties](#optional-session-properties)   | Query      | String (comma separated values) | FALSE    |         |
+| sessionToken     | Session token obtained via [Authentication API](authn)        | Body       | String                          | TRUE     |         |
 
 ##### Response Parameters
 
@@ -214,9 +214,9 @@ Extends the lifetime of a user's session.
 ##### Request Parameters
 
 
-Parameter | Description                            | Param Type | DataType | Required | Default
---------- | -------------------------------------- | ---------- | -------- | -------- | -------
-id        | `id` of a valid session                | URL        | String   | TRUE     |
+| Parameter | Description                            | Param Type | DataType | Required | Default |
+| --------- | -------------------------------------- | ---------- | -------- | -------- | ------- |
+| id        | `id` of a valid session                | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -299,9 +299,9 @@ Refresh an existing session using the `id` for that session. (This is equivalent
 ##### Request Parameters
 
 
-Parameter | Description             | Param Type | DataType | Required | Default
---------- | ----------------------- | ---------- | -------- | -------- | -------
-id        | `id` of a valid session | URL        | String   | TRUE     |
+| Parameter | Description             | Param Type | DataType | Required | Default |
+| --------- | ----------------------- | ---------- | -------- | -------- | ------- |
+| id        | `id` of a valid session | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -384,9 +384,9 @@ Closes a user's session (logout).
 ##### Request Parameters
 
 
-Parameter | Description             | Param Type | DataType | Required | Default
---------- | ----------------------- | ---------- | -------- | -------- | -------
-id        | `id` of a valid session | URL        | String   | TRUE     |
+| Parameter | Description             | Param Type | DataType | Required | Default |
+| --------- | ----------------------- | ---------- | -------- | -------- | ------- |
+| id        | `id` of a valid session | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -416,7 +416,7 @@ HTTP/1.1 204 No Content
 ### Get Current Session
 
 
-<ApiOperation method="get" url="/api/v1/sessions/me" /> {% api_cors %}
+<ApiOperation method="get" url="/api/v1/sessions/me" /> <SupportsCors />
 
 Get session information for the current user. Use this method in a browser based application to determine if the user is logged in.
 
@@ -495,7 +495,7 @@ Refresh the session for the current user.
 
 > This operation requires a session cookie for the user. API token is not allowed for this operation.
 
-<ApiOperation method="post" url="/api/v1/sessions/me/lifecycle/refresh" /> {% api_cors %}
+<ApiOperation method="post" url="/api/v1/sessions/me/lifecycle/refresh" /> <SupportsCors />
 
 ##### Request Example
 
@@ -595,7 +595,7 @@ Close the session for the currently logged in user. Use this method in a browser
 
 > This operation requires a session cookie for the user. API token is not allowed for this operation.
 
-<ApiOperation method="delete" url="/api/v1/sessions/me" /> {% api_cors %}
+<ApiOperation method="delete" url="/api/v1/sessions/me" /> <SupportsCors />
 
 ##### Request Example
 
@@ -676,20 +676,18 @@ HTTP/1.1 204 No Content
 
 Sessions have the following properties:
 
-|-------------------------------------------+-----------------------------------------------------------------------------------------------+-------------------------------------------+----------+--------+----------|
 | Property                                  | Description                                                                                   | DataType                                  | Nullable | Unique | Readonly |
 | ----------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------- | -------- | ------ | -------- |
 | id                                        | unique key for the session                                                                    | String                                    | FALSE    | TRUE   | TRUE     |
 | login                                     | unique identifier for the user (username)                                                     | String                                    | FALSE    | TRUE   | TRUE     |
-| userId                                    | unique key for the [user](users#get-user-with-id)                                        | String                                    | FALSE    | TRUE   | TRUE     |
+| userId                                    | unique key for the [user](users#get-user-with-id)                                             | String                                    | FALSE    | TRUE   | TRUE     |
 | expiresAt                                 | timestamp when session expires                                                                | Date                                      | FALSE    | TRUE   | TRUE     |
 | status                                    | current [status](#session-status) of the session                                              | `ACTIVE`, `MFA_REQUIRED`, or `MFA_ENROLL` | FALSE    | TRUE   | TRUE     |
 | lastPasswordVerification                  | timestamp when user last performed primary or step-up authentication with password            | Date                                      | TRUE     | TRUE   | TRUE     |
 | lastFactorVerification                    | timestamp when user last performed multi-factor authentication                                | Date                                      | TRUE     | TRUE   | TRUE     |
 | amr                                       | authentication method reference                                                               | [AMR Object](#amr-object)                 | FALSE    | FALSE  | TRUE     |
 | idp                                       | identity provider used to authenticate the user                                               | [IDP Object](#idp-object)                 | FALSE    | FALSE  | TRUE     |
-| mfaActive                                 | indicates whether the user has [enrolled an MFA factor](factors#list-enrolled-factors) | Boolean                                   | FALSE    | FALSE  | TRUE     |
-|-------------------------------------------+-----------------------------------------------------------------------------------------------+-------------------------------------------+----------+--------+----------|
+| mfaActive                                 | indicates whether the user has [enrolled an MFA factor](factors#list-enrolled-factors)        | Boolean                                   | FALSE    | FALSE  | TRUE     |
 
 > The `mfaActive` parameter is a <ApiLifecycle access="deprecated" /> feature. Use the `lastFactorVerification` attribute in conjunction with `amr` to understand if the user has performed MFA for the current session. Use the [Factors API](factors#list-enrolled-factors) to query the factor enrollment status for a given user.
 
@@ -697,12 +695,10 @@ Sessions have the following properties:
 
 The [Create Session](#create-session-with-session-token) operation can optionally return the following properties when requested.
 
-|-----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Property                                      | Description                                                                                                                                                                        |
-| --------------------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| cookieToken                                   | Another one-time token which can be used to obtain a session cookie by visiting either an application's embed link or a session redirect URL.                                      |
-| cookieTokenUrl                                | URL for a a transparent 1x1 pixel image which contains a one-time session token which when visited sets the session cookie in your browser for your organization.                  |
-|-----------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Property                                      | Description                                                                                                                                                                       |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| cookieToken                                   | Another one-time token which can be used to obtain a session cookie by visiting either an application's embed link or a session redirect URL.                                     |
+| cookieTokenUrl                                | URL for a a transparent 1x1 pixel image which contains a one-time session token which when visited sets the session cookie in your browser for your organization.                 |
 
 > The `cookieToken` is a <ApiLifecycle access="deprecated" /> property. Instead, use the [Authentication API](authn), which supports the full user authentication pipeline and produces a `sessionToken` which can be used in this API.
 
@@ -720,32 +716,28 @@ The following values are defined for the status of a session:
 
 The [authentication methods reference](https://tools.ietf.org/html/draft-ietf-oauth-amr-values-01) ("AMR") specifies which authentication methods were used to establish the session. The value is a JSON array with one or more of the following values:
 
-|----------+-------------------------------------------------------+---------------------------------------------------------------------------|
-| Value    | Description                                           | Example                                                                   |
-| -------- | ------------------------------------------------------|---------------------------------------------------------------------------|
-| `pwd`    | Password authentication                               | Standard password-based login                                             |
-| `swk`    | Proof-of-possession (PoP) of a software key           | Okta Verify with Push                                                     |
-| `hwk`    | Proof-of-possession (PoP) of a hardware key           | Yubikey factor                                                            |
-| `otp`    | One-time password                                     | Okta Verify, Google Authenticator                                         |
-| `sms`    | SMS text message to the user at a registered number   | SMS factor                                                                |
-| `tel`    | Telephone call to the user at a registered number     | Phone call factor                                                         |
-| `geo`    | Use of geo-location information                       | IP Trust and Network Zone policy conditions                               |
-| `fpt`    | Fingerprint biometric authentication                  | Okta Verify with Touch ID                                                 |
-| `kba`    | Knowledge-based authentication                        | Security Question factor                                                  |
-| `mfa`    | Multiple-factor authentication                        | This value is present whenever any MFA factor verification is performed. |
-| `mca`   | Multiple-channel authentication                    |  Authentication requires communication over more than one channel, such as Internet and mobile network. |
-|----------+-------------------------------------------------------+---------------------------------------------------------------------------|
+| Value    | Description                                            | Example                                                                                                |
+| -------- | ------------------------------------------------------ | -------------------------------------------------------------------------                              |
+| `pwd`    | Password authentication                                | Standard password-based login                                                                          |
+| `swk`    | Proof-of-possession (PoP) of a software key            | Okta Verify with Push                                                                                  |
+| `hwk`    | Proof-of-possession (PoP) of a hardware key            | Yubikey factor                                                                                         |
+| `otp`    | One-time password                                      | Okta Verify, Google Authenticator                                                                      |
+| `sms`    | SMS text message to the user at a registered number    | SMS factor                                                                                             |
+| `tel`    | Telephone call to the user at a registered number      | Phone call factor                                                                                      |
+| `geo`    | Use of geo-location information                        | IP Trust and Network Zone policy conditions                                                            |
+| `fpt`    | Fingerprint biometric authentication                   | Okta Verify with Touch ID                                                                              |
+| `kba`    | Knowledge-based authentication                         | Security Question factor                                                                               |
+| `mfa`    | Multiple-factor authentication                         | This value is present whenever any MFA factor verification is performed.                               |
+| `mca`    | Multiple-channel authentication                        | Authentication requires communication over more than one channel, such as Internet and mobile network. |
 
 ### IDP Object
 
 Specifies the identity provider used to authentication the user.
 
-|-------------+---------------------------------------------------------------+-----------+--------+----------+-----------+-----------+------------|
-| Property    | DataType                                                      | Nullable  | Unique | Readonly | MinLength | MaxLength | Validation |
-| ------------| ------------------------------------------------------------- | --------- | -------| -------- | --------- | --------- | ---------- |
-| id          | String                                                        | FALSE     | FALSE  | TRUE     |           |           |            |
-| type        | `OKTA`, `ACTIVE_DIRECTORY`, `LDAP`, `FEDERATION`, or `SOCIAL` | FALSE     | FALSE  | TRUE     |           |           |            |
-|-------------+---------------------------------------------------------------+-----------+--------+----------+-----------+-----------+------------|
+| Property     | DataType                                                      | Nullable  | Unique  | Readonly | MinLength | MaxLength | Validation |
+| ------------ | ------------------------------------------------------------- | --------- | ------- | -------- | --------- | --------- | ---------- |
+| id           | String                                                        | FALSE     | FALSE   | TRUE     |           |           |            |
+| type         | `OKTA`, `ACTIVE_DIRECTORY`, `LDAP`, `FEDERATION`, or `SOCIAL` | FALSE     | FALSE   | TRUE     |           |           |            |
 
 > The `id` will be the org id if the type is `OKTA`; otherwise it will be the IDP instance id.
 

@@ -16,10 +16,10 @@ THIRD PARTY NOTICES
 
 _Apache Log4j_
 
-  |VERSION (IF ANY):|    1.2.12|
-  |-
-  |BRIEF DESCRIPTION:|   With log4j it is possible to enable logging at runtime without modifying the application binary.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  | 1.2.12                                                                                           |
+| ---                | ---                                                                                              |
+| BRIEF DESCRIPTION: | With log4j it is possible to enable logging at runtime without modifying the application binary. |
+| LICENSE:           | Apache 2.0                                                                                       |
 
 Licensed to the Apache Software Foundation (ASF) under one or more
 contributor license agreements. See the NOTICE file distributed with
@@ -41,10 +41,10 @@ license._
 
 _servlet-api_
 
-  |VERSION (IF ANY):|    2.4|
-  |-
-  |BRIEF DESCRIPTION:||
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  | 2.4        |
+| ---                | ---        |
+| BRIEF DESCRIPTION: |            |
+| LICENSE:           | Apache 2.0 |
 
 Copyright (c) 2003-2004 The Apache Software Foundation.
 
@@ -68,10 +68,10 @@ license._
 
 _SpringSource Apache Commons Logging_
 
-  |VERSION (IF ANY):|    1.1.1|
-  |-
-  |BRIEF DESCRIPTION:|   Commons Logging is a thin adapter allowing configurable bridging to other, well known logging systems.|
-  |LICENSE:|             Apache 2.0|
+| VERSION (IF ANY):  | 1.1.1                                                                                                  |
+| ---                | ---                                                                                                    |
+| BRIEF DESCRIPTION: | Commons Logging is a thin adapter allowing configurable bridging to other, well known logging systems. |
+| LICENSE:           | Apache 2.0                                                                                             |
 
 Copyright (c) The Apache Software Foundation.
 

@@ -16,8 +16,8 @@ THIRD PARTY NOTICES
 
 _Apache Commons Daemon_
 
-  |VERSION (IF ANY):|     1.0.13|
-  |-
+| VERSION (IF ANY): | 1.0.13 |
+| ---               | ---    |
   |BRIEF DESCRIPTION:|   Apache Commons Daemon provides a portable means of starting and stopping a Java Virtual Machine (JVM) that is running server-side applications.
   |LICENSE:|              Apache 2.0|
 
@@ -43,10 +43,10 @@ license._
 
 _TinyRadius_
 
-  |VERSION (IF ANY):|    1.0|
-  |-
-  |BRIEF DESCRIPTION:|   TinyRadius is a simple, small and fast Java Radius library capable of sending and receiving Radius packets of all types.|
-  |LICENSE:|             LGPL 2.1|
+| VERSION (IF ANY):  | 1.0                                                                                                                      |
+| ---                | ---                                                                                                                      |
+| BRIEF DESCRIPTION: | TinyRadius is a simple, small and fast Java Radius library capable of sending and receiving Radius packets of all types. |
+| LICENSE:           | LGPL 2.1                                                                                                                 |
 
 LICENSE
 

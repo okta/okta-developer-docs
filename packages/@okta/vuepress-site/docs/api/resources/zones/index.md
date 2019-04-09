@@ -231,10 +231,10 @@ A subset of zones can be returned that match a supported filter expression or qu
 - [List All Zones](#list-all-zones) (no parameters)
 - [List Zones with a Filter](#list-zones-with-a-filter) (`filter`)
 
-| Parameter  | Description                                                                                                                        | Param Type | DataType | Required |
-|:-----------|:-----------------------------------------------------------------------------------------------------------------------------------|:-----------|:---------|:---------|
-| filter     | [Filter](/docs/api/getting_started/design_principles#filtering) zones with a supported expression for a subset of properties  | Query      | String   |    No    |
-| limit      | Specifies the number of results returned                                                                                           | Query      | Integer  |    No    |
+| Parameter    | Description                                                                                                                          | Param Type   | DataType   | Required |
+| :----------- | :----------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
+| filter       | [Filter](/docs/api/getting_started/design_principles#filtering) zones with a supported expression for a subset of properties         | Query        | String     | No       |
+| limit        | Specifies the number of results returned                                                                                             | Query        | Integer    | No       |
 
 ##### Response Parameters
 
@@ -690,22 +690,22 @@ curl -X PUT \
 
 An IP zone defines several attributes:
 
-|Field Name    | Description                                                                               | Data Type                                   | Required      | Max Length    |
-|:-------------|:------------------------------------------------------------------------------------------|:--------------------------------------------|:--------------|:--------------|
-|type          | Type of zone (currently it can only be IP)                                                | String                                      |   Yes         |     N/A       |
-|id            | Unique identifier for this zone                                                           | String                                      | No (Assigned) |     N/A       |
-|name          | Unique name for this zone                                                                 | String                                      |   Yes         | 128 (chars)   |
-|gateways      | IP addresses (range or CIDR form) of this zone                                            | Array of [Address Objects](#address-object) |   No          | 150 (entries) |
-|proxies       | IP addresses (range or CIDR form) allowed to forward request from gateway addresses above | Array of [Address Objects](#address-object) |   No          | 150 (entries) |
+| Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
+| :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
+| type           | Type of zone (currently it can only be IP)                                                  | String                                        | Yes             | N/A           |
+| id             | Unique identifier for this zone                                                             | String                                        | No (Assigned)   | N/A           |
+| name           | Unique name for this zone                                                                   | String                                        | Yes             | 128 (chars)   |
+| gateways       | IP addresses (range or CIDR form) of this zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
+| proxies        | IP addresses (range or CIDR form) allowed to forward request from gateway addresses above   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
 
 #### Address Object
 
 Each address object specifies a set of IP addresses, expressed using either range or CIDR form.
 
-|Field Name | Description                                              | Data Type | Required |
-|:----------|:---------------------------------------------------------|:----------|:---------|
-|type       | Format of the value - either CIDR or RANGE               |  String   |   No     |
-|value      | Value in CIDR/RANGE form depending on the type specified |  String   |   No     |
+| Field Name  | Description                                                | Data Type   | Required |
+| :---------- | :--------------------------------------------------------- | :---------- | :------- |
+| type        | Format of the value - either CIDR or RANGE                 | String      | No       |
+| value       | Value in CIDR/RANGE form depending on the type specified   | String      | No       |
 
 #### Address Object Example (CIDR)
 ```json

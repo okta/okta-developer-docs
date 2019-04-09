@@ -40,20 +40,24 @@ export default {
         if (anchor) {
           let target = document.getElementById(anchor)
           if (target) {
-            window.scrollTo(0, (target.offsetTop - 160))
+            window.scrollTo(0, (target.offsetTop - 90))
           }
         }
 
-      let links = document.querySelectorAll('a[href*="#"]:not([href="#"])')
+      let links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href*="/quickstart/#"])')
 
       Array.from(links).forEach((link) => {
         link.addEventListener('click', function(event) {
-          event.preventDefault()
-          let target = document.querySelector(this.hash)
-          if(target) {
-            window.scrollTo(0, (target.offsetTop - 40))
-          }
 
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+            let target = document.querySelector(this.hash)
+            if (target) {
+              event.preventDefault()
+              window.scrollTo(0, (target.offsetTop - 90))
+              return false;
+            }
+          }
         })
       })
     })

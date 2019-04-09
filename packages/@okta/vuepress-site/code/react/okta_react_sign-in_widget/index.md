@@ -26,11 +26,11 @@ If you do not already have a **Developer Edition Account**, you can create one a
 * Log into the Okta Developer Dashboard, and **Create New App**
 * Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect app with values similar to:
 
-| Setting             | Value                                               |
-| ------------------- | --------------------------------------------------- |
-| App Name            | OpenId Connect App *(must be unique)*               |
-| Login redirect URIs | http://localhost:3000/implicit/callback             |
-| Logout redirect URIs| http://localhost:3000/login                         |
+| Setting              | Value                                               |
+| -------------------  | --------------------------------------------------- |
+| App Name             | OpenId Connect App *(must be unique)*               |
+| Login redirect URIs  | http://localhost:3000/implicit/callback             |
+| Logout redirect URIs | http://localhost:3000/login                         |
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
 
@@ -177,7 +177,6 @@ This route hosts the Sign-In Widget and redirects if the user is already logged 
 
 Create a new component `src/Login.js`:
 
-{% raw %}
 
 ```typescript
 // src/Login.js
@@ -237,7 +236,6 @@ export default withAuth(class Login extends Component {
 });
 ```
 
-{% endraw %}
 
 ### `/implicit/callback`
 

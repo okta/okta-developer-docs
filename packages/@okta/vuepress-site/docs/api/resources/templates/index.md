@@ -28,9 +28,9 @@ Adds a new custom SMS template to your organization.
 ##### Request Parameters
 
 
-Parameter | Description                               | ParamType | DataType                          | Required |
---------- | ----------------------------------------- | --------- | --------------------------------- | -------- |
-          | Definition of the new custom SMS template | Body      | [SMS Template](#sms-template-model)   | TRUE     |
+| Parameter                                 | Description                               | ParamType                           | DataType                          | Required |
+| ---------                                 | ----------------------------------------- | ---------                           | --------------------------------- | -------- |
+| Definition of the new custom SMS template | Body                                      | [SMS Template](#sms-template-model) | TRUE                              |          |
 
 ##### Response Parameters
 
@@ -87,9 +87,9 @@ Fetches a specific template by `id`
 ##### Request Parameters
 
 
-Parameter |    Description     | ParamType | DataType | Required |
---------- | ------------------ | --------- | -------- | -------- |
-smsTemplateId        | `id` of a template | URL       | String   | TRUE     |
+| Parameter     | Description        | ParamType | DataType | Required |
+| ---------     | ------------------ | --------- | -------- | -------- |
+| smsTemplateId | `id` of a template | URL       | String   | TRUE     |
 
 ##### Response Parameters
 
@@ -136,9 +136,9 @@ Enumerates custom SMS templates in your organization. Optionally, a subset of te
 ##### Request Parameters
 
 
- Parameter     | Description                                                                                | ParamType | DataType | Required | Default |
--------------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- |
- templateType  | The type of template that you are searching for. Valid value: `SMS_VERIFY_CODE`            | Query     | String   | FALSE    | N/A |
+| Parameter      | Description                                                                                | ParamType | DataType | Required | Default |
+| -------------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- |
+| templateType   | The type of template that you are searching for. Valid value: `SMS_VERIFY_CODE`            | Query     | String   | FALSE    | N/A     |
 
 > Search currently performs an exact match of the type but this is an implementation detail and may change without notice in the future.
 
@@ -191,10 +191,10 @@ Updates the SMS template.
 ##### Request Parameters
 
 
-Parameter | Description                                 | ParamType | DataType                            | Required |
---------- | ------------------------------------------- | --------- | ----------------------------------- | -------- |
-smsTemplateId        | `id` of the SMS template to update            | URL       | String                              | TRUE     |
-          | Full description of the custom SMS template | Body      | [SMS Template](#sms-template-model) | TRUE     |
+| Parameter                                   | Description                                 | ParamType                           | DataType                            | Required |
+| ---------                                   | ------------------------------------------- | ---------                           | ----------------------------------- | -------- |
+| smsTemplateId                               | `id` of the SMS template to update          | URL                                 | String                              | TRUE     |
+| Full description of the custom SMS template | Body                                        | [SMS Template](#sms-template-model) | TRUE                                |          |
 
 > All profile properties must be specified when updating an SMS custom template. Partial updates are described [here](#partial-sms-template-update).
 
@@ -254,10 +254,10 @@ Updates only some of the SMS template properties:
 ##### Request Parameters
 
 
-Parameter | Description                                 | ParamType | DataType                            | Required |
---------- | ------------------------------------------- | --------- | ----------------------------------- | -------- |
-smsTemplateId        | `id` of the SMS template to update            | URL       | String                              | TRUE     |
-          | Attributes that we want to change           | Body      | [SMS Template](#sms-template-model) | TRUE     |
+| Parameter                         | Description                                 | ParamType                           | DataType                            | Required |
+| ---------                         | ------------------------------------------- | ---------                           | ----------------------------------- | -------- |
+| smsTemplateId                     | `id` of the SMS template to update          | URL                                 | String                              | TRUE     |
+| Attributes that we want to change | Body                                        | [SMS Template](#sms-template-model) | TRUE                                |          |
 
 > Full SMS template update is described [here](#update-sms-template).
 
@@ -313,9 +313,9 @@ Removes an SMS template.
 ##### Request Parameters
 
 
-Parameter | Description                        | ParamType | DataType | Required |
---------- | ---------------------------------- | --------- | -------- | -------- |
-smsTemplateId        | `id` of the SMS template to delete | URL       | String   | TRUE     |
+| Parameter     | Description                        | ParamType | DataType | Required |
+| ---------     | ---------------------------------- | --------- | -------- | -------- |
+| smsTemplateId | `id` of the SMS template to delete | URL       | String   | TRUE     |
 
 ##### Response Parameters
 
@@ -364,17 +364,15 @@ HTTP/1.1 204 No Content
 
 All templates have the following properties:
 
-|------------------------+--------------------------------------------------------------+----------------------------------------------------------------|----------|-----------|-----------|
-| Property               | Description                                                  | DataType                                                       | Readonly | MinLength | MaxLength |
-| ---------------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | --------- | --------- |
-| id                     | Unique key for template                                      | String                                                         | TRUE     | 20        | 20        |
-| name                   | Human-readable name of the template                          | String                                                         | FALSE    | 1         | 50        |
-| type                   | Type of the template                                         | String                                                         | FALSE    | 1         | 50        |
-| template               | Text of the template, including any [macros](#sms-template-macros).                                        | String (See note below)                                         | FALSE    | 1         | 161       |
-| created                | Timestamp when template was created                          | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
-| lastUpdated            | Timestamp when template was last updated                     | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
-| translations           | Array of [translations](#translation-attributes)             | Array                                                          | N/A      | N/A       | N/A       |
-|------------------------+--------------------------------------------------------------+----------------------------------------------------------------|----------|-----------|-----------|
+| Property               | Description                                                         | DataType                                                       | Readonly | MinLength | MaxLength |
+| ---------------------- | ------------------------------------------------------------        | -------------------------------------------------------------- | -------- | --------- | --------- |
+| id                     | Unique key for template                                             | String                                                         | TRUE     | 20        | 20        |
+| name                   | Human-readable name of the template                                 | String                                                         | FALSE    | 1         | 50        |
+| type                   | Type of the template                                                | String                                                         | FALSE    | 1         | 50        |
+| template               | Text of the template, including any [macros](#sms-template-macros). | String (See note below)                                        | FALSE    | 1         | 161       |
+| created                | Timestamp when template was created                                 | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
+| lastUpdated            | Timestamp when template was last updated                            | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
+| translations           | Array of [translations](#translation-attributes)                    | Array                                                          | N/A      | N/A       | N/A       |
 
 > NOTE: The final length of your SMS message cannot exceed 160 characters. If the verification code portion of the message falls outside of the 160-character limit, your message will not be sent.
 
@@ -396,19 +394,15 @@ The key portion is a two-letter country code conforming to [ISO 639-1](https://e
 
 ### SMS Template Types
 
-|-------------------+--------------------------------------------------------------------------------------------------+
 | Type              | Description                                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------ |
 | `SMS_VERIFY_CODE` | This template is used when the SMS for code verification is sent.                                |
-|-------------------+--------------------------------------------------------------------------------------------------+
 
 ### SMS Template Macros
 
 Currently only two macros are supported for SMS templates.
 
-|-------------------+--------------------------------------------------------------------------------------------------+
 | Type              | Description                                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------ |
 | `${code}`         | The one-time verification code that is required for login.                                       |
 | `${org.name}`     | The name of the Okta organization that the user is trying to authenticate into.                  |
-|-------------------+--------------------------------------------------------------------------------------------------+
