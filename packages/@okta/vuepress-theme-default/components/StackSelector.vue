@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import { findOnAncestor, findStackSnippets } from '../util/guides';
+  import { findOnAncestor } from '../util/guides';
   export default {
     name: 'StackSelector',
     props: [ 'snippet' ],
@@ -43,10 +43,10 @@
       },
       guide() { return findOnAncestor({ find: 'guide', node: this }); },
       section() { return findOnAncestor({ find: 'section', node: this }); },
-      options() { return findStackSnippets({ section: this.section, snippet: this.snippet, pages: this.$site.pages }); },     
+      options() { return this.section.snippetByName[this.snippet].frameworks; },
       snippetComponentKey() { 
         const option = this.options.find( option => option.framework === this.framework );
-        return (option ? option.key : '');
+        return (option ? option.componentKey : '');
       },
     },
     updated() { 
