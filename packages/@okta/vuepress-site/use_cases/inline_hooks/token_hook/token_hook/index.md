@@ -298,19 +298,22 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
   ]
 }
 ```
+
 ## Enabling a Token Inline Hook
 
 To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/api/resources/inline-hooks).
 
-You then need to associate the registered inline hook with a Custom Authorization Server Policy Rule by completing the following steps in Admin Console:
+You then need to associate the registered inline hook with a Custom Authorization Server Policy Rule by completing the following steps:
 
-1. Go to **Security > API Authorization Servers**.
+1. Go to **API > Authorization Servers**.
 
-1. Select the Custom Authorization Server to use this inline hook with.
+1. Select a Custom Authorization Server from the list.
 
-1. One of the rules defined in the Custom Authorization server needs to be used to trigger invocation of the inline hook. Click the pencil icon for that rule to open it for editing.
+1. Select the Access Policies tab and and select a policy to use with the hook. In most cases, just pick the Default Policy.
 
-1. In the **Advanced Settings** section, click the **Assertion Inline Hook** dropdown menu. Any inline hooks you have registered will be listed. Select the one to use.
+1. One of the policy's rules needs to trigger the inline hook. Click the pencil icon for a rule to edit it. If you only have one rule, edit the Default Policy Rule.
+
+1. Click the **Use this inline hook** dropdown menu. Any inline hooks you have registered will be listed. Select the hook you would like to use.
 
 1. Click **Update Rule**.
 
