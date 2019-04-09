@@ -34,17 +34,17 @@ This page contains detailed information about the OAuth 2.0 and OpenID Connect e
 
 ### Composing Your Base URL
 
-All of the endpoints on this page start with an authorization server, however the URL for that server will vary depending on the endpoint and the type of authorization server. You have two types of authorization servers to choose from, depending on your use case:
+All of the endpoints on this page start with an authorization server, however the URL for that server varies depending on the endpoint and the type of authorization server. You have two types of authorization servers to choose from depending on your use case:
 
-#### 1. Single sign-on to Okta
+#### 1. Single Sign-On to Okta
 
 This is for the use case where your users are all part of your Okta organization and you would just like to offer them single sign-on with an ID token. In this case Okta is your authorization server, which we refer to as the "Okta Org Authorization Server" and your full URL looks like this:
 
 `https://{yourOktaDomain}/oauth2/v1/authorize`
 
-#### 2. Okta as the identity platform for your app or API
+#### 2. Okta as the Identity Platform for Your App or API
 
-This is for use cases where Okta is the identity and authorization platform for your application or API, so your users will be logging in to something other than Okta. In this case you are using a Custom Authorization Server inside Okta, and your full URL looks like this:
+This is for use cases where Okta is the identity and authorization platform for your application or API, so your users are logging in to something other than Okta. In this case you are using a custom authorization server inside Okta, and your full URL looks like this:
 
 `https://{yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 
@@ -53,7 +53,6 @@ If you have a developer account, you can use the `default` authorization server 
 `https://{yourOktaDomain}/oauth2/default/v1/authorize`
 
 ### /authorize
-
 
 <ApiOperation method="get" url="${baseUrl}/v1/authorize" />
 
@@ -1343,25 +1342,73 @@ Refresh tokens are opaque. More information about using them can be found in the
 
 ## Token Authentication Methods
 
-If you configure your client to use a `client_secret` [Client Authentication Method](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication), provide the [`client_id` and `client_secret`](#request-parameters-1)
-using either of the following methods:
+When registering an OAuth 2 client application, you can specify an authentication method for the `/token` endpoint by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter. Okta supports five authentication methods:
 
-* Provide `client_id` and `client_secret`
-  in an Authorization header in the Basic auth scheme (`client_secret_basic`). For authentication with Basic auth, an HTTP header with the following format must be provided with the POST request:
-  ```bash
+> Note: You can use only one of these methods in a single request or an error occurs.
+
+* `client_secret_basic` - Use this method when blah blah blah
+* `client_secret_post` - Use this method when blah blah blah
+* `client_secret_jwt` - Use this method in the following use cases:
+  * User delegation grant such as `grant_type=authorization_code` or `grant_type=password`
+  * Client authentication and authorization for a client acting as itself with `grant_type=client_credentials`
+  * Client authentication for token introspection and token revocation
+* `private_key_jwt` - Use this method when you need to enable the authorization server to validate that it is your application making the call by verifying the signed token.
+* `none` - Use this method when when the client is a public client and doesn't have a client secret.
+
+> Note: If you don't specify a method when registering your client, the default method is `client_secret_basic`.
+
+### Client Secret Client Authentication Methods
+
+If you configured your client to use a `client_secret` [client authentication method](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication), provide the `client_id` and `client_secret` using one of these methods: 
+
+> Note: The first two methods are the most common scenarios.
+
+* Provide the `client_id` and `client_secret` values in the Authorization header as a Basic auth base64-encoded string with the POST request (`client_secret_basic`):
+
+ ```bash
   Authorization: Basic ${Base64(<client_id>:<client_secret>)}
   ```
-* Provide the `client_id` and `client_secret`
-  as additional parameters to the POST body (`client_secret_post`)
-* Provide `client_id` in a JWT that you sign with the `client_secret`
-  using HMAC algorithms HS256, HS384, or HS512. Specify the JWT in `client_assertion` and the type, `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`, in `client_assertion_type` in the request.
+* Provide the `client_id` and `client_secret` as additional parameters in the POST request body (`client_secret_post`).
 
-If you configure your client to use `private_key_jwt` [Client Authentication Method](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) you must provide the `client_id` in a JWT that you sign with your private key.
-* The private key that was used to sign must have the corresponding public key registered in the client's [JWKSet](oauth-clients#json-web-key-set).
-* Sign the JWT with one of the following signature algorithms: RS256, RS384, RS512, ES256, ES384 or ES512.
-* Specify the JWT in `client_assertion` and the type, `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`, in `client_assertion_type` in the request.
+* Provide the `client_id` in a JWT that you sign with the `client_secret` using an HMAC SHA algorithms (HS256, HS384, or HS512). The JWT contains other values, such as issuer and subject [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt), and can also contain custom claims. 
 
-Use only one of these methods in a single request or an error will occur.
+After you create the JWT, in the request you must specify `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` as the `client_assertion_type` and specify the JWT as the value for the `client_assertion` parameter.
+
+For example:
+```
+POST /token HTTP/1.1
+Host: server.example.com
+Content-Type: application/x-www-form-urlencoded
+grant_type=authorization_code&
+  code=i1WsRn1uB1&
+  client_id=s6BhdRkqt3&
+  client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
+  client_assertion=PHNhbWxwOl ... ZT
+```
+### Private Key Client Authentication Method
+
+If you configured your client to use the `private_key_jwt` client authentication method:
+
+* Provide the `client_id` in a JWT that you sign with your private key using one of the following RSA or ECDSA algorithms (RS256, RS384, RS512, ES256, ES384, ES512). The JWT contains other values, such as issuer and subject [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt), and can also contain custom claims.
+
+> Note: The private key that you use to sign the JWT must have the corresponding public key registered in the client's [JWKSet](oauth-clients/#json-web-key-set).
+
+After you create the JWT, in the request you must specify `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` as the `client_assertion_type` and specify the JWT as the value for the `client_assertion` parameter.
+
+For example:
+```
+POST /token HTTP/1.1
+Host: server.example.com
+Content-Type: application/x-www-form-urlencoded
+grant_type=authorization_code&
+  code=i1WsRn1uB1&
+  client_id=s6BhdRkqt3&
+  client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
+  client_assertion=PHNhbWxwOl ... ZT
+```
+### None as the Client Authentication Method
+
+Specify `none` when the client is a public client and doesn't have a client secret. Only the `client_id` is sent in the request body. The client doesn't authenticate itself at the `/token` endpoint because it uses only the [Implicit Flow](https://developer.okta.com/authentication-guide/implementing-authentication/implicit/) or because it is a public client with no `client_secret` or other authentication mechanism. 
 
 ### Token Claims for Client Authentication with Client Secret or Private Key JWT
 
