@@ -304,7 +304,7 @@ To activate the inline hook, you first need to register your external service en
 
 You then need to associate the registered inline hook with a Custom Authorization Server Policy Rule by completing the following steps in Admin Console:
 
-1. Go to **Security > API Authorization Servers**.
+1. Go to **API > Authorization Servers**.
 
 1. Select the Custom Authorization Server to use this inline hook with.
 
