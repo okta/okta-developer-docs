@@ -29,14 +29,11 @@ yarn --version
 ```
 
 ### Local setup
- 1. Fork this repository (if you're an Okta employee, skip this step)
- 2. Clone
-
- ```sh
- git clone git@github.com:okta/okta-developer-docs.git
- ```
+ 1. Fork this repository
+ 2. Clone (use the **Clone or download** button above)
 
 3. Install the dependencies with `yarn`:
+
 ```sh
 cd okta-developer-docs
 
@@ -45,9 +42,9 @@ yarn install
 
 This will install everything you need to build the documentation on your machine.
 
-### Building the site
+### Previewing the site
 
-With the above steps completed, you can start a local server by running this command inside the cloned directory:
+With the above steps completed, you can start a preview server by running this command inside the cloned directory:
 
 ```sh
 yarn dev
@@ -55,18 +52,18 @@ yarn dev
 
 This starts a preview server on your machine, and watches all files for changes. Open http://localhost:8080/documentation/ to view the documentation.
 
- > Note: if you try to visit the root, you will get a 404 page.  You must visit a path like `/documentation`.
+ > Note: if you try to visit the root, you will get a 404 page.  You must visit a path corresponding to a [directory under `vuepress-site`](https://github.com/okta/okta-developer-docs/tree/master/packages/%40okta/vuepress-site), like `/documentation`.
 
-The preview server supports hot reloading. Once the server is running on your machine, any changes you make to Markdown files will appear automatically in your browser within a few seconds.
+The preview server supports hot reloading. Once the server is running on your machine, any changes you make to Markdown content will appear automatically in your browser within a few seconds. Note that changes to page frontmatter or site configuration require you to stop and start the preview server.
 
 ## Adding and editing pages
 
 Documentation pages are stored as Markdown files in the `/packages/@okta/vuepress-site` directory.
 
-As an example, lets say you want to edit the [Users API](https://developer.okta.com/docs/api/resources/users) page. The public path of this page is `/docs/api/resources/users`.
+As an example, lets say you want to edit the [Users API](https://developer.okta.com/docs/api/resources/users) page. The public path of this page is `/docs/api/resources/users/`.
 To edit this page, you would navigate to `/packages/@okta/vuepress-site/docs/api/resources/users/index.md` and edit that Markdown file.
 
-An `index.md` file in a directory like `users` will be served as `/users` when the site is live. If you name the file anything other than `index.md`, you will need to include `.html` in the URL when you view the page in your browser.
+An `index.md` file in a directory like `users` will be served as `/users/` when the site is live. If you name the file anything other than `index.md`, you will need to include `.html` in the URL when you view the page in your browser.
 
 
 ### Where do Pictures and Assets go?
@@ -75,10 +72,10 @@ All images and other assets will live in the folder `/packages/@okta/vuepress-si
 ### Using Components in Markdown
 There are a few different components that can be used inside the markdown files to render some design specific html
 
-#### Api Operations
-The Api Operations component is used to render the html for defining an operation in our API reference
+#### API Operations
+The `<ApiOperation>` tag is used to render badges representing different API operations (GET, POST, DELETE) in the API reference.
 
-In the markdown, you can add
+In the Markdown, you can add
 ```html
 <ApiOperation method="delete" url="/api/v1/apps" />
 ```
@@ -86,20 +83,10 @@ and this would render as:
 
 <img src=".github/images/api-operations-rendered.png" width="150px"/>
 
-Method value is used in the class to determine the background color.
+#### API Lifecycle
+The `<ApiLifecycle>` tag allows you to mark items as beta, Early Access, or deprecated.
 
-get => $islamic-green (Green)
-
-post => $sea-buckthorn (Orange)
-
-put => $cerulean-5 (Blue)
-
-delete => $valencia (Red)
-
-#### Api Lifecycle
-The API Lifecycle tag allows you to mark items as beta, ea, or deprecated.
-
-In the markdown, you can add
+In the Markdown, you can add
 ```html
 <ApiLifecycle access="beta" />
 ```
@@ -118,13 +105,13 @@ category: myCategory
 ---
 ```
 
-You can then use the category links component:
+You can then use the `<CategoryLinks>` tag:
 
 ```html
 <CategoryLinks category="myCategory" />
 ```
 
-A few options are provided for you to allow for some customization
+A few options are provided for you to allow for some customization:
 
 | Property    | Description                                                                                   |
 |-------------|-----------------------------------------------------------------------------------------------|
@@ -139,6 +126,10 @@ There is no need to build the rendered site before committing and submitting a P
 
 ## Running tests
 Running the tests before committing should be done and can be accomplished by running `yarn test` from the terminal. This will run a series of tests to make sure that everything is working as expected and that your changes did not affect anything that was not planned.
+
+> Note: If you're already running the preview server locally, you can run `yarn test-only` instead. This skips starting up the preview server.
+
+If your test run fails unexpectedly, try executing `yarn stop` and running the tests again.
 
 ## Theme and Plugin Contribution
 The theme and all plugins are no longer a part of the content side of this repo. All of the theme files live in `/packages/@okta/vuepress-theme-default` and all other plugins for the theme live in
