@@ -90,5 +90,78 @@
 </script>
 
 <style scoped lang="scss">
-  @import '../assets/css/okta/components/EventTypes';
+  .event-types {
+    .PageContent-main {
+      padding-right: 0;
+    }
+
+    #event-type-search {
+      width: 100%;
+      border: 2px solid #d2d2d6;
+    }
+
+    #event-type-search::placeholder {
+      color: #d2d2d6;
+    }
+
+    #event-type-count {
+      margin-top: -1em;
+      margin-left: 0.3em;
+      color: #888888;
+      font-size: 0.9em;
+    }
+
+    .event-type {
+      h4 {
+        margin: 25px 0 0;
+        padding: 6px 10px;
+        clear: left;
+        overflow: hidden;
+        border-left: 3px solid #007dc1;
+        color: #007dc1;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      h4::before {
+        content: '\f0a2';
+        margin-right: 8px;
+        font-family: fontawesome;
+      }
+
+      .event-type-mappings {
+        margin: -1em 0;
+        padding: 10px 15px;
+        color: #888888;
+        font-size: 0.9em;
+      }
+
+      .event-type-description {
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+
+      .event-type-tag::before {
+        content: '\f02b';
+        padding: 2px 4px;
+        font-family: fontawesome;
+      }
+
+      .event-type-tag {
+        display: block;
+        margin: 2px;
+        padding: 1px 3px;
+        float: left;
+        border-radius: 3px;
+        background-color: #ffffff;
+        font-size: 0.7em;
+      }
+
+      .event-type-release {
+        clear: both;
+        opacity: 0.7;
+        font-size: 0.8em;
+      }
+    }
+  }
 </style>
