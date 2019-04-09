@@ -50,7 +50,7 @@ To edit this page, you would navigate to `/packages/@okta/vuepress-site/code/ang
 The directory structure from the `/packages/@okta/vuepress-site` folder relates directly to the URL you want to show. The `index.md` file that lives in the last folder in the structure will be rendered.
 If you name the file anything other than `index.md`, it will be required that you also include `.html` to the url when you go to view the page in the browser.
 
-The [Guides](https://developer.okta.com/guides/) section has a more complex directory structure.  See the "Updating Guides" section below.
+The [Guides](https://developer.okta.com/guides/) section has a more complex directory structure.  See the [Updating Guides](#updating-guides) section below.
 
 Part of the power that the VuePress development server gives us is live reloading of the content. When you make any changes to the markdown of the file, you will see the changes on the browser within seconds.
 However, if you make any chnages to the [front matter](https://github.com/vuejs/vuepress/blob/master/packages/docs/docs/guide/frontmatter.md) of the page, you may have to restart the development server.
@@ -134,7 +134,7 @@ The theme and all plugins are no longer a part of the content side of this repo.
 [devforum]: https://devforum.okta.com
 [vuepress]: https://vuepress.vuejs.org
 
-## Updating/Adding Guides
+## Updating Guides
 
 ### Guides Directory Structure
 
