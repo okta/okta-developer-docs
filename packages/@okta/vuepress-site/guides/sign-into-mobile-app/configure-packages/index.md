@@ -17,4 +17,4 @@ The `issuer` parameter is your Okta Org URL + `oauth2/default`.
 
 <StackSelector snippet="configuremid"/>
 
-<NextSection/>
+<NextSectionLink/>

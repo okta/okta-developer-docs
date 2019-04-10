@@ -25,4 +25,4 @@ If you don't have an app created or are new to creating an app, start with the a
 
 <StackSelector snippet="samples"/>
 
-<NextSection/>
+<NextSectionLink/>

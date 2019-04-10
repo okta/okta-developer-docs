@@ -23,4 +23,4 @@ You need to configure the Okta SDK with some information about your Okta domain.
 
 <StackSelector snippet="configmid"/>
 
-<NextSection/>
+<NextSectionLink/>

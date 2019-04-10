@@ -5,7 +5,7 @@
 <script>
   import { getGuidesInfo, findOnAncestor } from '../util/guides';
   export default { 
-    name: 'NextSection',
+    name: 'NextSectionLink',
     props: ['name'],
     computed: { 
       guideName() { return findOnAncestor({ find: 'guideName', node: this }); },

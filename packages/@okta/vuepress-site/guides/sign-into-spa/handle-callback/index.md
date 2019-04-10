@@ -7,4 +7,4 @@ After successful authentication, the user is redirected back to your application
 
 <StackSelector snippet="handle-callback"/>
 
-<NextSection/>
+<NextSectionLink/>

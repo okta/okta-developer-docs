@@ -28,4 +28,4 @@ If you don't have an app created, or are new to creating an app, start with the 
 
 If you meet all of the prerequisites, then you can move on to the first step, which is creating an Okta application.
 
-<NextSection/>
+<NextSectionLink/>

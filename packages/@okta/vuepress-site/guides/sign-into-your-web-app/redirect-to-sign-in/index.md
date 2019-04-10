@@ -11,4 +11,4 @@ After successful authentication, the user is redirected back to your application
 
 > Note: To customize this sign-in page, see the [Customization guide].
 
-<NextSection/>
+<NextSectionLink/>

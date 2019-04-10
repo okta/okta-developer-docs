@@ -11,4 +11,4 @@ Okta sends back user profile information that you can use in your application.
 
 You can also customize the items (called claims) that are returned from Okta. See [Token customization guide].
 
-<NextSection/>
+<NextSectionLink/>

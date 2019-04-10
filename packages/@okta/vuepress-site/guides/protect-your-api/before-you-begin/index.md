@@ -25,4 +25,4 @@ These instructions assume that you:
 
 If you meet all of the prerequisites, then you can move on to the first step, which is adding and configuring packages.
 
-<NextSection/>
+<NextSectionLink/>

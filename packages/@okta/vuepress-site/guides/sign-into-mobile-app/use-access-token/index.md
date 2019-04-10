@@ -7,4 +7,4 @@ After your user is authenticated, your application has an access token that was 
 
 <StackSelector snippet="usetoken"/>
 
-<NextSection/>
+<NextSectionLink/>

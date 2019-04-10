@@ -33,4 +33,4 @@ On the server side, all paths that are handled by the SPA are usually set in a w
 
 The path you choose for the `Login Redirect URI` should serve your SPA even after a 'hard' browser reload. Depending on your setup and the path you choose, this may require additional server configuration.
 
-<NextSection/>
+<NextSectionLink/>

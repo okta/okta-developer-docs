@@ -11,4 +11,4 @@ When a user clicks the **Login** button, they are redirected to the Okta hosted 
 
 <StackSelector snippet="login-redirect"/>
 
-<NextSection/>
+<NextSectionLink/>

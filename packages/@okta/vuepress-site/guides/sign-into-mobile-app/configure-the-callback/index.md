@@ -7,4 +7,4 @@ To redirect back to your application from a web browser, you must specify a uniq
 
 <StackSelector snippet="configurescheme"/>
 
-<NextSection/>
+<NextSectionLink/>

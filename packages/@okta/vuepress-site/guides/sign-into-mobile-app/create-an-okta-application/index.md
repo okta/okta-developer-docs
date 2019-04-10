@@ -22,4 +22,4 @@ After you create the application, there are two values that you need:
 
 These values are used in your application to set up the OpenID Connect flow with Okta.
 
-<NextSection/>
+<NextSectionLink/>

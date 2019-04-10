@@ -19,4 +19,4 @@ You can configure the properties of your application with environment variables,
 
 <StackSelector snippet="configmid"/>
 
-<NextSection/>
+<NextSectionLink/>

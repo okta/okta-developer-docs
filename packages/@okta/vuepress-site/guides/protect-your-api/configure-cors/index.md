@@ -7,4 +7,4 @@ Configuring Cross-Origin Resource Sharing (CORS) is only required if the API is 
 
 <StackSelector snippet="configcors"/>
 
-<NextSection/>
+<NextSectionLink/>

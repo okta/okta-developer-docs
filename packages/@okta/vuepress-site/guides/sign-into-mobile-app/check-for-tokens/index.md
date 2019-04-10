@@ -9,4 +9,4 @@ In native applications, it is common for users to have a long-lived session. It 
 
 <StackSelector snippet="checkfortoken"/>
 
-<NextSection/>
+<NextSectionLink/>

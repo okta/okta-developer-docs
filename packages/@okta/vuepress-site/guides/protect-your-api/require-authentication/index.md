@@ -19,4 +19,4 @@ For other APIs, you may need to require authentication only for a certain route 
 
 <StackSelector snippet="reqauthspecific"/>
 
-<NextSection/>
+<NextSectionLink/>
