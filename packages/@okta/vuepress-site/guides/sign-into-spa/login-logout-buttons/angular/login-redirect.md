@@ -1,4 +1,4 @@
-The `OktaAuthService` is injected in your component's constructor by Angular's dependency injection system. You can use the `oktaAuth.isAuthenticated()` method to show or hide a button depending on whether the user is signed in.
+The [OktaAuthService](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#oktaauthservice) is injected in your component's constructor by Angular's dependency injection system. You can use the [oktaAuth.isAuthenticated()](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#oktaauthisauthenticated) method to show/hide the correct button.
 
 ```javascript
 import { Component } from '@angular/core';

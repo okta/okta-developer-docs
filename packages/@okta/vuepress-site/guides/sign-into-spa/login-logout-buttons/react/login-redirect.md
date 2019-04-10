@@ -6,12 +6,15 @@ import React, { Component } from 'react';
 
 async function checkAuthentication() {
   const authenticated = await this.props.auth.isAuthenticated();
+  if (authenticated !== this.state.authenticated) {
+    this.setState({ authenticated });
+  }
 }
 
 export default withAuth(class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { authenticated: null, userinfo: null };
+    this.state = { authenticated: null };
     this.checkAuthentication = checkAuthentication.bind(this);
     this.login = this.login.bind(this);
   }
@@ -31,14 +34,10 @@ export default withAuth(class Home extends Component {
   render() {
     return (
       <div>
-        {this.state.authenticated !== null &&
-        <div>
-          {!this.state.authenticated &&
-            <div>
-              <a onClick={this.login}>Login</a>
-            </div>
-          }
-        </div>
+        {!this.state.authenticated &&
+          <div>
+            <a onClick={this.login}>Login</a>
+          </div>
         }
       </div>
     );
