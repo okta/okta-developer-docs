@@ -1023,12 +1023,11 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * Different application types have different valid values for the corresponding grant type:
 
-|-------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------|
 | Application Type  | Valid Grant Type                                              | Requirements                                                                      |
 | ----------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | `web`             | `authorization_code`, `implicit`, `refresh_token`             | Must have at least `authorization_code`                                           |
 | `native`          | `authorization_code`, `implicit`, `password`, `refresh_token` | Must have at least `authorization_code`                                           |
-| `browser`         | `authorization_code`, `implicit`                                                    |                                                             |
+| `browser`         | `authorization_code`, `implicit`                              |                                                                                   |
 | `service`         | `client_credentials`                                          | Works with OAuth 2.0 flow (not OpenID Connect)                                    |
 
 
@@ -3422,8 +3421,7 @@ Your request is rejected with a `403 Forbidden` status for applications with the
 
 > The Okta API currently doesn't support entity tags for conditional updates.  It is only safe to fetch the most recent profile with [Get Assigned User for Application](#get-assigned-user-for-application), apply your profile update, then `POST` back the updated profile as long as you are the **only** user updating a user's application profile.
 
-{% beta %}
-
+<ApiLifecycle access="beta" />
 During the profile image Beta, image property definitions in the schema are of the `Object` data type with an additional `extendedType` of `Image`.
 When a user's app profile is retrieved via the API, however, the value is a URL (represented as a String).  Some caveats apply:
 
@@ -3439,7 +3437,6 @@ Okta does not support uploading images via the Apps API.  All operations in this
 
 2)  When "updating" the value, it must be set to the value returned by a GET on that user (resulting in no change).  No other value is valid.
 
-{% endbeta %}
 
 ```json
 {
@@ -5115,19 +5112,19 @@ Determines how to authenticate the OAuth 2.0 client
 
 The following expressions are built-in and may be used with the `BUILT_IN` template type:
 
-| Name                            | Template Expression                          |
-| ------------------------------- | -------------------------------------------- |
-| Okta username                   | ${source.login}                              |
-| Okta username prefix            | ${fn:substringBefore(source.login, "@")}     |
-| Email                           | ${source.email}                              |
-| Email prefix                    | ${fn:substringBefore(source.email, "@")}     |
-| Email (lowercase)               | ${fn:toLowerCase(source.email)}              |
-| AD SAM Account Name             | ${source.samAccountName}                     |
-| AD SAM Account Name (lowercase) | ${fn:toLowerCase(source.samAccountName)}     |
-| AD User Principal Name          | ${source.userName}                           |
-| AD User Principal Name prefix   | ${fn:substringBefore(source.userName, "@")}  |
-| AD Employee ID                  | ${source.employeeID}                         |
-| LDAP UID + custom suffix        | ${source.userName}${instance.userSuffix}     |
+| Name                            | Template Expression                            |
+| ------------------------------- | ---------------------------------------------- |
+| Okta username                   | `${source.login}`                              |
+| Okta username prefix            | `${fn:substringBefore(source.login, "@")}`     |
+| Email                           | `${source.email}`                              |
+| Email prefix                    | `${fn:substringBefore(source.email, "@")}`     |
+| Email (lowercase)               | `${fn:toLowerCase(source.email)}`              |
+| AD SAM Account Name             | `${source.samAccountName}`                     |
+| AD SAM Account Name (lowercase) | `${fn:toLowerCase(source.samAccountName)}`     |
+| AD User Principal Name          | `${source.userName}`                           |
+| AD User Principal Name prefix   | `${fn:substringBefore(source.userName, "@")}`  |
+| AD Employee ID                  | `${source.employeeID}`                         |
+| LDAP UID + custom suffix        | `${source.userName}${instance.userSuffix}`     |
 
 ### Password Object
 

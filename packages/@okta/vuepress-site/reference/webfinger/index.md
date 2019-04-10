@@ -36,7 +36,7 @@ The table below summarizes the supported query parameters:
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
-"https://{yourOktaDomain}/.well-known/webfinger?q=okta:acct:joe.stormtrooper%40example.com"
+"https://{yourOktaDomain}/.well-known/webfinger?resource=okta:acct:joe.stormtrooper%40example.com"
 ```
 
 #### Response Example
@@ -71,7 +71,7 @@ In this example, there is a rule configured that has a user identifier condition
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
-"https://{yourOktaDomain}/.well-known/webfinger?q=okta:acct:joe.stormtrooper%example.com&rel=http%3A%2F%2Fopenid.net%2Fspecs%2Fconnect%2F1.0%2Fissuer"
+"https://{yourOktaDomain}/.well-known/webfinger?resource=okta:acct:joe.stormtrooper%example.com&rel=http%3A%2F%2Fopenid.net%2Fspecs%2Fconnect%2F1.0%2Fissuer"
 ```
 
 >Note: This request looks similar to the previous one, but it includes a `rel` parameter that limits the results to a particular set of IdPs.

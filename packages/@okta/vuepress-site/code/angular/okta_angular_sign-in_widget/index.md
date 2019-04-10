@@ -126,7 +126,6 @@ This route will only be visible to users with a valid `accessToken` or `idToken`
 
 Create a new component `src/app/protected.component.ts`:
 
-{% raw %}
 
 ```typescript
 // src/app/protected.component.ts
@@ -146,7 +145,6 @@ export class ProtectedComponent {
 }
 ```
 
-{% endraw %}
 
 When a user attempts to access a route that is protected by `OktaAuthGuard`, it first checks to see if the user has been authenticated. If `isAuthenticated()` returns `false`, start the login flow.
 

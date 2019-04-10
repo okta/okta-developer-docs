@@ -67,7 +67,7 @@ This table lists the current (and historical) major versions of our open-source 
 | [Spring Boot Starter][spring-boot-starter]                      | **0.x**                            | **Stable**                           |
 | [.NET management SDK][sdk-dotnet]                               | [0.3.3][sdk-dotnet-033]<br>**1.x** | Retiring on 2019-12-11<br>**Stable** |
 | [.NET authentication SDK][sdk-auth-dotnet]                      | **1.x**                            | Beta                                 |
-| [Node.js management SDK][sdk-nodejs]                            | 0.4.0<br>**1.x**                   | Retired<br>**Stable**                |
+| [Node.js management SDK][sdk-nodejs]                            | 1.2.0<br>**2.x**                   | Retiring on 2020-01-03<br>**Stable**                |
 | [JWT verifier for Node.js][nodejs-jwt-verifier]                 | **0.x**                            | **Stable**                           |
 | [OpenID Connect middleware for Node.js][nodejs-oidc-middleware] | 0.1.2                              | Beta                                 |
 | [PHP management SDK][sdk-php]                                   | 0.2.0<br>**1.x**                   | Retired<br>**Stable**                |
