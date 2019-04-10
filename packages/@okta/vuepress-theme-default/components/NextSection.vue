@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="target" class="next-section Button--red"><span><slot>{{nextSection.title}}</slot></span></router-link>
+  <router-link :to="target" class="next-section Button--red"><span><slot>Next: {{nextSection.title}}</slot></span></router-link>
 </template>
 
 <script>
