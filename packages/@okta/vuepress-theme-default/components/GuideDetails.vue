@@ -6,8 +6,7 @@
       :guideName="guideName" 
     />
     <div id="guide_content">
-      <h1>{{ guide.title }}</h1>
-      <h2>{{ section.title }}</h2>
+      <h1>{{ section.title }}</h1>
       <Content :pageKey="componentKey"/>
     </div>
   </div>
