@@ -1,1 +1,0 @@
-By default, all routes not defined using the `SecureRoute` are accessible to unauthenticated users.

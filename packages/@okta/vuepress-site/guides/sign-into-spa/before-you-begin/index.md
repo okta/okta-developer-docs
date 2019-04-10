@@ -2,25 +2,25 @@
 title: Before You Begin
 ---
 
-This guide will show you how to use Okta as the user store for your single-page application, and sign users into your app.
+This guide shows you how to use Okta as the user store for your single-page application, and sign users into your app.
 
 <!-- If you are building a web app that is served by a server framework, see [Sign Users into Your Web App]. If you are building a mobile app, see [Sign Users into Your Mobile App]. -->
 
-It assumes that you:
+This guide assumes that you:
 
 * Have an Okta organization. If you don't, you can get one here: <https://developer.okta.com/signup>
 * Know the basics of building JavaScript applications.
-* Have an application you want to add authentication to. If you don't, follow the instructions below.
+* Have a project or application that you want to add authentication to.
 
-Throughout the guide, you'll see sections like this that are tailored to the language or framework you're building in:
+If you don't have an existing app, or are new to building apps, start with this documentation:
 
 <StackSelector snippet="create-app"/>
 
-## Understand the redirect flow
+## Understand the Redirect Flow
 
-Here's how signing a user into a single-page app works:
+Here's how signing a user in to a single-page app works:
 
-1. The user clicks a button in your app to sign in, or attempts to access a protected resource.
+1. The user clicks a button in your app to sign in or attempts to access a protected resource.
 1. Your application redirects the user's browser to a sign-in page hosted by Okta.
 1. The user signs in using a username and password, or other factors.
 1. Okta redirects the browser back to your callback route with tokens for the user. Your code (or our SDK's code) handles the callback and stores these tokens.

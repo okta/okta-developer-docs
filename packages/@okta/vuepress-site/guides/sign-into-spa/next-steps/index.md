@@ -2,7 +2,7 @@
 title: Next Steps
 ---
 
-Nice job! You should understand how to sign users into your single-page applications using Okta. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
+Nice job! You should understand how to sign users in to your single-page applications using Okta. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
 
 <!-- Link to Protect Your API Endpoints guide -->
 <!-- Link to Customizing the Sign-in Page guide -->

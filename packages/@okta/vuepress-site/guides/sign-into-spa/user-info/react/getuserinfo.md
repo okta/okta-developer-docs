@@ -1,4 +1,4 @@
-User info ("claims") is returned from the [getUser()](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authgetuser) method on the [Auth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#auth) object. This object is made available in your components as `props.auth` via the [withAuth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#withauth) Higher Order Component (HOC).
+Your code can get the user's profile using the [getUser()](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authgetuser) method on the [Auth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#auth) object. This object is made available in your components as `props.auth` via the [withAuth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#withauth) higher-order component.
 
 ```javascript
 

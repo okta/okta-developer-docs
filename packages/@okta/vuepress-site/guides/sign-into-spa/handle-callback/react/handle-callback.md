@@ -1,4 +1,4 @@
-The React SDK contains a component that can handle the callback route automatically. The `ImplicitCallback` component contains logic to parse the response Okta sends back to your application.
+The `ImplicitCallback` component in the React SDK contains logic to parse the response Okta sends back to your application. All you need to do is wire it up to the route you defined:
 
 ```javascript
 import React, { Component } from 'react';

@@ -1,4 +1,4 @@
-The Angular SDK contains a component that can handle the callback route automatically. The `OktaCallbackComponent` contains logic to parse the response Okta sends back to your application.
+The `OktaCallbackComponent` in the Angular SDK contains logic to parse the response Okta sends back to your application. All you need to do is wire it up to the route you defined:
 
 ```javascript
 import { OktaCallbackComponent } from '@okta/okta-angular';
