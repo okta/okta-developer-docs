@@ -14,3 +14,4 @@ In Okta, applications are OpenID Connect (OIDC) clients that can use Okta Author
 7. Click **Done**.
 8. On the **General** tab of the app that you just created, click **Edit** and enter the correct URI in the **Logout redirect URIs** box. <!-- See [Sign Users Out](sign-users-outlink) for more information. -->
 
+<NextSection/>

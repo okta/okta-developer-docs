@@ -22,3 +22,5 @@ For other applications, you may need to require authentication only for a certai
 Define what happens when a user isn't authenticated. 
 
 <StackSelector snippet="allowanon"/>
+
+<NextSection/>

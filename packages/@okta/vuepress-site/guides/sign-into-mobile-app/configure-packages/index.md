@@ -16,3 +16,5 @@ You need the Client ID that you copied from the Okta application that you create
 The `issuer` parameter is your Okta Org URL + `oauth2/default`.
 
 <StackSelector snippet="configuremid"/>
+
+<NextSection/>

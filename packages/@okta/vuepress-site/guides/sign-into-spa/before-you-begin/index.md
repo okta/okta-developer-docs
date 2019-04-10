@@ -24,3 +24,5 @@ If you don't have an app created or are new to creating an app, start with the a
 > Note: If you'd prefer to download a complete sample application, you can use ours:
 
 <StackSelector snippet="samples"/>
+
+<NextSection/>

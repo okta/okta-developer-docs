@@ -8,3 +8,5 @@ When the app is closed and reopened, you need to check for the existence of an `
 In native applications, it is common for users to have a long-lived session. It is important for the app to manage the user's session by refreshing tokens when they expire, using the `refresh_token` or re-prompting the user to login. See [refreshing a token manually](https://github.com/okta/okta-sdk-appauth-android#refresh-a-token-manually) for more information.
 
 <StackSelector snippet="checkfortoken"/>
+
+<NextSection/>

@@ -46,3 +46,5 @@ const config = {
 ```
 
 It's not important how you construct this object, but you need to create an object with the values specific for your app. This object is used to initialize the Okta SDK. We refer to this `config` object throughout the guide.
+
+<NextSection/>

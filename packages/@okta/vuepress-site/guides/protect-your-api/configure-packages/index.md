@@ -22,3 +22,5 @@ You need to configure the Okta SDK with some information about your Okta domain.
 > Note: `https://okta.okta.com` is different from your admin URL. Don't include `-admin` in the value.
 
 <StackSelector snippet="configmid"/>
+
+<NextSection/>

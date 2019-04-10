@@ -204,3 +204,9 @@ When linking between different guides, use `-` in place of the framework name - 
 
 To link to another guide you MUST link to a section of that guide - incomplete guide URLs will fallback to the main Guide Overview page.
 
+Within the content of a guide the `<NextSection>` component is available to link to different sections:
+
+* `<NextSection/>` - Provides a "button" link to the next section
+* `<NextSection>Some Example Text</NextSection>` - Provides the "button" with different text
+* `<NextSection name="next-steps"/>` - Provides the "button" to link to the named section of the guide (doesn't have be "next")
+
