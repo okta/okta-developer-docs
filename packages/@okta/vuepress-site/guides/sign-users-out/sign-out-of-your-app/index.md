@@ -1,8 +1,6 @@
 ---
 title: Sign Users Out of Your App
 ---
-## Sign Users Out of Your App
-
 Sign users out by ending the local session in your application and discarding the tokens Okta created when the user signed in.
 
 <StackSelector snippet="localsignout"/>

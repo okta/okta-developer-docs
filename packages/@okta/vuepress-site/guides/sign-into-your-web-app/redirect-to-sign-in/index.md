@@ -1,8 +1,6 @@
 ---
 title: Redirect to the Sign-In Page
 ---
-## Redirect to the Sign-In Page
-
 The user is redirected to the hosted sign-in page where they authenticate.
 
 <StackSelector snippet="redirect"/>

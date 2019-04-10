@@ -1,8 +1,6 @@
 ---
 title: Protect Your API Endpoints
 ---
-# Protect Your API Endpoints
-
 This guide walks you through how to add authentication to your API endpoints and supports these languages:
 
 * Node (Express)

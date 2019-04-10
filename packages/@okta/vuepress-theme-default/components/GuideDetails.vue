@@ -5,7 +5,11 @@
       :framework="framework"
       :guideName="guideName" 
     />
-    <Content :pageKey="componentKey" id="guide_content" />
+    <div id="guide_content">
+      <h1>{{ guide.title }}</h1>
+      <h2>{{ section.title }}</h2>
+      <Content :pageKey="componentKey"/>
+    </div>
   </div>
 </template>
 
@@ -15,6 +19,15 @@
     name: 'GuideDetails',
     props: [ 'guideName', 'framework', 'sectionName' ],
     computed: { 
+
+      guide() { 
+        return getGuidesInfo({ pages: this.$site.pages }).byName[this.guideName];
+      },
+
+      section() { 
+        const section = this.guide.sectionByName[this.sectionName];
+        return section;
+      },
       componentKey() { 
         const guides = getGuidesInfo({ pages: this.$site.pages });
         return guides.byName[this.guideName].sectionByName[this.sectionName].componentKey;

@@ -1,8 +1,6 @@
 ---
 title: Require Authentication
 ---
-## Require Authentication
-
 An important decision regarding your authentication requirements is which parts of your application require the user to be authenticated. You can require authentication across the entire API or just require it for particular routes or controllers.
 
 > Note: Unauthenticated requests return a 401 error code.

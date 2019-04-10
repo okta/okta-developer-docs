@@ -1,8 +1,6 @@
 ---
 title: Create an Okta Application
 ---
-## Create an Okta Application
-
 In Okta, applications are OpenID Connect (OIDC) clients that can use Okta Authorization Servers to authenticate users. Your Okta org already has a default Authorization Server, so you just need to create an OIDC client that uses it.
 
 1. Sign in to the Okta Developer Console, click **Applications**, and then **Add Application**.

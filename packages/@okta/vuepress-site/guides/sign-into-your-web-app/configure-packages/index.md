@@ -1,8 +1,6 @@
 ---
 title: Add and Configure Packages
 ---
-## Add and Configure Packages
-
 Next you need to add Okta to your application.
 
 <StackSelector snippet="addconfigpkg"/>
