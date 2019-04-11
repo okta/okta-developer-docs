@@ -13,7 +13,6 @@ $big-spacing: 3rem;
 
 .guide-details { 
   display: flex;
-
   .next-section + .stack-selector,
   .stack-selector + .next-section { 
     margin-top: 20px;
@@ -102,9 +101,9 @@ $big-spacing: 3rem;
 }
 
 .guides-navigation { 
-  width: 30%;
-  min-width: 230px; 
   padding-right: 1rem;
+  width: 270px;  
+  flex: 0 0 auto;  
 
   ul, ol { 
     list-style: none;
