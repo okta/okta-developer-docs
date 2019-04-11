@@ -1,7 +1,10 @@
 ---
 title: Handle the Callback from Okta
 ---
-After successful authentication, the user is redirected back to your application along with access and ID tokens. See [Define the Login Redirect/Callback](define-the-login-redirect/callback).
+
+After Okta authenticates a user, they're redirected back to your application via the callback route you [defined earlier](/guides/sign-into-spa/-/define-callback). When Okta redirects back, the URL fragment (the portion after `#`) contains either tokens for the user or an error if something went wrong.
+
+Your application must parse this information, and if tokens are present, store the user's tokens.
 
 <StackSelector snippet="handle-callback"/>
 

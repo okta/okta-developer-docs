@@ -1,18 +1,12 @@
-`OktaAuthGuard` is used to require authentication on individual routes. To require authentication in your entire application, you can add the guard to every route. See [canActivate] (https://angular.io/api/router/CanActivate).
+To require authentication for all routes, use a loop to add `OktaAuthGuard` to every item in the `Routes` collection.
 
 ```javascript
 
 import { Routes, RouterModule } from '@angular/router';
-import {
-  OktaAuthGuard,
-} from '@okta/okta-angular';
+import { OktaAuthGuard } from '@okta/okta-angular';
 
 const appRoutes: Routes = [
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
-  // ... more routes
+  // Your routes...
 ];
 
 // Require authentication on every route
@@ -21,10 +15,5 @@ appRoutes.forEach(route => {
   route.canActivate.push(OktaAuthGuard);
 });
 
-@NgModule({
-  imports: [
-    RouterModule.forRoot(appRoutes),
-  ],
-})
-
+// NgModule...
 ```

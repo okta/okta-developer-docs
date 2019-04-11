@@ -1,4 +1,4 @@
-We provide a `SecureRoute` component that extends the `Route` component to require authentication. Use `SecureRoute` on any routes that require authentication.
+Use the React SDK's `SecureRoute` component instead of `Route` for the routes that require authentication.
 
 ```javascript
 import React, { Component } from 'react';
