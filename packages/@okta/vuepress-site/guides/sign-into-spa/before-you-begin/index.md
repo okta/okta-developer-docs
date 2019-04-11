@@ -2,7 +2,7 @@
 title: Before You Begin
 ---
 
-This guide shows you how to use Okta as the user store for your single-page application, and sign users into your app.
+This guide shows you how to use Okta as the user store for your single-page application and sign users into your app.
 
 <!-- If you are building a web app that is served by a server framework, see [Sign Users into Your Web App]. If you are building a mobile app, see [Sign Users into Your Mobile App]. -->
 
