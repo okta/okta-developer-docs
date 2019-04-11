@@ -4,9 +4,9 @@ title: Create an Okta Application
 
 Before your code can redirect to Okta to sign a user in, you need to create an Okta Application that represents your single-page application.
 
-First, sign in to the Okta Developer Console.
+First, sign in to the Okta Developer Console:
 
-<a href="https://login.okta.com/" target="_blank">Go to Console</a>
+<a href="https://login.okta.com/" target="_blank" class="Button--blue">Go to Console</a>
 
 Select **Applications**, then **Add Application**. Pick **Single-Page App (SPA)** as the platform. Enter a name for your application (or leave the default value).
 
