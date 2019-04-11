@@ -8,7 +8,7 @@ sections:
  - create-okta-application
  - install-sdk
  - configure-the-sdk
- - login-logout-buttons
+ - add-signin-button
  - handle-callback
  - require-authentication
  - user-info
