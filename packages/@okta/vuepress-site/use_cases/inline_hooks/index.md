@@ -1,6 +1,8 @@
 ---
 title: Inline Hooks
-excerpt: Integrate custom functionality into Okta process flows.
+meta:
+  - name: description
+    content: Inline hooks are outbound calls from Okta to your own custom code. Find out more about the types of Okta inline hooks, the process flow, and how to set them up.
 ---
 
 # Inline Hooks
@@ -44,11 +46,11 @@ The graphic below illustrates the sequence of steps:
 
 1. During the execution of an Okta process flow, at the extension point between points A and B, Okta sends a request to your external service.
 
-1. Your external service performs some processing.
+2. Your external service performs some processing.
 
-1. Your external service sends a response back to Okta.
+3. Your external service sends a response back to Okta.
 
-1. Okta receives the response, acts on any commands it includes, and resumes the process flow that originally triggered the inline hook.
+4. Okta receives the response, acts on any commands it includes, and resumes the process flow that originally triggered the inline hook.
 
 ### Request and Response Overview
 
