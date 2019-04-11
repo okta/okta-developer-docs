@@ -16,4 +16,4 @@ Next, enter values for the **Login redirect URI**. This is the callback route yo
 
 Finally, click **Done** to finish creating the Okta Application. You'll need to copy some values into your application later, so leave the Developer Console tab open.
 
-<button>I've created the Okta Application</button>
+<NextSectionLink/>

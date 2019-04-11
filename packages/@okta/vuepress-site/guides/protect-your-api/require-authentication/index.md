@@ -18,3 +18,5 @@ For some APIs, you want to require a valid token for all routes.
 For other APIs, you may need to require authentication only for a certain route or group of routes.
 
 <StackSelector snippet="reqauthspecific"/>
+
+<NextSectionLink/>

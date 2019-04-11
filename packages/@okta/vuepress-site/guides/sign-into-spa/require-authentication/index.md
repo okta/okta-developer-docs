@@ -18,4 +18,4 @@ For some applications, you may want to require the user to be authenticated for 
 
 <StackSelector snippet="reqautheverything"/>
 
-<button>I understand how to protect routes</button>
+<NextSectionLink/>

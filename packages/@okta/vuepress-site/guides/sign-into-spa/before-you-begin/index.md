@@ -26,4 +26,4 @@ Here's how signing a user in to a single-page app works:
 1. Okta redirects the browser back to your callback route with tokens for the user. Your code (or our SDK's code) handles the callback and stores these tokens.
 1. The browser is redirected to the final destination. This is up to you: it can be the route the user was originally trying to access, the home page, or somewhere else.
 
-<button>I'm ready to add auth to my app</button>
+<NextSectionLink/>

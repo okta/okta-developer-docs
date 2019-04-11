@@ -8,4 +8,4 @@ Install the SDK and add it as a dependency to your project:
 
 <StackSelector snippet="installsdk"/>
 
-<button>I've installed the SDK</button>
+<NextSectionLink/>

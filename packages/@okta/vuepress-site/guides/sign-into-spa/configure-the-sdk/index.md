@@ -39,4 +39,4 @@ With the configuration ready, initialize the SDK:
 
 <StackSelector snippet="config"/>
 
-<button>I've configured the SDK</button>
+<NextSectionLink/>

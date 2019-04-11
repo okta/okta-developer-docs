@@ -8,4 +8,4 @@ In your application, you'll want to provide a button to sign the user in. When t
 
 <StackSelector snippet="login-redirect"/>
 
-<button>I've created a button</button>
+<NextSectionLink/>

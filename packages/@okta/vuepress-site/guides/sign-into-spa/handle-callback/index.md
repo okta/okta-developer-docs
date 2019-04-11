@@ -8,4 +8,4 @@ Your application must parse this information, and if tokens are present, store t
 
 <StackSelector snippet="handle-callback"/>
 
-<button>I've wired up the callback route</button>
+<NextSectionLink/>

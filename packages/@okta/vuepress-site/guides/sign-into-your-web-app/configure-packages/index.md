@@ -18,3 +18,5 @@ You need the Client ID and Client Secret that you copied from the Okta applicati
 You can configure the properties of your application with environment variables, system properties, or configuration files. An example `application.properties` file looks like:
 
 <StackSelector snippet="configmid"/>
+
+<NextSectionLink/>
