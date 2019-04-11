@@ -132,7 +132,7 @@ Running the tests before committing should be done and can be accomplished by ru
 If your test run fails unexpectedly, try executing `yarn stop` and running the tests again.
 
 ## Theme and Plugin Contribution
-The theme and all plugins are no longer a part of the content side of this repo. All of the theme files live in `/packages/@okta/vuepress-theme-default` and all other plugins for the theme live in
+The theme and plugins are in separate packages from content. All of the theme files live in `/packages/@okta/vuepress-theme-default` – see that package's readme for more info.
 
 [doc]: https://developer.okta.com
 [devforum]: https://devforum.okta.com
