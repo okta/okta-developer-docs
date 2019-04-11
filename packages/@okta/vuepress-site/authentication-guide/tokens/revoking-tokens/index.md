@@ -41,4 +41,4 @@ Separate from access and refresh tokens, there is also the Okta session cookie w
 
 > Note: Removing all user sessions can optionally also remove all related access and refresh tokens as well.
 
-For more information on removing a specific session, see [Close Session](/docs/api/resources/sessions#close-session) in the Sessions API reference. For more on removing all of a user's sessions, see [Clear User Sessions](/docs/api/resources/users#clear-user-sessions) in the Users API reference.
+For more information on removing a specific session, see [Close Session](/docs/api/resources/sessions/#close-session) in the Sessions API reference. For more on removing all of a user's sessions, see [Clear User Sessions](/docs/api/resources/users/#clear-user-sessions) in the Users API reference.

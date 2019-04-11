@@ -24,17 +24,17 @@ Consent grants are different from tokens because a consent can outlast a token, 
 To configure an authorization or authentication flow to include a user consent page:
 
 1. Verify that you have the API Access Management feature enabled, and request that User Consent also be enabled.
-2. Create an app via the Apps API with the appropriate values for `tos_uri`, `policy_uri`, and `consent_method`. ([Details](/docs/api/resources/apps#settings-7))
+2. Create an app via the Apps API with the appropriate values for `tos_uri`, `policy_uri`, and `consent_method`. ([Details](/docs/api/resources/apps/#settings-7))
 
     Note: You can also configure an existing app in the administrator UI: **Applications > [Application Name] > General > User Consent**.
 
-3. Ensure that your authentication or authorization flow is configured properly. The combination of `prompt` in the `/authorize` request, `consent_method` set on the app in the previous step, and `consent`, a property set on scopes, controls whether a user consent window is displayed during the authentication flow. [Details](/docs/api/resources/apps#settings-7)
+3. Ensure that your authentication or authorization flow is configured properly. The combination of `prompt` in the `/authorize` request, `consent_method` set on the app in the previous step, and `consent`, a property set on scopes, controls whether a user consent window is displayed during the authentication flow. [Details](/docs/api/resources/apps/#settings-7)
 
 <!-- OKTA-158107 -->
 
 ### Sessions API Supports HTTP Header Prefer
 
-Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](/docs/api/resources/sessions#refresh-current-session). You can extend the session lifetime, but skip any processing work related to building the response body.
+Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](/docs/api/resources/sessions/#refresh-current-session). You can extend the session lifetime, but skip any processing work related to building the response body.
 
 #### Example Request
 
@@ -58,7 +58,7 @@ Preference-Applied: return=minimal
 
 ### User Schema API Allows Nullable `firstName`, `lastName`
 
-You can set `firstName` or `lastName` to be nullable in [the User Profile Base sub-schema](/docs/api/resources/schemas#user-profile-base-subschema). These properties are defined in a profile sub-schema with the resolution scope `#base`.
+You can set `firstName` or `lastName` to be nullable in [the User Profile Base sub-schema](/docs/api/resources/schemas/#user-profile-base-subschema). These properties are defined in a profile sub-schema with the resolution scope `#base`.
 
 ### Improved Response Mode for OAuth 2.0 and OpenID Connect Requests
 

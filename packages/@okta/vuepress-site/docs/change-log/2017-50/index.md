@@ -11,8 +11,8 @@ excerpt: Summary of changes to the Okta API since Release 2017.49
 
 Added `strict` optional parameter to the following operations:
 
-* [Update User](https://developer.okta.com/docs/api/resources/users#update-user)
-* [Change Password](https://developer.okta.com/docs/api/resources/users#change-password)
+* [Update User](https://developer.okta.com/docs/api/resources/users/#update-user)
+* [Change Password](https://developer.okta.com/docs/api/resources/users/#change-password)
 
 This parameter allows you to force the validation of the password policy's `minAge` and `passwordHistory` requirements when an updated password is sent. This will be Generally Available in preview orgs starting on Dec 13, 2017 and in production orgs starting on Dec 19, 2017.
 <!-- OKTA-148151 -->

@@ -36,11 +36,11 @@ Notes:
 
 ### Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)
 
-You can use the salted SHA-256 hash type when [importing passwords](/docs/api/resources/users#create-user-with-imported-hashed-password). <!-- OKTA-160288 -->
+You can use the salted SHA-256 hash type when [importing passwords](/docs/api/resources/users/#create-user-with-imported-hashed-password). <!-- OKTA-160288 -->
 
 ### New Parameter for Authentication with Okta Verify with Auto-Push
 
-We have added [an optional URL parameter, `autoPush` ](/docs/api/resources/authn#request-parameters-for-verify-push-factor) that allows Okta to store the user's Auto-Push preference when verifying Okta Verify with Auto-Push. This parameter is only necessary when implementing custom login flows that do not use the Okta Sign-In Widget. <!-- OKTA-155563 -->
+We have added [an optional URL parameter, `autoPush` ](/docs/api/resources/authn/#request-parameters-for-verify-push-factor) that allows Okta to store the user's Auto-Push preference when verifying Okta Verify with Auto-Push. This parameter is only necessary when implementing custom login flows that do not use the Okta Sign-In Widget. <!-- OKTA-155563 -->
 
 ### System Log Changes for 2018.10
 
@@ -54,4 +54,4 @@ We have added [an optional URL parameter, `autoPush` ](/docs/api/resources/authn
 
 * GET requests to list 200 or more apps were taking a long time to complete. (OKTA-158391)
 * Invalid IP addresses in the `X-Forwarded-For` header caused a null pointer exception (HTTP 500 `NullPointerException`) during primary authentication. (OKTA-159414)
-* [List User with Search requests](/docs/api/resources/users#list-users-with-search) in preview orgs failed to return pagination links. (OKTA-160424)
+* [List User with Search requests](/docs/api/resources/users/#list-users-with-search) in preview orgs failed to return pagination links. (OKTA-160424)

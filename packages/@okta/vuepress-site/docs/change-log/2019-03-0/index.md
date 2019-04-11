@@ -18,7 +18,7 @@ title: Okta API Products Change Log
 
 ### Password Import Supports SHA-1 and MD5
 
-The Create/Update User API now supports importing users with SHA-1 and MD5 credentials. For more information, see our [Users page](/docs/api/resources/users#hashed-password-object). <!--OKTA-204369 and OKTA-201688-->
+The Create/Update User API now supports importing users with SHA-1 and MD5 credentials. For more information, see our [Users page](/docs/api/resources/users/#hashed-password-object). <!--OKTA-204369 and OKTA-201688-->
 
 ### Enable Role Assignment to Every Member of a Group
 
@@ -34,7 +34,7 @@ Generic OpenID Connect allows users to sign in to an Okta org using their creden
 
 ### User Search is now GA in Production
 
-Extended search capabilities for the `/users` endpoint is now Generally Available. For more information, see our [Users page](/docs/api/resources/users#list-users-with-search). <!--OKTA-210189-->
+Extended search capabilities for the `/users` endpoint is now Generally Available. For more information, see our [Users page](/docs/api/resources/users/#list-users-with-search). <!--OKTA-210189-->
 
 ### The Import Inline Hook is in EA
 

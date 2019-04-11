@@ -22,7 +22,7 @@ Client-initiated [logout](/docs/api/resources/oidc#logout) now succeeds even whe
 
 ### Change to User Link Editing Permissions
 
-Editing the [link](/docs/api/resources/users#links-object) between users now requires edit permissions for all users involved. <!--OKTA-186702-->
+Editing the [link](/docs/api/resources/users/#links-object) between users now requires edit permissions for all users involved. <!--OKTA-186702-->
 
 ### Bugs Fixed in 2018.41
 

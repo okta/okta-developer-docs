@@ -12,7 +12,7 @@ title: Okta API Products Change Log
 ### Bugs Fixed in 2018.40
 
 * Responses from the `/zones` [endpoint](/docs/api/resources/zones#zones-api) included a duplicate of the `type` field. (OKTA-188605)
-* The `/idps/credentials/keys` [endpoint](/docs/api/resources/idps#add-x509-certificate-public-key) was requiring requests to include extra parameters. (OKTA-189780)
+* The `/idps/credentials/keys` [endpoint](/docs/api/resources/idps/#add-x509-certificate-public-key) was requiring requests to include extra parameters. (OKTA-189780)
 
 ### Previously Released Early Access Features 2018.40 Update
 

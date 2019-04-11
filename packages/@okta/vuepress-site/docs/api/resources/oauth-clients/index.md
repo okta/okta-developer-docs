@@ -723,7 +723,7 @@ Property Details
 
 * The `client_secret` is only shown on the response of the creation or update of a client application (and only if the `token_endpoint_auth_method` is one that requires a client secret). You cannot specify the `client_secret` and if the `token_endpoint_auth_method` requires one Okta will generate a random `client_secret` for the client application.
 
-* If you want to specify the `client_id` or `client_secret`, you can use [Apps API](/docs/api/resources/apps#add-oauth-20-client-application) to create or update a client application.
+* If you want to specify the `client_id` or `client_secret`, you can use [Apps API](/docs/api/resources/apps/#add-oauth-20-client-application) to create or update a client application.
 
 * At least one redirect URI and response type is required for all client types, with exceptions: if the client uses the
   [Resource Owner Password](https://tools.ietf.org/html/rfc6749#section-4.3) flow (if `grant_types` contains the value `password`)
