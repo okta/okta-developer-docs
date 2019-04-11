@@ -21,3 +21,4 @@ Define what happens when a user isn't authenticated.
 
 <StackSelector snippet="allowanon"/>
 
+<NextSectionLink/>

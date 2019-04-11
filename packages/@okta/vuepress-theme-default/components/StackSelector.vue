@@ -41,7 +41,6 @@
         // Default to first available framework
         return findOnAncestor({ find: 'framework', node: this }) || this.options[0].name;
       },
-      guide() { return findOnAncestor({ find: 'guide', node: this }); },
       section() { return findOnAncestor({ find: 'section', node: this }); },
       options() { return this.section.snippetByName[this.snippet].frameworks; },
       snippetComponentKey() { 
