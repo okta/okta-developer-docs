@@ -574,13 +574,13 @@ The schema of a target is dependent on the actor's `objectType`
 
 #### User ObjectType
 
-A denormalized reference to a [User](users#user-model):
+A denormalized reference to a [User](/docs/api/resources/users#user-model):
 
 | Property      | Description                                               | DataType   | Nullable |
 | :------------ | :-------------------------------------------------------- | :--------- | :------- |
-| id            | Unique key for [user](users#user-model)                   | String     | FALSE    |
-| displayName   | [User's](users#profile-object) first and last name        | String     | TRUE     |
-| login         | Unique login for [user](users#user-model)                 | String     | TRUE     |
+| id            | Unique key for [user](/docs/api/resources/users#user-model)                   | String     | FALSE    |
+| displayName   | [User's](/docs/api/resources/users#profile-object) first and last name        | String     | TRUE     |
+| login         | Unique login for [user](/docs/api/resources/users#user-model)                 | String     | TRUE     |
 | objectType    | Type of object                                            | `User`     | FALSE    |
 
 ``` json
@@ -592,7 +592,7 @@ A denormalized reference to a [User](users#user-model):
 }
 ```
 
-The user can be retrieved by `id` with the [User API](users#get-user-with-id).
+The user can be retrieved by `id` with the [User API](/docs/api/resources/users#get-user-with-id).
 
 #### AppInstance ObjectType
 
@@ -600,8 +600,8 @@ Describes an application:
 
 | Property      | Description                                          | DataType        | Nullable |
 | :------------ | :--------------------------------------------------- | :-------------- | :------- |
-| id            | Unique key for [app](apps#application-model)         | String          | FALSE    |
-| displayName   | [App's](apps#application-model) label                | String          | TRUE     |
+| id            | Unique key for [app](/docs/api/resources/apps#application-model)         | String          | FALSE    |
+| displayName   | [App's](/docs/api/resources/apps#application-model) label                | String          | TRUE     |
 | objectType    | Type of object                                       | `AppInstance`   | FALSE    |
 
 ``` json
@@ -612,7 +612,7 @@ Describes an application:
 }
 ```
 
-The app can be retrieved by `id` with the [Apps API](apps#get-application).
+The app can be retrieved by `id` with the [Apps API](/docs/api/resources/apps#get-application).
 
 #### Client ObjectType
 

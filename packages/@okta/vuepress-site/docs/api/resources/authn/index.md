@@ -1878,14 +1878,14 @@ curl -v -X POST \
 
 You can enroll, activate, manage, and verify factors inside the authentication context with `/api/v1/authn/factors`.
 
-> You can enroll, manage, and verify factors outside the authentication context with [`/api/v1/users/:uid/factors/`](factors#factor-verification-operations).
+> You can enroll, manage, and verify factors outside the authentication context with [`/api/v1/users/:uid/factors/`](/docs/api/resources/factors#factor-verification-operations).
 
 ### Enroll Factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors" />
 
-Enrolls a user with a [factor](factors#supported-factors-for-providers) assigned by their **MFA Policy**.
+Enrolls a user with a [factor](/docs/api/resources/factors#supported-factors-for-providers) assigned by their **MFA Policy**.
 
 * [Enroll Okta Security Question Factor](#enroll-okta-security-question-factor)
 * [Enroll Okta SMS Factor](#enroll-okta-sms-factor)
@@ -1907,21 +1907,21 @@ Enrolls a user with a [factor](factors#supported-factors-for-providers) assigned
 | Parameter   | Description                                                                   | Param Type  | DataType                                                      | Required |
 | ----------- | ----------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------- | -------- |
 | stateToken  | [state token](#state-token) for current transaction                           | Body        | String                                                        | TRUE     |
-| factorType  | type of factor                                                                | Body        | [Factor Type](factors#factor-type)                            | TRUE     |
-| provider    | factor provider                                                               | Body        | [Provider Type](factors#provider-type)                        | TRUE     |
-| profile     | profile of a [supported factor](factors#supported-factors-for-providers)      | Body        | [Factor Profile Object](factors#factor-profile-object)        | TRUE     |
+| factorType  | type of factor                                                                | Body        | [Factor Type](/docs/api/resources/factors#factor-type)                            | TRUE     |
+| provider    | factor provider                                                               | Body        | [Provider Type](/docs/api/resources/factors#provider-type)                        | TRUE     |
+| profile     | profile of a [supported factor](/docs/api/resources/factors#supported-factors-for-providers)      | Body        | [Factor Profile Object](/docs/api/resources/factors#factor-profile-object)        | TRUE     |
 
 #### Response Parameters for Enroll Factor
 
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
 
-> Some [factor types](factors#factor-type) require [activation](#activate-factor) to complete the enrollment process.  The [authentication transaction](#transaction-state) will transition to `MFA_ENROLL_ACTIVATE` if a factor requires activation.
+> Some [factor types](/docs/api/resources/factors#factor-type) require [activation](#activate-factor) to complete the enrollment process.  The [authentication transaction](#transaction-state) will transition to `MFA_ENROLL_ACTIVATE` if a factor requires activation.
 
 #### Enroll Okta Security Question Factor
 
 
-Enrolls a user with the Okta `question` factor and [question profile](factors#question-profile).
+Enrolls a user with the Okta `question` factor and [question profile](/docs/api/resources/factors#question-profile).
 
 > Security Question factor does not require activation and is `ACTIVE` after enrollment
 
@@ -1973,7 +1973,7 @@ curl -v -X POST \
 #### Enroll Okta SMS Factor
 
 
-Enrolls a user with the Okta `sms` factor and an [SMS profile](factors#sms-profile).  A text message with an OTP is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `next` link relation to complete the enrollment process.
+Enrolls a user with the Okta `sms` factor and an [SMS profile](/docs/api/resources/factors#sms-profile).  A text message with an OTP is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `next` link relation to complete the enrollment process.
 
 ##### Request Example for Enroll Okta SMS Factor
 
@@ -2090,7 +2090,7 @@ curl -v -X POST \
 #### Enroll Okta Call Factor
 
 
-Enrolls a user with the Okta `call` factor and a [Call profile](factors#call-profile).  A voice call with an OTP is sent to the device during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
+Enrolls a user with the Okta `call` factor and a [Call profile](/docs/api/resources/factors#call-profile).  A voice call with an OTP is sent to the device during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
 
 ##### Request Example for Enroll Okta Call Factor
 
@@ -2506,7 +2506,7 @@ curl -v -X POST \
 #### Enroll RSA SecurID Factor
 
 
-Enrolls a user with a RSA SecurID factor and a [token profile](factors#token-profile).  RSA tokens must be verified with the [current pin+passcode](factors#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a RSA SecurID factor and a [token profile](/docs/api/resources/factors#token-profile).  RSA tokens must be verified with the [current pin+passcode](/docs/api/resources/factors#factor-verification-object) as part of the enrollment request.
 
 ##### Request Example for Enroll RSA SecurID Factor
 
@@ -2555,7 +2555,7 @@ curl -v -X POST \
 #### Enroll Symantec VIP Factor
 
 
-Enrolls a user with a Symantec VIP factor and a [token profile](factors#token-profile).  Symantec tokens must be verified with the [current and next passcodes](factors#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a Symantec VIP factor and a [token profile](/docs/api/resources/factors#token-profile).  Symantec tokens must be verified with the [current and next passcodes](/docs/api/resources/factors#factor-verification-object) as part of the enrollment request.
 
 ##### Request Example for Enroll Symantec VIP Factor
 
@@ -2605,7 +2605,7 @@ curl -v -X POST \
 #### Enroll YubiKey Factor
 
 
-Enrolls a user with a Yubico factor (YubiKey).  YubiKeys must be verified with the [current passcode](factors#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a Yubico factor (YubiKey).  YubiKeys must be verified with the [current passcode](/docs/api/resources/factors#factor-verification-object) as part of the enrollment request.
 
 ##### Request Example for Enroll YubiKey Factor
 
@@ -2918,7 +2918,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/lifecycle/activate" />
 
-The `sms`,`call` and `token:software:totp` [factor types](factors#factor-type) require activation to complete the enrollment process.
+The `sms`,`call` and `token:software:totp` [factor types](/docs/api/resources/factors#factor-type) require activation to complete the enrollment process.
 
 * [Activate TOTP Factor](#activate-totp-factor)
 * [Activate SMS Factor](#activate-sms-factor)
@@ -6622,7 +6622,7 @@ A subset of [user properties](/docs/api/resources/users/#user-model) published i
 
 #### User Profile Object
 
-Subset of [profile properties](users#profile-object) for a user
+Subset of [profile properties](/docs/api/resources/users#profile-object) for a user
 
 | Property  | Description                                                                                                                        | DataType  | Nullable | Unique | Readonly | Validation                                                            |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ------ | -------- | --------------------------------------------------------------------- |
@@ -6789,15 +6789,15 @@ Specifies the password requirements related to password age and history
 
 ### Factor Object
 
-A subset of [factor properties](factors#factor-model) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
+A subset of [factor properties](/docs/api/resources/factors#factor-model) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
 
 | Property       | Description                                                                                    | DataType                                                       | Nullable | Unique | Readonly |
 | -------------- | ----------------------------------------------------------------------------------------       | -------------------------------------------------------------- | -------- | ------ | -------  |
 | id             | unique key for factor                                                                          | String                                                         | TRUE     | TRUE   | TRUE     |
-| factorType     | type of factor                                                                                 | [Factor Type](factors#factor-type)                             | FALSE    | TRUE   | TRUE     |
-| provider       | factor provider                                                                                | [Provider Type](factors#provider-type)                         | FALSE    | TRUE   | TRUE     |
-| vendorName     | factor Vendor Name (Same as provider but for On Prem MFA it depends on Administrator Settings) | [Provider Type](factors#provider-type)                         | FALSE    | TRUE   | TRUE     |
-| profile        | profile of a [supported factor](factors#supported-factors-for-providers)                       | [Factor Profile Object](factors#factor-profile-object)         | TRUE     | FALSE  | TRUE     |
+| factorType     | type of factor                                                                                 | [Factor Type](/docs/api/resources/factors#factor-type)                             | FALSE    | TRUE   | TRUE     |
+| provider       | factor provider                                                                                | [Provider Type](/docs/api/resources/factors#provider-type)                         | FALSE    | TRUE   | TRUE     |
+| vendorName     | factor Vendor Name (Same as provider but for On Prem MFA it depends on Administrator Settings) | [Provider Type](/docs/api/resources/factors#provider-type)                         | FALSE    | TRUE   | TRUE     |
+| profile        | profile of a [supported factor](/docs/api/resources/factors#supported-factors-for-providers)                       | [Factor Profile Object](/docs/api/resources/factors#factor-profile-object)         | TRUE     | FALSE  | TRUE     |
 | _embedded      | [embedded resources](#factor-embedded-resources) related to the factor                         | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 | _links         | [discoverable resources](#factor-links-object) for the factor                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 

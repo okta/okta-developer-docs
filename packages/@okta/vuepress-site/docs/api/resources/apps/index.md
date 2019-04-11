@@ -3564,7 +3564,7 @@ Assigns a group to an application
 | Parameter     | Description                                     | Param Type | DataType                                      | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String                                        | TRUE     |         |
-| groupId       | unique key of a valid [Group](groups)           | URL        | String                                        | TRUE     |         |
+| groupId       | unique key of a valid [Group](/docs/api/resources/groups)           | URL        | String                                        | TRUE     |         |
 | appgroup      | App group                                       | Body       | [Application Group](#application-group-model) | FALSE    |         |
 
 ##### Response Parameters
@@ -3608,7 +3608,7 @@ Fetches an application group assignment
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](groups)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](/docs/api/resources/groups)       | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -3703,7 +3703,7 @@ Removes a group assignment from an application.
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](groups)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](/docs/api/resources/groups)       | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
