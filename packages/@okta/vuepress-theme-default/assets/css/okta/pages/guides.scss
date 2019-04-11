@@ -13,6 +13,11 @@ $big-spacing: 3rem;
 
 .guide-details { 
   display: flex;
+
+  .next-section + .stack-selector,
+  .stack-selector + .next-section { 
+    margin-top: 20px;
+  }
 }
 
 .guides-overview {
