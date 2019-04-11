@@ -229,7 +229,9 @@ Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum c
 
 #### Image Section
 
-![App Assignment UI](/img/okta-admin-ui-app-assignment.png "App Assignment UI")
+![App Assignment UI](/img/okta-admin-ui-app-assignment.png)
+
+![App Assignment UI](/img/okta-admin-ui-app-assignment.png "App Assignment UI Title")
 
 > Torquent natoque facilisi suscipit magna ac sociosqu vitae sollicitudin justo sodales aliquam egestas <ApiLifecycle access="ea" /> phasellus aptent.
 
