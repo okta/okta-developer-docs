@@ -24,8 +24,6 @@ using the command line, and running Tomcat, Maven or Gradle.
 If you're already familiar with Okta and Spring, you can skip to
 the section titled "Configuring Spring Security SAML to work with Okta".
 
-* Will be replaced with the ToC
-{:toc .list-unstyled .toc}
 
 >Note: The Spring security SAML toolkit you download is not Okta's toolkit and is not supported by Okta.
 

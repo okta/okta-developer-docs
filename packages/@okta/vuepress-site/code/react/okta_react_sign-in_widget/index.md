@@ -177,7 +177,6 @@ This route hosts the Sign-In Widget and redirects if the user is already logged 
 
 Create a new component `src/Login.js`:
 
-{% raw %}
 
 ```typescript
 // src/Login.js
@@ -237,7 +236,6 @@ export default withAuth(class Login extends Component {
 });
 ```
 
-{% endraw %}
 
 ### `/implicit/callback`
 

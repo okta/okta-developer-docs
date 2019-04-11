@@ -61,13 +61,13 @@ This table lists the current (and historical) major versions of our open-source 
 | [iOS AppAuth SDK][appauth-ios]                                  | 1.x<br>**2.x**                     | Retiring on 2019-07-19<br>**Stable** |
 | [iOS OktaJWT][ios-oktajwt]                                      | 0.1.0<br>**1.x**                   | Retired<br>**Stable**                |
 | [iOS authentication SDK][authsdk-ios]                           | 0.1.0                              | Beta                                 |
-| [Java management SDK][sdk-java]                                 | 0.0.4<br>**1.x**                   | Retiring on 2019-04-09<br>**Stable** |
+| [Java management SDK][sdk-java]                                 | 0.0.x<br>**1.x**                   | Retired<br>**Stable** |
 | [Java authentication SDK][authsdk-java]                         | **0.x**                            | **Stable**                           |
 | [JWT verifier for Java][java-jwt-verifier]                      | **0.x**                            | **Stable**                           |
 | [Spring Boot Starter][spring-boot-starter]                      | **0.x**                            | **Stable**                           |
 | [.NET management SDK][sdk-dotnet]                               | [0.3.3][sdk-dotnet-033]<br>**1.x** | Retiring on 2019-12-11<br>**Stable** |
 | [.NET authentication SDK][sdk-auth-dotnet]                      | **1.x**                            | Beta                                 |
-| [Node.js management SDK][sdk-nodejs]                            | 0.4.0<br>**1.x**                   | Retired<br>**Stable**                |
+| [Node.js management SDK][sdk-nodejs]                            | 1.2.0<br>**2.x**                   | Retiring on 2020-01-03<br>**Stable**                |
 | [JWT verifier for Node.js][nodejs-jwt-verifier]                 | **0.x**                            | **Stable**                           |
 | [OpenID Connect middleware for Node.js][nodejs-oidc-middleware] | 0.1.2                              | Beta                                 |
 | [PHP management SDK][sdk-php]                                   | 0.2.0<br>**1.x**                   | Retired<br>**Stable**                |

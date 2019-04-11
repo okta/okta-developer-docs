@@ -90,7 +90,7 @@ The authentication transaction [state machine](#transaction-state) can be modifi
 
 The context object allows [trusted web applications](#trusted-application) such as an external portal to pass additional context for the authentication or recovery transaction.
 
-> Overriding context such as `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication or recovery requests with a valid *administrator API token*.
+> Overriding context such as `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication or recovery requests with a valid *administrator API token*. If an API token is not provided, the `deviceToken` will be ignored.
 
 | Property    | Description                                                                   | DataType | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ----------- | ----------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- |
@@ -553,7 +553,7 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 
 Note:
 
-* Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*.
+* Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/api/getting_started/design_principles#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header
 
 ##### Request Example for Trusted Application
@@ -611,7 +611,7 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 
 Note:
 
-* Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*.
+* Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/api/getting_started/design_principles#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header
 
 ##### Request Example for Activation Token
@@ -875,10 +875,10 @@ Include the `X-Device-Fingerprint` header to supply a device fingerprint.
 
 Note:
 
-* Specifying your own `deviceToken` or device fingerprint is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*.
+* Specifying your own `deviceToken` or device fingerprint is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/api/getting_started/design_principles#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
-* To use device fingerprinting for the unknown-device email notification feature, include the `User-Agent` header in the request. For more information, see the <a href='https://support.okta.com/help/blogdetail?id=a67F0000000L2MkIAK' data-proofer-ignore>Beta documentation</a>.
-* For more information about security behavior detection, see the [EA documentation](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm?).
+* To use device fingerprinting for the unknown-device email notification feature, include the `User-Agent` header in the request. For more information, see the [General Security documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_General).
+* For more information about security behavior detection, see the [EA documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_proc_security_behavior_detection).
 
 ##### Request Example for Device Fingerprinting
 
@@ -4358,6 +4358,22 @@ curl -v -X POST \
 }
 ```
 
+##### Resend Push Notification
+
+Use the `resend` link to send another push notification if the user didn't receive the previous one due to timeout or error.
+
+###### Request Example for Resend Push Notification
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb"
+}' "https://{yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend"
+```
+
 #### Verify Duo Factor
 
 
@@ -6578,7 +6594,7 @@ The Links Object is read only.
 
 ### User Object
 
-A subset of [user properties](users#user-model) published in an authentication or recovery transaction after the user successfully completes primary authentication.
+A subset of [user properties](/docs/api/resources/users/#user-model) published in an authentication or recovery transaction after the user successfully completes primary authentication.
 
 | Property          | Description                                       | DataType                                              | Nullable | Unique | Readonly |
 | ----------------- | ------------------------------------------------- | ----------------------------------------------------- | -------- | ------ | -------- |
