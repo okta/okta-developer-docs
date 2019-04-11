@@ -1,6 +1,6 @@
 {
-  "release" : "2019.03.1",
-  "build" : "2019.03.1-begin-70-g948b50c2dbed",
+  "release" : "2019.04.1",
+  "build" : "2019.04.1-begin-70-g23fdfc8ed138",
   "categories" : [ {
     "id" : "adaptive",
     "name" : "Adaptive"
@@ -94,6 +94,9 @@
   }, {
     "id" : "productivity-squared",
     "name" : "Productivity Squared"
+  }, {
+    "id" : "provisioning-fabric",
+    "name" : "Provisioning Fabric"
   }, {
     "id" : "security",
     "name" : "Security"
@@ -327,6 +330,10 @@
     "description" : "Org.",
     "tags" : [ "admin" ]
   }, {
+    "id" : "self-service-feature-management",
+    "description" : "Self Service Feature Management.",
+    "tags" : [ ]
+  }, {
     "id" : "field-mapping-rule-modification",
     "description" : "",
     "tags" : [ ]
@@ -419,12 +426,44 @@
     "description" : "Inline Hook.",
     "tags" : [ ]
   }, {
-    "id" : "webhook",
-    "description" : "Webhook feature related.",
+    "id" : "event-hook",
+    "description" : "Event Hook.",
     "tags" : [ ]
   }, {
-    "id" : "webhook-eligible",
-    "description" : "Marks an event as eligible to used in a webhook.",
+    "id" : "event-hook-eligible",
+    "description" : "Events with this tag are eligible to used in an event hook.",
+    "tags" : [ ]
+  }, {
+    "id" : "event-based-trigger-eligible",
+    "description" : "Marks an event as eligible to used as an event based trigger in automations.",
+    "tags" : [ ]
+  }, {
+    "id" : "scheduled-action",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "execute-policy",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "self-service",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "task",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "user-diff-report",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "system-task",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "app-instance-request",
+    "description" : "",
     "tags" : [ ]
   }, {
     "id" : "idp",
@@ -495,39 +534,11 @@
     "description" : "",
     "tags" : [ ]
   }, {
-    "id" : "app-instance-request",
-    "description" : "",
-    "tags" : [ ]
-  }, {
     "id" : "cvd",
     "description" : "",
     "tags" : [ ]
   }, {
-    "id" : "system-task",
-    "description" : "",
-    "tags" : [ ]
-  }, {
-    "id" : "scheduled-action",
-    "description" : "",
-    "tags" : [ ]
-  }, {
-    "id" : "execute-policy",
-    "description" : "",
-    "tags" : [ ]
-  }, {
     "id" : "group-app-modification",
-    "description" : "",
-    "tags" : [ ]
-  }, {
-    "id" : "self-service",
-    "description" : "",
-    "tags" : [ ]
-  }, {
-    "id" : "task",
-    "description" : "",
-    "tags" : [ ]
-  }, {
-    "id" : "user-diff-report",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -803,43 +814,43 @@
       "mappings" : [ "system.api_token.revoke" ]
     }, {
       "id" : "app.access_request.approver.approve",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "",
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.approver.approve" ]
     }, {
       "id" : "app.access_request.approver.deny",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "",
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.approver.deny" ]
     }, {
       "id" : "app.access_request.delete",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "",
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.delete" ]
     }, {
       "id" : "app.access_request.deny",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "",
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.deny" ]
     }, {
       "id" : "app.access_request.expire",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "",
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.expire" ]
     }, {
       "id" : "app.access_request.grant",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "",
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.grant" ]
     }, {
       "id" : "app.access_request.request",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "",
       "tags" : [ "app-instance-request" ],
       "mappings" : [ "app.access_request.request" ]
@@ -1559,25 +1570,25 @@
       "mappings" : [ "application.policy.sign_on.rule.create" ]
     }, {
       "id" : "app.audit_report.download",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "",
       "tags" : [ "user-diff-report" ],
       "mappings" : [ "app.audit_report.download" ]
     }, {
       "id" : "app.audit_report.download.local.active",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Application access report downloaded.",
       "tags" : [ "user-diff-report" ],
       "mappings" : [ "app.audit_report.download.local.active" ]
     }, {
       "id" : "app.audit_report.download.local.deprov",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Recent unassignments report downloaded.",
       "tags" : [ "user-diff-report" ],
       "mappings" : [ "app.audit_report.download.local.deprov" ]
     }, {
       "id" : "app.audit_report.download.rogue.report",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Rogue report downloaded.",
       "tags" : [ "user-diff-report" ],
       "mappings" : [ "app.audit_report.download.rogue.report" ]
@@ -3268,6 +3279,12 @@
       "tags" : [ "directory" ],
       "mappings" : [ "system.agent.ldap.reconnect" ]
     }, {
+      "id" : "app.ldap.import.tracking_attribute_missing",
+      "category" : "directories",
+      "description" : "Fired when a full LDAP import contains user and/or group objects with a missing modifyTimeStamp value.",
+      "tags" : [ "directory" ],
+      "mappings" : [ "app.ldap.import.tracking_attribute_missing" ]
+    }, {
       "id" : "app.ldap.jit.ambiguous",
       "category" : "directories",
       "description" : "JIT failed due to ambiguous name for User., ensure that only one directory refers to this User.",
@@ -3387,6 +3404,18 @@
       "description" : "LDAP agent failed to reset password because of restriction error.",
       "tags" : [ "ldap-app" ],
       "mappings" : [ "system.agent.ldap.reset_user_password" ]
+    }, {
+      "id" : "app.ldap.read_schema.failed",
+      "category" : "directories",
+      "description" : "Failed to read schema from LDAP.",
+      "tags" : [ "app" ],
+      "mappings" : [ "app.ldap.read_schema" ]
+    }, {
+      "id" : "app.ldap.read_schema.successful",
+      "category" : "directories",
+      "description" : "Successfully read schema from LDAP.",
+      "tags" : [ "app" ],
+      "mappings" : [ "app.ldap.read_schema" ]
     }, {
       "id" : "app.ldap.unlock.account.failed",
       "category" : "directories",
@@ -4508,13 +4537,13 @@
       "category" : "directories",
       "description" : "Real time sync suspended existing User on import.",
       "tags" : [ "app" ],
-      "mappings" : [ ]
+      "mappings" : [ "app.realtimesync.import.details.update_user" ]
     }, {
       "id" : "app.realtimesync.import.details.unsuspend_user",
       "category" : "directories",
       "description" : "Real time sync unsuspended existing User on import.",
       "tags" : [ "app" ],
-      "mappings" : [ ]
+      "mappings" : [ "app.realtimesync.import.details.update_user" ]
     }, {
       "id" : "app.realtimesync.import.details.update_user",
       "category" : "directories",
@@ -4526,7 +4555,7 @@
       "category" : "directories",
       "description" : "Real time sync failed due to email address too long.",
       "tags" : [ "app" ],
-      "mappings" : [ ]
+      "mappings" : [ "app.realtimesync.import_failed" ]
     }, {
       "id" : "app.registration_policy.lifecycle.create",
       "category" : "sync",
@@ -4757,13 +4786,13 @@
       "mappings" : [ "application.integration.general_failure" ]
     }, {
       "id" : "app.self_service.disabled",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Self-service disabled for app.",
       "tags" : [ "self-service" ],
       "mappings" : [ "self_service.disabled" ]
     }, {
       "id" : "app.self_service.enabled",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Self-service enabled for app.",
       "tags" : [ "self-service" ],
       "mappings" : [ "self_service.enabled" ]
@@ -5662,6 +5691,12 @@
       "tags" : [ "okta-el" ],
       "mappings" : [ "core.el.evaluate" ]
     }, {
+      "id" : "core.feature.auto_enroll",
+      "category" : "aelm",
+      "description" : "The Org was opted into EA Auto Enroll.",
+      "tags" : [ "admin", "self-service-feature-management", "system" ],
+      "mappings" : [ "system.feature.ea_auto_enroll" ]
+    }, {
       "id" : "core.framework.ratelimit.exceeded",
       "category" : "performance",
       "description" : "Rate limit exceeded.",
@@ -5729,7 +5764,7 @@
       "mappings" : [ "user.account.report_suspicious_activity_by_enduser" ]
     }, {
       "id" : "core.user.added_to_rule_exclusion",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "User added to exclusion list of group membership rule.",
       "tags" : [ "cvd" ],
       "mappings" : [ "group.user_membership.rule.add_exclusion" ]
@@ -6563,31 +6598,31 @@
       "mappings" : [ "directory.app_user_profile.update" ]
     }, {
       "id" : "cvd.group.user_membership.rule.error",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Group membership rule is in error state.",
       "tags" : [ "cvd" ],
       "mappings" : [ "group.user_membership.rule.error" ]
     }, {
       "id" : "cvd.group.user_membership.rule.evaluation",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Group membership rule is evaluated.",
       "tags" : [ "cvd" ],
       "mappings" : [ "group.user_membership.rule.evaluation" ]
     }, {
       "id" : "cvd.group_rule_deactivated",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Group membership rule is deactivated since resource referenced in rule has been deleted.",
       "tags" : [ "cvd" ],
       "mappings" : [ "group.user_membership.rule.deactivated" ]
     }, {
       "id" : "cvd.group_rule_invalidated",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Group membership rule invalidated since resource referenced in rule has been deleted.",
       "tags" : [ "cvd" ],
       "mappings" : [ "group.user_membership.rule.invalidate" ]
     }, {
       "id" : "cvd.group_rule_triggered",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Group membership rule triggered.",
       "tags" : [ "cvd" ],
       "mappings" : [ "group.user_membership.rule.trigger" ]
@@ -6599,25 +6634,25 @@
       "mappings" : [ "directory.mapping.update" ]
     }, {
       "id" : "cvd.scheduled_action.user_suspension.canceled",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Canceled scheduled user suspension.",
       "tags" : [ "scheduled-action" ],
       "mappings" : [ "scheduled_action.user_suspension.canceled" ]
     }, {
       "id" : "cvd.scheduled_action.user_suspension.completed",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Completed scheduled user suspension.",
       "tags" : [ "scheduled-action" ],
       "mappings" : [ "scheduled_action.user_suspension.completed" ]
     }, {
       "id" : "cvd.scheduled_action.user_suspension.scheduled",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Scheduled user suspension.",
       "tags" : [ "scheduled-action" ],
       "mappings" : [ "scheduled_action.user_suspension.scheduled" ]
     }, {
       "id" : "cvd.scheduled_action.user_suspension.updated",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Updated scheduled user suspension.",
       "tags" : [ "scheduled-action" ],
       "mappings" : [ "scheduled_action.user_suspension.updated" ]
@@ -7072,6 +7107,60 @@
       "tags" : [ "unconfigured-origin-usage" ],
       "mappings" : [ "org.not_configured_origin.redirection.usage" ]
     }, {
+      "id" : "platform.event_hook.activated",
+      "category" : "extensibility",
+      "description" : "Event hook was activated.",
+      "tags" : [ "event-hook" ],
+      "mappings" : [ ]
+    }, {
+      "id" : "platform.event_hook.created",
+      "category" : "extensibility",
+      "description" : "A new event hook was created.",
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "event_hook.created" ]
+    }, {
+      "id" : "platform.event_hook.deactivated",
+      "category" : "extensibility",
+      "description" : "Event hook was deactivated.",
+      "tags" : [ "event-hook" ],
+      "mappings" : [ ]
+    }, {
+      "id" : "platform.event_hook.deleted",
+      "category" : "extensibility",
+      "description" : "Event hook has been deleted.",
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "event_hook.deleted" ]
+    }, {
+      "id" : "platform.event_hook.delivered.failure",
+      "category" : "extensibility",
+      "description" : "Event hook delivery failed.",
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "event_hook.delivery" ]
+    }, {
+      "id" : "platform.event_hook.delivered.success",
+      "category" : "extensibility",
+      "description" : "Event hook was delivered.",
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "event_hook.delivery" ]
+    }, {
+      "id" : "platform.event_hook.updated",
+      "category" : "extensibility",
+      "description" : "Event hook was updated.",
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "event_hook.updated" ]
+    }, {
+      "id" : "platform.event_hook.verified.failure",
+      "category" : "extensibility",
+      "description" : "Event hook verification failed.",
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "event_hook.verified" ]
+    }, {
+      "id" : "platform.event_hook.verified.success",
+      "category" : "extensibility",
+      "description" : "Event hook was verified.",
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "event_hook.verified" ]
+    }, {
       "id" : "platform.field_mapping_rule.assign.change",
       "category" : "app-platform",
       "description" : "",
@@ -7169,31 +7258,31 @@
       "mappings" : [ "inline_hook.verified" ]
     }, {
       "id" : "platform.task.lifecycle.activate",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Activated system task.",
       "tags" : [ "system-task" ],
       "mappings" : [ "task.lifecycle.activate" ]
     }, {
       "id" : "platform.task.lifecycle.create",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Created system task.",
       "tags" : [ "system-task" ],
       "mappings" : [ "task.lifecycle.create" ]
     }, {
       "id" : "platform.task.lifecycle.deactivate",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Deactivated system task.",
       "tags" : [ "system-task" ],
       "mappings" : [ "task.lifecycle.deactivate" ]
     }, {
       "id" : "platform.task.lifecycle.delete",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Deleted system task.",
       "tags" : [ "system-task" ],
       "mappings" : [ "task.lifecycle.delete" ]
     }, {
       "id" : "platform.task.lifecycle.update",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Updated system task.",
       "tags" : [ "system-task" ],
       "mappings" : [ "task.lifecycle.update" ]
@@ -7230,13 +7319,13 @@
     }, {
       "id" : "platform.tokens.transform.saml.response",
       "category" : "federation",
-      "description" : "Received response from SAML callback.",
+      "description" : "Received response from SAML inline hook.",
       "tags" : [ "tokens-transform" ],
       "mappings" : [ "saml.tokens.transform.response" ]
     }, {
       "id" : "platform.tokens.transform.saml.response.failure",
       "category" : "federation",
-      "description" : "Failed to receive response from SAML callback.",
+      "description" : "Failed to receive response from SAML inline hook.",
       "tags" : [ "tokens-transform" ],
       "mappings" : [ "saml.tokens.transform.response" ]
     }, {
@@ -7245,48 +7334,6 @@
       "description" : "A job was scheduled to update group priority settings with an app instance name and app instance id and reached a failure count limit. Contact support to run group reconcile job.",
       "tags" : [ "group-push" ],
       "mappings" : [ ]
-    }, {
-      "id" : "platform.webhook.create",
-      "category" : "extensibility",
-      "description" : "A new webhook was created.",
-      "tags" : [ "webhook" ],
-      "mappings" : [ "webhook.create" ]
-    }, {
-      "id" : "platform.webhook.delete",
-      "category" : "extensibility",
-      "description" : "Webhook has been deleted.",
-      "tags" : [ "webhook" ],
-      "mappings" : [ "webhook.delete" ]
-    }, {
-      "id" : "platform.webhook.delivery.failure",
-      "category" : "extensibility",
-      "description" : "Webhook delivery failed.",
-      "tags" : [ "webhook" ],
-      "mappings" : [ "webhook.delivery" ]
-    }, {
-      "id" : "platform.webhook.delivery.success",
-      "category" : "extensibility",
-      "description" : "Webhook was delivered.",
-      "tags" : [ "webhook" ],
-      "mappings" : [ "webhook.delivery" ]
-    }, {
-      "id" : "platform.webhook.modify",
-      "category" : "extensibility",
-      "description" : "Webhook was modified.",
-      "tags" : [ "webhook" ],
-      "mappings" : [ "webhook.modify" ]
-    }, {
-      "id" : "platform.webhook.verify.failure",
-      "category" : "extensibility",
-      "description" : "Webhook verification failed.",
-      "tags" : [ "webhook" ],
-      "mappings" : [ "webhook.verify" ]
-    }, {
-      "id" : "platform.webhook.verify.success",
-      "category" : "extensibility",
-      "description" : "Webhook was verified.",
-      "tags" : [ "webhook" ],
-      "mappings" : [ "webhook.verify" ]
     }, {
       "id" : "plugin.downloaded",
       "category" : "plugins",
@@ -7325,7 +7372,7 @@
       "mappings" : [ "policy.lifecycle.delete" ]
     }, {
       "id" : "policy.execute.user.start",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Start execution of policy for user.",
       "tags" : [ "execute-policy" ],
       "mappings" : [ "policy.execute.user.start" ]
@@ -7337,7 +7384,7 @@
       "mappings" : [ "policy.lifecycle.overwrite" ]
     }, {
       "id" : "policy.rule.action.execute",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Scheduled execution of policy rule action.",
       "tags" : [ "execute-policy" ],
       "mappings" : [ "policy.rule.action.execute" ]
@@ -7379,7 +7426,7 @@
       "mappings" : [ "policy.rule.update" ]
     }, {
       "id" : "policy.scheduled.execute",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Scheduled execution of policy.",
       "tags" : [ "execute-policy" ],
       "mappings" : [ "policy.scheduled.execute" ]
@@ -7455,6 +7502,18 @@
       "description" : "Fired when an IP has been deemed malicious by Okta. This event fires only when an organization has configured their Okta ThreatInsight security settings to monitor auth attempts OR monitor auth attempts and block malicious IPs. This can be used to see details about the IPs Okta has deemed malicious, including the type of security threat (eg: Brute Force, Password Spray) and the resulting action. When fired, this event contains information about the type of security threat detected, the IP, and the result of the detection. The result of this event is determined by the security settings configured - if an organization has configured Okta to monitor authorization attempts, then the result will be 'ALLOW'; if an organization has configured Okta ThreatInsight security settings to monitor authorization attempts and block malicious IPs then the result will be 'DENY'. Related events include: In the case of 'monitor only' (versus monitor and block), when this event fires, the debug context for the related user.auth or user.session event will contain information about the detected threat.",
       "tags" : [ "threat-insight" ],
       "mappings" : [ "security.threat.detected" ]
+    }, {
+      "id" : "security.voice.add_country_blacklist",
+      "category" : "cred-platform",
+      "description" : "Fired when a country has been added to the voice call blacklist. This can be used to identify when a country has been blacklisted for voice call. When fired, this event contains information about the country that was added to the blacklist.Related events include security.voice.remove_country_blacklist.",
+      "tags" : [ "security", "voice" ],
+      "mappings" : [ "security.voice.add_country_blacklist" ]
+    }, {
+      "id" : "security.voice.remove_country_blacklist",
+      "category" : "cred-platform",
+      "description" : "Fired when a country has been removed from the voice call blacklist. This can be used to identify when a country has been removed from voice call blacklist. When fired, this event contains information about the country that was removed from the blacklist.Related events include security.voice.add_country_blacklist.",
+      "tags" : [ "security", "voice" ],
+      "mappings" : [ "security.voice.remove_country_blacklist" ]
     }, {
       "id" : "security.zone.make_blacklist",
       "category" : "security",
@@ -7562,7 +7621,7 @@
     "version" : "V2",
     "eventTypes" : [ {
       "id" : "app.access_request.approver.approve",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Request to access an app was approved by a administrator defined approver.",
       "info" : {
         "created" : "2017-10-14",
@@ -7573,7 +7632,7 @@
       "mappings" : [ "app.access_request.approver.approve" ]
     }, {
       "id" : "app.access_request.approver.deny",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Request to access an app was denied by a administrator defined approver.",
       "info" : {
         "created" : "2017-10-14",
@@ -7584,7 +7643,7 @@
       "mappings" : [ "app.access_request.approver.deny" ]
     }, {
       "id" : "app.access_request.delete",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Request to access an app was deleted by an administrator.",
       "info" : {
         "created" : "2017-10-14",
@@ -7595,7 +7654,7 @@
       "mappings" : [ "app.access_request.delete" ]
     }, {
       "id" : "app.access_request.deny",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Request to access an app was denied after at least one approver denied the request.",
       "info" : {
         "created" : "2017-10-14",
@@ -7606,7 +7665,7 @@
       "mappings" : [ "app.access_request.deny" ]
     }, {
       "id" : "app.access_request.expire",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Request to access an app expired by the system due to lack of approver action.",
       "info" : {
         "created" : "2017-10-14",
@@ -7617,7 +7676,7 @@
       "mappings" : [ "app.access_request.expire" ]
     }, {
       "id" : "app.access_request.grant",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Request to access an app was granted after all approvers approved the request.",
       "info" : {
         "created" : "2017-10-14",
@@ -7628,7 +7687,7 @@
       "mappings" : [ "app.access_request.grant" ]
     }, {
       "id" : "app.access_request.request",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Request to access an app was performed by a user.",
       "info" : {
         "created" : "2017-10-14",
@@ -7716,7 +7775,7 @@
       "mappings" : [ "app.app_instance.csr.revoke" ]
     }, {
       "id" : "app.audit_report.download",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Application access report downloaded.",
       "info" : {
         "created" : "2017-12-18",
@@ -7727,7 +7786,7 @@
       "mappings" : [ "app.audit_report.download" ]
     }, {
       "id" : "app.audit_report.download.local.active",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Application access report downloaded.",
       "info" : {
         "created" : "2017-12-18",
@@ -7738,7 +7797,7 @@
       "mappings" : [ "app.audit_report.download.local.active" ]
     }, {
       "id" : "app.audit_report.download.local.deprov",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Recent unassignments report downloaded.",
       "info" : {
         "created" : "2017-12-18",
@@ -7749,7 +7808,7 @@
       "mappings" : [ "app.audit_report.download.local.deprov" ]
     }, {
       "id" : "app.audit_report.download.rogue.report",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Rogue report downloaded.",
       "info" : {
         "created" : "2017-12-18",
@@ -7869,6 +7928,17 @@
       "tags" : [ "app" ],
       "mappings" : [ "app.keys.rotate_legacy" ]
     }, {
+      "id" : "app.ldap.import.tracking_attribute_missing",
+      "category" : "directories",
+      "description" : "Fired when a full LDAP import contains user and/or group objects with a missing modifyTimeStamp value. This can be used to identify whether or not a subsequent incremental import will not update objects imported in a full import. Any object with a missing modifyTimeStamp value at the time of a subsequent incremental import will not be updated. Note that in this case, the import will not fail, Okta will simply not update the objects with a missing modifyTimeStamp value. Any missing modifyTimeStamp values need to be addressed in the LDAP server, not in Okta. When fired, this event contains information on how many objects are missing the modifyTimeStamp value and the associated import event.",
+      "info" : {
+        "created" : "2019-04-02",
+        "release" : "2019.04.0"
+      },
+      "beta" : true,
+      "tags" : [ "ldap-app" ],
+      "mappings" : [ "app.ldap.import.tracking_attribute_missing" ]
+    }, {
       "id" : "app.ldap.password.change.failed",
       "category" : "directories",
       "description" : "Password change failed.",
@@ -7879,6 +7949,17 @@
       "beta" : false,
       "tags" : [ "ldap-app" ],
       "mappings" : [ "app.ldap.password.change.failed" ]
+    }, {
+      "id" : "app.ldap.read_schema",
+      "category" : "directories",
+      "description" : "Fired when a schema import from an LDAP server has been completed. This can be used to identify the status of a schema import from an LDAP server and understand the reasons for a failure. When fired, this event contains information about status of the import and, if the import failed, the reason for failure.",
+      "info" : {
+        "created" : "2019-02-27",
+        "release" : "2019.04.0"
+      },
+      "beta" : true,
+      "tags" : [ "ldap-app" ],
+      "mappings" : [ "app.ldap.read_schema.failed", "app.ldap.read_schema.successful" ]
     }, {
       "id" : "app.oauth2.as.authorize",
       "category" : "federation",
@@ -9598,14 +9679,25 @@
     }, {
       "id" : "app.realtimesync.import.details.update_user",
       "category" : "directories",
-      "description" : "Real time sync updated existing User.",
+      "description" : "Fired when a real time import includes an update to an existing user. This can be used to see details about the user updates included in a real time sync import. When fired, this event contains information about the type of update made, including whether or not a user was suspend or unsuspended. Related events include: app.realtimesync.import.details_add_user and app.realtimesync.import.details_delete_user.",
       "info" : {
         "created" : "2014-06-18",
         "release" : "2014.25"
       },
       "beta" : false,
       "tags" : [ "app" ],
-      "mappings" : [ "app.realtimesync.import.details.update_user" ]
+      "mappings" : [ "app.realtimesync.import.details.suspend_user", "app.realtimesync.import.details.unsuspend_user", "app.realtimesync.import.details.update_user" ]
+    }, {
+      "id" : "app.realtimesync.import_failed",
+      "category" : "directories",
+      "description" : "Fired when a real time sync import fails. This can be used to audit the status of an import, and understand the reasons for a failure. When fired, this event contains information about the failure reason. For example, use email length. Note that the entire import will fail with one failure, not just the record that caused the failure. Related events include: app.realtimesync.import.details_add_user,  app.realtimesync.import.details_delete_user , app.realtimesync.import.details_update_user.",
+      "info" : {
+        "created" : "2019-04-01",
+        "release" : "2019.04.1"
+      },
+      "beta" : true,
+      "tags" : [ "app" ],
+      "mappings" : [ "app.realtimesync.import_failed.details.email_length" ]
     }, {
       "id" : "app.rum.config.validation.error",
       "category" : "app-platform",
@@ -10583,7 +10675,7 @@
         "release" : "2016.02"
       },
       "beta" : false,
-      "tags" : [ "user-provision", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "user-provision" ],
       "mappings" : [ "app.generic.provision.assign_user_to_app" ]
     }, {
       "id" : "application.user_membership.approve",
@@ -10605,7 +10697,7 @@
         "release" : "2016.11"
       },
       "beta" : false,
-      "tags" : [ "app", "webhook-eligible" ],
+      "tags" : [ "app", "event-hook-eligible" ],
       "mappings" : [ "app.generic.config.app_password_update" ]
     }, {
       "id" : "application.user_membership.change_username",
@@ -10649,7 +10741,7 @@
         "release" : "2016.02"
       },
       "beta" : false,
-      "tags" : [ "user-provision", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "user-provision" ],
       "mappings" : [ "app.generic.provision.deactivate_user_from_app" ]
     }, {
       "id" : "application.user_membership.restore",
@@ -10817,6 +10909,83 @@
       "tags" : [ "cvd", "directory" ],
       "mappings" : [ "cvd.user_profile_updated" ]
     }, {
+      "id" : "event_hook.activated",
+      "category" : "extensibility",
+      "description" : "Triggered when an event hook has been activated. Used to notify admins that an event hook has been activated. When triggered, this events contains information about the activated event hook.",
+      "info" : {
+        "created" : "2019-03-21",
+        "release" : "2019.03.4"
+      },
+      "beta" : false,
+      "tags" : [ "event-hook" ],
+      "mappings" : [ ]
+    }, {
+      "id" : "event_hook.created",
+      "category" : "extensibility",
+      "description" : "Triggered when an event hook has been created. Used to notify admins that an event hook has been created. When triggered, this events contains information about the created event hook.",
+      "info" : {
+        "created" : "2019-03-19",
+        "release" : "2019.03.4"
+      },
+      "beta" : false,
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "platform.event_hook.created" ]
+    }, {
+      "id" : "event_hook.deactivated",
+      "category" : "extensibility",
+      "description" : "Triggered when an event hook has been deactivated. Used to notify admins that an event hook has been deactivated. When triggered, this events contains information about the deactivated event hook.",
+      "info" : {
+        "created" : "2019-03-21",
+        "release" : "2019.03.4"
+      },
+      "beta" : false,
+      "tags" : [ "event-hook" ],
+      "mappings" : [ ]
+    }, {
+      "id" : "event_hook.deleted",
+      "category" : "extensibility",
+      "description" : "Triggered when an event hook has been deleted. Used to notify admins that an event hook has been deleted. When triggered, this events contains information about the deleted event hook.",
+      "info" : {
+        "created" : "2019-03-19",
+        "release" : "2019.03.4"
+      },
+      "beta" : false,
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "platform.event_hook.deleted" ]
+    }, {
+      "id" : "event_hook.delivery",
+      "category" : "extensibility",
+      "description" : "Triggered when an event hook delivery fails. Used to identify when an event hook from Okta is not successfully delivered to the configured endpoint. Note that the event is triggered only when the delivery is unsuccessful.",
+      "info" : {
+        "created" : "2019-02-27",
+        "release" : "2019.04.0"
+      },
+      "beta" : true,
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "platform.event_hook.delivered.failure", "platform.event_hook.delivered.success" ]
+    }, {
+      "id" : "event_hook.updated",
+      "category" : "extensibility",
+      "description" : "Triggered when an event hook has been updated. Used to notify admins that an event hook has been updated. When triggered, this events contains information about the updated event hook.",
+      "info" : {
+        "created" : "2019-03-19",
+        "release" : "2019.03.4"
+      },
+      "beta" : false,
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "platform.event_hook.updated" ]
+    }, {
+      "id" : "event_hook.verified",
+      "category" : "extensibility",
+      "description" : "Triggered when attempting to verify an event hook. Used to notify admins about the outcome of event hook endpoint URL verification. Note that the event is fired even when the verification is unsuccessful.",
+      "info" : {
+        "created" : "2019-03-19",
+        "release" : "2019.03.4"
+      },
+      "beta" : false,
+      "tags" : [ "event-hook" ],
+      "mappings" : [ "platform.event_hook.verified.failure", "platform.event_hook.verified.success" ]
+    }, {
       "id" : "group.application_assignment.add",
       "category" : "lca",
       "description" : "Add assigned application to group.",
@@ -10891,7 +11060,7 @@
         "release" : "2016.02"
       },
       "beta" : false,
-      "tags" : [ "group", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "group" ],
       "mappings" : [ "core.user_group_member.user_add" ]
     }, {
       "id" : "group.user_membership.remove",
@@ -10902,11 +11071,11 @@
         "release" : "2016.02"
       },
       "beta" : false,
-      "tags" : [ "group", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "group" ],
       "mappings" : [ "core.user_group_member.user_remove" ]
     }, {
       "id" : "group.user_membership.rule.add_exclusion",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Add user to group membership exclusion rule.",
       "info" : {
         "created" : "2017-12-13",
@@ -10917,7 +11086,7 @@
       "mappings" : [ "core.user.added_to_rule_exclusion" ]
     }, {
       "id" : "group.user_membership.rule.deactivated",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "",
       "info" : {
         "created" : "2017-12-13",
@@ -10928,7 +11097,7 @@
       "mappings" : [ "cvd.group_rule_deactivated" ]
     }, {
       "id" : "group.user_membership.rule.error",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "group membership rule is in error state.",
       "info" : {
         "created" : "2017-12-13",
@@ -10939,7 +11108,7 @@
       "mappings" : [ "cvd.group.user_membership.rule.error" ]
     }, {
       "id" : "group.user_membership.rule.evaluation",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "",
       "info" : {
         "created" : "2017-12-13",
@@ -10950,7 +11119,7 @@
       "mappings" : [ "cvd.group.user_membership.rule.evaluation" ]
     }, {
       "id" : "group.user_membership.rule.invalidate",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Invalidate group membership rule.",
       "info" : {
         "created" : "2017-12-13",
@@ -10961,7 +11130,7 @@
       "mappings" : [ "cvd.group_rule_invalidated" ]
     }, {
       "id" : "group.user_membership.rule.trigger",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Trigger group membership rule.",
       "info" : {
         "created" : "2017-12-13",
@@ -10973,7 +11142,7 @@
     }, {
       "id" : "inline_hook.activated",
       "category" : "extensibility",
-      "description" : "Triggered when an inline hook in activated. Used to identify when an inline hook lifecycle status was changed to activated.",
+      "description" : "Triggered when an inline hook in activated. Used to identify when an inline hook lifecycle status was changed to activated. When triggered, this events contains information about the activated inline hook.",
       "info" : {
         "created" : "2019-01-17",
         "release" : "2019.01.2"
@@ -10984,7 +11153,7 @@
     }, {
       "id" : "inline_hook.created",
       "category" : "extensibility",
-      "description" : "Triggered when an inline hook has been created. Used to notify admins that an inline hook has been created.",
+      "description" : "Triggered when an inline hook has been created. Used to notify admins that an inline hook has been created. When triggered, this events contains information about the created inline hook.",
       "info" : {
         "created" : "2019-01-14",
         "release" : "2019.01.2"
@@ -10995,7 +11164,7 @@
     }, {
       "id" : "inline_hook.deactivated",
       "category" : "extensibility",
-      "description" : "Triggered when an inline hook is deactivated. Used to identify when an inline hook lifecycle status was changed to deactivated.",
+      "description" : "Triggered when an inline hook is deactivated. Used to identify when an inline hook lifecycle status was changed to deactivated. When triggered, this events contains information about the deactivated inline hook.",
       "info" : {
         "created" : "2019-01-17",
         "release" : "2019.01.2"
@@ -11006,7 +11175,7 @@
     }, {
       "id" : "inline_hook.deleted",
       "category" : "extensibility",
-      "description" : "Triggered when an inline hook has been deleted. Used to notify admins that an inline hook has been deleted.",
+      "description" : "Triggered when an inline hook has been deleted. Used to notify admins that an inline hook has been deleted. When triggered, this events contains information about the deleted inline hook.",
       "info" : {
         "created" : "2019-01-14",
         "release" : "2019.01.2"
@@ -11017,7 +11186,7 @@
     }, {
       "id" : "inline_hook.executed",
       "category" : "extensibility",
-      "description" : "Triggered when an inline hook has been executed. Used to notify admins about the outcome of execution of an inline hook.",
+      "description" : "Triggered when an inline hook has been executed. Used to notify admins about the outcome of execution of an inline hook. Note that the event is fired even when the execution is unsuccessful.",
       "info" : {
         "created" : "2019-01-14",
         "release" : "2019.01.2"
@@ -11028,7 +11197,7 @@
     }, {
       "id" : "inline_hook.response.processed",
       "category" : "extensibility",
-      "description" : "Triggered after Okta has finished processing response from an inline hook. Used to notify admins about the outcome of processing response from an inline hook.",
+      "description" : "Triggered after Okta has finished processing response from an inline hook. Used to notify admins about the outcome of processing response from an inline hook. Note that the event is fired even when the processing is unsuccessful.",
       "info" : {
         "created" : "2019-01-14",
         "release" : "2019.01.2"
@@ -11039,7 +11208,7 @@
     }, {
       "id" : "inline_hook.updated",
       "category" : "extensibility",
-      "description" : "Triggered when an inline hook has been modified. Used to notify admins that an inline hook has been updated.",
+      "description" : "Triggered when an inline hook has been modified. Used to notify admins that an inline hook has been updated. When triggered, this events contains information about the updated inline hook.",
       "info" : {
         "created" : "2019-01-14",
         "release" : "2019.01.2"
@@ -11050,7 +11219,7 @@
     }, {
       "id" : "inline_hook.verified",
       "category" : "extensibility",
-      "description" : "Triggered when attempting to verify an inline hook. Used to notify admins about the outcome of inline hook endpoint URL verification.",
+      "description" : "Triggered when attempting to verify an inline hook. Used to notify admins about the outcome of inline hook endpoint URL verification. Note that the event is fired even when the verification is unsuccessful.",
       "info" : {
         "created" : "2019-01-14",
         "release" : "2019.01.2"
@@ -11610,7 +11779,7 @@
       "mappings" : [ ]
     }, {
       "id" : "policy.execute.user.start",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Start execution of policy for user.",
       "info" : {
         "created" : "2018-03-30",
@@ -11628,7 +11797,7 @@
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "policy", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "policy" ],
       "mappings" : [ "policy.activated" ]
     }, {
       "id" : "policy.lifecycle.create",
@@ -11650,7 +11819,7 @@
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "policy", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "policy" ],
       "mappings" : [ "policy.deactivated" ]
     }, {
       "id" : "policy.lifecycle.delete",
@@ -11683,11 +11852,11 @@
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "policy", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "policy" ],
       "mappings" : [ "policy.updated" ]
     }, {
       "id" : "policy.rule.action.execute",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Scheduled execution of policy rule action.",
       "info" : {
         "created" : "2018-03-30",
@@ -11764,7 +11933,7 @@
       "mappings" : [ "policy.rule.updated" ]
     }, {
       "id" : "policy.scheduled.execute",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Scheduled execution of policy.",
       "info" : {
         "created" : "2018-03-30",
@@ -11776,7 +11945,7 @@
     }, {
       "id" : "saml.tokens.transform.process",
       "category" : "federation",
-      "description" : "Processed SAML transform command.",
+      "description" : "Fired when Okta used the command response for token transform, and the token transform failed. This event fires only when the token transform has failed due to the command response from the external server, for example that the response tried to add a duplicate attribute to the assertion. This can also be used to debug why a token transformation failed. When fired, this event contains information about the entities involved in the inline hook request and response - including the relevant application and user. This event also contains information about why the token transformation failed. Related events include: saml_tokens_transform_response.",
       "info" : {
         "created" : "2018-07-01",
         "release" : "2018.28"
@@ -11787,7 +11956,7 @@
     }, {
       "id" : "saml.tokens.transform.response",
       "category" : "federation",
-      "description" : "Received response from SAML callback.",
+      "description" : "Fired when Okta sends an inline hook to an external service for modifying a SAML Assertion. This event fires when the response is successful or when a response is not received. This can be used to audit the details of the entities involved in the inline hook request and response. When fired, this event contains information about the entites involved in the inline hook request and response - including the relevant application and user.",
       "info" : {
         "created" : "2018-07-01",
         "release" : "2018.28"
@@ -11797,7 +11966,7 @@
       "mappings" : [ "platform.tokens.transform.saml.response", "platform.tokens.transform.saml.response.failure" ]
     }, {
       "id" : "scheduled_action.user_suspension.canceled",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Canceled scheduled user suspension.",
       "info" : {
         "created" : "2017-08-02",
@@ -11808,7 +11977,7 @@
       "mappings" : [ "cvd.scheduled_action.user_suspension.canceled" ]
     }, {
       "id" : "scheduled_action.user_suspension.completed",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Completed scheduled user suspension.",
       "info" : {
         "created" : "2017-08-02",
@@ -11819,7 +11988,7 @@
       "mappings" : [ "cvd.scheduled_action.user_suspension.completed" ]
     }, {
       "id" : "scheduled_action.user_suspension.scheduled",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Scheduled user suspension.",
       "info" : {
         "created" : "2017-08-02",
@@ -11830,7 +11999,7 @@
       "mappings" : [ "cvd.scheduled_action.user_suspension.scheduled" ]
     }, {
       "id" : "scheduled_action.user_suspension.updated",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Updated scheduled user suspension.",
       "info" : {
         "created" : "2017-08-02",
@@ -11917,6 +12086,28 @@
       "tags" : [ "threat-insight" ],
       "mappings" : [ "security.threat.detected" ]
     }, {
+      "id" : "security.voice.add_country_blacklist",
+      "category" : "cred-platform",
+      "description" : "Fired when a country has been added to the voice call blacklist. This can be used to identify when a country has been blacklisted for voice call. When fired, this event contains information about the country that was added to the blacklist.Related events include security.voice.remove_country_blacklist.",
+      "info" : {
+        "created" : "2019-02-22",
+        "release" : "2019.03.3"
+      },
+      "beta" : true,
+      "tags" : [ "security", "voice" ],
+      "mappings" : [ "security.voice.add_country_blacklist" ]
+    }, {
+      "id" : "security.voice.remove_country_blacklist",
+      "category" : "cred-platform",
+      "description" : "Fired when a country has been removed from the voice call blacklist. This can be used to identify when a country has been removed from voice call blacklist. When fired, this event contains information about the country that was removed from the blacklist.Related events include security.voice.add_country_blacklist.",
+      "info" : {
+        "created" : "2019-02-22",
+        "release" : "2019.03.3"
+      },
+      "beta" : true,
+      "tags" : [ "security", "voice" ],
+      "mappings" : [ "security.voice.remove_country_blacklist" ]
+    }, {
       "id" : "security.zone.make_blacklist",
       "category" : "security",
       "description" : "Added IPs to blacklist zone.",
@@ -11940,7 +12131,7 @@
       "mappings" : [ "security.zone.remove_blacklist" ]
     }, {
       "id" : "self_service.disabled",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Self-service disabled for app.",
       "info" : {
         "created" : "2017-11-20",
@@ -11951,7 +12142,7 @@
       "mappings" : [ "app.self_service.disabled" ]
     }, {
       "id" : "self_service.enabled",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Self-service enabled for app.",
       "info" : {
         "created" : "2017-11-20",
@@ -12444,6 +12635,17 @@
       "beta" : false,
       "tags" : [ "email" ],
       "mappings" : [ "core.user.email.message_sent.self_service.password_reset" ]
+    }, {
+      "id" : "system.feature.ea_auto_enroll",
+      "category" : "aelm",
+      "description" : "Fired when an org has subscribed to or unsubscribed from EA Feature Auto Enroll. This can be used to understand the status of EA Feature Auto Enroll subscription and identify who has made changes to the subscription. When fired, this event contains information about the status of EA Feature Auto enroll subscription, as well as the admin who made any subscription changes.",
+      "info" : {
+        "created" : "2019-03-01",
+        "release" : "2019.03.1"
+      },
+      "beta" : false,
+      "tags" : [ "admin", "self-service-feature-management", "system" ],
+      "mappings" : [ "core.feature.auto_enroll" ]
     }, {
       "id" : "system.idp.select",
       "category" : "idx",
@@ -13106,7 +13308,7 @@
       "mappings" : [ "core.user.call_to_send_otp.message_sent.verify" ]
     }, {
       "id" : "task.lifecycle.activate",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Activated system task.",
       "info" : {
         "created" : "2018-03-30",
@@ -13117,7 +13319,7 @@
       "mappings" : [ "platform.task.lifecycle.activate" ]
     }, {
       "id" : "task.lifecycle.create",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Created system task.",
       "info" : {
         "created" : "2018-03-30",
@@ -13128,7 +13330,7 @@
       "mappings" : [ "platform.task.lifecycle.create" ]
     }, {
       "id" : "task.lifecycle.deactivate",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Deactivated system task.",
       "info" : {
         "created" : "2018-03-30",
@@ -13139,7 +13341,7 @@
       "mappings" : [ "platform.task.lifecycle.deactivate" ]
     }, {
       "id" : "task.lifecycle.delete",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Deleted system task.",
       "info" : {
         "created" : "2018-03-30",
@@ -13150,7 +13352,7 @@
       "mappings" : [ "platform.task.lifecycle.delete" ]
     }, {
       "id" : "task.lifecycle.update",
-      "category" : "lca",
+      "category" : "extensibility",
       "description" : "Updated system task.",
       "info" : {
         "created" : "2018-03-30",
@@ -13212,7 +13414,7 @@
         "release" : "2019.01.1"
       },
       "beta" : false,
-      "tags" : [ "user", "webhook-eligible" ],
+      "tags" : [ "event-based-trigger-eligible", "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.account.report_suspicious_activity_by_enduser" ]
     }, {
       "id" : "user.account.reset_password",
@@ -13223,7 +13425,7 @@
         "release" : "2016.15"
       },
       "beta" : false,
-      "tags" : [ "account", "user", "webhook-eligible" ],
+      "tags" : [ "account", "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.config.user_status.password_reset", "core.user_auth.self_service.password_reset", "core.user_auth.self_service.password_reset.invalid_recovery_token", "core.user_auth.self_service.password_reset.invalid_security_answer", "core.user_auth.self_service.password_reset.invalid_sms_code", "core.user_auth.self_service.password_reset.invalid_user_state", "core.user_auth.self_service.password_reset.issued_recovery_token", "core.user_auth.self_service.password_reset.shared_email", "core.user_auth.self_service.password_reset.suspended_user", "core.user_auth.self_service.password_reset.unknown_user" ]
     }, {
       "id" : "user.account.unlock",
@@ -13278,7 +13480,7 @@
         "release" : "2016.15"
       },
       "beta" : false,
-      "tags" : [ "account", "user", "webhook-eligible" ],
+      "tags" : [ "account", "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.config.password_update.failure", "core.user.config.password_update.success" ]
     }, {
       "id" : "user.account.update_primary_email",
@@ -13300,7 +13502,7 @@
         "release" : "2016.02"
       },
       "beta" : false,
-      "tags" : [ "account", "user", "user-config", "webhook-eligible" ],
+      "tags" : [ "account", "event-hook-eligible", "user", "user-config" ],
       "mappings" : [ "core.user.config.profile_update.success" ]
     }, {
       "id" : "user.account.update_secondary_email",
@@ -13509,7 +13711,7 @@
         "release" : "2016.13"
       },
       "beta" : false,
-      "tags" : [ "user", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.config.user_activated" ]
     }, {
       "id" : "user.lifecycle.create",
@@ -13520,7 +13722,7 @@
         "release" : "2016.02"
       },
       "beta" : false,
-      "tags" : [ "user", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.config.user_creation.failure", "core.user.config.user_creation.success" ]
     }, {
       "id" : "user.lifecycle.deactivate",
@@ -13531,7 +13733,7 @@
         "release" : "2016.02"
       },
       "beta" : false,
-      "tags" : [ "user", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.config.user_deactivated" ]
     }, {
       "id" : "user.lifecycle.delete.completed",
@@ -13553,7 +13755,7 @@
         "release" : "2016.29"
       },
       "beta" : false,
-      "tags" : [ "user", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.config.user_status.delete.initiated" ]
     }, {
       "id" : "user.lifecycle.jit.error.read_only",
@@ -13586,7 +13788,7 @@
         "release" : "2016.13"
       },
       "beta" : false,
-      "tags" : [ "user", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.config.user_reactivation.success" ]
     }, {
       "id" : "user.lifecycle.suspend",
@@ -13597,7 +13799,7 @@
         "release" : "2016.13"
       },
       "beta" : false,
-      "tags" : [ "user", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.config.user_status.suspended" ]
     }, {
       "id" : "user.lifecycle.unsuspend",
@@ -13608,7 +13810,7 @@
         "release" : "2016.13"
       },
       "beta" : false,
-      "tags" : [ "user", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.config.user_status.unsuspended" ]
     }, {
       "id" : "user.mfa.attempt_bypass",
@@ -13795,63 +13997,8 @@
         "release" : "2016.02"
       },
       "beta" : false,
-      "tags" : [ "session", "user", "webhook-eligible" ],
+      "tags" : [ "event-hook-eligible", "session", "user" ],
       "mappings" : [ "core.user_auth.invalid_certificate", "core.user_auth.login_denied", "core.user_auth.login_failed", "core.user_auth.login_failed.policy_denied", "core.user_auth.login_success", "core.user_auth.session_created_using_api_token", "core.user_auth.session_created_using_token" ]
-    }, {
-      "id" : "webhook.create",
-      "category" : "extensibility",
-      "description" : "Webhook created.",
-      "info" : {
-        "created" : "2018-08-10",
-        "release" : "2018.33"
-      },
-      "beta" : false,
-      "tags" : [ "webhook" ],
-      "mappings" : [ "platform.webhook.create" ]
-    }, {
-      "id" : "webhook.delete",
-      "category" : "extensibility",
-      "description" : "Webhook deleted.",
-      "info" : {
-        "created" : "2018-08-10",
-        "release" : "2018.33"
-      },
-      "beta" : false,
-      "tags" : [ "webhook" ],
-      "mappings" : [ "platform.webhook.delete" ]
-    }, {
-      "id" : "webhook.delivery",
-      "category" : "extensibility",
-      "description" : "Triggered when a webhook delivery fails. Used to identify when a webhook from Okta is not successfully delivered to the configured endpoint.",
-      "info" : {
-        "created" : "2019-02-27",
-        "release" : "2019.04.0"
-      },
-      "beta" : true,
-      "tags" : [ "webhook" ],
-      "mappings" : [ "platform.webhook.delivery.failure", "platform.webhook.delivery.success" ]
-    }, {
-      "id" : "webhook.modify",
-      "category" : "extensibility",
-      "description" : "Webhook modified.",
-      "info" : {
-        "created" : "2018-08-10",
-        "release" : "2018.33"
-      },
-      "beta" : false,
-      "tags" : [ "webhook" ],
-      "mappings" : [ "platform.webhook.modify" ]
-    }, {
-      "id" : "webhook.verify",
-      "category" : "extensibility",
-      "description" : "Webhook verified.",
-      "info" : {
-        "created" : "2018-08-10",
-        "release" : "2018.33"
-      },
-      "beta" : false,
-      "tags" : [ "webhook" ],
-      "mappings" : [ "platform.webhook.verify.failure", "platform.webhook.verify.success" ]
     }, {
       "id" : "zone.activate",
       "category" : "adaptive",
