@@ -12,4 +12,4 @@ Your application is responsible for parsing the information sent to the callback
 
 It's important that the full URL of your callback route represents a real URL (in other words, it should serve your single-page app even after a "hard" browser reload). Most router components do this by default.
 
-<button>I've defined a callback route</button>
+<NextSectionLink/>

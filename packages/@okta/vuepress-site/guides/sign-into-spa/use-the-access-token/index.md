@@ -16,4 +16,4 @@ Authorization: Bearer {token}
 
 <StackSelector snippet="getaccesstoken"/>
 
-<button>I understand how to make API requests</button>
+<NextSectionLink>All done!</NextSectionLink>
