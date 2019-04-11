@@ -1,6 +1,7 @@
 <template>
   <div class="Column--4 Column--medium-6 Column--small-12">
-    <h2>{{section.title}}</h2>
+    <h2 v-if=section.link><a :href=section.link>{{section.title}}</a></h2>
+    <h2 v-else>{{section.title}}</h2>
     <p>{{section.description}}</p>
     <ul>
       <li v-for="(link, i) in section.links" :key="i">
