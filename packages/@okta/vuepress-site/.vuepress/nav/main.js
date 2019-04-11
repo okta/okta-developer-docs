@@ -57,7 +57,7 @@ module.exports = [
           { title: 'Dynamic Client Registration', link: '/docs/api/resources/oauth-clients/'},
           { title: 'Factors', link: '/docs/api/resources/factors/'},
           { title: 'Groups', link: '/docs/api/resources/groups/'},
-          { title: 'Identity Providers', link: '/docs/api/resources/ipds/'},
+          { title: 'Identity Providers', link: '/docs/api/resources/idps/'},
           { title: 'Inline Hooks', link: '/docs/api/resources/inline-hooks/'},
           { title: 'Linked Objects', link: '/docs/api/resources/linked-objects/'},
           { title: 'Policy', link: '/docs/api/resources/policy/'},
