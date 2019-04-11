@@ -22,7 +22,7 @@ redirects:
   - from: /code/dotnet/okta-oauth-spa-authjs-osw
     to: /code/dotnet/index.html
   - from: /code/dotnet/okta-oauth-aspnet-codeflow
-    to: /code/dotnet/index.html
+    to: /code/dotnet/aspnetcore/
   - from: /docs/examples/dotnet_sample_application.html
     to: /code/dotnet/sample_application/index.html
   - from: /code/dotnet/sdk/index.html
