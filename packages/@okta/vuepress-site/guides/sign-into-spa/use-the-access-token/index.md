@@ -16,4 +16,4 @@ Authorization: Bearer {token}
 
 <StackSelector snippet="getaccesstoken"/>
 
-<NextSectionLink>All done!</NextSectionLink>
+<NextSectionLink>What's next?</NextSectionLink>

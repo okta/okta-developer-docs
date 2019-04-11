@@ -17,7 +17,7 @@ const config = {
 };
 ```
 
-Or it could be built from dynamic values:
+You can also build it from dynamic values like environment variables:
 
 ```javascript
 const OKTA_DOMAIN = process.env.DOMAIN;

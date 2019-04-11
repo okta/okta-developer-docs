@@ -8,7 +8,7 @@ The callback route is not seen by the user, and it's not the user's final destin
 
 <StackSelector snippet="define-route"/>
 
-Your application is responsible for parsing the information sent to the callback route. Our SDKs can do this for you (later, in [Handle the Callback from Okta](todo)). For now, just define the route itself.
+Your application is responsible for parsing the information Okta sends to the callback route. Our SDKs can do this for you (later, in [Handle the Callback from Okta](/guides/sign-into-spa/-/handle-callback)). For now, just define the route itself.
 
 It's important that the full URL of your callback route represents a real URL (in other words, it should serve your single-page app even after a "hard" browser reload). Most router components do this by default.
 
