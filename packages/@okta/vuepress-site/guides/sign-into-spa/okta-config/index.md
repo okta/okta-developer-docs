@@ -1,8 +1,6 @@
 ---
 title: Create Your Okta Config Object
 ---
-## Create Your Okta Config Object
-
 After you create the application, there are two values that you need:
 
 * **Client ID** - Find it in the applications list or on the **General** tab of a specific application.

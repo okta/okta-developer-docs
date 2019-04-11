@@ -1,8 +1,6 @@
 ---
 title: Define the Login Redirect/Callback
 ---
-## Define the Login Redirect/Callback
-
 The login flow for a single-page application (SPA) is similar to the following:
 
 1. The user loads your SPA app at some route, such as **X**.

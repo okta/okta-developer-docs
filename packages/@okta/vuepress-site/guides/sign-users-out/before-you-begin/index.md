@@ -1,8 +1,6 @@
 ---
 title: Sign Users Out
 ---
-# Sign Users Out
-
 This guide walks you through how to sign users out of your app and out of Okta. These languages are supported:
 
 * Node (Express)

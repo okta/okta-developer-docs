@@ -1,8 +1,6 @@
 ---
 title: Add and Configure Packages
 ---
-## Add and Configure Packages
-
 First, install an Okta SDK for your framework to help validate incoming tokens.
 
 ### Include the Dependency
