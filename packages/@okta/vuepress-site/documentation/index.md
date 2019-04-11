@@ -52,8 +52,8 @@ sections:
      links:
        - title: Get an API Token
          link: /docs/api/getting_started/getting_a_token/
-       - title: API Basics
-         link: /docs/api/getting_started/design_principles/
+       - title: Inline Hooks
+         link: /use_cases/inline_hooks/
        - title: Rate Limits
          link: /docs/api/getting_started/rate-limits/
        - title: More
@@ -75,7 +75,7 @@ sections:
      link: /reference/
      description: Details on parameters, requests, and responses for Okta's API endpoints.
      links:
-       - title: OAuth and OpenID Connect API
+       - title: OpenID Connect & OAuth 2.0 API
          link: /docs/api/resources/oidc/
        - title: Users API
          link: /docs/api/resources/users/
