@@ -1,9 +1,6 @@
 ---
 title: Sign Users into Your Web App
 ---
-
-# Sign Users into Your Web App
-
 This guide walks you through how to sign users into your existing web app. It is available for the following frameworks:
 
 * Node (Express)
