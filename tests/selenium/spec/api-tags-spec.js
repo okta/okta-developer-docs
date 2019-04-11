@@ -12,7 +12,7 @@ describe('API tags check spec', () => {
 
   it('shows the Beta lifecycle tags', util.itHelper(async () => {
     await docsPage.navigate(util.fixUrl('/docs/api/getting_started/releases-at-okta'));
-    expect(await docsPage.hasBetaTags(), 'expects Beta tag to be present on page').to.be.false;
+    expect(await docsPage.hasBetaTags(), 'expects Beta tag to be present on page').to.be.true;
   }));
 
   it('shows the Early Access lifecycle tags', util.itHelper(async () => {
