@@ -17,8 +17,11 @@ For other applications, you may need to require authentication only for a certai
 
 <StackSelector snippet="reqauthspecific"/>
 
-### Allow Anonymous Access to a Specific Route or Controller 
+<!-- ### Allow Anonymous Access to a Specific Route or Controller 
 
 Define what happens when a user isn't authenticated. 
 
-<StackSelector snippet="allowanon"/>
+<StackSelector snippet="allowanon"/> 
+
+Note: This can be covered in the Require Authn for everything section
+-->
