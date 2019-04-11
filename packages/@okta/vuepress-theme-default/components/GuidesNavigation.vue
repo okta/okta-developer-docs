@@ -2,7 +2,7 @@
   <aside class="guides-navigation">
     <ul class="guides">
       <li :class="{ overview: true, active: !guideName }">
-        <router-link to="/guides/">Overview</router-link>
+        <router-link to="/guides/">Guides</router-link>
       </li>
       <li v-for="someGuide in guides" :class="{ active: someGuide.name === guideName}">
         <router-link :to="someGuide.makeLink(someGuide.mainFramework)" class="guide">{{someGuide.title}}</router-link>

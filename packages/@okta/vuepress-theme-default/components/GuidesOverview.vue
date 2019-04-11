@@ -3,8 +3,7 @@
     <GuidesNavigation />
     <div class="overview-content">
       <h1>Guides</h1>
-      <p>Step-by-step guides for your use cases.</p>
-      <p>With Okta, you can lorem like no ipsum before</p>
+      <Content />
       <h2>Featured Guides</h2>
       <div class="featured">
          <FeaturedGuide v-for="guideName in featured" :guideName="guideName"/>
