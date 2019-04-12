@@ -82,4 +82,4 @@ If something is configured incorrectly, the authorization response contains erro
 ## For More Information
 
 * [Understanding SP-initiated Login Flow](https://www.okta.com/integrate/documentation/saml/#understanding-sp-initiated-login-flow) explains the basics of SP-initiated login flows in Okta.
-* [OAuth 2.0 Request parameters](/docs/api/resources/oidc#request-parameters-1) describes the parameters specified in Step 3.
+* [OAuth 2.0 Request parameters](/docs/api/resources/oidc/#request-parameters-1) describes the parameters specified in Step 3.

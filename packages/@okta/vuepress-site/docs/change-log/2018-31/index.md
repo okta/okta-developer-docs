@@ -12,13 +12,13 @@ title: Okta API Products Change Log
 
 ### Bugs Fixed in 2018.31
 
-* Fixed an issue in the OpenID Connect [logout endpoint](/docs/api/resources/oidc#logout) where performing logout with an expired session resulted in an error instead of following the `post_logout_redirect_uri`. (OKTA-180521)
+* Fixed an issue in the OpenID Connect [logout endpoint](/docs/api/resources/oidc/#logout) where performing logout with an expired session resulted in an error instead of following the `post_logout_redirect_uri`. (OKTA-180521)
 
-* Removed System Logs entries for [granting refresh tokens](https://developer.okta.com/authentication-guide/tokens/refreshing-tokens#how-to-use-a-refresh-token) in token requests with the `refresh_token` grant type (since this grant type simply returns the original refresh token). This fix applies to both [custom Authorization Servers](https://developer.okta.com/docs/api/resources/oidc#composing-your-base-url) and the Okta Org Authorization Server. (OKTA-178335)
+* Removed System Logs entries for [granting refresh tokens](https://developer.okta.com/authentication-guide/tokens/refreshing-tokens#how-to-use-a-refresh-token) in token requests with the `refresh_token` grant type (since this grant type simply returns the original refresh token). This fix applies to both [custom Authorization Servers](https://developer.okta.com/docs/api/resources/oidc/#composing-your-base-url) and the Okta Org Authorization Server. (OKTA-178335)
 
-* Fixed issues with the [User-Consent Grant Management API](/docs/api/resources/users#user-consent-grant-operations): added missing value to `issuer`, removed `issuerId`, removed HAL links for issuer and revoke, and added hints for self GET and DELETE.  (OKTA-175296)
+* Fixed issues with the [User-Consent Grant Management API](/docs/api/resources/users/#user-consent-grant-operations): added missing value to `issuer`, removed `issuerId`, removed HAL links for issuer and revoke, and added hints for self GET and DELETE.  (OKTA-175296)
 
-* Fixed a bug where SAML apps [created using the API](/docs/api/resources/apps#add-custom-saml-application) could not enable `honorForceAuthn`. (OKTA-166146)
+* Fixed a bug where SAML apps [created using the API](/docs/api/resources/apps/#add-custom-saml-application) could not enable `honorForceAuthn`. (OKTA-166146)
 
 * Fixed an issue where `login_hint` was ignored when using OAuth consent with a custom Authorization Server. (OKTA-164836)
 

@@ -1038,7 +1038,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
     the OAuth 2.0 authorization code grant.
 
 * <ApiLifecycle access="ea" /> A consent dialog is displayed depending on the values of three elements:
-    * `prompt`, a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/api/resources/oidc#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/api/resources/oidc#authorize) (Org authorization server)
+    * `prompt`, a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/api/resources/oidc/#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/api/resources/oidc/#authorize) (Org authorization server)
     * `consent_method`, a property listed in the Settings table above
     * `consent`, a property on [scopes](/docs/api/resources/authorization-servers#scope-properties)
 
@@ -3564,7 +3564,7 @@ Assigns a group to an application
 | Parameter     | Description                                     | Param Type | DataType                                      | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String                                        | TRUE     |         |
-| groupId       | unique key of a valid [Group](groups)           | URL        | String                                        | TRUE     |         |
+| groupId       | unique key of a valid [Group](/docs/api/resources/groups)           | URL        | String                                        | TRUE     |         |
 | appgroup      | App group                                       | Body       | [Application Group](#application-group-model) | FALSE    |         |
 
 ##### Response Parameters
@@ -3608,7 +3608,7 @@ Fetches an application group assignment
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](groups)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](/docs/api/resources/groups)       | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -3703,7 +3703,7 @@ Removes a group assignment from an application.
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](groups)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](/docs/api/resources/groups)       | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -5201,7 +5201,7 @@ Specifies (optional) attribute statements for a SAML application.
 | ---------- | -------------------------------------------------------------------------------------------- | ----------- | -------- |
 | name       | The reference name of the attribute statement                                                | String      | FALSE    |
 | namespace  | The name format of the attribute                                                             | String      | FALSE    |
-| values     | The value of the attribute; Supports [Okta EL](../getting_started/okta_expression_lang)      | String      | FALSE    |
+| values     | The value of the attribute; Supports [Okta EL](/docs/api/getting_started/okta_expression_lang)      | String      | FALSE    |
 
 ##### Supported Namespaces
 
