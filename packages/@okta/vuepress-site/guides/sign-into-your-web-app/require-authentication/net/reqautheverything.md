@@ -11,7 +11,7 @@ public class FilterConfig
 }
 ```
 
-Also, you can opt to create a `BaseProtectedController`and make all your controllers to inherits it:
+Also, you can opt to create a `BaseProtectedController`and make all of your controllers to inherit it:
 
 ```
 [Authorize]
@@ -21,4 +21,4 @@ public abstract class BaseProtectedController : Controller
 }
 ```
 
-For those actions/controllers that need to be accessible for non-authenticated users you will have to decorate them with the `AllowAnonymous` attribute. 
+For those actions/controllers that need to be accessible for non-authenticated users you have to decorate them with the `AllowAnonymous` attribute. 

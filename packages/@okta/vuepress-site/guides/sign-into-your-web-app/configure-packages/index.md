@@ -7,7 +7,7 @@ Next you need to add Okta to your application.
 
 ### Configure the Middleware
 
-You'll need the following values from the Okta Application and the Developer Console you worked with in [Create an Okta Application](/guides/sign-into-spa/-/create-okta-application):
+You need the following values from the Okta Application and the Developer Console that you worked with in [Create an Okta Application](/guides/sign-into-spa/-/create-okta-application):
 
 * **Client ID** - Find it in the applications list or on the application's **General** tab.
 * **Client Secret** - Find it in the applications list or on the application's **General** tab.

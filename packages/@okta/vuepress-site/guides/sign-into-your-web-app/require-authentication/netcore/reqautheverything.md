@@ -1,4 +1,4 @@
-To require authentication for all actions you can create an authorization policy to be used everywhere:
+To require authentication for all actions, you can create an authorization policy to be used everywhere:
 
 ```
 public void ConfigureServices(IServiceCollection services)
@@ -13,7 +13,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Also, you can opt to create a `BaseProtectedController` decorated with the `Authorize` attribute and make all your controllers to inherits it:
+Also, you can opt to create a `BaseProtectedController` decorated with the `Authorize` attribute and make all of your controllers inherit it:
 
 ```
 [Authorize]
@@ -23,4 +23,4 @@ public abstract class BaseProtectedController : Controller
 }
 ```
 
-For those actions/controllers that need to be accessible for non-authenticated users you will have to decorate them with the `AllowAnonymous` attribute. 
+For those actions/controllers that need to be accessible for non-authenticated users, you have to decorate them with the `AllowAnonymous` attribute. 

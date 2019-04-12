@@ -15,7 +15,7 @@ Open the `Web.config` file and add your Okta configuration into the `<appSetting
   </configuration>
   ```
 
-Now is time to add an OWIN Startup class to your project where you will have to configure the Okta middleware. Right-click your project and select **Add > OWIN Startup Class**. Name the file `Startup.cs`.
+Now add an OWIN Startup class to your project where you have to configure the Okta middleware. Right-click your project and select **Add | OWIN Startup Class**. Name the file `Startup.cs`.
 
 Paste the following code into the new class:
 
@@ -50,11 +50,11 @@ using Okta.AspNet;
 using Owin;
 ```
 
-*Note:* If you are using .NET framework <4.6 or you are getting the following error: The request was aborted: Could not create SSL/TLS secure channel. Make sure to include the following code in the Application_Start or Startup:
+**Note:** If you are using .NET framework <4.6 or you are getting the following error: "The request was aborted: Could not create SSL/TLS secure channel." Make sure to include the following code in the `Application_Start` or Startup:
 
 ```
 // Enable TLS 1.2
 ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
 ```
 
-The `OktaMvcOptions` class configures the Okta middleware. You can see all the available options in the **Configuration Reference** section in the [Okta ASP.NET GitHub](https://github.com/okta/okta-aspnet/blob/master/docs/aspnet4x-mvc.md#configuration-reference).
+The `OktaMvcOptions` class configures the Okta middleware. You can see all of the available options in the **Configuration Reference** section in the [Okta ASP.NET GitHub](https://github.com/okta/okta-aspnet/blob/master/docs/aspnet4x-mvc.md#configuration-reference).

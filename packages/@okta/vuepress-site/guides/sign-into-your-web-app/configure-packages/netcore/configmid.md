@@ -45,7 +45,7 @@ var oktaMvcOptions = new OktaMvcOptions()
 
  ```
 
-Modify the `Configure` method to have the `app.UseAuthentication()` line, it must be above `app.UseMvc`:
+Modify the `Configure` method to have the `app.UseAuthentication()` line. It must be above `app.UseMvc`:
 
 ```
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -67,4 +67,4 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Okta.AspNetCore;
 ```
 
-The `OktaMvcOptions` class configures the Okta middleware. You can see all the available options in the **Configuration Reference** section in the [Okta ASP.NET Core GitHub](https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-mvc.md#configuration-reference).
+The `OktaMvcOptions` class configures the Okta middleware. You can see all of ßthe available options in the **Configuration Reference** section in the [Okta ASP.NET Core GitHub](https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-mvc.md#configuration-reference).

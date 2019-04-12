@@ -25,5 +25,5 @@ Open your `_Layout.cshtml` file and update the `body` with the following code:
 </div>
 ```
 
-In the next step you will see how to create an `AccountController` to handle login and logout.
+In the next step, we show you how to create an `AccountController` to handle login and logout.
 

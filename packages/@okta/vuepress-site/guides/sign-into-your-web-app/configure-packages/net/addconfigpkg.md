@@ -1,4 +1,4 @@
-All of our .NET SDKs are hosted on [NuGet](https://www.nuget.org/). These instructions show you how to install all the dependencies you need to configure your web application to use the Okta middleware.
+All of our .NET SDKs are hosted on [NuGet](https://www.nuget.org/). These instructions show you how to install all of the dependencies that you need to configure your web application to use the Okta middleware.
 
 Install the following dependencies in your project:
 
@@ -8,9 +8,9 @@ Install the following dependencies in your project:
 
 You can install them via **NuGet Package Manager**:
 
-1. In the Solution Explorer right click on your solution and select **Manage Nuget Packages for Solution**
-1. Click on **Browse** and search for the package you want to install, for example, `Okta.AspNet`
-1. Select your package and click **Install**
+1. In the Solution Explorer, right-click on your solution and select **Manage Nuget Packages for Solution**.
+1. Click **Browse** and search for the package that you want to install, for example, `Okta.AspNet`.
+1. Select your package and click **Install**.
 
 Or via **Package Manager Console**:
 

@@ -14,9 +14,9 @@ At a high-level, this flow has the following steps:
 
 ### Login Redirect URI
 
-In your web app, you should define a redirect uri which is the callback location where the user-agent will be directed to along with the code. This must match one of the **Login redirect URIs** you specified when you create your Okta application.
+In your web app, you should define a redirect URI that is the callback location where the user-agent is directed to along with the code. This must match one of the **Login redirect URIs** you specified when you create your Okta application.
 
-Luckily, this is automatically handled by our middleware! For now, you just have to define the route itself, you will see how in the next section.
+Luckily, this is automatically handled by our middleware. For now, you just have to define the route itself. We show you how in the next section.
 
 <NextSectionLink/>
 
