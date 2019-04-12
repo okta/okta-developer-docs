@@ -131,7 +131,7 @@ function alterMarkdownStrings(file) {
     }
 
     if( line.includes('[Session API](sessions#create-session-with-session-token)')) {
-      line = line.replace('[Session API](sessions#create-session-with-session-token)', '[Session API](/docs/api/resources/sessions#create-session-with-session-token)')
+      line = line.replace('[Session API](sessions#create-session-with-session-token)', '[Session API](/docs/api/resources/sessions/#create-session-with-session-token)')
     }
 
     if( line.includes('[Enabling CORS](enabling_cors)')) {

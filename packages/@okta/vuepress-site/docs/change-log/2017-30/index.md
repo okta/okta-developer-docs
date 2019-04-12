@@ -34,7 +34,7 @@ We provide the ability to generate a certificate with specified validity period 
 
 #### Email for Two-Factor Authentication  <!-- OKTA-134593  -->
 
-You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/api/resources/factors#enroll-okta-email-factor) for details.
+You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/api/resources/factors/#enroll-okta-email-factor) for details.
 
 ### Platform Bugs Fixed
 
@@ -42,7 +42,7 @@ These platform bug fixes are in preview orgs with this release and expected in p
 
 * Under some circumstances users who did not have a secondary email address could not perform a self-service password reset operation.   (OKTA-128340)
 
-* "When the `expand` parameter was set in GET requests to [`/api/v1/groups`](/docs/api/resources/groups#list-groups), the second and subsequent pages of the response did not have the same `expand` setting.  (OKTA-132503)
+* "When the `expand` parameter was set in GET requests to [`/api/v1/groups`](/docs/api/resources/groups/#list-groups), the second and subsequent pages of the response did not have the same `expand` setting.  (OKTA-132503)
 
 * [`/oauth2/v1/clients`](/docs/api/resources/oauth-clients#register-new-client) returned HTTP status code 200 rather than 201 when creating a client successfully.  (OKTA-128839)
 

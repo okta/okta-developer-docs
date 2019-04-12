@@ -60,7 +60,7 @@ Provides information on the properties of the access token that Okta has generat
 
 #### claims
 
-Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc#tokens-and-claims).
+Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc/#tokens-and-claims).
 
 #### lifetime
 
@@ -70,7 +70,7 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 
 #### scopes
 
-The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc#tokens-and-claims).
+The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc/#tokens-and-claims).
 
 ## Objects in Response You Send
 

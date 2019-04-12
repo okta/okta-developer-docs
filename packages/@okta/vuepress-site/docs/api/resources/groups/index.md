@@ -893,7 +893,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/users" />
 
-Enumerates all [users](/docs/api/resources/users#user-model) that are a member of a group.
+Enumerates all [users](/docs/api/resources/users/#user-model) that are a member of a group.
 
 ##### Request Parameters
 
@@ -913,7 +913,7 @@ The default user limit is set to a very high number due to historical reasons wh
 ##### Response Parameters
 
 
-Array of [Users](users#user-model)
+Array of [Users](/docs/api/resources/users/#user-model)
 
 ##### Request Example
 
@@ -1002,7 +1002,7 @@ Link: <https://{yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/users?after=0
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Adds a [user](users#user-model) to a group with `OKTA_GROUP` type.
+Adds a [user](/docs/api/resources/users/#user-model) to a group with `OKTA_GROUP` type.
 
 > Only memberships for groups with `OKTA_GROUP` type can be modified.<br>
 > Application imports are responsible for managing group memberships for groups with `APP_GROUP` type such as Active Directory groups.
@@ -1043,7 +1043,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Removes a [user](users#user-model) from a group with `OKTA_GROUP` type.
+Removes a [user](/docs/api/resources/users/#user-model) from a group with `OKTA_GROUP` type.
 
 > Only memberships for groups with `OKTA_GROUP` type can be modified.<br>
 > Application imports are responsible for managing group memberships for groups with `APP_GROUP` type such as Active Directory groups.
@@ -1589,7 +1589,7 @@ HTTP/1.1 200 No Content
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/apps" />
 
-Enumerates all [applications](apps#application-model) that are assigned to a group. See [Application Group Operations](apps#application-group-operations)
+Enumerates all [applications](/docs/api/resources/apps/#application-model) that are assigned to a group. See [Application Group Operations](/docs/api/resources/apps/#application-group-operations)
 
 ##### Request Parameters
 
@@ -1605,7 +1605,7 @@ Enumerates all [applications](apps#application-model) that are assigned to a gro
 ##### Response Parameters
 
 
-Array of [Applications](apps#application-model)
+Array of [Applications](/docs/api/resources/apps/#application-model)
 
 ##### Request Example
 
@@ -1907,6 +1907,6 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | self               | The primary URL for the group                                                                                                                                   |
 | logo               | Provides links to logo images for the group if available                                                                                                        |
 | users              | Provides [group member operations](#group-member-operations) for the group                                                                                      |
-| apps               | Lists all [applications](apps#application-model) that are assigned to the group. See [Application Group Operations](apps#application-group-operations)          |
+| apps               | Lists all [applications](/docs/api/resources/apps/#application-model) that are assigned to the group. See [Application Group Operations](/docs/api/resources/apps/#application-group-operations)          |
 
 > The Links Object is read only.

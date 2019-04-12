@@ -39,11 +39,11 @@ Note the parameters that are being passed:
 
 - `client_id` matches the Client ID of your Okta OAuth application that you created above. You can find it at the bottom of your application's General tab.
 - `response_type` is `code`, indicating that we are using the authorization code grant type.
-- `scope` is `openid`, which means that the `/token` endpoint will return an ID token. For more information about scopes, see [here](/docs/api/resources/oidc#scopes).
+- `scope` is `openid`, which means that the `/token` endpoint will return an ID token. For more information about scopes, see [here](/docs/api/resources/oidc/#scopes).
 - `redirect_uri` is the callback location where the user-agent will be directed to along with the `code`. This must match one of the "Login redirect URIs" you specified when you were creating your Okta application in Step 1.
 - `state` is an arbitrary alphanumeric string that the authorization server will reproduce when redirecting the user-agent back to the client. This is used to help prevent cross-site request forgery.
 
-For more information on these parameters, see [the OAuth 2.0 API reference](/docs/api/resources/oidc#authorize).
+For more information on these parameters, see [the OAuth 2.0 API reference](/docs/api/resources/oidc/#authorize).
 
 If the user does not have an existing session, this will open the Okta Sign-in Page. If they have an existing session, or after they authenticate, they will arrive at the specified `redirect_uri` along with a `code`:
 
@@ -67,7 +67,7 @@ curl --request POST \
   --data 'grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&code=P59yPm1_X1gxtdEOEZjn'
 ```
 
-> Important: The call to the `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the client ID and secret. You can find the client ID and secret in your application's General tab. This requirement is why this call is only appropriate for applications that can guarantee the secrecy of the client secret. For more on Basic Auth, please see [Token Authentication Methods](https://developer.okta.com/docs/api/resources/oidc#token-authentication-methods).
+> Important: The call to the `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the client ID and secret. You can find the client ID and secret in your application's General tab. This requirement is why this call is only appropriate for applications that can guarantee the secrecy of the client secret. For more on Basic Auth, please see [Token Authentication Methods](https://developer.okta.com/docs/api/resources/oidc/#token-authentication-methods).
 
 Note the parameters that are being passed:
 
@@ -75,7 +75,7 @@ Note the parameters that are being passed:
 - `redirect_uri` must match the URI that was used to get the authorization code.
 - `code` is the authorization code that you got from the `/authorize` endpoint.
 
-For more information on these parameters, see the [OAuth 2.0 API reference](https://developer.okta.com/docs/api/resources/oidc#token).
+For more information on these parameters, see the [OAuth 2.0 API reference](https://developer.okta.com/docs/api/resources/oidc/#token).
 
 If the code is still valid, your application will receive back access and ID tokens:
 

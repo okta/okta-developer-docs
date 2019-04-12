@@ -36,6 +36,6 @@ These platform bug fixes are available in preview orgs and expected in productio
 
 * [`/oauth2/v1/clients`](/docs/api/resources/oauth-clients#register-new-client) didn't allow default values for optional parameters. (OKTA-130910)
 
-* Neither [`/oauth2/v1/clients`](/docs/api/resources/oauth-clients#register-new-client) nor [`/api/v1/apps`](/docs/api/resources/apps#add-application) required client secrets to be unique. (OKTA-131259)
+* Neither [`/oauth2/v1/clients`](/docs/api/resources/oauth-clients#register-new-client) nor [`/api/v1/apps`](/docs/api/resources/apps/#add-application) required client secrets to be unique. (OKTA-131259)
 
 * [`/oauth2/v1/clients`](/docs/api/resources/oauth-clients#register-new-client) returned an incorrect resource URI in the response header.  (OKTA-131891)
