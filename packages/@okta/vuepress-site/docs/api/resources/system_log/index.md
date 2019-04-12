@@ -13,8 +13,8 @@ Often the terms "event" and "log event" are used interchangeably. In the context
 
 Notes on the System Log API:
 
-* It contains much more [structured data](#logevent-object) than the [Events API](/docs/api/resources/events#event-model).
-* It supports additional [SCIM filters](#request-parameters) and the `q` query parameter, because of the presence of more structured data than the [Events API](/docs/api/resources/events#request-parameters).
+* It contains much more [structured data](#logevent-object) than the [Events API](/docs/api/resources/events/#event-model).
+* It supports additional [SCIM filters](#request-parameters) and the `q` query parameter, because of the presence of more structured data than the [Events API](/docs/api/resources/events/#request-parameters).
 * Its primary supported use cases are:
   * Event data export into a security information and event management system (SIEM).
   * System monitoring.
@@ -209,7 +209,7 @@ LogEvent objects are read-only. The following properties are available:
 | eventType             | Type of event that was published                                                       | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | version               | Versioning indicator                                                                   | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | severity              | Indicates how severe the event is: `DEBUG`, `INFO`, `WARN`, `ERROR`                    | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
-| legacyEventType       | Associated Events API [Action `objectType`](events#action-objecttypes) attribute value | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
+| legacyEventType       | Associated Events API [Action `objectType`](/docs/api/resources/events/#action-objecttypes) attribute value | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | displayMessage        | The display message for an event                                                       | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | actor                 | Describes the entity that performed an action                                          | Array of [Actor Object](#actor-object)                          | TRUE     | FALSE  | TRUE     |           |           |
 | client                | The client that requested an action                                                    | [Client Object](#client-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
@@ -267,7 +267,7 @@ When an event is triggered by an HTTP request, the `client` object describes the
 | id                  | For OAuth requests this is the id of the OAuth [client](https://tools.ietf.org/html/rfc6749#section-1.1) making the request. For SSWS token requests, this is the id of the agent making the request. | [UserAgent Object](#useragent-object)                     | TRUE     |
 | userAgent           | The [user agent](https://en.wikipedia.org/wiki/User_agent) used by an actor to perform an action                                                                                                      | [UserAgent Object](#useragent-object)                     | TRUE     |
 | geographicalContext | The physical location where the client made its request from                                                                                                                                          | [GeographicalContext Object](#geographicalcontext-object) | TRUE     |
-| zone                | The `name` of the [Zone](/docs/api/resources/zones#ZoneModel) that the client's location is mapped to                                                                                                 | String                                                    | TRUE     |
+| zone                | The `name` of the [Zone](/docs/api/resources/zones/#ZoneModel) that the client's location is mapped to                                                                                                 | String                                                    | TRUE     |
 | ipAddress           | Ip address that the client made its request from                                                                                                                                                      | String                                                    | TRUE     |
 | device              | Type of device that the client operated from (e.g. Computer)                                                                                                                                          | String                                                    | TRUE     |
 

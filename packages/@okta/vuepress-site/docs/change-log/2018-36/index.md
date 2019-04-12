@@ -34,7 +34,7 @@ User deletion and deactivation requests now have an optional `sendEmail` paramet
 
 ### Support for JWTs Signed with Private Keys
 
-Requests to the `/token` and `/authorize` endpoints will now accept JWTs signed with a private key. For more information see the OIDC documentation for the [token endpoint](/docs/api/resources/oidc#token) and the [authorize endpoint](/docs/api/resources/oidc#authorize). <!--OKTA-181514 + OKTA-186410-->
+Requests to the `/token` and `/authorize` endpoints will now accept JWTs signed with a private key. For more information see the OIDC documentation for the [token endpoint](/docs/api/resources/oidc/#token) and the [authorize endpoint](/docs/api/resources/oidc/#authorize). <!--OKTA-181514 + OKTA-186410-->
 
 ### System Log Event for Rate Limit Override Expiration
 

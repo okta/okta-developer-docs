@@ -19,7 +19,7 @@ http --form POST https://{yourOktaDomain}/oauth2/default/v1/revoke \
 
 > Note: Revoking a token that is invalid, expired, or already revoked will still return a `200 OK` so as to not leak information.
 
-For more information, see [Revoke a Token](/docs/api/resources/oidc#revoke) in the Okta OIDC & OAuth 2.0 reference.
+For more information, see [Revoke a Token](/docs/api/resources/oidc/#revoke) in the Okta OIDC & OAuth 2.0 reference.
 
 ## Revoking the Access vs the Refresh Token
 

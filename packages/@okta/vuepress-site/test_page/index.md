@@ -88,7 +88,7 @@ Consequat torquent magna. [Ridiculus](#last-section). Ac, mattis. Cras cum. Accu
 * Platea `vulputate` `lacinia` integer et facilisis elementum blandit congue quam. Nec turpis semper amet metus ridiculus porta, dolor eu diam. [ridiculus](https://tools.ietf.org/html/rfc6749).
 
 * <ApiLifecycle access="beta" /> Nec turpis semper amet metus ridiculus porta, dolor eu diam:
-    * `prompt`, Primis ad cum fusce Nunco [`/oauth2/${authServerId}/v1/authorize`](/docs/api/resources/oidc#authorize)(custom authorization server)
+    * `prompt`, Primis ad cum fusce Nunco [`/oauth2/${authServerId}/v1/authorize`](/docs/api/resources/oidc/#authorize)(custom authorization server)
     * `consent_method`, magnis nisi euismod penatibus posuere
     * `consent`, integer taciti [scopes](/docs/api/resources/authorization-servers#scope-properties)
 

@@ -22,7 +22,7 @@ title: Okta API Products Change Log
 
 ### IdP Discovery Generally Available
 
-[IdP Discovery](/docs/api/resources/policy#IdPDiscoveryPolicy) is now Generally Available (GA) as part of the Policy API. <!--OKTA-202887-->
+[IdP Discovery](/docs/api/resources/policy/#IdPDiscoveryPolicy) is now Generally Available (GA) as part of the Policy API. <!--OKTA-202887-->
 
 ### Relay State Format Now Configurable for SAML IdPs
 

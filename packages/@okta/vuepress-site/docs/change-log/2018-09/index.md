@@ -62,11 +62,11 @@ You can set `firstName` or `lastName` to be nullable in [the User Profile Base s
 
 ### Improved Response Mode for OAuth 2.0 and OpenID Connect Requests
 
-For [the `form_post` response mode](/docs/api/resources/oidc#parameter-details), we have reduced the HTML content returned in an OpenID Connect or OAuth 2.0 request. Now the response is only a form containing the requested tokens (access token, ID token, or both) and JavaScript to post the form. <!-- OKTA-96521 -->
+For [the `form_post` response mode](/docs/api/resources/oidc/#parameter-details), we have reduced the HTML content returned in an OpenID Connect or OAuth 2.0 request. Now the response is only a form containing the requested tokens (access token, ID token, or both) and JavaScript to post the form. <!-- OKTA-96521 -->
 
 ### Change to `/authorize` Response for `prompt` for OAuth 2.0 and OpenID Connect Requests
 
-If you set `prompt=none` for a request on `/authorize` and the maximum age before sign-in is required (`max_age`) is exceeded, an error is returned. This ensures the safest possible result when [these two settings contradict each other](/docs/api/resources/oidc#parameter-details).
+If you set `prompt=none` for a request on `/authorize` and the maximum age before sign-in is required (`max_age`) is exceeded, an error is returned. This ensures the safest possible result when [these two settings contradict each other](/docs/api/resources/oidc/#parameter-details).
 
 This applies to `/authorize` with either the Okta Org Authorization Server or a Custom Authorization Server (which requires API Access Management).
 
@@ -132,7 +132,7 @@ If you don't want these changes, contact [Support](https://support.okta.com/help
 
 The following message changes apply to either the Okta Org Authorization Server or a Custom Authorization Server including `default` (which requires API Access Management), or both, as indicated in each section.
 
-#### Simplified Failure Messages from [`/authorize`](/docs/api/resources/oidc#authorize) Requests for `/events` System Log
+#### Simplified Failure Messages from [`/authorize`](/docs/api/resources/oidc/#authorize) Requests for `/events` System Log
 
 The existing messages `app.oauth2.authorize_failure`, `app.oauth2.as.authorize_failure` and `app.oauth2.as.authorize.scope_denied_failure` replace these messages:
 
@@ -151,7 +151,7 @@ Details about the nature of the failure are included, so no information has been
 
 These system log changes affect responses from requests that involve either the Okta Org Authorization Server or a Custom Authorization Server including `default`.
 
-#### Simplified Failure Messages from [`/token`](/docs/api/resources/oidc#token) Requests for `/events` System Log
+#### Simplified Failure Messages from [`/token`](/docs/api/resources/oidc/#token) Requests for `/events` System Log
 
 Instead of supplying two different messages for token grant failures on `/token`, the existing message `app.oauth2.as.authorize.token.grant_failure` replaces
 these messages:
@@ -161,7 +161,7 @@ these messages:
 
 This system log change affects responses from requests that involve a Custom Authorization Server including `default`.
 
-#### Simplified Success Messages from  [`/token`](/docs/api/resources/oidc#token) Requests for `/events` System Log
+#### Simplified Success Messages from  [`/token`](/docs/api/resources/oidc/#token) Requests for `/events` System Log
 
 Instead of supplying a different message for ID token and access token generation, there's just one message for each. The ID token or access token minted is included in the message as it was previously.
 
@@ -179,7 +179,7 @@ The `_success` messages weren't being written to the System Log previously, but 
 
 These system log changes affect responses from requests that involve either the Okta Org Authorization Server or a Custom Authorization Server including `default`.
 
-#### Simplified Messages from  [`/token`](/docs/api/resources/oidc#token) Requests for `/logs` System Log
+#### Simplified Messages from  [`/token`](/docs/api/resources/oidc/#token) Requests for `/logs` System Log
 
 Instead of supplying a different message for ID token and access token generation, there's just one message for each. The ID token or access token minted is included in the message as it was previously.
 

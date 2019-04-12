@@ -5489,7 +5489,7 @@ Specifies the behavior for establishing, validating, and matching a username for
 
 | Property         | Description                                                                                                                         | DataType                                               | Nullable | Readonly | MinLength | MaxLength | Validation                                                          |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------- | -------- | --------- | --------- | ------------------------------------------------------------------- |
-| userNameTemplate | [Okta EL Expression](../getting_started/okta_expression_lang) to generate or transform a unique username for the IdP user           | [UserName Template Object](#username-template-object)  | FALSE    | FALSE    |           |           | [Okta EL Expression](../getting_started/okta_expression_lang)       |
+| userNameTemplate | [Okta EL Expression](/docs/api/getting_started/okta_expression_lang) to generate or transform a unique username for the IdP user           | [UserName Template Object](#username-template-object)  | FALSE    | FALSE    |           |           | [Okta EL Expression](/docs/api/getting_started/okta_expression_lang)       |
 | filter           | Optional [regular expression pattern](https://en.wikipedia.org/wiki/Regular_expression) used to filter untrusted IdP usernames      | String                                                 | TRUE     | FALSE    | 0         | 1024      |                                                                     |
 | matchType        | Determines the Okta user profile attribute match conditions for account linking and authentication of the transformed IdP username  | `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`      | FALSE    | FALSE    |           |           |
 | matchAttribute   | Okta user profile attribute for matching transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE` | String      | TRUE    | FALSE    |           |           |  See `matchAttribute` Validation  |
@@ -5525,7 +5525,7 @@ Property Details
 
 | Property | Description                                                                                                                | DataType | Nullable | Readonly | MinLength | MaxLength | Validation                                                    |
 | -------  | ------------------------------------------------------------------------------                                             | -------- | -------- | -------- | --------- | --------- | ----------------------------------------------                |
-| template | [Okta EL Expression](../getting_started/okta_expression_lang) to generate or transform an unique username for the IdP user | String   | FALSE    | FALSE    | 9         | 1024      | [Okta EL Expression](../getting_started/okta_expression_lang) |
+| template | [Okta EL Expression](/docs/api/getting_started/okta_expression_lang) to generate or transform an unique username for the IdP user | String   | FALSE    | FALSE    | 9         | 1024      | [Okta EL Expression](/docs/api/getting_started/okta_expression_lang) |
 
 Property Details
 

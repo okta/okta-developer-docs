@@ -22,4 +22,4 @@ Use the Token Management API to view and revoke OAuth 2.0 and OpenID Connect ref
 
 ### Bug Fixed for 2018.12
 
-* `GET` requests to the `/authorize` [endpoint](/docs/api/resources/oidc#authorize) with `response_mode=form_post` would return an HTML page with a title `<span>`. (OKTA-162709)
+* `GET` requests to the `/authorize` [endpoint](/docs/api/resources/oidc/#authorize) with `response_mode=form_post` would return an HTML page with a title `<span>`. (OKTA-162709)

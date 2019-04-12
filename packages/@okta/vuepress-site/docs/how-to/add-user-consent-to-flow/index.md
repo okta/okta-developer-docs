@@ -40,7 +40,7 @@ Use the following procedure to display the user consent dialog as part of an Ope
 
     Note: You can also specify these values when you create and configure a scope in the administrator UI. Navigate to **Applications > [Application Name] > General > User Consent** and select **Require user consent for this scope** (it can be overriden by individual apps).
 
-4. Prepare an authentication or authorization request with the correct values for `prompt` and `consent_method`. For details, see the [API documentation for `prompt`](/docs/api/resources/oidc#parameter-details) and the [table of values relating to consent dialog](/docs/api/resources/apps/#settings-7).
+4. Prepare an authentication or authorization request with the correct values for `prompt` and `consent_method`. For details, see the [API documentation for `prompt`](/docs/api/resources/oidc/#parameter-details) and the [table of values relating to consent dialog](/docs/api/resources/apps/#settings-7).
 
 5. Test your configuration by sending an authentication or authorization request. For instance, if you set `consent` to `REQUIRED` for the `email` scope:
 

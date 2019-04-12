@@ -170,7 +170,7 @@ We've changed the behavior of OpenID Connect scopes:
 
 #### Help Desk Administrator Role Generally Available
 
-The Help Desk Administrator Role (`HELP_DESK_ADMIN`) is generally available via the [Roles API](/docs/api/resources/roles#role-properties).
+The Help Desk Administrator Role (`HELP_DESK_ADMIN`) is generally available via the [Roles API](/docs/api/resources/roles/#role-properties).
 For information about this role, see the [in-app help](https://help.okta.com/en/prod/Content/Topics/Security/The_Help_Desk_Admin_Role.htm). <!-- OKTA-141867 -->
 
 #### Policy API
@@ -179,4 +179,4 @@ The Policy API enables an Administrator to perform policy and policy rule operat
 
 #### Password Policy API
 
-The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/api/resources/policy#GroupPasswordPolicy).
+The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/api/resources/policy/#GroupPasswordPolicy).

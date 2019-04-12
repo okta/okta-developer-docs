@@ -21,11 +21,11 @@ To get a refresh token, you send a request to your Okta Authorization Server.
 
 ### Get a Refresh Token with the Code Flow
 
-In the case of the Authorization Code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then send this code to the `/token` endpoint to get an access token and a refresh token. For more information about this endpoint, see [Obtain an Authorization Grant from a User](/docs/api/resources/oidc#authorize). For more information about the Authorization Code flow, see [Implementing the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code).
+In the case of the Authorization Code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then send this code to the `/token` endpoint to get an access token and a refresh token. For more information about this endpoint, see [Obtain an Authorization Grant from a User](/docs/api/resources/oidc/#authorize). For more information about the Authorization Code flow, see [Implementing the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code).
 
 ### Get a Refresh Token with the Resource Owner Password Flow
 
-For the Resource Owner Password flow, you use the Authorization Server's `/token` endpoint directly. For more information about this endpoint, see [Request a Token](/docs/api/resources/oidc#token). For more information about the Resource Owner Password flow, see [Implementing the Resource Owner Password Flow](/authentication-guide/implementing-authentication/password).
+For the Resource Owner Password flow, you use the Authorization Server's `/token` endpoint directly. For more information about this endpoint, see [Request a Token](/docs/api/resources/oidc/#token). For more information about the Resource Owner Password flow, see [Implementing the Resource Owner Password Flow](/authentication-guide/implementing-authentication/password).
 
 The following combinations of grant type and scope, when sent to `/token` endpoint, will return a refresh token:
 
@@ -51,13 +51,13 @@ grant_type=password
 
 You would then get back an ID token alongside your access and refresh tokens.
 
-For more information see the [Okta OAuth 2.0 reference page](/docs/api/resources/oidc#response-properties).
+For more information see the [Okta OAuth 2.0 reference page](/docs/api/resources/oidc/#response-properties).
 
 ## Get a Refresh Token Silently for Your SPA
 
 In a normal Single-Page Application (SPA) it is usually undesirable to redirect the user to a login page during normal navigation. For example, a user could request access to a resource, prompting your SPA to send a request to the Okta `/authorize` endpoint. Normally, if a user does not have a valid session, this request will result in a redirection to a login page. To avoid this disruptive redirection, the endpoint allows for a request parameter called `prompt`. If the value of the `prompt` parameter is `none`, this guarantees that the user will not be prompted to login, regardless of whether they have an active session or not. Instead, your application will either silently obtain the requested tokens or an OAuth error response. How to act on the error is up to you.
 
-For more information on the `/authorize` endpoint, see the [Authentication Request section of the OIDC Reference](/docs/api/resources/oidc#authorize).
+For more information on the `/authorize` endpoint, see the [Authentication Request section of the OIDC Reference](/docs/api/resources/oidc/#authorize).
 
 ## How to Use a Refresh Token
 
