@@ -1,4 +1,6 @@
-You need to install the following dependencies in your project:
+All of our .NET SDKs are hosted on [NuGet](https://www.nuget.org/). These instructions show you how to install all the dependencies you need to configure your web application to use the Okta middleware.
+
+Install the following dependencies in your project:
 
 * [Microsoft.AspNetCore.Authentication.Cookies](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies/) 2.2.0 or higher 
 * [Okta.AspNetCore](https://www.nuget.org/packages/Okta.AspNetCore) 1.1.0 or higher

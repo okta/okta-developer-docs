@@ -1,28 +1,25 @@
-Open your `_Layout.cshtml` file and update it with the following code:
+Open your `_Layout.cshtml` file and update the `body` with the following code:
 
 ```
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("About", "About", "Home")</li>
-        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
     </ul>
-    @if (Context.User.Identity.IsAuthenticated)
+    @if (User.Identity.IsAuthenticated)
     {
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                <p class="navbar-text">Hello, <b>@Context.User.Identity.Name</b></p>
-            </li>
-            <li>
-                <a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">Log out</a>
-            </li>
+            <li><p class="navbar-text">Hello, @User.Identity.Name</p></li>
+            <li><a asp-controller="Home" asp-action="Profile">Profile</a></li>
+            <li><a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">Log out</a></li>
         </ul>
-        <form action="/Account/Logout" method="post" id="logout_form"></form>
+        <form asp-controller="Account" asp-action="Logout" method="post" id="logout_form"></form>
     }
     else
     {
         <ul class="nav navbar-nav navbar-right">
-            <li>@Html.ActionLink("Log in", "Login", "Account")</li>
+            <li><a asp-controller="Account" asp-action="Login">Log in</a></li>
         </ul>
     }
 </div>

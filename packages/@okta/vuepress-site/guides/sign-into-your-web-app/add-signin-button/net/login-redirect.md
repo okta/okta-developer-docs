@@ -1,4 +1,4 @@
-Open your `_Layout.cshtml` file and update it with the following code:
+Open your `_Layout.cshtml` file and update the `body` with the following code:
 
 ```
 <div class="navbar-collapse collapse">

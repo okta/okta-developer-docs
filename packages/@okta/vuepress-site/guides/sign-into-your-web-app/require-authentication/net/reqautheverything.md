@@ -1,4 +1,4 @@
-To require authentication for all actions you can the `Authorize` attribute in the filter config to apply it to every controller.
+To require authentication for all actions you can add the `Authorize` attribute in the filter config to apply it to every controller.
 
 ```
 public class FilterConfig
