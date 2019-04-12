@@ -11,6 +11,7 @@
     margin-top: 28px;
 
     li {
+      margin-bottom: 0;
       a {
         padding: 0;
       }
@@ -31,6 +32,7 @@
 
   h4 {
     @include font-size('h6');
+    color: $white;
   }
 }
 

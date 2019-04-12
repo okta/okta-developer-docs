@@ -731,6 +731,11 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
+"@okta/nim@^0.1.0-beta.1197.b2b1511":
+  version "0.1.0-beta.1197.b2b1511"
+  resolved "https://registry.yarnpkg.com/@okta/nim/-/nim-0.1.0-beta.1197.b2b1511.tgz#ade4e2c6b4041ba18e5c4db31526c4303f012d39"
+  integrity sha512-CwuVd9AvXrQ2nLEuVtudlRlqIgPkp2i8/4gRot2qh1W8QswedbtsxeowcqIEzq7b3iNAwSvIhst0jcqZVmqNHA==
+
 "@types/events@*":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"

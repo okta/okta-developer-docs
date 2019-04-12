@@ -20,7 +20,13 @@ strong {
 p,
 ul,
 ol {
-	@include margin(small 0);
+  @include margin(small 0);
+
+  max-width: none;
+}
+
+li {
+  max-width: none;
 }
 
 blockquote {
