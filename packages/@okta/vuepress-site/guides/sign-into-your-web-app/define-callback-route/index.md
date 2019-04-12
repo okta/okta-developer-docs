@@ -1,7 +1,6 @@
 ---
 title: Define a Callback Route
 ---
-## Define a Callback Route
 
 If you are building a server-side (or "web") application that is capable of securely storing secrets, then the authorization code flow is the recommended method for controlling access to it.
 
@@ -19,7 +18,7 @@ In your web app, you should define a redirect uri which is the callback location
 
 Luckily, this is automatically handled by our middleware! For now, you just have to define the route itself, you will see how in the next section.
 
-<!-- <NextSectionLink/> -->
+<NextSectionLink/>
 
 
 

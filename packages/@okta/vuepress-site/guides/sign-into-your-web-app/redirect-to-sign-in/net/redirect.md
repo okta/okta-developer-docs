@@ -1,4 +1,4 @@
-In the previous step [Add a Sign In button](/guides/sign-into-your-web-app/-/add-signin-button) you modified the `_Layout.cshtml` to include the Login button. Now, you need a controller to redirect the user to the Okta hosted sign-in page to perform the authentication process.
+In the previous step [Add a Sign In button](add-signin-button) you modified the `_Layout.cshtml` to include the Login button. Now, you need a controller to redirect the user to the Okta hosted sign-in page to perform the authentication process.
 
 Create an `AccountController`:
 
@@ -47,4 +47,4 @@ using System.Web;
 using System.Web.Mvc;
 ```
 
-At this point, you should be able to *run the project* and logging in! 
+At this point, you should be able to **run the project** and logging in! 

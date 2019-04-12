@@ -1,8 +1,6 @@
 ---
 title: Protect Your API Endpoints
 ---
-# Protect Your API Endpoints
-
 This guide walks you through how to add authentication to your API endpoints and supports these languages:
 
 * Node (Express)
@@ -24,3 +22,5 @@ These instructions assume that you:
 <StackSelector snippet="samples"/>
 
 If you meet all of the prerequisites, then you can move on to the first step, which is adding and configuring packages.
+
+<NextSectionLink/>

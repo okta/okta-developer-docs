@@ -1,27 +1,16 @@
-
-In order to handle the redirect back from Okta, you need to capture the token values from the `Login Redirect URI` callback and pass them to the `handleAuthentication()` method of the `OktaAuthService`. We have provided `OktaCallbackComponent` that implements this logic. We show you how to set this up below using [Angular Router](https://angular.io/guide/router):
+The `OktaCallbackComponent` in the Angular SDK contains logic to parse the response Okta sends back to your application. All you need to do is wire it up to the route you defined:
 
 ```javascript
-//...
-import {
-  OktaCallbackComponent,
-} from '@okta/okta-angular';
+import { OktaCallbackComponent } from '@okta/okta-angular';
 
 const CALLBACK_PATH = '/implicit/callback';
 
 const appRoutes: Routes = [
-  // ...
   {
     path: CALLBACK_PATH,
     component: OktaCallbackComponent,
   },
+  // Other routes...
 ];
-
-@NgModule({
-  imports: [
-    RouterModule.forRoot(appRoutes),
-  ],
-})
-
 ```
 

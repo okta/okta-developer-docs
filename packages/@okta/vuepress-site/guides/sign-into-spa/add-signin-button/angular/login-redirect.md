@@ -8,7 +8,6 @@ import { OktaAuthService } from '@okta/okta-angular';
   selector: 'app-root',
   template: `
     <button *ngIf="!isAuthenticated" (click)="login()"> Login </button>
-    <button *ngIf="isAuthenticated" (click)="logout()"> Logout </button>
     <router-outlet></router-outlet>
   `,
 })s
@@ -18,21 +17,18 @@ export class AppComponent {
   constructor(public oktaAuth: OktaAuthService) {
     // Subscribe to authentication state changes
     this.oktaAuth.$authenticationState.subscribe(
-      (isAuthenticated: boolean)  => this.isAuthenticated = isAuthenticated
+      (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
     );
   }
 
   async ngOnInit() {
-    // Get the authentication state for immediate use
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
   }
 
   login() {
     this.oktaAuth.loginRedirect('/profile');
   }
-
-  logout() {
-    this.oktaAuth.logout('/');
-  }
 }
 ```
+
+The `loginRedirect()` method lets you specify the path you'd like the user to be navigated to after authenticating.

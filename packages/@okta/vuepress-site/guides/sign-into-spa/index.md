@@ -4,14 +4,14 @@ excerpt: Learn how to sign users into your JavaScript front-end applications and
 layout: Guides
 sections: 
  - before-you-begin
- - define-login-redirect
+ - define-callback
  - create-okta-application
- - okta-config
  - install-sdk
  - configure-the-sdk
- - login-logout-buttons
+ - add-signin-button
  - handle-callback
  - require-authentication
  - user-info
  - use-the-access-token
+ - next-steps
 ---

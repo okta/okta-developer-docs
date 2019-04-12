@@ -1,9 +1,6 @@
-
-The [Auth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#auth) object is provided on the component's props via the [withAuth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#withauth) Higher Order Component (HOC).
-You can show/hide the correct button by checking the value returned from the [auth.isAuthenticated()](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authisauthenticated) method. 
+The `Auth` object is provided on your component's props via the `withAuth` component. You can use the `auth.isAuthenticated()` method to show or hide a button depending on whether the user is signed in.
 
 ```javascript
-
 import { withAuth } from '@okta/okta-react';
 import React, { Component } from 'react';
 
@@ -31,7 +28,7 @@ export default withAuth(class Home extends Component {
   }
 
   async login() {
-    this.props.auth.login('/');
+    this.props.auth.login('/profile');
   }
 
   render() {
@@ -48,3 +45,4 @@ export default withAuth(class Home extends Component {
 });
 ```
 
+The `login()` method lets you specify the path you'd like the user to be navigated to after authenticating.

@@ -1,11 +1,8 @@
-To require authentication on a specific route, use `OktaAuthGuard` on your route definition. See [canActivate] (https://angular.io/api/router/CanActivate).
+Use `OktaAuthGuard` on your route definition (see [canActivate](https://angular.io/api/router/CanActivate) in the Angular docs).
 
 ```javascript
-
 import { Routes, RouterModule } from '@angular/router';
-import {
-  OktaAuthGuard,
-} from '@okta/okta-angular';
+import { OktaAuthGuard } from '@okta/okta-angular';
 
 const appRoutes: Routes = [
   {
@@ -13,12 +10,8 @@ const appRoutes: Routes = [
     component: ProtectedComponent,
     canActivate: [ OktaAuthGuard ],
   },
+  // Other routes...
 ];
 
-@NgModule({
-  imports: [
-    RouterModule.forRoot(appRoutes),
-  ],
-})
-
+// NgModule...
 ```

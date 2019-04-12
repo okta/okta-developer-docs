@@ -1,8 +1,6 @@
 ---
 title: Add and Configure Packages
 ---
-## Add and Configure Packages
-
 Next you need to add Okta to your application.
 
 <StackSelector snippet="addconfigpkg"/>
@@ -19,4 +17,4 @@ You can configure the properties of your application with environment variables,
 
 <StackSelector snippet="configmid"/>
 
-<!-- <NextSectionLink/> -->
+<NextSectionLink/>

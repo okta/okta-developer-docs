@@ -1,8 +1,6 @@
 ---
 title: Add and Configure Packages
 ---
-## Add and Configure Packages
-
 Next you need to add Okta to your application. The simplest way to add authentication to your app is using our SDK.
 
 ### Install the SDK
@@ -16,3 +14,5 @@ You need the Client ID that you copied from the Okta application that you create
 The `issuer` parameter is your Okta Org URL + `oauth2/default`.
 
 <StackSelector snippet="configuremid"/>
+
+<NextSectionLink/>

@@ -2,8 +2,6 @@
 title: Sign Users into Your Web App
 ---
 
-# Sign Users into Your Web App
-
 This guide walks you through how to sign users into your existing web app. It is available for the following frameworks:
 
 * Node (Express)
@@ -22,4 +20,4 @@ If you don't have an app created, or are new to creating an app, start with the 
 
 <StackSelector snippet="create-app"/>
 
-<!-- <NextSectionLink/> -->
+<NextSectionLink/>

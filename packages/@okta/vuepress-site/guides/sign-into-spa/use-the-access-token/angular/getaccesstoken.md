@@ -1,5 +1,4 @@
-The current value for the access token is returned by the `getAccessToken()` method on the `OktaAuthService`.
-Use this value to add an `Authorization` header to the XHR request.
+Get the access token using the `getAccessToken()` method on the `OktaAuthService`. Then, use this value to add an `Authorization` header to outgoing requests:
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
@@ -19,6 +18,7 @@ export class MyComponent implements OnInit {
         Authorization: 'Bearer ' + accessToken,
       }
     }).subscribe((data: any) => {
+      // Use the data returned by the API
 
     }, (err) => {
       console.error(err);

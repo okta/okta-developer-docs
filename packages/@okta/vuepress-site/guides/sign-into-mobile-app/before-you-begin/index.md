@@ -1,8 +1,6 @@
 ---
 title: Sign Users into Your Mobile App
 ---
-# Sign Users into Your Mobile App
-
 This guide walks you through how to sign users into your mobile applications and supports these operating systems:
 
 * Android (Java)
@@ -23,3 +21,5 @@ These instructions assume that you:
 <StackSelector snippet="samples"/>
 
 If you meet all of the prerequisites, then you can move on to the first step, which is creating an Okta application.
+
+<NextSectionLink/>
