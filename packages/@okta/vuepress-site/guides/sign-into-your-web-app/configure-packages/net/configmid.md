@@ -15,7 +15,7 @@ Open the `Web.config` file and add your Okta configuration into the `<appSetting
   </configuration>
   ```
 
-Now add an OWIN Startup class to your project where you have to configure the Okta middleware. Right-click your project and select **Add | OWIN Startup Class**. Name the file `Startup.cs`.
+Now add an OWIN Startup class to your project where you have to configure the Okta middleware. Right-click your project and select **Add - OWIN Startup Class**. Name the file `Startup.cs`.
 
 Paste the following code into the new class:
 
