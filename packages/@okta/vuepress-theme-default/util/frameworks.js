@@ -22,6 +22,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   spring: 'Spring',
   dotnet: '.NET',
   netcore: '.NET Core',
+  aspnet: 'ASP.NET',
+  aspnetcore: 'ASP.NET Core',
   php: 'PHP',
   python: 'Python',
   rest: 'REST',
@@ -32,6 +34,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
 const COMMON_NAME_TO_ICON_NAME = { 
   reactnative: 'react',
   netcore: 'dotnet',
+  aspnet: 'dotnet',
+  aspnetcore: 'dotnet',
 };
 
 export const commonify = framework => FRAMEWORK_TO_COMMON_NAME[framework] || framework.toLowerCase();

@@ -11,7 +11,7 @@ You can install them via the **NuGet Package Manager**:
 1. Click **Browse** and search for the package you want to install, for example, `Okta.AspNetCore`.
 1. Select your package and click **Install**.
 
-Or via the **dotnet cli**:
+Or via the **dotnet CLI**:
 
 `$ dotnet add package Okta.AspNetCore`
 
