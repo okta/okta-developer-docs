@@ -24,7 +24,7 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 	</li>
 </ul>
 
-<a href='https://github.com/okta/okta-sdk-appauth-android'>
+<a href='https://github.com/okta/samples-android'>
 	<span class='fa fa-github'></span> <span>Android Sample App</span>
 </a>
 
