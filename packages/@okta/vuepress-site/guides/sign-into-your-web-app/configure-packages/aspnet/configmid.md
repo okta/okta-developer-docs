@@ -9,7 +9,6 @@ Open the `Web.config` file and add your Okta configuration into the `<appSetting
 
         <!-- 2. Update the Okta application with these values -->
         <add key="okta:RedirectUri" value="http://localhost:8080/authorization-code/callback" />
-        <add key="okta:PostLogoutRedirectUri" value="http://localhost:8080/Account/PostLogout" />
     </appSettings>
     ...
   </configuration>
@@ -32,7 +31,6 @@ public class Startup
             ClientId = ConfigurationManager.AppSettings["okta:ClientId"],
             ClientSecret = ConfigurationManager.AppSettings["okta:ClientSecret"],
             RedirectUri = ConfigurationManager.AppSettings["okta:RedirectUri"],
-            PostLogoutRedirectUri = ConfigurationManager.AppSettings["okta:PostLogoutRedirectUri"],
         });
     }
 }
