@@ -26,7 +26,7 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 	</li>
 </ul>
 
-<a href='https://github.com/okta/okta-sdk-appauth-ios'>
+<a href='https://github.com/okta/samples-ios'>
 	<span class='fa fa-github'></span> <span>iOS Sample App</span>
 </a>
 
