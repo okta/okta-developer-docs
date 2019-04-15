@@ -1,4 +1,4 @@
-In the previous step [Add a Sign In button](add-signin-button) you modified the `_Layout.cshtml` to include the Sign-In button. Now, you need a controller to redirect the user to the Okta hosted sign-in page to perform the authentication process.
+In the previous step ([Add a Sign In button](add-signin-button)), you modified the `_Layout.cshtml` to include the Sign-In button. Now, you need a controller to redirect the user to the Okta hosted sign-in page to perform the authentication process.
 
 Create an `AccountController`:
 
