@@ -1209,25 +1209,20 @@ For more information about configuring an app for OpenID Connect, including grou
 Refresh tokens are opaque. More information about using them can be found in the [Authentication Guide](/authentication-guide/tokens/refreshing-tokens).
 
 ## Token Authentication Methods
-When registering an OAuth 2 client application, you can specify an authentication method for the `/token` endpoint by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter. Okta supports five token authentication methods:
+When registering an OAuth 2 client application, you can specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter. Okta supports five token authentication methods:
 
 > Note: If you don't specify a method when registering your client, the default method is `client_secret_basic`.
 
-* `client_secret_basic`: Use this method when blah blah blah
-* `client_secret_post`: Use this method when blah blah blah
-* `client_secret_jwt`: Use this method in the following use cases:
-  * User delegation grant such as `grant_type=authorization_code` or `grant_type=password`
-  * Client authentication and authorization for a client acting as itself with `grant_type=client_credentials`
-  * Client authentication for token introspection and token revocation
-* `private_key_jwt`: Use this method when you need to enable the authorization server to validate that it is your application making the call by verifying the signed token.
-* `none` - Use this method when the client is a public client and doesn't have a client secret.
+* `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these three methods to authenticate against the `/token` or `/revoke` endpoints when the client has access to the `client_secret`. Typically services support client authentication via HTTP Basic Auth (`client_secret_basic`) with the client's `client_id` and `client_secret`. However, some services support authentication by accepting the `client_id` and `client_secret` as POST body parameters (`client_secret_post`). Check the service's documentation to find out what the service expects, since the OAuth 2.0 specification leaves this decision to the service.
+
+* `private_key_jwt`: Use this method when you want to use public/private key pairs for more security, as key pairs are short-lived.
+
+* `none` - Use this method when the client doesn't authenticate itself to the `/token` endpoint because it uses the [Implicit Flow](/authentication-guide/implementing-authentication/implicit/) or because it is a public client with no client secret or other authentication mechanism.
 
 > Note: You can use only one of these methods in a single request or an error occurs.
 
-### Client Secret Client Authentication Methods
+### Client Secret
 If you configured your client to use a `client_secret` [client authentication method](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication), provide the `client_id` and `client_secret` using one of these methods: 
-
-> Note: The first two methods are the most common scenarios.
 
 * `client_secret_basic`: Provide the `client_id` and `client_secret` values in the Authorization header as a Basic auth base64-encoded string with the POST request:
   ```bash
@@ -1250,7 +1245,7 @@ If you configured your client to use a `client_secret` [client authentication me
     client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
     client_assertion=PHNhbWxwOl ... ZT
   ```
-### Private Key Client Authentication Method
+### Private Key
 If you configured your client to use the `private_key_jwt` client authentication method:
 
 Provide the `client_id` in a JWT that you sign with your private key using an RSA or ECDSA algorithm (RS256, RS384, RS512, ES256, ES384, ES512). The JWT also contains other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt).
@@ -1270,8 +1265,8 @@ grant_type=authorization_code&
   client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
   client_assertion=PHNhbWxwOl ... ZT
 ```
-### None Client Authentication Method
-Specify `none` when the client is a public client and doesn't have a client secret. Only the `client_id` is sent in the request body. The client doesn't authenticate itself at the `/token` endpoint because it uses only the [Implicit Flow](https://developer.okta.com/authentication-guide/implementing-authentication/implicit/) or because it is a public client with no `client_secret` or other authentication mechanism. 
+### None
+Specify `none` when the client is a public client and doesn't have a client secret. Only the `client_id` is sent in the request body. 
 
 ### Token Claims for Client Authentication with Client Secret or Private Key JWT
 If you use a JWT for client authentication (`client_secret_jwt` or `private_key_jwt`), use the following token claims:
