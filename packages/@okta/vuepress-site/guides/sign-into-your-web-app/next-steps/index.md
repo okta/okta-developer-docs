@@ -9,6 +9,6 @@ Nice job! You should understand how to sign users in to your web applications us
 
 ## Sample Applications
 
-We publish full sample applications on GitHub. If you want to see everything working together, clone or download one of our samples and try it out!
+We publish full sample applications on GitHub. If you want to see everything working together, clone or download one of our samples and try it out.
 
 <StackSelector snippet="samples"/>
