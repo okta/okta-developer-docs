@@ -10,8 +10,8 @@ This guide assumes that you:
 * Have a project or application that you want to add authentication to.
 
 <!-- * Are building a web app that's rendered by a server.
-    - If you are building a mobile app, see [Sign Users into Your Mobile App].
-    - If you are building a single-page app, see [Sign Users into Your SPA App] -->
+    - If you are building a mobile app, see [Sign Users in to Your Mobile App].
+    - If you are building a single-page app, see [Sign Users in to Your SPA App] -->
 
 If you don't have an existing app, or are new to building apps, start with this documentation:
 
