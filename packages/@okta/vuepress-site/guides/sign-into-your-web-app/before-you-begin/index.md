@@ -1,5 +1,5 @@
 ---
-title: Sign Users into Your Web App
+title: Before You Begin
 ---
 This guide walks you through how to sign users into your existing web app. It is available for the following frameworks:
 
@@ -11,7 +11,7 @@ This guide walks you through how to sign users into your existing web app. It is
 ## Before You Begin
 These instructions assume that you: 
 
-* Are building Web app that's rendered by a server, otherwise see [Sign Users into a Single-Page App](sign-into-spa). If you are building a mobile app, see [Sign Users into a Mobile App](sign-into-mobile-app). If you are building an API, see [Protect an API].
+* Are building Web app that's rendered by a server, otherwise see [Sign Users in to a Single-Page App](sign-into-spa). If you are building a mobile app, see [Sign Users in to a Mobile App](sign-into-mobile-app). If you are building an API, see [Protect an API].
 * Have an Okta Developer organization. If you don't, you can get one here: <https://developer.okta.com/signup>
 * Have a project or application that you want to add authentication to.
 

@@ -1,8 +1,18 @@
 ---
 title: Use the Access Token
 ---
-After your user is authenticated, your application has an access token that was issued by your Okta authorization server. When your app needs to make calls to your backend API, you can attach the access token to outgoing requests and use it to authenticate requests for resources on your server or API. As a hypothetical example, let's say that you have an API that gives us messages for our user.
+Mobile apps need to send requests to one or more APIs to perform actions and retrieve information.
 
-<StackSelector snippet="usetoken"/>
+After a user signs in, your application stores an access token issued by Okta. By attaching this token to outgoing requests, your API can authenticate them (ensure that the user is signed in to perform an action) and authorize them (ensure that the user is allowed to do an action).
 
-<NextSectionLink/>
+On your front-end (this mobile app), make sure that you place the access token in the HTTP `Authorization` header of outgoing requests using this format:
+
+```
+Authorization: Bearer {token}
+```
+
+<!-- On your back-end (the API), make sure you check for valid tokens in incoming requests. See [Protect your API endpoints] -->
+
+<StackSelector snippet="getaccesstoken"/>
+
+<NextSectionLink>What's next?</NextSectionLink>

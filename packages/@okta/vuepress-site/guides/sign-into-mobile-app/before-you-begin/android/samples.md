@@ -1,1 +1,0 @@
-Android sample app link

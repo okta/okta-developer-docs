@@ -1,26 +1,17 @@
 ---
 title: Protect Your API Endpoints
 ---
-This guide walks you through how to add authentication to your API endpoints and supports these languages:
+This guide shows you how to add authentication to your API endpoints.
 
-* Node (Express)
-* Java (Spring)
-* .NET (ASP.NET)
-* .NET (ASP.NET Core)
+<!-- If you are building a web app that is served by a server framework, see [Sign Users in to Your Web App]. If you are building a mobile app, see [Sign Users in to Your Mobile App]. -->
 
-If the API is being called by a single-page app or mobile app, first learn how to [Sign Users into Your Single-Page App] or [Sign Users into Your Mobile App].
+This guide assumes that you:
 
-## Before You Begin
-
-These instructions assume that you: 
-
-* Have an Okta Developer organization. If you don't, you can get one here: <https://developer.okta.com/signup>
+* Have an Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
 * Have a project or application that you want to add authentication to.
 
-> Note: If you'd prefer to download a complete sample application, you can use ours:
+If you don't have an existing app, or are new to building apps, start with this documentation:
 
-<StackSelector snippet="samples"/>
-
-If you meet all of the prerequisites, then you can move on to the first step, which is adding and configuring packages.
+<StackSelector snippet="create-app"/>
 
 <NextSectionLink/>

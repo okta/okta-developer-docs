@@ -1,5 +1,5 @@
 ---
-title: Configure the Callback
+title: Define the Callback
 ---
 To redirect back to your application from a web browser, you must specify a unique URI to your app.
 

@@ -1,0 +1,1 @@
+We have multiple samples available in our [iOS Samples repo](link to samples repo) on GitHub.
