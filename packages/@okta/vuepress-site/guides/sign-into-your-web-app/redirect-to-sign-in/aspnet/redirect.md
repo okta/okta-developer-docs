@@ -29,11 +29,6 @@ public class AccountController : Controller
 
         return RedirectToAction("Index", "Home");
     }
-
-    public ActionResult PostLogout()
-    {
-        return RedirectToAction("Index", "Home");
-    }
 }
 ```
 
