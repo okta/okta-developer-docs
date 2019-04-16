@@ -42,7 +42,7 @@ Note that limits for more specific endpoints override the limits for less specif
 | Action and Okta API Endpoint                                                                                 | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity |
 | ------------------------------------------------------------------------------------------------------------ | ---------------- | ---------------- | ------- | ---------- | ------------------ |
 | **Authenticate different end users:**<br>`/api/v1/authn`                                                     | 100              | 300              | 300*    | 600*       | 500                |
-| **Verify a factor:**<br>`/api/v1/authn/factors/{id}/verify` only                                             | 100              | 300              | 300*    | 600*       | - (Shared with `/api/v1/authn`) |
+| **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only                                             | 100              | 300              | 300*    | 600*       | - (Shared with `/api/v1/authn`) |
 | **Create or list applications:**<br>`/api/v1/apps` except `/api/v1/apps/{id}`                                | 20               | 25               | 25      | 100        | 100                |
 | **Get, update, or delete an application by ID:**<br>`/api/v1/apps/{id}` only                                 | 100              | 300              | 300*    | 600*       | 500                |
 | **Create or list groups:**<br>`/api/v1/groups` except `/api/v1/groups/{id}`                                  | 100              | 300              | 300     | 600        | 500                |
@@ -122,7 +122,7 @@ The following are the high capacity rate limits per minute that apply across the
 | `/api/v1/users/{id}`                                                       | 1500      | 3000         |
 | `/api/v1/authn`                                                            | 1500      | 3000         |
 | `/api/plugin/{protocolVersion}/form-creds/{appUserIds}/{formSiteOption}`   | 1500      | 3000         |
-| `/api/v1/authn/factors/{id}/verify`                                        | 1500      | 3000         |
+| `/api/v1/authn/factors/{factorIdOrFactorType}/verify`                      | 1500      | 3000         |
 | `/api/v1/apps/{id}`                                                        | 1500      | 3000         |
 | `/bc/image/fileStoreRecord`                                                | 1500      | 3000         |
 | `/bc/globalFileStoreRecord`                                                | 1500      | 3000         |
