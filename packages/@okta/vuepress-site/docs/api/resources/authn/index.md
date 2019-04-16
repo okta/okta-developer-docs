@@ -6559,7 +6559,7 @@ The `recoveryToken` is sent via an out-of-band channel to the end user's verifie
 One-time token issued as `sessionToken` response parameter when an authentication transaction completes with the `SUCCESS` status.
 
 * The token can be exchanged for a session with the [Session API](/docs/api/resources/sessions/#create-session-with-session-token) or converted to a [session cookie](/use_cases/authentication/session_cookie).
-* The lifetime of the `sessionToken` is the same as the lifetime of a user's session and managed by the organization's security policy.
+* The lifetime of the `sessionToken` is 5 minutes.
 
 ### Factor Result
 
