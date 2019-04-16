@@ -686,9 +686,7 @@ Accept-Encoding: gzip,deflate
 
 ##### Create Group: POST /Groups
 
-<ApiLifecycle access="beta" />
-
-With Group Push Beta, Okta now supports creation of a Group along with its user memberships in the downstream SCIM enabled application if your SCIM 2.0 API supports it. The caveat is that the users must already be provisioned in your SCIM enabled application.
+Okta supports creation of a Group along with its user memberships in the downstream SCIM enabled application if your SCIM 2.0 API supports it. The caveat is that the users must already be provisioned in your SCIM enabled application.
 
 ###### SCIM 1.1
 
