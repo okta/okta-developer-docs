@@ -13,7 +13,7 @@ Your SCIM API must support the following SCIM API endpoints to work with Okta:
 
 ![scim api endpoints required to work with Okta width:](/img/scim_flowchart.png "scim api endpoints required to work with Okta width:")
 
-### Create Account: POST /Users
+### Create Account: `POST /Users`
 
 Your SCIM 2.0 API should allow the creation of a new user
 account.  The four basic attributes listed above must be supported, along
@@ -142,7 +142,7 @@ Accept-Encoding: gzip,deflate
 For more information on user creation via the `/Users` SCIM
 endpoint, see [section 3.3](https://tools.ietf.org/html/rfc7644#section-3.3) of the [SCIM 2.0 Protocol Specification](https://tools.ietf.org/html/rfc7644).
 
-### Read list of accounts with search: GET /Users
+### Read list of accounts with search: `GET /Users`
 
 Your SCIM 2.0 API must support the ability for Okta to retrieve
 users (and entitlements like groups if available) from your
@@ -204,7 +204,7 @@ Accept-Encoding: gzip,deflate
 For more details on the `/Users` SCIM endpoint, see [section 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2)
 of the [SCIM 2.0 Protocol Specification](https://tools.ietf.org/html/rfc7644).
 
-### Read Account Details: GET /Users/{id}
+### Read Account Details: `GET /Users/{id}`
 
 Your SCIM 2.0 API must support fetching of users by user id.
 
@@ -240,7 +240,7 @@ Accept-Encoding: gzip,deflate
 For more details on the `/Users/{id}` SCIM endpoint, see [section 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)
 of the [SCIM 2.0 Protocol Specification](https://tools.ietf.org/html/rfc7644).
 
-### Update Account Details: PUT /Users/{id}
+### Update Account Details: `PUT /Users/{id}`
 
 When a profile attribute of a user assigned to your SCIM enabled
 application is changed, Okta will do the following:
@@ -360,7 +360,7 @@ Accept-Encoding: gzip,deflate
 For more details on updates to the `/Users/{id}` SCIM endpoint, see [section 3.5.1](https://tools.ietf.org/html/rfc7644#section-3.5.1)
 of the [SCIM 2.0 Protocol Specification](https://tools.ietf.org/html/rfc7644).
 
-### Deactivate Account: PATCH /Users/{id}
+### Deactivate Account: `PATCH /Users/{id}`
 
 Deprovisioning is perhaps the most important reason customers why
 customers ask that your application supports provisioning
@@ -633,7 +633,7 @@ requests are made to your API.
 For more details on rate limiting requests using the HTTP 429
 status code, see [section 4](https://tools.ietf.org/html/rfc6585#section-4) of [RFC 6585](https://tools.ietf.org/html/rfc6585).
 
-### GET /Groups API Endpoint
+### Read list of groups: `GET /Groups`
 
 Okta currently supports the /groups endpoint for GET /groups of a SCIM API. This is usually done to check for groups data and is not mandatory for SCIM to work. The minimum check we require is for the resources to be of JSON. check example below.
 
@@ -684,11 +684,9 @@ Connection: Keep-Alive
 Accept-Encoding: gzip,deflate
 ```
 
-##### Create Group: POST /Groups
+### Create Group: `POST /Groups`
 
-<ApiLifecycle access="beta" />
-
-With Group Push Beta, Okta now supports creation of a Group along with its user memberships in the downstream SCIM enabled application if your SCIM 2.0 API supports it. The caveat is that the users must already be provisioned in your SCIM enabled application.
+With Group Push, Okta now supports creation of a Group along with its user memberships in the downstream SCIM enabled application if your SCIM 2.0 API supports it. The caveat is that the users must already be provisioned in your SCIM enabled application.
 
 ###### SCIM 1.1
 
@@ -750,11 +748,9 @@ Accept-Encoding: gzip,deflate
 
 For more details, see [section 3.3](https://tools.ietf.org/html/rfc7644#section-3.3) of the [SCIM 2.0 Protocol Specification](https://tools.ietf.org/html/rfc7644).
 
-### Read Group Details: GET /Groups/{id}
+### Read Group Details: `GET /Groups/{id}`
 
-<ApiLifecycle access="beta" />
-
-With Group Push Beta, Okta now supports reading the Group's details by group id along with the membership details. If a Group is not found, your SCIM application may return a HTTP status 404("not found").
+With Group Push, Okta now supports reading the Group's details by group id along with the membership details. If a Group is not found, your SCIM application may return a HTTP status 404("not found").
 
 Below is a sample SCIM 2.0 request from Okta:
 
@@ -772,11 +768,9 @@ Accept-Encoding: gzip,deflate
 For more details on the `/Groups/{id}` SCIM endpoint, see [section 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1) of the [SCIM 2.0 Protocol Specification](https://tools.ietf.org/html/rfc7644).
 
 
-### Update Group Details: PUT /Groups/{id}
+### Update Group Details: `PUT /Groups/{id}`
 
-<ApiLifecycle access="beta" />
-
-With Group Push Beta, any updates to the Group profile and memberships in Okta can now be reflected into your SCIM application. Okta will do the following to make the Group changes effective:
+With Group Push, any updates to the Group profile and memberships in Okta can now be reflected into your SCIM application. Okta will do the following to make the Group changes effective:
 
 * Make a GET request against `/groups/{id}` on your SCIM API for the group to update.
 * Take the resource returned from your SCIM API and update only the attributes that need to be updated.
@@ -844,9 +838,7 @@ Accept-Encoding: gzip,deflate
 
 For more details, see [section 3.5.1](https://tools.ietf.org/html/rfc7644#section-3.5.1) of the [SCIM 2.0 Protocol Specification](https://tools.ietf.org/html/rfc7644).
 
-### Update Group Details: PATCH /Groups/{id}
-
-<ApiLifecycle access="beta" />
+### Update Group Details: `PATCH /Groups/{id}`
 
 > **Note:** We recommend retrieving the `id` field for the Group ID from the path itself instead of parsing it from the `value` attribute in the request body. We plan to deprecate the `id` field in the body to be strictly SCIM RFC compliant.
 
@@ -1043,11 +1035,9 @@ Accept-Encoding: gzip,deflate
 
 For more details, see [section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2) of the [SCIM 2.0 Protocol Specification](https://tools.ietf.org/html/rfc7644).
 
-### Delete Group: DELETE /Groups/{id}
+### Delete Group: `DELETE /Groups/{id}`
 
-<ApiLifecycle access="beta" />
-
-With Group Push Beta, Okta can delete the Group in your SCIM enabled application. For more details on deleting resources, see section [3.6](https://tools.ietf.org/html/rfc7644#section-3.6) of the [SCIM 2.0 Protocol Specification](https://tools.ietf.org/html/rfc7644).
+With Group Push, Okta can delete the Group in your SCIM enabled application. For more details on deleting resources, see section [3.6](https://tools.ietf.org/html/rfc7644#section-3.6) of the [SCIM 2.0 Protocol Specification](https://tools.ietf.org/html/rfc7644).
 
 Below is a sample request from Okta:
 
