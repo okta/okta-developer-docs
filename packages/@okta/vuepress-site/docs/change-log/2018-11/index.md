@@ -12,7 +12,7 @@ title: Okta API Products Change Log
 | [New Version of Okta Sign-in Widget](#new-version-of-okta-sign-in-widget) | Available Now | Available Now |
 | [System Log API Is in Early Access (EA)](#system-log-api-is-in-early-access-ea) | Available Now | Available Now |
 | [Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)](#password-imports-with-salted-sha-256-algorithm-is-in-early-access-ea) | Available Now | Available Now |
-| [Bugs Fixed for 2018.11](#bugs-fixed-for-201811) | March 14, 2018 | March 19, 2018 |
+| [Bugs Fixed for 2018.11](#bugs-fixed-for-2018-11) | March 14, 2018 | March 19, 2018 |
 
 ### API Support for IdP-initiated Authentication
 

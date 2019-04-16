@@ -8,8 +8,8 @@ title: Okta API Products Change Log
 
 | Change                                                                                                               | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
-| [Bugs Fixed in 2018.12.2](#bugs-fixed-in-2018122)                                                                       | December 27, 2018         | January 7, 2019                             |
-| [Previously Released Early Access Features 2018.12.2 Update](#previously-released-early-access-features-2018122-update) | Available Now            | Available Now                                |
+| [Bugs Fixed in 2018.12.2](#bugs-fixed-in-2018-12-2)                                                                       | December 27, 2018         | January 7, 2019                             |
+| [Previously Released Early Access Features 2018.12.2 Update](#previously-released-early-access-features-2018-12-2-update) | Available Now            | Available Now                                |
 
 ### Bugs Fixed in 2018.12.2
 

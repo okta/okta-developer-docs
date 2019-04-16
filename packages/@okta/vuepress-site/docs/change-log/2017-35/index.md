@@ -3,7 +3,7 @@ title: Okta API Products Change Log
 excerpt: Summary of changes to the Okta API since Release 2017.34
 ---
 
-## 2017.34
+## 2017.35
 
 The following platform feature enhancements and bug fixes are available in the 2017.35 release.
 Dates for preview and production release are the earliest possible release date. Always check your org to verify the release version.
@@ -12,7 +12,7 @@ Dates for preview and production release are the earliest possible release date.
 
 | Feature Enhancement                                                           | Expected in Preview Orgs            | Expected in Production Orgs |
 |:------------------------------------------------------------------------------|:------------------------------------|:----------------------------|
-|        [Zones API is an Early Access Release](#zones-api-is-an-early-access-release) | August 22, 2017                     | September 5, 2017           |
+| [Zones API is an Early Access Release](#zones-api-is-an-early-access-release) | August 22, 2017                     | September 5, 2017           |
 
 #### Zones API is an Early Access Release
 <!-- OKTA-129115 -->

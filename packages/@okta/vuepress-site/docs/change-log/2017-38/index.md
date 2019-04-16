@@ -12,9 +12,9 @@ Dates for preview and production release are the earliest possible release date.
 
 | Feature Enhancement                                                           | Expected in Preview Orgs            | Expected in Production Orgs |
 |:------------------------------------------------------------------------------|:------------------------------------|:----------------------------|
-|         Key Rotation for OpenID and OAuth Apps | September 20, 2017                     | September 25, 2017           |
-|         Policy API | September 7, 2017                     | October 9, 2017           |
-|         Password Policy API | September 7, 2017                     | October 9, 2017           |
+| Key Rotation for OpenID and OAuth Apps | September 20, 2017                     | September 25, 2017           |
+| Policy API | September 7, 2017                     | October 9, 2017           |
+| Password Policy API | September 7, 2017                     | October 9, 2017           |
 
 #### Policy API
 

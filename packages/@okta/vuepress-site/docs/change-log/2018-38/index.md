@@ -7,8 +7,8 @@ title: Okta API Products Change Log
 | Change                                                                                                               | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
 | [User Sessions Deleted after Password Reset](#user-sessions-deleted-after-password-reset)                            | September 19, 2018       | October 15, 2018                             |
-| [Bugs Fixed in 2018.38](#bugs-fixed-in-201838)                                                                       | September 19, 2018       | September 24, 2018                           |
-| [Previously Released Early Access Features 2018.38 Update](#previously-released-early-access-features-201838-update) | Available Now            | Available Now                                |
+| [Bugs Fixed in 2018.38](#bugs-fixed-in-2018-38)                                                                       | September 19, 2018       | September 24, 2018                           |
+| [Previously Released Early Access Features 2018.38 Update](#previously-released-early-access-features-2018-38-update) | Available Now            | Available Now                                |
 
 ### User Sessions Deleted after Password Reset
 

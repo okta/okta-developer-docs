@@ -7,8 +7,8 @@ title: Okta API Products Change Log
 | Change                                                                                                               | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
 | [System Log API Returns Threat Insight Attribute](#system-log-api-returns-threat-insight-attribute)                            | November 28, 2018       | December 3, 2018                             |
-| [Bugs Fixed in 2018.48](#bugs-fixed-in-201848)                                                                       | November 28, 2018         | December 3, 2018                             |
-| [Previously Released Early Access Features 2018.48 Update](#previously-released-early-access-features-201848-update) | Available Now            | Available Now                                |
+| [Bugs Fixed in 2018.48](#bugs-fixed-in-2018-48)                                                                       | November 28, 2018         | December 3, 2018                             |
+| [Previously Released Early Access Features 2018.48 Update](#previously-released-early-access-features-2018-48-update) | Available Now            | Available Now                                |
 
 ### System Log API Returns Threat Insight Attribute
 

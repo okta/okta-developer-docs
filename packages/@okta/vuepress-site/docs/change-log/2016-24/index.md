@@ -20,4 +20,4 @@ If you need to disable automatic key rotation for an OpenID Connect flow, you ca
 
 ### Bugs Fixed
 
-* OKTA-69173 – The `helpURL` for `vpn` wasn't returned even though it had been set previously in a request to `/api/v1/apps`.
+* OKTA-69173 - The `helpURL` for `vpn` wasn't returned even though it had been set previously in a request to `/api/v1/apps`.

@@ -7,7 +7,7 @@ title: Okta API Products Change Log
 | Change | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | :---------- | :--------------------------------- | :----------------------------------------------------------- |
 | [System Log Entry Delay Change](#system-log-entry-delay-change)| May 15, 2018 | May 29, 2018 |
-| [Previously Released Early Access Features 2018.20 Update](#previously-released-early-access-features-201820-update) | Available now | Available now |
+| [Previously Released Early Access Features 2018.20 Update](#previously-released-early-access-features-2018-20-update) | Available now | Available now |
 
 ### System Log Entry Delay Change
 

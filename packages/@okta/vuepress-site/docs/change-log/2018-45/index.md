@@ -7,8 +7,8 @@ title: Okta API Products Change Log
 | Change                                                                                                               | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
 | [Linked Objects API is Generally Available (GA)](#linked-objects-api-is-generally-available-ga)                            | November 6, 2018       | December 10, 2018                             |
-| [Bugs Fixed in 2018.45](#bugs-fixed-in-201845)                                                                       | November 6, 2018         | November 12, 2018                             |
-| [Previously Released Early Access Features 2018.45 Update](#previously-released-early-access-features-201845-update) | Available Now            | Available Now                                |
+| [Bugs Fixed in 2018.45](#bugs-fixed-in-2018-45)                                                                       | November 6, 2018         | November 12, 2018                             |
+| [Previously Released Early Access Features 2018.45 Update](#previously-released-early-access-features-2018-45-update) | Available Now            | Available Now                                |
 
 ### Linked Objects API is Generally Available (GA)
 

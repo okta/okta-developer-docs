@@ -12,7 +12,7 @@ title: Okta API Products Change Log
 | [Support for JWTs Signed with Private Keys](#support-for-jwts-signed-with-private-keys)                          | September 5, 2018           | September 10, 2018                              |
 | [System Log Event for Rate Limit Override Expiration](#system-log-event-for-rate-limit-override-expiration)                          | September 5, 2018           | September 10, 2018                              |
 | [Required Properties in App User Schema](#required-properties-in-app-user-schema)                          | September 5, 2018           | September 10, 2018                              |
-| [Previously Released Early Access Features 2018.36 Update](#previously-released-early-access-features-201836-update) | Available now            | Available now                                |
+| [Previously Released Early Access Features 2018.36 Update](#previously-released-early-access-features-2018-36-update) | Available now            | Available now                                |
 
 ### New Device Notification Emails are Generally Available (GA)
 

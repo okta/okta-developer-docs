@@ -14,7 +14,7 @@ title: Okta API Products Change Log
 | [Generic OIDC IdP is now GA in Preview](#generic-oidc-idp-is-now-ga-in-preview)                         | March 6, 2019  |
 | [User Search is now GA in Production](#user-search-is-now-ga-in-production)                             | March 6, 2019  |
 | [The Import Inline Hook is in EA](#the-import-inline-hook-is-in-ea)                                     | March 6, 2019  |
-| [Previously Released Early Access Features 2019.03.0 Update](#previously-released-early-access-features-2019010-update) | Available Now   |
+| [Previously Released Early Access Features 2019.03.0 Update](#previously-released-early-access-features-2019-03-0-update) | Available Now   |
 
 ### Password Import Supports SHA-1 and MD5
 
@@ -40,7 +40,7 @@ Extended search capabilities for the `/users` endpoint is now Generally Availabl
 
 The [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook) enables you to add custom logic to the process of importing new users into Okta from an app. <!--OKTA-211788-->
 
-### Previously Released Early Access Features 2019.02.0 Update
+### Previously Released Early Access Features 2019.03.0 Update
 
 The following features have already been released as Early Access. To enable them, contact [Support](https://support.okta.com/help/open_case).
 
