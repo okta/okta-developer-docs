@@ -1,1 +1,1 @@
-We have samples available in our [ASP.NET Core Sample repo](https://github.com/okta/samples-aspnetcore/tree/master/okta-hosted-login) on GitHub.
+We have samples available in our [ASP.NET Core Sample repo](https://github.com/okta/samples-aspnetcore) on GitHub.
