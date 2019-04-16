@@ -31,10 +31,14 @@
       },
     },
     created () {
-      window.addEventListener('scroll', this.handleScroll);
+      if(typeof window !== "undefined") { 
+        window.addEventListener('scroll', this.handleScroll);
+      }
     },
     destroyed () {
-      window.removeEventListener('scroll', this.handleScroll);
+      if(typeof window !== "undefined") { 
+        window.removeEventListener('scroll', this.handleScroll);
+      }
     },
     computed: { 
       framework() { 
@@ -42,7 +46,7 @@
         return findOnAncestor({ find: 'framework', node: this }) || this.options[0].name;
       },
       section() { return findOnAncestor({ find: 'section', node: this }); },
-      options() { return this.section.snippetByName[this.snippet].frameworks; },
+      options() { return this.section ? this.section.snippetByName[this.snippet].frameworks : []; },
       snippetComponentKey() { 
         const option = this.options.find( option => option.framework === this.framework );
         return (option ? option.componentKey : '');
