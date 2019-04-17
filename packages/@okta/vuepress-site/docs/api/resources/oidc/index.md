@@ -229,7 +229,7 @@ h1U5l0h7&response_type=id_token token&scope=openid&redirect_uri=https%3A%2F%2Fww
 In the authorization code flow, the endpoint sends a redirect header redirecting the user's browser back to the application that made the request. The redirect will include a `code` in the URL.
 
 ```
-https%3A%2F%2Fwww.example.com?code=MzRlNDEwyzcDZ5kzY&state=d0e2fd9bb601
+https://www.example.com?code=MzRlNDEwyzcDZ5kzY&state=d0e2fd9bb601
 ```
 
 #### Response Example (Error)
