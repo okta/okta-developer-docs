@@ -81,7 +81,7 @@ The response you receive will confirm creation of the event hook and provide you
 
 ### Verifying an Event Hook
 
-After registering the event hook, you need to trigger the one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/verify` API. Okta will then make the GET request to your endpoint. If verification is successful, the JSON payload of the response to your call to the `/verify` API will contain a property called `verfication` set to `VERIFIED`.
+After registering the event hook, you need to trigger the one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/lifecycle/verify` API. Okta will then make the GET request to your endpoint. If verification is successful, the JSON payload of the response to your call to the `/verify` API will contain a property called `verificationStatus` set to `VERIFIED`.
 
 ## Sample Event Delivery Payload
 
