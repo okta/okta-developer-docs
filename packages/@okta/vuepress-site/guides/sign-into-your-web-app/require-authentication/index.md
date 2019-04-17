@@ -1,24 +1,18 @@
 ---
 title: Require Authentication
 ---
-An important decision regarding your authentication requirements is which parts of your application require the user to be authenticated. You can require authentication across the entire app or just require it for particular routes or controllers. There is also the issue of what sort of app behavior you want for unauthenticated users (users who aren't signed in).
-
-### Require Authentication for Everything
-
-For some applications, you want to require the user to be authenticated (signed in) for all routes.
-
-<StackSelector snippet="reqautheverything"/>
+In many applications, you want to prevent the user from accessing certain routes or sections unless they are signed in. You can require authentication across the entire app or just require it for particular routes or controllers. Any route that doesn't specifically require authentication is accessible without signing in (also called anonymous access).
 
 ### Require Authentication for a Specific Route
 
-For other applications, you may need to require authentication only for a certain route or group of routes.
+If you want the user to only have access to a route if they are signed in, require authentication for just those routes.
 
 <StackSelector snippet="reqauthspecific"/>
 
-### Allow Anonymous Access to a Specific Route or Controller 
+### Require Authentication for Everything
 
-Define what happens when a user isn't authenticated. 
+For some applications, you may want to require the user to be authenticated for all routes.
 
-<StackSelector snippet="allowanon"/>
+<StackSelector snippet="reqautheverything"/>
 
 <NextSectionLink/>
