@@ -75,7 +75,7 @@ async function runMarkdownLinkCheck(dir, options) {
       if (err) { throw new Error(err) }
       return Promise.all(results.map(result => {
         resultsCount ++;
-        if (result.status === 'dead') {
+        if (result.status === 'dead' || result.status === 'error') {
           linkErrors.push(result);
           isError = true;
         }

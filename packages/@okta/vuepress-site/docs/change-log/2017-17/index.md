@@ -121,7 +121,7 @@ If your org or integrations depend on the previous behavior, you can request the
  * Removing the last app target from an `APP_ADMIN` role assignment changed the scope of the role assignment to all app targets. Now an exception is thrown.
     To target all apps, delete the APP_ADMIN role assignment and recreate it. (OKTA-115122)
  * Adding the first app target failed to change the scope of the role assignment from applying to all app targets to only applying to the specified target.
-    See [Administrator Roles API](/docs/api/resources/roles#add-app-target-to-app-administrator-role) for details. (OKTA-115122)
+    See [Administrator Roles API](/docs/api/resources/roles/#add-app-target-to-app-administrator-role) for details. (OKTA-115122)
  * Application Administrators were incorrectly able to create an OpenID Connect service client even though they weren't assigned an OpenID Connect client app. (OKTA-115168)
  * Some orgs weren't able to deprovision a user, receiving an incorrect 403 error: "Operation failed because user profile is mastered under another system." (OKTA-119549)
 <!-- * Read-only Administrators were incorrectly able to view the administrator UI for deleting authorization servers. (OKTA-123116) hold for production -->

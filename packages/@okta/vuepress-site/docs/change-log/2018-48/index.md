@@ -18,7 +18,7 @@ The `debugContext` object returned by the [System Log API](/docs/api/resources/s
 
 * Some customers could access log data outside of their allowed retention range through the [System Log API](/docs/api/resources/system_log). <!--OKTA-196313-->
 
-* Responses from the `/oauth2/${authServerId}/.well-known/oauth-authorization-server` [endpoint](/docs/api/resources/oidc#well-knownoauth-authorization-server) did not include supported OpenID Connect response types in the content of the `response_types_supported` property. <!--OKTA-114737-->
+* Responses from the `/oauth2/${authServerId}/.well-known/oauth-authorization-server` [endpoint](/docs/api/resources/oidc/#well-knownoauth-authorization-server) did not include supported OpenID Connect response types in the content of the `response_types_supported` property. <!--OKTA-114737-->
 
 ### Previously Released Early Access Features 2018.48 Update
 

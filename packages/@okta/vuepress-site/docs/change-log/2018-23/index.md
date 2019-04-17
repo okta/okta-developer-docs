@@ -17,7 +17,7 @@ Enrollment, activation, and verification of U2F factors are now supported in the
 
 ### Network Selection Modes Deprecated
 
-Two deprecated network selection modes (`ON_NETWORK `and `OFF_NETWORK`) have been removed from the [Network Condition Object](/docs/api/resources/policy#NetworkConditionObject). They have been replaced by the `ZONE` type. <!-- OKTA-172947 -->
+Two deprecated network selection modes (`ON_NETWORK `and `OFF_NETWORK`) have been removed from the [Network Condition Object](/docs/api/resources/policy/#NetworkConditionObject). They have been replaced by the `ZONE` type. <!-- OKTA-172947 -->
 
 ### Better Signing Key Errors
 

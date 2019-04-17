@@ -26,4 +26,4 @@ This API can be enabled beginning August 22, 2017 for preview orgs, and beginnin
 
 This bug fix is expected on preview orgs starting August 31, 2017, and on production orgs starting Sept 5, 2017.
 
-* Some requests to update a user via [`/api/v1/users/${userId}`](/docs/api/resources/users#update-user) failed with a 500 Internal Server Error. (OKTA-138214)
+* Some requests to update a user via [`/api/v1/users/${userId}`](/docs/api/resources/users/#update-user) failed with a 500 Internal Server Error. (OKTA-138214)

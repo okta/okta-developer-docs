@@ -43,7 +43,7 @@ For information on using the Postman REST API test client for these steps, see [
 
 #### Step 1: List your apps and get the app id, name, and label for each app to update.
 
-Use the [List Apps API](/docs/api/resources/apps#list-applications) to return a list of all apps.
+Use the [List Apps API](/docs/api/resources/apps/#list-applications) to return a list of all apps.
 
 For each app to update, collect the `id`, `name`, and `label` elements.
 
@@ -108,7 +108,7 @@ Truncated Response:
 
 #### Step 2: Generate a new application key credential.
 
-Use the [Apps API](/docs/api/resources/apps#generate-new-application-key-credential)
+Use the [Apps API](/docs/api/resources/apps/#generate-new-application-key-credential)
 to generate new credentials. Pass each app ID (`id`) that was collected in the previous step as the app ID (`aid`) in this API. If you have no company policy for credential expiration, 10 years is suggested.
 
 
@@ -159,7 +159,7 @@ Response:
 
 #### Step 3: Update the key credential for the app to specify the new signing key id.
 
-Call the [Apps API](/docs/api/resources/apps#update-key-credential-for-application) with the app ID you obtained in Step 1. In the body, include
+Call the [Apps API](/docs/api/resources/apps/#update-key-credential-for-application) with the app ID you obtained in Step 1. In the body, include
 the app name and the app label that you obtained in Step 1, the key ID that you obtained in Step 2, and the value *SAML_2_0* for the sign on mode.
 
 Request:
@@ -202,7 +202,7 @@ This step is the same as [Step 1](#step-1-list-your-apps-and-get-the-app-id-name
 
 #### Step 2: Retrieve all certificates associated with the app and locate the SHA1 certificate.
 
-Use the [List Key Credentials for an Application API](/docs/api/resources/apps#list-key-credentials-for-application) to list all the credentials.
+Use the [List Key Credentials for an Application API](/docs/api/resources/apps/#list-key-credentials-for-application) to list all the credentials.
 Pass the app ID (`id`) that was collected in the previous step as the app ID (`aid`) in this API. Then, determine which certificate is the SHA1 certificate by copying the certificate text for each of the returned certificates, and [determine the signature algorithm](#determine-the-signature-algorithm-of-a-certificate)
 using the method described below. After determining which certificate is the SHA1 certificate, note the signing key id, `kid`.
 
@@ -251,7 +251,7 @@ Response:
 
 #### Step 3: Update the key credential for the application with the SHA1 certificate.
 
-Use the [Apps API](/docs/api/resources/apps#update-key-credential-for-application)
+Use the [Apps API](/docs/api/resources/apps/#update-key-credential-for-application)
 to update the key credential for the application to specify the kid of the SHA1 certificate that you retrieved in Step 2.
 
 This step is the same as

@@ -11,7 +11,7 @@ title: Okta API Products Change Log
 
 ### Bugs Fixed in 2018.35
 
-* Search queries to the [/user endpoint](https://developer.okta.com/docs/api/resources/users#list-users-with-search) with an invalid `after` parameter would return an HTTP 500 error. (OKTA-185186)
+* Search queries to the [/user endpoint](https://developer.okta.com/docs/api/resources/users/#list-users-with-search) with an invalid `after` parameter would return an HTTP 500 error. (OKTA-185186)
 
 ### Previously Released Early Access Features 2018.35 Update
 

@@ -22,7 +22,7 @@ New device notification email events will now appear in the System Log. <!-- OKT
 ### Bugs Fixed in 2018.22
 
 * Default password policy settings were sometimes incorrectly applied when creating a user with a password. (OKTA-127830)
-* The `/userinfo` [endpoint](/docs/api/resources/oidc#userinfo) would return an empty JSON object in the response body when using an invalid access token. (OKTA-169553)
+* The `/userinfo` [endpoint](/docs/api/resources/oidc/#userinfo) would return an empty JSON object in the response body when using an invalid access token. (OKTA-169553)
 * Some OAuth 2.0/OIDC refresh tokens would expire early. (OKTA-171056)
 
 ### Previously Released Early Access Features 2018.22 Update
