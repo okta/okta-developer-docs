@@ -27,7 +27,7 @@ The requests sent from Okta to your external service are HTTPS requests. POST re
 
 ### One-Time Verification Request
 
-After registering an event hook, but before you can use it, you need to have Okta make a one-time GET verification request to your endpoint, passing your service a verification value that it needs to send back. This serves as a test confirming that you control the endpoint.
+After registering an event hook, but before you can use it, you need to have Okta make a one-time GET verification request to your endpoint, passing your service a verification value that your service needs to send back. This serves as a test confirming that you control the endpoint. See [Verifying an Event Hook](#verifying-an-event-hook) below for more information on triggering that one-time verification step.
 
 This one-time verification request is the only GET request Okta will send to your external service, while the ongoing requests to notify your service of event occurrences will be HTTPS POST requests. Your web service can use the GET versus POST distinction to implement logic to handle this special one-time request.
 
@@ -81,7 +81,7 @@ The response you receive will confirm creation of the event hook and provide you
 
 ### Verifying an Event Hook
 
-After registering the event hook, you need to trigger the one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/lifecycle/verify` API. Okta will then make the GET request to your endpoint. If verification is successful, the JSON payload of the response to your call to the `/verify` API will contain a property called `verificationStatus` set to `VERIFIED`.
+After registering the event hook, you need to trigger a one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/lifecycle/verify` API. Okta will then make the GET request to your endpoint. If verification is successful, the JSON payload of the response to your call to the `/verify` API will contain a property called `verificationStatus` set to `VERIFIED`.
 
 ## Sample Event Delivery Payload
 
