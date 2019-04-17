@@ -90,7 +90,7 @@ The authentication transaction [state machine](#transaction-state) can be modifi
 
 The context object allows [trusted web applications](#trusted-application) such as an external portal to pass additional context for the authentication or recovery transaction.
 
-> Overriding context such as `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication or recovery requests with a valid *administrator API token*.
+> Overriding context such as `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication or recovery requests with a valid *administrator API token*. If an API token is not provided, the `deviceToken` will be ignored.
 
 | Property    | Description                                                                   | DataType | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ----------- | ----------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- |
@@ -553,7 +553,7 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 
 Note:
 
-* Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*.
+* Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/api/getting_started/design_principles#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header
 
 ##### Request Example for Trusted Application
@@ -611,7 +611,7 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 
 Note:
 
-* Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*.
+* Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/api/getting_started/design_principles#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header
 
 ##### Request Example for Activation Token
@@ -875,7 +875,7 @@ Include the `X-Device-Fingerprint` header to supply a device fingerprint.
 
 Note:
 
-* Specifying your own `deviceToken` or device fingerprint is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*.
+* Specifying your own `deviceToken` or device fingerprint is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/api/getting_started/design_principles#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 * To use device fingerprinting for the unknown-device email notification feature, include the `User-Agent` header in the request. For more information, see the [General Security documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_General).
 * For more information about security behavior detection, see the [EA documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_proc_security_behavior_detection).
@@ -1878,14 +1878,14 @@ curl -v -X POST \
 
 You can enroll, activate, manage, and verify factors inside the authentication context with `/api/v1/authn/factors`.
 
-> You can enroll, manage, and verify factors outside the authentication context with [`/api/v1/users/:uid/factors/`](factors#factor-verification-operations).
+> You can enroll, manage, and verify factors outside the authentication context with [`/api/v1/users/:uid/factors/`](/docs/api/resources/factors/#factor-verification-operations).
 
 ### Enroll Factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors" />
 
-Enrolls a user with a [factor](factors#supported-factors-for-providers) assigned by their **MFA Policy**.
+Enrolls a user with a [factor](/docs/api/resources/factors/#supported-factors-for-providers) assigned by their **MFA Policy**.
 
 * [Enroll Okta Security Question Factor](#enroll-okta-security-question-factor)
 * [Enroll Okta SMS Factor](#enroll-okta-sms-factor)
@@ -1907,21 +1907,21 @@ Enrolls a user with a [factor](factors#supported-factors-for-providers) assigned
 | Parameter   | Description                                                                   | Param Type  | DataType                                                      | Required |
 | ----------- | ----------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------- | -------- |
 | stateToken  | [state token](#state-token) for current transaction                           | Body        | String                                                        | TRUE     |
-| factorType  | type of factor                                                                | Body        | [Factor Type](factors#factor-type)                            | TRUE     |
-| provider    | factor provider                                                               | Body        | [Provider Type](factors#provider-type)                        | TRUE     |
-| profile     | profile of a [supported factor](factors#supported-factors-for-providers)      | Body        | [Factor Profile Object](factors#factor-profile-object)        | TRUE     |
+| factorType  | type of factor                                                                | Body        | [Factor Type](/docs/api/resources/factors/#factor-type)                            | TRUE     |
+| provider    | factor provider                                                               | Body        | [Provider Type](/docs/api/resources/factors/#provider-type)                        | TRUE     |
+| profile     | profile of a [supported factor](/docs/api/resources/factors/#supported-factors-for-providers)      | Body        | [Factor Profile Object](/docs/api/resources/factors/#factor-profile-object)        | TRUE     |
 
 #### Response Parameters for Enroll Factor
 
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
 
-> Some [factor types](factors#factor-type) require [activation](#activate-factor) to complete the enrollment process.  The [authentication transaction](#transaction-state) will transition to `MFA_ENROLL_ACTIVATE` if a factor requires activation.
+> Some [factor types](/docs/api/resources/factors/#factor-type) require [activation](#activate-factor) to complete the enrollment process.  The [authentication transaction](#transaction-state) will transition to `MFA_ENROLL_ACTIVATE` if a factor requires activation.
 
 #### Enroll Okta Security Question Factor
 
 
-Enrolls a user with the Okta `question` factor and [question profile](factors#question-profile).
+Enrolls a user with the Okta `question` factor and [question profile](/docs/api/resources/factors/#question-profile).
 
 > Security Question factor does not require activation and is `ACTIVE` after enrollment
 
@@ -1973,7 +1973,7 @@ curl -v -X POST \
 #### Enroll Okta SMS Factor
 
 
-Enrolls a user with the Okta `sms` factor and an [SMS profile](factors#sms-profile).  A text message with an OTP is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `next` link relation to complete the enrollment process.
+Enrolls a user with the Okta `sms` factor and an [SMS profile](/docs/api/resources/factors/#sms-profile).  A text message with an OTP is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `next` link relation to complete the enrollment process.
 
 ##### Request Example for Enroll Okta SMS Factor
 
@@ -2090,7 +2090,7 @@ curl -v -X POST \
 #### Enroll Okta Call Factor
 
 
-Enrolls a user with the Okta `call` factor and a [Call profile](factors#call-profile).  A voice call with an OTP is sent to the device during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
+Enrolls a user with the Okta `call` factor and a [Call profile](/docs/api/resources/factors/#call-profile).  A voice call with an OTP is sent to the device during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
 
 ##### Request Example for Enroll Okta Call Factor
 
@@ -2506,7 +2506,7 @@ curl -v -X POST \
 #### Enroll RSA SecurID Factor
 
 
-Enrolls a user with a RSA SecurID factor and a [token profile](factors#token-profile).  RSA tokens must be verified with the [current pin+passcode](factors#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a RSA SecurID factor and a [token profile](/docs/api/resources/factors/#token-profile).  RSA tokens must be verified with the [current pin+passcode](/docs/api/resources/factors/#factor-verification-object) as part of the enrollment request.
 
 ##### Request Example for Enroll RSA SecurID Factor
 
@@ -2555,7 +2555,7 @@ curl -v -X POST \
 #### Enroll Symantec VIP Factor
 
 
-Enrolls a user with a Symantec VIP factor and a [token profile](factors#token-profile).  Symantec tokens must be verified with the [current and next passcodes](factors#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a Symantec VIP factor and a [token profile](/docs/api/resources/factors/#token-profile).  Symantec tokens must be verified with the [current and next passcodes](/docs/api/resources/factors/#factor-verification-object) as part of the enrollment request.
 
 ##### Request Example for Enroll Symantec VIP Factor
 
@@ -2605,7 +2605,7 @@ curl -v -X POST \
 #### Enroll YubiKey Factor
 
 
-Enrolls a user with a Yubico factor (YubiKey).  YubiKeys must be verified with the [current passcode](factors#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a Yubico factor (YubiKey).  YubiKeys must be verified with the [current passcode](/docs/api/resources/factors/#factor-verification-object) as part of the enrollment request.
 
 ##### Request Example for Enroll YubiKey Factor
 
@@ -2651,7 +2651,7 @@ curl -v -X POST \
 #### Enroll Duo Factor
 
 
- The enrollment process starts with an enrollment request to Okta, then continues with the Duo widget that is embedded in the page. The page needs to create an iframe with the name `duo_iframe` (described [in Duo documentation](https://duo.com/docs/duoweb#3.-show-the-iframe)) to host the widget. The script address is received in the response object in \_embedded.factor.\_embedded.\_links.script object. The information to initialize the Duo object is taken from \_embedded.factor.\_embedded.activation object as it is shown in the [full example](#full-page-example-for-duo-enrollment). In order to maintain the link between Duo and Okta the stateToken must be passed back when Duo calls the callback. This is done by populating the hidden element in the "duo_form" as it is described [here](https://duo.com/docs/duoweb#passing-additional-post-arguments-with-the-signed-response). After Duo enrollment and verification is done, the Duo script makes a call back to Okta. To complete the authentication process, make a call using [the poll link](#activation-poll-request-example) to get session token and verify successful state.
+ The enrollment process starts with an enrollment request to Okta, then continues with the Duo widget that is embedded in the page. The page needs to create an iframe with the name `duo_iframe` (described [in Duo documentation](https://duo.com/docs/duoweb#3.-show-the-iframe)) to host the widget. The script address is received in the response object in \_embedded.factor.\_embedded.\_links.script object. The information to initialize the Duo object is taken from \_embedded.factor.\_embedded.activation object as it is shown in the [full example](#full-page-example-for-duo-enrollment). In order to maintain the link between Duo and Okta the stateToken must be passed back when Duo calls the callback. This is done by populating the hidden element in the "duo_form" as it is described [here](https://duo.com/docs/duoweb/#passing-additional-post-arguments-with-the-signed-response). After Duo enrollment and verification is done, the Duo script makes a call back to Okta. To complete the authentication process, make a call using [the poll link](#activation-poll-request-example) to get session token and verify successful state.
 
 ##### Request Example for Enroll Duo Factor
 
@@ -2918,7 +2918,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/lifecycle/activate" />
 
-The `sms`,`call` and `token:software:totp` [factor types](factors#factor-type) require activation to complete the enrollment process.
+The `sms`,`call` and `token:software:totp` [factor types](/docs/api/resources/factors/#factor-type) require activation to complete the enrollment process.
 
 * [Activate TOTP Factor](#activate-totp-factor)
 * [Activate SMS Factor](#activate-sms-factor)
@@ -6558,7 +6558,7 @@ The `recoveryToken` is sent via an out-of-band channel to the end user's verifie
 
 One-time token issued as `sessionToken` response parameter when an authentication transaction completes with the `SUCCESS` status.
 
-* The token can be exchanged for a session with the [Session API](/docs/api/resources/sessions#create-session-with-session-token) or converted to a [session cookie](/use_cases/authentication/session_cookie).
+* The token can be exchanged for a session with the [Session API](/docs/api/resources/sessions/#create-session-with-session-token) or converted to a [session cookie](/use_cases/authentication/session_cookie).
 * The lifetime of the `sessionToken` is the same as the lifetime of a user's session and managed by the organization's security policy.
 
 ### Factor Result
@@ -6622,7 +6622,7 @@ A subset of [user properties](/docs/api/resources/users/#user-model) published i
 
 #### User Profile Object
 
-Subset of [profile properties](users#profile-object) for a user
+Subset of [profile properties](/docs/api/resources/users/#profile-object) for a user
 
 | Property  | Description                                                                                                                        | DataType  | Nullable | Unique | Readonly | Validation                                                            |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ------ | -------- | --------------------------------------------------------------------- |
@@ -6789,15 +6789,15 @@ Specifies the password requirements related to password age and history
 
 ### Factor Object
 
-A subset of [factor properties](factors#factor-model) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
+A subset of [factor properties](/docs/api/resources/factors/#factor-model) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
 
 | Property       | Description                                                                                    | DataType                                                       | Nullable | Unique | Readonly |
 | -------------- | ----------------------------------------------------------------------------------------       | -------------------------------------------------------------- | -------- | ------ | -------  |
 | id             | unique key for factor                                                                          | String                                                         | TRUE     | TRUE   | TRUE     |
-| factorType     | type of factor                                                                                 | [Factor Type](factors#factor-type)                             | FALSE    | TRUE   | TRUE     |
-| provider       | factor provider                                                                                | [Provider Type](factors#provider-type)                         | FALSE    | TRUE   | TRUE     |
-| vendorName     | factor Vendor Name (Same as provider but for On Prem MFA it depends on Administrator Settings) | [Provider Type](factors#provider-type)                         | FALSE    | TRUE   | TRUE     |
-| profile        | profile of a [supported factor](factors#supported-factors-for-providers)                       | [Factor Profile Object](factors#factor-profile-object)         | TRUE     | FALSE  | TRUE     |
+| factorType     | type of factor                                                                                 | [Factor Type](/docs/api/resources/factors/#factor-type)                             | FALSE    | TRUE   | TRUE     |
+| provider       | factor provider                                                                                | [Provider Type](/docs/api/resources/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
+| vendorName     | factor Vendor Name (Same as provider but for On Prem MFA it depends on Administrator Settings) | [Provider Type](/docs/api/resources/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
+| profile        | profile of a [supported factor](/docs/api/resources/factors/#supported-factors-for-providers)                       | [Factor Profile Object](/docs/api/resources/factors/#factor-profile-object)         | TRUE     | FALSE  | TRUE     |
 | _embedded      | [embedded resources](#factor-embedded-resources) related to the factor                         | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 | _links         | [discoverable resources](#factor-links-object) for the factor                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 

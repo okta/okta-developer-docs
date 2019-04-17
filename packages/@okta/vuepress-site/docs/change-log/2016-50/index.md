@@ -19,7 +19,7 @@ To get started with API Access Management, visit [API Access Management](/use_ca
 ### Feature Enhancement: Delete User Endpoint
 
 The endpoint to delete users changed from the Beta endpoint `POST /api/v1/users/{id}/lifecycle/delete`
-to the more intuitive [`DELETE /api/v1/users/{id}`](/docs/api/resources/users#delete-user) for EA.
+to the more intuitive [`DELETE /api/v1/users/{id}`](/docs/api/resources/users/#delete-user) for EA.
 The Beta endpoint has been removed. <!-- (OKTA-108195) -->
 
 ### Platform Bugs Fixed

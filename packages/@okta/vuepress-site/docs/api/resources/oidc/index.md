@@ -936,7 +936,9 @@ HTTP 404 Not Found
 
 ## Scopes
 OpenID Connect uses scope values to specify what access privileges are being requested for access tokens.
-The scopes associated with access tokens determine which claims are available when they are used to access the OIDC `/userinfo` [endpoint](/docs/api/resources/oidc#userinfo). The following scopes are supported:
+
+The scopes associated with access tokens determine which claims are available when they are used
+to access the OIDC `/userinfo` [endpoint](/docs/api/resources/oidc/#userinfo). The following scopes are supported:
 
 | Property         | Description                                                                                                     | Required       |
 | :--------------- | :-------------------------------------------------------------------------------------------------------------- | :------------- |
