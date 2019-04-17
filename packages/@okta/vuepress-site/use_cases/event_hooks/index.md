@@ -15,6 +15,8 @@ To handle event hook calls from Okta, you need to implement a web service with a
 
 Event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/). Event hooks are meant to provide information about events that occurred, not offer a way to affect the underlying Okta process flow. For that, you need to use inline hooks. Also, unlike inline hooks, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
 
+You can create a maximum of ten event hooks in your org. Each event hook can be configured to deliver multiple event types.
+
 ## Which Events are Eligible?
 
 During the initial configuration procedure for an event hook, you specify which event types you want the event hook to deliver. The event types that can be specified are a subset of the event types that the Okta System Log captures. To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
@@ -39,9 +41,11 @@ After verification, for ongoing notification of events, Okta sends HTTPS POST re
 
 Information is encapsulated in the JSON payload in the `data.events` object. The `data.events` object is an array, in order to allow sending multiple events in a single POST request. Events that occur within a short time of each other will be amalgamated, with each each element of the array providing information on one event.
 
- The content of each array element is an object of the [LogEvent](/docs/api/resources/system_log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/api/resources/system_log/) defines for System Log events. See the documentation there for information on the object and its sub-objects.
+The content of each array element is an object of the [LogEvent](/docs/api/resources/system_log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/api/resources/system_log/) defines for System Log events. See the documentation there for information on the object and its sub-objects.
 
- Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event.
+Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event.
+
+No guarantee of maximum delay between event occurrence and delivery is currently specified.
 
 ### Timeout and Retry
 
@@ -65,7 +69,12 @@ To secure the communication channel between Okta and your external service, HTTP
 
 ### Your Service's Responses to Event Delivery Requests
 
-Your external service's responses to Okta's ongoing event delivery POST requests should all be empty, and should have an HTTP status code of 200 (OK) or 204 (No Content).
+Your external service's responses to Okta's ongoing event delivery POST requests should all be empty, and should have an HTTP status code of 200 (OK) or 204 (No Content). As a best practice, you should return the HTTP response immediately, rather than waiting for any of your own internal process flows triggered by the event to complete.
+
+
+### Rate Limits
+
+Event hooks are limited to sending 100 000 events per 24-hour period. 
 
 ## Event Hook Setup
 
