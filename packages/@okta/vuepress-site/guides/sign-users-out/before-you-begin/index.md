@@ -1,21 +1,18 @@
 ---
 title: Sign Users Out
 ---
-This guide walks you through how to sign users out of your app and out of Okta. These languages are supported:
+This guide shows you how to sign users out of your app and out of Okta.
 
-* Node (Express)
-* Java (Spring Boot)
-* .NET (ASP.NET)
-* .NET (ASP.NET Core)
+<!-- If you are building a web app that is served by a server framework, see [Sign Users in to Your Web App]. If you are building a mobile app, see [Sign Users in to Your Mobile App]. -->
 
-## Before You Begin
+This guide assumes that you:
 
-These instructions assume that you: 
-
-* Have an Okta Developer organization. If you don't, you can get one here: <https://developer.okta.com/signup>
+* Have an Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
 * You've followed one of our sign-in guides: 
-    * [Sign Users into Your Web App]
-    * [Sign Users into Your Mobile App]
-    * [Sign Users into Your Single-Page App]
+    * [Sign Users in to Your Web App]
+    * [Sign Users in to Your Mobile App]
+    * [Sign Users in to Your Single-Page App]
+
+<StackSelector snippet="create-app"/>
 
 <NextSectionLink/>

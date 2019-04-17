@@ -1,1 +1,0 @@
-iOS sample app link
