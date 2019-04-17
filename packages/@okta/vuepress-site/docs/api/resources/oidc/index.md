@@ -221,16 +221,15 @@ This request initiates the implicit flow, which gets an ID token and access toke
 
 ```
 https://{yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabv6kx4qq6
-h1U5l0h7&response_type=id_token token&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3
-A8080&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo'
+h1U5l0h7&response_type=id_token token&scope=openid&redirect_uri=https%3A%2F%2Fwww.example.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo'
 ```
 
 #### Response Example (Success)
 
-In the authorization code flow, the endpoint sends a redirect header redirecting the user's browser back to the application that made the request. The redirect will include a "code" in the URL.
+In the authorization code flow, the endpoint sends a redirect header redirecting the user's browser back to the application that made the request. The redirect will include a `code` in the URL.
 
 ```
-http://localhost:8080?code=MzRlNDEwyzcDZ5kzY
+https%3A%2F%2Fwww.example.com?code=MzRlNDEwyzcDZ5kzY&state=d0e2fd9bb601
 ```
 
 #### Response Example (Error)
