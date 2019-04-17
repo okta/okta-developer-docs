@@ -14,6 +14,9 @@
       guide() { return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName]; },
       section() { return this.guide.sectionByName[this.sectionName]; },
       nextSection() { 
+        if(!this.guide) { 
+          return '';
+        }
         const thisIndex = this.guide.order.indexOf(this.sectionName);
         return this.guide.sections[thisIndex + 1];
       },
