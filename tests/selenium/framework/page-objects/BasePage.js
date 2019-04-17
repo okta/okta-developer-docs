@@ -1,7 +1,7 @@
 'use strict';
 
 const util = require('../shared/util');
-const baseUrl = (!process.env.BASE_URL) ? 'http://localhost:8081' : process.env.BASE_URL;
+const baseUrl = (!process.env.BASE_URL) ? 'http://localhost:8080' : process.env.BASE_URL;
 const WAIT_TIMEOUT_MILLISECONDS_DEFAULT = 30 * 1000;
 
 class BasePage {
