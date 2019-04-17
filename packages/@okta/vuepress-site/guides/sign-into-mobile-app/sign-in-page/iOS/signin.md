@@ -8,7 +8,7 @@ Code sample
 
 ## Handle the Login State
 
-In native applications, it is common for users to have a long-lived session. It is important for the app to manage the user's session by refreshing tokens when they expire, using the `refresh_token` or re-prompting the user to login.
+In native applications, it is common for users to have a long-lived session. It is important for the app to manage the user's session by refreshing tokens when they expire, using the `refresh_token` or re-prompting the user to sign in.
 
 ## Store the User's Tokens 
 
