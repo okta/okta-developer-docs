@@ -14,9 +14,9 @@ Okta utilizes a HTTP session cookie to provide access to your Okta organization 
 
 ### Session Token
 
-A [session token](authn#session-token) is a one-time bearer token that provides proof of authentication and may be redeemed for an interactive SSO session in Okta in a user agent. Session tokens can only be used **once** to establish a session for a user and are revoked when the token expires.
+A [session token](/docs/api/resources/authn/#session-token) is a one-time bearer token that provides proof of authentication and may be redeemed for an interactive SSO session in Okta in a user agent. Session tokens can only be used **once** to establish a session for a user and are revoked when the token expires.
 
-Okta provides a very rich [Authentication API](/docs/api/resources/authn/) to validate a [user's primary credentials](authn#primary-authentication) and secondary [MFA factor](authn#verify-factor). A session token is returned after successful authentication which can be later exchanged for a session cookie using one of the following flows:
+Okta provides a very rich [Authentication API](/docs/api/resources/authn/) to validate a [user's primary credentials](/docs/api/resources/authn/#primary-authentication) and secondary [MFA factor](/docs/api/resources/authn/#verify-factor). A session token is returned after successful authentication which can be later exchanged for a session cookie using one of the following flows:
 
 - [Retrieving a session cookie by visiting the OpenID Connect Authorization Endpoint](/use_cases/authentication/session_cookie#retrieving-a-session-cookie-via-openid-connect-authorization-endpoint)
 - [Retrieving a session cookie by visiting a session redirect link](/use_cases/authentication/session_cookie#retrieving-a-session-cookie-by-visiting-a-session-redirect-link)
@@ -51,7 +51,7 @@ Creates a new session for a user with a valid session token. Use this API if, fo
 | Parameter        | Description                                                   | Param Type | DataType                        | Required | Default |
 | ---------------- | ------------------------------------------------------------- | ---------- | ------------------------------- | -------- | ------- |
 | additionalFields | Optional [session properties](#optional-session-properties)   | Query      | String (comma separated values) | FALSE    |         |
-| sessionToken     | Session token obtained via [Authentication API](authn)        | Body       | String                          | TRUE     |         |
+| sessionToken     | Session token obtained via [Authentication API](/docs/api/resources/authn)        | Body       | String                          | TRUE     |         |
 
 ##### Response Parameters
 
@@ -565,7 +565,7 @@ If the session is invalid, a `404 Not Found` response will be returned.
 ```
 
 #### Option: Use the HTTP Header Prefer
-Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](/docs/api/resources/sessions#refresh-current-session). You can extend the session lifetime, but skip any processing work related to building the response body.
+Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](/docs/api/resources/sessions/#refresh-current-session). You can extend the session lifetime, but skip any processing work related to building the response body.
 
 ##### Request Example
 
@@ -680,16 +680,16 @@ Sessions have the following properties:
 | ----------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------- | -------- | ------ | -------- |
 | id                                        | unique key for the session                                                                    | String                                    | FALSE    | TRUE   | TRUE     |
 | login                                     | unique identifier for the user (username)                                                     | String                                    | FALSE    | TRUE   | TRUE     |
-| userId                                    | unique key for the [user](users#get-user-with-id)                                             | String                                    | FALSE    | TRUE   | TRUE     |
+| userId                                    | unique key for the [user](/docs/api/resources/users/#get-user-with-id)                                             | String                                    | FALSE    | TRUE   | TRUE     |
 | expiresAt                                 | timestamp when session expires                                                                | Date                                      | FALSE    | TRUE   | TRUE     |
 | status                                    | current [status](#session-status) of the session                                              | `ACTIVE`, `MFA_REQUIRED`, or `MFA_ENROLL` | FALSE    | TRUE   | TRUE     |
 | lastPasswordVerification                  | timestamp when user last performed primary or step-up authentication with password            | Date                                      | TRUE     | TRUE   | TRUE     |
 | lastFactorVerification                    | timestamp when user last performed multi-factor authentication                                | Date                                      | TRUE     | TRUE   | TRUE     |
 | amr                                       | authentication method reference                                                               | [AMR Object](#amr-object)                 | FALSE    | FALSE  | TRUE     |
 | idp                                       | identity provider used to authenticate the user                                               | [IDP Object](#idp-object)                 | FALSE    | FALSE  | TRUE     |
-| mfaActive                                 | indicates whether the user has [enrolled an MFA factor](factors#list-enrolled-factors)        | Boolean                                   | FALSE    | FALSE  | TRUE     |
+| mfaActive                                 | indicates whether the user has [enrolled an MFA factor](/docs/api/resources/factors/#list-enrolled-factors)        | Boolean                                   | FALSE    | FALSE  | TRUE     |
 
-> The `mfaActive` parameter is a <ApiLifecycle access="deprecated" /> feature. Use the `lastFactorVerification` attribute in conjunction with `amr` to understand if the user has performed MFA for the current session. Use the [Factors API](factors#list-enrolled-factors) to query the factor enrollment status for a given user.
+> The `mfaActive` parameter is a <ApiLifecycle access="deprecated" /> feature. Use the `lastFactorVerification` attribute in conjunction with `amr` to understand if the user has performed MFA for the current session. Use the [Factors API](/docs/api/resources/factors/#list-enrolled-factors) to query the factor enrollment status for a given user.
 
 #### Optional Session Properties
 
@@ -700,7 +700,7 @@ The [Create Session](#create-session-with-session-token) operation can optionall
 | cookieToken                                   | Another one-time token which can be used to obtain a session cookie by visiting either an application's embed link or a session redirect URL.                                     |
 | cookieTokenUrl                                | URL for a a transparent 1x1 pixel image which contains a one-time session token which when visited sets the session cookie in your browser for your organization.                 |
 
-> The `cookieToken` is a <ApiLifecycle access="deprecated" /> property. Instead, use the [Authentication API](authn), which supports the full user authentication pipeline and produces a `sessionToken` which can be used in this API.
+> The `cookieToken` is a <ApiLifecycle access="deprecated" /> property. Instead, use the [Authentication API](/docs/api/resources/authn), which supports the full user authentication pipeline and produces a `sessionToken` which can be used in this API.
 
 > The `cookieTokenUrl` is a <ApiLifecycle access="deprecated" /> property, because modern browsers block cookies set via embedding images from another origin (cross-domain).
 

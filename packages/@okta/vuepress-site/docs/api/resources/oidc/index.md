@@ -1038,7 +1038,7 @@ HTTP 404 Not Found
 
 OpenID Connect uses scope values to specify what access privileges are being requested for access tokens.
 The scopes associated with access tokens determine which claims are available when they are used
-to access the OIDC `/userinfo` [endpoint](/docs/api/resources/oidc#userinfo). The following scopes are supported:
+to access the OIDC `/userinfo` [endpoint](/docs/api/resources/oidc/#userinfo). The following scopes are supported:
 
 | -------------    | -------------------------------------------------------------------------------                                 | -------------- |
 | Property         | Description                                                                                                     | Required       |
@@ -1357,7 +1357,7 @@ using either of the following methods:
   using HMAC algorithms HS256, HS384, or HS512. Specify the JWT in `client_assertion` and the type, `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`, in `client_assertion_type` in the request.
 
 If you configure your client to use `private_key_jwt` [Client Authentication Method](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) you must provide the `client_id` in a JWT that you sign with your private key.
-* The private key that was used to sign must have the corresponding public key registered in the client's [JWKSet](oauth-clients#json-web-key-set).
+* The private key that was used to sign must have the corresponding public key registered in the client's [JWKSet](/docs/api/resources/oauth-clients/#json-web-key-set).
 * Sign the JWT with one of the following signature algorithms: RS256, RS384, RS512, ES256, ES384 or ES512.
 * Specify the JWT in `client_assertion` and the type, `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`, in `client_assertion_type` in the request.
 

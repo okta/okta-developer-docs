@@ -13,7 +13,7 @@ title: Okta API Products Change Log
 
 ### Authentication Object for Step-up Authentication Is in Early Access
 
-During [SP-initiated](/docs/api/resources/authn#sp-initiated-step-up-authentication) or [IdP-initiated](/docs/api/resources/authn#idp-initiated-step-up-authentication) authentication, use the [Authentication Object](/docs/api/resources/authn#authentication-object) to represent details that the target resource is using.
+During [SP-initiated](/docs/api/resources/authn/#sp-initiated-step-up-authentication) or [IdP-initiated](/docs/api/resources/authn/#idp-initiated-step-up-authentication) authentication, use the [Authentication Object](/docs/api/resources/authn/#authentication-object) to represent details that the target resource is using.
 
 The Authentication Object is an [Early Access feature](/docs/api/getting_started/releases-at-okta).
 

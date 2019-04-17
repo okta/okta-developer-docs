@@ -5,13 +5,13 @@ excerpt: How to share application key credentials between apps
 
 # Share Application Key Credentials for IdPs Across Apps
 
-[Application key credential objects](/docs/api/resources/apps#application-key-credential-model)
+[Application key credential objects](/docs/api/resources/apps/#application-key-credential-model)
 contain an opaque key ID (`kid`) and corresponding certificate.
-To use the [API](/docs/api/resources/apps#clone-application-key-credential)
+To use the [API](/docs/api/resources/apps/#clone-application-key-credential)
 to share application key credentials between apps, you need to create and use a new credential in one app,
 then share and update the credential in another app.
 
-Sharing certificates is useful for Okta orgs that have apps with [sign-on modes](/docs/api/resources/apps#signon-modes) `SAML_2_0`, SAML 1.1, or `WS_FEDERATION`.
+Sharing certificates is useful for Okta orgs that have apps with [sign-on modes](/docs/api/resources/apps/#signon-modes) `SAML_2_0`, SAML 1.1, or `WS_FEDERATION`.
 
 ### Why Should I Do This?
 

@@ -1,89 +1,73 @@
-// all variables with "new-" are used for the new style
-// When we update the style for the other pages, we should normalize
-// them
-// Please Note: even though the variables are missing "new-"
-// they are still being used
+// Abstracts currently available for use. Many are provided through `mixins.scss`.
 
 //-----------------------------------------------------------------------
 // Paths
 //-----------------------------------------------------------------------
 
-$asset-path: "/assets";
-
+$asset-path: '/assets';
 
 //-----------------------------------------------------------------------
 // Typography
 //-----------------------------------------------------------------------
 
-$font-family:             'proxima-nova', Helvetica, Arial, sans-serif;
-$font-family--alt:        'museo', Helvetica, Arial, sans-serif;
+$font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
+$font-family--alt: 'museo', Helvetica, Arial, sans-serif;
 
-$font-size:     (
-                'small':            14px,
-                'base':             16px,
-                'button':           14px,
-                'h6':               20px,
-                'h5':               22px,
-                'h4':               24px,
-                'h3':               28px,
-                'h2':               32px,
-                'h1':               36px,
-
-                'new-small':        12px,
-                'new-h2':           28px,
-                'new-h1':           44px,
-
+$font-size: (
+  'small':            14px,
+  'base':             16px,
+  'button':           14px,
+  'h6':               20px,
+  'h5':               22px,
+  'h4':               24px,
+  'h3':               28px,
+  'h2':               32px,
+  'h1':               36px,
+  'new-small':        12px,
+  'new-h2':           28px,
+  'new-h1':           44px,
 );
 
-
-$font-weight:   (
-                'x-small':          300,
-                'small':            400,
-                'base':             400,
-                'button':           600,
-                'h6':               500,
-                'h5':               500,
-                'h4':               500,
-                'h3':               500,
-                'h2':               500,
-                'h1':               500,
-                'light':            300,
-                'semibold':         500,
-                'mediumbold':       600,
-                'bold':             700,
-
-                'new-h2':           500,
-                'new-h1':           500
+$font-weight: (
+  'x-small':          300,
+  'small':            400,
+  'base':             400,
+  'button':           600,
+  'h6':               500,
+  'h5':               500,
+  'h4':               500,
+  'h3':               500,
+  'h2':               500,
+  'h1':               500,
+  'light':            300,
+  'semibold':         500,
+  'mediumbold':       600,
+  'bold':             700,
+  'new-h2':           500,
+  'new-h1':           500
 );
 
-$line-height:   (
-                'small':            24px,
-                'base':             26px,
-                'h6':               30px,
-                'h5':               32px,
-                'h4':               34px,
-                'h3':               38px,
-                'h2':               42px,
-                'h1':               46px,
-                'large':            56px,
-
-                'new-h1':           52px,
-                'new-h2':           36px,
-                'new-small':        20px,
-                'new-button':       38px,
+$line-height: (
+  'small':            24px,
+  'base':             26px,
+  'h6':               30px,
+  'h5':               32px,
+  'h4':               34px,
+  'h3':               38px,
+  'h2':               42px,
+  'h1':               46px,
+  'large':            56px,
+  'new-h1':           52px,
+  'new-h2':           36px,
+  'new-small':        20px,
+  'new-button':       38px,
 );
-
-
 
 //-----------------------------------------------------------------------
 // Colors
 //-----------------------------------------------------------------------
 
-
-// Project/Client Colors
-
-// Abstract definitions:
-// (These are consistent with Nim. Changes here should be mirrored there - https://github.com/okta/courage/blob/master/assets/sass/nim/abstracts/_colors.scss)
+// Raw values (not preferred)
 // Whites
 $white: #ffffff;
 $white-3: #fafafa;
@@ -153,115 +137,94 @@ $cerise: #e22866; // intentional developer color
 $lavender-3: #f7fbfd;
 // Browns
 
-// Functional map:
-$colors:        (
-                'black':                  $black,
-                'white':                  $white,
-
-                'default':                $eclipse-2,
-                'accent':                 $navy-blue,
-
-                'blue-bright':            $navy-blue,
-                'blue-bright-hover':      $pacific-blue-3,
-
-                'blue-medium':            $summer-sky,
-                'blue-medium-hover':      $maya-blue,
-
-                'blue-light':             $columbia-blue,
-                'blue-light-hover':       $maya-blue-2,
-
-                'green':                  $puerto-rico-5,
-                'green-hover':            $turquoise,
-
-                'green-dark':             $puerto-rico,
-                'green-dark-hover':       $turquoise,
-
-                'green-light':            $shamrock,
-                'green-light-hover':      $screamin-green,
-
-                'charcoal':               $dim-gray-3,
-                'charcoal-hover':         $suva-gray-4,
-
-                'gray-dark':              $periglacial-blue,
-                'gray-dark-hover':        $mystic,
-
-                'gray-medium':            $iron,
-                'gray-medium-hover':      $lily-white,
-
-                'gray-light':             $white-lilac-2,
-                'gray-light-hover':       $mischka,
-
-                'gray-lighter':           $gainsboro-8,
-                'gray-lighter-hover':     $white-smoke-4,
-
-                'gray-lightest':          $white-3,
-                'gray-lightest-hover':    $columbia-blue,
-
-                'blue-products':          $pattens-blue,
-
-                'new-gray-dark':          $eclipse-2,
-
-                'red':                    $light-coral,
-
-                // 2017-07 Redesign Colors
-                'ebony-clay':             $midnight, // Background
-                'elephant':               $cyprus-2, // Secondary background, table rule
-                'big-stone':              $blue-whale, // Card / table background
-                'matisse':                $dark-cerulean, // Card / table banner
-                'iron':                   $ghost, // Body (type) color (dark bg) // Note difference from $iron
-                'cerise':                 $cerise, // CTA buttons, links
-
-                'code-background':        $white-smoke-10,
+// Functional map (preferred) - for example: `get-color('default')`
+$colors: (
+  'black':                  $black,
+  'white':                  $white,
+  'default':                $eclipse-2,
+  'accent':                 $navy-blue,
+  'blue-bright':            $navy-blue,
+  'blue-bright-hover':      $pacific-blue-3,
+  'blue-medium':            $summer-sky,
+  'blue-medium-hover':      $maya-blue,
+  'blue-light':             $columbia-blue,
+  'blue-light-hover':       $maya-blue-2,
+  'green':                  $puerto-rico-5,
+  'green-hover':            $turquoise,
+  'green-dark':             $puerto-rico,
+  'green-dark-hover':       $turquoise,
+  'green-light':            $shamrock,
+  'green-light-hover':      $screamin-green,
+  'charcoal':               $dim-gray-3,
+  'charcoal-hover':         $suva-gray-4,
+  'gray-dark':              $periglacial-blue,
+  'gray-dark-hover':        $mystic,
+  'gray-medium':            $iron,
+  'gray-medium-hover':      $lily-white,
+  'gray-light':             $white-lilac-2,
+  'gray-light-hover':       $mischka,
+  'gray-lighter':           $gainsboro-8,
+  'gray-lighter-hover':     $white-smoke-4,
+  'gray-lightest':          $white-3,
+  'gray-lightest-hover':    $columbia-blue,
+  'blue-products':          $pattens-blue,
+  'new-gray-dark':          $eclipse-2,
+  'red':                    $light-coral,
+  // 2017-07 Redesign Colors
+  'ebony-clay':             $midnight, // Background
+  'elephant':               $cyprus-2, // Secondary background, table rule
+  'big-stone':              $blue-whale, // Card / table background
+  'matisse':                $dark-cerulean, // Card / table banner
+  'iron':                   $ghost, // Body (type) color (dark bg) // Note difference from $iron
+  'cerise':                 $cerise, // CTA buttons, links
+  'code-background':        $white-smoke-10,
 );
-
 
 //-----------------------------------------------------------------------
 // Layout
 //-----------------------------------------------------------------------
 
-$site-width:    1280px;
-$new-site-width:                1120px;
-$new-narrow-site-width:         760px;
-$grid-width:    12;
+$site-width: 1280px;
+$new-site-width: 1120px;
+$new-narrow-site-width: 760px;
+$grid-width: 12;
 
-$border-radius:                 3px;
-$border-size:                   2px;
+$border-radius: 3px;
+$border-size: 2px;
 
-$line-break:    20px;
-$gutter-width:  20px;
+$line-break: 20px;
+$gutter-width: 20px;
 
-$breakpoints:   (
-                'xx-small':               320px,
-                'x-small':                480px,
-                'small':                  768px,
-                'medium-small':           900px,
-                'medium':                 1024px,
-                'large':                  1200px,
-                'doc-min-toc':            1265px,
-                'x-large':                1400px,
-                'xx-large':               1600px
+$breakpoints: (
+  'xx-small':               320px,
+  'x-small':                480px,
+  'small':                  768px,
+  'medium-small':           900px,
+  'medium':                 1024px,
+  'large':                  1200px,
+  'doc-min-toc':            1265px,
+  'x-large':                1400px,
+  'xx-large':               1600px
 );
 
-$spacing:       (
-                'xx-small':               5px,
-                'x-small':                10px,
-                'small':                  20px,
-                'medium':                 40px,
-                'large':                  60px,
-                'x-large':                80px,
-                'xx-large':               120px
+$spacing: (
+  'xx-small':               5px,
+  'x-small':                10px,
+  'small':                  20px,
+  'medium':                 40px,
+  'large':                  60px,
+  'x-large':                80px,
+  'xx-large':               120px
 );
-
-
 
 //-----------------------------------------------------------------------
 // Transitions
 //-----------------------------------------------------------------------
 
-$transition-speed:(
-                'x-slow':                 0.8s,
-                'slow':                   0.6s,
-                'normal':                 0.4s,
-                'fast':                   0.2s,
-                'x-fast':                 0.1s
+$transition-speed: (
+  'x-slow':                 0.8s,
+  'slow':                   0.6s,
+  'normal':                 0.4s,
+  'fast':                   0.2s,
+  'x-fast':                 0.1s
 );

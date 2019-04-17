@@ -6,7 +6,7 @@ excerpt: The Schemas API defines custom user profiles for Okta users and applica
 
 # Schemas API
 
-Okta&#8217;s [Universal Directory](https://help.okta.com/en/prod/Content/Topics/Directory/About_Universal_Directory.htm) allows administrators to define custom user profiles for Okta users and applications.  Okta has adopted a subset [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) as the schema language to describe and validate extensible user profiles. [JSON Schema](http://json-schema.org/) is a lightweight declarative format for describing the structure, constraints, and validation of JSON documents.
+Okta's [Universal Directory](https://help.okta.com/en/prod/Content/Topics/Directory/About_Universal_Directory.htm) allows administrators to define custom user profiles for Okta users and applications.  Okta has adopted a subset [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) as the schema language to describe and validate extensible user profiles. [JSON Schema](http://json-schema.org/) is a lightweight declarative format for describing the structure, constraints, and validation of JSON documents.
 
 > Okta has only implemented a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).  This document should describe which parts are applicable to Okta and any extensions Okta has made to [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04)
 
@@ -509,7 +509,7 @@ curl -v -X POST \
 <ApiOperation method="post" url="/api/v1/meta/schemas/user/default" />
 
 Removes one or more [custom user profile properties](#user-profile-schema-property-object) from the user schema.
-A property cannot be removed if it is being referenced as a [matchAttribute](./idps#subject-policy-object) in SAML2 IdPs.
+A property cannot be removed if it is being referenced as a [matchAttribute](/docs/api/resources/idps/#subject-policy-object) in SAML2 IdPs.
 
 ##### Request Parameters
 
@@ -847,7 +847,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/meta/schemas/apps/${instanceId}/default" />
 
-Updates one or more [custom app user profile properties](#app-user-profile-schema-property-object) in the schema, or the nullability of a base property.  (Changing a base property's nullability (i.e., the value of its `required` field) is allowed only if it is nullable in the default predefined schema for the app.)
+Updates one or more [custom app user profile properties](#app-user-profile-schema-property-object) in the schema, or the nullability of a base property. Changing a base property's nullability (i.e., the value of its `required` field) is allowed only if it is nullable in the default predefined schema for the app.
 
 ##### Request Parameters
 
@@ -1047,9 +1047,9 @@ curl -v -X POST \
 
 ## User Schema Model
 
-The [User Model](users#user-model) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+The [User Model](/docs/api/resources/users/#user-model) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
-> The schema currently only defines the [profile object](users#profile-object).
+> The schema currently only defines the [profile object](/docs/api/resources/users/#profile-object).
 
 ### Example User Schema
 
@@ -1177,16 +1177,16 @@ The user schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/dra
 | lastUpdated | timestamp when schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339) | FALSE    | FALSE  | TRUE     |             |
 | definitions | user profile subschemas                                                                  | [User Profile Subschemas](#user-profile-subschemas)    | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | type of [root schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                  | FALSE    | FALSE  | TRUE     |             |
-| properties  | user model properties                                                                    | [User Model](users#user-model) property set     | FALSE    | FALSE  | TRUE     |             |
+| properties  | user model properties                                                                    | [User Model](/docs/api/resources/users/#user-model) property set     | FALSE    | FALSE  | TRUE     |             |
 
 ### User Profile Subschemas
 
-The [profile object](users#profile-object) for a user is defined by a composite schema of base and custom properties using JSON Path to reference subschemas.  The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
+The [profile object](/docs/api/resources/users/#profile-object) for a user is defined by a composite schema of base and custom properties using JSON Path to reference subschemas.  The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
 
 - [User Profile Base Subschema](#user-profile-base-subschema)
 - [User Profile Custom Subschema](#user-profile-custom-subschema)
 
-Custom property names for the [profile object](users#profile-object) must be unique and cannot conflict with a property name defined in the `#base` subschema.
+Custom property names for the [profile object](/docs/api/resources/users/#profile-object) must be unique and cannot conflict with a property name defined in the `#base` subschema.
 
 ```json
 {
@@ -1400,9 +1400,9 @@ A given schema property can be assigned a permission for a principal that restri
 
 ## App User Schema Model
 
-The [App User Model](apps#application-user-model) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+The [App User Model](/docs/api/resources/apps/#application-user-model) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
-> The schema currently only defines the [profile object](apps#application-user-profile-object).
+> The schema currently only defines the [profile object](/docs/api/resources/apps/#application-user-profile-object).
 
 ### Example App User Schema
 
@@ -1477,16 +1477,16 @@ The app user schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html
 | lastUpdated | timestamp when schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)            | FALSE    | FALSE  | TRUE     |             |
 | definitions | app user profile subschemas                                                              | [App User Profile Subschemas](#app-user-profile-subschemas)       | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | type of [root schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                             | FALSE    | FALSE  | TRUE     |             |
-| properties  | user model properties                                                                    | [App User Model](apps#application-user-model) property set | FALSE    | FALSE  | TRUE     |             |
+| properties  | user model properties                                                                    | [App User Model](/docs/api/resources/apps/#application-user-model) property set | FALSE    | FALSE  | TRUE     |             |
 
 ### App User Profile Subschemas
 
-The [profile object](apps#application-user-profile-object) for a user is defined by a composite schema of base and custom properties using JSON Path to reference subschemas.  The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
+The [profile object](/docs/api/resources/apps/#application-user-profile-object) for a user is defined by a composite schema of base and custom properties using JSON Path to reference subschemas.  The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
 
 - [App User Profile Base Subschema](#app-user-profile-base-subschema)
 - [App User Profile Custom Subschema](#app-user-profile-custom-subschema)
 
-Custom property names for the [profile object](apps#application-user-profile-object) must be unique and cannot conflict with a property name defined in the `#base` subschema.
+Custom property names for the [profile object](/docs/api/resources/apps/#application-user-profile-object) must be unique and cannot conflict with a property name defined in the `#base` subschema.
 
 ```json
 {
