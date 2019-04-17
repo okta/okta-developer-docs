@@ -12,10 +12,13 @@
     "test:test-local": "wait-on http-get://localhost:8080/assets/js/10.js && yarn test-only || (yarn stop && exit 1)",
     "test:update-web-driver": "./node_modules/protractor/bin/webdriver-manager update --gecko false",
     "test:stop-web-driver": "pkill -f 'webdriver-manager/selenium' || echo 'no Selenium processes found'",
-    "markdown-lint": "node scripts/lint",
+    "markdown-check-all": "node scripts/markdown-check",
+    "markdown-link-check": "node scripts/markdown-check link-check",
+    "markdown-lint": "node scripts/markdown-check lint",
     "posttest": "yarn stop",
     "stop": "if-env CI=true && exit 0 || yarn test:stop-web-driver || echo 'done'",
-    "stop-all": "if-env CI=true && exit 0 || pkill -f 'yarn' || echo 'done'"
+    "stop-all": "if-env CI=true && exit 0 || pkill -f 'yarn' || echo 'done'",
+    "update-event-types": "bash scripts/update-event-types.sh"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",

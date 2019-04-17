@@ -108,7 +108,7 @@ At this point you can keep reading to find out how to create custom scopes and c
 
 ## Create Scopes (Optional)
 
-Scopes specify what access privileges are being requested as part of the authorization. For example, the `email` scope requests access to the user's email address. There are certain reserved scopes that are created with any Okta authorization server, which are listed [here](/docs/api/resources/oidc#scopes).
+Scopes specify what access privileges are being requested as part of the authorization. For example, the `email` scope requests access to the user's email address. There are certain reserved scopes that are created with any Okta authorization server, which are listed [here](/docs/api/resources/oidc/#scopes).
 
 If you need scopes in addition to the reserved scopes provided, you can create them. Custom scopes can have corresponding claims that tie them to some sort of user information.
 
@@ -168,7 +168,7 @@ We have included here a few things that you can try to ensure that your Authoriz
 
 To verify that your server was created and has the expected configuration values, you can send an API request to the Server's OpenID Connect Metadata URI: `https://{yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside of a browser. This will return information about the OpenID configuration of your Authorization Server, though it does not currently return any custom scopes or claims that you might have created.
 
-For more information on this endpoint, see here: [Retrieve Authorization Server OpenID Connect Metadata](/docs/api/resources/oidc#well-knownopenid-configuration).
+For more information on this endpoint, see here: [Retrieve Authorization Server OpenID Connect Metadata](/docs/api/resources/oidc/#well-knownopenid-configuration).
 
 ### Custom Scopes and Claims
 
@@ -210,7 +210,7 @@ To this you will need to add the following URL query parameters:
 - A `response_mode` which you can set to `fragment`
 - (Optionally) `state` and `nonce` values
 
-All of the values are fully documented here: [Obtain an Authorization Grant from a User](/docs/api/resources/oidc#authorize).
+All of the values are fully documented here: [Obtain an Authorization Grant from a User](/docs/api/resources/oidc/#authorize).
 
 The resulting URL would look like this:
 

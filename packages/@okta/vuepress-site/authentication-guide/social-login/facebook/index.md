@@ -31,7 +31,7 @@ title: Facebook
 * **Client Secret:** Paste in the App Secret that you got from Facebook in step 1.5 above.
 * **Scopes:** Leave set to the default.
 
-> For more information about these as well as the Advanced Settings, see [Social Identity Provider Settings](social-settings).
+> For more information about these as well as the Advanced Settings, see [Social Identity Provider Settings](/authentication-guide/social-login/social-settings).
 
 2.4. Once you have completed all the fields, click on **Add Identity Provider**. You will be returned to the main "Identity Providers" page.
 
@@ -67,7 +67,7 @@ title: Facebook
 
 4.5. Add one or more Redirect URIs. This is where the user will be directed to after they have authenticated with Facebook.
 
-4.6. Assign the group of your choosing (if you [set Group Assignments](social-settings) for your app), or assign "Everyone".
+4.6. Assign the group of your choosing (if you [set Group Assignments](/authentication-guide/social-login/social-settings) for your app), or assign "Everyone".
 
 4.7. Under "Grant type allowed", make sure "Implicit" is enabled.
 
@@ -87,7 +87,7 @@ The Okta Identity Provider that you created in section 2 above generated an Auth
 * **nonce:** A string included in the returned ID Token. Use it to associate a client session with an ID Token, and to mitigate replay attacks.
 * **redirect_uri:** The location where Okta returns a browser after the user has finished authenticating against their social login provider. This URL must start with "https" and must match one of the Redirect URIs that you configured previously in step 4.5.
 
-For a full explanation of all these parameters, see: [/authorize Request parameters](/docs/api/resources/oidc#request-parameters)
+For a full explanation of all these parameters, see: [/authorize Request parameters](/docs/api/resources/oidc/#request-parameters)
 
 An example of a complete URL looks like this: `https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaaq9pjc2ujmFZexample&client_id=GkGw4K49N4UEE1example&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2Fsocial_auth&state=WM6D&nonce=YsG76jo`
 

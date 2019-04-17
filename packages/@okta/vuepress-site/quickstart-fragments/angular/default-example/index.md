@@ -157,7 +157,6 @@ Your Angular application now has an access token in local storage that was issue
 
 Here is what the Angular component could look like for this hypothetical example:
 
-{% raw %}
 
 ```typescript
 // messagelist.component.ts
@@ -202,7 +201,6 @@ export class MessageListComponent implements OnInit{
 }
 ```
 
-{% endraw %}
 
 In the next section you can select your server technology to see how your server can read this incoming token and validate it.
 

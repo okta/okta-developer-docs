@@ -37,7 +37,7 @@ Basic authentication has other long term issues as well:
 - **Delegation** - If you're building an API that needs to run for a third party (like a Google API for grabbing someone's friends), you don't want to use Basic because it would require a username/password to be given to your app from a user. If this is the account username, there is no delegation or scoping of permissions.
 - **Browsers** - If your API needs to be consumed from an insecure environment (JavaScript front end, mobile app, etc.), you can't just embed an API key in your app, otherwise attackers would grab it and do bad things.
 
-Several authentication schemes use the HTTP authentication framework. Schemes can differ in security strength and their availability in client or server software. All schemes use an `Authorization` header followed by scheme name and a space character. Common [scheme names](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Authentication_schemes) include:
+Several authentication schemes use the HTTP authentication framework. Schemes can differ in security strength and their availability in client or server software. All schemes use an `Authorization` header followed by scheme name and a space character. Common [scheme names](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication/#Authentication_schemes) include:
 
 * Basic
 * Digest

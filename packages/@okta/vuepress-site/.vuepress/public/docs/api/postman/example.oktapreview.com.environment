@@ -1,10 +1,10 @@
 {
 	"id": "1352452f-4532-293c-5707-f626e6a989aa",
-	"name": "example.oktapreview.com",
+	"name": "{yourOktaDomain}",
 	"values": [
 		{
 			"key": "url",
-			"value": "https://example.oktapreview.com",
+			"value": "https://{yourOktaDomain}",
 			"type": "text",
 			"name": "url",
 			"enabled": true

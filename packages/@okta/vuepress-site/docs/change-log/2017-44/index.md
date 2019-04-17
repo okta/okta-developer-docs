@@ -7,7 +7,7 @@ excerpt: New parameter for creating users and bug fixes
 
 ### API Feature Enhancements: New Query Parameter for Create User
 
-Use [the new query parameter `nextLogin`](/docs/api/resources/users#request-parameters) with a create user API request to create and activate a user with an expired password.
+Use [the new query parameter `nextLogin`](/docs/api/resources/users/#request-parameters) with a create user API request to create and activate a user with an expired password.
 The user has to change his or her password the next time they log in. This new query parameter eliminates the need to use two API calls to achieve the same result. <!-- OKTA-142029 -->
 
 This feature enhancement is expected in preview orgs starting November 1, 2017, and in production orgs starting November 6, 2017.

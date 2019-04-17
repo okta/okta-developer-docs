@@ -76,7 +76,7 @@ To use these functions to create a token using a dynamic group whitelist, create
 
 Before you start, perform the following two tasks for either Okta Authorization Server or Custom Authorization Server.
 
- * Create an OAuth 2.0 or OpenID Connect client with the [Apps API](/docs/api/resources/apps#request-example-8). In the instruction examples, the client ID is `0oabskvc6442nkvQO0h7`.
+ * Create an OAuth 2.0 or OpenID Connect client with the [Apps API](/docs/api/resources/apps/#request-example-8). In the instruction examples, the client ID is `0oabskvc6442nkvQO0h7`.
  * Create the groups that you want to configure in the groups claim. In the instruction examples, we're configuring the `WestCoastDivision` group, and the group ID is `00gbso71miOMjxHRW0h7`.
 
 Now, use the instructions for your chosen authorization server to create a group claim, assign a group whitelist to your client app, and configure a groups claim that references a whitelist:
@@ -546,7 +546,7 @@ This function takes Okta EL expressions for all parameters that evaluate to the 
 
 All parameters must be valid Okta EL expressions that evaluate as described above. Okta EL expressions can be comprised of strings, integers, arrays, etc.
 
-The string produced by the `group_expression` parameter usually contains attributes and objects from the [Groups API](/docs/api/resources/groups), although it isn't limited to those attributes and objects. Attributes and objects listed in the [Group Attributes](/docs/api/resources/groups#group-attributes) section of the Groups API can be any of the following: `id`, `status`, `name`, `description`, `objectClass`, and the `profile` object that contains the `groupType`, `samAccountName`, `objectSid`, `groupScope`, `windowsDomainQualifiedName`, `dn`, and `externalID` attributes for groups that come from apps such as Active Directory.
+The string produced by the `group_expression` parameter usually contains attributes and objects from the [Groups API](/docs/api/resources/groups), although it isn't limited to those attributes and objects. Attributes and objects listed in the [Group Attributes](/docs/api/resources/groups/#group-attributes) section of the Groups API can be any of the following: `id`, `status`, `name`, `description`, `objectClass`, and the `profile` object that contains the `groupType`, `samAccountName`, `objectSid`, `groupScope`, `windowsDomainQualifiedName`, `dn`, and `externalID` attributes for groups that come from apps such as Active Directory.
 
 The `whitelist` parameter must evaluate to a list of group ids that is returned from the [Groups API](/docs/api/resources/groups). If the user is not a member of a group in the whitelist, the group is ignored.
 
