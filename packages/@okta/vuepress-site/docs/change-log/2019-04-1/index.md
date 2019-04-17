@@ -10,7 +10,7 @@ title: Okta API Products Change Log
 | [Event Hooks Postman Collection Now Available](#event-hooks-postman-collection-now-available)                     | April 17, 2019           |
 | [Bug Fixed in 2019.04.1](#bug-fixed-in-2019-04-1)                                                                 | April 17, 2019           |
 
-### Event Hooks is Now Available in EA
+### The Event Hooks Features is Now Available in EA
 
 [Event hooks](/use_cases/event_hooks/) enable you to use events within your Okta org to trigger process flows within your own software systems. <!-- (OKTA-209169) -->
 
