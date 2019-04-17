@@ -1,12 +1,15 @@
 ---
 title: Get Info About the User
 ---
-Okta sends back user profile information that you can use in your application.
+When a user signs in, their profile information (stored in Okta) is made available to your application. It's common to use this info to update your application's UI.
+
+By default, the profile items (called "claims") that Okta returns include the user's email address, first name, and last name. 
 
 <StackSelector snippet="getuserinfo"/>
 
-### Customize the Claims Returned
+<!-- You can also customize the items (called claims) that are returned from Okta. See [Token customization guide]. -->
 
-You can also customize the items (called claims) in the token returned from Okta. See [Token customization guide] or <https://developer.okta.com/authentication-guide/implementing-authentication/set-up-authz-server#create-claims-optional>.
+<NextSectionLink>All done!</NextSectionLink>
 
-<NextSectionLink/>
+
+
