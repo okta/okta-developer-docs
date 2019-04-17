@@ -37,7 +37,7 @@ We published the 1.0 version of the following client SDKs:
 * [React SDK](https://github.com/okta/okta-oidc-js/releases/tag/%40okta%2Fokta-react%401.0.0)
 * [Angular SDK](https://github.com/okta/okta-oidc-js/releases/tag/%40okta%2Fokta-angular%401.0.0)
 * [Vue SDK](https://github.com/okta/okta-oidc-js/releases/tag/%40okta%2Fokta-vue%401.0.0)
-* [iOS SDK](https://github.com/okta/okta-sdk-appauth-ios/releases/tag/1.0.0)
+* [iOS SDK](https://github.com/okta/okta-oidc-ios/releases/tag/1.0.0)
 
 Visit each SDK for a complete list of new features, enhancements, and bug fixes. <!-- OKTA-164979 -->
 
