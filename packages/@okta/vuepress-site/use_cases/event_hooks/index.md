@@ -71,7 +71,6 @@ To secure the communication channel between Okta and your external service, HTTP
 
 Your external service's responses to Okta's ongoing event delivery POST requests should all be empty, and should have an HTTP status code of 200 (OK) or 204 (No Content). As a best practice, you should return the HTTP response immediately, rather than waiting for any of your own internal process flows triggered by the event to complete.
 
-
 ### Rate Limits
 
 Event hooks are limited to sending 100 000 events per 24-hour period. 
