@@ -1,3 +1,4 @@
+const guidesList = require('./guides-list');
 module.exports = {
   dest: 'dist',
   theme: "@okta/vuepress-theme-default",
@@ -206,5 +207,13 @@ module.exports = {
 
   extraWatchFiles: [
     '.vuepress/nav/*',
-  ]
+  ],
+  additionalPages: [
+    ...guidesList.guides,
+  ],
+  extendPageData(page) {
+    if(page.path.startsWith(`/guides/`)) {
+      page.frontmatter.layout = 'Guides';
+    }
+  },
 }

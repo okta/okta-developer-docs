@@ -14,7 +14,7 @@ export const guideFromPath = path => {
 };
 
 export const makeGuidePath = ({ guideName, framework, sectionName }) => {
-  return `${FRAGMENTS}${guideName}/${framework || DEFAULT_FRAMEWORK}/${sectionName || DEFAULT_SECTION}`;
+  return `${FRAGMENTS}${guideName}/${framework || DEFAULT_FRAMEWORK}/${sectionName || DEFAULT_SECTION}/`;
 };
 
 export const alphaSort = (a,b) => a > b ? 1 : a < b ? -1 : 0;
