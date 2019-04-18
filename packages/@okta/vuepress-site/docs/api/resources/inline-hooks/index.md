@@ -271,7 +271,7 @@ curl -v -X PUT \
             }
         }
     }
-}' "https://{yourOktaDomain}/api/v1/inlineHooks"
+}' "https://{yourOktaDomain}/api/v1/inlineHooks/${id}"
 ```
 
 ##### Response Example
@@ -281,6 +281,124 @@ curl -v -X PUT \
 {
     "id": "calr0dvWvbMQJHZCM0g3",
     "status": "ACTIVE",
+    "name" : "My Test Inline Hook",
+    "type" : "com.okta.oauth2.tokens.transform",
+    "version" : "1.0.0",
+    "channel" : {
+        "type" : "HTTP",
+        "version" : "1.0.0",
+        "config" : {
+            "uri" : "https://www.example.com/inlineHook",
+            "method" : "POST",
+            "headers" : [
+                {
+                    "key" : "X-Other-Header",
+                    "value" : "some-other-value"
+                }
+            ],
+            "authScheme" : {
+                "type" : "HEADER",
+                "key" : "Authorization",
+            }
+        }
+    },
+    "created": "2018-05-15T01:23:08.000Z",
+    "lastUpdated": "2018-05-15T01:23:08.000Z"
+}
+```
+
+### Activate Inline Hook
+
+<ApiOperation method="post" url="/api/v1/inlineHooks/${id}/lifecycle/activate" />
+
+#### Request Parameters
+
+| Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
+| ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
+| id         | The ID of the inline hook you want to activate.                                   | Path         | String                                      | TRUE     |
+
+Activates the inline hook matching the provided `id`.
+
+#### Response Parameters
+
+The response is an [Inline Hook object](#inline-hook-object) representing the activated inline hook.
+
+##### Request Example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://{yourOktaDomain}/api/v1/inlineHooks/${id}/lifecycle/activate"
+```
+
+##### Response Example
+
+
+```json
+{
+    "id": "calr0dvWvbMQJHZCM0g3",
+    "status": "ACTIVE",
+    "name" : "My Test Inline Hook",
+    "type" : "com.okta.oauth2.tokens.transform",
+    "version" : "1.0.0",
+    "channel" : {
+        "type" : "HTTP",
+        "version" : "1.0.0",
+        "config" : {
+            "uri" : "https://www.example.com/inlineHook",
+            "method" : "POST",
+            "headers" : [
+                {
+                    "key" : "X-Other-Header",
+                    "value" : "some-other-value"
+                }
+            ],
+            "authScheme" : {
+                "type" : "HEADER",
+                "key" : "Authorization",
+            }
+        }
+    },
+    "created": "2018-05-15T01:23:08.000Z",
+    "lastUpdated": "2018-05-15T01:23:08.000Z"
+}
+```
+
+### Deactivate Inline Hook
+
+<ApiOperation method="post" url="/api/v1/inlineHooks/${id}/lifecycle/deactivate" />
+
+#### Request Parameters
+
+| Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
+| ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
+| id         | The ID of the inline hook you want to deactivate.                                   | Path         | String                                      | TRUE     |
+
+Deactivates the inline hook matching the provided `id`.
+
+#### Response Parameters
+
+The response is an [Inline Hook object](#inline-hook-object) representing the deactivated inline hook.
+
+##### Request Example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://{yourOktaDomain}/api/v1/inlineHooks/${id}/lifecycle/deactivate"
+```
+
+##### Response Example
+
+
+```json
+{
+    "id": "calr0dvWvbMQJHZCM0g3",
+    "status": "INACTIVE",
     "name" : "My Test Inline Hook",
     "type" : "com.okta.oauth2.tokens.transform",
     "version" : "1.0.0",
@@ -541,14 +659,14 @@ curl -v -X POST \
 
 | Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
 | -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
-| id             | Unique key for the Inline Hook.                                                                     | String                              | FALSE      | TRUE     | TRUE       | Assigned                                          |
-| status         | Status of the Inline Hook. `INACTIVE` will block execution.                                         | String                              | FALSE      | FALSE    | FALSE      | Must be either `ACTIVE` or `INACTIVE`.            |
+| id             | Unique key for the Inline Hook.                                                                     | String                              | FALSE      | TRUE     | TRUE       | System assigned                                          |
+| status         | Status of the Inline Hook. `INACTIVE` will block execution.                                         | String                              | FALSE      | FALSE    | FALSE      | System assigned. Will be either `ACTIVE` or `INACTIVE`.            |
 | name           | Display name for the Inline Hook.                                                                   | String                              | FALSE      | TRUE     | FALSE      | Must be between 1 and 255 characters in length.   |
 | type           | Type of the Inline Hook. See list of [Supported Inline Hook Types](#supported-inline-hook-types).   | inlineHookType                      | FALSE      | FALSE    | TRUE       | Immutable after Inline Hook creation.             |
-| version        | Version of the Channel. The currently-supported version is "1.0.0".                                 | String                              | FALSE      | FALSE    | TRUE       | Must match a valid version number.                |
-| channel object | Properties of the communications channel used to contact your external service.                     | [Channel](#channel-object) object   | FALSE      | FALSE    | FALSE      | Validation is determined by the specific channel. |
-| created        | Date of Inline Hook creation.                                                                       | String (Date)                       | TRUE       | FALSE    | TRUE       | Assigned                                          |
-| lastUpdated    | Date of Inline Hook update.                                                                         | String (Date)                       | TRUE       | FALSE    | TRUE       | Assigned                                          |
+| version        | Version of the inline hook type. The currently-supported version is "1.0.0".                                 | String                              | FALSE      | FALSE    | TRUE       | Must match a valid version number.                |
+| channel | Properties of the communications channel used to contact your external service.                     | [Channel object](#channel-object)   | FALSE      | FALSE    | FALSE      | Validation is determined by the specific channel. |
+| created        | Date of Inline Hook creation.                                                                       | String (Date)                       | TRUE       | FALSE    | TRUE       | System assigned                                          |
+| lastUpdated    | Date of Inline Hook update.                                                                         | String (Date)                       | TRUE       | FALSE    | TRUE       | System assigned                                          |
 
 
 ```json
@@ -583,6 +701,15 @@ curl -v -X POST \
 
 ### channel Object
 
+| Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
+| -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
+| type           | The channel type. Currently the only supported type is `HTTP`.   | channelType                      | FALSE      | FALSE    | TRUE       | Must match a valid channel type.            |
+| version        | Version of the channel. The currently-supported version is "1.0.0".                                 | String                              | FALSE      | FALSE    | TRUE       | Must match a valid version number.                |
+| config | Properties of the communications channel used to contact your external service.                     | [Channel Config object](#config-object)   | FALSE      | FALSE    | FALSE      | Validation is determined by the specific channel. |
+
+
+### config Object
+
 | Property   | Description                                                                                                  | DataType                                  | Required   | Unique   | ReadOnly   | Validation                                               |
 | ---------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------- | ---------- | -------- | ---------- | -------------------------------------------------------- |
 | uri        | External service endpoint to call to execute the inline hook handler.                                        | String                                    | TRUE       | FALSE    | TRUE       | Maximum length 1024 characters. Must begin with https:// |
@@ -593,7 +720,7 @@ curl -v -X POST \
 
 | Property | Description                                                                    | DataType   | Required   | ReadOnly |
 | -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |
-| type     | The type of the authentication scheme. Currently only `HEADER` is supported.   | String     | TRUE       | FALSE    |
+| type     | The authentication scheme type. Currently the only supported type is `HEADER`. | String     | TRUE       | FALSE    |
 | key      | The header name for the authorization header.                                  | String     | TRUE       | FALSE    |
 | value    | The header value.                                                              | String     | TRUE       | TRUE     |
 
