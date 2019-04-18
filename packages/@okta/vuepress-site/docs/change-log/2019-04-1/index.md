@@ -6,7 +6,7 @@ title: Okta API Products Change Log
 
 | Change                                                                                                            | Expected in Preview Orgs |
 | ----------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| [The Event Hooks Feature is Now Available in EA](#the-event-hooks-feature-is-now-available-in-EA)                   | April 17, 2019           |
+| [The Event Hooks Feature is Now Available in EA](#the-event-hooks-feature-is-now-available-in-ea)                   | April 17, 2019           |
 | [Bug Fixed in 2019.04.1](#bug-fixed-in-2019-04-1)                                                                 | April 17, 2019           |
 
 ### The Event Hooks Feature is Now Available in EA
