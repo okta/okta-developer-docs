@@ -42,17 +42,13 @@ Use the following procedure to display the user consent dialog as part of an Ope
 
 4. Prepare an authentication or authorization request with the correct values for `prompt` and `consent_method`. For details, see the [API documentation for `prompt`](/docs/api/resources/oidc/#parameter-details) and the [table of values relating to consent dialog](/docs/api/resources/apps/#settings-7).
 
-5. Test your configuration by sending an authentication or authorization request. For instance, if you set `consent` to `REQUIRED` for the `email` scope:
+5. Test your configuration by initiating an authentication or authorization request. For instance, if you set `consent` to `REQUIRED` for the `email` scope, you can open this URL in a browser:
 
     ```bash
-    curl -v -X GET \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: SSWS ${api_token}" \
-    "https://{yourOktaDomain}/oauth2/${authenticationServerId}/v1/authorize?client_id=${clientId}&response_type=token&response_mode=fragment&scope=email&redirect_uri=http://localhost:54321&state=myState&nonce=${nonce}"
+    https://{yourOktaDomain}/oauth2/${authenticationServerId}/v1/authorize?client_id=${clientId}&response_type=token&response_mode=fragment&scope=email&redirect_uri=http://localhost:54321&state=${state}&nonce=${nonce}
     ```
 
-    Your test should launch the user consent dialog. Click **Allow** to create the grant.
+    Opening this URL will show the user consent dialog. Click **Allow** to create the grant.
 
 ## Verification
 
