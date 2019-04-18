@@ -236,7 +236,7 @@ This endpoint returns access tokens, ID tokens, and refresh tokens, depending on
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/token` endpoint requires token authentication. See the [Token Authentication Methods](#token-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/token` endpoint requires token authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                                                                                                                                                                                                                                                        | Type   |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
@@ -328,7 +328,7 @@ If the token is active, additional data about the token is also returned. If the
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/introspect` endpoint requires token authentication. See the [Token Authentication Methods](#token-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/introspect` endpoint requires token authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                                    | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------------------- | :-----        |
@@ -422,7 +422,7 @@ The API takes an access or refresh token and revokes it. Revoked tokens are cons
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/revoke` endpoint requires token authentication. See the [Token Authentication Methods](#token-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/revoke` endpoint requires token authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                       | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------ | :-----        |
@@ -1210,8 +1210,8 @@ For more information about configuring an app for OpenID Connect, including grou
 ### Refresh Token
 Refresh tokens are opaque. More information about using them can be found in the [Authentication Guide](/authentication-guide/tokens/refreshing-tokens).
 
-## Token Authentication Methods
-When registering an OAuth 2 client application, you can specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter. Okta supports five token authentication methods:
+## Client Authentication Methods
+When registering an OAuth 2 client application, you can specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter. Okta supports five client authentication methods:
 
 > Note: If you don't specify a method when registering your client, the default method is `client_secret_basic`.
 
@@ -1232,7 +1232,10 @@ If you configured your client to use a `client_secret` [client authentication me
   ```
 * `client_secret_post`: Provide the `client_id` and `client_secret` as additional parameters in the POST request body.
 
-* `client_secret_jwt`: Provide the `client_id` in a JWT that you sign with the `client_secret` using an HMAC SHA algorithm (HS256, HS384, or HS512). The JWT also contains other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt). 
+### JWT With Shared Key
+If you configured your client to use the `client_secret_jwt` client authentication method:
+
+Provide the `client_id` in a JWT that you sign with the `client_secret` using an HMAC SHA algorithm (HS256, HS384, or HS512). The JWT also contains other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt). 
 
   After you create the JWT, in the request you need to specify the `client_assertion_type` as `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` and specify the JWT as the value for the `client_assertion` parameter.
 
@@ -1247,7 +1250,7 @@ If you configured your client to use a `client_secret` [client authentication me
     client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
     client_assertion=PHNhbWxwOl ... ZT
   ```
-### Private Key
+### JWT With Private Key
 If you configured your client to use the `private_key_jwt` client authentication method:
 
 Provide the `client_id` in a JWT that you sign with your private key using an RSA or ECDSA algorithm (RS256, RS384, RS512, ES256, ES384, ES512). The JWT also contains other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt).
