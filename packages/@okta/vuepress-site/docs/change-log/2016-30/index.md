@@ -13,7 +13,7 @@ You can now create SAML and SWA custom apps using the Apps API. Previously you h
 using the [**App Integration Wizard**](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm)
 in the administrator UI.
 
-For more information about creating custom apps with the API, see [Apps API: Add Custom SAML Application](/docs/api/resources/apps#add-custom-saml-application).
+For more information about creating custom apps with the API, see [Apps API: Add Custom SAML Application](/docs/api/resources/apps/#add-custom-saml-application).
 
 ### Feature Enhancements
 
@@ -24,7 +24,7 @@ For SAML IdPs, you can now match transformed IdP usernames using more attributes
 To match on an attribute other than username, email, or either, specify the attribute name in the property `matchAttribute`,
 and specify the value `CUSTOM_ATTRIBUTE` in `matchType`.
 
-For more information, see [Identity Providers](/docs/api/resources/idps#subject-policy-object).
+For more information, see [Identity Providers](/docs/api/resources/idps/#subject-policy-object).
 
 > Contact [Support](https://support.okta.com/help/open_case) to enable this Early Access feature.
 

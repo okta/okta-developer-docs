@@ -10,10 +10,10 @@ Okta allows your users to sign in to your app using credentials from external so
 
 Currently Okta supports the following social login providers:
 
-- [Facebook](facebook)
-- [Google](google)
-- [LinkedIn](linkedin)
-- [Microsoft](microsoft)
+- [Facebook](/authentication-guide/social-login/facebook)
+- [Google](/authentication-guide/social-login/google)
+- [LinkedIn](/authentication-guide/social-login/linkedin)
+- [Microsoft](/authentication-guide/social-login/microsoft)
 
 ### Features
 
@@ -31,7 +31,7 @@ Configuring social login with Okta allows you to use the following features:
 
 ### The Social Login Process
 
-The social login process starts at the [authentication endpoint](/docs/api/resources/oidc#authorize), then goes out to the provider and back:
+The social login process starts at the [authentication endpoint](/docs/api/resources/oidc/#authorize), then goes out to the provider and back:
 
 1. The user who wishes to authenticate clicks a "Log in with x" link.
 2. The user authenticates and is asked by the Provider to accept the permissions required by your app.
@@ -68,4 +68,4 @@ To set up social login, configure the following:
 2. An Identity Provider in Okta
 3. An OpenID Connect Application in Okta
 
-Every Identity Provider in Okta is linked to an Application, and every time a user signs in with a Social Identity Provider for the first time, an Application User is created for them. The Application User represents the external user at the Social Identity Provider and can be used to map attributes to the Okta User. For more information about how to configure this behavior see [Social Identity Provider Settings](social-settings).
+Every Identity Provider in Okta is linked to an Application, and every time a user signs in with a Social Identity Provider for the first time, an Application User is created for them. The Application User represents the external user at the Social Identity Provider and can be used to map attributes to the Okta User. For more information about how to configure this behavior see [Social Identity Provider Settings](/authentication-guide/social-login/social-settings).

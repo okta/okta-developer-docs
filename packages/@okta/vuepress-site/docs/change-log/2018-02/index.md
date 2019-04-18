@@ -12,7 +12,7 @@ title: Okta API Products Change Log
 | [SHA-256 Certificates for New SAML 2.0 Apps is Generally Available](#generally-available-sha-256-certificates-for-saml-20-apps) | Available  Now        | January 10, 2018                |
 
 #### Generally Available: App User Schema API
-Use the [App User Schema API](/docs/api/resources/schemas#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
+Use the [App User Schema API](/docs/api/resources/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
 
 #### Generally Available: SHA-256 Certificates for SAML 2.0 Apps
 

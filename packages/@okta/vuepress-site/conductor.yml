@@ -22,7 +22,7 @@ redirects:
   - from: /code/dotnet/okta-oauth-spa-authjs-osw
     to: /code/dotnet/index.html
   - from: /code/dotnet/okta-oauth-aspnet-codeflow
-    to: /code/dotnet/index.html
+    to: /code/dotnet/aspnetcore/
   - from: /docs/examples/dotnet_sample_application.html
     to: /code/dotnet/sample_application/index.html
   - from: /code/dotnet/sdk/index.html
@@ -114,8 +114,6 @@ redirects:
   - from: /docs/how-to/beta-auth-service/api-access-management-troubleshooting
     to: /docs/api/resources/oidc/index.html
   - from: /standards/OIDC/
-    to: /docs/api/resources/oidc/index.html
-  - from: /standards/OAuth/
     to: /docs/api/resources/oidc/index.html
   - from: /reference/authentication_reference
     to: /docs/api/resources/oidc/index.html
@@ -370,7 +368,13 @@ redirects:
   - from: /docs/api/resources/oidc.html
     to: /docs/api/resources/oidc/
   - from: /standards/OAuth/
-    to: /docs/api/resources/oidc/
+    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+  - from: /standards/OAuth/index
+    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+  - from: /standards/OAuth/index.html
+    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+  - from: /standards/OAuth
+    to: /standards/OAuth/
   - from: /docs/api/resources/oauth2.html
     to: /docs/api/resources/oidc/
   - from: /standards/OIDC/

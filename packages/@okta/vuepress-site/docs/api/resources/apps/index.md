@@ -1023,12 +1023,11 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * Different application types have different valid values for the corresponding grant type:
 
-|-------------------+---------------------------------------------------------------+-----------------------------------------------------------------------------------|
 | Application Type  | Valid Grant Type                                              | Requirements                                                                      |
 | ----------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | `web`             | `authorization_code`, `implicit`, `refresh_token`             | Must have at least `authorization_code`                                           |
 | `native`          | `authorization_code`, `implicit`, `password`, `refresh_token` | Must have at least `authorization_code`                                           |
-| `browser`         | `authorization_code`, `implicit`                                                    |                                                             |
+| `browser`         | `authorization_code`, `implicit`                              |                                                                                   |
 | `service`         | `client_credentials`                                          | Works with OAuth 2.0 flow (not OpenID Connect)                                    |
 
 
@@ -1039,7 +1038,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
     the OAuth 2.0 authorization code grant.
 
 * <ApiLifecycle access="ea" /> A consent dialog is displayed depending on the values of three elements:
-    * `prompt`, a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/api/resources/oidc#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/api/resources/oidc#authorize) (Org authorization server)
+    * `prompt`, a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/api/resources/oidc/#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/api/resources/oidc/#authorize) (Org authorization server)
     * `consent_method`, a property listed in the Settings table above
     * `consent`, a property on [scopes](/docs/api/resources/authorization-servers#scope-properties)
 
@@ -3422,8 +3421,7 @@ Your request is rejected with a `403 Forbidden` status for applications with the
 
 > The Okta API currently doesn't support entity tags for conditional updates.  It is only safe to fetch the most recent profile with [Get Assigned User for Application](#get-assigned-user-for-application), apply your profile update, then `POST` back the updated profile as long as you are the **only** user updating a user's application profile.
 
-{% beta %}
-
+<ApiLifecycle access="beta" />
 During the profile image Beta, image property definitions in the schema are of the `Object` data type with an additional `extendedType` of `Image`.
 When a user's app profile is retrieved via the API, however, the value is a URL (represented as a String).  Some caveats apply:
 
@@ -3439,7 +3437,6 @@ Okta does not support uploading images via the Apps API.  All operations in this
 
 2)  When "updating" the value, it must be set to the value returned by a GET on that user (resulting in no change).  No other value is valid.
 
-{% endbeta %}
 
 ```json
 {
@@ -3567,7 +3564,7 @@ Assigns a group to an application
 | Parameter     | Description                                     | Param Type | DataType                                      | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String                                        | TRUE     |         |
-| groupId       | unique key of a valid [Group](groups)           | URL        | String                                        | TRUE     |         |
+| groupId       | unique key of a valid [Group](/docs/api/resources/groups)           | URL        | String                                        | TRUE     |         |
 | appgroup      | App group                                       | Body       | [Application Group](#application-group-model) | FALSE    |         |
 
 ##### Response Parameters
@@ -3611,7 +3608,7 @@ Fetches an application group assignment
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](groups)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](/docs/api/resources/groups)       | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -3706,7 +3703,7 @@ Removes a group assignment from an application.
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](groups)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](/docs/api/resources/groups)       | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -5115,19 +5112,19 @@ Determines how to authenticate the OAuth 2.0 client
 
 The following expressions are built-in and may be used with the `BUILT_IN` template type:
 
-| Name                            | Template Expression                          |
-| ------------------------------- | -------------------------------------------- |
-| Okta username                   | ${source.login}                              |
-| Okta username prefix            | ${fn:substringBefore(source.login, "@")}     |
-| Email                           | ${source.email}                              |
-| Email prefix                    | ${fn:substringBefore(source.email, "@")}     |
-| Email (lowercase)               | ${fn:toLowerCase(source.email)}              |
-| AD SAM Account Name             | ${source.samAccountName}                     |
-| AD SAM Account Name (lowercase) | ${fn:toLowerCase(source.samAccountName)}     |
-| AD User Principal Name          | ${source.userName}                           |
-| AD User Principal Name prefix   | ${fn:substringBefore(source.userName, "@")}  |
-| AD Employee ID                  | ${source.employeeID}                         |
-| LDAP UID + custom suffix        | ${source.userName}${instance.userSuffix}     |
+| Name                            | Template Expression                            |
+| ------------------------------- | ---------------------------------------------- |
+| Okta username                   | `${source.login}`                              |
+| Okta username prefix            | `${fn:substringBefore(source.login, "@")}`     |
+| Email                           | `${source.email}`                              |
+| Email prefix                    | `${fn:substringBefore(source.email, "@")}`     |
+| Email (lowercase)               | `${fn:toLowerCase(source.email)}`              |
+| AD SAM Account Name             | `${source.samAccountName}`                     |
+| AD SAM Account Name (lowercase) | `${fn:toLowerCase(source.samAccountName)}`     |
+| AD User Principal Name          | `${source.userName}`                           |
+| AD User Principal Name prefix   | `${fn:substringBefore(source.userName, "@")}`  |
+| AD Employee ID                  | `${source.employeeID}`                         |
+| LDAP UID + custom suffix        | `${source.userName}${instance.userSuffix}`     |
 
 ### Password Object
 
@@ -5204,7 +5201,7 @@ Specifies (optional) attribute statements for a SAML application.
 | ---------- | -------------------------------------------------------------------------------------------- | ----------- | -------- |
 | name       | The reference name of the attribute statement                                                | String      | FALSE    |
 | namespace  | The name format of the attribute                                                             | String      | FALSE    |
-| values     | The value of the attribute; Supports [Okta EL](../getting_started/okta_expression_lang)      | String      | FALSE    |
+| values     | The value of the attribute; Supports [Okta EL](/docs/api/getting_started/okta_expression_lang)      | String      | FALSE    |
 
 ##### Supported Namespaces
 

@@ -26,15 +26,15 @@ Okta is introducing new rate limits for emails that are sent to users. This will
 
 User deletion and deactivation requests now have an optional `sendEmail` parameter. For more information see the documentation for those endpoints:
 
-* [DELETE /api/v1/apps/${applicationId}/users/${userId}](/docs/api/resources/apps#remove-user-from-application)
-* [DELETE /api/v1/users/${userId}](/docs/api/resources/users#delete-user)
-* [POST /api/v1/users/${userId}/lifecycle/deactivate](/docs/api/resources/users#deactivate-user)
+* [DELETE /api/v1/apps/${applicationId}/users/${userId}](/docs/api/resources/apps/#remove-user-from-application)
+* [DELETE /api/v1/users/${userId}](/docs/api/resources/users/#delete-user)
+* [POST /api/v1/users/${userId}/lifecycle/deactivate](/docs/api/resources/users/#deactivate-user)
 
 <!--OKTA-185729-->
 
 ### Support for JWTs Signed with Private Keys
 
-Requests to the `/token` and `/authorize` endpoints will now accept JWTs signed with a private key. For more information see the OIDC documentation for the [token endpoint](/docs/api/resources/oidc#token) and the [authorize endpoint](/docs/api/resources/oidc#authorize). <!--OKTA-181514 + OKTA-186410-->
+Requests to the `/token` and `/authorize` endpoints will now accept JWTs signed with a private key. For more information see the OIDC documentation for the [token endpoint](/docs/api/resources/oidc/#token) and the [authorize endpoint](/docs/api/resources/oidc/#authorize). <!--OKTA-181514 + OKTA-186410-->
 
 ### System Log Event for Rate Limit Override Expiration
 
@@ -42,7 +42,7 @@ A System Log event will be generated exactly two days before a temporary API rat
 
 ### Required Properties in App User Schema
 
-API calls to [modify an app user schema](/docs/api/resources/schemas#update-app-user-profile-schema-property) can no longer change the nullability (`required` field) of a property if that property is shown as required in the default predefined schema for that app. <!--OKTA-177449-->
+API calls to [modify an app user schema](/docs/api/resources/schemas/#update-app-user-profile-schema-property) can no longer change the nullability (`required` field) of a property if that property is shown as required in the default predefined schema for that app. <!--OKTA-177449-->
 
 ### Previously Released Early Access Features 2018.36 Update
 

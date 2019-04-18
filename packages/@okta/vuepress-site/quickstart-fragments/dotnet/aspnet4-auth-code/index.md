@@ -13,7 +13,7 @@ If you don't already have an ASP.NET project, create one using the ASP.NET Web A
 Install these packages in the new project:
 
 * [Microsoft.Owin.Security.Cookies] 4.0.0 or higher
-* [Microsot.Owin.Host.SystemWeb] 4.0.0 or higher
+* [Microsoft.Owin.Host.SystemWeb] 4.0.0 or higher
 * [Okta.AspNet]
 
 

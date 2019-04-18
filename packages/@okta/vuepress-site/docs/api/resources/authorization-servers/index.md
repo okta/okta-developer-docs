@@ -1357,8 +1357,8 @@ Token limits:
 | system                                   | Whether Okta created the scope                                                                          | Boolean   |                | False                                      |
 
 * <ApiLifecycle access="ea" /> A consent dialog is displayed depending on the values of three elements:
-    * `prompt`, a query parameter used in requests to [`/authorize`](/docs/api/resources/oidc#authorize)
-    * `consent_method`, a property on [apps](/docs/api/resources/apps#settings-7)
+    * `prompt`, a query parameter used in requests to [`/authorize`](/docs/api/resources/oidc/#authorize)
+    * `consent_method`, a property on [apps](/docs/api/resources/apps/#settings-7)
     * `consent`, a property on scopes as listed in the table above
 
 | `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
@@ -1420,7 +1420,7 @@ If you have complex filters for groups, you can [create a groups whitelist](/doc
 ##### Details for `alwaysIncludeInToken`
 
 * Always `TRUE` for access token claims.
-* If `FALSE` for an ID token claim, the claim won't be included in the ID token if ID token is requested with access token or `authorization_code`, instead the client has to use access token to get the claims from the [userinfo endpoint](/docs/api/resources/oidc#userinfo).
+* If `FALSE` for an ID token claim, the claim won't be included in the ID token if ID token is requested with access token or `authorization_code`, instead the client has to use access token to get the claims from the [userinfo endpoint](/docs/api/resources/oidc/#userinfo).
 
 ### Condition Object
 
@@ -1595,7 +1595,7 @@ curl -v -X GET \
 * [Revoke All Refresh Tokens](#revoke-all-refresh-tokens)
 * [Revoke Refresh Token](#revoke-refresh-token)
 
-These endpoints allow you to manage tokens issued by an Authorization Server for a particular Client. For example, you could revoke every active refresh token for a specific Client. You can also [revoke specific tokens](/authentication-guide/tokens/revoking-tokens) or [manage tokens at the User level](/docs/api/resources/users#user-oauth-20-token-management-operations).
+These endpoints allow you to manage tokens issued by an Authorization Server for a particular Client. For example, you could revoke every active refresh token for a specific Client. You can also [revoke specific tokens](/authentication-guide/tokens/revoking-tokens) or [manage tokens at the User level](/docs/api/resources/users/#user-oauth-20-token-management-operations).
 
 Read [Working With Tokens](/authentication-guide/tokens/) to understand more about how OAuth 2.0 tokens work.
 
