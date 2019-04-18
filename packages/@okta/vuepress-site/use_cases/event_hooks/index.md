@@ -15,7 +15,7 @@ To handle event hook calls from Okta, you need to implement a web service with a
 
 Event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/). Event hooks are meant to provide information about events that occurred, not offer a way to affect the underlying Okta process flow. For that, you need to use inline hooks. Also, unlike inline hooks, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
 
-You can create a maximum of ten event hooks in your org. Each event hook can be configured to deliver multiple event types.
+You can have a maximum of 10 active and verified event hooks in your org at any point. Each event hook can be configured to deliver multiple event types.
 
 ## Which Events are Eligible?
 
@@ -73,7 +73,7 @@ Your external service's responses to Okta's ongoing event delivery POST requests
 
 ### Rate Limits
 
-Event hooks are limited to sending 100 000 events per 24-hour period. 
+Event hooks are limited to sending one hundred thousand events per 24-hour period. 
 
 ## Event Hook Setup
 
@@ -101,10 +101,11 @@ The following is an example of a JSON payload of a request from Okta to your ext
 
 ```json
 {
-  "eventType": "com.okta.event_hook",
+ "contentType": "application/json", 
+ "eventType": "com.okta.event_hook",
   "eventTypeVersion": "1.0",
   "cloudEventsVersion": "0.1",
-  "eventID": "b5a188b9-5ece-4636-b041-482ffda96311",
+  "eventId": "b5a188b9-5ece-4636-b041-482ffda96311",
   "eventTime": "2019-03-27T16:59:53.032Z",
   "source": "https://{yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
   "data": {
