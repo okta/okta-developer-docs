@@ -4,10 +4,10 @@
     <section class="PageContent">
       <!-- START Page Content -->
       <div class="PageContent-main" id="guides-body">
-        <GuideDetails 
+        <GuideDetails
           v-if="section && section.componentKey"
           :sectionName="sectionName"
-          :guideName="guideName" 
+          :guideName="guideName"
           :framework="framework"
         />
         <GuidesOverview v-else :featured="featured"/>
@@ -19,10 +19,10 @@
 </template>
 
 <script>
-  import { 
+  import {
     guideFromPath,
     makeGuidePath,
-    getGuidesInfo, 
+    getGuidesInfo,
   } from '../util/guides';
   export default {
     components: {
@@ -32,7 +32,7 @@
       Footer: () => import('../components/Footer.vue'),
     },
 
-    data() { 
+    data() {
       return {
         section: null,
         guideName: null,
@@ -41,17 +41,17 @@
         framework: null,
         sectionName: null,
         currentPath: null,
-      };    
+      };
     },
-    methods: { 
-      updatePath() { 
-        this.currentPath = window.location.pathname; 
+    methods: {
+      updatePath() {
+        this.currentPath = window.location.pathname;
       },
     },
     beforeMount() {
       this.updatePath();
     },
-    
+
     watch: {
       currentPath() {
         let { guideName, framework, sectionName } = guideFromPath(this.currentPath);
@@ -59,23 +59,23 @@
         const guides = getGuidesInfo({pages});
         const guide = guides.byName[guideName];
 
-        if(!framework && guideName) { 
-          framework = guide.mainFramework;
-          if(window) { 
+        if(guideName && (!framework || !sectionName)) {
+          framework = framework || guide.mainFramework;
+          sectionName = sectionName || guide.order[0];
+
+          if(window) {
             window.location.pathname = makeGuidePath({ guideName, framework, sectionName });
           }
         }
 
-        // this.sections = sectionName && guide.sections;
         this.featured = guides.featured;
         this.sectionName  = sectionName;
-        // && guide.sectionByName[sectionName];
         this.section = sectionName && guide.sectionByName[sectionName];
         this.guideName = guideName;
         this.framework = framework;
       },
 
-      '$route' () {  
+      '$route' () {
         this.updatePath();
       },
     },
