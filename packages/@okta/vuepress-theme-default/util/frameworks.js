@@ -14,6 +14,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   preact: 'Preact',
   vue: 'Vue.js',
   java: 'Java',
+  springboot: 'Java Spring',
   nodejs: 'Node.js',
   android: 'Android',
   ios: 'iOS',
@@ -36,6 +37,7 @@ const COMMON_NAME_TO_ICON_NAME = {
   netcore: 'dotnet',
   aspnet: 'dotnet',
   aspnetcore: 'dotnet',
+  springboot: 'spring'
 };
 
 export const commonify = framework => FRAMEWORK_TO_COMMON_NAME[framework] || framework.toLowerCase();
