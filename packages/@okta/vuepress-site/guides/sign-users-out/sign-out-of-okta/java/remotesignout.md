@@ -1,1 +1,1 @@
-code for remote sign out
+`NOT YET IMPLEMENTED`

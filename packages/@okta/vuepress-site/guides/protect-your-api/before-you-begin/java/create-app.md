@@ -1,3 +1,3 @@
-The [java quickstart](java link) teaches you the basics of building an Angular application.
+[Spring Boot Samples on GitHub](https://github.com/okta/samples-java-spring/tree/master/resource-server)
 
-Or, if you want to skip this guide and just download a working sample app, download our [Java example](java link).
+Or a [WebFlux example](https://github.com/okta/okta-spring-boot/tree/master/examples/webflux-resource-server)

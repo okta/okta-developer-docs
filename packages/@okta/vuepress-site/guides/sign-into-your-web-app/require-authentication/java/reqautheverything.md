@@ -1,19 +1,21 @@
-Brought in from old quick start guide:
-
-For example, by default, Spring Boot requires authentication for everything:
+By default Spring Security requires authentication for all routes with an equivalent `WebSecurityConfigurerAdapter` implementation: 
 
 ```java
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
 @Configuration
-public class WebConfig extends WebSecurityConfigurerAdapter {
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
+class OktaOAuth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
             // all routes protected
-            http.authorizeRequests().anyRequest().authenticated()
-
-                // enable OAuth2/OIDC
-                .and().oauth2Client()
-                .and().oauth2Login();
-        }
+            http.authorizeRequests()
+                .anyRequest().authenticated()
+            // enable OAuth2/OIDC
+            .and()
+                .oauth2Login();
     }
+}
 ```
