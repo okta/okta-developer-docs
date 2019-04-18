@@ -200,7 +200,7 @@ The framework names in the directories should be lowercased and without special 
 
 **Always** have a trailing slash at the end of your guides link.  (Example: `/guides/NAME-OF-GUIDE/-/NAME-OF-SECTION/`)
 
-When linking between sections in the same guide, simply us a relative link to the appropriate section name, which will be one directory back. (Example: `../OTHER-SECTION/`)  This will preserve whatever framework the user currently has selected.
+When linking between sections in the same guide, simply use a relative link to the appropriate section name, which will be one directory back. (Example: `../OTHER-SECTION/`)  This will preserve whatever framework the user currently has selected.
 
 When linking between different guides, use `-` in place of the framework name - this will default the framework to the first option in the StackSelector for that guide.  Example: `/guides/NAME-OF-GUIDE/-/NAME-OF-SECTION/`
 
@@ -210,5 +210,5 @@ Within the content of a guide the `<NextSectionLink>` component is available to 
 
 * `<NextSectionLink/>` - Provides a "button" link to the next section
 * `<NextSectionLink>Some Example Text</NextSectionLink>` - Provides the "button" with different text
-* `<NextSectionLink name="next-steps"/>` - Provides the "button" to link to the named section of the guide (doesn't have be the "next" section)
+* `<NextSectionLink name="next-steps"/>` - Provides the "button" to link to the named section of the guide (doesn't have to be the "next" section)
 
