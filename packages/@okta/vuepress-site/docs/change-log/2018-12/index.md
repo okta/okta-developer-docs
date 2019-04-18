@@ -10,7 +10,7 @@ title: Okta API Products Change Log
 | [Token Management API Is in Early Access (EA)](#token-management-api-is-in-early-access-ea) | March 21, 2018 | March 26, 2018 |
 | [System Log API Is in Early Access (EA)](#system-log-api-is-in-early-access-ea) | Available Now | Available Now |
 | [Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)](#password-imports-with-salted-sha-256-algorithm-is-in-early-access-ea) | Available Now | Available Now |
-| [Bug Fixed for 2018.12](#bug-fixed-for-201812) | March 21, 2018 | March 26, 2018 |
+| [Bug Fixed for 2018.12](#bug-fixed-for-2018-12) | March 21, 2018 | March 26, 2018 |
 
 ### Change to App Variable Name Incrementing
 

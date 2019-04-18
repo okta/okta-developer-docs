@@ -6,7 +6,7 @@ title: Okta API Products Change Log
 
 | Change                                                                                                                  | Expected in Preview Orgs |
 | ----------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| [Bugs Fixed in 2019.03.3](#bugs-fixed-in-2019033)                                                                       | March 26, 2019           |
+| [Bugs Fixed in 2019.03.3](#bugs-fixed-in-2019-03-3)                                                                       | March 26, 2019           |
 
 ### Bugs Fixed in 2019.03.3
 

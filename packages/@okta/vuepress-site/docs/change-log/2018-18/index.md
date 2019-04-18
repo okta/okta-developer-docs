@@ -8,8 +8,8 @@ title: Okta API Products Change Log
 | :---------- | :--------------------------------- | :----------------------------------------------------------- |
 | [Authentication Object for Step-up Authentication Is in Early Access](#authentication-object-for-step-up-authentication-is-in-early-access) | May 2, 2018 | May 7, 2018 |
 | [New Version of the Okta Sign-In Widget](#new-version-of-the-okta-sign-in-widget) | Available Now | Available Now |
-| [Bug Fixed in 2018.18](#bug-fixed-in-201818) | May 2, 2018 | May 7, 2018 |
-| [Previously Released Early Access Features 2018.18 Update](#previously-released-early-access-features-201818-update) | Available now | Available now |
+| [Bug Fixed in 2018.18](#bug-fixed-in-2018-18) | May 2, 2018 | May 7, 2018 |
+| [Previously Released Early Access Features 2018.18 Update](#previously-released-early-access-features-2018-18-update) | Available now | Available now |
 
 ### Authentication Object for Step-up Authentication Is in Early Access
 
