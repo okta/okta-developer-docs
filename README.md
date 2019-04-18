@@ -140,7 +140,7 @@ The theme and all plugins are no longer a part of the content side of this repo.
 
 #### Summary
 
-Each guide URL: 
+Each guide URL:
 * `/guides/NAME-OF-GUIDE/NAME-OF-FRAMEWORK/NAME-OF-SECTION`
 Maps to a directory tree:
 * `guides/NAME-OF-GUIDE/NAME-OF-SECTION/index.md`
@@ -151,9 +151,9 @@ Framework-specific text/code bits are in separate files named 'snippets' that ar
 
 Every guide is based in a subdirectory under `guides/` in `packages/@okta/vuepress-site/`.  This directory name is used in the url of the guide, so follow best practices for URLs (human-readable, lowercase, no spaces, no special characters other than '-').
 
-The file `guides/index.md` contains the meta-data for the guides overall in the [front matter](https://github.com/vuejs/vuepress/blob/master/packages/docs/docs/guide/frontmatter.md), notably, the ordered list of guides to offer and the ordered list of "featured" guides for the main Guides page. (TODO: Move content from GuidesOverview to this index.md file) If a guide is not listed here, it IS on the site but is NOT linked to. 
+The file `guides/index.md` contains the meta-data for the guides overall in the [front matter](https://github.com/vuejs/vuepress/blob/master/packages/docs/docs/guide/frontmatter.md), notably, the ordered list of guides to offer and the ordered list of "featured" guides for the main Guides page. (TODO: Move content from GuidesOverview to this index.md file) If a guide is not listed here, it IS on the site but is NOT linked to.
 
-Each guide directory will have a number of section subdirectories.  These are used in the urls for each section of the guide, so follow best practices for URLs in naming these directories.  Each guide directory has an `index.md` file that holds meta-data for the guide, notably the ordered list of section directories.  Any section directory not listed can be accessed on the site but will not be linked to.  Each section directory has an `index.md` file that holds the content for that section. 
+Each guide directory will have a number of section subdirectories.  These are used in the urls for each section of the guide, so follow best practices for URLs in naming these directories.  Each guide directory has an `index.md` file that holds meta-data for the guide, notably the ordered list of section directories.  Any section directory not listed can be accessed on the site but will not be linked to.  Each section directory has an `index.md` file that holds the content for that section.
 
 If a guide section has framework-specific content, you can use `<StackSelector snippet="SNIPPET-NAME"/>` where `SNIPPET-NAME` is a section-specific indicator of your choice.  This does NOT appear in a url, but please follow common filename conventions.
 
@@ -198,15 +198,17 @@ The framework names in the directories should be lowercased and without special 
 
 ### Linking between sections and guides
 
-When linking between sections in the same guide, simply us a relative link to the appropriate section name.  This will preserve whatever framework the user currently has selected.
+**Always** have a trailing slash at the end of your guides link.  (Example: `/guides/NAME-OF-GUIDE/-/NAME-OF-SECTION/`)
 
-When linking between different guides, use `-` in place of the framework name - this will default the framework to the first option in the StackSelector for that guide.  Example: `/guides/NAME-OF-GUIDE/-/NAME-OF-SECTION`
+When linking between sections in the same guide, simply us a relative link to the appropriate section name, which will be one directory back. (Example: `../OTHER-SECTION/`)  This will preserve whatever framework the user currently has selected.
 
-To link to another guide you MUST link to a section of that guide - incomplete guide URLs will fallback to the main Guide Overview page.
+When linking between different guides, use `-` in place of the framework name - this will default the framework to the first option in the StackSelector for that guide.  Example: `/guides/NAME-OF-GUIDE/-/NAME-OF-SECTION/`
+
+To link to another guide you can, but do not need to, link to a specific section.  If you link to just the guide, it will redirect the user to the first section using the default (first) framework option in the StackSelector.
 
 Within the content of a guide the `<NextSectionLink>` component is available to link to different sections:
 
 * `<NextSectionLink/>` - Provides a "button" link to the next section
 * `<NextSectionLink>Some Example Text</NextSectionLink>` - Provides the "button" with different text
-* `<NextSectionLink name="next-steps"/>` - Provides the "button" to link to the named section of the guide (doesn't have be "next")
+* `<NextSectionLink name="next-steps"/>` - Provides the "button" to link to the named section of the guide (doesn't have be the "next" section)
 
