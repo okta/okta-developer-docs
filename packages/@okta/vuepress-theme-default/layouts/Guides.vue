@@ -68,7 +68,6 @@
           }
         }
 
-        this.$page.frontmatter.title = "Cool!";
         this.featured = guides.featured;
         this.sectionName  = sectionName;
         this.section = sectionName && guide.sectionByName[sectionName];
