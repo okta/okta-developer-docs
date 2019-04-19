@@ -30,16 +30,16 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 	<span class='fa fa-github'></span> <span>iOS Sample App</span>
 </a>
 
-## Okta iOS SDK
+## Okta OIDC for iOS (CocoaPod)
 
-The Okta AppAuth iOS SDK is a wrapper around the AppAuth-iOS SDK for communicating with OAuth 2.0 and OpenID Connect (OIDC) providers.
+Okta provides an OpenID Connect (OIDC) client library on Cocoa Pods. We recommend using this library to integrate the OIDC login flows into your native iOS applications.
 
-<a href='https://cocoapods.org/pods/OktaAuth' class="language-reference">
-	<span class='icon download-16'></span> <span>OktaAuth on CocoaPods</span>
+<a href='https://cocoapods.org/pods/OktaOidc' class="language-reference">
+	<span class='icon download-16'></span> <span>OktaOidc on CocoaPods</span>
 </a>
 
-<a href='https://github.com/okta/okta-sdk-appauth-ios'>
-	<span class='fa fa-github'></span> <span>iOS SDK Source</span>
+<a href='https://github.com/okta/okta-oidc-ios'>
+	<span class='fa fa-github'></span> <span>Okta iOS OIDC SDK Source</span>
 </a>
 
 ## iOS Libraries
@@ -49,12 +49,18 @@ The Okta AppAuth iOS SDK is a wrapper around the AppAuth-iOS SDK for communicati
 		<i class='fa fa-github'></i>
 		<a href="https://github.com/okta/okta-ios-jwt">
 			<span>Okta JWT Verifier for iOS</span>
+      <br/>
+      <br/>
+      <p>Use this library for validating Okta OAuth tokens.</p>
 		</a>
 	</li>
         <li>
             <i class='fa fa-github'></i>
             <a href="https://github.com/okta/okta-auth-swift">
                     <span>iOS authentication SDK</span>
+                    <br/>
+                    <br/>
+                    <p>Use this library for building custom authentication flows with Okta.</p>
             </a>
         </li>
 </ul>
