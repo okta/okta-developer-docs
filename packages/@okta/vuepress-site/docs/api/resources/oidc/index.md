@@ -116,7 +116,7 @@ Each value for `response_mode` delivers different behavior:
 * `okta_post_message` - Uses [HTML5 Web Messaging](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) (for example, window.postMessage()) instead of the redirect for the authorization response from the `/authorize` endpoint.
 
     `okta_post_message` is an adaptation of the [Web Message Response Mode](https://tools.ietf.org/html/draft-sakimura-oauth-wmrm-00#section-4.1).
-    This value provides a secure way for a single-page application to perform a sign-in flow in a pop-up window or an iFrame and receive the ID token and/or access token back in the parent page without leaving the context of that page. The data model for the postMessage call is in the next section.
+    This value provides a secure way for a single-page application to perform a sign-in flow in a pop-up window or an iFrame and receive the ID token, access token, and/or authorization code back in the parent page without leaving the context of that page. The data model for the postMessage call is in the next section.
 * The `Referrer-Policy` header is automatically included in the request for `fragment` or `query` and is set to `Referrer-Policy: no-referrer`.
 
 `state`:
@@ -1201,20 +1201,21 @@ For more information about configuring an app for OpenID Connect, including grou
 Refresh tokens are opaque. More information about using them can be found in the [Authentication Guide](/authentication-guide/tokens/refreshing-tokens).
 
 ## Client Authentication Methods
-When registering an OAuth 2 client application, you can specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter. Okta supports five client authentication methods:
+When registering an OAuth 2 client application, you can specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter. To decide which method to use, it depends on what type of client app you are registering and what that client app is able to provide. For example, you might be using a client that was built by a third party, and it might only support Basic Authentication. So, you would need to use the `client_secret_basic` client authentication method.
 
-> Note: If you don't specify a method when registering your client, the default method is `client_secret_basic`.
+> Native applications shouldn't provide -- and by default don't store -- the `client_secret` (see [Section 5.3.1 of the OAuth 2.0 spec](https://tools.ietf.org/html/rfc6819#section-5.3.1)). They can omit the `client_secret` from the request parameters when introspecting a token.
 
-* `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these methods to authenticate against any endpoint that requires client authentication when the client has access to the `client_secret`. Typically services support client authentication via HTTP Basic Auth (`client_secret_basic`) with the client's `client_id` and `client_secret`. However, some services support authentication by accepting the `client_id` and `client_secret` as POST body parameters (`client_secret_post`). Check the service's documentation to find out what the service expects, since the OAuth 2.0 specification leaves this decision to the service.
+Okta supports the following authentication methods:
 
+> Note: You can use only one of these methods in a single request or an error occurs.
 
-any client authentication method can be used against any endpoint which requires client authentication. Additionally the /revoke endpoint requires client authentication.
+* `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these methods to authenticate against any endpoint that requires client authentication, when the client has access to the `client_secret`.
 
-* `private_key_jwt`: Use this method when you want to use public/private key pairs for more security, as key pairs are short-lived.
+* `private_key_jwt`: Use this method when you want to use public/private key pairs for more security. The main benefit of this method is you can generate the private key on your own servers and never have it leave there for any reason, since you only need to provide the public key to Okta. This is better than `client_secret_jwt` since Okta must know what the `client_secret` string is beforehand, so there are more places that it could in theory be compromised. 
 
 * `none` - Use this method when the client doesn't authenticate itself to the `/token` endpoint because it uses the [Implicit Flow](/authentication-guide/implementing-authentication/implicit/) or because it is a public client with no client secret or other authentication mechanism.
 
-> Note: You can use only one of these methods in a single request or an error occurs.
+> Note: If you don't specify a method when registering your client, the default method is `client_secret_basic`.
 
 ### Client Secret
 If you configured your client to use a `client_secret` [client authentication method](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication), provide the `client_id` and `client_secret` using one of these methods: 
@@ -1225,12 +1226,10 @@ If you configured your client to use a `client_secret` [client authentication me
   ```
 * `client_secret_post`: Provide the `client_id` and `client_secret` as additional parameters in the POST request body.
 
-> Native applications shouldn't provide -- and by default don't store -- the `client_secret` (see [Section 5.3.1 of the OAuth 2.0 spec](https://tools.ietf.org/html/rfc6819#section-5.3.1)). They can omit the `client_secret` from the request parameters when introspecting a token.
-
 ### JWT With Shared Key
 If you configured your client to use the `client_secret_jwt` client authentication method:
 
-Provide the `client_id` in a JWT that you sign with the `client_secret` using an HMAC SHA algorithm (HS256, HS384, or HS512). The JWT also contains other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt). 
+Provide the `client_id` in a JWT that you sign with the `client_secret` using an HMAC SHA algorithm (HS256, HS384, or HS512). The JWT must also contain other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt). 
 
   After you create the JWT, in the request you need to specify the `client_assertion_type` as `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` and specify the JWT as the value for the `client_assertion` parameter.
 
@@ -1241,14 +1240,14 @@ Provide the `client_id` in a JWT that you sign with the `client_secret` using an
   Content-Type: application/x-www-form-urlencoded
   grant_type=authorization_code&
     code=i1WsRn1uB1&
-    client_id=s6BhdRkqt3&
+    client_id=0oajncakofQmjxlSw0h3
     client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
     client_assertion=PHNhbWxwOl ... ZT
   ```
 ### JWT With Private Key
 If you configured your client to use the `private_key_jwt` client authentication method:
 
-Provide the `client_id` in a JWT that you sign with your private key using an RSA or ECDSA algorithm (RS256, RS384, RS512, ES256, ES384, ES512). The JWT also contains other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt).
+Provide the `client_id` in a JWT that you sign with your private key using an RSA or ECDSA algorithm (RS256, RS384, RS512, ES256, ES384, ES512). The JWT must also contain other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt).
 
 > Note: The private key that you use to sign the JWT must have the corresponding public key registered in the client's [JWKSet](/docs/api/resources/oauth-clients/#json-web-key-set).
 
@@ -1261,7 +1260,7 @@ Host: server.example.com
 Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&
   code=i1WsRn1uB1&
-  client_id=s6BhdRkqt3&
+  client_id=0oajncakofQmjxlSw0h3
   client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
   client_assertion=PHNhbWxwOl ... ZT
 ```
