@@ -88,7 +88,7 @@ Consequat torquent magna. [Ridiculus](#last-section). Ac, mattis. Cras cum. Accu
 * Platea `vulputate` `lacinia` integer et facilisis elementum blandit congue quam. Nec turpis semper amet metus ridiculus porta, dolor eu diam. [ridiculus](https://tools.ietf.org/html/rfc6749).
 
 * <ApiLifecycle access="beta" /> Nec turpis semper amet metus ridiculus porta, dolor eu diam:
-    * `prompt`, Primis ad cum fusce Nunco [`/oauth2/${authServerId}/v1/authorize`](/docs/api/resources/oidc#authorize)(custom authorization server)
+    * `prompt`, Primis ad cum fusce Nunco [`/oauth2/${authServerId}/v1/authorize`](/docs/api/resources/oidc/#authorize)(custom authorization server)
     * `consent_method`, magnis nisi euismod penatibus posuere
     * `consent`, integer taciti [scopes](/docs/api/resources/authorization-servers#scope-properties)
 
@@ -229,7 +229,9 @@ Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum c
 
 #### Image Section
 
-![App Assignment UI](/img/okta-admin-ui-app-assignment.png "App Assignment UI")
+![App Assignment UI](/img/okta-admin-ui-app-assignment.png)
+
+![App Assignment UI](/img/okta-admin-ui-app-assignment.png "App Assignment UI Title")
 
 > Torquent natoque facilisi suscipit magna ac sociosqu vitae sollicitudin justo sodales aliquam egestas <ApiLifecycle access="ea" /> phasellus aptent.
 
@@ -252,3 +254,17 @@ Enim fusce natoque facilisi. Suscipit pharetra dignissim. Vehicula nisl rutrum c
 Ut mattis, nulla cubilia velit. Etiam. Suspendisse.
 
     Torquent=natoque.facilisi suscipit "magna" ac sociosqu vitae "sollicitudin" justo sodales aliquam egestas phasellus "aptent"
+
+```
+https://{yourOktaDomain}/apiEndpoint
+```
+
+```
+http://{yourOktaDomain}/apiEndpoint
+```
+
+```bash
+"https://{yourOktaDomain}/api/v1/apps"
+```
+
+`https://{yourOktaDomain}/apiEndpoint`

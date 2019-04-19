@@ -60,13 +60,13 @@ Note the parameters that are being passed:
 
 - `client_id` matches the Client ID of your Okta OAuth application that you created above. You can find it at the bottom of your application's General tab.
 - `response_type` is `code`, indicating that we are using the authorization code grant type.
-- `scope` is `openid`, which means that the `/token` endpoint will return an ID token. For more information about scopes, see [here](/docs/api/resources/oidc#scopes).
+- `scope` is `openid`, which means that the `/token` endpoint will return an ID token. For more information about scopes, see [here](/docs/api/resources/oidc/#scopes).
 - `redirect_uri` is the callback location where the user-agent will be directed to along with the `code`. This must match one of the "Login redirect URIs" you specified when you were creating your Okta application in Step 1.
 - `state` is an arbitrary alphanumeric string that the authorization server will reproduce when redirecting the user-agent back to the client. This is used to help prevent cross-site request forgery.
 - `code_challenge_method` is the hash method used to generate the challenge, which will always be `S256`.
 - `code_challenge` is the code challenge used for PKCE.
 
-For more information on these parameters, see [the OAuth 2.0 API reference](/docs/api/resources/oidc#authorize).
+For more information on these parameters, see [the OAuth 2.0 API reference](/docs/api/resources/oidc/#authorize).
 
 If the user does not have an existing session, this will open the Okta Sign-in Page. If they have an existing session, or after they authenticate, they will arrive at the specified `redirect_uri` along with an authorization `code`:
 
@@ -92,7 +92,7 @@ curl --request POST \
   3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
 
-> Important: Unlike the regular [Authorization Code Flow](auth-code), this call does not require the Authorization header with the client ID and secret. This is why this version of the Authorization Code flow is appropriate for native apps.
+> Important: Unlike the regular [Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code), this call does not require the Authorization header with the client ID and secret. This is why this version of the Authorization Code flow is appropriate for native apps.
 
 Note the parameters that are being passed:
 
@@ -101,7 +101,7 @@ Note the parameters that are being passed:
 - `code` is the authorization code that you got from the `/authorize` endpoint.
 - `code_verifier` is the PKCE code verifier that your app generated at the beginning of this flow.
 
-For more information on these parameters, see the [OIDC & OAuth 2.0 API reference](/docs/api/resources/oidc#token).
+For more information on these parameters, see the [OIDC & OAuth 2.0 API reference](/docs/api/resources/oidc/#token).
 
 If the code is still valid, and the code verifier matches, your application will receive back access and ID tokens:
 
@@ -126,4 +126,4 @@ The following native application examples show the authorization code flow, as i
 |                                        | Environment | Example Repository                                 |
 | :------------------------------------: | ----------- | -------------------------------------------------- |
 | <i class="icon code-android-32"></i>   | Android     | <https://github.com/okta/okta-sdk-appauth-android> |
-| <i class="icon code-ios-32"></i>       | iOS         | <https://github.com/okta/okta-sdk-appauth-ios>     |
+| <i class="icon code-ios-32"></i>       | iOS         | <https://github.com/okta/okta-oidc-ios>            |

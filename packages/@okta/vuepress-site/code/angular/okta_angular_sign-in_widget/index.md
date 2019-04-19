@@ -126,7 +126,6 @@ This route will only be visible to users with a valid `accessToken` or `idToken`
 
 Create a new component `src/app/protected.component.ts`:
 
-{% raw %}
 
 ```typescript
 // src/app/protected.component.ts
@@ -146,7 +145,6 @@ export class ProtectedComponent {
 }
 ```
 
-{% endraw %}
 
 When a user attempts to access a route that is protected by `OktaAuthGuard`, it first checks to see if the user has been authenticated. If `isAuthenticated()` returns `false`, start the login flow.
 
@@ -293,7 +291,7 @@ npm start
 
 ## Conclusion
 
-You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](../../docs/api/resources/oidc).
+You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/api/resources/oidc).
 
 Want to learn how to use the user's `access_token`? Check out our <a href='/quickstart/#/angular/nodejs/generic' data-proofer-ignore>Angular Quickstart integrations</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 

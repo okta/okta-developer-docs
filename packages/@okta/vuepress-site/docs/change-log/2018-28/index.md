@@ -8,11 +8,11 @@ title: Okta API Products Change Log
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
 | [MFA Call Factor is Generally Available (GA)](#mfa-call-factor-is-generally-available-ga)   | July 11, 2018            | July 16, 2018                                |
 | [Bugs Fixed in 2018.28](#bugs-fixed-in-201828)                                                                       | July 11, 2018            | July 16, 2018                                |
-| [Previously Released Early Access Features 2018.28 Update](#previously-released-early-access-features-201828-update) | Available now            | Available now                                
+| [Previously Released Early Access Features 2018.28 Update](#previously-released-early-access-features-201828-update) | Available now            | Available now
 
 ### MFA Call Factor is Generally Available (GA)
 
-The MFA [call factor](/docs/api/resources/factors#factor-type) is now Generally Available (GA).
+The MFA [call factor](/docs/api/resources/factors/#factor-type) is now Generally Available (GA).
 
 ### Bugs Fixed in 2018.28
 

@@ -17,16 +17,16 @@ title: Okta API Products Change Log
 | [New Version of the Sign-In Widget](#new-version-of-the-sign-in-widget) | Available Now | Available Now |
 
 #### Generally Available: App User Schema API
-Use the [App User Schema API](/docs/api/resources/schemas#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
+Use the [App User Schema API](/docs/api/resources/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
 
 #### Special HTML Characters in `state` for `okta_post_message`
 
 You can include HTML special characters in the `state` parameter for `okta_post_message`.
-Note that [`state` in the main request body](/docs/api/resources/oidc#request-parameters-1) already allows these characters. <!-- OKTA-91165 -->
+Note that [`state` in the main request body](/docs/api/resources/oidc/#request-parameters-1) already allows these characters. <!-- OKTA-91165 -->
 
 #### Custom Scopes in Metadata Endpoints
 
-You can specify whether or not to include custom scopes in the metadata endpoints for [OAuth 2.0](/docs/api/resources/oidc#well-knownoauth-authorization-server) and [OpenID Connect](/docs/api/resources/oidc#well-knownopenid-configuration).
+You can specify whether or not to include custom scopes in the metadata endpoints for [OAuth 2.0](/docs/api/resources/oidc/#well-knownoauth-authorization-server) and [OpenID Connect](/docs/api/resources/oidc/#well-knownopenid-configuration).
 Existing custom scopes are not exposed by default. Set the [`metadataPublish` attribute to `ALL_CLIENTS`](/docs/api/resources/authorization-servers#scope-properties) to change the behavior. <!-- OKTA-106548 -->
 
 #### Improved Enforcement of Authorization Server Policies
@@ -41,7 +41,7 @@ These functions complement [the existing EL function `getFilteredGroups`](/docs/
 
 #### New System Log Messages
 
-User account updates have two new events written to the system log ( `/api/v1/events` and `/api/v1/logs`): 
+User account updates have two new events written to the system log ( `/api/v1/events` and `/api/v1/logs`):
 
 * The `user.account.unlock_by_admin` event complements the existing `user.account.unlock` event which is triggered only by self-service unlock or automatic unlock. The `user.account.unlock_by_admin` event is triggered when an administrator unlocks an account.
 * The `user.account.update_primary_email` event is triggered only when a primary email is updated. It's not triggered by profile sync or other automated processes. <!-- OKTA-154452 -->

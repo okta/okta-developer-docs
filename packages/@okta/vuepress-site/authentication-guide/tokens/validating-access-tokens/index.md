@@ -21,7 +21,7 @@ A high-level overview of OAuth 2.0 can be found [here](/authentication-guide/aut
 
 The access tokens are in JSON Web Token (JWT) format, the specification for which can be found here: <https://tools.ietf.org/html/rfc7519>. They are signed using private JSON Web Keys (JWK), the specification for which you can find here: <https://tools.ietf.org/html/rfc7517>.
 
-More information about Okta's access tokens can be found in the [OIDC & OAuth 2.0 Reference](/docs/api/resources/oidc#access-token).
+More information about Okta's access tokens can be found in the [OIDC & OAuth 2.0 Reference](/docs/api/resources/oidc/#access-token).
 
 ## Access Tokens vs ID Tokens
 
@@ -42,7 +42,7 @@ The high-level overview of validating an access token looks like this:
 
 The JSON Web Keys (JWK) need to be retrieved from your [Okta Authorization Server](/authentication-guide/implementing-authentication/set-up-authz-server), though your application should have them cached. Specifically, your Authorization Server's Metadata endpoint contains the `jwks_uri`, which you can use to get the JWK.
 
-> For more information about retrieving this metadata, see [Retrieve Authorization Server Metadata](/docs/api/resources/oidc#well-knownoauth-authorization-server).
+> For more information about retrieving this metadata, see [Retrieve Authorization Server Metadata](/docs/api/resources/oidc/#well-knownoauth-authorization-server).
 
 ### Decode the Access Token
 
@@ -65,7 +65,7 @@ Please note the following:
 
 > Keys used to sign tokens automatically rotate and should always be resolved dynamically against the published JWKS. Your app might fail if you hardcode public keys in your applications. Be sure to include key rollover in your implementation.
 
-> If your application cannot retrieve keys dynamically, the administrator can disable the automatic key rotation in the administrator UI, [generate a key credential](/docs/api/resources/apps#generate-new-application-key-credential) and [update the application](/docs/api/resources/apps#update-key-credential-for-application) to use it for signing.
+> If your application cannot retrieve keys dynamically, the administrator can disable the automatic key rotation in the administrator UI, [generate a key credential](/docs/api/resources/apps/#generate-new-application-key-credential) and [update the application](/docs/api/resources/apps/#update-key-credential-for-application) to use it for signing.
 
 ### Verify the Claims
 
@@ -78,7 +78,7 @@ You should verify the following:
 
 ## Validating A Token Remotely With Okta
 
-Alternatively, you can also validate an access or refresh Token using the Token Introspection endpoint: [Introspection Request](/docs/api/resources/oidc#introspect). This endpoint takes your token as a URL query parameter and returns back a simple JSON response with a boolean `active` property.
+Alternatively, you can also validate an access or refresh Token using the Token Introspection endpoint: [Introspection Request](/docs/api/resources/oidc/#introspect). This endpoint takes your token as a URL query parameter and returns back a simple JSON response with a boolean `active` property.
 
 This incurs a network request which is slower to do verification, but can be used when you want to guarantee that the access token hasn't been revoked.
 
@@ -91,4 +91,4 @@ The Okta JWT Verifier is available for the following languages:
 - [Node.js](https://github.com/okta/okta-oidc-js/tree/master/packages/jwt-verifier)
 - [PHP](https://github.com/okta/okta-jwt-verifier-php)
 
-Don't see the language you're working in? Get in touch: <developers@okta.com>
+Don't see the language you're working in? Get in touch: [mailto:developers@okta.com]

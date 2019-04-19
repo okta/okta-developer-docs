@@ -108,6 +108,7 @@ export default {
         this.activeToCItem = document.querySelectorAll('.TableOfContents-item')[i]
 
         this.activeItem = this.$page.fullHeaders[i]
+        if(!this.activeItem) return
         let currentLevel = parseInt(this.activeItem.level)
 
         for (let j = i; j > 0; j--) {

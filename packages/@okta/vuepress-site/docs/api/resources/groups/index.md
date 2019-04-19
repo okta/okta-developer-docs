@@ -893,7 +893,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/users" />
 
-Enumerates all [users](/docs/api/resources/users#user-model) that are a member of a group.
+Enumerates all [users](/docs/api/resources/users/#user-model) that are a member of a group.
 
 ##### Request Parameters
 
@@ -913,7 +913,7 @@ The default user limit is set to a very high number due to historical reasons wh
 ##### Response Parameters
 
 
-Array of [Users](users#user-model)
+Array of [Users](/docs/api/resources/users/#user-model)
 
 ##### Request Example
 
@@ -1002,7 +1002,7 @@ Link: <https://{yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/users?after=0
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Adds a [user](users#user-model) to a group with `OKTA_GROUP` type.
+Adds a [user](/docs/api/resources/users/#user-model) to a group with `OKTA_GROUP` type.
 
 > Only memberships for groups with `OKTA_GROUP` type can be modified.<br>
 > Application imports are responsible for managing group memberships for groups with `APP_GROUP` type such as Active Directory groups.
@@ -1043,7 +1043,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Removes a [user](users#user-model) from a group with `OKTA_GROUP` type.
+Removes a [user](/docs/api/resources/users/#user-model) from a group with `OKTA_GROUP` type.
 
 > Only memberships for groups with `OKTA_GROUP` type can be modified.<br>
 > Application imports are responsible for managing group memberships for groups with `APP_GROUP` type such as Active Directory groups.
@@ -1589,7 +1589,7 @@ HTTP/1.1 200 No Content
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/apps" />
 
-Enumerates all [applications](apps#application-model) that are assigned to a group. See [Application Group Operations](apps#application-group-operations)
+Enumerates all [applications](/docs/api/resources/apps/#application-model) that are assigned to a group. See [Application Group Operations](/docs/api/resources/apps/#application-group-operations)
 
 ##### Request Parameters
 
@@ -1605,7 +1605,7 @@ Enumerates all [applications](apps#application-model) that are assigned to a gro
 ##### Response Parameters
 
 
-Array of [Applications](apps#application-model)
+Array of [Applications](/docs/api/resources/apps/#application-model)
 
 ##### Request Example
 
@@ -1785,7 +1785,6 @@ Link: <https://{yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/apps?after=0o
 
 All groups have the following properties:
 
-|-----------------------+--------------------------------------------------------------+----------------------------------------------------------------+----------|--------|----------|-----------|-----------+------------|
 | Property              | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | --------------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | id                    | unique key for group                                         | String                                                         | FALSE    | TRUE   | TRUE     |           |           |            |
@@ -1797,7 +1796,7 @@ All groups have the following properties:
 | profile               | the group's profile properties                               | [Profile Object](#profile-object)                              | FALSE    | FALSE  | FALSE    |           |           |            |
 | _links                | [discoverable resources](#links-object) related to the group | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
 | _embedded             | embedded resources related to the group                      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
-|-----------------------+--------------------------------------------------------------+----------------------------------------------------------------+----------|--------|----------|-----------|-----------+------------|
+
 
 > `id`, `created`, `lastUpdated`, `lastMembershipUpdated`, `objectClass`, `type`, and `_links` are only available after a group is created
 
@@ -1805,13 +1804,11 @@ All groups have the following properties:
 
 Okta supports several types of groups that constrain how the group's profile and memberships are managed.
 
-|--------------+-----------------------------------------------------------------------------------------------------------------+
 | Type         | Description                                                                                                     |
 | ------------ | --------------------------------------------------------------------------------------------------------------- |
 | `OKTA_GROUP` | Group profile and memberships are directly managed in Okta via static assignments or indirectly via group rules |
 | `APP_GROUP`  | Group profile and memberships are imported and must be managed within the application that imported the group   |
 | `BUILT_IN`   | Group profile and memberships are managed by Okta and cannot be modified                                        |
-|--------------+-----------------------------------------------------------------------------------------------------------------+
 
 > Active Directory and LDAP groups will also have `APP_GROUP` type
 
@@ -1823,12 +1820,10 @@ Specifies required and optional properties for a group.  The `objectClass` of gr
 
 Profile for any group that is **not** imported from Active Directory
 
-|-------------+--------------------------+----------+----------+----------+-----------+-----------+------------|
 | Property    | Description              | DataType | Nullable | Readonly | MinLength | MaxLength | Validation |
 | ----------- | ------------------------ | -------- | -------- | -------- | --------- | --------- | ---------- |
 | name        | name of the group        | String   | FALSE    | FALSE    | 1         | 255       |            |
 | description | description of the group | String   | TRUE     | FALSE    | 0         | 1024      |            |
-|-------------+--------------------------+----------+----------+----------+-----------+-----------+------------|
 
 ```json
 {
@@ -1881,7 +1876,6 @@ The Group Rules API is currently a <ApiLifecycle access="beta" /> release.
 
 Profile for a group that is imported from Active Directory
 
-|----------------------------+--------------------------------------------------------+----------+-----------+----------+-----------+-----------+------------|
 | Property                   | Description                                            | DataType | Nullable  | Readonly | MinLength | MaxLength | Validation |
 | -------------------------- | ------------------------------------------------------ | -------- | --------- | -------- | --------- | --------- | ---------- |
 | name                       | name of the windows group                              | String   | FALSE     | TRUE     |           |           |            |
@@ -1890,7 +1884,6 @@ Profile for a group that is imported from Active Directory
 | dn                         | the distinguished name of the windows group            | String   | FALSE     | TRUE     |           |           |            |
 | windowsDomainQualifiedName | fully-qualified name of the windows group              | String   | FALSE     | TRUE     |           |           |            |
 | externalId                 | base-64 encoded GUID (objectGUID) of the windows group | String   | FALSE     | TRUE     |           |           |            |
-|----------------------------+--------------------------------------------------------+----------+-----------+----------+-----------+-----------+------------|
 
 ```json
 {
@@ -1909,13 +1902,11 @@ Profile for a group that is imported from Active Directory
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the group using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.  This object is used for dynamic discovery of related resources and lifecycle operations.
 
-|--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Link Relation Type | Description                                                                                                                                                     |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | self               | The primary URL for the group                                                                                                                                   |
 | logo               | Provides links to logo images for the group if available                                                                                                        |
 | users              | Provides [group member operations](#group-member-operations) for the group                                                                                      |
-| apps               | Lists all [applications](apps#application-model) that are assigned to the group. See [Application Group Operations](apps#application-group-operations)          |
-|--------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| apps               | Lists all [applications](/docs/api/resources/apps/#application-model) that are assigned to the group. See [Application Group Operations](/docs/api/resources/apps/#application-group-operations)          |
 
 > The Links Object is read only.

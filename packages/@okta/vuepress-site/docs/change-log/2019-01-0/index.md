@@ -22,11 +22,11 @@ title: Okta API Products Change Log
 
 ### IdP Discovery Generally Available
 
-[IdP Discovery](/docs/api/resources/policy#IdPDiscoveryPolicy) is now Generally Available (GA) as part of the Policy API. <!--OKTA-202887-->
+[IdP Discovery](/docs/api/resources/policy/#IdPDiscoveryPolicy) is now Generally Available (GA) as part of the Policy API. <!--OKTA-202887-->
 
 ### Relay State Format Now Configurable for SAML IdPs
 
-The Protocol Object now contains a [Relay State object](/docs/api/resources/idps#saml-20-relay-state-object) that allows an admin to configure the Relay State format on the SAML IdP. <!--OKTA-188092-->
+The Protocol Object now contains a [Relay State object](/docs/api/resources/idps/#saml-20-relay-state-object) that allows an admin to configure the Relay State format on the SAML IdP. <!--OKTA-188092-->
 
 ### No Events API Access for New Orgs
 

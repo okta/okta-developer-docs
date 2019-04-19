@@ -14,7 +14,7 @@ For general information on inline hooks and how to create and use them, see [Inl
 
 ## Getting Started
 
-Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b9651dc833b18e4c4666)
+Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2ae80cd0a5869ca23523)
 
 ## Inline Hook Operations
 
@@ -603,7 +603,9 @@ To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, a
 
 When registering an inline hook, you need to specify what type it is. The following types are currently supported:
 
-| Type Value                         | Name                                                                                            |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `com.okta.oauth2.tokens.transform` | [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)                              |
-| `com.okta.import.transform`        | [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook)                           |
+| Type Value                         | Name                                                                      |
+|------------------------------------|---------------------------------------------------------------------------|
+| `com.okta.oauth2.tokens.transform` | [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)        |
+| `com.okta.import.transform`        | [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook)     |
+| `com.okta.saml.tokens.transform`   | [SAML Assertion Inline Hook](/use_cases/inline_hooks/saml_hook/saml_hook) |
+

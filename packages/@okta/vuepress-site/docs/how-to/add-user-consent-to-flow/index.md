@@ -28,7 +28,7 @@ Use the following procedure to display the user consent dialog as part of an Ope
 
     To enable these features, contact [Support](https://support.okta.com/help/open_case).
 
-2. Add an OpenID Connect app via the Apps API. The value you should specify for `consent_method` depends on the values for `prompt` and `consent`. Check the Apps API [table of values](https://developer.okta.com/docs/api/resources/apps#add-oauth-20-client-application) for these three properties. In most cases, `REQUIRED` is the correct value.
+2. Add an OpenID Connect app via the Apps API. The value you should specify for `consent_method` depends on the values for `prompt` and `consent`. Check the Apps API [table of values](https://developer.okta.com/docs/api/resources/apps/#add-oauth-20-client-application) for these three properties. In most cases, `REQUIRED` is the correct value.
 
     Optionally, you can set the appropriate values for your Terms of Service (`tos_uri`) and Privacy Policy (`policy_uri`) notices using the same API request.
 
@@ -40,19 +40,15 @@ Use the following procedure to display the user consent dialog as part of an Ope
 
     Note: You can also specify these values when you create and configure a scope in the administrator UI. Navigate to **Applications > [Application Name] > General > User Consent** and select **Require user consent for this scope** (it can be overriden by individual apps).
 
-4. Prepare an authentication or authorization request with the correct values for `prompt` and `consent_method`. For details, see the [API documentation for `prompt`](/docs/api/resources/oidc#parameter-details) and the [table of values relating to consent dialog](/docs/api/resources/apps#settings-7).
+4. Prepare an authentication or authorization request with the correct values for `prompt` and `consent_method`. For details, see the [API documentation for `prompt`](/docs/api/resources/oidc/#parameter-details) and the [table of values relating to consent dialog](/docs/api/resources/apps/#settings-7).
 
-5. Test your configuration by sending an authentication or authorization request. For instance, if you set `consent` to `REQUIRED` for the `email` scope:
+5. Test your configuration by initiating an authentication or authorization request. For instance, if you set `consent` to `REQUIRED` for the `email` scope, you can open this URL in a browser:
 
     ```bash
-    curl -v -X GET \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -H "Authorization: SSWS ${api_token}" \
-    "https://{yourOktaDomain}/oauth2/${authenticationServerId}/v1/authorize?client_id=${clientId}&response_type=token&response_mode=fragment&scope=email&redirect_uri=http://localhost:54321&state=myState&nonce=${nonce}"
+    https://{yourOktaDomain}/oauth2/${authenticationServerId}/v1/authorize?client_id=${clientId}&response_type=token&response_mode=fragment&scope=email&redirect_uri=http://localhost:54321&state=${state}&nonce=${nonce}
     ```
 
-    Your test should launch the user consent dialog. Click **Allow** to create the grant.
+    Opening this URL will show the user consent dialog. Click **Allow** to create the grant.
 
 ## Verification
 
@@ -167,7 +163,7 @@ If you want to verify that you've successfully created a user grant, here are a 
 
 If you don't see the consent prompt when expected:
 
-* Verify that you haven't already provided consent for that combination of app and scope(s). Use the [`/grants` endpoint](/docs/api/resources/users#list-grants) to see which grants have been given, and to revoke grants.
-* Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table of values](https://developer.okta.com/docs/api/resources/apps#add-oauth-20-client-application).
+* Verify that you haven't already provided consent for that combination of app and scope(s). Use the [`/grants` endpoint](/docs/api/resources/users/#list-grants) to see which grants have been given, and to revoke grants.
+* Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table of values](https://developer.okta.com/docs/api/resources/apps/#add-oauth-20-client-application).
 * Make sure that in your app configuration, the `redirect_uri` is an absolute URI and that it is whitelisted by specifying in Trusted Origins.
 * If you aren't using the `default` authorization server, check that you've created at least one policy with one rule that applies to any scope or the scope(s) in your test.

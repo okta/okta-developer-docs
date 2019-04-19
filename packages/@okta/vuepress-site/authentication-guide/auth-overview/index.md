@@ -64,8 +64,8 @@ The usual OAuth 2.0 grant flow looks like this:
 At the core of both OAuth 2.0 and its OpenID Connect extension is the authorization server. An authorization server is simply an OAuth 2.0 token minting engine. Each authorization server has a unique issuer URI and its own signing key for tokens in order to keep a proper boundary between security domains. In the context of this guide, Okta is your authorization server.
 
 The authorization server also acts as an OpenID Connect Provider,
-which means you can request [ID tokens](/docs/api/resources/oidc#id-token)
-in addition to [access tokens](/docs/api/resources/oidc#access-token) from the authorization server endpoints.
+which means you can request [ID tokens](/docs/api/resources/oidc/#id-token)
+in addition to [access tokens](/docs/api/resources/oidc/#access-token) from the authorization server endpoints.
 
 ### OpenID Connect
 

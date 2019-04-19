@@ -63,7 +63,7 @@ For example, if your **Login Redirect URI** is `com.okta.example:/callback`, the
 
 ## Adding Authentication
 Users can sign in to your iOS application a number of different ways.
-The easiest, and most secure way is to use the **default login page**. This page renders the [Okta Sign-In Widget](../javascript/okta_sign-in_widget), equipped to handle User Lifecycle operations, MFA, and more.
+The easiest, and most secure way is to use the **default login page**. This page renders the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget), equipped to handle User Lifecycle operations, MFA, and more.
 
 First, update your `AppDelegate` to include the following function to allow the redirect to occur:
 ```swift

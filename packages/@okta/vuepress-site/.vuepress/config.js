@@ -69,15 +69,15 @@ module.exports = {
      * Primary Nav: Array of MenuItem components to iterate over within TopNavigation component
      */
     primary_nav: [
-      { text: 'Product', link: 'https://developer.okta.com/product/',
+      { text: 'Product', link: '/product/',
         children: [
-          { text: 'Overview', link: 'https://developer.okta.com/product/' },
-          { text: 'Authentication', link: 'https://developer.okta.com/product/authentication/' },
-          { text: 'Authorization', link: 'https://developer.okta.com/product/authorization/' },
-          { text: 'User Management', link: 'https://developer.okta.com/product/user-management/' },
+          { text: 'Overview', link: '/product/' },
+          { text: 'Authentication', link: '/product/authentication/' },
+          { text: 'Authorization', link: '/product/authorization/' },
+          { text: 'User Management', link: '/product/user-management/' },
         ]
       },
-      { text: 'Pricing', link: 'https://developer.okta.com/pricing/' },
+      { text: 'Pricing', link: '/pricing/' },
       { text: 'Blog', link: '/blog/' },
       { text: 'Docs', link: '/documentation/',
         children: [
@@ -87,8 +87,8 @@ module.exports = {
       },
       { text: 'Support', link: '',
         children: [
-          { text: 'Get Started', link: 'https://developer.okta.com/documentation/' },
-          { text: 'API Reference', link: 'https://developer.okta.com/reference/' },
+          { text: 'Okta Developer Forums', link: 'https://devforum.okta.com/' },
+          { text: 'developers@okta.com', link: 'mailto:developers@okta.com' },
         ]
       }
     ],
@@ -183,18 +183,35 @@ module.exports = {
       promo_url: 'https://developer.okta.com/quickstart/',
       promo_text: 'Learn how to build your app on Okta, fast.',
       cta_text: 'QUICK STARTS'
+    },
+
+    editLink: {
+      repo: 'okta/okta-developer-docs',
+      repoLabel: 'Edit Page',
+      editLinks: true,
+      editLinkText: "Edit Page",
+      docsDir: "packages/@okta/vuepress-site"
     }
 
   },
 
   plugins: [
     '@okta/vuepress-plugin-my-okta',
-    '@okta/vuepress-plugin-active-header-links'
+    '@okta/vuepress-plugin-active-header-links',
+    [
+      'vuepress-plugin-sitemap', {
+        hostname: 'https://developer.okta.com',
+        outFile: 'docs-sitemap.xml'
+      }
+    ]
   ],
 
   evergreen: false,
 
   markdown: {
+    extendMarkdown: md => {
+      md.use(require('markdown-it-attrs'))
+    },
     anchor: {
       permalinkBefore: false,
       permalinkSymbol: '<i class="fa fa-link"></i>',

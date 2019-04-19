@@ -9,7 +9,7 @@ This section covers the steps required to integrate an OAuth 2.0 authentication 
 
 Before you can use OAuth 2.0 flows with Okta, you will need to configure an Authorization Server in Okta. If you have an Okta Developer Account, you already have a default Authorization Server created for you.
 
-If you don't have an existing authorizations server, or would like to create a new one, then you can find out how to do that in the [Setting up an Authorization Server](set-up-authz-server) section.
+If you don't have an existing authorizations server, or would like to create a new one, then you can find out how to do that in the [Setting up an Authorization Server](/authentication-guide/implementing-authentication/set-up-authz-server) section.
 
 Once you have an authorization server, you can then implement an OAuth 2.0 flow.
 
@@ -18,8 +18,8 @@ The table below shows you which OAuth 2.0 flow to use for the type of applicatio
 
 | Type of Application     | OAuth 2.0 Flow                                      |
 | ----------------------- | --------------------------------------------------- |
-| Server-side (AKA Web)   | [Authorization Code Flow](auth-code)                |
-| Single-Page Application | [Implicit Flow](implicit)                           |
-| Native                  | [Authorization Code Flow with PKCE](auth-code-pkce) |
-| Trusted                 | [Resource Owner Password Flow](password)            |
-| Service                 | [Client Credentials](client-creds)                  |
+| Server-side (AKA Web)   | [Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code)                |
+| Single-Page Application | [Implicit Flow](/authentication-guide/implementing-authentication/implicit)                           |
+| Native                  | [Authorization Code Flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce) |
+| Trusted                 | [Resource Owner Password Flow](/authentication-guide/implementing-authentication/password)            |
+| Service                 | [Client Credentials](/authentication-guide/implementing-authentication/client-creds)                  |

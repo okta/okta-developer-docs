@@ -18,8 +18,8 @@ To share a certificate among app instances:
 3. Share the credential (`kid`) with one or more target apps.
 4. Use the new credential in the target app.
 
-For more detailed instructions, see ["Clone Key Credential for Application"](/docs/api/resources/apps#clone-application-key-credential)
-and ["Update Key Credential for Application"](/docs/api/resources/apps#update-key-credential-for-application).
+For more detailed instructions, see ["Clone Key Credential for Application"](/docs/api/resources/apps/#clone-application-key-credential)
+and ["Update Key Credential for Application"](/docs/api/resources/apps/#update-key-credential-for-application).
 
 ### Bug Fixed
 
