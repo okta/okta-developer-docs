@@ -8,8 +8,8 @@ title: Okta API Products Change Log
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
 | [New Session Token Behavior is in Early Access](#new-session-token-behavior-is-in-early-access)                      | May 30, 2018             | June 4, 2018                                 |
 | [System Log Events for New Device Notification Emails](#system-log-events-for-new-device-notification-emails)        | May 30, 2018             | June 4, 2018                                 |
-| [Bugs Fixed in 2018.22](#bugs-fixed-in-201822)                                                                       | May 30, 2018             | June 4, 2018                                 |
-| [Previously Released Early Access Features 2018.22 Update](#previously-released-early-access-features-201822-update) | Available now            | Available now                                |
+| [Bugs Fixed in 2018.22](#bugs-fixed-in-2018-22)                                                                       | May 30, 2018             | June 4, 2018                                 |
+| [Previously Released Early Access Features 2018.22 Update](#previously-released-early-access-features-2018-22-update) | Available now            | Available now                                |
 
 ### New Session Token Behavior is in Early Access
 
