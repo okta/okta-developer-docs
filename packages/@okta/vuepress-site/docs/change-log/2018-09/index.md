@@ -5,6 +5,7 @@ title: Okta API Products Change Log
 ## 2018.09
 
 | Change | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
+| :---------- | :--------------------------------- | :----------------------------------------------------------- |
 | [API Access Management is Generally Available in Preview](#api-access-management-is-generally-available-in-preview) | February 7, 2018               | March 12, 2018  |
 | [User Consent for OAuth 2.0 and OpenID Connect Flows in Early Availability (EA)](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) | February 28, 2018               | March 5, 2018 |
 | [Sessions API Supports HTTP Header Prefer](#sessions-api-supports-http-header-prefer)  | February 28, 2018               | March 5, 2018 |
