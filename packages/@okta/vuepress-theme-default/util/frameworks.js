@@ -14,7 +14,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   preact: 'Preact',
   vue: 'Vue.js',
   java: 'Java',
-  springboot: 'Java Spring',
+  springboot: 'Spring Boot',
   nodejs: 'Node.js',
   android: 'Android',
   ios: 'iOS',

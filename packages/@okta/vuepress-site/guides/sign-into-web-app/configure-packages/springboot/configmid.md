@@ -1,9 +1,10 @@
-Edit `src/main/resources/application.properties` and include your Okta Issuer, Client Id, Client Secret from the previous section:
+Edit `src/main/resources/application.properties` and update these values to include your Okta domain and the Okta Application's client ID and secret:
 
 ```properties
 okta.oauth2.issuer=https://{yourOktaDomain}/oauth2/default
-okta.oauth2.clientId={yourClientId}
+okta.oauth2.clientId={clientId}
 okta.oauth2.clientId={clientSecret}
-# Configure the callback URL to match the previous section (optional)
+
+# Customize the callback route path (optional):
 security.oauth2.sso.loginPath=/authorization-code/callback
 ```

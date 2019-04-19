@@ -1,7 +1,10 @@
 ---
 title: Before You Begin
 ---
-This guide shows you how to sign users in to your web app.
+This guide shows you how to use Okta as the user store for your web application and sign users in.
+
+If you are building a single-page (browser) app, see [Sign Users in to Your Single-Page Application](/guides/sign-into-spa/) instead.
+<!-- Or, if you are building a server that returns API responses (but not HTML), see [Protect Your API Endpoints](/guides/protect-your-api). -->
 
 This guide assumes that you:
 
@@ -10,8 +13,6 @@ This guide assumes that you:
 * Have a project or application that you want to add authentication to.
 
 * Are building a web app that's rendered by a server.
-    - If you are building a mobile app, see [Sign Users in to Your Mobile App](/guides/sign-into-mobile-app/).
-    - If you are building a single-page app, see [Sign Users in to Your SPA App](/guides/sign-into-spa/).
 
 If you don't have an existing app, or are new to building apps, start with this documentation:
 

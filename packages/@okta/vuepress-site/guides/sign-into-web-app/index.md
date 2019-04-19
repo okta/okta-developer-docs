@@ -4,7 +4,7 @@ excerpt: Learn how to add authentication to your web applications and sign users
 layout: Guides
 sections: 
  - before-you-begin
- - define-callback-route
+ - define-callback
  - create-okta-application
  - configure-packages
  - add-signin-button

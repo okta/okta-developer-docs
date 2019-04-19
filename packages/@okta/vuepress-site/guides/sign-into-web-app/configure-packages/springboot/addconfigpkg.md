@@ -14,7 +14,7 @@ curl https://start.spring.io/starter.tgz  \
 | tar -xzvf -
 ```
 
-For existing projects just include the the following Apache Maven dependency: 
+For existing projects, include the following Apache Maven dependency: 
 
 ```xml
 <dependency>
