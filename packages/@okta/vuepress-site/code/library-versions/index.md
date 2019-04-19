@@ -58,7 +58,7 @@ This table lists the current (and historical) major versions of our open-source 
 | [Android AppAuth SDK][appauth-android]                          | 0.1.0                              | Beta                                 |
 | [Angular SDK][sdk-angular]                                      | 0.1.0<br>**1.x**                   | Retired<br>**Stable**                |
 | [JWT verifier for Go][go-jwt-verifier]                          | 0.x                                | Beta                                 |
-| [iOS AppAuth SDK][appauth-ios]                                  | 1.x<br>**2.x**                     | Retiring on 2019-07-19<br>**Stable** |
+| [OIDC iOS][oidc-ios] (<i>formerly **iOS AppAuth SDK**</i>)                                  | 1.x<br>2.x<br>**3.x**                     | Retiring on 2019-07-19<br>Retiring on 2020-01-16<br>**Stable** |
 | [iOS OktaJWT][ios-oktajwt]                                      | 0.1.0<br>**1.x**                   | Retired<br>**Stable**                |
 | [iOS authentication SDK][authsdk-ios]                           | 0.1.0                              | Beta                                 |
 | [Java management SDK][sdk-java]                                 | 0.0.x<br>**1.x**                   | Retired<br>**Stable** |
@@ -93,8 +93,8 @@ This table lists the current (and historical) major versions of our open-source 
 [php-jwt-verifier]: https://github.com/okta/okta-jwt-verifier-php
 [go-jwt-verifier]: https://github.com/okta/okta-jwt-verifier-golang
 [appauth-android]: https://github.com/okta/okta-sdk-appauth-android
-[appauth-ios]: https://github.com/okta/okta-sdk-appauth-ios
 [ios-oktajwt]: https://github.com/okta/okta-ios-jwt
+[oidc-ios]: https://github.com/okta/okta-oidc-ios
 [authsdk-ios]: https://github.com/okta/okta-auth-swift
 [spring-boot-starter]: https://github.com/okta/okta-spring-boot
 [signin-widget]: https://github.com/okta/okta-signin-widget

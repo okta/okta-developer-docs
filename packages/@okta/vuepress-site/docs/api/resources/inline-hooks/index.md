@@ -14,7 +14,7 @@ For general information on inline hooks and how to create and use them, see [Inl
 
 ## Getting Started
 
-Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b9651dc833b18e4c4666)
+Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2ae80cd0a5869ca23523)
 
 ## Inline Hook Operations
 

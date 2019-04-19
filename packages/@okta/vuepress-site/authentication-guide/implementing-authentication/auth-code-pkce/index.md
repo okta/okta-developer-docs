@@ -126,4 +126,4 @@ The following native application examples show the authorization code flow, as i
 |                                        | Environment | Example Repository                                 |
 | :------------------------------------: | ----------- | -------------------------------------------------- |
 | <i class="icon code-android-32"></i>   | Android     | <https://github.com/okta/okta-sdk-appauth-android> |
-| <i class="icon code-ios-32"></i>       | iOS         | <https://github.com/okta/okta-sdk-appauth-ios>     |
+| <i class="icon code-ios-32"></i>       | iOS         | <https://github.com/okta/okta-oidc-ios>            |
