@@ -1,4 +1,6 @@
-Open your `_Layout.cshtml` file and update the `body` with the following code:
+When accessing protected resources, ASP.NET Core redirects the user to an Okta sign-in page automatically. You can also force this with a **Login** button by redirecting to `/oauth2/authorization/okta`.
+
+Open your `_Layout.cshtml` file and update the `body` with the following code to include the Sign-In button:
 
 ```
 <div class="navbar-collapse collapse">
@@ -25,5 +27,41 @@ Open your `_Layout.cshtml` file and update the `body` with the following code:
 </div>
 ```
 
-In the next step, we show you how to create an `AccountController` to handle login and logout.
+Next, we show you how to create an `AccountController` to redirect the user to the Okta hosted sign-in page to perform the authentication process.
 
+Create an `AccountController`:
+
+```
+public class AccountController : Controller
+{
+    public IActionResult Login()
+    {
+        if (!HttpContext.User.Identity.IsAuthenticated)
+        {
+            return Challenge(OktaDefaults.MvcAuthenticationScheme);
+        }
+
+        return RedirectToAction("Index", "Home");
+    }
+
+    [HttpPost]
+    public IActionResult Logout()
+    {
+        return new SignOutResult(new[]
+        {
+            OktaDefaults.MvcAuthenticationScheme,
+            CookieAuthenticationDefaults.AuthenticationScheme
+        });
+    }
+}
+```
+
+Update your `using` statements to import the required namespaces:
+
+```
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+using Okta.AspNetCore;
+```
+
+At this point, you should be able to **run the project** and sign in.

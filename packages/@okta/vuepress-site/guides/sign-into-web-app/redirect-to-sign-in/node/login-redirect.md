@@ -1,0 +1,1 @@
+When accessing protected resources, Node redirects the user to an Okta sign-in page automatically. You can also force this with a **Login** button by redirecting to `/oauth2/authorization/okta`.
