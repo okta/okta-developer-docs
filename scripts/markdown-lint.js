@@ -149,7 +149,7 @@ To Fix:
   - [(“|”)]
       - Malformed character! Replace with (")
   - [(‘|’)]
-      - malformed character! Replace with (')
+      - Malformed character! Replace with (')
   - […]
       - Malformed ellipsis character! Replace with (...)
     `);
