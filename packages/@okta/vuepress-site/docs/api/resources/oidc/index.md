@@ -72,7 +72,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 | prompt                           | Valid values: `none`, `consent`, `login`, or `consent` and `login` in either order. See [Parameter Details](#parameter-details) for more information.                                                                                                                                                                                                                                                                                              | Query       | String    | FALSE      |
 | redirect_uri                     | Callback location where the authorization code or tokens should be sent. It must match the value preregistered in Okta during client registration.                                                                                                                                                                                                                                                                                                 | Query       | String    | TRUE       |
 | response_type                    | Any combination of `code`, `token`, and `id_token`. The combination determines the [flow](/authentication-guide/implementing-authentication/).                                                                                                                                                                                                                                                                                                     | Query       | String    | TRUE       |
-| response_mode                    | How the authorization response should be returned. [Valid values](#parameter-details): `fragment`, `form_post`, `query` or `okta_post_message`. If `id_token` or `token` is specified as the response type, then `query` isn't allowed as a response mode. Defaults to `fragment` in implicit and hybrid flows. If using the authorization code flow, this can't be set to `okta_post_message` and if not specified, the default value is `query`. | Query       | String    | FALSE      |
+| response_mode                    | How the authorization response should be returned. [Valid values](#parameter-details): `fragment`, `form_post`, `query` or `okta_post_message`. If `id_token` or `token` is specified as the response type, then `query` isn't allowed as a response mode. Defaults to `fragment` in implicit and hybrid flows. | Query       | String    | FALSE      |
 | request                          | A JWT created by the client that enables requests to be passed as a single, self-contained parameter. See [Parameter Details](#parameter-details).                                                                                                                                                                                                                                                                                        | Query       | JWT       | FALSE      |
 | scope                            | `openid` is required for authentication requests. Other [scopes](#access-token-scopes-and-claims) may also be included.                                                                                                                                                                                                                                                                                                                            | Query       | String    | TRUE       |
 | sessionToken                     | Okta one-time session token. This allows an API-based user sign-in flow (rather than the Okta sign-in UI). Session tokens can be obtained via the [Authentication API](/docs/api/resources/authn/).                                                                                                                                                                                                                                                        | Query       | String    | FALSE      |
@@ -104,7 +104,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
   * Okta validates the `request` parameter in the following ways:
     1. `iss` is required and must be the `client_id`.
     2. `aud` is required and must be the same value as the authorization server issuer that mints the ID or access token. This value is published in the metadata for your authorization server.
-    3. JWT lifetime is evaluated using the `iat` and `exp` claims if present. If the JWT is expired or not yet valid, Okta returns an `invalid_request_object`  error.
+    3. JWT lifetime is evaluated using the `iat` and `exp` claims, if present. If the JWT is expired or not yet valid, Okta returns an `invalid_request_object`  error. Okta rejects JWTs that expire more than one hour in the future.
     4. Okta rejects the JWT if the `jti` claim is present and it has already been processed.
 
 `response_mode`:
@@ -335,8 +335,6 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | token                   | An access token, ID token, or refresh token.                                                                   | String        |
 | token_type_hint         | Indicates the type of `token` being passed. Valid values are `access_token`, `id_token` and `refresh_token`.   | String (Enum) |
 
-> Native applications should not provide -- and by default don't store -- the `client_secret` (see [Section 5.3.1 of the OAuth 2.0 spec](https://tools.ietf.org/html/rfc6819#section-5.3.1)). They can omit the `client_secret` from the above request parameters when introspecting a token.
-
 #### Response Properties
 Based on the type of token and whether it is active, the returned JSON contains a different set of information. Besides the claims in the token, the possible top-level members include:
 
@@ -428,8 +426,6 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | :---------------------- | :------------------------------------------------------------------------------------------------ | :-----        |
 | token                   | An access or refresh token.                                                                       | String        |
 | token_type_hint         | A hint of the type of `token`. Valid values are `access_token` and `refresh_token`.               | String (Enum) |
-
-> Native applications should not provide -- and by default do not store -- the `client_secret` (see [Section 5.3.1 of the OAuth 2.0 spec](https://tools.ietf.org/html/rfc6819#section-5.3.1)). They can omit the `client_secret` from the above request parameters when revoking a token.
 
 #### Response Properties
 A successful revocation is denoted by an HTTP 200 OK response. Note that revoking an invalid, expired, or revoked token is still considered a success so as to not leak information.
@@ -1215,7 +1211,10 @@ When registering an OAuth 2 client application, you can specify an authenticatio
 
 > Note: If you don't specify a method when registering your client, the default method is `client_secret_basic`.
 
-* `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these three methods to authenticate against the `/token` or `/revoke` endpoints when the client has access to the `client_secret`. Typically services support client authentication via HTTP Basic Auth (`client_secret_basic`) with the client's `client_id` and `client_secret`. However, some services support authentication by accepting the `client_id` and `client_secret` as POST body parameters (`client_secret_post`). Check the service's documentation to find out what the service expects, since the OAuth 2.0 specification leaves this decision to the service.
+* `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these methods to authenticate against any endpoint that requires client authentication when the client has access to the `client_secret`. Typically services support client authentication via HTTP Basic Auth (`client_secret_basic`) with the client's `client_id` and `client_secret`. However, some services support authentication by accepting the `client_id` and `client_secret` as POST body parameters (`client_secret_post`). Check the service's documentation to find out what the service expects, since the OAuth 2.0 specification leaves this decision to the service.
+
+
+any client authentication method can be used against any endpoint which requires client authentication. Additionally the /revoke endpoint requires client authentication.
 
 * `private_key_jwt`: Use this method when you want to use public/private key pairs for more security, as key pairs are short-lived.
 
@@ -1231,6 +1230,8 @@ If you configured your client to use a `client_secret` [client authentication me
     Authorization: Basic ${Base64(<client_id>:<client_secret>)}
   ```
 * `client_secret_post`: Provide the `client_id` and `client_secret` as additional parameters in the POST request body.
+
+> Native applications shouldn't provide -- and by default don't store -- the `client_secret` (see [Section 5.3.1 of the OAuth 2.0 spec](https://tools.ietf.org/html/rfc6819#section-5.3.1)). They can omit the `client_secret` from the request parameters when introspecting a token.
 
 ### JWT With Shared Key
 If you configured your client to use the `client_secret_jwt` client authentication method:
