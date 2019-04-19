@@ -1,3 +1,5 @@
+(clarify that the redirect will happen automatically when accessing a protected resource, link to Require Authentication)
+
 Open your `_Layout.cshtml` file and update the `body` with the following code:
 
 ```

@@ -7,7 +7,6 @@ sections:
  - define-callback
  - create-okta-application
  - configure-packages
- - add-signin-button
  - redirect-to-sign-in
  - require-authentication
  - get-user-info
