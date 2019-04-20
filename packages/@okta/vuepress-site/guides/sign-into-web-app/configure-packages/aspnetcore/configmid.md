@@ -3,7 +3,7 @@ Open your `Startup` class and modify the `ConfigureServices` method to include t
 ```
 public void ConfigureServices(IServiceCollection services)
 {
-    ...
+    //...
     services.AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -26,7 +26,7 @@ Modify the `Configure` method to include the `app.UseAuthentication()` line. It 
 ```
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-    ...
+    //...
     app.UseAuthentication();
 
     app.UseMvc(routes =>

@@ -1,24 +1,24 @@
 To require authentication for all actions you can add the `Authorize` attribute in the filter config to apply it to every controller.
 
-```
+```csharp
 public class FilterConfig
 {
     public static void RegisterGlobalFilters(GlobalFilterCollection filters)
     {
-        ...
+        //...
         filters.Add(new AuthorizeAttribute());
     }
 }
 ```
 
-Also, you can opt to create a `BaseProtectedController`and make all of your controllers to inherit it:
+Or, you could create a `BaseProtectedController`and make all of your controllers to inherit from it:
 
-```
+```csharp
 [Authorize]
 public abstract class BaseProtectedController : Controller
 {
-    ...
+    //...
 }
 ```
 
-For those actions/controllers that need to be accessible for non-authenticated users you have to decorate them with the `AllowAnonymous` attribute. 
+With all routes protected, you can make specific routes accessible to unauthenticated users with the `[AllowAnonymous]` attribute.

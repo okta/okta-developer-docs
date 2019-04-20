@@ -1,4 +1,4 @@
-By default Spring Security requires authentication for all routes with an equivalent `WebSecurityConfigurerAdapter` implementation: 
+Use `.anyRequest().authenticated()` in your `WebSecurityConfigurerAdapter` implementation: 
 
 ```java
 import org.springframework.context.annotation.Configuration;

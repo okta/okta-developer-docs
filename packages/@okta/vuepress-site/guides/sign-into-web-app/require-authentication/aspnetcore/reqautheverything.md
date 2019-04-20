@@ -13,7 +13,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Also, you can opt to create a `BaseProtectedController` decorated with the `Authorize` attribute and make all of your controllers inherit it:
+Or, you could create a `BaseProtectedController`and make all of your controllers to inherit from it:
 
 ```
 [Authorize]
@@ -23,4 +23,4 @@ public abstract class BaseProtectedController : Controller
 }
 ```
 
-For those actions/controllers that need to be accessible for non-authenticated users, you have to decorate them with the `AllowAnonymous` attribute. 
+With all routes protected, you can make specific routes accessible to unauthenticated users with the `[AllowAnonymous]` attribute.

@@ -1,7 +1,6 @@
-When accessing protected resources, ASP.NET redirects the user to an Okta sign-in page automatically. You can also force this with a **Login** button by redirecting to `/oauth2/authorization/okta`.
+When accessing protected routes, ASP.NET redirects the user to an Okta sign-in page automatically. You can control which routes are protected with the `[Authorize]` attribute, which is covered in [Require Authentication](../-/require-authentication/).
 
-
-Open your `_Layout.cshtml` file and update the `body` with the following code to include the Sign-In button:
+You can also give the user a **Sign In** button or link. Open your `_Layout.cshtml` file and add the following code:
 
 ```
 <div class="navbar-collapse collapse">
@@ -16,24 +15,18 @@ Open your `_Layout.cshtml` file and update the `body` with the following code to
             <li>
                 <p class="navbar-text">Hello, <b>@Context.User.Identity.Name</b></p>
             </li>
-            <li>
-                <a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">Log out</a>
-            </li>
         </ul>
-        <form action="/Account/Logout" method="post" id="logout_form"></form>
     }
     else
     {
         <ul class="nav navbar-nav navbar-right">
-            <li>@Html.ActionLink("Log in", "Login", "Account")</li>
+            <li>@Html.ActionLink("Sign In", "Login", "Account")</li>
         </ul>
     }
 </div>
 ```
 
-Next, we show you how to create an `AccountController` to redirect the user to the Okta hosted sign-in page to perform the authentication process.
-
-Create an `AccountController`:
+The Sign In uses `Html.ActionLink` to invoke a `Login` action on an `Account` controller. Create an `AccountController` class with this code:
 
 ```
 public class AccountController : Controller
@@ -45,19 +38,6 @@ public class AccountController : Controller
             HttpContext.GetOwinContext().Authentication.Challenge(
                 OktaDefaults.MvcAuthenticationType);
             return new HttpUnauthorizedResult();
-        }
-
-        return RedirectToAction("Index", "Home");
-    }
-
-    [HttpPost]
-    public ActionResult Logout()
-    {
-        if (HttpContext.User.Identity.IsAuthenticated)
-        {
-            HttpContext.GetOwinContext().Authentication.SignOut(
-                CookieAuthenticationDefaults.AuthenticationType,
-                OktaDefaults.MvcAuthenticationType);
         }
 
         return RedirectToAction("Index", "Home");

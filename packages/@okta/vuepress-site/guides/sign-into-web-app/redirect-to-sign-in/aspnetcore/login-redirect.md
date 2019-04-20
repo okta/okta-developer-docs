@@ -1,6 +1,6 @@
-When accessing protected resources, ASP.NET Core redirects the user to an Okta sign-in page automatically. You can also force this with a **Login** button by redirecting to `/oauth2/authorization/okta`.
+When accessing protected resources, ASP.NET Core redirects the user to an Okta sign-in page automatically. You can control which routes are protected with the `[Authorize]` attribute, which is covered in [Require Authentication](../-/require-authentication/).
 
-Open your `_Layout.cshtml` file and update the `body` with the following code to include the Sign-In button:
+You can also give the user a **Sign In** button or link. Open your `_Layout.cshtml` file and add code the following code:
 
 ```
 <div class="navbar-collapse collapse">
@@ -9,27 +9,24 @@ Open your `_Layout.cshtml` file and update the `body` with the following code to
         <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
         <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
     </ul>
+
     @if (User.Identity.IsAuthenticated)
     {
         <ul class="nav navbar-nav navbar-right">
             <li><p class="navbar-text">Hello, @User.Identity.Name</p></li>
             <li><a asp-controller="Home" asp-action="Profile">Profile</a></li>
-            <li><a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">Log out</a></li>
         </ul>
-        <form asp-controller="Account" asp-action="Logout" method="post" id="logout_form"></form>
     }
     else
     {
         <ul class="nav navbar-nav navbar-right">
-            <li><a asp-controller="Account" asp-action="Login">Log in</a></li>
+            <li><a asp-controller="Account" asp-action="Login">Sign In</a></li>
         </ul>
     }
 </div>
 ```
 
-Next, we show you how to create an `AccountController` to redirect the user to the Okta hosted sign-in page to perform the authentication process.
-
-Create an `AccountController`:
+The Sign In link uses tag helpers to invoke a `Login` action on an `Account` controller. Create an `AccountController` class with this code:
 
 ```
 public class AccountController : Controller

@@ -1,1 +1,1 @@
-[Spring Boot Samples on GitHub](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login)
+We have samples available in our [Spring Boot Samples repo](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) on GitHub.
