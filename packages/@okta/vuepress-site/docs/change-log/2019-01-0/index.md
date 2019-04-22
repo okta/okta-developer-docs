@@ -13,8 +13,8 @@ title: Okta API Products Change Log
 | [Relay State Format Now Configurable for SAML IdPs](#relay-state-format-now-configurable-for-saml-idps)               | January 9, 2019          | January 14, 2019                             |
 | [No Events API Access for New Orgs](#no-events-api-access-for-new-orgs)                                               | January 9, 2019          | January 14, 2019                             |
 | [Updated Office 365 Legacy Rate Limit](#updated-office-365-legacy-rate-limit)                                         | January 9, 2019          | January 14, 2019                             |
-| [Bug Fixed in 2019.01.0](#bug-fixed-in-2019010)                                                                       | January 9, 2018         | January 14, 2019
-| [Previously Released Early Access Features 2019.01.0 Update](#previously-released-early-access-features-2019010-update) | Available Now            | Available Now                                |
+| [Bug Fixed in 2019.01.0](#bug-fixed-in-2019-01-0)                                                                       | January 9, 2018         | January 14, 2019
+| [Previously Released Early Access Features 2019.01.0 Update](#previously-released-early-access-features-2019-01-0-update) | Available Now            | Available Now                                |
 
 ### Social Authentication Generally Available
 
