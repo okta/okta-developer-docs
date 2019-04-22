@@ -7,8 +7,8 @@ title: Okta API Products Change Log
 | Change                                                                                                               | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
 | [MFA Call Factor is Generally Available (GA)](#mfa-call-factor-is-generally-available-ga)   | July 11, 2018            | July 16, 2018                                |
-| [Bugs Fixed in 2018.28](#bugs-fixed-in-201828)                                                                       | July 11, 2018            | July 16, 2018                                |
-| [Previously Released Early Access Features 2018.28 Update](#previously-released-early-access-features-201828-update) | Available now            | Available now
+| [Bugs Fixed in 2018.28](#bugs-fixed-in-2018-28)                                                                       | July 11, 2018            | July 16, 2018                                |
+| [Previously Released Early Access Features 2018.28 Update](#previously-released-early-access-features-2018-28-update) | Available now            | Available now                                
 
 ### MFA Call Factor is Generally Available (GA)
 
