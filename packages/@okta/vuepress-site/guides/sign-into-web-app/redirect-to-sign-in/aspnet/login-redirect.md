@@ -2,7 +2,7 @@ When accessing protected routes, ASP.NET redirects the user to an Okta sign-in p
 
 You can also give the user a **Sign In** button or link. Open your `_Layout.cshtml` file and add the following code:
 
-```
+```csharp
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -28,7 +28,7 @@ You can also give the user a **Sign In** button or link. Open your `_Layout.csht
 
 The Sign In uses `Html.ActionLink` to invoke a `Login` action on an `Account` controller. Create an `AccountController` class with this code:
 
-```
+```csharp
 public class AccountController : Controller
 {
     public ActionResult Login()
@@ -47,7 +47,7 @@ public class AccountController : Controller
 
 Update your `using` statements to import the required namespaces:
 
-```
+```csharp
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OpenIdConnect;
 using Okta.AspNet;
