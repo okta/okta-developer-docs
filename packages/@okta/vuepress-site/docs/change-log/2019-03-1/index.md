@@ -8,8 +8,8 @@ title: Okta API Products Change Log
 
 | Change                                                                 | Expected in Preview Orgs |
 |----------------------------------------------------------------------- | ------------------------ |
-| [Bug Fixed in 2019.03.1](#bug-fixed-in-2019031)                        | March 13, 2019         |
-| [Previously Released Early Access Features 2019.03.1 Update](#previously-released-early-access-features-2019031-update) | Available Now            |
+| [Bug Fixed in 2019.03.1](#bug-fixed-in-2019-03-1)                        | March 13, 2019         |
+| [Previously Released Early Access Features 2019.03.1 Update](#previously-released-early-access-features-2019-03-1-update) | Available Now            |
 
 ### Bug Fixed in 2019.03.1
 

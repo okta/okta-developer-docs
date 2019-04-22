@@ -9,7 +9,7 @@ title: Okta API Products Change Log
 | [Factors API Now Supports U2F](#factors-api-now-supports-u2f)                      | June 6, 2018             | June 11, 2018                                 |
 | [Network Selection Modes Deprecated](#network-selection-modes-deprecated)        | June 6, 2018             | June 11, 2018                                 |
 | [Better Signing Key Errors](#better-signing-key-errors)        | June 6, 2018             | June 11, 2018                                 |
-| [Previously Released Early Access Features 2018.23 Update](#previously-released-early-access-features-201823-update) | Available now            | Available now                                |
+| [Previously Released Early Access Features 2018.23 Update](#previously-released-early-access-features-2018-23-update) | Available now            | Available now                                |
 
 ### Factors API Now Supports U2F
 
