@@ -12,9 +12,9 @@ public ActionResult Profile()
 }
 ```
 
-Or in your views:
+Or directly in your views:
 
-```csharp
+```cshtml
 <dl class="dl-horizontal">
     @foreach (var claim in ((ClaimsIdentity)Context.User.Identity).Claims)
     {
@@ -33,6 +33,3 @@ Or in your views:
     }
 </dl>
 ```
-
-
-

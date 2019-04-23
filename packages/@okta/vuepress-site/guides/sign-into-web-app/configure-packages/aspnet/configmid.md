@@ -1,6 +1,6 @@
 Open the `Web.config` file and add your Okta configuration to the `<appSettings>` section:
 
-```csharp
+```xml
 <configuration>
     <appSettings>
         <!-- 1. Update with your application's base URL and port: -->

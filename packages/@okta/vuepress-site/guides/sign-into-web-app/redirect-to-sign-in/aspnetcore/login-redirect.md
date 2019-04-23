@@ -2,7 +2,7 @@ When accessing protected resources, ASP.NET Core redirects the user to an Okta s
 
 You can also give the user a **Sign In** button or link. Open your `_Layout.cshtml` file and add code the following code:
 
-```csharp
+```cshtml
 <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
         <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
