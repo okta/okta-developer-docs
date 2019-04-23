@@ -36,6 +36,7 @@ module.exports = [
     title: 'Use Cases',
     links: [
       { title: 'Inline Hooks', link: '/use_cases/inline_hooks/'},
+      { title: 'Event Hooks', link: '/use_cases/event_hooks/'},
       { title: 'Authentication', link: '/use_cases/authentication/'},
       { title: 'Events API Migration', link: '/use_cases/events-api-migration/'},
       { title: 'Multi-Factor Authentication', link: '/use_cases/mfa/'},
