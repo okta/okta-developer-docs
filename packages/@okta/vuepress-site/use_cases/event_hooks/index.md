@@ -101,8 +101,7 @@ The following is an example of a JSON payload of a request from Okta to your ext
 
 ```json
 {
- "contentType": "application/json"
-, 
+ "contentType": "application/json", 
  "eventType": "com.okta.event_hook",
   "eventTypeVersion": "1.0",
   "cloudEventsVersion": "0.1",
