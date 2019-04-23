@@ -592,7 +592,7 @@ $ curl 'https://scim-server.example.com/scim/v2/Users?count=1&startIndex=1'
   "schemas": [
     "urn:ietf:params:scim:api:messages:2.0:ListResponse"
   ],
-  "startIndex": 0,
+  "startIndex": 1,
   "totalResults": 1
 }
 ```
