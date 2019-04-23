@@ -101,13 +101,13 @@ The following is an example of a JSON payload of a request from Okta to your ext
 
 ```json
 {
- "contentType": "application/json", 
- "eventType": "com.okta.event_hook",
+  "eventType": "com.okta.event_hook",
   "eventTypeVersion": "1.0",
   "cloudEventsVersion": "0.1",
   "eventId": "b5a188b9-5ece-4636-b041-482ffda96311",
   "eventTime": "2019-03-27T16:59:53.032Z",
   "source": "https://{yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
+  "contentType": "application/json",
   "data": {
     "events": [
       {
