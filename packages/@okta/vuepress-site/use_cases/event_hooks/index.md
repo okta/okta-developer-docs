@@ -89,7 +89,7 @@ The response you receive will confirm creation of the event hook and provide you
 
 ### Verifying an Event Hook
 
-After registering the event hook, you need to trigger a one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/lifecycle/verify` API. Okta will then make the GET request to your endpoint.
+After registering the event hook, you need to trigger a one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/lifecycle/verify` API. See [Event Hooks Management API](/docs/api/resources/event-hooks).
 
 If verification is successful, the JSON payload of the response to your call to the `/verify` API will contain a property called `verificationStatus` set to `VERIFIED`.
 
@@ -101,11 +101,10 @@ The following is an example of a JSON payload of a request from Okta to your ext
 
 ```json
 {
- "contentType": "application/json"
-, 
- "eventType": "com.okta.event_hook",
+  "eventType": "com.okta.event_hook",
   "eventTypeVersion": "1.0",
   "cloudEventsVersion": "0.1",
+  "contentType": "application/json",
   "eventId": "b5a188b9-5ece-4636-b041-482ffda96311",
   "eventTime": "2019-03-27T16:59:53.032Z",
   "source": "https://{yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
