@@ -40,16 +40,6 @@ public class AccountController : Controller
 
         return RedirectToAction("Index", "Home");
     }
-
-    [HttpPost]
-    public IActionResult Logout()
-    {
-        return new SignOutResult(new[]
-        {
-            OktaDefaults.MvcAuthenticationScheme,
-            CookieAuthenticationDefaults.AuthenticationScheme
-        });
-    }
 }
 ```
 
