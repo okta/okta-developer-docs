@@ -26,7 +26,7 @@ If you see **Developer Console** in the top left, click it and select **Classic 
 
 1.  Click on the Applications link in the upper navigation bar
 
-1.  .  Click on the green **Create New App** button
+1.  Click on the green **Create New App** button
 
 1.  In the dialog that opens, select the "SAML 2.0" option, then click
     the green "Create" button. If you do not see this option, make sure you are in the Classic UI (see Note above).
