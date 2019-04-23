@@ -1,6 +1,6 @@
 Open your `Startup` class and modify the `ConfigureServices` method to include the Okta middleware configuration. Replace the placeholders with your Okta configuration:
 
-```
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     //...
@@ -23,7 +23,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Modify the `Configure` method to include the `app.UseAuthentication()` line. It must be above `UseMvc()`:
 
-```
+```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
     //...
@@ -40,9 +40,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 Finally, update your `using` statements to import `Okta.AspNetCore` and other required namespaces:
 
-```
+```csharp
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Okta.AspNetCore;
 ```
 
-The `OktaMvcOptions` class configures the Okta middleware. You can see all of ßthe available options in the **Configuration Reference** section in the [ASP.NET Core SDK readme](https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-mvc.md#configuration-reference).
+The `OktaMvcOptions` class configures the Okta middleware. You can see all of the available options in the **Configuration Reference** section in the [ASP.NET Core SDK readme](https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-mvc.md#configuration-reference).

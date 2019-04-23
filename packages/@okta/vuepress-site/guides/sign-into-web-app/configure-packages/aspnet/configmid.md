@@ -1,6 +1,6 @@
 Open the `Web.config` file and add your Okta configuration to the `<appSettings>` section:
 
-```
+```xml
 <configuration>
     <appSettings>
         <!-- 1. Update with your application's base URL and port: -->
@@ -19,7 +19,7 @@ If your project doesn't have an OWIN Startup class, right-click your project and
 
 Open `Startup.cs` and modify the `Configuration` method with these lines:
 
-```
+```csharp
 public class Startup
 {
     public void Configuration(IAppBuilder app)
@@ -40,7 +40,7 @@ public class Startup
 
 At the top of the file, update your `using` statements to import `Okta.AspNet` and other required namespaces:
 
-```
+```csharp
 using System.Collections.Generic;
 using System.Configuration;
 using Microsoft.Owin;
