@@ -10,8 +10,8 @@ title: Okta API Products Change Log
 | [Custom URL Domains are in Early Access](#custom-url-domains-are-in-early-access)| May 9, 2018 | May 14, 2018 |
 | [Custom Okta-hosted Sign-In Page is in Early Access](#custom-okta-hosted-sign-in-page-is-in-early-access)| May 9, 2018 | May 14, 2018 |
 | [Custom Error Page is in Early Access](#custom-error-page-is-in-early-access)| May 9, 2018 | May 14, 2018 |
-| [Bugs Fixed in 2018.19](#bugs-fixed-in-201819) | May 9, 2018 | May 14, 2018 |
-| [Previously Released Early Access Features 2018.19 Update](#previously-released-early-access-features-201819-update) | Available now | Available now |
+| [Bugs Fixed in 2018.19](#bugs-fixed-in-2018-19) | May 9, 2018 | May 14, 2018 |
+| [Previously Released Early Access Features 2018.19 Update](#previously-released-early-access-features-2018-19-update) | Available now | Available now |
 
 ### ID Tokens Can Be Refreshed
 

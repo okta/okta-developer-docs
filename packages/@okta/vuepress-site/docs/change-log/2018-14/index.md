@@ -8,7 +8,7 @@ title: Okta API Products Change Log
 | :---------- | :--------------------------------- | :----------------------------------------------------------- |
 | [Linked Objects API in Early Access (EA)](#linked-objects-api-in-early-access-ea) | April 4, 2018 | April 9, 2018 |
 | [Client SDKs Version 1.0](#client-sdks-version-10) | Available Now | Available Now |
-| [Bug Fixed for 2018.14](#bug-fixed-for-201814) | April 4, 2018 | April 9, 2018 |
+| [Bug Fixed for 2018.14](#bug-fixed-for-2018-14) | April 4, 2018 | April 9, 2018 |
 | [Previously Released Early Access Features](#previously-released-early-access-features) | Available now | Available now |
 
 ### Linked Objects API in Early Access (EA)
@@ -37,7 +37,7 @@ We published the 1.0 version of the following client SDKs:
 * [React SDK](https://github.com/okta/okta-oidc-js/releases/tag/%40okta%2Fokta-react%401.0.0)
 * [Angular SDK](https://github.com/okta/okta-oidc-js/releases/tag/%40okta%2Fokta-angular%401.0.0)
 * [Vue SDK](https://github.com/okta/okta-oidc-js/releases/tag/%40okta%2Fokta-vue%401.0.0)
-* [iOS SDK](https://github.com/okta/okta-sdk-appauth-ios/releases/tag/1.0.0)
+* [iOS SDK](https://github.com/okta/okta-oidc-ios/releases/tag/1.0.0)
 
 Visit each SDK for a complete list of new features, enhancements, and bug fixes. <!-- OKTA-164979 -->
 

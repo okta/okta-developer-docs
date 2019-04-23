@@ -115,8 +115,6 @@ redirects:
     to: /docs/api/resources/oidc/index.html
   - from: /standards/OIDC/
     to: /docs/api/resources/oidc/index.html
-  - from: /standards/OAuth/
-    to: /docs/api/resources/oidc/index.html
   - from: /reference/authentication_reference
     to: /docs/api/resources/oidc/index.html
   - from: /docs/getting_started/policy.html
@@ -370,7 +368,13 @@ redirects:
   - from: /docs/api/resources/oidc.html
     to: /docs/api/resources/oidc/
   - from: /standards/OAuth/
-    to: /docs/api/resources/oidc/
+    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+  - from: /standards/OAuth/index
+    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+  - from: /standards/OAuth/index.html
+    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+  - from: /standards/OAuth
+    to: /standards/OAuth/
   - from: /docs/api/resources/oauth2.html
     to: /docs/api/resources/oidc/
   - from: /standards/OIDC/
