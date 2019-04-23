@@ -12,8 +12,8 @@ Dates for preview and production release are the earliest possible release date.
 
 | Feature Enhancement                                                           | Expected in Preview Orgs            | Expected in Production Orgs |
 |:------------------------------------------------------------------------------|:------------------------------------|:----------------------------|
-|         [New Developer Dashboard](#new-developer-dashboard)                           | Available now in new developer orgs | N/A                         |
-|        [Zones API is an Early Access Release](#zones-api-is-an-early-access-release) | August 22, 2017                     | September 5, 2017           |
+| [New Developer Dashboard](#new-developer-dashboard)                           | Available now in new developer orgs | N/A                         |
+| [Zones API is an Early Access Release](#zones-api-is-an-early-access-release) | August 22, 2017                     | September 5, 2017           |
 
 #### New Developer Dashboard
 
