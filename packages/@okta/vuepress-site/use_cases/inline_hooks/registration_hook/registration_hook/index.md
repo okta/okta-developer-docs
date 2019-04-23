@@ -25,7 +25,7 @@ For steps to enable this inline hook, see below, [Enabling a Registration Inline
 
 ## About
 
-Okta Registration Inline Hooks are triggered when a user attempts to register, either through Self-Service Registration (link) or through the Okta Identity Engine (link). They allow you to execute your own custom code after a user has attempted to register but before their registration completes in order to:
+Okta Registration Inline Hooks are triggered when a user attempts to register, either through [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) or through the Okta Identity Engine. They allow you to execute your own custom code after a user has attempted to register but before their registration completes in order to:
 
 - Set or override attributes on the user's profile
 - Allow or deny the user's registration based on your own validation of the user's profile
