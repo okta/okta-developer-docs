@@ -8,8 +8,8 @@ title: Okta API Products Change Log
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
 | [Interstitial Page Settings are Generally Available (GA)](#interstitial-page-settings-are-generally-available)       | August 8, 2018           | September 2018                               |
 | [New System Log Event Type for Denied Events](#new-system-log-event-type-for-denied-events)                          | August 8, 2018           | August 13, 2018                              |
-| [Bugs Fixed in 2018.32](#bugs-fixed-in-201832)                                                                       | August 8, 2018           | August 13, 2018                              |
-| [Previously Released Early Access Features 2018.32 Update](#previously-released-early-access-features-201832-update) | Available now            | Available now                                |
+| [Bugs Fixed in 2018.32](#bugs-fixed-in-2018-32)                                                                       | August 8, 2018           | August 13, 2018                              |
+| [Previously Released Early Access Features 2018.32 Update](#previously-released-early-access-features-2018-32-update) | Available now            | Available now                                |
 
 
 ### Interstitial Page Settings are Generally Available
