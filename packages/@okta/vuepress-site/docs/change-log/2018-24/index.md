@@ -7,8 +7,8 @@ title: Okta API Products Change Log
 | Change                                                                                                               | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
 | [User Login Pattern Validation](#user-login-pattern-validation)                                                      | June 13, 2018            | June 18, 2018                                |
-| [Bugs Fixed in 2018.24](#bugs-fixed-in-201824)                                                                       | June 13, 2018            | June 18, 2018                                |
-| [Previously Released Early Access Features 2018.24 Update](#previously-released-early-access-features-201824-update) | Available now            | Available now                                |
+| [Bugs Fixed in 2018.24](#bugs-fixed-in-2018-24)                                                                       | June 13, 2018            | June 18, 2018                                |
+| [Previously Released Early Access Features 2018.24 Update](#previously-released-early-access-features-2018-24-update) | Available now            | Available now                                |
 
 ### User Login Pattern Validation
 

@@ -9,8 +9,8 @@ title: Okta API Products Change Log
 | [Rate Limit Notifications for One App and Enterprise](#rate-limit-notifications-for-one-app-and-enterprise)                            | October 10, 2018       | October 15, 2018                             |
 | [OIDC Clients Can Initiate Logout with Expired Token](#oidc-clients-can-initiate-logout-with-expired-token)                            | October 10, 2018       | October 15, 2018                             |
 | [Change to User Link Editing Permissions](#change-to-user-link-editing-permissions)                            | October 10, 2018       | October 15, 2018                             |
-| [Bugs Fixed in 2018.41](#bugs-fixed-in-201841)                                                                       | October 10, 2018         | October 15, 2018                             |
-| [Previously Released Early Access Features 2018.41 Update](#previously-released-early-access-features-201841-update) | Available Now            | Available Now                                |
+| [Bugs Fixed in 2018.41](#bugs-fixed-in-2018-41)                                                                       | October 10, 2018         | October 15, 2018                             |
+| [Previously Released Early Access Features 2018.41 Update](#previously-released-early-access-features-2018-41-update) | Available Now            | Available Now                                |
 
 ### Rate Limit Notifications for One App and Enterprise
 
