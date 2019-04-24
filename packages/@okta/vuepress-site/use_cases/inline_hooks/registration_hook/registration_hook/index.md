@@ -25,9 +25,9 @@ For steps to enable this inline hook, see below, [Enabling a Registration Inline
 
 ## About
 
-Okta Registration Inline Hooks are triggered when a user attempts to register, either through [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) or through the Okta Identity Engine. They allow you to execute your own custom code after a user has attempted to register but before their registration completes in order to:
+Okta Registration Inline Hooks are triggered when a user attempts to register, either through [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) or through the Okta Identity Engine. This allows you to execute your own custom code after a user has attempted to register but before their registration completes. Your custom code ca:
 
-- Set or override attributes on the user's profile
+- Set or override attributes in the user's profile
 - Allow or deny the user's registration based on your own validation of the user's profile
 
 The remainder of this document describes the API contract for these hooks &mdash; both the request that Okta submits to your external service when a Registration Inline Hook is triggered and the format of the response that Okta expects to receive back from the service.
@@ -38,26 +38,26 @@ The outbound call from Okta to your external service will include the following 
 
 ### data.userProfile
 
-The profile of the registering user, containing name-value pairs for each attribute supplied by the user. You can change the values of these attributes or add values for other attributes defined on the user schema by using one or more `com.okta.user.profile.update` commands in your response (link to appropriate section).
+The profile of the registering user, containing name-value pairs for each attribute supplied by the user. You can change the values of these attributes or add values for other attributes defined on the user schema by using one or more `com.okta.user.profile.update` commands in your response.
 
-> Note: The `password` field, along with any attributes that are marked as sensitive on the user schema, will be omitted from `data.userProfile`. While `com.okta.user.profile.update` commands cannot be used to updated the user's password, they can still be used to set the values of sensitive attributes, even though those attributes will not appear in `data.userProfile`. 
+> Note: The `password` field, along with any attributes that are marked as sensitive in the user schema, will be omitted from `data.userProfile`. While `com.okta.user.profile.update` commands cannot be used to update the user's password, they can still be used to set the values of any other sensitive attributes, even though those attributes  are not sent in `data.userProfile`. 
 
 ### data.action
 
-The action that Okta will take on the registration. This will be one of two possible values:
+The action that Okta is currently set to take for this registration attempt. There are two possible values:
 
-- `ALLOW` indicates that the registration will be allowed to proceed.
-- `DENY` indicates that the registration will be terminated (no user will be created in Okta).
+- `ALLOW` indicates that the registration attempt will be allowed to proceed
+- `DENY` indicates that the registration attempt will be terminated (no user will be created in Okta)
 
 The action is `ALLOW` by default and may be updated using a single `com.okta.action.update` command in your response (link to appropriate section).
 
 ## Objects in Response You Send
 
-For the Registration Inline Hook, the `commands`, `error`, and `debugContext` objects that you can return in the JSON payload of your response are defined below.
+For the Registration Inline Hook, the `commands`, `error`, and `debugContext` objects that you can return in the JSON payload of your response are defined as follows:
 
 ### commands
 
-The `commands` object is where you can provide commands to Okta for updating the user's profile or the action taken on the user's registration request.
+The `commands` object is where you can provide commands to Okta to update attributes in the user's profile or to change the action that will be taken in response to the user's registration request.
 
 The `commands` object is an array, allowing you to send multiple commands. Each array element requires a `type` property and `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply parameters for that command.
 
