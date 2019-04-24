@@ -7,8 +7,8 @@ title: Okta API Products Change Log
 | Change                                                                                                               | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
 | [System Log API is Generally Available (GA)](#system-log-api-is-generally-available-ga)                              | July 5, 2018            | July 9, 2018                                |
-| [Bugs Fixed in 2018.27](#bugs-fixed-in-201827)                                                                       | July 5, 2018            | July 9, 2018                                |
-| [Previously Released Early Access Features 2018.27 Update](#previously-released-early-access-features-201827-update) | Available now            | Available now                                |
+| [Bugs Fixed in 2018.27](#bugs-fixed-in-2018-27)                                                                       | July 5, 2018            | July 9, 2018                                |
+| [Previously Released Early Access Features 2018.27 Update](#previously-released-early-access-features-2018-27-update) | Available now            | Available now                                |
 
 ### System Log API is Generally Available (GA)
 
