@@ -10,7 +10,7 @@
     "test": "yarn dev & yarn test:test-local && yarn stop-all",
     "test-only": "yarn test:update-web-driver && protractor tests/selenium/conf.js && yarn stop",
     "test:test-local": "wait-on http-get://localhost:8080/assets/js/10.js && yarn test-only || (yarn stop && exit 1)",
-    "test:update-web-driver": "./node_modules/protractor/bin/webdriver-manager update --gecko false",
+    "test:update-web-driver": "./node_modules/protractor/bin/webdriver-manager update --gecko false --versions.standalone 3.141.59",
     "test:stop-web-driver": "pkill -f 'webdriver-manager/selenium' || echo 'no Selenium processes found'",
     "markdown-check-all": "node scripts/markdown-check",
     "markdown-link-check": "node scripts/markdown-check link-check",
@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "hoek": "^6.1.2",
+    "http-server": "^0.11.1",
     "joi": "^14.3.1"
   }
 }
