@@ -1,4 +1,4 @@
-The [Spring Boot Getting Started Guide](https://spring.io/guides/gs/spring-boot/) teaches you the basics of building a Spring Boot application. You can create a new Spring Boot project by visiting the [Spring Initializr](https://start.spring.io) and selecting the dependencies **Web**, **Security**, and **Okta**, and then clicking the **Generate Project** button to download a zip file.
+The [Spring Boot Getting Started Guide](https://spring.io/guides/gs/spring-boot/) teaches you the basics of building a Spring Boot application. You can create a new Spring Boot project by visiting the [Spring Initializr](https://start.spring.io) and selecting the dependencies **Web**, **Security**, and **Okta**, and then clicking **Generate Project** to download a zip file.
 
 You can also use the command line:
 

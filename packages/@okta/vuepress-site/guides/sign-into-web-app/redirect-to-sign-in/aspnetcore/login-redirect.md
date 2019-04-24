@@ -1,6 +1,6 @@
 When accessing protected resources, ASP.NET Core redirects the user to an Okta sign-in page automatically. You can control which routes are protected with the `[Authorize]` attribute, which is covered in [Require Authentication](../-/require-authentication/).
 
-You can also give the user a **Sign In** button or link. Open your `_Layout.cshtml` file and add code the following code:
+You can also give the user a **Sign In** button or link. Open your `_Layout.cshtml` file and add the following code:
 
 ```cshtml
 <div class="navbar-collapse collapse">
