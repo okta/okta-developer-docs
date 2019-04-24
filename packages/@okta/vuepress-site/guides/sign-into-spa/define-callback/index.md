@@ -10,7 +10,7 @@ The callback route is not seen by the user, and it's not the user's final destin
 
 <StackSelector snippet="define-route"/>
 
-Our examples use `/implicit/callback` as a default route path, but you can change this. The route path will be used in the next step.
+Our examples use `/implicit/callback` as a default route path, but you can change this. The route path is used in the next step.
 
 Your application is responsible for parsing the information Okta sends to this callback route. Our SDKs can do this for you (covered later in [Handle the Callback from Okta](../-/handle-callback/)). For now, just define the route itself.
 

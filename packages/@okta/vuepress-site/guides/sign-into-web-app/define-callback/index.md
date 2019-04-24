@@ -10,7 +10,7 @@ The callback route is not seen by the user, and it's not the user's final destin
 
 <StackSelector snippet="define-route"/>
 
-Our examples use `/authorization-code/callback` as a default route path, but you can change this. The route path will be used in the next step.
+Our examples use `/authorization-code/callback` as a default route path, but you can change this. The route path is used in the next step.
 
 <NextSectionLink/>
 
