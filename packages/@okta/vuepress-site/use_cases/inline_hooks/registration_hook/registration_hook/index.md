@@ -74,7 +74,7 @@ The following commands are supported for the Registration Inline Hook type:
 
 | Command                      | Description                                                       |
 |------------------------------|-------------------------------------------------------------------|
-| com.okta.user.profile.update | Set or modify an attribute on the user's profile.                 |
+| com.okta.user.profile.update | Set or modify an attribute in the user's profile.                 |
 | com.okta.action.update       | Update the action that Okta will take on the user's registration. |
 
 #### value
