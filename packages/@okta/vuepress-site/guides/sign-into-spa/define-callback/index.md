@@ -4,13 +4,13 @@ title: Define a Callback Route
 
 <!-- To sign users in, your application redirects the browser to an Okta-hosted sign-in page. Okta then redirects back to your application with information about the user. You can learn more about how this works on [Okta-hosted flows]. -->
 
-The first thing you need to define is how Okta can call your app after a user has been authenticated. This is called a callback route or redirect URI.
+The first thing that you need to define is how Okta calls your app after a user is authenticated. This is called a callback route or redirect URI.
 
 The callback route is not seen by the user, and it's not the user's final destination. It's just one step in the authentication redirect flow.
 
 <StackSelector snippet="define-route"/>
 
-Our examples use `/implicit/callback` as a default route path, but you can change this if you want. The route path will be used in the next step.
+Our examples use `/implicit/callback` as a default route path, but you can change this. The route path will be used in the next step.
 
 Your application is responsible for parsing the information Okta sends to this callback route. Our SDKs can do this for you (covered later in [Handle the Callback from Okta](../-/handle-callback/)). For now, just define the route itself.
 

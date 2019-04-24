@@ -13,13 +13,13 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Or, you could create a `BaseProtectedController`and make all of your controllers to inherit from it:
+Or, you could create a `BaseProtectedController` and make all of your controllers inherit from it:
 
 ```csharp
 [Authorize]
 public abstract class BaseProtectedController : Controller
 {
-    ...
+    //...
 }
 ```
 

@@ -11,7 +11,7 @@ public class FilterConfig
 }
 ```
 
-Or, you could create a `BaseProtectedController`and make all of your controllers to inherit from it:
+Or, you could create a `BaseProtectedController` and make all of your controllers inherit from it:
 
 ```csharp
 [Authorize]

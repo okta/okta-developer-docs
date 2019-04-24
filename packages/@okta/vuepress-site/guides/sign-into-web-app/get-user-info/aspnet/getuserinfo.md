@@ -1,6 +1,6 @@
 ASP.NET automatically populates `HttpContext.User` with the information Okta sends back about the user. You can check whether the user is logged in with `User.Identity.IsAuthenticated` in your actions or views, and see all of the user's claims in `User.Claims`.
 
-To access claims in your controllers use the OWIN `IAuthenticationManager` interface which is attached to the `HttpContext` object:
+To access claims in your controllers, use the OWIN `IAuthenticationManager` interface which is attached to the `HttpContext` object:
 
 ```csharp
 [Authorize]
