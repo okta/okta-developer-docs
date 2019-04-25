@@ -3481,23 +3481,6 @@ The User model defines several read-only properties:
 | _links                  | [link relations](#links-object) for the user&#8217;s current `status`   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | TRUE       | FALSE    | TRUE     |
 | _embedded               | embedded resources related to the user                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | TRUE       | FALSE    | TRUE     |
 
->Note: Profile image is a <ApiLifecycle access="beta" /> feature.
-
-During the profile image Beta, image property definitions in the schema are of the `Object` data type with an additional `extendedType` of `Image`.
-When a user is retrieved via the API, however, the value will be a URL (represented as a String).  Some caveats apply:
-
-1) Image properties are described differently in the schema than how the data actually comes back.  This discrepancy is deliberate for the time being, but is likely to change after Beta.  Special handling rules apply (described below).
-
-2) During Beta, the URL returned is a placeholder URL, resolving to a placeholder image.  By GA, the URL returned will resolve to the image (that is, a logged in user can click it and retrieve the image).
-
-**Updating image property values via Users API**
-
-Okta does not support uploading images via the Users API.  All operations in this API that update properties work in a slightly different way when applied to image properties:
-
-1)  When performing a full update, if the property is not passed, it is unset (if set).  The same applies if a partial update explicitly sets it to null.
-
-2)  When "updating" the value, it must be set to the value returned by a GET on that user (resulting in no change).  Any other value will not validate.
-
 Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded` are only available after a user is created.
 
 * The `activated` timestamp will only be available for users activated after 06/30/2013.
