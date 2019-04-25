@@ -1,1 +1,1 @@
-We have multiple samples available in our [netcore Samples repo](netcore link) on GitHub.
+We have multiple samples available in our [ASP.NET Core Samples repo](https://github.com/okta/samples-aspnetcore) on GitHub.
