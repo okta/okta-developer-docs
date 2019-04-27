@@ -35,4 +35,4 @@ Update your using statements to import `Okta.AspNetCore`:
 using Okta.AspNetCore;
 ```
 
-The `OktaWebApiOptions` class configures the Okta middleware. You can see all the available options in the **Configuration Reference** section in the [Okta ASP.NET Core GitHub](https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-webapi.md#configuration-reference).
+The `OktaWebApiOptions` class configures the Okta middleware. You can see all the available options in the **Configuration Reference** section in the [Okta ASP.NET Core GitHub](https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-webapi.md#configuration-reference) repo.

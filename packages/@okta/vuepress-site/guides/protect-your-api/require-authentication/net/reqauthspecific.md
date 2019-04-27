@@ -1,4 +1,4 @@
-Use the `Authorize` attribute on controllers or actions to require a logged-in user:
+Use the `Authorize` attribute on controllers or actions to require a signed-in user:
 
 ```csharp
 public class MessagesController : Controller
