@@ -1,4 +1,4 @@
-You can create a new Spring Boot project by visting the [Spring Initializr](https://start.spring.io) and selecting the dependencies **Web**, **Security**, and **Okta**, then clicking the **Generate Project** button to download a zip file.
+You can create a new Spring Boot project by visting the [Spring Initializr](https://start.spring.io) and selecting the dependencies **Web**, **Security**, and **Okta**, and then clicking **Generate Project** to download a zip file.
 
 You can also use the command line:
 
@@ -14,7 +14,7 @@ curl https://start.spring.io/starter.tgz  \
 | tar -xzvf -
 ```
 
-For existing projects just include the the following Apache Maven dependency: 
+For existing projects, just include the following Apache Maven dependency: 
 
 ```xml
 <dependency>

@@ -9,15 +9,15 @@ First, install an Okta SDK for your framework to help validate incoming tokens.
 
 ### Configure the Middleware
 
-You need to configure the Okta SDK with some information about your Okta domain. You can provide this configuration though environment variables, configuration files, or in code. Then, put the middleware provided by the SDK into your application's pipeline.
+You need to configure the Okta SDK with some information about your Okta domain. You can provide this configuration through environment variables, configuration files, or in code. Then, put the middleware provided by the SDK into your application's pipeline.
 
 #### Things You Need
 
 * **Okta Domain** - Find it on the Developer Console dashboard in the upper-right corner. 
 * **Audience** - The audience of your [authorization server](https://developer.okta.com/authentication-guide/implementing-authentication/set-up-authz-server/). The default value is `api://default`.
 
-> Note: `https://{yourOktaDomain}` is different from your admin URL. Don’t include -admin in the value. 
-When copying your Okta domain from the developer console, you can find the correct value in upper right corner of the dashboard.
+> Note: `https://{yourOktaDomain}` is different from your admin URL. Don't include `-admin` in the value. 
+When you copy your Okta domain from the developer console, you can find the correct value in the upper-right corner of the dashboard.
 
 <StackSelector snippet="configmid"/>
 
