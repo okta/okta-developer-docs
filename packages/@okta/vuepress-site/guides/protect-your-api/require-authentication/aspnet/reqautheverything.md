@@ -12,7 +12,7 @@ public static class WebApiConfig
 }
 ```
 
-Also, you can opt to create a `BaseProtectedController` and make all of your controllers to inherit it:
+Also, you can opt to create a `BaseProtectedController` and make all of your controllers inherit it:
 
 ```csharp
 [Authorize]
