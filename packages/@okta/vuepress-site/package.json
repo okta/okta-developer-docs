@@ -25,8 +25,9 @@
   },
   "dependencies": {
     "@okta/vuepress-plugin-my-okta": "^1.0.0",
-    "vuepress-plugin-sitemap": "^2.1.2",
-    "markdown-it-attrs": "2.3.2"
+    "js-yaml": "^3.13.1",
+    "markdown-it-attrs": "2.3.2",
+    "vuepress-plugin-sitemap": "^2.1.2"
   },
   "browserslist": "> 0.25%"
 }

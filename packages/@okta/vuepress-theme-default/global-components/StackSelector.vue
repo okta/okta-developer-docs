@@ -46,7 +46,7 @@
         return findOnAncestor({ find: 'framework', node: this }) || this.options[0].name;
       },
       section() { return findOnAncestor({ find: 'section', node: this }); },
-      options() { return this.section ? this.section.snippetByName[this.snippet].frameworks : []; },
+      options() { return (this.section && this.section.snippetByName) ? this.section.snippetByName[this.snippet].frameworks : []; },
       snippetComponentKey() { 
         const option = this.options.find( option => option.framework === this.framework );
         return (option ? option.componentKey : '');
