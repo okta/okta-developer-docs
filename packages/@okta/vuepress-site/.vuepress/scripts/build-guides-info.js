@@ -42,11 +42,6 @@ allGuidesMeta.guides.forEach( guide => {
       guideInfo[`/guides/${guide}/${framework}/${section}/`] = {
         ...sectionMeta,
         toAdd: true,
-        breadcrumb: [
-          { path: '/guides/', title: 'Guides' },
-          { path: `/guides/${guide}/`, title: guideMeta.title },
-          { path: `/guides/${guide}/${framework}/${section}/`, title: sectionMeta.title },
-        ],
         mainFramework: guideMeta.mainFramework,
       };
     });

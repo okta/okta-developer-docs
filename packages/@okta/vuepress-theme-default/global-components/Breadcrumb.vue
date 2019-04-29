@@ -15,12 +15,16 @@
         if(!this.$page) { 
           return [];
         }
+        
+        const crumbs = [];
 
         if(this.$page.path.startsWith('/guides/')) {
-          return this.$page.breadcrumb;
+          crumbs.push(
+            {path: '/documentation/', title: 'DOCS'},
+            {path: '/guides/', title: 'Guides' },
+          );
+          return crumbs;
         }
-
-        const crumbs = [];
 
         if(this.$page.path == '/reference/' || this.$page.path.startsWith('/code/')) {
           crumbs.push({path: '/documentation/', title: 'DOCS'})
