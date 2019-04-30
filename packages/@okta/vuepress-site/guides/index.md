@@ -4,6 +4,7 @@ layout: Guides
 guides: 
  - sign-into-spa
  - sign-into-web-app
+ - sign-users-out
 featured: 
  - sign-into-web-app
  - sign-into-spa

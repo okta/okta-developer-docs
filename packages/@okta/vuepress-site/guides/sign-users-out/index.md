@@ -6,4 +6,5 @@ sections:
  - before-you-begin
  - sign-out-of-your-app
  - sign-out-of-okta
+ - redirect-after-sign-out
 ---
