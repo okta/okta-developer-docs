@@ -43,7 +43,7 @@ Information is encapsulated in the JSON payload in the `data.events` object. The
 
 The content of each array element is an object of the [LogEvent](/docs/api/resources/system_log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/api/resources/system_log/) defines for System Log events. See the documentation there for information on the object and its sub-objects.
 
-Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event.
+Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `data.events.uuid` value of incoming events against the values for events previously received.
 
 No guarantee of maximum delay between event occurrence and delivery is currently specified.
 
@@ -69,7 +69,11 @@ To secure the communication channel between Okta and your external service, HTTP
 
 ### Your Service's Responses to Event Delivery Requests
 
-Your external service's responses to Okta's ongoing event delivery POST requests should all be empty, and should have an HTTP status code of 200 (OK) or 204 (No Content). As a best practice, you should return the HTTP response immediately, rather than waiting for any of your own internal process flows triggered by the event to complete.
+Your external service's responses to Okta's ongoing event delivery POST requests should all be empty, and should have an HTTP status code of 200 (OK) or 204 (No Content).
+
+As a best practice, you should return the HTTP response immediately, rather than waiting for any of your own internal process flows triggered by the event to complete.
+
+> Note: If your service does not return the HTTP response within the timeout limit, Okta will consider the delivery to have failed.
 
 ### Rate Limits
 
