@@ -987,7 +987,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 | Parameter                    | Description                                  | DataType   | Default               |
 | :--------------------------- | :------------------------------------------- | :--------- | :-------------------- |
-| client_id                    | Unique identifier for the client application. >Note: Okta sets `client_id` as the same value as the application ID, or you can specify a `client_id`. See the [OAuth Credential Object](#oauth-credential-object) section for details on what Okta allows as a `client_id`.   | String     |                       |
+| client_id                    | Unique identifier for the client application. **Note**: Okta sets `client_id` as the same value as the application ID, or you can specify a `client_id`. See the [OAuth Credential Object](#oauth-credential-object) section for details on what Okta allows as a `client_id`.   | String     |                       |
 | client_secret                | OAuth 2.0 client secret string (used for confidential clients)                                                                                      | String     |                       |
 | token_endpoint_auth_method   | Requested authentication method for the token endpoint. Valid values: `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`   | String     | `client_secret_basic` |
 | autoKeyRotation              | Requested key rotation mode                                                                                                                         | Boolean    | `true`                |
