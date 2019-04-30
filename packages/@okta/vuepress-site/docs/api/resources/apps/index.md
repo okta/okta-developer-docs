@@ -3421,23 +3421,6 @@ Your request is rejected with a `403 Forbidden` status for applications with the
 
 > The Okta API currently doesn't support entity tags for conditional updates.  It is only safe to fetch the most recent profile with [Get Assigned User for Application](#get-assigned-user-for-application), apply your profile update, then `POST` back the updated profile as long as you are the **only** user updating a user's application profile.
 
-<ApiLifecycle access="beta" />
-During the profile image Beta, image property definitions in the schema are of the `Object` data type with an additional `extendedType` of `Image`.
-When a user's app profile is retrieved via the API, however, the value is a URL (represented as a String).  Some caveats apply:
-
-1) Image properties are described differently in the schema than how the data actually comes back.  This discrepancy is deliberate for the time being, but is likely to change after Beta.  Special handling rules apply (described below).
-
-2) During Beta, the URL returned is a placeholder URL, resolving to a placeholder image.  By GA, the URL returned resolves to the image (that is, a logged-in user can click it and retrieve the image).
-
-**Updating image property values via Users API**
-
-Okta does not support uploading images via the Apps API.  All operations in this API that update properties on a user work in a slightly different way when applied to image properties:
-
-1)  When performing a full update, if the property is not passed, it is unset (if set).  The same applies if a partial update explicitly sets it to null.
-
-2)  When "updating" the value, it must be set to the value returned by a GET on that user (resulting in no change).  No other value is valid.
-
-
 ```json
 {
   "errorCode": "E0000075",
