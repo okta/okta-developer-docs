@@ -21,7 +21,6 @@ Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https
 
 ### Add Application
 
-
 <ApiOperation method="post" url="/api/v1/apps" />
 
 Adds a new application to your Okta organization.
@@ -986,9 +985,9 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 ##### Credentials
 
 
-| Parameter                    | Description                                                                                                                                         | DataType   | Default               |
-| :--------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------------- |
-| client_id                    | Unique identifier for the client application                                                                                                        | String     |                       |
+| Parameter                    | Description                                  | DataType   | Default               |
+| :--------------------------- | :------------------------------------------- | :--------- | :-------------------- |
+| client_id                    | Unique identifier for the client application. **Note**: When not specified, `client_id` and application `id` are the same. You can specify a `client_id`, if necessary. See the [OAuth Credential Object](#oauth-credential-object) section for more details.   | String     |                       |
 | client_secret                | OAuth 2.0 client secret string (used for confidential clients)                                                                                      | String     |                       |
 | token_endpoint_auth_method   | Requested authentication method for the token endpoint. Valid values: `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`   | String     | `client_secret_basic` |
 | autoKeyRotation              | Requested key rotation mode                                                                                                                         | Boolean    | `true`                |
@@ -5072,13 +5071,13 @@ Determines how to authenticate the OAuth 2.0 client
 | token_endpoint_auth_method | Requested authentication method for the token endpoint                           | String   | FALSE    |
 | autoKeyRotation            | Requested key rotation mode                                                      | Boolean  | TRUE     |
 
-* When creating an OAuth 2.0 client application, you can specify the `client_id`, or Okta will set it the same value as the application ID. Thereafter, the client_id is immutable.
+* When you create an OAuth 2.0 client application, you can specify the `client_id`, or Okta sets it as the same value as the application ID. Thereafter, the `client_id` is immutable.
 
-* If a `client_secret` is not provided on creation, and the `token_endpoint_auth_method` requires one Okta will generate a random `client_secret` for the client application.  The `client_secret` is only shown on the creation or update of an OAuth 2.0 client application (and only if the `token_endpoint_auth_method` is one that requires a client secret).
+* The `client_id` must consist of alphanumeric characters or the following special characters: `$-_.+!*'(),`. It must contain between six and 100 characters and must not be the reserved word: `ALL_CLIENTS`. The `client_secret` must consist of printable characters that are defined in [the OAuth 2.0 Spec](https://tools.ietf.org/html/rfc6749#appendix-A) and must contain between 14 and 100 characters.
 
-* The `client_id` must consist of alphanumeric characters or the following special characters `$-_.+!*'(),`. It must contain between 6 and 100 characters, inclusive, and must not be the reserved word `ALL_CLIENTS`. The `client_secret` must consist of printable characters, which are defined in [the OAuth 2.0 Spec](https://tools.ietf.org/html/rfc6749#appendix-A), and must contain between 14 and 100 characters, inclusive.
+ * If a `client_secret` isn't provided on creation, and the `token_endpoint_auth_method` requires one, Okta generates a random `client_secret` for the client application. The `client_secret` is only shown when an OAuth 2.0 client app is created or updated (and only if the `token_endpoint_auth_method` is one that requires a client secret).
 
-* If `autoKeyRotation` is not specified, the client automatically opts in for Okta's [key rotation](/authentication-guide/tokens/validating-id-tokens). This property may be updated via the API or via the administrator UI.
+* If `autoKeyRotation` isn't specified, the client automatically opts in for Okta's [key rotation](/authentication-guide/tokens/validating-id-tokens). You can update this property via the API or via the administrator UI.
 
 ```json
 {
