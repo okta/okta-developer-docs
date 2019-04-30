@@ -4,6 +4,7 @@
     "packages/@okta/*"
   ],
   "scripts": {
+    "preinstall": "npm config delete cafile",
     "dev": "yarn workspace @okta/vuepress-site dev",
     "build": "yarn workspace @okta/vuepress-site build",
     "migrate": "yarn workspace @okta/migrate-from-jekyll migrate",
