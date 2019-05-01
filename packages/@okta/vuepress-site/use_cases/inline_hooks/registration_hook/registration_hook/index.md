@@ -25,20 +25,22 @@ For steps to enable this inline hook, see below, [Enabling a Registration Inline
 
 ## About
 
-The Okta Registration Inline Hook allows you to integrate your own custom code into Okta’s [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) flow. The hook is triggered when users attempt to register using Self-Service Registration. Okta makes the call to your external service at the point the registration submission is received but before the Okta user profile is created. Your custom code can:
+The Okta Registration Inline Hook allows you to integrate your own custom code into Okta’s [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) flow. The hook is triggered when users attempt to register using Self-Service Registration, at the point after the registration submission is received but before the Okta user profile is created. Your custom code can:
 
-- Set or override attributes in the user's Okta profile
-- Allow or deny the registration attempt, based on your own validation of the user's profile
+- Set or override the valuse that will be populated in attributes of the user's Okta profile
+- Allow or deny the registration attempt, based on your own validation of the information the user has submitted
 
 ## Objects in the Request from Okta
 
-The outbound call from Okta to your external service will include the following objects in its JSON payload:
+The outbound call from Okta to your external service includes the following objects in its JSON payload:
 
 ### data.userProfile
 
-The name-value pairs for each attribute supplied by the user in the Self-Service Registration form, except for password.
+This object contains name-value pairs for each attribute supplied by the user in the Self-Service Registration form, except for password.
 
-By means of the `com.okta.user.profile.update` commands you send in your response, you can to modify the values, or add values for other attributes, before the values are assigned to Okta user profile created for the registering user. Any attributes you add values for need to already exist in your Okta user schema.
+By means of the `com.okta.user.profile.update` commands you send in your response, you can modify the values of the attributes, or add values for other attributes, before the values are assigned to the Okta user profile created for the registering user.
+
+You can only set values for profile fields which already exist in your Okta user profile schema. Registration Inline Hook functionality can only set values, it cannot create new fields.
 
 > Note: The `password` field, along with any attributes that are marked as sensitive in your Okta user schema, are omitted from the information sent to your external service in the `data.userProfile` object. The password or its hash is never sent to your external service in any way.
 
@@ -57,13 +59,13 @@ By means of the `com.okta.action.update` [command](#supported-commands) in your 
 
 ## Objects in Response You Send
 
-For the Registration Inline Hook, the `commands`, `error`, and `debugContext` objects that you can return in the JSON payload of your response are defined as follows:
+For the Registration Inline Hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
 
 ### commands
 
-The `commands` object is where you can provide commands to Okta to update attributes in the user's profile or to change the action Okta will take in regard to the registration request.
+The `commands` object lets you invoke commands to modify or add values to the attributes in the Okta user profile that will be created for this user, as well as to control whether or not the registration attempt is allowed to proceed.
 
-The `commands` object is an array, allowing you to send multiple commands. Each array element requires a `type` property and a `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply parameters for that command.
+This object is an array, allowing you to send multiple commands in your response. Each array element requires a `type` property and a `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply parameters for that command.
 
 | Property | Description                                           | Data Type       |
 |----------|-------------------------------------------------------|-----------------|
@@ -78,12 +80,20 @@ The following commands are supported for the Registration Inline Hook type:
 
 | Command                      | Description                                                       |
 |------------------------------|-------------------------------------------------------------------|
-| com.okta.user.profile.update | Set or modify an attribute in the user's profile.                 |
-| com.okta.action.update       | Update the action that Okta will take on the user's registration. |
+| com.okta.user.profile.update | Set or modify an attribute in the Okta user profile that will be created for this user.                 |
+| com.okta.action.update       | Allow or deny the user's registration. |
+
+To set attributes in the user's Okta profile, supply a type property set to `com.okta.user.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to Okta user profile attributes you want to set. The attributes must already exist in your user profile schema.
+
+To explicitly allow or deny registration to the user, supply a type property set to `com.okta.action.update`, together with a value property set to `{"registration": "ALLOW"}` or `{"registration": "DENY"`}. The default is to allow registration.
+
+Commands are applied in the order in which they appear in the array. Within a single command, attributes are updated in the order in which they appear in the `value` object.
 
 #### value
 
-The `value` object is the parameter to pass to the command. For `com.okta.user.profile.update` commands, `value` should be an object containing one or more name-value pairs for the attribute(s) you wish to update. For example:
+The `value` object is the parameter to pass to the command.
+
+For `com.okta.user.profile.update` commands, `value` should be an object containing one or more name-value pairs for the attributes you wish to update, for example:
 
 ```json
 {
@@ -99,7 +109,9 @@ The `value` object is the parameter to pass to the command. For `com.okta.user.p
 }
 ```
 
-This assumes that there is an attribute `customerId` defined on the user schema (`middleName` is defined by default). The same update may also be accomplished with two separate `com.okta.user.profile.update` commands as follows:
+The above example assumes that there is an attribute `customerId` defined in your Okta user schema (`middleName` is defined by default).
+
+The same update may also be accomplished with two separate `com.okta.user.profile.update` commands as follows:
 
 ```json
 {
@@ -120,11 +132,9 @@ This assumes that there is an attribute `customerId` defined on the user schema 
 }
 ```
 
-Commands are applied in the order in which they appear in the array. Within a single command, attributes are updated in the order in which they appear in the `value` object.
-
 It is never permitted to use commands to update the user's password, but you are allowed to set the values of attributes other than password which are designated sensitive in your Okta user schema. Note however that the values of those sensistive attributes are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data.userProfile).
 
-For `com.okta.action.update` commands, `value` should be an object containing the key `action` with a value of either `ALLOW` or `DENY`, indicating whether the registration should be permitted or not:
+For `com.okta.action.update` commands, `value` should be an object containing the attribute `action` set to a value of either `ALLOW` or `DENY`, indicating whether the registration should be permitted or not, for example:
 
 ```json
 {
@@ -139,7 +149,7 @@ For `com.okta.action.update` commands, `value` should be an object containing th
 }
 ```
 
-Registrations are allowed by default, but returning the command shown in the example above will result in the registration request being denied. Thus, while supplying a value of `ALLOW` for the `action` field is valid, it is also superfluous, since this is the default behavior. 
+Registrations are allowed by default, so though setting a value of `ALLOW` for the `action` field is valid, it is also superfluous, since this is the default behavior. 
 
 ### error
 
