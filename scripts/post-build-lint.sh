@@ -41,14 +41,6 @@ else
     echo -e "\xE2\x9C\x94 Passed missing slashes validation"
 fi
 
-if ! bundle exec ./scripts/htmlproofer.rb false;
-then
-    echo "Failed HTML link validation."
-    exit 1;
-else
-    echo -e "\xE2\x9C\x94 No broken internal links!"
-fi
-
 if ! removeHTMLExtensions;
 then
     echo "Failed removing .html extensions"
