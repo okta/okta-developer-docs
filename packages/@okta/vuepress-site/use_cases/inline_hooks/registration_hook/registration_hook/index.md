@@ -38,18 +38,20 @@ The outbound call from Okta to your external service will include the following 
 
 ### data.userProfile
 
-The profile of the registering user, containing name-value pairs for each attribute supplied by the user. You can change the values of these attributes or add values for other attributes defined on the user schema by using one or more `com.okta.user.profile.update` commands in your response.
+The profile of the registering user, containing name-value pairs for each attribute supplied by the user in the Self-Service Registration widget.
 
-> Note: The `password` field, along with any attributes that are marked as sensitive in your Okta user schema, are omitted from the information sent in `data.userProfile`.  
+By means of the `com.okta.user.profile.update` commands you send in your response, you will be able to modify the values of these attributes, or add values for other attributes defined in you user schema, before the values are assigned to Okta user profile created for the registering user.
+
+> Note: The `password` field, along with any attributes that are marked as sensitive in your Okta user schema, are omitted from the information sent to your external service in the `data.userProfile` object.  
 
 ### data.action
 
-The action that Okta is currently set to take for this registration attempt. There are two possible values:
+The action that Okta is currently set to take, regarding whether to all this registration attempt. There are two possible values:
 
 - `ALLOW` indicates that the registration attempt will be allowed to proceed
 - `DENY` indicates that the registration attempt will be terminated (no user will be created in Okta)
 
-The action is `ALLOW` by default and may be updated using a single `com.okta.action.update` command in your response (link to appropriate section).
+The action is `ALLOW` by default. By means of the `com.okta.action.update` [command](#supported-commands) in your response, you can change the action that Okta will take.
 
 ## Objects in Response You Send
 
