@@ -570,7 +570,7 @@ Content-Type: application/json;charset=UTF-8
 #### Key Rotation
 The keys that are used to sign tokens are periodically changed. Okta automatically rotates your authorization server's keys on a regular basis.
 
-Clients can opt-out of automatic key rotation by changing the client sign-in mode for  the Okta Org Authorization Server. In this case, passing the `client_id` with your request retrieves the keys for that specific client.
+Clients can opt-out of automatic key rotation by changing the client sign-in mode for the Okta Org Authorization Server. In this case, passing the `client_id` with your request retrieves the keys for that specific client.
 
 Key rotation behaves differently with Custom Authorization Servers. For more information about key rotation with Custom Authorization Servers, see the [Authorization Servers API page](/docs/api/resources/authorization-servers#rotate-authorization-server-keys).
 
