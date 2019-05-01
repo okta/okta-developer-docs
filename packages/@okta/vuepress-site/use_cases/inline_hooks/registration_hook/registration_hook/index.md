@@ -25,12 +25,12 @@ For steps to enable this inline hook, see below, [Enabling a Registration Inline
 
 ## About
 
-Okta Registration Inline Hooks are triggered when a user attempts to register, either through [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) or through the Okta Identity Engine. This allows you to execute your own custom code after a user has attempted to register but before their registration completes. Your custom code ca:
+Okta Registration Inline Hooks are triggered when a user attempts to register through [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm). This inline hook enables you to have your own custom code executed after a user attempts to register, before their registration completes. Your custom code can:
 
 - Set or override attributes in the user's profile
-- Allow or deny the user's registration based on your own validation of the user's profile
+- Allow or deny the registration attempt, based on your own validation of the user's profile
 
-The remainder of this document describes the API contract for these hooks &mdash; both the request that Okta submits to your external service when a Registration Inline Hook is triggered and the format of the response that Okta expects to receive back from the service.
+The remainder of this document describes the API contract for these hooks &mdash; both the request that Okta submits to your external service when a Registration Inline Hook is triggered and the format of the response that Okta expects to receive back from your external service.
 
 ## Objects in the Request from Okta
 
@@ -40,7 +40,7 @@ The outbound call from Okta to your external service will include the following 
 
 The profile of the registering user, containing name-value pairs for each attribute supplied by the user. You can change the values of these attributes or add values for other attributes defined on the user schema by using one or more `com.okta.user.profile.update` commands in your response.
 
-> Note: The `password` field, along with any attributes that are marked as sensitive in the user schema, will be omitted from `data.userProfile`. While `com.okta.user.profile.update` commands cannot be used to update the user's password, they can still be used to set the values of any other sensitive attributes, even though those attributes  are not sent in `data.userProfile`. 
+> Note: The `password` field, along with any attributes that are marked as sensitive in your Okta user schema, are omitted from the information sent in `data.userProfile`.  
 
 ### data.action
 
@@ -116,7 +116,9 @@ This assumes that there is an attribute `customerId` defined on the user schema 
 }
 ```
 
-Commands are applied in the order in which they appear in the array. Within a single command, attributes are updated in the order in which they appear in the `value` object. Please see the note in [data.userProfile](#data.userProfile) about restrictions on the attributes that can be updated.
+Commands are applied in the order in which they appear in the array. Within a single command, attributes are updated in the order in which they appear in the `value` object.
+
+It is never permitted to use commands to update the user's password, but you are allowed to set the values of attributes other than password which are designated sensitive in your Okta user schema. Note however that the values of those sensistive attributes are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data.userProfile).
 
 For `com.okta.action.update` commands, `value` should be an object containing the key `action` with a value of either `ALLOW` or `DENY`, indicating whether the registration should be permitted or not:
 
