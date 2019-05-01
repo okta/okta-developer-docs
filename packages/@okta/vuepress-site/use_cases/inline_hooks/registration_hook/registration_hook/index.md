@@ -149,31 +149,15 @@ For `com.okta.action.update` commands, `value` should be an object containing th
 }
 ```
 
-Registrations are allowed by default, so though setting a value of `ALLOW` for the `action` field is valid, it is also superfluous, since this is the default behavior. 
+Registrations are allowed by default, so setting a value of `ALLOW` for the `action` field is valid but superfluous. 
 
 ### error
 
-When you return an error object, it should have the following structure:
+See [error](/use_cases/inline_hooks/) for general information on the structure to use for the `error` object.
 
-| Property     | Description                             | Data Type            |
-|--------------|-----------------------------------------|----------------------|
-| errorSummary | Human-readable summary of the error(s). | String               |
-| errorCauses  | An array of ErrorCause objects.         | Array of ErrorCauses |
+In the case of the Registration Inline Hook, the `error` object provides a way of passing of causing an error message to be displayed to the end user who is trying to register. If you're using the Okta Sign-In Widget for Self-Service Registration, and have not customized its error handling behavior, what is displayed to the end user who is trying to register is the `errorSummary` of the first `ErrorCause` object that your external service returns.
 
-The `errorSummary` should be a general statement of any problem the external service encountered in handling the request from Okta. The `errorCauses` are intended to provide more detailed information and are particularly helpful if there were multiple problems. An `ErrorCause` object must include the following fields:
-
-| Property     | Description                          | Data Type |
-|--------------|--------------------------------------|-----------|
-| errorSummary | Human-readable summary of the error. | String    |
-| reason       | A brief, enum-like string indicating the nature of the error. E.g. `UNIQUE_CONSTRAINT` for a property uniqueness violation.      | String    |
-| locationType | Where in the request the error was found (`body`, `header`, `url`, or `query`).    | String    |
-| location     | The valid JSON path to the location of the error. E.g., if there was an error in the user's `login` field, the `location` should be `data.userProfile.login`.  | String    |
-| domain       | Indicates the source of the error. If the error was on the user's profile, use `end-user`. If the error resulted from the external service, use `external-service`. | String    |
-
-While there are no technical restrictions on the values for any of the fields in an `ErrorCause` object, using them as described in the table above allows you to provide rich error information that, along with the `debugContext`, can be very useful in determining why a user's registration failed.
-
-> Note: If you are using the Okta Sign-In Widget for Self-Service Registration and have not customized its error handling behavior, only the `errorSummary` of the first `ErrorCause` object will be displayed to the user. By default (i.e. if the `errorCauses` object is empty), the user will see a callout stating that "Registration cannot be completed at this time" if their registration fails for hook-related reasons.
-
+If you do not populate that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
 
 ## Sample Listing of JSON Payload of Request
 

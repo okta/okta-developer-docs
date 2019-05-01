@@ -122,7 +122,26 @@ The names of commands follow Java-style reverse DNS name format, beginning with 
 
 Lets you return error messages. How the error data is used varies by inline hook type.
 
-Within an `error` object, you need to provide an `errorSummary` property set to a text string. Additionally, you can use an `errorCauses` object to supply more information. A single error object can contain multiple `errorCauses` objects. The fields within errorCauses are: `errorSummary`, `reason`, `locationType`, `location`, and `domain`.
+The `error` object should have the following structure:
+
+| Property     | Description                             | Data Type            |
+|--------------|-----------------------------------------|----------------------|
+| errorSummary | Human-readable summary of the error(s). | String               |
+| errorCauses  | An array of ErrorCause objects.         | Array of ErrorCauses |
+
+The `errorSummary` should be a general statement of any problem the external service encountered in handling the request from Okta. The `errorCauses` are intended to provide more detailed information and are particularly helpful if there were multiple problems.
+
+An `ErrorCause` object must include the following fields:
+
+| Property     | Description                                                                                                                                                         | Data Type |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| errorSummary | Human-readable summary of the error.                                                                                                                                | String    |
+| reason       | A brief, enum-like string indicating the nature of the error, e.g., `UNIQUE_CONSTRAINT` for a property uniqueness violation.                                        | String    |
+| locationType | Where in the request the error was found (`body`, `header`, `url`, or `query`).                                                                                     | String    |
+| location     | The valid JSON path to the location of the error. E.g., if there was an error in the user's `login` field, the `location` should be `data.userProfile.login`.       | String    |
+| domain       | Indicates the source of the error. If the error was on the user's profile, use `end-user`. If the error resulted from the external service, use `external-service`. | String    |
+
+While there are no technical restrictions on the values for any of the fields in an `ErrorCause` object, using them as described in the table above allows you to provide rich error information that, along with the `debugContext`, can be very useful in determining why a user's registration failed.
 
 ### debugContext
 
