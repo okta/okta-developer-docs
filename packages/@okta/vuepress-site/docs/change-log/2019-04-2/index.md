@@ -11,7 +11,7 @@ title: Okta API Products Change Log
 
 ### Hashed Password Imports with SHA-512 Algorithm
 
-You can use the SHA-512 hash type when [importing passwords](/docs/api/resources/users/#create-user-with-imported-hashed-password). <!-- (OKTA-220300) -->
+You can use the SHA-512 hash type when [importing passwords](/docs/api/resources/users#create-user-with-imported-hashed-password). <!-- (OKTA-220300) -->
 
 ### Bugs Fixed in 2019.04.2
 
