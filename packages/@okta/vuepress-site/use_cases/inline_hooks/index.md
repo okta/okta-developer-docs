@@ -124,6 +124,17 @@ Lets you return error messages. How the error data is used varies by inline hook
 
 Within an `error` object, you need to provide an `errorSummary` property set to a text string. Additionally, you can use an `errorCauses` object to supply more information. A single error object can contain multiple `errorCauses` objects. The fields within errorCauses are: `errorSummary`, `reason`, `locationType`, `location`, and `domain`.
 
+### debugContext
+
+The `debugContext` object is a free-form JSON object where you can provide information to be logged in the `debugContext` field of `inline_hook.response.processed` events in the Okta System Log. These events are fired when Okta has received a response from the external service but there is either:
+
+- An error object in the response body (provided by the external service)
+- A problem with the response body, for example, inclusion of an invalid command. 
+
+The `debugContext` object lets the external service provide information about its handling of the hook execution request (e.g., execution time, information that validated, etc.). This can be helpful for diagnosing what went wrong when a registration fails.
+
+> Note: `inline_hook.response.processed` events are _not_ fired following a successful registration unless debugging is enabled for the configured hook.
+
 ## Inline Hook Setup
 
 After creating your external service, you need to tell Okta it exists, and enable it for a particular process flow. The steps are:

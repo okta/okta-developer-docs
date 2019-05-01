@@ -30,8 +30,6 @@ Okta Registration Inline Hooks are triggered when a user attempts to register th
 - Set or override attributes in the user's profile
 - Allow or deny the registration attempt, based on your own validation of the user's profile
 
-The remainder of this document describes the API contract for these hooks &mdash; both the request that Okta submits to your external service when a Registration Inline Hook is triggered and the format of the response that Okta expects to receive back from your external service.
-
 ## Objects in the Request from Okta
 
 The outbound call from Okta to your external service will include the following objects in its JSON payload:
@@ -164,16 +162,6 @@ While there are no technical restrictions on the values for any of the fields in
 
 > Note: If you are using the Okta Sign-In Widget for Self-Service Registration and have not customized its error handling behavior, only the `errorSummary` of the first `ErrorCause` object will be displayed to the user. By default (i.e. if the `errorCauses` object is empty), the user will see a callout stating that "Registration cannot be completed at this time" if their registration fails for hook-related reasons.
 
-### debugContext
-
-The `debugContext` is a free-form JSON object where you can provide information to be logged in the `debugContext` field of `inline_hook.response.processed` events in the Okta System Log. These events are fired when Okta has received a response from the external service but there is either:
-
-- An error object in the response body (provided by the external service).
-- A problem with the response body that prevents the registration from being completed. For example, the response might have provided a command with an invalid type or it may have tried to use a `com.okta.profile.update` command to update an ineligible property like `password`. 
-
-The `debugContext` lets the external service provide information about its handling of the hook execution request (e.g. execution time, profile properties validated, etc.). This can be helpful for diagnosing what went wrong when a registration fails.
-
-> Note: `inline_hook.response.processed` events are _not_ fired following a successful registration unless debugging is enabled for the configured hook.
 
 ## Sample Listing of JSON Payload of Request
 
