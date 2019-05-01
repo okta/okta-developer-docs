@@ -89,6 +89,8 @@ To explicitly allow or deny registration to the user, supply a type property set
 
 Commands are applied in the order in which they appear in the array. Within a single command, attributes are updated in the order in which they appear in the `value` object.
 
+You can never use a commands to update the user's password, but you are allowed to set the values of attributes other than password which are designated sensitive in your Okta user schema. Note however that the values of those sensistive attributes, if  included as fields in the Self-Service Registration form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data.userProfile) above.
+
 #### value
 
 The `value` object is the parameter to pass to the command.
@@ -109,9 +111,9 @@ For `com.okta.user.profile.update` commands, `value` should be an object contain
 }
 ```
 
-The above example assumes that there is an attribute `customerId` defined in your Okta user schema (`middleName` is defined by default).
+> Note: The above example assumes that there is an attribute `customerId` defined in your Okta user schema (`middleName` is defined by default).
 
-The same update may also be accomplished with two separate `com.okta.user.profile.update` commands as follows:
+The same result could also be accomplished by means of two separate `com.okta.user.profile.update` commands, as follows:
 
 ```json
 {
@@ -131,8 +133,6 @@ The same update may also be accomplished with two separate `com.okta.user.profil
    ]
 }
 ```
-
-It is never permitted to use commands to update the user's password, but you are allowed to set the values of attributes other than password which are designated sensitive in your Okta user schema. Note however that the values of those sensistive attributes are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data.userProfile).
 
 For `com.okta.action.update` commands, `value` should be an object containing the attribute `action` set to a value of either `ALLOW` or `DENY`, indicating whether the registration should be permitted or not, for example:
 
@@ -155,9 +155,9 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 See [error](/use_cases/inline_hooks/) for general information on the structure to use for the `error` object.
 
-In the case of the Registration Inline Hook, the `error` object provides a way of passing of causing an error message to be displayed to the end user who is trying to register. If you're using the Okta Sign-In Widget for Self-Service Registration, and have not customized its error handling behavior, what is displayed to the end user who is trying to register is the `errorSummary` of the first `ErrorCause` object that your external service returns.
+In the case of the Registration Inline Hook, the `error` object provides a way of causing an error message to be displayed to the end user who is trying to register. If you're using the Okta Sign-In Widget for Self-Service Registration, and have not customized its error handling behavior, what is displayed to the end user is the `errorSummary` of the first `ErrorCause` object that your external service returns.
 
-If you do not populate that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
+If you do not return any value for that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
 
 ## Sample Listing of JSON Payload of Request
 
