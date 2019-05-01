@@ -25,9 +25,9 @@ For steps to enable this inline hook, see below, [Enabling a Registration Inline
 
 ## About
 
-Okta Registration Inline Hooks are triggered when a user attempts to register through [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm). This inline hook enables you to have your own custom code executed after a user attempts to register, before their registration completes. Your custom code can:
+The Okta Registration Inline Hook allows you to integrate your own custom code into Okta’s [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) flow. The hook is triggered when users attempt to register using Self-Service Registration. Okta makes the call to your external service at the point the registration submission is received but before the Okta user profile is created. Your custom code can:
 
-- Set or override attributes in the user's profile
+- Set or override attributes in the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the user's profile
 
 ## Objects in the Request from Okta
@@ -36,15 +36,17 @@ The outbound call from Okta to your external service will include the following 
 
 ### data.userProfile
 
-The profile of the registering user, containing name-value pairs for each attribute supplied by the user in the Self-Service Registration widget.
+The name-value pairs for each attribute supplied by the user in the Self-Service Registration form, except for password.
 
-By means of the `com.okta.user.profile.update` commands you send in your response, you will be able to modify the values of these attributes, or add values for other attributes defined in you user schema, before the values are assigned to Okta user profile created for the registering user.
+By means of the `com.okta.user.profile.update` commands you send in your response, you can to modify the values, or add values for other attributes, before the values are assigned to Okta user profile created for the registering user. Any attributes you add values for need to already exist in your Okta user schema.
 
-> Note: The `password` field, along with any attributes that are marked as sensitive in your Okta user schema, are omitted from the information sent to your external service in the `data.userProfile` object.  
+> Note: The `password` field, along with any attributes that are marked as sensitive in your Okta user schema, are omitted from the information sent to your external service in the `data.userProfile` object. The password or its hash is never sent to your external service in any way.
 
 ### data.action
 
-The action that Okta is currently set to take, regarding whether to all this registration attempt. There are two possible values:
+The action that Okta is currently set to take, regarding whether to allow this registration attempt.
+
+There are two possible values:
 
 - `ALLOW` indicates that the registration attempt will be allowed to proceed
 - `DENY` indicates that the registration attempt will be terminated (no user will be created in Okta)
