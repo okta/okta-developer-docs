@@ -51,7 +51,9 @@ The action that Okta is currently set to take, regarding whether to all this reg
 - `ALLOW` indicates that the registration attempt will be allowed to proceed
 - `DENY` indicates that the registration attempt will be terminated (no user will be created in Okta)
 
-The action is `ALLOW` by default. By means of the `com.okta.action.update` [command](#supported-commands) in your response, you can change the action that Okta will take.
+The action is `ALLOW` by default (in practice, `DENY` will never be sent to your external service).
+
+By means of the `com.okta.action.update` [command](#supported-commands) in your response, you can change the action that Okta will take.
 
 ## Objects in Response You Send
 
@@ -59,14 +61,14 @@ For the Registration Inline Hook, the `commands`, `error`, and `debugContext` ob
 
 ### commands
 
-The `commands` object is where you can provide commands to Okta to update attributes in the user's profile or to change the action that will be taken in response to the user's registration request.
+The `commands` object is where you can provide commands to Okta to update attributes in the user's profile or to change the action Okta will take in regard to the registration request.
 
-The `commands` object is an array, allowing you to send multiple commands. Each array element requires a `type` property and `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply parameters for that command.
+The `commands` object is an array, allowing you to send multiple commands. Each array element requires a `type` property and a `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply parameters for that command.
 
-| Property | Description                                                              | Data Type       |
-|----------|--------------------------------------------------------------------------|-----------------|
-| type     | One of the [supported commands](#supported-commands).                    | String          |
-| value    | Operand to pass to the command. It specifies a particular op to perform. | [value](#value) |
+| Property | Description                                           | Data Type       |
+|----------|-------------------------------------------------------|-----------------|
+| type     | One of the [supported commands](#supported-commands). | String          |
+| value    | Operand to pass to the command.                       | [value](#value) |
 
 For example commands, see the [value](#value) section below.
 
