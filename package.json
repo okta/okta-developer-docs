@@ -7,7 +7,7 @@
     "dev": "yarn workspace @okta/vuepress-site dev",
     "build": "yarn workspace @okta/vuepress-site build",
     "check-links": "yarn build && yarn start-web-server & yarn test:wait-on-local && yarn do-link-checks; yarn stop-web-server",
-    "do-link-checks": "npx blc http://localhost:8080 -ro --exclude /img --exclude /assets --exclude /fonts --exclude /docs/api/postman --exclude /favicon",
+    "do-link-checks": "npx blc http://localhost:8080 -ro --exclude /img --exclude /assets --exclude /fonts --exclude /docs/api/postman --exclude /favicon --exclude /blog/ --exclude /pricing/ --exclude /product/ --exclude /product/*/",
     "migrate": "yarn workspace @okta/migrate-from-jekyll migrate",
     "test": "yarn dev & yarn test:test-local && yarn stop-all",
     "test-only": "yarn test:update-web-driver && protractor tests/selenium/conf.js && yarn stop",
