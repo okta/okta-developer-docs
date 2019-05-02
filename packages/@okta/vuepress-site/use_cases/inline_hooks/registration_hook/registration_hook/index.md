@@ -25,7 +25,7 @@ For steps to enable this inline hook, see below, [Enabling a Registration Inline
 
 ## About
 
-The Okta Registration Inline Hook allows you to integrate your own custom code into Okta’s [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) flow. The hook is triggered when users attempt to register using Self-Service Registration, at the point after the registration submission is received but before the Okta user profile is created. Your custom code can:
+The Okta Registration Inline Hook allows you to integrate your own custom code into Okta’s [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
 
 - Set or override the valuse that will be populated in attributes of the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
@@ -38,7 +38,7 @@ The outbound call from Okta to your external service includes the following obje
 
 This object contains name-value pairs for each attribute supplied by the user in the Self-Service Registration form, except for password.
 
-By means of the `com.okta.user.profile.update` commands you send in your response, you can modify the values of the attributes, or add values for other attributes, before the values are assigned to the Okta user profile created for the registering user.
+Using the `com.okta.user.profile.update` commands you send in your response, you can modify the values of the attributes, or add values for other attributes, before the values are assigned to the Okta user profile created for the registering user.
 
 You can only set values for profile fields which already exist in your Okta user profile schema. Registration Inline Hook functionality can only set values, it cannot create new fields.
 
@@ -55,7 +55,7 @@ There are two possible values:
 
 The action is `ALLOW` by default (in practice, `DENY` will never be sent to your external service).
 
-By means of the `com.okta.action.update` [command](#supported-commands) in your response, you can change the action that Okta will take.
+Using the `com.okta.action.update` [command](#supported-commands) in your response, you can change the action that Okta will take.
 
 ## Objects in Response You Send
 
@@ -83,13 +83,13 @@ The following commands are supported for the Registration Inline Hook type:
 | com.okta.user.profile.update | Set or modify an attribute in the Okta user profile that will be created for this user.                 |
 | com.okta.action.update       | Allow or deny the user's registration. |
 
-To set attributes in the user's Okta profile, supply a type property set to `com.okta.user.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to Okta user profile attributes you want to set. The attributes must already exist in your user profile schema.
+To set attributes in the user's Okta profile, supply a type property set to `com.okta.user.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the Okta user profile attributes you want to set. The attributes must already exist in your user profile schema.
 
 To explicitly allow or deny registration to the user, supply a type property set to `com.okta.action.update`, together with a value property set to `{"registration": "ALLOW"}` or `{"registration": "DENY"`}. The default is to allow registration.
 
-Commands are applied in the order in which they appear in the array. Within a single command, attributes are updated in the order in which they appear in the `value` object.
+Commands are applied in the order in which they appear in the array. Within a single `com.okta.user.profile.update` command, attributes are updated in the order in which they appear in the `value` object.
 
-You can never use a commands to update the user's password, but you are allowed to set the values of attributes other than password which are designated sensitive in your Okta user schema. Note however that the values of those sensistive attributes, if  included as fields in the Self-Service Registration form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
+You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password which are designated sensitive in your Okta user schema. Note however that the values of those sensistive attributes, if included as fields in the Self-Service Registration form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
 
 #### value
 
@@ -111,7 +111,7 @@ For `com.okta.user.profile.update` commands, `value` should be an object contain
 }
 ```
 
-> Note: The above example assumes that there is an attribute `customerId` defined in your Okta user schema (`middleName` is defined by default).
+The above example assumes that there is an attribute `customerId` defined in your Okta user schema (`middleName` is defined by default).
 
 The same result could also be accomplished by means of two separate `com.okta.user.profile.update` commands, as follows:
 
@@ -155,7 +155,7 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 See [error](/use_cases/inline_hooks/) for general information on the structure to use for the `error` object.
 
-In the case of the Registration Inline Hook, the `error` object provides a way of causing an error message to be displayed to the end user who is trying to register. If you're using the Okta Sign-In Widget for Self-Service Registration, and have not customized its error handling behavior, what is displayed to the end user is the `errorSummary` of the first `ErrorCause` object that your external service returns.
+In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Self-Service Registration, and have not customized its error handling behavior, what is displayed to the end user is the `errorSummary` of the first `ErrorCause` object that your external service returns.
 
 If you do not return any value for that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
 

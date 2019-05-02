@@ -150,7 +150,7 @@ The `debugContext` object is a free-form JSON object where you can provide infor
 - An error object in the response body (provided by the external service)
 - A problem with the response body, for example, inclusion of an invalid command. 
 
-The `debugContext` object lets the external service provide information about its handling of the hook execution request (e.g., execution time, information that validated, etc.). This can be helpful for diagnosing what went wrong when a registration fails.
+The `debugContext` object lets the external service provide information about its handling of the hook execution request (e.g., execution time, information that was validated, etc.). This can be helpful for diagnosing what went wrong when something fails.
 
 > Note: `inline_hook.response.processed` events are _not_ fired following a successful registration unless debugging is enabled for the configured hook.
 
