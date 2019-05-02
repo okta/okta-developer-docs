@@ -1,7 +1,11 @@
-Use the library [Okta AppAuth](http://cocoapods.org/pods/OktaAuth), available through [CocoaPods](http://cocoapods.org/). To install it, add the following line to your Podfile:
+Use the library [OktaOidc](https://github.com/okta/okta-oidc-ios), available through [CocoaPods](http://cocoapods.org/pods/OktaOidc). To install it, add the following line to your Podfile:
 
-Pod Code Example
+```ruby
+pod 'OktaOidc'
+```
 
-Now install the `OktaAuth` dependency and open the compiled project:
+Now install the `OktaOidc` dependency and open the auto-generated workspace file:
 
-Pod Code Example
+```bash
+pod install
+```
