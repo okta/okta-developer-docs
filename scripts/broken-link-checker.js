@@ -1,11 +1,21 @@
 const blc = require('broken-link-checker');
 const chalk = require('chalk');
 
+const linkExtRe = new RegExp('https?://.*/[^/]+\\.[a-z]+$');
+const trailingSlashRe = new RegExp('/$');
+
 function summarizeBrokenLinks(customData) {
   var brokenLinkMap = new Map();
   for (const result of customData.brokenLinks) {
-    const linkUrl = result.url.resolved;
-    const pageUrl = result.base.resolved;
+    var linkUrl;
+    var pageUrl;
+    if (customData.normalizeUrls) {
+      linkUrl = normalizeUrl(result.url.resolved);
+      pageUrl = normalizeUrl(result.base.resolved);
+    } else {
+      linkUrl = result.url.resolved;
+      pageUrl = result.base.resolved;
+    }
     var pageLinkMap;
     if (!brokenLinkMap.has(linkUrl)) {
       pageLinkMap = new Map();
@@ -21,6 +31,13 @@ function summarizeBrokenLinks(customData) {
     }
   }
   return brokenLinkMap;
+}
+
+function normalizeUrl(url) {
+  if (!linkExtRe.test(url) && !trailingSlashRe.test(url)) {
+    url += "/";
+  }
+  return url;
 }
 
 var options = {
@@ -41,6 +58,7 @@ var options = {
 var siteUrl = "http://localhost:8080";
 var customData = {
   outputGoodLinks: false,
+  normalizeUrls: true, // ensure trailing slash for link/page URLs
   brokenLinks: [],
   firstLink: true,
   pageLinkCount: 0,
