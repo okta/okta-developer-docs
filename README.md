@@ -13,7 +13,7 @@ The [Okta developer site][doc] serves Okta's API documentation and guides, inclu
 
 If you have questions or need help with Okta's APIs or SDKs, visit the **[Developer Forum][devforum]**. You can also email developers@okta.com to create a support ticket.
 
-## Contributing
+## Getting Started
 Okta's developer documentation (this repo) is built using the [VuePress][vuepress] site generator.
 There are currently 2 parts to the site, the content and the theming/plugins.
 
