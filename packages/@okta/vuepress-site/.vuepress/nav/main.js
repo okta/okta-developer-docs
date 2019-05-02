@@ -24,6 +24,7 @@ module.exports = [
       { title: 'Working With Tokens', link: '/authentication-guide/tokens/', subLinks: [
           { title: 'Validating Access Tokens', link: '/authentication-guide/tokens/validating-access-tokens/'},
           { title: 'Validating ID Tokens', link: '/authentication-guide/tokens/validating-id-tokens/'},
+          { title: 'Verifying the Token Signature and Managing Key Rotation', link: '/authentication-guide/tokens/verifying-token-signature/'},      
           { title: 'Refreshing Access Tokens', link: '/authentication-guide/tokens/refreshing-tokens/'},
           { title: 'Revoking Tokens', link: '/authentication-guide/tokens/revoking-tokens/'}
         ]
@@ -35,6 +36,7 @@ module.exports = [
     title: 'Use Cases',
     links: [
       { title: 'Inline Hooks', link: '/use_cases/inline_hooks/'},
+      { title: 'Event Hooks', link: '/use_cases/event_hooks/'},
       { title: 'Authentication', link: '/use_cases/authentication/'},
       { title: 'Events API Migration', link: '/use_cases/events-api-migration/'},
       { title: 'Multi-Factor Authentication', link: '/use_cases/mfa/'},
@@ -55,6 +57,7 @@ module.exports = [
           { title: 'Apps', link: '/docs/api/resources/apps/'},
           { title: 'Authorization Servers', link: '/docs/api/resources/authorization-servers/'},
           { title: 'Dynamic Client Registration', link: '/docs/api/resources/oauth-clients/'},
+          { title: 'Event Hooks', link: '/docs/api/resources/event-hooks/'},
           { title: 'Factors', link: '/docs/api/resources/factors/'},
           { title: 'Groups', link: '/docs/api/resources/groups/'},
           { title: 'Identity Providers', link: '/docs/api/resources/idps/'},

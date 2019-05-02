@@ -2,13 +2,10 @@
 title: Step-by step guides for the Okta platform
 layout: Guides
 guides: 
- - protect-your-api
- - sign-into-mobile-app
  - sign-into-spa
- - sign-into-your-web-app
- - sign-users-out
+ - sign-into-web-app
 featured: 
- - sign-into-your-web-app
+ - sign-into-web-app
  - sign-into-spa
 ---
 

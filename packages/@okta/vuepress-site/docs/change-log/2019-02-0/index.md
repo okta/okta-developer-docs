@@ -15,8 +15,8 @@ title: Okta API Products Change Log
 | [Google Integration Updated](#google-integration-updated)                                                               | February 6, 2019         | February 19, 2019                            |
 | [High Capacity Rate Limits](#high-capacity-rate-limits)                                                                 | February 6, 2019         | February 19, 2019                            |
 | [Creation of LinkedIn IdPs Temporarily Disabled](#creation-of-linkedin-idps-temporarily-disabled)                       | February 14, 2019        | February 19, 2019                            |
-| [Bug Fixed in 2019.02.0](#bug-fixed-in-2019010)                                                                         | February 6, 2018         | February 19, 2019                            |
-| [Previously Released Early Access Features 2019.02.0 Update](#previously-released-early-access-features-2019010-update) | Available Now            | Available Now                                |
+| [Bug Fixed in 2019.02.0](#bug-fixed-in-2019-02-0)                                                                         | February 6, 2018         | February 19, 2019                            |
+| [Previously Released Early Access Features 2019.02.0 Update](#previously-released-early-access-features-2019-02-0-update) | Available Now            | Available Now                                |
 
 ### Imported Hashed User Passwords Generally Available
 

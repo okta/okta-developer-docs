@@ -66,63 +66,7 @@ To edit this page, you would navigate to `/packages/@okta/vuepress-site/docs/api
 
 An `index.md` file in a directory like `users` will be served as `/users/` when the site is live. If you name the file anything other than `index.md`, you will need to include `.html` in the URL when you view the page in your browser.
 
-The [Guides](https://developer.okta.com/guides/) section has a more complex directory structure.  See the [Updating Guides](#updating-guides) section below.
-
-
-### Where do Pictures and Assets go?
-All images and other assets will live in the folder `/packages/@okta/vuepress-site/.vuepress/public` and should be referenced as such.
-
-### Using Components in Markdown
-There are a few different components that can be used inside the markdown files to render some design specific html
-
-#### API Operations
-The `<ApiOperation>` tag is used to render badges representing different API operations (GET, POST, DELETE) in the API reference.
-
-In the Markdown, you can add
-```html
-<ApiOperation method="delete" url="/api/v1/apps" />
-```
-and this would render as:
-
-<img src=".github/images/api-operations-rendered.png" width="150px"/>
-
-#### API Lifecycle
-The `<ApiLifecycle>` tag allows you to mark items as beta, Early Access, or deprecated.
-
-In the Markdown, you can add
-```html
-<ApiLifecycle access="beta" />
-```
-and this would render as:
-
-<img src=".github/images/api-lifecycle-rendered.png" width="150px"/>
-
-#### Category Links
-If you need to include a list of links for a category group which was defined in the frontmatter, you can use the `CategoryLinks` component.
-
-As long as you have the category defined in your markdowns frontmatter such as:
-
-```
----
-category: myCategory
----
-```
-
-You can then use the `<CategoryLinks>` tag:
-
-```html
-<CategoryLinks category="myCategory" />
-```
-
-A few options are provided for you to allow for some customization:
-
-| Property    | Description                                                                                   |
-|-------------|-----------------------------------------------------------------------------------------------|
-| category    | The category you want to display for the links. This is based on your markdown frontmatter    |
-| linkPrefix  | [ADVANCED] This property allows you to include links based on the path, instead of a category |
-| sort        | Allows you to sort based on the defined property                                              |
-| showExcerpt | This property defaults to `true` and will display the frontmatter excerpt                     |
-
+More information about writing content for VuePress can be found in our [VuePress Authoring Guidelines](https://github.com/okta/okta-developer-docs/wiki/VuePress-Authoring-Guidelines). There you will also find our [Style Guide](https://github.com/okta/okta-developer-docs/wiki/Style-Guide).
 
 ### What About Building the Site Before Committing?
 There is no need to build the rendered site before committing and submitting a PR. This will all happen on the CI side to test and build the rendered site.
