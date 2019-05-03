@@ -1,5 +1,5 @@
 ---
-title: Sign Users Out
+title: Before You Begin
 ---
 This guide shows you how to sign users out of your app and out of Okta.
 
@@ -8,7 +8,7 @@ This guide shows you how to sign users out of your app and out of Okta.
 This guide assumes that you:
 
 * Have an Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
-* You've followed one of our sign-in guides: 
+* Already followed one of our sign-in guides: 
     * [Sign Users in to Your Web App]
     * [Sign Users in to Your Mobile App]
     * [Sign Users in to Your Single-Page App]
