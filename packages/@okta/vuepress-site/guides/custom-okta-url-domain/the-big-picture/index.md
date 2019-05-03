@@ -12,8 +12,8 @@ For example, you use Okta as a user store for your apps, but you don't want your
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain.
 
 ### Caveats
-* Okta currently only supports TLS certificates with a 2048-bit key length.
-* Okta Mobile and the Okta browser plugin, along with other Workforce Identity features, don't work. See the [Workforce Administrator product docs] for more information.
+* Okta currently only supports TLS certificates with a 2048-bit key length. However, Okta does support any size for certificates used in the certificate chain.
+* Okta Mobile and the Okta browser plugin don't work.
 
 ### Common Questions
 **Can I add more than one domain?**
