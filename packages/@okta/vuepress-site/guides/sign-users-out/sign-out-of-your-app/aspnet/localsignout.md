@@ -1,4 +1,4 @@
-Open the controller where you will handle the sign out process and add a `SignOut` method to delete the application cookies:
+Add a `SignOut` action that accepts an `HTTP POST` and signs the user out with `CookieAuthenticationDefaults.AuthenticationType`:
 
 ```csharp
 public class AccountController : Controller
@@ -20,4 +20,30 @@ Update your using statements to import the `Microsoft.Owin.Security.Cookies` nam
 
 ```csharp
 using Microsoft.Owin.Security.Cookies;
+```
+
+Finally, give the user a **Sign Out** button or link. Open your `_Layout.cshtml` file and add the following code:
+
+```cshtml
+<div class="navbar-collapse collapse">
+    @*...*@
+    @if (Context.User.Identity.IsAuthenticated)
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <p class="navbar-text">Hello, <b>@Context.User.Identity.Name</b></p>
+            </li>
+            <li>
+                <a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">Sign out</a>
+            </li>
+        </ul>
+    <form action="/Account/SignOut" method="post" id="logout_form"></form>
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Sign in", "Login", "Account")</li>
+        </ul>
+    }
+</div>
 ```
