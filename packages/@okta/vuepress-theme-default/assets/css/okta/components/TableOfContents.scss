@@ -122,9 +122,17 @@
 	.is-active {
 		@include color('blue-bright');
 
+		&:visited {
+			@include color('blue-bright');
+		}
+
 		&:before {
 			border-color: get-color('blue-bright');
 		}
+	}
+
+	a:visited {
+		color: inherit;
 	}
 }
 

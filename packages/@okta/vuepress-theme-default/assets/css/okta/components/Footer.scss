@@ -1,6 +1,19 @@
 .Footer {
   a {
     text-decoration: none;
+
+    &:visited {
+      color: #848d93;
+    }
+
+    &:active,
+    &:hover {
+      color: $white;
+    }
+
+    &[target='_blank']:not([href^='mailto:'])::after {
+      display: none;
+    }
   }
 
   .Wrap {

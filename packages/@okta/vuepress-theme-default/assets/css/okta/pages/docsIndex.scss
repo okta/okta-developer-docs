@@ -60,6 +60,7 @@
     text-align: center;
 
     a {
+      color: get-color('blue-bright');
       font-size: 18px;
 
       i.icon {
@@ -67,13 +68,13 @@
         width: 24px;
 
         &::before {
-          color: get-color('blue-bright');
+          color: inherit;
         }
       }
 
       &:hover {
         i.icon::before {
-          color: get-color('blue-bright-hover');
+          color: inherit;
         }
       }
     }

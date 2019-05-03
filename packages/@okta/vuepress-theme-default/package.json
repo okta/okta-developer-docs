@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/okta/okta.github.io",
   "dependencies": {
-    "@okta/nim": "^0.1.0-beta.1197.b2b1511",
+    "@okta/nim": "^0.1.0-beta.2407.g46f83be",
     "@okta/vuepress-plugin-active-header-links": "^1.0.0",
     "@vuepress/plugin-active-header-links": "^1.0.0-alpha.33",
     "axios": "^0.18.0",
