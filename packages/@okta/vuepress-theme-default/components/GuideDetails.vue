@@ -1,13 +1,16 @@
 <template>
   <div class="guide-details">
-    <GuidesNavigation
-      :sectionName="sectionName"
-      :framework="framework"
-      :guideName="guideName" 
-    />
-    <div id="guide_content">
-      <h1>{{ section.title }}</h1>
-      <Content :pageKey="componentKey"/>
+    <Breadcrumb/>
+    <div class="guide-details-content">
+      <GuidesNavigation
+        :sectionName="sectionName"
+        :framework="framework"
+        :guideName="guideName" 
+      />
+      <div id="guide-content">
+        <h1>{{ section.title }}</h1>
+        <Content :pageKey="componentKey"/>
+      </div>
     </div>
   </div>
 </template>
