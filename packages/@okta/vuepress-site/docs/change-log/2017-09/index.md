@@ -1,5 +1,5 @@
 ---
-title: Okta API Products Change Log
+title: Okta API Products Release Notes
 excerpt: Summary of changes to the Okta Platform since Release 2017.05
 ---
 

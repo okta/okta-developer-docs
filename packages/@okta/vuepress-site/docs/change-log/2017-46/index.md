@@ -1,5 +1,5 @@
 ---
-title: Okta API Products Change Log
+title: Okta API Products Release Notes
 excerpt: 2017.46 Release Note HAL link bug fixed
 ---
 

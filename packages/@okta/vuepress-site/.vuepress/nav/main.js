@@ -91,9 +91,9 @@ module.exports = [
     ]
   },
   {
-    title: "Change Log",
+    title: "Release Notes",
     links: [
-      { title: 'Okta API Products Change Log', link: '/docs/change-log/'}
+      { title: 'Okta API Products Release Notes', link: '/docs/change-log/'}
     ]
   },
   {

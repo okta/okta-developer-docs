@@ -1,5 +1,5 @@
 ---
-title: Okta API Products Change Log
+title: Okta API Products Release Notes
 excerpt: Changes to Developer Console and an improved error string
 ---
 

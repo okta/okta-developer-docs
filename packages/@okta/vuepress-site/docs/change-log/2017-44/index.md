@@ -1,5 +1,5 @@
 ---
-title: Okta API Products Change Log
+title: Okta API Products Release Notes
 excerpt: New parameter for creating users and bug fixes
 ---
 

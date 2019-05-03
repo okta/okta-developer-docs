@@ -1,5 +1,5 @@
 ---
-title: Okta API Products Change Log
+title: Okta API Products Release Notes
 excerpt: Release Note for 2017.47 Bug fix to partial profile update
 ---
 

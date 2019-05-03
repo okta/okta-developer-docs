@@ -1,5 +1,5 @@
 ---
-title: Okta API Products Change Log
+title: Okta API Products Release Notes
 excerpt: >-
   Release Note for 2017.49 App User Schema EA,  more simple HAL link rollout,
   JWT request parameter, and bug fixes

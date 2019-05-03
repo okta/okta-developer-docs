@@ -6,17 +6,20 @@ title: Okta Release Lifecycle
 
 Okta features travel through a regular lifecycle:
 
-* [Beta](#beta)
-* [Early Access (EA)](#early-access-ea)
-* [General Availability (GA)](#general-availability-ga)
-* [Deprecation](#deprecation)
+- [Okta Release Lifecycle](#okta-release-lifecycle)
+  - [Quick Reference Table](#quick-reference-table)
+  - [Beta](#beta)
+  - [Early Access (EA)](#early-access-ea)
+  - [General Availability (GA)](#general-availability-ga)
+  - [Deprecation](#deprecation)
+  - [Exceptions to the Beta-EA-GA Lifecycle](#exceptions-to-the-beta-ea-ga-lifecycle)
 
 >Note: Okta reserves the right to add new parameters, properties, or resources to the API without advance notice.
 These updates are non-breaking because they are additive. Follow [the compatibility rules](/docs/api/getting_started/design_principles) to ensure your application doesn't break
 when additive changes are made.
 Breaking changes such as removing or renaming an attribute are released as a new version of the API, and Okta provides a migration path for new API versions.
 
-Changes, regardless of lifecycle stage, are always reported in the [Okta API Products Change Log](/docs/change-log/).
+Changes, regardless of lifecycle stage, are always reported in the [Okta API Products Release Notes](/docs/change-log/).
 
 ## Quick Reference Table
 

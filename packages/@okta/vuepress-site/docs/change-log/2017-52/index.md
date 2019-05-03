@@ -1,5 +1,5 @@
 ---
-title: Okta API Products Change Log
+title: Okta API Products Release Notes
 excerpt: 'Additional events in log, token preview UI,  and API bug fix'
 ---
 
