@@ -1,4 +1,4 @@
-CORS can be enabled with a simple `CrossOrigin` annotation on in your controller for example:
+You can enable CORS with a simple `CrossOrigin` annotation in your controller, for example:
 
 ```java
 @CrossOrigin(origins = "http://example.com:80")
@@ -8,4 +8,4 @@ public String hello() {
 }
 ```
 
-For more details checkout the [Spring CORS guide](https://spring.io/guides/gs/rest-service-cors/).
+For more details, check out the [Spring CORS guide](https://spring.io/guides/gs/rest-service-cors/).

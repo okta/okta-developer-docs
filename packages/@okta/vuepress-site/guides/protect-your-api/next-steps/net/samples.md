@@ -1,1 +1,0 @@
-We have multiple samples available in our [Net Samples repo](net link) on GitHub.
