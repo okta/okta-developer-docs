@@ -21,13 +21,13 @@ Create a new `Okta.plist` file in your application's bundle with the following f
 > Note: `https://{yourOktaDomain}.com` is different from your admin URL. Don't include `-admin` in the value.
 > Note: To receive a `refresh_token`, you must include the `offline_access` scope.
 
-Then to create `OktaOidc` object you don't need to create and pass `OktaOidcConfig` instance:
+Then, to create the `OktaOidc` object you don't need to create and pass the `OktaOidcConfig` instance:
 
 ```swift
 let oktaOidc = OktaOidc()
 ```
 
-Alternatively, you can create a configuration object from dictionary with the required values:
+Alternatively, you can create a configuration object from the dictionary with the required values:
 
 ```swift
 let configuration = OktaOidcConfig(with: [
@@ -41,7 +41,7 @@ let configuration = OktaOidcConfig(with: [
 ])
 ```
 
-Then create `OktaOidc` object:
+Then, create the `OktaOidc` object:
 ```swift
 let oktaOidc = OktaOidc(configuration: configuration)
 ```

@@ -1,4 +1,4 @@
-Before using the SDK you have to create a new object of OktaOidc class. You can instantiate OktaOidc w/o parameters that means that SDK will use Okta.plist for configuration values. Alternatively you can create OktaOidc instance with custom configuration.
+Before using the SDK, you have to create a new `OktaOidc` object. You can instantiate `OktaOidc` without parameters. If you do that, the SDK uses Okta.plist for configuration values. Alternatively, you can create the `OktaOidc` instance with a custom configuration.
 
 ```swfit
 import OktaOidc
@@ -14,7 +14,7 @@ let config = OktaOidcConfig(/* plist */)
 let oktaOidc = OktaOidc(configuration: config)
 ```
 
-Then, you can start the authorization flow by simply calling `signInWithBrowser`. In case of successful authorization, this operation will return valid `OktaOidcStateManager` instance in its callback:
+Then, you can start the authorization flow by simply calling `signInWithBrowser`. When successfully authorized, this operation returns a valid `OktaOidcStateManager` instance in its callback:
 
 ```swift
 oktaOidc.signInWithBrowser(from: self) { stateManager, error in
@@ -28,8 +28,7 @@ oktaOidc.signInWithBrowser(from: self) { stateManager, error in
     // stateManager.refreshToken
 }
 ```
-
-Developer is responsible for further storage of the state manager. The `OktaOidcStateManager` instance can be securly stored in the iOS keychain: 
+You are responsible for storing the state manager. You can securely store the `OktaOidcStateManager` instance in the iOS keychain:
 
 ```swift
 authStateManager.writeToSecureStorage()
@@ -37,7 +36,7 @@ let config = OktaOidcConfig(/* plist */)
 authStateManager = OktaOidcStateManager.readFromSecureStorage(for: config)
 ```
 
-In native applications, it is common for users to have a long-lived session. It is important for the app to manage the user's session by refreshing tokens when they expire, using the `renew` method or re-prompting the user to sign in.
+In native applications, it's common for users to have a long-lived session. It's important for the app to manage the user's session by refreshing tokens when they expire, using the `renew` method or re-prompting the user to sign in.
 
 ```swift
 authStateManager.renew { newAccessToken, error in
