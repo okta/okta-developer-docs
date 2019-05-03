@@ -13,7 +13,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 ### Caveats
 * Okta currently only supports TLS certificates with a 2048-bit key length. However, Okta does support any size for certificates used in the certificate chain.
-* Okta Mobile and the Okta browser plugin don't work.
+* The Okta browser plugin doesn't work when customizing the Okta URL domain.
 
 ### Common Questions
 **Can I add more than one domain?**
