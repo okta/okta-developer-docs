@@ -12,7 +12,7 @@ Start by signing in to the Okta Developer Console:
 
 2. Add the **Base URI** of your application during local development, such as `http://localhost:3000`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.
 
-3. Next, enter values for the **Login redirect URI**. This is the callback from [Define a Callback Route](../-/define-callback/). Add values for local development (such as `http://localhost:8080/authorization-code/callback`) and production (such as `https://app.example.com/authorization-code/callback`).
+3. Next, enter values for the **Login redirect URI**. This is the callback from <GuideLink link="../define-callback">Define a Callback Route</GuideLink>. Add values for local development (such as `http://localhost:8080/authorization-code/callback`) and production (such as `https://app.example.com/authorization-code/callback`).
 
 4. Click **Done** to finish creating the Okta Application. You need to copy some values into your code later, so leave the Developer Console open.
 
