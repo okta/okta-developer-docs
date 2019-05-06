@@ -4,6 +4,49 @@ const chalk = require('chalk');
 const linkExtRe = new RegExp('https?://.*/[^/]+\\.[a-z]+$');
 const trailingSlashRe = new RegExp('/$');
 
+var options = {
+  excludedKeywords: [
+    "*.xml",
+    "*.yml",
+    "/img",
+    "/assets",
+    "/fonts",
+    "/docs/api/postman",
+    "/favicon",
+    "/blog/",
+    "/pricing/",
+    "/product/",
+    "/product/*"
+  ]
+};
+
+const linkCheckMode = process.argv.slice(2) == '' ? 'all' : process.argv.slice(2);
+console.log("Link Check Mode: " + linkCheckMode);
+
+if (linkCheckMode == 'internal') {
+  console.log("Running internal link check...");
+  options.excludeExternalLinks = true;
+} else if (linkCheckMode == 'external') {
+  console.log("Running external link check...");
+  options.excludeInternalLinks = true;
+} else {
+  console.log("Running both internal and external link check...");
+}
+
+var siteUrl = "http://localhost:8080";
+var customData = {
+  outputGoodLinks: false,
+  normalizeUrls: true, // ensure trailing slash for link/page URLs
+  brokenLinks: [],
+  firstLink: true,
+  pageLinkCount: 0,
+  pageExcludedCount: 0,
+  pageBrokenCount: 0,
+  totalLinkCount: 0,
+  totalExcludedCount: 0,
+  totalBrokenCount: 0
+};
+
 function summarizeBrokenLinks(customData) {
   var brokenLinkMap = new Map();
   for (const result of customData.brokenLinks) {
@@ -39,35 +82,6 @@ function normalizeUrl(url) {
   }
   return url;
 }
-
-var options = {
-  excludedKeywords: [
-    "*.xml",
-    "*.yml",
-    "/img",
-    "/assets",
-    "/fonts",
-    "/docs/api/postman",
-    "/favicon",
-    "/blog/",
-    "/pricing/",
-    "/product/",
-    "/product/*"
-  ]
-};
-var siteUrl = "http://localhost:8080";
-var customData = {
-  outputGoodLinks: false,
-  normalizeUrls: true, // ensure trailing slash for link/page URLs
-  brokenLinks: [],
-  firstLink: true,
-  pageLinkCount: 0,
-  pageExcludedCount: 0,
-  pageBrokenCount: 0,
-  totalLinkCount: 0,
-  totalExcludedCount: 0,
-  totalBrokenCount: 0
-};
 
 var siteChecker = new blc.SiteChecker(options, {
   robots: function(robots, customData){},
