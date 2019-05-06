@@ -1,3 +1,5 @@
+const guidesInfo = require('./scripts/build-guides-info');
+
 module.exports = {
   dest: 'dist',
   theme: "@okta/vuepress-theme-default",
@@ -223,5 +225,17 @@ module.exports = {
 
   extraWatchFiles: [
     '.vuepress/nav/*',
-  ]
+  ],
+  additionalPages: [
+    ...guidesInfo.additionalPagesForGuides(),
+  ],
+  extendPageData(page) {
+    if(page.path.startsWith(`/guides/`)) {
+      page.frontmatter.layout = 'Guides';
+      const info = guidesInfo.guideInfo[page.path];
+      if(info) {
+        page.breadcrumb = info.breadcrumb;
+      }
+    }
+  },
 }
