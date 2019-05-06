@@ -27,7 +27,7 @@ For steps to enable this inline hook, see below, [Enabling a Registration Inline
 
 The Okta Registration Inline Hook allows you to integrate your own custom code into Okta’s [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
 
-- Set or override the valuse that will be populated in attributes of the user's Okta profile
+- Set or override the values that will be populated in attributes of the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
 
 ## Objects in the Request from Okta
@@ -36,13 +36,13 @@ The outbound call from Okta to your external service includes the following obje
 
 ### data.userProfile
 
-This object contains name-value pairs for each attribute supplied by the user in the Self-Service Registration form, except for password.
+This object contains name-value pairs for each attribute supplied by the user in the Self-Service Registration form except for password.
 
-Using the `com.okta.user.profile.update` commands you send in your response, you can modify the values of the attributes, or add values for other attributes, before the values are assigned to the Okta user profile created for the registering user.
+Using the `com.okta.user.profile.update` commands you send in your response, you can modify the values of the attributes, or add other attributes, before the values are assigned to the Okta user profile that will be created for the registering user.
 
 You can only set values for profile fields which already exist in your Okta user profile schema. Registration Inline Hook functionality can only set values, it cannot create new fields.
 
-> Note: The `password` field, along with any attributes that are marked as sensitive in your Okta user schema, are omitted from the information sent to your external service in the `data.userProfile` object. The password or its hash is never sent to your external service in any way.
+> Note: The `password` field, along with any attributes that are marked as sensitive in your Okta user schema, is omitted from the information sent to your external service in the `data.userProfile` object. The password (or even its hash) is never sent to your external service in any way.
 
 ### data.action
 
