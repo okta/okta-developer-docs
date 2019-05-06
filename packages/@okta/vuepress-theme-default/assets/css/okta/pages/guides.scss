@@ -187,12 +187,10 @@ $big-spacing: 3rem;
 
   /* reduce icons to 24px */
   .icon[class*='-32'] {
-    &:before {
-      font-size: 24px;
-    }
-
+    &:before,
     &:after {
       font-size: 24px;
+      line-height: 24px;
     }
   }
 
