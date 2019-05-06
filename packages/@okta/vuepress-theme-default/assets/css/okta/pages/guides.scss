@@ -33,6 +33,10 @@ $big-spacing: 3rem;
   display: flex;
 }
 
+.guide-content { 
+  width: 100%;
+}
+
 .guide-featured {
   transition: box-shadow 200ms linear;
   border: 0;
