@@ -3,7 +3,7 @@ title: Okta API Products Release Notes | Okta Developer
 meta:
   - name: description
     content: List of changes to the Okta API and related API...
-component: ChangeLog
+component: ReleaseNotes
 ---
 
 # Okta API Products Release Notes
@@ -17,4 +17,4 @@ To verify the current release for an org, check the footer of the administrator 
 
 > Note: Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/en/prod/Content/Topics/ReleaseNotes/okta-relnotes.htm).
 
-<ChangeLogList />
+<ReleaseNotesList />

@@ -93,7 +93,7 @@ module.exports = [
   {
     title: "Release Notes",
     links: [
-      { title: 'Okta API Products Release Notes', link: '/docs/change-log/'}
+      { title: 'Okta API Products Release Notes', link: '/docs/release-notes/'}
     ]
   },
   {

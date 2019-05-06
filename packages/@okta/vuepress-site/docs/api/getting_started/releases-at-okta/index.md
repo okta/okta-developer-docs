@@ -19,7 +19,7 @@ These updates are non-breaking because they are additive. Follow [the compatibil
 when additive changes are made.
 Breaking changes such as removing or renaming an attribute are released as a new version of the API, and Okta provides a migration path for new API versions.
 
-Changes, regardless of lifecycle stage, are always reported in the [Okta API Products Release Notes](/docs/change-log/).
+Changes, regardless of lifecycle stage, are always reported in the [Okta API Products Release Notes](/docs/release-notes/).
 
 ## Quick Reference Table
 
@@ -107,4 +107,4 @@ Other exceptions include:
 Such features may spend more than one month between preview and production for their GA release.
 * Features exposed in the administrator UI may be EA or GA without the corresponding API being in the same stage of the lifecycle, or available at all.
 
-As with all changes that affect our customers, changes outside the regular Beta-EA-GA lifecycle are reported in the [Okta API Release Notes](/docs/change-log/).
+As with all changes that affect our customers, changes outside the regular Beta-EA-GA lifecycle are reported in the [Okta API Release Notes](/docs/release-notes/).
