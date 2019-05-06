@@ -1,4 +1,4 @@
-When accessing protected routes, ASP.NET redirects the user to an Okta sign-in page automatically. You can control which routes are protected with the `[Authorize]` attribute, which is covered in [Require Authentication](../-/require-authentication/).
+When accessing protected routes, ASP.NET redirects the user to an Okta sign-in page automatically. You can control which routes are protected with the `[Authorize]` attribute, which is covered in <GuideLink link="../require-authentication/">Require Authentication</GuideLink>.
 
 You can also give the user a **Sign In** button or link. Open your `_Layout.cshtml` file and add the following code:
 

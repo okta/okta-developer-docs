@@ -2,7 +2,7 @@
 title: Configure the SDK
 ---
 
-You'll need two values from the Okta Application and the Developer Console you worked with in [Create an Okta Application](/guides/sign-into-spa/-/create-okta-application):
+You'll need two values from the Okta Application and the Developer Console you worked with in <GuideLink link="../create-okta-application">Create an Okta Application</GuideLink>:
 
 * **Client ID** - Find it in the applications list or on the application's **General** tab.
 * **Okta domain** - Find it on the Developer Console dashboard in the upper-right corner. 
