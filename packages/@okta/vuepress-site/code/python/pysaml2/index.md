@@ -109,7 +109,7 @@ the following steps, you will have a working example of connecting Okta to a sam
 
 5.  Be sure to replace the contents of `${metdata_url}` with the link
     that you copied in step \#10 of the
-    "[Setting up a SAML application in Okta](/docs/guides/setting_up_a_saml_application_in_okta)"
+    "[Setting up a SAML application in Okta](/authentication-guide/implementing-authentication/set-up-authz-server/)"
     instructions that you followed above!
 
     Note: The contents of `${metadata_url}` should look similar to: `https://{yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
