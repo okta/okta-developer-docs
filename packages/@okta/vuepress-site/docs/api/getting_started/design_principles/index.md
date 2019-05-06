@@ -139,7 +139,7 @@ The Okta API currently requires the custom HTTP authentication scheme `SSWS` for
 
 > See [Obtaining a token](/docs/api/getting_started/getting_a_token/) for instructions on how to get an API key for your organization.
 
-The API key (API token) isn't interchangeable with an Okta [session token](/docs/api/resources/authn/#session-token), access tokens or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/api/resources/oauth2/).
+The API key (API token) isn't interchangeable with an Okta [session token](/docs/api/resources/authn/#session-token), access tokens or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/api/resources/oidc/).
 
 ## Pagination
 
@@ -309,4 +309,4 @@ The Okta API supports CORS on an API by API basis. If you're building an applica
 
 ## Additional Help
 
-In addition to all the information in this portal, you can view developer videos in our [YouTube channel](https://www.youtube.com/watch?v=JBtyGfrz-jA&list=PLIid085fSVdvYrfP6XchcOckCiyPSJN60).
+In addition to all the information in this portal, you can view developer videos in our [YouTube channel](https://www.youtube.com/channel/UC5AMiWqFVFxF1q9Ya1FuZ_Q).
