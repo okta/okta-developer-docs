@@ -1,0 +1,1 @@
+retrieve user info code example
