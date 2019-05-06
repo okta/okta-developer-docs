@@ -130,6 +130,7 @@ ul.list--with-horizontal-icons {
 			display: flex;
 			margin-right: get-spacing('medium');
 			padding: get-spacing('small') 0;
+			color: get-color('blue-bright');
 			font-size: get-font-size('button');
 
 			img {
