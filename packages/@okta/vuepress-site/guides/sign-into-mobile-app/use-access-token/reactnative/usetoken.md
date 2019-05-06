@@ -1,0 +1,1 @@
+You could create a `MessageList` component that gets the access token from secure storage and use it to make an authenticated request to your resource server.
