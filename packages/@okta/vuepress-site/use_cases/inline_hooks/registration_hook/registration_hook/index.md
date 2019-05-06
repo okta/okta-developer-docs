@@ -85,7 +85,7 @@ The following commands are supported for the Registration Inline Hook type:
 
 To set attributes in the user's Okta profile, supply a type property set to `com.okta.user.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the Okta user profile attributes you want to set. The attributes must already exist in your user profile schema.
 
-To explicitly allow or deny registration to the user, supply a type property set to `com.okta.action.update`, together with a value property set to `{"registration": "ALLOW"}` or `{"registration": "DENY"`}. The default is to allow registration.
+To explicitly allow or deny registration to the user, supply a type property set to `com.okta.action.update`, together with a value property set to `{"registration": "ALLOW"}` or `{"registration": "DENY"}`. The default is to allow registration.
 
 Commands are applied in the order in which they appear in the array. Within a single `com.okta.user.profile.update` command, attributes are updated in the order in which they appear in the `value` object.
 
