@@ -195,8 +195,8 @@ example, on a production system, the contents of the
 from a dynamic datastore.
 
 If you want to learn more about SAML and what to consider when writing a SAML implementation, Okta's
-in-depth [SAML guidance](/docs/getting_started/saml_guidance)
+in-depth [Setting up a SAML Application in Okta](/standards/SAML/setting_up_a_saml_application_in_okta)
 is a great place to learn more.
 
 Finally, if you got this far in this guide and still have questions,
-please reach out to me at: joel.franusic@okta.com.
+please reach out to us at: developer@okta.com.
