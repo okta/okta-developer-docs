@@ -6,4 +6,5 @@ sections:
  - before-you-begin
  - sign-out-of-your-app
  - sign-out-of-okta
+ - next-steps
 ---
