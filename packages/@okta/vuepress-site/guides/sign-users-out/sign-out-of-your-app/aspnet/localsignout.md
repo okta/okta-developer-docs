@@ -41,7 +41,7 @@ Finally, give the user a **Sign Out** button or link. Open your `_Layout.cshtml`
                 </a>
             </li>
         </ul>
-    <form action="/Account/SignOut" method="post" id="logout_form"></form>
+        <form action="/Account/SignOut" method="post" id="logout_form"></form>
     }
     else
     {

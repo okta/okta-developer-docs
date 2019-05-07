@@ -28,22 +28,21 @@ Finally, give the user a **Sign Out** button or link. Open your `_Layout.cshtml`
     @*...*@
     @if (User.Identity.IsAuthenticated)
     {
-            <ul>
-                <li><p>Hello, @User.Identity.Name</p></li>
-                <li>
-                    <a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">
-                        Sign out
-                    </a>
-                </li>
-            </ul>
-            <form asp-controller="Account" asp-action="SignOut" method="post" id="logout_form"></form>
+        <ul>
+            <li><p>Hello, @User.Identity.Name</p></li>
+            <li>
+                <a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">
+                    Sign out
+                </a>
+            </li>
+        </ul>
+        <form asp-controller="Account" asp-action="SignOut" method="post" id="logout_form"></form>
     }
     else
     {
-            <ul>
-                <li><a asp-controller="Account" asp-action="Login">Sign in</a></li>
-            </ul>
+        <ul>
+            <li><a asp-controller="Account" asp-action="Login">Sign in</a></li>
+        </ul>
     }
-    </div>
 </div>
 ```
