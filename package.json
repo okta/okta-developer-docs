@@ -17,7 +17,7 @@
     "test-only": "yarn test:update-web-driver && protractor tests/selenium/conf.js && yarn stop",
     "test:test-local": "yarn test:wait-on-local && yarn test-only || (yarn stop && exit 1)",
     "test:update-web-driver": "./node_modules/protractor/bin/webdriver-manager update --gecko false --versions.standalone 3.141.59",
-    "test:stop-web-driver": "pkill -f 'webdriver-manager/selenium' || echo 'no Selenium processes found'",
+    "test:stop-web-driver": "yarn fkill -s $(pgrep -f 'webdriver-manager/selenium' || echo 99999999)",
     "test:wait-on-local": "wait-for-localhost 8080 --use-get",
     "markdown-lint": "node scripts/markdown-check",
     "posttest": "yarn stop",
@@ -25,7 +25,7 @@
     "stop-all": "if-env CI=true && exit 0 || pkill -f 'yarn' || echo 'done'",
     "update-event-types": "bash scripts/update-event-types.sh",
     "start-web-server": "cd packages/@okta/vuepress-site/dist && npx serve -l 8080&",
-    "stop-web-server": "pkill -f 'npx serve' || echo 'Web Server process not found'"
+    "stop-web-server": "yarn fkill -s $(pgrep -f 'npx serve' || echo 99999999)"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "broken-link-checker": "^0.7.8",
+    "fkill-cli": "^5.2.0",
     "hoek": "^6.1.3",
     "joi": "^14.3.1",
     "serve": "^11.0.0",
