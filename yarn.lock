@@ -10094,6 +10094,19 @@ vuepress@^1.0.0-alpha.33, vuepress@^1.0.0-alpha.43:
     "@vuepress/theme-default" "^1.0.0-alpha.47"
     cac "^6.3.9"
 
+wait-for-localhost-cli@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/wait-for-localhost-cli/-/wait-for-localhost-cli-1.1.0.tgz#38e80b10a70b7d433501435f773bbf8676c09e90"
+  integrity sha512-MwrmsR8Oscyt5cINOJtcjQoVKDIqN+Cy+Y2MGuGXaeibV12MHvSTO6zjJLgraD51yGfYPH5X9nflMH2jD1n9nQ==
+  dependencies:
+    meow "^5.0.0"
+    wait-for-localhost "^3.0.0"
+
+wait-for-localhost@^3.0.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/wait-for-localhost/-/wait-for-localhost-3.2.0.tgz#d071e7228e2a0978742778fe060dae67417bc9d4"
+  integrity sha512-rs63O/IKjxyPTPyFlCoZrzrefmxQATfPwkvrKsZNRIla4rVWvn/HVvbYRPmi5mZEWCui4OUU2HtEhYXa44X8qQ==
+
 wait-on@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/wait-on/-/wait-on-3.2.0.tgz#c83924df0fc42a675c678324c49c769d378bcb85"
