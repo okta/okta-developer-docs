@@ -4,7 +4,6 @@
   .docs-title {
     padding-top: 120px;
     text-align: center;
-    color: get-color('default');
 
     @media (min-width: 1024px) {
       padding-top: 218px;
@@ -57,10 +56,11 @@
     max-width: 24rem;
     margin: 2rem auto;
     padding-top: 2.5rem;
-    border-top: 2px solid get-color('iron');
+    border-top: 1px solid $base-border-color;
     text-align: center;
 
     a {
+      color: get-color('blue-bright');
       font-size: 18px;
 
       i.icon {
@@ -68,13 +68,13 @@
         width: 24px;
 
         &::before {
-          color: get-color('blue-bright');
+          color: inherit;
         }
       }
 
       &:hover {
         i.icon::before {
-          color: get-color('blue-bright-hover');
+          color: inherit;
         }
       }
     }
