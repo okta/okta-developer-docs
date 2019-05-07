@@ -1,7 +1,7 @@
 ---
 title: Next Steps
 ---
-Nice job! You should understand how to sign users in to your web applications using Okta. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
+You should now understand how to sign users in to your web applications using Okta. If you got stuck, post a question in our [Developer Forum](https://devforum.okta.com).
 
 <!-- Link to Protect Your API Endpoints guide -->
 <!-- Link to Customizing the Sign-in Page guide -->
