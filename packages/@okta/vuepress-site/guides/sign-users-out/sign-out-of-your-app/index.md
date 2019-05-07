@@ -9,6 +9,6 @@ Sign users out by ending their local session. This signs the user out of your ap
 
 Ending the local session does not end the user's Okta session. If your users are signed in to multiple applications, you might want to keep the Okta session. Keeping the Okta session means users won't be prompted for credentials when they try to sign in again.
 
-If you want users to be prompted for credentials the next time they sign in, sign them out of Okta as well.
+If you want users to be prompted for credentials the next time that they sign in, sign them out of Okta as well.
 
 <NextSectionLink/>

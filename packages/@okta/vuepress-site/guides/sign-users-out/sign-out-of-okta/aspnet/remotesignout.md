@@ -18,14 +18,14 @@ public class AccountController : Controller
 }
 ```
 
-Update your using statements to import the following namespaces:
+Update your `using` statements to import the following namespaces:
 
 ```csharp
 using Microsoft.Owin.Security.Cookies;
 using Okta.AspNet;
 ```
 
-After you sign users out of your app and out of Okta, you can also redirect users to a specific location after signing out. You need to whitelist the post sign-out URL in your Okta Application settings.
+After you sign users out of your app and out of Okta, you can also redirect users to a specific location. You need to whitelist the post sign-out URL in your Okta Application settings.
 
 Open the Okta Developer Console:
 
@@ -58,7 +58,7 @@ public class Startup
 ```
 
 Finally, add the desired logic for the post sign-out callback.
-Open the controller where you handle the sign out process and add a `PostSignOut` method:
+Open the controller where you handle the sign-out process and add a `PostSignOut` method:
 
 ```csharp
 public class AccountController : Controller

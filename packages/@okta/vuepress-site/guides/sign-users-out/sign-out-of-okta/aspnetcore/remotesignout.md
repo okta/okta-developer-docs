@@ -4,11 +4,11 @@ Open your Okta Developer Console:
 
 <a href="https://login.okta.com/" target="_blank" class="Button--blue">Go to Console</a>
 
-1. Select **Applications**, then pick your application.
+1. Select **Applications**, and then pick your application.
 
-2. Select **General** tab and click **Edit**.
+2. Select **General** and click **Edit**.
 
-3. Add the **Base URI** of your application followed by `/signout/callback`, such as `http://localhost:3000/signout/callback`, in the  **Logout redirect URI** section.
+3. In the **Logout redirect URI section**, add the **Base URI** of your application followed by `/signout/callback`, for example, `http://localhost:3000/signout/callback`.
 
 4. Click **Save**.
 
@@ -27,14 +27,14 @@ public class AccountController : Controller
 }
 ```
 
-Update your using statements to import the following namespaces:
+Update your `using` statements to import the following namespaces:
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Okta.AspNetCore;
 ```
 
-After you sign users out of your app and out of Okta, you can also redirect users to a specific location after signing out. You need to whitelist the post sign-out URL in your Okta Application settings.
+After you sign users out of your app and out of Okta, you can also redirect users to a specific location. You need to whitelist the post sign-out URL in your Okta Application settings.
 
 Open the Okta Developer Console:
 
@@ -67,7 +67,7 @@ public class Startup
 ```
 
 Finally, add the desired logic for the post sign-out callback.
-Open the controller where you handle the sign out process and add a `PostSignOut` method:
+Open the controller where you handle the sign-out process and add a `PostSignOut` method:
 
 ```csharp
 public IActionResult PostSignOut()

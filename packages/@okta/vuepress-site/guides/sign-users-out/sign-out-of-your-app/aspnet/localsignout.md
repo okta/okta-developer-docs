@@ -8,7 +8,9 @@ public class AccountController : Controller
     {
         if (HttpContext.User.Identity.IsAuthenticated)
         {
-            HttpContext.GetOwinContext().Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
+            HttpContext.GetOwinContext()
+                       .Authentication
+                       .SignOut(CookieAuthenticationDefaults.AuthenticationType);
         }
 
         return RedirectToAction("Index", "Home");
@@ -16,7 +18,7 @@ public class AccountController : Controller
 }
 ```
 
-Update your using statements to import the `Microsoft.Owin.Security.Cookies` namespace:
+Update your `using` statements to import the `Microsoft.Owin.Security.Cookies` namespace:
 
 ```csharp
 using Microsoft.Owin.Security.Cookies;
@@ -25,23 +27,25 @@ using Microsoft.Owin.Security.Cookies;
 Finally, give the user a **Sign Out** button or link. Open your `_Layout.cshtml` file and add the following code:
 
 ```cshtml
-<div class="navbar-collapse collapse">
+<div>
     @*...*@
     @if (Context.User.Identity.IsAuthenticated)
     {
-        <ul class="nav navbar-nav navbar-right">
+        <ul>
             <li>
-                <p class="navbar-text">Hello, <b>@Context.User.Identity.Name</b></p>
+                <p>Hello, <b>@Context.User.Identity.Name</b></p>
             </li>
             <li>
-                <a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">Sign out</a>
+                <a onclick="document.getElementById('logout_form').submit();" style="cursor: pointer;">
+                    Sign out
+                </a>
             </li>
         </ul>
     <form action="/Account/SignOut" method="post" id="logout_form"></form>
     }
     else
     {
-        <ul class="nav navbar-nav navbar-right">
+        <ul>
             <li>@Html.ActionLink("Sign in", "Login", "Account")</li>
         </ul>
     }
