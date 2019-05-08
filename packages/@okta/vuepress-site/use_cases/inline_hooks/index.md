@@ -143,17 +143,6 @@ An `ErrorCause` object must include the following fields:
 
 While there are no technical restrictions on the values for any of the fields in an `ErrorCause` object, using them as described in the table above allows you to provide rich error information that can be very useful in determining why an inline hook's processing failed.
 
-### debugContext
-
-The `debugContext` object is a free-form JSON object where you can provide information to be logged in the `debugContext` field of `inline_hook.response.processed` events in the Okta System Log. These events are fired when Okta has received a response from the external service but there is either:
-
-- An error object in the response body (provided by the external service)
-- A problem with the response body, for example, inclusion of an invalid command. 
-
-The `debugContext` object lets the external service provide information about its handling of the hook execution request (e.g., execution time, information that was validated, etc.). This can be helpful for diagnosing what went wrong when something fails.
-
-> Note: `inline_hook.response.processed` events are _not_ fired following a successful registration unless debugging is enabled for the configured hook.
-
 ## Inline Hook Setup
 
 After creating your external service, you need to tell Okta it exists, and enable it for a particular process flow. The steps are:
