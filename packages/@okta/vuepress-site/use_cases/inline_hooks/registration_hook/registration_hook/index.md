@@ -157,7 +157,7 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 See [error](/use_cases/inline_hooks/) for general information on the structure to use for the `error` object.
 
-In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Self-Service Registration, and have not customized its error handling behavior, what is displayed to the end user is the `errorSummary` of the first `ErrorCause` object that your external service returns.
+In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Self-Service Registration, and have not customized its error handling behavior, only the `errorSummary` of the first `ErrorCause` object that your external service returns is displayed to the end user.
 
 If you do not return any value for that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
 
