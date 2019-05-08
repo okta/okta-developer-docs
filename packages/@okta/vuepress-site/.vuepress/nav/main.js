@@ -1,6 +1,18 @@
 module.exports = [
   {
-    title: "Authentication Guide",
+    title: "Concepts",
+    links: [
+      { title: 'Inline Hooks', link: '/use_cases/inline_hooks/'},
+      { title: 'Event Hooks', link: '/use_cases/event_hooks/'},
+      { title: 'Authentication', link: '/use_cases/authentication/'},
+      { title: 'Events API Migration', link: '/use_cases/events-api-migration/'},
+      { title: 'Multi-Factor Authentication', link: '/use_cases/mfa/'},
+      { title: 'API Access Management', link: '/use_cases/api_access_management/'},
+      { title: 'Relationships with Linked Objects', link: '/use_cases/relationships/'}
+    ]
+  },
+  {
+    title: "Guides",
     links: [
       { title: 'OAuth 2.0 Overview', link: '/authentication-guide/auth-overview/'},
       { title: 'Implementing OAuth 2.0', link: '/authentication-guide/implementing-authentication/', subLinks: [
@@ -20,7 +32,7 @@ module.exports = [
           { title: 'Social IdP Settings', link: '/authentication-guide/social-login/social-settings/'}
         ]
       },
-      { title: 'SAML Login', link: '/authentication-guide/saml-login/'},
+      { title: 'Add a SAML Identity Provider', link: '/authentication-guide/saml-login/'},
       { title: 'Working With Tokens', link: '/authentication-guide/tokens/', subLinks: [
           { title: 'Validating Access Tokens', link: '/authentication-guide/tokens/validating-access-tokens/'},
           { title: 'Validating ID Tokens', link: '/authentication-guide/tokens/validating-id-tokens/'},
@@ -29,25 +41,18 @@ module.exports = [
           { title: 'Revoking Tokens', link: '/authentication-guide/tokens/revoking-tokens/'}
         ]
       },
-      { title: 'Generic OpenID Connect IdP', link: '/authentication-guide/generic-oidc/'}
+      { title: 'Generic OpenID Connect IdP', link: '/authentication-guide/generic-oidc/'},
+      { title: 'Add User Consent to Your Authentication Flow', link: '/docs/how-to/add-user-consent-to-flow/'},
+      { title: 'Upload Your Own Certificates for Outbound SAML Apps', link: '/docs/how-to/byo_saml/'},
+      { title: 'Create an ID Token or Access Token Containing a Groups Claim', link: '/docs/how-to/creating-token-with-groups-claim/'},
+      { title: 'Share Application Key Credentials for IdPs Across Apps', link: '/docs/how-to/sharing-cert/'},
+      { title: 'Upgrade SAML Apps to SHA256', link: '/docs/how-to/updating_saml_cert/'}
     ]
   },
   {
-    title: 'Use Cases',
+    title: "Reference",
     links: [
-      { title: 'Inline Hooks', link: '/use_cases/inline_hooks/'},
-      { title: 'Event Hooks', link: '/use_cases/event_hooks/'},
-      { title: 'Authentication', link: '/use_cases/authentication/'},
-      { title: 'Events API Migration', link: '/use_cases/events-api-migration/'},
-      { title: 'Multi-Factor Authentication', link: '/use_cases/mfa/'},
-      { title: 'API Access Management', link: '/use_cases/api_access_management/'},
-      { title: 'Relationships with Linked Objects', link: '/use_cases/relationships/'}
-    ]
-  },
-  {
-    title: 'API Reference',
-    links: [
-      { title: 'Sign in Your Users', link: '/docs/api/resources/oidc/', subLinksId: 'Sidebar_References', subLinks: [
+        { title: 'Sign in Your Users', link: '/docs/api/resources/oidc/', subLinksId: 'Sidebar_References', subLinks: [
           { title: 'OpenID Connect & OAuth 2.0 API', link: '/docs/api/resources/oidc/'},
           { title: 'Authentication', link: '/docs/api/resources/authn/'}
         ]
@@ -94,16 +99,6 @@ module.exports = [
     title: "Change Log",
     links: [
       { title: 'Okta API Products Change Log', link: '/docs/change-log/'}
-    ]
-  },
-  {
-    title: "How-To",
-    links: [
-      { title: 'Add User Consent to Your Authentication Flow', link: '/docs/how-to/add-user-consent-to-flow/'},
-      { title: 'Upload Your Own Certificates for Outbound SAML Apps', link: '/docs/how-to/byo_saml/'},
-      { title: 'Create an ID Token or Access Token Containing a Groups Claim', link: '/docs/how-to/creating-token-with-groups-claim/'},
-      { title: 'Share Application Key Credentials for IdPs Across Apps', link: '/docs/how-to/sharing-cert/'},
-      { title: 'Upgrade SAML Apps to SHA256', link: '/docs/how-to/updating_saml_cert/'}
     ]
   }
 ]
