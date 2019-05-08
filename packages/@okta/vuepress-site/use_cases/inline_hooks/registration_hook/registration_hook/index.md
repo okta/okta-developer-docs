@@ -43,7 +43,7 @@ This object contains name-value pairs for each attribute supplied by the user in
 
 Using the `com.okta.user.profile.update` commands you send in your response, you can modify the values of the attributes, or add other attributes, before the values are assigned to the Okta user profile that will be created for the registering user.
 
-You can only set values for profile fields which already exist in your Okta user profile schema: Registration Inline Hook functionality can only set values, it cannot create new fields.
+You can only set values for profile fields which already exist in your Okta user profile schema: Registration Inline Hook functionality can only set values; it cannot create new fields.
 
 ### data.action
 
