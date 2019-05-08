@@ -24,7 +24,7 @@
         <code class="event-type-tag" v-for="tag in eventType.tags" :key="tag">{{ tag }}</code>
       </div>
       <div class="event-type-release">
-        Since: <a href="/docs/change-log/">{{ eventType.info.release }}</a>
+        Since: <a href="/docs/release-notes/">{{ eventType.info.release }}</a>
       </div>
     </div>
   </div>
