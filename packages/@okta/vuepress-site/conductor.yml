@@ -395,5 +395,5 @@ redirects:
     to: /docs/api/getting_started/enabling_cors/
   - from: /docs/api/getting_started/okta_expression_lang.html
     to: /reference/okta_expression_language/
-  - from: /docs/sdk/core/python_api_sdk/
+  - from: /docs/sdk/core/python_api_sdk/index.html
     to: https://github.com/okta/okta-sdk-python
