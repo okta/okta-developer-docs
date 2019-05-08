@@ -3,7 +3,7 @@ title: Error Codes
 excerpt: Understand Okta API errors.
 redirect_from:
   - /docs/getting_started/error_codes
-  - /docs/api/getting_started/error_codes
+  - /reference/error_codes/
 ---
 
 # Overview
