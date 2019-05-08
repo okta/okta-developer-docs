@@ -12,6 +12,10 @@ excerpt: >-
 
 For general information on event hooks and how to create and use them, see [Event Hooks](/use_cases/event_hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering event hooks.
 
+## Getting Started
+
+Explore the Event Hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b02d234a2af183981254)
+
 ## Event Hook Operations
 
 ### Create Event Hook
