@@ -6,7 +6,7 @@ title: Microsoft
 
 ##### 1. Set Up a Microsoft App
 
-1.1. Create a Microsoft app here: <https://apps.dev.microsoft.com/#/appList>. Instructions can be found here: https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-app-registration. You can pause once you get to the Redirect URI section, we will come back to this.
+1.1. Create a Microsoft app here: Instructions can be found here: <https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app>. You can pause once you get to the Redirect URI section, we will come back to this.
 
 1.2. Save the Application ID for later.
 
