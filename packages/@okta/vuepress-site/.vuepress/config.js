@@ -84,6 +84,7 @@ module.exports = {
         children: [
           { text: 'Get Started', link: '/documentation/' },
           { text: 'API Reference', link: '/reference/' },
+          { text: 'Guides', link: '/guides/' },
         ]
       },
       { text: 'Support', link: '',
