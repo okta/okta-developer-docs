@@ -630,4 +630,4 @@ To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, a
 
 ### Supported Events for Subscription
 
-When registering an event hook, you need to specify what events you want to subscribe to. The support event types can be found [here.](/docs/api/resources/event-types/?q=event-hook-eligible#catalog)
+When registering an event hook, you need to specify what events you want to subscribe to. The supported event types can be found [here.](/docs/api/resources/event-types/?q=event-hook-eligible#catalog)
