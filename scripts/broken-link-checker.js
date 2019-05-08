@@ -4,6 +4,17 @@ const chalk = require('chalk');
 const linkExtRe = new RegExp('https?://.*/[^/]+\\.[a-z]+$');
 const trailingSlashRe = new RegExp('/$');
 
+const handler = require('serve-handler');
+const http = require('http');
+
+const server = http.createServer((request, response) => {
+  // You pass two more arguments for config and middleware
+  // More details here: https://github.com/zeit/serve-handler#options
+  return handler(request, response, {
+    public: "packages/@okta/vuepress-site/dist"
+  });
+});
+
 var options = {
   excludedKeywords: [
     "*.xml",
@@ -146,8 +157,15 @@ var siteChecker = new blc.SiteChecker(options, {
   end: function(){
     if (this.fail) {
       process.exit(1);
+    } else {
+      process.exit(0);
     }
   },
+});
+
+
+server.listen(8080, () => {
+  console.log('Running at http://localhost:8080');
 });
 
 siteChecker.enqueue(siteUrl, customData);
