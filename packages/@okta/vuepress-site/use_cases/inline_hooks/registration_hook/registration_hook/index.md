@@ -25,7 +25,7 @@ For steps to enable this inline hook, see below, [Enabling a Registration Inline
 
 ## About
 
-The Okta Registration Inline Hook allows you to integrate your own custom code into Okta’s [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
+The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
 
 - Set or override the values that will be populated in attributes of the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
@@ -78,10 +78,10 @@ For example commands, see the [value](#value) section below.
 
 The following commands are supported for the Registration Inline Hook type:
 
-| Command                      | Description                                                       |
-|------------------------------|-------------------------------------------------------------------|
-| com.okta.user.profile.update | Set or modify an attribute in the Okta user profile that will be created for this user.                 |
-| com.okta.action.update       | Allow or deny the user's registration. |
+| Command                      | Description                                                  |
+|------------------------------|--------------------------------------------------------------|
+| com.okta.user.profile.update | Change values of attributes in the user's Okta user profile. |
+| com.okta.action.update       | Allow or deny the user's registration.                       |
 
 To set attributes in the user's Okta profile, supply a type property set to `com.okta.user.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the Okta user profile attributes you want to set. The attributes must already exist in your user profile schema.
 
