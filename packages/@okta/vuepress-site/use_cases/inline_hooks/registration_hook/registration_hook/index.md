@@ -159,6 +159,8 @@ In the case of the Registration Inline Hook, the `error` object provides a way o
 
 If you do not return any value for that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
 
+> Note: If you include an error object in your response, no commands will be executed and the registration will fail. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
+
 ## Sample Listing of JSON Payload of Request
 
 ```json
@@ -195,7 +197,7 @@ If you do not return any value for that `errorCauses` object, but deny the user'
 }
 ```
 
-## Sample Listing of JSON Payload of Response
+## Sample Listings of JSON Payload of Response
 
 ```json
 {
@@ -207,6 +209,10 @@ If you do not return any value for that `errorCauses` object, but deny the user'
          }
       }
    ],
+}
+```
+```json
+{
    "error":{
       "errorSummary":"Errors were found in the user profile",
       "errorCauses":[
@@ -219,9 +225,6 @@ If you do not return any value for that `errorCauses` object, but deny the user'
          }
       ]
    },
-   "debugContext":{
-      "executionTimeMillis":231
-   }
 }
 ```
 
