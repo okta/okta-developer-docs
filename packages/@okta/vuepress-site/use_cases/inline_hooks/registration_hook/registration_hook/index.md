@@ -163,7 +163,7 @@ If you do not return any value for that `errorCauses` object, but deny the user'
 
 > Note: If you include an error object in your response, no commands will be executed and the registration will fail. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
 
-## Sample Listing of JSON Payload of Request
+## Sample JSON Payload of Request
 
 ```json
 {
@@ -199,7 +199,7 @@ If you do not return any value for that `errorCauses` object, but deny the user'
 }
 ```
 
-## Sample Listings of JSON Payload of Response
+## Sample JSON Payload of Response
 
 ```json
 {
