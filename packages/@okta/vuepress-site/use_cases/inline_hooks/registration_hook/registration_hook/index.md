@@ -42,7 +42,7 @@ Using the `com.okta.user.profile.update` commands you send in your response, you
 
 You can only set values for profile fields which already exist in your Okta user profile schema. Registration Inline Hook functionality can only set values, it cannot create new fields.
 
-> Note: The `password` field, along with any attributes that are marked as sensitive in your Okta user schema, is omitted from the information sent to your external service in the `data.userProfile` object. The password (or even its hash) is never sent to your external service in any way.
+> Note: The `password` field, along with any attributes that are marked as sensitive in your Okta user schema, is omitted from the information sent to your external service in the `data.userProfile` object.
 
 ### data.action
 
