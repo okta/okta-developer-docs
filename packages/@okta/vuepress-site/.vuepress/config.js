@@ -1,3 +1,5 @@
+const guidesInfo = require('./scripts/build-guides-info');
+
 module.exports = {
   dest: 'dist',
   theme: "@okta/vuepress-theme-default",
@@ -82,6 +84,7 @@ module.exports = {
         children: [
           { text: 'Get Started', link: '/documentation/' },
           { text: 'API Reference', link: '/reference/' },
+          { text: 'Guides', link: '/guides/' },
         ]
       },
       { text: 'Support', link: '',
@@ -223,5 +226,17 @@ module.exports = {
 
   extraWatchFiles: [
     '.vuepress/nav/*',
-  ]
+  ],
+  additionalPages: [
+    ...guidesInfo.additionalPagesForGuides(),
+  ],
+  extendPageData(page) {
+    if(page.path.startsWith(`/guides/`)) {
+      page.frontmatter.layout = 'Guides';
+      const info = guidesInfo.guideInfo[page.path];
+      if(info) {
+        page.breadcrumb = info.breadcrumb;
+      }
+    }
+  },
 }

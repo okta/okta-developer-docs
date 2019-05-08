@@ -7,7 +7,8 @@
   ],
   "scripts": {
     "dev": "vuepress dev .",
-    "build": "vuepress build . && cp conductor.yml dist/conductor.yml"
+    "oldbuild": "vuepress build . && cp conductor.yml dist/conductor.yml",
+    "build": ".vuepress/scripts/build.sh"
   },
   "repository": {
     "type": "git",
@@ -20,12 +21,13 @@
   },
   "devDependencies": {
     "@okta/vuepress-theme-default": "^0.1.0-alpha.1",
-    "vuepress": "^1.0.0-alpha.33"
+    "vuepress": "^1.0.0-alpha.43"
   },
   "dependencies": {
     "@okta/vuepress-plugin-my-okta": "^1.0.0",
-    "vuepress-plugin-sitemap": "^2.1.2",
-    "markdown-it-attrs": "2.3.2"
+    "js-yaml": "^3.13.1",
+    "markdown-it-attrs": "2.3.2",
+    "vuepress-plugin-sitemap": "^2.1.2"
   },
   "browserslist": "> 0.25%"
 }
