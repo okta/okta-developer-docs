@@ -133,13 +133,13 @@ The `errorSummary` should be a general statement of any problem the external ser
 
 An `ErrorCause` object must include the following fields:
 
-| Property     | Description                                                                                                                                                         | Data Type |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| errorSummary | Human-readable summary of the error.                                                                                                                                | String    |
-| reason       | A brief, enum-like string indicating the nature of the error, e.g., `UNIQUE_CONSTRAINT` for a property uniqueness violation.                                        | String    |
-| locationType | Where in the request the error was found (`body`, `header`, `url`, or `query`).                                                                                     | String    |
-| location     | The valid JSON path to the location of the error. E.g., if there was an error in the user's `login` field, the `location` should be `data.userProfile.login`.       | String    |
-| domain       | Indicates the source of the error. If the error was on the user's profile, use `end-user`. If the error resulted from the external service, use `external-service`. | String    |
+| Property     | Description                                                                                                                                                                                        | Data Type |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| errorSummary | Human-readable summary of the error.                                                                                                                                                               | String    |
+| reason       | A brief, enum-like string indicating the nature of the error, e.g., `UNIQUE_CONSTRAINT` for a property uniqueness violation.                                                                       | String    |
+| locationType | Where in the request the error was found (`body`, `header`, `url`, or `query`).                                                                                                                    | String    |
+| location     | The valid JSON path to the location of the error. For example, if there was an error in the user's `login` field, the `location` might be `data.userProfile.login`.                                | String    |
+| domain       | Indicates the source of the error. If the error was in the user's profile, for example, you might use `end-user`. If the error occurred in the external service, you might use `external-service`. | String    |
 
 While there are no technical restrictions on the values for any of the fields in an `ErrorCause` object, using them as described in the table above allows you to provide rich error information that can be very useful in determining why an inline hook's processing failed.
 
