@@ -1,0 +1,1 @@
+We have multiple samples available in our [Android Samples repo](link to samples repo) on GitHub.

@@ -22,6 +22,10 @@
 		color: $black;
 		text-decoration: none;
 	}
+
+	&:visited {
+		@include color('black');
+	}
 }
 
 .Button {
@@ -33,6 +37,10 @@
 	&:hover {
 		border-color: mix(get-color('accent'), get-color('white'), 75%);
 		color: mix(get-color('accent'), get-color('white'), 75%);
+	}
+
+	&:visited {
+		color: get-color('accent');
 	}
 }
 
@@ -72,6 +80,10 @@
 		border-color: $navy-blue;
 		color: get-color('white');
 	}
+
+	&:visited {
+		color: get-color('white');
+	}
 }
 
 .Button--blueOutline {
@@ -81,6 +93,10 @@
 	&:active,
 	&:hover {
 		border-color: get-color('blue-bright');
+		color: get-color('blue-bright');
+	}
+
+	&:visited {
 		color: get-color('blue-bright');
 	}
 }
@@ -97,6 +113,10 @@
 		border-color: get-color('green-dark-hover');
 		color: get-color('white');
 	}
+
+	&:visited {
+		color: get-color('white');
+	}
 }
 
 .Button--greenOutline {
@@ -106,6 +126,10 @@
 	&:active,
 	&:hover {
 		border-color: get-color('green-dark');
+		color: get-color('green-dark');
+	}
+
+	&:visited {
 		color: get-color('green-dark');
 	}
 }
@@ -120,6 +144,10 @@
 		border-color: get-color('white');
 		color: get-color('blue-bright');
 	}
+
+	&:visited {
+		color: get-color('blue-bright');
+	}
 }
 
 .Button--whiteOutline {
@@ -129,6 +157,10 @@
 	&:active,
 	&:hover {
 		border-color: get-color('white');
+		color: get-color('white');
+	}
+
+	&:visited {
 		color: get-color('white');
 	}
 }
@@ -141,6 +173,22 @@
 	&:active,
 	&:hover {
 		border-color: get-color('white');
+		color: get-color('white');
+	}
+}
+
+.Button--red {
+	@extend %Button;
+
+	&,
+	&:active,
+	&:hover {
+		background-color: get-color('cerise');
+		border-color: get-color('cerise');
+		color: get-color('white');
+	}
+
+	&:visited {
 		color: get-color('white');
 	}
 }

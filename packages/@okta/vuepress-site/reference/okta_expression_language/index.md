@@ -3,7 +3,7 @@ title: Okta Expression Language
 excerpt: Read and transform attributes in our APIs and admin UI.
 redirect_from:
   - /docs/getting_started/okta_expression_lang
-  - /docs/api/getting_started/okta_expression_lang
+  - /reference/okta_expression_language/
 ---
 
 # Overview
@@ -122,7 +122,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 | --------                | ---------   | ---------            | -------                | -------- |
 | `Convert.toInt(string)` | Integer     | `Convert.toInt(val)` | `String val = '1234'`  | 1234     |
 | `Convert.toInt(double)` | Integer     | `Convert.toInt(val)` | `Double val = 123.4`   | 123      |
-|                         |             | `Double val = 123.6` | 124                    |          |
+|                         |             |                      | `Double val = 123.6`   | 124      |
 | `Convert.toNum(string)` | Double      | `Convert.toNum(val)` | `String val = '3.141'` | 3.141    |
 
 **Note:**  Convert.toInt(double) rounds the passed numeric value either up or down to the nearest integer. Be sure to consider

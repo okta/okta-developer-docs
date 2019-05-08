@@ -5183,7 +5183,7 @@ Specifies (optional) attribute statements for a SAML application.
 | ---------- | -------------------------------------------------------------------------------------------- | ----------- | -------- |
 | name       | The reference name of the attribute statement                                                | String      | FALSE    |
 | namespace  | The name format of the attribute                                                             | String      | FALSE    |
-| values     | The value of the attribute; Supports [Okta EL](/docs/api/getting_started/okta_expression_lang)      | String      | FALSE    |
+| values     | The value of the attribute; Supports [Okta EL](/reference/okta_expression_language/)      | String      | FALSE    |
 
 ##### Supported Namespaces
 
