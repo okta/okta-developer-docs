@@ -39,7 +39,7 @@ The outbound call from Okta to your external service includes the following obje
 This object contains name-value pairs for each attribute supplied by the user in the Self-Service Registration form, except for the following:
 
 - the `password` field
-- any fields corresponding to user profile attributes marked as sensitive in your Okta user schema.
+- any fields corresponding to user profile attributes marked as sensitive in your Okta user schema
 
 Using the `com.okta.user.profile.update` commands you send in your response, you can modify the values of the attributes, or add other attributes, before the values are assigned to the Okta user profile that will be created for the registering user.
 
