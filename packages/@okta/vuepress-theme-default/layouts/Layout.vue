@@ -29,7 +29,7 @@ export default {
     Footer: () => import('../components/Footer.vue'),
     Documentation: () => import('../components/Documentation.vue'),
     Page: () => import('../components/Page.vue'),
-    ChangeLog: () => import('../components/ChangeLog.vue'),
+    ReleaseNotes: () => import('../components/ReleaseNotes.vue'),
     Code: () => import('../components/Code.vue'),
     PromoBanner: () => import('../components/PromoBanner.vue')
   },

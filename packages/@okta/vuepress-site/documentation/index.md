@@ -84,7 +84,7 @@ sections:
        - title: More
          link:  /reference/
 
-changelog_title: API Products Change Log
+changelog_title: API Products Release Notes
 
 band_links:
   - title: We're Here to Help
