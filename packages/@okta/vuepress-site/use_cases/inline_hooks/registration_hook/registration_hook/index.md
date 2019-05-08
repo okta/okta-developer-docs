@@ -60,7 +60,7 @@ Using the `com.okta.action.update` [command](#supported-commands) in your respon
 
 ## Objects in Response You Send
 
-The objects that you can return in the JSON payload of your response are an array of one or more `commands`, to be executed by Okta, or an `error`, object to indicate problems with the registration request. These objects are defined as follows:
+The objects that you can return in the JSON payload of your response are an array of one or more `commands`, to be executed by Okta, or an `error` object, to indicate problems with the registration request. These objects are defined as follows:
 
 
 ### commands
