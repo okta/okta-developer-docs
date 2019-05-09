@@ -7,7 +7,7 @@ redirect_from: /docs/getting_started/tokens.html
 
 # Overiew
 
-> This endpoint is a <ApiLifecycle access="deprecated" /> feature. Please see [Getting an API Token](/docs/getting_started/getting_a_token).
+> This endpoint is a <ApiLifecycle access="deprecated" /> feature. Please see [Getting an API Token](/docs/api/getting_started/getting_a_token/).
 
 ## Create tokens
 

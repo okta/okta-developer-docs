@@ -221,8 +221,6 @@ At this point, you should understand how to use the Okta API to add
 MFA to an existing application. You can learn more about using the
 Okta MFA API with the following resources.
 
--   The video in this guide.
-    These instructions only cover part of what is covered in the video.
--   The [design principles for the Okta API](/docs/getting_started/design_principles).
--   The API documentation for the [Okta Factors API](/docs/api/resources/factors).
--   The API documentation for the [Okta Authentication API](/docs/api/resources/authn).
+-   The [design principles for the Okta API](/docs/api/getting_started/design_principles/).
+-   The API documentation for the [Okta Factors API](/docs/api/resources/factors/).
+-   The API documentation for the [Okta Authentication API](/docs/api/resources/authn/).

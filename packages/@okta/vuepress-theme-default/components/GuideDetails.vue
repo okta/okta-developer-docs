@@ -7,7 +7,7 @@
         :framework="framework"
         :guideName="guideName" 
       />
-      <div id="guide-content">
+      <div class="guide-content">
         <h1>{{ section.title }}</h1>
         <Content :pageKey="componentKey"/>
       </div>

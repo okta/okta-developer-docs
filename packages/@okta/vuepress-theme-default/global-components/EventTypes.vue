@@ -1,9 +1,15 @@
 <template>
   <div class="event-types">
     <p>
-    <input type="text" id="event-type-search" name="filter" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search event types for..." v-model="search"/>
+    <input type="text" id="event-type-search" name="filter" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search event types for..." :value="search" @input="updateSearch"/>
+    <select id="event-type-release" name="release" markdown="block" v-model="release">
+      <option :value="null">All Releases</option>
+      <option v-for="release in releases" v-bind:key="release" v-bind:value="release">
+        {{ release }}
+      </option>
+    </select>
     </p>
-    <div id="event-type-count">Found <b>{{resultCount}}</b> matches</div>
+    <div id="event-type-count">Found <b>{{ resultCount }}</b> matches</div>
     <div class="event-type" v-for="eventType in filteredEventTypes" :key="eventType.id">
       <h4 :id="eventType.id | titleAsId" v-html="$options.filters.title(eventType.id)"></h4>
 
@@ -18,7 +24,7 @@
         <code class="event-type-tag" v-for="tag in eventType.tags" :key="tag">{{ tag }}</code>
       </div>
       <div class="event-type-release">
-        Since: <a href="/docs/change-log/">{{ eventType.info.release }}</a>
+        Since: <a href="/docs/release-notes/">{{ eventType.info.release }}</a>
       </div>
     </div>
   </div>
@@ -29,41 +35,47 @@
   import _ from 'lodash'
 
   export default {
-
     created() {
       this.eventTypes = eventTypes.versions[1].eventTypes
+      this.releases = _.chain(this.eventTypes)
+        .map(eventType => eventType.info)
+        .map(info => info.release)
+        .uniq()
+        .sort()
+        .reverse()
+        .value()
     },
     data() {
       return {
-        search: this.$route.query.q ? this.$route.query.q : '',
+        search: this.$route.query.q || '',
+        release: this.$route.query.release || null,
         eventTypes: null
       }
     },
     computed: {
-      filteredEventTypes:function()
-      {
-        if( this.search == '' ) {
+      filteredEventTypes: function() {
+        if( !this.search && !this.release ) {
           return this.eventTypes
         }
 
         return this.eventTypes.filter((eventType) => {
-          return (eventType.id.toLowerCase().indexOf(this.search.toLowerCase())>=0
-          || eventType.description.toLowerCase().includes(this.search.toLowerCase())
+          const value = this.search.toLowerCase();
+          return (!this.release || eventType.info.release == this.release) && (  
+             eventType.id.toLowerCase().indexOf(value)>=0
+          || eventType.description.toLowerCase().includes(value)
           || eventType.info.release.includes(this.search)
           || eventType.info.created.includes(this.search)
           || eventType.category.includes(this.search)
           || eventType.tags.find((tag) => {
-              return tag.toLowerCase().includes(this.search.toLowerCase())
+              return tag.toLowerCase().includes(value)
             })
           || eventType.mappings.find((mapping) => {
-              return mapping.toLowerCase().includes(this.search.toLowerCase())
+              return mapping.toLowerCase().includes(value)
             }))
         });
-
-
       },
 
-      resultCount: function() {
+      resultCount() {
         return  this.filteredEventTypes.length
       }
     },
@@ -78,13 +90,31 @@
         return value.replace(/[\s_.]/g, '');
       }
     },
-
     watch: {
-      search: _.debounce((value) => {
+      search() {
+        this.addHistory()
+      },
+      release() {
+        this.addHistory()
+      }      
+    },
+    methods: {
+      updateSearch: _.debounce(function(e) {
+        this.search = e.target.value
+      }, 100),
+      addHistory() {
         if (history.pushState) {
-          history.pushState(null, '', '?q=' + encodeURI(value));
+          if (this.search && this.release) {
+            history.pushState(null, '', '?q=' + encodeURI(this.search) + '&release=' + encodeURI(this.release))
+          } else if (this.search) {
+            history.pushState(null, '', '?q=' + encodeURI(this.search))
+          } else if (this.release) {
+            history.pushState(null, '', '?release=' + encodeURI(this.release))
+          } else {
+            history.pushState(null, '', this.$route.path)
+          }
         }
-      }, 100)
+      }
     }
   }
 </script>
@@ -102,6 +132,10 @@
 
     #event-type-search::placeholder {
       color: #d2d2d6;
+    }
+
+    #event-type-release {
+      margin-top: 1em;
     }
 
     #event-type-count {

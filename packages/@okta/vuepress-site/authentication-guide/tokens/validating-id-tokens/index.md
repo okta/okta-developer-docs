@@ -13,9 +13,15 @@ OpenID Connect (OIDC) is an authentication protocol built on top of OAuth 2.0. W
 
 We will now cover the terms used in this document, and an explanation of why you should use ID tokens.
 
-- If you'd like to jump straight to the local validation steps: [What to Check When Validating an ID Token](#what-to-check-when-validating-an-id-token)
-- If you'd like to see how to validate a token directly with Okta: [Validating A Token Remotely With Okta](#validating-a-token-remotely-with-okta)
-- If you want to see specifically how to accomplish this in your language of choice: [Okta Libraries to Help You Verify ID Tokens](#okta-libraries-to-help-you-verify-id-tokens)
+- [Validating ID Tokens](#validating-id-tokens)
+  - [Overview](#overview)
+  - [ID Tokens vs Access Tokens](#id-tokens-vs-access-tokens)
+  - [What to Check When Validating an ID Token](#what-to-check-when-validating-an-id-token)
+    - [Retrieve The JSON Web Key Set](#retrieve-the-json-web-key-set)
+    - [Decode the ID Token](#decode-the-id-token)
+    - [Verify the Claims](#verify-the-claims)
+  - [Validating A Token Remotely With Okta](#validating-a-token-remotely-with-okta)
+  - [Okta Libraries to Help You Verify ID Tokens](#okta-libraries-to-help-you-verify-id-tokens)
 
 A high-level overview of OpenID Connect can be found [here](/authentication-guide/auth-overview/#openid-connect).
 
@@ -37,7 +43,7 @@ The high-level overview of validating an ID token looks like this:
 
 - Retrieve and parse your Okta JSON Web Keys (JWK), which should be checked periodically and cached by your application.
 - Decode the ID token, which is in JSON Web Token format
-- Verify the signature used to sign the ID token [Verify the Token's Signature](authentication-guide/tokens/#verify-the-token-s-signature)
+- Verify the signature used to sign the ID token [Verify the Token's Signature](/authentication-guide/tokens/verifying-token-signature/)
 - Verify the claims found inside the ID token
 
 ### Retrieve The JSON Web Key Set

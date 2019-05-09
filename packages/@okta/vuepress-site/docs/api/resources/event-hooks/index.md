@@ -12,6 +12,10 @@ excerpt: >-
 
 For general information on event hooks and how to create and use them, see [Event Hooks](/use_cases/event_hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering event hooks.
 
+## Getting Started
+
+Explore the Event Hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b02d234a2af183981254)
+
 ## Event Hook Operations
 
 ### Create Event Hook
@@ -626,4 +630,4 @@ To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, a
 
 ### Supported Events for Subscription
 
-When registering an event hook, you need to specify what events you want to subscribe to. The support event types can be found [here.](/docs/api/resources/event-types/?q=event-hook-eligible#catalog)
+When registering an event hook, you need to specify what events you want to subscribe to. The supported event types can be found [here.](/docs/api/resources/event-types/?q=event-hook-eligible#catalog)
