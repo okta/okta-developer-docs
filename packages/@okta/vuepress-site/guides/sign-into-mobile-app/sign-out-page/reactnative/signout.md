@@ -1,3 +1,0 @@
-ReactNative signout
-
-code example
