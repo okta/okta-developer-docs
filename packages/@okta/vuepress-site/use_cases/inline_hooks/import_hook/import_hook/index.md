@@ -25,7 +25,7 @@ For steps to enable this inline hook, see below, [Enabling an Import Inline Hook
 
 ## About
 
-The Import Inline Hook enables you to add custom logic to the process of importing new users into Okta from an app. You can resolve conflicts in user name or other profile attributes, modify values of profile attributes, and control whether the imported user is treated as a match for an existing user or not.
+The Import Inline Hook enables you to add custom logic to the process of importing new users into Okta from an app. You can resolve conflicts in user name or other profile attributes, modify values of profile attributes, and control whether the imported user is treated as a match for an existing user or not. The hook is invoked for each user being imported immediately after any profile attribute mappings are applied, and any potential matches with existing users have been found, but before the user's Okta profile is created or determined to be a match for an existing profile.
 
 ## Objects in the Request from Okta
 
