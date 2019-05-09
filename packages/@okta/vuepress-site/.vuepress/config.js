@@ -83,7 +83,7 @@ module.exports = {
       { text: 'Docs', link: '/documentation/',
         children: [
           { text: 'Get Started', link: '/documentation/' },
-          { text: 'API Reference', link: '/reference/' },
+          { text: 'Reference', link: '/reference/' },
           { text: 'Guides', link: '/guides/' },
         ]
       },
