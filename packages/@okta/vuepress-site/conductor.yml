@@ -113,7 +113,7 @@ redirects:
     to: /docs/api/resources/oidc/index.html
   - from: /docs/how-to/beta-auth-service/api-access-management-troubleshooting
     to: /docs/api/resources/oidc/index.html
-  - from: /standards/OIDC/
+  - from: /standards/OIDC/index.html
     to: /docs/api/resources/oidc/index.html
   - from: /reference/authentication_reference
     to: /docs/api/resources/oidc/index.html
