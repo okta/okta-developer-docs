@@ -11,11 +11,26 @@
     name: "Breadcrumb",
     computed: {
       breadcrumb() {
+
+        if(!this.$page) { 
+          return [];
+        }
+        
         const crumbs = [];
+
+        if(this.$page.path.startsWith('/guides/')) {
+          crumbs.push(
+            {path: '/documentation/', title: 'DOCS'},
+            {path: '/guides/', title: 'Guides' },
+          );
+          return crumbs;
+        }
+
         if(this.$page.path == '/reference/' || this.$page.path.startsWith('/code/')) {
           crumbs.push({path: '/documentation/', title: 'DOCS'})
           return crumbs
         }
+
 
         const pathParts = this.$page.path.split("/")
         if (!pathParts[pathParts.length - 1].length) { pathParts.pop(); }

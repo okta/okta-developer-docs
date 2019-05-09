@@ -203,6 +203,6 @@ If you want to do more with the user, you can use the [Okta .NET SDK] to get or 
 [ASP.NET examples GitHub]: https://github.com/okta/samples-aspnet
 [Microsoft.Owin.Security.Cookies]: https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies
 [Okta.AspNet]: https://nuget.org/packages/Okta.AspNet
-[Microsot.Owin.Host.SystemWeb]: https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb
+[Microsoft.Owin.Host.SystemWeb]: https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb
 [Okta ASP.NET middleware GitHub]: https://github.com/okta/okta-aspnet/blob/master/README.md
 [Okta .NET SDK]: https://github.com/okta/okta-sdk-dotnet

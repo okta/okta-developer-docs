@@ -283,7 +283,7 @@ array should not be hard coded, but should come from a dynamic datastore.
 
 If you want to learn more about SAML and what to consider when writing a
 SAML implementation, Okta's in-depth
-[SAML guidance](/docs/getting_started/saml_guidance)
+[SAML guidance](https://www.okta.com/integrate/documentation/saml/)
 is a great place to learn more.
 
 Finally, if you got this far in this guide and still have questions,

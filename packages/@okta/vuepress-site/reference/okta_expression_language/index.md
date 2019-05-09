@@ -3,7 +3,7 @@ title: Okta Expression Language
 excerpt: Read and transform attributes in our APIs and admin UI.
 redirect_from:
   - /docs/getting_started/okta_expression_lang
-  - /docs/api/getting_started/okta_expression_lang
+  - /reference/okta_expression_language/
 ---
 
 # Overview
@@ -106,11 +106,11 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 | `Arrays.get(array, position)`    | -                                   | `Arrays.get({0, 1, 2}, 0)`                          | 0                  |
 | `Arrays.flatten(list of values)` | Array                               | `Arrays.flatten(10, {20, 30}, 40)`                  | `{10, 20, 30, 40}` |
 | `Arrays.contains(array, value)`  | Boolean                             | `Arrays.contains({10, 20, 30}, 10)`                 | true               |
-|                                  | `Arrays.contains({10, 20, 30}, 50)` | false                                               |                    |
+|                                  |                                     | `Arrays.contains({10, 20, 30}, 50)`                 | false              |
 | `Arrays.size(array)`             | Integer                             | `Arrays.size({10, 20, 30})`                         | 3                  |
-|                                  | `Arrays.size(NULL)`                 | 0                                                   |                    |
+|                                  |                                     | `Arrays.size(NULL)`                                 | 0                  |
 | `Arrays.isEmpty(array)`          | Boolean                             | `Arrays.isEmpty({10, 20})`                          | false              |
-|                                  | `Arrays.isEmpty(NULL)`              | true                                                |                    |
+|                                  |                                     | `Arrays.isEmpty(NULL)`                              | true              |
 | `Arrays.toCsvString(array)`      | String                              | `Arrays.toCsvString({"This", "is", " a ", "test"})` | This,is, a ,test   |
 
 
@@ -122,7 +122,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 | --------                | ---------   | ---------            | -------                | -------- |
 | `Convert.toInt(string)` | Integer     | `Convert.toInt(val)` | `String val = '1234'`  | 1234     |
 | `Convert.toInt(double)` | Integer     | `Convert.toInt(val)` | `Double val = 123.4`   | 123      |
-|                         |             | `Double val = 123.6` | 124                    |          |
+|                         |             |                      | `Double val = 123.6`   | 124      |
 | `Convert.toNum(string)` | Double      | `Convert.toNum(val)` | `String val = '3.141'` | 3.141    |
 
 **Note:**  Convert.toInt(double) rounds the passed numeric value either up or down to the nearest integer. Be sure to consider
@@ -335,7 +335,7 @@ Sample user data:
 | Email Domain + Lowercase First Initial and Lastname with Separator | `toUpperCase(substringBefore( substringAfter(user.email, "@"), ".")) + "\" + toLowerCase(substring( user.firstName, 0, 1)) + toLowerCase(user.lastName)` | GMAIL\wchurchill        | Obtain Email value. From result, parse everything after the "@ character". From result, parse everything before the "." character. Convert to uppercase. Append a backslash "\" character. Obtain the Firstname value. From result, retrieve characters greater than position 0 thru position 1, including position 1. Convert it to lowercase. Obtain the Lastname value and convert it to lowercase. |
 | Static Domain + Email Prefix with Separator                        | `"XDOMAIN\" + toLowerCase(substring( user.firstName, 0, 1)) + toLowerCase(user.lastName)`                                                                | XDOMAIN\wchurchill      | Add "XDOMAIN" string. Append a backslash "\" character. Obtain the Firstname value. From result, retrieve characters greater than position 0 thru position 1, including position 1. Convert it to lowercase. Obtain the Lastname value. Convert it to lowercase.                                                                                                                                       |
 | Workday ID                                                         | `hasWorkdayUser() ? findWorkdayUser().employeeID : null`                                                                                                 | 123456                  | Check if user has a Workday assignment, and if so, return their Workday employee ID.                                                                                                                                                                                                                                                                                                                   |
-| Active Directory UPN                                               | `hasDirectoryUser() ? findDirectoryUser().managerUPN : null`                                                                                             | bob@okta.com            | Check if user has an Active Directory assignment, and if so, return their Active Directory manager UPN.                                                                                                                                                                                                                                                                                                |
+| Active Directory UPN                                               | `hasDirectoryUser() ? findDirectoryUser().managerUpn : null`                                                                                             | bob@okta.com            | Check if user has an Active Directory assignment, and if so, return their Active Directory manager UPN.                                                                                                                                                                                                                                                                                                |
 
 ## Appendix: Time Zone Codes
 
