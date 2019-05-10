@@ -8,9 +8,9 @@ Contributions are welcome!
 First, you'll need the site running locally. Start with the `okta-developer-docs` root readme.
 
 ### Dependencies
-Okta's design system, [Nim](https://github.com/okta/okta-ui/tree/master/packages/nim) (private repo), is  imported as a foundation. See [Nim's documentation](https://design-docs.trexcloud.com) for usage guidelines.
+Okta's design system, [Nim](https://github.com/okta/nim), is imported as a foundation. See [Nim's documentation](https://design-docs.trexcloud.com) for usage guidelines.
 
-This theme uses [stylelint](https://stylelint.io) for SCSS linting. A plugin is likely available for your favorite text editor! Linting rules ([source](https://github.com/okta/okta-ui/blob/master/packages/nim/.stylelintrc.json)) are defined in `.stylelintrc`, and require supporting configuration files to be installed. (Most of our SCSS fails linting today; please clean what you touch.)
+This theme uses [stylelint](https://stylelint.io) for SCSS linting. A plugin is likely available for your favorite text editor! Linting rules ([source](https://github.com/okta/nim/blob/master/.stylelintrc.json)) are defined in `.stylelintrc`, and require supporting configuration files to be installed. (Most of our SCSS fails linting today; please clean what you touch.)
 
 These dependencies should automatically be installed by a root `yarn install`. If not:
 - Open a terminal in this package (`vuepress-theme-default`)
