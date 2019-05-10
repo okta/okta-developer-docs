@@ -1,4 +1,4 @@
-Add the Otka Spring Boot SDK by including the following Apache Maven dependency: 
+Add the Otka Spring Boot Starter by including the following Apache Maven dependency: 
 
 ```xml
 <dependency>
