@@ -8,6 +8,8 @@ const level2ItemsSelector = '.TableOfContents-item.is-level2';
 const level3ItemsSelector = '.TableOfContents-item.is-level3';
 const level4ItemsSelector = '.TableOfContents-item.is-level4';
 
+const lastSectionHeadingSelector = 'last-section';
+
 const topOfPageLinkText = 'Top of Page';
 const subSectionOneLinkText = 'Sub Section 1';
 const lastSectionLinkText = 'Last Section';
@@ -58,6 +60,9 @@ class TableOfContentsPage extends BasePage {
   }
   getLinkSectionLink() {
     return element(by.linkText(linkSectionLinkText));
+  }
+  getLastSectionHeading() {
+    return element(by.id(lastSectionHeadingSelector));
   }
 
   getLevelOneItemText() {
