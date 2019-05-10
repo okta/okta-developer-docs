@@ -12,7 +12,7 @@ public class MessagesController : Controller
         {
             messages = new dynamic[]
             {
-                new { Date = DateTime.Now, Text = "I am a Robot." },
+                new { Date = DateTime.Now, Text = "This endpoint is protected." },
                 new { Date = DateTime.Now, Text = "Hello, world!" },
             },
         });
