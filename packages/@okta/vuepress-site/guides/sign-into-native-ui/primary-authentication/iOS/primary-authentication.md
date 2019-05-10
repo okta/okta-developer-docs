@@ -12,7 +12,7 @@ As an example your application could have the following view controllers:
 ### Primary authentication
 
 With the primary authentication flow(no MFA) you typically need two view controllers  `LoginViewController` and `PasswordChangeViewController`.
-`LoginViewController` is your root view controller that expectes username and password input. Perform the following call once data is ready and a user has pressed `login` button:
+`LoginViewController` is your root view controller that expectes username and password inputs. Perform the following call once data is ready and a user has pressed the `login` button:
 
 ```swift
 OktaAuthSdk.authenticate(with: URL(string: "https://{yourOktaDomain}")!,
@@ -26,4 +26,4 @@ OktaAuthSdk.authenticate(with: URL(string: "https://{yourOktaDomain}")!,
                          })
 ```
 
-The SDK may return `OktaAuthStatusPasswordExpired` or `OktaAuthStatusPasswordWarning` statuses in `onStatusChange` closure parameter. So delegate handling of these statuses to `PasswordChangeViewController` view controllers via dependency injection.
+The SDK may return `OktaAuthStatusPasswordExpired` or `OktaAuthStatusPasswordWarning` statuses in `onStatusChange` closure parameter. So, delegate handling of these statuses to `PasswordChangeViewController` view controller via dependency injection.
