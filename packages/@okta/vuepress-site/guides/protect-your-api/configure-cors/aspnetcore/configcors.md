@@ -42,7 +42,7 @@ public class MessagesController : Controller
 }
 ```
 
-Update your using statements to import `Microsoft.AspNetCore.Cors`:
+Update your `using` statements to import `Microsoft.AspNetCore.Cors`:
 
 ```csharp
 using Microsoft.AspNetCore.Cors;
