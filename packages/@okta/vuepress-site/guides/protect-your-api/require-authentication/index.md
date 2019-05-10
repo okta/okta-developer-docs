@@ -1,7 +1,7 @@
 ---
 title: Require Authentication
 ---
-In many APIs, all endpoints must require authentication. In others, there may be a mix of protected and unprotected (anonymous) endpoints. These examples show you how to do both.
+In many APIs, all endpoints require authentication. In others, there may be a mix of protected and unprotected (anonymous) endpoints. These examples show you how to do both.
 
 ### Require Authentication for a Specific Route
 

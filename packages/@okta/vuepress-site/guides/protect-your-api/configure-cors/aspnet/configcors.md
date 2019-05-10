@@ -36,7 +36,7 @@ public class MessagesController : ApiController
 }
 ```
 
-Update your using statements to import `System.Web.Http.Cors`:
+Update your `using` statements to import `System.Web.Http.Cors`:
 
 ```csharp
 using System.Web.Http.Cors;

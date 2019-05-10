@@ -22,4 +22,4 @@ public abstract class BaseProtectedController : Controller
 }
 ```
 
-For those actions/controllers that need to be accessible for non-authenticated users you have to decorate them with the `AllowAnonymous` attribute. 
+For those actions/controllers that need to be accessible for non-authenticated users, you have to decorate them with the `AllowAnonymous` attribute. 
