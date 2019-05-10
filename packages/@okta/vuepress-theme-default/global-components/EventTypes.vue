@@ -36,7 +36,7 @@
 
   export default {
     created() {
-      this.eventTypes = eventTypes.versions[1].eventTypes
+      this.eventTypes = eventTypes.versions[1].eventTypes.filter(eventType => !eventType.beta)
       this.releases = _.chain(this.eventTypes)
         .map(eventType => eventType.info)
         .map(info => info.release)

@@ -210,7 +210,7 @@ If you do not return any value for that `errorCauses` object, but deny the user'
             "action":"DENY"
          }
       }
-   ],
+   ]
 }
 ```
 ```json

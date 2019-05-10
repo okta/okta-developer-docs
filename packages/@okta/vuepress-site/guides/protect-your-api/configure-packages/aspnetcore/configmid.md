@@ -29,7 +29,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Update your using statements to import `Okta.AspNetCore`:
+Update your `using` statements to import `Okta.AspNetCore`:
 
 ```csharp
 using Okta.AspNetCore;

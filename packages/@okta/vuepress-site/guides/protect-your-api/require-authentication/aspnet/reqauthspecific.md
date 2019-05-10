@@ -1,4 +1,4 @@
-Use the `Authorize` attribute on controllers or actions to require a signed-in user:
+Use the `Authorize` attribute on controllers or actions to require authentication of a signed-in user:
 
 ```csharp
 public class MessagesController : Controller
@@ -12,7 +12,7 @@ public class MessagesController : Controller
         {
             messages = new dynamic[]
             {
-                new { date = DateTime.Now, text = "I am a Robot." },
+                new { date = DateTime.Now, text = "This endpoint is protected." },
                 new { date = DateTime.Now, text = "Hello, world!" },
             },
         });
