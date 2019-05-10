@@ -70,6 +70,7 @@ util.fixUrl = function(baseUrl) {
   return fixedUrl;
 };
 
+// borrowed from: https://stackoverflow.com/questions/45243992/verification-of-element-in-viewport-in-selenium
 util.isInViewport = async function (elem) {
   return await elem.getDriver().executeScript(
     "var elem = arguments[0],                 " +
