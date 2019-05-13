@@ -15,9 +15,9 @@ As an example, you could configure an event hook to deliver user deactivation ev
 
 To handle event hook calls from Okta, you need to implement a web service with an Internet-accessible endpoint. It's your responsibility to develop the code and to arrange its hosting on a system external to Okta. Okta defines the REST API contract for the requests that it will send.
 
-You can have a maximum of 10 active and verified event hooks set up in your org at any time. Each event hook can be configured to deliver multiple event types.
+You can have a maximum of 10 active and verified event hooks set up in your org at any time, and each event hook can be configured to deliver multiple event types.
 
-Event hooks are Okta's version of webhooks. Okta event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/): event hooks are meant to deliver information about events that occurred, not offer a way to affect Okta's execution of the process flow. Also, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
+Event hooks are Okta's version the concept of webhooks. Okta's event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/): event hooks are meant to deliver information about events that occurred, not offer a way to affect execution of the underlying Okta process flow. Also, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
 
 ## Which Events are Eligible?
 
