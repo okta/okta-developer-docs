@@ -19,11 +19,11 @@ If you see **Developer Console** in the top left, click it and select **Classic 
     privileges. If you don't have an Okta organization, you can create a free Okta
     <a href="https://developer.okta.com/signup/" target="_blank">Developer Edition organization</a>.
 
-2.  Click on the Applications link in the upper navigation bar
+1.  Click on the Applications link in the upper navigation bar
 
-3.  Click on the green **Create New App** button
+1.  Click on the green **Create New App** button
 
-4.  In the dialog that opens, select the "SAML 2.0" option, then click
+1.  In the dialog that opens, select the "SAML 2.0" option, then click
     the green "Create" button. If you do not see this option, make sure you are in the Classic UI (see Note above).
 ![Create a New Application Integration](/img/okta-admin-ui-create-new-application-integration.png "Create a New Application Integration")
 

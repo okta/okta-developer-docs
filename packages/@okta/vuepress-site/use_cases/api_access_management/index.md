@@ -94,23 +94,6 @@ An API Product is a group of API endpoints offered together to satisfy a particu
 
 Okta API Products refers to all the resources and tools that Okta makes available.
 
-### Recommendations
-
-- [Benefits of API Access Management](#benefits-of-api-access-management)
-- [Putting the Pieces Together](#putting-the-pieces-together)
-  - [Tokens and Scopes](#tokens-and-scopes)
-  - [Custom Claims](#custom-claims)
-- [Getting Started with API Access Management](#getting-started-with-api-access-management)
-  - [Recommended Practices for API Access Management](#recommended-practices-for-api-access-management)
-    - [Definitions](#definitions)
-    - [Recommendations](#recommendations)
-      - [API Access Management Administrator Role](#api-access-management-administrator-role)
-      - [OAuth Client](#oauth-client)
-      - [Authorization Server](#authorization-server)
-      - [API Gateway (optional)](#api-gateway-optional)
-      - [Securing Applications](#securing-applications)
-      - [Resource (API) Servers](#resource-api-servers)
-
 #### API Access Management Administrator Role
 
 Okta provides the API Access Management Administrator role to make managing authorization servers. A user with this role can perform the following tasks:

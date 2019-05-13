@@ -15,7 +15,7 @@ If you only need one Authorization Server, but you'd like to know more about cus
 - [Create Rules for your Access Policies](#create-rules-for-each-access-policy)
 - [Create Scopes](#create-scopes-optional)
 - [Create Claims](#create-claims-optional)
-- [Test your Authorization Server](#test-your-authorization-server-configuration
+- [Test your Authorization Server](#test-your-authorization-server-configuration)
 
 > NOTE: For a high-level explanation of OAuth 2.0 and OpenID Connect see our [OAuth 2.0 Overview](/authentication-guide/auth-overview/).
 

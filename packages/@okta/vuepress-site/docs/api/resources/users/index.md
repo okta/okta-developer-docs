@@ -1,6 +1,6 @@
 ---
 title: Users
-category: managemen
+category: management
 ---
 
 # Users API
