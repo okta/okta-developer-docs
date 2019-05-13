@@ -230,7 +230,7 @@ This endpoint returns access tokens, ID tokens, and refresh tokens, depending on
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/token` endpoint requires token authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/token` endpoint requires authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                                                                                                                                                                                                                                                        | Type   |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
@@ -322,7 +322,7 @@ If the token is active, additional data about the token is also returned. If the
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/introspect` endpoint requires token authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/introspect` endpoint requires authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                                    | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------------------- | :-----        |
@@ -414,7 +414,7 @@ The API takes an access or refresh token and revokes it. Revoked tokens are cons
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/revoke` endpoint requires token authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/revoke` endpoint requires authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                       | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------ | :-----        |
@@ -1203,9 +1203,12 @@ For more information about configuring an app for OpenID Connect, including grou
 Refresh tokens are opaque. More information about using them can be found in the [Authentication Guide](/authentication-guide/tokens/refreshing-tokens).
 
 ## Client Authentication Methods
-When registering an OAuth 2 client application, you can specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter. To decide which method to use, it depends on what type of client app you are registering and what that client app is able to provide. For example, you might be using a client that was built by a third party, and it might only support Basic Authentication. So, you would need to use the `client_secret_basic` client authentication method.
 
-> Native applications shouldn't provide -- and by default don't store -- the `client_secret` (see [Section 5.3.1 of the OAuth 2.0 spec](https://tools.ietf.org/html/rfc6819#section-5.3.1)). They can omit the `client_secret` from the request parameters when introspecting a token.
+When making requests to endpoints on this page that require authentication, you must authenticate the client (your application code) with Okta. This is done by including a header or parameter in the request, depending on the authentication method the application is configured with.
+
+When registering an OAuth 2.0 client application, you can specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter. To decide which method to use, it depends on what type of client app you are registering and what that client app is able to provide. For example, you might be using a client that was built by a third party, and it might only support Basic Authentication. So, you would need to use the `client_secret_basic` client authentication method.
+
+> Native applications shouldn't store or provide the `client_secret`. They can omit the `client_secret` from the request parameters when introspecting a token. See [cection 5.3.1 of the OAuth 2.0 spec](https://tools.ietf.org/html/rfc6819#section-5.3.1).
 
 Okta supports the following authentication methods:
 
