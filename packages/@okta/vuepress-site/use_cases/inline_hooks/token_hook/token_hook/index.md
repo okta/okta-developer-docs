@@ -1,8 +1,6 @@
 ---
 title: Token Inline Hook
 excerpt: Customize tokens returned by the Okta API Access Management process flow.
-redirect_from:
-  - /use_cases/inline_hooks/api_am_hook/api_am_hook
 ---
 
 # Token Inline Hook
@@ -307,15 +305,15 @@ You then need to associate the registered inline hook with a Custom Authorizatio
 
 1. Go to **API > Authorization Servers**.
 
-1. Select a Custom Authorization Server from the list.
+2. Select a Custom Authorization Server from the list.
 
-1. Select the Access Policies tab and and select a policy to use with the hook. In most cases, just pick the Default Policy.
+3. Select the Access Policies tab and and select a policy to use with the hook. In most cases, just pick the Default Policy.
 
-1. One of the policy's rules needs to trigger the inline hook. Click the pencil icon for a rule to edit it. If you only have one rule, edit the Default Policy Rule.
+4. One of the policy's rules needs to trigger the inline hook. Click the pencil icon for a rule to edit it. If you only have one rule, edit the Default Policy Rule.
 
-1. Click the **Use this inline hook** dropdown menu. Any inline hooks you have registered will be listed. Select the hook you would like to use.
+5. Click the **Use this inline hook** dropdown menu. Any inline hooks you have registered will be listed. Select the hook you would like to use.
 
-1. Click **Update Rule**.
+6. Click **Update Rule**.
 
 > Note: Only one inline hook can be associated with each rule.
 

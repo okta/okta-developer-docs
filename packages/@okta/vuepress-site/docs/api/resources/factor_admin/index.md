@@ -2,7 +2,6 @@
 title: Factors Administration
 beta: true
 category: management
-redirect_from: /docs/getting_started/factor_admin.html
 ---
 
 # Factors Administration API

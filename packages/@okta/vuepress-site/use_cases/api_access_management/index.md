@@ -1,10 +1,6 @@
 ---
 title: API Access Management
 excerpt: Secure your APIs with Okta's implementation of the OAuth 2.0 standard.
-redirect_from:
-  - /docs/api/resources/resource-server-beta/
-  - >-
-    /docs/api/resources/resource-server-beta/required-config-changes-for-auth-server
 ---
 
 ## API Access Management with Okta
@@ -100,12 +96,20 @@ Okta API Products refers to all the resources and tools that Okta makes availabl
 
 ### Recommendations
 
-* [API Access Management Administrator Role](#api-access-management-administrator-role)
-* [OAuth Client](#oauth-client)
-* [Authorization Server](#authorization-server)
-* [API Gateway (optional)](#api-gateway-optional)
-* [Securing Applications](#securing-applications)
-* [Resource (API) Servers](#resource-api-servers)
+- [Benefits of API Access Management](#benefits-of-api-access-management)
+- [Putting the Pieces Together](#putting-the-pieces-together)
+  - [Tokens and Scopes](#tokens-and-scopes)
+  - [Custom Claims](#custom-claims)
+- [Getting Started with API Access Management](#getting-started-with-api-access-management)
+  - [Recommended Practices for API Access Management](#recommended-practices-for-api-access-management)
+    - [Definitions](#definitions)
+    - [Recommendations](#recommendations)
+      - [API Access Management Administrator Role](#api-access-management-administrator-role)
+      - [OAuth Client](#oauth-client)
+      - [Authorization Server](#authorization-server)
+      - [API Gateway (optional)](#api-gateway-optional)
+      - [Securing Applications](#securing-applications)
+      - [Resource (API) Servers](#resource-api-servers)
 
 #### API Access Management Administrator Role
 

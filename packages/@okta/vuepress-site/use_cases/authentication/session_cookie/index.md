@@ -1,7 +1,5 @@
 ---
 title: Session Cookie
-redirect_from:
-  - /docs/examples/session_cookie.html
 ---
 
 # Overview

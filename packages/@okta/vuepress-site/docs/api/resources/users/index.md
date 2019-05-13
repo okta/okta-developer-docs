@@ -1,9 +1,6 @@
 ---
 title: Users
-category: management
-redirect_from:
-  - /docs/api/rest/users.html
-  - /docs/api/resources/user
+category: managemen
 ---
 
 # Users API

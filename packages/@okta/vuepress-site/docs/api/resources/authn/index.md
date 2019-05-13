@@ -2,10 +2,6 @@
 title: Authentication
 category: authentication
 excerpt: Control user access to Okta.
-redirect_from:
-  - /docs/api/rest/authn.html
-  - /docs/api/resources/index.html
-  - /docs/api/resources/
 ---
 
 # Authentication API

@@ -1,12 +1,6 @@
 ---
 title: Apps
 category: management
-redirect_from:
-  - /docs/api/
-  - /docs/api/resources/
-  - /docs/api/reference/
-  - /docs/api/reference/index.html
-  - /docs/api/rest/apps.html
 ---
 
 # Apps API
