@@ -69,3 +69,27 @@ util.fixUrl = function(baseUrl) {
   }
   return fixedUrl;
 };
+
+/**
+ * checks to see if the given element (or any of its ancestors) is visible within the browser viewport
+ */
+util.isInViewport = async function (elem) {
+  return await elem.getDriver().executeScript(
+    "var element = arguments[0];"
+    + "var found = false;"
+    + "var rect = element.getBoundingClientRect();"
+    + "var centerY = rect.top + rect.height / 2;"
+    + "var centerX = rect.left + rect.width / 2;"
+    + "var foundElement = document.elementFromPoint(centerX, centerY);"
+    + "do {"
+    + "  if (foundElement === element) {"
+    + "    found = true;"
+    + "    break;"
+    + "  }"
+    + "  foundElement = foundElement.parentElement;"
+    + "} while (foundElement);"
+    + "return found;"
+    , elem).then(isInViewport => {
+    return isInViewport;
+  });
+};

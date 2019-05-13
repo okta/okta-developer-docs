@@ -6,4 +6,4 @@ All of our .NET SDKs are hosted on [NuGet](https://www.nuget.org/). Install the 
 
 You can also install the dependency via the **dotnet CLI**:
 
-`$ dotnet add package Okta.AspNetCore`
+`dotnet add package Okta.AspNetCore`

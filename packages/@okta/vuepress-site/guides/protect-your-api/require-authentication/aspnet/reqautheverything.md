@@ -12,7 +12,7 @@ public static class WebApiConfig
 }
 ```
 
-Also, you can opt to create a `BaseProtectedController` and make all of your controllers inherit it:
+Or you can opt to create a `BaseProtectedController` and make all of your controllers inherit from it:
 
 ```csharp
 [Authorize]
@@ -22,4 +22,4 @@ public abstract class BaseProtectedController : Controller
 }
 ```
 
-For those actions/controllers that need to be accessible for non-authenticated users you have to decorate them with the `AllowAnonymous` attribute. 
+For those actions/controllers that need to be accessible for non-authenticated users, you have to decorate them with the `AllowAnonymous` attribute. 

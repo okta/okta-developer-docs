@@ -1,1 +1,0 @@
-We have multiple samples available in our [node Samples repo](node link) on GitHub.

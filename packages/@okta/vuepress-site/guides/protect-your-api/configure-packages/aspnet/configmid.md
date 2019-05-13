@@ -12,7 +12,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-Update your using statements to import `Okta.AspNet` and other required namespaces:
+Update your `using` statements to import `Okta.AspNet` and other required namespaces:
 
 ```csharp
 using Microsoft.Owin;
