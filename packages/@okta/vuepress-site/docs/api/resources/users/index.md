@@ -1807,7 +1807,7 @@ curl -v -X GET \
 ]
 ```
 
-### Get Member Groups
+### Get User's Groups
 
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/groups" /> <SupportsCors />
