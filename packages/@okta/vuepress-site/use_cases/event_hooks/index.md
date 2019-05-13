@@ -11,21 +11,25 @@ excerpt: Use Okta events to drive custom process flows.
 
 Event hooks are outbound calls from Okta, sent when specified events occur in your org. They take the form of HTTPS REST calls to a URL you specify, encapsulating information about the events in JSON objects in the request body. These calls from Okta are meant to be used as triggers for process flows within your own software systems.
 
-As an example, you could configure an event hook to deliver user deactivation events. Then, each time a user is deactivated in your Okta org, the event hook would send an HTTPS request your specified endpoint, providing notification of the and specific details about the notification. You could use this to automatically trigger processes that you need to execute internally every time a user is activated, for example, updating a record, creating a ticket, sending an email, etc.
-
 To handle event hook calls from Okta, you need to implement a web service with an Internet-accessible endpoint. It's your responsibility to develop the code and to arrange its hosting on a system external to Okta. Okta defines the REST API contract for the requests that it will send.
+
+Event hooks are Okta's implementation of the industry concept of webhooks. Okta's event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/): event hooks are meant to deliver information about events that occurred, not offer a way to affect execution of the underlying Okta process flow. Also, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
+
+Before the introduction of event hooks, polling the [System Log API](/api/resources/system_log/) was the only method your external software systems could use to detect the occurrence of specific events in your Okta org; event hooks provide an Okta-initiated push notification.
 
 You can have a maximum of 10 active and verified event hooks set up in your org at any time, and each event hook can be configured to deliver multiple event types.
 
-Event hooks are Okta's version the concept of webhooks. Okta's event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/): event hooks are meant to deliver information about events that occurred, not offer a way to affect execution of the underlying Okta process flow. Also, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
-
 ## Which Events are Eligible?
 
-During the initial configuration procedure for an event hook, you specify which event types you want the event hook to deliver. The event types that can be specified are a subset of the event types that the Okta System Log captures. To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
+During the initial configuration procedure for an event hook, you specify which event types you want the event hook to deliver. The event types that can be specified are a subset of the event types that the Okta System Log captures.
+
+To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
 
 [https://developer.okta.com/docs/api/resources/event-types/?q=event-hook-eligible](/docs/api/resources/event-types/?q=event-hook-eligible)
 
-For general information on the objects used to encapsulate events, see [System Log API](/api/resources/system_log/). Note that, previously, polling the System Log API was the only method your external software systems could use to detect the occurrence of specific events in your Okta org; event hooks let you have Okta push notifications to you when they occur, without the need for polling. 
+For general information on how Okta encapsulates events in objects, see the [System Log API](/api/resources/system_log/) documentation.
+
+The event types include user or object lifecycle changes or the completion by a user of a specific stage in in an Okta process flows. An event hook could be configured, for example, to deliver user deactivation events. Then, each time a user is deactivated in your Okta org, an HTTPS request would be sent by Okta, providing notification of the user deactivation. You could use this to trigger processes you need to execute internally every time a user is deactivated, like updating a record in an HR system, creating a ticket in a support system, or generating an email message.  
 
 ## Requests Sent by Okta
 
