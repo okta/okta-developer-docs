@@ -1,7 +1,6 @@
 ---
 title: Sessions
 category: management
-redirect_from: /docs/api/rest/sessions.html
 ---
 
 # Sessions API

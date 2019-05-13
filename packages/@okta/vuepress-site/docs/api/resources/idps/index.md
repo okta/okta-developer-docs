@@ -1,7 +1,6 @@
 ---
 title: Identity Providers
 category: management
-redirect_from: docs/api/rest/idps.html
 ---
 
 # Identity Providers API
