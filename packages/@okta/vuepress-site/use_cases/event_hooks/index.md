@@ -29,7 +29,7 @@ To see the list of event types currently eligible for use in event hooks, query 
 
 For general information on how Okta encapsulates events, see the [System Log API](/docs/api/resources/system_log/) documentation.
 
-Examples of available types include user lifecycle changes, the completion by a user of a specific stage in an Okta process flows, and changes in Okta objects. You could configure an event hook, for example, to deliver notification of user deactivation events. You could use this to trigger processes you need to execute internally every time a user is deactivated, like updating a record in an HR system, creating a ticket in a support system, or generating an email message.  
+Examples of available types of events include user lifecycle changes, the completion by a user of a specific stage in an Okta process flows, and changes in Okta objects. You could configure an event hook, for example, to deliver notification of user deactivation events. You could use this to trigger processes you need to execute internally every time a user is deactivated, like updating a record in an HR system, creating a ticket in a support system, or generating an email message.  
 
 ## Requests Sent by Okta
 
