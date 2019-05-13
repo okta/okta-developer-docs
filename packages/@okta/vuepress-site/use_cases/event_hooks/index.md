@@ -13,9 +13,9 @@ Event hooks are outbound calls from Okta, sent when specified events occur in yo
 
 To handle event hook calls from Okta, you need to implement a web service with an Internet-accessible endpoint. It's your responsibility to develop the code and to arrange its hosting on a system external to Okta. Okta defines the REST API contract for the requests that it will send.
 
-Event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/). Event hooks are meant to provide information about events that occurred, not offer a way to affect the underlying Okta process flow. For that, you need to use inline hooks. Also, unlike inline hooks, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
+You can have a maximum of 10 active and verified event hooks set up in your org at any time. Each event hook can be configured to deliver multiple event types.
 
-You can have a maximum of 10 active and verified event hooks in your org at any point. Each event hook can be configured to deliver multiple event types.
+Event hooks are Okta's version of webhooks. Okta event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/): event hooks are meant to deliver information about events that occurred, not offer a way to affect Okta's execution of the process flow. Also unlike inline hooks, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
 
 ## Which Events are Eligible?
 
