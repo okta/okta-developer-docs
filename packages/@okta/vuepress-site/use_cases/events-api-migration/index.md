@@ -1,7 +1,6 @@
 ---
 title: Events API Migration
 excerpt: How to migrate from the Events API to its System Log API replacement.
-redirect_from: /use_cases/events-api-deprecation/
 ---
 
 # Events API Migration

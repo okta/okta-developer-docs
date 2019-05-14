@@ -2,9 +2,6 @@
 title: SCIM Protocol
 excerpt: Enable SCIM-based provisioning from Okta to your application.
 icon: /assets/img/icons/scim.svg
-redirect_from:
-  - /docs/guides/scim_guidance.html
-  - /docs/guides/scim_developer_program.html
 ---
 
 # SCIM Protocol
@@ -592,7 +589,7 @@ $ curl 'https://scim-server.example.com/scim/v2/Users?count=1&startIndex=1'
   "schemas": [
     "urn:ietf:params:scim:api:messages:2.0:ListResponse"
   ],
-  "startIndex": 0,
+  "startIndex": 1,
   "totalResults": 1
 }
 ```

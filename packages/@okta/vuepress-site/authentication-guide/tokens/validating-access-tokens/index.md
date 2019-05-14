@@ -17,9 +17,9 @@ We will now cover the terms used in this document, and an explanation of why you
 - If you'd like to see how to validate a token directly with Okta: [Validating A Token Remotely With Okta](#validating-a-token-remotely-with-okta)
 - If you want to see specifically how to accomplish this in your language of choice: [Okta Libraries to Help You Verify Access Tokens](#okta-libraries-to-help-you-verify-access-tokens)
 
-A high-level overview of OAuth 2.0 can be found [here](/authentication-guide/auth-overview/#oauth-20).
+A high-level overview of OAuth 2.0 can be found [here](/authentication-guide/auth-overview/#oauth-2-0).
 
-The access tokens are in JSON Web Token (JWT) format, the specification for which can be found here: <https://tools.ietf.org/html/rfc7519>. They are signed using private JSON Web Keys (JWK), the specification for which you can find here: <https://tools.ietf.org/html/rfc7517>.
+The access tokens are in [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) format. They are signed using asynmmetrical [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
 
 More information about Okta's access tokens can be found in the [OIDC & OAuth 2.0 Reference](/docs/api/resources/oidc/#access-token).
 
@@ -35,7 +35,7 @@ The high-level overview of validating an access token looks like this:
 
 - Retrieve and parse your Okta JSON Web Keys (JWK), which should be checked periodically and cached by your application.
 - Decode the access token, which is in JSON Web Token format
-- Verify the signature used to sign the access token [Verify the Token's Signature](authentication-guide/tokens/#verify-the-token-s-signature)
+- Verify the signature used to sign the access token [Verify the Token's Signature](/authentication-guide/tokens/verifying-token-signature/)
 - Verify the claims found inside the access token
 
 ### Retrieve The JSON Web Keys
@@ -72,4 +72,4 @@ The Okta JWT Verifier is available for the following languages:
 - [Node.js](https://github.com/okta/okta-oidc-js/tree/master/packages/jwt-verifier)
 - [PHP](https://github.com/okta/okta-jwt-verifier-php)
 
-Don't see the language you're working in? Get in touch: [mailto:developers@okta.com]
+Don't see the language you're working in? Get in touch: [developers@okta.com](mailto:developers@okta.com)

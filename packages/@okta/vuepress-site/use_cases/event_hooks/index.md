@@ -43,7 +43,7 @@ Information is encapsulated in the JSON payload in the `data.events` object. The
 
 The content of each array element is an object of the [LogEvent](/docs/api/resources/system_log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/api/resources/system_log/) defines for System Log events. See the documentation there for information on the object and its sub-objects.
 
-Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event.
+Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `data.events.uuid` value of incoming events against the values for events previously received.
 
 No guarantee of maximum delay between event occurrence and delivery is currently specified.
 
@@ -69,7 +69,11 @@ To secure the communication channel between Okta and your external service, HTTP
 
 ### Your Service's Responses to Event Delivery Requests
 
-Your external service's responses to Okta's ongoing event delivery POST requests should all be empty, and should have an HTTP status code of 200 (OK) or 204 (No Content). As a best practice, you should return the HTTP response immediately, rather than waiting for any of your own internal process flows triggered by the event to complete.
+Your external service's responses to Okta's ongoing event delivery POST requests should all be empty, and should have an HTTP status code of 200 (OK) or 204 (No Content).
+
+As a best practice, you should return the HTTP response immediately, rather than waiting for any of your own internal process flows triggered by the event to complete.
+
+> Note: If your service does not return the HTTP response within the timeout limit, Okta will consider the delivery to have failed.
 
 ### Rate Limits
 
@@ -89,7 +93,7 @@ The response you receive will confirm creation of the event hook and provide you
 
 ### Verifying an Event Hook
 
-After registering the event hook, you need to trigger a one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/lifecycle/verify` API. Okta will then make the GET request to your endpoint.
+After registering the event hook, you need to trigger a one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/lifecycle/verify` API. See [Event Hooks Management API](/docs/api/resources/event-hooks).
 
 If verification is successful, the JSON payload of the response to your call to the `/verify` API will contain a property called `verificationStatus` set to `VERIFIED`.
 
@@ -101,11 +105,10 @@ The following is an example of a JSON payload of a request from Okta to your ext
 
 ```json
 {
- "contentType": "application/json"
-, 
- "eventType": "com.okta.event_hook",
+  "eventType": "com.okta.event_hook",
   "eventTypeVersion": "1.0",
   "cloudEventsVersion": "0.1",
+  "contentType": "application/json",
   "eventId": "b5a188b9-5ece-4636-b041-482ffda96311",
   "eventTime": "2019-03-27T16:59:53.032Z",
   "source": "https://{yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",

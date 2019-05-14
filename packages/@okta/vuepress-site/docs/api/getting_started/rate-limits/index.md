@@ -1,7 +1,5 @@
 ---
 title: Rate Limits at Okta
-redirect_from:
-  - /docs/getting_started/design_principles
 excerpt: >-
   Understand rate limits at Okta and learn how to design for efficient use of
   resources
@@ -42,7 +40,7 @@ Note that limits for more specific endpoints override the limits for less specif
 | Action and Okta API Endpoint                                                                                 | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity |
 | ------------------------------------------------------------------------------------------------------------ | ---------------- | ---------------- | ------- | ---------- | ------------------ |
 | **Authenticate different end users:**<br>`/api/v1/authn`                                                     | 100              | 300              | 300*    | 600*       | 500                |
-| **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only                                             | 100              | 300              | 300*    | 600*       | - (Shared with `/api/v1/authn`) |
+| **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only                                             | 100              | 300              | 300*    | 600*       | 500     |
 | **Create or list applications:**<br>`/api/v1/apps` except `/api/v1/apps/{id}`                                | 20               | 25               | 25      | 100        | 100                |
 | **Get, update, or delete an application by ID:**<br>`/api/v1/apps/{id}` only                                 | 100              | 300              | 300*    | 600*       | 500                |
 | **Create or list groups:**<br>`/api/v1/groups` except `/api/v1/groups/{id}`                                  | 100              | 300              | 300     | 600        | 500                |
@@ -58,11 +56,11 @@ Note that limits for more specific endpoints override the limits for less specif
 | **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients`            | 300              | 600              | 600*    | 1200*      | 2000               |
 | **OAuth2 client configuration requests:**<br>`/oauth2/v1/clients`                                            | 25               | 50               | 50      | 100        | 100                |
 | **All other OAuth2 requests:**<br>`/oauth2`                                                                  | 100              | 300              | 300     | 600        | 600                |
-| **All other actions:**<br>`/api/v1/`                                                                         | 100              | 300              | 300*    | 600*       | 1200               |
+| **Most other API actions:**<br>`/api/v1`                                                                         | 100              | 300              | 300*    | 600*       | 1200               |
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
 
-* The limits for these endpoints can be increased by purchasing the [High-Capacity add-on](#high-capacity-rate-limits).
+*The limits for these endpoints can be increased by purchasing the [High-Capacity add-on](#high-capacity-rate-limits).
 
 ### Okta API Endpoints and Per-User Limits
 API endpoints that take username and password credentials, including the [Authentication API](/docs/api/resources/authn) and the [OAuth 2.0 resource owner password flow](/authentication-guide/implementing-authentication/password), have a per-username rate limit to prevent brute force attacks with the user's password:
@@ -72,9 +70,9 @@ API endpoints that take username and password credentials, including the [Authen
 | **Authenticate the same user:**<br>`/api/v1/authn`                | 4 per second               |
 | **Generate or refresh an OAuth 2.0 token:**<br>`/oauth2/v1/token` | 4 per second               |
 
-### Okta Rate Limits for All Other Endpoints
+### Okta Rate Limits for Most Other Endpoints
 
-Finally, for all endpoints not listed in the tables above, the API rate limit is a combined rate limit:
+Finally, for most endpoints not listed in the tables above, the API rate limit is a combined rate limit:
 
 | Developer (free) | Developer (paid) | One App    | Enterprise | Workforce Identity |
 | ---------------- | ---------------- | ---------- | ---------- | ------------------ |

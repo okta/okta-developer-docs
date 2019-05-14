@@ -6,15 +6,20 @@
   "scripts": {
     "dev": "yarn workspace @okta/vuepress-site dev",
     "build": "yarn workspace @okta/vuepress-site build",
+    "broken-link-checker:all": "node scripts/broken-link-checker all",
+    "broken-link-checker:internal": "node scripts/broken-link-checker internal",
+    "broken-link-checker:external": "node scripts/broken-link-checker external",
+    "check-links": "yarn build && yarn broken-link-checker:internal",
+    "check-links:all": "yarn build && yarn start-web-server & yarn test:wait-on-local && yarn broken-link-checker:all && yarn stop-web-server",
+    "check-links:external": "yarn build && yarn start-web-server & yarn test:wait-on-local && yarn broken-link-checker:external && yarn stop-web-server",
     "migrate": "yarn workspace @okta/migrate-from-jekyll migrate",
     "test": "yarn dev & yarn test:test-local && yarn stop-all",
     "test-only": "yarn test:update-web-driver && protractor tests/selenium/conf.js && yarn stop",
-    "test:test-local": "wait-on http-get://localhost:8080/assets/js/10.js && yarn test-only || (yarn stop && exit 1)",
-    "test:update-web-driver": "./node_modules/protractor/bin/webdriver-manager update --gecko false",
-    "test:stop-web-driver": "pkill -f 'webdriver-manager/selenium' || echo 'no Selenium processes found'",
-    "markdown-check-all": "node scripts/markdown-check",
-    "markdown-link-check": "node scripts/markdown-check link-check",
-    "markdown-lint": "node scripts/markdown-check lint",
+    "test:test-local": "yarn test:wait-on-local && yarn test-only || (yarn stop && exit 1)",
+    "test:update-web-driver": "./node_modules/protractor/bin/webdriver-manager update --gecko false --versions.standalone 3.141.59",
+    "test:stop-web-driver": "yarn fkill -s $(pgrep -f 'webdriver-manager/selenium' || echo 99999999)",
+    "test:wait-on-local": "wait-for-localhost 8080 --use-get",
+    "markdown-lint": "node scripts/markdown-check",
     "posttest": "yarn stop",
     "stop": "if-env CI=true && exit 0 || yarn test:stop-web-driver || echo 'done'",
     "stop-all": "if-env CI=true && exit 0 || pkill -f 'yarn' || echo 'done'",
@@ -29,7 +34,6 @@
     "chalk": "^2.4.2",
     "cross-env": "^5.2.0",
     "if-env": "^1.0.4",
-    "markdown-link-check": "^3.7.2",
     "mocha": "^5.2.0",
     "protractor": "^5.4.2",
     "recursive-readdir": "^2.2.2",
@@ -38,7 +42,14 @@
     "wait-until": "^0.0.2"
   },
   "dependencies": {
-    "hoek": "^6.1.2",
-    "joi": "^14.3.1"
+    "broken-link-checker": "^0.7.8",
+    "fkill-cli": "^5.2.0",
+    "hoek": "^6.1.3",
+    "joi": "^14.3.1",
+    "serve": "^11.0.0",
+    "wait-for-localhost-cli": "^1.1.0"
+  },
+  "resolutions": {
+    "http-server/ecstatic": "^4.0.0"
   }
 }

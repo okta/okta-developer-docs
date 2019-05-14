@@ -1,9 +1,6 @@
 ---
 title: Users
 category: management
-redirect_from:
-  - /docs/api/rest/users.html
-  - /docs/api/resources/user
 ---
 
 # Users API
@@ -1807,7 +1804,7 @@ curl -v -X GET \
 ]
 ```
 
-### Get Member Groups
+### Get User's Groups
 
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/groups" /> <SupportsCors />
@@ -3481,23 +3478,6 @@ The User model defines several read-only properties:
 | _links                  | [link relations](#links-object) for the user&#8217;s current `status`   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | TRUE       | FALSE    | TRUE     |
 | _embedded               | embedded resources related to the user                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | TRUE       | FALSE    | TRUE     |
 
->Note: Profile image is a <ApiLifecycle access="beta" /> feature.
-
-During the profile image Beta, image property definitions in the schema are of the `Object` data type with an additional `extendedType` of `Image`.
-When a user is retrieved via the API, however, the value will be a URL (represented as a String).  Some caveats apply:
-
-1) Image properties are described differently in the schema than how the data actually comes back.  This discrepancy is deliberate for the time being, but is likely to change after Beta.  Special handling rules apply (described below).
-
-2) During Beta, the URL returned is a placeholder URL, resolving to a placeholder image.  By GA, the URL returned will resolve to the image (that is, a logged in user can click it and retrieve the image).
-
-**Updating image property values via Users API**
-
-Okta does not support uploading images via the Users API.  All operations in this API that update properties work in a slightly different way when applied to image properties:
-
-1)  When performing a full update, if the property is not passed, it is unset (if set).  The same applies if a partial update explicitly sets it to null.
-
-2)  When "updating" the value, it must be set to the value returned by a GET on that user (resulting in no change).  Any other value will not validate.
-
 Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded` are only available after a user is created.
 
 * The `activated` timestamp will only be available for users activated after 06/30/2013.
@@ -3670,11 +3650,11 @@ A hashed password may be specified in a Password Object when creating or updatin
 
 | Property     | DataType   | Description                                                                                                                                                                               | Required                                                    | Min Value                        | Max Value                        |
 | :----------- | :--------- | :------------------------------------------------------------------------------------------------------------                                                                             | :-----------------------------------                        | :-------------------             | :-----------------               |
-| algorithm    | String     | The algorithm used to hash the password. Must be set to `BCRYPT`, `SHA-256`, `SHA-1` or `MD5`                                                                                             | TRUE                                                        | N/A                              | N/A                              |
-| value        | String     | For `SHA-256`, `SHA-1`, `MD5`: This is the actual base64-encoded hashed password. For `BCRYPT`: This is the actual radix64-encoded hashed password.                                       | TRUE                                                        | N/A                              | N/A                              |
-| salt         | String     | For `SHA-256`, `SHA-1`, `MD5`: Specifies the base64-encoded password salt used to generate the hash. For `BCRYPT`: Specifies the radix64-encoded password salt used to generate the hash. | TRUE                                                        | 22 (only for `BCRYPT` algorithm) | 22 (only for `BCRYPT` algorithm) |
+| algorithm    | String     | The algorithm used to hash the password. Must be set to `BCRYPT`, `SHA-512`, `SHA-256`, `SHA-1` or `MD5`                                                                                             | TRUE                                                        | N/A                              | N/A                              |
+| value        | String     | For `SHA-512`, `SHA-256`, `SHA-1`, `MD5`: This is the actual base64-encoded hashed password. For `BCRYPT`: This is the actual radix64-encoded hashed password.                                       | TRUE                                                        | N/A                              | N/A                              |
+| salt         | String     | For `SHA-512`, `SHA-256`, `SHA-1`, `MD5`: Specifies the base64-encoded password salt used to generate the hash. For `BCRYPT`: Specifies the radix64-encoded password salt used to generate the hash. | TRUE                                                        | 22 (only for `BCRYPT` algorithm) | 22 (only for `BCRYPT` algorithm) |
 | workFactor   | Integer    | Governs the strength of the hash, and the time required to compute it. Only relevant for `BCRYPT` algorithm                                                                               | Only for `BCRYPT` algorithm                                 | 1                                | 20                               |
-| saltOrder    | String     | Specifies whether salt was pre- or postfixed to the password before hashing. Only relevant for `SHA-256`, `SHA-1`, `MD5` algorithms. Must be set to `PREFIX` or `POSTFIX`                 | Only for `SHA-256`, `Salted SHA-1`, `Salted MD5` algorithms | N/A                              | N/A                              |
+| saltOrder    | String     | Specifies whether salt was pre- or postfixed to the password before hashing. Only relevant for `SHA-512`, `SHA-256`, `SHA-1`, `MD5` algorithms. Must be set to `PREFIX` or `POSTFIX`                 | Only for `Salted SHA-512`, `Salted SHA-256`, `Salted SHA-1`, `Salted MD5` algorithms | N/A                              | N/A                              |
 
 ###### BCRYPT Hashed Password Object Example
 
@@ -3685,6 +3665,19 @@ A hashed password may be specified in a Password Object when creating or updatin
     "workFactor": 10,
     "salt": "rwh3vH166HCH/NT9XV5FYu",
     "value": "qaMqvAPULkbiQzkTCWo5XDcvzpk8Tna"
+  }
+}
+```
+
+###### SHA-512 Hashed Password Object Example
+
+```bash
+"password" : {
+  "hash": {
+    "algorithm": "SHA-512",
+    "salt": "TXlTYWx0",
+    "saltOrder": "PREFIX",
+    "value": "QrozP8a+KfoHu6mPFysxLoO5LMQsd2Fw6IclZUf8xQjetJOCGS93vm68h+VaFX0LHSiF/GxQkykq1vofmx6NGA=="
   }
 }
 ```
@@ -3730,7 +3723,7 @@ A hashed password may be specified in a Password Object when creating or updatin
 
 ##### Hashing Function
 
-Okta supports the `BCRYPT`, `SHA-256`, `SHA-1`, and `MD5` hashing functions for password import.
+Okta supports the `BCRYPT`, `SHA-512`, `SHA-256`, `SHA-1`, and `MD5` hashing functions for password import.
 
 ##### Default Password Policy
 

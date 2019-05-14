@@ -2,12 +2,6 @@
 title: OpenID Connect & OAuth 2.0 API
 category: authentication
 excerpt: Control user access to your applications.
-redirect_from:
-  - /docs/api/resources/oauth2
-  - /docs/how-to/beta-auth-service/api-access-management-troubleshooting
-  - /standards/OIDC/
-  - /standards/OAuth/
-  - /reference/authentication_reference
 ---
 
 # OpenID Connect & OAuth 2.0 API
@@ -516,6 +510,8 @@ These keys can be used to locally validate JWTs returned by Okta. Standard open-
 | :---------- | :---------------------------- | :----------- | :--------- | :--------- | :------ |
 | client_id   | Your app's client ID.         | Query        | String     | FALSE      | null    |
 
+>Note that the request parameter `client_id` is only applicable for the Okta Org Authorization Server. See [Composing Your Base URL](/docs/api/resources/oidc/#composing-your-base-url) for more information regarding Okta Org Authorization Server.
+
 #### Response Properties
 JWKS properties can be found [here](/docs/api/resources/authorization-servers#key-properties).
 
@@ -568,7 +564,7 @@ Content-Type: application/json;charset=UTF-8
 #### Key Rotation
 The keys that are used to sign tokens are periodically changed. Okta automatically rotates your authorization server's keys on a regular basis.
 
-Clients can opt-out of automatic key rotation by changing the client sign-in mode. In this case, passing the `client_id` with your request retrieves the keys for that specific client.
+Clients can opt-out of automatic key rotation by changing the client sign-in mode for the Okta Org Authorization Server. In this case, passing the `client_id` with your request retrieves the keys for that specific client.
 
 Key rotation behaves differently with Custom Authorization Servers. For more information about key rotation with Custom Authorization Servers, see the [Authorization Servers API page](/docs/api/resources/authorization-servers#rotate-authorization-server-keys).
 

@@ -1,7 +1,6 @@
 ---
 title: Dynamic Client Registration
 category: management
-redirect_from: /docs/api/rest/oauth-clients.html
 excerpt: >-
   Operations to register and manage client applications for use with Okta's
   OAuth 2.0 and OpenID Connect endpoints

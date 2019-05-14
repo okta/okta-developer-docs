@@ -4,9 +4,6 @@ language: Python
 excerpt: >-
   Guidance on how to SAML-enable your Python application using open source
   PySAML2.
-redirect_from:
-  - /docs/examples/pysaml2.html
-  - /docs/guides/pysaml2.html
 component: Code
 ---
 
@@ -38,7 +35,7 @@ Before you can configure your application and PySAML2 set up an
 Okta chiclet (application icon) that enables an Okta user to sign in to your to your application with SAML and PySAML2.
 
 To set up Okta to connect to your application, follow the
-[setting up a SAML application in Okta](/docs/guides/setting_up_a_saml_application_in_okta)
+[setting up a SAML application in Okta](/authentication-guide/implementing-authentication/set-up-authz-server/)
 guide. As noted in the instructions, there are two steps to change:
 
 * *In step \#6*: Use ***PySAML2 Example*** instead of ***Example SAML application*** .
@@ -65,7 +62,7 @@ section we use the "Identity Provider metadata" link from the
 section above to configure PySAML2. After completing
 the following steps, you will have a working example of connecting Okta to a sample Python application using PySAML2.
 
-0.  Install platform-dependent prerequisites:
+1.  Install platform-dependent prerequisites:
 
     > Note: These instructions assume that you are running on a recent version of your operating system.
 
@@ -81,25 +78,25 @@ the following steps, you will have a working example of connecting Okta to a sam
     sudo yum install libffi-devel xmlsec1 xmlsec1-openssl
     ```
 
-1.  Download the example application for Python:
+2.  Download the example application for Python:
 
     ```bash
     $ git clone git@github.com:jpf/okta-pysaml2-example.git
     ```
 
-2.  `cd` to the `okta-pysaml2-example` directory.
+3.  `cd` to the `okta-pysaml2-example` directory.
 
     ```bash
     $ cd okta-pysaml2-example
     ```
 
-3.  Open the `app.py` file in your favorite text editor.
+4.  Open the `app.py` file in your favorite text editor.
 
     ```bash
     $ $EDITOR app.py
     ```
 
-4.  After opening the `app.py` file, modify the contents of the `metadata_url_for` dictionary as shown below.
+5.  After opening the `app.py` file, modify the contents of the `metadata_url_for` dictionary as shown below.
 
     ``` python
     metadata_url_for = {
@@ -107,14 +104,14 @@ the following steps, you will have a working example of connecting Okta to a sam
     }
     ```
 
-5.  Be sure to replace the contents of `${metdata_url}` with the link
+6.  Be sure to replace the contents of `${metdata_url}` with the link
     that you copied in step \#10 of the
-    "[Setting up a SAML application in Okta](/docs/guides/setting_up_a_saml_application_in_okta)"
+    "[Setting up a SAML application in Okta](/authentication-guide/implementing-authentication/set-up-authz-server/)"
     instructions that you followed above!
 
     Note: The contents of `${metadata_url}` should look similar to: `https://{yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
 
-6.  Install the dependencies; for example, Python SAML SP:
+7.  Install the dependencies; for example, Python SAML SP:
 
     ```bash
     $ virtualenv venv
@@ -122,7 +119,7 @@ the following steps, you will have a working example of connecting Okta to a sam
     $ pip install -r requirements.txt
     ```
 
-7.  Start the Python example:
+8.  Start the Python example:
 
     ```bash
     $ python app.py
@@ -195,7 +192,7 @@ example, on a production system, the contents of the
 from a dynamic datastore.
 
 If you want to learn more about SAML and what to consider when writing a SAML implementation, Okta's
-in-depth [SAML guidance](/docs/getting_started/saml_guidance)
+in-depth [SAML guidance](https://www.okta.com/integrate/documentation/saml/)
 is a great place to learn more.
 
 Finally, if you got this far in this guide and still have questions,

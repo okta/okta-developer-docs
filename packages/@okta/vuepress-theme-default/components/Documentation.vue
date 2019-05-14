@@ -25,7 +25,7 @@
               <GetStartedLinkGroup v-for="(section, i) in $page.frontmatter.sections" :key="i" :section=section></GetStartedLinkGroup>
             </div>
             <div class="docs-changelog">
-              <a href="/docs/change-log/">
+              <a href="/docs/release-notes/">
                 <i class="icon time-alt-16"></i>{{$page.frontmatter.changelog_title}}
               </a>
             </div>
