@@ -1501,7 +1501,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | expand    | Traverses the `users` link relationship and optionally embeds the [Application User](#application-user-model) resource   | Query      | String   | FALSE    |         |
 
 The results are [paginated][pagination] according to the `limit` parameter.
-If there are multiple pages of results, the Link header contains a `next` link, which should be treated as an opaque value (follow it, don't parse it).
+If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ###### Filters
 
@@ -3485,10 +3485,10 @@ Enumerates all assigned [application users](#application-user-model) for an appl
 | applicationId | `id` of an [app](#application-model)                                                                                                                                                                                                                                   | URL        | String   | TRUE     |         |
 | limit         | Specifies the number of results per page (maximum 500)                                                                                                                                                                                                                 | Query      | Number   | FALSE    | 50      |
 | after         | Specifies the pagination cursor for the next page of assignments                                                                                                                                                                                                       | Query      | String   | FALSE    |         |
-| q             | Returns a filtered list of app users. The value of `q` is matched against an application user profile's `userName`, `firstName`, `lastName`, and `email`. **Note:** This operation only supports `startsWith`, which matches what the string starts with to the query. | Query      | String   | FALSE    |         |
+| q             | Returns a filtered list of app users. The value of `q` is matched against an application user profile's `userName`, `firstName`, `lastName`, and `email`. **Note:** This operation only supports `startsWith` that matches what the string starts with to the query. | Query      | String   | FALSE    |         |
 
 The results are [paginated][pagination] according to the `limit` parameter.
-If there are multiple pages of results, the Link header contains a `next` link, which should be treated as an opaque value (follow it, don't parse it).
+If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ##### Response Parameters
 
@@ -3880,7 +3880,7 @@ Enumerates group assignments for an application.
 | after         | Specifies the pagination cursor for the next page of assignments | Query      | String   | FALSE    |         |
 
 The results are [paginated][pagination] according to the `limit` parameter.
-If there are multiple pages of results, the Link header contains a `next` link, which should be treated as an opaque value (follow it, don't parse it).
+If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ##### Response Parameters
 
@@ -4473,7 +4473,7 @@ Content-Type: application/json
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrModelId}" />
 
-Revoke sa CSR and deletes the key pair from the application
+Revokes a CSR and deletes the key pair from the application
 
 ##### Request Parameters
 
@@ -4600,7 +4600,7 @@ Gets a specific [CSR model](#application-csr-model) by `csrid`
 
 ##### Response Parameters
 
-Return a base64 encoded CSR in DER format if the ``Accept`` media type is ``application/pkcs10``; or a CSR model if the ``Accept`` media type is ``application/json``.
+Return a base64 encoded CSR in DER format if the `Accept` media type is `application/pkcs10`; or a CSR model if the `Accept` media type is `application/json`.
 
 ##### Request Example
 
@@ -4664,7 +4664,7 @@ Lists all tokens for the application
 | after           | Specifies the pagination cursor for the next page of tokens                                    | Query        | String     | FALSE      |         |
 
 The results are [paginated][pagination] according to the `limit` parameter.
-If there are multiple pages of results, the Link header contains a `next` link, which should be treated as an opaque value (follow it, don't parse it).
+If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 #### Request Example
 
@@ -5177,7 +5177,7 @@ Specifies credentials and scheme for the application's `signOnMode`.
 
 #### Authentication Schemes
 
-Applications that are configured with the `BASIC_AUTH`, `BROWSER_PLUGIN`, or `SECURE_PASSWORD_STORE` have credentials vaulted by Okta and can be configured with the following schemes:
+Applications that are configured with `BASIC_AUTH`, `BROWSER_PLUGIN`, or `SECURE_PASSWORD_STORE` have credentials vaulted by Okta and can be configured with the following schemes:
 
 | Scheme                       | Description                                                               | Shared UserName | Shared Password | App UserName     | App Password            |
 | ---------------------------- | ------------------------------------------------------------------------- | --------------- | --------------- | ---------------- | ----------------------- |
@@ -5471,9 +5471,9 @@ All application user assignments have the following properties:
 
 ##### External ID
 
-Users in Okta are linked to a user in a target application via an `externalId`.  Okta anchors a user with his or her `externalId` during an import or provisioning synchronization event. Okta uses the native app-specific identifier or primary key for the user as the `externalId`.  The `externalId` is selected during import when the user is confirmed (reconciled) or during provisioning when the user has been successfully created in the target application.
+Users in Okta are linked to a user in a target application via an `externalId`. Okta anchors a user with his or her `externalId` during an import or provisioning synchronization event. Okta uses the native app-specific identifier or primary key for the user as the `externalId`. The `externalId` is selected during import when the user is confirmed (reconciled) or during provisioning when the user has been successfully created in the target application.
 
-> SSO Application Assignments (for example, SAML or SWA) don'r have an `externalId` as they aren'r synchronized with the application.
+> SSO Application Assignments (for example, SAML or SWA) don't have an `externalId` as they aren't synchronized with the application.
 
 ##### Application User Status
 
