@@ -1198,7 +1198,7 @@ Refresh tokens are opaque. More information about using them can be found in the
 
 ## Client Authentication Methods
 
-Some endpoints require client authentication. To make requests to these endpoints, you must include a header or parameter in the request depending on the authentication method the application is configured with.
+Some endpoints require client authentication. To make requests to these endpoints, you must include a header or parameter in the request depending on the authentication method that the application is configured with.
 
 When registering an OAuth 2.0 client application, specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter.
 
@@ -1206,11 +1206,11 @@ When registering an OAuth 2.0 client application, specify an authentication meth
 
 Okta supports the following authentication methods, detailed in the sections below:
 
-* `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these methods when the client has a client secret. Public clients (such as single-page and mobile apps) that cannot protect a client secret must use `none` below.
+* `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these methods when the client has a client secret. Public clients (such as single-page and mobile apps) that can't protect a client secret must use `none` below.
 
-* `private_key_jwt`: Use this when you want maximum security. This method is more complex and requires a server, so it also cannot be used with public clients.
+* `private_key_jwt`: Use this when you want maximum security. This method is more complex and requires a server, so it can't be used with public clients.
 
-* `none` - Use this with clients that do not have a client secret (such as applications that use the [authorization code flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce/) or the [implicit flow](/authentication-guide/implementing-authentication/implicit/).
+* `none` - Use this with clients that don't have a client secret (such as applications that use the [authorization code flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce/) or the [implicit flow](/authentication-guide/implementing-authentication/implicit/)).
 
 ### Client Secret
 If your client's `token_endpoint_auth_method` is either `client_secret_basic` or `client_secret_post`, include the client secret in outgoing requests.
