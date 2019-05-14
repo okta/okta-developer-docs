@@ -10,7 +10,7 @@ import { OktaAuthService } from '@okta/okta-angular';
     <button *ngIf="!isAuthenticated" (click)="login()"> Login </button>
     <router-outlet></router-outlet>
   `,
-})s
+})
 export class AppComponent {
   isAuthenticated: boolean;
 
