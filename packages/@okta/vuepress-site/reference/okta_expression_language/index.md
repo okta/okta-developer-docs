@@ -1,9 +1,6 @@
 ---
 title: Okta Expression Language
 excerpt: Read and transform attributes in our APIs and admin UI.
-redirect_from:
-  - /docs/getting_started/okta_expression_lang
-  - /reference/okta_expression_language/
 ---
 
 # Overview

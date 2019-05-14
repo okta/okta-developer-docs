@@ -1,10 +1,6 @@
 ---
 title: API Access Management
 excerpt: Secure your APIs with Okta's implementation of the OAuth 2.0 standard.
-redirect_from:
-  - /docs/api/resources/resource-server-beta/
-  - >-
-    /docs/api/resources/resource-server-beta/required-config-changes-for-auth-server
 ---
 
 ## API Access Management with Okta
@@ -97,15 +93,6 @@ This document represents our recommendations for proper usage based on the OAuth
 An API Product is a group of API endpoints offered together to satisfy a particular set of related use cases. For example, a bank may have a Home Loan API Product and a Personal Line of Credit API Product, both of which use some of the same underlying APIs.
 
 Okta API Products refers to all the resources and tools that Okta makes available.
-
-### Recommendations
-
-* [API Access Management Administrator Role](#api-access-management-administrator-role)
-* [OAuth Client](#oauth-client)
-* [Authorization Server](#authorization-server)
-* [API Gateway (optional)](#api-gateway-optional)
-* [Securing Applications](#securing-applications)
-* [Resource (API) Servers](#resource-api-servers)
 
 #### API Access Management Administrator Role
 

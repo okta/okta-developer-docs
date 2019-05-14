@@ -2,12 +2,6 @@
 title: OpenID Connect & OAuth 2.0 API
 category: authentication
 excerpt: Control user access to your applications.
-redirect_from:
-  - /docs/api/resources/oauth2
-  - /docs/how-to/beta-auth-service/api-access-management-troubleshooting
-  - /standards/OIDC/
-  - /standards/OAuth/
-  - /reference/authentication_reference
 ---
 
 # OpenID Connect & OAuth 2.0 API
