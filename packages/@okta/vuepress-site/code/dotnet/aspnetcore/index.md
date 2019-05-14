@@ -2,8 +2,6 @@
 title: Add Identity Management to Your ASP.NET Core App
 language: .NET
 integration: back-end
-redirect_from:
-  - /code/dotnet/
 component: Code
 ---
 

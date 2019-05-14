@@ -1,7 +1,6 @@
 ---
 title: Policy
 category: management
-redirect_from: /docs/getting_started/policy.html
 ---
 
 # Policy API

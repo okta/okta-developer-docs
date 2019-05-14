@@ -2,9 +2,6 @@
 title: SCIM Protocol
 excerpt: Enable SCIM-based provisioning from Okta to your application.
 icon: /assets/img/icons/scim.svg
-redirect_from:
-  - /docs/guides/scim_guidance.html
-  - /docs/guides/scim_developer_program.html
 ---
 
 # SCIM Protocol

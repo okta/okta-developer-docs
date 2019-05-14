@@ -2,8 +2,6 @@
 title: SimpleSAMPphp
 language: PHP
 excerpt: How to use SimpleSAMLphp to add support for Okta via SAML.
-redirect_from:
-  - /docs/guides/simplesamlphp.html
 component: Code
 ---
 
@@ -112,7 +110,7 @@ PHP, reconfiguring Apache, and creating some symbolic links.
    $ brew install php56-mcrypt
    ```
 
-2. Edit `httpd.conf` to use the new version of PHP that you installed with homebrew.
+3. Edit `httpd.conf` to use the new version of PHP that you installed with homebrew.
 
    ```
    $ sudo $EDITOR /etc/apache2/httpd.conf
@@ -130,13 +128,13 @@ PHP, reconfiguring Apache, and creating some symbolic links.
    LoadModule php5_module /usr/local/Cellar/php56/5.6.7/libexec/apache2/libphp5.so
    ```
 
-2. Find the `DocumentRoot` for your setup of Apache.
+4. Find the `DocumentRoot` for your setup of Apache.
 
    ```
    $ grep ^DocumentRoot /etc/apache2/httpd.conf
    ```
 
-3. `cd` to the `DocumentRoot` directory.
+5. `cd` to the `DocumentRoot` directory.
 
    Assuming that the command above returned `DocumentRoot "/Library/WebServer/Documents"`,
    then `cd` to that directory
@@ -145,7 +143,7 @@ PHP, reconfiguring Apache, and creating some symbolic links.
    $ cd /Library/WebServer/Documents
    ```
 
-4. Add symbolic links from `DocumentRoot` to your `simplesamlphp` and `okta-simplesamlphp-example` directories.
+6. Add symbolic links from `DocumentRoot` to your `simplesamlphp` and `okta-simplesamlphp-example` directories.
 
    ```
    $ sudo ln -s ~/simplesamlphp/simplesamlphp .
