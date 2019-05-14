@@ -224,7 +224,7 @@ This endpoint returns access tokens, ID tokens, and refresh tokens, depending on
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/token` endpoint requires authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/token` endpoint requires client authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                                                                                                                                                                                                                                                        | Type   |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
@@ -316,7 +316,7 @@ If the token is active, additional data about the token is also returned. If the
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/introspect` endpoint requires authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/introspect` endpoint requires client authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                                    | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------------------- | :-----        |
@@ -408,7 +408,7 @@ The API takes an access or refresh token and revokes it. Revoked tokens are cons
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/revoke` endpoint requires authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/revoke` endpoint requires client authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                       | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------ | :-----        |
@@ -1198,26 +1198,22 @@ Refresh tokens are opaque. More information about using them can be found in the
 
 ## Client Authentication Methods
 
-When making requests to endpoints on this page that require authentication, you must authenticate the client (your application code) with Okta. This is done by including a header or parameter in the request, depending on the authentication method the application is configured with.
+Some endpoints require client authentication. To make requests to these endpoints, you must include a header or parameter in the request depending on the authentication method the application is configured with.
 
-When registering an OAuth 2.0 client application, you can specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter. To decide which method to use, it depends on what type of client app you are registering and what that client app is able to provide. For example, you might be using a client that was built by a third party, and it might only support Basic Authentication. So, you would need to use the `client_secret_basic` client authentication method.
-
-> Native applications shouldn't store or provide the `client_secret`. They can omit the `client_secret` from the request parameters when introspecting a token. See [cection 5.3.1 of the OAuth 2.0 spec](https://tools.ietf.org/html/rfc6819#section-5.3.1).
-
-Okta supports the following authentication methods:
-
-> Note: You can use only one of these methods in a single request or an error occurs.
-
-* `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these methods to authenticate against any endpoint that requires client authentication, when the client has access to the `client_secret`.
-
-* `private_key_jwt`: Use this method when you want to use public/private key pairs for more security. The main benefit of this method is you can generate the private key on your own servers and never have it leave there for any reason, since you only need to provide the public key to Okta. This is better than `client_secret_jwt` since Okta must know what the `client_secret` string is beforehand, so there are more places that it could in theory be compromised. 
-
-* `none` - Use this method when the client doesn't authenticate itself to the `/token` endpoint because it uses the [Implicit Flow](/authentication-guide/implementing-authentication/implicit/) or because it is a public client with no client secret or other authentication mechanism.
+When registering an OAuth 2.0 client application, specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter.
 
 > Note: If you don't specify a method when registering your client, the default method is `client_secret_basic`.
 
+Okta supports the following authentication methods, detailed in the sections below:
+
+* `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these methods when the client has a client secret. Public clients (such as single-page and mobile apps) that cannot protect a client secret must use `none` below.
+
+* `private_key_jwt`: Use this when you want maximum security. This method is more complex and requires a server, so it also cannot be used with public clients.
+
+* `none` - Use this with clients that do not have a client secret (such as applications that use the [authorization code flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce/) or the [implicit flow](/authentication-guide/implementing-authentication/implicit/).
+
 ### Client Secret
-If you configured your client to use a `client_secret` [client authentication method](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication), provide the `client_id` and `client_secret` using one of these methods: 
+If your client's `token_endpoint_auth_method` is either `client_secret_basic` or `client_secret_post`, include the client secret in outgoing requests.
 
 * `client_secret_basic`: Provide the `client_id` and `client_secret` values in the Authorization header as a Basic auth base64-encoded string with the POST request:
   ```bash
@@ -1244,6 +1240,9 @@ Provide the `client_id` in a JWT that you sign with the `client_secret` using an
     client_assertion=PHNhbWxwOl ... ZT
   ```
 ### JWT With Private Key
+
+This method is similar to JWT with Shared Key, but uses a public/private key pair for more security. The main benefit of this method is you can generate the private key on your own servers and never have it leave there for any reason, since you only need to provide the public key to Okta. This is better than `client_secret_jwt` since Okta must know what the `client_secret` string is beforehand, so there are more places that it could in theory be compromised. 
+
 If you configured your client to use the `private_key_jwt` client authentication method:
 
 Provide the `client_id` in a JWT that you sign with your private key using an RSA or ECDSA algorithm (RS256, RS384, RS512, ES256, ES384, ES512). The JWT must also contain other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt).
