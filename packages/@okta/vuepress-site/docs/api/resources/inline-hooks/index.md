@@ -466,7 +466,7 @@ curl -v -X DELETE \
 
 Executes the Inline Hook matching the provided `inlineHookId` using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. Otherwise it will throw an error. You therefore need to construct a JSON payload that matches the payloads that Okta would send to your external service for this inline hook type.
 
-A timeout of 3 seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
+A timeout of three seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
 
 Note that this execution endpoint is not tied to any other functionality in Okta and should only be used for testing purposes.
 
