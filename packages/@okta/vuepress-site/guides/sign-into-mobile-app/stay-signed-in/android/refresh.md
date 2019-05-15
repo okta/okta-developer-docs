@@ -1,4 +1,4 @@
-If the `access_token` is expired or inactive, you can get a new one by using the `refresh_token`:
+Use the `refreshToken` method to get a new access token:
 
 ```java
 client.refreshToken(new RequestCallback<Tokens, AuthorizationException>() {

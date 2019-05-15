@@ -1,4 +1,4 @@
-Since access tokens are traditionally short-lived, you can renew expired access tokens by exchanging a refresh token for new one:
+Use the `renew` method to get a new access token:
 
 ```swift
 stateManager?.renew { newAccessToken, error in
