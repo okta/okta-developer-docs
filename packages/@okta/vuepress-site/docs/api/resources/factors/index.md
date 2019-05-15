@@ -1,7 +1,6 @@
 ---
 title: Factors
 category: management
-redirect_from: /docs/api/rest/factors.html
 ---
 
 # Factors API

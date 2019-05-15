@@ -1,9 +1,6 @@
 ---
 title: Users
 category: management
-redirect_from:
-  - /docs/api/rest/users.html
-  - /docs/api/resources/user
 ---
 
 # Users API
@@ -29,7 +26,7 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User with Recovery Question](#create-user-with-recovery-question)
 - [Create User with Password](#create-user-with-password)
 - [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password)
-- [Create User with Password & Recovery Question](#create-user-with-password--recovery-question)
+- [Create User with Password & Recovery Question](#create-user-with-password-recovery-question)
 - [Create User with Authentication Provider](#create-user-with-authentication-provider)
 - [Create User in Group](#create-user-in-group)
 
@@ -1807,7 +1804,7 @@ curl -v -X GET \
 ]
 ```
 
-### Get Member Groups
+### Get User's Groups
 
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/groups" /> <SupportsCors />
@@ -1900,7 +1897,7 @@ Users who don't have a password must complete the welcome flow by visiting the a
 }
 ```
 
-If a password was set before the user was activated, then user must login with with their password or the `activationToken` and not the activation link.
+If a password was set before the user was activated, then user must login with with their password or the `activationToken` and not the activation link.  More information about using the `activationToken` to login can be found in the [Authentication API](/docs/api/resources/authn/#primary-authentication-with-activation-token). 
 
 ##### Request Example
 

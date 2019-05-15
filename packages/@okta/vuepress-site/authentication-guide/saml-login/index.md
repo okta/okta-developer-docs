@@ -1,7 +1,5 @@
 ---
 title: SAML Authentication with OIDC
-redirect_from:
-  - /docs/how-to/inbound-saml-with-oidc
 ---
 
 # Authenticating Against an External SAML IdP

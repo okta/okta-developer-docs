@@ -1,7 +1,5 @@
 ---
 title: Social Login Overview
-redirect_from:
-  - /docs/api/resources/social_authentication
 ---
 
 # Social Login
