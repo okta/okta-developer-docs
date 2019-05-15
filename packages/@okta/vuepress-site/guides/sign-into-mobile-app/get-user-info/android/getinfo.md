@@ -1,4 +1,4 @@
-The following is an example of getting user information from the `/userinfo` endpoint:
+Your code can get the user's info with the `getUserProfile` method:
 
 ```java
 client.getUserProfile(new RequestCallback<JSONObject, AuthorizationException>() {
@@ -14,4 +14,4 @@ client.getUserProfile(new RequestCallback<JSONObject, AuthorizationException>() 
 });
 ```
 
-In `onSuccess` the user info returned is a `JSONObject` with the following [properties](https://developer.okta.com/docs/api/resources/oidc/#response-example-success-5).
+The `JSONObject` in `onSuccess` contains the user's info.

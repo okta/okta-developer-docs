@@ -3,7 +3,8 @@ title: Next Steps
 ---
 You should now understand how to sign users in to your mobile applications using Okta. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
 
-<!-- Link to Protect Your API Endpoints guide -->
+To learn how to protect the API endpoints your mobile app calls, see [Protect Your API Endpoints](/guides/protect-your-api/).
+
 <!-- Link to Customizing the Sign-in Page guide -->
 <!-- Link to Building a Custom Sign-in Page guide -->
 

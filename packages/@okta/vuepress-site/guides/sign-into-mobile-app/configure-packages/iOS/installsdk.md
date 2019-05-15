@@ -1,10 +1,12 @@
-Use the library [OktaOidc](https://github.com/okta/okta-oidc-ios), available through [CocoaPods](http://cocoapods.org/pods/OktaOidc). To install it, add the following line to your Podfile:
+Use the library [OktaOidc](https://github.com/okta/okta-oidc-ios), available through [CocoaPods](http://cocoapods.org/pods/OktaOidc).
 
-```ruby
+To install it, add the following line to your `Podfile`:
+
+```
 pod 'OktaOidc'
 ```
 
-Now install the `OktaOidc` dependency and open the auto-generated workspace file:
+Now install the dependency and open the auto-generated workspace file:
 
 ```bash
 pod install

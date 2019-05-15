@@ -4,6 +4,7 @@ layout: Guides
 guides: 
  - sign-into-spa
  - sign-into-web-app
+ #- sign-into-mobile-app
  - sign-users-out
  - protect-your-api
 featured: 

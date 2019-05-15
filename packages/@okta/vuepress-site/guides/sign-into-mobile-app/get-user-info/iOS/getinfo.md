@@ -1,4 +1,4 @@
-The following is an example of getting user information from the `/userinfo` endpoint:
+Your code can get the user's info with the `getUser` method:
 
 ```swift
 stateManager?.getUser { response, error in
@@ -11,4 +11,4 @@ stateManager?.getUser { response, error in
 }
 ```
 
-The user info (of type 'Dictionary') is returned as a closure parameter. Possible properties are listed [here](https://developer.okta.com/docs/api/resources/oidc/#response-example-success-5).
+The user info (of type `Dictionary`) is returned as a closure parameter.

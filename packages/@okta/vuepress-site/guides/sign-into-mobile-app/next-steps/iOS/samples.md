@@ -1,1 +1,1 @@
-We have multiple samples available in our [iOS Samples repo](https://github.com/okta/samples-ios) on GitHub.
+We have multiple samples available in our [iOS samples repo](https://github.com/okta/samples-ios) on GitHub.
