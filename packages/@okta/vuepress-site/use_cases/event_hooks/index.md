@@ -33,6 +33,8 @@ Examples of available types of events include user lifecycle changes, the comple
 
 ## Requests Sent by Okta
 
+When events occur in your org that match an event type you configured your event hook to deliver, the event hook is automatically triggered and sends a request to your external service. The JSON payload of the request provides information on the event. A sample JSON payload is provided in [Sample Event Delivery Payload](#sample-event-delivery-payload) below.
+
 The requests sent from Okta to your external service are HTTPS requests. POST requests are used for the ongoing delivery of events, and a one-time GET request is used for verifying your endpoint.
 
 ### One-Time Verification Request
