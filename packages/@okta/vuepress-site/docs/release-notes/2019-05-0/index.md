@@ -1,5 +1,5 @@
 ---
-title: Okta API Products Change Log
+title: Okta API Products Release Notes
 ---
 
 ## 2019.05.0
