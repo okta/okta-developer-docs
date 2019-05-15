@@ -26,7 +26,7 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User with Recovery Question](#create-user-with-recovery-question)
 - [Create User with Password](#create-user-with-password)
 - [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password)
-- [Create User with Password & Recovery Question](#create-user-with-password--recovery-question)
+- [Create User with Password & Recovery Question](#create-user-with-password-recovery-question)
 - [Create User with Authentication Provider](#create-user-with-authentication-provider)
 - [Create User in Group](#create-user-in-group)
 
