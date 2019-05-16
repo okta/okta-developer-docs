@@ -33,7 +33,7 @@ Each identity provider (IdP) requires some setup. Use the Okta setup guide for y
 Adds a new IdP to your organization
 
 - [Add Generic OIDC Identity Provider](#add-generic-openid-connect-identity-provider)
-- [Add SAML 2.0 Identity Provider](#add-saml-20-identity-provider)
+- [Add SAML 2.0 Identity Provider](#add-saml-2-0-identity-provider)
 - [Add Facebook Identity Provider](#add-facebook-identity-provider)
 - [Add Google Identity Provider](#add-google-identity-provider)
 - [Add LinkedIn Identity Provider](#add-linkedin-identity-provider)
