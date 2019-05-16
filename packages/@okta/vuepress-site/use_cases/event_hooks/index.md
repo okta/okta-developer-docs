@@ -2,7 +2,7 @@
 title: Event Hooks
 meta:
   - name: description
-    content: Event hooks are outbound calls from Okta, sent when specified events occur in your org. Get information on elligible hooks and setting up event hooks in this guide.
+    content: Event hooks are outbound calls from Okta, sent when specified events occur in your org. Get information on eligible hooks and setting up event hooks in this guide.
 ---
 
 # Event Hooks

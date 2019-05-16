@@ -46,11 +46,11 @@ The graphic below illustrates the sequence of steps:
 
 1. During the execution of an Okta process flow, at the extension point between points A and B, Okta sends a request to your external service.
 
-2. Your external service performs some processing.
+1. Your external service performs some processing.
 
-3. Your external service sends a response back to Okta.
+1. Your external service sends a response back to Okta.
 
-4. Okta receives the response, acts on any commands it includes, and resumes the process flow that originally triggered the inline hook.
+1. Okta receives the response, acts on any commands it includes, and resumes the process flow that originally triggered the inline hook.
 
 ### Request and Response Overview
 
