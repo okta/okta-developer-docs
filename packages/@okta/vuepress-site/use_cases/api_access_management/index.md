@@ -82,7 +82,7 @@ This benefit depends, of course, on the level of security your apps require.
 * Visit [the OIDC/OAuth 2.0 endpoint documentation](/docs/api/resources/oidc) and start building your integration today.
 * For simpler use cases focused on SSO, visit [the OpenID Connect documentation](/docs/api/resources/oidc).
 
-### Recommended Practices for API Access Management
+## Recommended Practices for API Access Management
 
 API Access Management, or OAuth as a Service, extends Okta's security policies, Universal Directory, and user provisioning into APIs, while providing well-defined OAuth interfaces for developers. Further, while many of our customers use dedicated API gateways such as Apigee or Mulesoft, API Access Management can be used equally well with or without a gateway.
 
