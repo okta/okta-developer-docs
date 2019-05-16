@@ -28,12 +28,12 @@ This page contains detailed information about the OAuth 2.0 and OpenID Connect e
 All of the endpoints on this page start with an authorization server, however the URL for that server varies depending on the endpoint and the type of authorization server. You have two types of authorization servers to choose from depending on your use case:
 
 #### 1. Single Sign-On to Okta
-This is for the use case where your users are all part of your Okta organization, and you would just like to offer them single sign-on with an ID token. In this case Okta is your authorization server, which we refer to as the "Okta Org Authorization Server" and your full URL looks like this:
+This is for the use case where your users are all part of your Okta organization, and you would just like to offer them single sign-on (i.e. you want your employees to sign in to this application with their Okta accounts). In OAuth 2.0 terminology, Okta is both the authorization server and the resource server. When Okta is serving as the authorization server for itself, we refer to this as the "Okta Org Authorization Server" and your full URL looks like this:
 
 `https://{yourOktaDomain}/oauth2/v1/authorize`
 
 #### 2. Okta as the Identity Platform for Your App or API
-This is for use cases where Okta is the identity and authorization platform for your application or API, so your users are logging in to something other than Okta. In this case you are using a custom authorization server inside Okta, and your full URL looks like this:
+This is for use cases where Okta is the authorization server for your resource server, for example an application or API that you have created (i.e. you want Okta to act as the user store for your application, but Okta is invisible to your users). This kind of authorization server we call a "Custom Authorization Server", and your full URL looks like this:
 
 `https://{yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 
