@@ -1,6 +1,6 @@
 Before using the SDK, you have to create a new `OktaOidc` object. You can instantiate `OktaOidc` without parameters. If you do that, the SDK uses Okta.plist for configuration values. Alternatively, you can create the `OktaOidc` instance with a custom configuration.
 
-```swfit
+```swift
 import OktaOidc
 
 // Use the default Okta.plist configuration
