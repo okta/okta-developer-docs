@@ -1,6 +1,8 @@
 ---
 title: Inline Hooks
-excerpt: Integrate custom functionality into Okta process flows.
+meta:
+  - name: description
+    content: Inline hooks are outbound calls from Okta to your own custom code. Find out more about the types of Okta inline hooks, the process flow, and how to set them up.
 ---
 
 # Inline Hooks
