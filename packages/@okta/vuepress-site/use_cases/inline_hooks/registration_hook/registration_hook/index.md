@@ -144,7 +144,7 @@ For `com.okta.action.update` commands, `value` should be an object containing th
       {
          "type":"com.okta.action.update",
          "value":{
-            "action":"DENY",
+            "registration":"DENY",
          }
       }
    ]
@@ -207,7 +207,7 @@ If you do not return any value for that `errorCauses` object, but deny the user'
       {
          "type":"com.okta.action.update",
          "value":{
-            "action":"DENY"
+            "registration":"DENY"
          }
       }
    ]
