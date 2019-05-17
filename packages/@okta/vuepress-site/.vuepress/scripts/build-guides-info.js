@@ -41,6 +41,9 @@ allGuidesMeta.guides.forEach( guide => {
     guideMeta.frameworks.forEach( framework => {
       guideInfo[`/guides/${guide}/${framework}/${section}/`] = {
         ...sectionMeta,
+        sectionTitle: sectionMeta.title,
+        guideTitle: guideMeta.title,
+        title: `${sectionMeta.title} - ${guideMeta.title}`,
         toAdd: true,
         mainFramework: guideMeta.mainFramework,
       };
@@ -52,6 +55,7 @@ const additionalPagesForGuides = () => {
   return Object.entries(guideInfo)
     .filter( ([, info]) => info.toAdd )
     .map( ([path, info]) => ({
+      ...info,
       path,
       content: ' ',
     }))
