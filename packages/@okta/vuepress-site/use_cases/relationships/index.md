@@ -1,6 +1,8 @@
 ---
 title: Relationships with Linked Objects
-excerpt: Create users with relationships.
+meta:
+  - name: description
+    content: Users have relationships to each other, like manager and subordinate. With the Linked Objects API, you can create up to 200 linked object definitions.
 ---
 # Relationships with Linked Objects
 

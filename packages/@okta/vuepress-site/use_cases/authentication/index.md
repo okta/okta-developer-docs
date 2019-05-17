@@ -1,8 +1,8 @@
 ---
 title: Authentication
-excerpt: >-
-  Overview of the ways Okta can be used to authenticate users depending on your
-  needs.
+meta:
+  - name: description
+    content: Use Okta to create a custom login experience for your apps. Learn more about OAuth 2.0 and OIDC implementations, the Authentication API, and the Sign-in Widget.
 ---
 
 # Authentication with Okta
