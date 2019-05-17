@@ -12,14 +12,11 @@ In your application code, build a config object. This is used to initialize the 
 ```javascript
 const config = {
   clientId: '{clientId}',
-  issuer: 'https://{yourOktaDomain}.com/oauth2/default',
+  issuer: 'https://{yourOktaDomain}/oauth2/default',
   redirectUri: 'http://localhost:8080/implicit/callback',
   scope: 'openid profile email',
 };
 ```
-
-> Note: You can also get the issuer config using this link `https://{yourOktaDomain}.com/oauth2/default/.well-known/openid-configuration`
-
 > Note: `openid`, `profile` and `email` are reserved scopes in OpenID Connect to get access to user's data. You can read more about scopes [here](https://developer.okta.com/docs/api/resources/oidc/#scopes)
 
 You can also build it from dynamic values like environment variables:
