@@ -1,5 +1,5 @@
 ---
-title: Sign Users in to Your Mobile App
+title: Before You Begin
 ---
 This guide assumes you are building a mobile app. The [Sign users in to your mobile app] guide shows how to sign users in by opening a browser. This guide shows how to build a customized sign-in experience inside your application.
 

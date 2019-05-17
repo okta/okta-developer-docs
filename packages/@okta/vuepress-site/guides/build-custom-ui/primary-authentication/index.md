@@ -11,4 +11,6 @@ With multiple screen approach you can spilt responsibilties accross screens and 
 - Screen that handles multiple factors verification
 - and etc.
 
+<StackSelector snippet="primary-authentication" />
+
 <NextSectionLink/>
