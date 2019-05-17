@@ -7,8 +7,8 @@
   ],
   "scripts": {
     "dev": "vuepress dev .",
-    "oldbuild": "vuepress build . && cp conductor.yml dist/conductor.yml",
-    "build": ".vuepress/scripts/build.sh"
+    "build": ".vuepress/scripts/build.sh",
+    "postbuild": "node .vuepress/scripts/strip-guide-parts-from-sitemap.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,8 @@
     "@okta/vuepress-plugin-my-okta": "^1.0.0",
     "js-yaml": "^3.13.1",
     "markdown-it-attrs": "2.3.2",
-    "vuepress-plugin-sitemap": "^2.1.2"
+    "vuepress-plugin-sitemap": "^2.1.2",
+    "xml2js": "^0.4.19"
   },
   "browserslist": "> 0.25%"
 }
