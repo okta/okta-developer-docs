@@ -1,7 +1,7 @@
 Create a configuration object in code:
 
 ```java
-account = new OIDCAccount.Builder()
+config = new OIDCConfig.Builder()
     .clientId("{clientId}")
     .redirectUri("{redirectUri}")
     .scopes("openid", "profile", "offline_access")
@@ -27,7 +27,7 @@ Or, create a new `okta_oidc_config.json` file in your application's `res/raw` wi
 Then create a configuration object by loading this file:
 
 ```java
-account = new OIDCAccount.Builder()
-    .withResId(this, R.id.okta_oidc_config)
+config = new OIDCConfig.Builder()
+    .withJsonFile(this, R.id.okta_oidc_config)
     .create();
 ```
