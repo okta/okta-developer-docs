@@ -5,7 +5,7 @@ title: Configure the SDK
 You'll need two values from the Okta Application and the Developer Console you worked with in <GuideLink link="../create-okta-application">Create an Okta Application</GuideLink>:
 
 * **Client ID** - Find it in the applications list or on the application's **General** tab.
-* **Okta domain** - Find it on the Developer Console dashboard in the upper-right corner (shown as `Org URL:`).
+* **Okta domain** - Find it on the Developer Console dashboard in the upper-right corner as the **Org URL**.
 
 In your application code, build a config object. This is used to initialize the Okta services with the values specific to your application:
 
@@ -17,7 +17,8 @@ const config = {
   scope: 'openid profile email',
 };
 ```
-> Note: `openid`, `profile` and `email` are reserved scopes in OpenID Connect to get access to user's data. You can read more about scopes [here](https://developer.okta.com/docs/api/resources/oidc/#scopes)
+
+> Note: `openid`, `profile`, and `email` are reserved scopes in OpenID Connect that allow you to get access to user's data. You can read more about scopes [here](https://developer.okta.com/docs/api/resources/oidc/#scopes).
 
 You can also build it from dynamic values like environment variables:
 
