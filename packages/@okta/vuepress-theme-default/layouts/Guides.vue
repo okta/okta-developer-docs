@@ -60,10 +60,19 @@
         const guide = guides.byName[guideName];
 
         if(guideName && (!framework || !sectionName)) {
-          framework = framework || guide.mainFramework;
-          sectionName = sectionName || guide.order[0];
+          let hasChanged = false;
 
-          if(window) {
+          if( !framework )  { 
+            framework = guide.mainFramework;
+            hasChanged = !!framework;
+          }
+
+          if( !sectionName ) { 
+            sectionName = guide.order[0];
+            hasChanged = hasChanged || !!sectionName;
+          }
+
+          if(window && hasChanged) {
             window.location.pathname = makeGuidePath({ guideName, framework, sectionName });
           }
         }

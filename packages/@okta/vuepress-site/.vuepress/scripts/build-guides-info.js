@@ -33,18 +33,20 @@ allGuidesMeta.guides.forEach( guide => {
       guideMeta.mainFramework = guideMeta.mainFramework || frameworks[0];
     } else if (guideMeta.frameworks && frameworks.length) {
       // TODO: blow up (helpfully) if this doesn't match expected
-    }
+    } 
   });
+  // If a guide had no frameworks in any section
+  guideMeta.frameworks = guideMeta.frameworks || [];
   // repeat now that we have a list of frameworks
   guideMeta.sections.forEach( section => {
     const sectionMeta = getMetaFor(`guides/${guide}/${section}`);
-    guideMeta.frameworks.forEach( framework => {
+    [...guideMeta.frameworks, '-'].forEach( framework => {
       guideInfo[`/guides/${guide}/${framework}/${section}/`] = {
         ...sectionMeta,
         sectionTitle: sectionMeta.title,
         guideTitle: guideMeta.title,
         title: `${sectionMeta.title} - ${guideMeta.title}`,
-        toAdd: true,
+        toAdd: true, // used to flag additions compared to any existing page definitions
         mainFramework: guideMeta.mainFramework,
       };
     });
