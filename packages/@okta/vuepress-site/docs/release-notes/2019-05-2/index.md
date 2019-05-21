@@ -6,7 +6,7 @@ title: Okta API Products Release Notes
 
 | Change                                                                                                       | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------------------------------------|--------------------------|
-| [Bug Fixed in 2019.05.2](#bugs-fixed-in-2019-05-2)                                                          | May 22, 2019              |
+| [Bug Fixed in 2019.05.2](#bug-fixed-in-2019-05-2)                                                          | May 22, 2019              |
 
 ### Bug Fixed in 2019.05.2
 
