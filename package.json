@@ -34,7 +34,7 @@
     "chalk": "^2.4.2",
     "cross-env": "^5.2.0",
     "if-env": "^1.0.4",
-    "mocha": "^5.2.0",
+    "mocha": "^6.1.4",
     "protractor": "^5.4.2",
     "recursive-readdir": "^2.2.2",
     "remove": "^0.1.5",
@@ -51,5 +51,6 @@
   },
   "resolutions": {
     "http-server/ecstatic": "^4.0.0"
-  }
+  },
+  "version": "0.0.0"
 }
