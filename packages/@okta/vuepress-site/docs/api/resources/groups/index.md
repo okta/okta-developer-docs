@@ -1,7 +1,6 @@
 ---
 title: Groups
 category: management
-redirect_from: /docs/api/rest/groups.html
 ---
 
 # Groups API
@@ -901,7 +900,7 @@ Enumerates all [users](/docs/api/resources/users/#user-model) that are a member 
 | Parameter | Description                                                | ParamType | DataType | Required | Default |
 | --------- | ---------------------------------------------------------- | --------- | -------- | -------- | ------- |
 | id        | `id` of the group                                          | URL       | String   | TRUE     |         |
-| limit     | Specifies the number of user results in a page             | Query     | Number   | FALSE    | 10000   |
+| limit     | Specifies the number of user results in a page             | Query     | Number   | FALSE    | 1000    |
 | after     | Specifies the pagination cursor for the next page of users | Query     | String   | FALSE    |         |
 
 > The `after` cursor should treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/api/getting_started/design_principles#pagination)

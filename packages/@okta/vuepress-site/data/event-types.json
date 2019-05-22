@@ -1,6 +1,6 @@
 {
-  "release" : "2019.04.1",
-  "build" : "2019.04.1-begin-70-g23fdfc8ed138",
+  "release" : "2019.05.1",
+  "build" : "2019.05.1-begin-60-g0f44cb0fe5bb",
   "categories" : [ {
     "id" : "adaptive",
     "name" : "Adaptive"
@@ -3699,6 +3699,12 @@
       "tags" : [ "oauth2", "oauth2-client", "oauth2-client-lifecycle" ],
       "mappings" : [ "app.oauth2.client.lifecycle.update" ]
     }, {
+      "id" : "app.oauth2.client_id_rate_limit_warning",
+      "category" : "federation",
+      "description" : "Multiple requests with a specific client id are consuming the majority of the rate limit.",
+      "tags" : [ "oauth2", "oauth2-client" ],
+      "mappings" : [ "app.oauth2.client_id_rate_limit_warning" ]
+    }, {
       "id" : "app.oauth2.invalid_client_credentials_failure",
       "category" : "federation",
       "description" : "Multiple requests with invalid client credentials for client.",
@@ -4203,17 +4209,17 @@
       "tags" : [ "office365-app" ],
       "mappings" : [ "app.office365.graph.api.error.rate-limit.exceeded" ]
     }, {
-      "id" : "app.office365.graph.api.error.service.principal.creation.failed.no.workaround",
+      "id" : "app.office365.graph.api.error.service.principal.creation.failed",
       "category" : "msft-apps",
-      "description" : "Failure while trying to create service principal and does not need a Powershell workaround.",
+      "description" : "Failure while trying to create service principal.",
       "tags" : [ "office365-app" ],
-      "mappings" : [ "app.office365.graph.api.error.service.principal.creation.failed.no.workaround" ]
+      "mappings" : [ "app.office365.graph.api.error.service.principal.creation.failed" ]
     }, {
-      "id" : "app.office365.graph.api.error.service.principal.creation.failed.workaround",
+      "id" : "app.office365.graph.api.error.service.principal.msgraph.authentication.failure",
       "category" : "msft-apps",
-      "description" : "Failure while trying to create service principal and needs a Powershell workaround.",
+      "description" : "Failure while trying to create service principal due to a Microsoft Graph authentication issue.",
       "tags" : [ "office365-app" ],
-      "mappings" : [ "app.office365.graph.api.error.service.principal.creation.failed.workaround" ]
+      "mappings" : [ "app.office365.graph.api.error.service.principal.msgraph.authentication.failure" ]
     }, {
       "id" : "app.office365.license.conversion.jo.begin.migration.gaas.v1.to.v0",
       "category" : "msft-apps",
@@ -5697,6 +5703,18 @@
       "tags" : [ "admin", "self-service-feature-management", "system" ],
       "mappings" : [ "system.feature.ea_auto_enroll" ]
     }, {
+      "id" : "core.feature.disable",
+      "category" : "aelm",
+      "description" : "Features were disabled.",
+      "tags" : [ "admin", "self-service-feature-management", "system" ],
+      "mappings" : [ "system.feature.disable" ]
+    }, {
+      "id" : "core.feature.enable",
+      "category" : "aelm",
+      "description" : "Features were enabled.",
+      "tags" : [ "admin", "self-service-feature-management", "system" ],
+      "mappings" : [ "system.feature.enable" ]
+    }, {
       "id" : "core.framework.ratelimit.exceeded",
       "category" : "performance",
       "description" : "Rate limit exceeded.",
@@ -6633,6 +6651,12 @@
       "tags" : [ "cvd" ],
       "mappings" : [ "directory.mapping.update" ]
     }, {
+      "id" : "cvd.non_default_user_profile_created",
+      "category" : "lca",
+      "description" : "Non-default user profile created.",
+      "tags" : [ "cvd" ],
+      "mappings" : [ ]
+    }, {
       "id" : "cvd.scheduled_action.user_suspension.canceled",
       "category" : "extensibility",
       "description" : "Canceled scheduled user suspension.",
@@ -7563,6 +7587,12 @@
       "tags" : [ "ldapi" ],
       "mappings" : [ "system.ldapi.unbind" ]
     }, {
+      "id" : "user.account.lock.limit",
+      "category" : "cred-platform",
+      "description" : "User account exceeded lockout limit, will not attempt auto-unlock.",
+      "tags" : [ "account", "user" ],
+      "mappings" : [ "user.account.lock.limit" ]
+    }, {
       "id" : "user.authentication.verify",
       "category" : "authn",
       "description" : "Verify user identity.",
@@ -8279,6 +8309,17 @@
       "beta" : false,
       "tags" : [ "oauth2", "oauth2-client", "oauth2-client-lifecycle" ],
       "mappings" : [ "app.oauth2.client.lifecycle.update" ]
+    }, {
+      "id" : "app.oauth2.client_id_rate_limit_warning",
+      "category" : "federation",
+      "description" : "Fired when requests from a single client id has consumed majority of an org's rate limit on the OAuth2 endpoint. This event can be used by admins to discover and deactivate a rogue client. The admin is able to manage the client via the Syslog UI. When fired, this event contains information about the responsible client id. As of release, this event is fired when a single client id consumes 90% of an org's OAuth2 rate limit; this threshold is subject to change.",
+      "info" : {
+        "created" : "2019-04-15",
+        "release" : "2019.04.2"
+      },
+      "beta" : false,
+      "tags" : [ "oauth2", "oauth2-client" ],
+      "mappings" : [ "app.oauth2.client_id_rate_limit_warning" ]
     }, {
       "id" : "app.oauth2.invalid_client_credentials",
       "category" : "federation",
@@ -9182,27 +9223,27 @@
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.graph.api.error.rate-limit.exceeded" ]
     }, {
-      "id" : "app.office365.graph.api.error.service.principal.creation.failed.no.workaround",
+      "id" : "app.office365.graph.api.error.service.principal.creation.failed",
       "category" : "msft-apps",
-      "description" : "Failure while trying to create service principal and does not need a Powershell workaround.",
+      "description" : "Failure while trying to create service principal.",
       "info" : {
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
       "beta" : false,
       "tags" : [ "office365-app" ],
-      "mappings" : [ "app.office365.graph.api.error.service.principal.creation.failed.no.workaround" ]
+      "mappings" : [ "app.office365.graph.api.error.service.principal.creation.failed" ]
     }, {
-      "id" : "app.office365.graph.api.error.service.principal.creation.failed.workaround",
+      "id" : "app.office365.graph.api.error.service.principal.msgraph.authentication.failure",
       "category" : "msft-apps",
-      "description" : "Failure while trying to create service principal and needs a Powershell workaround.",
+      "description" : "Failure while trying to create service principal due to a Mircrosoft Graph authentication issue.",
       "info" : {
         "created" : "2017-01-23",
         "release" : "2017.01"
       },
       "beta" : false,
       "tags" : [ "office365-app" ],
-      "mappings" : [ "app.office365.graph.api.error.service.principal.creation.failed.workaround" ]
+      "mappings" : [ "app.office365.graph.api.error.service.principal.msgraph.authentication.failure" ]
     }, {
       "id" : "app.office365.license.conversion.jo.begin.migration.gaas.v1.to.v0",
       "category" : "msft-apps",
@@ -10631,7 +10672,7 @@
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "app" ],
+      "tags" : [ "app", "event-hook-eligible" ],
       "mappings" : [ "app.user_management.provision_user", "app.user_management.provision_user_failed" ]
     }, {
       "id" : "application.provision.user.verify_exists",
@@ -10887,6 +10928,17 @@
       "tags" : [ "cvd", "directory" ],
       "mappings" : [ "cvd.mappings_updated" ]
     }, {
+      "id" : "directory.non_default_user_profile.create",
+      "category" : "lca",
+      "description" : "Create non-default universal directory user profile. This can be used to audit that a new non-default universal directory user profile has been created. When fired, this event contains the name and id of the newly created user profile.",
+      "info" : {
+        "created" : "2019-04-15",
+        "release" : "2019.04.2"
+      },
+      "beta" : false,
+      "tags" : [ "cvd", "directory" ],
+      "mappings" : [ ]
+    }, {
       "id" : "directory.user_profile.bootstrap",
       "category" : "lca",
       "description" : "Bootstrap universal directory user profile.",
@@ -11037,7 +11089,7 @@
         "created" : "2019-02-25",
         "release" : "2019.03.0"
       },
-      "beta" : true,
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "core.group.admin_privilege.granted" ]
     }, {
@@ -11048,7 +11100,7 @@
         "created" : "2019-02-25",
         "release" : "2019.03.0"
       },
-      "beta" : true,
+      "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "core.group.admin_privilege.revoked" ]
     }, {
@@ -11885,7 +11937,7 @@
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "policy" ],
+      "tags" : [ "event-hook-eligible", "policy" ],
       "mappings" : [ "policy.rule.added" ]
     }, {
       "id" : "policy.rule.deactivate",
@@ -11896,7 +11948,7 @@
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "policy" ],
+      "tags" : [ "event-hook-eligible", "policy" ],
       "mappings" : [ "policy.rule.deactivated" ]
     }, {
       "id" : "policy.rule.delete",
@@ -11929,7 +11981,7 @@
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "policy" ],
+      "tags" : [ "event-hook-eligible", "policy" ],
       "mappings" : [ "policy.rule.updated" ]
     }, {
       "id" : "policy.scheduled.execute",
@@ -12077,13 +12129,13 @@
     }, {
       "id" : "security.threat.detected",
       "category" : "adaptive",
-      "description" : "Fired when an IP has been deemed malicious by Okta. This event fires only when an organization has configured their Okta ThreatInsight security settings to monitor auth attempts OR monitor auth attempts and block malicious IPs. This can be used to see details about the IPs Okta has deemed malicious, including the type of security threat (eg: Brute Force, Password Spray) and the resulting action. When fired, this event contains information about the type of security threat detected, the IP, and the result of the detection. The result of this event is determined by the security settings configured - if an organization has configured Okta to monitor authorization attempts, then the result will be 'ALLOW'; if an organization has configured Okta ThreatInsight security settings to monitor authorization attempts and block malicious IPs then the result will be 'DENY'. Related events include: In the case of 'monitor only' (versus monitor and block), when this event fires, the debug context for the related user.auth or user.session event will contain information about the detected threat.",
+      "description" : "Request from an IP identified as malicious by Okta ThreatInsight. This can be used to monitor and act on credential based attacks (such as Brute Force, Password Spray) on your organization. The reasons why the request was classified as malicious can be found in the outcome.reason field. The outcome.result field will be 'ALLOW' or 'DENY' based on whether Okta Threat Insight is configured in log mode or log and block mode, where 'ALLOW' means the request continued and 'DENY' means the request was blocked.",
       "info" : {
         "created" : "2019-02-11",
         "release" : "2019.02.2"
       },
       "beta" : false,
-      "tags" : [ "threat-insight" ],
+      "tags" : [ "security", "threat-insight" ],
       "mappings" : [ "security.threat.detected" ]
     }, {
       "id" : "security.voice.add_country_blacklist",
@@ -12093,7 +12145,7 @@
         "created" : "2019-02-22",
         "release" : "2019.03.3"
       },
-      "beta" : true,
+      "beta" : false,
       "tags" : [ "security", "voice" ],
       "mappings" : [ "security.voice.add_country_blacklist" ]
     }, {
@@ -12104,7 +12156,7 @@
         "created" : "2019-02-22",
         "release" : "2019.03.3"
       },
-      "beta" : true,
+      "beta" : false,
       "tags" : [ "security", "voice" ],
       "mappings" : [ "security.voice.remove_country_blacklist" ]
     }, {
@@ -12534,7 +12586,7 @@
         "release" : "2016.12"
       },
       "beta" : false,
-      "tags" : [ "token" ],
+      "tags" : [ "event-hook-eligible", "token" ],
       "mappings" : [ "api.token.create" ]
     }, {
       "id" : "system.api_token.enable",
@@ -12556,7 +12608,7 @@
         "release" : "2016.12"
       },
       "beta" : false,
-      "tags" : [ "token" ],
+      "tags" : [ "event-hook-eligible", "token" ],
       "mappings" : [ "api.token.revoke" ]
     }, {
       "id" : "system.billing.sms_usage_sent",
@@ -12636,6 +12688,17 @@
       "tags" : [ "email" ],
       "mappings" : [ "core.user.email.message_sent.self_service.password_reset" ]
     }, {
+      "id" : "system.feature.disable",
+      "category" : "aelm",
+      "description" : "Fired when self service features are requested to be disabled by admins. This can be used to understand who disabled the features and whether there are any limitations concerning the features. When fired, this event contains information about the requested features, they're names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.enable'.",
+      "info" : {
+        "created" : "2019-04-30",
+        "release" : "2019.05.0"
+      },
+      "beta" : true,
+      "tags" : [ "admin", "self-service-feature-management", "system" ],
+      "mappings" : [ "core.feature.disable" ]
+    }, {
       "id" : "system.feature.ea_auto_enroll",
       "category" : "aelm",
       "description" : "Fired when an org has subscribed to or unsubscribed from EA Feature Auto Enroll. This can be used to understand the status of EA Feature Auto Enroll subscription and identify who has made changes to the subscription. When fired, this event contains information about the status of EA Feature Auto enroll subscription, as well as the admin who made any subscription changes.",
@@ -12646,6 +12709,17 @@
       "beta" : false,
       "tags" : [ "admin", "self-service-feature-management", "system" ],
       "mappings" : [ "core.feature.auto_enroll" ]
+    }, {
+      "id" : "system.feature.enable",
+      "category" : "aelm",
+      "description" : "Fired when self service features are requested to be enabled by admins. This can be used to understand who enabled the features and whether there are any limitations concerning the features. When fired, this event contains information about the requested features, they're names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.disable.",
+      "info" : {
+        "created" : "2019-04-30",
+        "release" : "2019.05.0"
+      },
+      "beta" : true,
+      "tags" : [ "admin", "self-service-feature-management", "system" ],
+      "mappings" : [ "core.feature.enable" ]
     }, {
       "id" : "system.idp.select",
       "category" : "idx",
@@ -12677,7 +12751,7 @@
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "import", "system" ],
+      "tags" : [ "event-hook-eligible", "import", "system" ],
       "mappings" : [ "app.generic.import.complete" ]
     }, {
       "id" : "system.import.complete_batch",
@@ -12886,7 +12960,7 @@
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "import", "system" ],
+      "tags" : [ "event-hook-eligible", "import", "system" ],
       "mappings" : [ "app.generic.import.started" ]
     }, {
       "id" : "system.import.user.complete",
@@ -13249,7 +13323,7 @@
         "release" : "2016.12"
       },
       "beta" : false,
-      "tags" : [ "sms", "system" ],
+      "tags" : [ "event-hook-eligible", "sms", "system" ],
       "mappings" : [ "core.user.sms.message_sent.verify" ]
     }, {
       "id" : "system.voice.send_account_unlock_call",
@@ -13304,7 +13378,7 @@
         "release" : "2017.44"
       },
       "beta" : false,
-      "tags" : [ "voice" ],
+      "tags" : [ "event-hook-eligible", "voice" ],
       "mappings" : [ "core.user.call_to_send_otp.message_sent.verify" ]
     }, {
       "id" : "task.lifecycle.activate",
@@ -13383,6 +13457,17 @@
       "beta" : false,
       "tags" : [ "account", "user" ],
       "mappings" : [ "core.user_auth.account_locked" ]
+    }, {
+      "id" : "user.account.lock.limit",
+      "category" : "cred-platform",
+      "description" : "This event is fired when a user account has reached the lockout limit. The account will not auto-unlock and a user or client cannot gain access to the account. This event indicates an account that will not be able to log in until remedial action is taken by the account admin. This event can be used to understand the specifics of an account lockout. Often this indicates a client application that is repeatedly attempting to authenticate with invalid credentials such as an old password.",
+      "info" : {
+        "created" : "2019-04-18",
+        "release" : "2019.05.0"
+      },
+      "beta" : false,
+      "tags" : [ "account", "user" ],
+      "mappings" : [ "user.account.lock.limit" ]
     }, {
       "id" : "user.account.privilege.grant",
       "category" : "aelm",
@@ -13656,7 +13741,7 @@
         "release" : "2017.44"
       },
       "beta" : false,
-      "tags" : [ "device-trust-authentication", "user" ],
+      "tags" : [ "device-trust-authentication", "event-hook-eligible", "user" ],
       "mappings" : [ "core.user_auth.authentication.auth_via_3rd_party_failure", "core.user_auth.authentication.auth_via_3rd_party_success", "core.user_auth.authentication.auth_via_okta_mobile_failure", "core.user_auth.authentication.auth_via_okta_mobile_success", "core.user_auth.authentication.auth_via_omm_failure", "core.user_auth.authentication.auth_via_omm_success", "core.user_auth.authentication.auth_via_saml_idp_failure", "core.user_auth.authentication.auth_via_saml_idp_success", "core.user_auth.authentication.authenticate" ]
     }, {
       "id" : "user.authentication.slo",
@@ -13700,7 +13785,7 @@
         "release" : "2017.45"
       },
       "beta" : false,
-      "tags" : [ "device-trust-cert-distribution-and-binding", "user" ],
+      "tags" : [ "device-trust-cert-distribution-and-binding", "event-hook-eligible", "user" ],
       "mappings" : [ "core.user_auth.credential.enroll" ]
     }, {
       "id" : "user.lifecycle.activate",
@@ -13920,7 +14005,7 @@
         "release" : "2016.02"
       },
       "beta" : false,
-      "tags" : [ "session", "user" ],
+      "tags" : [ "event-hook-eligible", "session", "user" ],
       "mappings" : [ "core.user_auth.logout_success" ]
     }, {
       "id" : "user.session.expire",

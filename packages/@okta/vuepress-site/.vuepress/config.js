@@ -83,7 +83,8 @@ module.exports = {
       { text: 'Docs', link: '/documentation/',
         children: [
           { text: 'Get Started', link: '/documentation/' },
-          { text: 'API Reference', link: '/reference/' },
+          { text: 'Guides', link: '/guides/' },
+          { text: 'Reference', link: '/reference/' }
         ]
       },
       { text: 'Support', link: '',
@@ -114,7 +115,7 @@ module.exports = {
         menu: [
           { text: 'Integrate With Okta', link: 'https://developer.okta.com/integrate-with-okta/' },
           { text: 'Blog', link: 'https://developer.okta.com/blog/' },
-          { text: 'Changelog', link: 'https://developer.okta.com/docs/change-log/' },
+          { text: 'Release Notes', link: 'https://developer.okta.com/docs/release-notes/' },
           { text: '3rd Party Notices', link: 'https://developer.okta.com/3rd_party_notices/' },
         ]
       },

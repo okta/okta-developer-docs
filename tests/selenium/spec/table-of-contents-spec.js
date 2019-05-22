@@ -57,4 +57,18 @@ describe('table of contents navigation spec', () => {
       'Sub Section 2'
     ]);
   }));
+
+  it('clicking hash link scrolls to location', util.itHelper(async () => {
+    await tocPage.getLastSectionHeading().getWebElement().then(elem => {
+      util.isInViewport(elem).then(inViewport => {
+        expect(inViewport, 'Last Section Heading to NOT be in viewport').to.be.false;
+      });
+    });
+    await tocPage.clickLastSectionLink();
+    await tocPage.getLastSectionHeading().getWebElement().then(elem => {
+      util.isInViewport(elem).then(inViewport => {
+        expect(inViewport, 'Last Section Heading to be in viewport').to.be.true;
+      });
+    });
+  }));
 });

@@ -1,0 +1,1 @@
+We have samples available in our [ASP.NET Core Sample repo](https://github.com/okta/samples-aspnetcore) on GitHub.

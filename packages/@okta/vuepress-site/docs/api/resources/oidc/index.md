@@ -2,12 +2,6 @@
 title: OpenID Connect & OAuth 2.0 API
 category: authentication
 excerpt: Control user access to your applications.
-redirect_from:
-  - /docs/api/resources/oauth2
-  - /docs/how-to/beta-auth-service/api-access-management-troubleshooting
-  - /standards/OIDC/
-  - /standards/OAuth/
-  - /reference/authentication_reference
 ---
 
 # OpenID Connect & OAuth 2.0 API
@@ -34,12 +28,12 @@ This page contains detailed information about the OAuth 2.0 and OpenID Connect e
 All of the endpoints on this page start with an authorization server, however the URL for that server varies depending on the endpoint and the type of authorization server. You have two types of authorization servers to choose from depending on your use case:
 
 #### 1. Single Sign-On to Okta
-This is for the use case where your users are all part of your Okta organization, and you would just like to offer them single sign-on with an ID token. In this case Okta is your authorization server, which we refer to as the "Okta Org Authorization Server" and your full URL looks like this:
+This is for the use case where your users are all part of your Okta organization, and you would just like to offer them single sign-on (i.e. you want your employees to sign in to an application with their Okta accounts). In OAuth 2.0 terminology, Okta is both the authorization server and the resource server. When Okta is serving as the authorization server for itself, we refer to this as the "Okta Org Authorization Server" and your full URL looks like this:
 
 `https://{yourOktaDomain}/oauth2/v1/authorize`
 
 #### 2. Okta as the Identity Platform for Your App or API
-This is for use cases where Okta is the identity and authorization platform for your application or API, so your users are logging in to something other than Okta. In this case you are using a custom authorization server inside Okta, and your full URL looks like this:
+This is for use cases where Okta is the authorization server for your resource server, for example an application or API that you have created (i.e. you want Okta to act as the user store for your application, but Okta is invisible to your users). This kind of authorization server we call a "Custom Authorization Server", and your full URL looks like this:
 
 `https://{yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 
@@ -230,7 +224,7 @@ This endpoint returns access tokens, ID tokens, and refresh tokens, depending on
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/token` endpoint requires token authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/token` endpoint requires client authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                                                                                                                                                                                                                                                        | Type   |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
@@ -322,7 +316,7 @@ If the token is active, additional data about the token is also returned. If the
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/introspect` endpoint requires token authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/introspect` endpoint requires client authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                                    | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------------------- | :-----        |
@@ -414,7 +408,7 @@ The API takes an access or refresh token and revokes it. Revoked tokens are cons
 #### Request Parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/revoke` endpoint requires token authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> Note: The `/revoke` endpoint requires client authentication. See the [Client Authentication Methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                       | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------ | :-----        |
@@ -516,6 +510,8 @@ These keys can be used to locally validate JWTs returned by Okta. Standard open-
 | :---------- | :---------------------------- | :----------- | :--------- | :--------- | :------ |
 | client_id   | Your app's client ID.         | Query        | String     | FALSE      | null    |
 
+>Note that the request parameter `client_id` is only applicable for the Okta Org Authorization Server. See [Composing Your Base URL](/docs/api/resources/oidc/#composing-your-base-url) for more information regarding Okta Org Authorization Server.
+
 #### Response Properties
 JWKS properties can be found [here](/docs/api/resources/authorization-servers#key-properties).
 
@@ -568,7 +564,7 @@ Content-Type: application/json;charset=UTF-8
 #### Key Rotation
 The keys that are used to sign tokens are periodically changed. Okta automatically rotates your authorization server's keys on a regular basis.
 
-Clients can opt-out of automatic key rotation by changing the client sign-in mode. In this case, passing the `client_id` with your request retrieves the keys for that specific client.
+Clients can opt-out of automatic key rotation by changing the client sign-in mode for the Okta Org Authorization Server. In this case, passing the `client_id` with your request retrieves the keys for that specific client.
 
 Key rotation behaves differently with Custom Authorization Servers. For more information about key rotation with Custom Authorization Servers, see the [Authorization Servers API page](/docs/api/resources/authorization-servers#rotate-authorization-server-keys).
 
@@ -580,9 +576,9 @@ You can use an [introspection request](#introspect) for validation.
 
 > This endpoint's base URL varies depending on whether you are using a custom authorization server. For more information, see [Composing Your Base URL](#composing-your-base-url).
 
-Returns any claims for the currently signed-in user.
+Returns information about the currently signed-in user.
 
-You must include an access token (returned from the [authorization endpoint](#authorize) in the HTTP Authorization header.
+You must include an access token (returned from the [authorization endpoint](#authorize)) in the HTTP Authorization header.
 
 #### Request Example
 ```bash
@@ -1201,24 +1197,25 @@ For more information about configuring an app for OpenID Connect, including grou
 Refresh tokens are opaque. More information about using them can be found in the [Authentication Guide](/authentication-guide/tokens/refreshing-tokens).
 
 ## Client Authentication Methods
-When registering an OAuth 2 client application, you can specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter. To decide which method to use, it depends on what type of client app you are registering and what that client app is able to provide. For example, you might be using a client that was built by a third party, and it might only support Basic Authentication. So, you would need to use the `client_secret_basic` client authentication method.
 
-> Native applications shouldn't provide -- and by default don't store -- the `client_secret` (see [Section 5.3.1 of the OAuth 2.0 spec](https://tools.ietf.org/html/rfc6819#section-5.3.1)). They can omit the `client_secret` from the request parameters when introspecting a token.
+Some endpoints require client authentication. To make requests to these endpoints, you must include a header or parameter in the request depending on the authentication method that the application is configured with.
 
-Okta supports the following authentication methods:
-
-> Note: You can use only one of these methods in a single request or an error occurs.
-
-* `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these methods to authenticate against any endpoint that requires client authentication, when the client has access to the `client_secret`.
-
-* `private_key_jwt`: Use this method when you want to use public/private key pairs for more security. The main benefit of this method is you can generate the private key on your own servers and never have it leave there for any reason, since you only need to provide the public key to Okta. This is better than `client_secret_jwt` since Okta must know what the `client_secret` string is beforehand, so there are more places that it could in theory be compromised. 
-
-* `none` - Use this method when the client doesn't authenticate itself to the `/token` endpoint because it uses the [Implicit Flow](/authentication-guide/implementing-authentication/implicit/) or because it is a public client with no client secret or other authentication mechanism.
+When registering an OAuth 2.0 client application, specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter.
 
 > Note: If you don't specify a method when registering your client, the default method is `client_secret_basic`.
 
+> To create a client application and specify the authentication method, see the [Add OAuth 2.0 Client Application](/docs/api/resources/apps/#add-oauth-2-0-client-application) API Reference section. To change the client authentication method of an existing app, see the [Update the Client Authentication Method](/docs/api/resources/apps/#update-the-client-authentication-method) API Reference section.
+
+Okta supports the following authentication methods, detailed in the sections below:
+
+* `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these methods when the client has a client secret. Public clients (such as single-page and mobile apps) that can't protect a client secret must use `none` below.
+
+* `private_key_jwt`: Use this when you want maximum security. This method is more complex and requires a server, so it can't be used with public clients.
+
+* `none` - Use this with clients that don't have a client secret (such as applications that use the [authorization code flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce/) or the [implicit flow](/authentication-guide/implementing-authentication/implicit/)).
+
 ### Client Secret
-If you configured your client to use a `client_secret` [client authentication method](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication), provide the `client_id` and `client_secret` using one of these methods: 
+If your client's `token_endpoint_auth_method` is either `client_secret_basic` or `client_secret_post`, include the client secret in outgoing requests.
 
 * `client_secret_basic`: Provide the `client_id` and `client_secret` values in the Authorization header as a Basic auth base64-encoded string with the POST request:
   ```bash
@@ -1245,6 +1242,8 @@ Provide the `client_id` in a JWT that you sign with the `client_secret` using an
     client_assertion=PHNhbWxwOl ... ZT
   ```
 ### JWT With Private Key
+This method is similar to JWT with Shared Key, but uses a public/private key pair for more security. The main benefit of this method is you can generate the private key on your own servers and never have it leave there for any reason, since you only need to provide the public key to Okta. This is better than `client_secret_jwt` since Okta must know what the `client_secret` string is beforehand, so there are more places that it could in theory be compromised. 
+
 If you configured your client to use the `private_key_jwt` client authentication method:
 
 Provide the `client_id` in a JWT that you sign with your private key using an RSA or ECDSA algorithm (RS256, RS384, RS512, ES256, ES384, ES512). The JWT must also contain other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt).

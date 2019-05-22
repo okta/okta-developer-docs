@@ -2,8 +2,6 @@
 title: Add Identity Management to Your iOS App
 language: iOS
 integration: mobile
-redirect_from:
-  - /code/swift/
 component: Code
 ---
 

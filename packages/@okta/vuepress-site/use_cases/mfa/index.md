@@ -1,12 +1,12 @@
 ---
 title: Multi-Factor Authentication
-excerpt: >-
-  Using Okta's Multi-Factor Authentication API to add MFA to an existing
-  application.
 redirect_from: /docs/guides/add_mfa.html
+meta:
+  - name: description
+    content: Learn how to add multi-factor authentication to your apps and how to deploy our built-in factors, or integrate with existing tokens. 
 ---
 
-# Introduction
+# Multi-factor authentication introduction
 
 Application developers and organizations are increasingly
 implementing multi-factor authentication to add an extra layer of
@@ -221,8 +221,6 @@ At this point, you should understand how to use the Okta API to add
 MFA to an existing application. You can learn more about using the
 Okta MFA API with the following resources.
 
--   The video in this guide.
-    These instructions only cover part of what is covered in the video.
--   The [design principles for the Okta API](/docs/getting_started/design_principles).
--   The API documentation for the [Okta Factors API](/docs/api/resources/factors).
--   The API documentation for the [Okta Authentication API](/docs/api/resources/authn).
+-   The [design principles for the Okta API](/docs/api/getting_started/design_principles/).
+-   The API documentation for the [Okta Factors API](/docs/api/resources/factors/).
+-   The API documentation for the [Okta Authentication API](/docs/api/resources/authn/).

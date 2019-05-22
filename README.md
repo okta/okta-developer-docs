@@ -13,7 +13,7 @@ The [Okta developer site][doc] serves Okta's API documentation and guides, inclu
 
 If you have questions or need help with Okta's APIs or SDKs, visit the **[Developer Forum][devforum]**. You can also email developers@okta.com to create a support ticket.
 
-## Contributing
+## Getting Started
 Okta's developer documentation (this repo) is built using the [VuePress][vuepress] site generator.
 There are currently 2 parts to the site, the content and the theming/plugins.
 
@@ -139,27 +139,37 @@ The framework names in the directories should be lowercased and without special 
 * react
 * vue
 * go
+* node
 * java
 * php
 * python
 * spring
 * dotnet
-* netcore
-* osx
+* dotnetcore
+* aspnet
+* aspnetcore
 
 ### Linking between sections and guides
 
 **Always** have a trailing slash at the end of your guides link.  (Example: `/guides/NAME-OF-GUIDE/-/NAME-OF-SECTION/`)
 
-When linking between sections in the same guide, simply use a relative link to the appropriate section name, which will be one directory back. (Example: `../OTHER-SECTION/`)  This will preserve whatever framework the user currently has selected.
+Links and Guides have some complications because of the "magic" nature of the selected framework.  For links within or between guides, follow these examples:
 
-When linking between different guides, use `-` in place of the framework name - this will default the framework to the first option in the StackSelector for that guide.  Example: `/guides/NAME-OF-GUIDE/-/NAME-OF-SECTION/`
-
-To link to another guide you can, but do not need to, link to a specific section.  If you link to just the guide, it will redirect the user to the first section using the default (first) framework option in the StackSelector.
-
-Within the content of a guide the `<NextSectionLink>` component is available to link to different sections:
-
-* `<NextSectionLink/>` - Provides a "button" link to the next section
-* `<NextSectionLink>Some Example Text</NextSectionLink>` - Provides the "button" with different text
-* `<NextSectionLink name="next-steps"/>` - Provides the "button" to link to the named section of the guide (doesn't have to be the "next" section)
+- Linking to a different section of the same guide: 
+  - Use `<GuideLink>` and always go "up" one directory
+  - `<GuideLink link="../NAME-OF-SECTION">Text to show</GuideLink>`
+  - This will maintain the selected framework
+- Linking to a different guide: 
+  - Normal markdown links work
+  - `[Text to Show](/guides/NAME-OF-GUIDE/)`
+  - This will select the first framework and first section and update the url to match.
+- Linking to a specific section of a different guide:
+  - Normal markdown links work
+  - use `-` in place of a framework if you aren't linking to a specific framework
+  - `[Text to Show](/guides/NAME-OF-GUIDE/-/NAME-OF-SECTION/)`
+  - This will select the first framework and update the url to match
+- Linking to another section as part of the guide navigation
+  - `<NextSectionLink/>` - Provides a "button" link to the next section
+  - `<NextSectionLink>Some Example Text</NextSectionLink>` - Provides the "button" with different text
+  - `<NextSectionLink name="next-steps"/>` - Provides the "button" to link to the named section of the guide (doesn't have to be the "next" section)
 

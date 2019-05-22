@@ -466,7 +466,7 @@ curl -v -X DELETE \
 
 Executes the Inline Hook matching the provided `inlineHookId` using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. Otherwise it will throw an error. You therefore need to construct a JSON payload that matches the payloads that Okta would send to your external service for this inline hook type.
 
-A timeout of 3 seconds is enforcd on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
+A timeout of 3 seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
 
 Note that this execution endpoint is not tied to any other functionality in Okta and should only be used for testing purposes.
 
@@ -730,9 +730,10 @@ To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, a
 
 When registering an inline hook, you need to specify what type it is. The following types are currently supported:
 
-| Type Value                         | Name                                                                      |
-|------------------------------------|---------------------------------------------------------------------------|
-| `com.okta.oauth2.tokens.transform` | [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)        |
-| `com.okta.import.transform`        | [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook)     |
-| `com.okta.saml.tokens.transform`   | [SAML Assertion Inline Hook](/use_cases/inline_hooks/saml_hook/saml_hook) |
+| Type Value                         | Name                                                                                    |
+|------------------------------------|-----------------------------------------------------------------------------------------|
+| `com.okta.oauth2.tokens.transform` | [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)                      |
+| `com.okta.import.transform`        | [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook)                   |
+| `com.okta.saml.tokens.transform`   | [SAML Assertion Inline Hook](/use_cases/inline_hooks/saml_hook/saml_hook)               |
+| `com.okta.user.pre-registration`   | [Registration Inline Hook](/use_cases/inline_hooks/registration_hook/registration_hook) |
 

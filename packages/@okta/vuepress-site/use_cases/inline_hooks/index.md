@@ -1,6 +1,8 @@
 ---
 title: Inline Hooks
-excerpt: Integrate custom functionality into Okta process flows.
+meta:
+  - name: description
+    content: Inline hooks are outbound calls from Okta to your own custom code. Find out more about the types of Okta inline hooks, the process flow, and how to set them up.
 ---
 
 # Inline Hooks
@@ -23,11 +25,12 @@ Okta defines several different types of inline hooks. Each type of inline hook m
 
 ### Currently-Supported Types
 
-| Name                                                                                 | Description                                               |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------          |
-| [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)                   | Customizes tokens returned by Okta API Access Management. |
-| [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook)                | Adds custom logic to the user import process.             |
-| [SAML Assertion Inline Hook](/use_cases/inline_hooks/saml_hook/saml_hook)            | Customizes SAML assertions returned by Okta.              |
+| Name                                                                                    | Description                                                                     |
+|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)                      | Customizes tokens returned by Okta API Access Management.                       |
+| [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook)                   | Adds custom logic to the user import process.                                   |
+| [SAML Assertion Inline Hook](/use_cases/inline_hooks/saml_hook/saml_hook)               | Customizes SAML assertions returned by Okta.                                    |
+| [Registration Inline Hook](/use_cases/inline_hooks/registration_hook/registration_hook) | Customizes handling of user registration requests in Self-Service Registration. |
 
 ## Inline Hook Process Flow
 
@@ -121,7 +124,26 @@ The names of commands follow Java-style reverse DNS name format, beginning with 
 
 Lets you return error messages. How the error data is used varies by inline hook type.
 
-Within an `error` object, you need to provide an `errorSummary` property set to a text string. Additionally, you can use an `errorCauses` object to supply more information. A single error object can contain multiple `errorCauses` objects. The fields within errorCauses are: `errorSummary`, `reason`, `locationType`, `location`, and `domain`.
+The `error` object should have the following structure:
+
+| Property     | Description                             | Data Type            |
+|--------------|-----------------------------------------|----------------------|
+| errorSummary | Human-readable summary of the error(s). | String               |
+| errorCauses  | An array of ErrorCause objects.         | Array of ErrorCauses |
+
+The `errorSummary` should be a general statement of any problem the external service encountered in handling the request from Okta. The `errorCauses` are intended to provide more detailed information and are particularly helpful if there were multiple problems.
+
+An `ErrorCause` object must include the following fields:
+
+| Property     | Description                                                                                                                                                                                        | Data Type |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| errorSummary | Human-readable summary of the error.                                                                                                                                                               | String    |
+| reason       | A brief, enum-like string indicating the nature of the error, e.g., `UNIQUE_CONSTRAINT` for a property uniqueness violation.                                                                       | String    |
+| locationType | Where in the request the error was found (`body`, `header`, `url`, or `query`).                                                                                                                    | String    |
+| location     | The valid JSON path to the location of the error. For example, if there was an error in the user's `login` field, the `location` might be `data.userProfile.login`.                                | String    |
+| domain       | Indicates the source of the error. If the error was in the user's profile, for example, you might use `end-user`. If the error occurred in the external service, you might use `external-service`. | String    |
+
+While there are no technical restrictions on the values for any of the fields in an `ErrorCause` object, using them as described in the table above allows you to provide rich error information that can be very useful in determining why an inline hook's processing failed.
 
 ## Inline Hook Setup
 
@@ -129,7 +151,7 @@ After creating your external service, you need to tell Okta it exists, and enabl
 
 1. Create an external service.
 
-1. Register your service's endpoint with Okta by making a `POST` request to `/api/v1/inlineHooks`. See [Inline Hooks Management API](/docs/api/resources/inline-hooks).
+1. Register your service's endpoint with Okta. You can do this in Admin Console by going to **Workflow > Inline Hooks** and clicking **Add Inline Hook**. Alternatively, you can do this using a REST API call by making a `POST` request to `/api/v1/inlineHooks`; see [Inline Hooks Management API](/docs/api/resources/inline-hooks) for information.
 
 1. Associate the endpoint with a particular Okta process flow. How to do this varies by inline hook type.
 

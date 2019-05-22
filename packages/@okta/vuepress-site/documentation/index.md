@@ -69,7 +69,7 @@ sections:
        - title: Add User Consent to Your Authentication Flow
          link: /docs/how-to/add-user-consent-to-flow/
        - title: Create a Token that Contains a Group Claim
-         link: /docs/how-to-creating-token-with-groups-claim/
+         link: /docs/how-to/creating-token-with-groups-claim/
 
    - title: Reference
      link: /reference/
@@ -84,7 +84,7 @@ sections:
        - title: More
          link:  /reference/
 
-changelog_title: API Products Change Log
+changelog_title: API Products Release Notes
 
 band_links:
   - title: We're Here to Help

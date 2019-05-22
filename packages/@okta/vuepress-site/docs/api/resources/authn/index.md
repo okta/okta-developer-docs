@@ -2,10 +2,6 @@
 title: Authentication
 category: authentication
 excerpt: Control user access to Okta.
-redirect_from:
-  - /docs/api/rest/authn.html
-  - /docs/api/resources/index.html
-  - /docs/api/resources/
 ---
 
 # Authentication API
@@ -869,16 +865,18 @@ Content-Type: application/json
 
 #### Primary Authentication with Device Fingerprinting
 
-Authenticates a user via a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/api/getting_started/design_principles#client-request-context).
+Include the `X-Device-Fingerprint` header to supply a device fingerprint. The device fingerprint is used in the following ways
+* If the new or unknown-device email notification is enabled, an email is sent to the user if the device fingerprint sent in the header is not associated with previous successful logins. 
+For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?)
+* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent 
+in the header is not associated with previous successful logins. For more information about this feature, see [EA documentation](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm?)
 
-Include the `X-Device-Fingerprint` header to supply a device fingerprint.
+Specifying your own device fingerprint is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid API token.
+You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
 Note:
-
-* Specifying your own `deviceToken` or device fingerprint is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/api/getting_started/design_principles#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
-* To use device fingerprinting for the unknown-device email notification feature, include the `User-Agent` header in the request. For more information, see the [General Security documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_General).
-* For more information about security behavior detection, see the [EA documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_proc_security_behavior_detection).
+* Device fingerprint is different from the device token. The time and device based MFA in Okta SignOn policy rules depends on the device token only and not on the device fingerprint. To read more about the device token, see [Context Object](#context-object). The time and device based MFA would work only if you send the device token passed in the [client request context](/docs/api/getting_started/design_principles#client-request-context)
+* To use device fingerprinting for the new or unknown-device email notification feature, include the `User-Agent` header in the request. For more information, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?)
 
 ##### Request Example for Device Fingerprinting
 
@@ -895,10 +893,7 @@ curl -v -X POST \
 -d '{
   "username": "${username}",
   "password" : "${password}",
-  "relayState": "http://example.com",
-  "context": {
-    "deviceToken": "${device_token}"
-  }
+  "relayState": "http://example.com"
 }' "https://{yourOktaDomain}/api/v1/authn"
 ```
 

@@ -33,6 +33,11 @@ $big-spacing: 3rem;
   display: flex;
 }
 
+.guide-content { 
+  width: 100%;
+  max-width: 890px;
+}
+
 .guide-featured {
   transition: box-shadow 200ms linear;
   border: 0;
@@ -187,12 +192,10 @@ $big-spacing: 3rem;
 
   /* reduce icons to 24px */
   .icon[class*='-32'] {
-    &:before {
-      font-size: 24px;
-    }
-
+    &:before,
     &:after {
       font-size: 24px;
+      line-height: 24px;
     }
   }
 

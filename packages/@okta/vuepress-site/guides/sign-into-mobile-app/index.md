@@ -8,6 +8,7 @@ sections:
  - configure-packages
  - configure-the-callback
  - sign-in-page
+ - sign-out-page
  - get-user-info
  - check-for-tokens
  - use-access-token

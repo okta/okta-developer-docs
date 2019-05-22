@@ -1,6 +1,8 @@
 ---
 title: Event Hooks
-excerpt: Use Okta events to drive custom process flows.
+meta:
+  - name: description
+    content: Event hooks are outbound calls from Okta, sent when specified events occur in your org. Get information on eligible hooks and setting up event hooks in this guide.
 ---
 
 # Event Hooks
@@ -13,17 +15,27 @@ Event hooks are outbound calls from Okta, sent when specified events occur in yo
 
 To handle event hook calls from Okta, you need to implement a web service with an Internet-accessible endpoint. It's your responsibility to develop the code and to arrange its hosting on a system external to Okta. Okta defines the REST API contract for the requests that it will send.
 
-Event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/). Event hooks are meant to provide information about events that occurred, not offer a way to affect the underlying Okta process flow. For that, you need to use inline hooks. Also, unlike inline hooks, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
+Event hooks are Okta's implementation of the industry concept of webhooks. Okta's event hooks are related to, but different from, Okta [inline hooks](/use_cases/inline_hooks/): event hooks are meant to deliver information about events that occurred, not offer a way to affect execution of the underlying Okta process flow. Also, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
 
-You can have a maximum of 10 active and verified event hooks in your org at any point. Each event hook can be configured to deliver multiple event types.
+Before the introduction of event hooks, polling the [System Log API](/docs/api/resources/system_log/) was the only method your external software systems could use to detect the occurrence of specific events in your Okta org; event hooks provide an Okta-initiated push notification.
+
+You can have a maximum of 10 active and verified event hooks set up in your org at any time, and each event hook can be configured to deliver multiple event types.
 
 ## Which Events are Eligible?
 
-During the initial configuration procedure for an event hook, you specify which event types you want the event hook to deliver. The event types that can be specified are a subset of the event types that the Okta System Log captures. To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
+During the initial configuration procedure for an event hook, you specify which event types you want the event hook to deliver. The event types that can be specified are a subset of the event types that the Okta System Log captures.
+
+To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
 
 [https://developer.okta.com/docs/api/resources/event-types/?q=event-hook-eligible](/docs/api/resources/event-types/?q=event-hook-eligible)
 
+For general information on how Okta encapsulates events, see the [System Log API](/docs/api/resources/system_log/) documentation.
+
+Examples of available types of events include user lifecycle changes, the completion by a user of a specific stage in an Okta process flow, and changes in Okta objects. You could configure an event hook, for example, to deliver notifications of user deactivation events. You could use this to trigger processes that you need to execute internally every time a user is deactivated, like updating a record in an HR system, creating a ticket in a support system, or generating an email message.  
+
 ## Requests Sent by Okta
+
+When events occur in your org that match an event type that you configured your event hook to deliver, the event hook is automatically triggered and sends a request to your external service. The JSON payload of the request provides information on the event. A sample JSON payload is provided in [Sample Event Delivery Payload](#sample-event-delivery-payload) below.
 
 The requests sent from Okta to your external service are HTTPS requests. POST requests are used for the ongoing delivery of events, and a one-time GET request is used for verifying your endpoint.
 
@@ -43,7 +55,7 @@ Information is encapsulated in the JSON payload in the `data.events` object. The
 
 The content of each array element is an object of the [LogEvent](/docs/api/resources/system_log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/api/resources/system_log/) defines for System Log events. See the documentation there for information on the object and its sub-objects.
 
-Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event.
+Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `data.events.uuid` value of incoming events against the values for events previously received.
 
 No guarantee of maximum delay between event occurrence and delivery is currently specified.
 
@@ -69,7 +81,11 @@ To secure the communication channel between Okta and your external service, HTTP
 
 ### Your Service's Responses to Event Delivery Requests
 
-Your external service's responses to Okta's ongoing event delivery POST requests should all be empty, and should have an HTTP status code of 200 (OK) or 204 (No Content). As a best practice, you should return the HTTP response immediately, rather than waiting for any of your own internal process flows triggered by the event to complete.
+Your external service's responses to Okta's ongoing event delivery POST requests should all be empty, and should have an HTTP status code of 200 (OK) or 204 (No Content).
+
+As a best practice, you should return the HTTP response immediately, rather than waiting for any of your own internal process flows triggered by the event to complete.
+
+> Note: If your service does not return the HTTP response within the timeout limit, Okta will consider the delivery to have failed.
 
 ### Rate Limits
 
