@@ -10,3 +10,5 @@ You need to configure your Custom Authorization Servers to return the custom dom
 3. From the **Issuer** drop-down list box, select the custom URL and click **Save**.
 
 > After you customize your Okta domain URL, all new Custom Authorization Servers use the custom url domain by default. All existing Custom Authorization Servers continue to use the Org URL until you change it using either the Developer Console or the API.
+
+<NextSectionLink/>
