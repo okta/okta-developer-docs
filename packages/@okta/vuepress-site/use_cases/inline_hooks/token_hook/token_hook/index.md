@@ -9,9 +9,9 @@ excerpt: Customize tokens returned by the Okta API Access Management process flo
 
 This page provides reference documentation for:
 
-- JSON objects contained in the outbound request from Okta to your external service
+- JSON objects that are contained in the outbound request from Okta to your external service
 
-- JSON objects you can include in your response
+- JSON objects that you can include in your response
 
 This information is specific to the Token Inline Hook, one type of inline hook supported by Okta.
 
@@ -25,21 +25,21 @@ For steps to enable this inline hook, see below, [Enabling a Token Inline Hook](
 
 ## About
 
-This type of inline hook is triggered when OAuth 2.0 and OpenID Connect tokens are minted by your Okta Custom Authorization Server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token.
+This type of inline hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) tokens are minted by your Okta Custom Authorization Server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token.
 
 This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
-This inline hook works only when using an Okta Custom Authorization Server, not the built-in Okta Authorization Server.
+In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC profile claim. You can also update how long an access token or an ID token is valid.
 
-You cannot use this inline hook to overwrite claims in tokens, only to add new ones.
+This inline hook works only when using an Okta Custom Authorization Server, not the built-in Okta Authorization Server.
 
 ## Objects in the Request from Okta
 
-For the Token Inline Hook, the outbound call from Okta to your external service will include the following objects in its JSON payload:
+For the Token Inline Hook, the outbound call from Okta to your external service includes the following objects in its JSON payload:
 
 ### data.identity
 
-Provides information on the properties of the ID token that Okta has generated, including the existing claims it contains.
+Provides information on the properties of the ID token that Okta has generated, including the existing claims that it contains.
 
 | Property | Description                   | Data Type                    |
 |----------|-------------------------------|------------------------------|
@@ -48,7 +48,7 @@ Provides information on the properties of the ID token that Okta has generated, 
 
 ### data.access
 
-Provides information on the properties of the access token that Okta has generated, including the existing claims it contains.
+Provides information on the properties of the access token that Okta has generated, including the existing claims that it contains.
 
 | Property | Description                        | Data Type                    |
 |----------|------------------------------------|------------------------------|
@@ -60,6 +60,10 @@ Provides information on the properties of the access token that Okta has generat
 
 Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc/#tokens-and-claims).
 
+For the list of Access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). Note that although the `aud` claim is listed as a reserved claim, you can modify that claim in a response.
+
+See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
+
 #### lifetime
 
 | Property   | Description                              | Data Type |
@@ -70,7 +74,7 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 
 The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc/#tokens-and-claims).
 
-## Objects in Response You Send
+## Objects in the Response that You Send
 
 For the Token Inline hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
 
@@ -78,9 +82,9 @@ For the Token Inline hook, the `commands` and `error` objects that you can retur
 
 The `commands` object is where you can provide commands to Okta. It is where you can tell Okta to add additional claims to the token.
 
-The `commands` object is an array, allowing you to send multiple commands. In each array element, there needs to be a `type` property and `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply an operand for that command.
+The `commands` object is an array, allowing you to send multiple commands. In each array element, there needs to be a `type` property and `value` property. The `type` property is where you specify which of the supported commands you want to execute, and `value` is where you supply an operand for that command.
 
-In the case of the Token hook type, the `value` property is itself a nested object, in which you specify a particular operation, a path to act on, and a value.
+In the case of the Token hook type, the `value` property is itself a nested object in which you specify a particular operation, a path to act on, and a value.
 
 | Property | Description                                                              | Data Type       |
 |----------|--------------------------------------------------------------------------|-----------------|
@@ -96,7 +100,7 @@ The following commands are supported for the Token Inline Hook type:
 | com.okta.identity.patch | Modify an ID token.     |
 | com.okta.access.patch   | Modify an access token. |
 
-> Note: The `commands` array should only contain commands that can be applied to the requested tokens. For example, if the token is an ID token, the `commands` array should not contain commands of the type `com.okta.access.patch`.
+> Note: The `commands` array should only contain commands that can be applied to the requested tokens. For example, if the token is an ID token, the `commands` array shouldn't contain commands of the type `com.okta.access.patch`.
 
 #### value
 
@@ -105,16 +109,16 @@ The `value` object is where you specify the specific operation to perform. It is
 | Property | Description                                                                                                                                                                                                       | Data Type       |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                   | String          |
-| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding a claim, this will always begin with `/claims/`,  and be followed by the name of the new claim you are adding. | String          |
+| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding a claim, this always begins with `/claims/`,  and is followed by the name of the new claim that you are adding. | String          |
 | value    | Value to set the claim to.                                                                                                                                                                                        | Any JSON object |
 
 #### List of Supported Ops
 
-| Op  | Description  |
-|-----|--------------|
-| add | Add a claim. |
-
-> Note: The `add` operation can only be used to add new claims to a token, not to overwrite the value of a claim already included in the token.
+| Op      | Description               |
+|---------|---------------------------|
+| add     | Add a claim.              |
+| replace | Modify an existing claim. |
+| remove  | Remove an existing claim. |
 
 ### error
 
@@ -124,9 +128,9 @@ When you return an error object, it should have the following structure:
 |--------------|--------------------------------------|-----------|
 | errorSummary | Human-readable summary of the error. | String    |
 
-Returning an error object will cause Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string you supplied in the `errorSummary` property of the `error` object you returned.
+Returning an error object causes Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string that you supplied in the `errorSummary` property of the `error` object that you returned.
 
-## Sample Listing of JSON Payload of Request
+## Sample JSON Payload of a Request
 
 ```json
 {
@@ -268,7 +272,13 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
 }
 ```
 
-## Sample Listing of JSON Payload of Response
+## Sample JSON Payloads of Responses
+
+This section provides example JSON payloads for the supported operations.
+
+### Sample Response to Add a Claim
+
+> Note: The `add` operation can only be used to add new claims to a token, not to overwrite the value of a claim already included in the token. See [Sample Response to Replace an Existing Claim](/use_cases/inline_hooks/token_hook/token_hook/#sample-response-to-replace-an-existing-claim).
 
 ```json
 {
@@ -294,6 +304,98 @@ Returning an error object will cause Okta to return an OAuth 2.0 error to the re
       ]
     }
   ]
+}
+```
+### Sample Response to Replace an Existing Claim
+
+You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events. 
+
+```json
+{
+   "commands": [ 
+        { 
+            "type": "com.okta.identity.patch",
+            "value": [ 
+                 { 
+                     "op": "replace",
+                     "path": "/claims/extPatientId",
+                     "value": "1234"
+                  }
+             ] 
+         }, 
+         { 
+             "type": "com.okta.access.patch",
+             "value": [
+                  { 
+                     "op": "replace",
+                     "path": "/claims/external_guid",
+                     "value": "F0384685-F87D-474B-848D-2058AC5655A7" 
+                   }
+              ] 
+          }
+      ]
+}
+```
+
+### Sample Response to Modify Token Lifetime
+You can modify how long the Access and ID tokens are valid by specifying the `lifetime` in seconds. The `lifetime` value must be a minimum of five minutes (300 seconds) and a maximum of 24 hours (86,400 seconds).
+
+```json
+{
+   "commands": 
+     [ 
+        { 
+            "type": "com.okta.identity.patch",
+            "value": [ 
+                 { 
+                     "op": "replace",
+                     "path": "/token/lifetime/expiration",
+                     "value": 36000
+                  }
+             ] 
+         }, 
+         { 
+             "type": "com.okta.access.patch",
+             "value": [
+                  { 
+                     "op": "replace",
+                     "path": "/token/lifetime/expiration",
+                     "value": 36000 
+                   }
+              ] 
+          }
+      ]
+}
+```
+### Sample Response to Remove Token Claims
+You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. Attempting to remove a system specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events. 
+
+> Note: For the `remove` operation, the `value` property isn't required and should be set to `null`. Providing any other value fails the entire PATCH response.
+
+```json
+{
+   "commands": 
+     [ 
+        { 
+            "type": "com.okta.identity.patch",
+            "value": [ 
+                 { 
+                     "op": "remove",
+                     "path": "/claims/birthdate",
+                     "value": null
+                  }
+             ] 
+         }, 
+         { 
+             "type": "com.okta.access.patch",
+             "value": [
+                  { 
+                     "op": "remove",
+                     "path": "/claims/external_guid"
+                   }
+              ] 
+          }
+      ]
 }
 ```
 
