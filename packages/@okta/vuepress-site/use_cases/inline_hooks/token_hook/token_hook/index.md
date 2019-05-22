@@ -29,7 +29,7 @@ This type of inline hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) t
 
 This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
-In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC profile claim. You can also update how long an access token or an ID token is valid.
+In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid.
 
 This inline hook works only when using an Okta Custom Authorization Server, not the built-in Okta Authorization Server.
 
@@ -59,10 +59,6 @@ Provides information on the properties of the access token that Okta has generat
 #### claims
 
 Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc/#tokens-and-claims).
-
-For the list of Access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). Note that although the `aud` claim is listed as a reserved claim, you can modify that claim in a response.
-
-See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
 
 #### lifetime
 
@@ -308,7 +304,11 @@ This section provides example JSON payloads for the supported operations.
 ```
 ### Sample Response to Replace an Existing Claim
 
-You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events. 
+You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system-specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
+
+For the list of Access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). Note that although the `aud` claim is listed as a reserved claim, you can modify that claim in a response.
+
+See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
 
 ```json
 {
@@ -368,7 +368,11 @@ You can modify how long the Access and ID tokens are valid by specifying the `li
 }
 ```
 ### Sample Response to Remove Token Claims
-You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. Attempting to remove a system specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events. 
+You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events. 
+
+For the list of Access token reserved claims that you can't remove, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). Note that although the `aud` claim is listed as a reserved claim, you can remove that claim in a response.
+
+See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
 
 > Note: For the `remove` operation, the `value` property isn't required and should be set to `null`. Providing any other value fails the entire PATCH response.
 
