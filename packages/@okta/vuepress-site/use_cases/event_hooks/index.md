@@ -1,6 +1,8 @@
 ---
 title: Event Hooks
-excerpt: Use Okta events to drive custom process flows.
+meta:
+  - name: description
+    content: Event hooks are outbound calls from Okta, sent when specified events occur in your org. Get information on eligible hooks and setting up event hooks in this guide.
 ---
 
 # Event Hooks

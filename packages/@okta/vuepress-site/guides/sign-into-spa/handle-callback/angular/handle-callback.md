@@ -3,7 +3,7 @@ The `OktaCallbackComponent` in the Angular SDK contains logic to parse the respo
 ```javascript
 import { OktaCallbackComponent } from '@okta/okta-angular';
 
-const CALLBACK_PATH = '/implicit/callback';
+const CALLBACK_PATH = 'implicit/callback';
 
 const appRoutes: Routes = [
   {
@@ -13,4 +13,3 @@ const appRoutes: Routes = [
   // Other routes...
 ];
 ```
-
