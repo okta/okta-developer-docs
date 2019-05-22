@@ -9,7 +9,7 @@ The [Okta developer site][doc] serves Okta's API documentation and guides, inclu
 - [SDK references and sample code](https://developer.okta.com/documentation/)
 - [Authentication quickstarts](https://developer.okta.com/quickstart/)
 - [Guides](https://developer.okta.com/guides/)
-- [Developer Blog](https://developer.okta.com/blog/) (not published from this repo, see [https://github.com/okta/okta.github.io](okta/okta.github.io))
+- [Developer Blog](https://developer.okta.com/blog/) (not published from this repo, see [okta/okta.github.io](https://github.com/okta/okta.github.io))
 
 If you have questions or need help with Okta's APIs or SDKs, visit the **[Developer Forum][devforum]**. You can also email developers@okta.com to create a support ticket.
 
