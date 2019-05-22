@@ -7,7 +7,7 @@ import { OktaAuthService } from '@okta/okta-angular';
 @Component({
   template: 'Welcome back, {{ userName }}'
 })
-class MyComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   userName: string;
 
   constructor(public oktaAuth: OktaAuthService) {
