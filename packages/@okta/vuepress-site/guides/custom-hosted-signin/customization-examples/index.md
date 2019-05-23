@@ -49,16 +49,6 @@ The Okta-hosted sign-in page is application-aware. This means that your client-s
 
 When the page renders, an object called `OktaUtil` exists on the page. By calling the `OktaUtil.getRequestContext()` method, scripts on the page can get details about the current request.
 
-For an OpenID Connect application, the application's client ID is stored in the request context's target for that object:
-
-```
-OktaUtil.getRequestContext().target.clientId
-```
-
-There is also additional information loaded in the `target`, such as `label`.
-
-> Note: The `getRequestContext()` method only returns a value when the Okta-hosted sign-in page is loaded in the context of an application (such as SP-initiated flows in SAML or the `/authorize` route for OpenID Connect). Otherwise, it returns undefined.
-
 To access the application's client ID (which uniquely identifies the application), write a function to safely get `target.clientId` from the request context:
 
 ```html

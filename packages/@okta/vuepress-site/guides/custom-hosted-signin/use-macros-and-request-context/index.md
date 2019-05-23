@@ -56,6 +56,16 @@ Here's what is returned from `getRequestContext()`:
    }
    ```
 
-See <GuideLink link="../customization-examples/#per-application-customization/">Per-Application Customization</GuideLink> for an example of what you can do with request context.
+For an OpenID Connect application, the application's client ID is stored in the request context's target for that object:
+
+```
+OktaUtil.getRequestContext().target.clientId
+```
+
+There is also additional information available in the `target`, such as `label`.
+
+> Note: The `getRequestContext()` method only returns a value when the Okta-hosted sign-in page is loaded in the context of an application (such as SP-initiated flows in SAML or the `/authorize` route for OpenID Connect). Otherwise, it returns undefined.
+
+See <GuideLink link="../customization-examples/#per-application-customization">Per-Application Customization</GuideLink> for an example of what you can do with request context.
 
 <NextSectionLink/>
