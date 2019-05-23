@@ -6,6 +6,7 @@ guides:
  - sign-into-web-app
  - sign-users-out
  - protect-your-api
+ - custom-hosted-signin
  - custom-url-domain
 featured: 
  - sign-into-web-app
