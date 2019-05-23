@@ -56,6 +56,6 @@ Here's what is returned from `getRequestContext()`:
    }
    ```
 
-See [Per-Application Customization](#per-application-customization) for an example of what you can do with request context.
+See <GuideLink link="../customization-examples/#per-application-customization/">Per-Application Customization</GuideLink> for an example of what you can do with request context.
 
 <NextSectionLink/>
