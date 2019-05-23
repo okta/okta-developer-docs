@@ -274,7 +274,7 @@ This section provides example JSON payloads for the supported operations.
 
 ### Sample Response to Add a Claim
 
-> Note: The `add` operation can only be used to add new claims to a token, not to overwrite the value of a claim already included in the token. See [Sample Response to Replace an Existing Claim](/use_cases/inline_hooks/token_hook/token_hook/#sample-response-to-replace-an-existing-claim).
+Use the `add` operation to add new claims to a token. If you use the `add` operation and include an existing claim in your response with a different value, that value is replaced. Use the `replace` operation instead. See [Sample Response to Replace an Existing Claim](/use_cases/inline_hooks/token_hook/token_hook/#sample-response-to-replace-an-existing-claim) for more information.
 
 ```json
 {
