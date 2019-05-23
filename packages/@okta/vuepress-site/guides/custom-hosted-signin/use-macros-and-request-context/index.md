@@ -3,27 +3,30 @@ title: Use Macros and Request Context
 ---
 The following macros in the HTML contain the configuration parameters for certain page elements. These macros inject specific content or functionality automatically.
 
-* <span v-pre>`{{pageTitle}}`</span> - This macro controls the page title text of the sign-in page. To replace the <span v-pre>`{{pageTitle}}`</span> macro with your own title, be sure to replace both the brackets and the text.
-
-   Example:
+* <span v-pre>`{{pageTitle}}`</span> - This macro inserts the page title. For example:
 
    ```html
-   <title>Your Page Title Here</title>
+   <title>{{pageTitle}}</title>
    ```
 
-* <span v-pre>`{{{SignInWidgetResources}}}`</span> - An HTML code snippet that contains JavaScript and CSS tags for bootstrapping the Okta Custom Sign-In Widget.
+* <span v-pre>`{{{SignInWidgetResources}}}`</span> - This macro inserts the JavaScript and CSS files required to use the Okta Sign-In Widget.
 
-* <span v-pre>`{{bgImageUrl}}`</span> - This macro controls the background image. You can also configure a background image using the **Sign-In Configuration** option accessed by selecting **Customization**, and then **Appearance.** To replace the <span v-pre>`{{bgImageUrl}}`</span> macro with your own image URL, be sure to replace both the brackets and the text.
+* <span v-pre>`{{bgImageUrl}}`</span> - This macro inserts a URL to the background image configured in your Okta organization. This setting can be changed by selecting **Customization**, and then **Appearance**.
 
    Example:
 
    ```javascript
-   `<div class="login-bg-image" style="background-image: url('https://example.com//YourBackgroundImage.png)"></div>
+   <div class="login-bg-image" style="background-image: {{bgImageUrl}}"></div>
    ```
 
-* <span v-pre>`{{{OktaUtil}}}`</span> - This macro defines a global `OktaUtil` object that contains methods used to complete the Okta sign-in flow. When an application uses the Okta-hosted sign-in page to sign a user in, information (called request context) is available about the target application and the request. You can access this information in JavaScript code by calling the `OktaUtil.getRequestContext()` object.
+* <span v-pre>`{{{OktaUtil}}}`</span> - This macro defines a global `OktaUtil` JavaScript object that contains methods used to complete the Okta sign-in flow. When an application uses the Okta-hosted sign-in page to sign a user in, information (called request context) is available about the target application and the request.
 
-   An example of what is included in this object:
+
+## Request Context
+
+By calling the `OktaUtil.getRequestContext()` method, JavaScript code on your sign-in page can inspect the current request and make decisions based on the target application or other details.
+
+Here's what is returned from `getRequestContext()`:
 
    ```json
    {
@@ -53,6 +56,6 @@ The following macros in the HTML contain the configuration parameters for certai
    }
    ```
 
-> See [Per-Application Customization](#per-application-customization) for an example of what you can do with request context output. 
+See [Per-Application Customization](#per-application-customization) for an example of what you can do with request context.
 
 <NextSectionLink/>
