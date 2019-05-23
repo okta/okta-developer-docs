@@ -12,10 +12,13 @@ In your application code, build a config object. This is used to initialize the 
 ```javascript
 const config = {
   clientId: '{clientId}',
-  issuer: 'https://{yourOktaDomain}.com/oauth2/default',
+  issuer: 'https://{yourOktaDomain}/oauth2/default',
   redirectUri: 'http://localhost:8080/implicit/callback',
+  scope: 'openid profile email',
 };
 ```
+
+> Note: `openid`, `profile`, and `email` are reserved scopes in OpenID Connect that allow you to get access to user's data. You can read more about scopes [here](https://developer.okta.com/docs/api/resources/oidc/#scopes).
 
 You can also build it from dynamic values like environment variables:
 
@@ -27,11 +30,13 @@ const CALLBACK_PATH = '/implicit/callback';
 const ISSUER = `https://${OKTA_DOMAIN}/oauth2/default`;
 const HOST = window.location.host;
 const REDIRECT_URI = `http://${HOST}${CALLBACK_PATH}`;
+const SCOPES = 'openid profile email';
 
 const config = {
   issuer: ISSUER,
   clientId: CLIENT_ID,
   redirectUri: REDIRECT_URI,
+  scope: SCOPES,
 });
 ```
 

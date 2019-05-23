@@ -576,9 +576,9 @@ You can use an [introspection request](#introspect) for validation.
 
 > This endpoint's base URL varies depending on whether you are using a custom authorization server. For more information, see [Composing Your Base URL](#composing-your-base-url).
 
-Returns any claims for the currently signed-in user.
+Returns information about the currently signed-in user.
 
-You must include an access token (returned from the [authorization endpoint](#authorize) in the HTTP Authorization header.
+You must include an access token (returned from the [authorization endpoint](#authorize)) in the HTTP Authorization header.
 
 #### Request Example
 ```bash
