@@ -374,7 +374,7 @@ For the list of Access token reserved claims that you can't remove, see [Access 
 
 See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
 
-> Note: For the `remove` operation, the `value` property isn't required and should be set to `null`. Providing any other value fails the entire PATCH response.
+> Note: The `value` property for the `remove` operation isn't required. If you provide it in the response, it should be set to `null`. Providing any other value fails the entire PATCH response.
 
 ```json
 {
