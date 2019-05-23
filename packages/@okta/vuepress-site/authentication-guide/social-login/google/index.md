@@ -65,7 +65,7 @@ title: Google
 
 The Okta Identity Provider that you created in section 2 above generated an Authorize URL with a number of blank parameters that you must now fill-in:
 
-* **client_id:** use the client_id value you copied in step 4.10.
+* **client_id:** use the client_id value you copied in step 4.8.
 * **scope:** Determines the claims that are returned in the ID token. This should have at least `openid`.
 * **response_type:** Determines which flow is used. This should be `code`.
 * **response_mode:** Determines how the authorization response should be returned. This should be `fragment`.

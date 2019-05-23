@@ -12,13 +12,6 @@ Application developers and organizations are increasingly
 implementing multi-factor authentication to add an extra layer of
 security to their applications.
 
-<blockquote class="twitter-tweet" lang="en">
-<p>In all my years working in this industry I&#39;ve seen exactly 2
-effective security technologies stand the test of time: firewalls
-and 2fa</p>&mdash; Chris Rohlf (@chrisrohlf) March 8, 2015
-</blockquote>
-
-
 In this guide, we'll show you how to add multi-factor authentication
 to your app with Okta.
 
@@ -28,8 +21,6 @@ SMS, and the Okta Verify app for iOS and Android. Integrations include
 Google Authenticator, RSA SecurID, Symantec VIP, and Duo Security.
 
 Let's get started!
-
-<iframe src="https://player.vimeo.com/video/123445568" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ### Prerequisites
 
@@ -144,10 +135,8 @@ this process is known as "Enrollment". Once a MFA token has been
 enrolled, we can then "Verify" that they actually have this token
 by asking them to answer a challenge using their token.
 
-The process attaching a factor to a user is similar for every type
-of factor that Okta supports. In the video we show how to attach a
-Google Authenticator factor as well as a phone as a factor using
-SMS. In this document we will only cover how to attach a Google
+The process attaching of a factor to a user is similar for every type
+of factor that Okta supports. In this document we will only cover how to attach a Google
 Authenticator factor.
 
 At a high level, the process of attaching a factor to an account is
