@@ -15,7 +15,7 @@ By using this feature along with customizing the domain and error pages, you can
 You can add any HTML, CSS, or JavaScript to the page that you want.
 
 **Can I customize the sign-in page per-application or with multiple brands?**
-Yes. See the [Per-Application Customization](../-/customization-examples/#per-application-customization) section later in this guide.
+Yes. See the <GuideLink link="../customization-examples/#per-application-customization/">Per-Application Customization</GuideLink> section later in this guide.
 
 ## Before You Begin
 Before you can get started customizing your hosted sign-in page, you must have already customized your Okta URL domain.
