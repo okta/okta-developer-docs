@@ -12,9 +12,7 @@ The Okta Zones API provides operations to manage zones in your organization. Zon
 
 ### Base Network Zone Properties
 
-The Base Network Zone object defines the base properties which concrete Network Zone types (IP and Dynamic) inherit.
-
-All Network Zone objects define the following attributes:
+The following attributes are shared by all Network Zone objects:
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
@@ -25,21 +23,22 @@ All Network Zone objects define the following attributes:
 
 ### IP Zone Properties
 
+One of the following attributes must be defined  
 The follow attributes are defined by IP Zone objects:
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
 | gateways       | IP addresses (range or CIDR form) of this zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
-| proxies        | IP addresses (range or CIDR form) allowed to forward request from gateway addresses above   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
+| proxies        | IP addresses (range or CIDR form) allowed to forward request from gateway addresses above. These proxies are automatically trusted by Threat Insights. These proxies are isolate and identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
 
 #### Address Object
 
-Each address object specifies a set of IP addresses, expressed using either range or CIDR form.
+Each Address object specifies a set of IP addresses, expressed using either range or CIDR form.
 
 | Field Name  | Description                                                | Data Type   | Required |
 | :---------- | :--------------------------------------------------------- | :---------- | :------- |
 | type        | Format of the value: either CIDR or RANGE                 | String      | Yes       |
-| value       | Value in CIDR/RANGE form depending on the type specified   | String      | Yes       |
+| value       | Value in CIDR/range form depending on the type specified   | String      | Yes       |
 
 #### Address Object Example (CIDR)
 ```json
@@ -92,12 +91,13 @@ Each address object specifies a set of IP addresses, expressed using either rang
 
 ### Dynamic Zone Properties
 
+One of the following attributes must be defined  
 The follow attributes are defined by Dynamic Zone objects:
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
-| proxyType       | One of the following: `"" or null` (When not specified), `Any`(Meaning any proxy), `Tor`, `NotTorAnonymizer`                                            | String   | No              | N/A |
-| locations        | The locations of this zone   | Array of [Location Objects](#location-object)   | No              | 75 (entries) |
+| proxyType       | One of the following: `""` or `null` (When not specified), `Any`(Meaning any proxy), `Tor`, `NotTorAnonymizer`                                            | String   | No              | N/A |
+| locations        | The geolocations of this zone   | Array of [Location Objects](#location-object)   | No              | 75 (entries) |
 | asns        | Format of each array value: a String representation of an ASN numeric value   | Array of Strings   | No              | 75 (entries) |
 
 #### Location Object
@@ -107,7 +107,7 @@ Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
 | Field Name  | Description                                                | Data Type   | Required |
 | :---------- | :--------------------------------------------------------- | :---------- | :------- |
 | country        | Format of the value: length 2 ISO-3166-1 country code                | String      | Yes       |
-| region       | Format of the value: `countryCode`-`regionCode`, or `null` if empty  | String      | Yes       |
+| region       | Format of the value: `countryCode`-`regionCode`, or `null` if empty  | String      | No       |
 
 #### Location Object Example (With Region)
 ```json
@@ -150,7 +150,7 @@ Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
 
 ## Zone API Operations
 
-### Create an Network Zone
+### Create a Network Zone
 
 
 <ApiOperation method="post" url="/api/v1/zones" />
