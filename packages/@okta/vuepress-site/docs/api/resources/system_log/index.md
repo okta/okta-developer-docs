@@ -681,6 +681,8 @@ The following are some examples of common keyword filtering:
 * Events that mention a specific url: `q=interestingURI.com`
 * Events that mention a specific person: `q=firstName lastName`
 
+> Note: When hyphens are present in an event instance's attribute value they are split and added to the list of matching candidates, in addition to the full hyphenated value. Thus a `q` value of `XOxBw-2JIRnCFd0gG0GjHAAABjY` would match events containing the text `XOxBw`, `2JIRnCFd0gG0GjHAAABjY`, or `XOxBw-2JIRnCFd0gG0GjHAAABjY`.
+
 ###### Datetime Filter
 
 LogEvent objects can be filtered by [`published`](#attributes) attribute value with the following combination of parameters:
