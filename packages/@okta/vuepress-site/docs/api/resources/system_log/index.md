@@ -365,6 +365,8 @@ By inspection of the `debugData` field, one can find the URI used to trigger the
 
 If for some reason the information needed to implement a feature is not provided in other response objects, it is advised to scan the `debugContext.debugData` field for potentially useful fields.
 
+> Important: The information contained in `debugContext.debugData` is intended to add context when troubleshooting customer platform issues. Note that both key names and values may change from release to release and are not guaranteed to be stable. Therefore, they should not be viewed as a data contract but as a debugging aid instead.
+
 | Property   | Description                                                                     | DataType            | Nullable |
 | ---------- | ------------------------------------------------------------------------------- | ---------------     | -------- |
 | debugData  | Dynamic field containing miscellaneous information dependent on the event type. | Map[String->Object] | TRUE     |
