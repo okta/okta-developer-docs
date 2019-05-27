@@ -127,7 +127,7 @@ Each LogEvent object describes a single logged action or "event" performed by a 
      "id": String, Optional
 },
 "outcome": { Object, Optional
-     "result": String, one of: SUCCESS, FAILURE, SKIPPED, UNKNOWN, Required
+     "result": String, one of: SUCCESS, FAILURE, SKIPPED, ALLOW, DENY, CHALLENGE, UNKNOWN, Required
      "reason": String, Optional
 },
 "target": [ List of Objects of the form:
@@ -318,7 +318,7 @@ Describes the result of an action and the reason for that result.
 
 | Property   | Description                                                            | DataType        | Nullable | Default | MinLength | MaxLength |
 | ---------- | ---------------------------------------------------------------------- | --------------- | -------- | ------- | --------- | --------- |
-| result     | Result of the action: `SUCCESS`, `FAILURE`, `SKIPPED`, `UNKNOWN`       | String          | FALSE    |         |           |           |
+| result     | Result of the action: `SUCCESS`, `FAILURE`, `SKIPPED`, `ALLOW`, `DENY`, `CHALLENGE`, `UNKNOWN`       | String          | FALSE    |         |           |           |
 | reason     | Reason for the result, for example `INVALID_CREDENTIALS`               | String          | TRUE     |         | 1         | 255       |
 
 ### Transaction Object
