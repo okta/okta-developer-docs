@@ -13,4 +13,4 @@ You need to update existing Custom Authorization Servers to return the custom do
 2. Select the Custom Authorization Server that you want to update and click **Edit**.
 3. From the **Issuer** drop-down list box, select the custom URL and click **Save**.
 
-<NextSectionLink/>
+<NextSectionLink>Next Steps</NextSectionLink>
