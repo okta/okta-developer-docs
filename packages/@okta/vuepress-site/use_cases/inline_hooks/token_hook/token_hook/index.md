@@ -13,25 +13,25 @@ This page provides reference documentation for:
 
 - JSON objects that you can include in your response
 
-This information is specific to the Token Inline Hook, one type of inline hook supported by Okta.
+This information is specific to the Token Inline Hook, one type of Inline Hook supported by Okta.
 
 ## See Also
 
-For a general introduction to Okta inline hooks, see [Inline Hooks](/use_cases/inline_hooks/).
+For a general introduction to Okta Inline Hooks, see [Inline Hooks](/use_cases/inline_hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks).
 
-For steps to enable this inline hook, see below, [Enabling a Token Inline Hook](#enabling-a-token-inline-hook).
+For steps to enable this Inline Hook, see below, [Enabling a Token Inline Hook](#enabling-a-token-inline-hook).
 
 ## About
 
-This type of inline hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) tokens are minted by your Okta Custom Authorization Server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token.
+This type of Inline Hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) tokens are minted by your Okta Custom Authorization Server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token.
 
 This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
 In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid.
 
-This Inline Hook works only when using an Okta Custom Authorization Server, not the built-in Okta Authorization Server.
+This Inline Hook works only when using an [Okta Custom Authorization Server](/authentication-guide/implementing-authentication/set-up-authz-server/#create-an-authorization-server), not the built-in Okta Authorization Server.
 
 ## Objects in the Request from Okta
 
@@ -105,7 +105,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | Property | Description                                                                                                                                                                                                       | Data Type       |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                   | String          |
-| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding a claim, this always begins with `/claims/`,  and is followed by the name of the new claim that you are adding. | String          |
+| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding, replacing, or removing a claim, this always begins with `/claims/`  and is followed by the name of the new claim that you are adding. When replacing a token lifetime, the path always begins with `/token/lifetime/expiration`. | String          |
 | value    | Value to set the claim to.                                                                                                                                                                                        | Any JSON object |
 
 #### List of Supported Ops
@@ -113,7 +113,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | Op      | Description               |
 |---------|---------------------------|
 | add     | Add a claim.              |
-| replace | Modify an existing claim. |
+| replace | Modify an existing claim and update the token lifetime. |
 | remove  | Remove an existing claim. |
 
 ### error
@@ -274,7 +274,7 @@ This section provides example JSON payloads for the supported operations.
 
 ### Sample Response to Add a Claim
 
-Use the `add` operation to add new claims to a token. If you use the `add` operation and include an existing claim in your response with a different value, that value is replaced. Use the `replace` operation instead. See [Sample Response to Replace an Existing Claim](/use_cases/inline_hooks/token_hook/token_hook/#sample-response-to-replace-an-existing-claim) for more information.
+Use the `add` operation to add new claims to a token. If you use the `add` operation and include an existing claim in your response with a different value, that value is replaced. Use the `replace` operation instead. See [Sample Response to Replace an Existing Claim](/use_cases/inline_hooks/token_hook/token_hook/#sample-response-to-replace-an-existing-claim) for more information. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
 {
@@ -306,7 +306,7 @@ Use the `add` operation to add new claims to a token. If you use the `add` opera
 
 You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system-specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
-For the list of access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). Note that although the `aud` claim is listed as a reserved claim, you can modify that claim in a response.
+For the list of access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). Note that although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens.
 
 See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
 
@@ -338,7 +338,7 @@ See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-tok
 ```
 
 ### Sample Response to Modify Token Lifetime
-You can modify how long the Access and ID tokens are valid by specifying the `lifetime` in seconds. The `lifetime` value must be a minimum of five minutes (300 seconds) and a maximum of 24 hours (86,400 seconds).
+You can modify how long the access and ID tokens are valid by specifying the `lifetime` in seconds. The `lifetime` value must be a minimum of five minutes (300 seconds) and a maximum of 24 hours (86,400 seconds).
 
 ```json
 {
@@ -370,7 +370,7 @@ You can modify how long the Access and ID tokens are valid by specifying the `li
 ### Sample Response to Remove Token Claims
 You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events. 
 
-For the list of access token reserved claims that you can't remove, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). Note that although the `aud` claim is listed as a reserved claim, you can remove that claim in a response.
+For the list of access token reserved claims that you can't remove, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). 
 
 See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
 
@@ -405,21 +405,21 @@ See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-tok
 
 ## Enabling a Token Inline Hook
 
-To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/api/resources/inline-hooks).
+To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/api/resources/inline-hooks).
 
-You then need to associate the registered inline hook with a Custom Authorization Server Policy Rule by completing the following steps:
+You then need to associate the registered Inline Hook with a Custom Authorization Server Policy Rule by completing the following steps:
 
 1. Go to **API > Authorization Servers**.
 
 1. Select a Custom Authorization Server from the list.
 
-1. Select the Access Policies tab and and select a policy to use with the hook. In most cases, just pick the Default Policy.
+1. Select **Access Policies** and select a policy to use with the hook. In most cases, just pick the Default Policy.
 
-1. One of the policy's rules needs to trigger the inline hook. Click the pencil icon for a rule to edit it. If you only have one rule, edit the Default Policy Rule.
+1. One of the policy's rules needs to trigger the Inline Hook. Click the pencil icon for a rule to edit it. If you only have one rule, edit the Default Policy Rule.
 
-1. Click the **Use this inline hook** dropdown menu. Any inline hooks you have registered will be listed. Select the hook you would like to use.
+1. Click the **Use this inline hook** dropdown menu. Any Inline Hooks you have registered are listed. Select the hook you would like to use.
 
 1. Click **Update Rule**.
 
-> Note: Only one inline hook can be associated with each rule.
+> Note: Only one Inline Hook can be associated with each rule.
 
