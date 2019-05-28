@@ -34,7 +34,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Okta.AspNetCore;
 ```
 
-After you sign users out of your app and out of Okta, you can also redirect users to a specific location. Modify your `SignOut` action to include the action what you want to redirect to, for example, `Home`:
+After you sign users out of your app and out of Okta, you can also redirect users to a specific location. Modify your `SignOut` action to include the action that you want to redirect to, for example, `Home`:
 
 ```csharp
 [HttpPost]
