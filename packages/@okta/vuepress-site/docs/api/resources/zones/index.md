@@ -293,7 +293,7 @@ curl -X POST \
 }
 ```
 
-### Get an Network Zone
+### Get a Network Zone
 <ApiOperation method="get" url="/api/v1/zones/${zoneId}" />
 
 Gets a Network Zone by id
@@ -647,7 +647,7 @@ curl -X GET \
  ]
 ```
 
-### Update an Network Zone
+### Update a Network Zone
 
 <ApiOperation method="put" url="/api/v1/zones/${zoneId}" />
 
