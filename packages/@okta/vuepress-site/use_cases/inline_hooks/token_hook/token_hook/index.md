@@ -96,11 +96,7 @@ The following commands are supported for the Token Inline Hook type:
 | com.okta.identity.patch | Modify an ID token.     |
 | com.okta.access.patch   | Modify an access token. |
 
-<<<<<<< HEAD
 > Note: The `commands` array should only contain commands that can be applied to the requested tokens. For example, if only an ID token is requested, the `commands` array shouldn't contain commands of the type `com.okta.access.patch`.
-=======
-> Note: The `commands` array should only contain commands that can be applied to the requested tokens. For example, if the token is an ID token, the `commands` array shouldn't contain commands of the type `com.okta.access.patch`.
->>>>>>> a495dd7625597510fabe0cc3b450436caabd652b
 
 #### value
 
@@ -109,11 +105,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | Property | Description                                                                                                                                                                                                       | Data Type       |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
 | op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                   | String          |
-<<<<<<< HEAD
-| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding, replacing, or removing a claim, this always begins with `/claims/`  and is followed by the name of the new claim that you are adding. When replacing a token lifetime, the path should always be `/token/lifetime/expiration`. | String          |
-=======
 | path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding, replacing, or removing a claim, this always begins with `/claims/`  and is followed by the name of the new claim that you are adding. When replacing a token lifetime, the path always begins with `/token/lifetime/expiration`. | String          |
->>>>>>> a495dd7625597510fabe0cc3b450436caabd652b
 | value    | Value to set the claim to.                                                                                                                                                                                        | Any JSON object |
 
 #### List of Supported Ops
