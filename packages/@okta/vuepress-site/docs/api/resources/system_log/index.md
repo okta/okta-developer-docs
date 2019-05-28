@@ -127,7 +127,7 @@ Each LogEvent object describes a single logged action or "event" performed by a 
      "id": String, Optional
 },
 "outcome": { Object, Optional
-     "result": String, one of: SUCCESS, FAILURE, SKIPPED, UNKNOWN, Required
+     "result": String, one of: SUCCESS, FAILURE, SKIPPED, ALLOW, DENY, CHALLENGE, UNKNOWN, Required
      "reason": String, Optional
 },
 "target": [ List of Objects of the form:
@@ -318,7 +318,7 @@ Describes the result of an action and the reason for that result.
 
 | Property   | Description                                                            | DataType        | Nullable | Default | MinLength | MaxLength |
 | ---------- | ---------------------------------------------------------------------- | --------------- | -------- | ------- | --------- | --------- |
-| result     | Result of the action: `SUCCESS`, `FAILURE`, `SKIPPED`, `UNKNOWN`       | String          | FALSE    |         |           |           |
+| result     | Result of the action: `SUCCESS`, `FAILURE`, `SKIPPED`, `ALLOW`, `DENY`, `CHALLENGE`, `UNKNOWN`       | String          | FALSE    |         |           |           |
 | reason     | Reason for the result, for example `INVALID_CREDENTIALS`               | String          | TRUE     |         | 1         | 255       |
 
 ### Transaction Object
@@ -364,6 +364,8 @@ For example, an event where a second factor SMS token is sent to a user might ha
 By inspection of the `debugData` field, one can find the URI used to trigger the second factor SMS (`/api/v1/users/00u3gjksoiRGRAZHLSYV/factors/smsf8luacpZJAva10x45/verify`), the SMS provider (`TELESIGN`) and the ID used by Telesign to identify this transaction (`268632458E3C100F5F5F594C6DC689D4`).
 
 If for some reason the information needed to implement a feature is not provided in other response objects, it is advised to scan the `debugContext.debugData` field for potentially useful fields.
+
+> Important: The information contained in `debugContext.debugData` is intended to add context when troubleshooting customer platform issues. Note that both key names and values may change from release to release and are not guaranteed to be stable. Therefore, they should not be viewed as a data contract but as a debugging aid instead.
 
 | Property   | Description                                                                     | DataType            | Nullable |
 | ---------- | ------------------------------------------------------------------------------- | ---------------     | -------- |
@@ -582,7 +584,7 @@ The table below summarizes the supported query parameters:
 | `until`     | Filters the upper time bound of the log events `published` property                                                                     | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z` | Current time            |
 | `after`     | Used to retrieve the next page of results. Okta returns a link in the HTTP Header (`rel=next`) that includes the after query parameter. | Opaque token                                                                                                                        |                         |
 | `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/api/getting_started/design_principles#filtering)                                                     |                         |
-| `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string                                                                                                                  |                         |
+| `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string. Max length is 40 characters per keyword, with a maximum of 10 keyword filters per query (before encoding)       |                         |
 | `sortOrder` | The order of the returned events sorted by `published`                                                                                  | `ASCENDING` or `DESCENDING`                                                                                                         | `ASCENDING`             |
 | `limit`     | Sets the number of results returned in the response                                                                                     | Integer between 0 and 1000                                                                                                          | 100                     |
 
@@ -678,6 +680,8 @@ The following are some examples of common keyword filtering:
 * Events that mention a specific city: `q=San Francisco`
 * Events that mention a specific url: `q=interestingURI.com`
 * Events that mention a specific person: `q=firstName lastName`
+
+> Note: When hyphens are present in an event instance's attribute value they are split and added to the list of matching candidates, in addition to the full hyphenated value. Thus a `q` value of `XOxBw-2JIRnCFd0gG0GjHAAABjY` would match events containing the text `XOxBw`, `2JIRnCFd0gG0GjHAAABjY`, or `XOxBw-2JIRnCFd0gG0GjHAAABjY`.
 
 ###### Datetime Filter
 
