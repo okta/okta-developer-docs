@@ -29,7 +29,7 @@ The follow attributes are defined by IP Zone objects:
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
 | gateways       | IP addresses (range or CIDR form) of this zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
-| proxies        | IP addresses (range or CIDR form) allowed to forward request from gateway addresses above. These proxies are automatically trusted by Threat Insights. These proxies are isolate and identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
+| proxies        | IP addresses (range or CIDR form) allowed to forward request from gateway addresses above. These proxies are automatically trusted by Threat Insights. These proxies are used to identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
 
 #### Address Object
 
