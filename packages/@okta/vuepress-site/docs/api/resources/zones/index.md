@@ -2,23 +2,160 @@
 title: Zones
 category: management
 ---
-
 # Zones API
 
 > This API is an <ApiLifecycle access="ea" /> feature.
 
 The Okta Zones API provides operations to manage zones in your organization. Zones may be used to guide policy decisions.
 
-IP zones are the only type currently supported by the Zones API. IP zones are used to group IP address ranges so that policy decisions can be made based on the client's IP location.
+## Zone Model
+
+### Base Network Zone Properties
+
+The following attributes are shared by all Network Zone objects:
+
+| Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
+| :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
+| type           | Type of zone is one of the following: `IP`, `DYNAMIC`                                              | String                                        | Yes             | N/A           |
+| id             | Unique identifier for this zone                                                             | String                                        | No (Assigned)   | N/A           |
+| name           | Unique name for this zone                                                                   | String                                        | Yes             | 128 (chars)   |
+| system           | Indicates if this is a system network zone. For admin-created zones, this is always `false`                                                                 | boolean                                        | No  (Assigned)           | N/A   |
+
+### IP Zone Properties
+
+One of the following attributes must be defined  
+The follow attributes are defined by IP Zone objects:
+
+| Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
+| :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
+| gateways       | IP addresses (range or CIDR form) of this zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
+| proxies        | IP addresses (range or CIDR form) allowed to forward request from gateway addresses above. These proxies are automatically trusted by Threat Insights. These proxies are used to identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
+
+#### Address Object
+
+Each Address object specifies a set of IP addresses, expressed using either range or CIDR form.
+
+| Field Name  | Description                                                | Data Type   | Required |
+| :---------- | :--------------------------------------------------------- | :---------- | :------- |
+| type        | Format of the value: either CIDR or RANGE                 | String      | Yes       |
+| value       | Value in CIDR/range form depending on the type specified   | String      | Yes       |
+
+#### Address Object Example (CIDR)
+```json
+{
+    "type": "CIDR",
+    "value": "1.2.3.4/24"
+  }
+```
+
+#### Address Object Example (range)
+```json
+{
+    "type": "RANGE",
+    "value": "1.2.3.0-1.2.3.255"
+  }
+```
+
+### IP Zone Example
+```json
+{
+  "type": "IP",
+  "id": "nzouagptWUz5DlLfM0g3",
+  "name": "newNetworkZone",
+  "status": "ACTIVE",
+  "created": "2017-01-24T19:52:34.000Z",
+  "lastUpdated": "2017-01-24T19:52:34.000Z",
+  "system": false,
+  "gateways": [
+    {
+      "type": "CIDR",
+      "value": "1.2.3.4/24"
+    },
+    {
+      "type": "RANGE",
+      "value": "2.3.4.5-2.3.4.15"
+    }
+  ],
+  "proxies": [
+    {
+      "type": "CIDR",
+      "value": "2.2.3.4/24"
+    },
+    {
+      "type": "RANGE",
+      "value": "3.3.4.5-3.3.4.15"
+    }
+  ]
+}
+```
+
+### Dynamic Zone Properties
+
+One of the following attributes must be defined  
+The follow attributes are defined by Dynamic Zone objects:
+
+| Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
+| :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
+| proxyType       | One of the following: `""` or `null` (When not specified), `Any`(Meaning any proxy), `Tor`, `NotTorAnonymizer`                                            | String   | No              | N/A |
+| locations        | The geolocations of this zone   | Array of [Location Objects](#location-object)   | No              | 75 (entries) |
+| asns        | Format of each array value: a String representation of an ASN numeric value   | Array of Strings   | No              | 75 (entries) |
+
+#### Location Object
+
+Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code, and an optional [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) region code
+
+| Field Name  | Description                                                | Data Type   | Required |
+| :---------- | :--------------------------------------------------------- | :---------- | :------- |
+| country        | Format of the value: length 2 ISO-3166-1 country code                | String      | Yes       |
+| region       | Format of the value: `countryCode`-`regionCode`, or `null` if empty  | String      | No       |
+
+#### Location Object Example (With Region)
+```json
+{
+    "country": "AF",
+    "region": "AF-BGL"
+  }
+```
+
+#### Location Object Example (Without Region)
+```json
+{
+    "country": "AF",
+    "region": null
+  }
+```
+
+### Dynamic Zone Example
+```json
+{
+    "type": "DYNAMIC",
+    "id": "nzowc1U5Jh5xuAK0o0g3",
+    "name": "test",
+    "status": "ACTIVE",
+    "created": "2019-05-17T18:44:31.000Z",
+    "lastUpdated": "2019-05-21T13:50:49.000Z",
+    "system": false,
+    "locations": [{
+        "country": "AX",
+        "region": null
+    },
+    {
+        "country": "AF",
+        "region": "AF-BGL"
+    }],
+    "proxyType": "Any",
+    "asns": ["23457"]
+}
+```
 
 ## Zone API Operations
 
-### Create an IP Zone
+### Create a Network Zone
 
 
 <ApiOperation method="post" url="/api/v1/zones" />
 
-Creates a new IP Zone
+Creates a new Network Zone
 
 #### Valid Request Example
 
@@ -34,7 +171,6 @@ curl -X POST \
   "status": "ACTIVE",
   "created": null,
   "lastUpdated": null,
-  "system": false,
   "gateways": [
     {
       "type": "CIDR",
@@ -68,7 +204,6 @@ curl -X POST \
   "status": "ACTIVE",
   "created": "2017-01-24T19:52:34.000Z",
   "lastUpdated": "2017-01-24T19:52:34.000Z",
-  "system": false,
   "gateways": [
     {
       "type": "CIDR",
@@ -158,15 +293,14 @@ curl -X POST \
 }
 ```
 
-### Get an IP Zone
+### Get a Network Zone
 <ApiOperation method="get" url="/api/v1/zones/${zoneId}" />
 
-Gets an IP zone by id
+Gets a Network Zone by id
 
 #### Request Parameters
 
-
-The zone ID described in the [Zone Object](#ZoneModel) is required.
+The zone ID described in the [Zone Object](#zone-model) is required.
 
 #### Request Example
 
@@ -175,43 +309,36 @@ curl -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/zones/nzoo6s03dLsg2I7HK0g3"
+"https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3"
 ```
 
 #### Response Example
 ```json
 {
-    "type": "IP",
-    "id": "nzoo6s03dLsg2I7HK0g3",
-    "name": "BlockedIpZone",
+    "type": "DYNAMIC",
+    "id": "nzowc1U5Jh5xuAK0o0g3",
+    "name": "test",
     "status": "ACTIVE",
-    "created": "2017-07-28T23:24:36.000Z",
-    "lastUpdated": "2017-08-14T20:41:08.000Z",
-    "system": true,
-    "gateways": [
-        {
-            "type": "RANGE",
-            "value": "123.123.123.123-123.123.123.123"
-        }
-    ],
-    "proxies": null,
+    "created": "2019-05-17T18:44:31.000Z",
+    "lastUpdated": "2019-05-21T13:50:49.000Z",
+    "system": false,
+    "locations": [{
+        "country": "AX",
+        "region": null
+    }],
+    "proxyType": null,
+    "asns": ["23457"],
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/zones/nzoo6s03dLsg2I7HK0g3",
+            "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3",
             "hints": {
-                "allow": [
-                    "GET",
-                    "PUT",
-                    "DELETE"
-                ]
+                "allow": ["GET", "PUT", "DELETE"]
             }
         },
         "deactivate": {
-            "href": "https://{yourOktaDomain}/api/v1/zones/nzoo6s03dLsg2I7HK0g3/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3/lifecycle/deactivate",
             "hints": {
-                "allow": [
-                    "POST"
-                ]
+                "allow": ["POST"]
             }
         }
     }
@@ -239,7 +366,7 @@ A subset of zones can be returned that match a supported filter expression or qu
 ##### Response Parameters
 
 
-Array of [Zones](#ZoneModel)
+Array of [Zones](#zone-model)
 
 #### List All Zones
 
@@ -296,38 +423,31 @@ curl -X GET \
             }
         }
     },
-    {
-        "id": "nzoo6rs9ZUobuTcsr0g3",
-        "name": "LegacyIpZone",
-        "type": "IP",
+   {
+        "id": "nzowc1U5Jh5xuAK0o0g3",
+        "type": "DYNAMIC",
+        "name": "test",
         "status": "ACTIVE",
-        "created": "2017-07-28T23:24:36.000Z",
-        "lastUpdated": "2017-08-14T21:34:45.000Z",
-        "system": true,
-        "gateways": [
-            {
-                "type": "RANGE",
-                "value": "127.0.0.1-127.0.0.1"
-            }
-        ],
-        "proxies": null,
+        "created": "2019-05-17T18:44:31.000Z",
+        "lastUpdated": "2019-05-21T13:50:49.000Z",
+        "system": false,
+        "locations": [{
+            "country": "AX",
+            "region": null
+        }],
+        "proxyType": null,
+        "asns": ["23457"],
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/zones/nzoo6rs9ZUobuTcsr0g3",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3",
                 "hints": {
-                    "allow": [
-                        "GET",
-                        "PUT",
-                        "DELETE"
-                    ]
+                    "allow": ["GET", "PUT", "DELETE"]
                 }
             },
             "deactivate": {
-                "href": "https://{yourOktaDomain}/api/v1/zones/nzoo6rs9ZUobuTcsr0g3/lifecycle/deactivate",
+                "href": "https://{yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3/lifecycle/deactivate",
                 "hints": {
-                    "allow": [
-                        "POST"
-                    ]
+                    "allow": ["POST"]
                 }
             }
         }
@@ -527,17 +647,17 @@ curl -X GET \
  ]
 ```
 
-### Update an IP Zone
-
+### Update a Network Zone
 
 <ApiOperation method="put" url="/api/v1/zones/${zoneId}" />
 
-Updates an existing IP Zone
+Updates an existing Network Zone
 
 #### Request Parameters
 
+A valid [Zone Object](#zone-model) with the id of the network zone to update is required.
 
-The zone ID described in the [Zone Object](#ZoneModel) is required.
+The updated Network Zone type must be the same as the existing type.
 
 #### Request Example
 
@@ -553,7 +673,6 @@ curl -X PUT \
   "status": "ACTIVE",
   "created": "2017-01-24T19:53:28.000Z",
   "lastUpdated": "2017-01-24T19:53:28.000Z",
-  "system": false,
   "gateways": [
     {
       "type": "CIDR",
@@ -589,27 +708,7 @@ curl -X PUT \
       "type": "RANGE",
       "value": "15.5.6.7-15.5.6.9"
     }
-  ],
-  "_links": {
-    "self": {
-      "href": "https://{yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3",
-      "hints": {
-        "allow": [
-          "GET",
-          "PUT",
-          "DELETE"
-        ]
-      }
-    },
-    "deactivate": {
-      "href": "https://{yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3/lifecycle/deactivate",
-      "hints": {
-        "allow": [
-          "POST"
-        ]
-      }
-    }
-  }
+  ]
 }' "https://{yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3"
 ```
 
@@ -673,99 +772,6 @@ curl -X PUT \
     },
     "deactivate": {
       "href": "https://{yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3/lifecycle/deactivate",
-      "hints": {
-        "allow": [
-          "POST"
-        ]
-      }
-    }
-  }
-}
-```
-
-## Zone Model
-
-
-### IP Zone Properties
-
-An IP zone defines several attributes:
-
-| Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
-| :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
-| type           | Type of zone (currently it can only be IP)                                                  | String                                        | Yes             | N/A           |
-| id             | Unique identifier for this zone                                                             | String                                        | No (Assigned)   | N/A           |
-| name           | Unique name for this zone                                                                   | String                                        | Yes             | 128 (chars)   |
-| gateways       | IP addresses (range or CIDR form) of this zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
-| proxies        | IP addresses (range or CIDR form) allowed to forward request from gateway addresses above   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
-
-#### Address Object
-
-Each address object specifies a set of IP addresses, expressed using either range or CIDR form.
-
-| Field Name  | Description                                                | Data Type   | Required |
-| :---------- | :--------------------------------------------------------- | :---------- | :------- |
-| type        | Format of the value - either CIDR or RANGE                 | String      | No       |
-| value       | Value in CIDR/RANGE form depending on the type specified   | String      | No       |
-
-#### Address Object Example (CIDR)
-```json
-{
-    "type": "CIDR",
-    "value": "1.2.3.4/24"
-  }
-```
-
-#### Address Object Example (range)
-```json
-{
-    "type": "RANGE",
-    "value": "1.2.3.0-1.2.3.255"
-  }
-```
-
-### IP Zone Example
-```json
-{
-  "type": "IP",
-  "id": "nzouagptWUz5DlLfM0g3",
-  "name": "newNetworkZone",
-  "status": "ACTIVE",
-  "created": "2017-01-24T19:52:34.000Z",
-  "lastUpdated": "2017-01-24T19:52:34.000Z",
-  "system": false,
-  "gateways": [
-    {
-      "type": "CIDR",
-      "value": "1.2.3.4/24"
-    },
-    {
-      "type": "RANGE",
-      "value": "2.3.4.5-2.3.4.15"
-    }
-  ],
-  "proxies": [
-    {
-      "type": "CIDR",
-      "value": "2.2.3.4/24"
-    },
-    {
-      "type": "RANGE",
-      "value": "3.3.4.5-3.3.4.15"
-    }
-  ],
-  "_links": {
-    "self": {
-      "href": "https://{yourOktaDomain}/api/v1/zones/nzouagptWUz5DlLfM0g3",
-      "hints": {
-        "allow": [
-          "GET",
-          "PUT",
-          "DELETE"
-        ]
-      }
-    },
-    "deactivate": {
-      "href": "https://{yourOktaDomain}/api/v1/zones/nzouagptWUz5DlLfM0g3/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
