@@ -306,7 +306,7 @@ Use the `add` operation to add new claims to a token. If you use the `add` opera
 
 You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system-specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
-For the list of access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). Note that although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens.
+For the list of access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). Note that although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.
 
 See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
 
