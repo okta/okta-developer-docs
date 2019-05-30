@@ -362,7 +362,7 @@ redirects:
   - from: /3rd_party_notices/iOS_Verify.html
     to: /3rd_party_notices/iOS_Verify/
   - from: /3rd_party_notices/Android_verify.html
-    to: /3rd_party_notices/Android_verify/
+    to: /3rd_party_notices/Android_Verify/
   - from: /3rd_party_notices/Android_Mobile.html
     to: /3rd_party_notices/Android_Mobile/
   - from: /docs/api/resources/oidc.html
@@ -399,7 +399,7 @@ redirects:
     to: https://github.com/okta/okta-sdk-python
   - from: /docs/change-log/
     to: /docs/release-notes/
-  - from: /docs/change-log/index
-    to: /docs/release-notes/
+#  - from: /docs/change-log/index
+#    to: /docs/release-notes/
   - from: /docs/change-log/index.html
     to: /docs/release-notes/
