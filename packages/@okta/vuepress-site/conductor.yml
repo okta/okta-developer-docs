@@ -367,14 +367,6 @@ redirects:
     to: /3rd_party_notices/Android_Mobile/
   - from: /docs/api/resources/oidc.html
     to: /docs/api/resources/oidc/
-  - from: /standards/OAuth/
-    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
-  - from: /standards/OAuth/index
-    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
-  - from: /standards/OAuth/index.html
-    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
-  - from: /standards/OAuth
-    to: /standards/OAuth/
   - from: /docs/api/resources/oauth2.html
     to: /docs/api/resources/oidc/
   - from: /standards/OIDC/
@@ -403,3 +395,11 @@ redirects:
 #    to: /docs/release-notes/
   - from: /docs/change-log/index.html
     to: /docs/release-notes/
+#  - from: /standards/OAuth/index
+#    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+#  - from: /standards/OAuth/
+#    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+  - from: /standards/OAuth/index.html
+    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+  - from: /standards/OAuth
+    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
