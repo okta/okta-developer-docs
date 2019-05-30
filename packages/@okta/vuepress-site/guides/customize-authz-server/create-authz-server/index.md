@@ -5,7 +5,6 @@ title: Create an Authorization Server
 > NOTE: If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you can skip this step because you already have a custom Authorization Server created for you, called "default". The `{authServerId}` for the default server is `default`.
 
 1. In the administration UI, navigate to **API > Authorization Servers**.
-![Authorization Server](/img/ "Authorization Server")
 
 2. Choose **Add Authorization Server** and supply the requested information.
 
