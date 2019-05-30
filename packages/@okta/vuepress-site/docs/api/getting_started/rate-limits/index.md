@@ -118,6 +118,7 @@ The following are the high capacity rate limits per minute that apply across the
 | `/app/{app}/{key}/sso/saml`                                                | 1500      | 3000         |
 | `/api/v1/groups/{id}`                                                      | 1500      | 3000         |
 | `/api/v1/users/{id}`                                                       | 1500      | 3000         |
+| `/api/v1/users/{idOrLogin}` (only `GET`)                                   | 1500      | 5000         |
 | `/api/v1/authn`                                                            | 1500      | 3000         |
 | `/api/plugin/{protocolVersion}/form-creds/{appUserIds}/{formSiteOption}`   | 1500      | 3000         |
 | `/api/v1/authn/factors/{factorIdOrFactorType}/verify`                      | 1500      | 3000         |
