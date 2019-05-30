@@ -8,6 +8,7 @@ guides:
  - protect-your-api
  - custom-hosted-signin
  - custom-url-domain
+ - customize-authz-server
 featured: 
  - sign-into-web-app
  - sign-into-spa
