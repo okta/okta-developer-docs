@@ -395,8 +395,8 @@ redirects:
 #    to: /docs/release-notes/
   - from: /docs/change-log/index.html
     to: /docs/release-notes/
-#  - from: /standards/OAuth/index
-#    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+  - from: /standards/OAuth/index
+    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
 #  - from: /standards/OAuth/
 #    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
 #  - from: /standards/OAuth/index.html
