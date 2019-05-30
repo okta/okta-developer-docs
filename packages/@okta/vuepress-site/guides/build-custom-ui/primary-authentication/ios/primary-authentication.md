@@ -9,21 +9,107 @@ As an example your application could have the following view controllers:
 - `MFAChallengeViewController` - responsible for factor verification and retry actions
 - and etc.
 
+
 ### Primary authentication
 
-With the primary authentication flow(no MFA) you typically need two view controllers  `LoginViewController` and `PasswordChangeViewController`.
+With the primary authentication flow(no MFA, no Password management and etc.) you typically need one view controller  `LoginViewController`.
 `LoginViewController` is your root view controller that expectes username and password inputs. Perform the following call once data is ready and a user has pressed the `login` button:
 
 ```swift
 OktaAuthSdk.authenticate(with: URL(string: "https://{yourOktaDomain}")!,
-                         username: "username",
-                         password: "password",
-                         onStatusChange: { authStatus in
-                            handleStatus(status: authStatus)
-                         },
-                         onError: { error in
-                            handleError(error)
-                         })
+                                   username: "username",
+                                   password: "password",
+                                   onStatusChange: { authStatus in
+                                       handleStatus(status: authStatus)
+                                   },
+                                   onError: { error in
+                                       handleError(error)
+                                   })
 ```
 
-The SDK may return `OktaAuthStatusPasswordExpired` or `OktaAuthStatusPasswordWarning` statuses in `onStatusChange` closure parameter. So, delegate handling of these statuses to `PasswordChangeViewController` view controller via dependency injection.
+The SDK will return `OktaAuthStatusSuccess` status in `onStatusChange` closure parameter.
+
+
+#### `LoginViewController` example:
+
+```swift
+private extension LoginViewController {
+
+@IBAction func signInTapped() {
+    guard let username = usernameTextField.text, !username.isEmpty,
+    let password = passwordTextField.text, !password.isEmpty else { return }
+
+    progressHUD.show()
+    OktaAuthSdk.authenticate(with: URL(string: urlString)!,
+                             username: username,
+                             password: password,
+                             onStatusChange:
+                    { [weak self] status in
+                                progressHUD.dismiss()
+                                self?.flowCoordinatorDelegate?.onStatusChanged(status: status)
+                    })
+                    { [weak self] error in
+                                progressHUD.dismiss()
+                                self?.showError(message: error.description)
+                    }
+    }
+}
+```
+
+#### `AuthFlowCoordinator` example:
+
+```swift
+protocol AuthFlowCoordinatorProtocol: class {
+    func onStatusChanged(status: OktaAuthStatus)
+    func onCancel()
+    func onReturn(prevStatus: OktaAuthStatus)
+}
+```
+
+```swift
+class AuthFlowCoordinator {
+    func handleStatus(status: OktaAuthStatus) {
+
+        currentStatus = status
+
+        switch status.statusType {
+
+        case .success:
+            handleSuccessStatus(status: status as! OktaAuthStatusSuccess)
+        
+        case .passwordExpired,
+             .passwordWarning,
+             .MFARequired,
+             .MFAChallenge,
+             .MFAEnroll,
+             .MFAEnrollActivate,
+             .recoveryChallenge,
+             .recovery,
+             .passwordReset,
+             .lockedOut,
+             .unauthenticated:
+                self.showError("Unsupported Status")
+        }
+    }
+
+    func handleSuccessStatus(status: OktaAuthStatusSuccess) {
+        let alert = UIAlertController(title: "Success", message: "We are logged in - \(status.sessionToken!)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        rootViewController.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension AuthFlowCoordinator: AuthFlowCoordinatorProtocol {
+    func onStatusChanged(status: OktaAuthStatus) {
+        self.handleStatus(status: status)
+    }
+
+    func onCancel() {
+        rootViewController.popToRootViewController(animated: true)
+    }
+
+    func onReturn(prevStatus: OktaAuthStatus) {
+        rootViewController.popViewController(animated: true)
+    }
+}
+```
