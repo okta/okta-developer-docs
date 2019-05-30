@@ -399,7 +399,7 @@ redirects:
 #    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
 #  - from: /standards/OAuth/
 #    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
-  - from: /standards/OAuth/index.html
-    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+#  - from: /standards/OAuth/index.html
+#    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
   - from: /standards/OAuth
     to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
