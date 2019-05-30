@@ -397,8 +397,8 @@ redirects:
     to: /reference/okta_expression_language/
   - from: /docs/sdk/core/python_api_sdk/index.html
     to: https://github.com/okta/okta-sdk-python
-  - from: /docs/change-log/
-    to: /docs/release-notes/
+#  - from: /docs/change-log/
+#    to: /docs/release-notes/
 #  - from: /docs/change-log/index
 #    to: /docs/release-notes/
   - from: /docs/change-log/index.html
