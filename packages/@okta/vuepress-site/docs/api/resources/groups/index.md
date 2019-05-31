@@ -849,10 +849,7 @@ curl -v -X PUT \
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}" />
 
-Removes a group with `OKTA_GROUP` type from your organization.
-
-> Only groups with `OKTA_GROUP` type can be removed.<br>
-> Application imports are responsible for removing groups with `APP_GROUP` type such as Active Directory groups.
+Removes a group with `OKTA_GROUP` or `APP_GROUP` type from your organization.
 
 ##### Request Parameters
 
