@@ -12,7 +12,7 @@ This guide is aimed at showing you how to implement one possible proces flow for
 
 When you enable an Import Inline Hook for an app, the Import Inline Hook fires every time a user is brought in from that app. When the hook fires, it calls an external service that you provide, passing the user profile information to the service, and allowing the service to respond with commands to affect ther user import process.
 
-This guide will walk you through the setup involved in enabling the inline hook and the coding of some sample software running on an external service to handle the calls from Okta. The aim of the sample software will be to resolve conflicts between users with matching `userID` values, so that, instead of being queued for manual review by an Admin, the conflicts will be resolved programmatically.
+This guide will walk you through the setup involved in enabling the inline hook and the coding of some sample software running on an external service to handle the calls from Okta. The aim of the sample software will be to resolve conflicts between users with matching `login` values, so that, instead of being queued for manual review by an Admin, the conflicts will be resolved programmatically.
 
 <StackSelector snippet="platformdescription"/>
 
