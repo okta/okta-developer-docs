@@ -14,7 +14,7 @@ During batch imports of user profiles to Okta from applications, conflicts betwe
 
 ### About This Guide
 
-This demonstrates one possible proces flow for using the Import Inline Hook. In the example described, the app that users are imported from is the [CSV Directory Integration](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm) agent. That agent consumes a CSV file containing user identities, and sends them to Okta, so that Okta user profiles can be created or updated based on them. The Import Inline Hook will be enabled for the CSV Directory Integration agent.
+This demonstrates one possible proces flow for using the Import Inline Hook. In the example described, the app that users are imported from is the [Okta On-Premises Provisioning agent](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm). That agent consumes a CSV file containing user identities, and sends them to Okta, so that Okta user profiles can be created or updated based on them. The Import Inline Hook will be enabled for the CSV Directory Integration agent.
 
 When the Import Inline Hook is enabled for an app such as the CSV Directory Integration agent, the hook fires every time a user is brought in from that app, making a REST call to the external service that you specify. The call passes to the external service the user profile information of the user being imported, which the service can respond to with commands that affect the course of the user import.
 
@@ -25,9 +25,9 @@ This guide walks through the setup of the Import Inline Hook for the CSV Directo
 For end-to-end implementation of the solution demonstrated in this guide, you need:
 
 - An Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
-- An Okta [CSV Directory Integration](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm) agent, running on a Linux or Windows server.
+- An[Okta On-Premises Provisioning agent](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm), running on a Linux or Windows server.
 - A CSV file containing user identities, for the CSV Directory Integration agent to consume.
-- A platform to host an HTTPS server with an Internet-accessible endpoint, with support for execution of Node.js code, to use to run the sample code in this guide. 
+- A platform to host an HTTPS server with an Internet-accessible endpoint. To run the sample code in this guide, the platform needs to support execution of Node.js code. 
 
 
 <NextSectionLink/>
