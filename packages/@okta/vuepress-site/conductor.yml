@@ -91,6 +91,8 @@ redirects:
     to: /docs/api/resources/apps/index.html
   - from: /docs/api/rest/apps.html
     to: /docs/api/resources/apps/index.html
+  - from: /docs/api/resources/apps.html
+    to: /docs/api/resources/apps/index.html
   - from: /docs/api/rest/authn.html
     to: /docs/api/resources/authn/index.html
   - from: /docs/api/resources/index.html
