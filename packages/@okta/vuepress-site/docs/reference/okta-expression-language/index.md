@@ -255,12 +255,12 @@ The format for conditional expressions is
 <br>The following functions are supported in conditions.
 
 * Any Okta Expression Language function
-* The AND operator
-* The OR operator
-* The ! operator to designate NOT
-* Standard arithmetic operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>.
+* The `AND` operator
+* The `OR` operator
+* The `!` operator to designate NOT
+* Standard relational operators including `&lt;`, `&gt;`, `&lt;=`, and `&gt;=`.
 
-**Note:** Use the double equals sign, <code>==</code>, to check for equality.
+**Note:** Use the double equals sign, `==`, to check for equality and `!=` for inequality.
 
 The following functions are not supported in conditions:
 
