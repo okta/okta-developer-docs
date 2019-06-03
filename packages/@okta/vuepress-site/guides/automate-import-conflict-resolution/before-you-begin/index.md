@@ -14,8 +14,6 @@ When the Import Inline Hook is enabled for an app such as the CSV Directory Inte
 
 This guide walks through the setup of the Import Inline Hook for the CSV Directory Integration agent, and demonstrates the coding of some sample software to run on the external service to handle the calls from Okta. The aim of the sample software is to resolve conflicts between users with matching values for the `login` user profile attribute, so that, instead of being queued for manual review by an Admin, the conflicts are resolved programmatically.
 
-<StackSelector snippet="platformdescription"/>
-
 ### What You Need
 
 For end-to-end implementation of the solution demonstrated in this guide, you need:
@@ -23,7 +21,7 @@ For end-to-end implementation of the solution demonstrated in this guide, you ne
 - An Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
 - A [CSV Directory Integration](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm) agent running on a Linux or Windows server.
 - A CSV file containing user identities, for the CSV Directory Integration agent to consume.
-- A platform to host an HTTPS server with an Internet-accessible endpoint that supports execution of Node.js code. 
+- A platform to host an HTTPS server with an Internet-accessible endpoint. The platform needs to support execution of Node.js code, to use the sample code in this guide. 
 
 ### Background Information on Okta Inline Hooks
 
