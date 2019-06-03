@@ -91,6 +91,8 @@ redirects:
     to: /docs/api/resources/apps/index.html
   - from: /docs/api/rest/apps.html
     to: /docs/api/resources/apps/index.html
+  - from: /docs/api/resources/apps.html
+    to: /docs/api/resources/apps/index.html
   - from: /docs/api/rest/authn.html
     to: /docs/api/resources/authn/index.html
   - from: /docs/api/resources/index.html
@@ -364,6 +366,8 @@ redirects:
   - from: /3rd_party_notices/iOS_Verify.html
     to: /3rd_party_notices/iOS_Verify/
   - from: /3rd_party_notices/Android_verify.html
+    to: /3rd_party_notices/Android_Verify/
+  - from: /3rd_party_notices/Android_Verify.html
     to: /3rd_party_notices/Android_Verify/
   - from: /3rd_party_notices/Android_Mobile.html
     to: /3rd_party_notices/Android_Mobile/
