@@ -5,7 +5,7 @@ layout: Guides
 sections: 
  - before-you-begin
  - create-external-service
- - register-ine-hook
+ - register-inline-hook
  - associate-hook-with-app
  - call-from-okta-to-external-service
  - response-from-external-service-to-okta
