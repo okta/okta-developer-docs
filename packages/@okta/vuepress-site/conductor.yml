@@ -365,6 +365,8 @@ redirects:
     to: /3rd_party_notices/iOS_Verify/
   - from: /3rd_party_notices/Android_verify.html
     to: /3rd_party_notices/Android_Verify/
+  - from: /3rd_party_notices/Android_Verify.html
+    to: /3rd_party_notices/Android_Verify/
   - from: /3rd_party_notices/Android_Mobile.html
     to: /3rd_party_notices/Android_Mobile/
   - from: /docs/api/resources/oidc.html
