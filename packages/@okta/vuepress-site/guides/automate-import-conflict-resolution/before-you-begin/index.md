@@ -4,7 +4,7 @@ title: Before You Begin
 
 ### Why Use an Import Inline Hook?
 
-During batch imports of user profiles to Okta from applications, potential conflicts between imported users and already-existing users can require intervention to resolve. The Import Inline Hook enables you to implement programmatic solutions to handle conflicts on the basis of your own custom business logic, keeping automated batch processing running in an automated way.
+During batch imports of user profiles to Okta from applications, potential conflicts between imported users and already-existing users can require manual intervention to resolve. The Import Inline Hook enables you to implement programmatic solutions for conflicts, on the basis of your own custom business logic, keeping automated batch processing running in an automated way.
 
 ### About this Guide
 
