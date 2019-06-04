@@ -8,7 +8,7 @@ guides:
  - protect-your-api
  - custom-hosted-signin
  - custom-url-domain
- - automate-import-conflict-resolution
+ - resolve-import-conflicts
 featured: 
  - sign-into-web-app
  - sign-into-spa
