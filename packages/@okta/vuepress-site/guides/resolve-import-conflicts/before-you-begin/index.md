@@ -25,7 +25,7 @@ This guide walks through the setup of the Import Inline Hook for the CSV Directo
 For end-to-end implementation of the solution demonstrated in this guide, you need:
 
 - An Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
-- An[Okta On-Premises Provisioning agent](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm), running on a Linux or Windows server.
+- An [Okta On-Premises Provisioning agent](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm), running on a Linux or Windows server.
 - A CSV file containing user identities, for the CSV Directory Integration agent to consume.
 - An application platform to host an HTTPS server with an Internet-accessible endpoint.  
 
