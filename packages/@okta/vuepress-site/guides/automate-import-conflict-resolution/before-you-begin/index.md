@@ -4,7 +4,7 @@ title: Before You Begin
 
 ### Use the Import Inline Hook to Resolve Conflicts
 
-During batch imports of user profiles from applications, user profiles being imported can conflict with already-existing user profiles. The Import Inline Hook enables you to implement programmatic solutions to potential conflicts, on the basis of your own custom business logic, to enable batch imports to run in a fully-automated way.
+During batch imports of user profiles from applications, imported user profiles can conflict with already-existing user profiles, requiring manual intervention by admins. The Import Inline Hook enables you to implement programmatic solutions to potential conflicts, on the basis of your own custom business logic, to enable batch imports to run in a fully-automated way.
 
 #### Background Information
 
@@ -14,11 +14,11 @@ During batch imports of user profiles from applications, user profiles being imp
 
 ### About This Guide
 
-This guide demonstrates one possible scenario for using the Import Inline Hook. In this scenario, the app that users are imported from is the [Okta On-Premises Provisioning agent](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm). That agent consumes a CSV file containing user identities, and sends them to Okta, for Okta user profiles to be created or updated based on the information in the CSV file. It is possible to enable the Import Inline Hook for the On-Premises Provisioning agent, enabling automated handling of conflicts.
+This guide demonstrates one possible scenario for using the Import Inline Hook. In this scenario, the app that users are imported from is the [Okta On-Premises Provisioning agent](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm). It is possible to enable the Import Inline Hook for the On-Premises Provisioning agent, enabling automated handling of conflicts.
 
-When the Import Inline Hook is enabled for an app such as the CSV Directory Integration agent, the hook fires every time a user is brought in from that app, making a REST call to the external service that you specify. The call passes to the external service the user profile information of the user being imported, which the service can respond to with commands that affect the course of the user import.
+The Import Inline Hook fires every time a user is brought in from an app, making a REST call to the external service that you specify. It passes to the external service the user profile attributes of the user being imported, and the external service can respond with commands that affect the course of the user import.
 
-This guide walks through the setup of the Import Inline Hook for the CSV Directory Integration agent, and demonstrates the coding of some sample software to implement the external service. The aim of the sample software is to resolve conflicts between users with matching values for the `login` user profile attribute, so that, instead of being queued for manual review by an Admin, the conflicts are resolved programmatically.
+This guide walks through the setup of the Import Inline Hook for the CSV Directory Integration agent, and demonstrates the coding of some sample software to implement the external service and handle the hook calls from Okta. The aim of the software will be to resolve conflicts between user profiles that have the same value for the `login` profile attribute, so that, instead of being queued for manual review by an Admin, the conflicts are resolved programmatically.
 
 ### What You Need
 
