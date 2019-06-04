@@ -8,9 +8,11 @@ sections:
  - create-okta-application
  - configure-packages
  - sign-in-page
+ - sign-in-custom-ui
  - get-user-info
  - check-on-startup
  - stay-signed-in
  - use-access-token
+ - sign-out-page
  - next-steps
 ---

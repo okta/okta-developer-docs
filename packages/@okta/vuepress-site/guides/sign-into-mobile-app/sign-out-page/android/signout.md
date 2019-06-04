@@ -7,6 +7,7 @@ If the user is signed in using the browser-initiated authorization flow, then lo
 ### Clear Browser Session
 
 This step assumes that you are already signed in and have a `WebAuthClient`. You can clear the browser session by calling `signOutOfOkta()`.
+If you are using a `AuthClient` you can skip this step, you'll notice the method `signOutOfOkta` doesn't exist for `AuthClient`.
 
 ```java
     client.signOutOfOkta(this);
