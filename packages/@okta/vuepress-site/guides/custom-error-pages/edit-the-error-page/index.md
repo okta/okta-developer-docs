@@ -1,7 +1,8 @@
 ---
 title: Edit the Error Page
 ---
-If you are familiar with using HTML and want to change text, colors, line widths, page layout, button shapes, and other elements, use the embedded HTML editor in the middle of the page. You can modify the current HTML/CSS and JavaScript or paste your own code.
+
+The HTML editor provided on the **Custom Error Pages** tab of the **Customization** page allows you to modify any HTML, CSS, and JavaScript on the error page.
 
 1. Make changes directly in the embedded editor. 
 2. Click **Preview** to preview your changes before you publish.

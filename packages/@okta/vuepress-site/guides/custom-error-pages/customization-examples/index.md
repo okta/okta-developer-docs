@@ -36,9 +36,9 @@ Example:
 <link rel="stylesheet" type="text/css" href="/assets/css/sections/errors-v2.css">
 <style>
 .content {
-    	background: yellow;
-    	font: normal bold 20pt Tahoma;
-        }      
+    background: yellow;
+    font: normal bold 20pt Tahoma;
+}      
 </style>
 </head>
 ```
