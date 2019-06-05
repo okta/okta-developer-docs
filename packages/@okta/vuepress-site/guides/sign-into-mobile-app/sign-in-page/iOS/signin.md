@@ -33,9 +33,9 @@ oktaOidc.signInWithBrowser(from: self) { stateManager, error in
 }
 ```
 
-To restore `OktaOidcStateManager` object from iOS keychain do the following:
-1. Create `OktaOidcConfig` object with the same config data that you used for the browser sign in
-2. Call `OktaOidcStateManager.readFromSecureStorage` funtion and pass `OktaOidcConfig` object as a parameter
+To restore the `OktaOidcStateManager` object from iOS keychain, do the following:
+1. Create the `OktaOidcConfig` object with the same config data that you used for the browser sign-in process.
+2. Call the `OktaOidcStateManager.readFromSecureStorage` funtion and pass the `OktaOidcConfig` object as a parameter:
 
 ```swift
 let config = OktaOidcConfig(/* plist */)
