@@ -380,13 +380,13 @@ The `authenticationContext` contains metadata about how the actor is authenticat
 
 ```json
 {
-    "AuthenticationProvider": "ACTIVE_DIRECTORY",
-    "AuthenticationStep": 0,
-    "CredentialProvider": null,
-    "CredentialType": "IWA",
-    "ExternalSessionId": "102N1EKyPFERROGvK9wizMAPQ",
-    "Interface": null,
-    "Issuer": null
+    "authenticationProvider": "ACTIVE_DIRECTORY",
+    "authenticationStep": 0,
+    "credentialProvider": null,
+    "credentialType": "IWA",
+    "externalSessionId": "102N1EKyPFERROGvK9wizMAPQ",
+    "interface": null,
+    "issuer": null
 }
 ```
 In such a case, one can recognize that the user used an IWA credential to authenticate against an Active Directory instance. All of the user's future generated events in this login session will share the same `externalSessionId`.
@@ -396,6 +396,7 @@ Among other operations, this response object can be used to scan for suspicious 
 | Property               | Description                                                                                                                                                                                                                         | DataType                        | Nullable | MinLength | MaxLength |
 | ----------             | --------------------------------------------------------------                                                                                                                                                                      | ---------------                 | -------- | --------- | --------- |
 | authenticationProvider | The system that proves the identity of an actor using the credentials provided to it                                                                                                                                                | String                          | TRUE     |           |           |
+| authenticationStep     | The zero-based step number in the authentication pipeline. Currently unused and always set to `0`.                                                                                                                                  | Integer                         | TRUE     |           |           |
 | credentialProvider     | A credential provider is a software service that manages identities and their associated credentials. When authentication occurs via credentials provided by a credential provider, that credential provider will be recorded here. | String                          | TRUE     |           |           |
 | credentialType         | The underlying technology/scheme used in the credential                                                                                                                                                                             | String                          | TRUE     |           |           |
 | issuer                 | The specific software entity that created and issued the credential.                                                                                                                                                                | [Issuer Object](#issuer-object) | TRUE     |           |           |
