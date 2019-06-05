@@ -3748,7 +3748,9 @@ curl -v -X POST \
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}/users/${userId}" />
 
-Removes an assignment for a user from an application.
+Removes an assignment for a user from an application. 
+
+For directories like Active Directory and LDAP, they act as the owner of the user's credential with Okta delegating authentication (DelAuth) to that directory. If this request is made for a user when DelAuth is enabled, then the user will be in a state with no password. You can then [reset the user's password](/docs/api/resources/users/#reset-password).
 
 > This is a destructive operation; you can't recover the user's app profile. If the app is enabled for provisioning and configured to deactivate users, the user is also deactivated in the target application.
 

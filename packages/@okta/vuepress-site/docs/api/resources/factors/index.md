@@ -1381,8 +1381,6 @@ curl -v -X POST \
 
 #### Enroll Okta Email Factor
 
-<ApiLifecycle access="ea" />
-
 Enrolls a user with an email factor. An email with an OTP is sent to the primary or secondary (depending on which one is enrolled) email address of the user during enrollment. The factor must be [activated](#activate-email-factor) by following the `activate` link relation to complete the enrollment process. An optional `tokenLifetimeSeconds` can be specified as a query parameter to indicate the lifetime of the OTP. The default lifetime is 300 seconds. `tokenLifetimeSeconds` should be in the range 1 to 86400 inclusive.
 
 ##### Request Example
@@ -1963,8 +1961,6 @@ curl -v -X POST \
 ```
 
 #### Activate Email Factor
-
-<ApiLifecycle access="ea" />
 
 Activates an `email` factor by verifying the OTP.
 
@@ -2692,8 +2688,6 @@ curl -v -X POST \
 ```
 
 ### Verify Email Factor
-
-<ApiLifecycle access="ea" />
 
 <span class="api-uri-template api-uri-post"><span class="api-label">POST</span> /api/v1/users/${userId}/factors/${factorId}/verify</span>
 
