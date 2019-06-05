@@ -127,7 +127,7 @@ Each LogEvent object describes a single logged action or "event" performed by a 
      "id": String, Optional
 },
 "outcome": { Object, Optional
-     "result": String, one of: SUCCESS, FAILURE, SKIPPED, UNKNOWN, Required
+     "result": String, one of: SUCCESS, FAILURE, SKIPPED, ALLOW, DENY, CHALLENGE, UNKNOWN, Required
      "reason": String, Optional
 },
 "target": [ List of Objects of the form:
@@ -209,10 +209,11 @@ LogEvent objects are read-only. The following properties are available:
 | eventType             | Type of event that was published                                                       | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | version               | Versioning indicator                                                                   | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | severity              | Indicates how severe the event is: `DEBUG`, `INFO`, `WARN`, `ERROR`                    | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
-| legacyEventType       | Associated Events API [Action `objectType`](/docs/api/resources/events/#action-objecttypes) attribute value | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
+| legacyEventType       | Associated Events API [Action `objectType`](/docs/api/resources/events/#action-objecttypes) attribute value | String                                     | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | displayMessage        | The display message for an event                                                       | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | actor                 | Describes the entity that performed an action                                          | Array of [Actor Object](#actor-object)                          | TRUE     | FALSE  | TRUE     |           |           |
 | client                | The client that requested an action                                                    | [Client Object](#client-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
+| request               | The request that initiated an action                                                   | [Request Object](#request-object)                               | TRUE     | FALSE  | TRUE     |           |           |
 | outcome               | The outcome of an action                                                               | [Outcome Object](#outcome-object)                               | TRUE     | FALSE  | TRUE     |           |           |
 | target                | Zero or more targets of an action                                                      | [Target Object](#target-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
 | transaction           | The transaction details of an action                                                   | [Transaction Object](#transaction-object)                       | TRUE     | FALSE  | TRUE     |           |           |
@@ -318,7 +319,7 @@ Describes the result of an action and the reason for that result.
 
 | Property   | Description                                                            | DataType        | Nullable | Default | MinLength | MaxLength |
 | ---------- | ---------------------------------------------------------------------- | --------------- | -------- | ------- | --------- | --------- |
-| result     | Result of the action: `SUCCESS`, `FAILURE`, `SKIPPED`, `UNKNOWN`       | String          | FALSE    |         |           |           |
+| result     | Result of the action: `SUCCESS`, `FAILURE`, `SKIPPED`, `ALLOW`, `DENY`, `CHALLENGE`, `UNKNOWN`       | String          | FALSE    |         |           |           |
 | reason     | Reason for the result, for example `INVALID_CREDENTIALS`               | String          | TRUE     |         | 1         | 255       |
 
 ### Transaction Object
@@ -365,6 +366,8 @@ By inspection of the `debugData` field, one can find the URI used to trigger the
 
 If for some reason the information needed to implement a feature is not provided in other response objects, it is advised to scan the `debugContext.debugData` field for potentially useful fields.
 
+> Important: The information contained in `debugContext.debugData` is intended to add context when troubleshooting customer platform issues. Note that both key names and values may change from release to release and are not guaranteed to be stable. Therefore, they should not be viewed as a data contract but as a debugging aid instead.
+
 | Property   | Description                                                                     | DataType            | Nullable |
 | ---------- | ------------------------------------------------------------------------------- | ---------------     | -------- |
 | debugData  | Dynamic field containing miscellaneous information dependent on the event type. | Map[String->Object] | TRUE     |
@@ -377,13 +380,13 @@ The `authenticationContext` contains metadata about how the actor is authenticat
 
 ```json
 {
-    "AuthenticationProvider": "ACTIVE_DIRECTORY",
-    "AuthenticationStep": 0,
-    "CredentialProvider": null,
-    "CredentialType": "IWA",
-    "ExternalSessionId": "102N1EKyPFERROGvK9wizMAPQ",
-    "Interface": null,
-    "Issuer": null
+    "authenticationProvider": "ACTIVE_DIRECTORY",
+    "authenticationStep": 0,
+    "credentialProvider": null,
+    "credentialType": "IWA",
+    "externalSessionId": "102N1EKyPFERROGvK9wizMAPQ",
+    "interface": null,
+    "issuer": null
 }
 ```
 In such a case, one can recognize that the user used an IWA credential to authenticate against an Active Directory instance. All of the user's future generated events in this login session will share the same `externalSessionId`.
@@ -393,6 +396,7 @@ Among other operations, this response object can be used to scan for suspicious 
 | Property               | Description                                                                                                                                                                                                                         | DataType                        | Nullable | MinLength | MaxLength |
 | ----------             | --------------------------------------------------------------                                                                                                                                                                      | ---------------                 | -------- | --------- | --------- |
 | authenticationProvider | The system that proves the identity of an actor using the credentials provided to it                                                                                                                                                | String                          | TRUE     |           |           |
+| authenticationStep     | The zero-based step number in the authentication pipeline. Currently unused and always set to `0`.                                                                                                                                  | Integer                         | TRUE     |           |           |
 | credentialProvider     | A credential provider is a software service that manages identities and their associated credentials. When authentication occurs via credentials provided by a credential provider, that credential provider will be recorded here. | String                          | TRUE     |           |           |
 | credentialType         | The underlying technology/scheme used in the credential                                                                                                                                                                             | String                          | TRUE     |           |           |
 | issuer                 | The specific software entity that created and issued the credential.                                                                                                                                                                | [Issuer Object](#issuer-object) | TRUE     |           |           |
@@ -582,7 +586,7 @@ The table below summarizes the supported query parameters:
 | `until`     | Filters the upper time bound of the log events `published` property                                                                     | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z` | Current time            |
 | `after`     | Used to retrieve the next page of results. Okta returns a link in the HTTP Header (`rel=next`) that includes the after query parameter. | Opaque token                                                                                                                        |                         |
 | `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/api/getting_started/design_principles#filtering)                                                     |                         |
-| `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string                                                                                                                  |                         |
+| `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string. Max length is 40 characters per keyword, with a maximum of 10 keyword filters per query (before encoding)       |                         |
 | `sortOrder` | The order of the returned events sorted by `published`                                                                                  | `ASCENDING` or `DESCENDING`                                                                                                         | `ASCENDING`             |
 | `limit`     | Sets the number of results returned in the response                                                                                     | Integer between 0 and 1000                                                                                                          | 100                     |
 
@@ -678,6 +682,8 @@ The following are some examples of common keyword filtering:
 * Events that mention a specific city: `q=San Francisco`
 * Events that mention a specific url: `q=interestingURI.com`
 * Events that mention a specific person: `q=firstName lastName`
+
+> Note: When hyphens are present in an event instance's attribute value they are split and added to the list of matching candidates, in addition to the full hyphenated value. Thus a `q` value of `XOxBw-2JIRnCFd0gG0GjHAAABjY` would match events containing the text `XOxBw`, `2JIRnCFd0gG0GjHAAABjY`, or `XOxBw-2JIRnCFd0gG0GjHAAABjY`.
 
 ###### Datetime Filter
 

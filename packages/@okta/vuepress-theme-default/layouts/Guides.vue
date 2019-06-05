@@ -62,7 +62,7 @@
         if(guideName && (!framework || !sectionName)) {
           let hasChanged = false;
 
-          if( !framework )  { 
+          if( !framework && guide.mainFramework )  { 
             framework = guide.mainFramework;
             hasChanged = !!framework;
           }

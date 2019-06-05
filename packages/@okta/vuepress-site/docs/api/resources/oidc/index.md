@@ -505,6 +505,8 @@ These keys can be used to locally validate JWTs returned by Okta. Standard open-
 
 >Okta also recommends caching or persisting these keys to improve performance. If you cache signing keys and automatic key rotation is enabled, be aware that verification fails when Okta rotates the keys automatically. Clients that cache keys should periodically check the JWKS for updated signing keys.
 
+> Note: The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
+
 #### Request Parameters
 | Parameter   | Description                   | Param Type   | DataType   | Required   | Default |
 | :---------- | :---------------------------- | :----------- | :--------- | :--------- | :------ |
@@ -634,6 +636,8 @@ WWW-Authenticate: Bearer error="insufficient_scope", error_description="The acce
 Returns OAuth 2.0 metadata related to your custom authorization server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
 
 > This API doesn't require any authentication.
+
+> Note: The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
 
 #### Request Example
 ```bash
@@ -769,6 +773,8 @@ HTTP 404 Not Found
 Returns OpenID Connect metadata about your authorization server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
 
 This API doesn't require any authentication.
+
+> Note: The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
 
 #### Request Example
 ```bash
