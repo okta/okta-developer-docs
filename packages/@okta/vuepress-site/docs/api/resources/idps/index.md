@@ -4524,8 +4524,8 @@ All Identity Providers have the following properties:
 | status      | Status of the IdP                                          | `ACTIVE` or `INACTIVE`                                         | FALSE | FALSE | TRUE  |   |     |
 | created     | Timestamp when IdP was created                             | Date                                                           | FALSE | FALSE | TRUE  |   |     |
 | lastUpdated | Timestamp when IdP was last updated                        | Date                                                           | FALSE | FALSE | TRUE  |   |     |
-| protocol    | Protocol settings for IdP `type`                           | [Protocol Object](#identity-provider-type)                     | FALSE | FALSE | FALSE |   |     |
-| policy      | Policy settings for IdP `type`                             | [Policy Object](#identity-provider-type)                       | FALSE | FALSE | FALSE |   |     |
+| protocol    | Protocol settings for IdP `type`                           | [Protocol Object](#protocol-object)                     | FALSE | FALSE | FALSE |   |     |
+| policy      | Policy settings for IdP `type`                             | [Policy Object](#policy-object)                       | FALSE | FALSE | FALSE |   |     |
 | _links      | [Discoverable resources](#links-object) related to the IdP | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
 | _embedded   | Embedded resources related to the IdP                      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
 
