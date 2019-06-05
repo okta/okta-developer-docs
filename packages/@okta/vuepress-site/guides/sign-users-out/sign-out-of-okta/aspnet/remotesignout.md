@@ -25,7 +25,7 @@ using Microsoft.Owin.Security.Cookies;
 using Okta.AspNet;
 ```
 
-After you sign users out of your app and out of Okta, you can also redirect users to a specific location. You need to whitelist the post sign-out URL in your Okta Application settings.
+After you sign users out of your app and out of Okta, you have to redirect users to a specific location in your application. You need to whitelist the post sign-out URL in your Okta Application settings.
 
 Open the Okta Developer Console:
 
