@@ -3023,6 +3023,33 @@ Specifies the profile for a `question` factor
 }
 ```
 
+#### Question Profile - Unique Keys for question
+
+Referenced from [okta-auth-js questions](https://github.com/okta/okta-auth-js/blob/master/test/xhr/questions.js)
+
+| Question Unique Key                   |
+| ------------------------------------- |
+| disliked_food                         |
+| name_of_first_plush_toy               |
+| first_award                           |
+| favorite_security_question            |
+| favorite_toy                          |
+| first_computer_game                   |
+| favorite_movie_quote                  |
+| first_sports_team_mascot              |
+| first_music_purchase                  |
+| favorite_art_piece                    |
+| grandmother_favorite_desert           |
+| first_thing_cooked                    |
+| childhood_dream_job                   |
+| first_kiss_location                   |
+| place_where_significant_other_was_met |
+| favorite_vacation_location            |
+| new_years_two_thousand                |
+| favorite_speaker_actor                |
+| favorite_book_movie_character         |
+| favorite_sports_player                |
+
 #### SMS Profile
 
 Specifies the profile for a `sms` factor
