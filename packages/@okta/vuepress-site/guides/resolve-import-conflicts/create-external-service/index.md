@@ -14,11 +14,7 @@ Your service needs to function as an HTTPS server. You need an SSL key pair and 
 
 ### Check Authorization Header
 
-Headers of requests coming from Okta include an authorization header set to a secret string you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This is not an Okta authorization token, it is simply a text string you decide on.)
-
-```http
-Authorization: ${key}
-```
+Headers of requests coming from Okta include an authorization header set to a secret string you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure.
 
 For every request that comes in, your code should check for the presence of the authorization header and confirm that its value matches the pre-set string you have decided on. Processing should not proceed if the auhorization header cannot be verified.
 
