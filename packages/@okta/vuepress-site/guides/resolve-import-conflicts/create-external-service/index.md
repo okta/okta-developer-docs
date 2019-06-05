@@ -2,13 +2,11 @@
 title: Creating Your External Service
 ---
 
-When you enable an Import Inline Hook for an app, every time a user profile is imported from that app, Okta calls the external service you create. 
-
 You implement your external service as an HTTPS server with an Internet-accessible endpoint. It's your responsibility to arrange hosting of your code on a system external to Okta. Okta defines the REST API contract for the requests it sends to your custom code, as well as for the responses your custom code can send back.
 
 ### Create HTTPS Server
 
-Your service needs to function as an HTTPS server. You need an SSL key pair and certificate for your HTTPS server.
+Your service needs to implement an HTTPS server, that can receive requests from Okta. Before you begin, you need to have available an SSL key pair (PEM file) and certificate (cert file) for your HTTPS server to use.
 
 <StackSelector snippet="create-https"/>
 
