@@ -245,7 +245,11 @@
   },
   {
     "path": "/docs/getting_started/tokens.html",
-    "redirect": "/docs/api/resources/tokens/index.html"
+    "redirect": "/authentication-guide/tokens/"
+  },
+  {
+    "path": "/docs/api/resources/tokens/",
+    "redirect": "/authentication-guide/tokens/"
   },
   {
     "path": "/docs/api/rest/users.html",

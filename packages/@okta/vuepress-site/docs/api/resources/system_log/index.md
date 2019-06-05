@@ -209,10 +209,11 @@ LogEvent objects are read-only. The following properties are available:
 | eventType             | Type of event that was published                                                       | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | version               | Versioning indicator                                                                   | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | severity              | Indicates how severe the event is: `DEBUG`, `INFO`, `WARN`, `ERROR`                    | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
-| legacyEventType       | Associated Events API [Action `objectType`](/docs/api/resources/events/#action-objecttypes) attribute value | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
+| legacyEventType       | Associated Events API [Action `objectType`](/docs/api/resources/events/#action-objecttypes) attribute value | String                                     | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | displayMessage        | The display message for an event                                                       | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | actor                 | Describes the entity that performed an action                                          | Array of [Actor Object](#actor-object)                          | TRUE     | FALSE  | TRUE     |           |           |
 | client                | The client that requested an action                                                    | [Client Object](#client-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
+| request               | The request that initiated an action                                                   | [Request Object](#request-object)                               | TRUE     | FALSE  | TRUE     |           |           |
 | outcome               | The outcome of an action                                                               | [Outcome Object](#outcome-object)                               | TRUE     | FALSE  | TRUE     |           |           |
 | target                | Zero or more targets of an action                                                      | [Target Object](#target-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
 | transaction           | The transaction details of an action                                                   | [Transaction Object](#transaction-object)                       | TRUE     | FALSE  | TRUE     |           |           |
@@ -379,13 +380,13 @@ The `authenticationContext` contains metadata about how the actor is authenticat
 
 ```json
 {
-    "AuthenticationProvider": "ACTIVE_DIRECTORY",
-    "AuthenticationStep": 0,
-    "CredentialProvider": null,
-    "CredentialType": "IWA",
-    "ExternalSessionId": "102N1EKyPFERROGvK9wizMAPQ",
-    "Interface": null,
-    "Issuer": null
+    "authenticationProvider": "ACTIVE_DIRECTORY",
+    "authenticationStep": 0,
+    "credentialProvider": null,
+    "credentialType": "IWA",
+    "externalSessionId": "102N1EKyPFERROGvK9wizMAPQ",
+    "interface": null,
+    "issuer": null
 }
 ```
 In such a case, one can recognize that the user used an IWA credential to authenticate against an Active Directory instance. All of the user's future generated events in this login session will share the same `externalSessionId`.
@@ -395,6 +396,7 @@ Among other operations, this response object can be used to scan for suspicious 
 | Property               | Description                                                                                                                                                                                                                         | DataType                        | Nullable | MinLength | MaxLength |
 | ----------             | --------------------------------------------------------------                                                                                                                                                                      | ---------------                 | -------- | --------- | --------- |
 | authenticationProvider | The system that proves the identity of an actor using the credentials provided to it                                                                                                                                                | String                          | TRUE     |           |           |
+| authenticationStep     | The zero-based step number in the authentication pipeline. Currently unused and always set to `0`.                                                                                                                                  | Integer                         | TRUE     |           |           |
 | credentialProvider     | A credential provider is a software service that manages identities and their associated credentials. When authentication occurs via credentials provided by a credential provider, that credential provider will be recorded here. | String                          | TRUE     |           |           |
 | credentialType         | The underlying technology/scheme used in the credential                                                                                                                                                                             | String                          | TRUE     |           |           |
 | issuer                 | The specific software entity that created and issued the credential.                                                                                                                                                                | [Issuer Object](#issuer-object) | TRUE     |           |           |
