@@ -10,7 +10,7 @@ You implement your external service as an HTTPS server with an Internet-accessib
 
 Your service needs to function as an HTTPS server. You need an SSL key pair and certificate for your HTTPS server.
 
-<StackSelector snippet="https-create"/>
+<StackSelector snippet="create-https"/>
 
 ### Check Authorization Header
 
