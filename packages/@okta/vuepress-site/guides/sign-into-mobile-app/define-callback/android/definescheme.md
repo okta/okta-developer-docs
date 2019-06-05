@@ -1,4 +1,4 @@
-To do this, define a placeholder in your app's `build.gradle`:
+Define a placeholder in your app's `build.gradle`:
 
 ```gradle
 android.defaultConfig.manifestPlaceholders = [

@@ -14,7 +14,7 @@ let config = OktaOidcConfig(/* plist */)
 let oktaOidc = OktaOidc(configuration: config)
 ```
 
-Then, you can start the authorization flow by simply calling `signInWithBrowser`. When successfully authorized, this operation returns a valid `OktaOidcStateManager` instance in its callback:
+Start the authorization flow by simply calling `signInWithBrowser` on `OktaOidc`. After a successful sign-in, this operation returns a valid `OktaOidcStateManager` instance in its callback:
 
 ```swift
 oktaOidc.signInWithBrowser(from: self) { stateManager, error in
