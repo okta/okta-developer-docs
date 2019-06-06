@@ -70,11 +70,11 @@ redirects:
   - from: /docs/api/getting_started/
     to: /code/rest/index.html
   - from: /docs/getting_started/design_principles.html
-    to: /docs/api/getting_started/design_principles/index.html
+    to: /docs/docs/reference/api-overview/index.html
   - from: docs/api/index.html
-    to: /docs/api/getting_started/design_principles/index.html
+    to: /docs/docs/reference/api-overview/index.html
   - from: docs/api/
-    to: /docs/api/getting_started/design_principles/index.html
+    to: /docs/docs/reference/api-overview/index.html
   - from: /docs/getting_started/getting_a_token.html
     to: /docs/api/getting_started/getting_a_token/index.html
   - from: /docs/getting_started/getting_a_token
@@ -378,7 +378,7 @@ redirects:
   - from: /standards/OIDC/
     to: /docs/api/resources/oidc/
   - from: /docs/api/getting_started/design_principles.html
-    to: /docs/api/getting_started/design_principles/
+    to: /docs/docs/reference/api-overview/
   - from: /standards/SAML/index
     to: https://www.okta.com/integrate/documentation/saml/
   - from: /docs/api/resources/sessions.html
@@ -387,7 +387,7 @@ redirects:
     to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/reference/okta-expression-language/index
     to: /docs/reference/okta-expression-language/
-  - from: /docs/api/getting_started/design_principles/getting_a_token/
+  - from: /docs/docs/reference/api-overview/getting_a_token/
     to: /docs/api/getting_started/getting_a_token/
   - from: /docs/api/getting_started/enabling_cors.html
     to: /docs/api/getting_started/enabling_cors/

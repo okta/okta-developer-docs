@@ -2471,9 +2471,9 @@ Creates a new verification transaction and sends an asynchronous push notificati
 | userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
 | factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
 
-> The client `IP Address` & `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br>You should [always send a valid User-Agent HTTP header](/docs/api/getting_started/design_principles/#user-agent) when verifying a push factor.
+> The client `IP Address` & `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br>You should [always send a valid User-Agent HTTP header](/docs/docs/reference/api-overview//#user-agent) when verifying a push factor.
 
-> The **public IP address** of your application must be [whitelisted as a gateway IP address](/docs/api/getting_started/design_principles/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> The **public IP address** of your application must be [whitelisted as a gateway IP address](/docs/docs/reference/api-overview//#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 #### Response Parameters
 

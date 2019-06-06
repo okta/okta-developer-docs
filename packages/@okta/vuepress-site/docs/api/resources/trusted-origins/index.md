@@ -205,7 +205,7 @@ A subset of trusted origins can be returned that match a supported filter expres
 
 | Parameter    | Description                                                                                                                                       | Param Type   | DataType   | Required |
 | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :----------- | :--------- | :------- |
-| filter       | [Filter](/docs/api/getting_started/design_principles#filtering) Trusted origins with a supported expression for a subset of properties            | Query        | String     | No       |
+| filter       | [Filter](/docs/docs/reference/api-overview/#filtering) Trusted origins with a supported expression for a subset of properties            | Query        | String     | No       |
 | limit        | Specifies the number of results returned                                                                                                          | Query        | Integer    | No       |
 
 ##### Response Parameters
@@ -351,9 +351,9 @@ curl -X GET \
 
 Lists all trusted origins that match the filter criteria
 
-This operation requires [URL encoding](/docs/api/getting_started/design_principles#filtering). For example, `filter=(id eq "tosue7JvguwJ7U6kz0g3" or id eq "tos10hzarOl8zfPM80g4")` is encoded as `filter=%28id+eq+%22tosue7JvguwJ7U6kz0g3%22+or+id+eq+%22tos10hzarOl8zfPM80g4%22%29`.
+This operation requires [URL encoding](/docs/docs/reference/api-overview/#filtering). For example, `filter=(id eq "tosue7JvguwJ7U6kz0g3" or id eq "tos10hzarOl8zfPM80g4")` is encoded as `filter=%28id+eq+%22tosue7JvguwJ7U6kz0g3%22+or+id+eq+%22tos10hzarOl8zfPM80g4%22%29`.
 
-See [Filtering](/docs/api/getting_started/design_principles#filtering) for more information about the expressions used in filtering.
+See [Filtering](/docs/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
 
 ##### Request Example
 

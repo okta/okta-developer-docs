@@ -1,11 +1,11 @@
 ---
-title: Rate Limits at Okta
+title: Rate Limits
 excerpt: >-
   Understand rate limits at Okta and learn how to design for efficient use of
   resources
 ---
 
-# Rate Limits at Okta
+# Rate Limits
 
 The number of API requests for an organization is limited for all APIs in order to protect the service for all users. The number of Okta-generated emails that can be sent also has rate limits.
 

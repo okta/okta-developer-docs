@@ -360,7 +360,7 @@ A subset of zones can be returned that match a supported filter expression or qu
 
 | Parameter    | Description                                                                                                                          | Param Type   | DataType   | Required |
 | :----------- | :----------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
-| filter       | [Filter](/docs/api/getting_started/design_principles#filtering) zones with a supported expression for a subset of properties         | Query        | String     | No       |
+| filter       | [Filter](/docs/docs/reference/api-overview/#filtering) zones with a supported expression for a subset of properties         | Query        | String     | No       |
 | limit        | Specifies the number of results returned                                                                                             | Query        | Integer    | No       |
 
 ##### Response Parameters
@@ -496,9 +496,9 @@ curl -X GET \
 
 Lists all zones that match the filter criteria
 
-This operation requires [URL encoding](/docs/api/getting_started/design_principles#filtering). For example, `filter=(id eq "nzoul0wf9jyb8xwZm0g3" or id eq "nzoul1MxmGN18NDQT0g3")` is encoded as `filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29`.
+This operation requires [URL encoding](/docs/docs/reference/api-overview/#filtering). For example, `filter=(id eq "nzoul0wf9jyb8xwZm0g3" or id eq "nzoul1MxmGN18NDQT0g3")` is encoded as `filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29`.
 
-See [Filtering](/docs/api/getting_started/design_principles#filtering) for more information about the expressions used in filtering.
+See [Filtering](/docs/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
 
 ##### Request Example
 

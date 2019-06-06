@@ -181,11 +181,11 @@ Enumerates groups in your organization with pagination. A subset of groups can b
 | Parameter | Description                                                                                | ParamType | DataType | Required | Default |
 | --------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- |
 | q         | Searches the `name` property of groups for matching value                                  | Query     | String   | FALSE    |         |
-| filter    | [Filter expression](/docs/api/getting_started/design_principles#filtering) for groups      | Query     | String   | FALSE    |         |
+| filter    | [Filter expression](/docs/docs/reference/api-overview/#filtering) for groups      | Query     | String   | FALSE    |         |
 | limit     | Specifies the number of group results in a page                                            | Query     | Number   | FALSE    | 10000   |
 | after     | Specifies the pagination cursor for the next page of groups                                | Query     | String   | FALSE    |         |
 
-> The `after` cursor should treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/api/getting_started/design_principles#pagination)
+> The `after` cursor should treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/docs/reference/api-overview/#pagination)
 
 > Search currently performs a startsWith match but it should be considered an implementation detail and may change without notice in the future
 
@@ -206,7 +206,7 @@ The following expressions are supported for groups with the `filter` query param
 | `lastMembershipUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"` | Groups with memberships last updated after a specific timestamp     |
 | `id eq "00g1emaKYZTWRYYRRTSK"`                          | Group with a specified `id`                                         |
 
-See [Filtering](/docs/api/getting_started/design_principles#filtering) for more information on expressions
+See [Filtering](/docs/docs/reference/api-overview/#filtering) for more information on expressions
 
 > All filters must be [URL encoded](http://en.wikipedia.org/wiki/Percent-encoding) where `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`
 
@@ -245,7 +245,7 @@ Reminders about the `limit` query parameter and query timeouts:
 * If you don't specify any value for limit and do specify a query, a maximum of 10 results are returned.
 * The maximum value for limit is 200 for most orgs.
 * Don't write code that depends on the default or maximum value, as it may change.
-* If you receive a HTTP 500 status code, you more than likely have exceeded the request timeout.  Retry your request with a smaller `limit` and [page the results](/docs/api/getting_started/design_principles#pagination).
+* If you receive a HTTP 500 status code, you more than likely have exceeded the request timeout.  Retry your request with a smaller `limit` and [page the results](/docs/docs/reference/api-overview/#pagination).
 
 ##### Request Example
 
@@ -903,11 +903,11 @@ Enumerates all [users](/docs/api/resources/users/#user-model) that are a member 
 | limit     | Specifies the number of user results in a page             | Query     | Number   | FALSE    | 1000    |
 | after     | Specifies the pagination cursor for the next page of users | Query     | String   | FALSE    |         |
 
-> The `after` cursor should treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/api/getting_started/design_principles#pagination)
+> The `after` cursor should treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/docs/reference/api-overview/#pagination)
 
 The default user limit is set to a very high number due to historical reasons which is no longer valid for most organizations.  This will change in a future version of this API.  The recommended page limit is now `limit=200`.
 
-> If you receive a HTTP 500 status code, you more than likely have exceeded the request timeout.  Retry your request with a smaller `limit` and page the results (See [Pagination](/docs/api/getting_started/design_principles#pagination))
+> If you receive a HTTP 500 status code, you more than likely have exceeded the request timeout.  Retry your request with a smaller `limit` and page the results (See [Pagination](/docs/docs/reference/api-overview/#pagination))
 
 ##### Response Parameters
 
@@ -1599,7 +1599,7 @@ Enumerates all [applications](/docs/api/resources/apps/#application-model) that 
 | limit     | Specifies the number of app results for a page            | Query     | Number   | FALSE    | 20      |
 | after     | Specifies the pagination cursor for the next page of apps | Query     | String   | FALSE    |         |
 
-> The page cursor should treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/api/getting_started/design_principles#pagination)
+> The page cursor should treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/docs/reference/api-overview/#pagination)
 
 ##### Response Parameters
 

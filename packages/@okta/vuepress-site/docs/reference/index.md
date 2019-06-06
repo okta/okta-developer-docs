@@ -3,7 +3,7 @@ layout: SectionIndex
 title: API Reference
 top_links:
   - name: API Concepts
-    path: /docs/api/getting_started/design_principles/
+    path: /docs/docs/reference/api-overview//
     icon: icons/icon--docs-apiconcepts.svg
   - name: Error Codes
     path: /docs/reference/error-codes/

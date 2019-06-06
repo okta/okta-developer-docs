@@ -1,21 +1,17 @@
 ---
-title: Okta Release Lifecycle
+title: Release Lifecycle
 ---
 
-# Okta Release Lifecycle
+# Release Lifecycle
 
 Okta features travel through a regular lifecycle:
 
-- [Okta Release Lifecycle](#okta-release-lifecycle)
-  - [Quick Reference Table](#quick-reference-table)
-  - [Beta](#beta)
-  - [Early Access (EA)](#early-access-ea)
-  - [General Availability (GA)](#general-availability-ga)
-  - [Deprecation](#deprecation)
-  - [Exceptions to the Beta-EA-GA Lifecycle](#exceptions-to-the-beta-ea-ga-lifecycle)
+- [Beta](#beta)
+- [Early Access (EA)](#early-access-ea)
+- [General Availability (GA)](#general-availability-ga)
 
 >Note: Okta reserves the right to add new parameters, properties, or resources to the API without advance notice.
-These updates are non-breaking because they are additive. Follow [the compatibility rules](/docs/api/getting_started/design_principles) to ensure your application doesn't break
+These updates are non-breaking because they are additive. Follow [the compatibility rules](/docs/docs/reference/api-overview/) to ensure your application doesn't break
 when additive changes are made.
 Breaking changes such as removing or renaming an attribute are released as a new version of the API, and Okta provides a migration path for new API versions.
 
@@ -62,7 +58,7 @@ A feature in an Early Access (EA) release is new or enhanced functionality made 
 Features in EA:
 
 * Are supported by Okta Customer Support.
-* Obey the SLAs. APIs are [backwards compatible](/docs/api/getting_started/design_principles).
+* Obey the SLAs. APIs are [backwards compatible](/docs/docs/reference/api-overview/).
 
 >Note: A feature may skip EA if it doesn't affect other features or functionality.
 Also, although we strive for API-first development, a feature in EA may add functionality later.

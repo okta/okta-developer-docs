@@ -141,7 +141,7 @@ Lists all the client applications in your organization (with optional pagination
 | after     | Specifies the pagination cursor for the next page of clients                               | Query     | String   | FALSE    |         |         |
 
 >Note:
-*  The `after` cursor should treated as an opaque value and obtained through [the next link relation](/docs/api/getting_started/design_principles#pagination).
+*  The `after` cursor should treated as an opaque value and obtained through [the next link relation](/docs/docs/reference/api-overview/#pagination).
 * Search currently performs a startsWith match but this is an implementation detail and may change without notice in the future.
 
 ##### Response Parameters
@@ -280,7 +280,7 @@ Lists all clients that match a search filter on `client_name`
 | after     | Specifies the pagination cursor for the next page of clients                               | Query     | String   | FALSE    |         |         |
 
 >Note:
-*  The `after` cursor should treated as an opaque value and obtained through [the next link relation](/docs/api/getting_started/design_principles#pagination).
+*  The `after` cursor should treated as an opaque value and obtained through [the next link relation](/docs/docs/reference/api-overview/#pagination).
 * Search currently performs a startsWith match but this is an implementation detail and may change without notice in the future.
 
 ##### Request Example
