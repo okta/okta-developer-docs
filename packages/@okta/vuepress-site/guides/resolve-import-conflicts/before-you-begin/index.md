@@ -4,7 +4,7 @@ title: Before You Begin
 
 ### Use the Import Inline Hook to Resolve Conflicts
 
-During batch imports of user profiles, imported profiles can conflict with other profiles, requiring manual intervention to resolve the conflicts. The Import Inline Hook enables you to implement programmatic conflict resolution, on the basis of your own custom business logic. That way, instead of being queued for manual review by an Admin, conflicts are resolved programmatically.
+During batch imports of user profiles, imported profiles can conflict with other profiles, requiring manual intervention to resolve the conflicts. The Import Inline Hook enables you to implement software solutions to resolve conflicts on the basis of your own custom business logic. That way, instead of being queued for manual review by an Admin, conflicts are resolved programmatically.
 
 
 #### Background Information
