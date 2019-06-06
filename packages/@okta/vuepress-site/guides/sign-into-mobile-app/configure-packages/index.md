@@ -16,7 +16,7 @@ You need the following values from the Okta Application and the Developer Consol
 
 > Note: Your Okta domain is different from your admin domain. Don't include `-admin` in your Okta domain.
 
-You'll also need the callback route that you defined in <GuideLink link="../define-callback">Define a Callback Route</GuideLink>.
+You'll also need the full redirect URI that you defined in <GuideLink link="../define-callback">Define a Callback Route</GuideLink>.
 
 <StackSelector snippet="configuremid"/>
 

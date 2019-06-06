@@ -6,4 +6,4 @@ android.defaultConfig.manifestPlaceholders = [
 ]
 ```
 
-This defines your **redirect scheme**. Add `:/callback` to the scheme to get the full redirect URI (like `com.okta.example:/callback`), which you'll need in the following steps.
+

@@ -14,7 +14,7 @@ Or, create a new `okta_oidc_config.json` file in your application's `res/raw` wi
 ```json
 {
   "client_id": "{clientId}",
-  "redirect_uri": "{callbackUri}",
+  "redirect_uri": "{redirectUri}",
   "scopes": [
     "openid",
     "profile",
