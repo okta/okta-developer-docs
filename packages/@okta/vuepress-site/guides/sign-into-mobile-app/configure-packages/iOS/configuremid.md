@@ -22,7 +22,7 @@ Or, create a new `Okta.plist` file in your application's bundle with the followi
 <plist version="1.0">
 <dict>
     <key>issuer</key>
-    <string>https://{yourOktaDomain}.com/oauth2/default</string>
+    <string>https://{yourOktaDomain}/oauth2/default</string>
     <key>clientId</key>
     <string>{clientId}</string>
     <key>redirectUri</key>
