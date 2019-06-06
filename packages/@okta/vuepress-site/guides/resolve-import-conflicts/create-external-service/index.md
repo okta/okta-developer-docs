@@ -16,7 +16,7 @@ Your service needs to implement an HTTPS server, for Okta to send requests to. T
 
 ### Check Authorization Header
 
-The requests that Okta sends to your external service will always include an authorization header containing a secret string. You set the value of this string when you register your external service. It serves as an API access key for your service. Your code should always check for the presence of the authorization header and confirm that it's value is correct. Processing should not proceed if the auhorization header cannot be verified.
+The requests that Okta sends to your external service will always include an authorization header containing a secret string. You set the value of this string when you register your external service. It serves as an API access key for your service. Your code should always check for the presence of the authorization header and confirm its value is correct. Processing should not proceed if the auhorization header cannot be verified.
 
 <StackSelector snippet="check-auth"/>
 
@@ -29,7 +29,7 @@ Information about the user being imported, as well as related contextual informa
 
 ### Check for Conflict in login Attribute
 
-The code here is meant as a demonstration of checking for conflict and then resolving the conflict by changing an attribute.
+The code here is meant as a demonstration of checking for conflict and then resolving the conflict by changing a user profile attribute.
 
 If the value of `data.user.profile.login` for an incoming user is equal to that of an existing profile or of another profile in the same batch import, there is a conflict.
 
