@@ -5,7 +5,7 @@ Instant now = Instant.now();
 String jwt = Jwts.builder()
         .setAudience("{yourOktaDomain}/oauth2/default/v1/token")
         .setIssuedAt(Date.from(now))
-        .setExpiration(Date.from(now.plus(1L, ChronoUnit.HOURS)))
+        .setExpiration(Date.from(now.plus(5L, ChronoUnit.MINUTES)))
         .setIssuer(clientId)
         .setSubject(clientId)
         .setId(UUID.randomUUID().toString())
