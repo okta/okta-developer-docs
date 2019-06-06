@@ -26,7 +26,7 @@ This guide walks through the configuration of the hook and the coding of some sa
 For end-to-end implementation of the solution demonstrated in this guide, you need:
 
 - An Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
-- An [Okta On-Premises Provisioning agent](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm), running on a Linux or Windows server (you must have CSV Directory Integration enabled for your org).
+- An [Okta On-Premises Provisioning agent](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm), running on a Linux or Windows server. (You must have CSV Directory Integration enabled for your org in order to use the feature).
 - A CSV file containing user identities, for the CSV Directory Integration agent to consume.
 - An application platform to host your external service. It must support HTTPS and be able to expose an Internet-accessible endpoint.  
 
