@@ -1341,7 +1341,7 @@ Refer to the [product documentation](https://help.okta.com/en/prod/Content/Topic
 | `MOBILE_ADMIN`    | Mobile Administrator      |                  |
 | `READ_ONLY_ADMIN` | Read-only Administrator   |                  |
 
-`API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature be enabled. For a description of what the role can do, see [API Access Management Best Practices](/docs/concepts/api_access_management/#recommended-practices-for-api-access-management).
+`API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature be enabled. For a description of what the role can do, see [API Access Management Best Practices](/docs/concepts/api-access-management/#recommended-practices-for-api-access-management).
 
 #### Assignment Types
 

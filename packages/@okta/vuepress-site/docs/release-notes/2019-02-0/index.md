@@ -24,11 +24,11 @@ Use of imported hashed passwords when creating or updating users in the [Users A
 
 ### Inline Hooks
 
-[Inline Hooks](/use_cases/inline_hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now in Early Access (EA). <!--OKTA-205011-->
+[Inline Hooks](/docs/concepts/inline_hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now in Early Access (EA). <!--OKTA-205011-->
 
 ### Token Inline Hook
 
-The [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
+The [Token Inline Hook](/use_cases/inline_hooks/token-hook/token-hook) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
 
 ### Signature and Digest Algorithms for Template WS-Fed Apps
 

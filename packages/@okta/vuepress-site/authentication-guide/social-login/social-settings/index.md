@@ -12,7 +12,7 @@ When you are setting up your social Identity Provider (IdP) in Okta, there are a
 
 For example, the value `idpuser.email` means that it takes the `email` attribute passed by the social IdP and maps it to the Okta Application User's `username` property.
 
-You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See here for more information about the [Okta Expression Language](/docs/reference/okta_expression_language/).
+You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See here for more information about the [Okta Expression Language](/docs/reference/okta-expression-language/).
 
 **Match against:** The Okta user property against which the IdP username is compared.
 
@@ -35,4 +35,4 @@ More user profile attributes are available for matching as an <ApiLifecycle acce
 
 ## Error Codes
 
-See the [OpenID Connect and Okta Social Authentication](/docs/reference/error_codes/#openid-connect-and-okta-social-authentication) section of the [Error Codes](/docs/reference/error_codes/) API documentation.
+See the [OpenID Connect and Okta Social Authentication](/docs/reference/error-codes/#openid-connect-and-okta-social-authentication) section of the [Error Codes](/docs/reference/error-codes/) API documentation.

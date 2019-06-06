@@ -1,9 +1,9 @@
 ---
-title: Token Inline Hook
+title: Token Inline Hook Reference
 excerpt: Customize tokens returned by the Okta API Access Management process flow.
 ---
 
-# Token Inline Hook
+# Token Inline Hook Reference
 
 <ApiLifecycle access="ea" />
 
@@ -17,7 +17,7 @@ This information is specific to the Token Inline Hook, one type of Inline Hook s
 
 ## See Also
 
-For a general introduction to Okta Inline Hooks, see [Inline Hooks](/use_cases/inline_hooks/).
+For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline_hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks).
 
@@ -274,7 +274,7 @@ This section provides example JSON payloads for the supported operations.
 
 ### Sample Response to Add a Claim
 
-Use the `add` operation to add new claims to a token. If you use the `add` operation and include an existing claim in your response with a different value, that value is replaced. Use the `replace` operation instead. See [Sample Response to Replace an Existing Claim](/use_cases/inline_hooks/token_hook/token_hook/#sample-response-to-replace-an-existing-claim) for more information. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
+Use the `add` operation to add new claims to a token. If you use the `add` operation and include an existing claim in your response with a different value, that value is replaced. Use the `replace` operation instead. See [Sample Response to Replace an Existing Claim](/docs/reference/token-hook/#sample-response-to-replace-an-existing-claim) for more information. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
 {

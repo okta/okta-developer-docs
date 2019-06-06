@@ -2,7 +2,7 @@ redirects:
   - from: /code
     to: /documentation/
   - from: /use_cases/api_security
-    to: /docs/concepts/api_access_management/
+    to: /docs/concepts/api-access-management/
   - from: /3rd_party_notices/Okta_Rum_Tool
     to: /3rd_party_notices/Okta_Cloud_Provisioning_Connector_Tool/index.html
   - from: /docs/how-to/set-up-auth-server.html
@@ -271,16 +271,16 @@ redirects:
     to: /docs/release-notes/
   - from: /docs/platform-release-notes/platform-release-notes2017-index/index.html
     to: /docs/release-notes/
-  - from: /docs/getting_started/error_codes
-    to: /docs/reference/error_codes/index.html
-  - from: /docs/api/getting_started/error_codes
-    to: /docs/reference/error_codes/index.html
+  - from: /docs/getting_started/error-codes
+    to: /docs/reference/error-codes/index.html
+  - from: /docs/api/getting_started/error-codes
+    to: /docs/reference/error-codes/index.html
   - from: /docs/getting_started/okta_expression_lang
-    to: /docs/reference/okta_expression_language/index.html
+    to: /docs/reference/okta-expression-language/index.html
   - from: /docs/getting_started/okta_expression_lang.html
-    to: /docs/reference/okta_expression_language/
+    to: /docs/reference/okta-expression-language/
   - from: /docs/api/getting_started/okta_expression_lang
-    to: /docs/reference/okta_expression_language/index.html
+    to: /docs/reference/okta-expression-language/index.html
   - from: /docs/guides/scim_guidance.html
     to: /docs/reference/scim/index.html
   - from: /docs/guides/scim_developer_program.html
@@ -310,15 +310,15 @@ redirects:
   - from: /docs/guides/scim_developer_program.html
     to: /standards/SCIM/index.html
   - from: /docs/api/resources/resource-server-beta/
-    to: /docs/concepts/api_access_management/index.html
+    to: /docs/concepts/api-access-management/index.html
   - from: /docs/api/resources/resource-server-beta/required-config-changes-for-auth-server
-    to: /docs/concepts/api_access_management/index.html
+    to: /docs/concepts/api-access-management/index.html
   - from: /docs/examples/session_cookie.html
     to: /docs/guides/session-cookie/index.html
   - from: /use_cases/events-api-deprecation/
     to: /docs/concepts/events-api-migration/index.html
   - from: /use_cases/inline_hooks/api_am_hook/api_am_hook
-    to: /use_cases/inline_hooks/token_hook/token_hook/index.html
+    to: /docs/reference/token-hook/
   - from: /use_cases/integrate_with_okta/index.html
     to: https://www.okta.com/integrate/
   - from: /docs/api/getting_started/oan_guidance
@@ -385,14 +385,14 @@ redirects:
     to: /docs/api/resources/sessions/
   - from: /docs/guides/okta_mobile_connect
     to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
-  - from: /docs/reference/okta_expression_language/index
-    to: /docs/reference/okta_expression_language/
+  - from: /docs/reference/okta-expression-language/index
+    to: /docs/reference/okta-expression-language/
   - from: /docs/api/getting_started/design_principles/getting_a_token/
     to: /docs/api/getting_started/getting_a_token/
   - from: /docs/api/getting_started/enabling_cors.html
     to: /docs/api/getting_started/enabling_cors/
   - from: /docs/api/getting_started/okta_expression_lang.html
-    to: /docs/reference/okta_expression_language/
+    to: /docs/reference/okta-expression-language/
   - from: /docs/sdk/core/python_api_sdk/index.html
     to: https://github.com/okta/okta-sdk-python
   - from: /docs/change-log/index.html

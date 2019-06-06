@@ -18,7 +18,7 @@ IdP extensible matching rules allow you to define a regular expression pattern t
 
 ### The SAML Inline Hook is in EA
 
-The SAML Inline Hook enables you to customize SAML assertions returned by Okta. For details, see our [SAML Inline Hook](/use_cases/inline_hooks/saml_hook/saml_hook/) page. <!-- OKTA-211665 and OKTA-2202004 -->
+The SAML Inline Hook enables you to customize SAML assertions returned by Okta. For details, see our [SAML Inline Hook](/docs/reference/saml-hook/) page. <!-- OKTA-211665 and OKTA-2202004 -->
 
 ### Rate Limits Updated
 

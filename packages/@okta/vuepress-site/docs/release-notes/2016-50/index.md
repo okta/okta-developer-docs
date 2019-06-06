@@ -14,7 +14,7 @@ We support the full set of core OAuth and OIDC flows (code, implicit, password, 
 
 ![Authorization Server page](/img/auth_server2.png "Authorization Server page")
 
-To get started with API Access Management, visit [API Access Management](/docs/concepts/api_access_management//).
+To get started with API Access Management, visit [API Access Management](/docs/concepts/api-access-management//).
 
 ### Feature Enhancement: Delete User Endpoint
 

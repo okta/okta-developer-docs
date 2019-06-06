@@ -1,9 +1,9 @@
 ---
-title: Registration Inline Hook
+title: Registration Inline Hook Reference
 excerpt: Customize handling of user registration requests in Self-Service Registration
 ---
 
-# Registration Inline Hook
+# Registration Inline Hook Reference
 
 <ApiLifecycle access="ea" />
 
@@ -17,7 +17,7 @@ This information is specific to the Registration Inline Hook, one type of inline
 
 ## See Also
 
-For a general introduction to Okta inline hooks, see [Inline Hooks](/use_cases/inline_hooks/).
+For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline_hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks).
 
@@ -155,7 +155,7 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 ### error
 
-See [error](/use_cases/inline_hooks/) for general information on the structure to use for the `error` object.
+See [error](/docs/concepts/inline_hooks/) for general information on the structure to use for the `error` object.
 
 In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Self-Service Registration, and have not customized its error handling behavior, only the `errorSummary` of the first `ErrorCause` object that your external service returns is displayed to the end user.
 

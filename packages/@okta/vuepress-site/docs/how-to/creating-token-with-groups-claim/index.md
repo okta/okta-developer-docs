@@ -20,7 +20,7 @@ Do the following to create a Groups claim for Okta-mastered groups on an OpenID 
 
 3. In **Groups claim type**, choose either **Filter** or **Expression**.
 
-4. In **Group claims filter**, leave the default name **groups** or change it if you want, and then add the appropriate filter or expression. For example, select **Filter**, and then select **Matches regex** and enter `.*` to return the user's groups. See [Okta Expression Language Group Functions](/docs/reference/okta_expression_language/#group-functions) for more information.
+4. In **Group claims filter**, leave the default name **groups** or change it if you want, and then add the appropriate filter or expression. For example, select **Filter**, and then select **Matches regex** and enter `.*` to return the user's groups. See [Okta Expression Language Group Functions](/docs/reference/okta-expression-language/#group-functions) for more information.
 
 5. Add the groups claim to the scopes in your request. The ID token is returned in the response.
 
@@ -40,7 +40,7 @@ Notes:
 
 ## Create Groups Claims with a Dynamic Whitelist
 
-You can use the [Okta Expression Language Group Functions](/docs/reference/okta_expression_language/#group-functions) to use static and dynamic whitelists.
+You can use the [Okta Expression Language Group Functions](/docs/reference/okta-expression-language/#group-functions) to use static and dynamic whitelists.
 
 Three Group functions help you use dynamic group whitelists:  `contains`, `startsWith`, and `endsWith`.
 
@@ -84,7 +84,7 @@ Now, use the instructions for your chosen authorization server to create a group
 * [Create a Token with a Groups Claim with Okta Authorization Server](#create-a-token-with-a-groups-claim-okta-authorization-server)
 * [Create a Token with a Groups Claim with Custom Authorization Server](#create-a-token-with-a-groups-claim-custom-authorization-server)
 
-For examples using [Okta Expression Language Group Functions](/docs/reference/okta_expression_language/#group-functions) in static whitelists, see [Use Group Functions for Static Group Whitelists](#use-group-functions-for-static-group-whitelists).
+For examples using [Okta Expression Language Group Functions](/docs/reference/okta-expression-language/#group-functions) in static whitelists, see [Use Group Functions for Static Group Whitelists](#use-group-functions-for-static-group-whitelists).
 
 
 ### Create a Token with a Groups Claim (Okta Authorization Server)

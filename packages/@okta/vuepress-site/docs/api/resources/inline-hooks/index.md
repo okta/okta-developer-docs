@@ -10,7 +10,7 @@ excerpt: >-
 
 <ApiLifecycle access="ea" />
 
-For general information on inline hooks and how to create and use them, see [Inline Hooks](/use_cases/inline_hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering inline hooks.
+For general information on inline hooks and how to create and use them, see [Inline Hooks](/docs/concepts/inline_hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering inline hooks.
 
 ## Getting Started
 
@@ -732,8 +732,8 @@ When registering an inline hook, you need to specify what type it is. The follow
 
 | Type Value                         | Name                                                                                    |
 |------------------------------------|-----------------------------------------------------------------------------------------|
-| `com.okta.oauth2.tokens.transform` | [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook)                      |
-| `com.okta.import.transform`        | [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook)                   |
-| `com.okta.saml.tokens.transform`   | [SAML Assertion Inline Hook](/use_cases/inline_hooks/saml_hook/saml_hook)               |
-| `com.okta.user.pre-registration`   | [Registration Inline Hook](/use_cases/inline_hooks/registration_hook/registration_hook) |
+| `com.okta.oauth2.tokens.transform` | [Token Inline Hook](/use_cases/inline_hooks/token-hook/token-hook)                      |
+| `com.okta.import.transform`        | [Import Inline Hook](/docs/reference/import-hook/)                   |
+| `com.okta.saml.tokens.transform`   | [SAML Assertion Inline Hook](/docs/reference/saml-hook/)               |
+| `com.okta.user.pre-registration`   | [Registration Inline Hook](/docs/reference/registration_hook/) |
 

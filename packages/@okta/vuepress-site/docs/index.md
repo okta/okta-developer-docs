@@ -80,7 +80,7 @@ sections:
        - title: Users API
          link: /docs/api/resources/users/
        - title: Error Codes
-         link: /docs/reference/error_codes/
+         link: /docs/reference/error-codes/
        - title: More
          link:  /reference/
 

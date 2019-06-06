@@ -6,13 +6,13 @@ top_links:
     path: /docs/api/getting_started/design_principles/
     icon: icons/icon--docs-apiconcepts.svg
   - name: Error Codes
-    path: /docs/reference/error_codes/
+    path: /docs/reference/error-codes/
     icon: icons/icon--docs-errorcodes.svg
   - name: Okta Expression Language
-    path: /docs/reference/okta_expression_language/
+    path: /docs/reference/okta-expression-language/
     icon: icons/icon--docs-expressionlang.svg
   - name: Postman Collections
-    path: /docs/reference/postman_collections/
+    path: /docs/reference/postman-collections/
     icon: icons/icon--docs-postman.svg
 ---
 

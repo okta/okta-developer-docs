@@ -1,9 +1,9 @@
 ---
-title: Import Inline Hook
+title: Import Inline Hook Reference
 excerpt: Add custom logic to the user import process.
 ---
 
-# Import Inline Hook
+# Import Inline Hook Reference
 
 <ApiLifecycle access="ea" />
 
@@ -17,7 +17,7 @@ This information is specific to the Import Inline Hook, one type of inline hook 
 
 ## See Also
 
-For a general introduction to Okta inline hooks, see [Inline Hooks](/use_cases/inline_hooks/).
+For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline_hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks).
 

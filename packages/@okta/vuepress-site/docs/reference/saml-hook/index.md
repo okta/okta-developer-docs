@@ -1,9 +1,9 @@
 ---
-title: SAML Assertion Inline Hook
+title: SAML Assertion Inline Hook Reference
 excerpt: Customize SAML assertions returned by Okta.
 ---
 
-# SAML Assertion Inline Hook
+# SAML Assertion Inline Hook Reference
 
 <ApiLifecycle access="ea" />
 
@@ -17,7 +17,7 @@ This information is specific to the SAML Assertion Inline Hook, one type of inli
 
 ## See Also
 
-For a general introduction to Okta inline hooks, see [Inline Hooks](/use_cases/inline_hooks/).
+For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline_hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks).
 
