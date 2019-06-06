@@ -43,11 +43,9 @@ Note that `commands` is an array. In this case, only one command is being return
 
 ### Serialize Response and Send
 
-Finally, the `commands` object we constructed needs to be serialized into JSON, so that it can form the payload of the HTTP response we return to Okta.
+Finally, the `commands` object we constructed needs to be serialized into JSON, so that it can form the payload of the HTTP response we return to Okta. Aside from the JSON payload, the response should have an HTTP status code of 200 OK.
 
 <StackSelector snippet="serialize"/>
-
-Aside from the JSON payload, the response should have an HTTP status code of 200 OK.
 
 <NextSectionLink />
 
