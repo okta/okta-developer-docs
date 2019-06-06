@@ -31,20 +31,25 @@ Information about the user being imported, as well as related contextual informa
 
 The code here is meant as a demonstration of checking for conflict and then resolving the conflict by changing a user profile attribute.
 
-If the value of `data.user.profile.login` for an incoming user is equal to that of an existing profile or of another profile in the same batch import, there is a conflict.
-
-As a demonstration only, the way we'll handle the conflict is to insert a unique integer into the value.
+If the value of `data.user.profile.login` for an incoming user is equal to the value of that attribute in another user profie, there is a conflict. As a demonstration only, the way we'll handle the conflict is to insert a unique integer into the value.
 
 <StackSelector snippet="detect-conflict"/>
 
-
 ### Formulate Commands to Return
 
-<StackSelector snippet="build-commands-object"/>
+The way to update the value Okta assigns to a user profile attribute is to return a `commands` object, specifying the attribute and the value to set it to. Here, we will construct a `commands` object to set `data.user.profile.login` to the the updated value. 
+
+<StackSelector snippet="construct-commands-object"/>
+
+Note that `commands` is an array. In this case, only one command is being returned. 
 
 ### Serialize Response and Send
 
+Finally, the `commands` object we constructed needs to be serialized into JSON, so that it can form the payload of the HTTP response we return to Okta.
+
 <StackSelector snippet="serialize"/>
+
+Aside from the JSON payload, the response should have an HTTP status code of 200 OK.
 
 <NextSectionLink />
 
