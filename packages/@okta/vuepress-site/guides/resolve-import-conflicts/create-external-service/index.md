@@ -10,7 +10,7 @@ The following sections demonstrate some sample code for an external service. The
 
 ### Create an HTTPS Server
 
-Your service needs to implement an HTTPS server for Okta to send requests to. To create an HTTPS server, you need to have available an SSL key pair (PEM file) and its corresponding certificate (cert file) for the server to use.
+Your service needs to implement an HTTPS server for Okta to send requests to. To create an HTTPS server, you need to have available an SSL key pair (PEM file) and its corresponding certificate (cert file).
 
 <StackSelector snippet="create-https"/>
 
