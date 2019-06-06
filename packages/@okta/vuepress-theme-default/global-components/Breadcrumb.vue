@@ -18,10 +18,10 @@
         
         const crumbs = [];
 
-        if(this.$page.path.startsWith('/guides/')) {
+        if(this.$page.path.startsWith('/docs/guides/')) {
           crumbs.push(
             {path: '/documentation/', title: 'DOCS'},
-            {path: '/guides/', title: 'Guides' },
+            {path: '/docs/guides/', title: 'Guides' },
           );
           return crumbs;
         }

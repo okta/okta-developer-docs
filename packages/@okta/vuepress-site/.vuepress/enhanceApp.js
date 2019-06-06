@@ -6,7 +6,7 @@ export default ({ router, Vue }) => {
   router.addRoutes(redirectsJson);
   router.addRoutes([
     {
-      path: '/guides/:guide?/:framework?/:section?',
+      path: '/docs/guides/:guide?/:framework?/:section?',
       component: Guides,
     },
   ]);
