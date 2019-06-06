@@ -3,11 +3,19 @@ title: Overview
 ---
 JSON Web Tokens (JWTs) allow claims, such as user data, to be represented in a secure manner, helping to ensure trust and security in your app. JWTs are an open standard and there are various libraries available that allow you to create, verify, and inspect them.
 
+Okta uses JWTs for many purposes. One purpose is to add an optional additional layer of security. You can include a JWT with requests your code makes to Okta's [OpenID Connect](/docs/api/resources/oidc/) (OIDC) endpoints that require [client authentication](/docs/api/resources/oidc/#client-authentication-methods), such as the [`/token`](/docs/api/resources/oidc/#token) endpoint.
+
+Use this guide to understand:
+
+* How to build a signed JWT for use when making requests to the OIDC endpoints
+* Which claims are required in your JWT payload
+* How to sign the JWT with a shared secret or a private key
+
 ### JWT Types
 There are two types of self-signed JWT assertions that you can build for use when you make requests to endpoints that require client authentication:
 
-* JWT With Shared Key (`client_secret_jwt`)
-* JWT With Private Key (`private_key_jwt`)
+* JWT With a Shared Key (`client_secret_jwt`)
+* JWT With a Private Key (`private_key_jwt`)
 
 The difference between building these two types of assertions is the algorithm and method used to sign the JWT.
 
