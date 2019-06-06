@@ -14,7 +14,7 @@ Your service needs to implement an HTTPS server, which Okta will send requests t
 
 ### Check Authorization Header
 
-The requestst that Okta sends to your external service always include an authorization header containing a secret string. You set the value of this string when you register your external service, and Okta then sends it with every request. This serves as an API access key for your service. Your code should always check for the presence of the authorization header and confirm that it's value is correct. Processing should not proceed if the auhorization header cannot be verified.
+The requests that Okta sends to your external service always include an authorization header containing a secret string. You set the value of this string when you register your external service, and Okta then sends it with every request. This serves as an API access key for your service. Your code should always check for the presence of the authorization header and confirm that it's value is correct. Processing should not proceed if the auhorization header cannot be verified.
 
 <StackSelector snippet="check-auth"/>
 
