@@ -1,10 +1,12 @@
-The following example uses the [JJWT library ](https://github.com/jwtk/jjwt).
+Using the [JJWT library](https://github.com/jwtk/jjwt):
 
 ```java
+String clientSecret = "{clientSecret}"; // Or load from configuration
 SecretKey sharedSecret = Keys.hmacShaKeyFor(clientSecret.getBytes(StandardCharsets.UTF_8));
 Instant now = Instant.now();
+
 String jwt = Jwts.builder()
-        .setAudience("{yourOktaDomain}/oauth2/default/v1/token")
+        .setAudience("https://{yourOktaDomain}/oauth2/default/v1/token")
         .setIssuedAt(Date.from(now))
         .setExpiration(Date.from(now.plus(5L, ChronoUnit.MINUTES)))
         .setIssuer(clientId)
@@ -12,5 +14,4 @@ String jwt = Jwts.builder()
         .setId(UUID.randomUUID().toString())
         .signWith(sharedSecret)
         .compact();
-
 ```
