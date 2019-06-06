@@ -1,6 +1,6 @@
 ---
 title: Resolve Conflicts During Batch User Import
-excerpt: Learn how to code a custom solution to user import conflicts.
+excerpt: Learn how to code a custom solution to resolve during user import.
 layout: Guides
 sections: 
  - before-you-begin
