@@ -1,7 +1,7 @@
 After the `AuthenticateClient` instance is created, make sure that the user is signed in:
 
 ```java
-if (client.isLoggedIn()) {
+if (sessionClient.isLoggedIn()) {
     //user already logged in. Skip login screen.
 }
 ```
@@ -9,13 +9,13 @@ if (client.isLoggedIn()) {
 If the user is signed in and you want to make sure that the `access_token` is still valid, you can check the validity of the token in two ways. The first way is to simply check the expiration time:
 
 ```java
-if (client.isLoggedIn()) {
-    Tokens tokens = client.getTokens();
-    int expiration = tokens.getExpiresIn();
-    long currentTime = System.currentTimeMillis();
-    OktaIdToken idToken = OktaIdToken.parseIdToken(client.getTokens().getIdToken());
-    if (currentTime > expiration + idToken.getClaims().iat) {
-        //access_token expired
+if (sessionClient.isLoggedIn()) {
+    try {
+        if (sessionClient.getTokens().isAccessTokenExpired()) {
+            //access_token expired
+        }
+    } catch (AuthorizationException e) {
+        //handle error
     }
 }
 ```
@@ -23,16 +23,16 @@ if (client.isLoggedIn()) {
 Another way to check the validity of the `access_token` is to use the [introspect](https://developer.okta.com/docs/api/resources/oidc/#introspect) endpoint. This gives you more information about the token in the [response properties](https://developer.okta.com/docs/api/resources/oidc/#response-properties-3):
 
 ```java
-client.introspectToken(client.getTokens().getAccessToken(),
-    TokenTypeHint.ACCESS_TOKEN, new RequestCallback<IntrospectResponse, AuthorizationException>() {
+sessionClient.introspectToken(sessionClient.getTokens().getRefreshToken(),
+    TokenTypeHint.ACCESS_TOKEN, new RequestCallback<IntrospectInfo, AuthorizationException>() {
         @Override
-        public void onSuccess(@NonNull IntrospectResponse result) {
-            //handle introspect response.
+        public void onSuccess(@NonNull IntrospectInfo result) {
+            //handle introspect info.
         }
 
         @Override
         public void onError(String error, AuthorizationException exception) {
-            //handle error
+            //handle request error
         }
     }
 );

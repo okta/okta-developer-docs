@@ -1,26 +1,40 @@
-Get the access token to set up the request:
+You could create a `callMessagesApi` function that makes an authenticated request to your server. The access token is automatically used in the request properties by the `authorizedRequest` method.
 
 ```java
-Uri uri = Uri.parse("https://{yourApiEndpoint}");
-HashMap<String, String> properties = new HashMap<>();
-properties.put("queryparam", "queryparam");
-HashMap<String, String> postParameters = new HashMap<>();
-postParameters.put("postparam", "postparam");
+private void callMessagesApi() {
+    Uri uri = Uri.parse("https://{resourceUrl}");
+    HashMap<String, String> properties = new HashMap<>();
+    properties.put("queryparam", "queryparam");
+    HashMap<String, String> postParameters = new HashMap<>();
+    postParameters.put("postparam", "postparam");
+
+    sessionClient.authorizedRequest(uri, properties, postParameters, HttpConnection.RequestMethod.POST,
+        new RequestCallback<JSONObject, AuthorizationException>() {
+            @Override
+            public void onSuccess(@NonNull JSONObject result) {
+                //handle JSONObject result.
+            }
+
+            @Override
+            public void onError(String error, AuthorizationException exception) {
+                //handle error
+            }
+    });
+}
 ```
 
-Then, make an authenticated request to your API endpoint or resource server and handle the response:
+If you don't want to use the `authorizedRequest` method and just want to get the access token:
 
 ```java
-client.authorizedRequest(uri, properties, postParameters, HttpConnection.RequestMethod.POST,
-    new RequestCallback<JSONObject, AuthorizationException>() {
-        @Override
-        public void onSuccess(@NonNull JSONObject result) {
-            //handle JSONObject result.
-        }
+String accessToken = null;
+try {
+    Tokens token = sessionClient.getTokens();
+    accessToken = token.getAccessToken();
+} catch (AuthorizationException e) {
+    //handle error
+}
 
-        @Override
-        public void onError(String error, AuthorizationException exception) {
-            //handle error
-        }
-});
+if (accessToken != null) {
+    //use access token
+}
 ```

@@ -1,7 +1,7 @@
 Use the `refreshToken` method to get a new access token:
 
 ```java
-client.refreshToken(new RequestCallback<Tokens, AuthorizationException>() {
+sessionClient.refreshToken(new RequestCallback<Tokens, AuthorizationException>() {
     @Override
     public void onSuccess(@NonNull Tokens result) {
         //token refreshed successfully.
