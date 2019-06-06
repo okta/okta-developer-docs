@@ -10,7 +10,7 @@ excerpt: >-
 
 <ApiLifecycle access="ea" />
 
-For general information on event hooks and how to create and use them, see [Event Hooks](/use_cases/event_hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering event hooks.
+For general information on event hooks and how to create and use them, see [Event Hooks](/docs/concepts/event-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering event hooks.
 
 ## Getting Started
 
@@ -340,7 +340,7 @@ curl -v -X PUT \
 | id                                   | ID of the event hook to verify.                                                 | Path       | String   | TRUE     |
 
 Verifies the Event Hook matching the provided `eventHookId`.
-Your endpoint needs to be able to correctly send back information to Okta in JSON format, so that endpoint ownership can be verified. See [Event Hooks](/use_cases/event_hooks/) documentation for details.
+Your endpoint needs to be able to correctly send back information to Okta in JSON format, so that endpoint ownership can be verified. See [Event Hooks](/docs/concepts/event-hooks/) documentation for details.
 
 Only `ACTIVE` and `VERIFIED` event hooks can receive events from Okta.
 

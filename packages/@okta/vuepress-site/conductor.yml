@@ -2,7 +2,7 @@ redirects:
   - from: /code
     to: /documentation/
   - from: /use_cases/api_security
-    to: /use_cases/api_access_management/
+    to: /docs/concepts/api_access_management/
   - from: /3rd_party_notices/Okta_Rum_Tool
     to: /3rd_party_notices/Okta_Cloud_Provisioning_Connector_Tool/index.html
   - from: /docs/how-to/set-up-auth-server.html
@@ -310,13 +310,13 @@ redirects:
   - from: /docs/guides/scim_developer_program.html
     to: /standards/SCIM/index.html
   - from: /docs/api/resources/resource-server-beta/
-    to: /use_cases/api_access_management/index.html
+    to: /docs/concepts/api_access_management/index.html
   - from: /docs/api/resources/resource-server-beta/required-config-changes-for-auth-server
-    to: /use_cases/api_access_management/index.html
+    to: /docs/concepts/api_access_management/index.html
   - from: /docs/examples/session_cookie.html
     to: /docs/guides/session-cookie/index.html
   - from: /use_cases/events-api-deprecation/
-    to: /use_cases/events-api-migration/index.html
+    to: /docs/concepts/events-api-migration/index.html
   - from: /use_cases/inline_hooks/api_am_hook/api_am_hook
     to: /use_cases/inline_hooks/token_hook/token_hook/index.html
   - from: /use_cases/integrate_with_okta/index.html

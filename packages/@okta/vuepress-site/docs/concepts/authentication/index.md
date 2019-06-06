@@ -60,7 +60,7 @@ comprehensive [authentication REST API](/docs/api/resources/authn)
 exposed through Okta.  Use it as a
 standalone API to provide the identity layer on top of your existing
 application and authentication logic, or use it with the Okta [Sessions API](/docs/api/resources/sessions)
-to obtain an Okta [session cookie](/use_cases/authentication/session_cookie) and access apps within Okta.
+to obtain an Okta [session cookie](/docs/concepts/authentication/session_cookie) and access apps within Okta.
 This session integration provides an SSO experience across custom and Okta-managed apps.
 
 ## Building Apps That Support SSO
