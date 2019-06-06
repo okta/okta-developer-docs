@@ -1,17 +1,15 @@
-Suggested flow for content:
+The following example uses the [JJWT library ](https://github.com/jwtk/jjwt).
+```java
 
-Create the Header
-Create the Payload
-Create the Signature
-Put it Together
+Instant now = Instant.now();
+String jwt = Jwts.builder()
+        .setAudience("{yourOktaDomain}/oauth2/default/v1/token")
+        .setIssuedAt(Date.from(now))
+        .setExpiration(Date.from(now.plus(1L, ChronoUnit.HOURS)))
+        .setIssuer(clientId)
+        .setSubject(clientId)
+        .setId(UUID.randomUUID().toString())
+        .signWith(privateKey)
+        .compact();
 
-Expected claims in the example token:
-
-`"sub": client_id,
-"aud": "https://{yourOktaDomain}/oauth2/default/v1/token",
-"iss": client_id,
-"exp": unix_epoch(now.addMinutes(5)),
-"iat": unix_epoch(now),
-"jti": guid.new()`
-
-Signed via RS256 (using the private key of a public/private keypair)
+```
