@@ -10,7 +10,7 @@ The following sections demonstrate some sample code for an external service. The
 
 ### Create an HTTPS Server
 
-Your service needs to implement an HTTPS server, for Okta to send requests to. To create an HTTPS server, you need to have available an SSL key pair (PEM file) and its corresponding certificate (cert file).
+Your service needs to implement an HTTPS server for Okta to send requests to. To create an HTTPS server, you need to have available an SSL key pair (PEM file) and its corresponding certificate (cert file) for the server to use.
 
 <StackSelector snippet="create-https"/>
 
@@ -35,15 +35,15 @@ If the value of `data.user.profile.login` for an incoming user is equal to the v
 
 ### Formulate Commands to Return
 
-The way to update the value Okta assigns to a user profile attribute is to return a `commands` object, specifying the attribute and the value to set it to. Here, we will construct a `commands` object to set `data.user.profile.login` to the the updated value. 
+The way to update the value Okta assigns to a user profile attribute is to return a `commands` object, specifying the attribute and the value to set it to. Here, we will construct a `commands` object to set the value of `data.user.profile.login`. 
 
 <StackSelector snippet="construct-commands-object"/>
 
-Note that `commands` is an array. In this case, only one command is being returned. 
+Note that `commands` is an array, but in this case, only one command is being returned. 
 
 ### Serialize Response and Send
 
-Finally, the `commands` object we constructed needs to be serialized into JSON, so that it can form the payload of the HTTP response we return to Okta. Aside from the JSON payload, the response should have an HTTP status code of 200 OK.
+Finally, the `commands` object we constructed needs to be serialized into JSON, so that it can form the payload of the HTTP response we return to Okta. The response sent should have an HTTP status code of 200 OK.
 
 <StackSelector snippet="serialize"/>
 

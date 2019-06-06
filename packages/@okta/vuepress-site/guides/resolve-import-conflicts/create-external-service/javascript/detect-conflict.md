@@ -11,5 +11,5 @@
 // anymore.
 //
 // newLoginValue will be used when formulating the commands object in the response
-// that will be sent back to Okta.
+// sent back to Okta.
 ```
