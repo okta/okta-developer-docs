@@ -1,12 +1,11 @@
 ---
-title: Multi-Factor Authentication
-redirect_from: /docs/guides/add_mfa.html
+title: Add multi-factor authentication
 meta:
   - name: description
     content: Learn how to add multi-factor authentication to your apps and how to deploy our built-in factors, or integrate with existing tokens. 
 ---
 
-# Multi-factor authentication introduction
+# Add multi-factor authentication
 
 Application developers and organizations are increasingly
 implementing multi-factor authentication to add an extra layer of
@@ -35,7 +34,7 @@ To follow along with this guide, you will need to have your own Okta Developer E
     Edition org, follow the
     [instructions on the Okta Developer Documentation page for setting up Postman](/code/rest/).
 
-# Overview of API calls used for multi-factor authentication
+## Overview of API calls used for multi-factor authentication
 
 Below is an introduction to using Okta's Multi-Factor Authentication (MFA)
 API to add MFA to an existing application.

@@ -346,7 +346,7 @@ redirects:
   - from: /use_cases/isv/zindex/index.html
     to: https://www.okta.com/integrate/documentation/isv-partner-integrations/
   - from: /docs/guides/add_mfa.html
-    to: /use_cases/mfa/index.html
+    to: /docs/guides/mfa/index.html
   - from: /use_cases/mobile/okta_mobile_connect/index.html
     to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/api/reference/apps.html
