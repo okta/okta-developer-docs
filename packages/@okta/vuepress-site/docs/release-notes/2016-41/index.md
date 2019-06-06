@@ -54,7 +54,7 @@ Example:
 `String.replace("This list includes chores", "is", "at") = "That last includes chores"`
 <!-- * `String.replaceOnce("This list includes chores", "is", "at") = "That list includes chores"` -->
 
-For more information, see [Expression Language: String Functions](/reference/okta_expression_language/#string-functions).
+For more information, see [Expression Language: String Functions](/docs/reference/okta_expression_language/#string-functions).
 
 <!-- OKTA-103057, OKTA-103966 -->
 

@@ -6,7 +6,7 @@ excerpt: Control user access to Okta.
 
 # Authentication API
 
-The Okta Authentication API provides operations to authenticate users, perform multi-factor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application, or it can be integrated with the Okta [Sessions API](/docs/api/resources/sessions/) to obtain an Okta [session cookie](/use_cases/authentication/session_cookie/) and access apps within Okta.
+The Okta Authentication API provides operations to authenticate users, perform multi-factor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application, or it can be integrated with the Okta [Sessions API](/docs/api/resources/sessions/) to obtain an Okta [session cookie](/docs/guides/session-cookie/) and access apps within Okta.
 
 The API is targeted for developers who want to build their own end-to-end login experience to replace the built-in Okta login experience and addresses the following key scenarios:
 

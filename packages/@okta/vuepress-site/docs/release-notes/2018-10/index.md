@@ -45,7 +45,7 @@ We have added [an optional URL parameter, `autoPush` ](/docs/api/resources/authn
 ### System Log Changes for 2018.10
 
 * If a query to `/logs` timed out, an HTTP 504 error was returned. Now an HTTP 500 error will be returned. This aligns `/logs` error responses with other Okta APIs, and ensures implementation details are not leaked to API consumers. (OKTA-159642)
-* The following changes to error codes related to the system log were made to make them consistent with [Okta error codes](/reference/error_codes/):
+* The following changes to error codes related to the system log were made to make them consistent with [Okta error codes](/docs/reference/error_codes/):
     * `MEDIA_TYPE_NOT_ACCEPTED_EXCEPTION` replaced by `UNSUPPORTED_MEDIA_TYPE`
     * `OPP_INVALID_PAGINATION_PROPERTIES` replaced by `INVALID_PAGING_EXCEPTION`
     * `OPP_INVALID_SCIM_FILTER` replaced by `INVALID_SEARCH_CRITERIA_EXCEPTION` <!-- OKTA-149847 -->

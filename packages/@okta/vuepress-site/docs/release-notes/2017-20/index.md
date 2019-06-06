@@ -35,7 +35,7 @@ For a full description of the new rate limits, see [API Rate Limits](/docs/api/g
 
 Use the Okta Expression Language function `getFilteredGroups` to create a list of groups that the current user belongs to.
 With such a list you can, for example, create claims in Access Tokens and ID Tokens based on the groups.
-For more information, see [Group Functions](/reference/okta_expression_language/#group-functions). <!--OKTA-123127-->
+For more information, see [Group Functions](/docs/reference/okta_expression_language/#group-functions). <!--OKTA-123127-->
 
 #### New Profile Property for Apps
 
@@ -43,7 +43,7 @@ The `profile` property in the Apps API accepts any well-formed JSON schema. You 
 For example:
 
 * Add an app manager contact email address.
-* Use the profile to define a whitelist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/reference/okta_expression_language/#group-functions).
+* Use the profile to define a whitelist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/docs/reference/okta_expression_language/#group-functions).
 
 For more information, see the [Apps API](/docs/api/resources/apps/#profile-object).
 

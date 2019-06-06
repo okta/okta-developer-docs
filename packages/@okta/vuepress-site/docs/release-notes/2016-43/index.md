@@ -50,7 +50,7 @@ Response Example:
 
 ### New Function for Replacing Strings
 
-Use the [Expression Language](/reference/okta_expression_language/) function `String.replaceFirst` to replace the first occurrence of a string.
+Use the [Expression Language](/docs/reference/okta_expression_language/) function `String.replaceFirst` to replace the first occurrence of a string.
 
 Example:
 

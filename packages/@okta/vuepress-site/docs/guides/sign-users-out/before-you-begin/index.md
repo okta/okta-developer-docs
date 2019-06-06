@@ -9,8 +9,8 @@ This guide assumes that you:
 
 * Have an Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
 * Already followed one of our sign-in guides: 
-    * [Sign Users in to Your Web App](/guides/sign-into-web-app/) 
-    * [Sign Users in to Your Single-Page App](/guides/sign-into-spa/) 
+    * [Sign Users in to Your Web App](/docs/guidessign-into-web-app/) 
+    * [Sign Users in to Your Single-Page App](/docs/guidessign-into-spa/) 
 
 <!-- <StackSelector snippet="create-app"/> -->
 

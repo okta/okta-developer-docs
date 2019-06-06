@@ -123,7 +123,7 @@ All requests that result in an error will return the appropriate 4xx or 5xx erro
 }
 ```
 
-See [Error Codes](/reference/error_codes/) for a list of API error codes.
+See [Error Codes](/docs/reference/error_codes/) for a list of API error codes.
 
 > Only the `errorCode` property is supported for runtime error flow control.  The `errorSummary` property is only intended for troubleshooting and may change over time.
 
