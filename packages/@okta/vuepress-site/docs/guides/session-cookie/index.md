@@ -1,5 +1,5 @@
 ---
-title: Session Cookie
+title: Work with Okta session cookies
 ---
 
 # Overview
