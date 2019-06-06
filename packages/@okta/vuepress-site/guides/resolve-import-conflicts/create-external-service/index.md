@@ -6,9 +6,9 @@ The external service is the customer-provided piece of software that Okta calls 
 
 Okta defines the REST API contract for the requests it sends to the external service and for the responses the external service can send back, but it's your responsibility to arrange hosting of the external service and to code the software for it.
 
-The following sections demonstrate some sample code for an external service.
+The following sections demonstrate some sample code for an external service. The code here is meant as a demonstration of checking for conflict and then resolving the conflict by changing a user profile attribute.
 
-### Create HTTPS Server
+### Create an HTTPS Server
 
 Your service needs to implement an HTTPS server, for Okta to send requests to. To create an HTTPS server, you need to have available an SSL key pair (PEM file) and its corresponding certificate (cert file).
 
@@ -16,20 +16,18 @@ Your service needs to implement an HTTPS server, for Okta to send requests to. T
 
 ### Check Authorization Header
 
-The requests that Okta sends to your external service will always include an authorization header containing a secret string. You set the value of this string when you register your external service. It serves as an API access key for your service. Your code should always check for the presence of the authorization header and confirm its value is correct. Processing should not proceed if the auhorization header cannot be verified.
+The requests that Okta sends to your external service will always include an authorization header containing a secret string. You set the value of this string when you register your external service, so that it can serve as an API access key for the service. Your code should always check for the presence of the authorization header and confirm its value. Processing should not proceed if the auhorization header cannot be verified.
 
 <StackSelector snippet="check-auth"/>
 
 ### Deserialize JSON Payload
 
-Information about the user being imported, as well as related contextual information, is contained in the JSON payload of the request from Okta. To make it available for pocessing, let's deserialize the JSON into objects.
+Information about the user being imported, as well as contextual information about the import process, is contained in the JSON payload of the request from Okta. To make it available for pocessing, let's deserialize the JSON into objects.
 
 <StackSelector snippet="deserialize"/>
 
 
 ### Check for Conflict in login Attribute
-
-The code here is meant as a demonstration of checking for conflict and then resolving the conflict by changing a user profile attribute.
 
 If the value of `data.user.profile.login` for an incoming user is equal to the value of that attribute in another user profie, there is a conflict. As a demonstration only, the way we'll handle the conflict is to insert a unique integer into the value.
 
