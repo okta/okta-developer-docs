@@ -20,12 +20,14 @@ The requests that Okta sends to your external service will always include an aut
 
 ### Deserialize JSON Payload
 
-The information about the user being imported, as well as related contextual information, is contained in the JSON payload of the request from Okta. To make it available for pocessing, you can deserialize the JSON into objects.
+The information about the user being imported, as well as related contextual information, is contained in the JSON payload of the request from Okta. To make it available for pocessing, let's deserialize the JSON into objects.
 
 <StackSelector snippet="deserialize"/>
 
 
-### Check for Conflict in `login` Attribute
+### Check for Conflict in login Attribute
+
+The code we're developing is meant as a demonstration of checking for conflict and of resolving conflict by changing an attribute. If the value of `user.profile.login` for an incoming user is equal to that of an existing profile, or of another profile in the same batch import, then there is a conflict. This is meant only as a demonstration of checking for conflict and of resolving conflict by changing an attribute. 
 
 <StackSelector snippet="detect-conflict"/>
 
