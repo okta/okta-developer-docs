@@ -1,7 +1,7 @@
 ---
 title: Customization Examples
 ---
-Use the following customization examples to help you personalize your error page by extending the look and feel of the page with your own stylesheet (CSS) and defining per-application error messages.
+Use the following customization examples to help you personalize your error page by extending the look and feel of the page with your own stylesheet (CSS).
 
 ## Add Your Own Stylesheet
 You can add your own stylesheet to extend the look of your error page. In the embedded HTML editor, add a link to your stylesheet in the `<head>` section, below the  `<link rel="stylesheet" type="text/css" href="/assets/css/sections/errors-v2.css">` line.

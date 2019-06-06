@@ -10,61 +10,65 @@ The graphic highlights and numbers the macros in the html editor, and then displ
 ![Macros on Error Page](/img/custErrorPage.png "Macros on Error Page")
 
 1 <span v-pre>`{{orgName}}`</span> 
-This macro controls the org name title that appears on the error page's browser tab. You can make changes to this text by removing the macro and adding your own.
+This macro inserts the org name title on the error page's browser tab.
 
-For example:
+Example:
 ```javascript
-`<title>Your Text Here - {{errorSummary}}</title>`
+`<title>{{orgName}} - {{errorSummary}}</title>`
 ```
 
 2 <span v-pre>`{{errorSummary}}`</span>
-This macro controls the error title text that appears on the error page's browser tab. You can make changes to this text by removing the macro and adding your own.
+This macro inserts the error title text on the error page's browser tab.
 
-For example:
+Example:
 ```javascript
-`<title>{{orgName}} - Your Text Here</title>`
+`<title>{{orgName}} - {{errorSummary}}</title>`
 ```
-
-> Note: Removing this <span v-pre>`{{errorSummary}}`</span> macro doesn't affect the <span v-pre>`{{errorSummary}}`</span> macro (6) lower on the page.
-
 3 <span v-pre>`{{bgImageUrl}}`</span>
-This macro controls the background image of the entire error page. You can configure which background image this macro displays using the **Sign-In Configuration** option accessed by selecting **Customization**, and then **Appearance** from the Developer Console. 
-You can also change which background image appears by removing the macro in the HTML editor and adding your own background image URL. 
+This macro inserts a URL to the background image configured in your Okta organization. You can change this image by selecting **Customization**, and then **Appearance** from the Developer Console, but this changes the background image in all instances where the macro is used, for example, your custom sign-in page. If you want to just change the background image for your custom error pages, put the URL to the image in place of the macro:
 
-For example:
-`<div class="login-bg-image" style="background-image: url('https://example.com//YourBackgroundImage.png)"></div>`
+Example:
+`<div class="login-bg-image" style="background-image: url('https://example.com//YourBackgroundImage.png')"></div>`
 
 4 <span v-pre>`{{orgLogo}}`</span>
-This macro controls the org logo image that appears. You can configure which org logo this macro displays using the **Organization Logo** option accessed by selecting **Customization**, and then **Appearance** from the Developer Console. You can also change which image appears by removing the macro in the HTML editor and adding your own image URL.
+This macro inserts the org logo image that appears. You can change this logo using the **Organization Logo** option accessed by selecting **Customization**, and then **Appearance** from the Developer Console, but this changes the org logo in all instances where the macro is used, for example, your custom sign-in page. If you want to just change the logo for your custom error pages, put the URL to the image in place of the macro:
 
-For example:
+Example:
 `<img alt="{{orgName}}" src="https://example.com//SomeOtherImage.png" class="org-logo">`
 
 5 <span v-pre>`{{httpStatusCode}}`</span>
-This macro controls the display of the standard HTTP error code, if there is one. If there isn't one, a generic error triangle logo (alert.png) is used instead. You can change this default image.
+This macro inserts the display of the standard HTTP error code, if there is one. If there isn't one, a generic error triangle logo (alert.png) is used instead. You can change this default image.
 
-For example:
+Example:
 `<img alt="{{errorSummary}}" src="https://example.com//yourimage.png" />`
 
 6 <span v-pre>`{{errorSummary}}`</span>
-This macro controls the error title text that appears on the error page. You can make changes to this text by removing the macro and adding your own.
+This macro inserts the error title text on the error page.
 
-For example:
-`<h2 class="o-form-title">Error Title Text Here</h2>`
-
+Example:
+```javascript
+`<h2 class="o-form-title">Error: {{errorSummary}}</h2>`
+```
 7 <span v-pre>`{{{errorDescription}}}`</span>
-This macro controls the display of the error description. You can replace this description by removing the macro and adding your own text.
+This macro inserts the display of the error description.
 
-For example:
-`<p class="o-form-explain">There was a problem with your sign-in. Contact your system administrator.</p>`
+Example:
+```javascript
+`<p class="o-form-explain">Error Description: {{{errorDescription}}}</p>`
+```
 
 8 <span v-pre>`{{back}}`</span>
-This macro controls the text on the back button. The button takes the user back to the sign-in page when clicked. You can replace the button text by removing the macro and adding your own text.
+This macro inserts text on the back button. The button takes the user back to the sign-in page when clicked. 
 
-For example:
+Example:
  `<a href="/" class="button">Take Me Back!</a>`
-
+ 
 9 <span v-pre>`{{technicalDetails}}`</span>
-This macro controls the display of additional error codes, if there are any. See [Okta Error Codes](reference/error_codes/) for more information.
+This macro inserts additional error codes, if there are any. See [Okta Error Codes](reference/error_codes/) for more information.
+
+Example:
+```javascript
+`<p class="technical-details">Additional Error Details: {{technicalDetails}}</p>`
+```
 
 <NextSectionLink/>

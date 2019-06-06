@@ -7,7 +7,7 @@ By using this feature along with the [customize the Okta URL domain](/guides/cus
 
 ## Common Questions
 **In what situations does Okta serve error pages to the user?**
-See [Concepts: Okta-hosted functionality](doc link).
+The error page appears when a critical error occurs or an application is misconfigured.  <!-- Link to Concepts: Okta-hosted functionality -->
 
 **What can I customize on the error page?**
 You can add HTML, CSS, or JavaScript to the page.
