@@ -15,7 +15,7 @@ During batch imports of user profiles, imported profiles can conflict with other
 
 ### About This Guide
 
-This guide demonstrates one possible scenario for using the Import Inline Hook to resolve conflicts between user profiles that are being imported. In this scenario, the app users are imported from is the [Okta On-Premises Provisioning agent](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm).
+This guide demonstrates one possible scenario for using the Import Inline Hook to resolve conflicts between user profiles that are being imported. In this scenario, users are imported from the [Okta On-Premises Provisioning agent](https://help.okta.com/en/prod/Content/Topics/Directory/directory-integrations-csv.htm). (Similar process flows work for any app that supports provisioning of users to Okta.)
 
 When enabled, the Import Inline Hook fires every time a user is brought in from the app that the hook is enabled for. The hook makes a REST call to an external service, passing in the payload of the call the user profile attributes of the user being imported. The external service can then respond with commands that affect the course of the user import.
 
