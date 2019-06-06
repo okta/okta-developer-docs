@@ -1,4 +1,4 @@
-Note that `accessToken` is calculated property. `OktaOidcStateManager` returns `nil` for `accessToken` property when detects that the access token has been expired. Use the `renew` method to get a new access token:
+The `accessToken` property is a calculated property. It returns `nil` when the access token has expired. Use the `renew` method to get a new access token:
 
 ```swift
 if let accessToken = stateManager.accessToken {

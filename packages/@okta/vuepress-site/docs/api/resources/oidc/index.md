@@ -28,12 +28,12 @@ This page contains detailed information about the OAuth 2.0 and OpenID Connect e
 All of the endpoints on this page start with an authorization server, however the URL for that server varies depending on the endpoint and the type of authorization server. You have two types of authorization servers to choose from depending on your use case:
 
 #### 1. Single Sign-On to Okta
-This is for the use case where your users are all part of your Okta organization, and you would just like to offer them single sign-on with an ID token. In this case Okta is your authorization server, which we refer to as the "Okta Org Authorization Server" and your full URL looks like this:
+This is for the use case where your users are all part of your Okta organization, and you would just like to offer them single sign-on (i.e. you want your employees to sign in to an application with their Okta accounts). In OAuth 2.0 terminology, Okta is both the authorization server and the resource server. When Okta is serving as the authorization server for itself, we refer to this as the "Okta Org Authorization Server" and your full URL looks like this:
 
 `https://{yourOktaDomain}/oauth2/v1/authorize`
 
 #### 2. Okta as the Identity Platform for Your App or API
-This is for use cases where Okta is the identity and authorization platform for your application or API, so your users are logging in to something other than Okta. In this case you are using a custom authorization server inside Okta, and your full URL looks like this:
+This is for use cases where Okta is the authorization server for your resource server, for example an application or API that you have created (i.e. you want Okta to act as the user store for your application, but Okta is invisible to your users). This kind of authorization server we call a "Custom Authorization Server", and your full URL looks like this:
 
 `https://{yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 
@@ -505,6 +505,8 @@ These keys can be used to locally validate JWTs returned by Okta. Standard open-
 
 >Okta also recommends caching or persisting these keys to improve performance. If you cache signing keys and automatic key rotation is enabled, be aware that verification fails when Okta rotates the keys automatically. Clients that cache keys should periodically check the JWKS for updated signing keys.
 
+> Note: The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
+
 #### Request Parameters
 | Parameter   | Description                   | Param Type   | DataType   | Required   | Default |
 | :---------- | :---------------------------- | :----------- | :--------- | :--------- | :------ |
@@ -576,9 +578,9 @@ You can use an [introspection request](#introspect) for validation.
 
 > This endpoint's base URL varies depending on whether you are using a custom authorization server. For more information, see [Composing Your Base URL](#composing-your-base-url).
 
-Returns any claims for the currently signed-in user.
+Returns information about the currently signed-in user.
 
-You must include an access token (returned from the [authorization endpoint](#authorize) in the HTTP Authorization header.
+You must include an access token (returned from the [authorization endpoint](#authorize)) in the HTTP Authorization header.
 
 #### Request Example
 ```bash
@@ -634,6 +636,8 @@ WWW-Authenticate: Bearer error="insufficient_scope", error_description="The acce
 Returns OAuth 2.0 metadata related to your custom authorization server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
 
 > This API doesn't require any authentication.
+
+> Note: The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
 
 #### Request Example
 ```bash
@@ -769,6 +773,8 @@ HTTP 404 Not Found
 Returns OpenID Connect metadata about your authorization server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
 
 This API doesn't require any authentication.
+
+> Note: The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
 
 #### Request Example
 ```bash
@@ -1204,6 +1210,8 @@ When registering an OAuth 2.0 client application, specify an authentication meth
 
 > Note: If you don't specify a method when registering your client, the default method is `client_secret_basic`.
 
+> To create a client application and specify the authentication method, see the [Add OAuth 2.0 Client Application](/docs/api/resources/apps/#add-oauth-2-0-client-application) API Reference section. To change the client authentication method of an existing app, see the [Update the Client Authentication Method](/docs/api/resources/apps/#update-the-client-authentication-method) API Reference section.
+
 Okta supports the following authentication methods, detailed in the sections below:
 
 * `client_secret_basic`, `client_secret_post`, `client_secret_jwt`: Use one of these methods when the client has a client secret. Public clients (such as single-page and mobile apps) that can't protect a client secret must use `none` below.
@@ -1240,7 +1248,6 @@ Provide the `client_id` in a JWT that you sign with the `client_secret` using an
     client_assertion=PHNhbWxwOl ... ZT
   ```
 ### JWT With Private Key
-
 This method is similar to JWT with Shared Key, but uses a public/private key pair for more security. The main benefit of this method is you can generate the private key on your own servers and never have it leave there for any reason, since you only need to provide the public key to Okta. This is better than `client_secret_jwt` since Okta must know what the `client_secret` string is beforehand, so there are more places that it could in theory be compromised. 
 
 If you configured your client to use the `private_key_jwt` client authentication method:

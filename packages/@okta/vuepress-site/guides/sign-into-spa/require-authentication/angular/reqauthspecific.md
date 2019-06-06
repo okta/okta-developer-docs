@@ -3,6 +3,7 @@ Use `OktaAuthGuard` on your route definition (see [canActivate](https://angular.
 ```javascript
 import { Routes, RouterModule } from '@angular/router';
 import { OktaAuthGuard } from '@okta/okta-angular';
+import { ProtectedComponent } from './protected.component';
 
 const appRoutes: Routes = [
   {

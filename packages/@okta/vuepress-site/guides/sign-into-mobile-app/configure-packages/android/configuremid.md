@@ -3,9 +3,9 @@ Create a configuration object in code:
 ```java
 config = new OIDCConfig.Builder()
     .clientId("{clientId}")
-    .redirectUri("{redirectUri}")
+    .redirectUri("{callbackUri}")
     .scopes("openid", "profile", "offline_access")
-    .discoveryUri("https://{yourOktaDomain}")
+    .discoveryUri("https://{yourOktaDomain}/oauth2/default")
     .create();
 ```
 
@@ -14,13 +14,13 @@ Or, create a new `okta_oidc_config.json` file in your application's `res/raw` wi
 ```json
 {
   "client_id": "{clientId}",
-  "redirect_uri": "{redirectUri}",
+  "redirect_uri": "{callbackUri}",
   "scopes": [
     "openid",
     "profile",
     "offline_access"
   ],
-  "discovery_uri": "https://{yourOktaDomain}"
+  "discovery_uri": "https://{yourOktaDomain}/oauth2/default"
 }
 ```
 

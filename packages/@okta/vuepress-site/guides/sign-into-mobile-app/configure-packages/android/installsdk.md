@@ -1,4 +1,4 @@
-Use the library [Okta OIDC](https://bintray.com/okta/com.okta.oidc.android/okta-oidc-android), available through [JCenter](https://bintray.com/bintray/jcenter).
+Use the [Okta OIDC](https://github.com/okta/okta-oidc-android) library, available through [JCenter](https://bintray.com/okta/com.okta.oidc.android/okta-oidc-android).
 
 To install it, add the following to your `build.gradle`:
 
