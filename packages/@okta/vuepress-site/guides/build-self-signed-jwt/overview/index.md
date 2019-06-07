@@ -3,7 +3,7 @@ title: Overview
 ---
 JSON Web Tokens (JWTs) allow claims, such as user data, to be represented in a secure manner, helping to ensure trust and security in your app. JWTs are an open standard and there are various libraries available that allow you to create, verify, and inspect them.
 
-Okta uses JWTs for many purposes. One purpose is to add an optional additional layer of security. You can include a JWT with requests your code makes to Okta's [OpenID Connect](/docs/api/resources/oidc/) (OIDC) endpoints that require [client authentication](/docs/api/resources/oidc/#client-authentication-methods), such as the [`/token`](/docs/api/resources/oidc/#token) endpoint.
+Okta uses JWTs for many purposes. For example, when you make requests to Okta API endpoints that require [client authentication](/docs/api/resources/oidc/#client-authentication-methods), you can optionally use a JWT for additional security.
 
 Use this guide to understand:
 
