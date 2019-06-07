@@ -8,7 +8,11 @@ guides:
  - protect-your-api
  - custom-hosted-signin
  - custom-url-domain
+<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/index.md
  - customize-authz-server
+=======
+ - custom-error-pages
+>>>>>>> origin/master:packages/@okta/vuepress-site/guides/index.md
 featured: 
  - sign-into-web-app
  - sign-into-spa
