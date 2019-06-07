@@ -4,7 +4,7 @@ title: Okta Authentication Guide
 
 # The Okta Authentication Guide
 
-This guide answers some common questions about authentication with Okta. It is meant to be used alongside the [OpenID Connect and OAuth 2.0 API](/docs/api/resources/oidc/) reference document. The reference document will give you detailed information about endpoints and resources, while this guide will show you how to use them.
+This guide answers some common questions about authentication with Okta. It is meant to be used alongside the [OpenID Connect and OAuth 2.0 API](/docs/reference/api/oidc/) reference document. The reference document will give you detailed information about endpoints and resources, while this guide will show you how to use them.
 
 On the left-hand side you can navigate to different sections of the guide. Alternatively, find a question you would like answered below:
 

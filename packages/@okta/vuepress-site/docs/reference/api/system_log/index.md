@@ -496,8 +496,8 @@ The following sections outline the key event types captured by the system log. F
 
 | Event                                | Description                                                                                                                  |
 | :-------------------                 | :----------------------------------                                                                                          |
-| system.org.rate_limit.warning        | An endpoint is near its [rate limit](/docs/api/getting_started/rate-limits/).                                                 |
-| system.org.rate_limit.violation      | An endpoint has exceeded its [rate limit](/docs/api/getting_started/rate-limits/).                                            |
+| system.org.rate_limit.warning        | An endpoint is near its [rate limit](/docs/reference/rate-limits/).                                                 |
+| system.org.rate_limit.violation      | An endpoint has exceeded its [rate limit](/docs/reference/rate-limits/).                                            |
 | core.concurrency.org.limit.violation | A request has exceeded the org's allotted [concurrency limit](/docs/api/getting_started/rate-limits#concurrent-rate-limits). |
 
 Rate limit warnings are sent at different times, depending on the org type. For One App and Enterprise orgs, the warning is sent when the org is at 60% of its limit.

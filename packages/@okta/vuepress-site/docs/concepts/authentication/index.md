@@ -56,7 +56,7 @@ and authorization needs.
 ### Authentication API
 
 The underlying foundation for the Sign-In Widget and Auth SDK is a
-comprehensive [authentication REST API](/docs/api/resources/authn/)
+comprehensive [authentication REST API](/docs/reference/api/authn/)
 exposed through Okta.  Use it as a
 standalone API to provide the identity layer on top of your existing
 application and authentication logic, or use it with the Okta [Sessions API](/docs/api/resources/sessions/)
@@ -78,7 +78,7 @@ OpenID Connect is the emerging technology that provides an alternative implement
 Okta is a [Certified OpenID Connect provider](http://openid.net/certification/).
 Building on top of OAuth 2.0 framework, OpenID Connect is a modern
 implementation to support authentication and SSO.  If you
-are an Okta customer, our [OpenID Connect API](/docs/api/resources/oidc/) is a great way to support SSO and
+are an Okta customer, our [OpenID Connect API](/docs/reference/api/oidc/) is a great way to support SSO and
 is a simpler alternative to SAML.
 
 For ISVs who want to provide SSO for their customers, both

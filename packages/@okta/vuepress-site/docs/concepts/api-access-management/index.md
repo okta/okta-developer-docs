@@ -79,8 +79,8 @@ This benefit depends, of course, on the level of security your apps require.
 
 * [Learn more](/authentication-guide/auth-overview/) about Okta and OAuth 2.0.
 * [Set up a custom authorization server](/authentication-guide/implementing-authentication/set-up-authz-server/) and use the power of Okta's API Access Management.
-* Visit [the OIDC/OAuth 2.0 endpoint documentation](/docs/api/resources/oidc/) and start building your integration today.
-* For simpler use cases focused on SSO, visit [the OpenID Connect documentation](/docs/api/resources/oidc/).
+* Visit [the OIDC/OAuth 2.0 endpoint documentation](/docs/reference/api/oidc/) and start building your integration today.
+* For simpler use cases focused on SSO, visit [the OpenID Connect documentation](/docs/reference/api/oidc/).
 
 ## Recommended Practices for API Access Management
 

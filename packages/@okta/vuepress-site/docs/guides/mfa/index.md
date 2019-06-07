@@ -54,7 +54,7 @@ Before you can start writing code, you'll need to make do a few
 things in the administrator UI to your Okta org.
 
 1.  Enable support for MFA.
-2.  [Create an API token](/docs/api/getting_started/getting_a_token/).
+2.  [Create an API token](/docs/guides/create-an-api-token/).
 
 ### Enabling MFA in your Okta org
 
@@ -79,7 +79,7 @@ For more information about MFA and the Okta org, see the [MFA](https://help.okta
 
 Requests made to the Okta API are authenticated via an API
 token. [Here is how to create an API token for your Okta
-org](/docs/api/getting_started/getting_a_token/).
+org](/docs/guides/create-an-api-token/).
 
 ### Set up Postman
 

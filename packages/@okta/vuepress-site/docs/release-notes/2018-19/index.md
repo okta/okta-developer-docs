@@ -15,7 +15,7 @@ title: Okta API Products Release Notes
 
 ### ID Tokens Can Be Refreshed
 
-OpenID Connect ID tokens can now be retrieved using a refresh token. For more information, see our [Open ID Connect Reference](/docs/api/resources/oidc/).
+OpenID Connect ID tokens can now be retrieved using a refresh token. For more information, see our [Open ID Connect Reference](/docs/reference/api/oidc/).
 
 ### Custom URL Domains are in Early Access
 

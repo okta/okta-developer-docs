@@ -7,9 +7,9 @@ component: Code
 
 ## <i class='icon-48 docsPage code-javascript'></i> Okta Auth SDK Guide
 
-The Okta Auth SDK builds on top of our [Authentication API](/docs/api/resources/authn) and [OpenID Connect API](/docs/api/resources/oidc/) to enable you to create a fully branded sign-in experience using JavaScript.
+The Okta Auth SDK builds on top of our [Authentication API](/docs/api/resources/auth/) and [OpenID Connect API](/docs/reference/api/oidc/) to enable you to create a fully branded sign-in experience using JavaScript.
 
-The Okta Auth SDK is used by Okta's [Sign-in Widget](/code/javascript/okta_sign-in_widget) which powers the default Okta sign-in page. If you are building a JavaScript front end or Single Page App (SPA/), the Auth SDK gives you added control and customization beyond what is possible with the Widget.
+The Okta Auth SDK is used by Okta's [Sign-in Widget](/code/javascript/okta_sign-in_widget/) which powers the default Okta sign-in page. If you are building a JavaScript front end or Single Page App (SPA), the Auth SDK gives you added control and customization beyond what is possible with the Widget.
 
 In this guide you will learn how to use the Auth SDK on a simple static page to:
 

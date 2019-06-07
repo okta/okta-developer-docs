@@ -38,7 +38,7 @@ Requests to the `/token` and `/authorize` endpoints will now accept JWTs signed 
 
 ### System Log Event for Rate Limit Override Expiration
 
-A System Log event will be generated exactly two days before a temporary API rate limit override is set to expire. The limit's expiration is set by customer support based on a window agreed upon when the override was requested. Once a limit has expired, it will no longer take effect and the customer will be subject to the [default limit for that API endpoint](/docs/api/getting_started/rate-limits/). <!--OKTA-173997-->
+A System Log event will be generated exactly two days before a temporary API rate limit override is set to expire. The limit's expiration is set by customer support based on a window agreed upon when the override was requested. Once a limit has expired, it will no longer take effect and the customer will be subject to the [default limit for that API endpoint](/docs/reference/rate-limits/). <!--OKTA-173997-->
 
 ### Required Properties in App User Schema
 

@@ -58,7 +58,7 @@ The general sequence of steps to leverage the `after` parameter:
 1. Retrieve the next page of events through the `Link` response header value with the `next` link relation
 1. Pause and repeat the previous step
 
-Note that if no data is returned, this typically indicates you have caught up with the event stream. To avoid issues with [rate limiting](/docs/api/getting_started/rate-limits/), ensure your polling frequency is sufficiently long.
+Note that if no data is returned, this typically indicates you have caught up with the event stream. To avoid issues with [rate limiting](/docs/reference/rate-limits/), ensure your polling frequency is sufficiently long.
 
 ###### Filters
 

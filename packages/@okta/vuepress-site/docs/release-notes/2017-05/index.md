@@ -15,7 +15,7 @@ We are making rate limits more granular and will roll the changes out over the n
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/api/getting_started/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Feature Improvements
 

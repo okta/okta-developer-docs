@@ -40,7 +40,7 @@ Okta's [Google social login integration](/authentication-guide/social-login/goog
 
 ### High Capacity Rate Limits
 
-A new High Capacity Rate Limit SKU is now available.  The impacted endpoints and their rate limits can be found on our [Rate Limits page](/docs/api/getting_started/rate-limits/). <!--OKTA-203819-->
+A new High Capacity Rate Limit SKU is now available.  The impacted endpoints and their rate limits can be found on our [Rate Limits page](/docs/reference/rate-limits/). <!--OKTA-203819-->
 
 ### Creation of LinkedIn IdPs Temporarily Disabled
 

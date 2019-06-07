@@ -27,7 +27,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate limits will return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/api/getting_started/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Feature Improvements
 
@@ -42,7 +42,7 @@ Zones are used to group IP Address ranges so that policy decisions can be made b
 
 For more information, see [the Zones API developer documentation](/docs/api/resources/zones/).
 
-> Update: Zones API is [a Beta release](/docs/api/getting_started/releases-at-okta/). This release note is in error.
+> Update: Zones API is [a Beta release](/docs/reference/releases-at-okta/). This release note is in error.
 
 #### Simple HAL Links Generally Available in Preview
 

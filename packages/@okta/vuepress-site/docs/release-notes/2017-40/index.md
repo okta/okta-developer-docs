@@ -159,7 +159,7 @@ When the number of unfinished requests is below the concurrent rate limit, reque
 
 The `X-Rate-Limit-Reset` time for concurrent rate limits is only a suggestion. There's no guarantee that enough requests will complete to stop exceeding the concurrent rate limit at the time indicated.
 
-For more information, see developer documentation about [rate limit headers](/docs/api/getting_started/rate-limits/). <!-- OKTA-140976, OKTA-142995 -->
+For more information, see developer documentation about [rate limit headers](/docs/reference/rate-limits/). <!-- OKTA-140976, OKTA-142995 -->
 
 #### OpenID Connect Scope Change
 

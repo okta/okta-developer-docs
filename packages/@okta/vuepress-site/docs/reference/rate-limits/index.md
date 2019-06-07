@@ -63,7 +63,7 @@ These rate limits apply to all new Okta organizations. For orgs created before 2
 *The limits for these endpoints can be increased by purchasing the [High-Capacity add-on](#high-capacity-rate-limits).
 
 ### Okta API Endpoints and Per-User Limits
-API endpoints that take username and password credentials, including the [Authentication API](/docs/api/resources/authn) and the [OAuth 2.0 resource owner password flow](/authentication-guide/implementing-authentication/password/), have a per-username rate limit to prevent brute force attacks with the user's password:
+API endpoints that take username and password credentials, including the [Authentication API](/docs/api/resources/auth/) and the [OAuth 2.0 resource owner password flow](/authentication-guide/implementing-authentication/password/), have a per-username rate limit to prevent brute force attacks with the user's password:
 
 | Action and Okta API Endpoint                                      | Per User Limits (All Orgs) |
 | ----------------------------------------------------------------- | -------------------------: |
