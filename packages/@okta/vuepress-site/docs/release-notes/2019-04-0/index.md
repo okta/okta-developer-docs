@@ -25,7 +25,7 @@ The SAML Inline Hook enables you to customize SAML assertions returned by Okta. 
 Okta's API rate limits have been updated:
 
 * OAuth 2 rate limits were updated and clarified for all orgs.
-* The limit for the `api/v1/apps endpoint` was updated for Enterprise orgs. For details, see our [Rate Limits](/docs/api/getting_started/rate-limits/#okta-api-endpoints-and-per-minute-limits/) page. <!-- OKTA-217272 & OKTA-217213 -->
+* The limit for the `api/v1/apps endpoint` was updated for Enterprise orgs. For details, see our [Rate Limits](/docs/reference/rate-limits/#okta-api-endpoints-and-per-minute-limits/) page. <!-- OKTA-217272 & OKTA-217213 -->
 
 ### The Sign-In Widget Version for the Custom Login Page has been Updated
 

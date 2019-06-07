@@ -76,11 +76,11 @@ redirects:
   - from: docs/api/
     to: /docs/docs/reference/api-overview/index.html
   - from: /docs/getting_started/getting_a_token.html
-    to: /docs/api/getting_started/getting_a_token/index.html
+    to: /docs/guides/create-an-api-token/index.html
   - from: /docs/getting_started/getting_a_token
-    to: /docs/api/getting_started/getting_a_token/
+    to: /docs/guides/create-an-api-token/
   - from: /docs/getting_started/design_principles
-    to: /docs/api/getting_started/rate-limits/index.html
+    to: /docs/reference/rate-limits/index.html
   - from: /docs/api/
     to: /docs/api/resources/apps/index.html
   - from: /docs/api/resources/
@@ -388,9 +388,9 @@ redirects:
   - from: /docs/reference/okta-expression-language/index
     to: /docs/reference/okta-expression-language/
   - from: /docs/docs/reference/api-overview/getting_a_token/
-    to: /docs/api/getting_started/getting_a_token/
+    to: /docs/guides/create-an-api-token/
   - from: /docs/api/getting_started/enabling_cors.html
-    to: /docs/api/getting_started/enabling_cors/
+    to: /docs/guides/enabling-cors/
   - from: /docs/api/getting_started/okta_expression_lang.html
     to: /docs/reference/okta-expression-language/
   - from: /docs/sdk/core/python_api_sdk/index.html

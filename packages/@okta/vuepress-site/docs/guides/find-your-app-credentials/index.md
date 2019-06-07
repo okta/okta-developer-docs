@@ -2,7 +2,7 @@
 title: Finding Your Application Credentials
 ---
 
-# Finding Your Application Credentials
+# Find Your Application Credentials
 
 If you're building an application using one of our SDKs or client libraries, you may run into the following message:
 

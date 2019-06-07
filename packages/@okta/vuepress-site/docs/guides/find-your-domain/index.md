@@ -1,8 +1,8 @@
 ---
-title: Finding Your Okta Domain
+title: Find Your Okta Domain
 ---
 
-# Finding Your Okta Domain
+# Find Your Okta Domain
 
 If you're building an application using one of our SDKs or client libraries, you may run into the following message:
 

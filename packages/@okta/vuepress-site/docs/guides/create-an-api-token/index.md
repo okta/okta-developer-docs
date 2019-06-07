@@ -1,5 +1,5 @@
 ---
-title: Getting a Token
+title: Create an API Token
 ---
 
 # Create an API Token

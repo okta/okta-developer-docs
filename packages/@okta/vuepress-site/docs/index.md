@@ -51,11 +51,11 @@ sections:
      description: Understand the basics of Okta's APIs and architecture.
      links:
        - title: Get an API Token
-         link: /docs/api/getting_started/getting_a_token/
+         link: /docs/guides/create-an-api-token/
        - title: Inline Hooks
          link: /use_cases/inline_hooks/
        - title: Rate Limits
-         link: /docs/api/getting_started/rate-limits/
+         link: /docs/reference/rate-limits/
        - title: More
          link: /docs/docs/reference/api-overview//
 
