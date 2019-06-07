@@ -27,7 +27,7 @@ Editing the [link](/docs/api/resources/users/#links-object) between users now re
 ### Bugs Fixed in 2018.41
 
 * Queries to the `/logs` [endpoint](/docs/api/resources/system_log/#list-events) with values for `since` and `until` that did not specify the time to milliseconds would sometimes return events outside of the specified time range. (OKTA-191533)
-* Responses from the `/events` [endpoint](/docs/api/resources/events/#list-events) would sometimes omit milliseconds from the `published` field. (OKTA-192568)
+* Responses from the `/events` [endpoint](/docs/reference/api/events/#list-events) would sometimes omit milliseconds from the `published` field. (OKTA-192568)
 
 ### Previously Released Early Access Features 2018.41 Update
 

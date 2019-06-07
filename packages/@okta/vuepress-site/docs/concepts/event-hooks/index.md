@@ -27,7 +27,7 @@ During the initial configuration procedure for an event hook, you specify which 
 
 To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
 
-[https://developer.okta.com/docs/api/resources/event-types/?q=event-hook-eligible](/docs/api/resources/event-types/?q=event-hook-eligible)
+[https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible](/docs/reference/api/event-types/?q=event-hook-eligible)
 
 For general information on how Okta encapsulates events, see the [System Log API](/docs/api/resources/system_log/) documentation.
 
@@ -105,7 +105,7 @@ The response you receive will confirm creation of the event hook and provide you
 
 ### Verifying an Event Hook
 
-After registering the event hook, you need to trigger a one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/lifecycle/verify` API. See [Event Hooks Management API](/docs/api/resources/event-hooks).
+After registering the event hook, you need to trigger a one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/lifecycle/verify` API. See [Event Hooks Management API](/docs/reference/api/event-hooks/).
 
 If verification is successful, the JSON payload of the response to your call to the `/verify` API will contain a property called `verificationStatus` set to `VERIFIED`.
 

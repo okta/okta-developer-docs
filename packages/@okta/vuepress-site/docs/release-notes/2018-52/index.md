@@ -19,7 +19,7 @@ title: Okta API Products Release Notes
 
 * Instead of providing specific reasons for failure, [Identity Providers](/docs/api/resources/idps) operations failed with generic `error_description` values when the Social Auth provider required user attributes in the user's profile but the attributes were missing or invalid. <!--OKTA-120115-->
 
-* The `/users/${userId}/factors/catalog` [endpoint](/docs/api/resources/factors/#list-factors-to-enroll) returned `email` as a supported factor type even when Email Authentication was not enabled for the org in MFA settings. <!--OKTA-201633-->
+* The `/users/${userId}/factors/catalog` [endpoint](/docs/reference/api/factors/#list-factors-to-enroll) returned `email` as a supported factor type even when Email Authentication was not enabled for the org in MFA settings. <!--OKTA-201633-->
 
 ### Previously Released Early Access Features 2018.12.2 Update
 

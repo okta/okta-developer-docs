@@ -100,17 +100,17 @@ redirects:
   - from: /docs/api/resources/
     to: /docs/reference/api/authn/index.html
   - from: /docs/api/rest/events.html
-    to: /docs/api/resources/events/index.html
+    to: /docs/reference/api/events/index.html
   - from: /docs/getting_started/factor_admin.html
     to: /docs/api/resources/factor_admin/index.html
   - from: /docs/api/rest/factors.html
-    to: /docs/api/resources/factors/index.html
+    to: /docs/reference/api/factors/index.html
   - from: /docs/api/rest/groups.html
     to: /docs/api/resources/groups/index.html
   - from: docs/api/rest/idps.html
     to: /docs/api/resources/idps/index.html
   - from: /docs/api/rest/oauth-clients.html
-    to: /docs/api/resources/oauth-clients/index.html
+    to: /docs/reference/api/oauth-clients/index.html
   - from: /docs/api/resources/oauth2
     to: /docs/reference/api/oidc/index.html
   - from: /docs/how-to/beta-auth-service/api-access-management-troubleshooting

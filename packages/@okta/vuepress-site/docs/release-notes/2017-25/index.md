@@ -44,13 +44,13 @@ Here is a response from `/api/v1/logs`
 <!-- (OKTA-76607) -->
 
 #### Client Registration API Is an Early Access Feature
-The [Auth Clients API](/docs/api/resources/oauth-clients) provides operations to register and manage client applications for use with Okta's
+The [Auth Clients API](/docs/reference/api/oauth-clients/) provides operations to register and manage client applications for use with Okta's
 OAuth 2.0 and OpenID Connect endpoints.
 
 #### Create OAuth 2.0 and OpenID Connect Clients with Apps API
 The [Apps API](https://developer.okta.com/docs/api/resources/apps) supports creating and configuring
 OAuth 2.0 or OpenID Connect clients. Alternatively, you can use
-[Client Registration API](https://developer.okta.com/docs/api/resources/oauth-clients) (RFC 7591 and RFC 7592)
+[Client Registration API](https://developer.okta.com/docs/reference/api/oauth-clients/) (RFC 7591 and RFC 7592)
 to create and manage clients.
 <!-- (OKTA-78223) -->
 

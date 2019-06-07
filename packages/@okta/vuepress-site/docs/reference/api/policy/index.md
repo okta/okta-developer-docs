@@ -518,7 +518,7 @@ Different policy types control settings for different operations.  All policy ty
 
 [IdP Discovery Policy](#idp-discovery-policy)
 
-[OAuth Authorization Policy](/docs/api/resources/authorization-servers#policy-object)
+[OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
 
 ### Policy Priority and Defaults
 

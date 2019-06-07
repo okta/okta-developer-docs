@@ -54,7 +54,7 @@ Okta returns all default scopes in the Access Token that are permitted by the ac
 
 ![Default Scope Configuration UI](/img/release_notes/default-scope.png "Default Scope Configuration UI")
 
-For more information about setting default scopes in the API, see [OAuth 2.0 API](/docs/api/resources/authorization-servers#scope-properties).
+For more information about setting default scopes in the API, see [OAuth 2.0 API](/docs/reference/api/authorization-servers/#scope-properties).
 <!-- OKTA-122185 OKTA-122072 -->
 
 #### Improved UI for Creating OpenID Connect Apps

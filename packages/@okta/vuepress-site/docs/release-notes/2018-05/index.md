@@ -27,7 +27,7 @@ Note that [`state` in the main request body](/docs/reference/api/oidc/#request-p
 #### Custom Scopes in Metadata Endpoints
 
 You can specify whether or not to include custom scopes in the metadata endpoints for [OAuth 2.0](/docs/reference/api/oidc/#well-knownoauth-authorization-server) and [OpenID Connect](/docs/reference/api/oidc/#well-knownopenid-configuration).
-Existing custom scopes are not exposed by default. Set the [`metadataPublish` attribute to `ALL_CLIENTS`](/docs/api/resources/authorization-servers#scope-properties) to change the behavior. <!-- OKTA-106548 -->
+Existing custom scopes are not exposed by default. Set the [`metadataPublish` attribute to `ALL_CLIENTS`](/docs/reference/api/authorization-servers/#scope-properties) to change the behavior. <!-- OKTA-106548 -->
 
 #### Improved Enforcement of Authorization Server Policies
 

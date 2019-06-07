@@ -31,8 +31,8 @@ Often the terms "event" and "log event" are used interchangeably. In the context
 
 Notes:
 
-* The System Log API contains much more [structured data](/docs/api/resources/system_log#logevent-object) than [the Events API](/docs/api/resources/events/#event-model).
-* The System Log API supports [additional SCIM filters](/docs/api/resources/system_log#request-parameters) and the `q` query parameter, because of the presence of more structured data than [the Events API](/docs/api/resources/events/#event-model). <!-- OKTA-160902 OKTA-160880 -->
+* The System Log API contains much more [structured data](/docs/api/resources/system_log#logevent-object) than [the Events API](/docs/reference/api/events/#event-model).
+* The System Log API supports [additional SCIM filters](/docs/api/resources/system_log#request-parameters) and the `q` query parameter, because of the presence of more structured data than [the Events API](/docs/reference/api/events/#event-model). <!-- OKTA-160902 OKTA-160880 -->
 
 ### Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)
 

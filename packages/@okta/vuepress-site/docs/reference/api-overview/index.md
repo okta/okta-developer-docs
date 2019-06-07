@@ -74,7 +74,7 @@ Used for deleting resources.
 
 ### Client Request Context
 
-Okta will derive client request context directly from the HTTP request headers and client TCP socket.  Request context is used to evaluate policies such as **Okta Sign-On Policy** and provide client information for [troubleshooting and auditing](/docs/api/resources/events/#client-objecttype) purposes.
+Okta will derive client request context directly from the HTTP request headers and client TCP socket.  Request context is used to evaluate policies such as **Okta Sign-On Policy** and provide client information for [troubleshooting and auditing](/docs/reference/api/events/#client-objecttype) purposes.
 
 ### User Agent
 

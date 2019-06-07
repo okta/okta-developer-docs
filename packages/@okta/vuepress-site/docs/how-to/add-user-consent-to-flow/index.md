@@ -36,7 +36,7 @@ Use the following procedure to display the user consent dialog as part of an Ope
 
 ![](/img/user-consent-panel.png "")
 
-3. [Enable consent](/docs/api/resources/authorization-servers#create-a-scope) for the scopes that you want to require consent. To do this, set the `consent` property to `REQUIRED`.
+3. [Enable consent](/docs/reference/api/authorization-servers/#create-a-scope) for the scopes that you want to require consent. To do this, set the `consent` property to `REQUIRED`.
 
     Note: You can also specify these values when you create and configure a scope in the administrator UI. Navigate to **Applications > [Application Name] > General > User Consent** and select **Require user consent for this scope** (it can be overriden by individual apps).
 

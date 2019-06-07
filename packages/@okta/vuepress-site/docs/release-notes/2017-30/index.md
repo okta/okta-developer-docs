@@ -34,7 +34,7 @@ We provide the ability to generate a certificate with specified validity period 
 
 #### Email for Two-Factor Authentication  <!-- OKTA-134593  -->
 
-You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/api/resources/factors/#enroll-okta-email-factor) for details.
+You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) for details.
 
 ### Platform Bugs Fixed
 
@@ -44,8 +44,8 @@ These platform bug fixes are in preview orgs with this release and expected in p
 
 * "When the `expand` parameter was set in GET requests to [`/api/v1/groups`](/docs/api/resources/groups/#list-groups), the second and subsequent pages of the response did not have the same `expand` setting.  (OKTA-132503)
 
-* [`/oauth2/v1/clients`](/docs/api/resources/oauth-clients#register-new-client) returned HTTP status code 200 rather than 201 when creating a client successfully.  (OKTA-128839)
+* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) returned HTTP status code 200 rather than 201 when creating a client successfully.  (OKTA-128839)
 
-* [`/api/v1/authorizationServers`](/docs/api/resources/authorization-servers#create-authorization-server) returned HTTP status code 200 rather than 201 when creating an Authorization Server successfully.  (OKTA-128839)
+* [`/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#create-authorization-server) returned HTTP status code 200 rather than 201 when creating an Authorization Server successfully.  (OKTA-128839)
 
-* [`/oauth2/v1/clients/{clientId}`](/docs/api/resources/oauth-clients#get-oauth-client) returned HTTP status code 404 rather than 401 when it did not find the specified client.  (OKTA-130804, OKTA-130848)
+* [`/oauth2/v1/clients/{clientId}`](/docs/reference/api/oauth-clients/#get-oauth-client) returned HTTP status code 404 rather than 401 when it did not find the specified client.  (OKTA-130804, OKTA-130848)

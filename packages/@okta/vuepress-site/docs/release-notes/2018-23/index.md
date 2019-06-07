@@ -13,7 +13,7 @@ title: Okta API Products Release Notes
 
 ### Factors API Now Supports U2F
 
-Enrollment, activation, and verification of U2F factors are now supported in the [Factors API](/docs/api/resources/factors). <!-- OKTA-112705 -->
+Enrollment, activation, and verification of U2F factors are now supported in the [Factors API](/docs/reference/api/factors/). <!-- OKTA-112705 -->
 
 ### Network Selection Modes Deprecated
 

@@ -56,7 +56,7 @@ Use the `login_hint` property on `/oauth2/${authServerId}/v1/authorize` or `/oau
 ### Platform Bugs Fixed
 
 * Updating the OpenID Connect property `max_age` incorrectly caused a new session to be created, which updated the `createdAt` timestamp. (OKTA-99850)
-* The property `application_type` in the [OAuth 2.0 Clients API](/docs/api/resources/oauth-clients) could be edited. (OKTA-120223)
+* The property `application_type` in the [OAuth 2.0 Clients API](/docs/reference/api/oauth-clients/) could be edited. (OKTA-120223)
 * User profile attributes could be fetched via the API even though attributes were marked hidden, if the user sending the request was the user being fetched. (OKTA-123882)
 * Reordering Authorization Server policies failed. (OKTA-125156)
 * (Preview fix) Fixed issue involving OpenID Connect and OAuth 2.0 requests within SAML IdP configuration. (OKTA-127155)

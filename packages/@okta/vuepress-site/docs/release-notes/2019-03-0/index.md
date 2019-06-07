@@ -22,7 +22,7 @@ The Create/Update User API now supports importing users with SHA-1 and MD5 crede
 
 ### Enable Role Assignment to Every Member of a Group
 
-Super and Org Admins can now assign and unassign roles to every user in a group using the APIs. For more information, see our [Roles page](/docs/api/resources/roles/#assign-role-to-group). <!--OKTA-207759 and OKTA-207768-->
+Super and Org Admins can now assign and unassign roles to every user in a group using the APIs. For more information, see our [Roles page](/docs/reference/api/roles/#assign-role-to-group). <!--OKTA-207759 and OKTA-207768-->
 
 ### New Rate Limits for /users/me
 

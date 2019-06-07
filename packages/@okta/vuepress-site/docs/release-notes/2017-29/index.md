@@ -32,10 +32,10 @@ These platform bug fixes are available in preview orgs and expected in productio
 
 * Custom SMS templates allowed messages greater than 160 characters after substituting the org name and code. The new behavior is to use a default template instead of the custom template when that happens. To ensure use of your custom template, update it to stay within the 160-character limit. (OKTA-128721)
 
-* [`/oauth2/v1/clients`](/docs/api/resources/oauth-clients#register-new-client) error responses didn't conform to the format in the [OAuth 2.0 Dynamic Client Registration spec](https://tools.ietf.org/html/rfc7591#section-3.2.2). (OKTA-130375)
+* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) error responses didn't conform to the format in the [OAuth 2.0 Dynamic Client Registration spec](https://tools.ietf.org/html/rfc7591#section-3.2.2). (OKTA-130375)
 
-* [`/oauth2/v1/clients`](/docs/api/resources/oauth-clients#register-new-client) didn't allow default values for optional parameters. (OKTA-130910)
+* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) didn't allow default values for optional parameters. (OKTA-130910)
 
-* Neither [`/oauth2/v1/clients`](/docs/api/resources/oauth-clients#register-new-client) nor [`/api/v1/apps`](/docs/reference/api/apps/#add-application) required client secrets to be unique. (OKTA-131259)
+* Neither [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) nor [`/api/v1/apps`](/docs/reference/api/apps/#add-application) required client secrets to be unique. (OKTA-131259)
 
-* [`/oauth2/v1/clients`](/docs/api/resources/oauth-clients#register-new-client) returned an incorrect resource URI in the response header.  (OKTA-131891)
+* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) returned an incorrect resource URI in the response header.  (OKTA-131891)

@@ -24,13 +24,13 @@ You can retrieve a list of all scopes for your Authorization Server, including c
 
 `/api/v1/authorizationServers/${authServerId}/scopes`
 
-For more information on this endpoint, see here: [Get all scopes](/docs/api/resources/authorization-servers#get-all-scopes).
+For more information on this endpoint, see here: [Get all scopes](/docs/reference/api/authorization-servers/#get-all-scopes).
 
 If you created any custom claims, the easiest way to confirm that they have been successfully added is to use this endpoint:
 
 `/api/v1/authorizationServers/${authServerId}/claims`
 
-For more information on this endpoint, see here: [Get all claims](/docs/api/resources/authorization-servers#get-all-claims).
+For more information on this endpoint, see here: [Get all claims](/docs/reference/api/authorization-servers/#get-all-claims).
 
 ### Testing an OpenID Connect Flow
 

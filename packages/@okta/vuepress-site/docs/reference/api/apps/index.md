@@ -1030,7 +1030,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 * <ApiLifecycle access="ea" /> A consent dialog appears depending on the values of three elements:
     * `prompt`, a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/reference/api/oidc/#authorize) (Org authorization server)
     * `consent_method`, a property listed in the Settings table above
-    * `consent`, a property on [scopes](/docs/api/resources/authorization-servers#scope-properties)
+    * `consent`, a property on [scopes](/docs/reference/api/authorization-servers/#scope-properties)
 
 | `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
 | :------------------ | :--------------------------------- | :---------------------------- | :----------- |
@@ -1044,7 +1044,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 >Notes
   * Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
   * If you request a scope that requires consent while using the `client_credentials` flow, an error is returned. Because there is no user, no consent can be given.
-  * These properties can also be configured in the App Wizard, on the **General** tab in the administrator UI: `tos_uri`, `policy_uri`, `logo_uri`, and `consent_method`. They can't be set using [the Dynamic Client Registration API](/docs/api/resources/oauth-clients).
+  * These properties can also be configured in the App Wizard, on the **General** tab in the administrator UI: `tos_uri`, `policy_uri`, `logo_uri`, and `consent_method`. They can't be set using [the Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
 
 ##### Request Example
 > [Application](#application-model)'s `signOnMode` must be set to `OPENID_CONNECT`, the `name` field must be `oidc_client`, and the `label` field must be defined.

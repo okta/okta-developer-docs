@@ -54,7 +54,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 
 | Parameter                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Param Type  | DataType  | Required   |
 | :---------------------           | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                                           | :---------- | :-------- | :--------- |
-| client_id                        | Obtained during either manual client registration or via the [Dynamic Client Registration API](/docs/api/resources/oauth-clients/). It identifies the client and must match the value preregistered in Okta.                                                                                                                                                                                                                                       | Query       | String    | TRUE       |
+| client_id                        | Obtained during either manual client registration or via the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). It identifies the client and must match the value preregistered in Okta.                                                                                                                                                                                                                                       | Query       | String    | TRUE       |
 | code_challenge                   | A challenge for [PKCE](/authentication-guide/implementing-authentication/auth-code-pkce). The challenge is verified in the access token request.                                                                                                                                                                                                                                                                                                   | Query       | String    | FALSE      |
 | code_challenge_method            | Method used to derive the code challenge for [PKCE](/authentication-guide/implementing-authentication/auth-code-pkce). Valid value: `S256`                                                                                                                                                                                                                                                                                                         | Query       | String    | FALSE      |
 | display                          | The `display` parameter to be passed to the Social Identity Provider when performing Social Login.                                                                                                                                                                                                                                                                                                                                                 | Query       | String    | FALSE      |
@@ -515,7 +515,7 @@ These keys can be used to locally validate JWTs returned by Okta. Standard open-
 >Note that the request parameter `client_id` is only applicable for the Okta Org Authorization Server. See [Composing Your Base URL](/docs/reference/api/oidc/#composing-your-base-url) for more information regarding Okta Org Authorization Server.
 
 #### Response Properties
-JWKS properties can be found [here](/docs/api/resources/authorization-servers#key-properties).
+JWKS properties can be found [here](/docs/reference/api/authorization-servers/#key-properties).
 
 #### Response Example
 ```http
@@ -568,7 +568,7 @@ The keys that are used to sign tokens are periodically changed. Okta automatical
 
 Clients can opt-out of automatic key rotation by changing the client sign-in mode for the Okta Org Authorization Server. In this case, passing the `client_id` with your request retrieves the keys for that specific client.
 
-Key rotation behaves differently with Custom Authorization Servers. For more information about key rotation with Custom Authorization Servers, see the [Authorization Servers API page](/docs/api/resources/authorization-servers#rotate-authorization-server-keys).
+Key rotation behaves differently with Custom Authorization Servers. For more information about key rotation with Custom Authorization Servers, see the [Authorization Servers API page](/docs/reference/api/authorization-servers/#rotate-authorization-server-keys).
 
 #### Alternative Validation
 You can use an [introspection request](#introspect) for validation.
@@ -651,8 +651,8 @@ curl -X GET \
 | issuer                                        | The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token. In the context of this document, this is your authorization server's [base URL](#composing-your-base-url).                                                                                                                                              | String  |
 | authorization endpoint                        | URL of the authorization server's [authorization endpoint](#authorize).                                                                   | String  |
 | token_endpoint                                | URL of the authorization server's [token endpoint](#token).                                                                               | String  |
-| registration_endpoint                         | URL of the authorization server's [Dynamic Client Registration endpoint](/docs/api/resources/oauth-clients/#register-new-client).         | String  |
-| jwks_uri                                      | URL of the authorization server's [JSON Web Key Set](/docs/api/resources/authorization-servers#certificate-json-web-key-object) document. | String  |
+| registration_endpoint                         | URL of the authorization server's [Dynamic Client Registration endpoint](/docs/reference/api/oauth-clients/#register-new-client).         | String  |
+| jwks_uri                                      | URL of the authorization server's [JSON Web Key Set](/docs/reference/api/authorization-servers/#certificate-json-web-key-object) document. | String  |
 | response_types_supported                      | JSON array that contains a list of the `response_type` values that this authorization server supports. Can be a combination of `code`, `token`, and `id_token`.                                                                                                                                                                                                     | Array   |
 | response_modes_supported                      | JSON array that containis a list of the `response_mode` values that this authorization server supports. More information [here](#parameter-details). | Array   |
 | grant_types_supported                         | JSON array that contains a list of the `grant_type` values that this authorization server supports.                                       | Array   |
@@ -794,7 +794,7 @@ curl -X GET \
 | introspection_endpoint_auth_methods_supported | JSON array that contains a list of client authentication methods supported by this introspection endpoint.                                                                                                                                    | Array   |
 | issuer                                        | The authorization server's issuer identifier. In the context of this document, this is your authorization server's [base URL](#composing-your-base-uRL).                                                                                   | String  |
 | jwks_uri                                      | URL of the authorization server's JSON Web Key Set document.                                                                                                                                                                               | String  |
-| registration_endpoint                         | URL of the authorization server's [Dynamic Client Registration endpoint](/docs/api/resources/oauth-clients/#register-new-client)                                                                                                           | String  |
+| registration_endpoint                         | URL of the authorization server's [Dynamic Client Registration endpoint](/docs/reference/api/oauth-clients/#register-new-client)                                                                                                           | String  |
 | request_object_signing_alg_values_supported   | The signing algorithms that this authorization server supports for signed requests.                                                                                                                                                        | Array   |
 | request_parameter_supported                   | Indicates if [Request Parameters](#parameter-details) are supported by this authorization server.                                                                                                                                          | Boolean |
 | response_modes_supported                      | JSON array that contains a list of the `response_mode` values that this authorization server supports. More information [here](#parameter-details).                                                                                           | Array   |
@@ -967,7 +967,7 @@ The claims requested by the `profile`, `email`, `address`, and `phone` scope val
 
 An access token is a JSON web token (JWT) encoded in Base64 URL-encoded format that contains [a header](#access-token-header), [payload](#access-token-payload), and [signature](#access-token-signature). A resource server can authorize the client to access particular resources based on the [scopes and claims](#access-token-scopes-and-claims) in the access token.
 
-The lifetime of access token can be configured in the [Access Policies](/docs/api/resources/authorization-servers#policy-object). If the client that issued the token is deactivated, the token is immediately and permanently invalidated. Reactivating the client doesn't make the token valid again.
+The lifetime of access token can be configured in the [Access Policies](/docs/reference/api/authorization-servers/#policy-object). If the client that issued the token is deactivated, the token is immediately and permanently invalidated. Reactivating the client doesn't make the token valid again.
 
 #### Access Token Header
 ```json
@@ -1005,7 +1005,7 @@ This is a digital signature Okta generates using the public key identified by th
 #### Access Token Scopes and Claims
 Access tokens include reserved scopes and claims and can optionally include custom scopes and claims.
 
-Scopes are requested in the initial [authorization request](#authorize), and the Authorization Server uses the [Access Policies](/docs/api/resources/authorization-servers#policy-object) to decide whether they can be granted. If any of the requested scopes are rejected by the Access Policies, the request is rejected.
+Scopes are requested in the initial [authorization request](#authorize), and the Authorization Server uses the [Access Policies](/docs/reference/api/authorization-servers/#policy-object) to decide whether they can be granted. If any of the requested scopes are rejected by the Access Policies, the request is rejected.
 
 Based on the granted scopes, claims are added into the access token returned from the request.
 
@@ -1254,7 +1254,7 @@ If you configured your client to use the `private_key_jwt` client authentication
 
 Provide the `client_id` in a JWT that you sign with your private key using an RSA or ECDSA algorithm (RS256, RS384, RS512, ES256, ES384, ES512). The JWT must also contain other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt).
 
-> Note: The private key that you use to sign the JWT must have the corresponding public key registered in the client's [JWKSet](/docs/api/resources/oauth-clients/#json-web-key-set).
+> Note: The private key that you use to sign the JWT must have the corresponding public key registered in the client's [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set).
 
 After you create the JWT, in the request you need to specify the `client_assertion_type` as `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` and specify the JWT as the value for the `client_assertion` parameter.
 

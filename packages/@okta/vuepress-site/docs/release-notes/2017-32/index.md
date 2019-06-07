@@ -27,7 +27,7 @@ It allows you to specify `default` instead of the `authServerId` in requests to 
 #### Web App Supports Client Credential Grant Type
 <!-- OKTA-102062 -->
 
-OAuth 2.0 clients now support [configuration of the `web` application type to use a `client_credential` grant type](/docs/api/resources/oauth-clients#client-application-properties).
+OAuth 2.0 clients now support [configuration of the `web` application type to use a `client_credential` grant type](/docs/reference/api/oauth-clients/#client-application-properties).
 This allows you to use one `client_id` for an application that needs to make user-specific calls and back-end calls for data.
 
 #### OpenID Connect Group Claim Retrieves Application Groups

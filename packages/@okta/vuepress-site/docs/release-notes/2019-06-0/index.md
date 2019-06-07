@@ -11,7 +11,7 @@ title: Okta API Products Release Notes
 
 ### Email Factor is now GA in Preview
 
-The [Email Factor](/docs/api/resources/factors/#enroll-okta-email-factor) is now Generally Available (GA) in all Preview orgs. <!-- OKTA-227761 -->
+The [Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) is now Generally Available (GA) in all Preview orgs. <!-- OKTA-227761 -->
 
 ### Users can be removed from Profile Masters
 

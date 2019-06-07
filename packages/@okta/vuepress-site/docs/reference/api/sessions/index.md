@@ -686,9 +686,9 @@ Sessions have the following properties:
 | lastFactorVerification                    | timestamp when user last performed multi-factor authentication                                | Date                                      | TRUE     | TRUE   | TRUE     |
 | amr                                       | authentication method reference                                                               | [AMR Object](#amr-object)                 | FALSE    | FALSE  | TRUE     |
 | idp                                       | identity provider used to authenticate the user                                               | [IDP Object](#idp-object)                 | FALSE    | FALSE  | TRUE     |
-| mfaActive                                 | indicates whether the user has [enrolled an MFA factor](/docs/api/resources/factors/#list-enrolled-factors)        | Boolean                                   | FALSE    | FALSE  | TRUE     |
+| mfaActive                                 | indicates whether the user has [enrolled an MFA factor](/docs/reference/api/factors/#list-enrolled-factors)        | Boolean                                   | FALSE    | FALSE  | TRUE     |
 
-> The `mfaActive` parameter is a <ApiLifecycle access="deprecated" /> feature. Use the `lastFactorVerification` attribute in conjunction with `amr` to understand if the user has performed MFA for the current session. Use the [Factors API](/docs/api/resources/factors/#list-enrolled-factors) to query the factor enrollment status for a given user.
+> The `mfaActive` parameter is a <ApiLifecycle access="deprecated" /> feature. Use the `lastFactorVerification` attribute in conjunction with `amr` to understand if the user has performed MFA for the current session. Use the [Factors API](/docs/reference/api/factors/#list-enrolled-factors) to query the factor enrollment status for a given user.
 
 #### Optional Session Properties
 

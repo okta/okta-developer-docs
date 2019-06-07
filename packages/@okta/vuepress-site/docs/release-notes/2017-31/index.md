@@ -39,7 +39,7 @@ All new SAML 2.0 apps are bootstrapped with SHA-256 signed public certificates. 
 #### Email for Two-Factor Authentication
 <!-- OKTA-134593  -->
 
-You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/api/resources/factors/#enroll-okta-email-factor) for details.
+You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) for details.
 
 ### New Version of the Sign-In Widget
 <!-- (OKTA-132800) -->
