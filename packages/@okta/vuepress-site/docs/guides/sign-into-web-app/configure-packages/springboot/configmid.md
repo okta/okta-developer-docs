@@ -5,6 +5,8 @@ okta.oauth2.issuer=https://{yourOktaDomain}/oauth2/default
 okta.oauth2.clientId={clientId}
 okta.oauth2.clientId={clientSecret}
 
-# Customize the callback route path (optional):
+# Customize the callback route path (optional, defaults to '/login/oauth2/code/okta'):
 security.oauth2.sso.loginPath=/authorization-code/callback
 ```
+
+Take a look at the [Spring Boot Externalized Configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html) for details on other ways to configure properties.
