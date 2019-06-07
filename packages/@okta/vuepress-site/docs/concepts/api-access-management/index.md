@@ -37,7 +37,7 @@ See [OAuth 2.0 and OpenID Connect](#oauth-20-and-openid-connect) for details.
 Centralizing the management of your APIs makes it easier for others to consume your API resources.
 Using Okta's OAuth-as-a-Service feature, API Access Management, provides many benefits:
 
-* Create one or more [Custom Authorization Servers](/authentication-guide/implementing-authentication/set-up-authz-server), hosted on Okta. Custom Authorization Servers make it easier to manage sets of API access for multiple client apps across many customer types.
+* Create one or more [Custom Authorization Servers](/authentication-guide/implementing-authentication/set-up-authz-server/), hosted on Okta. Custom Authorization Servers make it easier to manage sets of API access for multiple client apps across many customer types.
 * Create custom scopes and claims. Map your claims to the profiles in your user directory.
 * Tokens are passed instead of credentials. In addition, the JWT tokens carry payloads for user context.
 * Stay protected with security standards compliance.
@@ -78,9 +78,9 @@ This benefit depends, of course, on the level of security your apps require.
 ## Getting Started with API Access Management
 
 * [Learn more](/authentication-guide/auth-overview/) about Okta and OAuth 2.0.
-* [Set up a custom authorization server](/authentication-guide/implementing-authentication/set-up-authz-server) and use the power of Okta's API Access Management.
-* Visit [the OIDC/OAuth 2.0 endpoint documentation](/docs/api/resources/oidc) and start building your integration today.
-* For simpler use cases focused on SSO, visit [the OpenID Connect documentation](/docs/api/resources/oidc).
+* [Set up a custom authorization server](/authentication-guide/implementing-authentication/set-up-authz-server/) and use the power of Okta's API Access Management.
+* Visit [the OIDC/OAuth 2.0 endpoint documentation](/docs/api/resources/oidc/) and start building your integration today.
+* For simpler use cases focused on SSO, visit [the OpenID Connect documentation](/docs/api/resources/oidc/).
 
 ## Recommended Practices for API Access Management
 
@@ -134,7 +134,7 @@ Okta provides the API Access Management Administrator role to make managing auth
 ##### API Gateway (optional)
 
 * Access tokens should be used exclusively via an HTTP Authorization header instead of encoded into a payload or URL which may be logged or cached.
-* When a gateway successfully validates an access token, cache the result until the expiration time (`exp` claim). Do this for validation that is either [local](/authentication-guide/tokens/validating-access-tokens) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).
+* When a gateway successfully validates an access token, cache the result until the expiration time (`exp` claim). Do this for validation that is either [local](/authentication-guide/tokens/validating-access-tokens/) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).
 * When a gateway retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 * If the gateway is performing endpoint or HTTP verb-level authorization using scopes, the scopes must be defined and granted in the Okta authorization server or custom authorization server before being used in the gateway.
 
@@ -149,7 +149,7 @@ Okta provides the API Access Management Administrator role to make managing auth
 * Avoid using the resource owner password grant type (`password`) except in legacy application or transitional scenarios. The authorization code, implicit, or hybrid grant types are recommended in most scenarios.
 * For mobile applications, using the authorization code grant type with PKCE is the best practice. The implicit or hybrid grant type is the next best option.
 * For Android or iOS applications, use [Okta OIDC iOS](https://github.com/okta/okta-oidc-ios) or [AppAuth for Android](https://github.com/okta/okta-sdk-appauth-android/).
-* When an application successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/authentication-guide/tokens/validating-access-tokens) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).
+* When an application successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/authentication-guide/tokens/validating-access-tokens/) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).
 * When an application retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 
 * Never use an access token granted from the Okta organization authorization server for authorization within your applications. These tokens are intended for use with Okta and cannot be validated within your application. Instead, use tokens granted from a custom authorization server. Read more about the various types of authorization servers in the [OAuth 2.0 and Okta documentation](https://developer.okta.com/authentication-guide/auth-overview/#authorization-servers).
@@ -158,4 +158,4 @@ Okta provides the API Access Management Administrator role to make managing auth
 
 * Accept access tokens only via an HTTP Authorization header. Don't encode tokens into a payload or URL which may be logged or cached.
 * A resource server must confirm that the audience claim (`aud`) and client ID claim (`cid`) match the expected audience and client ID.
-* When a resource server successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/authentication-guide/tokens/validating-access-tokens) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).
+* When a resource server successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/authentication-guide/tokens/validating-access-tokens/) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).

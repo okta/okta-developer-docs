@@ -141,7 +141,7 @@ The API key (API token) isn't interchangeable with an Okta [session token](/docs
 
 Requests that return a list of resources may support paging.  Pagination is based on a cursor and not on page number. The cursor is opaque to the client and specified in either the `before` or `after` query parameter.  For some resources, you can also set a custom page size with the `limit` parameter.
 
-Note that for technical reasons not all APIs respect pagination or the `before` and `limit` parameters, see the [Events API](/docs/api/resources/events) for example.
+Note that for technical reasons not all APIs respect pagination or the `before` and `limit` parameters, see the [Events API](/docs/api/resources/events/) for example.
 
 | Param    | Description                                                                             |
 | -------- | ------------                                                                            |
@@ -168,9 +168,9 @@ The possible `rel` values are:
 
 When you first make an API call and get a cursor-paged list of objects, the end of the list will be the point at which you do not receive another `next` link value with the response. This holds true for all but two cases:
 
-1. [Events API](/docs/api/resources/events): The `next` link always exists, since the [Events API](/docs/api/resources/events) is like a stream of data with a cursor.
+1. [Events API](/docs/api/resources/events): The `next` link always exists, since the [Events API](/docs/api/resources/events/) is like a stream of data with a cursor.
 
-2. [System Log API](/docs/api/resources/system_log): The `next` link will always exist in polling queries in the [System Log API](/docs/api/resources/system_log). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/api/resources/events), the polling query is a stream of data.
+2. [System Log API](/docs/api/resources/system_log): The `next` link will always exist in polling queries in the [System Log API](/docs/api/resources/system_log). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/api/resources/events/), the polling query is a stream of data.
 
 ### Filtering
 
@@ -279,7 +279,7 @@ Search and list operations are intended to find matching resources and their ide
 
 ### Request Debugging
 
-The request ID will always be present in every API response and can be used for debugging. This value can be used to correlate events from the [Events API](/docs/api/resources/events) as well as the System Log events.
+The request ID will always be present in every API response and can be used for debugging. This value can be used to correlate events from the [Events API](/docs/api/resources/events/) as well as the System Log events.
 
 The following header is set in each response:
 

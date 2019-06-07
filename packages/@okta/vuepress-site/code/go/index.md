@@ -49,7 +49,7 @@ go get https://github.com/okta/okta-sdk-golang
 ## Recommended Guides
 
 
-- [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code)
+- [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code/)
 - [Social Login](/authentication-guide/social-login/)
 - [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
 

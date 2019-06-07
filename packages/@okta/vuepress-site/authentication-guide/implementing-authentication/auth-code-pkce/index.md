@@ -92,7 +92,7 @@ curl --request POST \
   3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
 
-> Important: Unlike the regular [Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code), this call does not require the Authorization header with the client ID and secret. This is why this version of the Authorization Code flow is appropriate for native apps.
+> Important: Unlike the regular [Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code/), this call does not require the Authorization header with the client ID and secret. This is why this version of the Authorization Code flow is appropriate for native apps.
 
 Note the parameters that are being passed:
 
@@ -117,7 +117,7 @@ If the code is still valid, and the code verifier matches, your application will
 
 ### 4. Next Steps
 
-When your application passes a request with an `access_token`, the resource server will need to validate it. For more on this, see [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens).
+When your application passes a request with an `access_token`, the resource server will need to validate it. For more on this, see [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens/).
 
 ### Examples
 

@@ -30,6 +30,6 @@ Import any Okta API collection for Postman from the following list:
 | System Log                          | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/54def5ab52f04b7e4011)                   |
 | Users                               | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c4661c98df9054fdbf7c)                   |
 
-These buttons are also available at the top of each [API reference page](/docs/api/resources/apps).
+These buttons are also available at the top of each [API reference page](/docs/api/resources/apps/).
 
 Learn more about how to [get started with the Okta REST APIs](/code/rest/).

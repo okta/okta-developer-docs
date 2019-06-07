@@ -21,11 +21,11 @@ To get a refresh token, you send a request to your Okta Authorization Server.
 
 ### Get a Refresh Token with the Code Flow
 
-In the case of the Authorization Code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then send this code to the `/token` endpoint to get an access token and a refresh token. For more information about this endpoint, see [Obtain an Authorization Grant from a User](/docs/reference/api/oidc/#authorize). For more information about the Authorization Code flow, see [Implementing the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code).
+In the case of the Authorization Code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then send this code to the `/token` endpoint to get an access token and a refresh token. For more information about this endpoint, see [Obtain an Authorization Grant from a User](/docs/reference/api/oidc/#authorize). For more information about the Authorization Code flow, see [Implementing the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code/).
 
 ### Get a Refresh Token with the Resource Owner Password Flow
 
-For the Resource Owner Password flow, you use the Authorization Server's `/token` endpoint directly. For more information about this endpoint, see [Request a Token](/docs/reference/api/oidc/#token). For more information about the Resource Owner Password flow, see [Implementing the Resource Owner Password Flow](/authentication-guide/implementing-authentication/password).
+For the Resource Owner Password flow, you use the Authorization Server's `/token` endpoint directly. For more information about this endpoint, see [Request a Token](/docs/reference/api/oidc/#token). For more information about the Resource Owner Password flow, see [Implementing the Resource Owner Password Flow](/authentication-guide/implementing-authentication/password/).
 
 The following combinations of grant type and scope, when sent to `/token` endpoint, will return a refresh token:
 

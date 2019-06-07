@@ -6,11 +6,11 @@ title: Work with Okta session cookies
 
 Okta utilizes an HTTP session cookie to provide access to your Okta organization and applications across web requests for interactive user-agents such as a browser. This document provides examples for programmatically retrieving and setting a session cookie for different deployment scenarios to provide SSO capabilities for custom web applications built on Okta.
 
-Okta sessions are created and managed with the [Session API](/docs/api/resources/sessions).
+Okta sessions are created and managed with the [Session API](/docs/api/resources/sessions/).
 
 ## Retrieving a session cookie via OpenID Connect Authorization Endpoint
 
-This scenario is ideal for deployment scenarios where you have implemented both a custom login page and custom landing page for your application. The login page will typically collect the user's credentials via a HTML form submit or POST and the web application will validate the credentials against your Okta organization by calling the [Authentication API](/docs/api/resources/authn) to obtain a [session token](/docs/api/resources/sessions/#session-token).
+This scenario is ideal for deployment scenarios where you have implemented both a custom login page and custom landing page for your application. The login page will typically collect the user's credentials via a HTML form submit or POST and the web application will validate the credentials against your Okta organization by calling the [Authentication API](/docs/api/resources/authn/) to obtain a [session token](/docs/api/resources/sessions/#session-token).
 
 Once a session token is obtained, it can be passed into the [OpenID Connect authorize endpoint](/docs/reference/api/oidc/#authorize) in order to get an Okta session cookie. Executing this flow will set a cookie in the end user's browser and then redirect them back to the `redirect_uri` that is passed into the request.
 
@@ -25,7 +25,7 @@ https://{yourOktaDomain}/oauth2/v1/authorize?client_id={clientId}&response_type=
 
 > The `prompt=none` param guarantees that the user will not be prompted for credentials. You will either obtain the requested tokens or an OAuth error response.
 
-> The `sessionToken` param serves as the primary credentials. It represents the authentication that was already performed via the [Authentication API](/docs/api/resources/authn).
+> The `sessionToken` param serves as the primary credentials. It represents the authentication that was already performed via the [Authentication API](/docs/api/resources/authn/).
 
 ##### Response Example
 
@@ -44,7 +44,7 @@ The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) uses this flow.
 
 > This pattern is supported, but not encouraged. The [OpenID Connect](#retrieving-a-session-cookie-via-openid-connect-authorization-endpoint) flow described above is the preferred pattern for retrieving a session cookie.
 
-This scenario is ideal for deployment scenarios where you have implemented both a custom login page and custom landing page for your application. Your web application will solicit and validate the user credentials against your Okta organization by calling the [Authentication API](/docs/api/resources/authn) to obtain a [session token](/docs/reference/api/authn/#session-token).
+This scenario is ideal for deployment scenarios where you have implemented both a custom login page and custom landing page for your application. Your web application will solicit and validate the user credentials against your Okta organization by calling the [Authentication API](/docs/api/resources/authn/) to obtain a [session token](/docs/reference/api/authn/#session-token).
 
 The session token along with the URL for your landing page can then be used to complete the following [URI Template](http://tools.ietf.org/html/rfc6570) `https://{yourOktaDomain}/login/sessionCookieRedirect?token={sessionToken}&redirectUrl={redirectUrl}` that will retrieve a session cookie for a user's browser when visited.
 
@@ -86,7 +86,7 @@ Location: https://your-app.example.com
 
 ## Retrieving a session cookie by visiting an application embed link
 
-This scenario is ideal for deployment scenarios where you have a custom login page but immediately want to launch an Okta application after login without returning to a landing page. The login page will typically collect the user's credentials via a HTML form submit or POST and validate the credentials against your Okta organization by calling the [Authentication API](/docs/api/resources/authn) to obtain a session token.
+This scenario is ideal for deployment scenarios where you have a custom login page but immediately want to launch an Okta application after login without returning to a landing page. The login page will typically collect the user's credentials via a HTML form submit or POST and validate the credentials against your Okta organization by calling the [Authentication API](/docs/api/resources/authn/) to obtain a session token.
 
 The session token can then be passed as a query parameter to an Okta application's embed link that will set a session cookie as well as launch the application in a single web request.
 

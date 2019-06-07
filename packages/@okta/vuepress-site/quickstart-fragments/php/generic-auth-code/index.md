@@ -81,7 +81,7 @@ The result of this will provide you with an access token for that user.
 $jwt = $exchange->access_token;
 ```
 
-This access token is a JWT and should be verified according to the process described in [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/).  This verification can be done easily with the [Okta JWT Verifier for PHP](https://github.com/okta/okta-jwt-verifier-php).
+This access token is a JWT and should be verified according to the process described in [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/).  This verification can be done easily with the [Okta JWT Verifier for PHP](https://github.com/okta/okta-jwt-verifier-php/).
 
 ### Handling Errors
 If an error is present in the login, an `error` query parameter will be present.

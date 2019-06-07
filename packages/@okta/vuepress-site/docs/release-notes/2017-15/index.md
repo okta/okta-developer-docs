@@ -17,7 +17,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/api/getting_started/rate-limits).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/api/getting_started/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Feature Improvements
 
@@ -51,7 +51,7 @@ Access Policies can now be defined based on an IP address range. <!-- OKTA-12128
 
 #### Bring Your Own SAML Certificates
 
-Okta Admins can now upload their own SAML certificates to sign the assertion for Outbound SAML apps. These certificates can also be used to sign the AuthNRequest, as well as to decrypt the assertion for Inbound SAML. For more information, see [Bring Your Own SAML App Certificate](/docs/how-to/byo_saml).<!-- OKTA-119158 -->
+Okta Admins can now upload their own SAML certificates to sign the assertion for Outbound SAML apps. These certificates can also be used to sign the AuthNRequest, as well as to decrypt the assertion for Inbound SAML. For more information, see [Bring Your Own SAML App Certificate](/docs/how-to/byo_saml/).<!-- OKTA-119158 -->
 
 #### Universal Directory for User Locale
 

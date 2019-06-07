@@ -61,7 +61,7 @@ The Okta PHP SDK can be used in your server-side code to create and update users
 ## Recommended Guides
 
 
-- [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code)
+- [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code/)
 - [Social Login](/authentication-guide/social-login/)
 - [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
 

@@ -19,7 +19,7 @@ Secure your APIs with API Access Management, Okta's implementation of the OAuth 
 
 Generally Available (GA) in preview orgs since February 7, 2018, API Access Management is scheduled to be GA in production orgs starting March 12, 2018.
 
-For more information, see [OAuth 2.0 and Okta](/docs/api/resources/oidc). <!--OKTA-153127-->
+For more information, see [OAuth 2.0 and Okta](/docs/api/resources/oidc/). <!--OKTA-153127-->
 
 ### System Log API is in Early Access (EA)
 

@@ -9,7 +9,7 @@ title: Okta API Products Release Notes
 To protect against arbitrarily large numbers of groups matching the group filter, the group claim has a limit of 100. 
 If more than 100 groups match the filter, then the request fails.
 
-* For more information about configuring an app for OpenID Connect, including group claims, see [Using OpenID Connect](/docs/api/resources/oidc). 
+* For more information about configuring an app for OpenID Connect, including group claims, see [Using OpenID Connect](/docs/api/resources/oidc/). 
 * For more information about group claims in the API, see Scope-dependent claims.
 
 ### Bugs Fixed

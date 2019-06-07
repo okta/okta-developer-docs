@@ -11,7 +11,7 @@ title: Okta API Products Release Notes
 
 ### The Registration Inline Hook is in Early Access (EA)
 
-The [Registration Inline Hook](/docs/reference/registration_hook/) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773) -->
+The [Registration Inline Hook](/docs/reference/registration_hook/) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773/) -->
 
 ### Bugs Fixed in 2019.05.0
 

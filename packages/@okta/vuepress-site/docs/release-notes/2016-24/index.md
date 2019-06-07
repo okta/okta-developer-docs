@@ -16,7 +16,7 @@ The Links object, `_links`, is available in the Policy object. For more informat
 The error descriptions related to OAuth provide more helpful information about invalid clients for OpenID Connect flows.
 
 #### Disable Automatic Key Rotation
-If you need to disable automatic key rotation for an OpenID Connect flow, you can do so in General Settings section under the General tab for an app, and then use the `/oauth2/v1/keys` endpoint to fetch public keys for your app. For more information, see [OpenID Connect](/docs/api/resources/oidc).
+If you need to disable automatic key rotation for an OpenID Connect flow, you can do so in General Settings section under the General tab for an app, and then use the `/oauth2/v1/keys` endpoint to fetch public keys for your app. For more information, see [OpenID Connect](/docs/api/resources/oidc/).
 
 ### Bugs Fixed
 

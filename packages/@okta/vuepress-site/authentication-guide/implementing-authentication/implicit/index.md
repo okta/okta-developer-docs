@@ -26,7 +26,7 @@ You set up your OpenID Connect application inside the Okta Developer Console:
 
 ### 2. Using the Implicit Flow
 
-Kicking off this flow is very similar to the [authorization code flow](/authentication-guide/implementing-authentication/auth-code) except that the `response_type` is `token` and/or `id_token` instead of `code`.
+Kicking off this flow is very similar to the [authorization code flow](/authentication-guide/implementing-authentication/auth-code/) except that the `response_type` is `token` and/or `id_token` instead of `code`.
 
 Your browser makes a request to your authorization server's `/authorize` endpoint. If you are using the default Okta authorization server, then your request URL would look something like this:
 
@@ -57,7 +57,7 @@ Your application must now extract the token(s) from the URI and store them.
 
 ### 3. Next Steps
 
-When your application passes a request with an `access_token`, the resource server will need to validate it. For more on this, see [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens).
+When your application passes a request with an `access_token`, the resource server will need to validate it. For more on this, see [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens/).
 
 ### Examples
 

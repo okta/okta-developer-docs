@@ -13,7 +13,7 @@ title: Okta API Products Release Notes
 
 ### Linked Objects API in Early Access (EA)
 
-Users have relationships to each other, like manager and subordinate or customer and sales representative. You can create users with relationships by using the [Linked Objects API](/docs/api/resources/linked-objects).
+Users have relationships to each other, like manager and subordinate or customer and sales representative. You can create users with relationships by using the [Linked Objects API](/docs/api/resources/linked-objects/).
 
 Okta allows you to create up to 200 linked object definitions. These definitions are one-to-many:
 
@@ -28,7 +28,7 @@ You can assign the `associated` relationship for a single `primary` user to as m
 For more details:
 
 * [Relationships use case](/use_cases/relationships/)
-* [Linked Objects API documentation](/docs/api/resources/linked-objects) <!-- OKTA-161674 -->
+* [Linked Objects API documentation](/docs/api/resources/linked-objects/) <!-- OKTA-161674 -->
 
 ### Client SDKs Version 1.0
 

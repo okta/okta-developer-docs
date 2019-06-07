@@ -14,15 +14,15 @@ The following platform features are Generally Available (GA) in preview orgs (as
 
 #### OpenID Connect
 
-[OpenID Connect](/docs/api/resources/oidc) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+[OpenID Connect](/docs/api/resources/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
  OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
- Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/api/resources/oidc).<!-- OKTA-132049  -->
+ Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/api/resources/oidc/).<!-- OKTA-132049  -->
 
 #### Key Rollover
 
-We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/api/resources/apps) and [Identity Providers API](/docs/api/resources/idps)). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
+We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/api/resources/apps) and [Identity Providers API](/docs/api/resources/idps)/). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
 
 ### Platform Bugs Fixed
 

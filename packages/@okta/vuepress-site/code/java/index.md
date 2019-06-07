@@ -67,7 +67,7 @@ The Okta Java SDK can be used in your server-side code to create and update user
 ## Recommended Guides
 
 
-- [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code)
+- [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code/)
 - [Social Login](/authentication-guide/social-login/)
 - [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
 

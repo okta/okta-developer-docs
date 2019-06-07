@@ -19,7 +19,7 @@ This information is specific to the Token Inline Hook, one type of Inline Hook s
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline_hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks/).
 
 For steps to enable this Inline Hook, see below, [Enabling a Token Inline Hook](#enabling-a-token-inline-hook).
 
@@ -405,7 +405,7 @@ See [ID Token Claims](https://developer.okta.com/docs/reference/api/oidc/#id-tok
 
 ## Enabling a Token Inline Hook
 
-To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/api/resources/inline-hooks).
+To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/api/resources/inline-hooks/).
 
 You then need to associate the registered Inline Hook with a Custom Authorization Server Policy Rule by completing the following steps:
 

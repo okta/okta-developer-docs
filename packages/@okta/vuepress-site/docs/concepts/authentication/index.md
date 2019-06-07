@@ -30,7 +30,7 @@ To find out more about Okta's OAuth 2.0 and OpenID Connect implementations, as w
 
 ### Sign-In Widget
 
-The [Okta Sign-in Widget](/code/javascript/okta_sign-in_widget)
+The [Okta Sign-in Widget](/code/javascript/okta_sign-in_widget/)
 provides an embeddable Javascript sign-in implementation that can
 easily be embedded into your customized login page.  The Sign-in
 widget carries the same feature set in the standard Okta sign-in page
@@ -45,7 +45,7 @@ widget.
 ### Auth SDK
 
 For those who are building a Javascript front end or Single Page App
-(SPA), the light-weight, JavaScript-based [Okta Auth SDK](/code/javascript/okta_auth_sdk)
+(SPA), the light-weight, JavaScript-based [Okta Auth SDK](/code/javascript/okta_auth_sdk/)
 gives you the added control beyond our sign-in widget to cater to your
 needs.  This Javascript SDK provides all the standard login support
 including password management and strong authentication.  In addition,
@@ -56,11 +56,11 @@ and authorization needs.
 ### Authentication API
 
 The underlying foundation for the Sign-In Widget and Auth SDK is a
-comprehensive [authentication REST API](/docs/api/resources/authn)
+comprehensive [authentication REST API](/docs/api/resources/authn/)
 exposed through Okta.  Use it as a
 standalone API to provide the identity layer on top of your existing
-application and authentication logic, or use it with the Okta [Sessions API](/docs/api/resources/sessions)
-to obtain an Okta [session cookie](/docs/concepts/authentication/session_cookie) and access apps within Okta.
+application and authentication logic, or use it with the Okta [Sessions API](/docs/api/resources/sessions/)
+to obtain an Okta [session cookie](/docs/concepts/authentication/session_cookie/) and access apps within Okta.
 This session integration provides an SSO experience across custom and Okta-managed apps.
 
 ## Building Apps That Support SSO
@@ -78,7 +78,7 @@ OpenID Connect is the emerging technology that provides an alternative implement
 Okta is a [Certified OpenID Connect provider](http://openid.net/certification/).
 Building on top of OAuth 2.0 framework, OpenID Connect is a modern
 implementation to support authentication and SSO.  If you
-are an Okta customer, our [OpenID Connect API](/docs/api/resources/oidc) is a great way to support SSO and
+are an Okta customer, our [OpenID Connect API](/docs/api/resources/oidc/) is a great way to support SSO and
 is a simpler alternative to SAML.
 
 For ISVs who want to provide SSO for their customers, both

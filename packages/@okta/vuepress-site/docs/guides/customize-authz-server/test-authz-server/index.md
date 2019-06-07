@@ -6,7 +6,7 @@ Once you have followed the above instructions to set-up and/or customize your Au
 
 > NOTE: The `{authServerId}` for the default server is `default`.
 
-A full description of Okta's relevant APIs can be found here: [OpenID Connect & OAuth 2.0 API](/docs/api/resources/oidc).
+A full description of Okta's relevant APIs can be found here: [OpenID Connect & OAuth 2.0 API](/docs/api/resources/oidc/).
 
 We have included here a few things that you can try to ensure that your Authorization Server is functioning as expected.
 

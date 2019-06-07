@@ -56,4 +56,4 @@ If the credentials are valid, the application will receive back an access token:
 
 ### 4. Next Steps
 
-When your application sends a request with an access_token, the resource server will need to validate it. For more on this, see [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens).
+When your application sends a request with an access_token, the resource server will need to validate it. For more on this, see [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens/).

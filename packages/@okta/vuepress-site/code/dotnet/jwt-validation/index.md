@@ -7,7 +7,7 @@ component: Code
 
 # <i class='icon-48 docsPage code-dotnet'></i> Overview
 
-When you use Okta to [get OAuth 2.0 or OpenID Connect tokens for a user](/authentication-guide/implementing-authentication/), the response contains a signed JWT (`id_token` and/or `access_token`).
+When you use Okta to [get OAuth 2.0 or OpenID Connect tokens for a user](/authentication-guide/implementing-authentication/), the response contains a signed JWT (`id_token` and/or `access_token`/).
 
 If you are writing low-level code that retrieves or uses these tokens, it's important to validate the tokens before you trust them. This guide will show you how to validate tokens manually.
 

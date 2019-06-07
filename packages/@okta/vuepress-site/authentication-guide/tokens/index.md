@@ -12,8 +12,8 @@ Additional information about ID tokens can be found [here](/docs/reference/api/o
 
 The following sections help you understand token validation and revocation, verifying a token's signature, managing key rotation, and how to use a refresh token to get a new access token.
 
-- [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens)
-- [Validating ID Tokens](/authentication-guide/tokens/validating-id-tokens)
-- [Verifying the Token Signature and Managing Key Rotation](/authentication-guide/tokens/verifying-token-signature)
-- [Refreshing Access Tokens](/authentication-guide/tokens/refreshing-tokens)
-- [Revoking Tokens](/authentication-guide/tokens/revoking-tokens)
+- [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens/)
+- [Validating ID Tokens](/authentication-guide/tokens/validating-id-tokens/)
+- [Verifying the Token Signature and Managing Key Rotation](/authentication-guide/tokens/verifying-token-signature/)
+- [Refreshing Access Tokens](/authentication-guide/tokens/refreshing-tokens/)
+- [Revoking Tokens](/authentication-guide/tokens/revoking-tokens/)

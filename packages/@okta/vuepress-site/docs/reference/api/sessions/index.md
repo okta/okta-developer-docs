@@ -50,7 +50,7 @@ Creates a new session for a user with a valid session token. Use this API if, fo
 | Parameter        | Description                                                   | Param Type | DataType                        | Required | Default |
 | ---------------- | ------------------------------------------------------------- | ---------- | ------------------------------- | -------- | ------- |
 | additionalFields | Optional [session properties](#optional-session-properties)   | Query      | String (comma separated values) | FALSE    |         |
-| sessionToken     | Session token obtained via [Authentication API](/docs/api/resources/authn)        | Body       | String                          | TRUE     |         |
+| sessionToken     | Session token obtained via [Authentication API](/docs/api/resources/authn/)        | Body       | String                          | TRUE     |         |
 
 ##### Response Parameters
 
@@ -699,7 +699,7 @@ The [Create Session](#create-session-with-session-token) operation can optionall
 | cookieToken                                   | Another one-time token which can be used to obtain a session cookie by visiting either an application's embed link or a session redirect URL.                                     |
 | cookieTokenUrl                                | URL for a a transparent 1x1 pixel image which contains a one-time session token which when visited sets the session cookie in your browser for your organization.                 |
 
-> The `cookieToken` is a <ApiLifecycle access="deprecated" /> property. Instead, use the [Authentication API](/docs/api/resources/authn), which supports the full user authentication pipeline and produces a `sessionToken` which can be used in this API.
+> The `cookieToken` is a <ApiLifecycle access="deprecated" /> property. Instead, use the [Authentication API](/docs/api/resources/authn/), which supports the full user authentication pipeline and produces a `sessionToken` which can be used in this API.
 
 > The `cookieTokenUrl` is a <ApiLifecycle access="deprecated" /> property, because modern browsers block cookies set via embedding images from another origin (cross-domain).
 

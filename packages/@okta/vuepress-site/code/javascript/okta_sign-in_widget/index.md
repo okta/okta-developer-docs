@@ -143,7 +143,7 @@ function success(res) {
 
 #### Sign In to Your Application
 
-If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom Authorization Server](/authentication-guide/implementing-authentication/set-up-authz-server) in Okta. The Widget also needs to be configured to prompt the user to sign in, and then extract an ID token after a successful redirect:
+If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom Authorization Server](/authentication-guide/implementing-authentication/set-up-authz-server/) in Okta. The Widget also needs to be configured to prompt the user to sign in, and then extract an ID token after a successful redirect:
 
 ```javascript
 var signIn = new OktaSignIn({

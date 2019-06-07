@@ -1415,7 +1415,7 @@ If `valueType` is `GROUPS`, then the groups returned are filtered according to t
 * `CONTAINS`: Group names contain `value` (not case sensitive). For example, if `value` is `group1`, then `MyGroup123` and `group1` are included.
 * `REGEX`: Group names match the regular expression in `value` (case sensitive). For example if `value` is `/^[a-z0-9_-]{3,16}$/`, then any group name that has at least 3 letters, no more than 16, and contains lower case letters, a hyphen, or numbers.
 
-If you have complex filters for groups, you can [create a groups whitelist](/docs/how-to/creating-token-with-groups-claim) to put them all in a claim.
+If you have complex filters for groups, you can [create a groups whitelist](/docs/how-to/creating-token-with-groups-claim/) to put them all in a claim.
 
 ##### Details for `alwaysIncludeInToken`
 
@@ -1595,7 +1595,7 @@ curl -v -X GET \
 * [Revoke All Refresh Tokens](#revoke-all-refresh-tokens)
 * [Revoke Refresh Token](#revoke-refresh-token)
 
-These endpoints allow you to manage tokens issued by an Authorization Server for a particular Client. For example, you could revoke every active refresh token for a specific Client. You can also [revoke specific tokens](/authentication-guide/tokens/revoking-tokens) or [manage tokens at the User level](/docs/api/resources/users/#user-oauth-20-token-management-operations).
+These endpoints allow you to manage tokens issued by an Authorization Server for a particular Client. For example, you could revoke every active refresh token for a specific Client. You can also [revoke specific tokens](/authentication-guide/tokens/revoking-tokens/) or [manage tokens at the User level](/docs/api/resources/users/#user-oauth-20-token-management-operations).
 
 Read [Working With Tokens](/authentication-guide/tokens/) to understand more about how OAuth 2.0 tokens work.
 

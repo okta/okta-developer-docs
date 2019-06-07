@@ -51,7 +51,7 @@ We enforce new rate limits for all preview orgs. API calls exceeding the new rat
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate limits will return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/api/getting_started/rate-limits).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/api/getting_started/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Enhancements
 

@@ -11,7 +11,7 @@ title: Okta API Products Release Notes
 
 ### Token Inline Hook Can Modify or Remove Existing Claims (Early Access)
 
-The [Token Inline Hook](/docs/reference/token-hook/) now supports changing or removing existing claims in tokens minted by the Okta Custom Authorization Server. <!-- (OKTA-218305) -->
+The [Token Inline Hook](/docs/reference/token-hook/) now supports changing or removing existing claims in tokens minted by the Okta Custom Authorization Server. <!-- (OKTA-218305/) -->
 
 ### Bugs Fixed in 2019.05.3
 

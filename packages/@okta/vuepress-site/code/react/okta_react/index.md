@@ -34,7 +34,7 @@ If you do not already have a **Developer Edition Account**, you can create one a
 To quickly create a React app, we recommend the create-react-app CLI. Follow their guide [here](https://github.com/facebookincubator/create-react-app#quick-overview).
 
 ## Install Dependencies
-A simple way to add authentication to a React app is using the [Okta Auth JS](/code/javascript/okta_auth_sdk) library. We can install it via `npm`:
+A simple way to add authentication to a React app is using the [Okta Auth JS](/code/javascript/okta_auth_sdk/) library. We can install it via `npm`:
 ```bash
 npm install @okta/okta-auth-js --save
 ```
@@ -45,7 +45,7 @@ npm install @okta/okta-react react-router-dom --save
 ```
 
 ## Create a Custom Login Form
-If the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget) does not fit your needs, [Auth-JS](/code/javascript/okta_auth_sdk) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, we'll create a simple username and password form without MFA.
+If the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget) does not fit your needs, [Auth-JS](/code/javascript/okta_auth_sdk/) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, we'll create a simple username and password form without MFA.
 
 Create a `src/LoginForm.js` file:
 
@@ -277,7 +277,7 @@ npm start
 ```
 
 ## Conclusion
-You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/api/resources/oidc).
+You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/api/resources/oidc/).
 
 Want to learn how to use the user's `access_token`? Check out our <a href='/quickstart/#/react/nodejs/generic' data-proofer-ignore>React Quickstart integrations</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 

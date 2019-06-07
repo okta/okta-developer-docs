@@ -19,7 +19,7 @@ Dates for preview and production release are the earliest possible release date.
 
 Zones are used to group IP Address ranges so that policy decisions can be made based on the client's IP location.
 
-[The Zones API](/docs/api/resources/zones) is an <ApiLifecycle access="ea" /> release. Contact [Support](https://support.okta.com/help/open_case) to enable it.
+[The Zones API](/docs/api/resources/zones) is an <ApiLifecycle access="ea" /> release. Contact [Support](https://support.okta.com/help/open_case/) to enable it.
 This API can be enabled beginning August 22, 2017 for preview orgs, and beginning September 5, 2017 for production orgs.
 
 ### API Bug Fix

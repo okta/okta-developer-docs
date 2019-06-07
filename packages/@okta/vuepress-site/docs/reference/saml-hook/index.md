@@ -19,7 +19,7 @@ This information is specific to the SAML Assertion Inline Hook, one type of inli
 
 For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline_hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks/).
 
 For steps to enable this inline hook, see below, [Enabling a SAML Assertion Inline Hook](#enabling-a-saml-assertion-inline-hook).
 
@@ -372,7 +372,7 @@ When modifying an existing assertions statement, the path could begin with `/sub
 
 ## Enabling a SAML Assertion Inline Hook
 
-To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/api/resources/inline-hooks).
+To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/api/resources/inline-hooks/).
 
 You then need to associate the registered inline hook with a SAML app by completing the following steps in Admin Console:
 

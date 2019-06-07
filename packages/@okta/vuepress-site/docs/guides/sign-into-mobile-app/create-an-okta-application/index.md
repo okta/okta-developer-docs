@@ -9,7 +9,7 @@ First, sign in to the Okta Developer Console:
 
 1. Select **Applications**, then **Add Application**. Pick **Native** as the platform. Enter a name for your application (or leave the default value).
 
-2. Enter values for the **Login redirect URI**. This is the callback route you created in the [previous step](/docs/guidessign-into-spa/-/define-callback). You should add values for local development (such as `http://localhost:8080/implicit/callback`) and production (such as `https://app.example.com/implicit/callback`).
+2. Enter values for the **Login redirect URI**. This is the callback route you created in the [previous step](/docs/guidessign-into-spa/-/define-callback). You should add values for local development (such as `http://localhost:8080/implicit/callback`) and production (such as `https://app.example.com/implicit/callback`/).
 
 3. Finally, click **Done** to finish creating the Okta Application. You need to copy some values into your application later, so leave the Developer Console open.
 

@@ -15,7 +15,7 @@ title: Okta API Products Release Notes
 
 During [SP-initiated](/docs/reference/api/authn/#sp-initiated-step-up-authentication) or [IdP-initiated](/docs/reference/api/authn/#idp-initiated-step-up-authentication) authentication, use the [Authentication Object](/docs/reference/api/authn/#authentication-object) to represent details that the target resource is using.
 
-The Authentication Object is an [Early Access feature](/docs/api/getting_started/releases-at-okta).
+The Authentication Object is an [Early Access feature](/docs/api/getting_started/releases-at-okta/).
 
 ### New Version of the Okta Sign-In Widget
 

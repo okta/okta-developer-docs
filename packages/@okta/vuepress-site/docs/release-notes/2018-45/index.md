@@ -12,11 +12,11 @@ title: Okta API Products Release Notes
 
 ### Linked Objects API is Generally Available (GA)
 
-The [Linked Objects API](/docs/api/resources/linked-objects) is now available to all orgs. <!--OKTA-195560-->
+The [Linked Objects API](/docs/api/resources/linked-objects/) is now available to all orgs. <!--OKTA-195560-->
 
 ### Bugs Fixed in 2018.45
 
-* The set of roles allowed access to system log information by the [Events API](/docs/api/resources/events) did not match the set of roles allowed access by the [System Log API](/docs/api/resources/system_log). (OKTA-194899)
+* The set of roles allowed access to system log information by the [Events API](/docs/api/resources/events) did not match the set of roles allowed access by the [System Log API](/docs/api/resources/system_log). (OKTA-194899/)
 * When a user tried to sign in using the Okta Sign-in Widget, they would not be prompted to enroll an optional factor, despite `multiOptionalFactorEnroll` being set to `true`. (OKTA-195195)
 
 ### Previously Released Early Access Features 2018.45 Update

@@ -16,7 +16,7 @@ title: Okta API Products Release Notes
 
 Secure your APIs with API Access Management, Okta's implementation of the OAuth 2.0 authorization framework. API Access Management uses the Okta Identity platform to enable powerful control over access to your APIs. API Access Management can be controlled through the administrator UI as well as a rich set of APIs for client, user, and policy management.
 
-For more information, see [OAuth 2.0 and Okta](/docs/api/resources/oidc). <!--OKTA-153127-->
+For more information, see [OAuth 2.0 and Okta](/docs/api/resources/oidc/). <!--OKTA-153127-->
 
 #### New Administrator Role for API Access Management
 
@@ -26,7 +26,7 @@ If you have API Access Management enabled, you can use a dedicated administrator
 * Create and edit  OAuth 2.0 and OpenID Connect client apps
 * Assign users and groups to OAuth 2.0 and OpenID Connect client apps
 
-To change the role assigned to a user, use [the Administrator Roles API](/docs/api/resources/roles) or visit **Security > Administrators** in the administrator UI. <!--OKTA-107617-->
+To change the role assigned to a user, use [the Administrator Roles API](/docs/api/resources/roles/) or visit **Security > Administrators** in the administrator UI. <!--OKTA-107617-->
 
 #### New and Changed Messages for the System Log
 

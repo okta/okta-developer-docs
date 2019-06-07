@@ -3410,7 +3410,7 @@ Fetches a specific user assignment for an application by `id`.
 | Parameter     | Description                                              | Param Type | DataType | Required | Default |
 | ---------     | -----------------------------------------------          | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)                     | URL        | String   | TRUE     |         |
-| uid           | unique key of assigned [User](/docs/api/resources/users) | URL        | String   | TRUE     |         |
+| uid           | unique key of assigned [User](/docs/api/resources/users/) | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -3584,7 +3584,7 @@ Updates a user's [credentials](#application-user-credentials-object) for an assi
 | Parameter     | Description                                                        | Param Type | DataType                                    | Required | Default |
 | ---------     | ------------------------------------------------------------------ | ---------- | ------------------------------------------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)                               | URL        | String                                      | TRUE     |         |
-| uid           | unique key of a valid [User](/docs/api/resources/users)            | URL        | String                                      | TRUE     |         |
+| uid           | unique key of a valid [User](/docs/api/resources/users/)            | URL        | String                                      | TRUE     |         |
 | appuser       | user's [credentials](#application-user-credentials-object) for app | Body       | [Application User](#application-user-model) | TRUE     |         |
 
 ##### Response Parameters
@@ -3665,7 +3665,7 @@ Updates a user's profile for an application
 | Parameter     | Description                                             | Param Type | DataType                                    | Required | Default |
 | ---------     | -----------------------------------------------         | ---------- | ------------------------------------------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)                    | URL        | String                                      | TRUE     |         |
-| uid           | unique key of a valid [User](/docs/api/resources/users) | URL        | String                                      | TRUE     |         |
+| uid           | unique key of a valid [User](/docs/api/resources/users/) | URL        | String                                      | TRUE     |         |
 | appuser       | credentials for app                                     | Body       | [Application User](#application-user-model) | FALSE    |         |
 
 ##### Response Parameters
@@ -3759,7 +3759,7 @@ For directories like Active Directory and LDAP, they act as the owner of the use
 | Parameter     | Description                                                                           | Param Type | DataType | Required | Default |
 | ------------- | ------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)                                                  | URL        | String   | TRUE     |         |
-| uid           | unique key of assigned [User](/docs/api/resources/users)                              | URL        | String   | TRUE     |         |
+| uid           | unique key of assigned [User](/docs/api/resources/users/)                              | URL        | String   | TRUE     |         |
 | sendEmail     | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    | FALSE   |
 
 ##### Response Parameters
@@ -3795,7 +3795,7 @@ Assigns a group to an application
 | Parameter     | Description                                     | Param Type | DataType                                      | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String                                        | TRUE     |         |
-| groupId       | unique key of a valid [Group](/docs/api/resources/groups)           | URL        | String                                        | TRUE     |         |
+| groupId       | unique key of a valid [Group](/docs/api/resources/groups/)           | URL        | String                                        | TRUE     |         |
 | appgroup      | App group                                       | Body       | [Application Group](#application-group-model) | FALSE    |         |
 
 ##### Response Parameters
@@ -3834,7 +3834,7 @@ Fetches an application group assignment
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](/docs/api/resources/groups)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](/docs/api/resources/groups/)       | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -3920,7 +3920,7 @@ Removes a group assignment from an application.
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [app](#application-model)            | URL        | String   | TRUE     |         |
-| groupId       | unique key of an assigned [Group](/docs/api/resources/groups)       | URL        | String   | TRUE     |         |
+| groupId       | unique key of an assigned [Group](/docs/api/resources/groups/)       | URL        | String   | TRUE     |         |
 
 ##### Response Parameters
 
@@ -4023,7 +4023,7 @@ Clones a X.509 certificate for an application key credential from a source appli
 
 > Important: Sharing certificates isn't a recommended security practice.
 
-For step-by-step instructions to clone a credential, see [Share Application Key Credentials Between Apps](/docs/how-to/sharing-cert).
+For step-by-step instructions to clone a credential, see [Share Application Key Credentials Between Apps](/docs/how-to/sharing-cert/).
 
 ##### Request Parameters
 
@@ -5241,7 +5241,7 @@ Determines how to authenticate the OAuth 2.0 client
 
  * If a `client_secret` isn't provided on creation, and the `token_endpoint_auth_method` requires one, Okta generates a random `client_secret` for the client application. The `client_secret` is only shown when an OAuth 2.0 client app is created or updated (and only if the `token_endpoint_auth_method` is one that requires a client secret).
 
-* If `autoKeyRotation` isn't specified, the client automatically opts in for Okta's [key rotation](/authentication-guide/tokens/validating-id-tokens). You can update this property via the API or via the administrator UI.
+* If `autoKeyRotation` isn't specified, the client automatically opts in for Okta's [key rotation](/authentication-guide/tokens/validating-id-tokens/). You can update this property via the API or via the administrator UI.
 
 ```json
 {
@@ -5448,7 +5448,7 @@ All application user assignments have the following properties:
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| id               | unique key of [User](/docs/api/resources/users)              | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
+| id               | unique key of [User](/docs/api/resources/users/)              | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | externalId       | id of user in target app *(must be imported or provisioned)* | String                                                                      | TRUE     | TRUE   | TRUE     |           | 512       |            |
 | created          | timestamp when app user was created                          | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
 | lastUpdated      | timestamp when app user was last updated                     | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |

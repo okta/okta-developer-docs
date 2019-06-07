@@ -8,7 +8,7 @@ deprecated: true
 
 The Okta Events API provides read access to your organization's system log. [Export event data](https://support.okta.com/help/Documentation/Knowledge_Article/Exporting-Okta-Log-Data) as a batch job from your organization to another system for reporting or analysis.
 
-> **Important:** the [System Log API](/docs/api/resources/system_log) will eventually replace the Events API and contains much more [structured data](/docs/api/resources/system_log#logevent-object). As of Jan 7, 2019 developers of new projects are unable to access the Events API and should use the System Log API. For information on migrating from the Events API to the System Log API please see [Events API Migration](/docs/concepts/events-api-migration/).
+> **Important:** the [System Log API](/docs/api/resources/system_log/) will eventually replace the Events API and contains much more [structured data](/docs/api/resources/system_log#logevent-object). As of Jan 7, 2019 developers of new projects are unable to access the Events API and should use the System Log API. For information on migrating from the Events API to the System Log API please see [Events API Migration](/docs/concepts/events-api-migration/).
 
 ## Getting Started
 
@@ -58,7 +58,7 @@ The general sequence of steps to leverage the `after` parameter:
 1. Retrieve the next page of events through the `Link` response header value with the `next` link relation
 1. Pause and repeat the previous step
 
-Note that if no data is returned, this typically indicates you have caught up with the event stream. To avoid issues with [rate limiting](/docs/api/getting_started/rate-limits), ensure your polling frequency is sufficiently long.
+Note that if no data is returned, this typically indicates you have caught up with the event stream. To avoid issues with [rate limiting](/docs/api/getting_started/rate-limits/), ensure your polling frequency is sufficiently long.
 
 ###### Filters
 

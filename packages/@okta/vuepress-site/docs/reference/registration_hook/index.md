@@ -19,7 +19,7 @@ This information is specific to the Registration Inline Hook, one type of inline
 
 For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline_hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks/).
 
 For steps to enable this inline hook, see below, [Enabling a Registration Inline Hook](#enabling-a-registration-inline-hook-for-self-service-registration).
 

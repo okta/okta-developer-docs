@@ -15,11 +15,11 @@ This page will give you an overview of OAuth 2.0 and OpenID Connect and their Ok
 
 There are three major kinds of authentication that you can perform with Okta:
 
-- The [Authentication API](/docs/api/resources/authn) controls access to your Okta org and applications. It provides operations to authenticate users, perform multi-factor enrollment and verification, recover forgotten passwords, and unlock accounts. It is the underlying API that the Okta Sign-in Widget and Auth JS use under the hood.
-- The [OAuth 2.0](/docs/api/resources/oidc) protocol controls authorization to access a protected resource, like your web app, native app, or API service.
-- The [OpenID Connect](/docs/api/resources/oidc) protocol is built on the OAuth 2.0 protocol and helps authenticate users and convey information about them. It is also more opinionated than plain OAuth 2.0, for example in its scope definitions.
+- The [Authentication API](/docs/api/resources/authn/) controls access to your Okta org and applications. It provides operations to authenticate users, perform multi-factor enrollment and verification, recover forgotten passwords, and unlock accounts. It is the underlying API that the Okta Sign-in Widget and Auth JS use under the hood.
+- The [OAuth 2.0](/docs/api/resources/oidc/) protocol controls authorization to access a protected resource, like your web app, native app, or API service.
+- The [OpenID Connect](/docs/api/resources/oidc/) protocol is built on the OAuth 2.0 protocol and helps authenticate users and convey information about them. It is also more opinionated than plain OAuth 2.0, for example in its scope definitions.
 
-If you would like to work with the Okta API and control user access to Okta, then you should use [the Authentication API](/docs/api/resources/authn).
+If you would like to work with the Okta API and control user access to Okta, then you should use [the Authentication API](/docs/api/resources/authn/).
 
 If you are interested in controlling access to your own application, then use the OAuth 2.0 and OpenID Connect (OIDC) protocols. The OAuth 2.0 protocol will allow you to delegate authorization, while the OIDC protocol will allow you retrieve and store authentication information about your end-users. The Okta Authentication Guide is intended to help you figure out how to implement and use OAuth 2.0 and OIDC with Okta.
 
@@ -31,7 +31,7 @@ Session tokens are for use within Okta, while ID tokens, access tokens, and refr
 
 The Authentication API is used by the Okta Sign-In Widget as well as the AuthJS library. Both AuthJS and the Authentication API are intended for advanced use cases.
 
-You can find out more about the Authentication API in our [API Reference](/docs/api/resources/authn).
+You can find out more about the Authentication API in our [API Reference](/docs/api/resources/authn/).
 
 ### OAuth 2.0
 
@@ -152,7 +152,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code).
+For information how to set up your application to use this flow, see [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code/).
 
 ### Authorization Code with PKCE Flow
 
@@ -192,7 +192,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Authorization Code Flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce).
+For information how to set up your application to use this flow, see [Implement the Authorization Code Flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce/).
 
 ### Implicit Flow
 
@@ -219,7 +219,7 @@ client -> app: Request with access token
 app -> client: Response
 -->
 
-For information how to set up your application to use this flow, see [Implement the Implicit Flow](/authentication-guide/implementing-authentication/implicit).
+For information how to set up your application to use this flow, see [Implement the Implicit Flow](/authentication-guide/implementing-authentication/implicit/).
 
 ### Resource Owner Password Flow
 
@@ -244,7 +244,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Resource Owner Password Flow](/authentication-guide/implementing-authentication/password).
+For information how to set up your application to use this flow, see [Implement the Resource Owner Password Flow](/authentication-guide/implementing-authentication/password/).
 
 ### Client Credentials Flow
 
@@ -269,7 +269,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Client Credentials Flow](/authentication-guide/implementing-authentication/client-creds).
+For information how to set up your application to use this flow, see [Implement the Client Credentials Flow](/authentication-guide/implementing-authentication/client-creds/).
 
 ## Authorization Servers
 

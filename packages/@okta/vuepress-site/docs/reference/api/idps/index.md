@@ -16,10 +16,10 @@ Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/butt
 
 Each identity provider (IdP) requires some setup. Use the Okta setup guide for your IdP:
 
-* [Facebook](/authentication-guide/social-login/facebook)
-* [Google](/authentication-guide/social-login/google)
-* [LinkedIn](/authentication-guide/social-login/linkedin)
-* [Microsoft](/authentication-guide/social-login/microsoft)
+* [Facebook](/authentication-guide/social-login/facebook/)
+* [Google](/authentication-guide/social-login/google/)
+* [LinkedIn](/authentication-guide/social-login/linkedin/)
+* [Microsoft](/authentication-guide/social-login/microsoft/)
 * [Generic OIDC Identity Providers](/authentication-guide/generic-oidc/#set-up-a-generic-openid-connect-identity-provider)
 
 
@@ -5942,7 +5942,7 @@ All linked IdP users have the following properties:
 
 | Property         | Description                                               | DataType                                                                        | Nullable | Unique | Readonly | MaxLength |
 | ---------------- | --------------------------------------------------------- | ----------------------------------------------------------------                | -------- | ------ | -------- | --------- |
-| id               | unique key of [User](/docs/api/resources/users)           | String                                                                          | FALSE    | TRUE   | TRUE     |           |
+| id               | unique key of [User](/docs/api/resources/users/)           | String                                                                          | FALSE    | TRUE   | TRUE     |           |
 | externalId       | unique IdP-specific identifier for user                   | String                                                                          | FALSE    | TRUE   | TRUE     | 512       |
 | created          | timestamp when IdP user was created                       | Date                                                                            | FALSE    | FALSE  | TRUE     |           |
 | lastUpdated      | timestamp when IdP user was last updated                  | Date                                                                            | FALSE    | FALSE  | TRUE     |           |
@@ -5991,7 +5991,7 @@ This object is used for dynamic discovery of related resources and lifecycle ope
 | ------------------ | ----------------------------------                |
 | self               | The primary URL for the IdP user                  |
 | idp                | The IdP that issued the identity                  |
-| users              | The linked [Okta user](/docs/api/resources/users) |
+| users              | The linked [Okta user](/docs/api/resources/users/) |
 
 ## Identity Provider CSR Model
 

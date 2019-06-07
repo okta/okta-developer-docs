@@ -9,11 +9,11 @@ meta:
 
 ## Introduction
 
-To enable customers to leverage a unified platform for enriched, auditable event data, Okta is concentrating its efforts on the new and improved [System Log API](/docs/api/resources/system_log) and will eventually deprecate the legacy [Events API](/docs/api/resources/events). We encourage customers to migrate to the new API as it contains a superset of functionality.
+To enable customers to leverage a unified platform for enriched, auditable event data, Okta is concentrating its efforts on the new and improved [System Log API](/docs/api/resources/system_log) and will eventually deprecate the legacy [Events API](/docs/api/resources/events/). We encourage customers to migrate to the new API as it contains a superset of functionality.
 
 This guide aims to help organizations migrate from the Events API to its System Log API replacement. It highlights some of the key structural, semantic, and operational differences (and similarities) between the two APIs to  aid in the migration process. This guide will be updated as the deprecation timeline becomes available.
 
-> This guide does not attempt to cover specific use cases, detailed patterns of interaction or the intricacies of particular query parameters. For that, it is suggested to see the corresponding sections in the [System Log API](/docs/api/resources/system_log) documentation. Please note that as of Jan 7, 2019 developers of new projects are unable to access the Events API and should use the System Log API.
+> This guide does not attempt to cover specific use cases, detailed patterns of interaction or the intricacies of particular query parameters. For that, it is suggested to see the corresponding sections in the [System Log API](/docs/api/resources/system_log/) documentation. Please note that as of Jan 7, 2019 developers of new projects are unable to access the Events API and should use the System Log API.
 
 ## Migration
 
@@ -341,8 +341,8 @@ Polling is the process used to reliably ingest data from Okta into an external s
 
 When you first make an API call and get a cursor-paged list of objects, the end of the list will be the point at which you do not receive another `next` link value with the response. This holds true for all but two cases:
 
-1. [Events API](/docs/api/resources/events): The `next` link always exists, since the [Events API](/docs/api/resources/events) is like a stream of data with a cursor.
-2. [System Log API](/docs/api/resources/system_log): The `next` link will always exist in polling queries in the [System Log API](/docs/api/resources/system_log). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/api/resources/events), the polling query is a stream of data.
+1. [Events API](/docs/api/resources/events): The `next` link always exists, since the [Events API](/docs/api/resources/events/) is like a stream of data with a cursor.
+2. [System Log API](/docs/api/resources/system_log): The `next` link will always exist in polling queries in the [System Log API](/docs/api/resources/system_log). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/api/resources/events/), the polling query is a stream of data.
 
 Please see [Transferring Data to a Separate System](/docs/api/resources/system_log#transferring-data-to-a-separate-system) and the general information on [Link Header](/docs/docs/reference/api-overview/#link-header)s for additional details.
 
@@ -360,8 +360,8 @@ This section contains a collection of useful resources that may help in making t
 
 The following are the formal developer documentation pages of each API:
 
-- [Events API](/docs/api/resources/events)
-- [System Log API](/docs/api/resources/system_log)
+- [Events API](/docs/api/resources/events/)
+- [System Log API](/docs/api/resources/system_log/)
 
 ### [help.okta.com](http://help.okta.com)
 

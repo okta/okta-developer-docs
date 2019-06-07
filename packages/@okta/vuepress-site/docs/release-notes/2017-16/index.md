@@ -21,7 +21,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/api/getting_started/rate-limits).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/api/getting_started/rate-limits/).<!-- OKTA-110472 -->
 
 #### Simple HAL Links
 
@@ -91,7 +91,7 @@ Instead, Okta will send a customer communication explaining the migration path t
 
 ### Platform Feature Improvement: Zones API Generally Available in Preview
 
-Access policies can now be defined based on an IP address range using [the Zones API](/docs/api/resources/zones).
+Access policies can now be defined based on an IP address range using [the Zones API](/docs/api/resources/zones/).
 This feature is Generally Available in preview orgs for at least one month before being Generally Available in production. <!-- OKTA-121280 -->
 
 ### Platform Bugs Fixed

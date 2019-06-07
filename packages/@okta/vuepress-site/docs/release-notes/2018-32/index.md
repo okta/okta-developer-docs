@@ -18,7 +18,7 @@ You can now disable the Okta loading animation that appears during a login redir
 
 ### New System Log Event Type for Denied Events
 
-The [System Log](/docs/api/resources/system_log) now reports when requests are denied due to a blacklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982)
+The [System Log](/docs/api/resources/system_log) now reports when requests are denied due to a blacklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982/)
 
 ### Bugs Fixed in 2018.32
 

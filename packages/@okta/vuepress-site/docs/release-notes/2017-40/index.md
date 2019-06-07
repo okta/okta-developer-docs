@@ -159,7 +159,7 @@ When the number of unfinished requests is below the concurrent rate limit, reque
 
 The `X-Rate-Limit-Reset` time for concurrent rate limits is only a suggestion. There's no guarantee that enough requests will complete to stop exceeding the concurrent rate limit at the time indicated.
 
-For more information, see developer documentation about [rate limit headers](/docs/api/getting_started/rate-limits). <!-- OKTA-140976, OKTA-142995 -->
+For more information, see developer documentation about [rate limit headers](/docs/api/getting_started/rate-limits/). <!-- OKTA-140976, OKTA-142995 -->
 
 #### OpenID Connect Scope Change
 
@@ -175,7 +175,7 @@ For information about this role, see the [in-app help](https://help.okta.com/en/
 
 #### Policy API
 
-The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/api/resources/policy).
+The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/api/resources/policy/).
 
 #### Password Policy API
 

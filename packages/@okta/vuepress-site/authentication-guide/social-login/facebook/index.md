@@ -31,7 +31,7 @@ title: Facebook
 * **Client Secret:** Paste in the App Secret that you got from Facebook in step 1.5 above.
 * **Scopes:** Leave set to the default.
 
-> For more information about these as well as the Advanced Settings, see [Social Identity Provider Settings](/authentication-guide/social-login/social-settings).
+> For more information about these as well as the Advanced Settings, see [Social Identity Provider Settings](/authentication-guide/social-login/social-settings/).
 
 2.4. Once you have completed all the fields, click on **Add Identity Provider**. You will be returned to the main "Identity Providers" page.
 
@@ -67,7 +67,7 @@ title: Facebook
 
 4.5. Add one or more Redirect URIs. This is where the user will be directed to after they have authenticated with Facebook.
 
-4.6. Assign the group of your choosing (if you [set Group Assignments](/authentication-guide/social-login/social-settings) for your app), or assign "Everyone".
+4.6. Assign the group of your choosing (if you [set Group Assignments](/authentication-guide/social-login/social-settings) for your app/), or assign "Everyone".
 
 4.7. Under "Grant type allowed", make sure "Implicit" is enabled.
 
