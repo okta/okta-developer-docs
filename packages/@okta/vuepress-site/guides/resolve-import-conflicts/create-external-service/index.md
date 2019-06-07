@@ -2,7 +2,7 @@
 title: Creating Your External Service
 ---
 
-The external service is the customer-provided piece of software that Okta calls when the inline hook fires. In the case of the Import Inline Hook, the payload of the call contains the user profile information of the user being imported and contextual information on the import process. The external service can respond with commands to change profile attributes and to set whether to treat the user as a match for an existing user or not.
+The external service is the customer-provided piece of software that Okta calls when the inline hook fires. In the case of the Import Inline Hook, the payload of the call from Okta contains the user profile information of the user being imported, as well as contextual information on the import process. The external service can respond with commands to change profile attributes and to set whether to treat the user as a match for an existing user or not.
 
 Okta defines the REST API contract for the requests it sends to the external service and for the responses the external service can send back, but it's your responsibility to arrange hosting of the external service and to code the software for it.
 
