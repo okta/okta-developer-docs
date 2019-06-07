@@ -32,3 +32,5 @@ Now, register your new inline hook:
 
 1. Click **Save**.
 
+<NextSectionLink />
+
