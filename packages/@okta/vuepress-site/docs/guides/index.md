@@ -9,6 +9,7 @@ guides:
  - custom-hosted-signin
  - custom-url-domain
  - customize-authz-server
+ - custom-error-pages
 featured: 
  - sign-into-web-app
  - sign-into-spa
