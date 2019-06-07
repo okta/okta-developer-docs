@@ -8,7 +8,7 @@ Inserts the org name title.
 
 Example:
 ```html
-`<title>{{orgName}} - {{errorSummary}}</title>`
+<title>{{orgName}} - {{errorSummary}}</title>
 ```
 
 #### <span v-pre>`{{errorSummary}}`</span>
@@ -16,7 +16,7 @@ Inserts the error title text.
 
 Example:
 ```html
-`<h2 class="o-form-title">{{errorSummary}}</h2>`
+<h2 class="o-form-title">{{errorSummary}}</h2>
 ```
 
 #### <span v-pre>`{{bgImageUrl}}`</span>
@@ -24,7 +24,7 @@ Inserts a URL to the background image configured in your Okta organization. You 
 
 Example:
 ```html
-`<div class="login-bg-image" style="background-image: url('https://example.com//YourBackgroundImage.png')"></div>`
+<div class="login-bg-image" style="background-image: url('https://example.com//YourBackgroundImage.png')"></div>
 ```
 
 #### <span v-pre>`{{orgLogo}}`</span>
@@ -32,7 +32,7 @@ Inserts the org logo image that appears. You can change this logo using the **Or
 
 Example:
 ```html
-`<img alt="{{orgName}}" src="https://example.com//SomeOtherImage.png" class="org-logo">`
+<img alt="{{orgName}}" src="https://example.com//SomeOtherImage.png" class="org-logo">
 ```
 
 #### <span v-pre>`{{{errorDescription}}}`</span>
@@ -40,23 +40,23 @@ Inserts a description of the error.
 
 Example:
 ```html
-`<p class="o-form-explain">What happened? {{{errorDescription}}}</p>`
+<p class="o-form-explain">What happened? {{{errorDescription}}}</p>
 ```
 
 #### <span v-pre>`{{back}}`</span>
-Inserts text on the back button. The button takes the user back to the sign-in page when clicked. 
+Inserts the text `Go to Homepage`. The button takes the user back to the sign-in page when clicked. 
 
 Example:
 ```html
- `<a href="/" class="button">Take Me Back!</a>`
+ <a href="/" class="button">{{back}}</a>
 ```
 
 #### <span v-pre>`{{technicalDetails}}`</span>
-Inserts additional error codes, if there are any. See [Okta Error Codes](reference/error_codes/) for more information.
+Inserts additional error codes, if there are any. See [Okta Error Codes](/reference/error_codes/) for more information.
 
 Example:
 ```html
-`<p class="technical-details">Additional Error Details: {{technicalDetails}}</p>`
+<p class="technical-details">Additional Error Details: {{technicalDetails}}</p>
 ```
 
 <NextSectionLink/>
