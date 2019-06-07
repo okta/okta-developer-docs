@@ -42,7 +42,7 @@ The way to update the value Okta assigns to a user profile attribute is to retur
 
 Note that `commands` is an array, but in this case, only one command is being returned.
 
-For a description of the structure of the `commands` object and its use, along with the `error` object, which can be used to return errors to Okta, see the section [Objects in Response You Send](/use_cases/inline_hooks/import_hook/import_hook/#objects-in-response-you-send) in the reference documentation for the Import Inline Hook.
+For a description of the structure of the `commands` object and the syntax of the supported commands, see the section [Objects in Response You Send](/use_cases/inline_hooks/import_hook/import_hook/#objects-in-response-you-send) in the reference documentation for the Import Inline Hook. Also covered there is the `error` object, which your external service can use to return error information to Okta. 
 
 ### Serialize Response and Send
 
