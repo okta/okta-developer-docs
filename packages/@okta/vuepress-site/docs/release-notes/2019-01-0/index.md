@@ -18,7 +18,7 @@ title: Okta API Products Release Notes
 
 ### Social Authentication Generally Available
 
-[Social Authentication](/authentication-guide/social-login/) is now Generally Available (GA/). <!--OKTA-199632-->
+[Social Authentication](/authentication-guide/social-login/) is now Generally Available (GA). <!--OKTA-199632-->
 
 ### IdP Discovery Generally Available
 

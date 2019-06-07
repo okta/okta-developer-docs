@@ -11,7 +11,7 @@ title: Okta API Products Release Notes
 
 ### The Event Hooks Feature is Now Available in EA
 
-[Event hooks](/docs/concepts/event-hooks/) enable you to use events within your Okta org to trigger process flows within your own software systems. <!-- (OKTA-209169/) -->
+[Event hooks](/docs/concepts/event-hooks/) enable you to use events within your Okta org to trigger process flows within your own software systems. <!-- (OKTA-209169) -->
 
 ### Bug Fixed in 2019.04.1
 

@@ -14,7 +14,7 @@ title: Okta API Products Release Notes
 
 ### Rate Limit Notifications for One App and Enterprise
 
-When an org reaches its [rate limit](/docs/api/getting_started/rate-limits), the admin console will display a banner and the admin(s/) will receive an email notification. These notifications will only appear on One App and Enterprise organizations. <!--OKTA-185719-->
+When an org reaches its [rate limit](/docs/api/getting_started/rate-limits), the admin console will display a banner and the admin(s) will receive an email notification. These notifications will only appear on One App and Enterprise organizations. <!--OKTA-185719-->
 
 ### OIDC Clients Can Initiate Logout with Expired Token
 

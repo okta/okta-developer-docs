@@ -914,14 +914,14 @@ The first three parameters correspond to different types of lists:
 | Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
 | q           | Finds a user that matches `firstName`, `lastName`, and `email` properties                                                                      | Query        | String     | FALSE    |
-| filter      | [Filters](/docs/docs/reference/api-overview/#filtering) users with a supported expression for a subset of properties                  | Query        | String     | FALSE    |
-| search      | Searches for users with a supported [filtering](/docs/docs/reference/api-overview/#filtering) expression for most properties          | Query        | String     | FALSE    |
+| filter      | [Filters](/docs/reference/api-overview/#filtering) users with a supported expression for a subset of properties                  | Query        | String     | FALSE    |
+| search      | Searches for users with a supported [filtering](/docs/reference/api-overview/#filtering) expression for most properties          | Query        | String     | FALSE    |
 | limit       | Specifies the number of results returned (maximum 200)                                                                                         | Query        | Number     | FALSE    |
 | after       | Specifies the pagination cursor for the next page of users                                                                                     | Query        | String     | FALSE    |
 
   * If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
-  * An HTTP 500 status code usually indicates that you have exceeded the request timeout.  Retry your request with a smaller limit and paginate the results. For more information, see [Pagination](/docs/docs/reference/api-overview/#pagination).
-  * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/docs/reference/api-overview/#pagination).
+  * An HTTP 500 status code usually indicates that you have exceeded the request timeout.  Retry your request with a smaller limit and paginate the results. For more information, see [Pagination](/docs/reference/api-overview/#pagination).
+  * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
 
 ##### Response Parameters
 
@@ -1123,7 +1123,7 @@ Examples use cURL-style escaping instead of URL encoding to make them easier to 
 
 > Hint: If filtering by `email`, `lastName`, or `firstName`, it may be easier to use `q` instead of `filter`.
 
-See [Filtering](/docs/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
+See [Filtering](/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
 
 ##### Filter Examples
 
@@ -1282,7 +1282,7 @@ Use an ID lookup for records that you update to ensure your results contain the 
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
 | `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with "Sm          |
 
-> When paginating a search result set (see [Pagination](/docs/docs/reference/api-overview/#pagination)), the result set is limited to a total of 50,000 results.  Attempting to follow the `next` link from the last page will yield an error.
+> When paginating a search result set (see [Pagination](/docs/reference/api-overview/#pagination)), the result set is limited to a total of 50,000 results.  Attempting to follow the `next` link from the last page will yield an error.
 
 ##### Search Examples
 
@@ -2726,7 +2726,7 @@ Lists all grants for the specified user
 | limit       | The number of grants to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of grants                                    | Query        | String     | FALSE      |         |
 
-> Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/docs/reference/api-overview/#pagination).
+> Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
 
 
 #### Request Example
@@ -3082,7 +3082,7 @@ Lists all refresh tokens issued for the specified User and Client.
 | limit       | The number of tokens to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of tokens                                    | Query        | String     | FALSE      |         |
 
-> Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/docs/reference/api-overview/#pagination).
+> Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
 
 
 #### Request Example
@@ -3168,7 +3168,7 @@ Gets a refresh token issued for the specified User and Client.
 | limit       | The number of grants to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of grants                                    | Query        | String     | FALSE      |         |
 
-> Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/docs/reference/api-overview/#pagination).
+> Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
 
 
 #### Request Example
@@ -3574,7 +3574,7 @@ The default user profile is based on the [System for Cross-Domain Identity Manag
 
 Every user within your Okta organization must have a unique identifier for a login.  This constraint applies to all users you import from other systems or applications such as Active Directory.  Your organization is the top-level namespace to mix and match logins from all your connected applications or directories.  Careful consideration of naming conventions for your login identifier will make it easier to onboard new applications in the future.
 
-Okta has a default ambiguous name resolution policy for logins that include @-signs.  (By default, logins must be formatted as email addresses and thus always include @-signs.  That restriction can be removed using either the administrator UI or the [Schemas API](/docs/api/resources/schemas).)  Users can login with their non-qualified short name (e.g. `isaac.brock` with login *isaac.brock@example.com*/) as long as the short name is still unique within the organization.
+Okta has a default ambiguous name resolution policy for logins that include @-signs.  (By default, logins must be formatted as email addresses and thus always include @-signs.  That restriction can be removed using either the administrator UI or the [Schemas API](/docs/api/resources/schemas).)  Users can login with their non-qualified short name (e.g. `isaac.brock` with login *isaac.brock@example.com*) as long as the short name is still unique within the organization.
 
 > Hint: Don't use a `login` with a `/` character.  Although `/` is a valid character according to [RFC 6531 section 3.3](http://tools.ietf.org/html/rfc6531#section-3.3), a user with this character in their `login` can't be fetched by `login` due to security risks with escaping this character in URI paths.
 For more information about `login`, see [Get User by ID](#get-user-with-id).

@@ -30,7 +30,7 @@ For information about Early Access (EA) and General Availability (GA), see [Okta
 
 #### Key Rollover
 
-We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/api/resources/apps) and [Identity Providers API](/docs/api/resources/idps)/). We build OpenID Connect and API Access Management on this feature. <!-- OKTA-132045  -->
+We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/api/resources/idps/)). We build OpenID Connect and API Access Management on this feature. <!-- OKTA-132045  -->
 
 #### Email for Two-Factor Authentication  <!-- OKTA-134593  -->
 

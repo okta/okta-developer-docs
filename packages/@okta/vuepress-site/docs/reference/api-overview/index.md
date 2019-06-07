@@ -170,7 +170,7 @@ When you first make an API call and get a cursor-paged list of objects, the end 
 
 1. [Events API](/docs/api/resources/events): The `next` link always exists, since the [Events API](/docs/reference/api/events/) is like a stream of data with a cursor.
 
-2. [System Log API](/docs/api/resources/system_log): The `next` link will always exist in polling queries in the [System Log API](/docs/api/resources/system_log). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/reference/api/events/), the polling query is a stream of data.
+2. [System Log API](/docs/api/resources/system_log/): The `next` link will always exist in polling queries in the [System Log API](/docs/api/resources/system_log/). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/reference/api/events/), the polling query is a stream of data.
 
 ### Filtering
 

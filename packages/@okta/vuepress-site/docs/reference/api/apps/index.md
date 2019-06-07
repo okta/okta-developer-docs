@@ -5731,4 +5731,4 @@ The application CSR model defines a certificate signing request for a signature 
 | _links           | discoverable resources related to the CSR                    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)              | TRUE     | FALSE  | TRUE     |           |           |            |
 
 
-[pagination]: /docs/docs/reference/api-overview/#pagination
+[pagination]: /docs/reference/api-overview/#pagination

@@ -20,7 +20,7 @@ title: Okta API Products Release Notes
 
 ### Imported Hashed User Passwords Generally Available
 
-Use of imported hashed passwords when creating or updating users in the [Users API](/docs/api/resources/users) is now Generally Available (GA/). <!--OKTA-205592-->
+Use of imported hashed passwords when creating or updating users in the [Users API](/docs/api/resources/users) is now Generally Available (GA). <!--OKTA-205592-->
 
 ### Inline Hooks
 

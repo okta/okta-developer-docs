@@ -16,5 +16,5 @@ OAuth key store rollover events are now included in both the [Events](/docs/api/
 
 The following bug has been fixed and is expected in preview orgs February 14, 2018 and production orgs starting February 27, 2018.
 
-* The error message "Exception while persisting IdpAppUser" wasn't available in the [System Log API](/docs/api/resources/system_log). (OKTA-153604/)
+* The error message "Exception while persisting IdpAppUser" wasn't available in the [System Log API](/docs/api/resources/system_log/). (OKTA-153604)
 

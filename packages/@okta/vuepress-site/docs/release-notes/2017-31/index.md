@@ -30,7 +30,7 @@ Okta is [certified for OpenID Connect](http://openid.net/certification/). For mo
 #### Key Rollover
 <!-- OKTA-132045  -->
 
-We provide the ability to generate a certificate with a specified validity period for the [Apps API](/docs/api/resources/apps) and [Identity Providers API](/docs/api/resources/idps/).
+We provide the ability to generate a certificate with a specified validity period for the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/api/resources/idps/).
 
 #### SHA-256 Signed Certificates for New SAML 2.0 Apps
 

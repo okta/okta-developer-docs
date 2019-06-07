@@ -1199,7 +1199,7 @@ after     | Specifies the pagination cursor for the next page of IdPs           
 
 Parameter Details
 
-* The `after` cursor should treated as an opaque value and obtained through the next link relationship. See [Pagination](/docs/docs/reference/api-overview/#pagination).
+* The `after` cursor should treated as an opaque value and obtained through the next link relationship. See [Pagination](/docs/reference/api-overview/#pagination).
 * Search currently performs a startsWith match but it should be considered an implementation detail and may change without notice in the future.
 
 ##### Response Parameters

@@ -40,7 +40,7 @@ The following feature enhancement is available on GitHub:
 
 #### Key Rollover
 
-We provide the ability to generate a certificate with specified validity period (see the [Apps API](https://developer.okta.com/docs/api/resources/apps) and [Identity Providers API](https://developer.okta.com/docs/api/resources/idps)). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
+We provide the ability to generate a certificate with specified validity period (see the [Apps API](https://developer.okta.com/docs/reference/api/apps/) and [Identity Providers API](https://developer.okta.com/docs/api/resources/idps)). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
 
 #### Limit Age of Events
 

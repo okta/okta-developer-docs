@@ -57,7 +57,7 @@ sections:
        - title: Rate Limits
          link: /docs/reference/rate-limits/
        - title: More
-         link: /docs/docs/reference/api-overview//
+         link: /docs/reference/api-overview/
 
    - title: Guides
      description: Learn how to build solutions with our step-by-step instructions.

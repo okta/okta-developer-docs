@@ -585,7 +585,7 @@ The table below summarizes the supported query parameters:
 | `since`     | Filters the lower time bound of the log events `published` property                                                                     | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z` | 7 days prior to `until` |
 | `until`     | Filters the upper time bound of the log events `published` property                                                                     | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z` | Current time            |
 | `after`     | Used to retrieve the next page of results. Okta returns a link in the HTTP Header (`rel=next`) that includes the after query parameter. | Opaque token                                                                                                                        |                         |
-| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/docs/reference/api-overview/#filtering)                                                     |                         |
+| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/reference/api-overview/#filtering)                                                     |                         |
 | `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string. Max length is 40 characters per keyword, with a maximum of 10 keyword filters per query (before encoding)       |                         |
 | `sortOrder` | The order of the returned events sorted by `published`                                                                                  | `ASCENDING` or `DESCENDING`                                                                                                         | `ASCENDING`             |
 | `limit`     | Sets the number of results returned in the response                                                                                     | Integer between 0 and 1000                                                                                                          | 100                     |
@@ -643,7 +643,7 @@ The following expressions are supported for events with the `filter` query param
 | `target.id eq ":id"`                         | Events published with a specific target id                                     |
 | `actor.id eq ":id"`                          | Events published with a specific actor id                                      |
 
-See [Filtering](/docs/docs/reference/api-overview/#filtering) for more information about expressions.
+See [Filtering](/docs/reference/api-overview/#filtering) for more information about expressions.
 
 The following are some examples of common filter expressions.
 
@@ -851,6 +851,6 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/logs?since=2017-10-01T00:00:00.000Z"
 ```
 
-and retrieve the next page of events through the [`Link` response header](/docs/docs/reference/api-overview/#link-header) value with the `next` link relation. Continue this process until no events are returned.
+and retrieve the next page of events through the [`Link` response header](/docs/reference/api-overview/#link-header) value with the `next` link relation. Continue this process until no events are returned.
 
 > Do not attempt to transfer data by manually paginating using `since` and `until` as this may lead to skipped or duplicated events. Instead, always follow the `next` links.

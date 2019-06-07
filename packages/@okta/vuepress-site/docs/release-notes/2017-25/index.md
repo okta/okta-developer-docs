@@ -48,7 +48,7 @@ The [Auth Clients API](/docs/reference/api/oauth-clients/) provides operations t
 OAuth 2.0 and OpenID Connect endpoints.
 
 #### Create OAuth 2.0 and OpenID Connect Clients with Apps API
-The [Apps API](https://developer.okta.com/docs/api/resources/apps) supports creating and configuring
+The [Apps API](https://developer.okta.com/docs/reference/api/apps/) supports creating and configuring
 OAuth 2.0 or OpenID Connect clients. Alternatively, you can use
 [Client Registration API](https://developer.okta.com/docs/reference/api/oauth-clients/) (RFC 7591 and RFC 7592)
 to create and manage clients.

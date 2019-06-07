@@ -368,7 +368,7 @@ Lists all group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` role assigned to
 | limit       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
 | after       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
 
-Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/docs/reference/api-overview/#pagination).
+Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
 
 ###### Response Parameters
 
@@ -443,7 +443,7 @@ Lists all group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` role assigned to
 | limit           | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
 | after           | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
 
-Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/docs/reference/api-overview/#pagination).
+Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
 
 ###### Response Parameters
 
@@ -702,7 +702,7 @@ Lists all app targets for an `APP_ADMIN` role assigned to a user.
 | limit       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
 | after       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
 
-Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/docs/reference/api-overview/#pagination)
+Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination)
 
 ###### Response Parameters
 
@@ -840,7 +840,7 @@ Lists all app targets for an `APP_ADMIN` role assigned to a group.
 | limit       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
 | after       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
 
-Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/docs/reference/api-overview/#pagination)
+Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination)
 
 ###### Response Parameters
 
