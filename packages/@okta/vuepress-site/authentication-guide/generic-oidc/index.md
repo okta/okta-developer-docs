@@ -139,7 +139,7 @@ The IdP that you configured in the [Configure the IdP in Okta](#configure-the-Id
 - `nonce`: A string included in the return ID Token. Use it to associate a client session with an ID Token and to mitigate replay attacks.
 - `redirect_uri`: The location where Okta returns a browser after the user finishes authenticating against the IdP. This URL must start with `https` and must match a redirect URI configured in the app that consumes the response from the IdP after authentication and authorization. In this example, the app that you created in the [Create an App in Okta](#create-an-app-in-okta) section.
 
-For a full explanation of all of these parameters, see: [`/authorize` Request Parameters Table](https://developer.okta.com/docs/reference/api/oidc/#authorize).
+For a full explanation of all of these parameters, see: [`/authorize` Request Parameters Table](/docs/reference/api/oidc/#authorize).
 
 The following is an example of a complete URL:
 `https://yourOktaorg.com/oauth2/v1/authorize?idp=0oaj2wNe3khgDxMmE0h7&client_id=0oaj2x7yewUvMY1x73h0&response_type=code&response_mode=fragment&scope=openid+email+profile&redirect_uri=https://yourOktaorg.com&state=ADFTG3&nonce=158858`

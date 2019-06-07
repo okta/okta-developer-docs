@@ -15,9 +15,9 @@ title: Okta API Products Release Notes
 
 * An error would be returned if the `/apps/${applicationId}` [endpoint](/docs/reference/api/apps/#update-application) was called to update an app that did not not have a configurable `signOnMode` property. <!--OKTA-201187-->
 
-* The [Identity Providers API](/docs/api/resources/idps/) endpoints `GET /idps/${idpId}/users`, `GET /idps/${idpId}/users/{userId}`, and `DELETE /idps/${idpId}/users/${userId}` previously required the social authentication feature, even for users related to a non-social IdP. Additionally, non-Social IdPs were not included in the results returned by `GET /users/${userId}/idps`. <!--OKTA-199631-->
+* The [Identity Providers API](/docs/reference/api/idps/) endpoints `GET /idps/${idpId}/users`, `GET /idps/${idpId}/users/{userId}`, and `DELETE /idps/${idpId}/users/${userId}` previously required the social authentication feature, even for users related to a non-social IdP. Additionally, non-Social IdPs were not included in the results returned by `GET /users/${userId}/idps`. <!--OKTA-199631-->
 
-* Instead of providing specific reasons for failure, [Identity Providers](/docs/api/resources/idps/) operations failed with generic `error_description` values when the Social Auth provider required user attributes in the user's profile but the attributes were missing or invalid. <!--OKTA-120115-->
+* Instead of providing specific reasons for failure, [Identity Providers](/docs/reference/api/idps/) operations failed with generic `error_description` values when the Social Auth provider required user attributes in the user's profile but the attributes were missing or invalid. <!--OKTA-120115-->
 
 * The `/users/${userId}/factors/catalog` [endpoint](/docs/reference/api/factors/#list-factors-to-enroll) returned `email` as a supported factor type even when Email Authentication was not enabled for the org in MFA settings. <!--OKTA-201633-->
 

@@ -11,8 +11,8 @@ title: Okta API Products Release Notes
 
 ### Bugs Fixed in 2018.44
 
-* Temporary passwords returned by the `/users/${userId}/lifecycle/expire_password` [endpoint](/docs/api/resources/users/#expire-password) sometimes included hard-to-distinguish characters.
-* Queries to the `/logs` [endpoint](/docs/api/resources/system_log/#list-events) with `since` and `until` values that were both earlier than the customer's data retention period would return an HTTP 500 error.
+* Temporary passwords returned by the `/users/${userId}/lifecycle/expire_password` [endpoint](/docs/reference/api/users/#expire-password) sometimes included hard-to-distinguish characters.
+* Queries to the `/logs` [endpoint](/docs/reference/api/system-log/#list-events) with `since` and `until` values that were both earlier than the customer's data retention period would return an HTTP 500 error.
 
 ### Previously Released Early Access Features 2018.44 Update
 

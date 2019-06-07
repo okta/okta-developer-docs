@@ -75,7 +75,7 @@ Note the parameters that are being passed:
 - `redirect_uri` must match the URI that was used to get the authorization code.
 - `code` is the authorization code that you got from the `/authorize` endpoint.
 
-For more information on these parameters, see the [OAuth 2.0 API reference](https://developer.okta.com/docs/reference/api/oidc/#token).
+For more information on these parameters, see the [OAuth 2.0 API reference](/docs/reference/api/oidc/#token).
 
 If the code is still valid, your application will receive back access and ID tokens:
 

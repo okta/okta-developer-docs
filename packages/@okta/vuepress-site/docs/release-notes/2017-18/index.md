@@ -111,11 +111,11 @@ As noted above, to change user state, the `self` link should be called to retrie
 Using `GET /api/v1/idps/${idpId}/users/${userId}/credentials/tokens`, you can fetch the Access Tokens minted by a social authentication provider.
 When a user authenticates to Okta via a Social IdP, this request returns the tokens and metadata provided by the Social IdP.
 Clients can use the Access Token against the social provider's endpoints in order to fetch additional profile attributes that Okta doesn't support in Universal Directory, for example, nested attributes.
-For more information, see the [Identity Providers API](/docs/api/resources/idps/#social-authentication-token-operation). <!-- OKTA-118687 -->
+For more information, see the [Identity Providers API](/docs/reference/api/idps/#social-authentication-token-operation). <!-- OKTA-118687 -->
 
 ### Platform Bugs Fixed
 
- * Searches on [User](/docs/api/resources/users/#list-users-with-search) incorrectly returned deleted users or out-of-date user status in some cases. (OKTA-116928)
+ * Searches on [User](/docs/reference/api/users/#list-users-with-search) incorrectly returned deleted users or out-of-date user status in some cases. (OKTA-116928)
  * Some orgs were unable to add OpenID Connect or OAuth 2.0 clients to an access policy in a custom Authorization Server. (OKTA-117630)
  * When deleting a claim from a custom Authorization Server, the Delete dialog didn't close after clicking **OK** or **Cancel**. (OKTA-124271)
  * Read-only Administrator UI didn't exactly match that role's access rights. (OKTA-123116)

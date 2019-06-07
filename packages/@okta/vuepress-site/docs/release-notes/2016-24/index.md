@@ -10,7 +10,7 @@ title: Okta API Products Release Notes
 Version 1.3.3 of the Okta Sign-In Widget, and version 1.0.2 of okta-auth-js are available for Preview orgs. For more information, see Okta Sign-In Widget.
 
 #### Policy API
-The Links object, `_links`, is available in the Policy object. For more information, see [Links Object](/docs/api/resources/users/#links-object).
+The Links object, `_links`, is available in the Policy object. For more information, see [Links Object](/docs/reference/api/users/#links-object).
 
 #### Improved Error Descriptions
 The error descriptions related to OAuth provide more helpful information about invalid clients for OpenID Connect flows.

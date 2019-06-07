@@ -16,7 +16,7 @@ We now delete all sessions for a user after a successful password reset as part 
 
 ### Bugs Fixed in 2018.38
 
-* An HTTP 500 error would occur if the JSON body sent to create a user contained a non-string value for the following [user profile](/docs/api/resources/users/#profile-object) properties: `firstName`, `lastName`, `email`, `login`, `mobilePhone`, and `secondEmail`. Any non-string values for these properties will now be converted into strings after they are sent. (OKTA-170711)
+* An HTTP 500 error would occur if the JSON body sent to create a user contained a non-string value for the following [user profile](/docs/reference/api/users/#profile-object) properties: `firstName`, `lastName`, `email`, `login`, `mobilePhone`, and `secondEmail`. Any non-string values for these properties will now be converted into strings after they are sent. (OKTA-170711)
 
 ### Previously Released Early Access Features 2018.38 Update
 

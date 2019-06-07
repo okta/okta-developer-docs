@@ -5,7 +5,7 @@ component: Code
 
 # Library Versions
 
-Okta publishes a number of officially-supported libraries and SDKs on [GitHub](https://github.com/okta). These libraries follow a consistent versioning and release pattern, described here. Note that this is separate from how Okta's HTTP APIs are [versioned and released](https://developer.okta.com/docs/api/getting_started/releases-at-okta).
+Okta publishes a number of officially-supported libraries and SDKs on [GitHub](https://github.com/okta). These libraries follow a consistent versioning and release pattern, described here. Note that this is separate from how Okta's HTTP APIs are [versioned and released](/docs/api/getting_started/releases-at-okta).
 
 You can see a list of all our library versions and their support status at the [bottom of this page](#current-versions).
 

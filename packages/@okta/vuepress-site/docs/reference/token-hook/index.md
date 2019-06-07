@@ -19,7 +19,7 @@ This information is specific to the Token Inline Hook, one type of Inline Hook s
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline_hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/api/resources/inline-hooks/).
+For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
 For steps to enable this Inline Hook, see below, [Enabling a Token Inline Hook](#enabling-a-token-inline-hook).
 
@@ -306,9 +306,9 @@ Use the `add` operation to add new claims to a token. If you use the `add` opera
 
 You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system-specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
-For the list of access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/reference/api/oidc/#access-token-scopes-and-claims). Note that although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.
+For the list of access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims). Note that although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.
 
-See [ID Token Claims](https://developer.okta.com/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
+See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
 
 ```json
 {
@@ -370,9 +370,9 @@ You can modify how long the access and ID tokens are valid by specifying the `li
 ### Sample Response to Remove Token Claims
 You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events. 
 
-For the list of access token reserved claims that you can't remove, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/reference/api/oidc/#access-token-scopes-and-claims). 
+For the list of access token reserved claims that you can't remove, see [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims). 
 
-See [ID Token Claims](https://developer.okta.com/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
+See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
 
 > Note: The `value` property for the `remove` operation isn't required. If you provide it in the response, it should be set to `null`. Providing any other value fails the entire PATCH response.
 
@@ -405,7 +405,7 @@ See [ID Token Claims](https://developer.okta.com/docs/reference/api/oidc/#id-tok
 
 ## Enabling a Token Inline Hook
 
-To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/api/resources/inline-hooks/).
+To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
 You then need to associate the registered Inline Hook with a Custom Authorization Server Policy Rule by completing the following steps:
 

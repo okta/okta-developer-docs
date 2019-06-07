@@ -14,7 +14,7 @@ title: Okta API Products Release Notes
 
 ### IdP Extensible Matching Rules are now GA in Preview
 
-IdP extensible matching rules allow you to define a regular expression pattern to filter untrusted IdP usernames. For details, see our [IdPs](/docs/api/resources/idps/#subject-policy-object/) page. <!-- OKTA-177544 -->
+IdP extensible matching rules allow you to define a regular expression pattern to filter untrusted IdP usernames. For details, see our [IdPs](/docs/reference/api/idps/#subject-policy-object/) page. <!-- OKTA-177544 -->
 
 ### The SAML Inline Hook is in EA
 
@@ -33,4 +33,4 @@ Custom Sign-in Pages can now use Sign-In Widget version 2.18. When you select th
 
 ### Bug Fixed in 2019.04.0
 
-IdPs did not match the user with the `USERNAME_OR_EMAIL` property when `IDP_EXTENSIBLE_MATCHING_RULES` was enabled. For details, see our [IdPs](/docs/api/resources/idps/#subject-policy-object/) page. (OKTA-218007)
+IdPs did not match the user with the `USERNAME_OR_EMAIL` property when `IDP_EXTENSIBLE_MATCHING_RULES` was enabled. For details, see our [IdPs](/docs/reference/api/idps/#subject-policy-object/) page. (OKTA-218007)

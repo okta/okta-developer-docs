@@ -12,11 +12,11 @@ title: Okta API Products Release Notes
 
 ### System Log API Returns Threat Insight Attribute
 
-The `debugContext` object returned by the [System Log API](/docs/api/resources/system_log/) can now include an `okta_threat_insight` attribute to indicate that an event has been identified as a security risk. <!--OKTA-198102-->
+The `debugContext` object returned by the [System Log API](/docs/reference/api/system-log/) can now include an `okta_threat_insight` attribute to indicate that an event has been identified as a security risk. <!--OKTA-198102-->
 
 ### Bugs Fixed in 2018.48
 
-* Some customers could access log data outside of their allowed retention range through the [System Log API](/docs/api/resources/system_log/). <!--OKTA-196313-->
+* Some customers could access log data outside of their allowed retention range through the [System Log API](/docs/reference/api/system-log/). <!--OKTA-196313-->
 
 * Responses from the `/oauth2/${authServerId}/.well-known/oauth-authorization-server` [endpoint](/docs/reference/api/oidc/#well-knownoauth-authorization-server) did not include supported OpenID Connect response types in the content of the `response_types_supported` property. <!--OKTA-114737-->
 

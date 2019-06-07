@@ -24,7 +24,7 @@ After the `AuthenticateClient` instance is initialized, you can start the author
 client.logIn(this, null);
 ```
 
-If you need to add extra request parameters to the [authorize](https://developer.okta.com/docs/reference/api/oidc/#authorize) endpoint, you can use `AuthenticationPayload`:
+If you need to add extra request parameters to the [authorize](/docs/reference/api/oidc/#authorize) endpoint, you can use `AuthenticationPayload`:
 
 ```java
 AuthenticationPayload payload = new AuthenticationPayload.Builder()

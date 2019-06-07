@@ -373,7 +373,7 @@ Treat the page cursor as an opaque value: obtain it through the next link relati
 ###### Response Parameters
 
 
-Array of [Groups](/docs/api/resources/groups/)
+Array of [Groups](/docs/reference/api/groups/)
 
 If the role isn't scoped to specific group targets, an empty array `[]` is returned.
 
@@ -448,7 +448,7 @@ Treat the page cursor as an opaque value: obtain it through the next link relati
 ###### Response Parameters
 
 
-Array of [Groups](/docs/api/resources/groups/)
+Array of [Groups](/docs/reference/api/groups/)
 
 If the role isn't scoped to specific group targets, an empty array `[]` is returned.
 
@@ -1337,7 +1337,7 @@ Refer to the [product documentation](https://help.okta.com/en/prod/Content/Topic
 | `ORG_ADMIN`        | Organizational Administrator  |                          |
 | `API_ACCESS_MANAGEMENT_ADMIN` | API Access Management Administrator |
 | `APP_ADMIN`       | Application Administrator | Apps             |
-| `USER_ADMIN`      | Group Administrator       | [Groups](/docs/api/resources/groups/) |
+| `USER_ADMIN`      | Group Administrator       | [Groups](/docs/reference/api/groups/) |
 | `MOBILE_ADMIN`    | Mobile Administrator      |                  |
 | `READ_ONLY_ADMIN` | Read-only Administrator   |                  |
 

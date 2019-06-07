@@ -35,7 +35,7 @@ To configure an authorization or authentication flow to include a user consent p
 
 ### Sessions API Supports HTTP Header Prefer
 
-Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](/docs/api/resources/sessions/#refresh-current-session). You can extend the session lifetime, but skip any processing work related to building the response body.
+Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](/docs/reference/api/sessions/#refresh-current-session). You can extend the session lifetime, but skip any processing work related to building the response body.
 
 #### Example Request
 
@@ -59,7 +59,7 @@ Preference-Applied: return=minimal
 
 ### User Schema API Allows Nullable `firstName`, `lastName`
 
-You can set `firstName` or `lastName` to be nullable in [the User Profile Base sub-schema](/docs/api/resources/schemas/#user-profile-base-subschema). These properties are defined in a profile sub-schema with the resolution scope `#base`.
+You can set `firstName` or `lastName` to be nullable in [the User Profile Base sub-schema](/docs/reference/api/schemas/#user-profile-base-subschema). These properties are defined in a profile sub-schema with the resolution scope `#base`.
 
 ### Improved Response Mode for OAuth 2.0 and OpenID Connect Requests
 
@@ -125,9 +125,9 @@ If you don't want these changes, contact [Support](https://support.okta.com/help
 
 ### Improved System Log Behavior for Date Queries
 
-1. For `/logs`, the request parameters [`since` and `until`](/docs/api/resources/system_log/#request-parameters) require [the RFC 3339 Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). This allows queries to more accurately target date ranges. <!-- OKTA-149837 -->
+1. For `/logs`, the request parameters [`since` and `until`](/docs/reference/api/system-log/#request-parameters) require [the RFC 3339 Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). This allows queries to more accurately target date ranges. <!-- OKTA-149837 -->
 
-2. For /`logs`, [the maximum page size](/docs/api/resources/system_log/#request-parameters) is 1,000 messages (`limit=1000`). The default remains at 100. <!-- OKTA-154711, OKTA-157865 -->
+2. For /`logs`, [the maximum page size](/docs/reference/api/system-log/#request-parameters) is 1,000 messages (`limit=1000`). The default remains at 100. <!-- OKTA-154711, OKTA-157865 -->
 
 ### System Log Message Changes Related to Authorization Servers
 

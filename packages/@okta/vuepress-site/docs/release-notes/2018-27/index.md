@@ -12,12 +12,12 @@ title: Okta API Products Release Notes
 
 ### System Log API is Generally Available (GA)
 
-The [System Log API](/docs/api/resources/system_log/) is now Generally Available. Developers of new projects are strongly recommended to use this in lieu of the Events API.
+The [System Log API](/docs/reference/api/system-log/) is now Generally Available. Developers of new projects are strongly recommended to use this in lieu of the Events API.
 
 ### Bugs Fixed in 2018.27
 
 * Users who clicked an Activation Link for an [Okta Verify factor](/docs/reference/api/factors/#activate-push-factor) that had already been activated would get back an HTTP 500 error. (OKTA-146511)
-* Attempting to add more than the maximum number of zones via the [Zones API](/docs/api/resources/zones/) would result in an HTTP 500 error. (OKTA-175991)
+* Attempting to add more than the maximum number of zones via the [Zones API](/docs/reference/api/zones/) would result in an HTTP 500 error. (OKTA-175991)
 
 ### Previously Released Early Access Features 2018.27 Update
 

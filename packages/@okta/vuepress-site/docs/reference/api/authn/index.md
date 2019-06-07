@@ -6,7 +6,7 @@ excerpt: Control user access to Okta.
 
 # Authentication API
 
-The Okta Authentication API provides operations to authenticate users, perform multi-factor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application, or it can be integrated with the Okta [Sessions API](/docs/api/resources/sessions/) to obtain an Okta [session cookie](/docs/guides/session-cookie/) and access apps within Okta.
+The Okta Authentication API provides operations to authenticate users, perform multi-factor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application, or it can be integrated with the Okta [Sessions API](/docs/reference/api/sessions/) to obtain an Okta [session cookie](/docs/guides/session-cookie/) and access apps within Okta.
 
 The API is targeted for developers who want to build their own end-to-end login experience to replace the built-in Okta login experience and addresses the following key scenarios:
 
@@ -6553,7 +6553,7 @@ The `recoveryToken` is sent via an out-of-band channel to the end user's verifie
 
 One-time token issued as `sessionToken` response parameter when an authentication transaction completes with the `SUCCESS` status.
 
-* The token can be exchanged for a session with the [Session API](/docs/api/resources/sessions/#create-session-with-session-token) or converted to a [session cookie](/docs/concepts/authentication/session_cookie/).
+* The token can be exchanged for a session with the [Session API](/docs/reference/api/sessions/#create-session-with-session-token) or converted to a [session cookie](/docs/concepts/authentication/session_cookie/).
 * The lifetime of the `sessionToken` is 5 minutes.
 
 ### Factor Result
@@ -6589,7 +6589,7 @@ The Links Object is read only.
 
 ### User Object
 
-A subset of [user properties](/docs/api/resources/users/#user-model) published in an authentication or recovery transaction after the user successfully completes primary authentication.
+A subset of [user properties](/docs/reference/api/users/#user-model) published in an authentication or recovery transaction after the user successfully completes primary authentication.
 
 | Property          | Description                                       | DataType                                              | Nullable | Unique | Readonly |
 | ----------------- | ------------------------------------------------- | ----------------------------------------------------- | -------- | ------ | -------- |
@@ -6617,7 +6617,7 @@ A subset of [user properties](/docs/api/resources/users/#user-model) published i
 
 #### User Profile Object
 
-Subset of [profile properties](/docs/api/resources/users/#profile-object) for a user
+Subset of [profile properties](/docs/reference/api/users/#profile-object) for a user
 
 | Property  | Description                                                                                                                        | DataType  | Nullable | Unique | Readonly | Validation                                                            |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ------ | -------- | --------------------------------------------------------------------- |

@@ -17,7 +17,7 @@ To handle event hook calls from Okta, you need to implement a web service with a
 
 Event hooks are Okta's implementation of the industry concept of webhooks. Okta's event hooks are related to, but different from, Okta [inline hooks](/docs/concepts/inline_hooks/): event hooks are meant to deliver information about events that occurred, not offer a way to affect execution of the underlying Okta process flow. Also, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
 
-Before the introduction of event hooks, polling the [System Log API](/docs/api/resources/system_log/) was the only method your external software systems could use to detect the occurrence of specific events in your Okta org; event hooks provide an Okta-initiated push notification.
+Before the introduction of event hooks, polling the [System Log API](/docs/reference/api/system-log/) was the only method your external software systems could use to detect the occurrence of specific events in your Okta org; event hooks provide an Okta-initiated push notification.
 
 You can have a maximum of 10 active and verified event hooks set up in your org at any time, and each event hook can be configured to deliver multiple event types.
 
@@ -29,7 +29,7 @@ To see the list of event types currently eligible for use in event hooks, query 
 
 [https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible](/docs/reference/api/event-types/?q=event-hook-eligible/)
 
-For general information on how Okta encapsulates events, see the [System Log API](/docs/api/resources/system_log/) documentation.
+For general information on how Okta encapsulates events, see the [System Log API](/docs/reference/api/system-log/) documentation.
 
 Examples of available types of events include user lifecycle changes, the completion by a user of a specific stage in an Okta process flow, and changes in Okta objects. You could configure an event hook, for example, to deliver notifications of user deactivation events. You could use this to trigger processes that you need to execute internally every time a user is deactivated, like updating a record in an HR system, creating a ticket in a support system, or generating an email message.  
 
@@ -53,7 +53,7 @@ After verification, for ongoing notification of events, Okta sends HTTPS POST re
 
 Information is encapsulated in the JSON payload in the `data.events` object. The `data.events` object is an array, in order to allow sending multiple events in a single POST request. Events that occur within a short time of each other will be amalgamated, with each each element of the array providing information on one event.
 
-The content of each array element is an object of the [LogEvent](/docs/api/resources/system_log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/api/resources/system_log/) defines for System Log events. See the documentation there for information on the object and its sub-objects.
+The content of each array element is an object of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/reference/api/system-log/) defines for System Log events. See the documentation there for information on the object and its sub-objects.
 
 Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `data.events.uuid` value of incoming events against the values for events previously received.
 

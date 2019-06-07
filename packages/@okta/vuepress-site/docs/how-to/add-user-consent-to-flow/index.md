@@ -28,7 +28,7 @@ Use the following procedure to display the user consent dialog as part of an Ope
 
     To enable these features, contact [Support](https://support.okta.com/help/open_case).
 
-2. Add an OpenID Connect app via the Apps API. The value you should specify for `consent_method` depends on the values for `prompt` and `consent`. Check the Apps API [table of values](https://developer.okta.com/docs/reference/api/apps/#add-oauth-20-client-application) for these three properties. In most cases, `REQUIRED` is the correct value.
+2. Add an OpenID Connect app via the Apps API. The value you should specify for `consent_method` depends on the values for `prompt` and `consent`. Check the Apps API [table of values](/docs/reference/api/apps/#add-oauth-20-client-application) for these three properties. In most cases, `REQUIRED` is the correct value.
 
     Optionally, you can set the appropriate values for your Terms of Service (`tos_uri`) and Privacy Policy (`policy_uri`) notices using the same API request.
 
@@ -163,7 +163,7 @@ If you want to verify that you've successfully created a user grant, here are a 
 
 If you don't see the consent prompt when expected:
 
-* Verify that you haven't already provided consent for that combination of app and scope(s). Use the [`/grants` endpoint](/docs/api/resources/users/#list-grants) to see which grants have been given, and to revoke grants.
-* Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table of values](https://developer.okta.com/docs/reference/api/apps/#add-oauth-20-client-application).
+* Verify that you haven't already provided consent for that combination of app and scope(s). Use the [`/grants` endpoint](/docs/reference/api/users/#list-grants) to see which grants have been given, and to revoke grants.
+* Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table of values](/docs/reference/api/apps/#add-oauth-20-client-application).
 * Make sure that in your app configuration, the `redirect_uri` is an absolute URI and that it is whitelisted by specifying in Trusted Origins.
 * If you aren't using the `default` authorization server, check that you've created at least one policy with one rule that applies to any scope or the scope(s) in your test.

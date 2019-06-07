@@ -18,7 +18,7 @@ When creating multiple instances of the same app, each instance of the app has a
 
 ### Token Management API Is in Early Access (EA)
 
-Use the Token Management API to view and revoke OAuth 2.0 and OpenID Connect refresh tokens by [end user](/docs/api/resources/users/#user-oauth-20-token-management-operations), [Custom Authorization Server](/docs/reference/api/authorization-servers/#oauth-20-token-management-operations), or [client app](/docs/reference/api/apps/#application-oauth-20-token-operations). <!-- OKTA-145525 -->
+Use the Token Management API to view and revoke OAuth 2.0 and OpenID Connect refresh tokens by [end user](/docs/reference/api/users/#user-oauth-20-token-management-operations), [Custom Authorization Server](/docs/reference/api/authorization-servers/#oauth-20-token-management-operations), or [client app](/docs/reference/api/apps/#application-oauth-20-token-operations). <!-- OKTA-145525 -->
 
 ### Bug Fixed for 2018.12
 

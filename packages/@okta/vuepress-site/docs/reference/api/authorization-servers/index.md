@@ -1595,7 +1595,7 @@ curl -v -X GET \
 * [Revoke All Refresh Tokens](#revoke-all-refresh-tokens)
 * [Revoke Refresh Token](#revoke-refresh-token)
 
-These endpoints allow you to manage tokens issued by an Authorization Server for a particular Client. For example, you could revoke every active refresh token for a specific Client. You can also [revoke specific tokens](/authentication-guide/tokens/revoking-tokens/) or [manage tokens at the User level](/docs/api/resources/users/#user-oauth-20-token-management-operations).
+These endpoints allow you to manage tokens issued by an Authorization Server for a particular Client. For example, you could revoke every active refresh token for a specific Client. You can also [revoke specific tokens](/authentication-guide/tokens/revoking-tokens/) or [manage tokens at the User level](/docs/reference/api/users/#user-oauth-20-token-management-operations).
 
 Read [Working With Tokens](/authentication-guide/tokens/) to understand more about how OAuth 2.0 tokens work.
 

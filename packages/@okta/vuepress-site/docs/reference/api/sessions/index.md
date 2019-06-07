@@ -564,7 +564,7 @@ If the session is invalid, a `404 Not Found` response will be returned.
 ```
 
 #### Option: Use the HTTP Header Prefer
-Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](/docs/api/resources/sessions/#refresh-current-session). You can extend the session lifetime, but skip any processing work related to building the response body.
+Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](/docs/reference/api/sessions/#refresh-current-session). You can extend the session lifetime, but skip any processing work related to building the response body.
 
 ##### Request Example
 
@@ -679,7 +679,7 @@ Sessions have the following properties:
 | ----------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------- | -------- | ------ | -------- |
 | id                                        | unique key for the session                                                                    | String                                    | FALSE    | TRUE   | TRUE     |
 | login                                     | unique identifier for the user (username)                                                     | String                                    | FALSE    | TRUE   | TRUE     |
-| userId                                    | unique key for the [user](/docs/api/resources/users/#get-user-with-id)                                             | String                                    | FALSE    | TRUE   | TRUE     |
+| userId                                    | unique key for the [user](/docs/reference/api/users/#get-user-with-id)                                             | String                                    | FALSE    | TRUE   | TRUE     |
 | expiresAt                                 | timestamp when session expires                                                                | Date                                      | FALSE    | TRUE   | TRUE     |
 | status                                    | current [status](#session-status) of the session                                              | `ACTIVE`, `MFA_REQUIRED`, or `MFA_ENROLL` | FALSE    | TRUE   | TRUE     |
 | lastPasswordVerification                  | timestamp when user last performed primary or step-up authentication with password            | Date                                      | TRUE     | TRUE   | TRUE     |

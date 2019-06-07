@@ -91,7 +91,7 @@ Instead, Okta will send a customer communication explaining the migration path t
 
 ### Platform Feature Improvement: Zones API Generally Available in Preview
 
-Access policies can now be defined based on an IP address range using [the Zones API](/docs/api/resources/zones/).
+Access policies can now be defined based on an IP address range using [the Zones API](/docs/reference/api/zones/).
 This feature is Generally Available in preview orgs for at least one month before being Generally Available in production. <!-- OKTA-121280 -->
 
 ### Platform Bugs Fixed

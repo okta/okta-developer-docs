@@ -509,7 +509,7 @@ curl -v -X POST \
 <ApiOperation method="post" url="/api/v1/meta/schemas/user/default" />
 
 Removes one or more [custom user profile properties](#user-profile-schema-property-object) from the user schema.
-A property cannot be removed if it is being referenced as a [matchAttribute](/docs/api/resources/idps/#subject-policy-object) in SAML2 IdPs.
+A property cannot be removed if it is being referenced as a [matchAttribute](/docs/reference/api/idps/#subject-policy-object) in SAML2 IdPs.
 
 ##### Request Parameters
 
@@ -1047,9 +1047,9 @@ curl -v -X POST \
 
 ## User Schema Model
 
-The [User Model](/docs/api/resources/users/#user-model) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+The [User Model](/docs/reference/api/users/#user-model) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
-> The schema currently only defines the [profile object](/docs/api/resources/users/#profile-object).
+> The schema currently only defines the [profile object](/docs/reference/api/users/#profile-object).
 
 ### Example User Schema
 
@@ -1177,16 +1177,16 @@ The user schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/dra
 | lastUpdated | timestamp when schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339) | FALSE    | FALSE  | TRUE     |             |
 | definitions | user profile subschemas                                                                  | [User Profile Subschemas](#user-profile-subschemas)    | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | type of [root schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                  | FALSE    | FALSE  | TRUE     |             |
-| properties  | user model properties                                                                    | [User Model](/docs/api/resources/users/#user-model) property set     | FALSE    | FALSE  | TRUE     |             |
+| properties  | user model properties                                                                    | [User Model](/docs/reference/api/users/#user-model) property set     | FALSE    | FALSE  | TRUE     |             |
 
 ### User Profile Subschemas
 
-The [profile object](/docs/api/resources/users/#profile-object) for a user is defined by a composite schema of base and custom properties using JSON Path to reference subschemas.  The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
+The [profile object](/docs/reference/api/users/#profile-object) for a user is defined by a composite schema of base and custom properties using JSON Path to reference subschemas.  The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
 
 - [User Profile Base Subschema](#user-profile-base-subschema)
 - [User Profile Custom Subschema](#user-profile-custom-subschema)
 
-Custom property names for the [profile object](/docs/api/resources/users/#profile-object) must be unique and cannot conflict with a property name defined in the `#base` subschema.
+Custom property names for the [profile object](/docs/reference/api/users/#profile-object) must be unique and cannot conflict with a property name defined in the `#base` subschema.
 
 ```json
 {

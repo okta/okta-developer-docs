@@ -16,9 +16,9 @@ The MFA [call factor](/docs/reference/api/factors/#factor-type) is now Generally
 
 ### Bugs Fixed in 2018.28
 
-* Users received an incorrect error message when using the [System Log API](/docs/api/resources/system_log/) and specifying a sort order with an unbounded `until` statement. (OKTA-175411)
+* Users received an incorrect error message when using the [System Log API](/docs/reference/api/system-log/) and specifying a sort order with an unbounded `until` statement. (OKTA-175411)
 
- * Under certain circumstances, the [System Log API](/docs/api/resources/system_log/) did not return events on the first query, but did on subsequent queries. (OKTA-174660)
+ * Under certain circumstances, the [System Log API](/docs/reference/api/system-log/) did not return events on the first query, but did on subsequent queries. (OKTA-174660)
 
 ### Previously Released Early Access Features 2018.28 Update
 

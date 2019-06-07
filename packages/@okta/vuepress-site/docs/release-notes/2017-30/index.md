@@ -30,7 +30,7 @@ For information about Early Access (EA) and General Availability (GA), see [Okta
 
 #### Key Rollover
 
-We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/api/resources/idps/)). We build OpenID Connect and API Access Management on this feature. <!-- OKTA-132045  -->
+We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/reference/api/idps/)). We build OpenID Connect and API Access Management on this feature. <!-- OKTA-132045  -->
 
 #### Email for Two-Factor Authentication  <!-- OKTA-134593  -->
 
@@ -42,7 +42,7 @@ These platform bug fixes are in preview orgs with this release and expected in p
 
 * Under some circumstances users who did not have a secondary email address could not perform a self-service password reset operation.   (OKTA-128340)
 
-* "When the `expand` parameter was set in GET requests to [`/api/v1/groups`](/docs/api/resources/groups/#list-groups), the second and subsequent pages of the response did not have the same `expand` setting.  (OKTA-132503)
+* "When the `expand` parameter was set in GET requests to [`/api/v1/groups`](/docs/reference/api/groups/#list-groups), the second and subsequent pages of the response did not have the same `expand` setting.  (OKTA-132503)
 
 * [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) returned HTTP status code 200 rather than 201 when creating a client successfully.  (OKTA-128839)
 

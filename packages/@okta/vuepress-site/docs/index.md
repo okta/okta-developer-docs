@@ -78,7 +78,7 @@ sections:
        - title: OpenID Connect & OAuth 2.0 API
          link: /docs/reference/api/oidc/
        - title: Users API
-         link: /docs/api/resources/users/
+         link: /docs/reference/api/users/
        - title: Error Codes
          link: /docs/reference/error-codes/
        - title: More

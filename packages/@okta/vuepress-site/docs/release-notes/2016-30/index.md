@@ -24,7 +24,7 @@ For SAML IdPs, you can now match transformed IdP usernames using more attributes
 To match on an attribute other than username, email, or either, specify the attribute name in the property `matchAttribute`,
 and specify the value `CUSTOM_ATTRIBUTE` in `matchType`.
 
-For more information, see [Identity Providers](/docs/api/resources/idps/#subject-policy-object).
+For more information, see [Identity Providers](/docs/reference/api/idps/#subject-policy-object).
 
 > Contact [Support](https://support.okta.com/help/open_case) to enable this Early Access feature.
 

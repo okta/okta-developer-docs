@@ -59,7 +59,7 @@ The underlying foundation for the Sign-In Widget and Auth SDK is a
 comprehensive [authentication REST API](/docs/reference/api/authn/)
 exposed through Okta.  Use it as a
 standalone API to provide the identity layer on top of your existing
-application and authentication logic, or use it with the Okta [Sessions API](/docs/api/resources/sessions/)
+application and authentication logic, or use it with the Okta [Sessions API](/docs/reference/api/sessions/)
 to obtain an Okta [session cookie](/docs/concepts/authentication/session_cookie/) and access apps within Okta.
 This session integration provides an SSO experience across custom and Okta-managed apps.
 

@@ -40,7 +40,7 @@ The Zones API is now Generally Available in preview orgs. It will be at least on
 
 Zones are used to group IP Address ranges so that policy decisions can be made based on the zone a client's IP belongs to.
 
-For more information, see [the Zones API developer documentation](/docs/api/resources/zones/).
+For more information, see [the Zones API developer documentation](/docs/reference/api/zones/).
 
 > Update: Zones API is [a Beta release](/docs/reference/releases-at-okta/). This release note is in error.
 

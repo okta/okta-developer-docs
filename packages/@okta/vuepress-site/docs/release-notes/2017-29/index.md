@@ -22,7 +22,7 @@ The following platform features are Generally Available (GA) in preview orgs (as
 
 #### Key Rollover
 
-We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/api/resources/idps/)). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
+We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/reference/api/idps/)). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
 
 ### Platform Bugs Fixed
 

@@ -17,7 +17,7 @@ title: Okta API Products Release Notes
 | [New Version of the Sign-In Widget](#new-version-of-the-sign-in-widget) | Available Now | Available Now |
 
 #### Generally Available: App User Schema API
-Use the [App User Schema API](/docs/api/resources/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
+Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
 
 #### Special HTML Characters in `state` for `okta_post_message`
 

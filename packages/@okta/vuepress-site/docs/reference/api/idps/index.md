@@ -2644,7 +2644,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/idps/tx/${transactionId}/target" />
 
-Fetches the target transformed [Okta user profile](/docs/api/resources/users/#profile-object) for a just-in-time provisioning transaction
+Fetches the target transformed [Okta user profile](/docs/reference/api/users/#profile-object) for a just-in-time provisioning transaction
 
 ##### Request Parameters
 
@@ -2656,7 +2656,7 @@ Fetches the target transformed [Okta user profile](/docs/api/resources/users/#pr
 ##### Response Parameters
 
 
-[Trasformed Okta User Profile](/docs/api/resources/users/#profile-object)
+[Trasformed Okta User Profile](/docs/reference/api/users/#profile-object)
 
 ##### Request Example
 
@@ -2701,7 +2701,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/idps/tx/${transactionId}/users" />
 
-Enumerates the candidate [Okta users](/docs/api/resources/users/#user-model) for an account link transaction
+Enumerates the candidate [Okta users](/docs/reference/api/users/#user-model) for an account link transaction
 
 Link candidates are determined by the IdP's [account link policy](#account-link-policy-object) and [subject policy](#subject-policy-object).
 
@@ -2715,7 +2715,7 @@ Link candidates are determined by the IdP's [account link policy](#account-link-
 ##### Response Parameters
 
 
-Array of [Okta User](/docs/api/resources/users/#user-model)
+Array of [Okta User](/docs/reference/api/users/#user-model)
 
 ##### Request Example
 
@@ -2800,7 +2800,7 @@ Provisions an IdP user as a new Okta user.
 | Parameter     | Description                                                       | Param Type | DataType                                                             | Required | Default                          |
 | ---------     | --------------------------------------------------                | ---------- | -----------------------------------------------------                | -------- | -------------------------------- |
 | transactionId | `id` of an IdP transaction                                        | URL        | String                                                               | TRUE     |                                  |
-| profile       | profile for [Okta user](/docs/api/resources/users/#profile-object) | Body       | [Okta User Profile Object](/docs/api/resources/users/#profile-object) | FALSE    | UD transformed Okta user profile |
+| profile       | profile for [Okta user](/docs/reference/api/users/#profile-object) | Body       | [Okta User Profile Object](/docs/reference/api/users/#profile-object) | FALSE    | UD transformed Okta user profile |
 
 ##### Response Parameters
 
@@ -2877,7 +2877,7 @@ Links an IdP user to an [existing Okta user](#list-users-for-idp-link-transactio
 | ---------     | --------------------------------------------------------------------------- | ---------- | -----------------------------------------------------                | -------- |
 | transactionId | `id` of an IdP transaction                                                  | URL        | String                                                               | TRUE     |
 | userId        | `id` of an Okta user [link candidate](#list-users-for-idp-link-transaction) | URL        | String                                                               | TRUE     |
-| profile       | profile for [Okta user](/docs/api/resources/users/#profile-object)           | Body       | [Okta User Profile Object](/docs/api/resources/users/#profile-object) | FALSE    |
+| profile       | profile for [Okta user](/docs/reference/api/users/#profile-object)           | Body       | [Okta User Profile Object](/docs/reference/api/users/#profile-object) | FALSE    |
 
 ##### Response Parameters
 
@@ -5828,9 +5828,9 @@ This object is used for dynamic discovery of related resources and lifecycle ope
 | Link Relation Type       | Description                                                                                                                                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------                                                          |
 | source                   | [IdP user](#identity-provider-user-model) for the transaction                                                                                                                                                      |
-| target                   | Transformed [Okta user profile](/docs/api/resources/users/#profile-object) for the transaction via UD Profile Mappings for the IdP                                                                                  |
-| users                    | [Okta user](/docs/api/resources/users/#user-model) candidates for the account link transaction that match the IdP's [account link policy](#account-link-policy-object) and [subject policy](#subject-policy-object) |
-| provision                | Lifecycle operation to just-in-time provision a new [Okta user](/docs/api/resources/users/#user-model) for the IdP user                                                                                             |
+| target                   | Transformed [Okta user profile](/docs/reference/api/users/#profile-object) for the transaction via UD Profile Mappings for the IdP                                                                                  |
+| users                    | [Okta user](/docs/reference/api/users/#user-model) candidates for the account link transaction that match the IdP's [account link policy](#account-link-policy-object) and [subject policy](#subject-policy-object) |
+| provision                | Lifecycle operation to just-in-time provision a new [Okta user](/docs/reference/api/users/#user-model) for the IdP user                                                                                             |
 | next                     | Completes the transaction                                                                                                                                                                                          |
 | cancel                   | Cancels the transaction                                                                                                                                                                                            |
 
@@ -5942,7 +5942,7 @@ All linked IdP users have the following properties:
 
 | Property         | Description                                               | DataType                                                                        | Nullable | Unique | Readonly | MaxLength |
 | ---------------- | --------------------------------------------------------- | ----------------------------------------------------------------                | -------- | ------ | -------- | --------- |
-| id               | unique key of [User](/docs/api/resources/users/)           | String                                                                          | FALSE    | TRUE   | TRUE     |           |
+| id               | unique key of [User](/docs/reference/api/users/)           | String                                                                          | FALSE    | TRUE   | TRUE     |           |
 | externalId       | unique IdP-specific identifier for user                   | String                                                                          | FALSE    | TRUE   | TRUE     | 512       |
 | created          | timestamp when IdP user was created                       | Date                                                                            | FALSE    | FALSE  | TRUE     |           |
 | lastUpdated      | timestamp when IdP user was last updated                  | Date                                                                            | FALSE    | FALSE  | TRUE     |           |
@@ -5991,7 +5991,7 @@ This object is used for dynamic discovery of related resources and lifecycle ope
 | ------------------ | ----------------------------------                |
 | self               | The primary URL for the IdP user                  |
 | idp                | The IdP that issued the identity                  |
-| users              | The linked [Okta user](/docs/api/resources/users/) |
+| users              | The linked [Okta user](/docs/reference/api/users/) |
 
 ## Identity Provider CSR Model
 

@@ -892,7 +892,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/users" />
 
-Enumerates all [users](/docs/api/resources/users/#user-model) that are a member of a group.
+Enumerates all [users](/docs/reference/api/users/#user-model) that are a member of a group.
 
 ##### Request Parameters
 
@@ -912,7 +912,7 @@ The default user limit is set to a very high number due to historical reasons wh
 ##### Response Parameters
 
 
-Array of [Users](/docs/api/resources/users/#user-model)
+Array of [Users](/docs/reference/api/users/#user-model)
 
 ##### Request Example
 
@@ -1001,7 +1001,7 @@ Link: <https://{yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/users?after=0
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Adds a [user](/docs/api/resources/users/#user-model) to a group with `OKTA_GROUP` type.
+Adds a [user](/docs/reference/api/users/#user-model) to a group with `OKTA_GROUP` type.
 
 > Only memberships for groups with `OKTA_GROUP` type can be modified.<br>
 > Application imports are responsible for managing group memberships for groups with `APP_GROUP` type such as Active Directory groups.
@@ -1042,7 +1042,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Removes a [user](/docs/api/resources/users/#user-model) from a group with `OKTA_GROUP` type.
+Removes a [user](/docs/reference/api/users/#user-model) from a group with `OKTA_GROUP` type.
 
 > Only memberships for groups with `OKTA_GROUP` type can be modified.<br>
 > Application imports are responsible for managing group memberships for groups with `APP_GROUP` type such as Active Directory groups.

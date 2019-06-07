@@ -6,11 +6,11 @@ title: Work with Okta session cookies
 
 Okta utilizes an HTTP session cookie to provide access to your Okta organization and applications across web requests for interactive user-agents such as a browser. This document provides examples for programmatically retrieving and setting a session cookie for different deployment scenarios to provide SSO capabilities for custom web applications built on Okta.
 
-Okta sessions are created and managed with the [Session API](/docs/api/resources/sessions/).
+Okta sessions are created and managed with the [Session API](/docs/reference/api/sessions/).
 
 ## Retrieving a session cookie via OpenID Connect Authorization Endpoint
 
-This scenario is ideal for deployment scenarios where you have implemented both a custom login page and custom landing page for your application. The login page will typically collect the user's credentials via a HTML form submit or POST and the web application will validate the credentials against your Okta organization by calling the [Authentication API](/docs/reference/api/authn/) to obtain a [session token](/docs/api/resources/sessions/#session-token).
+This scenario is ideal for deployment scenarios where you have implemented both a custom login page and custom landing page for your application. The login page will typically collect the user's credentials via a HTML form submit or POST and the web application will validate the credentials against your Okta organization by calling the [Authentication API](/docs/reference/api/authn/) to obtain a [session token](/docs/reference/api/sessions/#session-token).
 
 Once a session token is obtained, it can be passed into the [OpenID Connect authorize endpoint](/docs/reference/api/oidc/#authorize) in order to get an Okta session cookie. Executing this flow will set a cookie in the end user's browser and then redirect them back to the `redirect_uri` that is passed into the request.
 
@@ -94,7 +94,7 @@ The session token can then be passed as a query parameter to an Okta application
 
 ### Visit an embed link with the session token
 
-After your login flow is complete you can launch an Okta application for the user with an [embed link](/docs/api/resources/users/#get-assigned-app-links) that contains the the session token as a query parameter `sessionToken`.
+After your login flow is complete you can launch an Okta application for the user with an [embed link](/docs/reference/api/users/#get-assigned-app-links) that contains the the session token as a query parameter `sessionToken`.
 
 ##### Response Example
 

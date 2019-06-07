@@ -8,7 +8,7 @@ deprecated: true
 
 The Okta Events API provides read access to your organization's system log. [Export event data](https://support.okta.com/help/Documentation/Knowledge_Article/Exporting-Okta-Log-Data) as a batch job from your organization to another system for reporting or analysis.
 
-> **Important:** the [System Log API](/docs/api/resources/system_log/) will eventually replace the Events API and contains much more [structured data](/docs/api/resources/system_log/#logevent-object). As of Jan 7, 2019 developers of new projects are unable to access the Events API and should use the System Log API. For information on migrating from the Events API to the System Log API please see [Events API Migration](/docs/concepts/events-api-migration/).
+> **Important:** the [System Log API](/docs/reference/api/system-log/) will eventually replace the Events API and contains much more [structured data](/docs/reference/api/system-log/#logevent-object). As of Jan 7, 2019 developers of new projects are unable to access the Events API and should use the System Log API. For information on migrating from the Events API to the System Log API please see [Events API Migration](/docs/concepts/events-api-migration/).
 
 ## Getting Started
 
@@ -573,13 +573,13 @@ The schema of a target is dependent on the actor's `objectType`
 
 #### User ObjectType
 
-A denormalized reference to a [User](/docs/api/resources/users/#user-model):
+A denormalized reference to a [User](/docs/reference/api/users/#user-model):
 
 | Property      | Description                                               | DataType   | Nullable |
 | :------------ | :-------------------------------------------------------- | :--------- | :------- |
-| id            | Unique key for [user](/docs/api/resources/users/#user-model)                   | String     | FALSE    |
-| displayName   | [User's](/docs/api/resources/users/#profile-object) first and last name        | String     | TRUE     |
-| login         | Unique login for [user](/docs/api/resources/users/#user-model)                 | String     | TRUE     |
+| id            | Unique key for [user](/docs/reference/api/users/#user-model)                   | String     | FALSE    |
+| displayName   | [User's](/docs/reference/api/users/#profile-object) first and last name        | String     | TRUE     |
+| login         | Unique login for [user](/docs/reference/api/users/#user-model)                 | String     | TRUE     |
 | objectType    | Type of object                                            | `User`     | FALSE    |
 
 ``` json
@@ -591,7 +591,7 @@ A denormalized reference to a [User](/docs/api/resources/users/#user-model):
 }
 ```
 
-The user can be retrieved by `id` with the [User API](/docs/api/resources/users/#get-user-with-id).
+The user can be retrieved by `id` with the [User API](/docs/reference/api/users/#get-user-with-id).
 
 #### AppInstance ObjectType
 

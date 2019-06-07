@@ -11,4 +11,4 @@ stateManager?.getUser { response, error in
 }
 ```
 
-The user info (of type 'Dictionary') is returned as a closure parameter. Possible properties are listed [here](https://developer.okta.com/docs/reference/api/oidc/#response-example-success-5).
+The user info (of type 'Dictionary') is returned as a closure parameter. Possible properties are listed [here](/docs/reference/api/oidc/#response-example-success-5).

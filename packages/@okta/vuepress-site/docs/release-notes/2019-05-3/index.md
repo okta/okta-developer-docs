@@ -15,7 +15,7 @@ The [Token Inline Hook](/docs/reference/token-hook/) now supports changing or re
 
 ### Bugs Fixed in 2019.05.3
 
-* Responses from the `GET /groups/rules` [API](/docs/api/resources/groups/#list-group-rules) failed to include a link to the next page of results in cases where there was more than one page. (OKTA-221434)
+* Responses from the `GET /groups/rules` [API](/docs/reference/api/groups/#list-group-rules) failed to include a link to the next page of results in cases where there was more than one page. (OKTA-221434)
 
 * Calls to the `/authorize` endpoint during the Authorization Code with PKCE flow would fail if an `idp` parameter was supplied with the call (in Preview orgs only). (OKTA-229808)
 
