@@ -24,7 +24,7 @@ The new version of Okta's Powershell module is compatible with TLS 1.2. [Documen
 
 ### Rate Limit for System Log Increased
 
-The rate limit for GET requests to `/api/v1/logs` has been increased from 60 per minute to 120. [Documentation](/docs/api/getting_started/rate-limits#okta-api-endpoints-and-per-minute-limits)
+The rate limit for GET requests to `/api/v1/logs` has been increased from 60 per minute to 120. [Documentation](/docs/api/getting_started/rate-limits/#okta-api-endpoints-and-per-minute-limits)
 
 ### New Version of Okta Sign-in Widget
 

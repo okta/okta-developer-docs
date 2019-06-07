@@ -125,9 +125,9 @@ If you don't want these changes, contact [Support](https://support.okta.com/help
 
 ### Improved System Log Behavior for Date Queries
 
-1. For `/logs`, the request parameters [`since` and `until`](/docs/api/resources/system_log#request-parameters) require [the RFC 3339 Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). This allows queries to more accurately target date ranges. <!-- OKTA-149837 -->
+1. For `/logs`, the request parameters [`since` and `until`](/docs/api/resources/system_log/#request-parameters) require [the RFC 3339 Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). This allows queries to more accurately target date ranges. <!-- OKTA-149837 -->
 
-2. For /`logs`, [the maximum page size](/docs/api/resources/system_log#request-parameters) is 1,000 messages (`limit=1000`). The default remains at 100. <!-- OKTA-154711, OKTA-157865 -->
+2. For /`logs`, [the maximum page size](/docs/api/resources/system_log/#request-parameters) is 1,000 messages (`limit=1000`). The default remains at 100. <!-- OKTA-154711, OKTA-157865 -->
 
 ### System Log Message Changes Related to Authorization Servers
 

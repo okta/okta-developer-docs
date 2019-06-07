@@ -16,6 +16,6 @@ title: Create an Authorization Server
 When complete, your Authorization Server's **Settings** tab displays the information that you provided and allows you to edit it.
 ![Add Authorization Server width:](/img/auth_server2.png "Add Authorization Server width:")
 
-Once the Authorization Server is created you can also edit the Signing Key Rotation setting. You can find out more about Okta's signing keys by reading about [token validation](/authentication-guide/tokens/validating-access-tokens#what-to-check-when-validating-an-access-token).
+Once the Authorization Server is created you can also edit the Signing Key Rotation setting. You can find out more about Okta's signing keys by reading about [token validation](/authentication-guide/tokens/validating-access-tokens/#what-to-check-when-validating-an-access-token).
 
 <NextSectionLink/>

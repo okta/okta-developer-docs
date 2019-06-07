@@ -176,7 +176,7 @@ Putting it all together, the final example looks like this:
 
 ## Part 2: Get an Okta Session Cookie
 
-In the code example above, the ID Token is retrieved using a redirect to the Okta sign-in page. It is also possible to take a user-inputted `username` and `password` pair and pass them to the `signIn` method. This method then initiates an authentication process which returns an [Okta session cookie](/docs/concepts/authentication/session_cookie#retrieving-a-session-cookie-by-visiting-a-session-redirect-link). This Okta session cookie can then be used, along with the `getWithRedirect` method, to get back the ID Token. This means that there is no need to redirect the user to the Okta sign-in page.
+In the code example above, the ID Token is retrieved using a redirect to the Okta sign-in page. It is also possible to take a user-inputted `username` and `password` pair and pass them to the `signIn` method. This method then initiates an authentication process which returns an [Okta session cookie](/docs/concepts/authentication/session_cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link). This Okta session cookie can then be used, along with the `getWithRedirect` method, to get back the ID Token. This means that there is no need to redirect the user to the Okta sign-in page.
 
 [Read more about signIn in the Auth SDK Reference][authjs-reference-signin].
 

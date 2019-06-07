@@ -26,7 +26,7 @@ Super and Org Admins can now assign and unassign roles to every user in a group 
 
 ### New Rate Limits for /users/me
 
-The rate limits for the `/users/me` endpoint have been updated. For more information, see our [Rate Limits page](/docs/api/getting_started/rate-limits#org-wide-rate-limits-legacy-orgs). <!--OKTA-205776-->
+The rate limits for the `/users/me` endpoint have been updated. For more information, see our [Rate Limits page](/docs/api/getting_started/rate-limits/#org-wide-rate-limits-legacy-orgs). <!--OKTA-205776-->
 
 ### Generic OIDC IdP is now GA in Preview
 
