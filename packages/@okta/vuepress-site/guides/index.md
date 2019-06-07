@@ -9,6 +9,7 @@ guides:
  - protect-your-api
  - custom-hosted-signin
  - custom-url-domain
+ - custom-error-pages
 featured: 
  - sign-into-web-app
  - sign-into-spa
