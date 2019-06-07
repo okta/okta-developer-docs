@@ -8,6 +8,7 @@ guides:
  - protect-your-api
  - custom-hosted-signin
  - custom-url-domain
+ - custom-error-pages
  - build-self-signed-jwt
 featured: 
  - sign-into-web-app
