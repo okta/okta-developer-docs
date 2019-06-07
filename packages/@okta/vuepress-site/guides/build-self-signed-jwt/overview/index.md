@@ -17,7 +17,7 @@ There are two types of self-signed JWT assertions that you can build for use whe
 * JWT With a Shared Key (`client_secret_jwt`)
 * JWT With a Private Key (`private_key_jwt`)
 
-The difference between building these two types of assertions is the algorithm and method used to sign the JWT.
+The difference between building these two types of assertions is the algorithm and key used to sign the JWT.
 
 Which JWT type that you use depends on the client authentication method configured in your OAuth 2.0 client application. See [Client Authentication Methods](/docs/api/resources/oidc/#client-authentication-methods) for more information on the supported methods and when to use them.
 
