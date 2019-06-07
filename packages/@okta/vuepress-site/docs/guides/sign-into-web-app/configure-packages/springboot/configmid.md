@@ -5,7 +5,7 @@ okta.oauth2.issuer=https://{yourOktaDomain}/oauth2/default
 okta.oauth2.clientId={clientId}
 okta.oauth2.clientId={clientSecret}
 
-# Customize the callback route path (optional, defaults to '/login/oauth2/code/okta'):
+# Customize the callback route path
 security.oauth2.sso.loginPath=/authorization-code/callback
 ```
 
