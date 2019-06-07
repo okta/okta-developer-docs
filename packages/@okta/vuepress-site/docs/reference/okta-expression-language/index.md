@@ -160,7 +160,7 @@ Group functions return either an array of groups or **True** or **False**.
 
 **Note:** The **Groups.contains**, **Groups.startsWith**, and **Groups.endsWith** group functions are designed to work only with group claims. You can't use these functions with property mappings.
 
-For an example using group functions and for more information on using group functions for dynamic and static whitelists, see [Create an ID Token or Access Token Containing a Groups Claim](/docs/how-to/creating-token-with-groups-claim/).
+For an example using group functions and for more information on using group functions for dynamic and static whitelists, see [Create an ID Token or Access Token Containing a Groups Claim](/docs/guides/create-token-with-groups-claim/).
 
 ### Linked Object Function
 

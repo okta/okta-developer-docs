@@ -4023,7 +4023,7 @@ Clones a X.509 certificate for an application key credential from a source appli
 
 > Important: Sharing certificates isn't a recommended security practice.
 
-For step-by-step instructions to clone a credential, see [Share Application Key Credentials Between Apps](/docs/how-to/sharing-cert/).
+For step-by-step instructions to clone a credential, see [Share Application Key Credentials Between Apps](/docs/guides/sharing-cert/).
 
 ##### Request Parameters
 

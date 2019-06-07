@@ -67,9 +67,9 @@ sections:
        - title: Work with OAuth 2.0 Tokens
          link: /authentication-guide/tokens/
        - title: Add User Consent to Your Authentication Flow
-         link: /docs/how-to/add-user-consent-to-flow/
+         link: /docs/guides/request-user-consent/
        - title: Create a Token that Contains a Group Claim
-         link: /docs/how-to/creating-token-with-groups-claim/
+         link: /docs/guides/create-token-with-groups-claim/
 
    - title: Reference
      link: /reference/

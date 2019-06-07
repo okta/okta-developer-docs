@@ -16,7 +16,7 @@ Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-opera
 
 #### Generally Available: SHA-256 Certificates for SAML 2.0 Apps
 
-When you create a SAML 2.0 app in Okta, the app is created with SHA-256 signed public certificates. Certificates for existing SAML 2.0 apps aren't changed. To update an existing app, use [these instructions](/docs/how-to/updating_saml_cert/#existing-saml-20-app-integrations).<!--OKTA-132058-->
+When you create a SAML 2.0 app in Okta, the app is created with SHA-256 signed public certificates. Certificates for existing SAML 2.0 apps aren't changed. To update an existing app, use [these instructions](/docs/guides/updating_saml_cert/#existing-saml-20-app-integrations).<!--OKTA-132058-->
 
 ### Bug Fixes
 

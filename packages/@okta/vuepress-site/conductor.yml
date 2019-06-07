@@ -296,13 +296,13 @@ redirects:
   - from: /docs/guides/saml_guidance.html
     to: /standards/SAML/
   - from: /docs/guides/setting_up_a_saml_application_in_okta
-    to: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
+    to: /docs/guides/saml-application-setup/index.html
   - from: /docs/guides/setting_up_a_saml_application_in_okta.html
-    to: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
+    to: /docs/guides/saml-application-setup/index.html
   - from: /docs/examples/configuring_a_saml_application_in_okta
-    to: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
+    to: /docs/guides/saml-application-setup/index.html
   - from: /docs/examples/configuring_a_saml_application_in_okta.html
-    to: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
+    to: /docs/guides/saml-application-setup/index.html
   - from: /standards/SCIM/index.html
     to: https://www.okta.com/integrate/documentation/scim/
   - from: /docs/guides/scim_guidance.html
@@ -360,7 +360,7 @@ redirects:
   - from: /docs/api/
     to: /docs/reference/
   - from: /docs/how-to/creating-token-with-groups-claim.html
-    to: /docs/how-to/creating-token-with-groups-claim/
+    to: /docs/guides/create-token-with-groups-claim/
   - from: /docs/sdk/core/api.html
     to: /documentation/
   - from: /3rd_party_notices/iOS_Verify.html

@@ -1,8 +1,8 @@
 ---
-title: Add User Consent to Your Authentication Flow
+title: Request user consent during authentication
 excerpt: Add a user consent to your authentication or authorization flow
 ---
-# Add Okta's User Consent Dialog to Your Authentication Flow
+# Request user consent during authentication
 
 <ApiLifecycle access="ea" />
 

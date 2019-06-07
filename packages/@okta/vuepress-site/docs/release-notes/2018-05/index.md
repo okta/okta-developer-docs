@@ -37,7 +37,7 @@ When a client application tries to redeem an authorization token from a refresh 
 
 Use [the new EL functions `Group.contains`, `Group.startsWith`, and `Group.endsWith`](/docs/reference/okta-expression-language/#group-functions) to define a set of dynamic groups to be included in tokens minted from Okta's authorization servers. <!-- OKTA-142824 -->
 
-These functions complement [the existing EL function `getFilteredGroups`](/docs/how-to/creating-token-with-groups-claim/) which helps you create a static list of groups for inclusion in a token.
+These functions complement [the existing EL function `getFilteredGroups`](/docs/guides/create-token-with-groups-claim/) which helps you create a static list of groups for inclusion in a token.
 
 #### New System Log Messages
 
