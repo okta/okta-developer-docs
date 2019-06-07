@@ -20,7 +20,7 @@ if (client.isLoggedIn()) {
 }
 ```
 
-Another way to check the validity of the `access_token` is to use the [introspect](https://developer.okta.com/docs/api/resources/oidc/#introspect) endpoint. This gives you more information about the token in the [response properties](https://developer.okta.com/docs/api/resources/oidc/#response-properties-3):
+Another way to check the validity of the `access_token` is to use the [introspect](https://developer.okta.com/docs/reference/api/oidc/#introspect) endpoint. This gives you more information about the token in the [response properties](https://developer.okta.com/docs/reference/api/oidc/#response-properties-3):
 
 ```java
 client.introspectToken(client.getTokens().getAccessToken(),

@@ -13,9 +13,9 @@ Okta utilizes a HTTP session cookie to provide access to your Okta organization 
 
 ### Session Token
 
-A [session token](/docs/api/resources/authn/#session-token) is a one-time bearer token that provides proof of authentication and may be redeemed for an interactive SSO session in Okta in a user agent. Session tokens can only be used **once** to establish a session for a user and are revoked when the token expires.
+A [session token](/docs/reference/api/authn/#session-token) is a one-time bearer token that provides proof of authentication and may be redeemed for an interactive SSO session in Okta in a user agent. Session tokens can only be used **once** to establish a session for a user and are revoked when the token expires.
 
-Okta provides a very rich [Authentication API](/docs/api/resources/authn/) to validate a [user's primary credentials](/docs/api/resources/authn/#primary-authentication) and secondary [MFA factor](/docs/api/resources/authn/#verify-factor). A session token is returned after successful authentication which can be later exchanged for a session cookie using one of the following flows:
+Okta provides a very rich [Authentication API](/docs/reference/api/authn/) to validate a [user's primary credentials](/docs/reference/api/authn/#primary-authentication) and secondary [MFA factor](/docs/reference/api/authn/#verify-factor). A session token is returned after successful authentication which can be later exchanged for a session cookie using one of the following flows:
 
 - [Retrieving a session cookie by visiting the OpenID Connect Authorization Endpoint](/docs/concepts/authentication/session_cookie#retrieving-a-session-cookie-via-openid-connect-authorization-endpoint)
 - [Retrieving a session cookie by visiting a session redirect link](/docs/concepts/authentication/session_cookie#retrieving-a-session-cookie-by-visiting-a-session-redirect-link)

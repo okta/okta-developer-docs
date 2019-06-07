@@ -26,6 +26,6 @@ For a full description of the rate limit changes, see [API Rate Limits](/docs/ap
 
 ### Platform Bugs Fixed
 
- * Request to [`/api/v1/authn/factors/<factorId>/verify`](/docs/api/resources/authn/#enroll-factor) responded with a valid `stateToken` after user status
+ * Request to [`/api/v1/authn/factors/<factorId>/verify`](/docs/reference/api/authn/#enroll-factor) responded with a valid `stateToken` after user status
  became `LOCKED_OUT`, causing user interface errors. (OKTA-115153)
  * The AuthSJ SDK produced a debug log message with some browsers. (OKTA-115460)

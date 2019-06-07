@@ -3538,7 +3538,7 @@ Generates a new key pair and returns a Certificate Signing Request for it.
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- |
 | idpId         | `id` of the IdP                                                                 | URL        | String                                        | TRUE     |
-| metadata      | Metadata for the CSR                                                            | Body       | [CSR Metadata](/docs/api/resources/apps/#csr-metadata-object)      | TRUE     |
+| metadata      | Metadata for the CSR                                                            | Body       | [CSR Metadata](/docs/reference/api/apps/#csr-metadata-object)      | TRUE     |
 
 ##### Response Parameters
 
@@ -5773,7 +5773,7 @@ All IdP transactions have the following properties:
 | status        | status of transaction                                                                  | `ACCOUNT_JIT`, `ACCOUNT_LINK` or `SUCCESS`                      | FALSE     | FALSE    | TRUE     |
 | created       | timestamp when transaction was created                                                 | Date                                                            | FALSE     | FALSE    | TRUE     |
 | expiresAt     | timestamp when transaction expires                                                     | Date                                                            | FALSE     | FALSE    | TRUE     |
-| sessionToken  | ephemeral [one-time token](/docs/api/resources/authn/#session-token) used to bootstrap an Okta session      | String                                                          | TRUE      | FALSE    | TRUE     |
+| sessionToken  | ephemeral [one-time token](/docs/reference/api/authn/#session-token) used to bootstrap an Okta session      | String                                                          | TRUE      | FALSE    | TRUE     |
 | idp           | identity provider for authenticated user                                               | [IdP Authority Object](#identity-provider-authority-object)     | FALSE     | FALSE    | TRUE     |
 | context       | optional authentication context for transaction                                        | [Context Object](#identity-provider-transaction-context-object) | FALSE     | FALSE    | TRUE     |
 | _links        | [discoverable resources](#links-object) related to the transaction                     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | TRUE      | FALSE    | TRUE     |

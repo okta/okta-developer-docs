@@ -17,7 +17,7 @@ For more information, see [Templates API](/docs/api/resources/templates) and [Fa
 
 The `/oauth2/v1/token` endpoint includes a Refresh Token if:
 
-* The request contains a `grant_type` with the value `password` and your client supports the `grant_type` value `refresh_token`. For more information, see [Token Request](/docs/api/resources/oidc/#request-parameters-1).
+* The request contains a `grant_type` with the value `password` and your client supports the `grant_type` value `refresh_token`. For more information, see [Token Request](/docs/reference/api/oidc/#request-parameters-1).
 * You request the `offline_access` scope. For more information, see [Refresh Tokens](/authentication-guide/tokens/refreshing-tokens).
 
 ### Bugs Fixed

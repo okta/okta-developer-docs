@@ -87,7 +87,7 @@ The Okta Identity Provider that you created in section 2 above generated an Auth
 * **nonce:** A string included in the returned ID Token. Use it to associate a client session with an ID Token, and to mitigate replay attacks.
 * **redirect_uri:** The location where Okta returns a browser after the user has finished authenticating against their social login provider. This URL must start with "https" and must match one of the Redirect URIs that you configured previously in step 4.5.
 
-For a full explanation of all these parameters, see: [/authorize Request parameters](/docs/api/resources/oidc/#request-parameters)
+For a full explanation of all these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters)
 
 An example of a complete URL looks like this: `https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaaq9pjc2ujmFZexample&client_id=GkGw4K49N4UEE1example&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2Fsocial_auth&state=WM6D&nonce=YsG76jo`
 

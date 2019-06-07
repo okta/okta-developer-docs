@@ -21,7 +21,7 @@ The following information has been added to the `userinfo` endpoint's error resp
 
 ### Bugs Fixed in 2018.25
 
-* In certain situations, if a call was made to the OAuth 2.0/OIDC [/authorize endpoint](/docs/api/resources/oidc/#authorize) with `response_mode` set to  `okta_post_message`, an `HTTP 500` error would return. (OKTA-175326)
+* In certain situations, if a call was made to the OAuth 2.0/OIDC [/authorize endpoint](/docs/reference/api/oidc/#authorize) with `response_mode` set to  `okta_post_message`, an `HTTP 500` error would return. (OKTA-175326)
 * Removing all permissions on a schema attribute would return a `READ_ONLY` permission. The response now correctly contains a `READ_WRITE` permission. (OKTA-173030)
 * If an [Authorization Server's](/docs/api/resources/authorization-servers) `redirect_uri` was too long, an `HTTP 500` error would return. (OKTA-171950)
 * The `phoneExtension` property would not be returned in `GET` requests to the Factors API's `catalog` endpoint. (OKTA-108859)

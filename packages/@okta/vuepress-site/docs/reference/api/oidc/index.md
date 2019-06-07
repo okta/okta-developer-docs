@@ -69,7 +69,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 | response_mode                    | How the authorization response should be returned. [Valid values](#parameter-details): `fragment`, `form_post`, `query` or `okta_post_message`. If `id_token` or `token` is specified as the response type, then `query` isn't allowed as a response mode. Defaults to `fragment` in implicit and hybrid flows. | Query       | String    | FALSE      |
 | request                          | A JWT created by the client that enables requests to be passed as a single, self-contained parameter. See [Parameter Details](#parameter-details).                                                                                                                                                                                                                                                                                        | Query       | JWT       | FALSE      |
 | scope                            | `openid` is required for authentication requests. Other [scopes](#access-token-scopes-and-claims) may also be included.                                                                                                                                                                                                                                                                                                                            | Query       | String    | TRUE       |
-| sessionToken                     | Okta one-time session token. This allows an API-based user sign-in flow (rather than the Okta sign-in UI). Session tokens can be obtained via the [Authentication API](/docs/api/resources/authn/).                                                                                                                                                                                                                                                        | Query       | String    | FALSE      |
+| sessionToken                     | Okta one-time session token. This allows an API-based user sign-in flow (rather than the Okta sign-in UI). Session tokens can be obtained via the [Authentication API](/docs/reference/api/authn/).                                                                                                                                                                                                                                                        | Query       | String    | FALSE      |
 | state                            | A value to be returned in the token. The client application can use it to remember the state of its interaction with the end user at the time of the authentication call. It can contain alphanumeric, comma, period, underscore, and hyphen characters. See [Parameter Details](#parameter-details).                                                                                                                                               | Query       | String    | TRUE       |
 
 #### Parameter Details
@@ -86,8 +86,8 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 
     * `none`: Do not prompt for authentication or consent. If an Okta session already exists, the user is silently authenticated. Otherwise, an error is returned.
     * `login`: Always prompt the user for authentication, regardless of whether they have an Okta session.
-    * `consent`: <ApiLifecycle access="ea" /> Depending on the [values set for `consent_method` in the app and and `consent` on the scope](/docs/api/resources/apps/#add-oauth-20-client-application), display the Okta consent dialog, even if the user has already given consent. User consent is available for Custom Authorization Servers (requires the API Access Management feature and the User Consent feature enabled).
-    * `login consent` or `consent login` (order doesn't matter): The user is always prompted for authentication, and the user consent dialog appears depending on the [values set for `consent_method` in the app and and `consent` on the scope](/docs/api/resources/apps/#add-oauth-20-client-application), even if the user has already given consent.
+    * `consent`: <ApiLifecycle access="ea" /> Depending on the [values set for `consent_method` in the app and and `consent` on the scope](/docs/reference/api/apps/#add-oauth-20-client-application), display the Okta consent dialog, even if the user has already given consent. User consent is available for Custom Authorization Servers (requires the API Access Management feature and the User Consent feature enabled).
+    * `login consent` or `consent login` (order doesn't matter): The user is always prompted for authentication, and the user consent dialog appears depending on the [values set for `consent_method` in the app and and `consent` on the scope](/docs/reference/api/apps/#add-oauth-20-client-application), even if the user has already given consent.
 
 `request`:
 
@@ -512,7 +512,7 @@ These keys can be used to locally validate JWTs returned by Okta. Standard open-
 | :---------- | :---------------------------- | :----------- | :--------- | :--------- | :------ |
 | client_id   | Your app's client ID.         | Query        | String     | FALSE      | null    |
 
->Note that the request parameter `client_id` is only applicable for the Okta Org Authorization Server. See [Composing Your Base URL](/docs/api/resources/oidc/#composing-your-base-url) for more information regarding Okta Org Authorization Server.
+>Note that the request parameter `client_id` is only applicable for the Okta Org Authorization Server. See [Composing Your Base URL](/docs/reference/api/oidc/#composing-your-base-url) for more information regarding Okta Org Authorization Server.
 
 #### Response Properties
 JWKS properties can be found [here](/docs/api/resources/authorization-servers#key-properties).
@@ -930,7 +930,7 @@ HTTP 404 Not Found
 OpenID Connect uses scope values to specify what access privileges are being requested for access tokens.
 
 The scopes associated with access tokens determine which claims are available when they are used
-to access the OIDC `/userinfo` [endpoint](/docs/api/resources/oidc/#userinfo). The following scopes are supported:
+to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). The following scopes are supported:
 
 | Property         | Description                                                                                                     | Required       |
 | :--------------- | :-------------------------------------------------------------------------------------------------------------- | :------------- |
@@ -1206,11 +1206,11 @@ Refresh tokens are opaque. More information about using them can be found in the
 
 Some endpoints require client authentication. To make requests to these endpoints, you must include a header or parameter in the request depending on the authentication method that the application is configured with.
 
-When registering an OAuth 2.0 client application, specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/api/resources/apps/#add-oauth-2-0-client-application) parameter.
+When registering an OAuth 2.0 client application, specify an authentication method by including the [token_endpoint_auth_method](https://developer.okta.com/docs/reference/api/apps/#add-oauth-2-0-client-application) parameter.
 
 > Note: If you don't specify a method when registering your client, the default method is `client_secret_basic`.
 
-> To create a client application and specify the authentication method, see the [Add OAuth 2.0 Client Application](/docs/api/resources/apps/#add-oauth-2-0-client-application) API Reference section. To change the client authentication method of an existing app, see the [Update the Client Authentication Method](/docs/api/resources/apps/#update-the-client-authentication-method) API Reference section.
+> To create a client application and specify the authentication method, see the [Add OAuth 2.0 Client Application](/docs/reference/api/apps/#add-oauth-2-0-client-application) API Reference section. To change the client authentication method of an existing app, see the [Update the Client Authentication Method](/docs/reference/api/apps/#update-the-client-authentication-method) API Reference section.
 
 Okta supports the following authentication methods, detailed in the sections below:
 
@@ -1232,7 +1232,7 @@ If your client's `token_endpoint_auth_method` is either `client_secret_basic` or
 ### JWT With Shared Key
 If you configured your client to use the `client_secret_jwt` client authentication method:
 
-Provide the `client_id` in a JWT that you sign with the `client_secret` using an HMAC SHA algorithm (HS256, HS384, or HS512). The JWT must also contain other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt). 
+Provide the `client_id` in a JWT that you sign with the `client_secret` using an HMAC SHA algorithm (HS256, HS384, or HS512). The JWT must also contain other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt). 
 
   After you create the JWT, in the request you need to specify the `client_assertion_type` as `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` and specify the JWT as the value for the `client_assertion` parameter.
 
@@ -1252,7 +1252,7 @@ This method is similar to JWT with Shared Key, but uses a public/private key pai
 
 If you configured your client to use the `private_key_jwt` client authentication method:
 
-Provide the `client_id` in a JWT that you sign with your private key using an RSA or ECDSA algorithm (RS256, RS384, RS512, ES256, ES384, ES512). The JWT must also contain other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/api/resources/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt).
+Provide the `client_id` in a JWT that you sign with your private key using an RSA or ECDSA algorithm (RS256, RS384, RS512, ES256, ES384, ES512). The JWT must also contain other values, such as issuer and subject. See [Token Claims for Client Authentication with Client Secret or Private Key JWT](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt).
 
 > Note: The private key that you use to sign the JWT must have the corresponding public key registered in the client's [JWKSet](/docs/api/resources/oauth-clients/#json-web-key-set).
 

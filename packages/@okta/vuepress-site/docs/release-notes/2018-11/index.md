@@ -16,7 +16,7 @@ title: Okta API Products Release Notes
 
 ### API Support for IdP-initiated Authentication
 
-Use this feature to allow a client to specify the application right away during an authentication request, instead of taking the user through "step-up" authentication in a separate request. [Documentation](/docs/api/resources/authn/#sp-initiated-step-up-authentication) <!-- OKTA-160275 -->
+Use this feature to allow a client to specify the application right away during an authentication request, instead of taking the user through "step-up" authentication in a separate request. [Documentation](/docs/reference/api/authn/#sp-initiated-step-up-authentication) <!-- OKTA-160275 -->
 
 ### New Powershell Module for TLS 1.2 Compatibility
 

@@ -31,7 +31,7 @@ For information on using the Postman REST API test client for these steps, see [
 
 #### Step 1: List your apps
 
-- For Outbound SAML, use the [/api/v1/apps API](/docs/api/resources/apps/#list-applications) to return a list of all apps and collect the `id`, `name`, and `label` elements for each app to update.
+- For Outbound SAML, use the [/api/v1/apps API](/docs/reference/api/apps/#list-applications) to return a list of all apps and collect the `id`, `name`, and `label` elements for each app to update.
 - For Inbound SAML, use the [/api/v1/idps API](/docs/api/resources/idps/#list-identity-providers-with-defaults) to return a list of all identity providers and collect the full response for each IdP to update.
 
 The following example shows a call for Outbound SAML apps.
@@ -165,7 +165,7 @@ Follow the third-party process that your company uses to sign the CSR. **You can
 
 #### Step 4: Publish the CSR
 
-- Use the [/api/v1/apps/credentials/csrs/${csrId}/lifecycle/publish API](/docs/api/resources/apps/#publish-csr-for-application) to publish the certificate for Outbound SAML apps.
+- Use the [/api/v1/apps/credentials/csrs/${csrId}/lifecycle/publish API](/docs/reference/api/apps/#publish-csr-for-application) to publish the certificate for Outbound SAML apps.
 - Use the [/api/v1/idps/credentials/csrs/${csrId}/lifecycle/publish API](/docs/api/resources/idps/#publish-signing-csr-for-idp) to publish the certificate for Inbound SAML apps.
 
 Base64 encoding and both PEM and CER certificate formats are supported.
@@ -214,7 +214,7 @@ Content-Type: application/json;charset=UTF-8
 
 Update the key credential for the app or IdP to specify the new signing Key ID.
 
-- For Outbound SAML, call the [Updating Application API](/docs/api/resources/apps/#update-application). Pass the app ID you obtained in step 1 in the URL. In the body, include the app name and the app label that you obtained in step 1 and the Key ID that you obtained in step 4.
+- For Outbound SAML, call the [Updating Application API](/docs/reference/api/apps/#update-application). Pass the app ID you obtained in step 1 in the URL. In the body, include the app name and the app label that you obtained in step 1 and the Key ID that you obtained in step 4.
 - For Inbound SAML, call the [Update IdP API](/docs/api/resources/idps/#update-identity-provider). Pass the entire [identity provider](/docs/api/resources/idps/#update-identity-provider) that you obtained in step 1 and use the Key ID value obtained in step 4. Partial updates are not supported by the `Updated IdP API`.
 
 The following request is for Outbound SAML.
@@ -323,7 +323,7 @@ Content-Type: application/json
 #### Step 6: Clone the certificate (optional)
 
 - To share the certificate you created across multiple apps, clone it with the
-[/api/v1/apps/${applicationId}/credentials/keys/${keyId}/clone?targetAid=${targetApplicationId} API](/docs/api/resources/apps/#clone-application-key-credential) using the key `id` you generated.
+[/api/v1/apps/${applicationId}/credentials/keys/${keyId}/clone?targetAid=${targetApplicationId} API](/docs/reference/api/apps/#clone-application-key-credential) using the key `id` you generated.
 
 - To share the certificate you created across multiple Identity Providers, clone it with the
 [/api/v1/idps/${idpId}/credentials/keys/${keyId}/clone?targetIdpId=${targetIdpId} API](#top) using the key `id` you generated.

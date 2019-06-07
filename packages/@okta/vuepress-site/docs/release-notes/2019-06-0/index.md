@@ -15,6 +15,6 @@ The [Email Factor](/docs/api/resources/factors/#enroll-okta-email-factor) is now
 
 ### Users can be removed from Profile Masters
 
-Users can now be [unassigned](/docs/api/resources/apps/#remove-user-from-application) from Apps that serve as their Profile Masters. <!-- OKTA-227994 -->
+Users can now be [unassigned](/docs/reference/api/apps/#remove-user-from-application) from Apps that serve as their Profile Masters. <!-- OKTA-227994 -->
 
 

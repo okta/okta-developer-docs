@@ -18,7 +18,7 @@ const config = {
 };
 ```
 
-> Note: `openid`, `profile`, and `email` are reserved scopes in OpenID Connect that allow you to get access to user's data. You can read more about scopes [here](https://developer.okta.com/docs/api/resources/oidc/#scopes).
+> Note: `openid`, `profile`, and `email` are reserved scopes in OpenID Connect that allow you to get access to user's data. You can read more about scopes [here](https://developer.okta.com/docs/reference/api/oidc/#scopes).
 
 You can also build it from dynamic values like environment variables:
 

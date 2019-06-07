@@ -76,7 +76,7 @@ sections:
      description: Details on parameters, requests, and responses for Okta's API endpoints.
      links:
        - title: OpenID Connect & OAuth 2.0 API
-         link: /docs/api/resources/oidc/
+         link: /docs/reference/api/oidc/
        - title: Users API
          link: /docs/api/resources/users/
        - title: Error Codes

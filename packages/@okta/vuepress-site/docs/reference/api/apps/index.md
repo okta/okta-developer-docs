@@ -1028,7 +1028,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
     the OAuth 2.0 authorization code grant.
 
 * <ApiLifecycle access="ea" /> A consent dialog appears depending on the values of three elements:
-    * `prompt`, a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/api/resources/oidc/#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/api/resources/oidc/#authorize) (Org authorization server)
+    * `prompt`, a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/reference/api/oidc/#authorize) (Org authorization server)
     * `consent_method`, a property listed in the Settings table above
     * `consent`, a property on [scopes](/docs/api/resources/authorization-servers#scope-properties)
 

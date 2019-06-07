@@ -599,8 +599,8 @@ Describes an application:
 
 | Property      | Description                                          | DataType        | Nullable |
 | :------------ | :--------------------------------------------------- | :-------------- | :------- |
-| id            | Unique key for [app](/docs/api/resources/apps/#application-model)         | String          | FALSE    |
-| displayName   | [App's](/docs/api/resources/apps/#application-model) label                | String          | TRUE     |
+| id            | Unique key for [app](/docs/reference/api/apps/#application-model)         | String          | FALSE    |
+| displayName   | [App's](/docs/reference/api/apps/#application-model) label                | String          | TRUE     |
 | objectType    | Type of object                                       | `AppInstance`   | FALSE    |
 
 ``` json
@@ -611,7 +611,7 @@ Describes an application:
 }
 ```
 
-The app can be retrieved by `id` with the [Apps API](/docs/api/resources/apps/#get-application).
+The app can be retrieved by `id` with the [Apps API](/docs/reference/api/apps/#get-application).
 
 #### Client ObjectType
 

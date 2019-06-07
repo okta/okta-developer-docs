@@ -35,7 +35,7 @@ See [the User Model documentation](/docs/api/resources/users/#user-model) for mo
 
 A new parameter, `request` is available for all `/authorize` endpoints. The parameter contains a JWT created by the client, enabling requests to be passed in a single, self-contained parameter. This JWT must be signed.
 
-For details about using `request`, see [Oauth 2.0](/docs/api/resources/oidc/#request-parameters-1) or [OpenID Connect](/docs/api/resources/oidc/#request-parameters-3) documentation. <!-- OKTA-78476 -->
+For details about using `request`, see [Oauth 2.0](/docs/reference/api/oidc/#request-parameters-1) or [OpenID Connect](/docs/reference/api/oidc/#request-parameters-3) documentation. <!-- OKTA-78476 -->
 
 ### API Bug Fixes
 

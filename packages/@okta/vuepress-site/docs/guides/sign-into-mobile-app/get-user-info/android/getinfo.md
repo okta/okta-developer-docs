@@ -14,4 +14,4 @@ client.getUserProfile(new RequestCallback<JSONObject, AuthorizationException>() 
 });
 ```
 
-In `onSuccess` the user info returned is a `JSONObject` with the following [properties](https://developer.okta.com/docs/api/resources/oidc/#response-example-success-5).
+In `onSuccess` the user info returned is a `JSONObject` with the following [properties](https://developer.okta.com/docs/reference/api/oidc/#response-example-success-5).

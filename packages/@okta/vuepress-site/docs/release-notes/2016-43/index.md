@@ -7,7 +7,7 @@ excerpt: Summary of changes to the Okta Platform since Release 2016.41
 
 ### Enhanced Well-Known Endpoint for OpenID Connect
 
-The [OpenID Connect discovery endpoint](/docs/api/resources/oidc/#well-knownopenid-configuration) `.well-known` includes the introspection and revocation endpoints.
+The [OpenID Connect discovery endpoint](/docs/reference/api/oidc/#well-knownopenid-configuration) `.well-known` includes the introspection and revocation endpoints.
 
 Request Example:
 

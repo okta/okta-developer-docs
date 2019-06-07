@@ -27,7 +27,7 @@ A high-level overview of OpenID Connect can be found [here](/authentication-guid
 
 The ID tokens are in JSON Web Token (JWT) format, the specification for which can be found here: <https://tools.ietf.org/html/rfc7519>. They are signed using private JSON Web Keys (JWK), the specification for which you can find here: <https://tools.ietf.org/html/rfc7517>.
 
-More information about Okta's ID tokens can be found in the [OIDC & OAuth 2.0 API Reference](/docs/api/resources/oidc/#id-token)
+More information about Okta's ID tokens can be found in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token)
 
 ## ID Tokens vs Access Tokens
 
@@ -50,7 +50,7 @@ The high-level overview of validating an ID token looks like this:
 
 The JSON Web Key Set (JWKS) needs to be retrieved from your [Okta Authorization Server](/authentication-guide/implementing-authentication/set-up-authz-server), though your application should have it cached. Specifically, your Authorization Server's Metadata endpoint contains the `jwks_uri`, which you can use to get the JWKS.
 
-> For more information about retrieving this metadata, see [Retrieve Authorization Server Metadata](/docs/api/resources/oidc/#well-knownoauth-authorization-server).
+> For more information about retrieving this metadata, see [Retrieve Authorization Server Metadata](/docs/reference/api/oidc/#well-knownoauth-authorization-server).
 
 ### Decode the ID Token
 
@@ -68,7 +68,7 @@ You should verify the following:
 
 ## Validating A Token Remotely With Okta
 
-Alternatively, you can also validate an ID Token using the Token Introspection endpoint: [Introspection Request](/docs/api/resources/oidc/#introspect). This endpoint takes your token as a URL query and returns back a JSON response with a boolean `active` property. If `active` is `true` then further information about the token is returned as well.
+Alternatively, you can also validate an ID Token using the Token Introspection endpoint: [Introspection Request](/docs/reference/api/oidc/#introspect). This endpoint takes your token as a URL query and returns back a JSON response with a boolean `active` property. If `active` is `true` then further information about the token is returned as well.
 
 This incurs a network request which is slower to do verification, but can be used when you want to guarantee that the access token hasn't been revoked.
 

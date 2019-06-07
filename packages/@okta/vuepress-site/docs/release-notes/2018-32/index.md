@@ -23,7 +23,7 @@ The [System Log](/docs/api/resources/system_log) now reports when requests are d
 ### Bugs Fixed in 2018.32
 
 * Fixed a bug that affected delegated authentication users: in rare cases, the user appeared to be active when locked out, or vice versa. (OKTA-180932)
-* The Apps API now [returns an error](/docs/api/resources/apps/#response-example-self-service-application-assignment-not-available) if changing the Application's self-service assignment settings could result in an insecure state. (OKTA-182497)
+* The Apps API now [returns an error](/docs/reference/api/apps/#response-example-self-service-application-assignment-not-available) if changing the Application's self-service assignment settings could result in an insecure state. (OKTA-182497)
 
 ### Previously Released Early Access Features 2018.32 Update
 

@@ -82,23 +82,23 @@ redirects:
   - from: /docs/getting_started/design_principles
     to: /docs/reference/rate-limits/index.html
   - from: /docs/api/
-    to: /docs/api/resources/apps/index.html
+    to: /docs/reference/api/apps/index.html
   - from: /docs/api/resources/
-    to: /docs/api/resources/apps/index.html
+    to: /docs/reference/api/apps/index.html
   - from: /docs/api/reference/
-    to: /docs/api/resources/apps/index.html
+    to: /docs/reference/api/apps/index.html
   - from: /docs/api/reference/index.html
-    to: /docs/api/resources/apps/index.html
+    to: /docs/reference/api/apps/index.html
   - from: /docs/api/rest/apps.html
-    to: /docs/api/resources/apps/index.html
+    to: /docs/reference/api/apps/index.html
   - from: /docs/api/resources/apps.html
-    to: /docs/api/resources/apps/index.html
+    to: /docs/reference/api/apps/index.html
   - from: /docs/api/rest/authn.html
-    to: /docs/api/resources/authn/index.html
+    to: /docs/reference/api/authn/index.html
   - from: /docs/api/resources/index.html
-    to: /docs/api/resources/authn/index.html
+    to: /docs/reference/api/authn/index.html
   - from: /docs/api/resources/
-    to: /docs/api/resources/authn/index.html
+    to: /docs/reference/api/authn/index.html
   - from: /docs/api/rest/events.html
     to: /docs/api/resources/events/index.html
   - from: /docs/getting_started/factor_admin.html
@@ -112,13 +112,13 @@ redirects:
   - from: /docs/api/rest/oauth-clients.html
     to: /docs/api/resources/oauth-clients/index.html
   - from: /docs/api/resources/oauth2
-    to: /docs/api/resources/oidc/index.html
+    to: /docs/reference/api/oidc/index.html
   - from: /docs/how-to/beta-auth-service/api-access-management-troubleshooting
-    to: /docs/api/resources/oidc/index.html
+    to: /docs/reference/api/oidc/index.html
   - from: /standards/OIDC/index.html
-    to: /docs/api/resources/oidc/index.html
+    to: /docs/reference/api/oidc/index.html
   - from: /reference/authentication_reference
-    to: /docs/api/resources/oidc/index.html
+    to: /docs/reference/api/oidc/index.html
   - from: /docs/getting_started/policy.html
     to: /docs/api/resources/policy/index.html
   - from: /docs/api/rest/sessions.html
@@ -350,11 +350,11 @@ redirects:
   - from: /use_cases/mobile/okta_mobile_connect/index.html
     to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/api/reference/apps.html
-    to: /docs/api/resources/apps/
+    to: /docs/reference/api/apps/
   - from: /docs/api/resources/users.html
     to: /docs/api/resources/users/
   - from: /docs/api/resources/authn.html
-    to: /docs/api/resources/authn/
+    to: /docs/reference/api/authn/
   - from: /docs/api/resources/system_log.html
     to: /docs/api/resources/system_log/
   - from: /docs/api/
@@ -372,11 +372,11 @@ redirects:
   - from: /3rd_party_notices/Android_Mobile.html
     to: /3rd_party_notices/Android_Mobile/
   - from: /docs/api/resources/oidc.html
-    to: /docs/api/resources/oidc/
+    to: /docs/reference/api/oidc/
   - from: /docs/api/resources/oauth2.html
-    to: /docs/api/resources/oidc/
+    to: /docs/reference/api/oidc/
   - from: /standards/OIDC/
-    to: /docs/api/resources/oidc/
+    to: /docs/reference/api/oidc/
   - from: /docs/api/getting_started/design_principles.html
     to: /docs/docs/reference/api-overview/
   - from: /standards/SAML/index

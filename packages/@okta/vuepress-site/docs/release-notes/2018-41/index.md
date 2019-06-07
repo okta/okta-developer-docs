@@ -18,7 +18,7 @@ When an org reaches its [rate limit](/docs/api/getting_started/rate-limits), the
 
 ### OIDC Clients Can Initiate Logout with Expired Token
 
-Client-initiated [logout](/docs/api/resources/oidc/#logout) now succeeds even when the ID token is no longer valid. <!--OKTA-131652-->
+Client-initiated [logout](/docs/reference/api/oidc/#logout) now succeeds even when the ID token is no longer valid. <!--OKTA-131652-->
 
 ### Change to User Link Editing Permissions
 

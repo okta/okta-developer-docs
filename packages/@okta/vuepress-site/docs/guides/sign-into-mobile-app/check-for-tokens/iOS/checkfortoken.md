@@ -23,7 +23,7 @@ Note that the computed property accessToken validates the token's expiration dat
 }
 ```
 
-You can use the [introspect](https://developer.okta.com/docs/api/resources/oidc/#introspect) endpoint to check the validity of the `accessToken`. This gives you more information about the token in the [response properties](https://developer.okta.com/docs/api/resources/oidc/#response-properties-3):
+You can use the [introspect](https://developer.okta.com/docs/reference/api/oidc/#introspect) endpoint to check the validity of the `accessToken`. This gives you more information about the token in the [response properties](https://developer.okta.com/docs/reference/api/oidc/#response-properties-3):
 
 ```swift
 guard let accessToken = authStateManager?.accessToken else { return }

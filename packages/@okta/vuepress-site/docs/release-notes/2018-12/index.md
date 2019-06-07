@@ -18,8 +18,8 @@ When creating multiple instances of the same app, each instance of the app has a
 
 ### Token Management API Is in Early Access (EA)
 
-Use the Token Management API to view and revoke OAuth 2.0 and OpenID Connect refresh tokens by [end user](/docs/api/resources/users/#user-oauth-20-token-management-operations), [Custom Authorization Server](/docs/api/resources/authorization-servers#oauth-20-token-management-operations), or [client app](/docs/api/resources/apps/#application-oauth-20-token-operations). <!-- OKTA-145525 -->
+Use the Token Management API to view and revoke OAuth 2.0 and OpenID Connect refresh tokens by [end user](/docs/api/resources/users/#user-oauth-20-token-management-operations), [Custom Authorization Server](/docs/api/resources/authorization-servers#oauth-20-token-management-operations), or [client app](/docs/reference/api/apps/#application-oauth-20-token-operations). <!-- OKTA-145525 -->
 
 ### Bug Fixed for 2018.12
 
-* `GET` requests to the `/authorize` [endpoint](/docs/api/resources/oidc/#authorize) with `response_mode=form_post` would return an HTML page with a title `<span>`. (OKTA-162709)
+* `GET` requests to the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) with `response_mode=form_post` would return an HTML page with a title `<span>`. (OKTA-162709)

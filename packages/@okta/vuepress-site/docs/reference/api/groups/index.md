@@ -1588,7 +1588,7 @@ HTTP/1.1 200 No Content
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/apps" />
 
-Enumerates all [applications](/docs/api/resources/apps/#application-model) that are assigned to a group. See [Application Group Operations](/docs/api/resources/apps/#application-group-operations)
+Enumerates all [applications](/docs/reference/api/apps/#application-model) that are assigned to a group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations)
 
 ##### Request Parameters
 
@@ -1604,7 +1604,7 @@ Enumerates all [applications](/docs/api/resources/apps/#application-model) that 
 ##### Response Parameters
 
 
-Array of [Applications](/docs/api/resources/apps/#application-model)
+Array of [Applications](/docs/reference/api/apps/#application-model)
 
 ##### Request Example
 
@@ -1906,6 +1906,6 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | self               | The primary URL for the group                                                                                                                                   |
 | logo               | Provides links to logo images for the group if available                                                                                                        |
 | users              | Provides [group member operations](#group-member-operations) for the group                                                                                      |
-| apps               | Lists all [applications](/docs/api/resources/apps/#application-model) that are assigned to the group. See [Application Group Operations](/docs/api/resources/apps/#application-group-operations)          |
+| apps               | Lists all [applications](/docs/reference/api/apps/#application-model) that are assigned to the group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations)          |
 
 > The Links Object is read only.

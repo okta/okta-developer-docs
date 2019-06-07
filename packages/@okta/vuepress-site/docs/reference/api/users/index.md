@@ -1897,7 +1897,7 @@ Users who don't have a password must complete the welcome flow by visiting the a
 }
 ```
 
-If a password was set before the user was activated, then user must login with with their password or the `activationToken` and not the activation link.  More information about using the `activationToken` to login can be found in the [Authentication API](/docs/api/resources/authn/#primary-authentication-with-activation-token). 
+If a password was set before the user was activated, then user must login with with their password or the `activationToken` and not the activation link.  More information about using the `activationToken` to login can be found in the [Authentication API](/docs/reference/api/authn/#primary-authentication-with-activation-token). 
 
 ##### Request Example
 

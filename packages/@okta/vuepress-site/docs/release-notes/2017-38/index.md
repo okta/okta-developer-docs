@@ -26,7 +26,7 @@ The Password Policy type controls settings that determine a user's password leng
 
 #### Key Rotation for OpenID Connect and OAuth Apps
 
-You can now specify the key rotation mode for OpenID Connect and OAuth apps in the Apps API with `autoKeyRollover`. More information can be found in the [API Reference](/docs/api/resources/apps/#oauth-credential-object).
+You can now specify the key rotation mode for OpenID Connect and OAuth apps in the Apps API with `autoKeyRollover`. More information can be found in the [API Reference](/docs/reference/api/apps/#oauth-credential-object).
 
 ### API Bug Fixes
 

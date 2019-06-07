@@ -76,7 +76,7 @@ To use these functions to create a token using a dynamic group whitelist, create
 
 Before you start, perform the following two tasks for either Okta Authorization Server or Custom Authorization Server.
 
- * Create an OAuth 2.0 or OpenID Connect client with the [Apps API](/docs/api/resources/apps/#request-example-8). In the instruction examples, the client ID is `0oabskvc6442nkvQO0h7`.
+ * Create an OAuth 2.0 or OpenID Connect client with the [Apps API](/docs/reference/api/apps/#request-example-8). In the instruction examples, the client ID is `0oabskvc6442nkvQO0h7`.
  * Create the groups that you want to configure in the groups claim. In the instruction examples, we're configuring the `WestCoastDivision` group, and the group ID is `00gbso71miOMjxHRW0h7`.
 
 Now, use the instructions for your chosen authorization server to create a group claim, assign a group whitelist to your client app, and configure a groups claim that references a whitelist:

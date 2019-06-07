@@ -91,7 +91,7 @@ Additionally, the Set Recovery Question Answer operation doesn't validate comple
 #### Step-up Authentication for SAML Apps is an Early Access Feature
 
 Every step-up transaction starts with a user accessing an application. If step-up authentication is required, Okta redirects the user to the custom login page with state token as a request parameter.
-For more information, see the [SP initiated Step-up Authentication documentation](/docs/api/resources/authn/#sp-initiated-step-up-authentication).
+For more information, see the [SP initiated Step-up Authentication documentation](/docs/reference/api/authn/#sp-initiated-step-up-authentication).
 
 #### Simple HAL Links Generally Available in Preview for May, 2017
 

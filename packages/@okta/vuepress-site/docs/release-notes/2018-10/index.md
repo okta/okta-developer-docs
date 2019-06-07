@@ -40,7 +40,7 @@ You can use the salted SHA-256 hash type when [importing passwords](/docs/api/re
 
 ### New Parameter for Authentication with Okta Verify with Auto-Push
 
-We have added [an optional URL parameter, `autoPush` ](/docs/api/resources/authn/#request-parameters-for-verify-push-factor) that allows Okta to store the user's Auto-Push preference when verifying Okta Verify with Auto-Push. This parameter is only necessary when implementing custom login flows that do not use the Okta Sign-In Widget. <!-- OKTA-155563 -->
+We have added [an optional URL parameter, `autoPush` ](/docs/reference/api/authn/#request-parameters-for-verify-push-factor) that allows Okta to store the user's Auto-Push preference when verifying Okta Verify with Auto-Push. This parameter is only necessary when implementing custom login flows that do not use the Okta Sign-In Widget. <!-- OKTA-155563 -->
 
 ### System Log Changes for 2018.10
 

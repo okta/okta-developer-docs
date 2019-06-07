@@ -39,7 +39,7 @@ curl --request POST \
   rlnU9oZU4qWGrhQSM%3Dyd&scope=openid'
 ```
 
-> Important: The call to the `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and Secret. You can find the client ID and secret in your application's General tab. For more on Basic Auth, see [Client Authentication Methods](/docs/api/resources/oidc/#client-authentication-methods).
+> Important: The call to the `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and Secret. You can find the client ID and secret in your application's General tab. For more on Basic Auth, see [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
@@ -48,7 +48,7 @@ Note the parameters that are being passed:
 - `password` is the password of a user registered with Okta.
 - `scope` must be at least `openid`. For more information about this, see the [Custom Authorization Server chapter](/authentication-guide/implementing-authentication/set-up-authz-server#create-scopes-optional).
 
-For more information on these parameters, see the [OAuth 2.0 API reference](/docs/api/resources/oidc/#token).
+For more information on these parameters, see the [OAuth 2.0 API reference](/docs/reference/api/oidc/#token).
 
 If the credentials are valid, your application will receive back access and ID tokens:
 

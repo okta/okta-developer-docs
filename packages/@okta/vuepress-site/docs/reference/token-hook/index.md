@@ -58,7 +58,7 @@ Provides information on the properties of the access token that Okta has generat
 
 #### claims
 
-Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc/#tokens-and-claims).
+Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
 
 #### lifetime
 
@@ -68,7 +68,7 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 
 #### scopes
 
-The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/api/resources/oidc/#tokens-and-claims).
+The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
 
 ## Objects in the Response that You Send
 
@@ -306,9 +306,9 @@ Use the `add` operation to add new claims to a token. If you use the `add` opera
 
 You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system-specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
-For the list of access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). Note that although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.
+For the list of access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/reference/api/oidc/#access-token-scopes-and-claims). Note that although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.
 
-See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
+See [ID Token Claims](https://developer.okta.com/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
 
 ```json
 {
@@ -370,9 +370,9 @@ You can modify how long the access and ID tokens are valid by specifying the `li
 ### Sample Response to Remove Token Claims
 You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events. 
 
-For the list of access token reserved claims that you can't remove, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/api/resources/oidc/#access-token-scopes-and-claims). 
+For the list of access token reserved claims that you can't remove, see [Access Tokens Scopes and Claims](https://developer.okta.com/docs/reference/api/oidc/#access-token-scopes-and-claims). 
 
-See [ID Token Claims](https://developer.okta.com/docs/api/resources/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
+See [ID Token Claims](https://developer.okta.com/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
 
 > Note: The `value` property for the `remove` operation isn't required. If you provide it in the response, it should be set to `null`. Providing any other value fails the entire PATCH response.
 

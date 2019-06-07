@@ -20,4 +20,4 @@ If the `kid` claim doesn't match, it's possible that the signing keys have chang
 
 > Keys used to sign tokens automatically rotate and should always be resolved dynamically against the published JWKS. Your app might fail if you hardcode public keys in your applications. Be sure to include key rollover in your implementation.
 
-> If your application can't retrieve keys dynamically, the administrator can disable the automatic key rotation in the administrator UI, [generate a key credential](/docs/api/resources/apps/#generate-new-application-key-credential), and [update the application](/docs/api/resources/apps/#update-key-credential-for-application) to use it for signing.
+> If your application can't retrieve keys dynamically, the administrator can disable the automatic key rotation in the administrator UI, [generate a key credential](/docs/reference/api/apps/#generate-new-application-key-credential), and [update the application](/docs/reference/api/apps/#update-key-credential-for-application) to use it for signing.

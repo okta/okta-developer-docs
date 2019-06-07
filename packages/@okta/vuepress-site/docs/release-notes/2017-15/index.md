@@ -34,7 +34,7 @@ Previously only the appropriate Access Token or Refresh Token was returned. <!--
 #### Authentication That Overrides Client Request Context
 
 The API now authenticates a user via a trusted application or proxy that uses the activation token.
-For more information, see [Authentication API](/docs/api/resources/authn/#primary-authentication-with-activation-token). <!-- OKTA-119692 -->
+For more information, see [Authentication API](/docs/reference/api/authn/#primary-authentication-with-activation-token). <!-- OKTA-119692 -->
 
 #### HAL Link for User in Provisioned State
 

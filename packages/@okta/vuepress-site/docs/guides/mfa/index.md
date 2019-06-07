@@ -211,4 +211,4 @@ Okta MFA API with the following resources.
 
 -   The [design principles for the Okta API](/docs/docs/reference/api-overview//).
 -   The API documentation for the [Okta Factors API](/docs/api/resources/factors/).
--   The API documentation for the [Okta Authentication API](/docs/api/resources/authn/).
+-   The API documentation for the [Okta Authentication API](/docs/reference/api/authn/).

@@ -13,7 +13,7 @@ title: Okta API Products Release Notes
 
 ### Bugs Fixed in 2018.12.2
 
-* An error would be returned if the `/apps/${applicationId}` [endpoint](/docs/api/resources/apps/#update-application) was called to update an app that did not not have a configurable `signOnMode` property. <!--OKTA-201187-->
+* An error would be returned if the `/apps/${applicationId}` [endpoint](/docs/reference/api/apps/#update-application) was called to update an app that did not not have a configurable `signOnMode` property. <!--OKTA-201187-->
 
 * The [Identity Providers API](/docs/api/resources/idps) endpoints `GET /idps/${idpId}/users`, `GET /idps/${idpId}/users/{userId}`, and `DELETE /idps/${idpId}/users/${userId}` previously required the social authentication feature, even for users related to a non-social IdP. Additionally, non-Social IdPs were not included in the results returned by `GET /users/${userId}/idps`. <!--OKTA-199631-->
 

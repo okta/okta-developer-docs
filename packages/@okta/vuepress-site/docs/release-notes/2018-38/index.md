@@ -12,7 +12,7 @@ title: Okta API Products Release Notes
 
 ### User Sessions Deleted after Password Reset
 
-We now delete all sessions for a user after a successful password reset as part of the [forgot password](/docs/api/resources/authn/#forgot-password) flow. <!--OKTA-187076-->
+We now delete all sessions for a user after a successful password reset as part of the [forgot password](/docs/reference/api/authn/#forgot-password) flow. <!--OKTA-187076-->
 
 ### Bugs Fixed in 2018.38
 
