@@ -1,6 +1,6 @@
 If you created your application with the Spring Initializr on the <GuideLink link="../before-you-being/">first page of this guide</GuideLink>, this dependency has already been added.
 
-For existing applications you can add the Okta Spring Boot Starter by including the following Apache Maven dependency: 
+For existing applications, you can add the Okta Spring Boot Starter by including the following Apache Maven dependency: 
 
 ```xml
 <dependency>
