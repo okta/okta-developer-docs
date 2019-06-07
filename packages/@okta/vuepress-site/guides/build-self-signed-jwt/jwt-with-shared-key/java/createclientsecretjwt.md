@@ -1,18 +1,17 @@
-Suggested flow for content:
+Using the [JJWT library](https://github.com/jwtk/jjwt):
 
-Create the Header
-Create the Payload
-Create the Signature
-Put it Together
+```java
+String clientSecret = "{clientSecret}"; // Or load from configuration
+SecretKey sharedSecret = Keys.hmacShaKeyFor(clientSecret.getBytes(StandardCharsets.UTF_8));
+Instant now = Instant.now();
 
-Expected claims in the example token:
-
-`aud: "https://{yourOktaDomain}/oauth2/default/v1/token",
-exp: unix_epoch(now.addMinutes(5)),
-jti: guid.new(),
-iat: unix_epoch(now),
-iss: client_id,
-sub: client_id,`
-
-
-Signed via HS256 (shared secret is the client_secret)
+String jwt = Jwts.builder()
+        .setAudience("https://{yourOktaDomain}/oauth2/default/v1/token")
+        .setIssuedAt(Date.from(now))
+        .setExpiration(Date.from(now.plus(5L, ChronoUnit.MINUTES)))
+        .setIssuer(clientId)
+        .setSubject(clientId)
+        .setId(UUID.randomUUID().toString())
+        .signWith(sharedSecret)
+        .compact();
+```

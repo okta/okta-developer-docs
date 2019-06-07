@@ -1,17 +1,16 @@
-Suggested flow for content:
+Using the [JJWT library](https://github.com/jwtk/jjwt):
 
-Create the Header
-Create the Payload
-Create the Signature
-Put it Together
+```java
+PrivateKey privateKey = // Load an RSA private key from configuration
+Instant now = Instant.now();
 
-Expected claims in the example token:
-
-`"sub": client_id,
-"aud": "https://{yourOktaDomain}/oauth2/default/v1/token",
-"iss": client_id,
-"exp": unix_epoch(now.addMinutes(5)),
-"iat": unix_epoch(now),
-"jti": guid.new()`
-
-Signed via RS256 (using the private key of a public/private keypair)
+String jwt = Jwts.builder()
+        .setAudience("https://{yourOktaDomain}/oauth2/default/v1/token")
+        .setIssuedAt(Date.from(now))
+        .setExpiration(Date.from(now.plus(5L, ChronoUnit.MINUTES)))
+        .setIssuer(clientId)
+        .setSubject(clientId)
+        .setId(UUID.randomUUID().toString())
+        .signWith(privateKey)
+        .compact();
+```
