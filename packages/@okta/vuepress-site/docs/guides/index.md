@@ -10,6 +10,9 @@ guides:
  - custom-url-domain
  - customize-authz-server
  - custom-error-pages
+ - byo-saml
+ - create-an-api-token
+ - create-token-with-groups-claim
 featured: 
  - sign-into-web-app
  - sign-into-spa

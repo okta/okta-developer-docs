@@ -2,13 +2,11 @@ module.exports = [
   {
     title: "Concepts",
     links: [
-      { title: 'Inline Hooks', link: '/use_cases/inline_hooks/'},
-      { title: 'Event Hooks', link: '/use_cases/event_hooks/'},
-      { title: 'Authentication', link: '/use_cases/authentication/'},
-      { title: 'Events API Migration', link: '/use_cases/events-api-migration/'},
-      { title: 'Multi-Factor Authentication', link: '/use_cases/mfa/'},
-      { title: 'API Access Management', link: '/use_cases/api_access_management/'},
-      { title: 'Relationships with Linked Objects', link: '/use_cases/relationships/'}
+      { title: 'Inline Hooks', link: '/docs/concepts/inline-hooks/'},
+      { title: 'Authentication', link: '/docs/concepts/authentication/'},
+      { title: 'Events API Migration', link: '/docs/concepts/events-api-migration/'},
+      { title: 'Multi-Factor Authentication', link: '/docs/guides/mfa/'},
+      { title: 'API Access Management', link: '/docs/concepts/api-access-management/'}
     ]
   },
   {
@@ -42,57 +40,54 @@ module.exports = [
         ]
       },
       { title: 'Generic OpenID Connect IdP', link: '/authentication-guide/generic-oidc/'},
-      { title: 'Add User Consent to Your Authentication Flow', link: '/docs/how-to/add-user-consent-to-flow/'},
-      { title: 'Upload Your Own Certificates for Outbound SAML Apps', link: '/docs/how-to/byo_saml/'},
-      { title: 'Create an ID Token or Access Token Containing a Groups Claim', link: '/docs/how-to/creating-token-with-groups-claim/'},
-      { title: 'Share Application Key Credentials for IdPs Across Apps', link: '/docs/how-to/sharing-cert/'},
-      { title: 'Upgrade SAML Apps to SHA256', link: '/docs/how-to/updating_saml_cert/'}
+      { title: 'Request user consent during authentication', link: '/docs/guides/request-user-consent/'},
+      { title: 'Create tokens with group claims', link: '/docs/guides/create-token-with-groups-claim/'}
     ]
   },
   {
     title: "Reference",
     links: [
-        { title: 'Sign in Your Users', link: '/docs/api/resources/oidc/', subLinksId: 'Sidebar_References', subLinks: [
-          { title: 'OpenID Connect & OAuth 2.0 API', link: '/docs/api/resources/oidc/'},
-          { title: 'Authentication', link: '/docs/api/resources/authn/'}
+        { title: 'Sign in Your Users', link: '/docs/reference/api/oidc/', subLinksId: 'Sidebar_References', subLinks: [
+          { title: 'OpenID Connect & OAuth 2.0 API', link: '/docs/reference/api/oidc/'},
+          { title: 'Authentication', link: '/docs/reference/api/authn/'}
         ]
       },
-      { title: 'Manage Okta Resources', link: '/docs/api/resources/roles/',  subLinksId: 'Sidebar_Resources',  subLinks: [
-          { title: 'Administrator Roles', link: '/docs/api/resources/roles/'},
-          { title: 'Apps', link: '/docs/api/resources/apps/'},
-          { title: 'Authorization Servers', link: '/docs/api/resources/authorization-servers/'},
-          { title: 'Dynamic Client Registration', link: '/docs/api/resources/oauth-clients/'},
-          { title: 'Event Hooks', link: '/docs/api/resources/event-hooks/'},
-          { title: 'Factors', link: '/docs/api/resources/factors/'},
-          { title: 'Groups', link: '/docs/api/resources/groups/'},
-          { title: 'Identity Providers', link: '/docs/api/resources/idps/'},
-          { title: 'Inline Hooks', link: '/docs/api/resources/inline-hooks/'},
-          { title: 'Linked Objects', link: '/docs/api/resources/linked-objects/'},
-          { title: 'Policy', link: '/docs/api/resources/policy/'},
-          { title: 'Schemas', link: '/docs/api/resources/schemas/'},
-          { title: 'Sessions', link: '/docs/api/resources/sessions/'},
-          { title: 'System Log', link: '/docs/api/resources/system_log/'},
-          { title: 'Templates', link: '/docs/api/resources/templates/'},
-          { title: 'Trusted Origins', link: '/docs/api/resources/trusted-origins/'},
-          { title: 'Users', link: '/docs/api/resources/users/'},
-          { title: 'Zones', link: '/docs/api/resources/zones/'}
+      { title: 'Manage Okta Resources', link: '/docs/reference/api/roles/',  subLinksId: 'Sidebar_Resources',  subLinks: [
+          { title: 'Administrator Roles', link: '/docs/reference/api/roles/'},
+          { title: 'Apps', link: '/docs/reference/api/apps/'},
+          { title: 'Authorization Servers', link: '/docs/reference/api/authorization-servers/'},
+          { title: 'Dynamic Client Registration', link: '/docs/reference/api/oauth-clients/'},
+          { title: 'Event Hooks', link: '/docs/reference/api/event-hooks/'},
+          { title: 'Factors', link: '/docs/reference/api/factors/'},
+          { title: 'Groups', link: '/docs/reference/api/groups/'},
+          { title: 'Identity Providers', link: '/docs/reference/api/idps/'},
+          { title: 'Inline Hooks', link: '/docs/reference/api/inline-hooks/'},
+          { title: 'Linked Objects', link: '/docs/reference/api/linked-objects/'},
+          { title: 'Policy', link: '/docs/reference/api/policy/'},
+          { title: 'Schemas', link: '/docs/reference/api/schemas/'},
+          { title: 'Sessions', link: '/docs/reference/api/sessions/'},
+          { title: 'System Log', link: '/docs/reference/api/system_log/'},
+          { title: 'Templates', link: '/docs/reference/api/templates/'},
+          { title: 'Trusted Origins', link: '/docs/reference/api/trusted-origins/'},
+          { title: 'Users', link: '/docs/reference/api/users/'},
+          { title: 'Zones', link: '/docs/reference/api/zones/'}
         ]
       },
-      { title: 'API Concepts', link: '/docs/api/getting_started/design_principles/', subLinks: [
-          { title: 'Design Principles', link: '/docs/api/getting_started/design_principles/'},
-          { title: 'Finding Your Application Credentials', link: '/docs/api/getting_started/finding_your_app_credentials/'},
-          { title: 'Finding Your Okta Domain', link: '/docs/api/getting_started/finding_your_domain/'},
-          { title: 'Getting a Token', link: '/docs/api/getting_started/getting_a_token/'},
-          { title: 'Enabling CORS', link: '/docs/api/getting_started/enabling_cors/'},
-          { title: 'Rate limits at Okta', link: '/docs/api/getting_started/rate-limits/'},
-          { title: 'Okta Release Lifecycle', link: '/docs/api/getting_started/releases-at-okta/'}
+      { title: 'API Overview', link: '/docs/reference/api-overview/', subLinks: [
+          { title: 'Find Your Application Credentials', link: '/docs/guides/find-your-app-credentials/'},
+          { title: 'Find Your Okta Domain', link: '/docs/guides/find-your-domain/'},
+          { title: 'Create an API Token', link: '/docs/guides/create-an-api-token/'},
+          { title: 'Enabling CORS', link: '/docs/guides/enabling-cors/'},
+          { title: 'Rate limits', link: '/docs/reference/rate-limits/'},
+          { title: 'Release Lifecycle', link: '/docs/reference/releases-at-okta/'}
         ]
       },
-      { title: 'Error Codes', link: '/reference/error_codes/'},
-      { title: 'Okta Expression Language', link: '/reference/okta_expression_language/'},
-      { title: 'Postman Collections', link: '/reference/postman_collections/'},
-      { title: 'SCIM Protocol', link: '/reference/scim/'},
-      { title: 'WebFinger', link: '/reference/webfinger/'},
+      { title: 'Event Hooks', link: '/docs/reference/api/event-hooks/'},
+      { title: 'Error Codes', link: '/docs/reference/error-codes/'},
+      { title: 'Okta Expression Language', link: '/docs/reference/okta-expression-language/'},
+      { title: 'Postman Collections', link: '/docs/reference/postman-collections/'},
+      { title: 'SCIM Protocol', link: '/docs/reference/scim/'},
+      { title: 'WebFinger', link: '/docs/reference/webfinger/'},
     ]
   },
   {
