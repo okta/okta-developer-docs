@@ -4,7 +4,7 @@ title: Before You Begin
 
 This guide shows you how to use Okta as the user store for your single-page application and sign users in.
 
-If you are building a web application rendered by a server, see [Sign Users in to Your Web Application](/docs/guidessign-into-web-app/) instead.
+If you are building a web application rendered by a server, see [Sign Users in to Your Web Application](/docs/guides/sign-into-web-app/) instead.
 
 This guide assumes that you:
 

@@ -8,11 +8,11 @@ If you have an [Okta Developer Edition](https://developer.okta.com/signup/) acco
 
 If you only need one Authorization Server, but you'd like to know more about customizing it, you can skip ahead and find out how to:
 
-- [Create Access Policies](#create-access-policies)
-- [Create Rules for your Access Policies](#create-rules-for-each-access-policy)
-- [Create Scopes](#create-scopes-optional)
-- [Create Claims](#create-claims-optional)
-- [Test your Authorization Server](#test-your-authorization-server-configuration)
+- [Create Access Policies](/docs/guides/customize-authz-server/create-access-policies/)
+- [Create Rules for your Access Policies](/docs/guides/customize-authz-server/create-rules-for-policy/)
+- [Create Scopes](/docs/guides/customize-authz-server/create-scopes/)
+- [Create Claims](/docs/guides/customize-authz-server/create-claims/)
+- [Test your Authorization Server](/docs/guides/customize-authz-server/test-authz-server/)
 
 > NOTE: For a high-level explanation of OAuth 2.0 and OpenID Connect see our [OAuth 2.0 Overview](/authentication-guide/auth-overview/).
 

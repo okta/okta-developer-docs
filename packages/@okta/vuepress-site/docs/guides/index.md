@@ -10,13 +10,14 @@ guides:
  - custom-url-domain
  - customize-authz-server
  - custom-error-pages
- - byo-saml
  - create-an-api-token
  - create-token-with-groups-claim
  - enable-cors
  - find-your-app-credentials
  - find-your-domain
  - mfa
+ - saml-application-setup
+ - session-cookie
 featured:
  - sign-into-web-app
  - sign-into-spa
