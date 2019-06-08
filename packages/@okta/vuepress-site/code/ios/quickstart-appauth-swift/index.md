@@ -54,7 +54,7 @@ Create a new `Okta.plist` file in your application's bundle with the following f
 ```
 **Note**: *To receive a **refresh_token**, you must include the `offline_access` scope.*
 
-> Important: Most native applications send access tokens to access APIs. If you're building an API that will need to accept access tokens, [create an authorization server](/authentication-guide/implementing-authentication/set-up-authz-server/).
+> Important: Most native applications send access tokens to access APIs. If you're building an API that will need to accept access tokens, [create an authorization server](/docs/guides/customize-authz-server/).
 
 ### Update the Private-use URI Scheme
 In order to redirect back to your application from a web browser, you must specify a unique URI to your app. To do this, open `Info.plist` in your application bundle and set a **URL Scheme** to the scheme of the login redirect URI.

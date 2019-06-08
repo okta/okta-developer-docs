@@ -33,7 +33,7 @@ Revoking only the access token will effectively force the use of the refresh tok
 
 If you revoke only the refresh token then the access token will also be revoked. This allows you to, for example, force a user to reauthenticate.
 
-For more information on configuring TTL and other parameters involving access and refresh tokens, you can read about configuing [Okta Access Policies](/authentication-guide/implementing-authentication/set-up-authz-server/#create-access-policies).
+For more information on configuring TTL and other parameters involving access and refresh tokens, you can read about configuing [Okta Access Policies](/docs/guides/customize-authz-server/create-access-policies/).
 
 ## Removing a User Session
 

@@ -48,7 +48,7 @@ The high-level overview of validating an ID token looks like this:
 
 ### Retrieve The JSON Web Key Set
 
-The JSON Web Key Set (JWKS) needs to be retrieved from your [Okta Authorization Server](/authentication-guide/implementing-authentication/set-up-authz-server/), though your application should have it cached. Specifically, your Authorization Server's Metadata endpoint contains the `jwks_uri`, which you can use to get the JWKS.
+The JSON Web Key Set (JWKS) needs to be retrieved from your [Okta Authorization Server](/docs/guides/customize-authz-server/), though your application should have it cached. Specifically, your Authorization Server's Metadata endpoint contains the `jwks_uri`, which you can use to get the JWKS.
 
 > For more information about retrieving this metadata, see [Retrieve Authorization Server Metadata](/docs/reference/api/oidc/#well-knownoauth-authorization-server).
 

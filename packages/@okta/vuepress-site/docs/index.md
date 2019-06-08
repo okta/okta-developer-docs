@@ -72,7 +72,7 @@ sections:
          link: /docs/guides/create-token-with-groups-claim/
 
    - title: Reference
-     link: /reference/
+     link: /docs/reference/
      description: Details on parameters, requests, and responses for Okta's API endpoints.
      links:
        - title: OpenID Connect & OAuth 2.0 API
@@ -82,7 +82,7 @@ sections:
        - title: Error Codes
          link: /docs/reference/error-codes/
        - title: More
-         link:  /reference/
+         link:  /docs/reference/
 
 changelog_title: API Products Release Notes
 

@@ -37,7 +37,7 @@ See [OAuth 2.0 and OpenID Connect](#oauth-20-and-openid-connect) for details.
 Centralizing the management of your APIs makes it easier for others to consume your API resources.
 Using Okta's OAuth-as-a-Service feature, API Access Management, provides many benefits:
 
-* Create one or more [Custom Authorization Servers](/authentication-guide/implementing-authentication/set-up-authz-server/), hosted on Okta. Custom Authorization Servers make it easier to manage sets of API access for multiple client apps across many customer types.
+* Create one or more [Custom Authorization Servers](/docs/guides/customize-authz-server/), hosted on Okta. Custom Authorization Servers make it easier to manage sets of API access for multiple client apps across many customer types.
 * Create custom scopes and claims. Map your claims to the profiles in your user directory.
 * Tokens are passed instead of credentials. In addition, the JWT tokens carry payloads for user context.
 * Stay protected with security standards compliance.
@@ -78,7 +78,7 @@ This benefit depends, of course, on the level of security your apps require.
 ## Getting Started with API Access Management
 
 * [Learn more](/authentication-guide/auth-overview/) about Okta and OAuth 2.0.
-* [Set up a custom authorization server](/authentication-guide/implementing-authentication/set-up-authz-server/) and use the power of Okta's API Access Management.
+* [Set up a custom authorization server](/docs/guides/customize-authz-server/) and use the power of Okta's API Access Management.
 * Visit [the OIDC/OAuth 2.0 endpoint documentation](/docs/reference/api/oidc/) and start building your integration today.
 * For simpler use cases focused on SSO, visit [the OpenID Connect documentation](/docs/reference/api/oidc/).
 

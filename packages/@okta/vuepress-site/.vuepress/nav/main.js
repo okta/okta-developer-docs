@@ -19,7 +19,7 @@ module.exports = [
           {title: 'Client Credentials Flow', link: '/authentication-guide/implementing-authentication/client-creds/'},
           {title: 'Implicit Flow', link: '/authentication-guide/implementing-authentication/implicit/'},
           {title: 'Resource Owner Password Flow', link: '/authentication-guide/implementing-authentication/password/'},
-          {title: 'Customizing Your Authorization Server', link: '/authentication-guide/implementing-authentication/set-up-authz-server/'}
+          {title: 'Customizing Your Authorization Server', link: '/docs/guides/customize-authz-server/'}
         ]
       },
       { title: 'Social Login', link: '/authentication-guide/social-login/', subLinks: [

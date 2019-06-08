@@ -31,7 +31,7 @@ This functionality can be used to add data that is sensitive, calculated at runt
 
 In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid.
 
-This Inline Hook works only when using an [Okta Custom Authorization Server](/authentication-guide/implementing-authentication/set-up-authz-server/#create-an-authorization-server), not the built-in Okta Authorization Server.
+This Inline Hook works only when using an [Okta Custom Authorization Server](/docs/guides/customize-authz-server/create-authz-server/), not the built-in Okta Authorization Server.
 
 ## Objects in the Request from Okta
 
