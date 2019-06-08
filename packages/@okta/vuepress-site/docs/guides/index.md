@@ -1,7 +1,7 @@
 ---
 title: Step-by step guides for the Okta platform
 layout: Guides
-guides: 
+guides:
  - sign-into-spa
  - sign-into-web-app
  - sign-users-out
@@ -13,7 +13,11 @@ guides:
  - byo-saml
  - create-an-api-token
  - create-token-with-groups-claim
-featured: 
+ - enable-cors
+ - find-your-app-credentials
+ - find-your-domain
+ - mfa
+featured:
  - sign-into-web-app
  - sign-into-spa
 ---

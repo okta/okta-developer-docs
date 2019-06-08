@@ -295,7 +295,7 @@ X-Okta-Request-Id: reqVy8wsvmBQN27h4soUE3ZEnA
 
 [Cross-Origin Resource Sharing (CORS)](http://en.wikipedia.org/wiki/Cross-Origin_Resource_Sharing) is a mechanism that allows a web page to make an AJAX call using [XMLHttpRequest (XHR)](http://en.wikipedia.org/wiki/XMLHttpRequest) to a domain that is  different from the one from where the script was loaded.  Such "cross-domain" requests would otherwise be forbidden by web browsers, per the [same origin security policy](http://en.wikipedia.org/wiki/Same_origin_policy).  CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether or not to allow the cross-origin request.
 
-In Okta, CORS allows JavaScript hosted on your websites to make an XHR to the Okta API with the Okta session cookie. Every website origin must be explicitly permitted via the administrator UI for CORS.  See [Enabling CORS](/docs/guides/enabling-cors/) for details on how to allow your website to make cross-origin requests.
+In Okta, CORS allows JavaScript hosted on your websites to make an XHR to the Okta API with the Okta session cookie. Every website origin must be explicitly permitted via the administrator UI for CORS.  See [Enabling CORS](/docs/guides/enable-cors/) for details on how to allow your website to make cross-origin requests.
 
 > **Caution:** Only grant access to specific origins (websites) that you control and trust to access the Okta API.
 

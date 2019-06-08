@@ -77,7 +77,7 @@ module.exports = [
           { title: 'Find Your Application Credentials', link: '/docs/guides/find-your-app-credentials/'},
           { title: 'Find Your Okta Domain', link: '/docs/guides/find-your-domain/'},
           { title: 'Create an API Token', link: '/docs/guides/create-an-api-token/'},
-          { title: 'Enabling CORS', link: '/docs/guides/enabling-cors/'},
+          { title: 'Enabling CORS', link: '/docs/guides/enable-cors/'},
           { title: 'Rate limits', link: '/docs/reference/rate-limits/'},
           { title: 'Release Lifecycle', link: '/docs/reference/releases-at-okta/'}
         ]

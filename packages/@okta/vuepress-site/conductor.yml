@@ -390,7 +390,7 @@ redirects:
   - from: /docs/reference/api-overview/getting_a_token/
     to: /docs/guides/create-an-api-token/
   - from: /docs/api/getting_started/enabling_cors.html
-    to: /docs/guides/enabling-cors/
+    to: /docs/guides/enable-cors/
   - from: /docs/api/getting_started/okta_expression_lang.html
     to: /docs/reference/okta-expression-language/
   - from: /docs/sdk/core/python_api_sdk/index.html
@@ -450,7 +450,7 @@ redirects:
   - from: /docs/api/getting_started/finding_your_domain/index.html
     to: /docs/guides/find-your-domain/
   - from: /docs/api/getting_started/enabling_cors/index.html
-    to: /docs/guides/enabling-cors/
+    to: /docs/guides/enable-cors/
   - from: /docs/api/getting_started/getting_a_token/index.html
     to: /docs/guides/create-an-api-token/
   - from: /docs/api/getting_started/design_principles/index.html
