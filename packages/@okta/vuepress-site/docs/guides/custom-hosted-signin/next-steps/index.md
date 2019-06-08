@@ -5,5 +5,5 @@ You should now understand how to customize the hosted sign-in page. If you got s
 
 Other customization options:
 
-* [Customize the Okta URL Domain](/guides/custom-url-domain/-/overview/)
-<!-- * [Customize the Hosted Error Pages](/guides/custom-error-pages/-/overview/) -->
+* [Customize the Okta URL Domain](/docs/guides/custom-url-domain/-/overview/)
+<!-- * [Customize the Hosted Error Pages](/docs/guides/custom-error-pages/-/overview/) -->

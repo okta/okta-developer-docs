@@ -27,7 +27,6 @@ You can assign the `associated` relationship for a single `primary` user to as m
 
 For more details:
 
-* [Relationships use case](/use_cases/relationships/)
 * [Linked Objects API documentation](/docs/reference/api/linked-objects/) <!-- OKTA-161674 -->
 
 ### Client SDKs Version 1.0

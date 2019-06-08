@@ -66,7 +66,7 @@ module.exports = [
           { title: 'Policy', link: '/docs/reference/api/policy/'},
           { title: 'Schemas', link: '/docs/reference/api/schemas/'},
           { title: 'Sessions', link: '/docs/reference/api/sessions/'},
-          { title: 'System Log', link: '/docs/reference/api/system_log/'},
+          { title: 'System Log', link: '/docs/reference/api/system-log/'},
           { title: 'Templates', link: '/docs/reference/api/templates/'},
           { title: 'Trusted Origins', link: '/docs/reference/api/trusted-origins/'},
           { title: 'Users', link: '/docs/reference/api/users/'},

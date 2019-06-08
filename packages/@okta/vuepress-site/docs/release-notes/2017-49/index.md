@@ -17,7 +17,7 @@ excerpt: >-
 
 #### Early Access Feature in Preview: App User Schema API
 
-The [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) is an [Early Access (EA)](/docs/api/getting_started/releases-at-okta/#early-access-ea) release. Use this API to work with App User profiles, typically for apps that have features for provisioning users.
+The [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) is an [Early Access (EA)](/docs/reference/releases-at-okta/#early-access-ea) release. Use this API to work with App User profiles, typically for apps that have features for provisioning users.
 <!-- OKTA-148782 -->
 
 #### Completing Rollout of Simple HAL Links

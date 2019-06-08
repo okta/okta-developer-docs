@@ -11,7 +11,7 @@ redirects:
     to: /authentication-guide/implementing-authentication/set-up-authz-server/
   - from: /docs/how-to/inbound-saml-with-oidc
     to: /authentication-guide/saml-login/index.html
-  - from: /docs/api/resources/social_authentication
+  - from: /docs/reference/api/social_authentication
     to: /authentication-guide/social-login/index.html
   - from: /code/dotnet/
     to: /code/dotnet/aspnetcore/index.html
@@ -47,7 +47,7 @@ redirects:
     to: https://github.com/okta/okta-signin-widget
   - from: /code/javascript/okta_sign-in_widget_external_ref.html
     to: /code/javascript/okta_sign-in_widget_ref/index.html
-  - from: /docs/api/resources/okta_signin_widget.html
+  - from: /docs/reference/api/okta_signin_widget.html
     to: /code/javascript/okta_sign-in_widget_ref/index.html
   - from: /code/php/jwt-validation/index.html
     to: https://github.com/okta/okta-jwt-verifier-php
@@ -83,7 +83,7 @@ redirects:
     to: /docs/reference/rate-limits/index.html
   - from: /docs/api/
     to: /docs/reference/api/apps/index.html
-  - from: /docs/api/resources/
+  - from: /docs/reference/api/
     to: /docs/reference/api/apps/index.html
   - from: /docs/api/reference/
     to: /docs/reference/api/apps/index.html
@@ -91,18 +91,18 @@ redirects:
     to: /docs/reference/api/apps/index.html
   - from: /docs/api/rest/apps.html
     to: /docs/reference/api/apps/index.html
-  - from: /docs/api/resources/apps.html
+  - from: /docs/reference/api/apps.html
     to: /docs/reference/api/apps/index.html
   - from: /docs/api/rest/authn.html
     to: /docs/reference/api/authn/index.html
-  - from: /docs/api/resources/index.html
+  - from: /docs/reference/api/index.html
     to: /docs/reference/api/authn/index.html
-  - from: /docs/api/resources/
+  - from: /docs/reference/api/
     to: /docs/reference/api/authn/index.html
   - from: /docs/api/rest/events.html
     to: /docs/reference/api/events/index.html
   - from: /docs/getting_started/factor_admin.html
-    to: /docs/api/resources/factor_admin/index.html
+    to: /docs/reference/api/factor_admin/index.html
   - from: /docs/api/rest/factors.html
     to: /docs/reference/api/factors/index.html
   - from: /docs/api/rest/groups.html
@@ -111,7 +111,7 @@ redirects:
     to: /docs/reference/api/idps/index.html
   - from: /docs/api/rest/oauth-clients.html
     to: /docs/reference/api/oauth-clients/index.html
-  - from: /docs/api/resources/oauth2
+  - from: /docs/reference/api/oauth2
     to: /docs/reference/api/oidc/index.html
   - from: /docs/how-to/beta-auth-service/api-access-management-troubleshooting
     to: /docs/reference/api/oidc/index.html
@@ -127,11 +127,11 @@ redirects:
     to: /docs/reference/api/templates/index.html
   - from: /docs/getting_started/tokens.html
     to: /authentication-guide/tokens/
-  - from: /docs/api/resources/tokens/index.html
+  - from: /docs/reference/api/tokens/index.html
     to: /authentication-guide/tokens/
   - from: /docs/api/rest/users.html
     to: /docs/reference/api/users/index.html
-  - from: /docs/api/resources/user
+  - from: /docs/reference/api/user
     to: /docs/reference/api/users/index.html
   - from: /docs/platform-release-notes/platform-release-notes/index.html
     to: /docs/release-notes/
@@ -309,9 +309,9 @@ redirects:
     to: /standards/SCIM/index.html
   - from: /docs/guides/scim_developer_program.html
     to: /standards/SCIM/index.html
-  - from: /docs/api/resources/resource-server-beta/
+  - from: /docs/reference/api/resource-server-beta/
     to: /docs/concepts/api-access-management/index.html
-  - from: /docs/api/resources/resource-server-beta/required-config-changes-for-auth-server
+  - from: /docs/reference/api/resource-server-beta/required-config-changes-for-auth-server
     to: /docs/concepts/api-access-management/index.html
   - from: /docs/examples/session_cookie.html
     to: /docs/guides/session-cookie/index.html
@@ -351,11 +351,11 @@ redirects:
     to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/api/reference/apps.html
     to: /docs/reference/api/apps/
-  - from: /docs/api/resources/users.html
+  - from: /docs/reference/api/users.html
     to: /docs/reference/api/users/
-  - from: /docs/api/resources/authn.html
+  - from: /docs/reference/api/authn.html
     to: /docs/reference/api/authn/
-  - from: /docs/api/resources/system_log.html
+  - from: /docs/reference/api/system_log.html
     to: /docs/reference/api/system-log/
   - from: /docs/api/
     to: /docs/reference/
@@ -371,9 +371,9 @@ redirects:
     to: /3rd_party_notices/Android_Verify/
   - from: /3rd_party_notices/Android_Mobile.html
     to: /3rd_party_notices/Android_Mobile/
-  - from: /docs/api/resources/oidc.html
+  - from: /docs/reference/api/oidc.html
     to: /docs/reference/api/oidc/
-  - from: /docs/api/resources/oauth2.html
+  - from: /docs/reference/api/oauth2.html
     to: /docs/reference/api/oidc/
   - from: /standards/OIDC/
     to: /docs/reference/api/oidc/
@@ -381,7 +381,7 @@ redirects:
     to: /docs/reference/api-overview/
   - from: /standards/SAML/index
     to: https://www.okta.com/integrate/documentation/saml/
-  - from: /docs/api/resources/sessions.html
+  - from: /docs/reference/api/sessions.html
     to: /docs/reference/api/sessions/
   - from: /docs/guides/okta_mobile_connect
     to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
@@ -455,49 +455,49 @@ redirects:
     to: /docs/guides/create-an-api-token/
   - from: /docs/api/getting_started/design_principles/index.html
     to: /docs/reference/api-overview/
-  - from: /docs/api/resources/apps/index.html
+  - from: /docs/reference/api/apps/index.html
     to: /docs/reference/api/apps/
-  - from: /docs/api/resources/authn/index.html
+  - from: /docs/reference/api/authn/index.html
     to: /docs/reference/api/authn/
-  - from: /docs/api/resources/oidc/index.html
+  - from: /docs/reference/api/oidc/index.html
     to: /docs/reference/api/oidc/
-  - from: /docs/api/resources/roles/index.html
+  - from: /docs/reference/api/roles/index.html
     to: /docs/reference/api/roles/
-  - from: /docs/api/resources/authorization-servers/index.html
+  - from: /docs/reference/api/authorization-servers/index.html
     to: /docs/reference/api/authorization-servers/
-  - from: /docs/api/resources/oauth-clients/index.html
+  - from: /docs/reference/api/oauth-clients/index.html
     to: /docs/reference/api/oauth-clients/
-  - from: /docs/api/resources/events/index.html
+  - from: /docs/reference/api/events/index.html
     to: /docs/reference/api/events/
-  - from: /docs/api/resources/event-hooks/index.html
+  - from: /docs/reference/api/event-hooks/index.html
     to: /docs/reference/api/event-hooks/
-  - from: /docs/api/resources/event-types/index.html
+  - from: /docs/reference/api/event-types/index.html
     to: /docs/reference/api/event-types/
-  - from: /docs/api/resources/factors/index.html
+  - from: /docs/reference/api/factors/index.html
     to: /docs/reference/api/factors/
-  - from: /docs/api/resources/groups/index.html
+  - from: /docs/reference/api/groups/index.html
     to: /docs/reference/api/groups/
-  - from: /docs/api/resources/idps/index.html
+  - from: /docs/reference/api/idps/index.html
     to: /docs/reference/api/idps/
-  - from: /docs/api/resources/inline-hooks/index.html
+  - from: /docs/reference/api/inline-hooks/index.html
     to: /docs/reference/api/inline-hooks/
-  - from: /docs/api/resources/linked-objects/index.html
+  - from: /docs/reference/api/linked-objects/index.html
     to: /docs/reference/api/linked-objects/
-  - from: /docs/api/resources/policy/index.html
+  - from: /docs/reference/api/policy/index.html
     to: /docs/reference/api/policy/
-  - from: /docs/api/resources/schemas/index.html
+  - from: /docs/reference/api/schemas/index.html
     to: /docs/reference/api/schemas/
-  - from: /docs/api/resources/sessions/index.html
+  - from: /docs/reference/api/sessions/index.html
     to: /docs/reference/api/sessions/
-  - from: /docs/api/resources/system_log/index.html
+  - from: /docs/reference/api/system_log/index.html
     to: /docs/reference/api/system-log/
-  - from: /docs/api/resources/templates/index.html
+  - from: /docs/reference/api/templates/index.html
     to: /docs/reference/api/templates/
-  - from: /docs/api/resources/trusted-origins/index.html
+  - from: /docs/reference/api/trusted-origins/index.html
     to: /docs/reference/api/trusted-origins/
-  - from: /docs/api/resources/users/index.html
+  - from: /docs/reference/api/users/index.html
     to: /docs/reference/api/users/
-  - from: /docs/api/resources/zones/index.html
+  - from: /docs/reference/api/zones/index.html
     to: /docs/reference/api/zones/
   - from: /docs/how-to/add-user-consent-to-flow/index.html
     to: /docs/guides/request-user-consent/

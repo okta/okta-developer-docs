@@ -17,7 +17,7 @@ This information is specific to the Token Inline Hook, one type of Inline Hook s
 
 ## See Also
 
-For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline_hooks/).
+For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 

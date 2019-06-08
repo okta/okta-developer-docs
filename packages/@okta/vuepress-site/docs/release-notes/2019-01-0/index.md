@@ -34,7 +34,7 @@ As part of the deprecation process, new orgs created from this release onwards w
 
 ### Updated Office 365 Legacy Rate Limit
 
-The default [legacy rate limit](/docs/api/getting_started/rate-limits/#home-page-endpoint-limits-legacy-orgs) for the `/app/office365/{key}/sso/wsfed/active` endpoint has been lowered from 2000 to 1000. <!--OKTA-201807-->
+The default [legacy rate limit](/docs/reference/rate-limits/#home-page-endpoint-limits-legacy-orgs) for the `/app/office365/{key}/sso/wsfed/active` endpoint has been lowered from 2000 to 1000. <!--OKTA-201807-->
 
 ### Bug Fixed in 2019.01.0
 

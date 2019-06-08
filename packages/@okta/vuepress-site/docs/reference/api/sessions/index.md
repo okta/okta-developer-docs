@@ -17,9 +17,9 @@ A [session token](/docs/reference/api/authn/#session-token) is a one-time bearer
 
 Okta provides a very rich [Authentication API](/docs/reference/api/authn/) to validate a [user's primary credentials](/docs/reference/api/authn/#primary-authentication) and secondary [MFA factor](/docs/reference/api/authn/#verify-factor). A session token is returned after successful authentication which can be later exchanged for a session cookie using one of the following flows:
 
-- [Retrieving a session cookie by visiting the OpenID Connect Authorization Endpoint](/docs/concepts/authentication/session_cookie/#retrieving-a-session-cookie-via-openid-connect-authorization-endpoint)
-- [Retrieving a session cookie by visiting a session redirect link](/docs/concepts/authentication/session_cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link)
-- [Retrieving a session cookie by visiting an application embed link](/docs/concepts/authentication/session_cookie/#retrieving-a-session-cookie-by-visiting-an-application-embed-link)
+- [Retrieving a session cookie by visiting the OpenID Connect Authorization Endpoint](/docs/guides/session-cookie/#retrieving-a-session-cookie-via-openid-connect-authorization-endpoint)
+- [Retrieving a session cookie by visiting a session redirect link](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link)
+- [Retrieving a session cookie by visiting an application embed link](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-an-application-embed-link)
 
 > **Session Tokens** are secrets and should be protected at rest as well as during transit. A session token for a user is equivalent to having the user's actual credentials.
 
@@ -38,9 +38,9 @@ Creates a new session for a user with a valid session token. Use this API if, fo
 
 > Don't use this API unless you need a session `id`. Instead, use one of the following flows to obtain a SSO session with a `sessionToken`:
 
-- [Retrieving a session cookie by visiting the OpenID Connect Authorization Endpoint](/docs/concepts/authentication/session_cookie/#retrieving-a-session-cookie-via-openid-connect-authorization-endpoint)
-- [Retrieving a session cookie by visiting a session redirect link](/docs/concepts/authentication/session_cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link)
-- [Retrieving a session cookie by visiting an application embed link](/docs/concepts/authentication/session_cookie/#retrieving-a-session-cookie-by-visiting-an-application-embed-link)
+- [Retrieving a session cookie by visiting the OpenID Connect Authorization Endpoint](/docs/guides/session-cookie/#retrieving-a-session-cookie-via-openid-connect-authorization-endpoint)
+- [Retrieving a session cookie by visiting a session redirect link](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link)
+- [Retrieving a session cookie by visiting an application embed link](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-an-application-embed-link)
 
 > This operation can be performed anonymously without an API Token.
 

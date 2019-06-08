@@ -27,7 +27,7 @@ Okta defines several different types of inline hooks. Each type of inline hook m
 
 | Name                                                                                    | Description                                                                     |
 |-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| [Token Inline Hook](/use_cases/inline_hooks/token-hook/token-hook/)                      | Customizes tokens returned by Okta API Access Management.                       |
+| [Token Inline Hook](/docs/reference/token-hook/)                      | Customizes tokens returned by Okta API Access Management.                       |
 | [Import Inline Hook](/docs/reference/import-hook/)                   | Adds custom logic to the user import process.                                   |
 | [SAML Assertion Inline Hook](/docs/reference/saml-hook/)               | Customizes SAML assertions returned by Okta.                                    |
 | [Registration Inline Hook](/docs/reference/registration_hook/) | Customizes handling of user registration requests in Self-Service Registration. |

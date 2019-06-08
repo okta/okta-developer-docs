@@ -17,7 +17,7 @@ This information is specific to the Import Inline Hook, one type of inline hook 
 
 ## See Also
 
-For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline_hooks/).
+For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 

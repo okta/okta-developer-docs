@@ -17,7 +17,7 @@ This information is specific to the Registration Inline Hook, one type of inline
 
 ## See Also
 
-For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline_hooks/).
+For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
@@ -155,7 +155,7 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 ### error
 
-See [error](/docs/concepts/inline_hooks/) for general information on the structure to use for the `error` object.
+See [error](/docs/concepts/inline-hooks/) for general information on the structure to use for the `error` object.
 
 In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Self-Service Registration, and have not customized its error handling behavior, only the `errorSummary` of the first `ErrorCause` object that your external service returns is displayed to the end user.
 
@@ -232,7 +232,7 @@ If you do not return any value for that `errorCauses` object, but deny the user'
 
 ## Enabling a Registration Inline Hook for Self-Service Registration
 
-To activate the inline hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/use_cases/inline_hooks/#inline-hooks_setup).
+To activate the inline hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
 You then need to associate the registered inline hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable self-service registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm).)
 

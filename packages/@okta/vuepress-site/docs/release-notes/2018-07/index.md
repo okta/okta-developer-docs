@@ -10,7 +10,7 @@ The following feature enhancement is expected in preview orgs February 14, 2018,
 
 #### Keystore Rollover Events Now Logged
 
-OAuth key store rollover events are now included in both the [Events](/docs/api/resources/events) and [System Log](/docs/reference/api/system-log/) APIs.<!-- OKTA-129535 -->
+OAuth key store rollover events are now included in both the [Events](/docs/reference/api/events) and [System Log](/docs/reference/api/system-log/) APIs.<!-- OKTA-129535 -->
 
 ### Bug Fixed
 

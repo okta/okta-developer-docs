@@ -341,14 +341,14 @@ Polling is the process used to reliably ingest data from Okta into an external s
 
 When you first make an API call and get a cursor-paged list of objects, the end of the list will be the point at which you do not receive another `next` link value with the response. This holds true for all but two cases:
 
-1. [Events API](/docs/api/resources/events): The `next` link always exists, since the [Events API](/docs/reference/api/events/) is like a stream of data with a cursor.
+1. [Events API](/docs/reference/api/events): The `next` link always exists, since the [Events API](/docs/reference/api/events/) is like a stream of data with a cursor.
 2. [System Log API](/docs/reference/api/system-log/): The `next` link will always exist in polling queries in the [System Log API](/docs/reference/api/system-log/). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/reference/api/events/), the polling query is a stream of data.
 
 Please see [Transferring Data to a Separate System](/docs/reference/api/system-log/#transferring-data-to-a-separate-system) and the general information on [Link Header](/docs/reference/api-overview/#link-header)s for additional details.
 
 ## Event Type Mappings
 
-The listing in [Event Type catalog](/docs/api/resources/event-types/#catalog) describes the complete relationship between the Events API and System Log API event type systems. It describes how events types of one system map to the other, making it an invaluable resource for the migration process.
+The listing in [Event Type catalog](/docs/reference/api/event-types/#catalog) describes the complete relationship between the Events API and System Log API event type systems. It describes how events types of one system map to the other, making it an invaluable resource for the migration process.
 
 > **Important:** Going forward the Events API will not be tracking new event types added to the System Log API. For this reason we highly recommend upgrading to the System Log API.
 

@@ -5,5 +5,5 @@ You should now understand how to customize the error page. If you got stuck, pos
 
 Read more about other customization options:
 
-* [Customize the Okta URL Domain](/guides/custom-url-domain/)
-* [Customize the Hosted Sign-In Page](/guides/custom-hosted-signin/)
+* [Customize the Okta URL Domain](/docs/guides/custom-url-domain/)
+* [Customize the Hosted Sign-In Page](/docs/guides/custom-hosted-signin/)

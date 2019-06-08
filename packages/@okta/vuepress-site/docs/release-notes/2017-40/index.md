@@ -18,7 +18,7 @@ excerpt: Summary of changes to the Okta API since Release 2017.38
 
 #### Concurrent Rate Limits
 In order to protect the service for all customers, Okta enforces concurrent rate limits starting with this release.
-Concurrent limits are distinct from [the org-wide, per-minute API rate limits](/docs/api/getting_started/rate-limits/#org-wide-rate-limits).
+Concurrent limits are distinct from [the org-wide, per-minute API rate limits](/docs/reference/rate-limits/#org-wide-rate-limits).
 
 For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
 

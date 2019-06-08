@@ -12,7 +12,7 @@ title: Okta API Products Release Notes
 
 ### User Login Pattern Validation
 
-A user's `login` no longer needs to be in the form of an email address.  Instead the login is validated against a `pattern` property stored in the User Schema, which can be set to certain Regular Expressions.  If no pattern is set, the default validation requires email addresses. More information can be found in the [User](/docs/api/resources/users) and [Schema](/docs/reference/api/schemas/) API references. <!-- OKTA-166157 -->
+A user's `login` no longer needs to be in the form of an email address.  Instead the login is validated against a `pattern` property stored in the User Schema, which can be set to certain Regular Expressions.  If no pattern is set, the default validation requires email addresses. More information can be found in the [User](/docs/reference/api/users) and [Schema](/docs/reference/api/schemas/) API references. <!-- OKTA-166157 -->
 
 ### Bugs Fixed in 2018.24
 

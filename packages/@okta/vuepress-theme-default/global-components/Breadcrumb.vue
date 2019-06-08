@@ -20,14 +20,14 @@
 
         if(this.$page.path.startsWith('/docs/guides/')) {
           crumbs.push(
-            {path: '/documentation/', title: 'DOCS'},
+            {path: '/docs/', title: 'DOCS'},
             {path: '/docs/guides/', title: 'Guides' },
           );
           return crumbs;
         }
 
         if(this.$page.path == '/reference/' || this.$page.path.startsWith('/code/')) {
-          crumbs.push({path: '/documentation/', title: 'DOCS'})
+          crumbs.push({path: '/docs/', title: 'DOCS'})
           return crumbs
         }
 

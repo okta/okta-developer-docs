@@ -53,7 +53,7 @@ sections:
        - title: Get an API Token
          link: /docs/guides/create-an-api-token/
        - title: Inline Hooks
-         link: /use_cases/inline_hooks/
+         link: /docs/reference/api/inline-hooks/
        - title: Rate Limits
          link: /docs/reference/rate-limits/
        - title: More
