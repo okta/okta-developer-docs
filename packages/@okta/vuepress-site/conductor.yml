@@ -508,7 +508,7 @@ redirects:
   - from: /docs/how-to/sharing-cert/index.html
     to: /docs/guides/sharing-cert/
   - from: /docs/how-to/updating_saml_cert/index.html
-    to: /docs/guides/updating_saml_cert/
+    to: /docs/guides/updating-saml-cert/
   - from: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
     to: /docs/
   - from: /standards/SAML/setting_up_a_saml_application_in_okta/index.html

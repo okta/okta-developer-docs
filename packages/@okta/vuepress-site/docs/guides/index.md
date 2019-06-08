@@ -18,6 +18,8 @@ guides:
  - mfa
  - saml-application-setup
  - session-cookie
+ - sharing-cert
+ - updating-saml-cert
 featured:
  - sign-into-web-app
  - sign-into-spa
