@@ -1218,7 +1218,7 @@ Okta supports the following authentication methods, detailed in the sections bel
 
 * `private_key_jwt`: Use this when you want maximum security. This method is more complex and requires a server, so it can't be used with public clients.
 
-* `none` - Use this with clients that don't have a client secret (such as applications that use the [authorization code flow with PKCE](/docs/guides/implement-auth-code-pkce/) or the [implicit flow](/docs/guides/implement-implicit/next-steps/)).
+* `none` - Use this with clients that don't have a client secret (such as applications that use the [authorization code flow with PKCE](/docs/guides/implement-auth-code-pkce/) or the [implicit flow](/docs/guides/implement-implicit/)).
 
 ### Client Secret
 If your client's `token_endpoint_auth_method` is either `client_secret_basic` or `client_secret_post`, include the client secret in outgoing requests.

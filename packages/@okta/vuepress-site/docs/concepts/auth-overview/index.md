@@ -97,7 +97,7 @@ The table below shows you which OAuth 2.0 flow to use for the type of applicatio
 | Type of Application     | OAuth 2.0 Flow                                      |
 | ----------------------- | --------------------------------------------------- |
 | Server-side (AKA Web)   | [Authorization Code Flow](/docs/guides/implement-auth-code/)                |
-| Single-Page Application | [Implicit Flow](/docs/guides/implement-implicit/next-steps/)                           |
+| Single-Page Application | [Implicit Flow](/docs/guides/implement-implicit/)                           |
 | Native                  | [Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/) |
 | Trusted                 | [Resource Owner Password Flow](/docs/guides/implement-password/)            |
 | Service                 | [Client Credentials](/docs/guides/implement-client-creds/)                  |
@@ -233,7 +233,7 @@ client -> app: Request with access token
 app -> client: Response
 -->
 
-For information how to set up your application to use this flow, see [Implement the Implicit Flow](/docs/guides/implement-implicit/next-steps/).
+For information how to set up your application to use this flow, see [Implement the Implicit Flow](/docs/guides/implement-implicit/).
 
 ### Resource Owner Password Flow
 

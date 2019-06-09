@@ -44,7 +44,7 @@ The Okta React SDK makes it easy to integrate react-router with Okta's OpenID Co
 
 
 - [Okta React Overview](/code/react/okta_react/)
-- [Implementing the Implicit Flow](/docs/guides/implement-implicit/next-steps/)
+- [Implementing the Implicit Flow](/docs/guides/implement-implicit/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
