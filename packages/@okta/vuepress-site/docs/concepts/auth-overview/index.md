@@ -1,15 +1,16 @@
 ---
-title: Authentication Overview
+title: OAuth 2.0 and OpenID Connect
 ---
 
-# Authentication Overview
+# OAuth 2.0 and OpenID Connect
 
 This page will give you an overview of OAuth 2.0 and OpenID Connect and their Okta implementations. It will explain the different flows, and help you decide which flow is best for you based on the type of application that you are building. If you already know what kind of flow you want, you can jump directly to:
 
-- [Implementing OAuth 2.0 Authentication](/authentication-guide/implementing-authentication/)
+- [Implementing OAuth 2.0 Authentication](/docs/concepts/auth-overview/#recommended-flow-by-application-type)
 - [SAML Authentication with OIDC](/authentication-guide/saml-login/)
-- [Social Login](/authentication-guide/social-login/)
-- [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
+- [Social Login](/docs/concepts/social-login/)
+- [Validate access tokens](/docs/guides/validate-access-tokens)
+- [Validate ID tokens](/docs/guides/validate-id-tokens)
 
 ## Authentication API vs OAuth 2.0 vs OpenID Connect
 
@@ -86,7 +87,20 @@ The high-level flow looks the same for both OIDC and regular OAuth 2.0 flows, th
 
 ## Choosing an OAuth 2.0 Flow
 
-Depending on your use case, you will need to use a different OAuth flow. This section will help you choose an OAuth flow based on (1) the type of token you need, and/or (2) the type of client application that you are building.
+Depending on your use case, you will need to use a different OAuth flow. Below you will find a table that maps application types to our recommended OAuth 2.0 flows. If you'd like more information, keep reading for help choosing an OAuth flow based on (1) the type of token you need, and/or (2) the type of client application that you are building.
+
+### Recommended Flow by Application Type
+
+The table below shows you which OAuth 2.0 flow to use for the type of application that you are building. If you'd like more information on which flow to use, see [Choosing an OAuth 2.0 flow](/docs/concepts/auth-overview/#choosing-an-oauth-20-flow).
+
+
+| Type of Application     | OAuth 2.0 Flow                                      |
+| ----------------------- | --------------------------------------------------- |
+| Server-side (AKA Web)   | [Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code/)                |
+| Single-Page Application | [Implicit Flow](/authentication-guide/implementing-authentication/implicit/)                           |
+| Native                  | [Authorization Code Flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce/) |
+| Trusted                 | [Resource Owner Password Flow](/authentication-guide/implementing-authentication/password/)            |
+| Service                 | [Client Credentials](/authentication-guide/implementing-authentication/client-creds/)                  |
 
 ### Does your application need an ID token?
 

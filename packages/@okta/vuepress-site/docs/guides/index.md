@@ -20,6 +20,9 @@ guides:
  - session-cookie
  - sharing-cert
  - updating-saml-cert
+ - validate-access-tokens
+ - validate-id-tokens
+ - federate-with-oidc
 featured:
  - sign-into-web-app
  - sign-into-spa

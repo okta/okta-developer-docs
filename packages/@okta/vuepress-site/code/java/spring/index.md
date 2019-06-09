@@ -60,8 +60,9 @@ The Okta Spring Boot Starter can be used to add OAuth 2.0 authorization to Sprin
 
 
 - [Okta Authentication Quickstart Guides](/quickstart/#/okta-sign-in-page/java/spring)
-- [Social Login](/authentication-guide/social-login/)
-- [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
+- [Social Login](/docs/concepts/social-login/)
+- [Validate access tokens](/docs/guides/validate-access-tokens)
+- [Validate ID tokens](/docs/guides/validate-id-tokens)
 - [Spring Security SAML](/code/java/spring_security_saml/)
 
 ## Related Blog Posts

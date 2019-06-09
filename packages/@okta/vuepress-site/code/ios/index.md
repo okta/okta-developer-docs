@@ -67,8 +67,9 @@ Okta provides an OpenID Connect (OIDC) client library on Cocoa Pods. We recommen
 
 
 - [Implementing the Authorization Code Flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce/)
-- [Social Login](/authentication-guide/social-login/)
-- [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
+- [Social Login](/docs/concepts/social-login/)
+- [Validate access tokens](/docs/guides/validate-access-tokens)
+- [Validate ID tokens](/docs/guides/validate-id-tokens)
 
 ## Related Blog Posts
 

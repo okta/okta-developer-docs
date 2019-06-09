@@ -7,7 +7,7 @@ meta:
 
 # Authentication with Okta
 
-Authentication is a crucial part of any application development.  Whether you are developing an internal IT app for your employees – or building a portal for your partners – or exposing a set of APIs for developers building apps around your resources, Okta provides the right support for your projects.
+Authentication is a crucial part of any application development.  Whether you are developing an internal IT app for your employees - or building a portal for your partners - or exposing a set of APIs for developers building apps around your resources, Okta provides the right support for your projects.
 
 ## Building a Custom Login Experience for Your Application
 
@@ -26,7 +26,7 @@ Okta provides the OAuth 2.0 and OpenID Connect implementations, the Authenticati
 
 Okta allows you to control access to your application using both the OAuth 2.0 and OpenID Connect specifications. You can use Okta as your authorization server to retain all of your user information, and grant users tokens to control their authorization and authentication. Okta also supports using social login and pulling user's external data into your Okta org.
 
-To find out more about Okta's OAuth 2.0 and OpenID Connect implementations, as well as social login, see the [Authentication Guide](/authentication-guide/).
+To find out more about Okta's OAuth 2.0 and OpenID Connect implementations see [OAuth 2.0 and OpenID Connect](/docs/concepts/auth-overview/).
 
 ### Sign-In Widget
 
@@ -34,9 +34,9 @@ The [Okta Sign-in Widget](/code/javascript/okta_sign-in_widget/)
 provides an embeddable Javascript sign-in implementation that can
 easily be embedded into your customized login page.  The Sign-in
 widget carries the same feature set in the standard Okta sign-in page
-of every tenant – with the added flexibility to change the
+of every tenant - with the added flexibility to change the
 look-and-feel.  Included in the widget is support for password reset,
-forgotten password and strong authentication – all of which are  driven
+forgotten password and strong authentication - all of which are  driven
 by policies configured in Okta.  Developers don't have to write a
 single line of code to trigger these functions from within the widget.
 For consumer facing sites, social providers are also supported in the

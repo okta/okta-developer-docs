@@ -20,7 +20,7 @@ You set up your OpenID Connect application inside the Okta Developer Console:
 
 ### 2. Creating Custom Scopes
 
-The Client Credentials flow never has a user context, so you can't request OpenID scopes. Instead, you must create a custom scope. For more information on creating custom scopes, see [our OAuth 2.0 overview](/authentication-guide/auth-overview/#client-credentials-flow).
+The Client Credentials flow never has a user context, so you can't request OpenID scopes. Instead, you must create a custom scope. For more information on creating custom scopes, see [our OAuth 2.0 overview](/docs/concepts/auth-overview/#client-credentials-flow).
 
 ### 3. Using the Client Credentials Flow
 
@@ -56,4 +56,4 @@ If the credentials are valid, the application will receive back an access token:
 
 ### 4. Next Steps
 
-When your application sends a request with an access_token, the resource server will need to validate it. For more on this, see [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens/).
+When your application sends a request with an access_token, the resource server will need to validate it. For more on this, see [Validate Access Tokens](/docs/guides/validate-access-tokens/).

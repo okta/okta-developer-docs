@@ -14,7 +14,7 @@ At a high-level, this flow has the following steps:
 - Your application extracts the tokens from the URI.
 - Your application can now use these tokens to call the resource server (for example an API) on behalf of the user.
 
-For more information on the implicit flow, including why to use it, see [our OAuth 2.0 overview](/authentication-guide/auth-overview/#implicit-flow).
+For more information on the implicit flow, including why to use it, see [our OAuth 2.0 overview](/docs/concepts/auth-overview/#implicit-flow).
 
 ### 1. Setting up your Application
 
@@ -57,7 +57,7 @@ Your application must now extract the token(s) from the URI and store them.
 
 ### 3. Next Steps
 
-When your application passes a request with an `access_token`, the resource server will need to validate it. For more on this, see [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens/).
+When your application passes a request with an `access_token`, the resource server will need to validate it. For more on this, see [Validate Access Tokens](/docs/guides/validate-access-tokens/).
 
 ### Examples
 

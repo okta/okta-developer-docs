@@ -3058,7 +3058,7 @@ HTTP/1.1 204 No Content
 
 These endpoints allow you to manage tokens issued by an Authorization Server for a particular User and Client. For example, you could revoke every active refresh token for a User in the context of a specific Client. You can also [revoke specific tokens](/authentication-guide/tokens/revoking-tokens/) or [manage tokens at the Authorization Server level](/docs/reference/api/authorization-servers/#oauth-20-token-management-operations).
 
-Read [Working With Tokens](/authentication-guide/tokens/) to understand more about how OAuth 2.0 tokens work.
+Read [Validate Access Tokens](/docs/guides/validate-access-tokens/) to understand more about how OAuth 2.0 tokens work.
 
 <ApiLifecycle access="ea" />
 

@@ -5241,7 +5241,7 @@ Determines how to authenticate the OAuth 2.0 client
 
  * If a `client_secret` isn't provided on creation, and the `token_endpoint_auth_method` requires one, Okta generates a random `client_secret` for the client application. The `client_secret` is only shown when an OAuth 2.0 client app is created or updated (and only if the `token_endpoint_auth_method` is one that requires a client secret).
 
-* If `autoKeyRotation` isn't specified, the client automatically opts in for Okta's [key rotation](/authentication-guide/tokens/validating-id-tokens/). You can update this property via the API or via the administrator UI.
+* If `autoKeyRotation` isn't specified, the client automatically opts in for Okta's [key rotation](/docs/concepts/key-rotation/). You can update this property via the API or via the administrator UI.
 
 ```json
 {

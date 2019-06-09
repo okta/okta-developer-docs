@@ -1,11 +1,6 @@
 ---
-title: Validating ID Tokens
-excerpt: How to validate ID tokens with Okta.
+title: Overview
 ---
-
-# Validating ID Tokens
-
-## Overview
 
 If your client application requires authentication and would like to obtain information about the authenticated person, then it should use the OpenID Connect protocol to get an ID token.
 
@@ -13,17 +8,7 @@ OpenID Connect (OIDC) is an authentication protocol built on top of OAuth 2.0. W
 
 We will now cover the terms used in this document, and an explanation of why you should use ID tokens.
 
-- [Validating ID Tokens](#validating-id-tokens)
-  - [Overview](#overview)
-  - [ID Tokens vs Access Tokens](#id-tokens-vs-access-tokens)
-  - [What to Check When Validating an ID Token](#what-to-check-when-validating-an-id-token)
-    - [Retrieve The JSON Web Key Set](#retrieve-the-json-web-key-set)
-    - [Decode the ID Token](#decode-the-id-token)
-    - [Verify the Claims](#verify-the-claims)
-  - [Validating A Token Remotely With Okta](#validating-a-token-remotely-with-okta)
-  - [Okta Libraries to Help You Verify ID Tokens](#okta-libraries-to-help-you-verify-id-tokens)
-
-A high-level overview of OpenID Connect can be found [here](/authentication-guide/auth-overview/#openid-connect).
+A high-level overview of OpenID Connect can be found [here](/docs/concepts/auth-overview/#openid-connect).
 
 The ID tokens are in JSON Web Token (JWT) format, the specification for which can be found here: <https://tools.ietf.org/html/rfc7519>. They are signed using private JSON Web Keys (JWK), the specification for which you can find here: <https://tools.ietf.org/html/rfc7517>.
 
@@ -35,7 +20,7 @@ The ID Token is a security token granted by the OpenID Provider that contains in
 
 You can pass an ID Token around different components of your client, and these components can use the ID Token to confirm that the user is authenticated and also to retrieve information about them.
 
-Access tokens, on the other hand, are not intended to carry information about the user. They simply allow access to certain defined server resources. More discussion about when to use access tokens can be found in [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens/).
+Access tokens, on the other hand, are not intended to carry information about the user. They simply allow access to certain defined server resources. More discussion about when to use access tokens can be found in [Validate Access Tokens](/docs/guides/validate-access-tokens/).
 
 ## What to Check When Validating an ID Token
 
@@ -43,7 +28,7 @@ The high-level overview of validating an ID token looks like this:
 
 - Retrieve and parse your Okta JSON Web Keys (JWK), which should be checked periodically and cached by your application.
 - Decode the ID token, which is in JSON Web Token format
-- Verify the signature used to sign the ID token [Verify the Token's Signature](/authentication-guide/tokens/verifying-token-signature/)
+- Verify the signature used to sign the ID token
 - Verify the claims found inside the ID token
 
 ### Retrieve The JSON Web Key Set
@@ -55,6 +40,12 @@ The JSON Web Key Set (JWKS) needs to be retrieved from your [Okta Authorization 
 ### Decode the ID Token
 
 You will have to decode the ID token, which is in JWT format. A list of libraries to help you do this can be found [below](#okta-libraries-to-help-you-verify-id-tokens).
+
+## Verify the Token Signature
+
+You verify the Access or ID token's signature by matching the key that was used to sign in with one of the keys that you retrieved from your Okta Authorization Server's JWK endpoint. Specifically, each public key is identified by a `kid` attribute, which corresponds with the `kid` claim in the Access or ID token header.
+
+If the `kid` claim doesn't match, it's possible that the signing keys have changed. Check the `jwks_uri` value in the Authorization Server metadata and try retrieving the keys again from Okta.
 
 ### Verify the Claims
 

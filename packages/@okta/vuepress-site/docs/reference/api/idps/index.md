@@ -20,7 +20,7 @@ Each identity provider (IdP) requires some setup. Use the Okta setup guide for y
 * [Google](/authentication-guide/social-login/google/)
 * [LinkedIn](/authentication-guide/social-login/linkedin/)
 * [Microsoft](/authentication-guide/social-login/microsoft/)
-* [Generic OIDC Identity Providers](/authentication-guide/generic-oidc/#set-up-a-generic-openid-connect-identity-provider)
+* [Generic OIDC Identity Providers](/docs/guides/federate-with-oidc/)
 
 
 ## Identity Provider Operations

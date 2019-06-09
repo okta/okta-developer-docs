@@ -31,7 +31,7 @@ title: Facebook
 * **Client Secret:** Paste in the App Secret that you got from Facebook in step 1.5 above.
 * **Scopes:** Leave set to the default.
 
-> For more information about these as well as the Advanced Settings, see [Social Identity Provider Settings](/authentication-guide/social-login/social-settings/).
+> For more information about these as well as the Advanced Settings, see [Social Identity Provider Settings](/docs/reference/social-settings/).
 
 2.4. Once you have completed all the fields, click on **Add Identity Provider**. You will be returned to the main "Identity Providers" page.
 

@@ -1,11 +1,6 @@
 ---
-title: Validating Access Tokens
-excerpt: How to validate access tokens with Okta.
+title: Overview
 ---
-
-# Validating Access Tokens
-
-## Overview
 
 If you are building a modern app or API, you likely want to know if your end-user is authenticated. This is important to give context or to protect APIs from unauthenticated users. You can use Okta to authenticate your end-users and issue them signed access and ID tokens, which your application can then use. It is important that your application only uses the access token to grant access, and not the ID token. For more information about this, see the [Access Tokens VS ID Tokens](#access-tokens-vs-id-tokens) section below.
 
@@ -17,7 +12,7 @@ We will now cover the terms used in this document, and an explanation of why you
 - If you'd like to see how to validate a token directly with Okta: [Validating A Token Remotely With Okta](#validating-a-token-remotely-with-okta)
 - If you want to see specifically how to accomplish this in your language of choice: [Okta Libraries to Help You Verify Access Tokens](#okta-libraries-to-help-you-verify-access-tokens)
 
-A high-level overview of OAuth 2.0 can be found [here](/authentication-guide/auth-overview/#oauth-2-0).
+A high-level overview of OAuth 2.0 can be found [here](/docs/concepts/auth-overview/#oauth-2-0).
 
 The access tokens are in [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) format. They are signed using asynmmetrical [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
 
@@ -35,7 +30,7 @@ The high-level overview of validating an access token looks like this:
 
 - Retrieve and parse your Okta JSON Web Keys (JWK), which should be checked periodically and cached by your application.
 - Decode the access token, which is in JSON Web Token format
-- Verify the signature used to sign the access token [Verify the Token's Signature](/authentication-guide/tokens/verifying-token-signature/)
+- Verify the signature used to sign the access token
 - Verify the claims found inside the access token
 
 ### Retrieve The JSON Web Keys
@@ -47,6 +42,12 @@ The JSON Web Keys (JWK) need to be retrieved from your [Okta Authorization Serve
 ### Decode the Access Token
 
 You will have to decode the access token, which is in JWT format. A list of libraries to help you do this can be found [below](#okta-libraries-to-help-you-verify-access-tokens).
+
+## Verify the Token Signature
+
+You verify the Access or ID token's signature by matching the key that was used to sign in with one of the keys that you retrieved from your Okta Authorization Server's JWK endpoint. Specifically, each public key is identified by a `kid` attribute, which corresponds with the `kid` claim in the Access or ID token header.
+
+If the `kid` claim doesn't match, it's possible that the signing keys have changed. Check the `jwks_uri` value in the Authorization Server metadata and try retrieving the keys again from Okta.
 
 ### Verify the Claims
 

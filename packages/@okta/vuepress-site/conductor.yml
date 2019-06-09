@@ -398,9 +398,9 @@ redirects:
   - from: /docs/change-log/index.html
     to: /docs/release-notes/
   - from: /standards/OAuth/index.html
-    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+    to: /docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow
   - from: /standards/OAuth
-    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
+    to: /docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow
   - from: /documentation/
     to: /docs/
   - from: /reference/error_codes/index.html

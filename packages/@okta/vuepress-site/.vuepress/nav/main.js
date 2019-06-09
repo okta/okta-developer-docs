@@ -12,8 +12,8 @@ module.exports = [
   {
     title: "Guides",
     links: [
-      { title: 'OAuth 2.0 Overview', link: '/authentication-guide/auth-overview/'},
-      { title: 'Implementing OAuth 2.0', link: '/authentication-guide/implementing-authentication/', subLinks: [
+      { title: 'OAuth 2.0 Overview', link: '/docs/concepts/auth-overview/'},
+      { title: 'Implementing OAuth 2.0', link: '/docs/concepts/auth-overview/#recommended-flow-by-application-type', subLinks: [
           {title: 'Authorization Code Flow', link: '/authentication-guide/implementing-authentication/auth-code/'},
           {title: 'Authorization Code Flow with PKCE', link: '/authentication-guide/implementing-authentication/auth-code-pkce/'},
           {title: 'Client Credentials Flow', link: '/authentication-guide/implementing-authentication/client-creds/'},
@@ -22,24 +22,24 @@ module.exports = [
           {title: 'Customizing Your Authorization Server', link: '/docs/guides/customize-authz-server/'}
         ]
       },
-      { title: 'Social Login', link: '/authentication-guide/social-login/', subLinks: [
+      { title: 'Social Login', link: '/docs/concepts/social-login/', subLinks: [
           { title: 'Facebook', link: '/authentication-guide/social-login/facebook/'},
           { title: 'Google', link: '/authentication-guide/social-login/google/'},
           { title: 'LinkedIn', link: '/authentication-guide/social-login/linkedin/'},
           { title: 'Microsoft', link: '/authentication-guide/social-login/microsoft/'},
-          { title: 'Social IdP Settings', link: '/authentication-guide/social-login/social-settings/'}
+          { title: 'Social IdP Settings', link: '/docs/reference/social-settings/'}
         ]
       },
       { title: 'Add a SAML Identity Provider', link: '/authentication-guide/saml-login/'},
-      { title: 'Working With Tokens', link: '/authentication-guide/tokens/', subLinks: [
-          { title: 'Validating Access Tokens', link: '/authentication-guide/tokens/validating-access-tokens/'},
-          { title: 'Validating ID Tokens', link: '/authentication-guide/tokens/validating-id-tokens/'},
-          { title: 'Verifying the Token Signature and Managing Key Rotation', link: '/authentication-guide/tokens/verifying-token-signature/'},      
+      { title: 'Working With Tokens', link: '/docs/guides/validate-access-tokens/', subLinks: [
+          { title: 'Validating Access Tokens', link: '/docs/guides/validate-access-tokens/'},
+          { title: 'Validating ID Tokens', link: '/docs/guides/validate-id-tokens/'},
+          { title: 'Managing Key Rotation', link: '/docs/concepts/key-rotation/'},
           { title: 'Refreshing Access Tokens', link: '/authentication-guide/tokens/refreshing-tokens/'},
           { title: 'Revoking Tokens', link: '/authentication-guide/tokens/revoking-tokens/'}
         ]
       },
-      { title: 'Generic OpenID Connect IdP', link: '/authentication-guide/generic-oidc/'},
+      { title: 'Generic OpenID Connect IdP', link: '/docs/guides/federate-with-oidc/'},
       { title: 'Request user consent during authentication', link: '/docs/guides/request-user-consent/'},
       { title: 'Create tokens with group claims', link: '/docs/guides/create-token-with-groups-claim/'}
     ]

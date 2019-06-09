@@ -1,15 +1,6 @@
 ---
-title: Verify the Token Signature and Manage Key Rotation
-excerpt: How to verify the access token and the ID token signature and manage key rotation
+Title: Key Rotation
 ---
-
-# Verify the Token Signature
-
-You verify the Access or ID token's signature by matching the key that was used to sign in with one of the keys that you retrieved from your Okta Authorization Server's JWK endpoint. Specifically, each public key is identified by a `kid` attribute, which corresponds with the `kid` claim in the Access or ID token header.
-
-If the `kid` claim doesn't match, it's possible that the signing keys have changed. Check the `jwks_uri` value in the Authorization Server metadata and try retrieving the keys again from Okta.
-
-## Manage Key Rotation
 
 - For security purposes, Okta automatically rotates keys used to sign the token.
 - The current key rotation schedule is four times a year. This schedule can change without notice.

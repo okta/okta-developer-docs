@@ -15,7 +15,7 @@ The Authorization Code Flow with PKCE is the standard Code flow with an extra st
 - Your application sends this code, along with the code verifier, to Okta. Okta returns access and ID tokens, and optionally a refresh token.
 - Your application can now use these tokens to call the resource server (for example an API) on behalf of the user.
 
-For more information on the authorization code with PKCE flow, including why to use it, see our [OAuth 2.0 Overview](/authentication-guide/auth-overview/#authorization-code-with-pkce-flow).
+For more information on the authorization code with PKCE flow, including why to use it, see our [OAuth 2.0 Overview](/docs/concepts/auth-overview/#authorization-code-with-pkce-flow).
 
 ### 1. Setting up your Application
 
@@ -117,7 +117,7 @@ If the code is still valid, and the code verifier matches, your application will
 
 ### 4. Next Steps
 
-When your application passes a request with an `access_token`, the resource server will need to validate it. For more on this, see [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens/).
+When your application passes a request with an `access_token`, the resource server will need to validate it. For more on this, see [Validate Access Tokens](/docs/guides/validate-access-tokens/).
 
 ### Examples
 

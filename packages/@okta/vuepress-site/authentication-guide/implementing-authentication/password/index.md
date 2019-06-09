@@ -11,7 +11,7 @@ The Resource Owner Password Flow is intended for use cases where you control bot
 - Your application sends these credentials to your Okta authorization server.
 - If the credentials are accurate, Okta responds with the requested tokens.
 
-For more information on the resource owner password flow, including why to use it, see [our OAuth 2.0 overview](/authentication-guide/auth-overview/#resource-owner-password-flow).
+For more information on the resource owner password flow, including why to use it, see [our OAuth 2.0 overview](/docs/concepts/auth-overview/#resource-owner-password-flow).
 
 ### 1. Setting up your Application
 
@@ -64,4 +64,4 @@ If the credentials are valid, your application will receive back access and ID t
 
 ### 3. Next Steps
 
-When your application passes a request with an access token, the resource server will need to validate it. For more on this, see [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens/).
+When your application passes a request with an access token, the resource server will need to validate it. For more on this, see [Validate Access Tokens](/docs/guides/validate-access-tokens/).

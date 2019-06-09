@@ -63,7 +63,7 @@ sections:
      description: Learn how to build solutions with our step-by-step instructions.
      links:
        - title: Authentication Guide
-         link: /authentication-guide/auth-overview/
+         link: /docs/concepts/auth-overview/
        - title: Work with OAuth 2.0 Tokens
          link: /authentication-guide/tokens/
        - title: Add User Consent to Your Authentication Flow

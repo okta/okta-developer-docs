@@ -11,7 +11,7 @@ A refresh token is a special token that is used to generate additional access to
 
 ## Setting Up Your Application
 
-Refresh tokens are available for a subset of Okta OAuth 2.0 Client Applications, specifically web or native applications. For more about creating an OpenID Connect application see [Implementing Authentication](/authentication-guide/implementing-authentication/).
+Refresh tokens are available for a subset of Okta OAuth 2.0 Client Applications, specifically web or native applications. For more about creating an OpenID Connect application see [Implementing Authentication](/docs/concepts/auth-overview/#recommended-flow-by-application-type).
 
 After you have an application, you need to make sure that the "Allowed grant types" include "Refresh Token".
 
