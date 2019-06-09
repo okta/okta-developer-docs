@@ -64,8 +64,8 @@ sections:
      links:
        - title: Authentication Guide
          link: /docs/concepts/auth-overview/
-       - title: Work with OAuth 2.0 Tokens
-         link: /authentication-guide/tokens/
+       - title: Validate Access Tokens
+         link: /docs/guides/validate-access-tokens/
        - title: Add User Consent to Your Authentication Flow
          link: /docs/guides/request-user-consent/
        - title: Create a Token that Contains a Group Claim

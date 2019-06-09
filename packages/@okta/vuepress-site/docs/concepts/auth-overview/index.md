@@ -7,7 +7,7 @@ title: OAuth 2.0 and OpenID Connect
 This page will give you an overview of OAuth 2.0 and OpenID Connect and their Okta implementations. It will explain the different flows, and help you decide which flow is best for you based on the type of application that you are building. If you already know what kind of flow you want, you can jump directly to:
 
 - [Implementing OAuth 2.0 Authentication](/docs/concepts/auth-overview/#recommended-flow-by-application-type)
-- [SAML Authentication with OIDC](/authentication-guide/saml-login/)
+- [SAML Authentication with OIDC](/docs/guides/add-saml-idp/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
@@ -96,11 +96,11 @@ The table below shows you which OAuth 2.0 flow to use for the type of applicatio
 
 | Type of Application     | OAuth 2.0 Flow                                      |
 | ----------------------- | --------------------------------------------------- |
-| Server-side (AKA Web)   | [Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code/)                |
-| Single-Page Application | [Implicit Flow](/authentication-guide/implementing-authentication/implicit/)                           |
-| Native                  | [Authorization Code Flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce/) |
-| Trusted                 | [Resource Owner Password Flow](/authentication-guide/implementing-authentication/password/)            |
-| Service                 | [Client Credentials](/authentication-guide/implementing-authentication/client-creds/)                  |
+| Server-side (AKA Web)   | [Authorization Code Flow](/docs/guides/implement-auth-code/)                |
+| Single-Page Application | [Implicit Flow](/docs/guides/implement-implicit/next-steps/)                           |
+| Native                  | [Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/) |
+| Trusted                 | [Resource Owner Password Flow](/docs/guides/implement-password/)            |
+| Service                 | [Client Credentials](/docs/guides/implement-client-creds/)                  |
 
 ### Does your application need an ID token?
 
@@ -166,7 +166,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Authorization Code Flow](/authentication-guide/implementing-authentication/auth-code/).
+For information how to set up your application to use this flow, see [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/).
 
 ### Authorization Code with PKCE Flow
 
@@ -206,7 +206,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Authorization Code Flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce/).
+For information how to set up your application to use this flow, see [Implement the Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/).
 
 ### Implicit Flow
 
@@ -233,7 +233,7 @@ client -> app: Request with access token
 app -> client: Response
 -->
 
-For information how to set up your application to use this flow, see [Implement the Implicit Flow](/authentication-guide/implementing-authentication/implicit/).
+For information how to set up your application to use this flow, see [Implement the Implicit Flow](/docs/guides/implement-implicit/next-steps/).
 
 ### Resource Owner Password Flow
 
@@ -258,7 +258,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Resource Owner Password Flow](/authentication-guide/implementing-authentication/password/).
+For information how to set up your application to use this flow, see [Implement the Resource Owner Password Flow](/docs/guides/implement-password/).
 
 ### Client Credentials Flow
 
@@ -283,7 +283,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Client Credentials Flow](/authentication-guide/implementing-authentication/client-creds/).
+For information how to set up your application to use this flow, see [Implement the Client Credentials Flow](/docs/guides/implement-client-creds/).
 
 ## Authorization Servers
 

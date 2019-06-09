@@ -25,6 +25,16 @@ guides:
  - federate-with-oidc
  - refresh-tokens
  - revoke-tokens
+ - add-saml-idp
+ - sign-in-with-facebook
+ - sign-in-with-google
+ - sign-in-with-linkedin
+ - sign-in-with-microsoft
+ - implement-auth-code
+ - implement-auth-code-pkce
+ - implement-client-creds
+ - implement-implicit
+ - implement-password
 featured:
  - sign-into-web-app
  - sign-into-spa

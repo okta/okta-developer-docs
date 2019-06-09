@@ -43,7 +43,7 @@ The Okta React Native client makes it easy to add authentication to your React N
 ## Recommended Guides
 
 
-- [Implementing the Authorization Code Flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce/)
+- [Implementing the Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)

@@ -54,7 +54,7 @@ The Okta AppAuth Android SDK is a wrapper around the AppAuth-Android SDK for com
 ## Recommended Guides
 
 
-- [Implementing the Authorization Code Flow with PKCE](/authentication-guide/implementing-authentication/auth-code-pkce/)
+- [Implementing the Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)

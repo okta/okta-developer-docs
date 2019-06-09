@@ -14,23 +14,23 @@ module.exports = [
     links: [
       { title: 'OAuth 2.0 Overview', link: '/docs/concepts/auth-overview/'},
       { title: 'Implementing OAuth 2.0', link: '/docs/concepts/auth-overview/#recommended-flow-by-application-type', subLinks: [
-          {title: 'Authorization Code Flow', link: '/authentication-guide/implementing-authentication/auth-code/'},
-          {title: 'Authorization Code Flow with PKCE', link: '/authentication-guide/implementing-authentication/auth-code-pkce/'},
-          {title: 'Client Credentials Flow', link: '/authentication-guide/implementing-authentication/client-creds/'},
-          {title: 'Implicit Flow', link: '/authentication-guide/implementing-authentication/implicit/'},
-          {title: 'Resource Owner Password Flow', link: '/authentication-guide/implementing-authentication/password/'},
+          {title: 'Authorization Code Flow', link: '/docs/guides/implement-auth-code/'},
+          {title: 'Authorization Code Flow with PKCE', link: '/docs/guides/implement-auth-code-pkce/'},
+          {title: 'Client Credentials Flow', link: '/docs/guides/implement-client-creds/'},
+          {title: 'Implicit Flow', link: '/docs/guides/implement-implicit/'},
+          {title: 'Resource Owner Password Flow', link: '/docs/guides/implement-password/'},
           {title: 'Customizing Your Authorization Server', link: '/docs/guides/customize-authz-server/'}
         ]
       },
       { title: 'Social Login', link: '/docs/concepts/social-login/', subLinks: [
-          { title: 'Facebook', link: '/authentication-guide/social-login/facebook/'},
-          { title: 'Google', link: '/authentication-guide/social-login/google/'},
-          { title: 'LinkedIn', link: '/authentication-guide/social-login/linkedin/'},
-          { title: 'Microsoft', link: '/authentication-guide/social-login/microsoft/'},
+          { title: 'Facebook', link: '/docs/guides/sign-in-with-facebook/'},
+          { title: 'Google', link: '/docs/guides/sign-in-with-google/'},
+          { title: 'LinkedIn', link: '/docs/guides/sign-in-with-linkedin/'},
+          { title: 'Microsoft', link: '/docs/guides/sign-in-with-microsoft/'},
           { title: 'Social IdP Settings', link: '/docs/reference/social-settings/'}
         ]
       },
-      { title: 'Add a SAML Identity Provider', link: '/authentication-guide/saml-login/'},
+      { title: 'Add a SAML Identity Provider', link: '/docs/guides/add-saml-idp/'},
       { title: 'Working With Tokens', link: '/docs/guides/validate-access-tokens/', subLinks: [
           { title: 'Validating Access Tokens', link: '/docs/guides/validate-access-tokens/'},
           { title: 'Validating ID Tokens', link: '/docs/guides/validate-id-tokens/'},

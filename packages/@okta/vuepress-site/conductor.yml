@@ -6,13 +6,11 @@ redirects:
   - from: /3rd_party_notices/Okta_Rum_Tool
     to: /3rd_party_notices/Okta_Cloud_Provisioning_Connector_Tool/index.html
   - from: /docs/how-to/set-up-auth-server.html
-    to: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
-  - from: /docs/how-to/set-up-auth-server/
-    to: /authentication-guide/implementing-authentication/set-up-authz-server/
+    to: /docs/guides/customize-authz-server/
   - from: /docs/how-to/inbound-saml-with-oidc
-    to: /authentication-guide/saml-login/index.html
+    to: /docs/guides/add-saml-idp/index.html
   - from: /docs/reference/api/social_authentication
-    to: /authentication-guide/social-login/index.html
+    to: /docs/concepts/social-login/
   - from: /code/dotnet/
     to: /code/dotnet/aspnetcore/index.html
   - from: /code/dotnet/index.html
@@ -126,9 +124,9 @@ redirects:
   - from: /docs/api/rest/templates.html
     to: /docs/reference/api/templates/index.html
   - from: /docs/getting_started/tokens.html
-    to: /authentication-guide/tokens/
+    to: /docs/guides/validate-access-tokens/
   - from: /docs/reference/api/tokens/index.html
-    to: /authentication-guide/tokens/
+    to: /docs/guides/validate-access-tokens/
   - from: /docs/api/rest/users.html
     to: /docs/reference/api/users/index.html
   - from: /docs/reference/api/user

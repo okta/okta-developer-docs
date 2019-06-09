@@ -16,10 +16,10 @@ Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/butt
 
 Each identity provider (IdP) requires some setup. Use the Okta setup guide for your IdP:
 
-* [Facebook](/authentication-guide/social-login/facebook/)
-* [Google](/authentication-guide/social-login/google/)
-* [LinkedIn](/authentication-guide/social-login/linkedin/)
-* [Microsoft](/authentication-guide/social-login/microsoft/)
+* [Facebook](/docs/guides/sign-in-with-facebook/)
+* [Google](/docs/guides/sign-in-with-google/)
+* [LinkedIn](/docs/guides/sign-in-with-linkedin/)
+* [Microsoft](/docs/guides/sign-in-with-microsoft/)
 * [Generic OIDC Identity Providers](/docs/guides/federate-with-oidc/)
 
 
