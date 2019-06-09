@@ -216,7 +216,7 @@ https://www.example.com/#error=invalid_scope&error_description=The+requested+sco
 ### /token
 <ApiOperation method="post" url="${baseUrl}/v1/token" />
 
-This endpoint returns access tokens, ID tokens, and refresh tokens, depending on the request parameters. For [password](/authentication-guide/implementing-authentication/password/, [client credentials](/authentication-guide/implementing-authentication/client-creds/), and [refresh token](/authentication-guide/tokens/refreshing-tokens/) flows, calling `/token` is the only step of the flow. For the [authorization code](/authentication-guide/implementing-authentication/auth-code/) flow, calling `/token` is the second step of the flow.
+This endpoint returns access tokens, ID tokens, and refresh tokens, depending on the request parameters. For [password](/authentication-guide/implementing-authentication/password/, [client credentials](/authentication-guide/implementing-authentication/client-creds/), and [refresh token](/docs/guides/refresh-tokens/) flows, calling `/token` is the only step of the flow. For the [authorization code](/authentication-guide/implementing-authentication/auth-code/) flow, calling `/token` is the second step of the flow.
 
 
 > This endpoint's base URL varies depending on whether you are using a custom authorization server. For more information, see [Composing Your Base URL](#composing-your-base-url).
@@ -1200,7 +1200,7 @@ For more information about configuring an app for OpenID Connect, including grou
 * The full set of claims for the requested scopes is available via the [/oauth2/v1/userinfo](#userinfo) endpoint. Call this endpoint using the access token.
 
 ### Refresh Token
-Refresh tokens are opaque. More information about using them can be found in the [Authentication Guide](/authentication-guide/tokens/refreshing-tokens/).
+Refresh tokens are opaque. More information about using them can be found in the [Authentication Guide](/docs/guides/refresh-tokens/).
 
 ## Client Authentication Methods
 

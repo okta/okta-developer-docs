@@ -1,9 +1,6 @@
 ---
-title: Revoking Tokens
-excerpt: How to revoke tokens with Okta.
+title: Overview
 ---
-
-# Revoking Tokens
 
 If for whatever reason you would like to disable an access or refresh token, simply send a request to your `/revoke` endpoint:
 

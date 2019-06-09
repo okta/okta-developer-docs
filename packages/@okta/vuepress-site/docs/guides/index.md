@@ -23,6 +23,8 @@ guides:
  - validate-access-tokens
  - validate-id-tokens
  - federate-with-oidc
+ - refresh-tokens
+ - revoke-tokens
 featured:
  - sign-into-web-app
  - sign-into-spa

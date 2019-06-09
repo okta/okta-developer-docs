@@ -35,8 +35,8 @@ module.exports = [
           { title: 'Validating Access Tokens', link: '/docs/guides/validate-access-tokens/'},
           { title: 'Validating ID Tokens', link: '/docs/guides/validate-id-tokens/'},
           { title: 'Managing Key Rotation', link: '/docs/concepts/key-rotation/'},
-          { title: 'Refreshing Access Tokens', link: '/authentication-guide/tokens/refreshing-tokens/'},
-          { title: 'Revoking Tokens', link: '/authentication-guide/tokens/revoking-tokens/'}
+          { title: 'Refresh Access Tokens', link: '/docs/guides/refresh-tokens/'},
+          { title: 'Revoke Tokens', link: '/docs/guides/revoke-tokens/'}
         ]
       },
       { title: 'Generic OpenID Connect IdP', link: '/docs/guides/federate-with-oidc/'},
