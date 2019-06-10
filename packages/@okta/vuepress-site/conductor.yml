@@ -513,3 +513,49 @@ redirects:
     to: /docs/guides/saml-application-setup/
   - from: /standards/SAML/saml_tracer/index.html
     to: /docs/guides/saml-tracer/
+  - from: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
+    to: /docs/guides/customize-authz-server/
+  - from: /authentication-guide/social-login/social-settings/
+    to: /docs/reference/social-settings/
+  - from: /authentication-guide/social-login/
+    to: /docs/concepts/social-login/
+  - from: /authentication-guide/
+    to: /docs/concepts/auth-overview/
+  - from: /authentication-guide/auth-overview/
+    to: /docs/concepts/auth-overview/
+  - from: /authentication-guide/implementing-authentication/
+    to: /docs/concepts/auth-overview/#recommended-flow-by-application-type
+  - from: /authentication-guide/tokens/
+    to: /docs/guides/validate-access-tokens/
+  - from: /authentication-guide/tokens/verifying-token-signature/
+    to: /docs/guides/validate-access-tokens/
+  - from: /authentication-guide/tokens/validating-access-tokens/
+    to: /docs/guides/validate-access-tokens/
+  - from: /authentication-guide/tokens/validating-access-tokens/
+    to: /docs/guides/validate-id-tokens/
+  - from: /authentication-guide/generic-oidc/
+    to: /docs/guides/federate-with-oidc/
+  - from: /authentication-guide/tokens/refreshing-tokens/
+    to: /docs/guides/refresh-tokens/
+  - from: /authentication-guide/tokens/revoking-tokens/
+    to: /docs/guides/revoke-tokens/
+  - from: /authentication-guide/saml-login/
+    to: /docs/guides/add-saml-idp/
+  - from: /authentication-guide/social-login/facebook/
+    to: /docs/guides/sign-in-with-facebook/
+  - from: /authentication-guide/social-login/google/
+    to: /docs/guides/sign-in-with-google/
+  - from: /authentication-guide/social-login/linkedin/
+    to: /docs/guides/sign-in-with-linkedin/
+  - from: /authentication-guide/social-login/microsoft/
+    to: /docs/guides/sign-in-with-microsoft/
+  - from: /authentication-guide/implementing-authentication/auth-code/
+    to: /docs/guides/implement-auth-code/
+  - from: /authentication-guide/implementing-authentication/auth-code-pkce/
+    to: /docs/guides/implement-auth-code-pkce/
+  - from: /authentication-guide/implementing-authentication/client-creds/
+    to: /docs/guides/implement-client-creds/
+  - from: /authentication-guide/implementing-authentication/implicit/
+    to: /docs/guides/implement-implicit/
+  - from: /authentication-guide/implementing-authentication/password/
+    to: /docs/guides/implement-password/
