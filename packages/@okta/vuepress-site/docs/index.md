@@ -47,42 +47,41 @@ languages:
       icon: code-rest-32
 
 sections:
-   - title: Concepts
-     description: Understand the basics of Okta's APIs and architecture.
-     links:
-       - title: Get an API Token
-         link: /docs/guides/create-an-api-token/
-       - title: Inline Hooks
-         link: /docs/reference/api/inline-hooks/
-       - title: Rate Limits
-         link: /docs/reference/rate-limits/
-       - title: More
-         link: /docs/reference/api-overview/
+  - title: Concepts
+    description: Understand the basics of Okta's APIs and architecture.
+    links:
+      - title: Okta-hosted flows
+        link: /docs/concepts/okta-hosted-flows/
+      - title: Inline Hooks
+        link: /docs/concepts/inline-hooks/
+      - title: Authentication overview
+        link: /docs/concepts/authentication/
 
-   - title: Guides
-     description: Learn how to build solutions with our step-by-step instructions.
-     links:
-       - title: Authentication Guide
-         link: /docs/concepts/auth-overview/
-       - title: Validate Access Tokens
-         link: /docs/guides/validate-access-tokens/
-       - title: Add User Consent to Your Authentication Flow
-         link: /docs/guides/request-user-consent/
-       - title: Create a Token that Contains a Group Claim
-         link: /docs/guides/create-token-with-groups-claim/
+  - title: Guides
+    link: /docs/guides/
+    description: Learn how to build solutions with our step-by-step instructions.
+    links:
+      - title: Sign users in to your Web Application
+        link: /docs/guides/sign-into-web-app/
+      - title: Sign users in to your Single-Page App
+        link: /docs/guides/sign-into-spa/
+      - title: Sign users out
+        link: /docs/guides/sign-users-out/
+      - title: More...
+        link: /docs/guides/
 
-   - title: Reference
-     link: /docs/reference/
-     description: Details on parameters, requests, and responses for Okta's API endpoints.
-     links:
-       - title: OpenID Connect & OAuth 2.0 API
-         link: /docs/reference/api/oidc/
-       - title: Users API
-         link: /docs/reference/api/users/
-       - title: Error Codes
-         link: /docs/reference/error-codes/
-       - title: More
-         link:  /docs/reference/
+  - title: Reference
+    link: /docs/reference/
+    description: Details on parameters, requests, and responses for Okta's API endpoints.
+    links:
+      - title: API Overview
+        link: /docs/reference/api-overview/
+      - title: OpenID Connect API
+        link: /docs/reference/api/oidc/
+      - title: Users API
+        link: /docs/reference/api/users/
+      - title: More...
+        link:  /docs/reference/
 
 changelog_title: API Products Release Notes
 
