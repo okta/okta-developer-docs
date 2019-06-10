@@ -21,7 +21,7 @@ module.exports = [
       { title: 'Sign users in to your Web Application', link: '/docs/guides/sign-into-web-app/'},
       { title: 'Sign users in to your SPA', link: '/docs/guides/sign-into-spa/'},
       { title: 'Sign users out', link: '/docs/guides/sign-users-out/'},
-      { title: 'More', link: '/docs/guides/' }
+      { title: 'More...', link: '/docs/guides/' }
     ]
   },
   {
