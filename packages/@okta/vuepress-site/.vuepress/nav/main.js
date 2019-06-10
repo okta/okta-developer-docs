@@ -2,55 +2,40 @@ module.exports = [
   {
     title: "Concepts",
     links: [
-      { title: 'Inline Hooks', link: '/docs/concepts/inline-hooks/'},
+      { title: 'API Access Management', link: '/docs/concepts/api-access-management/'},
       { title: 'Authentication', link: '/docs/concepts/authentication/'},
       { title: 'Events API Migration', link: '/docs/concepts/events-api-migration/'},
-      { title: 'Multi-Factor Authentication', link: '/docs/guides/mfa/'},
-      { title: 'API Access Management', link: '/docs/concepts/api-access-management/'}
+      { title: 'Inline Hooks', link: '/docs/concepts/inline-hooks/'},
+      { title: 'Key Rotation', link: '/docs/concepts/key-rotation/'},
+      { title: 'OAuth 2.0 & OIDC', link: '/docs/concepts/oauth-overview/'},
+      { title: 'Okta-Hosted Flows', link: '/docs/concepts/okta-hosted-flows/'},
+      { title: 'Social Login', link: '/docs/concepts/social-login/'}
     ]
   },
   {
     title: "Guides",
     links: [
-      { title: 'OAuth 2.0 Overview', link: '/docs/concepts/auth-overview/'},
-      { title: 'Implementing OAuth 2.0', link: '/docs/concepts/auth-overview/#recommended-flow-by-application-type', subLinks: [
-          {title: 'Authorization Code Flow', link: '/docs/guides/implement-auth-code/'},
-          {title: 'Authorization Code Flow with PKCE', link: '/docs/guides/implement-auth-code-pkce/'},
-          {title: 'Client Credentials Flow', link: '/docs/guides/implement-client-creds/'},
-          {title: 'Implicit Flow', link: '/docs/guides/implement-implicit/'},
-          {title: 'Resource Owner Password Flow', link: '/docs/guides/implement-password/'},
-          {title: 'Customizing Your Authorization Server', link: '/docs/guides/customize-authz-server/'}
-        ]
-      },
-      { title: 'Social Login', link: '/docs/concepts/social-login/', subLinks: [
-          { title: 'Facebook', link: '/docs/guides/sign-in-with-facebook/'},
-          { title: 'Google', link: '/docs/guides/sign-in-with-google/'},
-          { title: 'LinkedIn', link: '/docs/guides/sign-in-with-linkedin/'},
-          { title: 'Microsoft', link: '/docs/guides/sign-in-with-microsoft/'},
-          { title: 'Social IdP Settings', link: '/docs/reference/social-settings/'}
-        ]
-      },
-      { title: 'Add a SAML Identity Provider', link: '/docs/guides/add-saml-idp/'},
-      { title: 'Working With Tokens', link: '/docs/guides/validate-access-tokens/', subLinks: [
-          { title: 'Validating Access Tokens', link: '/docs/guides/validate-access-tokens/'},
-          { title: 'Validating ID Tokens', link: '/docs/guides/validate-id-tokens/'},
-          { title: 'Managing Key Rotation', link: '/docs/concepts/key-rotation/'},
-          { title: 'Refresh Access Tokens', link: '/docs/guides/refresh-tokens/'},
-          { title: 'Revoke Tokens', link: '/docs/guides/revoke-tokens/'}
-        ]
-      },
-      { title: 'Generic OpenID Connect IdP', link: '/docs/guides/federate-with-oidc/'},
+      { title: 'Create tokens with group claims', link: '/docs/guides/create-token-with-groups-claim/'},
+      { title: 'Protect your API endpoints', link: '/docs/guides/protect-your-api/'},
       { title: 'Request user consent during authentication', link: '/docs/guides/request-user-consent/'},
-      { title: 'Create tokens with group claims', link: '/docs/guides/create-token-with-groups-claim/'}
+      { title: 'Sign users in to your Web Application', link: '/docs/guides/sign-into-web-app/'},
+      { title: 'Sign users in to your SPA', link: '/docs/guides/sign-into-spa/'},
+      { title: 'Sign users out', link: '/docs/guides/sign-users-out/'},
+      { title: 'More', link: '/docs/guides/' }
     ]
   },
   {
     title: "Reference",
     links: [
-        { title: 'Sign in Your Users', link: '/docs/reference/api/oidc/', subLinksId: 'Sidebar_References', subLinks: [
-          { title: 'OpenID Connect & OAuth 2.0 API', link: '/docs/reference/api/oidc/'},
-          { title: 'Authentication', link: '/docs/reference/api/authn/'}
-        ]
+      { title: 'API Overview', link: '/docs/reference/api-overview/', subLinks: [
+        { title: 'Rate limits', link: '/docs/reference/rate-limits/'},
+        { title: 'Release Lifecycle', link: '/docs/reference/releases-at-okta/'}
+      ]
+      },
+      { title: 'Sign in Your Users', link: '/docs/reference/api/oidc/', subLinksId: 'Sidebar_References', subLinks: [
+        { title: 'OpenID Connect & OAuth 2.0 API', link: '/docs/reference/api/oidc/'},
+        { title: 'Authentication', link: '/docs/reference/api/authn/'}
+      ]
       },
       { title: 'Manage Okta Resources', link: '/docs/reference/api/roles/',  subLinksId: 'Sidebar_Resources',  subLinks: [
           { title: 'Administrator Roles', link: '/docs/reference/api/roles/'},
@@ -73,21 +58,14 @@ module.exports = [
           { title: 'Zones', link: '/docs/reference/api/zones/'}
         ]
       },
-      { title: 'API Overview', link: '/docs/reference/api-overview/', subLinks: [
-          { title: 'Find Your Application Credentials', link: '/docs/guides/find-your-app-credentials/'},
-          { title: 'Find Your Okta Domain', link: '/docs/guides/find-your-domain/'},
-          { title: 'Create an API Token', link: '/docs/guides/create-an-api-token/'},
-          { title: 'Enabling CORS', link: '/docs/guides/enable-cors/'},
-          { title: 'Rate limits', link: '/docs/reference/rate-limits/'},
-          { title: 'Release Lifecycle', link: '/docs/reference/releases-at-okta/'}
-        ]
-      },
-      { title: 'Event Hooks', link: '/docs/reference/api/event-hooks/'},
       { title: 'Error Codes', link: '/docs/reference/error-codes/'},
+      { title: 'Token Hooks', link: '/docs/reference/token-hooks/'},
+      { title: 'Import Hooks', link: '/docs/reference/import-hooks/'},
+      { title: 'SAML Hooks', link: '/docs/reference/saml-hooks/'},
       { title: 'Okta Expression Language', link: '/docs/reference/okta-expression-language/'},
       { title: 'Postman Collections', link: '/docs/reference/postman-collections/'},
       { title: 'SCIM Protocol', link: '/docs/reference/scim/'},
-      { title: 'WebFinger', link: '/docs/reference/webfinger/'},
+      { title: 'WebFinger', link: '/docs/reference/webfinger/'}
     ]
   },
   {
