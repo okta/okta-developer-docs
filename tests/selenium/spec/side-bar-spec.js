@@ -8,12 +8,15 @@ var chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
 var expect = chai.expect;
 
+// Currently only tests pre-Guides sidebar
+const pageWithSideBarUrl = '/docs/api/resources/apps';
+
 describe('sidebar navigation spec', () => {
-  const sideBarPage = new SideBarPage(util.fixUrl('/use_cases/authentication'));
+  const sideBarPage = new SideBarPage(util.fixUrl(pageWithSideBarUrl));
 
   beforeEach(util.itHelper(async () => {
     await sideBarPage.resizeXLarge(); // At smaller sizes, sidebar navigation is hidden
-    await sideBarPage.navigate(util.fixUrl('/use_cases/authentication'));
+    await sideBarPage.navigate(util.fixUrl(pageWithSideBarUrl));
     await sideBarPage.refresh();
   }));
 
