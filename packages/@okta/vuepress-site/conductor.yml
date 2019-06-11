@@ -465,37 +465,37 @@ redirects:
     to: /docs/reference/api/authorization-servers/
   - from: /docs/api/resources/oauth-clients/index.html
     to: /docs/reference/api/oauth-clients/
-  - from: /docs/api/resources/api/events/index.html
+  - from: /docs/api/resources/events/index.html
     to: /docs/reference/api/events/
-  - from: /docs/api/resources/api/event-hooks/index.html
+  - from: /docs/api/resources/event-hooks/index.html
     to: /docs/reference/api/event-hooks/
   - from: /docs/api/resources/event-types/index.html
     to: /docs/reference/api/event-types/
   - from: /docs/api/resources/factors/index.html
     to: /docs/reference/api/factors/
-  - from: /docs/api/resources/api/groups/index.html
+  - from: /docs/api/resources/groups/index.html
     to: /docs/reference/api/groups/
-  - from: /docs/api/resources/api/idps/index.html
+  - from: /docs/api/resources/idps/index.html
     to: /docs/reference/api/idps/
-  - from: /docs/api/resources/api/inline-hooks/index.html
+  - from: /docs/api/resources/inline-hooks/index.html
     to: /docs/reference/api/inline-hooks/
-  - from: /docs/api/resources/api/linked-objects/index.html
+  - from: /docs/api/resources/linked-objects/index.html
     to: /docs/reference/api/linked-objects/
-  - from: /docs/api/resources/api/policy/index.html
+  - from: /docs/api/resources/policy/index.html
     to: /docs/reference/api/policy/
-  - from: /docs/api/resources/api/schemas/index.html
+  - from: /docs/api/resources/schemas/index.html
     to: /docs/reference/api/schemas/
-  - from: /docs/api/resources/api/sessions/index.html
+  - from: /docs/api/resources/sessions/index.html
     to: /docs/reference/api/sessions/
-  - from: /docs/api/resources/api/system_log/index.html
+  - from: /docs/api/resources/system_log/index.html
     to: /docs/reference/api/system-log/
-  - from: /docs/api/resources/api/templates/index.html
+  - from: /docs/api/resources/templates/index.html
     to: /docs/reference/api/templates/
-  - from: /docs/api/resources/api/trusted-origins/index.html
+  - from: /docs/api/resources/trusted-origins/index.html
     to: /docs/reference/api/trusted-origins/
-  - from: /docs/api/resources/api/users/index.html
+  - from: /docs/api/resources/users/index.html
     to: /docs/reference/api/users/
-  - from: /docs/api/resources/api/zones/index.html
+  - from: /docs/api/resources/zones/index.html
     to: /docs/reference/api/zones/
   - from: /docs/how-to/add-user-consent-to-flow/index.html
     to: /docs/guides/request-user-consent/
