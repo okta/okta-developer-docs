@@ -1,6 +1,6 @@
 redirects:
   - from: /code
-    to: /documentation/
+    to: /docs/
   - from: /use_cases/api_security
     to: /docs/concepts/api-access-management/
   - from: /3rd_party_notices/Okta_Rum_Tool
@@ -360,7 +360,7 @@ redirects:
   - from: /docs/how-to/creating-token-with-groups-claim.html
     to: /docs/guides/create-token-with-groups-claim/
   - from: /docs/sdk/core/api.html
-    to: /documentation/
+    to: /docs/
   - from: /3rd_party_notices/iOS_Verify.html
     to: /3rd_party_notices/iOS_Verify/
   - from: /3rd_party_notices/Android_verify.html
