@@ -411,9 +411,9 @@ redirects:
     to: /docs/reference/scim/
   - from: /reference/webfinger/index.html
     to: /docs/reference/webfinger/
-  - from: /guides/
+  - from: /guides/index.html
     to: /docs/guides/
-  - from: /reference/
+  - from: /reference/index.html
     to: /docs/reference/
   - from: /use_cases/api_access_management/index.html
     to: /docs/concepts/api-access-management/
