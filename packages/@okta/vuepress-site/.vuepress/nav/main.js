@@ -7,7 +7,7 @@ module.exports = [
       { title: 'Events API Migration', link: '/docs/concepts/events-api-migration/'},
       { title: 'Inline Hooks', link: '/docs/concepts/inline-hooks/'},
       { title: 'Key Rotation', link: '/docs/concepts/key-rotation/'},
-      { title: 'OAuth 2.0 & OIDC', link: '/docs/concepts/oauth-overview/'},
+      { title: 'OAuth 2.0 & OIDC', link: '/docs/concepts/auth-overview/'},
       { title: 'Okta-Hosted Flows', link: '/docs/concepts/okta-hosted-flows/'},
       { title: 'Social Login', link: '/docs/concepts/social-login/'}
     ]
@@ -59,9 +59,9 @@ module.exports = [
         ]
       },
       { title: 'Error Codes', link: '/docs/reference/error-codes/'},
-      { title: 'Token Hooks', link: '/docs/reference/token-hooks/'},
-      { title: 'Import Hooks', link: '/docs/reference/import-hooks/'},
-      { title: 'SAML Hooks', link: '/docs/reference/saml-hooks/'},
+      { title: 'Token Hooks', link: '/docs/reference/token-hook/'},
+      { title: 'Import Hooks', link: '/docs/reference/import-hook/'},
+      { title: 'SAML Hooks', link: '/docs/reference/saml-hook/'},
       { title: 'Okta Expression Language', link: '/docs/reference/okta-expression-language/'},
       { title: 'Postman Collections', link: '/docs/reference/postman-collections/'},
       { title: 'SCIM Protocol', link: '/docs/reference/scim/'},
