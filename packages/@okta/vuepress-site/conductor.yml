@@ -1,6 +1,6 @@
 redirects:
   - from: /code
-    to: /documentation/
+    to: /docs/
   - from: /use_cases/api_security
     to: /docs/concepts/api-access-management/
   - from: /3rd_party_notices/Okta_Rum_Tool
@@ -360,7 +360,7 @@ redirects:
   - from: /docs/how-to/creating-token-with-groups-claim.html
     to: /docs/guides/create-token-with-groups-claim/
   - from: /docs/sdk/core/api.html
-    to: /documentation/
+    to: /docs/
   - from: /3rd_party_notices/iOS_Verify.html
     to: /3rd_party_notices/iOS_Verify/
   - from: /3rd_party_notices/Android_verify.html
@@ -399,7 +399,7 @@ redirects:
     to: /docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow
   - from: /standards/OAuth
     to: /docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow
-  - from: /documentation/
+  - from: /documentation/index.html
     to: /docs/
   - from: /reference/error_codes/index.html
     to: /docs/reference/error-codes/
@@ -411,9 +411,9 @@ redirects:
     to: /docs/reference/scim/
   - from: /reference/webfinger/index.html
     to: /docs/reference/webfinger/
-  - from: /guides/
+  - from: /guides/index.html
     to: /docs/guides/
-  - from: /reference/
+  - from: /reference/index.html
     to: /docs/reference/
   - from: /use_cases/api_access_management/index.html
     to: /docs/concepts/api-access-management/
