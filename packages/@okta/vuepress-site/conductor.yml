@@ -399,7 +399,7 @@ redirects:
     to: /docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow
   - from: /standards/OAuth
     to: /docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow
-  - from: /documentation/
+  - from: /documentation/index.html
     to: /docs/
   - from: /reference/error_codes/index.html
     to: /docs/reference/error-codes/
