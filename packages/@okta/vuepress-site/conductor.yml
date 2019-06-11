@@ -8,7 +8,7 @@ redirects:
   - from: /docs/how-to/set-up-auth-server.html
     to: /docs/guides/customize-authz-server/
   - from: /docs/how-to/inbound-saml-with-oidc
-    to: /docs/guides/add-saml-idp/index.html
+    to: /docs/guides/add-saml-idp/
   - from: /docs/reference/api/social_authentication
     to: /docs/concepts/social-login/
   - from: /code/dotnet/
@@ -437,7 +437,7 @@ redirects:
     to: /docs/reference/token-hook/
   - from: /use_cases/mfa/index.html
     to: /docs/guides/mfa/
-  - from: /use_cases/relationships/
+  - from: /use_cases/relationships/index.html
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/getting_started/releases-at-okta/index.html
     to: /docs/reference/releases-at-okta/
@@ -525,13 +525,13 @@ redirects:
     to: /docs/concepts/auth-overview/
   - from: /authentication-guide/implementing-authentication/index.html
     to: /docs/concepts/auth-overview/#recommended-flow-by-application-type
-  - from: /authentication-guide/tokens/
+  - from: /authentication-guide/tokens/index.html
     to: /docs/guides/validate-access-tokens/
   - from: /authentication-guide/tokens/verifying-token-signature/index.html
     to: /docs/guides/validate-access-tokens/
   - from: /authentication-guide/tokens/validating-access-tokens/index.html
     to: /docs/guides/validate-access-tokens/
-  - from: /authentication-guide/tokens/validating-access-tokens/index.html
+  - from: /authentication-guide/tokens/validating-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide/generic-oidc/index.html
     to: /docs/guides/federate-with-oidc/
