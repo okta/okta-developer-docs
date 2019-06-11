@@ -2,7 +2,7 @@ import { commonify, fancify, iconify, cssForIcon } from './frameworks';
 
 const PATH_LIKE = '(?:([^\/]*)\/?)';
 const FILE_LIKE = '(?:([^\.\/]*)\.?[^\.\/]*$)';
-const FRAGMENTS = '/guides/';
+const FRAGMENTS = '/docs/guides/';
 const DEFAULT_FRAMEWORK = '-'; 
 const DEFAULT_SECTION = '';
 

@@ -32,7 +32,7 @@ class DocsPage extends BasePage {
 
   static choosePageLoadElement(url) {
     var pageLoadElement;
-    if (url === undefined || url.includes('documentation')) {
+    if (url === undefined || url.includes('docs')) {
       pageLoadElement = DocsPage.getHomePageLoadElement();
     } else {
       pageLoadElement = DocsPage.getOtherPageLoadElement();

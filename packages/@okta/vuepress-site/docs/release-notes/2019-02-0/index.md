@@ -20,15 +20,15 @@ title: Okta API Products Release Notes
 
 ### Imported Hashed User Passwords Generally Available
 
-Use of imported hashed passwords when creating or updating users in the [Users API](/docs/api/resources/users) is now Generally Available (GA). <!--OKTA-205592-->
+Use of imported hashed passwords when creating or updating users in the [Users API](/docs/reference/api/users) is now Generally Available (GA). <!--OKTA-205592-->
 
 ### Inline Hooks
 
-[Inline Hooks](/use_cases/inline_hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now in Early Access (EA). <!--OKTA-205011-->
+[Inline Hooks](/docs/concepts/inline-hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now in Early Access (EA/). <!--OKTA-205011-->
 
 ### Token Inline Hook
 
-The [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
+The [Token Inline Hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
 
 ### Signature and Digest Algorithms for Template WS-Fed Apps
 
@@ -36,11 +36,11 @@ Template WS-Fed applications can now choose between SHA1 and SHA256 options for 
 
 ### Google Integration Updated
 
-Okta's [Google social login integration](/authentication-guide/social-login/google) has been updated to account for the deprecation of the Google+ API. More information can be found in our [Knowledge Base](https://support.okta.com/help/Documentation/Knowledge_Article/Google-API-Deprecation-and-Okta).
+Okta's [Google social login integration](/docs/guides/sign-in-with-google/) has been updated to account for the deprecation of the Google+ API. More information can be found in our [Knowledge Base](https://support.okta.com/help/Documentation/Knowledge_Article/Google-API-Deprecation-and-Okta/).
 
 ### High Capacity Rate Limits
 
-A new High Capacity Rate Limit SKU is now available.  The impacted endpoints and their rate limits can be found on our [Rate Limits page](/docs/api/getting_started/rate-limits). <!--OKTA-203819-->
+A new High Capacity Rate Limit SKU is now available.  The impacted endpoints and their rate limits can be found on our [Rate Limits page](/docs/reference/rate-limits/). <!--OKTA-203819-->
 
 ### Creation of LinkedIn IdPs Temporarily Disabled
 

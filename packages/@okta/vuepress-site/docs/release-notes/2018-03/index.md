@@ -11,4 +11,4 @@ title: Okta API Products Release Notes
 | [App User Schema API is Generally Available](#generally-available-app-user-schema-api)   | Available Now          | February 13, 2017  |
 
 #### Generally Available: App User Schema API
-Use the [App User Schema API](/docs/api/resources/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
+Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
