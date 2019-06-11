@@ -100,7 +100,7 @@ This feature removes the HAL links that reflect state from user objects returned
 
 >Important: Okta expects to deliver this feature to production orgs (with the same Okta .NET SDK caveats described below) starting June 12, 2017.
 
-Before release 2017.19, a user object returned in a collection contains some or all of the following links:
+Before release 2017.19, a user object returned in a collection contained some or all of the following links:
 
 ```
 "_links": {
