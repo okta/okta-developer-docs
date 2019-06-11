@@ -11,37 +11,37 @@ describe('API tags check spec', () => {
   const docsPage = new DocsPage('/docs/');
 
   it('shows the Beta lifecycle tags', util.itHelper(async () => {
-    await docsPage.navigate(util.fixUrl('/docs/api/getting_started/releases-at-okta'));
+    await docsPage.navigate(util.fixUrl('/docs/reference/api/policy'));
     expect(await docsPage.hasBetaTags(), 'expects Beta tag to be present on page').to.be.true;
   }));
 
   it('shows the Early Access lifecycle tags', util.itHelper(async () => {
-    await docsPage.navigate(util.fixUrl('/docs/api/getting_started/releases-at-okta'));
+    await docsPage.navigate(util.fixUrl('/docs/reference/api/users'));
     expect(await docsPage.hasEATags(), 'expects EA tag to be present on page').to.be.true;
   }));
 
   it('shows the Deprecated lifecycle tags', util.itHelper(async () => {
-    await docsPage.navigate(util.fixUrl('/docs/api/getting_started/releases-at-okta'));
+    await docsPage.navigate(util.fixUrl('/docs/reference/api/sessions'));
     expect(await docsPage.hasDeprecatedTags(), 'expects Deprecated tag to be present on page').to.be.true;
   }));
 
   it('shows the CORS tags', util.itHelper (async () => {
-    await docsPage.navigate(util.fixUrl('/docs/api/getting_started/enabling_cors'));
+    await docsPage.navigate(util.fixUrl('/docs/reference/api/sessions'));
     expect(await docsPage.hasCORSTags(), 'expects CORS tag to be present on page').to.be.true;
   }));
 
   it('shows the API URI GET tags', util.itHelper(async () => {
-    await docsPage.navigate(util.fixUrl('/docs/api/resources/sessions'));
+    await docsPage.navigate(util.fixUrl('/docs/reference/api/sessions'));
     expect(await docsPage.hasGetTags(), 'expects GET tag to be present on page').to.be.true;
   }));
 
   it('shows the API URI POST tags', util.itHelper(async () => {
-    await docsPage.navigate(util.fixUrl('/docs/api/resources/sessions'));
+    await docsPage.navigate(util.fixUrl('/docs/reference/api/sessions'));
     expect(await docsPage.hasPostTags(), 'expects POST tag to be present on page').to.be.true;
   }));
 
   it('shows the API URI DELETE tags', util.itHelper(async () => {
-    await docsPage.navigate(util.fixUrl('/docs/api/resources/sessions'));
+    await docsPage.navigate(util.fixUrl('/docs/reference/api/sessions'));
     expect(await docsPage.hasDeleteTags(), 'expects DELETE tag to be present on page').to.be.true;
   }));
 });

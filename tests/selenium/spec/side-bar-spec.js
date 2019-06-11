@@ -9,7 +9,7 @@ chai.use(chaiAsPromised);
 var expect = chai.expect;
 
 // Currently only tests pre-Guides sidebar
-const pageWithSideBarUrl = '/docs/api/resources/apps';
+const pageWithSideBarUrl = '/docs/api/getting_started/design_principles';
 
 describe('sidebar navigation spec', () => {
   const sideBarPage = new SideBarPage(util.fixUrl(pageWithSideBarUrl));
