@@ -735,5 +735,5 @@ When registering an inline hook, you need to specify what type it is. The follow
 | `com.okta.oauth2.tokens.transform` | [Token Inline Hook](/docs/reference/token-hook/)                      |
 | `com.okta.import.transform`        | [Import Inline Hook](/docs/reference/import-hook/)                   |
 | `com.okta.saml.tokens.transform`   | [SAML Assertion Inline Hook](/docs/reference/saml-hook/)               |
-| `com.okta.user.pre-registration`   | [Registration Inline Hook](/docs/reference/registration_hook/) |
+| `com.okta.user.pre-registration`   | [Registration Inline Hook](/docs/reference/registration-hook/) |
 
