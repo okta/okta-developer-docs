@@ -751,3 +751,459 @@ redirects:
     to: /docs/reference/api/trusted-origins/
   - from: /docs/api/resources/zones.html
     to: /docs/reference/api/zones/
+  - from: /guides/add-saml-idp/-/configure-oidc-client/
+    to: /docs/guides/add-saml-idp/-/configure-oidc-client/
+  - from: /guides/add-saml-idp/-/configure-saml-idp/
+    to: /docs/guides/add-saml-idp/-/configure-saml-idp/
+  - from: /guides/add-saml-idp/-/create-authz-url/
+    to: /docs/guides/add-saml-idp/-/create-authz-url/
+  - from: /guides/add-saml-idp/-/overview/
+    to: /docs/guides/add-saml-idp/-/overview/
+  - from: /guides/create-an-api-token/-/overview/
+    to: /docs/guides/create-an-api-token/-/overview/
+  - from: /guides/create-token-with-groups-claim/-/add-list-of-groups/
+    to: /docs/guides/create-token-with-groups-claim/-/add-list-of-groups/
+  - from: /guides/create-token-with-groups-claim/-/configure-custom-claim/
+    to: /docs/guides/create-token-with-groups-claim/-/configure-custom-claim/
+  - from: /guides/create-token-with-groups-claim/-/create-groups-claim/
+    to: /docs/guides/create-token-with-groups-claim/-/create-groups-claim/
+  - from: /guides/create-token-with-groups-claim/-/get-group-ids/
+    to: /docs/guides/create-token-with-groups-claim/-/get-group-ids/
+  - from: /guides/create-token-with-groups-claim/-/send-test-request/
+    to: /docs/guides/create-token-with-groups-claim/-/send-test-request/
+  - from: /guides/create-token-with-groups-claim/-/verify-jwt/
+    to: /docs/guides/create-token-with-groups-claim/-/verify-jwt/
+  - from: /guides/custom-error-pages/-/customization-examples/
+    to: /docs/guides/custom-error-pages/-/customization-examples/
+  - from: /guides/custom-error-pages/-/edit-the-error-page/
+    to: /docs/guides/custom-error-pages/-/edit-the-error-page/
+  - from: /guides/custom-error-pages/-/next-steps/
+    to: /docs/guides/custom-error-pages/-/next-steps/
+  - from: /guides/custom-error-pages/-/overview/
+    to: /docs/guides/custom-error-pages/-/overview/
+  - from: /guides/custom-error-pages/-/use-macros/
+    to: /docs/guides/custom-error-pages/-/use-macros/
+  - from: /guides/custom-hosted-signin/-/customization-examples/
+    to: /docs/guides/custom-hosted-signin/-/customization-examples/
+  - from: /guides/custom-hosted-signin/-/edit-the-sign-in-page/
+    to: /docs/guides/custom-hosted-signin/-/edit-the-sign-in-page/
+  - from: /guides/custom-hosted-signin/-/next-steps/
+    to: /docs/guides/custom-hosted-signin/-/next-steps/
+  - from: /guides/custom-hosted-signin/-/overview/
+    to: /docs/guides/custom-hosted-signin/-/overview/
+  - from: /guides/custom-hosted-signin/-/use-macros-and-request-context/
+    to: /docs/guides/custom-hosted-signin/-/use-macros-and-request-context/
+  - from: /guides/custom-url-domain/-/enable-the-custom-domain/
+    to: /docs/guides/custom-url-domain/-/enable-the-custom-domain/
+  - from: /guides/custom-url-domain/-/gather-information/
+    to: /docs/guides/custom-url-domain/-/gather-information/
+  - from: /guides/custom-url-domain/-/next-steps/
+    to: /docs/guides/custom-url-domain/-/next-steps/
+  - from: /guides/custom-url-domain/-/overview/
+    to: /docs/guides/custom-url-domain/-/overview/
+  - from: /guides/custom-url-domain/-/update-other-okta-settings/
+    to: /docs/guides/custom-url-domain/-/update-other-okta-settings/
+  - from: /guides/customize-authz-server/-/create-access-policies/
+    to: /docs/guides/customize-authz-server/-/create-access-policies/
+  - from: /guides/customize-authz-server/-/create-authz-server/
+    to: /docs/guides/customize-authz-server/-/create-authz-server/
+  - from: /guides/customize-authz-server/-/create-claims/
+    to: /docs/guides/customize-authz-server/-/create-claims/
+  - from: /guides/customize-authz-server/-/create-rules-for-policy/
+    to: /docs/guides/customize-authz-server/-/create-rules-for-policy/
+  - from: /guides/customize-authz-server/-/create-scopes/
+    to: /docs/guides/customize-authz-server/-/create-scopes/
+  - from: /guides/customize-authz-server/-/overview/
+    to: /docs/guides/customize-authz-server/-/overview/
+  - from: /guides/customize-authz-server/-/test-authz-server/
+    to: /docs/guides/customize-authz-server/-/test-authz-server/
+  - from: /guides/enable-cors/-/overview/
+    to: /docs/guides/enable-cors/-/overview/
+  - from: /guides/federate-with-oidc/-/add-redirect-to-idp/
+    to: /docs/guides/federate-with-oidc/-/add-redirect-to-idp/
+  - from: /guides/federate-with-oidc/-/configure-idp/
+    to: /docs/guides/federate-with-oidc/-/configure-idp/
+  - from: /guides/federate-with-oidc/-/create-client-app/
+    to: /docs/guides/federate-with-oidc/-/create-client-app/
+  - from: /guides/federate-with-oidc/-/create-okta-app/
+    to: /docs/guides/federate-with-oidc/-/create-okta-app/
+  - from: /guides/federate-with-oidc/-/overview/
+    to: /docs/guides/federate-with-oidc/-/overview/
+  - from: /guides/federate-with-oidc/-/test-authz-url/
+    to: /docs/guides/federate-with-oidc/-/test-authz-url/
+  - from: /guides/federate-with-oidc/-/use-for-signin/
+    to: /docs/guides/federate-with-oidc/-/use-for-signin/
+  - from: /guides/find-your-app-credentials/-/overview/
+    to: /docs/guides/find-your-app-credentials/-/overview/
+  - from: /guides/find-your-domain/-/overview/
+    to: /docs/guides/find-your-domain/-/overview/
+  - from: /guides/implement-auth-code-pkce/-/exchange-code-token/
+    to: /docs/guides/implement-auth-code-pkce/-/exchange-code-token/
+  - from: /guides/implement-auth-code-pkce/-/next-steps/
+    to: /docs/guides/implement-auth-code-pkce/-/next-steps/
+  - from: /guides/implement-auth-code-pkce/-/overview/
+    to: /docs/guides/implement-auth-code-pkce/-/overview/
+  - from: /guides/implement-auth-code-pkce/-/setup-app/
+    to: /docs/guides/implement-auth-code-pkce/-/setup-app/
+  - from: /guides/implement-auth-code-pkce/-/use-flow/
+    to: /docs/guides/implement-auth-code-pkce/-/use-flow/
+  - from: /guides/implement-auth-code/-/exchange-code-token/
+    to: /docs/guides/implement-auth-code/-/exchange-code-token/
+  - from: /guides/implement-auth-code/-/next-steps/
+    to: /docs/guides/implement-auth-code/-/next-steps/
+  - from: /guides/implement-auth-code/-/overview/
+    to: /docs/guides/implement-auth-code/-/overview/
+  - from: /guides/implement-auth-code/-/setup-app/
+    to: /docs/guides/implement-auth-code/-/setup-app/
+  - from: /guides/implement-auth-code/-/use-flow/
+    to: /docs/guides/implement-auth-code/-/use-flow/
+  - from: /guides/implement-client-creds/-/create-scopes/
+    to: /docs/guides/implement-client-creds/-/create-scopes/
+  - from: /guides/implement-client-creds/-/next-steps/
+    to: /docs/guides/implement-client-creds/-/next-steps/
+  - from: /guides/implement-client-creds/-/overview/
+    to: /docs/guides/implement-client-creds/-/overview/
+  - from: /guides/implement-client-creds/-/setup-app/
+    to: /docs/guides/implement-client-creds/-/setup-app/
+  - from: /guides/implement-client-creds/-/use-flow/
+    to: /docs/guides/implement-client-creds/-/use-flow/
+  - from: /guides/implement-implicit/-/next-steps/
+    to: /docs/guides/implement-implicit/-/next-steps/
+  - from: /guides/implement-implicit/-/overview/
+    to: /docs/guides/implement-implicit/-/overview/
+  - from: /guides/implement-implicit/-/setup-app/
+    to: /docs/guides/implement-implicit/-/setup-app/
+  - from: /guides/implement-implicit/-/use-flow/
+    to: /docs/guides/implement-implicit/-/use-flow/
+  - from: /guides/implement-password/-/next-steps/
+    to: /docs/guides/implement-password/-/next-steps/
+  - from: /guides/implement-password/-/overview/
+    to: /docs/guides/implement-password/-/overview/
+  - from: /guides/implement-password/-/setup-app/
+    to: /docs/guides/implement-password/-/setup-app/
+  - from: /guides/implement-password/-/use-flow/
+    to: /docs/guides/implement-password/-/use-flow/
+  - from: /guides/mfa/-/add-factor/
+    to: /docs/guides/mfa/-/add-factor/
+  - from: /guides/mfa/-/create-test-user/
+    to: /docs/guides/mfa/-/create-test-user/
+  - from: /guides/mfa/-/enroll-factor/
+    to: /docs/guides/mfa/-/enroll-factor/
+  - from: /guides/mfa/-/prerequisites/
+    to: /docs/guides/mfa/-/prerequisites/
+  - from: /guides/mfa/-/set-up-org/
+    to: /docs/guides/mfa/-/set-up-org/
+  - from: /guides/mfa/-/set-up-postman/
+    to: /docs/guides/mfa/-/set-up-postman/
+  - from: /guides/mfa/-/verify-factor/
+    to: /docs/guides/mfa/-/verify-factor/
+  - from: /guides/protect-your-api/-/before-you-begin/
+    to: /docs/guides/protect-your-api/-/before-you-begin/
+  - from: /guides/protect-your-api/-/configure-cors/
+    to: /docs/guides/protect-your-api/-/configure-cors/
+  - from: /guides/protect-your-api/-/configure-packages/
+    to: /docs/guides/protect-your-api/-/configure-packages/
+  - from: /guides/protect-your-api/-/next-steps/
+    to: /docs/guides/protect-your-api/-/next-steps/
+  - from: /guides/protect-your-api/-/require-authentication/
+    to: /docs/guides/protect-your-api/-/require-authentication/
+  - from: /guides/protect-your-api/aspnet/before-you-begin/
+    to: /docs/guides/protect-your-api/aspnet/before-you-begin/
+  - from: /guides/protect-your-api/aspnet/configure-cors/
+    to: /docs/guides/protect-your-api/aspnet/configure-cors/
+  - from: /guides/protect-your-api/aspnet/configure-packages/
+    to: /docs/guides/protect-your-api/aspnet/configure-packages/
+  - from: /guides/protect-your-api/aspnet/next-steps/
+    to: /docs/guides/protect-your-api/aspnet/next-steps/
+  - from: /guides/protect-your-api/aspnet/require-authentication/
+    to: /docs/guides/protect-your-api/aspnet/require-authentication/
+  - from: /guides/protect-your-api/aspnetcore/before-you-begin/
+    to: /docs/guides/protect-your-api/aspnetcore/before-you-begin/
+  - from: /guides/protect-your-api/aspnetcore/configure-cors/
+    to: /docs/guides/protect-your-api/aspnetcore/configure-cors/
+  - from: /guides/protect-your-api/aspnetcore/configure-packages/
+    to: /docs/guides/protect-your-api/aspnetcore/configure-packages/
+  - from: /guides/protect-your-api/aspnetcore/next-steps/
+    to: /docs/guides/protect-your-api/aspnetcore/next-steps/
+  - from: /guides/protect-your-api/aspnetcore/require-authentication/
+    to: /docs/guides/protect-your-api/aspnetcore/require-authentication/
+  - from: /guides/protect-your-api/springboot/before-you-begin/
+    to: /docs/guides/protect-your-api/springboot/before-you-begin/
+  - from: /guides/protect-your-api/springboot/configure-cors/
+    to: /docs/guides/protect-your-api/springboot/configure-cors/
+  - from: /guides/protect-your-api/springboot/configure-packages/
+    to: /docs/guides/protect-your-api/springboot/configure-packages/
+  - from: /guides/protect-your-api/springboot/next-steps/
+    to: /docs/guides/protect-your-api/springboot/next-steps/
+  - from: /guides/protect-your-api/springboot/require-authentication/
+    to: /docs/guides/protect-your-api/springboot/require-authentication/
+  - from: /guides/refresh-tokens/-/get-refresh-token/
+    to: /docs/guides/refresh-tokens/-/get-refresh-token/
+  - from: /guides/refresh-tokens/-/overview/
+    to: /docs/guides/refresh-tokens/-/overview/
+  - from: /guides/refresh-tokens/-/use-refresh-token/
+    to: /docs/guides/refresh-tokens/-/use-refresh-token/
+  - from: /guides/revoke-tokens/-/overview/
+    to: /docs/guides/revoke-tokens/-/overview/
+  - from: /guides/saml-application-setup/-/overview/
+    to: /docs/guides/saml-application-setup/-/overview/
+  - from: /guides/session-cookie/-/overview/
+    to: /docs/guides/session-cookie/-/overview/
+  - from: /guides/sharing-cert/-/generate-new-credential/
+    to: /docs/guides/sharing-cert/-/generate-new-credential/
+  - from: /guides/sharing-cert/-/overview/
+    to: /docs/guides/sharing-cert/-/overview/
+  - from: /guides/sharing-cert/-/share-kid-with-target-app/
+    to: /docs/guides/sharing-cert/-/share-kid-with-target-app/
+  - from: /guides/sharing-cert/-/update-source-app-with-cert/
+    to: /docs/guides/sharing-cert/-/update-source-app-with-cert/
+  - from: /guides/sharing-cert/-/update-target-app-with-kid/
+    to: /docs/guides/sharing-cert/-/update-target-app-with-kid/
+  - from: /guides/sign-in-with-facebook/-/add-redirect-uri/
+    to: /docs/guides/sign-in-with-facebook/-/add-redirect-uri/
+  - from: /guides/sign-in-with-facebook/-/complete-authz-url/
+    to: /docs/guides/sign-in-with-facebook/-/complete-authz-url/
+  - from: /guides/sign-in-with-facebook/-/configure-idp/
+    to: /docs/guides/sign-in-with-facebook/-/configure-idp/
+  - from: /guides/sign-in-with-facebook/-/register-oidc-app/
+    to: /docs/guides/sign-in-with-facebook/-/register-oidc-app/
+  - from: /guides/sign-in-with-facebook/-/setup-app/
+    to: /docs/guides/sign-in-with-facebook/-/setup-app/
+  - from: /guides/sign-in-with-facebook/-/using-facebook-login/
+    to: /docs/guides/sign-in-with-facebook/-/using-facebook-login/
+  - from: /guides/sign-in-with-google/-/add-redirect-uri/
+    to: /docs/guides/sign-in-with-google/-/add-redirect-uri/
+  - from: /guides/sign-in-with-google/-/complete-authz-url/
+    to: /docs/guides/sign-in-with-google/-/complete-authz-url/
+  - from: /guides/sign-in-with-google/-/configure-idp/
+    to: /docs/guides/sign-in-with-google/-/configure-idp/
+  - from: /guides/sign-in-with-google/-/register-oidc-app/
+    to: /docs/guides/sign-in-with-google/-/register-oidc-app/
+  - from: /guides/sign-in-with-google/-/setup-app/
+    to: /docs/guides/sign-in-with-google/-/setup-app/
+  - from: /guides/sign-in-with-google/-/using-google-login/
+    to: /docs/guides/sign-in-with-google/-/using-google-login/
+  - from: /guides/sign-in-with-linkedin/-/add-redirect-uri/
+    to: /docs/guides/sign-in-with-linkedin/-/add-redirect-uri/
+  - from: /guides/sign-in-with-linkedin/-/complete-authz-url/
+    to: /docs/guides/sign-in-with-linkedin/-/complete-authz-url/
+  - from: /guides/sign-in-with-linkedin/-/configure-idp/
+    to: /docs/guides/sign-in-with-linkedin/-/configure-idp/
+  - from: /guides/sign-in-with-linkedin/-/register-oidc-app/
+    to: /docs/guides/sign-in-with-linkedin/-/register-oidc-app/
+  - from: /guides/sign-in-with-linkedin/-/setup-app/
+    to: /docs/guides/sign-in-with-linkedin/-/setup-app/
+  - from: /guides/sign-in-with-linkedin/-/using-linkedin-login/
+    to: /docs/guides/sign-in-with-linkedin/-/using-linkedin-login/
+  - from: /guides/sign-in-with-microsoft/-/add-redirect-uri/
+    to: /docs/guides/sign-in-with-microsoft/-/add-redirect-uri/
+  - from: /guides/sign-in-with-microsoft/-/complete-authz-url/
+    to: /docs/guides/sign-in-with-microsoft/-/complete-authz-url/
+  - from: /guides/sign-in-with-microsoft/-/configure-idp/
+    to: /docs/guides/sign-in-with-microsoft/-/configure-idp/
+  - from: /guides/sign-in-with-microsoft/-/register-oidc-app/
+    to: /docs/guides/sign-in-with-microsoft/-/register-oidc-app/
+  - from: /guides/sign-in-with-microsoft/-/setup-app/
+    to: /docs/guides/sign-in-with-microsoft/-/setup-app/
+  - from: /guides/sign-in-with-microsoft/-/using-microsoft-login/
+    to: /docs/guides/sign-in-with-microsoft/-/using-microsoft-login/
+  - from: /guides/sign-into-spa/-/add-signin-button/
+    to: /docs/guides/sign-into-spa/-/add-signin-button/
+  - from: /guides/sign-into-spa/-/before-you-begin/
+    to: /docs/guides/sign-into-spa/-/before-you-begin/
+  - from: /guides/sign-into-spa/-/configure-the-sdk/
+    to: /docs/guides/sign-into-spa/-/configure-the-sdk/
+  - from: /guides/sign-into-spa/-/create-okta-application/
+    to: /docs/guides/sign-into-spa/-/create-okta-application/
+  - from: /guides/sign-into-spa/-/define-callback/
+    to: /docs/guides/sign-into-spa/-/define-callback/
+  - from: /guides/sign-into-spa/-/handle-callback/
+    to: /docs/guides/sign-into-spa/-/handle-callback/
+  - from: /guides/sign-into-spa/-/install-sdk/
+    to: /docs/guides/sign-into-spa/-/install-sdk/
+  - from: /guides/sign-into-spa/-/next-steps/
+    to: /docs/guides/sign-into-spa/-/next-steps/
+  - from: /guides/sign-into-spa/-/require-authentication/
+    to: /docs/guides/sign-into-spa/-/require-authentication/
+  - from: /guides/sign-into-spa/-/use-the-access-token/
+    to: /docs/guides/sign-into-spa/-/use-the-access-token/
+  - from: /guides/sign-into-spa/-/user-info/
+    to: /docs/guides/sign-into-spa/-/user-info/
+  - from: /guides/sign-into-spa/angular/add-signin-button/
+    to: /docs/guides/sign-into-spa/angular/add-signin-button/
+  - from: /guides/sign-into-spa/angular/before-you-begin/
+    to: /docs/guides/sign-into-spa/angular/before-you-begin/
+  - from: /guides/sign-into-spa/angular/configure-the-sdk/
+    to: /docs/guides/sign-into-spa/angular/configure-the-sdk/
+  - from: /guides/sign-into-spa/angular/create-okta-application/
+    to: /docs/guides/sign-into-spa/angular/create-okta-application/
+  - from: /guides/sign-into-spa/angular/define-callback/
+    to: /docs/guides/sign-into-spa/angular/define-callback/
+  - from: /guides/sign-into-spa/angular/handle-callback/
+    to: /docs/guides/sign-into-spa/angular/handle-callback/
+  - from: /guides/sign-into-spa/angular/install-sdk/
+    to: /docs/guides/sign-into-spa/angular/install-sdk/
+  - from: /guides/sign-into-spa/angular/next-steps/
+    to: /docs/guides/sign-into-spa/angular/next-steps/
+  - from: /guides/sign-into-spa/angular/require-authentication/
+    to: /docs/guides/sign-into-spa/angular/require-authentication/
+  - from: /guides/sign-into-spa/angular/use-the-access-token/
+    to: /docs/guides/sign-into-spa/angular/use-the-access-token/
+  - from: /guides/sign-into-spa/angular/user-info/
+    to: /docs/guides/sign-into-spa/angular/user-info/
+  - from: /guides/sign-into-spa/react/add-signin-button/
+    to: /docs/guides/sign-into-spa/react/add-signin-button/
+  - from: /guides/sign-into-spa/react/before-you-begin/
+    to: /docs/guides/sign-into-spa/react/before-you-begin/
+  - from: /guides/sign-into-spa/react/configure-the-sdk/
+    to: /docs/guides/sign-into-spa/react/configure-the-sdk/
+  - from: /guides/sign-into-spa/react/create-okta-application/
+    to: /docs/guides/sign-into-spa/react/create-okta-application/
+  - from: /guides/sign-into-spa/react/define-callback/
+    to: /docs/guides/sign-into-spa/react/define-callback/
+  - from: /guides/sign-into-spa/react/handle-callback/
+    to: /docs/guides/sign-into-spa/react/handle-callback/
+  - from: /guides/sign-into-spa/react/install-sdk/
+    to: /docs/guides/sign-into-spa/react/install-sdk/
+  - from: /guides/sign-into-spa/react/next-steps/
+    to: /docs/guides/sign-into-spa/react/next-steps/
+  - from: /guides/sign-into-spa/react/require-authentication/
+    to: /docs/guides/sign-into-spa/react/require-authentication/
+  - from: /guides/sign-into-spa/react/use-the-access-token/
+    to: /docs/guides/sign-into-spa/react/use-the-access-token/
+  - from: /guides/sign-into-spa/react/user-info/
+    to: /docs/guides/sign-into-spa/react/user-info/
+  - from: /guides/sign-into-spa/vue/add-signin-button/
+    to: /docs/guides/sign-into-spa/vue/add-signin-button/
+  - from: /guides/sign-into-spa/vue/before-you-begin/
+    to: /docs/guides/sign-into-spa/vue/before-you-begin/
+  - from: /guides/sign-into-spa/vue/configure-the-sdk/
+    to: /docs/guides/sign-into-spa/vue/configure-the-sdk/
+  - from: /guides/sign-into-spa/vue/create-okta-application/
+    to: /docs/guides/sign-into-spa/vue/create-okta-application/
+  - from: /guides/sign-into-spa/vue/define-callback/
+    to: /docs/guides/sign-into-spa/vue/define-callback/
+  - from: /guides/sign-into-spa/vue/handle-callback/
+    to: /docs/guides/sign-into-spa/vue/handle-callback/
+  - from: /guides/sign-into-spa/vue/install-sdk/
+    to: /docs/guides/sign-into-spa/vue/install-sdk/
+  - from: /guides/sign-into-spa/vue/next-steps/
+    to: /docs/guides/sign-into-spa/vue/next-steps/
+  - from: /guides/sign-into-spa/vue/require-authentication/
+    to: /docs/guides/sign-into-spa/vue/require-authentication/
+  - from: /guides/sign-into-spa/vue/use-the-access-token/
+    to: /docs/guides/sign-into-spa/vue/use-the-access-token/
+  - from: /guides/sign-into-spa/vue/user-info/
+    to: /docs/guides/sign-into-spa/vue/user-info/
+  - from: /guides/sign-into-web-app/-/before-you-begin/
+    to: /docs/guides/sign-into-web-app/-/before-you-begin/
+  - from: /guides/sign-into-web-app/-/configure-packages/
+    to: /docs/guides/sign-into-web-app/-/configure-packages/
+  - from: /guides/sign-into-web-app/-/create-okta-application/
+    to: /docs/guides/sign-into-web-app/-/create-okta-application/
+  - from: /guides/sign-into-web-app/-/define-callback/
+    to: /docs/guides/sign-into-web-app/-/define-callback/
+  - from: /guides/sign-into-web-app/-/get-user-info/
+    to: /docs/guides/sign-into-web-app/-/get-user-info/
+  - from: /guides/sign-into-web-app/-/next-steps/
+    to: /docs/guides/sign-into-web-app/-/next-steps/
+  - from: /guides/sign-into-web-app/-/redirect-to-sign-in/
+    to: /docs/guides/sign-into-web-app/-/redirect-to-sign-in/
+  - from: /guides/sign-into-web-app/-/require-authentication/
+    to: /docs/guides/sign-into-web-app/-/require-authentication/
+  - from: /guides/sign-into-web-app/aspnet/before-you-begin/
+    to: /docs/guides/sign-into-web-app/aspnet/before-you-begin/
+  - from: /guides/sign-into-web-app/aspnet/configure-packages/
+    to: /docs/guides/sign-into-web-app/aspnet/configure-packages/
+  - from: /guides/sign-into-web-app/aspnet/create-okta-application/
+    to: /docs/guides/sign-into-web-app/aspnet/create-okta-application/
+  - from: /guides/sign-into-web-app/aspnet/define-callback/
+    to: /docs/guides/sign-into-web-app/aspnet/define-callback/
+  - from: /guides/sign-into-web-app/aspnet/get-user-info/
+    to: /docs/guides/sign-into-web-app/aspnet/get-user-info/
+  - from: /guides/sign-into-web-app/aspnet/next-steps/
+    to: /docs/guides/sign-into-web-app/aspnet/next-steps/
+  - from: /guides/sign-into-web-app/aspnet/redirect-to-sign-in/
+    to: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in/
+  - from: /guides/sign-into-web-app/aspnet/require-authentication/
+    to: /docs/guides/sign-into-web-app/aspnet/require-authentication/
+  - from: /guides/sign-into-web-app/aspnetcore/before-you-begin/
+    to: /docs/guides/sign-into-web-app/aspnetcore/before-you-begin/
+  - from: /guides/sign-into-web-app/aspnetcore/configure-packages/
+    to: /docs/guides/sign-into-web-app/aspnetcore/configure-packages/
+  - from: /guides/sign-into-web-app/aspnetcore/create-okta-application/
+    to: /docs/guides/sign-into-web-app/aspnetcore/create-okta-application/
+  - from: /guides/sign-into-web-app/aspnetcore/define-callback/
+    to: /docs/guides/sign-into-web-app/aspnetcore/define-callback/
+  - from: /guides/sign-into-web-app/aspnetcore/get-user-info/
+    to: /docs/guides/sign-into-web-app/aspnetcore/get-user-info/
+  - from: /guides/sign-into-web-app/aspnetcore/next-steps/
+    to: /docs/guides/sign-into-web-app/aspnetcore/next-steps/
+  - from: /guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/
+    to: /docs/guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/
+  - from: /guides/sign-into-web-app/aspnetcore/require-authentication/
+    to: /docs/guides/sign-into-web-app/aspnetcore/require-authentication/
+  - from: /guides/sign-into-web-app/springboot/before-you-begin/
+    to: /docs/guides/sign-into-web-app/springboot/before-you-begin/
+  - from: /guides/sign-into-web-app/springboot/configure-packages/
+    to: /docs/guides/sign-into-web-app/springboot/configure-packages/
+  - from: /guides/sign-into-web-app/springboot/create-okta-application/
+    to: /docs/guides/sign-into-web-app/springboot/create-okta-application/
+  - from: /guides/sign-into-web-app/springboot/define-callback/
+    to: /docs/guides/sign-into-web-app/springboot/define-callback/
+  - from: /guides/sign-into-web-app/springboot/get-user-info/
+    to: /docs/guides/sign-into-web-app/springboot/get-user-info/
+  - from: /guides/sign-into-web-app/springboot/next-steps/
+    to: /docs/guides/sign-into-web-app/springboot/next-steps/
+  - from: /guides/sign-into-web-app/springboot/redirect-to-sign-in/
+    to: /docs/guides/sign-into-web-app/springboot/redirect-to-sign-in/
+  - from: /guides/sign-into-web-app/springboot/require-authentication/
+    to: /docs/guides/sign-into-web-app/springboot/require-authentication/
+  - from: /guides/sign-users-out/-/before-you-begin/
+    to: /docs/guides/sign-users-out/-/before-you-begin/
+  - from: /guides/sign-users-out/-/next-steps/
+    to: /docs/guides/sign-users-out/-/next-steps/
+  - from: /guides/sign-users-out/-/sign-out-of-okta/
+    to: /docs/guides/sign-users-out/-/sign-out-of-okta/
+  - from: /guides/sign-users-out/-/sign-out-of-your-app/
+    to: /docs/guides/sign-users-out/-/sign-out-of-your-app/
+  - from: /guides/sign-users-out/aspnet/before-you-begin/
+    to: /docs/guides/sign-users-out/aspnet/before-you-begin/
+  - from: /guides/sign-users-out/aspnet/next-steps/
+    to: /docs/guides/sign-users-out/aspnet/next-steps/
+  - from: /guides/sign-users-out/aspnet/sign-out-of-okta/
+    to: /docs/guides/sign-users-out/aspnet/sign-out-of-okta/
+  - from: /guides/sign-users-out/aspnet/sign-out-of-your-app/
+    to: /docs/guides/sign-users-out/aspnet/sign-out-of-your-app/
+  - from: /guides/sign-users-out/aspnetcore/before-you-begin/
+    to: /docs/guides/sign-users-out/aspnetcore/before-you-begin/
+  - from: /guides/sign-users-out/aspnetcore/next-steps/
+    to: /docs/guides/sign-users-out/aspnetcore/next-steps/
+  - from: /guides/sign-users-out/aspnetcore/sign-out-of-okta/
+    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-okta/
+  - from: /guides/sign-users-out/aspnetcore/sign-out-of-your-app/
+    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-your-app/
+  - from: /guides/sign-users-out/springboot/before-you-begin/
+    to: /docs/guides/sign-users-out/springboot/before-you-begin/
+  - from: /guides/sign-users-out/springboot/next-steps/
+    to: /docs/guides/sign-users-out/springboot/next-steps/
+  - from: /guides/sign-users-out/springboot/sign-out-of-okta/
+    to: /docs/guides/sign-users-out/springboot/sign-out-of-okta/
+  - from: /guides/sign-users-out/springboot/sign-out-of-your-app/
+    to: /docs/guides/sign-users-out/springboot/sign-out-of-your-app/
+  - from: /guides/updating-saml-cert/-/generate-new-key-credential/
+    to: /docs/guides/updating-saml-cert/-/generate-new-key-credential/
+  - from: /guides/updating-saml-cert/-/get-app-info/
+    to: /docs/guides/updating-saml-cert/-/get-app-info/
+  - from: /guides/updating-saml-cert/-/overview/
+    to: /docs/guides/updating-saml-cert/-/overview/
+  - from: /guides/updating-saml-cert/-/revert-to-sha1/
+    to: /docs/guides/updating-saml-cert/-/revert-to-sha1/
+  - from: /guides/updating-saml-cert/-/update-key-credential/
+    to: /docs/guides/updating-saml-cert/-/update-key-credential/
+  - from: /guides/updating-saml-cert/-/upload-cert-to-isv/
+    to: /docs/guides/updating-saml-cert/-/upload-cert-to-isv/
+  - from: /guides/validate-access-tokens/-/overview/
+    to: /docs/guides/validate-access-tokens/-/overview/
+  - from: /guides/validate-id-tokens/-/overview/
+    to: /docs/guides/validate-id-tokens/-/overview/
