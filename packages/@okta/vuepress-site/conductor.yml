@@ -105,6 +105,8 @@ redirects:
     to: /docs/reference/api/groups/index.html
   - from: docs/api/rest/idps.html
     to: /docs/reference/api/idps/index.html
+  - from: /docs/api/resources/idps
+    to: /docs/reference/api/idps/
   - from: /docs/api/rest/oauth-clients.html
     to: /docs/reference/api/oauth-clients/index.html
   - from: /docs/reference/api/oauth2
