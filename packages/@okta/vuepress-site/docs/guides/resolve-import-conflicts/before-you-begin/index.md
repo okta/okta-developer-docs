@@ -9,8 +9,8 @@ During batch imports of user profiles, imported profiles can conflict with other
 
 #### Background Information
 
-- For a general introduction to Okta inline hooks, see [Inline Hooks](/use_cases/inline_hooks/).
-- For reference documentaton for the Import Inline Hook, see [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook/).
+- For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+- For reference documentaton for the Import Inline Hook, see [Import Inline Hook](/docs/reference/import-hook/).
 
 
 ### About This Guide
