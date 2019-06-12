@@ -18,6 +18,6 @@ Your Okta domain will look like:
 * `example.oktapreview.com`
 * `example.okta.com`
 * `example.okta-emea.com`
-* Or, a custom domain like `id.example.com` if you have configured a [Custom URL Domain](https://help.okta.com/en/prod/Content/Topics/Settings/custom-url-domain.htm?cshid=ext_custom_url_domain)
+* Or, a custom domain like `id.example.com` if you have configured a [Custom URL Domain](/docs/guides/custom-url-domain/)
 
 If your dashboard looks different, try choosing the Developer Console view from the top left menu. If you're stuck and need help, post a question on our [Developer Forum](https://devforum.okta.com).
