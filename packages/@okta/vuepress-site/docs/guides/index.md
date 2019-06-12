@@ -21,6 +21,7 @@ guides:
  - mfa
  - protect-your-api
  - refresh-tokens
+ - resolve-import-conflicts
  - revoke-tokens
  - saml-application-setup
  - session-cookie
