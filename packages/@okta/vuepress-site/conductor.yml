@@ -535,7 +535,7 @@ redirects:
     to: /docs/guides/validate-access-tokens/
   - from: /authentication-guide/tokens/validating-access-tokens/index.html
     to: /docs/guides/validate-access-tokens/
-    - from: /authentication-guide/tokens/validating-access-tokens
+  - from: /authentication-guide/tokens/validating-access-tokens
     to: /docs/guides/validate-access-tokens/
   - from: /authentication-guide/tokens/validating-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
