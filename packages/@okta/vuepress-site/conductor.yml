@@ -125,6 +125,8 @@ redirects:
     to: /docs/reference/api/templates/index.html
   - from: /docs/getting_started/tokens.html
     to: /docs/guides/validate-access-tokens/
+  - from: /docs/api/resources/tokens/index.html
+    to: /docs/guides/validate-access-tokens/
   - from: /docs/reference/api/tokens/index.html
     to: /docs/guides/validate-access-tokens/
   - from: /docs/api/rest/users.html
@@ -290,8 +292,6 @@ redirects:
   - from: /docs/getting_started/saml_guidance.html
     to: /standards/SAML/index.html
   - from: /docs/guides/saml_guidance.html
-    to: /standards/SAML/index.html
-  - from: /docs/guides/saml_guidance.html
     to: /standards/SAML/
   - from: /docs/guides/setting_up_a_saml_application_in_okta
     to: /docs/guides/saml-application-setup/index.html
@@ -303,10 +303,6 @@ redirects:
     to: /docs/guides/saml-application-setup/index.html
   - from: /standards/SCIM/index.html
     to: https://www.okta.com/integrate/documentation/scim/
-  - from: /docs/guides/scim_guidance.html
-    to: /standards/SCIM/index.html
-  - from: /docs/guides/scim_developer_program.html
-    to: /standards/SCIM/index.html
   - from: /docs/reference/api/resource-server-beta/
     to: /docs/concepts/api-access-management/index.html
   - from: /docs/reference/api/resource-server-beta/required-config-changes-for-auth-server
@@ -512,14 +508,10 @@ redirects:
   - from: /docs/how-to/updating_saml_cert/index.html
     to: /docs/guides/updating-saml-cert/
   - from: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
-    to: /docs/
-  - from: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
     to: /docs/guides/saml-application-setup/
   - from: /standards/SAML/saml_tracer/index.html
     to: /docs/guides/saml-tracer/
   - from: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
-    to: /docs/guides/customize-authz-server/
-  - from: /authentication-guide/implementing-authentication/set-up-authz-server
     to: /docs/guides/customize-authz-server/
   - from: /authentication-guide/social-login/social-settings/index.html
     to: /docs/reference/social-settings/
@@ -577,3 +569,185 @@ redirects:
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/apps.html
     to: /docs/reference/api/apps/
+  - from: /reference/error_codes
+    to: /docs/reference/error-codes/
+  - from: /reference/okta_expression_language
+    to: /docs/reference/okta-expression-language/
+  - from: /reference/postman_collections
+    to: /docs/reference/postman-collections/
+  - from: /reference/scim
+    to: /docs/reference/scim/
+  - from: /reference/webfinger
+    to: /docs/reference/webfinger/
+  - from: /guides
+    to: /docs/guides/
+  - from: /reference
+    to: /docs/reference/
+  - from: /use_cases/api_access_management
+    to: /docs/concepts/api-access-management/
+  - from: /use_cases/authentication
+    to: /docs/concepts/authentication/
+  - from: /use_cases/authentication/session_cookie
+    to: /docs/guides/session-cookie/
+  - from: /use_cases/event_hooks
+    to: /docs/concepts/event-hooks/
+  - from: /use_cases/events-api-migration
+    to: /docs/concepts/events-api-migration/
+  - from: /use_cases/inline_hooks
+    to: /docs/concepts/inline-hooks/
+  - from: /use_cases/inline_hooks/registration_hook/registration_hook
+    to: /docs/reference/registration-hook/
+  - from: /use_cases/inline_hooks/saml_hook/saml_hook
+    to: /docs/reference/saml-hook/
+  - from: /use_cases/inline_hooks/import_hook/import_hook
+    to: /docs/reference/import-hook/
+  - from: /use_cases/inline_hooks/token_hook/token_hook
+    to: /docs/reference/token-hook/
+  - from: /use_cases/mfa
+    to: /docs/guides/mfa/
+  - from: /use_cases/relationships
+    to: /docs/reference/api/linked-objects/
+  - from: /docs/api/getting_started/releases-at-okta
+    to: /docs/reference/releases-at-okta/
+  - from: /docs/api/getting_started/rate-limits
+    to: /docs/reference/rate-limits/
+  - from: /docs/api/getting_started/finding_your_app_credentials
+    to: /docs/guides/find-your-app-credentials/
+  - from: /docs/api/getting_started/finding_your_domain
+    to: /docs/guides/find-your-domain/
+  - from: /docs/api/getting_started/enabling_cors
+    to: /docs/guides/enable-cors/
+  - from: /docs/api/getting_started/getting_a_token
+    to: /docs/guides/create-an-api-token/
+  - from: /docs/api/getting_started/design_principles
+    to: /docs/reference/api-overview/
+  - from: /docs/api/resources/apps
+    to: /docs/reference/api/apps/
+  - from: /docs/api/resources/authn
+    to: /docs/reference/api/authn/
+  - from: /docs/api/resources/oidc
+    to: /docs/reference/api/oidc/
+  - from: /docs/api/resources/roles
+    to: /docs/reference/api/roles/
+  - from: /docs/api/resources/authorization-servers
+    to: /docs/reference/api/authorization-servers/
+  - from: /docs/api/resources/oauth-clients
+    to: /docs/reference/api/oauth-clients/
+  - from: /docs/api/resources/events
+    to: /docs/reference/api/events/
+  - from: /docs/api/resources/event-hooks
+    to: /docs/reference/api/event-hooks/
+  - from: /docs/api/resources/factors
+    to: /docs/reference/api/factors/
+  - from: /docs/api/resources/groups
+    to: /docs/reference/api/groups/
+  - from: /docs/api/resources/inline-hooks
+    to: /docs/reference/api/inline-hooks/
+  - from: /docs/api/resources/linked-objects
+    to: /docs/reference/api/linked-objects/
+  - from: /docs/api/resources/policy
+    to: /docs/reference/api/policy/
+  - from: /docs/api/resources/schemas
+    to: /docs/reference/api/schemas/
+  - from: /docs/api/resources/sessions
+    to: /docs/reference/api/sessions/
+  - from: /docs/api/resources/system_log
+    to: /docs/reference/api/system-log/
+  - from: /docs/api/resources/templates
+    to: /docs/reference/api/templates/
+  - from: /docs/api/resources/trusted-origins
+    to: /docs/reference/api/trusted-origins/
+  - from: /docs/api/resources/users
+    to: /docs/reference/api/users/
+  - from: /docs/api/resources/zones
+    to: /docs/reference/api/zones/
+  - from: /docs/how-to/add-user-consent-to-flow
+    to: /docs/guides/request-user-consent/
+  - from: /docs/how-to/byo_saml
+    to: /docs/guides/byo-saml/
+  - from: /docs/how-to/creating-token-with-groups-claim
+    to: /docs/guides/create-token-with-groups-claim/
+  - from: /docs/how-to/sharing-cert
+    to: /docs/guides/sharing-cert/
+  - from: /docs/how-to/updating_saml_cert
+    to: /docs/guides/updating-saml-cert/
+  - from: /standards/SAML/setting_up_a_saml_application_in_okta
+    to: /docs/guides/saml-application-setup/
+  - from: /standards/SAML/saml_tracer
+    to: /docs/guides/saml-tracer/
+  - from: /authentication-guide/implementing-authentication/set-up-authz-server.html
+    to: /docs/guides/customize-authz-server/
+  - from: /authentication-guide/implementing-authentication/set-up-authz-server
+    to: /docs/guides/customize-authz-server/
+  - from: /authentication-guide/social-login/social-settings
+    to: /docs/reference/social-settings/
+  - from: /authentication-guide/social-login
+    to: /docs/concepts/social-login/
+  - from: /authentication-guide
+    to: /docs/concepts/auth-overview/
+  - from: /authentication-guide/auth-overview
+    to: /docs/concepts/auth-overview/
+  - from: /authentication-guide/implementing-authentication
+    to: /docs/concepts/auth-overview/#recommended-flow-by-application-type
+  - from: /authentication-guide/tokens
+    to: /docs/guides/validate-access-tokens/
+  - from: /authentication-guide/tokens/verifying-token-signature
+    to: /docs/guides/validate-access-tokens/
+  - from: /authentication-guide/tokens/validating-id-tokens
+    to: /docs/guides/validate-id-tokens/
+  - from: /authentication-guide/generic-oidc
+    to: /docs/guides/federate-with-oidc/
+  - from: /authentication-guide/tokens/refreshing-tokens
+    to: /docs/guides/refresh-tokens/
+  - from: /authentication-guide/tokens/revoking-tokens
+    to: /docs/guides/revoke-tokens/
+  - from: /authentication-guide/saml-login
+    to: /docs/guides/add-saml-idp/
+  - from: /authentication-guide/social-login/facebook
+    to: /docs/guides/sign-in-with-facebook/
+  - from: /authentication-guide/social-login/google
+    to: /docs/guides/sign-in-with-google/
+  - from: /authentication-guide/social-login/linkedin
+    to: /docs/guides/sign-in-with-linkedin/
+  - from: /authentication-guide/social-login/microsoft
+    to: /docs/guides/sign-in-with-microsoft/
+  - from: /authentication-guide/implementing-authentication/auth-code-pkce
+    to: /docs/guides/implement-auth-code-pkce/
+  - from: /authentication-guide/implementing-authentication/implicit
+    to: /docs/guides/implement-implicit/
+  - from: /authentication-guide/implementing-authentication/password
+    to: /docs/guides/implement-password/
+  - from: /docs/api/resources/authn.html
+    to: /docs/reference/api/authn/
+  - from: /docs/api/resources/oidc.html
+    to: /docs/reference/api/oidc/
+  - from: /docs/api/resources/roles.html
+    to: /docs/reference/api/roles/
+  - from: /docs/api/resources/authorization-servers.html
+    to: /docs/reference/api/authorization-servers/
+  - from: /docs/api/resources/oauth-clients.html
+    to: /docs/reference/api/oauth-clients/
+  - from: /docs/api/resources/events.html
+    to: /docs/reference/api/events/
+  - from: /docs/api/resources/event-hooks.html
+    to: /docs/reference/api/event-hooks/
+  - from: /docs/api/resources/factors.html
+    to: /docs/reference/api/factors/
+  - from: /docs/api/resources/groups.html
+    to: /docs/reference/api/groups/
+  - from: /docs/api/resources/idps.html
+    to: /docs/reference/api/idps/
+  - from: /docs/api/resources/linked-objects.html
+    to: /docs/reference/api/linked-objects/
+  - from: /docs/api/resources/policy.html
+    to: /docs/reference/api/policy/
+  - from: /docs/api/resources/schemas.html
+    to: /docs/reference/api/schemas/
+  - from: /docs/api/resources/system_log.html
+    to: /docs/reference/api/system-log/
+  - from: /docs/api/resources/templates.html
+    to: /docs/reference/api/templates/
+  - from: /docs/api/resources/trusted-origins.html
+    to: /docs/reference/api/trusted-origins/
+  - from: /docs/api/resources/zones.html
+    to: /docs/reference/api/zones/
