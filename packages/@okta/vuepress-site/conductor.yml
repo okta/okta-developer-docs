@@ -292,8 +292,6 @@ redirects:
   - from: /docs/getting_started/saml_guidance.html
     to: /standards/SAML/index.html
   - from: /docs/guides/saml_guidance.html
-    to: /standards/SAML/index.html
-  - from: /docs/guides/saml_guidance.html
     to: /standards/SAML/
   - from: /docs/guides/setting_up_a_saml_application_in_okta
     to: /docs/guides/saml-application-setup/index.html
@@ -305,10 +303,6 @@ redirects:
     to: /docs/guides/saml-application-setup/index.html
   - from: /standards/SCIM/index.html
     to: https://www.okta.com/integrate/documentation/scim/
-  - from: /docs/guides/scim_guidance.html
-    to: /standards/SCIM/index.html
-  - from: /docs/guides/scim_developer_program.html
-    to: /standards/SCIM/index.html
   - from: /docs/reference/api/resource-server-beta/
     to: /docs/concepts/api-access-management/index.html
   - from: /docs/reference/api/resource-server-beta/required-config-changes-for-auth-server
@@ -514,8 +508,6 @@ redirects:
   - from: /docs/how-to/updating_saml_cert/index.html
     to: /docs/guides/updating-saml-cert/
   - from: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
-    to: /docs/
-  - from: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
     to: /docs/guides/saml-application-setup/
   - from: /standards/SAML/saml_tracer/index.html
     to: /docs/guides/saml-tracer/
@@ -577,8 +569,6 @@ redirects:
     to: /docs/reference/api/sessions/
   - from: /docs/api/resources/apps.html
     to: /docs/reference/api/apps/
-  - from: /documentation
-    to: /docs/
   - from: /reference/error_codes
     to: /docs/reference/error-codes/
   - from: /reference/okta_expression_language
@@ -637,8 +627,6 @@ redirects:
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/oidc
     to: /docs/reference/api/oidc/
-  - from: /docs/api/resources/oidc
-    to: /docs/reference/api/oidc/
   - from: /docs/api/resources/roles
     to: /docs/reference/api/roles/
   - from: /docs/api/resources/authorization-servers
@@ -649,16 +637,10 @@ redirects:
     to: /docs/reference/api/events/
   - from: /docs/api/resources/event-hooks
     to: /docs/reference/api/event-hooks/
-  - from: /docs/api/resources/event-types
-    to: /docs/reference/api/event-types/
-  - from: /docs/api/resources/event-types
-    to: /docs/reference/api/event-types/
   - from: /docs/api/resources/factors
     to: /docs/reference/api/factors/
   - from: /docs/api/resources/groups
     to: /docs/reference/api/groups/
-  - from: /docs/api/resources/idps
-    to: /docs/reference/api/idps/
   - from: /docs/api/resources/inline-hooks
     to: /docs/reference/api/inline-hooks/
   - from: /docs/api/resources/linked-objects
@@ -690,12 +672,10 @@ redirects:
   - from: /docs/how-to/updating_saml_cert
     to: /docs/guides/updating-saml-cert/
   - from: /standards/SAML/setting_up_a_saml_application_in_okta
-    to: /docs/
-  - from: /standards/SAML/setting_up_a_saml_application_in_okta
     to: /docs/guides/saml-application-setup/
   - from: /standards/SAML/saml_tracer
     to: /docs/guides/saml-tracer/
-  - from: /authentication-guide/implementing-authentication/set-up-authz-server
+  - from: /authentication-guide/implementing-authentication/set-up-authz-server.html
     to: /docs/guides/customize-authz-server/
   - from: /authentication-guide/implementing-authentication/set-up-authz-server
     to: /docs/guides/customize-authz-server/
@@ -712,10 +692,6 @@ redirects:
   - from: /authentication-guide/tokens
     to: /docs/guides/validate-access-tokens/
   - from: /authentication-guide/tokens/verifying-token-signature
-    to: /docs/guides/validate-access-tokens/
-  - from: /authentication-guide/tokens/validating-access-tokens
-    to: /docs/guides/validate-access-tokens/
-  - from: /authentication-guide/tokens/validating-access-tokens
     to: /docs/guides/validate-access-tokens/
   - from: /authentication-guide/tokens/validating-id-tokens
     to: /docs/guides/validate-id-tokens/
@@ -735,23 +711,43 @@ redirects:
     to: /docs/guides/sign-in-with-linkedin/
   - from: /authentication-guide/social-login/microsoft
     to: /docs/guides/sign-in-with-microsoft/
-  - from: /authentication-guide/implementing-authentication/auth-code
-    to: /docs/guides/implement-auth-code/
-  - from: /authentication-guide/implementing-authentication/auth-code
-    to: /docs/guides/implement-auth-code/
   - from: /authentication-guide/implementing-authentication/auth-code-pkce
     to: /docs/guides/implement-auth-code-pkce/
-  - from: /authentication-guide/implementing-authentication/client-creds
-    to: /docs/guides/implement-client-creds/
-  - from: /authentication-guide/implementing-authentication/client-creds
-    to: /docs/guides/implement-client-creds/
   - from: /authentication-guide/implementing-authentication/implicit
     to: /docs/guides/implement-implicit/
   - from: /authentication-guide/implementing-authentication/password
     to: /docs/guides/implement-password/
-  - from: /docs/api/resources/users.html
-    to: /docs/reference/api/users/
-  - from: /docs/api/resources/sessions.html
-    to: /docs/reference/api/sessions/
-  - from: /docs/api/resources/apps.html
-    to: /docs/reference/api/apps/
+  - from: /docs/api/resources/authn.html
+    to: /docs/reference/api/authn/
+  - from: /docs/api/resources/oidc.html
+    to: /docs/reference/api/oidc/
+  - from: /docs/api/resources/roles.html
+    to: /docs/reference/api/roles/
+  - from: /docs/api/resources/authorization-servers.html
+    to: /docs/reference/api/authorization-servers/
+  - from: /docs/api/resources/oauth-clients.html
+    to: /docs/reference/api/oauth-clients/
+  - from: /docs/api/resources/events.html
+    to: /docs/reference/api/events/
+  - from: /docs/api/resources/event-hooks.html
+    to: /docs/reference/api/event-hooks/
+  - from: /docs/api/resources/factors.html
+    to: /docs/reference/api/factors/
+  - from: /docs/api/resources/groups.html
+    to: /docs/reference/api/groups/
+  - from: /docs/api/resources/idps.html
+    to: /docs/reference/api/idps/
+  - from: /docs/api/resources/linked-objects.html
+    to: /docs/reference/api/linked-objects/
+  - from: /docs/api/resources/policy.html
+    to: /docs/reference/api/policy/
+  - from: /docs/api/resources/schemas.html
+    to: /docs/reference/api/schemas/
+  - from: /docs/api/resources/system_log.html
+    to: /docs/reference/api/system-log/
+  - from: /docs/api/resources/templates.html
+    to: /docs/reference/api/templates/
+  - from: /docs/api/resources/trusted-origins.html
+    to: /docs/reference/api/trusted-origins/
+  - from: /docs/api/resources/zones.html
+    to: /docs/reference/api/zones/
