@@ -1,5 +1,5 @@
 ---
-Title: Key Rotation
+title: Key Rotation
 ---
 
 - For security purposes, Okta automatically rotates keys used to sign the token.

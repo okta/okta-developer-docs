@@ -3,8 +3,7 @@ title: Overview
 ---
 Okta hosts a sign-in page for your applications that appears when your applications redirect to Okta to sign users in. This page can be tailored to fit your brand or your application's look and feel, so that your user experience is consistent and seamless. You can customize the Okta-hosted sign-in page using easy controls or an embedded HTML editor that are provided on the **Custom Signin** tab of the **Customization** page.
 
-By using this feature along with customizing the [domain](/docs/guides/custom-url-domain/) and error pages, you can use Okta-hosted flows and keep a seamless user experience with your application.
-<!-- Link to Custom Error Pages guide -->
+By using this feature along with customizing the [domain](/docs/guides/custom-url-domain/) and [error pages](/docs/guides/custom-error-pages/), you can use Okta-hosted flows and keep a seamless user experience with your application.
 <!-- Concepts: Okta hosted functionality (future article) -->
 
 > Note: The Okta-hosted sign-in page uses the Okta Sign-In Widget component. This guide is about customizing the sign-in page itself, for example, adding custom HTML and CSS. See [Customize and Style the Sign-In Widget](https://developer.okta.com/code/javascript/okta_sign-in_widget/) for more information on customizations for the Sign-In Widget itself.
