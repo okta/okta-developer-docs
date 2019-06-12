@@ -4,7 +4,7 @@ title: Overview
 
 Generic OpenID Connect (OIDC) allows users to sign in to an Okta org using their credentials from their existing account at an OIDC Identity Provider (IdP). A generic OIDC IdP can be a third-party IdP that supports OIDC, such as Salesforce or Yahoo or your own custom IdP. You can also configure federation between Okta orgs using OIDC as a replacement for SAML. If you want your users to be able to sign in using an existing database of credentials and sync their accounts in to Universal Directory from the external IdP, configure your Okta org to use a generic OIDC IdP.
 
-> Note: This guide walks you through how to configure federation between Okta orgs using OIDC as a replacement for SAML. But, you can also use these steps to configure generic support of any third-party IdP that is OIDC-compliant. See [Supported Identity Providers](#supported-identity-providers).
+> Note: This guide walks you through how to configure federation between Okta orgs using OIDC as a replacement for SAML. But, you can also use these steps to configure generic support of any third-party IdP that is OIDC-compliant. See [Supported Identity Providers](/docs/guides/federate-with-oidc/overview/#supported-identity-providers).
 
 ## Features
 
@@ -17,7 +17,7 @@ Configuring a generic OIDC IdP allows you to use the following features:
 - **OAuth 2.0 Scope Configuration**: Specify OAuth 2.0 scopes to fully control which attributes are linked to Okta.
 
 ## Grant Types Supported
-By default, all OIDC IdPs are configured with the Authorization Code grant type in Okta. You can also use the Implicit (Hybrid) grant type. For more information on grant type flows, see [Choosing an OAuth 2.0 Flow](https://developer.okta.com/docs/concepts/auth-overview/#choosing-an-oauth-20-flow).
+By default, all OIDC IdPs are configured with the Authorization Code grant type in Okta. You can also use the Implicit (Hybrid) grant type. For more information on grant type flows, see [Choosing an OAuth 2.0 Flow](/docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow).
 
 ## The Generic OIDC IdP Process
 
