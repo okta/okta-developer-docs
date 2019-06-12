@@ -16,7 +16,7 @@ We have included here a few things that you can try to ensure that your Authoriz
 
 To verify that your server was created and has the expected configuration values, you can send an API request to the Server's OpenID Connect Metadata URI: `https://{yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside of a browser. This will return information about the OpenID configuration of your Authorization Server, though it does not currently return any custom scopes or claims that you might have created.
 
-For more information on this endpoint, see here: [Retrieve Authorization Server OpenID Connect Metadata](/docs/reference/api/oidc/#well-knownopenid-configuration).
+For more information on this endpoint, see here: [Retrieve Authorization Server OpenID Connect Metadata](/docs/reference/api/oidc/#well-known-openid-configuration).
 
 ### Custom Scopes and Claims
 
