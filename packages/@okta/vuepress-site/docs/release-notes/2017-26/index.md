@@ -27,7 +27,7 @@ You can export data before Okta deletes it. We recommend using Security Informat
 ### Platform Enhancement: New Authentication Method for OpenID Connect and API Access Management
 For OpenID Connect and API Access Management, Okta supports the `client_secret_jwt` method for token endpoint authentication (`token_endpoint_auth_method`).
 This method is specified in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)
-and allows you to use JWT and HMAC to authenticate a client for [OAuth 2.0 and OpenID Connect](https://developer.okta.com/docs/api/resources/oidc/#token-authentication-methods) requests.<!-- (OKTA-101074) -->
+and allows you to use JWT and HMAC to authenticate a client for [OAuth 2.0 and OpenID Connect](/docs/reference/api/oidc/#token-authentication-methods) requests.<!-- (OKTA-101074) -->
 
 ### Platform Bugs Fixed
 

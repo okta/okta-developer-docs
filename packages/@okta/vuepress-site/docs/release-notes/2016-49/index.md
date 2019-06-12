@@ -9,7 +9,7 @@ excerpt: Summary of changes to the Okta Platform since Release 2016.47
 
 #### Delete User API in EA
 
-API access to [delete users](/docs/api/resources/users/#delete-user) is now in EA. To request the feature, contact [Support](https://support.okta.com/help/open_case).
+API access to [delete users](/docs/reference/api/users/#delete-user) is now in EA. To request the feature, contact [Support](https://support.okta.com/help/open_case).
 <!-- OKTA-109291 -->
 
 #### System Query Log Change

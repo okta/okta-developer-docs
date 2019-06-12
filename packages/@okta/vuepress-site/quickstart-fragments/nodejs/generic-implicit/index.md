@@ -6,7 +6,7 @@ exampleDescription: NodeJS Implicit Example
 
 Now that your clients can get tokens, let's validate those tokens on your server. Okta has created a simplified Node library to make this easy for Okta applications: [Okta JWT Verifier](https://www.npmjs.com/package/@okta/jwt-verifier). We'll show you how to validate access tokens for a specific Okta authorization server (the issuer) and add a secondary check for the audience of the token.
 
-To learn more about validating Okta access tokens, please see [Validating Access Tokens](/authentication-guide/tokens/validating-access-tokens).
+To learn more about validating Okta access tokens, please see [Validate Access Tokens](/docs/guides/validate-access-tokens/).
 
 > If you would prefer to download a complete sample application instead, please visit [Express Sample Applications for Okta][] and follow those instructions.
 

@@ -1,18 +1,16 @@
 redirects:
   - from: /code
-    to: /documentation/
+    to: /docs/
   - from: /use_cases/api_security
-    to: /use_cases/api_access_management/
+    to: /docs/concepts/api-access-management/
   - from: /3rd_party_notices/Okta_Rum_Tool
     to: /3rd_party_notices/Okta_Cloud_Provisioning_Connector_Tool/index.html
   - from: /docs/how-to/set-up-auth-server.html
-    to: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
-  - from: /docs/how-to/set-up-auth-server/
-    to: /authentication-guide/implementing-authentication/set-up-authz-server/
+    to: /docs/guides/customize-authz-server/
   - from: /docs/how-to/inbound-saml-with-oidc
-    to: /authentication-guide/saml-login/index.html
-  - from: /docs/api/resources/social_authentication
-    to: /authentication-guide/social-login/index.html
+    to: /docs/guides/add-saml-idp/
+  - from: /docs/reference/api/social_authentication
+    to: /docs/concepts/social-login/
   - from: /code/dotnet/
     to: /code/dotnet/aspnetcore/index.html
   - from: /code/dotnet/index.html
@@ -47,7 +45,7 @@ redirects:
     to: https://github.com/okta/okta-signin-widget
   - from: /code/javascript/okta_sign-in_widget_external_ref.html
     to: /code/javascript/okta_sign-in_widget_ref/index.html
-  - from: /docs/api/resources/okta_signin_widget.html
+  - from: /docs/reference/api/okta_signin_widget.html
     to: /code/javascript/okta_sign-in_widget_ref/index.html
   - from: /code/php/jwt-validation/index.html
     to: https://github.com/okta/okta-jwt-verifier-php
@@ -70,65 +68,67 @@ redirects:
   - from: /docs/api/getting_started/
     to: /code/rest/index.html
   - from: /docs/getting_started/design_principles.html
-    to: /docs/api/getting_started/design_principles/index.html
+    to: /docs/reference/api-overview/index.html
   - from: docs/api/index.html
-    to: /docs/api/getting_started/design_principles/index.html
+    to: /docs/reference/api-overview/index.html
   - from: docs/api/
-    to: /docs/api/getting_started/design_principles/index.html
+    to: /docs/reference/api-overview/index.html
   - from: /docs/getting_started/getting_a_token.html
-    to: /docs/api/getting_started/getting_a_token/index.html
+    to: /docs/guides/create-an-api-token/index.html
   - from: /docs/getting_started/getting_a_token
-    to: /docs/api/getting_started/getting_a_token/
+    to: /docs/guides/create-an-api-token/
   - from: /docs/getting_started/design_principles
-    to: /docs/api/getting_started/rate-limits/index.html
-  - from: /docs/api/
-    to: /docs/api/resources/apps/index.html
-  - from: /docs/api/resources/
-    to: /docs/api/resources/apps/index.html
-  - from: /docs/api/reference/
-    to: /docs/api/resources/apps/index.html
+    to: /docs/reference/rate-limits/index.html
+  - from: /docs/api/index.html
+    to: /docs/reference/
+  - from: /docs/reference/api/index.html
+    to: /docs/reference/
   - from: /docs/api/reference/index.html
-    to: /docs/api/resources/apps/index.html
+    to: /docs/reference/
   - from: /docs/api/rest/apps.html
-    to: /docs/api/resources/apps/index.html
+    to: /docs/reference/api/apps/index.html
+  - from: /docs/reference/api/apps.html
+    to: /docs/reference/api/apps/index.html
   - from: /docs/api/rest/authn.html
-    to: /docs/api/resources/authn/index.html
-  - from: /docs/api/resources/index.html
-    to: /docs/api/resources/authn/index.html
-  - from: /docs/api/resources/
-    to: /docs/api/resources/authn/index.html
+    to: /docs/reference/api/authn/
+  - from: /docs/reference/api/index.html
+    to: /docs/reference/
+  - from: /docs/reference/api/
+    to: /docs/reference/
   - from: /docs/api/rest/events.html
-    to: /docs/api/resources/events/index.html
+    to: /docs/reference/api/events/index.html
   - from: /docs/getting_started/factor_admin.html
-    to: /docs/api/resources/factor_admin/index.html
+    to: /docs/reference/api/factor_admin/index.html
   - from: /docs/api/rest/factors.html
-    to: /docs/api/resources/factors/index.html
+    to: /docs/reference/api/factors/index.html
   - from: /docs/api/rest/groups.html
-    to: /docs/api/resources/groups/index.html
+    to: /docs/reference/api/groups/index.html
   - from: docs/api/rest/idps.html
-    to: /docs/api/resources/idps/index.html
+    to: /docs/reference/api/idps/index.html
   - from: /docs/api/rest/oauth-clients.html
-    to: /docs/api/resources/oauth-clients/index.html
-  - from: /docs/api/resources/oauth2
-    to: /docs/api/resources/oidc/index.html
+    to: /docs/reference/api/oauth-clients/index.html
+  - from: /docs/reference/api/oauth2
+    to: /docs/reference/api/oidc/index.html
   - from: /docs/how-to/beta-auth-service/api-access-management-troubleshooting
-    to: /docs/api/resources/oidc/index.html
+    to: /docs/reference/api/oidc/index.html
   - from: /standards/OIDC/index.html
-    to: /docs/api/resources/oidc/index.html
+    to: /docs/reference/api/oidc/index.html
   - from: /reference/authentication_reference
-    to: /docs/api/resources/oidc/index.html
+    to: /docs/reference/api/oidc/index.html
   - from: /docs/getting_started/policy.html
-    to: /docs/api/resources/policy/index.html
+    to: /docs/reference/api/policy/index.html
   - from: /docs/api/rest/sessions.html
-    to: /docs/api/resources/sessions/index.html
+    to: /docs/reference/api/sessions/
   - from: /docs/api/rest/templates.html
-    to: /docs/api/resources/templates/index.html
+    to: /docs/reference/api/templates/index.html
   - from: /docs/getting_started/tokens.html
-    to: /docs/api/resources/tokens/index.html
+    to: /docs/guides/validate-access-tokens/
+  - from: /docs/reference/api/tokens/index.html
+    to: /docs/guides/validate-access-tokens/
   - from: /docs/api/rest/users.html
-    to: /docs/api/resources/users/index.html
-  - from: /docs/api/resources/user
-    to: /docs/api/resources/users/index.html
+    to: /docs/reference/api/users/
+  - from: /docs/reference/api/user
+    to: /docs/reference/api/users/
   - from: /docs/platform-release-notes/platform-release-notes/index.html
     to: /docs/release-notes/
   - from: /docs/platform-release-notes/platform-release-notes2016-23/index.html
@@ -267,20 +267,20 @@ redirects:
     to: /docs/release-notes/
   - from: /docs/platform-release-notes/platform-release-notes2017-index/index.html
     to: /docs/release-notes/
-  - from: /docs/getting_started/error_codes
-    to: /reference/error_codes/index.html
-  - from: /docs/api/getting_started/error_codes
-    to: /reference/error_codes/index.html
+  - from: /docs/getting_started/error-codes
+    to: /docs/reference/error-codes/index.html
+  - from: /docs/api/getting_started/error-codes
+    to: /docs/reference/error-codes/index.html
   - from: /docs/getting_started/okta_expression_lang
-    to: /reference/okta_expression_language/index.html
+    to: /docs/reference/okta-expression-language/index.html
   - from: /docs/getting_started/okta_expression_lang.html
-    to: /reference/okta_expression_language/
+    to: /docs/reference/okta-expression-language/
   - from: /docs/api/getting_started/okta_expression_lang
-    to: /reference/okta_expression_language/index.html
+    to: /docs/reference/okta-expression-language/index.html
   - from: /docs/guides/scim_guidance.html
-    to: /reference/scim/index.html
+    to: /docs/reference/scim/index.html
   - from: /docs/guides/scim_developer_program.html
-    to: /reference/scim/index.html
+    to: /docs/reference/scim/index.html
   - from: /standards/SAML/index.html
     to: https://www.okta.com/integrate/documentation/saml/
   - from: /docs/guides/saml_guidance
@@ -292,29 +292,29 @@ redirects:
   - from: /docs/guides/saml_guidance.html
     to: /standards/SAML/
   - from: /docs/guides/setting_up_a_saml_application_in_okta
-    to: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
+    to: /docs/guides/saml-application-setup/index.html
   - from: /docs/guides/setting_up_a_saml_application_in_okta.html
-    to: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
+    to: /docs/guides/saml-application-setup/index.html
   - from: /docs/examples/configuring_a_saml_application_in_okta
-    to: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
+    to: /docs/guides/saml-application-setup/index.html
   - from: /docs/examples/configuring_a_saml_application_in_okta.html
-    to: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
+    to: /docs/guides/saml-application-setup/index.html
   - from: /standards/SCIM/index.html
     to: https://www.okta.com/integrate/documentation/scim/
   - from: /docs/guides/scim_guidance.html
     to: /standards/SCIM/index.html
   - from: /docs/guides/scim_developer_program.html
     to: /standards/SCIM/index.html
-  - from: /docs/api/resources/resource-server-beta/
-    to: /use_cases/api_access_management/index.html
-  - from: /docs/api/resources/resource-server-beta/required-config-changes-for-auth-server
-    to: /use_cases/api_access_management/index.html
+  - from: /docs/reference/api/resource-server-beta/
+    to: /docs/concepts/api-access-management/index.html
+  - from: /docs/reference/api/resource-server-beta/required-config-changes-for-auth-server
+    to: /docs/concepts/api-access-management/index.html
   - from: /docs/examples/session_cookie.html
-    to: /use_cases/authentication/session_cookie/index.html
+    to: /docs/guides/session-cookie/index.html
   - from: /use_cases/events-api-deprecation/
-    to: /use_cases/events-api-migration/index.html
+    to: /docs/concepts/events-api-migration/index.html
   - from: /use_cases/inline_hooks/api_am_hook/api_am_hook
-    to: /use_cases/inline_hooks/token_hook/token_hook/index.html
+    to: /docs/reference/token-hook/
   - from: /use_cases/integrate_with_okta/index.html
     to: https://www.okta.com/integrate/
   - from: /docs/api/getting_started/oan_guidance
@@ -342,64 +342,234 @@ redirects:
   - from: /use_cases/isv/zindex/index.html
     to: https://www.okta.com/integrate/documentation/isv-partner-integrations/
   - from: /docs/guides/add_mfa.html
-    to: /use_cases/mfa/index.html
+    to: /docs/guides/mfa/index.html
   - from: /use_cases/mobile/okta_mobile_connect/index.html
     to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/api/reference/apps.html
-    to: /docs/api/resources/apps/
-  - from: /docs/api/resources/users.html
-    to: /docs/api/resources/users/
-  - from: /docs/api/resources/authn.html
-    to: /docs/api/resources/authn/
-  - from: /docs/api/resources/system_log.html
-    to: /docs/api/resources/system_log/
+    to: /docs/reference/api/apps/
+  - from: /docs/reference/api/users.html
+    to: /docs/reference/api/users/
+  - from: /docs/reference/api/authn.html
+    to: /docs/reference/api/authn/
+  - from: /docs/reference/api/system_log.html
+    to: /docs/reference/api/system-log/
   - from: /docs/api/
     to: /docs/reference/
   - from: /docs/how-to/creating-token-with-groups-claim.html
-    to: /docs/how-to/creating-token-with-groups-claim/
+    to: /docs/guides/create-token-with-groups-claim/
   - from: /docs/sdk/core/api.html
-    to: /documentation/
+    to: /docs/
   - from: /3rd_party_notices/iOS_Verify.html
     to: /3rd_party_notices/iOS_Verify/
   - from: /3rd_party_notices/Android_verify.html
-    to: /3rd_party_notices/Android_verify/
+    to: /3rd_party_notices/Android_Verify/
+  - from: /3rd_party_notices/Android_Verify.html
+    to: /3rd_party_notices/Android_Verify/
   - from: /3rd_party_notices/Android_Mobile.html
     to: /3rd_party_notices/Android_Mobile/
-  - from: /docs/api/resources/oidc.html
-    to: /docs/api/resources/oidc/
-  - from: /standards/OAuth/
-    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
-  - from: /standards/OAuth/index
-    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
-  - from: /standards/OAuth/index.html
-    to: /authentication-guide/auth-overview/#choosing-an-oauth-2-0-flow
-  - from: /standards/OAuth
-    to: /standards/OAuth/
-  - from: /docs/api/resources/oauth2.html
-    to: /docs/api/resources/oidc/
+  - from: /docs/reference/api/oidc.html
+    to: /docs/reference/api/oidc/
+  - from: /docs/reference/api/oauth2.html
+    to: /docs/reference/api/oidc/
   - from: /standards/OIDC/
-    to: /docs/api/resources/oidc/
+    to: /docs/reference/api/oidc/
   - from: /docs/api/getting_started/design_principles.html
-    to: /docs/api/getting_started/design_principles/
+    to: /docs/reference/api-overview/
   - from: /standards/SAML/index
     to: https://www.okta.com/integrate/documentation/saml/
-  - from: /docs/api/resources/sessions.html
-    to: /docs/api/resources/sessions/
+  - from: /docs/reference/api/sessions.html
+    to: /docs/reference/api/sessions/
   - from: /docs/guides/okta_mobile_connect
     to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
-  - from: /reference/okta_expression_language/index
-    to: /reference/okta_expression_language/
-  - from: /docs/api/getting_started/design_principles/getting_a_token/
-    to: /docs/api/getting_started/getting_a_token/
+  - from: /docs/reference/okta-expression-language/index
+    to: /docs/reference/okta-expression-language/
+  - from: /docs/reference/api-overview/getting_a_token/
+    to: /docs/guides/create-an-api-token/
   - from: /docs/api/getting_started/enabling_cors.html
-    to: /docs/api/getting_started/enabling_cors/
+    to: /docs/guides/enable-cors/
   - from: /docs/api/getting_started/okta_expression_lang.html
-    to: /reference/okta_expression_language/
+    to: /docs/reference/okta-expression-language/
   - from: /docs/sdk/core/python_api_sdk/index.html
     to: https://github.com/okta/okta-sdk-python
-  - from: /docs/change-log/
-    to: /docs/release-notes/
-  - from: /docs/change-log/index
-    to: /docs/release-notes/
   - from: /docs/change-log/index.html
     to: /docs/release-notes/
+  - from: /standards/OAuth/index.html
+    to: /docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow
+  - from: /standards/OAuth
+    to: /docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow
+  - from: /documentation/index.html
+    to: /docs/
+  - from: /reference/error_codes/index.html
+    to: /docs/reference/error-codes/
+  - from: /reference/okta_expression_language/index.html
+    to: /docs/reference/okta-expression-language/
+  - from: /reference/postman_collections/index.html
+    to: /docs/reference/postman-collections/
+  - from: /reference/scim/index.html
+    to: /docs/reference/scim/
+  - from: /reference/webfinger/index.html
+    to: /docs/reference/webfinger/
+  - from: /guides/index.html
+    to: /docs/guides/
+  - from: /reference/index.html
+    to: /docs/reference/
+  - from: /use_cases/api_access_management/index.html
+    to: /docs/concepts/api-access-management/
+  - from: /use_cases/authentication/index.html
+    to: /docs/concepts/authentication/
+  - from: /use_cases/authentication/session_cookie/index.html
+    to: /docs/guides/session-cookie/
+  - from: /use_cases/event_hooks/index.html
+    to: /docs/concepts/event-hooks/
+  - from: /use_cases/events-api-migration/index.html
+    to: /docs/concepts/events-api-migration/
+  - from: /use_cases/inline_hooks/index.html
+    to: /docs/concepts/inline-hooks/
+  - from: /use_cases/inline_hooks/registration_hook/registration_hook/index.html
+    to: /docs/reference/registration-hook/
+  - from: /use_cases/inline_hooks/saml_hook/saml_hook/index.html
+    to: /docs/reference/saml-hook/
+  - from: /use_cases/inline_hooks/import_hook/import_hook/index.html
+    to: /docs/reference/import-hook/
+  - from: /use_cases/inline_hooks/token_hook/token_hook/index.html
+    to: /docs/reference/token-hook/
+  - from: /use_cases/mfa/index.html
+    to: /docs/guides/mfa/
+  - from: /use_cases/relationships/index.html
+    to: /docs/reference/api/linked-objects/
+  - from: /docs/api/getting_started/releases-at-okta/index.html
+    to: /docs/reference/releases-at-okta/
+  - from: /docs/api/getting_started/rate-limits/index.html
+    to: /docs/reference/rate-limits/
+  - from: /docs/api/getting_started/finding_your_app_credentials/index.html
+    to: /docs/guides/find-your-app-credentials/
+  - from: /docs/api/getting_started/finding_your_domain/index.html
+    to: /docs/guides/find-your-domain/
+  - from: /docs/api/getting_started/enabling_cors/index.html
+    to: /docs/guides/enable-cors/
+  - from: /docs/api/getting_started/getting_a_token/index.html
+    to: /docs/guides/create-an-api-token/
+  - from: /docs/api/getting_started/design_principles/index.html
+    to: /docs/reference/api-overview/
+  - from: /docs/api/resources/apps/index.html
+    to: /docs/reference/api/apps/
+  - from: /docs/api/resources/authn/index.html
+    to: /docs/reference/api/authn/
+  - from: /docs/api/resources/oidc/index.html
+    to: /docs/reference/api/oidc/
+  - from: /docs/api/resources/oidc
+    to: /docs/reference/api/oidc/
+  - from: /docs/api/resources/roles/index.html
+    to: /docs/reference/api/roles/
+  - from: /docs/api/resources/authorization-servers/index.html
+    to: /docs/reference/api/authorization-servers/
+  - from: /docs/api/resources/oauth-clients/index.html
+    to: /docs/reference/api/oauth-clients/
+  - from: /docs/api/resources/events/index.html
+    to: /docs/reference/api/events/
+  - from: /docs/api/resources/event-hooks/index.html
+    to: /docs/reference/api/event-hooks/
+  - from: /docs/api/resources/event-types/index.html
+    to: /docs/reference/api/event-types/
+  - from: /docs/api/resources/factors/index.html
+    to: /docs/reference/api/factors/
+  - from: /docs/api/resources/groups/index.html
+    to: /docs/reference/api/groups/
+  - from: /docs/api/resources/idps/index.html
+    to: /docs/reference/api/idps/
+  - from: /docs/api/resources/inline-hooks/index.html
+    to: /docs/reference/api/inline-hooks/
+  - from: /docs/api/resources/linked-objects/index.html
+    to: /docs/reference/api/linked-objects/
+  - from: /docs/api/resources/policy/index.html
+    to: /docs/reference/api/policy/
+  - from: /docs/api/resources/schemas/index.html
+    to: /docs/reference/api/schemas/
+  - from: /docs/api/resources/sessions/index.html
+    to: /docs/reference/api/sessions/
+  - from: /docs/api/resources/system_log/index.html
+    to: /docs/reference/api/system-log/
+  - from: /docs/api/resources/templates/index.html
+    to: /docs/reference/api/templates/
+  - from: /docs/api/resources/trusted-origins/index.html
+    to: /docs/reference/api/trusted-origins/
+  - from: /docs/api/resources/users/index.html
+    to: /docs/reference/api/users/
+  - from: /docs/api/resources/zones/index.html
+    to: /docs/reference/api/zones/
+  - from: /docs/how-to/add-user-consent-to-flow/index.html
+    to: /docs/guides/request-user-consent/
+  - from: /docs/how-to/byo_saml/index.html
+    to: /docs/guides/byo-saml/
+  - from: /docs/how-to/creating-token-with-groups-claim/index.html
+    to: /docs/guides/create-token-with-groups-claim/
+  - from: /docs/how-to/sharing-cert/index.html
+    to: /docs/guides/sharing-cert/
+  - from: /docs/how-to/updating_saml_cert/index.html
+    to: /docs/guides/updating-saml-cert/
+  - from: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
+    to: /docs/
+  - from: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
+    to: /docs/guides/saml-application-setup/
+  - from: /standards/SAML/saml_tracer/index.html
+    to: /docs/guides/saml-tracer/
+  - from: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
+    to: /docs/guides/customize-authz-server/
+  - from: /authentication-guide/implementing-authentication/set-up-authz-server
+    to: /docs/guides/customize-authz-server/
+  - from: /authentication-guide/social-login/social-settings/index.html
+    to: /docs/reference/social-settings/
+  - from: /authentication-guide/social-login/index.html
+    to: /docs/concepts/social-login/
+  - from: /authentication-guide/index.html
+    to: /docs/concepts/auth-overview/
+  - from: /authentication-guide/auth-overview/index.html
+    to: /docs/concepts/auth-overview/
+  - from: /authentication-guide/implementing-authentication/index.html
+    to: /docs/concepts/auth-overview/#recommended-flow-by-application-type
+  - from: /authentication-guide/tokens/index.html
+    to: /docs/guides/validate-access-tokens/
+  - from: /authentication-guide/tokens/verifying-token-signature/index.html
+    to: /docs/guides/validate-access-tokens/
+  - from: /authentication-guide/tokens/validating-access-tokens/index.html
+    to: /docs/guides/validate-access-tokens/
+    - from: /authentication-guide/tokens/validating-access-tokens
+    to: /docs/guides/validate-access-tokens/
+  - from: /authentication-guide/tokens/validating-id-tokens/index.html
+    to: /docs/guides/validate-id-tokens/
+  - from: /authentication-guide/generic-oidc/index.html
+    to: /docs/guides/federate-with-oidc/
+  - from: /authentication-guide/tokens/refreshing-tokens/index.html
+    to: /docs/guides/refresh-tokens/
+  - from: /authentication-guide/tokens/revoking-tokens/index.html
+    to: /docs/guides/revoke-tokens/
+  - from: /authentication-guide/saml-login/index.html
+    to: /docs/guides/add-saml-idp/
+  - from: /authentication-guide/social-login/facebook/index.html
+    to: /docs/guides/sign-in-with-facebook/
+  - from: /authentication-guide/social-login/google/index.html
+    to: /docs/guides/sign-in-with-google/
+  - from: /authentication-guide/social-login/linkedin/index.html
+    to: /docs/guides/sign-in-with-linkedin/
+  - from: /authentication-guide/social-login/microsoft/index.html
+    to: /docs/guides/sign-in-with-microsoft/
+  - from: /authentication-guide/implementing-authentication/auth-code/index.html
+    to: /docs/guides/implement-auth-code/
+  - from: /authentication-guide/implementing-authentication/auth-code
+    to: /docs/guides/implement-auth-code/
+  - from: /authentication-guide/implementing-authentication/auth-code-pkce/index.html
+    to: /docs/guides/implement-auth-code-pkce/
+  - from: /authentication-guide/implementing-authentication/client-creds/index.html
+    to: /docs/guides/implement-client-creds/
+  - from: /authentication-guide/implementing-authentication/client-creds
+    to: /docs/guides/implement-client-creds/
+  - from: /authentication-guide/implementing-authentication/implicit/index.html
+    to: /docs/guides/implement-implicit/
+  - from: /authentication-guide/implementing-authentication/password/index.html
+    to: /docs/guides/implement-password/
+  - from: /docs/api/resources/users.html
+    to: /docs/reference/api/users/
+  - from: /docs/api/resources/sessions.html
+    to: /docs/reference/api/sessions/
+  - from: /docs/api/resources/apps.html
+    to: /docs/reference/api/apps/

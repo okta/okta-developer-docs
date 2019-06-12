@@ -7,7 +7,7 @@ excerpt: Summary of changes to the Okta Platform since Release 2016.51
 
 ### Feature Improvements: New Expression Language Function
 
-The new [expression language](/reference/okta_expression_language/) function `Arrays.toCsvString(array)` converts an array to a comma-delimited string. For example:
+The new [expression language](/docs/reference/okta-expression-language/) function `Arrays.toCsvString(array)` converts an array to a comma-delimited string. For example:
 
 `Arrays.toCsvString({"This", "is", " a ", "test"})` returns `This,is, a ,test` <!-- OKTA-51976 -->
 
