@@ -841,7 +841,8 @@ curl -v -X GET \
 
 
 ```json
-[{
+[
+    {
         "status": "ACTIVE",
         "alg": "RS256",
         "e": "AQAB",
@@ -903,7 +904,7 @@ curl -v -X GET \
                 }
             }
         }
-    },
+    }
 ]
 ```
 
@@ -944,7 +945,8 @@ curl -v -X POST \
 
 
 ```json
-[{
+[
+    {
         "status": "ACTIVE",
         "alg": "RS256",
         "e": "AQAB",
