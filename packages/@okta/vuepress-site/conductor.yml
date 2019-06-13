@@ -751,7 +751,7 @@ redirects:
     to: /docs/reference/api/trusted-origins/
   - from: /docs/api/resources/zones.html
     to: /docs/reference/api/zones/
-  - from: /guides/add-saml-idp/-/configure-oidc-client/index.html
+  - from: /guides/add-saml-idp/-/configure-oidc-client/
     to: /docs/guides/add-saml-idp/-/configure-oidc-client/
   - from: /guides/add-saml-idp/-/configure-saml-idp/
     to: /docs/guides/add-saml-idp/-/configure-saml-idp/
