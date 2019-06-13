@@ -4,13 +4,13 @@ excerpt: Learn how to add authentication to your mobile apps and sign users in u
 layout: Guides
 sections:
  - before-you-begin
- - create-an-okta-application
+ - define-callback
+ - create-okta-application
  - configure-packages
- - configure-the-callback
  - sign-in-page
- - sign-out-page
  - get-user-info
- - check-for-tokens
+ - check-on-startup
+ - stay-signed-in
  - use-access-token
  - next-steps
 ---
