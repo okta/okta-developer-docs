@@ -11,11 +11,11 @@ title: Okta API Products Release Notes
 
 ### Token Inline Hook Can Modify or Remove Existing Claims (Early Access)
 
-The [Token Inline Hook](/use_cases/inline_hooks/token_hook/token_hook/) now supports changing or removing existing claims in tokens minted by the Okta Custom Authorization Server. <!-- (OKTA-218305) -->
+The [Token Inline Hook](/docs/reference/token-hook/) now supports changing or removing existing claims in tokens minted by the Okta Custom Authorization Server. <!-- (OKTA-218305) -->
 
 ### Bugs Fixed in 2019.05.3
 
-* Responses from the `GET /groups/rules` [API](/docs/api/resources/groups/#list-group-rules) failed to include a link to the next page of results in cases where there was more than one page. (OKTA-221434)
+* Responses from the `GET /groups/rules` [API](/docs/reference/api/groups/#list-group-rules) failed to include a link to the next page of results in cases where there was more than one page. (OKTA-221434)
 
 * Calls to the `/authorize` endpoint during the Authorization Code with PKCE flow would fail if an `idp` parameter was supplied with the call (in Preview orgs only). (OKTA-229808)
 

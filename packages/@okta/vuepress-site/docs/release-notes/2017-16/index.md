@@ -21,7 +21,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/api/getting_started/rate-limits).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 #### Simple HAL Links
 
@@ -69,7 +69,7 @@ Currently, a user object returned in a collection contains some or all of the fo
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/api/getting_started/design_principles#links-in-collections):
+As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -91,7 +91,7 @@ Instead, Okta will send a customer communication explaining the migration path t
 
 ### Platform Feature Improvement: Zones API Generally Available in Preview
 
-Access policies can now be defined based on an IP address range using [the Zones API](/docs/api/resources/zones).
+Access policies can now be defined based on an IP address range using [the Zones API](/docs/reference/api/zones/).
 This feature is Generally Available in preview orgs for at least one month before being Generally Available in production. <!-- OKTA-121280 -->
 
 ### Platform Bugs Fixed

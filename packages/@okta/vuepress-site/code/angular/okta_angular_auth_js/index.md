@@ -42,7 +42,7 @@ ng new okta-app
 
 This creates a new project named `okta-app` and installs all required dependencies.
 
-The simplest way to add authentication into an Angular app is using the library [Okta Auth JS](/code/javascript/okta_auth_sdk). We can install it via `npm`:
+The simplest way to add authentication into an Angular app is using the library [Okta Auth JS](/code/javascript/okta_auth_sdk/). We can install it via `npm`:
 
 ```bash
 npm install @okta/okta-auth-js --save
@@ -51,11 +51,11 @@ npm install @okta/okta-auth-js --save
 ## Create an Authentication Service
 
 Users can sign in to your Angular application a number of different ways.
-The easiest, and most secure way is to use the **default login page**. This page renders the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget), equipped to handle User Lifecycle operations, MFA, and more.
+The easiest, and most secure way is to use the **default login page**. This page renders the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/), equipped to handle User Lifecycle operations, MFA, and more.
 
 First, create `src/app/app.service.ts` as an authorization utility file and use it to bootstrap the required fields to login:
 
-> Important: We're using Okta's organization authorization server to make setup easy, but it's less flexible than a custom authorization server. Most SPAs send access tokens to access APIs. If you're building an API that will need to accept access tokens, [create an authorization server](/authentication-guide/implementing-authentication/set-up-authz-server).
+> Important: We're using Okta's organization authorization server to make setup easy, but it's less flexible than a custom authorization server. Most SPAs send access tokens to access APIs. If you're building an API that will need to accept access tokens, [create an authorization server](/docs/guides/customize-authz-server/).
 
 ```typescript
 // app.service.ts
@@ -291,7 +291,7 @@ export class AppModule { }
 
 ## Conclusion
 
-You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/api/resources/oidc).
+You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
 
 Want to learn how to use the user's `access_token`? Check out our <a href='/quickstart/#/angular/nodejs/generic' data-proofer-ignore>Angular Quickstart integrations</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
