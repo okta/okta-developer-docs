@@ -80,11 +80,11 @@ module.exports = {
       },
       { text: 'Pricing', link: '/pricing/' },
       { text: 'Blog', link: '/blog/' },
-      { text: 'Docs', link: '/documentation/',
+      { text: 'Docs', link: '/docs/',
         children: [
-          { text: 'Get Started', link: '/documentation/' },
-          { text: 'Guides', link: '/guides/' },
-          { text: 'Reference', link: '/reference/' }
+          { text: 'Get Started', link: '/docs/' },
+          { text: 'Guides', link: '/docs/guides/' },
+          { text: 'Reference', link: '/docs/reference/' }
         ]
       },
       { text: 'Support', link: '',
@@ -231,7 +231,7 @@ module.exports = {
     ...guidesInfo.additionalPagesForGuides(),
   ],
   extendPageData(page) {
-    if(page.path.startsWith(`/guides/`)) {
+    if(page.path.startsWith(`/docs/guides/`)) {
       page.frontmatter.layout = 'Guides';
       const info = guidesInfo.guideInfo[page.path];
       if(info) {

@@ -54,7 +54,7 @@ Okta returns all default scopes in the Access Token that are permitted by the ac
 
 ![Default Scope Configuration UI](/img/release_notes/default-scope.png "Default Scope Configuration UI")
 
-For more information about setting default scopes in the API, see [OAuth 2.0 API](/docs/api/resources/authorization-servers#scope-properties).
+For more information about setting default scopes in the API, see [OAuth 2.0 API](/docs/reference/api/authorization-servers/#scope-properties).
 <!-- OKTA-122185 OKTA-122072 -->
 
 #### Improved UI for Creating OpenID Connect Apps
@@ -99,7 +99,7 @@ We enforce new rate limits for all preview orgs. API calls exceeding the new rat
 
 3. We are rolling out the enforcement of these new rate limits to all orgs this week. Once your org has the new limits, you'll see HTTP 429 errors instead of rate-limit warnings in the System Log if the new limits are exceeded.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/api/getting_started/rate-limits).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Bug Fixed
 

@@ -16,7 +16,7 @@ You can add an app instance target to an `APP_ADMIN` role assignment via the API
 
 When you assign an app instance target to this role assignment, the scope of the role assignment changes from all app targets to just the specified target. Thus you can use this feature to create different `APP_ADMIN` role assignments for different apps in your org.
 
-For details, visit the [Roles API documentation](/docs/api/resources/roles/#add-app-target-to-app-administrator-role). <!-- OKTA-164900 -->
+For details, visit the [Roles API documentation](/docs/reference/api/roles/#add-app-target-to-app-administrator-role). <!-- OKTA-164900 -->
 
 ### Bug Fixed in 2018.15
 

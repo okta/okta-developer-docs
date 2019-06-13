@@ -11,9 +11,9 @@ title: Okta API Products Release Notes
 
 ### The Event Hooks Feature is Now Available in EA
 
-[Event hooks](/use_cases/event_hooks/) enable you to use events within your Okta org to trigger process flows within your own software systems. <!-- (OKTA-209169) -->
+[Event hooks](/docs/concepts/event-hooks/) enable you to use events within your Okta org to trigger process flows within your own software systems. <!-- (OKTA-209169) -->
 
 ### Bug Fixed in 2019.04.1
 
-The applicable rate limit wasn't updated when the URL for the factor verification endpoint was changed. For more details, see our [Rate Limits](/docs/api/getting_started/rate-limits/#okta-api-endpoints-and-per-minute-limits) page. (OKTA-219067)
+The applicable rate limit wasn't updated when the URL for the factor verification endpoint was changed. For more details, see our [Rate Limits](/docs/reference/rate-limits/#okta-api-endpoints-and-per-minute-limits) page. (OKTA-219067)
 

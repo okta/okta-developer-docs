@@ -17,7 +17,7 @@ excerpt: >-
 
 #### Early Access Feature in Preview: App User Schema API
 
-The [App User Schema API](/docs/api/resources/schemas/#app-user-schema-operations) is an [Early Access (EA)](/docs/api/getting_started/releases-at-okta#early-access-ea) release. Use this API to work with App User profiles, typically for apps that have features for provisioning users.
+The [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) is an [Early Access (EA)](/docs/reference/releases-at-okta/#early-access-ea) release. Use this API to work with App User profiles, typically for apps that have features for provisioning users.
 <!-- OKTA-148782 -->
 
 #### Completing Rollout of Simple HAL Links
@@ -29,13 +29,13 @@ Some orgs did not receive this functionality because they were identified as pos
 
 Some preview orgs created with the Developer Paid edition will receive the new functionality on preview orgs starting December 6, 2017, and on production orgs starting December 12, 2017.
 
-See [the User Model documentation](/docs/api/resources/users/#user-model) for more information. <!-- OKTA-150507 -->
+See [the User Model documentation](/docs/reference/api/users/#user-model) for more information. <!-- OKTA-150507 -->
 
 #### JWT as a Request Parameter
 
 A new parameter, `request` is available for all `/authorize` endpoints. The parameter contains a JWT created by the client, enabling requests to be passed in a single, self-contained parameter. This JWT must be signed.
 
-For details about using `request`, see [Oauth 2.0](/docs/api/resources/oidc/#request-parameters-1) or [OpenID Connect](/docs/api/resources/oidc/#request-parameters-3) documentation. <!-- OKTA-78476 -->
+For details about using `request`, see [Oauth 2.0](/docs/reference/api/oidc/#request-parameters-1) or [OpenID Connect](/docs/reference/api/oidc/#request-parameters-3) documentation. <!-- OKTA-78476 -->
 
 ### API Bug Fixes
 

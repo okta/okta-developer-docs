@@ -11,8 +11,8 @@ title: Okta API Products Release Notes
 
 ### Bugs Fixed in 2018.42
 
-* The `/clients` [endpoint](/docs/api/resources/oauth-clients#list-client-applications) dropped the `filter` parameter for any paginated results returned after the first page.
-* Messages that were sent to devices using the [Factors API](/docs/api/resources/factors) would sometimes return a `500` error if the message could not be sent.
+* The `/clients` [endpoint](/docs/reference/api/oauth-clients/#list-client-applications) dropped the `filter` parameter for any paginated results returned after the first page.
+* Messages that were sent to devices using the [Factors API](/docs/reference/api/factors/) would sometimes return a `500` error if the message could not be sent.
 
 ### Previously Released Early Access Features 2018.42 Update
 

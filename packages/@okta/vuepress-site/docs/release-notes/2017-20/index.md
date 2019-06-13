@@ -27,7 +27,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate limits will return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/api/getting_started/rate-limits).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Feature Improvements
 
@@ -35,7 +35,7 @@ For a full description of the new rate limits, see [API Rate Limits](/docs/api/g
 
 Use the Okta Expression Language function `getFilteredGroups` to create a list of groups that the current user belongs to.
 With such a list you can, for example, create claims in Access Tokens and ID Tokens based on the groups.
-For more information, see [Group Functions](/reference/okta_expression_language/#group-functions). <!--OKTA-123127-->
+For more information, see [Group Functions](/docs/reference/okta-expression-language/#group-functions). <!--OKTA-123127-->
 
 #### New Profile Property for Apps
 
@@ -43,9 +43,9 @@ The `profile` property in the Apps API accepts any well-formed JSON schema. You 
 For example:
 
 * Add an app manager contact email address.
-* Use the profile to define a whitelist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/reference/okta_expression_language/#group-functions).
+* Use the profile to define a whitelist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
-For more information, see the [Apps API](/docs/api/resources/apps/#profile-object).
+For more information, see the [Apps API](/docs/reference/api/apps/#profile-object).
 
 Note that the status code for service claims errors has changed from 500 to 400 as part of this feature. <!--OKTA-123128-->
 
@@ -56,11 +56,11 @@ Use the `login_hint` property on `/oauth2/${authServerId}/v1/authorize` or `/oau
 ### Platform Bugs Fixed
 
 * Updating the OpenID Connect property `max_age` incorrectly caused a new session to be created, which updated the `createdAt` timestamp. (OKTA-99850)
-* The property `application_type` in the [OAuth 2.0 Clients API](/docs/api/resources/oauth-clients) could be edited. (OKTA-120223)
+* The property `application_type` in the [OAuth 2.0 Clients API](/docs/reference/api/oauth-clients/) could be edited. (OKTA-120223)
 * User profile attributes could be fetched via the API even though attributes were marked hidden, if the user sending the request was the user being fetched. (OKTA-123882)
 * Reordering Authorization Server policies failed. (OKTA-125156)
 * (Preview fix) Fixed issue involving OpenID Connect and OAuth 2.0 requests within SAML IdP configuration. (OKTA-127155)
-* The Zones API documentation was incorrectly announced as Generally Available in 2017.19. It is [a Beta release](/docs/api/getting_started/releases-at-okta).
+* The Zones API documentation was incorrectly announced as Generally Available in 2017.19. It is [a Beta release](/docs/reference/releases-at-okta/).
 
 #### Simple HAL Links Generally Available in Preview for May, 2017
 
@@ -106,7 +106,7 @@ Before release 2017.19, a user object returned in a collection contains some or 
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/api/getting_started/design_principles#links-in-collections):
+As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
