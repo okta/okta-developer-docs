@@ -1,3 +1,7 @@
-The Okta Spring Boot SDK configures and hosts this route for you. By default, the route is hosted at `/authorization-code/callback`.
+The Okta Spring Boot Starter configures and hosts this route for you. By default, this route is hosted at `/login/oauth2/code/okta`.
 
-You'll install the SDK later in <GuideLink link="../configure-packages/">Add and Configure Packages</GuideLink>.
+To following along with the defaults on the next page set the property `okta.oauth2.redirect-uri` to `/authorization-code/callback` in your `src/main/resources/application.properties` file:
+
+```properties
+okta.oauth2.redirect-uri=/authorization-code/callback
+```
