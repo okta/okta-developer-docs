@@ -41,12 +41,12 @@ Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to 
 Before Okta can serve traffic over your domain, you need to add an alias from your custom domain to the Okta subdomain of your Okta organization. You do this by creating or modifying a CNAME record for your custom domain name.
     
 1. Return to your Domain Name registrar and locate the option to modify your DNS records.
-1. Create a new CNAME record and paste the value from the **Host** column into your registrar's **Name** or **Host** field.
+1. Create a new CNAME record and paste the value from the **Host** column into the appropriate field at the registrar, for example, the **Name** or **Host** field.
 
 > Important: Depending on your registrar, you may only need to enter the subdomain part. For example, if you picked the subdomain `id.example.com`, your registrar may only require you to create a CNAME record for `id`. If you're not sure, check your registrar's documentation.
 
-1. Paste the value from the **Data** column into your registrar's **Record** or **Value** field.
-1. Save the record.
+3. Paste the value from the **Data** column into the appropriate field at the registrar, for example, the **Record** or **Value** field.
+4. Save the record.
 
 After the CNAME record is saved and confirmed by your registrar, you are done setting up a custom domain name for your Okta organization. Okta will begin to serve traffic over your custom domain. It may take a few minutes to propagate the changes.
 
