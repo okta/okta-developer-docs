@@ -13,11 +13,11 @@ title: Okta API Products Release Notes
 
 ### Factors API Now Supports U2F
 
-Enrollment, activation, and verification of U2F factors are now supported in the [Factors API](/docs/api/resources/factors). <!-- OKTA-112705 -->
+Enrollment, activation, and verification of U2F factors are now supported in the [Factors API](/docs/reference/api/factors/). <!-- OKTA-112705 -->
 
 ### Network Selection Modes Deprecated
 
-Two deprecated network selection modes (`ON_NETWORK `and `OFF_NETWORK`) have been removed from the [Network Condition Object](/docs/api/resources/policy/#NetworkConditionObject). They have been replaced by the `ZONE` type. <!-- OKTA-172947 -->
+Two deprecated network selection modes (`ON_NETWORK `and `OFF_NETWORK`) have been removed from the [Network Condition Object](/docs/reference/api/policy/#NetworkConditionObject). They have been replaced by the `ZONE` type. <!-- OKTA-172947 -->
 
 ### Better Signing Key Errors
 

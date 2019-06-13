@@ -18,12 +18,12 @@ You can now disable the Okta loading animation that appears during a login redir
 
 ### New System Log Event Type for Denied Events
 
-The [System Log](/docs/api/resources/system_log) now reports when requests are denied due to a blacklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982)
+The [System Log](/docs/reference/api/system-log/) now reports when requests are denied due to a blacklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982)
 
 ### Bugs Fixed in 2018.32
 
 * Fixed a bug that affected delegated authentication users: in rare cases, the user appeared to be active when locked out, or vice versa. (OKTA-180932)
-* The Apps API now [returns an error](/docs/api/resources/apps/#response-example-self-service-application-assignment-not-available) if changing the Application's self-service assignment settings could result in an insecure state. (OKTA-182497)
+* The Apps API now [returns an error](/docs/reference/api/apps/#response-example-self-service-application-assignment-not-available) if changing the Application's self-service assignment settings could result in an insecure state. (OKTA-182497)
 
 ### Previously Released Early Access Features 2018.32 Update
 

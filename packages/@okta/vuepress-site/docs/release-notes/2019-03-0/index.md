@@ -18,27 +18,27 @@ title: Okta API Products Release Notes
 
 ### Password Import Supports SHA-1 and MD5
 
-The Create/Update User API now supports importing users with SHA-1 and MD5 credentials. For more information, see our [Users page](/docs/api/resources/users/#hashed-password-object). <!--OKTA-204369 and OKTA-201688-->
+The Create/Update User API now supports importing users with SHA-1 and MD5 credentials. For more information, see our [Users page](/docs/reference/api/users/#hashed-password-object). <!--OKTA-204369 and OKTA-201688-->
 
 ### Enable Role Assignment to Every Member of a Group
 
-Super and Org Admins can now assign and unassign roles to every user in a group using the APIs. For more information, see our [Roles page](/docs/api/resources/roles/#assign-role-to-group). <!--OKTA-207759 and OKTA-207768-->
+Super and Org Admins can now assign and unassign roles to every user in a group using the APIs. For more information, see our [Roles page](/docs/reference/api/roles/#assign-role-to-group). <!--OKTA-207759 and OKTA-207768-->
 
 ### New Rate Limits for /users/me
 
-The rate limits for the `/users/me` endpoint have been updated. For more information, see our [Rate Limits page](/docs/api/getting_started/rate-limits#org-wide-rate-limits-legacy-orgs). <!--OKTA-205776-->
+The rate limits for the `/users/me` endpoint have been updated. For more information, see our [Rate Limits page](/docs/reference/rate-limits/#org-wide-rate-limits-legacy-orgs). <!--OKTA-205776-->
 
 ### Generic OIDC IdP is now GA in Preview
 
-Generic OpenID Connect allows users to sign in to an Okta org using their credentials from their existing account at an OIDC Identity Provider. A generic OIDC IdP can be a third-party IdP that supports OIDC, such as Salesforce or Yahoo or your own custom IdP. You can also configure federation between Okta orgs using OIDC as a replacement for SAML. For more information, see [Generic OpenID Connect Identity Providers](/authentication-guide/generic-oidc/). <!--OKTA-202447-->
+Generic OpenID Connect allows users to sign in to an Okta org using their credentials from their existing account at an OIDC Identity Provider. A generic OIDC IdP can be a third-party IdP that supports OIDC, such as Salesforce or Yahoo or your own custom IdP. You can also configure federation between Okta orgs using OIDC as a replacement for SAML. For more information, see [Federate Okta with OpenID Connect](/docs/guides/federate-with-oidc/). <!--OKTA-202447-->
 
 ### User Search is now GA in Production
 
-Extended search capabilities for the `/users` endpoint is now Generally Available. For more information, see our [Users page](/docs/api/resources/users/#list-users-with-search). <!--OKTA-210189-->
+Extended search capabilities for the `/users` endpoint is now Generally Available. For more information, see our [Users page](/docs/reference/api/users/#list-users-with-search). <!--OKTA-210189-->
 
 ### The Import Inline Hook is in EA
 
-The [Import Inline Hook](/use_cases/inline_hooks/import_hook/import_hook) enables you to add custom logic to the process of importing new users into Okta from an app. <!--OKTA-211788-->
+The [Import Inline Hook](/docs/reference/import-hook/) enables you to add custom logic to the process of importing new users into Okta from an app. <!--OKTA-211788-->
 
 ### Previously Released Early Access Features 2019.03.0 Update
 

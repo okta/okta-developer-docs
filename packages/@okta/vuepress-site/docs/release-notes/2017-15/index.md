@@ -17,14 +17,14 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/api/getting_started/rate-limits).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Feature Improvements
 
 #### Revoke Access Tokens and Refresh Tokens
 
 Use the `oauthTokens` parameter when clearing user sessions to revoke all OpenID Connect and OAuth Access Tokens and Refresh Tokens
-issued to the user. For more information, see [the Users API](/docs/api/resources/users/#clear-user-sessions).<!-- OKTA-116904 -->
+issued to the user. For more information, see [the Users API](/docs/reference/api/users/#clear-user-sessions).<!-- OKTA-116904 -->
 
 #### Token Requests with Grant Type password
 
@@ -34,7 +34,7 @@ Previously only the appropriate Access Token or Refresh Token was returned. <!--
 #### Authentication That Overrides Client Request Context
 
 The API now authenticates a user via a trusted application or proxy that uses the activation token.
-For more information, see [Authentication API](/docs/api/resources/authn/#primary-authentication-with-activation-token). <!-- OKTA-119692 -->
+For more information, see [Authentication API](/docs/reference/api/authn/#primary-authentication-with-activation-token). <!-- OKTA-119692 -->
 
 #### HAL Link for User in Provisioned State
 
@@ -51,7 +51,7 @@ Access Policies can now be defined based on an IP address range. <!-- OKTA-12128
 
 #### Bring Your Own SAML Certificates
 
-Okta Admins can now upload their own SAML certificates to sign the assertion for Outbound SAML apps. These certificates can also be used to sign the AuthNRequest, as well as to decrypt the assertion for Inbound SAML. For more information, see [Bring Your Own SAML App Certificate](/docs/how-to/byo_saml).<!-- OKTA-119158 -->
+Okta Admins can now upload their own SAML certificates to sign the assertion for Outbound SAML apps. These certificates can also be used to sign the AuthNRequest, as well as to decrypt the assertion for Inbound SAML. For more information, see [Bring Your Own SAML App Certificate](/docs/guides/byo-saml/).<!-- OKTA-119158 -->
 
 #### Universal Directory for User Locale
 
@@ -61,11 +61,11 @@ When determining the user locale via the API, Okta uses the locale setting in th
 
 Added `lifecycle/reactivate` endpoint.
 
-This endpoint enables the API user to recover from failure in the authentication workflow, specifically when the user password is not set. In those cases this endpoint can be used to restart the activation by getting a new token and proceeding to set the user credentials. For more information, see the [API Reference](/docs/api/resources/users/#reactivate-user). <!-- OKTA-119096 -->
+This endpoint enables the API user to recover from failure in the authentication workflow, specifically when the user password is not set. In those cases this endpoint can be used to restart the activation by getting a new token and proceeding to set the user credentials. For more information, see the [API Reference](/docs/reference/api/users/#reactivate-user). <!-- OKTA-119096 -->
 
 #### Linking Users to Social Identity Providers
 
-Added a number of APIs that allow you to link an existing Okta user to a Social Identity Provider via an `externalId`. For more information, see [Identity Provider User Operations](/docs/api/resources/idps/#identity-provider-user-operations) <!-- OKTA-97257 -->
+Added a number of APIs that allow you to link an existing Okta user to a Social Identity Provider via an `externalId`. For more information, see [Identity Provider User Operations](/docs/reference/api/idps/#identity-provider-user-operations) <!-- OKTA-97257 -->
 
 ### Platform Bugs Fixed
 
