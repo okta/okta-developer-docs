@@ -5,7 +5,7 @@ category: management
 
 # Authorization Servers
 
-Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including access tokens and ID tokens. The Okta Management API gives you the ability to configure and manage authorization servers and the security policies that are attached to them. The following configuration operations can be found on this page:
+Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including access tokens and ID tokens. The Okta Management API gives you the ability to configure and manage Authorization Servers and the security policies that are attached to them. The following configuration operations can be found on this page:
 
 * [Authorization Server Operations](#authorization-server-operations)
 * [Policy Operations](#policy-operations)
@@ -30,7 +30,7 @@ Use the following operations to manage Custom Authorization Servers:
 #### Working with the Default Authorization Server
 
 Okta provides a pre-configured Custom Authorization Server with the name `default`.
-This default authorization server includes a basic access policy and rule, which you can edit to control access.
+This default Authorization Server includes a basic access policy and rule, which you can edit to control access.
 It allows you to specify `default` instead of the `authServerId` in requests to it:
 
 * `https://{yourOktaDomain}/api/v1/authorizationServers/default` vs
@@ -251,7 +251,7 @@ The [Custom Authorization Server](#authorization-server-object) you requested by
 
 <ApiOperation method="put" url="/api/v1/authorizationServers/${authServerId}" />
 
-Updates authorization server identified by `authServerId`.
+Updates Authorization Server identified by `authServerId`.
 
 >NOTE: Switching between rotation modes won't change the active signing key.
 
@@ -261,9 +261,9 @@ Updates authorization server identified by `authServerId`.
 | Parameter     | Description                                                                                                            | Type                                                                                                      | Required |
 | :------------ | :----------------------------------------------------------------------------------------------------------------      | :-------------------------------------------------------------------------------------------------------- | :------- |
 | audiences     | The list of audiences this Custom Authorization Server can issue tokens to, currently Okta only supports one audience. | Array                                                                                                     | TRUE     |
-| credentials   | The credentials signing object with the `rotationMode` of the authorization server                                     | [Authorization server credentials object](#credentials-object)                                            | FALSE    |
-| description   | The description of the authorization server                                                                            | String                                                                                                    | FALSE    |
-| name          | The name of the authorization server                                                                                   | String                                                                                                    | TRUE     |
+| credentials   | The credentials signing object with the `rotationMode` of the Authorization Server                                     | [Authorization server credentials object](#credentials-object)                                            | FALSE    |
+| description   | The description of the Authorization Server                                                                            | String                                                                                                    | FALSE    |
+| name          | The name of the Authorization Server                                                                                   | String                                                                                                    | TRUE     |
 
 #### Request Example
 
@@ -1178,78 +1178,76 @@ curl -v -X GET \
 
 
 ```json
-{
-  "keys": [
-   {
-      "status": "ACTIVE",
-      "alg": "RS256",
-      "e": "AQAB",
-      "n": "g0MirhrysJMPm_wK45jvMbbyanfhl-jmTBv0o69GeifPaISaXGv8LKn3-CyJvUJcjjeHE17KtumJWVxUDRzFqtIMZ1ctCZyIAuWO0nLKilg7_EIDXJrS8k14biqkPO1lXGFwtjo3zLHeFSLw6sWf-CEN9zv6Ff3IAXb-RMYpfh-bVrWHH2PJr5HLJuIJIOLWxIgWsWCxjLW-UKI3la-gsahqTnm_r1LSCSYr6N4C-fh--w2_BW8DzTHalBYe76bNr0d7AqtR4tGazmrvc79Wa2bjyxmhhN1u9jSaZQqq-3VZEod8q35v1LoXniJQ4a2W8nDVqb6h4E8MUKYOpljTfQ",
-      "kid": "RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
-      "kty": "RSA",
-      "use": "sig",
-      "_links": {
-        "self": {
-          "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
-          "hints": {
-            "allow": [
-              "GET"
-            ]
-          }
+[
+    {
+        "status": "ACTIVE",
+        "alg": "RS256",
+        "e": "AQAB",
+        "n": "g0MirhrysJMPm_wK45jvMbbyanfhl-jmTBv0o69GeifPaISaXGv8LKn3-CyJvUJcjjeHE17KtumJWVxUDRzFqtIMZ1ctCZyIAuWO0nLKilg7_EIDXJrS8k14biqkPO1lXGFwtjo3zLHeFSLw6sWf-CEN9zv6Ff3IAXb-RMYpfh-bVrWHH2PJr5HLJuIJIOLWxIgWsWCxjLW-UKI3la-gsahqTnm_r1LSCSYr6N4C-fh--w2_BW8DzTHalBYe76bNr0d7AqtR4tGazmrvc79Wa2bjyxmhhN1u9jSaZQqq-3VZEod8q35v1LoXniJQ4a2W8nDVqb6h4E8MUKYOpljTfQ",
+        "kid": "RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
+        "kty": "RSA",
+        "use": "sig",
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
         }
-      }
     },
     {
-      "status": "NEXT",
-      "alg": "RS256",
-      "e": "AQAB",
-      "n": "l1hZ_g2sgBE3oHvu34T-5XP18FYJWgtul_nRNg-5xra5ySkaXEOJUDRERUG0HrR42uqf9jYrUTwg9fp-SqqNIdHRaN8EwRSDRsKAwK
-            3HIJ2NJfgmrrO2ABkeyUq6rzHxAumiKv1iLFpSawSIiTEBJERtUCDcjbbqyHVFuivIFgH8L37-XDIDb0XG-R8DOoOHLJPTpsgH-rJe
-            M5w96VIRZInsGC5OGWkFdtgk6OkbvVd7_TXcxLCpWeg1vlbmX-0TmG5yjSj7ek05txcpxIqYu-7FIGT0KKvXge_BOSEUlJpBhLKU28
-                               OtsOnmc3NLIGXB-GeDiUZiBYQdPR-myB4ZoQ",
-      "kid": "Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
-      "kty": "RSA",
-      "use": "sig",
-      "_links": {
-        "self": {
-          "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
-          "hints": {
-            "allow": [
-              "GET"
-            ]
-          }
+        "status": "NEXT",
+        "alg": "RS256",
+        "e": "AQAB",
+        "n": "l1hZ_g2sgBE3oHvu34T-5XP18FYJWgtul_nRNg-5xra5ySkaXEOJUDRERUG0HrR42uqf9jYrUTwg9fp-SqqNIdHRaN8EwRSDRsKAwK
+        3 HIJ2NJfgmrrO2ABkeyUq6rzHxAumiKv1iLFpSawSIiTEBJERtUCDcjbbqyHVFuivIFgH8L37 - XDIDb0XG - R8DOoOHLJPTpsgH - rJe
+        M5w96VIRZInsGC5OGWkFdtgk6OkbvVd7_TXcxLCpWeg1vlbmX - 0 TmG5yjSj7ek05txcpxIqYu - 7 FIGT0KKvXge_BOSEUlJpBhLKU28
+        OtsOnmc3NLIGXB - GeDiUZiBYQdPR - myB4ZoQ ",
+        "kid": "Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
+        "kty": "RSA",
+        "use": "sig",
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
         }
-      }
     },
     {
-      "status": "EXPIRED",
-      "alg": "RS256",
-      "e": "AQAB",
-      "n": "lC4ehVB6W0OCtNPnz8udYH9Ao83B6EKnHA5eTcMOap_lQZ-nKtS1lZwBj4wXRVc1XmS0d2OQFA1VMQ-dHLDE3CiGfsGqWbaiZFdW7U
-            GLO1nAwfDdH6xp3xwpKOMewDXbAHJlXdYYAe2ap-CE9c5WLTUBU6JROuWcorHCNJisj1aExyiY5t3JQQVGpBz2oUIHo7NRzQoKimvp
-            dMvMzcYnTlk1dhlG11b1GTkBclprm1BmOP7Ltjd7aEumOJWS67nKcAZzl48Zyg5KtV11V9F9dkGt25qHauqFKL7w3wu-DYhT0hmyFc
-            wn-tXS6e6HQbfHhR_MQxysLtDGOk2ViWv8AQ",
-      "kid": "h5Sr3LXcpQiQlAUVPdhrdLFoIvkhRTAVs_h39bQnxlU",
-      "kty": "RSA",
-      "use": "sig",
-      "_links": {
-        "self": {
-          "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/h5Sr3LXcpQiQlAUVPdhrdLFoIvkhRTAVs_h39bQnxlU",
-          "hints": {
-            "allow": [
-              "GET"
-            ]
-          }
+        "status": "EXPIRED",
+        "alg": "RS256",
+        "e": "AQAB",
+        "n": "lC4ehVB6W0OCtNPnz8udYH9Ao83B6EKnHA5eTcMOap_lQZ-nKtS1lZwBj4wXRVc1XmS0d2OQFA1VMQ-dHLDE3CiGfsGqWbaiZFdW7U
+        GLO1nAwfDdH6xp3xwpKOMewDXbAHJlXdYYAe2ap - CE9c5WLTUBU6JROuWcorHCNJisj1aExyiY5t3JQQVGpBz2oUIHo7NRzQoKimvp
+        dMvMzcYnTlk1dhlG11b1GTkBclprm1BmOP7Ltjd7aEumOJWS67nKcAZzl48Zyg5KtV11V9F9dkGt25qHauqFKL7w3wu - DYhT0hmyFc
+        wn - tXS6e6HQbfHhR_MQxysLtDGOk2ViWv8AQ ",
+        "kid": "h5Sr3LXcpQiQlAUVPdhrdLFoIvkhRTAVs_h39bQnxlU",
+        "kty": "RSA",
+        "use": "sig",
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/h5Sr3LXcpQiQlAUVPdhrdLFoIvkhRTAVs_h39bQnxlU",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
         }
-      }
-    },
-  ]
-}
+    }
+]
 ```
 
-* The listed `ACTIVE` key is used to sign tokens issued by the authorization server.
-* The listed `NEXT` key is the next key that the authorization server will use to sign tokens when keys are rotated. The NEXT key might not be listed if it has not been generated yet.
-* The listed `EXPIRED` key is the previous key that the authorization server used to sign tokens. The EXPIRED key might not be listed if no key has expired or the expired key has been deleted.
+* The listed `ACTIVE` key is used to sign tokens issued by the Authorization Aerver.
+* The listed `NEXT` key is the next key that the Authorization Server will use to sign tokens when keys are rotated. The NEXT key might not be listed if it has not been generated yet.
+* The listed `EXPIRED` key is the previous key that the Authorization Server used to sign tokens. The EXPIRED key might not be listed if no key has expired or the expired key has been deleted.
 
 #### Rotate Authorization Server Keys
 
@@ -1280,73 +1278,71 @@ curl -v -X POST \
 ##### Response Example
 
 ```json
-{
-  "keys": [
-             {
-               "status": "ACTIVE",
-               "alg": "RS256",
-               "e": "AQAB",
-               "n": "g0MirhrysJMPm_wK45jvMbbyanfhl-jmTBv0o69GeifPaISaXGv8LKn3-CyJvUJcjjeHE17KtumJWVxUDRzFqtIMZ1ctCZyIAuWO0nLKilg7_EIDXJrS8k14biqkPO1lXGFwtjo3zLHeFSLw6sWf-CEN9zv6Ff3IAXb-RMYpfh-bVrWHH2PJr5HLJuIJIOLWxIgWsWCxjLW-UKI3la-gsahqTnm_r1LSCSYr6N4C-fh--w2_BW8DzTHalBYe76bNr0d7AqtR4tGazmrvc79Wa2bjyxmhhN1u9jSaZQqq-3VZEod8q35v1LoXniJQ4a2W8nDVqb6h4E8MUKYOpljTfQ",
-               "kid": "Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
-               "kty": "RSA",
-               "use": "sig",
-               "_links": {
-                 "self": {
-                   "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
-                   "hints": {
-                     "allow": [
-                       "GET"
-                     ]
-                   }
-                 }
-               }
-    },
-             {
-               "status": "NEXT",
-               "alg": "RS256",
-               "e": "AQAB",
-               "n": "l1hZ_g2sgBE3oHvu34T-5XP18FYJWgtul_nRNg-5xra5ySkaXEOJUDRERUG0HrR42uqf9jYrUTwg9fp-SqqNIdHRaN8EwRSDRsKAwK
-                     3HIJ2NJfgmrrO2ABkeyUq6rzHxAumiKv1iLFpSawSIiTEBJERtUCDcjbbqyHVFuivIFgH8L37-XDIDb0XG-R8DOoOHLJPTpsgH-rJe
-                     M5w96VIRZInsGC5OGWkFdtgk6OkbvVd7_TXcxLCpWeg1vlbmX-0TmG5yjSj7ek05txcpxIqYu-7FIGT0KKvXge_BOSEUlJpBhLKU28
-                     OtsOnmc3NLIGXB-GeDiUZiBYQdPR-myB4ZoQ",
-               "kid": "T5dZ1dYT-l-I0j-gRQ82XjutSX00TeWiSguuDhW3zdf",
-               "kty": "RSA",
-               "use": "sig",
-               "_links": {
-                 "self": {
-                 "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/T5dZ1dYT-l-I0j-gRQ82XjutSX00TeWiSguuDhW3zdf",
-                 "hints": {
-                   "allow": [
-                     "GET"
-                   ]
-                 }
-               }
-             }
-    },
+[
     {
-      "status": "EXPIRED",
-      "alg": "RS256",
-      "e": "AQAB",
-      "n": "lC4ehVB6W0OCtNPnz8udYH9Ao83B6EKnHA5eTcMOap_lQZ-nKtS1lZwBj4wXRVc1XmS0d2OQFA1VMQ-dHLDE3CiGfsGqWbaiZFdW7U
-            GLO1nAwfDdH6xp3xwpKOMewDXbAHJlXdYYAe2ap-CE9c5WLTUBU6JROuWcorHCNJisj1aExyiY5t3JQQVGpBz2oUIHo7NRzQoKimvp
-            dMvMzcYnTlk1dhlG11b1GTkBclprm1BmOP7Ltjd7aEumOJWS67nKcAZzl48Zyg5KtV11V9F9dkGt25qHauqFKL7w3wu-DYhT0hmyFc
-            wn-tXS6e6HQbfHhR_MQxysLtDGOk2ViWv8AQ",
-      "kid": "RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
-      "kty": "RSA",
+        "status": "ACTIVE",
+        "alg": "RS256",
+        "e": "AQAB",
+        "n": "g0MirhrysJMPm_wK45jvMbbyanfhl-jmTBv0o69GeifPaISaXGv8LKn3-CyJvUJcjjeHE17KtumJWVxUDRzFqtIMZ1ctCZyIAuWO0nLKilg7_EIDXJrS8k14biqkPO1lXGFwtjo3zLHeFSLw6sWf-CEN9zv6Ff3IAXb-RMYpfh-bVrWHH2PJr5HLJuIJIOLWxIgWsWCxjLW-UKI3la-gsahqTnm_r1LSCSYr6N4C-fh--w2_BW8DzTHalBYe76bNr0d7AqtR4tGazmrvc79Wa2bjyxmhhN1u9jSaZQqq-3VZEod8q35v1LoXniJQ4a2W8nDVqb6h4E8MUKYOpljTfQ",
+        "kid": "Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
+        "kty": "RSA",
         "use": "sig",
         "_links": {
-          "self": {
-          "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
-          "hints": {
-            "allow": [
-              "GET"
-            ]
-          }
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
         }
-      }
+    },
+    {
+        "status": "NEXT",
+        "alg": "RS256",
+        "e": "AQAB",
+        "n": "l1hZ_g2sgBE3oHvu34T-5XP18FYJWgtul_nRNg-5xra5ySkaXEOJUDRERUG0HrR42uqf9jYrUTwg9fp-SqqNIdHRaN8EwRSDRsKAwK
+        3 HIJ2NJfgmrrO2ABkeyUq6rzHxAumiKv1iLFpSawSIiTEBJERtUCDcjbbqyHVFuivIFgH8L37 - XDIDb0XG - R8DOoOHLJPTpsgH - rJe
+        M5w96VIRZInsGC5OGWkFdtgk6OkbvVd7_TXcxLCpWeg1vlbmX - 0 TmG5yjSj7ek05txcpxIqYu - 7 FIGT0KKvXge_BOSEUlJpBhLKU28
+        OtsOnmc3NLIGXB - GeDiUZiBYQdPR - myB4ZoQ ",
+        "kid": "T5dZ1dYT-l-I0j-gRQ82XjutSX00TeWiSguuDhW3zdf",
+        "kty": "RSA",
+        "use": "sig",
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/T5dZ1dYT-l-I0j-gRQ82XjutSX00TeWiSguuDhW3zdf",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "status": "EXPIRED",
+        "alg": "RS256",
+        "e": "AQAB",
+        "n": "lC4ehVB6W0OCtNPnz8udYH9Ao83B6EKnHA5eTcMOap_lQZ-nKtS1lZwBj4wXRVc1XmS0d2OQFA1VMQ-dHLDE3CiGfsGqWbaiZFdW7U
+        GLO1nAwfDdH6xp3xwpKOMewDXbAHJlXdYYAe2ap - CE9c5WLTUBU6JROuWcorHCNJisj1aExyiY5t3JQQVGpBz2oUIHo7NRzQoKimvp
+        dMvMzcYnTlk1dhlG11b1GTkBclprm1BmOP7Ltjd7aEumOJWS67nKcAZzl48Zyg5KtV11V9F9dkGt25qHauqFKL7w3wu - DYhT0hmyFc
+        wn - tXS6e6HQbfHhR_MQxysLtDGOk2ViWv8AQ ",
+        "kid": "RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
+        "kty": "RSA",
+        "use": "sig",
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
+        }
     }
-  ]
-}
+]
 ```
 
 #### Response Example (Error)
@@ -1521,13 +1517,13 @@ Example from a Policy Object
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/clients" />
 
-Lists all client resources for which the specified authorization server has tokens
+Lists all client resources for which the specified Authorization Server has tokens
 
 #### Request Parameters
 
 | Parameter                | Description                      | Parameter Type   | DataType   | Required |
 | :----------------------- | :------------------------------- | :--------------- | :--------- | :------- |
-| authorizationServerId    | ID of the authorization server   | URL              | String     | TRUE     |
+| authorizationServerId    | ID of the Authorization Server   | URL              | String     | TRUE     |
 
 #### Request Example
 
@@ -1581,7 +1577,7 @@ Lists all refresh tokens issued by an Authorization Server for a specific Client
 
 | Parameter               | Description                                                                                    | Param Type   | DataType   | Required   | Default |
 | :---------------------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
-| authorizationServerId   | ID of the authorization server                                                                 | URL          | String     | TRUE       |         |
+| authorizationServerId   | ID of the Authorization Server                                                                 | URL          | String     | TRUE       |         |
 | clientId                | ID of the client                                                                               | URL          | String     | TRUE       |         |
 | expand                  | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
 | limit                   | The maximum number of tokens to return (maximum 200)                                           | Query        | Number     | FALSE      | 20      |
@@ -1661,7 +1657,7 @@ Gets a refresh token issued by an Authorization Server for the specified Client.
 
 | Parameter               | Description                                                                                    | Param Type   | DataType   | Required   | Default |
 | :---------------------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
-| authorizationServerId   | ID of the authorization server                                                                 | URL          | String     | TRUE       |         |
+| authorizationServerId   | ID of the Authorization Server                                                                 | URL          | String     | TRUE       |         |
 | clientId                | ID of the client                                                                               | URL          | String     | TRUE       |         |
 | tokenId                 | ID of the token                                                                                | URL          | String     | TRUE       |         |
 | expand                  | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
@@ -1766,7 +1762,7 @@ Revokes all refresh tokens issued by an Authorization Server for the specified C
 
 | Parameter               | Description                                | Parameter Type   | DataType   | Required |
 | :---------------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
-| authorizationServerId   | ID of the authorization server             | URL              | String     | TRUE     |
+| authorizationServerId   | ID of the Authorization Server             | URL              | String     | TRUE     |
 | clientId                | ID of the client                           | URL              | String     | TRUE     |
 
 #### Request Example
@@ -1801,7 +1797,7 @@ Revokes the specified refresh token. If an access token was issued with this ref
 
 | Parameter               | Description                                | Parameter Type   | DataType   | Required |
 | :---------------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
-| authorizationServerId   | ID of the authorization server             | URL              | String     | TRUE     |
+| authorizationServerId   | ID of the Authorization Server             | URL              | String     | TRUE     |
 | clientId                | ID of the client                           | URL              | String     | TRUE     |
 | tokenId                 | ID of the token                            | URL              | String     | TRUE     |
 
