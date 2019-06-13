@@ -1,1 +1,1 @@
-We have multiple samples available in our [Android Samples repo](link to samples repo) on GitHub.
+We have multiple samples available in our [Android samples repo](https://github.com/okta/samples-android) on GitHub.
