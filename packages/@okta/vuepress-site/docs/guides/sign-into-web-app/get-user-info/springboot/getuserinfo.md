@@ -3,6 +3,6 @@ Spring Security automatically maps the claims from Okta into the user's attribut
 ```java
 @GetMapping("/hello")
 String helloUser(@AuthenticationPrincipal OidcUser user) {
-    return "Hello " + user.getAttributes().get("name");
+    return "Hello " + user.getAttributes().get("email");
 }
 ```
