@@ -18,7 +18,7 @@ excerpt: Summary of changes to the Okta API since Release 2017.38
 
 #### Concurrent Rate Limits
 In order to protect the service for all customers, Okta enforces concurrent rate limits starting with this release.
-Concurrent limits are distinct from [the org-wide, per-minute API rate limits](/docs/api/getting_started/rate-limits#org-wide-rate-limits).
+Concurrent limits are distinct from [the org-wide, per-minute API rate limits](/docs/reference/rate-limits/#org-wide-rate-limits).
 
 For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
 
@@ -159,7 +159,7 @@ When the number of unfinished requests is below the concurrent rate limit, reque
 
 The `X-Rate-Limit-Reset` time for concurrent rate limits is only a suggestion. There's no guarantee that enough requests will complete to stop exceeding the concurrent rate limit at the time indicated.
 
-For more information, see developer documentation about [rate limit headers](/docs/api/getting_started/rate-limits). <!-- OKTA-140976, OKTA-142995 -->
+For more information, see developer documentation about [rate limit headers](/docs/reference/rate-limits/). <!-- OKTA-140976, OKTA-142995 -->
 
 #### OpenID Connect Scope Change
 
@@ -170,13 +170,13 @@ We've changed the behavior of OpenID Connect scopes:
 
 #### Help Desk Administrator Role Generally Available
 
-The Help Desk Administrator Role (`HELP_DESK_ADMIN`) is generally available via the [Roles API](/docs/api/resources/roles/#role-properties).
+The Help Desk Administrator Role (`HELP_DESK_ADMIN`) is generally available via the [Roles API](/docs/reference/api/roles/#role-properties).
 For information about this role, see the [in-app help](https://help.okta.com/en/prod/Content/Topics/Security/The_Help_Desk_Admin_Role.htm). <!-- OKTA-141867 -->
 
 #### Policy API
 
-The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/api/resources/policy).
+The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/reference/api/policy/).
 
 #### Password Policy API
 
-The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/api/resources/policy/#GroupPasswordPolicy).
+The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/reference/api/policy/#GroupPasswordPolicy).

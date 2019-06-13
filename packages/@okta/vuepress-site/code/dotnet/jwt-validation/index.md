@@ -7,24 +7,24 @@ component: Code
 
 # <i class='icon-48 docsPage code-dotnet'></i> Overview
 
-When you use Okta to [get OAuth 2.0 or OpenID Connect tokens for a user](/authentication-guide/implementing-authentication/), the response contains a signed JWT (`id_token` and/or `access_token`).
+When you use Okta to [get OAuth 2.0 or OpenID Connect tokens for a user](/docs/concepts/auth-overview/#recommended-flow-by-application-type), the response contains a signed JWT (`id_token` and/or `access_token`).
 
 If you are writing low-level code that retrieves or uses these tokens, it's important to validate the tokens before you trust them. This guide will show you how to validate tokens manually.
 
-> Note: This guide is specific to .NET and C#.  If you need general information, read [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/) instead.
+> Note: This guide is specific to .NET and C#.  If you need general information, read [Validate Access Tokens](/docs/guides/validate-access-tokens/) and [Validate ID Tokens](/docs/guides/validate-id-tokens/) instead.
 
 ## Who should use this guide
 
 You _don't_ need to validate tokens manually if:
 
 * You are using <a href='/quickstart/#/widget/dotnet/aspnet4' data-proofer-ignore>ASP.NET</a> or <a href='/quickstart/#/widget/dotnet/aspnetcore' data-proofer-ignore>ASP.NET Core</a> - follow our quickstarts instead!
-* You send the tokens to Okta to be validated (this is called [token introspection](/docs/api/resources/oidc/#introspect))
+* You send the tokens to Okta to be validated (this is called [token introspection](/docs/reference/api/oidc/#introspect))
 
 If you need to validate a token manually, and don't want to make a network call to Okta, this guide will help you validate tokens locally.
 
 ### What you'll need
 
-* Your authorization server URL (see [Composing Your Base URL](/docs/api/resources/oidc/#composing-your-base-url))
+* Your authorization server URL (see [Composing Your Base URL](/docs/reference/api/oidc/#composing-your-base-url))
 * A token (JWT string)
 * Libraries for retrieving the signing keys and validating the token
 

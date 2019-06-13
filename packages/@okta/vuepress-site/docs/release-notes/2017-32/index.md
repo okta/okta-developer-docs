@@ -27,16 +27,16 @@ It allows you to specify `default` instead of the `authServerId` in requests to 
 #### Web App Supports Client Credential Grant Type
 <!-- OKTA-102062 -->
 
-OAuth 2.0 clients now support [configuration of the `web` application type to use a `client_credential` grant type](/docs/api/resources/oauth-clients#client-application-properties).
+OAuth 2.0 clients now support [configuration of the `web` application type to use a `client_credential` grant type](/docs/reference/api/oauth-clients/#client-application-properties).
 This allows you to use one `client_id` for an application that needs to make user-specific calls and back-end calls for data.
 
 #### OpenID Connect Group Claim Retrieves Application Groups
 <!-- OKTA_132193 -->
 
-OpenID Connect, which uses the Okta Authorization Server, can retrieve [application groups](/docs/api/resources/apps/#application-group-model) for use in tokens.
+OpenID Connect, which uses the Okta Authorization Server, can retrieve [application groups](/docs/reference/api/apps/#application-group-model) for use in tokens.
 Previously, application groups could only be retrieved with the Custom Authorization Server.
 
-You can use the Okta Expression Language [`getFilteredGroups` function](/reference/okta_expression_language/#group-functions) to retrieve application groups.
+You can use the Okta Expression Language [`getFilteredGroups` function](/docs/reference/okta-expression-language/#group-functions) to retrieve application groups.
 
 #### SHA-256 Signed Certificates for New SAML 2.0 Apps
 
