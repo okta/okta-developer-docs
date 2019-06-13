@@ -5,7 +5,7 @@ You should now understand how to sign users in to your mobile applications using
 
 In this guide you signed users in to your app by opening a browser. To learn how to customize the sign-in page displayed in the browser, see [Customize the Hosted Sign-in Page](/docs/guides/custom-hosted-signin/).
 
-To learn how to protect the API endpoints that your mobile app calls, see [Protect Your API Endpoints](/guides/protect-your-api/).
+To learn how to protect the API endpoints that your mobile app calls, see [Protect Your API Endpoints](/docs/guides/protect-your-api/).
 
 ## Sample Applications
 
