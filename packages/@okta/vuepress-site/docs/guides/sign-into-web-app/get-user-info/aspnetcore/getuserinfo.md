@@ -15,21 +15,9 @@ public IActionResult Profile()
 Or directly in your views:
 
 ```cshtml
-<dl class="dl-horizontal">
-    @foreach (var claim in ((ClaimsIdentity)User.Identity).Claims)
-    {
-        <dt title="@claim.Type">
-            @claim.Type
-            <button type="button"
-                    class="btn btn-link btn-xs"
-                    aria-label="Copy to clipboard"
-                    title="Copy to clipboard"
-                    data-clipboard-text="@claim.Value">
-                <span class="glyphicon glyphicon glyphicon-copy" aria-hidden="true"></span>
-            </button>
-        </dt>
-
-        <dd id="@String.Format("{0}-claim", claim.Type)">@claim.Value</dd>
-    }
-</dl>
+@foreach (var claim in ((ClaimsIdentity)User.Identity).Claims)
+{
+    <dt title="@claim.Type">@claim.Type</dt>
+    <dd>@claim.Value</dd>
+}
 ```

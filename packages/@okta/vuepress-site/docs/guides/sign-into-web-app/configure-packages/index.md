@@ -5,7 +5,7 @@ Next you need to add an Okta SDK to your application.
 
 <StackSelector snippet="addconfigpkg"/>
 
-### Configure the Middleware
+### Configure the Package
 
 You need the following values from the Okta Application and the Developer Console that you worked with in <GuideLink link="../create-okta-application">Create an Okta Application</GuideLink>:
 

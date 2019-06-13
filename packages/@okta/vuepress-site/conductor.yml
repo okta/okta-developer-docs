@@ -1207,3 +1207,5 @@ redirects:
     to: /docs/guides/validate-access-tokens/-/overview/
   - from: /guides/validate-id-tokens/-/overview/
     to: /docs/guides/validate-id-tokens/-/overview/
+  - from: /guides/custom-url-domain/overview/index.html
+    to: /docs/guides/custom-url-domain/overview/
