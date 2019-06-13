@@ -36,21 +36,21 @@ You can export data before Okta deletes it. We recommend using Security Informat
 
 #### System Logs Track Key Rotation and Generation
 Logged information about key rotation and generation for apps and identity providers is available by using GET requests to either of the following endpoints: `/api/v1/events` or `/api/v1/logs`.
-For more information, see [Identity Provider Signing Key Store Operations](/docs/api/resources/idps/#identity-provider-signing-key-store-operations)
-or [Update Key Credential for Application](/docs/api/resources/apps/#update-key-credential-for-application).
+For more information, see [Identity Provider Signing Key Store Operations](/docs/reference/api/idps/#identity-provider-signing-key-store-operations)
+or [Update Key Credential for Application](/docs/reference/api/apps/#update-key-credential-for-application).
 
 Here is a response from `/api/v1/logs`
 ![Logged Key Rotation Event](/img/release_notes/KeyRotateLog.png "Logged Key Rotation Event")
 <!-- (OKTA-76607) -->
 
 #### Client Registration API Is an Early Access Feature
-The [Auth Clients API](/docs/api/resources/oauth-clients) provides operations to register and manage client applications for use with Okta's
+The [Auth Clients API](/docs/reference/api/oauth-clients/) provides operations to register and manage client applications for use with Okta's
 OAuth 2.0 and OpenID Connect endpoints.
 
 #### Create OAuth 2.0 and OpenID Connect Clients with Apps API
-The [Apps API](https://developer.okta.com/docs/api/resources/apps) supports creating and configuring
+The [Apps API](/docs/reference/api/apps/) supports creating and configuring
 OAuth 2.0 or OpenID Connect clients. Alternatively, you can use
-[Client Registration API](https://developer.okta.com/docs/api/resources/oauth-clients) (RFC 7591 and RFC 7592)
+[Client Registration API](/docs/reference/api/oauth-clients/) (RFC 7591 and RFC 7592)
 to create and manage clients.
 <!-- (OKTA-78223) -->
 
@@ -81,7 +81,7 @@ Okta returns the `registration_endpoint` in OAuth 2.0 and OpenID Connect `.well-
 The `credentials.signing.kid` property of an app was available even if its sign-on mode does not support
 certificates. Only apps using the following sign-on mode types support certificates: SAML 2.0, SAML 1.1,
 WS-Fed, or OpenID Connect. For more information,
-see: [Application Key Store Operations](https://developer.okta.com/docs/api/resources/apps/#application-key-store-operations) (OKTA-76439)
+see: [Application Key Store Operations](/docs/reference/api/apps/#application-key-store-operations) (OKTA-76439)
 
 #### WWW-Authenticate Header in HTTP 401 Response
 When a call to the token, introspect, or revocation endpoint of OpenID Connect or API Access Management

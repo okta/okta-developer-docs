@@ -51,7 +51,7 @@ We enforce new rate limits for all preview orgs. API calls exceeding the new rat
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate limits will return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/api/getting_started/rate-limits).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Enhancements
 
@@ -71,7 +71,7 @@ With the following enhancements, the API Access Management Authorization Servers
 * Scopes were actions previously, but are now conditions in a policy rule.
 * Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/en/prev/Content/Topics/Security/API_Access.htm#create_claims).
 
-For more information see the [Authorization Server API documentation](/docs/api/resources/authorization-servers#authorization-server-operations).
+For more information see the [Authorization Server API documentation](/docs/reference/api/authorization-servers/#authorization-server-operations).
 <!-- OKTA-127511, OKTA-123638 -->
 
 #### Additional Logging for Invalid Use by OAuth 2.0 Client
@@ -91,7 +91,7 @@ Additionally, the Set Recovery Question Answer operation doesn't validate comple
 #### Step-up Authentication for SAML Apps is an Early Access Feature
 
 Every step-up transaction starts with a user accessing an application. If step-up authentication is required, Okta redirects the user to the custom login page with state token as a request parameter.
-For more information, see the [SP initiated Step-up Authentication documentation](/docs/api/resources/authn/#sp-initiated-step-up-authentication).
+For more information, see the [SP initiated Step-up Authentication documentation](/docs/reference/api/authn/#sp-initiated-step-up-authentication).
 
 #### Simple HAL Links Generally Available in Preview for May, 2017
 
@@ -100,7 +100,7 @@ This feature removes the HAL links that reflect state from user objects returned
 
 >Important: Okta expects to deliver this feature to production orgs (with the same Okta .NET SDK caveats described below) starting June 12, 2017.
 
-Before release 2017.19, a user object returned in a collection contains some or all of the following links:
+Before release 2017.19, a user object returned in a collection contained some or all of the following links:
 
 ```
 "_links": {
@@ -139,7 +139,7 @@ Before release 2017.19, a user object returned in a collection contains some or 
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/api/getting_started/design_principles#links-in-collections):
+As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by ID using the `self` link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 

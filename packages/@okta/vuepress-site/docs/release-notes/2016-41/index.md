@@ -42,7 +42,7 @@ Just as you can in the Apps API, you can perform key store operations in the Ide
 * Generate an X.509 certificate public key
 * Retrieve and list public keys
 
-For more information, see [Identity Provider Signing Key Store Operations](/docs/api/resources/idps/#identity-provider-signing-key-store-operations).
+For more information, see [Identity Provider Signing Key Store Operations](/docs/reference/api/idps/#identity-provider-signing-key-store-operations).
 <!-- OKTA-91498 -->
 
 #### New Function for Replacing Strings
@@ -54,7 +54,7 @@ Example:
 `String.replace("This list includes chores", "is", "at") = "That last includes chores"`
 <!-- * `String.replaceOnce("This list includes chores", "is", "at") = "That list includes chores"` -->
 
-For more information, see [Expression Language: String Functions](/reference/okta_expression_language/#string-functions).
+For more information, see [Expression Language: String Functions](/docs/reference/okta-expression-language/#string-functions).
 
 <!-- OKTA-103057, OKTA-103966 -->
 

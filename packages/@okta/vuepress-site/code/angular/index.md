@@ -43,11 +43,12 @@ The Okta Angular SDK builds on top of the Okta OpenID Connect API to help you cr
 ## Recommended Guides
 
 
-- [Angular Sign in widget](/code/angular/okta_angular_sign-in_widget)
-- [Okta Auth JS and Angular](/code/angular/okta_angular_auth_js)
-- [Implementing the Implicit Flow](/authentication-guide/implementing-authentication/implicit)
-- [Social Login](/authentication-guide/social-login/)
-- [Working With OAuth 2.0 Tokens](/authentication-guide/tokens/)
+- [Angular Sign in widget](/code/angular/okta_angular_sign-in_widget/)
+- [Okta Auth JS and Angular](/code/angular/okta_angular_auth_js/)
+- [Implementing the Implicit Flow](/docs/guides/implement-implicit/)
+- [Social Login](/docs/concepts/social-login/)
+- [Validate access tokens](/docs/guides/validate-access-tokens)
+- [Validate ID tokens](/docs/guides/validate-id-tokens)
 
 
 ## Related Blog Posts

@@ -11,10 +11,10 @@ title: Okta API Products Release Notes
 
 ### The Registration Inline Hook is in Early Access (EA)
 
-The [Registration Inline Hook](/use_cases/inline_hooks/registration_hook/registration_hook) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773) -->
+The [Registration Inline Hook](/docs/reference/registration-hook/) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773) -->
 
 ### Bugs Fixed in 2019.05.0
 
 * Assigning an admin role directly to a user failed if that user was part of a group with the same admin role assignment. (OKTA-223035)
-* The [List Users with Search](/docs/api/resources/users/#list-users-with-search) API returned outdated user data. (OKTA-215187)
+* The [List Users with Search](/docs/reference/api/users/#list-users-with-search) API returned outdated user data. (OKTA-215187)
 

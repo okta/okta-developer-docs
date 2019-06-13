@@ -66,7 +66,7 @@ import '@okta/okta-signin-widget/dist/css/okta-theme.css';
 
 ### Enabling Cross-Origin Access
 
-Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins. More information about this can be found on the [Enabling CORS](/docs/api/getting_started/enabling_cors#granting-cross-origin-access-to-websites) page.
+Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins. More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
 
 > If you are using the Widget to sign users in to your own application, then you can skip this step. When you create an Application in Okta, you will need to specify a `redirectURI`, and the Okta Developer Console will automatically add it as a CORS URL.
 
@@ -143,7 +143,7 @@ function success(res) {
 
 #### Sign In to Your Application
 
-If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom Authorization Server](/authentication-guide/implementing-authentication/set-up-authz-server) in Okta. The Widget also needs to be configured to prompt the user to sign in, and then extract an ID token after a successful redirect:
+If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom Authorization Server](/docs/guides/customize-authz-server/) in Okta. The Widget also needs to be configured to prompt the user to sign in, and then extract an ID token after a successful redirect:
 
 ```javascript
 var signIn = new OktaSignIn({

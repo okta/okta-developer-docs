@@ -18,15 +18,15 @@ title: Okta API Products Release Notes
 
 ### Social Authentication Generally Available
 
-[Social Authentication](/authentication-guide/social-login/) is now Generally Available (GA). <!--OKTA-199632-->
+[Social Authentication](/docs/concepts/social-login/) is now Generally Available (GA). <!--OKTA-199632-->
 
 ### IdP Discovery Generally Available
 
-[IdP Discovery](/docs/api/resources/policy/#IdPDiscoveryPolicy) is now Generally Available (GA) as part of the Policy API. <!--OKTA-202887-->
+[IdP Discovery](/docs/reference/api/policy/#IdPDiscoveryPolicy) is now Generally Available (GA) as part of the Policy API. <!--OKTA-202887-->
 
 ### Relay State Format Now Configurable for SAML IdPs
 
-The Protocol Object now contains a [Relay State object](/docs/api/resources/idps/#saml-20-relay-state-object) that allows an admin to configure the Relay State format on the SAML IdP. <!--OKTA-188092-->
+The Protocol Object now contains a [Relay State object](/docs/reference/api/idps/#saml-20-relay-state-object) that allows an admin to configure the Relay State format on the SAML IdP. <!--OKTA-188092-->
 
 ### No Events API Access for New Orgs
 
@@ -34,7 +34,7 @@ As part of the deprecation process, new orgs created from this release onwards w
 
 ### Updated Office 365 Legacy Rate Limit
 
-The default [legacy rate limit](/docs/api/getting_started/rate-limits#home-page-endpoint-limits-legacy-orgs) for the `/app/office365/{key}/sso/wsfed/active` endpoint has been lowered from 2000 to 1000. <!--OKTA-201807-->
+The default [legacy rate limit](/docs/reference/rate-limits/#home-page-endpoint-limits-legacy-orgs) for the `/app/office365/{key}/sso/wsfed/active` endpoint has been lowered from 2000 to 1000. <!--OKTA-201807-->
 
 ### Bug Fixed in 2019.01.0
 

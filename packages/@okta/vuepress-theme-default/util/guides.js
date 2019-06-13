@@ -2,19 +2,28 @@ import { commonify, fancify, iconify, cssForIcon } from './frameworks';
 
 const PATH_LIKE = '(?:([^\/]*)\/?)';
 const FILE_LIKE = '(?:([^\.\/]*)\.?[^\.\/]*$)';
-const FRAGMENTS = '/guides/';
+const FRAGMENTS = '/docs/guides/';
 const DEFAULT_FRAMEWORK = '-'; 
 const DEFAULT_SECTION = '';
 
 export const guideFromPath = path => {
-  let [, guideName, framework, sectionName ] = path.match(`${FRAGMENTS}${PATH_LIKE}${PATH_LIKE}${PATH_LIKE}`) || [];
+  let guideName;
+  let framework;
+  let sectionName;
+  [, guideName, sectionName ] = path.match(`${FRAGMENTS}${PATH_LIKE}${PATH_LIKE}$`) || [];
+  if( !sectionName ) { 
+    [, guideName, framework, sectionName ] = path.match(`${FRAGMENTS}${PATH_LIKE}${PATH_LIKE}${PATH_LIKE}`) || [];
+  }
   framework = framework === DEFAULT_FRAMEWORK ? '' : framework; // Drop useless default
   sectionName = sectionName || DEFAULT_SECTION; // default is useable here
   return { guideName, framework, sectionName };
 };
 
 export const makeGuidePath = ({ guideName, framework, sectionName }) => {
-  return `${FRAGMENTS}${guideName}/${framework || DEFAULT_FRAMEWORK}/${sectionName || DEFAULT_SECTION}/`;
+  const useGuide = `${FRAGMENTS}${guideName}/`;
+  const useFramework = framework ? `${framework}/` : '';
+  const useSection = `${sectionName || DEFAULT_SECTION}/`;
+  return `${useGuide}${useFramework}${useSection}`;
 };
 
 export const alphaSort = (a,b) => a > b ? 1 : a < b ? -1 : 0;
