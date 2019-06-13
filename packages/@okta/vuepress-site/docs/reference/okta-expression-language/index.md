@@ -260,7 +260,7 @@ The format for conditional expressions is
 * The `!` operator to designate NOT
 * Standard relational operators including `&lt;`, `&gt;`, `&lt;=`, and `&gt;=`.
 
-**Note:** Use the double equals sign, `==`, to check for equality and `!=` for inequality.
+**Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
 The following functions are not supported in conditions:
 
