@@ -16,4 +16,4 @@ sessionClient.getUserProfile(new RequestCallback<UserInfo, AuthorizationExceptio
 });
 ```
 
-In `onSuccess` the user info returned is a `JSONObject` with the following [properties](/docs/reference/api/oidc/#response-example-success-5).
+The `UserInfo` in `onSuccess` contains the user's info.

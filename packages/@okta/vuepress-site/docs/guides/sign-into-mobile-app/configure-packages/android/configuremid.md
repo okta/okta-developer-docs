@@ -3,7 +3,7 @@ Create a configuration object in code:
 ```java
 config = new OIDCConfig.Builder()
     .clientId("{clientId}")
-    .redirectUri("{callbackUri}")
+    .redirectUri("{redirectUri}")
     .scopes("openid", "profile", "offline_access")
     .discoveryUri("https://{yourOktaDomain}/oauth2/default")
     .create();

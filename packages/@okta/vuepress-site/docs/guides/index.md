@@ -29,9 +29,9 @@ guides:
  - sign-in-with-google
  - sign-in-with-linkedin
  - sign-in-with-microsoft
+ - sign-into-mobile-app
  - sign-into-spa
  - sign-into-web-app
- - sign-into-mobile-app
  - sign-users-out
  - updating-saml-cert
  - validate-access-tokens

@@ -48,17 +48,3 @@ After the `WebAuthClient` instance is initialized, start the authorization flow 
 ```java
 client.signIn(this, null);
 ```
-<<<<<<< HEAD:packages/@okta/vuepress-site/guides/sign-into-mobile-app/sign-in-page/android/signin.md
-=======
-
-If you need to add extra request parameters to the [authorize](/docs/reference/api/oidc/#authorize) endpoint, you can use `AuthenticationPayload`:
-
-```java
-AuthenticationPayload payload = new AuthenticationPayload.Builder()
-    .setLoginHint("youraccount@okta.com")
-    .addParameter("max_age", "5000")
-    .build();
-
-client.logIn(this, payload);
-```
->>>>>>> master:packages/@okta/vuepress-site/docs/guides/sign-into-mobile-app/sign-in-page/android/signin.md
