@@ -672,8 +672,8 @@ Status 204: No content
 | system                                   | Whether Okta created the scope                                                                          | Boolean   |                | False                                      |
 
 * <ApiLifecycle access="ea" /> A consent dialog appears depending on the values of three elements:
-    * `prompt`, a query parameter used in requests to [`/authorize`](/docs/api/resources/oidc/#authorize)
-    * `consent_method`, a property on [apps](/docs/api/resources/apps/#settings-7)
+    * `prompt`, a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
+    * `consent_method`, a property on [apps](/docs/reference/api/apps/#settings-7)
     * `consent`, a property on scopes as listed in the table above
 
 | `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
@@ -898,12 +898,12 @@ If `valueType` is `GROUPS`, then the groups returned are filtered according to t
 * `CONTAINS`: Group names contain `value` (not case sensitive). For example, if `value` is `group1`, then `MyGroup123` and `group1` are included.
 * `REGEX`: Group names match the regular expression in `value` (case sensitive). For example if `value` is `/^[a-z0-9_-]{3,16}$/`, then any group name that has at least 3 letters, no more than 16, and contains lower case letters, a hyphen, or numbers.
 
-If you have complex filters for groups, you can [create a groups whitelist](/docs/how-to/creating-token-with-groups-claim) to put them all in a claim.
+If you have complex filters for groups, you can [create a groups whitelist](/docs/guides/create-token-with-groups-claim/create-groups-claim/) to put them all in a claim.
 
 ##### Details for `alwaysIncludeInToken`
 
 * Always `TRUE` for access token claims.
-* If `FALSE` for an ID token claim, the claim won't be included in the ID token if ID token is requested with the access token or `authorization_code`, instead the client has to use the access token to get the claims from the [userinfo endpoint](/docs/api/resources/oidc/#userinfo).
+* If `FALSE` for an ID token claim, the claim won't be included in the ID token if ID token is requested with the access token or `authorization_code`, instead the client has to use the access token to get the claims from the [userinfo endpoint](/docs/reference/api/oidc/#userinfo).
 
 #### Get All Claims
 
