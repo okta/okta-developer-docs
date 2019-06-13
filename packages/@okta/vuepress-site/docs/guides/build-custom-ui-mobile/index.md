@@ -1,6 +1,6 @@
 ---
-title: Build Custom Sign-in UI
-excerpt: Create customized sign-in UI hosted in your application.
+title: Build custom sign-in UI for your mobile app
+excerpt: Learn how to build custom sign-in UI in your mobile app.
 layout: Guides
 sections:
  - before-you-begin
