@@ -4,6 +4,7 @@ layout: Guides
 guides: 
  - sign-into-spa
  - sign-into-web-app
+ - build-custom-ui
  - sign-users-out
  - protect-your-api
  - custom-hosted-signin
