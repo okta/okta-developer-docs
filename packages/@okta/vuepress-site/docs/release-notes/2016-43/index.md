@@ -7,7 +7,7 @@ excerpt: Summary of changes to the Okta Platform since Release 2016.41
 
 ### Enhanced Well-Known Endpoint for OpenID Connect
 
-The [OpenID Connect discovery endpoint](/docs/api/resources/oidc/#well-knownopenid-configuration) `.well-known` includes the introspection and revocation endpoints.
+The [OpenID Connect discovery endpoint](/docs/reference/api/oidc/#well-knownopenid-configuration) `.well-known` includes the introspection and revocation endpoints.
 
 Request Example:
 
@@ -50,7 +50,7 @@ Response Example:
 
 ### New Function for Replacing Strings
 
-Use the [Expression Language](/reference/okta_expression_language/) function `String.replaceFirst` to replace the first occurrence of a string.
+Use the [Expression Language](/docs/reference/okta-expression-language/) function `String.replaceFirst` to replace the first occurrence of a string.
 
 Example:
 

@@ -17,17 +17,17 @@ title: Okta API Products Release Notes
 | [New Version of the Sign-In Widget](#new-version-of-the-sign-in-widget) | Available Now | Available Now |
 
 #### Generally Available: App User Schema API
-Use the [App User Schema API](/docs/api/resources/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
+Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->
 
 #### Special HTML Characters in `state` for `okta_post_message`
 
 You can include HTML special characters in the `state` parameter for `okta_post_message`.
-Note that [`state` in the main request body](/docs/api/resources/oidc/#request-parameters-1) already allows these characters. <!-- OKTA-91165 -->
+Note that [`state` in the main request body](/docs/reference/api/oidc/#request-parameters-1) already allows these characters. <!-- OKTA-91165 -->
 
 #### Custom Scopes in Metadata Endpoints
 
-You can specify whether or not to include custom scopes in the metadata endpoints for [OAuth 2.0](/docs/api/resources/oidc/#well-knownoauth-authorization-server) and [OpenID Connect](/docs/api/resources/oidc/#well-knownopenid-configuration).
-Existing custom scopes are not exposed by default. Set the [`metadataPublish` attribute to `ALL_CLIENTS`](/docs/api/resources/authorization-servers#scope-properties) to change the behavior. <!-- OKTA-106548 -->
+You can specify whether or not to include custom scopes in the metadata endpoints for [OAuth 2.0](/docs/reference/api/oidc/#well-knownoauth-authorization-server) and [OpenID Connect](/docs/reference/api/oidc/#well-knownopenid-configuration).
+Existing custom scopes are not exposed by default. Set the [`metadataPublish` attribute to `ALL_CLIENTS`](/docs/reference/api/authorization-servers/#scope-properties) to change the behavior. <!-- OKTA-106548 -->
 
 #### Improved Enforcement of Authorization Server Policies
 
@@ -35,9 +35,9 @@ When a client application tries to redeem an authorization token from a refresh 
 
 #### Functions for Including Groups in Tokens
 
-Use [the new EL functions `Group.contains`, `Group.startsWith`, and `Group.endsWith`](/reference/okta_expression_language/#group-functions) to define a set of dynamic groups to be included in tokens minted from Okta's authorization servers. <!-- OKTA-142824 -->
+Use [the new EL functions `Group.contains`, `Group.startsWith`, and `Group.endsWith`](/docs/reference/okta-expression-language/#group-functions) to define a set of dynamic groups to be included in tokens minted from Okta's authorization servers. <!-- OKTA-142824 -->
 
-These functions complement [the existing EL function `getFilteredGroups`](/docs/how-to/creating-token-with-groups-claim) which helps you create a static list of groups for inclusion in a token.
+These functions complement [the existing EL function `getFilteredGroups`](/docs/guides/create-token-with-groups-claim/) which helps you create a static list of groups for inclusion in a token.
 
 #### New System Log Messages
 

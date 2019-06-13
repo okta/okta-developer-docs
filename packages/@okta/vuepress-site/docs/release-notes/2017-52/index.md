@@ -29,9 +29,9 @@ Once you've got the right combination, it's easy to configure your authorization
 
 We improved some behaviors related for base claim `amr`:
 
-* When [MFA factors `sms` or `call`](/docs/api/resources/factors/#factor-type) are used, the `amr` claim returns [`mca`](/docs/api/resources/sessions/#amr-object).
-* When [MFA factor `token:hardware`](/docs/api/resources/factors/#factor-type) is used, the `amr` claim returns `hwk`.
-* When [MFA factor `web`](/docs/api/resources/factors/#factor-type) is used, the `amr` claim returns `swk`. <!-- OKTA-152175 -->
+* When [MFA factors `sms` or `call`](/docs/reference/api/factors/#factor-type) are used, the `amr` claim returns [`mca`](/docs/reference/api/sessions/#amr-object).
+* When [MFA factor `token:hardware`](/docs/reference/api/factors/#factor-type) is used, the `amr` claim returns `hwk`.
+* When [MFA factor `web`](/docs/reference/api/factors/#factor-type) is used, the `amr` claim returns `swk`. <!-- OKTA-152175 -->
 
 ### Bug Fix: Legacy Events Available in System Log
 

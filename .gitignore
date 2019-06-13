@@ -25,7 +25,8 @@ classes
 # ignore Emacs auto-save files
 *~
 
-.vscode
+.vscode/*
+!.vscode/docs.code-snippets
 
 # ignore mac specific files
 .DS_Store

@@ -14,20 +14,20 @@ title: Okta API Products Release Notes
 
 ### Rate Limit Notifications for One App and Enterprise
 
-When an org reaches its [rate limit](/docs/api/getting_started/rate-limits), the admin console will display a banner and the admin(s) will receive an email notification. These notifications will only appear on One App and Enterprise organizations. <!--OKTA-185719-->
+When an org reaches its [rate limit](/docs/reference/rate-limits/), the admin console will display a banner and the admin(s) will receive an email notification. These notifications will only appear on One App and Enterprise organizations. <!--OKTA-185719-->
 
 ### OIDC Clients Can Initiate Logout with Expired Token
 
-Client-initiated [logout](/docs/api/resources/oidc/#logout) now succeeds even when the ID token is no longer valid. <!--OKTA-131652-->
+Client-initiated [logout](/docs/reference/api/oidc/#logout) now succeeds even when the ID token is no longer valid. <!--OKTA-131652-->
 
 ### Change to User Link Editing Permissions
 
-Editing the [link](/docs/api/resources/users/#links-object) between users now requires edit permissions for all users involved. <!--OKTA-186702-->
+Editing the [link](/docs/reference/api/users/#links-object) between users now requires edit permissions for all users involved. <!--OKTA-186702-->
 
 ### Bugs Fixed in 2018.41
 
-* Queries to the `/logs` [endpoint](/docs/api/resources/system_log/#list-events) with values for `since` and `until` that did not specify the time to milliseconds would sometimes return events outside of the specified time range. (OKTA-191533)
-* Responses from the `/events` [endpoint](/docs/api/resources/events/#list-events) would sometimes omit milliseconds from the `published` field. (OKTA-192568)
+* Queries to the `/logs` [endpoint](/docs/reference/api/system-log/#list-events) with values for `since` and `until` that did not specify the time to milliseconds would sometimes return events outside of the specified time range. (OKTA-191533)
+* Responses from the `/events` [endpoint](/docs/reference/api/events/#list-events) would sometimes omit milliseconds from the `published` field. (OKTA-192568)
 
 ### Previously Released Early Access Features 2018.41 Update
 
