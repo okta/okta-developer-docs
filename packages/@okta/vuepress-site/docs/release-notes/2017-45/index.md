@@ -28,7 +28,7 @@ The System Log and Events APIs now report the `userId` in API Access Management 
 
 #### IdP Provisioning Policy Conditions in GA
 
-Identity Provider Provisioning Policy [Conditions](/docs/api/resources/idps/#provisioning-policy-object) are now Generally Available. <!--OKTA 123811-->
+Identity Provider Provisioning Policy [Conditions](/docs/reference/api/idps/#provisioning-policy-object) are now Generally Available. <!--OKTA 123811-->
 
 ### API Bug Fixes
 

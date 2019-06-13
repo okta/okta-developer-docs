@@ -40,7 +40,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate-limits return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits]((/docs/api/getting_started/rate-limits).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 #### Simple HAL Links
 
@@ -88,7 +88,7 @@ Currently, a user object returned in a collection contains some or all of the fo
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/api/getting_started/design_principles#links-in-collections):
+As outlined in [Design Principles](/docs/reference/api-overview/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -121,7 +121,7 @@ If your org or integrations depend on the previous behavior, you can request the
  * Removing the last app target from an `APP_ADMIN` role assignment changed the scope of the role assignment to all app targets. Now an exception is thrown.
     To target all apps, delete the APP_ADMIN role assignment and recreate it. (OKTA-115122)
  * Adding the first app target failed to change the scope of the role assignment from applying to all app targets to only applying to the specified target.
-    See [Administrator Roles API](/docs/api/resources/roles/#add-app-target-to-app-administrator-role) for details. (OKTA-115122)
+    See [Administrator Roles API](/docs/reference/api/roles/#add-app-target-to-app-administrator-role) for details. (OKTA-115122)
  * Application Administrators were incorrectly able to create an OpenID Connect service client even though they weren't assigned an OpenID Connect client app. (OKTA-115168)
  * Some orgs weren't able to deprovision a user, receiving an incorrect 403 error: "Operation failed because user profile is mastered under another system." (OKTA-119549)
 <!-- * Read-only Administrators were incorrectly able to view the administrator UI for deleting authorization servers. (OKTA-123116) hold for production -->

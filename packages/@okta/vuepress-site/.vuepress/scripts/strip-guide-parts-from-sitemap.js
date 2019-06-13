@@ -7,7 +7,7 @@ const parser = util.promisify( (new xml2js.Parser()).parseString );
 function isValidUrl(url) {
   const guideFormat = new RegExp('/guides/(?:[^/]+/(?:(?:[^/]+/)?[^/]+/)?)?$');
   // loc is an array of 1 element with the xml2js parser
-  return !url.loc[0].includes('/guides/') || url.loc[0].match(guideFormat);
+  return !url.loc[0].includes('docs/guides/') || url.loc[0].match(guideFormat);
 };
 
 

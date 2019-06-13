@@ -14,12 +14,12 @@ We support the full set of core OAuth and OIDC flows (code, implicit, password, 
 
 ![Authorization Server page](/img/auth_server2.png "Authorization Server page")
 
-To get started with API Access Management, visit [API Access Management](/use_cases/api_access_management//).
+To get started with API Access Management, visit [API Access Management](/docs/concepts/api-access-management/).
 
 ### Feature Enhancement: Delete User Endpoint
 
 The endpoint to delete users changed from the Beta endpoint `POST /api/v1/users/{id}/lifecycle/delete`
-to the more intuitive [`DELETE /api/v1/users/{id}`](/docs/api/resources/users/#delete-user) for EA.
+to the more intuitive [`DELETE /api/v1/users/{id}`](/docs/reference/api/users/#delete-user) for EA.
 The Beta endpoint has been removed. <!-- (OKTA-108195) -->
 
 ### Platform Bugs Fixed
