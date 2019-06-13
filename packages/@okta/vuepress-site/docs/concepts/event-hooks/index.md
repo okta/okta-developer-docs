@@ -27,7 +27,7 @@ During the initial configuration procedure for an event hook, you specify which 
 
 To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
 
-[https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible](/docs/reference/api/event-types/?q=event-hook-eligible/)
+<https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible>
 
 For general information on how Okta encapsulates events, see the [System Log API](/docs/reference/api/system-log/) documentation.
 
