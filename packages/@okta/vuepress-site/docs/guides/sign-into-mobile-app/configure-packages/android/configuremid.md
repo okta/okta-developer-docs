@@ -24,7 +24,7 @@ Or, create a new `okta_oidc_config.json` file in your application's `res/raw` wi
 }
 ```
 
-Then create a configuration object by loading this file:
+Then, create a configuration object by loading this file:
 
 ```java
 config = new OIDCConfig.Builder()
