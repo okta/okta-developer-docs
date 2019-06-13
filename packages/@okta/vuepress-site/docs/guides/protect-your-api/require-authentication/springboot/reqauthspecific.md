@@ -1,4 +1,4 @@
-For example, you could require authentication for all routes under `/api/private`:
+For example, you could require authentication for all routes under `/api/private` by defining a new class:
 
 ```java
 import org.springframework.context.annotation.Configuration;

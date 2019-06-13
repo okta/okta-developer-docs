@@ -13,7 +13,7 @@ You need the following values from the Okta Application and the Developer Consol
 * **Client Secret** - Find it on the application's **General** tab.
 * **Okta Domain** - Find it on the Developer Console dashboard in the upper-right corner as the **Org URL**. 
 
-You can configure the properties of your application with environment variables, system properties, or configuration files. 
+You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques. 
 
 <StackSelector snippet="configmid"/>
 
