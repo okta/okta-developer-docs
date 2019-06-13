@@ -37,6 +37,7 @@ It allows you to specify `default` instead of the `authServerId` in requests to 
 * `https://{yourOktaDomain}/api/v1/authorizationServers/${authServerId}` for other Custom Authorization Servers
 
 #### Authorization Server Object
+When you use these API endpoints to create or modify an Authorization Server resource, the response looks like:
 
 ```json
 {
@@ -392,6 +393,7 @@ HTTP 204: No Content
 * [Delete a Policy](#delete-a-policy)
 
 #### Policy Object
+When you use these API endpoints to create or modify a Policy resource, the response looks like:
 
 ```json
 {
@@ -642,6 +644,7 @@ Status 204: No content
 * [Delete a Scope](#delete-a-scope)
 
 #### Scope Object
+When you use these API endpoints to create or modify a Scope resource, the response looks like:
 
 ```json
 [
@@ -857,6 +860,7 @@ HTTP 204: No Content
 * [Delete a Claim](#delete-a-claim)
 
 #### Claim Object
+When you use these API endpoints to create or modify a Claim resource, the response looks like:
 
 ```json
 {
@@ -1079,6 +1083,7 @@ HTTP 204: No Content
 * [Rotate Authorization Server Keys](#rotate-authorization-server-keys)
 
 #### Credentials Object
+When you use these API endpoints to create or modify a Credentials resource, the response looks like:
 
 ```json
 {
@@ -1104,8 +1109,9 @@ HTTP 204: No Content
 | use             | How the key is used. Valid value: `sig`            |            |            |         |
 
 #### Certificate JSON Web Key Object
-
 This object defines a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517) for an application's signature or encryption credential.
+
+When you use these API endpoints to create or modify a Certificate JSON Web Key resource, the response looks like:
 
 ```json
 {
@@ -1363,7 +1369,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-## OAuth 2.0 Objects
+## Shared Objects
 
 * [Rule Object](#rule-object)
 * [Condition Object](#condition-object)
