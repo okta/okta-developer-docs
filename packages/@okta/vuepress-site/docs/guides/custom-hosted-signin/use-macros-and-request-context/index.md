@@ -7,7 +7,6 @@ The following macros in the HTML contain the configuration parameters for certai
 Inserts the page title.
 
 Example:
-
    ```html
    <title>{{pageTitle}}</title>
    ```
