@@ -22,7 +22,7 @@ Example:
    <div class="login-bg-image" style="background-image: {{bgImageUrl}}"></div>
    ```
 
-#### <span v-pre>`{{{OktaUtil}}}`</span>
+####  <span v-pre>`{{{OktaUtil}}}`</span>
 Defines a global `OktaUtil` JavaScript object that contains methods used to complete the Okta sign-in flow. When an application uses the Okta-hosted sign-in page to sign a user in, information (called request context) is available about the target application and the request.
 
 ## Request context
