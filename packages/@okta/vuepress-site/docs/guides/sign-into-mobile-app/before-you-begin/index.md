@@ -1,9 +1,9 @@
 ---
-title: Before You Begin
+title: Before you begin
 ---
-This guide shows you how to use Okta as the user store for your mobile application. When you've finished following the steps, your app  opens a browser to sign users in.
+This guide shows you how to use Okta as the user store for your mobile application. When you've finished following the steps, your app opens a browser to sign users in.
 
-If you are building a web application, see [Sign Users in to Your Web Application](/docs/guides/sign-into-web-app/) or [Sign Users in to Your Single-Page Application](/docs/guides/sign-into-spa/) instead.
+If you are building a web application, see [Sign users in to your web application](/docs/guides/sign-into-web-app/) or [Sign users in to your single-page application](/docs/guides/sign-into-spa/) instead.
 
 This guide assumes that you:
 
