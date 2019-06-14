@@ -1,4 +1,4 @@
-You could create a `callMessagesApi` function that makes an authenticated request to your server.
+You could create a `callMessagesApi` function that makes an authenticated request to your server. The access token is automatically used in the request properties by the `authorizedRequest` method.
 
 ```java
 private void callMessagesApi() {
@@ -8,7 +8,7 @@ private void callMessagesApi() {
     HashMap<String, String> postParameters = new HashMap<>();
     postParameters.put("postparam", "postparam");
 
-    client.authorizedRequest(uri, properties, postParameters, HttpConnection.RequestMethod.POST,
+    sessionClient.authorizedRequest(uri, properties, postParameters, HttpConnection.RequestMethod.POST,
         new RequestCallback<JSONObject, AuthorizationException>() {
             @Override
             public void onSuccess(@NonNull JSONObject result) {
@@ -20,5 +20,21 @@ private void callMessagesApi() {
                 //handle error
             }
     });
+}
+```
+
+If you don't want to use the `authorizedRequest` method and just want to get the access token:
+
+```java
+String accessToken = null;
+try {
+    Tokens token = sessionClient.getTokens();
+    accessToken = token.getAccessToken();
+} catch (AuthorizationException e) {
+    //handle error
+}
+
+if (accessToken != null) {
+    //use access token
 }
 ```
