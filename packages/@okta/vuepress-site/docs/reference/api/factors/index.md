@@ -3017,9 +3017,9 @@ Specifies the profile for a `question` factor
 }
 ```
 
-#### Question Profile - Unique Keys for question
+#### Built-in Question Keys
 
-Referenced from [okta-auth-js questions](https://github.com/okta/okta-auth-js/blob/master/test/xhr/questions.js)
+The keys for the built-in security questions are listed below.
 
 | Question Unique Key                   |
 | ------------------------------------- |
