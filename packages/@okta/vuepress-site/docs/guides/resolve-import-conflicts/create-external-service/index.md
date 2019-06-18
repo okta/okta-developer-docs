@@ -30,7 +30,7 @@ For descriptions of each object included, see the section [Objects in the Reques
 
 ### Check for Conflict in login Attribute
 
-If the value of `data.user.profile.login` for an incoming user is equal to the value of that attribute in another user profie, there is a conflict. As a demonstration only, the way we'll handle the conflict is to insert a unique integer into the value.
+If the value of `data.user.profile.login` for an incoming user is equal to the value of that attribute in another user profie, there is a conflict. As a demonstration only, the way we'll handle the conflict is to infix the user's middle name in between their first and last name in the `login` value.
 
 <StackSelector snippet="detect-conflict"/>
 
