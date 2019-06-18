@@ -294,7 +294,7 @@ The request object describes details related to the HTTP request that triggers t
 
 ### GeographicalContext Object
 
-Geographical Context describes a set of geographic coordinates. In addition to containing latitude and longitude data, this object also contains address data of postal code-level granularity. Within the [Client](#client-object) object, the geographical context refers to the physical location of the client when it sends the request that triggers this event.
+Geographical Context describes a set of geographic coordinates. In addition to containing latitude and longitude data, this object also contains address data of postal code-level granularity. Within the [Client](#client-object) object, the geographical context refers to the physical location of the client when it sends the request that triggers this event. All [Transaction](#transaction-object) events with `type` equal to `WEB` will have a geographical context set. [Transaction](#transaction-object) events with `type` equal to `JOB` will have no geographical context set. The geographical context data could be missing if the geographical data for a request could not be resolved.  
 
 | Property    | Description                                                                                                          | DataType                                  | Nullable |
 | ----------- | ----------------------------------------------------------------------------------                                   | -------------------------------------     | -------- |

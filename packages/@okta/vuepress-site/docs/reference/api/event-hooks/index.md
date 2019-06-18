@@ -2,11 +2,11 @@
 title: Event Hooks
 category: management
 excerpt: >-
-  The Event Hooks Management API provides a CRUD interface for registering 
+  The Event Hooks Management API provides a CRUD interface for registering
   event hook endpoints.
 ---
 
-# Event Hooks Management API 
+# Event Hooks Management API
 
 <ApiLifecycle access="ea" />
 
@@ -26,7 +26,7 @@ Registers a new event hook to your organization in `ACTIVE` status. You need to 
 
  - The URI of your external service endpoint.
  - The [events](#supported-events-for-subscription) in Okta you wish to subscribe to.
- 
+
 In addition, the object lets you specify a secret API key that you want Okta to pass to your external service endpoint (so that your external service can check for its presence as a security measure).
 
 Note that the API key you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs.
@@ -120,7 +120,7 @@ curl -v -X POST \
 }
 ```
 
-> Note: The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses. 
+> Note: The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses.
 
 ### Get Event Hook
 
@@ -329,7 +329,7 @@ curl -v -X PUT \
     "lastUpdated": "2018-05-15T01:23:08.000Z"
 }
 ```
-> Note: Updating the `channel` property will require you to verify an event hook again. 
+> Note: Updating the `channel` property will require you to verify an event hook again.
 
 ### Verify Event Hook
 
@@ -415,7 +415,7 @@ The response is an [Event Hook object](#event-hook-object) representing the acti
 ```json
 curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/eventHook/${id}/lifecycle/activate"
+"https://{yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/activate"
 ```
 
 ##### Response Example
@@ -477,7 +477,7 @@ The response is an [Event Hook object](#event-hook-object) representing the deac
 ```json
 curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/eventHook/${id}/lifecycle/deactivate"
+"https://{yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/deactivate"
 ```
 
 ##### Response Example
@@ -539,7 +539,7 @@ All responses will return a 204 status with no content.
 ```json
 curl -v -X DELETE \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/eventHook/${id}"
+"https://{yourOktaDomain}/api/v1/eventHooks/${id}"
 ```
 
 ##### Response Example
@@ -594,7 +594,7 @@ curl -v -X DELETE \
 }
 ```
 
-### channel Object
+### Channel Object
 
 | Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
 | -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
@@ -603,15 +603,15 @@ curl -v -X DELETE \
 | config | Properties of the communications channel used to contact your external service.                     | [Channel Config object](#config-object)   | FALSE      | FALSE    | FALSE      | Validation is determined by the specific channel. |
 
 
-### config Object
+### Config Object
 
 | Property   | Description                                                                                                  | DataType                                  | Required   | Unique   | ReadOnly   | Validation                                               |
 | ---------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------- | ---------- | -------- | ---------- | -------------------------------------------------------- |
 | uri        | External service endpoint to call to execute the event hook handler.                                        | String                                    | TRUE       | FALSE    | TRUE       | Maximum length 1024 characters. Must begin with https:// |
 | headers    | Optional list of key/value pairs for headers that should be sent with the request to the external service.   | JSON Object                               | FALSE      | FALSE    | FALSE      | Some reserved headers, such as `Accept`, are disallowed. |
-| authScheme | The authentication scheme to use for this request                                                            | [authScheme object](#authscheme-object)   | FALSE      | FALSE    | FALSE      | Valid `authscheme` object.                               |
+| authScheme | The authentication scheme to use for this request                                                            | [AuthScheme object](#authscheme-object)   | FALSE      | FALSE    | FALSE      | Valid `authscheme` object.                               |
 
-### authScheme Object
+### AuthScheme Object
 
 | Property | Description                                                                    | DataType   | Required   | ReadOnly |
 | -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |
@@ -621,7 +621,7 @@ curl -v -X DELETE \
 
 To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, and `value` to the Base64-encoded string of "username:password".
 
-### events Object
+### Events Object
 
 | Property | Description                                                                  | DataType | Required | ReadOnly |
 |----------|------------------------------------------------------------------------------|----------|----------|----------|
