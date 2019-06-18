@@ -18,15 +18,15 @@ Dates for preview and production release are the earliest possible release date.
 
 #### Policy API
 
-The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/api/resources/policy).
+The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/reference/api/policy/).
 
 #### Password Policy API
 
-The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/api/resources/policy/#GroupPasswordPolicy),
+The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/reference/api/policy/#GroupPasswordPolicy),
 
 #### Key Rotation for OpenID Connect and OAuth Apps
 
-You can now specify the key rotation mode for OpenID Connect and OAuth apps in the Apps API with `autoKeyRollover`. More information can be found in the [API Reference](/docs/api/resources/apps/#oauth-credential-object).
+You can now specify the key rotation mode for OpenID Connect and OAuth apps in the Apps API with `autoKeyRollover`. More information can be found in the [API Reference](/docs/reference/api/apps/#oauth-credential-object).
 
 ### API Bug Fixes
 

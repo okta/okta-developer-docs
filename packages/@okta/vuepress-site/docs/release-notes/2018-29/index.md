@@ -12,8 +12,8 @@ title: Okta API Products Release Notes
 
 ### Bugs Fixed in 2018.29
 
-* Using the [Zones API](/docs/api/resources/zones) to modify an existing zone that is blacklisted removed the blacklisting and coverted it to a normal IP Zone. (OKTA-176610)
-* Using the [Applications API](/docs/api/resources/apps) to create an OAuth client caused an error if the `credentials.oauthClient` property was not provided, even though it is not required. (OKTA-179275)
+* Using the [Zones API](/docs/reference/api/zones/) to modify an existing zone that is blacklisted removed the blacklisting and coverted it to a normal IP Zone. (OKTA-176610)
+* Using the [Applications API](/docs/reference/api/apps/) to create an OAuth client caused an error if the `credentials.oauthClient` property was not provided, even though it is not required. (OKTA-179275)
 * The System Log CSV report did not contain a value for `AuthenticationContext.issuer` for the event type `user.authentication.authenticate`. (OKTA-147165)
 
 

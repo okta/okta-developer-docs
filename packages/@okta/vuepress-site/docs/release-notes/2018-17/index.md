@@ -11,7 +11,7 @@ title: Okta API Products Release Notes
 
 ### Bugs Fixed in 2018.17
 
-* If an incorrect `appInstanceId` was supplied as the IdP parameter in a request to the `/authorize` [endpoint](/docs/api/resources/oidc/#authorize), an `HTTP 500` error was thrown. (OKTA-166417)
+* If an incorrect `appInstanceId` was supplied as the IdP parameter in a request to the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize), an `HTTP 500` error was thrown. (OKTA-166417)
 
 * When Okta parsed login names it failed to support addresses enclosed in double quotes as described in [RFC 3696](https://tools.ietf.org/html/rfc3696). (OKTA-164092)
 

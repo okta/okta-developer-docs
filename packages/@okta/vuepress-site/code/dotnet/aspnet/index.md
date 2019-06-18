@@ -68,7 +68,7 @@ Okta's integration with ASP.NET makes it easy to add sign-in to your ASP.NET MVC
 ## Recommended Guides
 
 
-- [Manual JWT Validation in .NET](/code/dotnet/jwt-validation)
+- [Manual JWT Validation in .NET](/code/dotnet/jwt-validation/)
 
 ## Related Blog Posts
 
