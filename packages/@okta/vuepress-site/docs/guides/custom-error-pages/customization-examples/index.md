@@ -17,7 +17,7 @@ Example:
     <title>{{orgName}} - {{errorSummary}}</title>
 
     <link rel="stylesheet" type="text/css" href="/assets/css/sections/errors-v2.css">
-   <link rel="stylesheet" type="text/css" href="/assets/css/sections/yourstylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/sections/yourstylesheet.css">
 </head>
 ```
 
@@ -35,10 +35,10 @@ Example:
 
 <link rel="stylesheet" type="text/css" href="/assets/css/sections/errors-v2.css">
 <style>
-.content {
+    .content {
     background: yellow;
     font: normal bold 20pt Tahoma;
-}      
+    }      
 </style>
 </head>
 ```
