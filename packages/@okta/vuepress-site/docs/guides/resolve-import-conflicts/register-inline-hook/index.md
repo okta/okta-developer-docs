@@ -2,7 +2,7 @@
 title: Register the Inline Hook
 ---
 
-In order for Okta to be able call your external service, you need to provide your service's URL and some other necessary information to Okta. You can do this in Admin Console.
+In order for Okta to be able call your external service, you need to provide the external service's URL and some other necessary information to Okta. You can do this in Admin Console.
 
 ### Confirm that Inline Hooks is Enabled
 
@@ -14,7 +14,7 @@ First, confirm that the Inline Hooks feature is enabled for your org:
 
 ### Register Your Inline Hook
 
-Now, register your new inline hook:
+Now, register your inline hook:
 
 1. Go to **Workflow > Inline Hooks**.
 
@@ -28,7 +28,7 @@ Now, register your new inline hook:
 	- **Authentication field**: The name of the HTTP header that Okta should send the authentication secret in. Typically, you would use "Authorization" as the name for this header.
 	- **Authentication secret**: The secret itself, a string you decide on. Your external service needs to check that the correct secret is provided in requests it receives.
 
-1. In addition, if the network setup of the platform you host the external service on requires the presence of additional header fields, you can define their names and values in **Customer header fields**. Okta then sends the headers in every request to your external service.
+1. If the network setup of the platform you host the external service on requires the presence of additional header fields, you can define their names and values in **Customer header fields**. Okta then sends the headers in every request to your external service.
 
 1. Click **Save**.
 
