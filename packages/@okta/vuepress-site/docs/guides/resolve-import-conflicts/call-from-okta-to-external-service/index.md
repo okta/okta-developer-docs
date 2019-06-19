@@ -84,15 +84,15 @@ The payload of the request looks like this:
    }
 }
 ```
-The payload gives you information on the user profile information coming in, whether a conflict was detected, and what Okta is going to populate the user's Okta profile attributes with.
+The payload gives you information on the user profile information coming in, whether a conflict was detected in that profile, and how Okta is set to populate the user's Okta profile attributes.
 
-The `data.appUser` object contains the attributes of the user's profile in the application that the user is being imported from. In the case of the CSV agent that we are using in this guide, the attributes are the fields in the CSV file.
+The user's profile information coming in from the app is supplied in the attributes of the `data.appUser` object. In the case of the CSV agent, the attributes are the fields in the CSV file.
 
-In addition to the user's application profile, the payload provides you with the Okta user profile that Okta is set to create for this user if you don't intervene. This is provided in `data.user`.
+In addition to the app profile information, the payload also provides you with the Okta user profile that Okta is set to create for this user if you don't intervene. This reflects the results of any mapping rules for profile attributes that you have set up in your org. This is provided in `data.user`.
 
-Any conflicts that Okta detected are indicated in the `data.context.conflicts` attribute. Currently, there is only support for detecting conflicts in the `login` attribute.
+Any conflicts that Okta detected for attributes of the user's projected Okta profile are indicated in the `data.context.conflicts` attribute. Currently, there is only support for detecting conflicts in the `login` attribute.
 
-Finally, `data.action` tells you what Okta is set to do for this user, if you don't intervene: Whether Okta is going to create a new user profile or treat this user as a match for an existing user.
+Finally, `data.action` tells you what action Okta is set to take for this user if you don't intervene, that is, whether Okta is going to create a new user profile for them or treat them as a match of an existing user.
 
 For complete descriptions of each object in the request from Okta, see [Objects in the Request from Okta](/docs/reference/import-hook/#objects-in-the-request-from-okta). 
 
