@@ -7,7 +7,7 @@ Okta organizations host pages on subdomains such as `example.okta.com`. Using th
 
 For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias `login.example.com` to `example.okta.com`.
 
-> Note: You must first customize the Okta URL domain if you also want to customize the hosted [sign-in page](/docs/guides/custom-hosted-signin/) or [error pages](/docs/guides/custom-error-pages/).
+> Note: You must first customize the Okta URL domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/custom-hosted-signin/) or [error pages](/docs/guides/custom-error-pages/).
 
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain.
 
@@ -15,7 +15,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 * The Okta browser plugin doesn't work when customizing the Okta URL domain.
 
-### Common Questions
+### Common questions
 **Can I add more than one domain?**
 No. You can only have one custom domain set up per Okta organization.
 

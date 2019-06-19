@@ -1,6 +1,6 @@
 ---
-title: Customize the Hosted Sign-In Page
-excerpt: Learn how to customize the Okta hosted sign-in page to fit your brand or your applicaiton's look and feel.
+title: Customize the Okta-hosted sign-in page
+excerpt: Learn how to customize the Okta-hosted sign-in page to fit your brand or your application's look and feel.
 layout: Guides
 sections: 
  - overview

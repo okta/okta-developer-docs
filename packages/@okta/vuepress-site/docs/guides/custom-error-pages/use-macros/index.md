@@ -1,5 +1,5 @@
 ---
-title: Use Macros
+title: Use macros
 ---
 The following macros contain the configuration parameters for certain page elements. These macros inject specific content or functionality automatically.
 

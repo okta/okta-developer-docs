@@ -1,13 +1,15 @@
 ---
-title: Next Steps
+title: Next steps
 ---
 You should now understand how to protect your API. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
 
-<!-- Link to Protect Your API Endpoints guide -->
-<!-- Link to Customizing the Sign-in Page guide -->
-<!-- Link to Building a Custom Sign-in Page guide -->
+Read about customization options:
 
-## Sample Applications
+* [Customize the Okta-hosted sign-in page](/docs/guides/custom-hosted-signin/)
+* [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
+* [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+
+## Sample applications
 
 We publish full sample applications on GitHub. If you want to see everything working together, clone or download one of our samples and try it out.
 
