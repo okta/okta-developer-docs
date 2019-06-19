@@ -1,10 +1,9 @@
 ---
-title: Before You Begin
+title: Before you begin
 ---
 This guide shows you how to use Okta as the user store for your web application and sign users in.
 
-If you are building a single-page (browser) app, see [Sign Users in to Your Single-Page Application](/docs/guides/sign-into-spa/) instead.
-<!-- Or, if you are building a server that returns API responses (but not HTML), see [Protect Your API Endpoints](/docs/guides/protect-your-api/). -->
+If you are building a single-page (browser) app, see [Sign users in to your single-page application](/docs/guides/sign-into-spa/) instead. Or, if you are building a server that returns API responses (but not HTML), see [Protect your API endpoints](/docs/guides/protect-your-api/).
 
 This guide assumes that you:
 

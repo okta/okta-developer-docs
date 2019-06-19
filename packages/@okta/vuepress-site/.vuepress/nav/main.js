@@ -4,6 +4,7 @@ module.exports = [
     links: [
       { title: 'API Access Management', link: '/docs/concepts/api-access-management/'},
       { title: 'Authentication', link: '/docs/concepts/authentication/'},
+      { title: 'Event Hooks', link: '/docs/concepts/event-hooks/'},
       { title: 'Events API Migration', link: '/docs/concepts/events-api-migration/'},
       { title: 'Inline Hooks', link: '/docs/concepts/inline-hooks/'},
       { title: 'Key Rotation', link: '/docs/concepts/key-rotation/'},

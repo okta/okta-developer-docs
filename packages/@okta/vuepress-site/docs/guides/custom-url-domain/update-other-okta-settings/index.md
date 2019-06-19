@@ -1,9 +1,9 @@
 ---
-title: Update Other Okta Settings
+title: Update other Okta settings
 ---
 After you add your custom URL, some features or APIs require additional configuration to reflect that change.
 
-### Authorization Server Issuer
+### Authorization Server issuer
 
 After you customize your Okta domain URL, existing Custom Authorization Servers continue to use the Okta organization URL until you change it. All new Custom Authorization Servers use the custom URL by default.
 
