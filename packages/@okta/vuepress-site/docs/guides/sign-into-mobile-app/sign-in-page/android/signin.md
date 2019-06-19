@@ -1,36 +1,50 @@
-First initialize the Okta OIDC SDK in the `Activity#onCreate` method of the Activity that you are using to sign users in to your app. In this example, we call it LoginActivity:
+First initialize the Okta OIDC SDK in the `Activity#onCreate` method of the Activity that you are using to sign users in to your app. For example:
 
 ```java
 public class LoginActivity extends AppCompatActivity {
-    private OIDCAccount account;
-    private AuthenticateClient client;
-
-    account = new OIDCAccount.Builder()
+    OIDCConfig config = new OIDCConfig.Builder()
         .withResId(this, R.id.okta_oidc_config)
         .create();
 
-    client = new AuthenticateClient.Builder()
-        .withAccount(account)
+    WebAuthClient client = new Okta.WebAuthBuilder()
+        .withConfig(config)
         .withContext(this)
-        .withStorage(new SimpleOktaStorage(this))
-        .withTabColor(getColorCompat(R.color.colorPrimary))
+        .withStorage(new SharedPreferenceStorage(this))
+        .withCallbackExecutor(Executors.newSingleThreadExecutor())
+        .withTabColor(Color.BLUE)
+        .supportedBrowsers("com.android.chrome", "org.mozilla.firefox")
         .create();
+
+    final SessionClient sessionClient = client.getSessionClient();
+
+    client.registerCallback(new ResultCallback<AuthorizationStatus, AuthorizationException>() {
+        @Override
+        public void onSuccess(@NonNull AuthorizationStatus status) {
+            if (status == AuthorizationStatus.AUTHORIZED) {
+                //client is authorized.
+                Tokens tokens = sessionClient.getTokens();
+            } else if (status == AuthorizationStatus.SIGNED_OUT) {
+                //this only clears the browser session.
+            } else if (status == AuthorizationStatus.IN_PROGRESS) {
+                //authorization is in progress.
+            }
+        }
+
+        @Override
+        public void onCancel() {
+            //authorization canceled
+        }
+
+        @Override
+        public void onError(@NonNull String msg, AuthorizationException error) {
+            //error encounted
+        }
+    }, this);
 }
 ```
 
-After the `AuthenticateClient` instance is initialized, you can start the authorization flow by simply calling `logIn` whenever you're ready:
+After the `WebAuthClient` instance is initialized, start the authorization flow by simply calling `signIn` whenever you're ready:
 
 ```java
-client.logIn(this, null);
-```
-
-If you need to add extra request parameters to the [authorize](/docs/reference/api/oidc/#authorize) endpoint, you can use `AuthenticationPayload`:
-
-```java
-AuthenticationPayload payload = new AuthenticationPayload.Builder()
-    .setLoginHint("youraccount@okta.com")
-    .addParameter("max_age", "5000")
-    .build();
-
-client.logIn(this, payload);
+client.signIn(this, null);
 ```

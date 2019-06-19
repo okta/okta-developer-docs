@@ -1,8 +1,7 @@
 ---
-title: Define a Callback Route
+title: Understand the callback route
 ---
-
-To sign users in, your application redirects the browser to an Okta-hosted sign-in page. Okta then redirects back to your application with information about the user. You can learn more about how this works on [Okta-hosted flows](/docs/concepts/okta-hosted/flows/).
+To sign users in, your application redirects the browser to an Okta-hosted sign-in page. Okta then redirects back to your application with information about the user. You can learn more about how this works on [Okta-hosted flows](/docs/concepts/okta-hosted-flows/).
 
 Your web application must host a route that Okta sends information to when a user signs in. This route is called a callback route or redirect URI.
 

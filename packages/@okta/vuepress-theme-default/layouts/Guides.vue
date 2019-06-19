@@ -10,7 +10,9 @@
           :guideName="guideName"
           :framework="framework"
         />
-        <GuidesOverview v-else :featured="featured"/>
+        <div v-else>
+          <GuidesOverview :featured="featured"/>
+        </div>
       </div>
       <!-- END Page Content -->
     </section>

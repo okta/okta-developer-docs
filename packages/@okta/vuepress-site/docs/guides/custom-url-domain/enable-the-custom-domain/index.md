@@ -1,5 +1,5 @@
 ---
-title: Enable the Custom Domain
+title: Enable the custom domain
 ---
 Use the configuration wizard to walk through the steps to customize your Okta URL domain.
 
@@ -9,10 +9,10 @@ Use the configuration wizard to walk through the steps to customize your Okta UR
     * The **Continue** button appears if the configuration is incomplete.
     * The **Update Certification** button appears if a custom URL domain is already configured for your org. To delete the current configuration, click **Restore to default**. 
 
-### Add Your Subdomain Information
+### Add your subdomain information
 On the Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
 
-### Create a DNS TXT Record
+### Create a DNS TXT record
 You need to add a DNS TXT record to your domain to verify ownership of your domain with Okta before Okta can serve traffic over it. This record includes the Okta-generated values provided in the **Host** and **Data** columns of the table on the **Verify domain ownership page**. Okta verifies that you own your domain when it finds the TXT record that contains the generated value.
 
 1. On the **DNS Records** page of the configuration wizard, copy the values of the **Host** and **Data** columns into a text file.
@@ -26,7 +26,7 @@ You need to add a DNS TXT record to your domain to verify ownership of your doma
 
     Uploading your TLS certificate is the next step in the configuration wizard.
 
-### Add the Certificate Details
+### Add the certificate details
 Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to enter your TLS certificate, private key, and, if applicable, a certificate chain. 
 
 1. On the **Certification** page of the configuration wizard, paste your PEM-encoded public certificate for your subdomain in the **Certificate** field. Be sure to include the `----BEGIN CERTIFICATE----` and the `----END CERTIFICATE----` lines.
@@ -37,23 +37,20 @@ Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to 
 
 4. Click **Next**. Making your custom domain an alias for your Okta domain is the next step in the configuration wizard.
 
-### Create a CNAME Record for Your Subdomain
+### Create a CNAME record for your subdomain
 Before Okta can serve traffic over your domain, you need to add an alias from your custom domain to the Okta subdomain of your Okta organization. You do this by creating or modifying a CNAME record for your custom domain name.
-
-1. Copy the values of the **Host** and **Data** columns of the **CNAME** table in Okta into a text file. For example, depending on what type of Okta org you have, the **Data** value should look similar to the following:
-
-    - `org.Subdomain.customdomains.okta.com`
-    - `org.Subdomain.customdomains.oktapreview.com`
-    - `org.Subdomain.customdomains.okta-emea.com`
     
-2. Return to your Domain Name registrar and locate the option to modify your DNS records.
-3. Create a CNAME record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field. 
-4. Paste the value that you copied from the **Data** column into the appropriate field, for example, the **Record** or **Value** field.
-5. Save the record.
+1. Return to your Domain Name registrar and locate the option to modify your DNS records.
+1. Create a new CNAME record and paste the value from the **Host** column into the appropriate field at the registrar, for example, the **Name** or **Host** field.
 
-After the CNAME record is saved and confirmed by your DNS Registrar, you are done setting up a custom domain name for your Okta organization. Okta will begin to serve traffic over your custom domain. It may take a few minutes to propagate the changes.
+> Important: Depending on your registrar, you may only need to enter the subdomain part. For example, if you picked the subdomain `id.example.com`, your registrar may only require you to create a CNAME record for `id` (because `.example.com` is implied). If you're not sure, check your registrar's documentation.
 
-### Confirm that It Works
+3. Paste the value from the **Data** column into the appropriate field at the registrar, for example, the **Record** or **Value** field.
+4. Save the record.
+
+After the CNAME record is saved and confirmed by your registrar, you are done setting up a custom domain name for your Okta organization. Okta will begin to serve traffic over your custom domain. It may take a few minutes to propagate the changes.
+
+### Confirm that it works
 Use the link that appears in the **Confirmation** section of the CNAME step to confirm that Okta is serving traffic over HTTPS (TLS) for your custom domain.
 
 1. Click the link, for example, `https://login.example.com`. The Okta Sign-In page should appear. 
@@ -69,7 +66,7 @@ You can also use a tool such as `dig` or `nslookup` to test and verify that your
 
 > There are also external tool versions of [dig](https://toolbox.googleapps.com/apps/dig) and [nslookup](https://network-tools.com/nslookup/) that you can use.
 
-### Flush DNS Cache
+### Flush DNS cache
 After you've changed your DNS records, old records may still be cached by DNS providers or your local machine. If you've verified that your records are correct, but your custom domain isn't working, you can flush the DNS cache.
 
 There are websites available for flushing the caches for [Google DNS](https://google-public-dns.appspot.com/cache) and [Open DNS](https://cachecheck.opendns.com/).
