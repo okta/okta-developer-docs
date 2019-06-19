@@ -84,6 +84,17 @@ The payload of the request looks like this:
    }
 }
 ```
+The payload gives you information on the user profile information coming in, whether a conflict was detected, and what Okta is going to populate the user's Okta profile attributes with.
+
+The `data.appUser` object contains the attributes of the user's profile in the application that the user is being imported from. In the case of the CSV agent that we are using in this guide, the attributes are the fields in the CSV file.
+
+In addition to the user's application profile, the payload provides you with the Okta user profile that Okta is set to create for this user if you don't intervene. This is provided in `data.user`.
+
+Any conflicts that Okta detected are indicated in the `data.context.conflicts` attribute. Currently, there is only support for detecting conflicts in the `login` attribute.
+
+Finally, `data.action` tells you what Okta is set to do for this user, if you don't intervene: Whether Okta is going to create a new user profile or treat this user as a match for an existing user.
+
+For complete descriptions of each object in the request from Okta, see [Objects in the Request from Okta](/docs/reference/import-hook/#objects-in-the-request-from-okta). 
 
 <NextSectionLink />
 
