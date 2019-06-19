@@ -9,7 +9,7 @@ The response that your external service constructs, in a case where you want to 
   "commands": [{
     "type": "com.okta.user.profile.update",
     "value": {
-      "login": "sally.admin001@clouditude.net"
+      "login": "sally.elizabeth.jones@clouditude.net"
     }
   }]
 }
