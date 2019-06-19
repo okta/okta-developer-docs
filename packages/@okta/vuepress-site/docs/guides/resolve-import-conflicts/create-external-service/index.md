@@ -10,19 +10,19 @@ The following sections demonstrate some sample code to implement the external se
 
 ### Create an HTTPS Server
 
-Your service needs to implement an HTTPS server for Okta to send requests to. To create an HTTPS server, you need to have available an SSL key pair (PEM file) and its corresponding certificate (cert file).
+Your service needs to implement an HTTPS server for Okta to send requests to. To create an HTTPS server, you need to have available an SSL key pair (pem file) and its corresponding certificate (cert file).
 
 <StackSelector snippet="create-https"/>
 
 ### Check Authorization Header
 
-The requests that Okta sends to your external service includes an authorization header containing a secret string. You set the value of this string when you register your external service, so that it can serve as an API access key for the service. Your code should always check for the presence of the authorization header and confirm its value. Processing should not proceed if the auhorization header cannot be verified.
+The requests that Okta sends to your external service includes an authorization header containing a secret string. You set the value of this string when you register your external service, so that it can serve as an API access key for the service. Your code should always check for the presence of the authorization header and confirm its value. Processing should not proceed if the authorization header cannot be verified.
 
 <StackSelector snippet="check-auth"/>
 
 ### Deserialize JSON Payload
 
-To make the information in the payload available for pocessing, let's deserialize the JSON into objects.
+To make the information in the payload available for processing, let's deserialize the JSON into objects.
 
 <StackSelector snippet="deserialize"/>
 
@@ -30,7 +30,7 @@ For descriptions of each object included, see the section [Objects in the Reques
 
 ### Check for Conflict in login Attribute
 
-If the value of `data.user.profile.login` for an incoming user is equal to the value of that attribute in another user profie, there is a conflict. As a demonstration only, the way we'll handle the conflict is to infix the user's middle name in between their first and last name in the `login` value.
+If the value of `data.user.profile.login` for an incoming user is equal to the value of that attribute in another user profile, there is a conflict. As a demonstration only, the way we'll handle the conflict is to infix the user's middle name in between their first and last name in the `login` value.
 
 <StackSelector snippet="detect-conflict"/>
 
