@@ -2,7 +2,7 @@
 title: Associate the Hook to the App
 ---
 
-You now need to enable the inline hook that you registered for the CSV Directory application that you want to use it with:
+You now need to tell Okta that you want the hook to be invoked for imports coming in from the CSV Directory agent:
 
 1. Go to  **Directory > Directory Integrations**
 1. Select **CSV Directory**.
