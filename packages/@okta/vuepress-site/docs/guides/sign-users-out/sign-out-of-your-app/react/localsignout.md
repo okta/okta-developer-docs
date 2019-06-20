@@ -1,4 +1,4 @@
-Call the `logout` method on the [Auth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authlogouturi) object. The [withAuth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#withauth) [higher-order component](https://reactjs.org/docs/higher-order-components.html) makes this object easily available within components as `this.props.auth`.
+Call the `logout` method on the [Auth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authlogouturi) object. The [withAuth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#withauth) [higher-order component](https://reactjs.org/docs/higher-order-components.html) makes this object easily available within your components.
 
 ```javascript
 import React, { Component } from 'react';
