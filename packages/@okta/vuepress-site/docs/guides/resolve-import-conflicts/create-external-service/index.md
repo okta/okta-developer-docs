@@ -36,7 +36,7 @@ If the value of `data.user.profile.login` for an incoming user is equal to the v
 
 ### Formulate Commands to Return
 
-The way to update the value Okta assigns to a user profile attribute is to return a `commands` object, specifying the attribute and the value to set it to. Here, we will construct a `commands` object to set the value of `data.user.profile.login`. 
+The way to update the value Okta assigns to a user profile attribute is to return a `commands` object, specifying the attribute to update and the value to set it to. Here, we will construct a `commands` object to update the value of `data.user.profile.login`. 
 
 <StackSelector snippet="construct-commands-object"/>
 
