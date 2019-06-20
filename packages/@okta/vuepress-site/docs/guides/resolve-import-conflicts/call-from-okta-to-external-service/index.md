@@ -88,7 +88,7 @@ The payload gives you information about the user profile information coming in, 
 
 The user's profile information that has come in from the app is supplied in the attributes of the `data.appUser` object. In the case of the CSV Directory agent, the attributes correspond to the fields in the CSV file.
 
-In addition, the payload also provides you with the Okta user profile that Okta is set to create for this user. This reflects the application of any mapping rules that you have set up in your org. This projected Okta profile is provided in `data.user`.
+In addition, the payload also provides you with the Okta user profile that Okta is set to create for this user. This reflects the effects of any mapping rules that you have set up in your org. This projected Okta profile is provided in `data.user`.
 
 Any conflicts that Okta detected for attributes of the projected Okta profile are indicated in the `data.context.conflicts` attribute. Currently, only conflicts for the `login` attribute are indicated.
 
