@@ -6,12 +6,10 @@ title: Before You Begin
 
 During batch imports of user profiles, imported profiles can conflict with other profiles, which requires admins to step in and manually resolve the import conflicts. The Import Inline Hook enables you to implement software solutions to resolve conflicts on the basis of your own custom business logic. That way, instead of being queued for manual review by an Admin, conflicts are resolved programmatically.
 
-
 #### Background Information
 
 - For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 - For reference documentaton for the Import Inline Hook, see [Import Inline Hook](/docs/reference/import-hook/).
-
 
 ### About This Guide
 
