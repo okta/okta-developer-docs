@@ -1229,3 +1229,257 @@ redirects:
     to: /docs/reference/error-codes/
   - from: /use_cases/api_security/
     to: /docs/concepts/api-access-management/
+  - from: /guides/custom-url-domain/overview/index.html
+    to: /docs/guides/custom-url-domain/overview/
+  - from: /guides/custom-url-domain/enable-the-custom-domain/index.html
+    to: /docs/guides/custom-url-domain/enable-the-custom-domain/
+  - from: /guides/custom-url-domain/gather-information/index.html
+    to: /docs/guides/custom-url-domain/gather-information/
+  - from: /guides/custom-url-domain/next-steps/index.html
+    to: /docs/guides/custom-url-domain/next-steps/
+  - from: /guides/custom-url-domain/update-other-okta-settings/index.html
+    to: /docs/guides/custom-url-domain/update-other-okta-settings/
+  - from: /guides/custom-error-pages/customization-examples/index.html
+    to: /docs/guides/custom-error-pages/customization-examples/
+  - from: /guides/custom-error-pages/edit-the-error-page/index.html
+    to: /docs/guides/custom-error-pages/edit-the-error-page/
+  - from: /guides/custom-error-pages/next-steps/index.html
+    to: /docs/guides/custom-error-pages/next-steps/
+  - from: /guides/custom-error-pages/overview/index.html
+    to: /docs/guides/custom-error-pages/overview/
+  - from: /guides/custom-error-pages/use-macros/index.html
+    to: /docs/guides/custom-error-pages/use-macros/
+  - from: /guides/custom-hosted-signin/customization-examples/index.html
+    to: /docs/guides/custom-hosted-signin/customization-examples/
+  - from: /guides/custom-hosted-signin/edit-the-sign-in-page/index.html
+    to: /docs/guides/custom-hosted-signin/edit-the-sign-in-page/
+  - from: /guides/custom-hosted-signin/next-steps/index.html
+    to: /docs/guides/custom-hosted-signin/next-steps/
+  - from: /guides/custom-hosted-signin/overview/index.html
+    to: /docs/guides/custom-hosted-signin/overview/
+  - from: /guides/custom-hosted-signin/use-macros-and-request-context/index.html
+    to: /docs/guides/custom-hosted-signin/use-macros-and-request-context/
+  - from: /guides/protect-your-api/aspnet/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/aspnet/before-you-begin/
+  - from: /guides/protect-your-api/aspnetcore/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/aspnetcore/before-you-begin/
+  - from: /guides/protect-your-api/springboot/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/springboot/before-you-begin/
+  - from: /guides/protect-your-api/-/before-you-begin/index.html
+    to: /docs/guides/protect-your-api/-/before-you-begin/
+  - from: /guides/protect-your-api/aspnet/configure-cors/index.html
+    to: /docs/guides/protect-your-api/aspnet/configure-cors/
+  - from: /guides/protect-your-api/aspnetcore/configure-cors/index.html
+    to: /docs/guides/protect-your-api/aspnetcore/configure-cors/
+  - from: /guides/protect-your-api/springboot/configure-cors/index.html
+    to: /docs/guides/protect-your-api/springboot/configure-cors/
+  - from: /guides/protect-your-api/-/configure-cors/index.html
+    to: /docs/guides/protect-your-api/-/configure-cors/
+  - from: /guides/protect-your-api/aspnet/configure-packages/index.html
+    to: /docs/guides/protect-your-api/aspnet/configure-packages/
+  - from: /guides/protect-your-api/aspnetcore/configure-packages/index.html
+    to: /docs/guides/protect-your-api/aspnetcore/configure-packages/
+  - from: /guides/protect-your-api/springboot/configure-packages/index.html
+    to: /docs/guides/protect-your-api/springboot/configure-packages/
+  - from: /guides/protect-your-api/-/configure-packages/index.html
+    to: /docs/guides/protect-your-api/-/configure-packages/
+  - from: /guides/protect-your-api/aspnet/next-steps/index.html
+    to: /docs/guides/protect-your-api/aspnet/next-steps/
+  - from: /guides/protect-your-api/aspnetcore/next-steps/index.html
+    to: /docs/guides/protect-your-api/aspnetcore/next-steps/
+  - from: /guides/protect-your-api/springboot/next-steps/index.html
+    to: /docs/guides/protect-your-api/springboot/next-steps/
+  - from: /guides/protect-your-api/-/next-steps/index.html
+    to: /docs/guides/protect-your-api/-/next-steps/
+  - from: /guides/protect-your-api/aspnet/require-authentication/index.html
+    to: /docs/guides/protect-your-api/aspnet/require-authentication/
+  - from: /guides/protect-your-api/aspnetcore/require-authentication/index.html
+    to: /docs/guides/protect-your-api/aspnetcore/require-authentication/
+  - from: /guides/protect-your-api/springboot/require-authentication/index.html
+    to: /docs/guides/protect-your-api/springboot/require-authentication/
+  - from: /guides/protect-your-api/-/require-authentication/index.html
+    to: /docs/guides/protect-your-api/-/require-authentication/
+  - from: /guides/sign-into-spa/-/add-signin-button/index.html
+    to: /docs/guides/sign-into-spa/-/add-signin-button/
+  - from: /guides/sign-into-spa/-/before-you-begin/index.html
+    to: /docs/guides/sign-into-spa/-/before-you-begin/
+  - from: /guides/sign-into-spa/-/configure-the-sdk/index.html
+    to: /docs/guides/sign-into-spa/-/configure-the-sdk/
+  - from: /guides/sign-into-spa/-/create-okta-application/index.html
+    to: /docs/guides/sign-into-spa/-/create-okta-application/
+  - from: /guides/sign-into-spa/-/define-callback/index.html
+    to: /docs/guides/sign-into-spa/-/define-callback/
+  - from: /guides/sign-into-spa/-/handle-callback/index.html
+    to: /docs/guides/sign-into-spa/-/handle-callback/
+  - from: /guides/sign-into-spa/-/install-sdk/index.html
+    to: /docs/guides/sign-into-spa/-/install-sdk/
+  - from: /guides/sign-into-spa/-/next-steps/index.html
+    to: /docs/guides/sign-into-spa/-/next-steps/
+  - from: /guides/sign-into-spa/-/require-authentication/index.html
+    to: /docs/guides/sign-into-spa/-/require-authentication/
+  - from: /guides/sign-into-spa/-/use-the-access-token/index.html
+    to: /docs/guides/sign-into-spa/-/use-the-access-token/
+  - from: /guides/sign-into-spa/-/user-info/index.html
+    to: /docs/guides/sign-into-spa/-/user-info/
+  - from: /guides/sign-into-spa/angular/add-signin-button/index.html
+    to: /docs/guides/sign-into-spa/angular/add-signin-button/
+  - from: /guides/sign-into-spa/angular/before-you-begin/index.html
+    to: /docs/guides/sign-into-spa/angular/before-you-begin/
+  - from: /guides/sign-into-spa/angular/configure-the-sdk/index.html
+    to: /docs/guides/sign-into-spa/angular/configure-the-sdk/
+  - from: /guides/sign-into-spa/angular/create-okta-application/index.html
+    to: /docs/guides/sign-into-spa/angular/create-okta-application/
+  - from: /guides/sign-into-spa/angular/define-callback/index.html
+    to: /docs/guides/sign-into-spa/angular/define-callback/
+  - from: /guides/sign-into-spa/angular/handle-callback/index.html
+    to: /docs/guides/sign-into-spa/angular/handle-callback/
+  - from: /guides/sign-into-spa/angular/install-sdk/index.html
+    to: /docs/guides/sign-into-spa/angular/install-sdk/
+  - from: /guides/sign-into-spa/angular/next-steps/index.html
+    to: /docs/guides/sign-into-spa/angular/next-steps/
+  - from: /guides/sign-into-spa/angular/require-authentication/index.html
+    to: /docs/guides/sign-into-spa/angular/require-authentication/
+  - from: /guides/sign-into-spa/angular/use-the-access-token/index.html
+    to: /docs/guides/sign-into-spa/angular/use-the-access-token/
+  - from: /guides/sign-into-spa/angular/user-info/index.html
+    to: /docs/guides/sign-into-spa/angular/user-info/
+  - from: /guides/sign-into-spa/react/add-signin-button/index.html
+    to: /docs/guides/sign-into-spa/react/add-signin-button/
+  - from: /guides/sign-into-spa/react/before-you-begin/index.html
+    to: /docs/guides/sign-into-spa/react/before-you-begin/
+  - from: /guides/sign-into-spa/react/configure-the-sdk/index.html
+    to: /docs/guides/sign-into-spa/react/configure-the-sdk/
+  - from: /guides/sign-into-spa/react/create-okta-application/index.html
+    to: /docs/guides/sign-into-spa/react/create-okta-application/
+  - from: /guides/sign-into-spa/react/define-callback/index.html
+    to: /docs/guides/sign-into-spa/react/define-callback/
+  - from: /guides/sign-into-spa/react/handle-callback/index.html
+    to: /docs/guides/sign-into-spa/react/handle-callback/
+  - from: /guides/sign-into-spa/react/install-sdk/index.html
+    to: /docs/guides/sign-into-spa/react/install-sdk/
+  - from: /guides/sign-into-spa/react/next-steps/index.html
+    to: /docs/guides/sign-into-spa/react/next-steps/
+  - from: /guides/sign-into-spa/react/require-authentication/index.html
+    to: /docs/guides/sign-into-spa/react/require-authentication/
+  - from: /guides/sign-into-spa/react/use-the-access-token/index.html
+    to: /docs/guides/sign-into-spa/react/use-the-access-token/
+  - from: /guides/sign-into-spa/react/user-info/index.html
+    to: /docs/guides/sign-into-spa/react/user-info/
+  - from: /guides/sign-into-spa/vue/add-signin-button/index.html
+    to: /docs/guides/sign-into-spa/vue/add-signin-button/
+  - from: /guides/sign-into-spa/vue/before-you-begin/index.html
+    to: /docs/guides/sign-into-spa/vue/before-you-begin/
+  - from: /guides/sign-into-spa/vue/configure-the-sdk/index.html
+    to: /docs/guides/sign-into-spa/vue/configure-the-sdk/
+  - from: /guides/sign-into-spa/vue/create-okta-application/index.html
+    to: /docs/guides/sign-into-spa/vue/create-okta-application/
+  - from: /guides/sign-into-spa/vue/define-callback/index.html
+    to: /docs/guides/sign-into-spa/vue/define-callback/
+  - from: /guides/sign-into-spa/vue/handle-callback/index.html
+    to: /docs/guides/sign-into-spa/vue/handle-callback/
+  - from: /guides/sign-into-spa/vue/install-sdk/index.html
+    to: /docs/guides/sign-into-spa/vue/install-sdk/
+  - from: /guides/sign-into-spa/vue/next-steps/index.html
+    to: /docs/guides/sign-into-spa/vue/next-steps/
+  - from: /guides/sign-into-spa/vue/require-authentication/index.html
+    to: /docs/guides/sign-into-spa/vue/require-authentication/
+  - from: /guides/sign-into-spa/vue/use-the-access-token/index.html
+    to: /docs/guides/sign-into-spa/vue/use-the-access-token/
+  - from: /guides/sign-into-spa/vue/user-info/index.html
+    to: /docs/guides/sign-into-spa/vue/user-info/
+  - from: /guides/sign-into-web-app/-/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/-/before-you-begin/
+  - from: /guides/sign-into-web-app/-/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/-/configure-packages/
+  - from: /guides/sign-into-web-app/-/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/-/create-okta-application/
+  - from: /guides/sign-into-web-app/-/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/-/define-callback/
+  - from: /guides/sign-into-web-app/-/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/-/get-user-info/
+  - from: /guides/sign-into-web-app/-/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/-/next-steps/
+  - from: /guides/sign-into-web-app/-/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/-/redirect-to-sign-in/
+  - from: /guides/sign-into-web-app/-/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/-/require-authentication/
+  - from: /guides/sign-into-web-app/aspnet/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/before-you-begin/
+  - from: /guides/sign-into-web-app/aspnet/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/configure-packages/
+  - from: /guides/sign-into-web-app/aspnet/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/create-okta-application/
+  - from: /guides/sign-into-web-app/aspnet/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/define-callback/
+  - from: /guides/sign-into-web-app/aspnet/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/get-user-info/
+  - from: /guides/sign-into-web-app/aspnet/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/next-steps/
+  - from: /guides/sign-into-web-app/aspnet/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in/
+  - from: /guides/sign-into-web-app/aspnet/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/aspnet/require-authentication/
+  - from: /guides/sign-into-web-app/aspnetcore/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore/before-you-begin/
+  - from: /guides/sign-into-web-app/aspnetcore/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore/configure-packages/
+  - from: /guides/sign-into-web-app/aspnetcore/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore/create-okta-application/
+  - from: /guides/sign-into-web-app/aspnetcore/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore/define-callback/
+  - from: /guides/sign-into-web-app/aspnetcore/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore/get-user-info/
+  - from: /guides/sign-into-web-app/aspnetcore/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore/next-steps/
+  - from: /guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/
+  - from: /guides/sign-into-web-app/aspnetcore/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/aspnetcore/require-authentication/
+  - from: /guides/sign-into-web-app/springboot/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/springboot/before-you-begin/
+  - from: /guides/sign-into-web-app/springboot/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/springboot/configure-packages/
+  - from: /guides/sign-into-web-app/springboot/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/springboot/create-okta-application/
+  - from: /guides/sign-into-web-app/springboot/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/springboot/define-callback/
+  - from: /guides/sign-into-web-app/springboot/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/springboot/get-user-info/
+  - from: /guides/sign-into-web-app/springboot/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/springboot/next-steps/
+  - from: /guides/sign-into-web-app/springboot/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/springboot/redirect-to-sign-in/
+  - from: /guides/sign-into-web-app/springboot/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/springboot/require-authentication/
+  - from: /guides/sign-users-out/-/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/-/before-you-begin/
+  - from: /guides/sign-users-out/-/next-steps/index.html
+    to: /docs/guides/sign-users-out/-/next-steps/
+  - from: /guides/sign-users-out/-/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/-/sign-out-of-okta/
+  - from: /guides/sign-users-out/-/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/-/sign-out-of-your-app/
+  - from: /guides/sign-users-out/aspnet/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/aspnet/before-you-begin/
+  - from: /guides/sign-users-out/aspnet/next-steps/index.html
+    to: /docs/guides/sign-users-out/aspnet/next-steps/
+  - from: /guides/sign-users-out/aspnet/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/aspnet/sign-out-of-okta/
+  - from: /guides/sign-users-out/aspnet/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/aspnet/sign-out-of-your-app/
+  - from: /guides/sign-users-out/aspnetcore/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/aspnetcore/before-you-begin/
+  - from: /guides/sign-users-out/aspnetcore/next-steps/index.html
+    to: /docs/guides/sign-users-out/aspnetcore/next-steps/
+  - from: /guides/sign-users-out/aspnetcore/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-okta/
+  - from: /guides/sign-users-out/aspnetcore/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-your-app/
+  - from: /guides/sign-users-out/springboot/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/springboot/before-you-begin/
+  - from: /guides/sign-users-out/springboot/next-steps/index.html
+    to: /docs/guides/sign-users-out/springboot/next-steps/
+  - from: /guides/sign-users-out/springboot/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/springboot/sign-out-of-okta/
+  - from: /guides/sign-users-out/springboot/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/springboot/sign-out-of-your-app/

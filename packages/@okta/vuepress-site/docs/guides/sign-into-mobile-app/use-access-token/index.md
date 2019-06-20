@@ -9,7 +9,7 @@ In your mobile app, make sure that you place the access token in the HTTP `Autho
 Authorization: Bearer {token}
 ```
 
-Your API must check for valid tokens in incoming requests. To learn how to protect your API endpoints and require token authentication, see [Protect Your API Endpoints](/guides/protect-your-api/).
+Your API must check for valid tokens in incoming requests. To learn how to protect your API endpoints and require token authentication, see [Protect Your API Endpoints](/docs/guides/protect-your-api/).
 
 <StackSelector snippet="usetoken"/>
 
