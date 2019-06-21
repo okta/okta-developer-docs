@@ -10,18 +10,18 @@ Within every org, there are users and applications. These are the only mandatory
 ## Org URLs
 Okta orgs host pages on subdomains and each org is assigned a URL. The typical org URL is the tenant name (the subdomain), and then the domain name.
 
-**Example**
+**Example domain**
 companyname.okta.com
 
-**Example EMEA domain URL**
+**Example EMEA domain**
 companyname.okta-emea.com
 
-**Example preview/sandbox domain URL**
+**Example preview/sandbox domain**
 companyname.oktapreview.com
 
-Each organization also has an administrator URL to sign in to the administrator console. The admin URL is the subdomain plus `-admin` (for example, `companyname-admin.okta.com`). If you have [customized your org URL](/docs/guides/custom-url-domain/overview/), access the admin console using your un-customized URL.
-
 You can customize your Okta org URL by replacing the Okta domain name with your own domain name. Using this feature aliases your Okta organization's domain name to another subdomain that you own, like `login.companyname.com`.
+
+Each organization also has an administrator URL to sign in to the administrator console. The admin URL is the subdomain plus `-admin` (for example, `companyname-admin.okta.com`). If you have [customized your org URL](/docs/guides/custom-url-domain/overview/), access the admin console using your un-customized URL.
 
 ## Administrator Console
 The administrator console is where you go to manage your Okta org. The first page that you see when you sign in as an Okta admin is the Administrator Dashboard. The landing page provides a summary of activity in Okta and your apps. The page also lists notifications of any problems or outstanding work that you need to complete.
