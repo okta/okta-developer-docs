@@ -34,6 +34,7 @@ guides:
  - sign-into-spa
  - sign-into-web-app
  - sign-users-out
+ - unlock-mobile-app-with-biometrics
  - updating-saml-cert
  - validate-access-tokens
  - validate-id-tokens
