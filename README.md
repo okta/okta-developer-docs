@@ -66,6 +66,8 @@ To edit this page, you would navigate to `/packages/@okta/vuepress-site/docs/api
 
 An `index.md` file in a directory like `users` will be served as `/users/` when the site is live. If you name the file anything other than `index.md`, you will need to include `.html` in the URL when you view the page in your browser.
 
+For a link to a new Concepts or Reference page to be included in the site's left side navigation bar, you need to edit the file that controls that navigation bar. See [Left Side Navigation](https://github.com/okta/okta-developer-docs/wiki/VuePress-Authoring-Guidelines#left-side-navigation).
+
 More information about writing content for VuePress can be found in our [VuePress Authoring Guidelines](https://github.com/okta/okta-developer-docs/wiki/VuePress-Authoring-Guidelines). There you will also find our [Style Guide](https://github.com/okta/okta-developer-docs/wiki/Style-Guide).
 
 ### What About Building the Site Before Committing?
