@@ -10,9 +10,9 @@ Next, add it as an allowed **Logout redirect URI** in the Okta Developer Console
 
 <a href="https://login.okta.com/" target="_blank" class="Button--blue">Go to Console</a>
 
-1. Select **Applications**, and then pick your application.
+1. Select **Applications**, and then select your application.
 2. Select **General** and click **Edit**.
-3. In the **Logout redirect URI**, enter the callback you defined. For example, `com.okta.example:/signoutCallback`
+3. In the **Logout redirect URI**, enter the callback that you defined (for example, `com.okta.example:/signoutCallback`).
 4. Click **Save**.
 
 `TODO: Is the rest handled by our OIDC SDK? Does the developer need to hook anything up in their app?`
