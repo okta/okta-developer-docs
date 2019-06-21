@@ -227,7 +227,7 @@ Resources in the Okta API use hypermedia for "discoverability".  Hypermedia enab
 
 The Okta API had incorporated [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia "discoverability".  HAL provides a set of conventions for expressing hyperlinks in JSON responses representing two simple concepts: Resources and Links.
 
-> The HAL-specific media type `application/hal+json` is currently not supported as a formal media type for content negotiation at this time.  Use the standard `application/json` media type.  As we get more experience with the media format we may add support for the media type.
+> The HAL-specific media type `application/hal+json` is currently not supported as a formal media type for content negotiation.  Use the standard `application/json` media type.  As we get more experience with the media format we may add support for the media type.
 
 ### Resources
 

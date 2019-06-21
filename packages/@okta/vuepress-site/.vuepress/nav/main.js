@@ -10,7 +10,8 @@ module.exports = [
       { title: 'Key Rotation', link: '/docs/concepts/key-rotation/'},
       { title: 'OAuth 2.0 & OIDC', link: '/docs/concepts/auth-overview/'},
       { title: 'Okta-Hosted Flows', link: '/docs/concepts/okta-hosted-flows/'},
-      { title: 'Social Login', link: '/docs/concepts/social-login/'}
+      { title: 'Social Login', link: '/docs/concepts/social-login/'},
+      { title: 'Okta Organizations', link: '/docs/concepts/okta-organizations/'}
     ]
   },
   {
