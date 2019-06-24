@@ -67,7 +67,9 @@ redirects:
     to: /code/rest/index.html
   - from: /docs/getting_started/design_principles.html
     to: /docs/reference/api-overview/index.html
-  - from: docs/api/index.html
+  - from: /docs/api
+    to: /docs/reference/api-overview/index.html
+  - from: /docs/api/index.html
     to: /docs/reference/api-overview/index.html
   - from: /docs/getting_started/getting_a_token.html
     to: /docs/guides/create-an-api-token/index.html
@@ -1205,12 +1207,16 @@ redirects:
     to: /docs/reference/
   - from: /docs/api/resources/oauth2/index.html
     to: /docs/reference/api/oidc/
+  - from: /docs/api/resources/oauth2
+    to: /docs/reference/api/oidc/
   - from: /docs/api/resources/oauth2.html
     to: /docs/reference/api/oidc/
   - from: /docs/api/resources/oauth2/index.html
     to: /docs/reference/api/oidc/
   - from: /docs/api/resources/social_authentication.html
     to: /docs/concepts/social-login/
+  - from: /docs/api/resources/tokens
+    to: /docs/guides/validate-access-tokens/overview/
   - from: /docs/api/resources/tokens/index.html
     to: /docs/guides/validate-access-tokens/overview/
   - from: /docs/api/getting_started/error_codes.html
