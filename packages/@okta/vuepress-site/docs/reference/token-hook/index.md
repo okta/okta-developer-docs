@@ -570,7 +570,7 @@ Existing target JSON object:
    ]
 }
 ```
-You can remove the element from the array by specifying the array name followed by the index of the element that you want to remove. You don't need to specify a value for the `remove` operation. But, you can specify `null` as the value if you want. You can also remove a member from a JSON object by specifying the name of the object and the object member that you want to remove in the path. 
+You can remove the element from the array by specifying the array name followed by the index of the element that you want to remove. You don't need to specify a value for the `remove` operation. But, you can specify `null` as the value if you want. 
 
 > Note: Attempting to remove an element within an array that doesn't exist or specifying an invalid value results in the entire PATCH failing and errors logged in the token hooks events.
 
