@@ -4,12 +4,14 @@ module.exports = [
     links: [
       { title: 'API Access Management', link: '/docs/concepts/api-access-management/'},
       { title: 'Authentication', link: '/docs/concepts/authentication/'},
+      { title: 'Event Hooks', link: '/docs/concepts/event-hooks/'},
       { title: 'Events API Migration', link: '/docs/concepts/events-api-migration/'},
       { title: 'Inline Hooks', link: '/docs/concepts/inline-hooks/'},
       { title: 'Key Rotation', link: '/docs/concepts/key-rotation/'},
       { title: 'OAuth 2.0 & OIDC', link: '/docs/concepts/auth-overview/'},
       { title: 'Okta-Hosted Flows', link: '/docs/concepts/okta-hosted-flows/'},
-      { title: 'Social Login', link: '/docs/concepts/social-login/'}
+      { title: 'Social Login', link: '/docs/concepts/social-login/'},
+      { title: 'Okta Organizations', link: '/docs/concepts/okta-organizations/'}
     ]
   },
   {
