@@ -307,11 +307,11 @@ You can also use the `add` operation to add new members to existing JSON objects
 
 The existing target JSON object:
 ```json
-{
-"employee_profile": {
-       "employee_id": "1234",
-       "name": "Anna"
-  }
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna"
+   }
 }
 ```
 Add `department_id` by specifying the claim in the path, followed by the name of the object member.
@@ -319,79 +319,93 @@ Add `department_id` by specifying the claim in the path, followed by the name of
 > Note: Attempting to add a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
-}  
-   "commands": [ 
-        { 
-            "type": "com.okta.identity.patch",
-            "value": [ 
-                 { 
-                     "op": "add",
-                     "path": "/claims/employee_profile/department_id",
-                     "value": "4947"
-                  }
-             ]
-         }
-   ]   
-}
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"add",
+               "path":"/claims/employee_profile/department_id",
+               "value":"4947"
+            }
+         ]
+      }
+   ]
+}   
 ```
 
 The resulting JSON object:
 ```json
-{
-"employee_profile": {
-       "employee_id": "1234",
-       "name": "Anna",
-       "department_id" : "4947"
-    }
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna",
+      "department_id":"4947"
+   }
 }
+
 ```
 
 You can also append an element to an array by specifying the name of the array, followed by the index where you want to insert the element in the path. For example, you have an array that contains the user's preferred airports, and you want to add a new airport to the array.
 
 The existing target JSON object:
 ```json
-{"preferred_airports": ["sjc","sfo","oak"]}
+{  
+   "preferred_airports":[  
+      "sjc",
+      "sfo",
+      "oak"
+   ]
+}
 ```
 
 ```json
-{
-   "commands": [ 
-        { 
-            "type": "com.okta.identity.patch",
-            "value": [ 
-                 { 
-                     "op": "add",
-                     "path": "/claims/preferred_airports/3",
-                     "value": "lax"
-                  }
-             ] 
-         }
-   ]    
+Formatted JSON Data
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"add",
+               "path":"/claims/preferred_airports/3",
+               "value":"lax"
+            }
+         ]
+      }
+   ]
 }
 ```
 
 The resulting JSON object:
 ```json
-{"preferred_airports": ["sjc","sfo","oak","lax"]}
+{  
+   "preferred_airports":[  
+      "sjc",
+      "sfo",
+      "oak",
+      "lax"
+   ]
+}
 ```
 
 This `add` operation adds `lax` to the end of the array. Alternatively, you can just specify the array name followed by a hyphen `-` in the path to append an element at the end of the array.
 
 ```json
-{
-   "commands": [ 
-        { 
-            "type": "com.okta.identity.patch",
-            "value": [ 
-                 { 
-                     "op": "add",
-                     "path": "/claims/preferred_airports/-",
-                     "value": "lax"
-                  }
-             ] 
-         }
-
-      ]    
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"add",
+               "path":"/claims/preferred_airports/-",
+               "value":"lax"
+            }
+         ]
+      }
+   ]
 }
 ```
 > Note: Attempting to add an element within an array that doesn't exist or specifying an invalid index results in the entire PATCH failing and errors logged in the token hooks events. 
@@ -435,12 +449,12 @@ You can also use the `replace` operation to modify members within JSON objects a
 
 The existing target JSON object:
 ```json
-{
-"employee_profile": {
-       "employee_id": "1234",
-       "name": "Anna",
-       "email": "anna.v@company.com"
-    }
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna",
+      "email":"anna.v@company.com"
+   }
 }
 ```
 Specify the claim in the path, followed by the name of the object member that you want to modify. 
@@ -448,30 +462,30 @@ Specify the claim in the path, followed by the name of the object member that yo
 > Note: Attempting to modify a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
-{
-   "commands": [ 
-        { 
-            "type": "com.okta.identity.patch",
-            "value": [ 
-                 { 
-                     "op": "replace",
-                     "path": "/claims/employee_profile/email",
-                     "value": "anna@company.com"
-                  }
-             ] 
-         }
-   ]    
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"replace",
+               "path":"/claims/employee_profile/email",
+               "value":"anna@company.com"
+            }
+         ]
+      }
+   ]
 }
 ```
 
 The resulting JSON object:
 ```json
-{
-  "employee_profile": {
-       "employee_id": "1234",
-       "name": "Anna",
-       "email" : "anna@company.com"
-  }
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna",
+      "email":"anna@company.com"
+   }
 }
 ```
 
@@ -547,32 +561,86 @@ You can also use the `remove` operation to remove members from existing JSON obj
 
 Existing target JSON object:
 ```json
-{"preferred_airports": ["sjc","lax","sfo","oak"]}
+{  
+   "preferred_airports":[  
+      "sjc",
+      "lax",
+      "sfo",
+      "oak"
+   ]
+}
 ```
-
 You can remove the element from the array by specifying the array name followed by the index of the element that you want to remove. You don't need to specify a value for the `remove` operation. But, you can specify `null` as the value if you want. You can also remove a member from a JSON object by specifying the name of the object and the object member that you want to remove in the path. 
 
 > Note: Attempting to remove an element within an array that doesn't exist or specifying an invalid value results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
-{
-   "commands": [ 
-        { 
-            "type": "com.okta.identity.patch",
-            "value": [ 
-                 { 
-                     "op": "remove",
-                     "path": "/claims/preferred_airports/1"
-                  }
-             ] 
-         }
-      ]
-}   
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"remove",
+               "path":"/claims/preferred_airports/1"
+            }
+         ]
+      }
+   ]
+} 
 ```
 
 The resulting JSON object
 ```json
-{"preferred_airports": ["sjc","sfo","oak"]}
+{  
+   "preferred_airports":[  
+      "sjc",
+      "sfo",
+      "oak"
+   ]
+}
+```
+
+Similarly, you can remove a JSON object member by specifying the JSON object in the path, followed by the claim member that you would like to remove. For example, you have an `employee_profile` claim, and you want to remove `email` from it.
+
+> Note: Attempting to remove a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
+
+The existing target JSON object:
+```json
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna",
+      "email":"anna.v@company.com"
+   }
+}
+```
+PATCH command that removes the employee's email: 
+
+```json
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"remove",
+               "path":"/claims/employee_profile/email"
+            }
+         ]
+      }
+   ]
+}
+```
+The resulting JSON object:
+
+```json
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna"
+   }
+}
 ```
 
 ## Enabling a Token Inline Hook
