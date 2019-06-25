@@ -447,7 +447,7 @@ All responses will return a 204 status with no content.
 ```json
 curl -v -X DELETE \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/inlineHook/${id}"
+"https://{yourOktaDomain}/api/v1/inlineHooks/${id}"
 ```
 
 ##### Response Example
@@ -699,7 +699,7 @@ curl -v -X POST \
 }
 ```
 
-### channel Object
+### Channel Object
 
 | Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
 | -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
@@ -708,15 +708,15 @@ curl -v -X POST \
 | config | Properties of the communications channel used to contact your external service.                     | [Channel Config object](#config-object)   | FALSE      | FALSE    | FALSE      | Validation is determined by the specific channel. |
 
 
-### config Object
+### Config Object
 
 | Property   | Description                                                                                                  | DataType                                  | Required   | Unique   | ReadOnly   | Validation                                               |
 | ---------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------- | ---------- | -------- | ---------- | -------------------------------------------------------- |
 | uri        | External service endpoint to call to execute the inline hook handler.                                        | String                                    | TRUE       | FALSE    | TRUE       | Maximum length 1024 characters. Must begin with https:// |
 | headers    | Optional list of key/value pairs for headers that should be sent with the request to the external service.   | JSON Object                               | FALSE      | FALSE    | FALSE      | Some reserved headers, such as `Accept`, are disallowed. |
-| authScheme | The authentication scheme to use for this request                                                            | [authScheme object](#authscheme-object)   | FALSE      | FALSE    | FALSE      | Valid `authscheme` object.                               |
+| authScheme | The authentication scheme to use for this request                                                            | [AuthScheme object](#authscheme-object)   | FALSE      | FALSE    | FALSE      | Valid `authscheme` object.                               |
 
-### authScheme Object
+### AuthScheme Object
 
 | Property | Description                                                                    | DataType   | Required   | ReadOnly |
 | -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |

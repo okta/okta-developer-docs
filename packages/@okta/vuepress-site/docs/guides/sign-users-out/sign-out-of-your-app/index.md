@@ -1,5 +1,5 @@
 ---
-title: Sign Users Out of Your App
+title: Sign users out of your app
 ---
 Sign users out by ending their local session. This signs the user out of your application, but doesn't sign the user out of Okta.
 
