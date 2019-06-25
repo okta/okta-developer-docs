@@ -7,4 +7,5 @@ sections:
  - store-tokens
  - discard-access-tokens
  - retrieve-refresh-token
+ - next-steps
 ---
