@@ -302,6 +302,114 @@ Use the `add` operation to add new claims to a token. If you use the `add` opera
   ]
 }
 ```
+
+You can also use the `add` operation to add new members to existing JSON objects and new elements to existing arrays. For example, you have a JSON object in a claim called `employee_profile`, and you want to add the `department_id` member to the claim.
+
+The existing target JSON object:
+```json
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna"
+   }
+}
+```
+Add `department_id` by specifying the claim in the path, followed by the name of the object member.
+
+> Note: Attempting to add a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
+
+```json
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"add",
+               "path":"/claims/employee_profile/department_id",
+               "value":"4947"
+            }
+         ]
+      }
+   ]
+}   
+```
+
+The resulting JSON object:
+```json
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna",
+      "department_id":"4947"
+   }
+}
+
+```
+
+You can also append an element to an array by specifying the name of the array, followed by the index where you want to insert the element in the path. For example, you have an array that contains the user's preferred airports, and you want to add a new airport to the array.
+
+The existing target JSON object:
+```json
+{  
+   "preferred_airports":[  
+      "sjc",
+      "sfo",
+      "oak"
+   ]
+}
+```
+
+```json
+Formatted JSON Data
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"add",
+               "path":"/claims/preferred_airports/3",
+               "value":"lax"
+            }
+         ]
+      }
+   ]
+}
+```
+
+The resulting JSON object:
+```json
+{  
+   "preferred_airports":[  
+      "sjc",
+      "sfo",
+      "oak",
+      "lax"
+   ]
+}
+```
+
+This `add` operation adds `lax` to the end of the array. Alternatively, you can just specify the array name followed by a hyphen `-` in the path to append an element at the end of the array.
+
+```json
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"add",
+               "path":"/claims/preferred_airports/-",
+               "value":"lax"
+            }
+         ]
+      }
+   ]
+}
+```
+> Note: Attempting to add an element within an array that doesn't exist or specifying an invalid index results in the entire PATCH failing and errors logged in the token hooks events. 
+
 ### Sample Response to Replace an Existing Claim
 
 You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system-specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
@@ -336,6 +444,52 @@ See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of I
       ]
 }
 ```
+
+You can also use the `replace` operation to modify members within JSON objects and elements within arrays. For example, you have a JSON object in a claim called `employee_profile`, and you want to update the email address of the employee.
+
+The existing target JSON object:
+```json
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna",
+      "email":"anna.v@company.com"
+   }
+}
+```
+Specify the claim in the path, followed by the name of the object member that you want to modify. 
+
+> Note: Attempting to modify a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
+
+```json
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"replace",
+               "path":"/claims/employee_profile/email",
+               "value":"anna@company.com"
+            }
+         ]
+      }
+   ]
+}
+```
+
+The resulting JSON object:
+```json
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna",
+      "email":"anna@company.com"
+   }
+}
+```
+
+Similarly, you can replace elements in an array by specifying the array name and the valid index of the element that you want to replace in the path.
 
 ### Sample Response to Modify Token Lifetime
 You can modify how long the access and ID tokens are valid by specifying the `lifetime` in seconds. The `lifetime` value must be a minimum of five minutes (300 seconds) and a maximum of 24 hours (86,400 seconds).
@@ -400,6 +554,92 @@ See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of I
               ] 
           }
       ]
+}
+```
+
+You can also use the `remove` operation to remove members from existing JSON objects and elements from existing arrays. For example, you have an array that contains the user's preferred airports, and you want to remove an airport from the array.
+
+Existing target JSON object:
+```json
+{  
+   "preferred_airports":[  
+      "sjc",
+      "lax",
+      "sfo",
+      "oak"
+   ]
+}
+```
+You can remove the element from the array by specifying the array name followed by the index of the element that you want to remove. You don't need to specify a value for the `remove` operation. But, you can specify `null` as the value if you want. 
+
+> Note: Attempting to remove an element within an array that doesn't exist or specifying an invalid value results in the entire PATCH failing and errors logged in the token hooks events.
+
+```json
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"remove",
+               "path":"/claims/preferred_airports/1"
+            }
+         ]
+      }
+   ]
+} 
+```
+
+The resulting JSON object
+```json
+{  
+   "preferred_airports":[  
+      "sjc",
+      "sfo",
+      "oak"
+   ]
+}
+```
+
+Similarly, you can remove a JSON object member by specifying the JSON object in the path, followed by the claim member that you would like to remove. For example, you have an `employee_profile` claim, and you want to remove `email` from it.
+
+> Note: Attempting to remove a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
+
+The existing target JSON object:
+```json
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna",
+      "email":"anna.v@company.com"
+   }
+}
+```
+PATCH command that removes the employee's email: 
+
+```json
+{  
+   "commands":[  
+      {  
+         "type":"com.okta.identity.patch",
+         "value":[  
+            {  
+               "op":"remove",
+               "path":"/claims/employee_profile/email"
+            }
+         ]
+      }
+   ]
+}
+```
+The resulting JSON object:
+
+```json
+{  
+   "employee_profile":{  
+      "employee_id":"1234",
+      "name":"Anna"
+   }
 }
 ```
 
