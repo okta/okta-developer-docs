@@ -4287,7 +4287,7 @@ curl -v -X POST \
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_CHALLENGE",
   "relayState": "/myapp/some/deep/link/i/want/to/return/to",
-  "factorResult": "WAITING",
+  "factorResult": "TIMEOUT",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
