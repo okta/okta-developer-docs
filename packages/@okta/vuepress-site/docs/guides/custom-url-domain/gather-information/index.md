@@ -1,5 +1,5 @@
 ---
-title: Gather Information
+title: Gather information
 ---
 Before you get started, make sure that you have the following information:
 
