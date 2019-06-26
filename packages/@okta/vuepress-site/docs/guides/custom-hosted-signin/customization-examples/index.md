@@ -1,9 +1,9 @@
 ---
-title: Customization Examples
+title: Customization examples
 ---
 Use the following examples to help you customize your sign-in page with your own CSS, scripts, and per-application branding.
 
-## Add Your Own Stylesheet
+## Add your own stylesheet
 You can add your own stylesheet to extend the look of your sign-in page. In the embedded HTML editor, add a link to your stylesheet in the `<head>` section, below the <span v-pre>`{{{SignInWidgetResources}}}`</span> line.
 
 Example:
@@ -21,7 +21,7 @@ Example:
 ...
 ```
 
-## Add Your Own Scripts
+## Add your own scripts
 You can add custom JavaScript code to your sign-in page. In the embedded HTML editor, add a script in the `<head>` section, below the <span v-pre>`{{{SignInWidgetResources}}}`</span> line.
 
 Example:
@@ -44,7 +44,7 @@ Example:
 ...
 ```
 
-## Per-Application Customization
+## Per-application customization
 The Okta-hosted sign-in page is application-aware. This means that your client-side customizations can understand which application caused the sign-in page to load. This is useful when you have multiple applications or brands that you want to support.
 
 When the page renders, an object called `OktaUtil` exists on the page. By calling the `OktaUtil.getRequestContext()` method, scripts on the page can get details about the current request.

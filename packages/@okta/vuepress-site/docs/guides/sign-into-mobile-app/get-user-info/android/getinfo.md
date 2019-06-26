@@ -1,17 +1,19 @@
-The following is an example of getting user information from the `/userinfo` endpoint:
+Your code can get the user's info with the `getUserProfile` method:
 
 ```java
-client.getUserProfile(new RequestCallback<JSONObject, AuthorizationException>() {
+sessionClient.getUserProfile(new RequestCallback<UserInfo, AuthorizationException>() {
     @Override
-    public void onSuccess(@NonNull JSONObject result) {
-        //handle JSONObject result.
+    public void onSuccess(@NonNull UserInfo result) {
+        //handle UserInfo result.
+        String name  = (String) result.get("name");
+        String email = (String) result.get("email");
     }
 
     @Override
     public void onError(String error, AuthorizationException exception) {
-        //handle error
+        //handle failed userinfo request
     }
 });
 ```
 
-In `onSuccess` the user info returned is a `JSONObject` with the following [properties](/docs/reference/api/oidc/#response-example-success-5).
+The `UserInfo` in `onSuccess` contains the user's info.

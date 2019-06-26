@@ -81,7 +81,7 @@ The `commands` object is where you can provide commands to Okta. It is an array,
 
 #### Supported Commands
 
-The following commands are supported for the Token Inline Hook type:
+The following commands are supported for the Import Inline Hook type:
 
 | Command                         | Description                                                                                                              |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------|

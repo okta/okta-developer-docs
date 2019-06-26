@@ -1,9 +1,10 @@
-The [Spring Boot Getting Started Guide](https://spring.io/guides/gs/spring-boot/) teaches you the basics of building a Spring Boot application. You can create a new Spring Boot project by visting the [Spring Initializr](https://start.spring.io) and selecting the dependencies **Web**, **Security**, and **Okta**, and then clicking **Generate Project** to download a zip file.
+The [Spring Boot Getting Started Guide](https://spring.io/guides/gs/spring-boot/) teaches you the basics of building a Spring Boot application. 
+
+You can create a new Spring Boot project with Okta by visiting the [Spring Initializr](https://start.spring.io) and selecting the dependencies **Web**, **Security**, and **Okta**, then clicking **Generate Project** to download a zip file.
 
 You can also use the command line:
 
 ```bash
-
 curl https://start.spring.io/starter.tgz  \
   -d groupId=com.example \
   -d artifactId=demo \

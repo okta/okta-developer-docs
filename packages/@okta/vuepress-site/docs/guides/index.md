@@ -4,6 +4,7 @@ layout: Guides
 guides:
  - add-saml-idp
  - build-custom-ui-mobile
+ - build-self-signed-jwt
  - create-an-api-token
  - create-token-with-groups-claim
  - custom-error-pages
@@ -30,6 +31,7 @@ guides:
  - sign-in-with-google
  - sign-in-with-linkedin
  - sign-in-with-microsoft
+ - sign-into-mobile-app
  - sign-into-spa
  - sign-into-web-app
  - sign-users-out

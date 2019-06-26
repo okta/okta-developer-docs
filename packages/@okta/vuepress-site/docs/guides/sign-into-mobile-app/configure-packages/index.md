@@ -1,20 +1,22 @@
 ---
-title: Add and Configure Packages
+title: Add and configure packages
 ---
-Next you need to add Okta to your application. The simplest way to add authentication to your app is using our SDK.
+Next you need to add Okta to your application by installing our SDK.
 
 ### Install the SDK
 
 <StackSelector snippet="installsdk"/>
 
-### Configure the Middleware
+### Configure the SDK
 
-Things You Need:
+You need the following values from the Okta Application and the Developer Console that you worked with in <GuideLink link="../create-okta-application">Create an okta application</GuideLink>:
 
-* **Client ID** - You copied the Client ID from the Okta application that you created earlier to instantiate the client. You can find it in the applications list or on the application's **General** tab.
-* **Okta Domain** - You need to know your Okta org URL, which you can find on the Developer Console dashboard in the upper-right corner as the **Org URL**.
+* **Client ID** - Find it in the applications list or on the application's **General** tab.
+* **Okta Domain** - Find it on the Developer Console dashboard in the upper-right corner as the **Org URL**.
 
-> Note: The `issuer` parameter is your Okta Org URL + `oauth2/default`.
+> Note: Your Okta domain is different from your admin domain. Don't include `-admin` in your Okta domain.
+
+You'll also need the full redirect URI that you defined in <GuideLink link="../define-callback">Define a callback route</GuideLink>.
 
 <StackSelector snippet="configuremid"/>
 
