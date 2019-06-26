@@ -64,7 +64,6 @@ public class SignInDialog extends DialogFragment {
 ```
 
 ### Configure the primary authentication
-
 When you use the primary authentication flow (no MFA, no password management, and so on), `AuthClient` needs the username and password from the user.
 
 Initialize `AuthClient` and set up the dialog listener to get the username and password:
@@ -115,20 +114,7 @@ public class SampleActivity extends AppCompatActivity implements SignInDialog.Si
 ```
 
 ### Use the Okta Java Authentication SDK
-
-After you initialize the `AuthClient` instance, obtain a one-time use `sessionToken` that you can exchange for `Tokens`. Obtain a `sessionToken` by using the [Okta Java Authentication SDK](https://github.com/okta/okta-auth-java).
-
-Add the following to your `build.gradle` file:
-
-```gradle
-dependencies{
-    implementation 'com.okta.authn.sdk:okta-authn-sdk-api:0.4.0'
-    runtimeOnly 'com.okta.authn.sdk:okta-authn-sdk-impl:0.4.0'
-    runtimeOnly 'com.okta.sdk:okta-sdk-okhttp:1.5.2'
-    runtimeOnly 'com.squareup.okhttp3:okhttp:3.14.1'
-}
-
-```
+After you initialize the `AuthClient` instance, obtain a one-time use `sessionToken` that you can exchange for `Tokens`. Obtain a `sessionToken` using the [Okta Java Authentication SDK](https://github.com/okta/okta-auth-java).
 
 Then implement the callback `onSignIn`:
 
