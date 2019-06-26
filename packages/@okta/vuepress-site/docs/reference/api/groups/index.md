@@ -1098,7 +1098,7 @@ Creates a group rule to dynamically add users to the specified group if they mat
 | condition.expression.type           | currently it is : urn:okta:expression:1.0                                                               | Body      | String                            | TRUE     |         |
 | condition.people.users.exclude      | userIds which would be excluded when rules are processed                                                | Body      | String                            | FALSE    |         |
 | condition.people.groups.exclude     | is currently not supported                                                                              | Body      | String                            | FALSE    |         |
-| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added. Currently we support only one group as target group     | Body      | String                            | TRUE     |         |
+| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added.							        | Body      | String                            | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1201,7 +1201,7 @@ Updates a group rule.
 | condition.expression.type           | currently it is : urn:okta:expression:1.0                                                               | Body      | String                            | TRUE     |         |
 | condition.people.users.exclude      | userIds which would be excluded when rules are processed                                                | Body      | String                            | FALSE    |         |
 | condition.people.groups.exclude     | is currently not supported                                                                              | Body      | String                            | FALSE    |         |
-| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added. Currently we support only one group as target group     | Body      | String                            | TRUE     |         |
+| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added.							        | Body      | String                            | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1832,8 +1832,6 @@ Profile for any group that is **not** imported from Active Directory
 ```
 
 ## Rule Model
-
-The Group Rules API is currently a <ApiLifecycle access="beta" /> release.
 
 ### Example
 
