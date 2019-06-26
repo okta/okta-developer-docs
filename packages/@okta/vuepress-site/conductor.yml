@@ -1463,5 +1463,7 @@ redirects:
     to: /docs/guides/sign-users-out/springboot/sign-out-of-okta/
   - from: /use_cases/promote-oan-integration/index.html
     to: https://www.okta.com/integrate/documentation/promotion/
+    from: /docs/api/resources/factor_admin/
+    to: /docs/reference/api/factor_admin/
   - from: /guides/sign-users-out/springboot/sign-out-of-your-app/index.html
     to: /docs/guides/sign-users-out/springboot/sign-out-of-your-app/
