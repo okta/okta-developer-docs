@@ -1,16 +1,8 @@
 ---
-title: Create an Okta Application
+title: Create an Okta application
 ---
-Before your code can successfuly get access token, you need to create an Okta Application that represents your mobile application.
+Before you can sign a user in, you need to create an Okta application that represents your mobile application.
 
-First, sign in to the Okta Developer Console:
-
-<a href="https://login.okta.com/" target="_blank" class="Button--blue">Go to Console</a>
-
-1. Select **Applications**, then **Add Application**. Pick **Native** as the platform. Enter a name for your application (or leave the default value).
-
-2. Enter values for the **Login redirect URI**. For example `com.okta.example:/callback`. This URI will be used to send Oauth responses.
-
-3. Finally, click **Done** to finish creating the Okta Application. You need to copy some values into your application later, so leave the Developer Console open.
+Use the Okta application that you created when you walked through the [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/create-okta-application/) guide.
 
 <NextSectionLink/>

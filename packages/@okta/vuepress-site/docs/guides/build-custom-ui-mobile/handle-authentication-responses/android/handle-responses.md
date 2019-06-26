@@ -1,6 +1,6 @@
 ### Response handling
 
-Once you have a username, password you can pass it to the `authenticationClient`. It requires a `AuthenticationStateHandlerAdapter` to handle the response:
+Once you have a username and password, you can pass it to the `authenticationClient`. It requires a `AuthenticationStateHandlerAdapter` to handle the response:
 
 ```java
 try {
@@ -27,7 +27,7 @@ try {
 
 ### Success status handling
 
-Once you have the `sessionToken` you can exchange it for tokens by:
+Once you have the `sessionToken`, you can exchange it for tokens:
 
 ```java
 client.signIn(sessionToken, null,new RequestCallback<Result, AuthorizationException>() {

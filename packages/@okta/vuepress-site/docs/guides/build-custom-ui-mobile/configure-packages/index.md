@@ -1,18 +1,8 @@
 ---
-title: Add and Configure Packages
+title: Add and configure packages
 ---
-Next you need to add authentication flow to your application. The simplest way to add authentication to your app is using our SDK.
+Next, you need to add Okta to your application by installing and configuring our SDK.
 
-### Install the SDK
-
-<StackSelector snippet="installsdk"/>
-
-### Configure the Middleware
-
-You need the Client ID that you copied from the Okta application that you created earlier to instantiate the client. You also need to know your Okta org URL, which you can find on the dashboard of the Okta Developer console.
-
-The `issuer` parameter is your Okta Org URL + `oauth2/default`.
-
-<StackSelector snippet="configuremid"/>
+You should already have added and configured packages when you walked through the [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/android/configure-packages/) guide.
 
 <NextSectionLink/>

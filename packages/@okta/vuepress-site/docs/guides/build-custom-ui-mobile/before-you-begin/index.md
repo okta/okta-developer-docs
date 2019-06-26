@@ -1,17 +1,15 @@
 ---
-title: Before You Begin
+title: Before you begin
 ---
-This guide assumes you are building a mobile app. The [Sign users in to your mobile app] guide shows how to sign users in by opening a browser. This guide shows how to build a customized sign-in experience inside your application.
+You can connect your mobile app to Okta and sign users in by opening a browser. But, if you prefer that your users not leave your app, you need to build a custom sign-in UI with native controls and screens instead. Use this guide to build a customized sign-in experience inside your mobile application.
 
-<!-- If browser sign-in works for your application, we recommend using that. Building custom sign-in UI takes more effort and development time. -->
+This guide assumes that:
+* You have an Okta Developer organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
+* You have an app that you want to add a custom UI to
+* You have already walked through the [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/) guide.
 
-This guide assumes that you:
+> Note: If the browser sign-in works for your application, we recommend using that since building a custom sign-in UI takes more effort and development time.
 
-* Have an Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
-* Have a project or application that you want to add authentication to.
-
-If you don't have an existing app, or are new to building apps, start with this documentation:
-
-<StackSelector snippet="create-app"/>
+<StackSelector snippet="sample" />
 
 <NextSectionLink/>

@@ -1,6 +1,6 @@
-### Building UI
+### Build a sign-in dialog box
 
-In this example we will show how to create a custom UI for user sign-in. First we will create a simple dialog to ask for username and password:
+To create a custom UI for user sign in, you need to first create a simple dialog box to prompt the user for their username and password:
 
 ```java
 public class SignInDialog extends DialogFragment {
@@ -10,7 +10,7 @@ public class SignInDialog extends DialogFragment {
     private SignInDialogListener signInListener;
 
     /**
-     * Instantiates a new Login dialog.
+     * Instantiates a new sign-in dialog.
      */
     public SignInDialog() {
         //NO-OP
@@ -63,10 +63,11 @@ public class SignInDialog extends DialogFragment {
 }
 ```
 
-### Primary authentication
+### Configure the primary authentication
 
-With the primary authentication flow(no MFA, no Password management and etc.) `AuthClient` needs a username and password inputs from the user.
-Here we initialize the `AuthClient` and setup the dialog listener to get the username and password:
+When you use the primary authentication flow (no MFA, no password management, and so on), `AuthClient` needs the username and password from the user.
+
+Initialize `AuthClient` and set up the dialog listener to get the username and password:
 
 ```java
 public class SampleActivity extends AppCompatActivity implements SignInDialog.SignInDialogListener {
@@ -113,9 +114,9 @@ public class SampleActivity extends AppCompatActivity implements SignInDialog.Si
 }
 ```
 
-### Using Okta Java Authentication SDK
+### Use the Okta Java Authentication SDK
 
-After the `AuthClient` instance is initialized, we will need to obtain a one time use `sessionToken` that can be exchanged for `Tokens`. You can obtain a `sessionToken` by using [Okta Java Authentication SDK](https://github.com/okta/okta-auth-java):
+After you initialize the `AuthClient` instance, obtain a one-time use `sessionToken` that you can exchange for `Tokens`. Obtain a `sessionToken` by using the [Okta Java Authentication SDK](https://github.com/okta/okta-auth-java).
 
 Add the following to your `build.gradle` file:
 
@@ -168,7 +169,7 @@ public void onSignIn(String username, String password) {
 }
 ```
 
-Once you have the `sessionToken` you can exchange it for tokens by using `AuthClient`:
+After you have the `sessionToken`, you can exchange it for tokens by using `AuthClient`:
 
 ```java
 client.signIn(sessionToken, null,new RequestCallback<Result, AuthorizationException>() {
