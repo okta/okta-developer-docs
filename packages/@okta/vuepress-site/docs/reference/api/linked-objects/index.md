@@ -137,8 +137,7 @@ HTTP/1.1 201 Created
 
 ### Get a Linked Object Definition by Name
 
-
-<ApiOperation method="GET" url=/api/v1/meta/schemas/user/default/linkedObjects/${name}"" />
+<ApiOperation method="get" url="/api/v1/meta/schemas/user/default/linkedObjects/${name}" />
 
 Gets a single linked object definition
 
