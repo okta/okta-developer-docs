@@ -1547,3 +1547,63 @@ redirects:
     to: /docs/reference/api/factor_admin/ 
   - from: /guides/validate-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
+  - from: /authentication-guide
+    to: /authentication-guide/
+  - from: /code
+    to: /code/
+  - from: /code/swift
+    to: /code/swift/
+  - from: /docs/api/getting_started
+    to: /docs/api/getting_started/
+  - from: /docs/api/reference
+    to: /docs/api/reference/
+  - from: /docs/api/resources
+    to: /docs/api/resources/
+  - from: /docs/api/resources/factor_admin
+    to: /docs/api/resources/factor_admin/
+  - from: /docs/reference/api
+    to: /docs/reference/api/
+  - from: /docs/reference/api-overview/getting_a_token
+    to: /docs/reference/api-overview/getting_a_token/
+  - from: /docs/reference/api/resource-server-beta
+    to: /docs/reference/api/resource-server-beta/
+  - from: /docs/reference/api/tokens
+    to: /docs/reference/api/tokens/
+  - from: /docs/sdk/core/python_api_sdk
+    to: /docs/sdk/core/python_api_sdk/
+  - from: /documentation
+    to: /documentation/
+  - from: /reference
+    to: /reference/
+  - from: /standards/OIDC
+    to: /standards/OIDC/
+  - from: /standards/SAML
+    to: /standards/SAML/
+  - from: /standards/SCIM
+    to: /standards/SCIM/
+  - from: /use_cases/events-api-deprecation
+    to: /use_cases/events-api-deprecation/
+  - from: /use_cases/integrate_with_okta
+    to: /use_cases/integrate_with_okta/
+  - from: /use_cases/integrate_with_okta/oan-faqs
+    to: /use_cases/integrate_with_okta/oan-faqs/
+  - from: /use_cases/integrate_with_okta/promotion
+    to: /use_cases/integrate_with_okta/promotion/
+  - from: /use_cases/integrate_with_okta/provisioning
+    to: /use_cases/integrate_with_okta/provisioning/
+  - from: /use_cases/integrate_with_okta/sso-with-saml
+    to: /use_cases/integrate_with_okta/sso-with-saml/
+  - from: /use_cases/isv/embedded-occ
+    to: /use_cases/isv/embedded-occ/
+  - from: /use_cases/isv/isv-syslog-references
+    to: /use_cases/isv/isv-syslog-references/
+  - from: /use_cases/isv/security-analytics
+    to: /use_cases/isv/security-analytics/
+  - from: /use_cases/isv/security-enforcement
+    to: /use_cases/isv/security-enforcement/
+  - from: /use_cases/isv/zindex
+    to: /use_cases/isv/zindex/
+  - from: /use_cases/mobile/okta_mobile_connect
+    to: /use_cases/mobile/okta_mobile_connect/
+  - from: /use_cases/promote-oan-integration
+    to: /use_cases/promote-oan-integration/
