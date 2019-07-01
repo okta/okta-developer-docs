@@ -35,7 +35,7 @@ Before you can configure your application and PySAML2 set up an
 Okta chiclet (application icon) that enables an Okta user to sign in to your to your application with SAML and PySAML2.
 
 To set up Okta to connect to your application, follow the
-[setting up a SAML application in Okta](/docs/guides/customize-authz-server/)
+[setting up a SAML application in Okta](/docs/guides/saml-application-setup/overview/)
 guide. As noted in the instructions, there are two steps to change:
 
 * *In step \#6*: Use ***PySAML2 Example*** instead of ***Example SAML application*** .
