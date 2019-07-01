@@ -1,4 +1,6 @@
-content of stack selector should show:
+Add the following to your `Podfile` file:
 
-How to install the package
-How to configure the package/initialize the SDK in code
+```ruby
+pod 'OktaOidc'
+pod 'OktaAuthSdk'
+```
