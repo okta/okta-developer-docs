@@ -361,7 +361,6 @@ The existing target JSON object:
 ```
 
 ```json
-Formatted JSON Data
 {  
    "commands":[  
       {  
