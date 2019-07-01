@@ -17,4 +17,4 @@ The [Token Inline Hook](/docs/reference/token-hook/) now lets you modify particu
 
 * When a customer used a [Token Inline Hook](/docs/reference/token-hook/) and returned an `error` object to Okta, Okta failed to pass the error to the token requester. (OKTA-231397)
 
-* The issuer claim inside JWT tokens were erroneously changing to all lowercase causing JWT verification failure when the application was case-sensitive. (OKTA-235710)
+* The issuer claim inside JWT tokens was erroneously changing to all lowercase causing JWT verification failure when the application was case-sensitive. (OKTA-235710)
