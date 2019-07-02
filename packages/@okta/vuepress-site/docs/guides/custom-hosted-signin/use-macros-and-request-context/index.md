@@ -1,5 +1,5 @@
 ---
-title: Use Macros and Request Context
+title: Use macros and request context
 ---
 The following macros in the HTML contain the configuration parameters for certain page elements. These macros inject specific content or functionality automatically.
 
@@ -25,7 +25,7 @@ Example:
 ####  <span v-pre>`{{{OktaUtil}}}`</span>
 Defines a global `OktaUtil` JavaScript object that contains methods used to complete the Okta sign-in flow. When an application uses the Okta-hosted sign-in page to sign a user in, information (called request context) is available about the target application and the request.
 
-## Request Context
+## Request context
 
 By calling the `OktaUtil.getRequestContext()` method, JavaScript code on your sign-in page can inspect the current request and make decisions based on the target application or other details.
 
@@ -69,6 +69,6 @@ There is also additional information available in the `target`, such as `label`.
 
 > Note: The `getRequestContext()` method only returns a value when the Okta-hosted sign-in page is loaded in the context of an application (such as SP-initiated flows in SAML or the `/authorize` route for OpenID Connect). Otherwise, it returns undefined.
 
-See <GuideLink link="../customization-examples/#per-application-customization">Per-Application Customization</GuideLink> for an example of what you can do with request context.
+See <GuideLink link="../customization-examples/#per-application-customization">Per-application customization</GuideLink> for an example of what you can do with request context.
 
 <NextSectionLink/>

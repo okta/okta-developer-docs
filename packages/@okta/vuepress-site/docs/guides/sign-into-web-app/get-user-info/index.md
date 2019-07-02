@@ -1,5 +1,5 @@
 ---
-title: Get Info About the User
+title: Get info about the user
 ---
 When a user signs in, their profile information (stored in Okta) is made available to your application. It's common to use this info to update your application's UI.
 

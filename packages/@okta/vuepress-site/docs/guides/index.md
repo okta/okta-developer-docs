@@ -3,6 +3,7 @@ title: Step-by step guides for the Okta platform
 layout: Guides
 guides:
  - add-saml-idp
+ - build-self-signed-jwt
  - create-an-api-token
  - create-token-with-groups-claim
  - custom-error-pages
