@@ -5,7 +5,7 @@
 # Okta Developer Site
 
 The [Okta developer site][doc] serves Okta's API documentation and guides, including:
-- [API references](https://developer.okta.com/docs/api/resources/)
+- [API references](https://developer.okta.com/docs/reference/)
 - [SDK references and sample code](https://developer.okta.com/documentation/)
 - [Authentication quickstarts](https://developer.okta.com/quickstart/)
 - [Guides](https://developer.okta.com/guides/)
