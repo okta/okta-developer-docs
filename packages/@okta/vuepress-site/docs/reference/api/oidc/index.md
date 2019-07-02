@@ -200,14 +200,13 @@ h1U5l0h7&response_type=id_token token&scope=openid&redirect_uri=https%3A%2F%2Fww
 ```
 
 #### Response Example (Success)
-In the authorization code flow, the endpoint sends a redirect header redirecting the user's browser back to the application that made the request. The redirect includes a `code` or a `token` in the URL.
+In the authorization code flow, the endpoint sends a redirect header redirecting the user's browser back to the application that made the request.
 
-**Passing a code**
+Depending on the grant type, Okta returns a `code`:
 ```
 https://www.example.com#code=QnowT-aeawtOJKp-MtkH&state=e97f03dd-d006-4e2d-8aa6-c221702a29ec
 ```
-
-**Passing a token**
+or Okta returns a `token`:
 ```
 https://www.example.com#access_token=eyJhbGciOiJSUzI1NiJ9.eyJ2ZXIiOjEsImlzcyI6Imh0dHA6Ly9yYWluLm9rdGExLmNvbToxODAyIiwiaWF0IjoxNDQ5NjI0MDI2LCJleHAiOjE0NDk2Mjc2MjYsImp0aSI6IlVmU0lURzZCVVNfdHA3N21BTjJxIiwic2NvcGVzIjpbIm9wZW5pZCIsImVtYWlsIl0sImNsaWVudF9pZCI6InVBYXVub2ZXa2FESnh1a0NGZUJ4IiwidXNlcl9pZCI6IjAwdWlkNEJ4WHc2STZUVjRtMGczIn0.HaBu5oQxdVCIvea88HPgr2O5evqZlCT4UXH4UKhJnZ5px-ArNRqwhxXWhHJisslswjPpMkx1IgrudQIjzGYbtLFjrrg2ueiU5-YfmKuJuD6O2yPWGTsV7X6i7ABT6P-t8PRz_RNbk-U1GXWIEkNnEWbPqYDAm_Ofh7iW0Y8WDA5ez1jbtMvd-oXMvJLctRiACrTMLJQ2e5HkbUFxgXQ_rFPNHJbNSUBDLqdi2rg_ND64DLRlXRY7hupNsvWGo0gF4WEUk8IZeaLjKw8UoIs-ETEwJlAMcvkhoVVOsN5dPAaEKvbyvPC1hUGXb4uuThlwdD3ECJrtwgKqLqcWonNtiw&token_type=Bearer&expires_in=3600&scope=openid&state=e97f03dd-d006-4e2d-8aa6-c221702a29ec
 ```
