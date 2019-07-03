@@ -1459,7 +1459,7 @@ Token limits:
 
 * accessTokenLifetimeMinutes: minimum 5 minutes, maximum 1 day
 * refreshTokenLifetimeMinutes: minimum access token lifetime
-* refreshTokenWindowMinutes: minimum 10 minutes, maximum 90 days
+* refreshTokenWindowMinutes: minimum 10 minutes, maximum of five years
 
 ### Condition Object
 
