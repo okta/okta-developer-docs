@@ -11,7 +11,7 @@ title: Okta API Products Release Notes
 
 ### Token expiration window increased to five years
 
-The refresh token expiration window has increased to a maximum of five years in [custom authorization servers](/docs/guides/customize-authz-server/create-rules-for-policy/). <!-- OKTA-207202 -->
+The [refresh token expiration window](/docs/reference/api/authorization-servers/#rule-properties) has increased to a maximum of five years in custom authorization servers. <!-- OKTA-207202 -->
 
 ### Bug Fixed in 2019.06.4
 
