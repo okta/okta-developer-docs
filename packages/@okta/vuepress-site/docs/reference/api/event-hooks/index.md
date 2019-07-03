@@ -344,7 +344,7 @@ Your endpoint needs to be able to correctly send back information to Okta in JSO
 
 Only `ACTIVE` and `VERIFIED` event hooks can receive events from Okta.
 
-A timeout of 3 seconds is enforcd on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
+A timeout of 3 seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
 
 
 ##### Request Example
