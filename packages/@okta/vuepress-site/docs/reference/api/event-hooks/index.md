@@ -630,4 +630,6 @@ To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, a
 
 ### Supported Events for Subscription
 
-When registering an event hook, you need to specify what events you want to subscribe to. The supported event types can be found [here.](/docs/reference/api/event-types/?q=event-hook-eligible/#catalog)
+When registering an event hook, you need to specify what events you want to subscribe to. To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
+
+<https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible>
