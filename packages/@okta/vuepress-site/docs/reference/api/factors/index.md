@@ -23,7 +23,7 @@ Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 Fetches a factor for the specified user
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
@@ -34,7 +34,7 @@ Fetches a factor for the specified user
 
 [Factor](#factor-model)
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X GET \
@@ -44,7 +44,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ufs2bysphxKODSZKWVCT"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 {
@@ -94,17 +94,17 @@ curl -v -X GET \
 
 Enumerates all the enrolled factors for the specified user
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | userId       | `id` of a user                                      | URL        | String   | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 Array of [Factors](#factor-model)
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X GET \
@@ -114,7 +114,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 [
@@ -251,17 +251,17 @@ curl -v -X GET \
 
 Enumerates all the [supported factors](#supported-factors-for-providers) that can be enrolled for the specified user
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | userId       | `id` of a user                                      | URL        | String   | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 Array of [Factors](#factor-model)
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X GET \
@@ -271,7 +271,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/catalog"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 [
@@ -404,13 +404,13 @@ curl -v -X GET \
 
 Enumerates all available security questions for a user's `question` factor
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | userId       | `id` of a user                                      | URL        | String   | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 Array of Questions
 
@@ -419,7 +419,7 @@ Array of Questions
 | question      | unique key for question   | String    | FALSE    | TRUE    | TRUE     |
 | questionText  | display text for question | String    | FALSE    | FALSE   | TRUE     |
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X GET \
@@ -429,7 +429,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/questions"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 [
@@ -2147,18 +2147,18 @@ curl -v -X POST \
 
 Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
 | userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
 | factorId     | `id` of the factor to reset                         | URL        | String   | TRUE     |         |
 
-#### Response Parameters
+##### Response Parameters
 
 `204 No Content`
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X DELETE \
@@ -2168,7 +2168,7 @@ curl -v -X DELETE \
 "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ufs1o01OTMGHLAJPVHDZ"
 ```
 
-#### Response Example
+##### Response Example
 
 `204 No Content`
 
@@ -2180,7 +2180,7 @@ curl -v -X DELETE \
 
 Verifies an answer to a `question` factor.
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
@@ -2188,7 +2188,7 @@ Verifies an answer to a `question` factor.
 | factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
 | answer       | answer to security question                         | Body       | String   | TRUE     |         |
 
-#### Response Parameters
+##### Response Parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
@@ -2210,7 +2210,7 @@ If the `answer` is invalid you will receive a `403 Forbidden` status code with t
 }
 ```
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X POST \
@@ -2222,7 +2222,7 @@ curl -v -X POST \
 }' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ufs1pe3ISGKGPYKXRBKK/verify"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 {
@@ -2236,7 +2236,7 @@ curl -v -X POST \
 
 Verifies an OTP for a `sms` factor.
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
@@ -2247,7 +2247,7 @@ Verifies an OTP for a `sms` factor.
 
 > If you omit `passCode` in the request a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`.
 
-#### Response Parameters
+##### Response Parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
@@ -2285,7 +2285,7 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 }
 ```
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X POST \
@@ -2297,7 +2297,7 @@ curl -v -X POST \
 }' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ostf17zuKEUMYQAQGCOV/verify"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 {
@@ -2334,7 +2334,7 @@ curl -v -X POST \
 
 Verifies an OTP for a `call` factor
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
@@ -2344,7 +2344,7 @@ Verifies an OTP for a `call` factor
 
 > If you omit `passCode` in the request a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`.
 
-#### Response Parameters
+##### Response Parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
@@ -2380,7 +2380,7 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 }
 ```
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X POST \
@@ -2392,7 +2392,7 @@ curl -v -X POST \
 }' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/clff17zuKEUMYQAQGCOV/verify"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 {
@@ -2406,7 +2406,7 @@ curl -v -X POST \
 
 Verifies an OTP for a `token:software:totp` factor
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
@@ -2414,7 +2414,7 @@ Verifies an OTP for a `token:software:totp` factor
 | factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
 | passCode     | OTP generated by device                             | Body       | String   | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- |
@@ -2436,7 +2436,7 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 }
 ```
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X POST \
@@ -2448,7 +2448,7 @@ curl -v -X POST \
 }' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ostf17zuKEUMYQAQGCOV/verify"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 {
@@ -2464,7 +2464,7 @@ Creates a new verification transaction and sends an asynchronous push notificati
 
 ##### Start new Verify Transaction
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
@@ -2475,13 +2475,13 @@ Creates a new verification transaction and sends an asynchronous push notificati
 
 > The **public IP address** of your application must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
-#### Response Parameters
+##### Response Parameters
 
 | Parameter    | Description                                                          | Param Type | DataType                                             | Required |
 | ------------ | -------------------------------------------------------------------- | ---------- | ---------------------------------------------------- | -------- |
 | factorResult | verification result (`WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`) | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X POST \
@@ -2493,7 +2493,7 @@ curl -v -X POST \
 "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opf3hkfocI4JTLAju0g4/verify"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 {
@@ -2569,7 +2569,7 @@ Polls a push verification transaction for completion.  The transaction result is
 }
 ```
 
-#### Response Example (Approved)
+##### Response Example (Approved)
 
 ```json
 {
@@ -2577,7 +2577,7 @@ Polls a push verification transaction for completion.  The transaction result is
 }
 ```
 
-#### Response Example (Rejected)
+##### Response Example (Rejected)
 
 ```json
 {
@@ -2604,7 +2604,7 @@ Polls a push verification transaction for completion.  The transaction result is
 }
 ```
 
-#### Response Example (Timeout)
+##### Response Example (Timeout)
 
 ```json
 {
@@ -2637,7 +2637,7 @@ Polls a push verification transaction for completion.  The transaction result is
 
 Verifies an OTP for a `token` or `token:hardware` factor
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
@@ -2645,7 +2645,7 @@ Verifies an OTP for a `token` or `token:hardware` factor
 | factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
 | passCode     | OTP generated by device                             | Body       | String   | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------- | -------- |
@@ -2667,7 +2667,7 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 }
 ```
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X POST \
@@ -2679,7 +2679,7 @@ curl -v -X POST \
 }' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ostf17zuKEUMYQAQGCOV/verify"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 {
@@ -2693,7 +2693,7 @@ curl -v -X POST \
 
 Verifies an OTP for an `email` factor
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
@@ -2704,7 +2704,7 @@ tokenLifetimeSeconds | Lifetime of the OTP when requesting one                  
 
 > If you omit `passCode` in the request a new OTP is sent to the email address, otherwise the request attempts to verify the `passCode`.
 
-#### Response Parameters
+##### Response Parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
@@ -2740,7 +2740,7 @@ If the passcode is invalid response will be `403 Forbidden` with the following e
 }
 ```
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X POST \
@@ -2752,7 +2752,7 @@ curl -v -X POST \
 }' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/emfnf3gSScB8xXoXK0g3/verify?tokenLifetimeSeconds=600"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 {
