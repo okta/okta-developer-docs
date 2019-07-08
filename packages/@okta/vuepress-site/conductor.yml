@@ -1574,9 +1574,13 @@ redirects:
   - from: /docs/sdk/core/python_api_sdk
     to: /docs/sdk/core/python_api_sdk/
   - from: /documentation
-    to: /documentation/
+    to: /docs/
+  - from: /documentation.html
+    to: /docs/
   - from: /reference
-    to: /reference/
+    to: /docs/reference/
+  - from: /reference.html
+    to: /docs/reference/
   - from: /standards/OIDC
     to: /standards/OIDC/
   - from: /standards/SAML
