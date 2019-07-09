@@ -344,7 +344,7 @@ Your endpoint needs to be able to correctly send back information to Okta in JSO
 
 Only `ACTIVE` and `VERIFIED` event hooks can receive events from Okta.
 
-A timeout of 3 seconds is enforcd on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
+A timeout of 3 seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
 
 
 ##### Request Example
@@ -630,4 +630,6 @@ To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, a
 
 ### Supported Events for Subscription
 
-When registering an event hook, you need to specify what events you want to subscribe to. The supported event types can be found [here.](/docs/reference/api/event-types/?q=event-hook-eligible/#catalog)
+When registering an event hook, you need to specify what events you want to subscribe to. To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
+
+<https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible>
