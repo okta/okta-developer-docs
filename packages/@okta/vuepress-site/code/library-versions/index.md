@@ -74,7 +74,7 @@ This table lists the current (and historical) major versions of our open-source 
 | [PHP management SDK][sdk-php]                                   | 0.2.0<br>**1.x**                   | Retired<br>**Stable**                |
 | [JWT verifier for PHP][php-jwt-verifier]                        | **0.x**                            | **Stable**                           |
 | [React SDK][sdk-react]                                          | 0.0.13<br>**1.x**                  | Retired<br>**Stable**                |
-| [React Native SDK][sdk-react]                                   | 0.1.0                              | Beta                                 |
+| [React Native SDK][sdk-react]                                   | 0.1.0<br>**1.x**                   | Retiring on 2020-04-08<br>**Stable** |
 | [Vue SDK][sdk-vue]                                              | 0.1.0<br>**1.x**                   | Retired<br>**Stable**                |
 
 [sdk-angular]: https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular
