@@ -80,7 +80,7 @@ module.exports = {
       },
       { text: 'Pricing', link: '/pricing/' },
       { text: 'Blog', link: '/blog/' },
-      { text: 'Docs', link: '/docs/',
+      { text: 'Docs', link: '/docs/', active: true,
         children: [
           { text: 'Get Started', link: '/docs/' },
           { text: 'Guides', link: '/docs/guides/' },
