@@ -1,0 +1,1 @@
+You can optionally follow your base URI with a path (for example, `http://localhost:8080/logged_out`). Also, add any URIs where your application runs in production, such as `https://app.example.com/logged_out`.

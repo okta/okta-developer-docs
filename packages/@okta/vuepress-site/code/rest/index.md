@@ -20,19 +20,19 @@ You'll need a free Okta developer organization to get started. If you don't have
 ## Set Up Your Environment
 
 1. [Create an API token](/docs/guides/create-an-api-token/) for your org.
-2. [Install the Postman app](https://www.getpostman.com/apps).
-3. Launch Postman and click the **Import** button. Select **Import From Link**, and paste this link into the textbox: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`
+1. [Install the Postman app](https://www.getpostman.com/apps).
+1. Launch Postman and click the **Import** button. Select **Import From Link**, and paste this link into the textbox: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`
 ![Importing the Okta Example Environment](/img/import_enviro.png "Importing the Okta Example Environment")
 
-4. Once it's imported, make sure the `example.oktapreview.com` environment is selected.
+1. Once it's imported, make sure the `example.oktapreview.com` environment is selected.
 ![Postman app with collections](/img/postman_example_start.png "Postman app with collections")
 
-5. Click the eye icon next to `example.oktapreview.com` and select **Edit** to replace or add these values:
+1. Click the eye icon next to `example.oktapreview.com` and select **Edit** to replace or add these values:
     * Rename your environment to something you'll recognize. For example, `My Org`.
     * `url`: Replace the example value with your org's full URL: . For example, `https://{yourOktaDomain}`. (Make sure you don't include `-admin` in the subdomain!)
     * `apikey`: Enter the API token you created earlier, for example `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
-6. Click **Update** to save your changes.
+1. Click **Update** to save your changes.
 
 <DomainAdminWarning />
 
@@ -56,7 +56,7 @@ Once you've imported the Users API collection, and added your Okta org informati
 To make sure everything works, send a request to list all the users in your org:
 
 1. Select the **Collections** tab in Postman and open the **Users (Okta API)** collection. Open the **List Users** folder, and select **(GET) List Users**. This loads the List Users request into Postman, ready to send.
-2. Click **Send**. The result pane automatically displays the results of your request:
+1. Click **Send**. The result pane automatically displays the results of your request:
 ![GET List Users](/img/postman_response.png "GET List Users")
 
 If you receive an error, it's likely that one of the values in the environment isn't set correctly. Check the values and try again.
@@ -77,7 +77,7 @@ To find an ID:
 1. List a resource collection with a search or filter. For example, list the users in your org, as you did in the previous section.
 ![List Users Response](/img/postman_response2.png "List Users Response")
 
-2. Copy the `id` of the resource, in this example the `id` for Tony Stark, in your next request.
+1. Copy the `id` of the resource, in this example the `id` for Tony Stark, in your next request.
 
 ### Retain Headers When Clicking Links
 
@@ -86,5 +86,5 @@ Retaining the headers is helpful when you click HAL links in responses.
 To retain the headers:
 
 1. Launch Postman and click the wrench icon.
-2. Select **Settings**.
-3. In the **Headers** column, enable **Retain headers when clicking on links**.
+1. Select **Settings**.
+1. In the **Headers** column, enable **Retain headers when clicking on links**.
