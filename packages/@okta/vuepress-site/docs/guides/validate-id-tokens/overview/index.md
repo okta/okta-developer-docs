@@ -72,4 +72,4 @@ The Okta JWT Verifier is available for the following languages:
 - [Node.js](https://github.com/okta/okta-oidc-js/tree/master/packages/jwt-verifier)
 - [PHP](https://github.com/okta/okta-jwt-verifier-php)
 
-Don't see the language you're working in? Get in touch: [mailto:developers@okta.com]
+Don't see the language you're working in? Get in touch: <developers@okta.com>
