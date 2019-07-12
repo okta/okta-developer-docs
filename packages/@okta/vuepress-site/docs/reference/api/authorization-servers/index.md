@@ -17,7 +17,7 @@ This page also has information about the [OAuth 2.0 Objects](#oauth-20-objects) 
 
 ### Authorization Server Operations
 
-Use the following operations to manage Custom Authorization Servers:Fil
+Use the following operations to manage Custom Authorization Servers:
 
 * [Create](#create-authorization-server)
 * [List](#list-authorization-servers)
