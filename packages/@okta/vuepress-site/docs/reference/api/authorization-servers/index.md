@@ -17,7 +17,7 @@ This page also has information about the [OAuth 2.0 Objects](#oauth-20-objects) 
 
 ### Authorization Server Operations
 
-Use the following operations to manage Custom Authorization Servers:
+Use the following operations to manage Custom Authorization Servers:Fil
 
 * [Create](#create-authorization-server)
 * [List](#list-authorization-servers)
@@ -885,17 +885,17 @@ When you use these API endpoints to create or modify a Claim resource, the respo
 | alwaysIncludeInToken   | Specifies whether to include claims in token. [Details](#details-for-alwaysincludeintoken)                                                                                                                                                         | Boolean                                                | False                                    |
 | claimType              | Specifies whether the claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`)                                                                                                                                                           | Enum                                                   | True                                     |
 | conditions             | Specifies the scopes for this claim                                                                                                                                                                                                                | [Condition Object](#condition-object)                  | False                                    |
-| groupFilterType        | Specifies the type of group filter if `valueType` is `GROUPS`. [Details](#details-for-groupfiltertype)                                                                                                                                             | Enum                                                   | False                                    |
+| group_filter_type        | Specifies the type of group filter if `valueType` is `GROUPS`. [Details](#details-for-groupfiltertype)                                                                                                                                             | Enum                                                   | False                                    |
 | id                     | ID of the claim                                                                                                                                                                                                                                    | String                                                 | True except for create or get all claims |
 | name                   | Name of the claim                                                                                                                                                                                                                                  | String                                                 | True                                     |
 | status                 | Specifies whether requests have access to this claim. Valid values: `ACTIVE` or `INACTIVE`                                                                                                                                                         | Enum                                                   | True                                     |
 | system                 | Specifies whether Okta created this claim                                                                                                                                                                                                          | Boolean                                                | System                                   |
 | valueType              | Specifies whether the claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)                                                                                                                      | Enum                                                   | True                                     |
-| value                  | Specifies the value of the claim. This value must be a string literal if `valueType` is `GROUPS`, and the string literal is matched with the selected `groupFilterType`. The value must be an Okta EL expression if `valueType` is `EXPRESSION`.   | String                                                 | True                                     |
+| value                  | Specifies the value of the claim. This value must be a string literal if `valueType` is `GROUPS`, and the string literal is matched with the selected `group_filter_type`. The value must be an Okta EL expression if `valueType` is `EXPRESSION`.   | String                                                 | True                                     |
 
-##### Details for `groupFilterType`
+##### Details for `group_filter_type`
 
-If `valueType` is `GROUPS`, then the groups returned are filtered according to the value of `groupFilterType`:
+If `valueType` is `GROUPS`, then the groups returned are filtered according to the value of `group_filter_type`:
 
 * `STARTS_WITH`: Group names start with `value` (not case sensitive). For example, if `value` is `group1`, then `group123` and `Group123` are included.
 * `EQUALS`: Group name is the same as `value` (not case sensitive). For example, if `value` is `group1`, then `group1` and `Group1` are included, but `group123` isn't.
