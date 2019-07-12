@@ -1546,13 +1546,15 @@ redirects:
   - from: /guides/validate-access-tokens/index.html
     to: /docs/guides/validate-access-tokens/
   - from: /docs/api/resources/factor_admin/index.html
-    to: /docs/reference/api/factor_admin/ 
+    to: /docs/reference/api/factor_admin/
   - from: /guides/validate-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide
-    to: /authentication-guide/
+    to: /docs/concepts/auth-overview/
   - from: /code
-    to: /code/
+    to: /docs/
+  - from: /code.html
+    to: /docs/
   - from: /code/swift
     to: /code/swift/
   - from: /docs/api/getting_started
@@ -1574,9 +1576,13 @@ redirects:
   - from: /docs/sdk/core/python_api_sdk
     to: /docs/sdk/core/python_api_sdk/
   - from: /documentation
-    to: /documentation/
+    to: /docs/
+  - from: /documentation.html
+    to: /docs/
   - from: /reference
-    to: /reference/
+    to: /docs/reference/
+  - from: /reference.html
+    to: /docs/reference/
   - from: /standards/OIDC
     to: /standards/OIDC/
   - from: /standards/SAML

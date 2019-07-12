@@ -17,7 +17,6 @@ public class AccountController : Controller
     }
 }
 ```
-
 Update your `using` statements to import the following namespaces:
 
 ```csharp

@@ -1,4 +1,4 @@
-ASP.NET Core hosts an internal sign-out handler at `/signout/callback`. You need to add it as a valid **Logout redirect URI** in Okta:
+ASP.NET Core hosts an internal sign-out handler at `/signout/callback`. You need to add it as a valid **Logout redirect URI** in Okta. See [Define the signout callback](/docs/guides/sign-users-out/define-signout-callback/) for more information on defining this URI in your application settings.
 
 Open your Okta Developer Console:
 
@@ -26,7 +26,7 @@ public class AccountController : Controller
 }
 ```
 
-Update your `using` statements to import the following namespaces:
+Then, update your `using` statements to import the following namespaces:
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.Cookies;
