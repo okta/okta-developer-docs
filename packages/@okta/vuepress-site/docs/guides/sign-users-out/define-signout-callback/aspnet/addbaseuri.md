@@ -1,0 +1,1 @@
+Follow your base URI with `/account/postsignout` (for example, `http://localhost:3000/account/postsignout`).
