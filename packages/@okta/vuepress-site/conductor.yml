@@ -1550,7 +1550,7 @@ redirects:
   - from: /guides/validate-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide
-    to: /docs/concepts/auth-overview//
+    to: /docs/concepts/auth-overview/
   - from: /code
     to: /docs/
   - from: /code.html
