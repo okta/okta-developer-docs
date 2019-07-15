@@ -51,9 +51,9 @@ With the above steps completed, you can start a preview server by running this c
 yarn dev
 ```
 
-This starts a preview server on your machine, and watches all files for changes. Open http://localhost:8080/documentation/ to view the documentation.
+This starts a preview server on your machine, and watches all files for changes. Open http://localhost:8080/docs/ to view the documentation.
 
- > Note: if you try to visit the root, you will get a 404 page.  You must visit a path corresponding to a [directory under `vuepress-site`](https://github.com/okta/okta-developer-docs/tree/master/packages/%40okta/vuepress-site), like `/documentation`.
+ > Note: if you try to visit the root, you will get a 404 page.  You must visit a path corresponding to a [directory under `vuepress-site`](https://github.com/okta/okta-developer-docs/tree/master/packages/%40okta/vuepress-site), like `/docs/`.
 
 The preview server supports hot reloading. Once the server is running on your machine, any changes you make to Markdown content will appear automatically in your browser within a few seconds. Note that changes to page frontmatter or site configuration require you to stop and start the preview server.
 

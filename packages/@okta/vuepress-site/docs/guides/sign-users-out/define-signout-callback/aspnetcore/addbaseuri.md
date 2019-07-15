@@ -1,0 +1,1 @@
+Follow your base URI with `/signout/callback` (for example, `http://localhost:3000/signout/callback`).
