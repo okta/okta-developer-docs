@@ -33,13 +33,13 @@ Note that the API key you set here is unrelated to the Okta API token you must s
 
 You can also optionally specify extra headers that you wish Okta to pass to your external service with each call.
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter   | Description                                                                                | Param Type | DataType                                  | Required |
 |-------------|--------------------------------------------------------------------------------------------|------------|-------------------------------------------|----------|
 | Event Hook | A valid Event Hook object, specifying the details of the event hook you are registering. | Body       | [Event Hook object](#event-hook-object) | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 The response is an [Event Hook object](#event-hook-object) representing the event hook that was registered. The `id` property returned in the response serves as the unique ID for the registered event hook, which you can specify when invoking other CRUD operations.
 
@@ -126,13 +126,13 @@ curl -v -X POST \
 
 <ApiOperation method="get" url="/api/v1/eventHooks/${id}" />
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter | Description             | Param Type | DataType | Required |
 |-----------|-------------------------|------------|----------|----------|
 | `id`      | A valid Event Hook ID. | Path       | String   | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 The response is an [Event Hook object](#event-hook-object) representing the registered event hook that matches the `id` you specified.
 
@@ -240,7 +240,7 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/eventHooks/${id}" />
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter  | Description                                                                   | Param Type | DataType                                  | Required |
 |------------|-------------------------------------------------------------------------------|------------|-------------------------------------------|----------|
@@ -249,7 +249,7 @@ curl -v -X GET \
 
 The submitted event hook properties will replace the existing properties after passing validation. Note that some properties are immutable and cannot be updated. Refer to the description of each property in the [Event Hook object](#event-hook-object) table for information.
 
-#### Response Parameters
+##### Response Parameters
 
 The response is an [Event Hook object](#event-hook-object) representing the updated event hook.
 
@@ -398,7 +398,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/eventHooks/${id}/lifecycle/activate" />
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter | Description                          | Param Type | DataType | Required |
 |-----------|--------------------------------------|------------|----------|----------|
@@ -406,7 +406,7 @@ curl -v -X POST \
 
 Activates the event hook matching the provided `id`.
 
-#### Response Parameters
+##### Response Parameters
 
 The response is an [Event Hook object](#event-hook-object) representing the activated event hook.
 
@@ -460,7 +460,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/eventHooks/${id}/lifecycle/deactivate" />
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter | Description                          | Param Type | DataType | Required |
 |-----------|--------------------------------------|------------|----------|----------|
@@ -468,7 +468,7 @@ curl -v -X POST \
 
 Deactivates the event hook matching the provided `id`.
 
-#### Response Parameters
+##### Response Parameters
 
 The response is an [Event Hook object](#event-hook-object) representing the deactivated event hook.
 
@@ -522,7 +522,7 @@ curl -v -X POST \
 
 <ApiOperation method="delete" url="/api/v1/eventHooks/${id}" />
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter | Description                          | Param Type | DataType | Required |
 |-----------|--------------------------------------|------------|----------|----------|
@@ -530,7 +530,7 @@ curl -v -X POST \
 
 Deletes the event hook matching the provided `id`. Once deleted, the event hook is unrecoverable. As a safety precaution, only event hooks with a status of `INACTIVE` are eligible for deletion.
 
-#### Response Parameters
+##### Response Parameters
 
 All responses will return a 204 status with no content.
 
