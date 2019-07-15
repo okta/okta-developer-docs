@@ -42,7 +42,7 @@ const reactContentHeaderId = 'okta-react-quickstart';
 const vueContentHeaderId = 'okta-vue-js-quickstart';
 const androidContentHeaderId = 'okta-android-quickstart';
 const iosContentHeaderId = 'okta-ios-quickstart';
-const reactNativeContentHeaderId = 'okta-react-native-quickstart';
+const reactNativeContentHeaderId = 'change-notice';
 
 const nodeExpressJsContentHeaderId = 'okta-node-js-express-js-quickstart';
 const nodeGenericContentHeaderId = 'okta-node-js-quickstart';

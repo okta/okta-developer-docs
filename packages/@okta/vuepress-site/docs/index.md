@@ -1,4 +1,6 @@
 ---
+# This file controls the links and content shown on the /docs landing page.
+
 component: Documentation
 title: Documentation
 meta:
