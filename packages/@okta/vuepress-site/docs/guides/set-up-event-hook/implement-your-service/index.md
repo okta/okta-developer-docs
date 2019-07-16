@@ -6,11 +6,11 @@ To handle event hook calls from Okta, you need to implement a web service with a
 
 ## Handling One-Time Verification Request
 
-In adition to handling ongoing calls that deliver information about events occurring in your org, you need to implement functionality in your web service to handle a one-time verification request that Okta will send.
+In adition to handling the ongoing calls that deliver information about events , you need to implement functionality in your web service to handle a one-time verification request Okta sends.
 
-The point at which this one-time verification request is triggered is when you perform the step [Verify Your Endpoint](/docs/guides/set-up-event-hook/verify-your-endpoint), covered later in this guide.
+The point at which this one-time verification request is triggered is when you perform the step [Verify Your Endpoint](/docs/guides/set-up-event-hook/verify-your-endpoint), covered later in this guide. In that step, you make a manual request to Okta to verify your endpoint. Okta then sends the one-time verification request to your endpoint, and your endpoint is expected to respond in a particular way.
 
-The pattern for the request and response for this one-time verification request is different than for the ongoing calls that deliver information about events. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for information on the specific request and response pattern for the one-time verification request.
+The pattern for the request and response for this one-time verification request is different than for the ongoing calls that deliver information about events. It is covered in [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request), and you need to implement functionality in your web service to handle it correctly.
 
 <NextSectionLink/>
 
