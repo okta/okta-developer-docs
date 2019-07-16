@@ -32,7 +32,7 @@ Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](htt
 
 <ApiOperation method="get" url="/api/v1/policies/${policyId}" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy ID described in the [Policy Object](#policy-object) is required.
 
@@ -58,7 +58,7 @@ HTTP 200:
 
 <ApiOperation method="get" url="/api/v1/policies/${policyId}?expand=rules" />
 
-#### Request Parameters
+##### Request Parameters
 
 * The policy ID described in the [Policy Object](#policy-object) is required.
 * The `expand=rules` query parameter returns up to twenty rules for the specified policy. If the policy has more than 20 rules, this request returns an error.
@@ -87,7 +87,7 @@ Included as embedded objects, one or more [Policy Rules](#rules).
 
 <ApiOperation method="get" url="/api/v1/policies?type=${type}" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy type described in the [Policy Object](#policy-object) is required.
 
@@ -115,7 +115,7 @@ HTTP 204:
 
 <ApiOperation method="delete" url="/api/v1/policies/${policyId}" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy ID described in the [Policy Object](#policy-object) is required.
 
@@ -141,7 +141,7 @@ HTTP 204:
 
 <ApiOperation method="put" url="/api/v1/policies/${policyId}" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy ID described in the [Policy Object](#policy-object) is required.
 
@@ -219,7 +219,7 @@ HTTP 204:
 
 <ApiOperation method="post" url="/api/v1/policies/${policyId}/lifecycle/activate" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy id described in the [Policy Object](#policy-object) is required.
 
@@ -245,7 +245,7 @@ HTTP 204:
 
 <ApiOperation method="post" url="/api/v1/policies/${policyId}/lifecycle/deactivate" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy ID described in the [Policy Object](#policy-object) is required.
 
@@ -273,7 +273,7 @@ HTTP 200:
 
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/rules" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy ID described in the [Policy Object](#policy-object) is required.
 
@@ -299,7 +299,7 @@ HTTP 200:
 
 <ApiOperation method="post" url="/api/v1/policies/${policyId}/rules" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy ID described in the [Policy Object](#policy-object) is required.
 
@@ -349,7 +349,7 @@ HTTP 200:
 
 <ApiOperation method="delete" url="/api/v1/policies/${policyId}/rules/${ruleId}" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy ID described in the [Policy Object](#policy-object) is required.
 
@@ -375,7 +375,7 @@ HTTP 204:
 
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/rules/${ruleId}" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy ID described in the [Policy Object](#policy-object) is required.
 
@@ -401,7 +401,7 @@ HTTP 200:
 
 <ApiOperation method="put" url="/api/v1/policies/${policyId}/rules/${ruleId}" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy ID described in the [Policy Object](#policy-object) is required.
 
@@ -451,7 +451,7 @@ HTTP 200:
 
 <ApiOperation method="post" url="/api/v1/policies/${policyId}/rules/${ruleId}/lifecycle/activate" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy ID described in the [Policy Object](#policy-object) is required.
 
@@ -477,7 +477,7 @@ HTTP 204:
 
 <ApiOperation method="post" url="/api/v1/policies/${policyId}/rules/${ruleId}/lifecycle/deactivate" />
 
-#### Request Parameters
+##### Request Parameters
 
 The policy ID described in the [Policy Object](#policy-object) is required.
 

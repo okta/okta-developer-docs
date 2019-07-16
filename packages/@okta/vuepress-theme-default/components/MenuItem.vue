@@ -4,7 +4,8 @@
     :class="{
       'first': (index == 0),
       'leaf': (index == last),
-      'expanded': (item.children && item.children.length)
+      'expanded': (item.children && item.children.length),
+      'active': (item.active)
     }">
 
     <a
