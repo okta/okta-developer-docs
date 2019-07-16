@@ -4,8 +4,9 @@ Create a configuration object in code:
 config = new OIDCConfig.Builder()
     .clientId("{clientId}")
     .redirectUri("{redirectUri}")
+    .endSessionRedirectUri("{endSessionUri}")
     .scopes("openid", "profile", "offline_access")
-    .discoveryUri("https://{yourOktaDomain}/oauth2/default")
+    .discoveryUri("https://{yourOktaDomain}")
     .create();
 ```
 
@@ -15,12 +16,13 @@ Or, create a new `okta_oidc_config.json` file in your application's `res/raw` wi
 {
   "client_id": "{clientId}",
   "redirect_uri": "{redirectUri}",
+  "end_session_redirect_uri": "{endSessionUri}",
   "scopes": [
     "openid",
     "profile",
     "offline_access"
   ],
-  "discovery_uri": "https://{yourOktaDomain}/oauth2/default"
+  "discovery_uri": "https://{yourOktaDomain}"
 }
 ```
 
