@@ -1,1 +1,1 @@
-We have samples available in our [ASP.NET Core Sample repo](https://github.com/okta/samples-aspnetcore) on GitHub.
+WThe samples available in our [ASP.NET Core Sample repo](https://github.com/okta/samples-aspnetcore) on GitHub show how to sign users out of the app and out of Okta.
