@@ -1,5 +1,5 @@
 ---
-title: Implementing Your Service
+title: Implement Your Service
 ---
 
 Event Hooks take the form of HTTPS REST calls to a URL you specify, encapsulating information about the events in JSON objects in the request body. These calls from Okta are meant to be used as triggers for process flows within your own software systems.
