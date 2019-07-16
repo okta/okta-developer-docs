@@ -1,0 +1,6 @@
+code .tooltip { 
+  width: max-content;
+  max-width: $max-line-length/2;
+  white-space: normal;
+  font-family: $body-font-family;
+}
