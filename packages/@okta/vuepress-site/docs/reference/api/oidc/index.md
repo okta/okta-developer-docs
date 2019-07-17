@@ -195,7 +195,7 @@ https://{yourOktaDomain}/oauth2/default/v1/authorize?
   request=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPa3RhIiwiaWF0IjoxNTEyNTE2MjIxLCJleHAiOjE1NDQwNTIyMjEsImF1ZCI6Ind3dy5leGFtcGxlLmNvbSIsInN1YiI6InNqYWNrc29uQGV4YW1wbGUuY29tIiwiRW1haWwiOiJzamFja3NvbkBleGFtcGxlLmNvbSIsInJlc3BvbnNlX3R5cGUiOiJjb2RlIiwicmVzcG9uc2VfbW9kZSI6ImZvcm1fcG9zdCIsInJlZGlyZWN0X3VyaSI6Im15UmVkaXJlY3RVUkkuY29tIiwic3RhdGUiOiJteVN0YXRlIiwibm9uY2UiOiJteU5vbmNlIiwic2NvcGUiOiJvcGVuaWQgb2ZmbGluZV9hY2Nlc3MifQ.TjPy2_nUerULClavBNHcpnO_Pd1DxNEjQCeSW45ALJg"
 ```
 
-This request initiates the implicit flow, which gets an ID token and access token from the Authorization Sserver without the code exchange step. We use the same request as the first example, but with `response_type=id_token token`:
+This request initiates the implicit flow, which gets an ID token and access token from the Authorization Server without the code exchange step. We use the same request as the first example, but with `response_type=id_token token`:
 
 ```
 https://{yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabv6kx4qq6
@@ -227,7 +227,7 @@ https://www.example.com/#error=invalid_scope&error_description=The+requested+sco
 This endpoint returns access tokens, ID tokens, and refresh tokens, depending on the request parameters. For [password](/docs/guides/implement-password/), [client credentials](/docs/guides/implement-client-creds/), and [refresh token](/docs/guides/refresh-tokens/) flows, calling `/token` is the only step of the flow. For the [authorization code](/docs/guides/implement-auth-code/) flow, calling `/token` is the second step of the flow.
 
 
-> This endpoint's base URL varies depending on whether you are using a Custom Authorization Aerver. For more information, see [Composing your base URL](#composing-your-base-url).
+> This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. For more information, see [Composing your base URL](#composing-your-base-url).
 
 #### Request parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
