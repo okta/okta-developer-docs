@@ -10,7 +10,7 @@ You call `POST https://{yourOktaDomain}/api/v1/eventHooks` to register your endp
  - the list of specific event types this event hook should deliver
  - the secret value Okta should send in the authorization header of requests, to authenticate to your service
 
-If the operation is successful, Okta sends back an `eventHook` object too, confirming the properties of the created Event Hook. The object you get back also includes a system-generated `id` property, which is a unique identifier for the newly-created event hook. You need to provide this `id` later when using the Event Hooks Management API to perform additional operations on this Event Hook.
+If the operation is successful, Okta sends back a `200 OK` response containing an `eventHook` object too, confirming the properties of the created Event Hook. The object you get back also includes a system-generated `id` property, which is a unique identifier for the newly-created event hook. You need to provide this `id` later when using the Event Hooks Management API to perform additional operations on this Event Hook.
 
 <NextSectionLink/>
 
