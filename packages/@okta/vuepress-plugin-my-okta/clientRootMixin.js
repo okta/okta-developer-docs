@@ -32,31 +32,23 @@ export default {
     },
 
     wrapDomain: function({ domain, message }) { 
-      // const replacement = `<span class="has-tooltip"><abbr class="okta-domain">${domain}</abbr><span class="tooltip is-tooltip-top okta-domain-message" role="tooltip">${message}</span></span>`;
       const fences = document.querySelectorAll('code:not(.wrapped-okta-domain)');
 
       fences.forEach( fence => {
         const id = `domain-tooltip-${counter()}`;
-        const replacement = `
-          <span class="has-tooltip">
-            <abbr class="okta-domain" aria-describedby="${id}">${domain}</abbr>
-            <span id="${id}" class="tooltip is-tooltip-top okta-domain-message" role="tooltip">${message}</span>
-          </span>
-        `.replace(/>[$\s]*/mg, '>').trim();
+        const replacement = `<abbr class="okta-domain" title="${message}">${domain}</abbr>`
         fence.innerHTML = fence.innerHTML.replace(/https?:\/\/{yourOktaDomain}/gi, replacement);
         fence.classList.add('wrapped-okta-domain'); // only add html to a given code block once
       });
     },
 
     replaceDomain: function ({ domain, message }) { 
+      // If the domain loads after the content, we need to update
       const fences = document.querySelectorAll('code.wrapped-okta-domain');
-
       fences.forEach( fence => {
         fence.querySelectorAll('.okta-domain').forEach( abbr => {
           abbr.innerText = domain;
-        });
-        fence.querySelectorAll('.okta-domain-message').forEach( tooltip => { 
-          tooltip.innerText = message;
+          abbr.title = message;
         });
       });
     },
@@ -69,7 +61,6 @@ export default {
 
       const message = hasDomain ? REPLACED_DOMAIN_MSG : UNREPLACED_DOMAIN_MSG;
       const domain = hasDomain ? event.data[0].origin : DISPLAY_DOMAIN;
-      // const domain = 'http://mydomain.com';
 
       const myOktaAccountFound = new CustomEvent('myOktaAccountFound', {
         detail: {

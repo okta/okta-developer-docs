@@ -1,6 +1,5 @@
-code .tooltip { 
-  width: max-content;
-  max-width: $max-line-length/2;
-  white-space: normal;
-  font-family: $body-font-family;
+abbr[title].okta-domain {
+  text-decoration: none;
+  border: none;
+  border-bottom: 1px dashed;
 }
