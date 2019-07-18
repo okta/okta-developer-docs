@@ -2,11 +2,11 @@
 title: Verify Your Endpoint
 ---
 
-After registering the event hook, you need to trigger a one-time verification process by making a POST request to `POST https://{yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/verify`. The `id` is the system-generated unique ID value for the Event Hook object, which Okta returned in the `eventHook` object when you regigstered the event hook.
+After registering the event hook, you need to trigger a one-time verification process, by making a `POST` request to `https://{yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/verify`. The `id` value here is the system-generated unique ID value for the Event Hook object, which Okta returned in the `eventHook` object when you registered the event hook.
 
-When Okta receives this request, it, in turn, calls out to your external service, making a verification request to it. The purpose of this step is to prove that you control the endpoint. You need to have implemented functionality in your service to handle the expected request and response.
+When Okta receives your request, it, in turn, calls out to your external service, making a one-time verification request to it. You need to have implemented functionality in your service to handle the expected request and response. The purpose of this step is to prove that you control the endpoint. 
 
-If verification is successful, Okta responds to your call to the the `/verify` endpoint with an Event Hook object that includes a property named `verificationStatus` set to `VERIFIED`.
+If verification is successful, Okta responds to your call to the `/verify` endpoint with an Event Hook object that includes a property named `verificationStatus` set to `VERIFIED`.
 
 <NextSectionLink/>
 
