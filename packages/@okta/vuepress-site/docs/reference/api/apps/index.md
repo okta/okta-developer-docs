@@ -1036,6 +1036,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | :------------------ | :--------------------------------- | :---------------------------- | :----------- |
 | `CONSENT`           | `TRUSTED` or `REQUIRED`            | `REQUIRED`                    | Prompted     |
 | `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
+| `CONSENT`           | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
 | `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
 | `NONE`              | `REQUIRED`                         | `REQUIRED`                    | Prompted     |
 | `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |

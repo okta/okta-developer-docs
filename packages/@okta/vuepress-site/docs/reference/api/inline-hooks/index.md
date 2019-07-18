@@ -33,13 +33,13 @@ Note that the API key you set here is unrelated to the Okta API token you must s
 
 You can also optionally specify extra headers that you wish Okta to pass to your external service with each call.
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter   | Description                                                                                  | Param Type   | DataType                                    | Required |
 | ----------- | -------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
 | Inline Hook | A valid Inline Hook object, specifying the details of the inline hook you are registering.   | Body         | [Inline Hook object](#inline-hook-object)   | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 The response is an [Inline Hook object](#inline-hook-object) representing the inline hook that was registered. The `id` property returned in the response serves as the unique ID for the registered inline hook, which you can specify when invoking other CRUD operations.
 
@@ -117,13 +117,13 @@ curl -v -X POST \
 
 <ApiOperation method="get" url="/api/v1/inlineHooks/${id}" />
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter | Description               | Param Type   | DataType   | Required |
 | --------- | ------------------------- | ------------ | ---------- | -------- |
 | `id`      | A valid Inline Hook ID.   | Path         | String     | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 The response is an [Inline Hook object](#inline-hook-object) representing the registered inline hook that matches the `id` you specified.
 
@@ -227,7 +227,7 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/inlineHooks/${id}" />
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
@@ -236,7 +236,7 @@ curl -v -X GET \
 
 The submitted inline hook properties will replace the existing properties after passing validation. Note that some properties are immutable and cannot be updated. Refer to the description of each property in the [Inline Hook object](#inline-hook-object) table for information.
 
-#### Response Parameters
+##### Response Parameters
 
 The response is an [Inline Hook object](#inline-hook-object) representing the updated inline hook.
 
@@ -311,7 +311,7 @@ curl -v -X PUT \
 
 <ApiOperation method="post" url="/api/v1/inlineHooks/${id}/lifecycle/activate" />
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
@@ -319,7 +319,7 @@ curl -v -X PUT \
 
 Activates the inline hook matching the provided `id`.
 
-#### Response Parameters
+##### Response Parameters
 
 The response is an [Inline Hook object](#inline-hook-object) representing the activated inline hook.
 
@@ -370,7 +370,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/inlineHooks/${id}/lifecycle/deactivate" />
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
@@ -378,7 +378,7 @@ curl -v -X POST \
 
 Deactivates the inline hook matching the provided `id`.
 
-#### Response Parameters
+##### Response Parameters
 
 The response is an [Inline Hook object](#inline-hook-object) representing the deactivated inline hook.
 
@@ -429,7 +429,7 @@ curl -v -X POST \
 
 <ApiOperation method="delete" url="/api/v1/inlineHooks/${id}" />
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter | Description                            | Param Type   | DataType   | Required |
 | --------- | -------------------------------------- | ------------ | ---------- | -------- |
@@ -437,7 +437,7 @@ curl -v -X POST \
 
 Deletes the inline hook matching the provided `id`. Once deleted, the inline hook is unrecoverable. As a safety precaution, only inline hooks with a status of `INACTIVE` are eligible for deletion.
 
-#### Response Parameters
+##### Response Parameters
 
 All responses will return a 204 status with no content.
 
@@ -470,7 +470,7 @@ A timeout of 3 seconds is enforced on all outbound requests, with one retry in t
 
 Note that this execution endpoint is not tied to any other functionality in Okta and should only be used for testing purposes.
 
-#### Response Parameters
+##### Response Parameters
 
 Successful responses will return the full response returned by the external service, which should match the data contract for
 the given `inlineHookType` and version.
