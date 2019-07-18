@@ -10,11 +10,9 @@ Your service needs to receive and handle the REST API calls Okta sends, to deliv
 
 ## Handle the One-Time Verification Request
 
-In addition to processing incoming event deliveries from Okta, your service also needs to implement functionality to handle a one-time verification request that Okta will send to it.
+In addition to processing incoming event deliveries from Okta, your service also needs to implement functionality to handle a one-time verification request that Okta will send to it. The REST API contract for this one-time verification request is different than the contract for the ongoing calls that deliver event notifications. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for a description of the API contract.
 
 This verification request is triggered when you perform the step [Verify Your Endpoint](/docs/guides/set-up-event-hook/verify-your-endpoint), covered later in this guide.
-
-The REST API contract for this one-time verification request is different than the contract for the ongoing calls that deliver event notifications. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for a description of the API contract.
 
 <NextSectionLink/>
 

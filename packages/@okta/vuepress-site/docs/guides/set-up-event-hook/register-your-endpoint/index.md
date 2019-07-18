@@ -2,15 +2,15 @@
 title: Register Your Endpoint
 ---
 
-After implementing your external service, you need to register it with Okta. A REST API call is required to do that. You can use a tool like Postman to make that call.
+After implementing your external service, you need to register it with Okta. Currently, you need to use make a REST call to the [Event Hooks Management API](/docs/reference/api/event-hooks/) is required in order to do that. You can use a tool like Postman to make the call, and Okta provides an [Event Hooks Management API Postman collection](/docs/reference/api/event-hooks/#getting-started) for you to use.
 
-The endpoint to call is `https://{yourOktaOrg}/api/v1/eventHooks`. You need to make a `POST` request and need to include a JSON payload in the body of the request containing an [eventHook](/docs/reference/api/event-hooks/#event-hook-object) object. You use the properties of the `eventHook` object to specify the properties of the Event Hook you are registering, including:
+The endpoint to call to register a new Event Hook is `POST https://{yourOktaDomain}/api/v1/eventHooks`. You include a JSON payload in the body of the request containing an [eventHook](/docs/reference/api/event-hooks/#event-hook-object) object, which specifies the properties of the Event Hook you are registering, including:
 
  - the URI of the your external service's endpoint
- - the list of specific event types you want to use the event hook to deliver
- - the secret value Okta should send in the authorization header of requests
+ - the list of specific event types this event hook should deliver
+ - the secret value Okta should send in the authorization header of requests, to authenticate to your service
 
-The response you receive will confirm creation of the event hook and provide you with the ID of the created event hook.
+If creation of the new Event Hook is successful, Okta returns an `eventHook` object, confirming that the Event Hook object was created. The bject you get back also includes an `id` property, which is a unique value for the created event hook. You need that ID to perform updates late to this Event Hook object.
 
 <NextSectionLink/>
 
