@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-Event Hooks are outbound calls from Okta to notify your software systems of events occurring in your Okta org. See [Event Hooks](/docs/concepts/event-hooks/) for an overview. This guide provides the steps for setting up an Event Hook in your Okta org, which are:
+Event Hooks are outbound calls from Okta that can be used to notify your own software systems of events occurring in your Okta org. See [Event Hooks](/docs/concepts/event-hooks/) for an overview. This guide provides the steps for setting up an Event Hook in your Okta org:
 
 1. Implement your external web service to receive Event Hook calls from Okta.
 1. Register the endpoint of your external service with Okta and configure Event Hook parameters.
