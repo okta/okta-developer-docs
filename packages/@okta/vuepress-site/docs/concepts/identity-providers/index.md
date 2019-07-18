@@ -40,7 +40,7 @@ You could connect your application directly to an Identity Provider (for example
 Okta sits between your application and the external provider. Your application only needs to talk to Okta, and Okta does the rest.
 
 ### Sign-in process
-The sign in process starts at the `/authorize` endpoint, and then goes out to the provider and back:
+The sign-in process starts at the `/authorize` endpoint, and then goes out to the provider and back:
 
 1. In your application, the user clicks a button similar to: **Sign in with (Identity Provider)**.
 2. Your application redirects the browser to Okta.
