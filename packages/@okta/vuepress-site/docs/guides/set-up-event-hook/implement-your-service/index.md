@@ -2,7 +2,7 @@
 title: Implement Your Service
 ---
 
-You need to implement a web service with an Internet-accessible endpoint to receive event hook calls from Okta. It's your responsibility to develop the code and to arrange its hosting on a system external to Okta. Okta defines the REST API contract for the REST requests it sends to your service.
+Before you start, you need to implement a web service with an Internet-accessible endpoint to receive Event Hook calls from Okta. It's your responsibility to develop the code and to arrange its hosting on a system external to Okta. Okta defines the REST API contract for the REST requests it sends to your service.
 
 ## Handle Ongoing Event Deliveries
 
