@@ -10,6 +10,7 @@ This guide assumes that you:
 * Have an Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
 * Already followed one of our sign-in guides: 
     * [Sign users in to your web app](/docs/guides/sign-into-web-app/) 
-    * [Sign users in to your single-page app](/docs/guides/sign-into-spa/) 
+    * [Sign users in to your single-page app](/docs/guides/sign-into-spa/)
+    * [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/)
 
 <NextSectionLink/>
