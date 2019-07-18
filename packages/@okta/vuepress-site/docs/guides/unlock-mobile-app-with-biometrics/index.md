@@ -4,6 +4,7 @@ excerpt: Learn how to easily integrate biometric authentication like Face ID and
 layout: Guides
 sections: 
  - overview
+ - configure-packages
  - store-tokens
  - discard-access-tokens
  - retrieve-refresh-token

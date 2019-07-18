@@ -1,3 +1,21 @@
-Example Code Note: Assume the developer's sign-in method looks like the example from: https://developer.okta.com/docs/guides/sign-into-mobile-app/ios/sign-in-page/
+```swfit
+oktaOidc.signInWithBrowser(from: self, callback: { stateManager, error in
 
-Show what must be updated to store the refresh tokens with biometrics.
+    if let error = error {
+        // handle error
+        return
+    }
+
+    guard let authStateData = try? NSKeyedArchiver.archivedData(withRootObject: stateManager, requiringSecureCoding: false) else {
+        return
+    }
+    
+    do {
+        try secureStorage.set(data: authStateData,
+                              forKey: "okta_user",
+                              behindBiometrics: secureStorage.isTouchIDSupported() || secureStorage.isFaceIDSupported())
+        } catch let error as NSError {
+            // handle error
+        }
+})
+```
