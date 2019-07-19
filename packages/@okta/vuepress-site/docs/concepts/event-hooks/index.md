@@ -93,23 +93,7 @@ Event Hooks are limited to sending 100,000 events per 24-hour period.
 
 ## Event Hook Setup
 
-### Registering an Event Hook
-
-After implementing your external service, you need to register it with Okta by making a POST request to the `/api/v1/eventHooks` API. You use the JSON payload of that request to provide information on the Event Hook you are registering, including:
-
-- the URI of your external service's endpoint
-- the list of specific event types you want to use the Event Hook to deliver
-- the secret value Okta should send in the authorization header of requests
-
-The response you receive will confirm creation of the Event Hook and provide you with the unique ID value of the created Event Hook.
-
-### Verifying an Event Hook
-
-After registering the Event Hook, you need to trigger a one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/lifecycle/verify` API. See [Event Hooks Management API](/docs/reference/api/event-hooks/).
-
-If verification is successful, the JSON payload of the response to your call to the `/verify` API will contain a property called `verificationStatus` set to `VERIFIED`.
-
-After your Event Hook is verified, it can take up to a minute for delivery of events to your endpoint to begin.
+For the steps to register and verify a new Event Hook endpoint, see [Set Up Event Hooks](https://developer.okta.com/docs/guides/set-up-event-hook/overview/).
 
 ## Sample Event Delivery Payload
 
