@@ -50,14 +50,33 @@ The sign-in process starts at the `/authorize` endpoint, and then goes out to th
 6. Okta processes the sign-in request and adds the user to your Okta organization's Universal Directory.
 7. Okta redirects the browser back to your application, just like any other sign-in request.
 
-![Social Login Flow width:](/img/social_login_flow.png "Social Login Flow width:")
+![Social Login Flow](/img/social_login_flow.png "Social Login Flow")
+
+<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
+
+@startuml
+skinparam monochrome true
+
+participant "Okta" as ok
+participant "User Agent" as ua
+participant "Social Identity Provider" as idp
+
+ua -> ok: Get /oauth2/v1/authorize
+ok -> ua: 302 to IdP's Authorize Endpoint + state
+ua -> idp: GET IdP's Authorize Endpoint + state
+ua <-> idp: User authenticates
+idp -> ua: 302 to /oauth2/v1/authorize/callback + state  + code
+ua -> ok: GET /oauth2/v1/authorize/callback + state  + code
+ok -> ua: 302 to redirect_uri
+@enduml
+-->
 
 ## Account Linking and Just-in-Time Provisioning
 When you allow your users to sign in to your app using their choice of Identity Providers, you can use Account Linking to help create a unified view of your users within your org. Additionally, you can use Just in Time (JIT) provisioning to create a seamless experience for users that sign-in to your application for the first time using their credentials from another Identity Provider.
 
 Users can use multiple Identity Providers to sign in, and Okta can link all of those profiles to a single Okta user. This is called Account Linking. If, for example, a user signs in to your app using a different Identity Provider than they used for registration, Account Linking can establish that the user owns both identities, allowing the user to sign in from either account.
 
-If a user signs in to your application for the first time using another Identity Provider, you can implement Just in Time (JIT) provisioning to automatically create an Okta account for them. JIT account creation and activation only works for end users who aren't already Okta users. (JIT does update the accounts of existing users during full imports.)
+If a user signs in to your application for the first time using another Identity Provider, you can implement Just in Time (JIT) provisioning to automatically create an Okta account for them. JIT account creation and activation only works for end users who aren't already Okta users.
 
 Additionally, you can apply granular control over Account Linking and JIT by defining a policy and then rules for the policy. You can base a policy on a variety of factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for groups that have been assigned to your application. You can create multiple policies with more or less restrictive rules and apply them to different groups.
 
