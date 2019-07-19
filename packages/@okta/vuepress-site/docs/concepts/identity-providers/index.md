@@ -24,17 +24,17 @@ Adding any of these Identity Providers allows users to sign in to your applicati
 ## Benefits of using Okta to manage Identity Providers
 You could connect your application directly to an Identity Provider (for example, using an SDK to add a button). However, using Okta as the user store for your application and letting Okta manage the Identity Provider connections has some benefits:
 
-* You don't have to write any custom code. Your application only needs to talk to Okta, and Okta does the rest. 
+* **No custom code:** Your application only needs to talk to Okta, and Okta does the rest. 
 
-* There's one protocol. Your application uses OpenID Connect to talk to Okta. Okta handles whatever protocols the other Identity Providers use, and this is transparent to your application.
+* **One protocol:** Your application uses OpenID Connect to talk to Okta. Okta handles whatever protocols the other Identity Providers use, and this is transparent to your application.
 
-* All users are stored in Okta (a single user store). You can capture the profile attributes from an Identity Provider user and store those attributes in Okta's Universal Directory.
+* **Single user store:** All users are stored in Okta. You can capture the profile attributes from an Identity Provider user and store those attributes in Okta's Universal Directory.
 
-* If a user updates their profile at the Identity Provider, those changes can be reflected inside Okta the next time that they use the provider to sign in. This is called profile sync.
+* **Profile sync:**  If a user updates their profile at the Identity Provider, those changes can be reflected inside Okta the next time that they use the provider to sign in.
 
-* Users can use multiple Identity Providers to sign in, and Okta links those profiles to a single Okta user, which is called account linking.
+* **Account linking:** Users can use multiple Identity Providers to sign in, and Okta links those profiles to a single Okta user.
 
-* Okta supports group sync between Okta and enterprise SAML Identity Providers. This allows you to specify the groups that users should be added to. 
+* **Group sync:** Okta supports group sync between Okta and enterprise SAML Identity Providers. This allows you to specify the groups that users should be added to. 
 
 ## How Okta connects to external Identity Providers
 Okta sits between your application and the external provider. Your application only needs to talk to Okta, and Okta does the rest.
