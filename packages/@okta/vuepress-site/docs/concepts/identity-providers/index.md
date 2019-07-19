@@ -9,11 +9,11 @@ What is an Identity Provider? It is a service that creates and maintains identit
 ## The big picture
 Okta manages connections to other Identity Providers for your application and sits between your application and the Identity Provider that authenticates your users. 
 
-* When you use Okta as the user store for your applications, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app/), [mobile](/docs/guides/sign-into-mobile-app/), and [single-page](/docs/guides/sign-into-spa/) apps.
+* When you use Okta as the [user store](https://developer.okta.com/product/user-management/) for your applications, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app/), [mobile](/docs/guides/sign-into-mobile-app/), and [single-page](/docs/guides/sign-into-spa/) apps.
 
 * You can add connections to Identity Providers like Twitter or Facebook. This is called social login or social authentication. It allows your users to sign in to your app using credentials from their existing accounts with those Identity Providers. After users authenticate, you sync their accounts into your Okta Universal Directory while continuing to use that Identity Provider for user authentication. This eliminates the need to store an additional username and password for that user. 
 
-* You can add connections to Identity Providers that you build in-house that support OpenID Connect or SAML protocols, also referred to as inbound federation or inbound SAML. The SAML flow is initiated with the service provider (in this case, Okta) that redirects the user to the Identity Provider for authentication. After authentication, a user is created inside Okta, and the user is redirected back to your application along with an ID token. This allows you to use Okta to proxy between SAML-only Identity Providers and OIDC-only applications that normally are incompatible. 
+* You can add connections to Identity Providers that you build in-house that support OpenID Connect or SAML protocols, also referred to as inbound federation or inbound SAML. The SAML flow is initiated with the service provider (in this case, Okta) that redirects the user to the Identity Provider for authentication. After authentication, a user is created inside Okta, and the user is redirected back to your application along with an ID token. This allows you to use Okta to proxy between SAML-only Identity Providers and OpenID Connect-only applications that normally are incompatible. 
 
 > Note: Social and OpenID Connect Identity Providers store access tokens that allow subsequent calls to Identity Providers after the user is authorized. For example, the token may contain the permission to add events to a user's Google calendar. After the user is authorized, the token can be used on additional calls to add events to a user's Google calendar on the user's behalf. 
 
@@ -72,11 +72,11 @@ ok -> ua: 302 to redirect_uri
 -->
 
 ## Account Linking and Just-in-Time Provisioning
-When you allow your users to sign in to your app using their choice of Identity Providers, you can use Account Linking to help create a unified view of your users within your org. Additionally, you can use Just in Time (JIT) provisioning to create a seamless experience for users that sign-in to your application for the first time using their credentials from another Identity Provider.
+When you allow your users to sign in to your app using their choice of Identity Providers, you can use [Account Linking](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_match-user) to help create a unified view of your users within your org. Additionally, you can use Just in Time (JIT) provisioning to create a seamless experience for users that sign-in to your application for the first time using their credentials from another Identity Provider.
 
 Users can use multiple Identity Providers to sign in, and Okta can link all of those profiles to a single Okta user. This is called Account Linking. If, for example, a user signs in to your app using a different Identity Provider than they used for registration, Account Linking can establish that the user owns both identities, allowing the user to sign in from either account.
 
-If a user signs in to your application for the first time using another Identity Provider, you can implement Just in Time (JIT) provisioning to automatically create an Okta account for them. JIT account creation and activation only works for end users who aren't already Okta users.
+If a user signs in to your application for the first time using another Identity Provider, you can implement [Just in Time](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Identity_Providers) (JIT) provisioning to automatically create an Okta account for them. JIT account creation and activation only works for end users who aren't already Okta users.
 
 Additionally, you can apply granular control over Account Linking and JIT by defining a policy and then rules for the policy. You can base a policy on a variety of factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for groups that have been assigned to your application. You can create multiple policies with more or less restrictive rules and apply them to different groups.
 
@@ -89,5 +89,5 @@ See the following guides for information on how to set up various IdPs:
 * [Google](/docs/guides/sign-in-with-google/)
 * [LinkedIn](/docs/guides/sign-in-with-linkedin/)
 * [Microsoft](/docs/guides/sign-in-with-microsoft/)
-* [Generic OIDC Identity Provider](/docs/guides/federate-with-oidc/overview/)
+* [Generic OpenID Connect Identity Provider](/docs/guides/federate-with-oidc/overview/)
 * [SAML Identity Provider](/docs/guides/add-saml-idp/)
