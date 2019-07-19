@@ -2,7 +2,7 @@
 title: Ongoing Delivery of Events
 ---
 
-After your event hook is verified, delivery of events to your endpoint can begin. There can be a delay, however, of up to a minute between successful verification and the start of event delivery.
+After your event hook is verified, delivery of events to your endpoint can begin.
 
 Every time an event of a type that the Event Hook is subscribed to occurs in your Okta org, the Event Hook fires and calls out to your external service, delivering information about the event in the JSON payload of the call. See [Ongoing Event Delivery]/docs/concepts/event-hooks/#ongoing-event-delivery) for full details.
 
