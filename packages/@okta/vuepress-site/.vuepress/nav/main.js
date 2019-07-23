@@ -8,7 +8,7 @@ module.exports = [
       { title: 'Authentication', link: '/docs/concepts/authentication/'},
       { title: 'Event Hooks', link: '/docs/concepts/event-hooks/'},
       { title: 'Events API Migration', link: '/docs/concepts/events-api-migration/'},
-      { title: 'Identity Providers', link: '/docs/concepts/identity-providers/'},
+      { title: 'External Identity Providers', link: '/docs/concepts/identity-providers/'},
       { title: 'Inline Hooks', link: '/docs/concepts/inline-hooks/'},
       { title: 'Key Rotation', link: '/docs/concepts/key-rotation/'},
       { title: 'OAuth 2.0 & OIDC', link: '/docs/concepts/auth-overview/'},
