@@ -26,6 +26,7 @@ guides:
  - revoke-tokens
  - saml-application-setup
  - session-cookie
+ - set-up-event-hook
  - sharing-cert
  - sign-in-with-facebook
  - sign-in-with-google
