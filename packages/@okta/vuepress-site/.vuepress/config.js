@@ -198,7 +198,6 @@ module.exports = {
   },
 
   plugins: [
-    '@okta/vuepress-plugin-my-okta',
     '@okta/vuepress-plugin-active-header-links',
     [
       'vuepress-plugin-sitemap', {
