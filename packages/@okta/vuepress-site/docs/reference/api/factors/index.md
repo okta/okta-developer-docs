@@ -468,6 +468,7 @@ Enrolls a user with a supported [factor](#list-factors-to-enroll)
 - [Enroll YubiKey Factor](#enroll-yubikey-factor)
 - [Enroll Okta Email Factor](#enroll-okta-email-factor)
 - [Enroll U2F Factor](#enroll-u2f-factor)
+- [Enroll Custom HOTP Factor](#enroll-custom-hotp-factor)
 
 ##### Request Parameters
 
@@ -1541,6 +1542,70 @@ curl -v -X POST \
       "timeoutSeconds":20
     }
   }
+}
+```
+
+#### Enroll Custom HOTP Factor
+
+Enrolls a user for a Custom HMAC-based One-time Password (HOTP) factor. The enrollment process involves passing a factor profile Id and shared secret for a particular token.  
+
+> Note: Currently only auto-activation is supported for Custom HOTP Factor. 
+
+##### Enroll and Auto-Activate Custom HOTP Factor
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "factorType": "token:hotp",
+  "provider": "CUSTOM",
+  "factorProfileId": "fpr20l2mDyaUGWGCa0g4"
+  "profile": {
+      "sharedSecret": "484f97be3213b117e3a20438e291540a"
+  }
+}' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors?activate=true"
+```
+
+##### Enroll Custom HOTP Factor Response Example
+
+```json
+{
+    "id": "chf20l33Ks8U2Zjba0g4",
+    "factorType": "token:hotp",
+    "provider": "CUSTOM",
+    "vendorName": "Entrust Datacard",
+    "status": "ACTIVE",
+    "created": "2019-07-22T23:22:36.000Z",
+    "lastUpdated": "2019-07-22T23:22:36.000Z",
+    "_links": {
+        "self": {
+            "href": "http://rain.okta1.com:1802/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        },
+        "verify": {
+            "href": "http://rain.okta1.com:1802/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4/verify",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "user": {
+            "href": "http://rain.okta1.com:1802/api/v1/users/00utf43LCCmTJVcsK0g3",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
 }
 ```
 
@@ -2845,7 +2910,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
-Verifies an OTP for a `token:software:totp` factor
+Verifies an OTP for a `token:software:totp` or `token:hotp` factor
 
 #### Request Parameters
 
