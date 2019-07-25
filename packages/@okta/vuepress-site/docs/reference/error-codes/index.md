@@ -1,13 +1,13 @@
 ---
-title: Error Codes
+title: Examples of Error Codes and Messages
 excerpt: Understand Okta API errors.
 ---
 
-# Overview
+# Examples of Error Codes and Messages
 
-This document provides further information about the errors that the Okta API returns. The first table is listed by error code, and the second table is listed by HTTP return code.
+This document provides further information about the errors that the Okta API returns. The first table lists example errors by error code, and the second table lists example errors by HTTP return code. These lists are meant to provide examples of Okta errors, but are not exhaustive lists of all possible errors.
 
-## Okta Error Codes Listed by Error Code
+## Okta Error Codes Examples Listed by Error Code
 
 | Error Code                      | Description                                                                                                                                                                           | HTTP Return Code |
 | ------------                    | -------------                                                                                                                                                                         | ------------     |
@@ -82,7 +82,7 @@ This document provides further information about the errors that the Okta API re
 | <a name="E0000113"></a>E0000113 | A phone call was recently made. Please wait 30 seconds before trying again.                                                                                                           | 429              |
 
 
-## Okta Error Codes Listed by HTTP Return Code
+## Okta Error Codes Examples Listed by HTTP Return Code
 
 <table>
 <tr><th><strong>HTTP Return Code</strong></th><th><strong>Error Code</strong></th><th><strong>Description</strong></th></tr>
@@ -158,7 +158,7 @@ This document provides further information about the errors that the Okta API re
 </table>
 
 
-## OpenID Connect and Okta Social Authentication
+## Example Error Codes for OpenID Connect and Okta Social Authentication
 
 In stituations where Okta needs to pass an error to a downstream application via a `redirect_uri`, the error code and description will be encoded as the query parameters `error` and `error_description`.
 
