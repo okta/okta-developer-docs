@@ -7,7 +7,7 @@ excerpt: Understand Okta API errors.
 
 This document provides further information about the errors that the Okta API returns. The first table lists example errors by error code, and the second table lists example errors by HTTP return code. These lists are meant to provide examples of Okta errors, but are not exhaustive lists of all possible errors.
 
-## Okta Error Codes Examples Listed by Error Code
+## Okta Error Code Examples Listed by Error Code
 
 | Error Code                      | Description                                                                                                                                                                           | HTTP Return Code |
 | ------------                    | -------------                                                                                                                                                                         | ------------     |
@@ -82,7 +82,7 @@ This document provides further information about the errors that the Okta API re
 | <a name="E0000113"></a>E0000113 | A phone call was recently made. Please wait 30 seconds before trying again.                                                                                                           | 429              |
 
 
-## Okta Error Codes Examples Listed by HTTP Return Code
+## Okta Error Code Examples Listed by HTTP Return Code
 
 <table>
 <tr><th><strong>HTTP Return Code</strong></th><th><strong>Error Code</strong></th><th><strong>Description</strong></th></tr>
