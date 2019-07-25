@@ -4,14 +4,14 @@ title: External Identity Providers
 # External Identity Providers
 As a developer building a custom application, you want to give your users the freedom to choose which Identity Provider that they use to sign in to your application. But first you should understand how various Identity Providers connect to Okta. 
 
-What is an Identity Provider? It is a service that creates and maintains identity information and then provides authentication services to your applications. Identity Providers can significantly reduce sign-in and registration friction, which allows your users to access applications with one click and without needing to create new passwords or remember usernames. 
+What is an Identity Provider? It is a service that creates and maintains identity information and then provides authentication services to your applications. Identity Providers can significantly reduce sign-in and registration friction, which allows your users to easily access applications without needing to create new passwords or remember usernames. 
 
 ## The big picture
 Okta manages connections to other Identity Providers for your application and sits between your application and the Identity Provider that authenticates your users. 
 
 * When you use Okta as the [user store](https://developer.okta.com/product/user-management/) for your applications, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app/), [mobile](/docs/guides/sign-into-mobile-app/), and [single-page](/docs/guides/sign-into-spa/) apps.
 
-* You can add connections to Identity Providers like Twitter or Facebook. This is called social login or social authentication. It allows your users to sign in to your app using credentials from their existing accounts with those Identity Providers. After users authenticate, you sync their accounts into your Okta Universal Directory while continuing to use that Identity Provider for user authentication. This eliminates the need to store an additional username and password for that user. 
+* You can add connections to Identity Providers like Twitter or Facebook. This is called social login or social authentication. It allows your users to sign in to your app using credentials from their existing Identity Providers. After users authenticate, you sync their existing Identity Provider credentials into your Okta Universal Directory while continuing to use that Identity Provider for user authentication. This eliminates the need to store an additional username and password for that user. 
 
 * You can add connections to Identity Providers that you build in-house that support OpenID Connect or SAML protocols, also referred to as inbound federation or inbound SAML. The SAML flow is initiated with the service provider (in this case, Okta) that redirects the user to the Identity Provider for authentication. After authentication, a user is created inside Okta, and the user is redirected back to your application along with an ID token. This allows you to use Okta to proxy between SAML-only Identity Providers and OpenID Connect-only applications that normally are incompatible. 
 
@@ -22,7 +22,7 @@ Okta manages connections to other Identity Providers for your application and si
 Adding any of these Identity Providers allows users to sign in to your application using their credentials from a specific Identity Provider. 
 
 ## Benefits of using Okta to manage Identity Providers
-You could connect your application directly to an Identity Provider (for example, using an SDK to add a button). However, using Okta as the user store for your application and letting Okta manage the Identity Provider connections has some benefits:
+You could connect your application directly to an Identity Provider (for example, using an SDK to add a button for **Sign in with Google**). However, using Okta as the user store for your application and letting Okta manage the Identity Provider connections has some benefits:
 
 * **No custom code:** Your application only needs to talk to Okta, and Okta does the rest. 
 
