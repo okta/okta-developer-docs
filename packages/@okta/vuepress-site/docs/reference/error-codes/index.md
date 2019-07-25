@@ -1,9 +1,9 @@
 ---
-title: Examples of Error Codes and Messages
+title: Examples of Error Codes and Descriptions
 excerpt: Understand Okta API errors.
 ---
 
-# Examples of Error Codes and Messages
+# Examples of Error Codes and Descriptions
 
 This document provides further information about the errors that the Okta API returns. The first table lists example errors by error code, and the second table lists example errors by HTTP return code. These lists are meant to provide examples of Okta errors, but are not exhaustive lists of all possible errors.
 
