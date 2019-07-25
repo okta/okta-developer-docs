@@ -23,6 +23,7 @@ guides:
  - mfa
  - protect-your-api
  - refresh-tokens
+ - request-user-consent
  - revoke-tokens
  - saml-application-setup
  - session-cookie
