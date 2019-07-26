@@ -1,4 +1,4 @@
-```swfit
+```swift
 oktaOidc.signInWithBrowser(from: self, callback: { stateManager, error in
 
     if let error = error {
