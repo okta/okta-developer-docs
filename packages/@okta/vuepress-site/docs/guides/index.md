@@ -5,6 +5,7 @@ guides:
  - add-saml-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - byo-saml
  - create-an-api-token
  - create-token-with-groups-claim
  - custom-error-pages
