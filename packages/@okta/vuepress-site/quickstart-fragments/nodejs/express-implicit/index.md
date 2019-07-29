@@ -40,7 +40,7 @@ function authenticationRequired(req, res, next) {
 
   const accessToken = match[1];
 
-  return oktaJwtVerifier.verifyAccessToken(accessToken)
+  return oktaJwtVerifier.verifyAccessToken(accessToken, expectedAudience)
     .then((jwt) => {
       req.jwt = jwt;
       next();
