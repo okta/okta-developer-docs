@@ -13,15 +13,15 @@ This page provides reference documentation for:
 
 - JSON objects you can include in your response
 
-This information is specific to the Import Inline Hook, one type of inline hook supported by Okta.
+This information is specific to the Import Inline Hook, one type of Inline Hook supported by Okta.
 
 ## See Also
 
-For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this inline hook, see below, [Enabling an Import Inline Hook](#enabling-an-import-inline-hook).
+For steps to enable this Inline Hook, see below, [Enabling an Import Inline Hook](#enabling-an-import-inline-hook).
 
 ## About
 
@@ -278,19 +278,19 @@ Returning an error object will cause Okta to record a failure event in the Okta 
 
 ## Enabling an Import Inline Hook
 
-To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-You then need to associate the registered inline hook with an app by completing the following steps in Admin Console:
+You then need to associate the registered Inline Hook with an app by completing the following steps in Admin Console:
 
 1. Go to the **Applications** menu and scroll down to **Applications**.
 
-1. Select the app that you want the inline hook to work with.
+1. Select the app that you want the Inline Hook to work with.
 
 1. Select the **Provisioning** tab.
 
 1. From the Settings column on the left side of the screen, select **To Okta**.
 
-1. In the **Inline Hooks** section, click the **User Creation** dropdown menu. Any inline hooks you have registered will be listed. Select the one to use.
+1. In the **Inline Hooks** section, click the **User Creation** dropdown menu. Any Inline Hooks you have registered will be listed. Select the one to use.
 
 1. Click **Save**.
 

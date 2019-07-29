@@ -13,15 +13,15 @@ This page provides reference documentation for:
 
 - JSON objects you can include in your response
 
-This information is specific to the Registration Inline Hook, one type of inline hook supported by Okta.
+This information is specific to the Registration Inline Hook, one type of Inline Hook supported by Okta.
 
 ## See Also
 
-For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this inline hook, see below, [Enabling a Registration Inline Hook](#enabling-a-registration-inline-hook-for-self-service-registration).
+For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enabling-a-registration-inline-hook-for-self-service-registration).
 
 ## About
 
@@ -232,9 +232,9 @@ If you do not return any value for that `errorCauses` object, but deny the user'
 
 ## Enabling a Registration Inline Hook for Self-Service Registration
 
-To activate the inline hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
+To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
-You then need to associate the registered inline hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable self-service registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm).)
+You then need to associate the registered Inline Hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable self-service registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm).)
 
 1. Go to **Directory > Self-Service Registration**.
 
@@ -246,4 +246,4 @@ You then need to associate the registered inline hook with your Self-Service Reg
 
 Your Registration Inline Hook is now configured.
 
-> Note: Only one inline hook can be associated with your Self-Service Registration policy at a time.
+> Note: Only one Inline Hook can be associated with your Self-Service Registration policy at a time.
