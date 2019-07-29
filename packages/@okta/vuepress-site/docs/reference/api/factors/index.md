@@ -13,9 +13,10 @@ Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 ## Factor Operations
 
- - **[List Operations](#factor-operations)** &ndash; List factors and security questions.
- - **[Lifecycle Operations](#factor-lifecycle-operations)** &ndash; Enroll, activate, and reset factors.
- - **[Verification Operations](#factor-verification-operations)** &ndash; Verify a factor
+ - **[List Operations](#factor-operations)** - List factors and security questions.
+ - **[Lifecycle Operations](#factor-lifecycle-operations)** - Enroll, activate, and reset factors.
+ - **[Challenge and Verify Operations](#factors-that-perform-challenge-and-verify-operations)** - Challenge and Verify a factor
+ - **[Verification Only Operations](#factor-that-perform-only-verification-operations)** - Verify a factor
 
 ### Get Factor
 
@@ -23,7 +24,7 @@ Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 Fetches a factor for the specified user
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
@@ -34,7 +35,7 @@ Fetches a factor for the specified user
 
 [Factor](#factor-model)
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X GET \
@@ -44,7 +45,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ufs2bysphxKODSZKWVCT"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 {
@@ -94,17 +95,17 @@ curl -v -X GET \
 
 Enumerates all the enrolled factors for the specified user
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | userId       | `id` of a user                                      | URL        | String   | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 Array of [Factors](#factor-model)
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X GET \
@@ -114,7 +115,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 [
@@ -251,17 +252,17 @@ curl -v -X GET \
 
 Enumerates all the [supported factors](#supported-factors-for-providers) that can be enrolled for the specified user
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | userId       | `id` of a user                                      | URL        | String   | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 Array of [Factors](#factor-model)
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X GET \
@@ -271,7 +272,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/catalog"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 [
@@ -404,13 +405,13 @@ curl -v -X GET \
 
 Enumerates all available security questions for a user's `question` factor
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | userId       | `id` of a user                                      | URL        | String   | TRUE     |
 
-#### Response Parameters
+##### Response Parameters
 
 Array of Questions
 
@@ -419,7 +420,7 @@ Array of Questions
 | question      | unique key for question   | String    | FALSE    | TRUE    | TRUE     |
 | questionText  | display text for question | String    | FALSE    | FALSE   | TRUE     |
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X GET \
@@ -429,7 +430,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/questions"
 ```
 
-#### Response Example
+##### Response Example
 
 ```json
 [
@@ -552,7 +553,7 @@ curl -v -X POST \
 
 #### Enroll Okta SMS Factor
 
-Enrolls a user with the Okta `sms` factor and an [SMS profile](#sms-profile).  A text message with an OTP is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `activate` link relation to complete the enrollment process.
+Enrolls a user with the Okta `sms` factor and an [SMS profile](#sms-profile).  A text message with a One Time Passcode (OTP) is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `activate` link relation to complete the enrollment process.
 
 ##### Request Example
 
@@ -2147,18 +2148,18 @@ curl -v -X POST \
 
 Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
 
-#### Request Parameters
+##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
 | userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
 | factorId     | `id` of the factor to reset                         | URL        | String   | TRUE     |         |
 
-#### Response Parameters
+##### Response Parameters
 
 `204 No Content`
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X DELETE \
@@ -2168,17 +2169,565 @@ curl -v -X DELETE \
 "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ufs1o01OTMGHLAJPVHDZ"
 ```
 
-#### Response Example
+##### Response Example
 
 `204 No Content`
 
-## Factor Verification Operations
+## Factors that require a Challenge and Verify Operation
 
-### Verify Security Question Factor
+Some factors require a challenge to be issued by Okta to initiate the transaction
+
+### Issue an SMS Factor Challenge
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
-Verifies an answer to a `question` factor.
+Sends an OTP for a `sms` factor to the specified user's phone.
+
+##### Request Parameters
+
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
+| templateId   | `id` of an SMS template                             | Query      | String   | FALSE    |
+
+##### Response Parameters
+
+| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
+| profile      | SMS profile                                         | Body       | [SMS profile](#sms-profile)                          | TRUE     |         |
+
+
+`429 Too Many Requests` status code may be returned if you attempt to resend a SMS challenge (OTP) within the same time window.
+
+*The current rate limit is one SMS challenge per device every 30 seconds.*
+
+> Okta will round-robin between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
+
+```json
+{
+    "errorCode": "E0000109",
+    "errorSummary": "An SMS message was recently sent. Please wait 30 seconds before trying again.",
+    "errorLink": "E0000109",
+    "errorId": "oaeneEaQF8qQrepOWHSkdoejw",
+    "errorCauses": []
+}
+```
+
+##### Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+}' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/smsszf1YNUtGWTx4j0g3/verify"
+```
+
+##### Response Example
+
+```json
+{
+    "factorResult": "CHALLENGE",
+    "profile": {
+        "phoneNumber": "+12532236986"
+    },
+    "_links": {
+        "verify": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/smsszf1YNUtGWTx4j0g3/verify",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "factor": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/smsszf1YNUtGWTx4j0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### Issuing an SMS Factor Challenge Using A Custom Template
+
+Customize (and optionally localize) the SMS message sent to the user on verification.
+* If the request has an `Accept-Language` header and the template contains translation for that language, the SMS message is sent in that language.
+* If the language provided in the `Accept-Language` header doesn't exist in the template definition, the SMS message is sent using the template text.
+* If the provided `templateId` doesn't match an existing template, the SMS message is sent using the default template.
+
+To create custom templates, see [Templates](/docs/reference/api/templates/#add-sms-template).
+
+###### Request Example
+
+Sends the verification message in German, assuming that the SMS template is configured with a German translation
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Accept-Language: de" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+}' "https://{yourOktaDomain}/api/v1/users/${userId}/factors/${factorId}/verify?templateId=${templateId}"
+```
+
+### Verify an SMS Factor Challenge
+
+<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
+
+Verifies an OTP sent by an `sms` factor challenge.
+
+##### Request Parameters
+
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
+| passCode     | OTP sent to device                                  | Body       | String   | FALSE    |
+
+> If you omit `passCode` in the request a new challenge will be initiated and a new OTP sent to the device.
+
+##### Response Parameters
+
+| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
+
+
+If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
+
+```json
+{
+  "errorCode": "E0000068",
+  "errorSummary": "Invalid Passcode/Answer",
+  "errorLink": "E0000068",
+  "errorId": "oaei_IfXcpnTHit_YEKGInpFw",
+  "errorCauses": [
+    {
+      "errorSummary": "Your passcode doesn't match our records. Please try again."
+    }
+  ]
+}
+```
+
+##### Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "passCode": "123456"
+}' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/smsszf1YNUtGWTx4j0g3/verify"
+```
+
+##### Response Example
+
+```json
+{
+  "factorResult": "SUCCESS"
+}
+```
+
+### Issue a  Call Factor Challenge
+
+<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
+
+Sends an OTP for a `call` factor to the user's phone.
+
+##### Request Parameters
+
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
+
+##### Response Parameters
+
+| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
+| profile      | Call profile                                        | Body       | [Call profile](#call-profile)                        | TRUE     |         |
+
+
+`429 Too Many Requests` status code may be returned if you attempt to resend a Voice Call challenge (OTP) within the same time window.
+
+*The current rate limit is one Voice Call challenge per device every 30 seconds.*
+
+```json
+{
+    "errorCode": "E0000047",
+    "errorSummary": "API call exceeded rate limit due to too many requests.",
+    "errorLink": "E0000047",
+    "errorId": "oaeneEaQF8qQrepOWHSkdoejw",
+    "errorCauses": []
+}
+```
+
+##### Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+}' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/clff17zuKEUMYQAQGCOV/verify"
+```
+
+##### Response Example
+
+```json
+{
+    "factorResult": "CHALLENGE",
+    "profile": {
+        "phoneNumber": "+12532236986",
+        "phoneExtension": "1234"
+    },
+    "_links": {
+        "verify": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/clff17zuKEUMYQAQGCOV/verify",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "factor": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/clff17zuKEUMYQAQGCOV",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Verify a Call Factor Challenge
+
+<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
+
+Verifies an OTP sent by a `call` factor challenge.
+
+##### Request Parameters
+
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
+| passCode     | OTP sent to device                                  | Body       | String   | FALSE    |         |
+
+> If you omit `passCode` in the request a new challenge is initiated and a new OTP is sent to the phone.
+
+##### Response Parameters
+
+| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
+
+If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
+
+```json
+{
+  "errorCode": "E0000068",
+  "errorSummary": "Invalid Passcode/Answer",
+  "errorLink": "E0000068",
+  "errorId": "oaei_IfXcpnTHit_YEKGInpFw",
+  "errorCauses": [
+    {
+      "errorSummary": "Your passcode doesn't match our records. Please try again."
+    }
+  ]
+}
+```
+
+##### Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "passCode": "123456"
+}' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/clff17zuKEUMYQAQGCOV/verify"
+```
+
+##### Response Example
+
+```json
+{
+  "factorResult": "SUCCESS"
+}
+```
+
+### Issue a Push Factor Challenge
+
+<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
+
+Creates a new transaction and sends an asynchronous push notification to the device for the user to approve or reject.  You must [poll the transaction](#poll-for-verify-transaction-completion) to determine when it completes or expires.
+
+##### Start new Transaction
+
+##### Request Parameters
+
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
+
+> The client `IP Address` & `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br>You should [always send a valid User-Agent HTTP header](/docs/reference/api-overview/#user-agent) when verifying a push factor.
+
+> The **public IP address** of your application must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+
+##### Response Parameters
+
+| Parameter    | Description                                                          | Param Type | DataType                                             | Required |
+| ------------ | -------------------------------------------------------------------- | ---------- | ---------------------------------------------------- | -------- |
+| factorResult | verification result (`WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`) | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
+
+##### Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36" \
+-H "X-Forwarded-For: 23.235.46.133" \
+"https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opf3hkfocI4JTLAju0g4/verify"
+```
+
+##### Response Example
+
+```json
+{
+  "expiresAt": "2015-04-01T15:57:32.000Z",
+  "factorResult": "WAITING",
+  "_links": {
+    "poll": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    },
+    "cancel": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
+      "hints": {
+        "allow": [
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+
+### Verify a Push Factor Challenge
+
+#### Poll for Verify Transaction Completion
+
+<ApiOperation method="get" url="/api/v1/users/${userId}/factors/${factorId}/transactions/${transactionId}" />
+
+Polls a push verification transaction for completion.  The transaction result is `WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`.
+
+> You should always use the `poll` link relation and never manually construct your own URL.
+
+##### Request Parameters
+
+| Parameter     | Description           | Param Type | DataType | Required |
+| ------------  | -------------------   | ---------- | -------- | -------- |
+| userId        | `id` of a user        | URL        | String   | TRUE     |
+| factorId      | `id` of a factor      | URL        | String   | TRUE     |
+| transactionId | `id` of a transaction | URL        | String   | TRUE     |
+
+##### Response Parameters
+
+| Parameter    | Description         | Param Type | DataType                                             | Required |
+| ------------ | ------------------- | ---------- | ---------------------------------------------------- | -------- |
+| factorResult | verification result | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
+
+##### Response Example (Waiting)
+
+```json
+{
+  "expiresAt": "2015-04-01T15:57:32.000Z",
+  "factorResult": "WAITING",
+  "_links": {
+    "poll": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    },
+    "cancel": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
+      "hints": {
+        "allow": [
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+
+##### Response Example (Approved)
+
+```json
+{
+  "factorResult": "SUCCESS"
+}
+```
+
+##### Response Example (Rejected)
+
+```json
+{
+  "factorResult": "REJECTED",
+  "_links": {
+    "verify": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/verify",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "factor": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3",
+      "hints": {
+        "allow": [
+          "GET",
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+
+##### Response Example (Timeout)
+
+```json
+{
+  "factorResult": "TIMEOUT",
+  "_links": {
+    "verify": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/verify",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "factor": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3",
+      "hints": {
+        "allow": [
+          "GET",
+          "DELETE"
+        ]
+      }
+    }
+  }
+}
+```
+
+### Issue an Email Factor Challenge
+
+<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
+
+Sends an OTP for an `email` factor to the user's email address.
+
+##### Request Parameters
+
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |               |
+| tokenLifetimeSeconds | Lifetime of the OTP                         | QueryString | Int | FALSE        | 300
+
+#### Response Parameters
+
+| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
+
+
+`429 Too Many Requests` status code may be returned if you attempt to resend an Email challenge (OTP) within the same time window.
+
+*The current rate limit is one per email address every 5 seconds.*
+
+```json
+{
+    "errorCode": "E0000118",
+    "errorSummary": "An email was recently sent. Please wait 5 seconds before trying again.",
+    "errorLink": "E0000118",
+    "errorId": "oae0qf10rGJQQeWFX1OSuStdQ",
+    "errorCauses": []
+}
+```
+
+#### Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+}' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/emfnf3gSScB8xXoXK0g3/verify?tokenLifetimeSeconds=600"
+```
+
+#### Response Example
+
+```json
+{
+    "factorResult": "CHALLENGE",
+    "_links": {
+        "verify": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/emfnf3gSScB8xXoXK0g3/verify",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "factor": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/emfnf3gSScB8xXoXK0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Verify an Email Factor Challenge
+
+<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
+
+Verifies an OTP for an `email` factor
 
 #### Request Parameters
 
@@ -2186,9 +2735,71 @@ Verifies an answer to a `question` factor.
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
 | userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
 | factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
+| passCode     | OTP sent to email address                                  | Body       | String   | FALSE    | ""                              |
+
+> If you omit `passCode` in the request a new challenge is initiated and a new OTP is sent to the email address,.
+
+##### Response Parameters
+
+| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
+| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
+
+If the passcode is invalid response will be `403 Forbidden` with the following error:
+
+```json
+{
+  "errorCode": "E0000068",
+  "errorSummary": "Invalid Passcode/Answer",
+  "errorLink": "E0000068",
+  "errorId": "oaei_IfXcpnTHit_YEKGInpFw",
+  "errorCauses": [
+    {
+      "errorSummary": "Your passcode doesn't match our records. Please try again."
+    }
+  ]
+}
+```
+
+##### Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "passCode": "123456"
+}' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/emfnf3gSScB8xXoXK0g3/verify?tokenLifetimeSeconds=600"
+```
+
+##### Response Example
+
+```json
+{
+  "factorResult": "SUCCESS"
+}
+```
+
+## Factors that require only a Verification Operation
+
+Some factors do not require an explicit challenge to be issued by Okta.
+
+### Verify Security Question Factor
+
+<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
+
+Verifies an answer to a `question` factor.
+
+##### Request Parameters
+
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
+| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
 | answer       | answer to security question                         | Body       | String   | TRUE     |         |
 
-#### Response Parameters
+##### Response Parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
@@ -2220,176 +2831,6 @@ curl -v -X POST \
 -d '{
   "answer": "mayonnaise"
 }' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ufs1pe3ISGKGPYKXRBKK/verify"
-```
-
-#### Response Example
-
-```json
-{
-  "factorResult": "SUCCESS"
-}
-```
-
-### Verify SMS Factor
-
-<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
-
-Verifies an OTP for a `sms` factor.
-
-#### Request Parameters
-
-| Parameter    | Description                                         | Param Type | DataType | Required |
-| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |
-| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
-| templateId   | `id` of an SMS template                             | Query      | String   | FALSE    |
-| passCode     | OTP sent to device                                  | Body       | String   | FALSE    |
-
-> If you omit `passCode` in the request a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`.
-
-#### Response Parameters
-
-| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
-| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
-| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
-
-If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
-
-```json
-{
-  "errorCode": "E0000068",
-  "errorSummary": "Invalid Passcode/Answer",
-  "errorLink": "E0000068",
-  "errorId": "oaei_IfXcpnTHit_YEKGInpFw",
-  "errorCauses": [
-    {
-      "errorSummary": "Your passcode doesn't match our records. Please try again."
-    }
-  ]
-}
-```
-
-`429 Too Many Requests` status code may be returned if you attempt to resend a SMS challenge (OTP) within the same time window.
-
-*The current rate limit is one SMS challenge per device every 30 seconds.*
-
-> Okta will round-robin between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
-
-```json
-{
-    "errorCode": "E0000109",
-    "errorSummary": "An SMS message was recently sent. Please wait 30 seconds before trying again.",
-    "errorLink": "E0000109",
-    "errorId": "oaeneEaQF8qQrepOWHSkdoejw",
-    "errorCauses": []
-}
-```
-
-#### Request Example
-
-```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
--d '{
-  "passCode": "123456"
-}' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ostf17zuKEUMYQAQGCOV/verify"
-```
-
-#### Response Example
-
-```json
-{
-  "factorResult": "SUCCESS"
-}
-```
-
-#### Verify SMS Factor Using A Custom Template
-
-Customize (and optionally localize) the SMS message sent to the user on verification.
-* If the request has an `Accept-Language` header and the template contains translation for that language, the SMS message is sent in that language.
-* If the language provided in the `Accept-Language` header doesn't exist in the template definition, the SMS message is sent using the template text.
-* If the provided `templateId` doesn't match an existing template, the SMS message is sent using the default template.
-
-To create custom templates, see [Templates](/docs/reference/api/templates/#add-sms-template).
-
-###### Request Example
-
-Sends the verification message in German, assuming that the SMS template is configured with a German translation
-
-```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Accept-Language: de" \
--H "Authorization: SSWS ${api_token}" \
--d '{
-}' "https://{yourOktaDomain}/api/v1/users/${userId}/factors/${factorId}/verify?templateId=${templateId}"
-```
-
-### Verify Call Factor
-
-<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
-
-Verifies an OTP for a `call` factor
-
-#### Request Parameters
-
-| Parameter    | Description                                         | Param Type | DataType | Required | Default |
-| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
-| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
-| passCode     | OTP sent to device                                  | Body       | String   | FALSE    |         |
-
-> If you omit `passCode` in the request a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`.
-
-#### Response Parameters
-
-| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
-| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
-| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
-
-If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
-
-```json
-{
-  "errorCode": "E0000068",
-  "errorSummary": "Invalid Passcode/Answer",
-  "errorLink": "E0000068",
-  "errorId": "oaei_IfXcpnTHit_YEKGInpFw",
-  "errorCauses": [
-    {
-      "errorSummary": "Your passcode doesn't match our records. Please try again."
-    }
-  ]
-}
-```
-
-`429 Too Many Requests` status code may be returned if you attempt to resend a Voice Call challenge (OTP) within the same time window.
-
-*The current rate limit is one Voice Call challenge per device every 30 seconds.*
-
-```json
-{
-    "errorCode": "E0000047",
-    "errorSummary": "API call exceeded rate limit due to too many requests.",
-    "errorLink": "E0000047",
-    "errorId": "oaeneEaQF8qQrepOWHSkdoejw",
-    "errorCauses": []
-}
-```
-
-#### Request Example
-
-```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
--d '{
-  "passCode": "123456"
-}' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/clff17zuKEUMYQAQGCOV/verify"
 ```
 
 #### Response Example
@@ -2456,181 +2897,6 @@ curl -v -X POST \
 }
 ```
 
-### Verify Push Factor
-
-<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
-
-Creates a new verification transaction and sends an asynchronous push notification to the device for the user to approve or reject.  You must [poll the transaction](#poll-for-verify-transaction-completion) to determine when it completes or expires.
-
-##### Start new Verify Transaction
-
-#### Request Parameters
-
-| Parameter    | Description                                         | Param Type | DataType | Required | Default |
-| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
-| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
-
-> The client `IP Address` & `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br>You should [always send a valid User-Agent HTTP header](/docs/reference/api-overview/#user-agent) when verifying a push factor.
-
-> The **public IP address** of your application must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
-
-#### Response Parameters
-
-| Parameter    | Description                                                          | Param Type | DataType                                             | Required |
-| ------------ | -------------------------------------------------------------------- | ---------- | ---------------------------------------------------- | -------- |
-| factorResult | verification result (`WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`) | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
-
-#### Request Example
-
-```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
--H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36" \
--H "X-Forwarded-For: 23.235.46.133" \
-"https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opf3hkfocI4JTLAju0g4/verify"
-```
-
-#### Response Example
-
-```json
-{
-  "expiresAt": "2015-04-01T15:57:32.000Z",
-  "factorResult": "WAITING",
-  "_links": {
-    "poll": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
-      "hints": {
-        "allow": [
-          "GET"
-        ]
-      }
-    },
-    "cancel": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
-      "hints": {
-        "allow": [
-          "DELETE"
-        ]
-      }
-    }
-  }
-}
-```
-
-#### Poll for Verify Transaction Completion
-
-<ApiOperation method="get" url="/api/v1/users/${userId}/factors/${factorId}/transactions/${transactionId}" />
-
-Polls a push verification transaction for completion.  The transaction result is `WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`.
-
-> You should always use the `poll` link relation and never manually construct your own URL.
-
-##### Request Parameters
-
-| Parameter     | Description           | Param Type | DataType | Required |
-| ------------  | -------------------   | ---------- | -------- | -------- |
-| userId        | `id` of a user        | URL        | String   | TRUE     |
-| factorId      | `id` of a factor      | URL        | String   | TRUE     |
-| transactionId | `id` of a transaction | URL        | String   | TRUE     |
-
-##### Response Parameters
-
-| Parameter    | Description         | Param Type | DataType                                             | Required |
-| ------------ | ------------------- | ---------- | ---------------------------------------------------- | -------- |
-| factorResult | verification result | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
-
-##### Response Example (Waiting)
-
-```json
-{
-  "expiresAt": "2015-04-01T15:57:32.000Z",
-  "factorResult": "WAITING",
-  "_links": {
-    "poll": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
-      "hints": {
-        "allow": [
-          "GET"
-        ]
-      }
-    },
-    "cancel": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
-      "hints": {
-        "allow": [
-          "DELETE"
-        ]
-      }
-    }
-  }
-}
-```
-
-#### Response Example (Approved)
-
-```json
-{
-  "factorResult": "SUCCESS"
-}
-```
-
-#### Response Example (Rejected)
-
-```json
-{
-  "factorResult": "REJECTED",
-  "_links": {
-    "verify": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/verify",
-      "hints": {
-        "allow": [
-          "POST"
-        ]
-      }
-    },
-    "factor": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3",
-      "hints": {
-        "allow": [
-          "GET",
-          "DELETE"
-        ]
-      }
-    }
-  }
-}
-```
-
-#### Response Example (Timeout)
-
-```json
-{
-  "factorResult": "TIMEOUT",
-  "_links": {
-    "verify": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/verify",
-      "hints": {
-        "allow": [
-          "POST"
-        ]
-      }
-    },
-    "factor": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3",
-      "hints": {
-        "allow": [
-          "GET",
-          "DELETE"
-        ]
-      }
-    }
-  }
-}
-```
-
 ### Verify Token Factor
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
@@ -2667,7 +2933,7 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 }
 ```
 
-#### Request Example
+##### Request Example
 
 ```bash
 curl -v -X POST \
@@ -2679,80 +2945,7 @@ curl -v -X POST \
 }' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ostf17zuKEUMYQAQGCOV/verify"
 ```
 
-#### Response Example
-
-```json
-{
-  "factorResult": "SUCCESS"
-}
-```
-
-### Verify Email Factor
-
-<span class="api-uri-template api-uri-post"><span class="api-label">POST</span> /api/v1/users/${userId}/factors/${factorId}/verify</span>
-
-Verifies an OTP for an `email` factor
-
-#### Request Parameters
-
-| Parameter    | Description                                         | Param Type | DataType | Required | Default |
-| ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
-| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
-passCode     | OTP sent to email address                                  | Body       | String   | FALSE    | ""                              |
-tokenLifetimeSeconds | Lifetime of the OTP when requesting one                        | QueryString | Int | FALSE        | 300
-
-> If you omit `passCode` in the request a new OTP is sent to the email address, otherwise the request attempts to verify the `passCode`.
-
-#### Response Parameters
-
-| Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
-| ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
-| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
-
-If the passcode is invalid response will be `403 Forbidden` with the following error:
-
-```json
-{
-  "errorCode": "E0000068",
-  "errorSummary": "Invalid Passcode/Answer",
-  "errorLink": "E0000068",
-  "errorId": "oaei_IfXcpnTHit_YEKGInpFw",
-  "errorCauses": [
-    {
-      "errorSummary": "Your passcode doesn't match our records. Please try again."
-    }
-  ]
-}
-```
-
-`429 Too Many Requests` status code may be returned if you attempt to resend an Email challenge (OTP) within the same time window.
-
-*The current rate limit is one per email address every 5 seconds.*
-
-```json
-{
-    "errorCode": "E0000118",
-    "errorSummary": "An email was recently sent. Please wait 5 seconds before trying again.",
-    "errorLink": "E0000118",
-    "errorId": "oae0qf10rGJQQeWFX1OSuStdQ",
-    "errorCauses": []
-}
-```
-
-#### Request Example
-
-```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
--d '{
-  "passCode": "123456"
-}' "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/emfnf3gSScB8xXoXK0g3/verify?tokenLifetimeSeconds=600"
-```
-
-#### Response Example
+##### Response Example
 
 ```json
 {
@@ -2762,7 +2955,7 @@ curl -v -X POST \
 
 ### Verify U2F Factor
 
-<span class="api-uri-template api-uri-post"><span class="api-label">POST</span> /api/v1/users/${userId}/factors/${factorId}/verify</span>
+<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
 Note:
 
@@ -3016,6 +3209,33 @@ Specifies the profile for a `question` factor
   }
 }
 ```
+
+#### Built-in Question Keys
+
+The keys for the built-in security questions are listed below.
+
+| Question Unique Key                   |
+| ------------------------------------- |
+| disliked_food                         |
+| name_of_first_plush_toy               |
+| first_award                           |
+| favorite_security_question            |
+| favorite_toy                          |
+| first_computer_game                   |
+| favorite_movie_quote                  |
+| first_sports_team_mascot              |
+| first_music_purchase                  |
+| favorite_art_piece                    |
+| grandmother_favorite_desert           |
+| first_thing_cooked                    |
+| childhood_dream_job                   |
+| first_kiss_location                   |
+| place_where_significant_other_was_met |
+| favorite_vacation_location            |
+| new_years_two_thousand                |
+| favorite_speaker_actor                |
+| favorite_book_movie_character         |
+| favorite_sports_player                |
 
 #### SMS Profile
 

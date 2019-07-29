@@ -1,3 +1,5 @@
+// This file controls the links shown in the left-side table of contents.
+
 module.exports = [
   {
     title: "Concepts",
@@ -6,12 +8,13 @@ module.exports = [
       { title: 'Authentication', link: '/docs/concepts/authentication/'},
       { title: 'Event Hooks', link: '/docs/concepts/event-hooks/'},
       { title: 'Events API Migration', link: '/docs/concepts/events-api-migration/'},
+      { title: 'External Identity Providers', link: '/docs/concepts/identity-providers/'},
       { title: 'Inline Hooks', link: '/docs/concepts/inline-hooks/'},
       { title: 'Key Rotation', link: '/docs/concepts/key-rotation/'},
       { title: 'OAuth 2.0 & OIDC', link: '/docs/concepts/auth-overview/'},
       { title: 'Okta-Hosted Flows', link: '/docs/concepts/okta-hosted-flows/'},
-      { title: 'Social Login', link: '/docs/concepts/social-login/'},
-      { title: 'Okta Organizations', link: '/docs/concepts/okta-organizations/'}
+      { title: 'Okta Organizations', link: '/docs/concepts/okta-organizations/'},
+      { title: 'Social Login', link: '/docs/concepts/social-login/'}   
     ]
   },
   {
@@ -29,11 +32,7 @@ module.exports = [
   {
     title: "Reference",
     links: [
-      { title: 'API Overview', link: '/docs/reference/api-overview/', subLinks: [
-        { title: 'Rate limits', link: '/docs/reference/rate-limits/'},
-        { title: 'Release Lifecycle', link: '/docs/reference/releases-at-okta/'}
-      ]
-      },
+      { title: 'API Overview', link: '/docs/reference/api-overview/' },
       { title: 'Sign in Your Users', link: '/docs/reference/api/oidc/', subLinksId: 'Sidebar_References', subLinks: [
         { title: 'OpenID Connect & OAuth 2.0 API', link: '/docs/reference/api/oidc/'},
         { title: 'Authentication', link: '/docs/reference/api/authn/'}
@@ -66,6 +65,8 @@ module.exports = [
       { title: 'SAML Hooks', link: '/docs/reference/saml-hook/'},
       { title: 'Okta Expression Language', link: '/docs/reference/okta-expression-language/'},
       { title: 'Postman Collections', link: '/docs/reference/postman-collections/'},
+      { title: 'Rate Limits', link: '/docs/reference/rate-limits/'},
+      { title: 'Release Lifecycle', link: '/docs/reference/releases-at-okta/'},
       { title: 'SCIM Protocol', link: '/docs/reference/scim/'},
       { title: 'WebFinger', link: '/docs/reference/webfinger/'}
     ]

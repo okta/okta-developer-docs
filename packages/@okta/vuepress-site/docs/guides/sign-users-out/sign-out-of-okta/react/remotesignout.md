@@ -10,7 +10,7 @@ Open your Okta Developer Console:
 
 2. Select **General** and click **Edit**.
 
-3. In the **Logout redirect URI section**, add the **Base URI** of your application. You can optionally follow that URI with a path, for example, `http://localhost:8080/logged_out`. Also, add any URIs where your application runs in production, such as `https://app.example.com/logged_out`.
+3. In the **Logout redirect URI section**, add the **Base URI** of your application. You can optionally follow that URI with a path (for example, `http://localhost:8080/logged_out`). Also, add any URIs where your application runs in production, such as `https://app.example.com/logged_out`.
 
 4. Click **Save**.
 
