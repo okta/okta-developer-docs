@@ -33,7 +33,7 @@ Note that the API key you set here is unrelated to the Okta API token you must s
 
 You can also optionally specify extra headers that you wish Okta to pass to your external service with each call.
 
-Your external service's endpoint needs to be an HTTPS endpoint, and therefore the URI you specify should always begin with `https://`.
+Your external service's endpoint needs to be a valid HTTPS endpoint, and therefore the URI you specify should always begin with `https://`.
 
 ##### Request Parameters
 
