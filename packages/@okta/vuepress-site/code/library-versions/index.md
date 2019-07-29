@@ -56,7 +56,7 @@ This table lists the current (and historical) major versions of our open-source 
 | [Sign-In Widget][signin-widget]                                 | 1.13.0<br>**2.x**                  | Retired<br>**Stable**                |
 | [Auth.js][authjs]                                               | 1.x<br>**2.x**                     | Retiring on 2019-05-31<br>**Stable** |
 | [Android AppAuth SDK][appauth-android]                          | 0.2.4                              | Retiring on 2020-03-20                                 |
-| [Android OIDC][oidc-android]                          | 1.0.1                              | Stable
+| [Android OIDC][oidc-android]                          | 1.0.1                              | **Stable**
 | [Angular SDK][sdk-angular]                                      | 0.1.0<br>**1.x**                   | Retired<br>**Stable**                |
 | [ASP.NET SDK][sdk-aspnet]                                      | **1.x**                   | **Stable**                |
 | [ASP.NET Core SDK][sdk-aspnet]                                      | **1.x**                   | **Stable**                |
