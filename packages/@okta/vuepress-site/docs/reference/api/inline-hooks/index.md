@@ -33,6 +33,8 @@ Note that the API key you set here is unrelated to the Okta API token you must s
 
 You can also optionally specify extra headers that you wish Okta to pass to your external service with each call.
 
+Your external service's endpoint needs to be an HTTPS endpoint, and therefore the URI you specify should always begin with `https://`.
+
 The total number of Inline Hooks you can create in an Okta org is limited to 10. That is a combined total for any combination of Inline Hook types.
 
 ##### Request Parameters
@@ -712,11 +714,11 @@ curl -v -X POST \
 
 ### Config Object
 
-| Property   | Description                                                                                                  | DataType                                  | Required   | Unique   | ReadOnly   | Validation                                               |
-| ---------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------- | ---------- | -------- | ---------- | -------------------------------------------------------- |
-| uri        | External service endpoint to call to execute the Inline Hook handler.                                        | String                                    | TRUE       | FALSE    | TRUE       | Maximum length 1024 characters. Must begin with https:// |
-| headers    | Optional list of key/value pairs for headers that should be sent with the request to the external service.   | JSON Object                               | FALSE      | FALSE    | FALSE      | Some reserved headers, such as `Accept`, are disallowed. |
-| authScheme | The authentication scheme to use for this request                                                            | [AuthScheme object](#authscheme-object)   | FALSE      | FALSE    | FALSE      | Valid `authscheme` object.                               |
+| Property   | Description                                                                                                | DataType                                | Required | Unique | ReadOnly | Validation                                                                                                             |
+|------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------|----------|--------|----------|------------------------------------------------------------------------------------------------------------------------|
+| uri        | External service endpoint to call to execute the Inline Hook handler.                                      | String                                  | TRUE     | FALSE  | TRUE     | Must begin with `https://`. Maximum length 1024 characters. No white space allowed. The URI must be reachable by Okta. |
+| headers    | Optional list of key/value pairs for headers that should be sent with the request to the external service. | JSON Object                             | FALSE    | FALSE  | FALSE    | Some reserved headers, such as `Accept`, are disallowed.                                                               |
+| authScheme | The authentication scheme to use for this request                                                          | [AuthScheme object](#authscheme-object) | FALSE    | FALSE  | FALSE    | Valid `authscheme` object.|                                                                                            |
 
 ### AuthScheme Object
 
