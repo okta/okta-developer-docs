@@ -6,7 +6,7 @@ The Okta Identity Provider that you created in section 2 above generated an Auth
 
 * **client_id:** use the client_id value you copied in step 4.8.
 * **scope:** Determines the claims that are returned in the ID token. This should have at least `openid`.
-* **response_type:** Determines which flow is used. This should be `code`.
+* **response_type:** Determines which flow is used. This should be `id_token`.
 * **response_mode:** Determines how the authorization response should be returned. This should be `fragment`.
 * **state:** Protects against cross-site request forgery (CSRF).
 * **nonce:** A string included in the returned ID Token. Use it to associate a client session with an ID Token, and to mitigate replay attacks.
