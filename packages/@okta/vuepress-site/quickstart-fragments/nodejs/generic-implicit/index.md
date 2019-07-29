@@ -24,8 +24,9 @@ const oktaJwtVerifier = new OktaJwtVerifier({
 
 // The access token string, which should be obtained from the Authorization header on the request to your server
 const accessTokenString = 'eyJhbGciOiJSUzI1NiIsImtpZCI6Imk2UnRjSkxvbUg0e...';
+const expectedAudience = 'api://default';
 
-oktaJwtVerifier.verifyAccessToken(accessTokenString)
+oktaJwtVerifier.verifyAccessToken(accessTokenString, expectedAudience)
   .then(jwt => {
     // the token is valid
     console.log(jwt.claims);
