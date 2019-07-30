@@ -15,4 +15,4 @@ The `DELETE /groups/${groupId}` [endpoint](/docs/reference/api/groups/#remove-gr
 
 ### Bug Fixed in 2019.07.2
 
-* When [API Access Management](/docs/concepts/api-access-management/) consent was enabled, the factor lifetime configured in the App Sign On Rule was ignored. This resulted in the "Do not challenge me on this device for XXX" prompt not appearing to the end user in the [OpenID Connect/OAuth 2.0](/docs/concepts/auth-overview/) flow for Custom Authorization Servers. (OKTA-2233290)
+* When [API Access Management](/docs/concepts/api-access-management/) Consent was enabled, the factor lifetime configured in the App Sign On Rule was ignored and the "Do not challenge me on this device for XXX" prompt didn't appear to the end user when signing in to an [OpenID application](/docs/concepts/auth-overview/). (OKTA-2233290)
