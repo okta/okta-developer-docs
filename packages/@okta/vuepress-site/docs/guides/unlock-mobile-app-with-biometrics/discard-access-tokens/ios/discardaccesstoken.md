@@ -1,1 +1,7 @@
-Show how to discard access token when the app closes
+```swift
+do {
+    try oktaStorage.delete("jdoe")
+} catch let error {
+    // Handle error
+}
+```
