@@ -6,6 +6,7 @@ const config = {
     retries: 4
   },
   specs: ['spec/*.js'],
+  exclude: ['spec/quickstarts-spec.js'],
   capabilities: {},
   troubleshoot: true,
   SELENIUM_PROMISE_MANAGER: false
