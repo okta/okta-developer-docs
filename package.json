@@ -16,7 +16,7 @@
     "test": "yarn dev & yarn test:test-local && yarn stop-all",
     "test-only": "yarn test:update-web-driver && protractor tests/selenium/conf.js && yarn stop",
     "test:test-local": "yarn test:wait-on-local && yarn test-only || (yarn stop && exit 1)",
-    "test:update-web-driver": "./node_modules/protractor/bin/webdriver-manager update --gecko false --versions.standalone 3.141.59",
+    "test:update-web-driver": "./scripts/updateSeDrivers.sh",
     "test:stop-web-driver": "yarn fkill -s $(pgrep -f 'webdriver-manager/selenium' || echo 99999999)",
     "test:wait-on-local": "wait-for-localhost 8080 --use-get",
     "markdown-lint": "node scripts/markdown-check",
