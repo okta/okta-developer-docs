@@ -578,7 +578,7 @@ describe('quickstart page content spec', () => {
       'Android content not found').to.be.true;
   }));
 
-  it('should load the iOS content when I click iOS', util.itHelper(async () => {
+  xit('should load the iOS content when I click iOS', util.itHelper(async () => {
     await quickstartsPage.selectIosClientLink();
     await quickstartsPage.waitForPresence(quickstartsPage.getClientContent());
     expect(await quickstartsPage.isShowingIosContent(),

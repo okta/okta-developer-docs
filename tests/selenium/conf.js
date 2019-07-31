@@ -6,7 +6,7 @@ const config = {
     retries: 4
   },
   specs: ['spec/*.js'],
-  exclude: ['spec/quickstarts-spec.js'],
+  // exclude: ['spec/quickstarts-spec.js'],
   capabilities: {},
   troubleshoot: true,
   SELENIUM_PROMISE_MANAGER: false
@@ -18,7 +18,7 @@ if (process.env.CHROME_HEADLESS) {
   config.capabilities = {
     'browserName': 'chrome',
     chromeOptions: {
-      args: ['--headless', '--disable-dev-shm-usage', '--no-sandbox','--window-size=1600x1200']
+      args: ['--headless', '--no-sandbox','--window-size=1600x1200']
     }
   }
 }
