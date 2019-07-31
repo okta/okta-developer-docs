@@ -656,7 +656,7 @@ You then need to associate the registered Inline Hook with a Custom Authorizatio
 
 1. One of the policy's rules needs to trigger the Inline Hook. Click the pencil icon for a rule to edit it. If you only have one rule, edit the Default Policy Rule.
 
-1. Click the **Use this inline hook** dropdown menu. Any Inline Hooks you have registered are listed. Select the hook you would like to use.
+1. Click the **Use this Inline Hook** dropdown menu. Any Inline Hooks you have registered are listed. Select the hook you would like to use.
 
 1. Click **Update Rule**.
 

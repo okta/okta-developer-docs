@@ -51,7 +51,7 @@ The way your service needs to handle this one-time verification is as follows: T
 
 After verification, for ongoing notification of events, Okta sends HTTPS POST requests to your service. The JSON payload of these requests is where Okta provides specific information about events that have occurred.
 
-Information is encapsulated in the JSON payload in the `data.events` object. The `data.events` object is an array, in order to allow sending multiple events in a single POST request. Events that occur within a short time of each other will be amalgamated, with each each element of the array providing information on one event.
+Information is encapsulated in the JSON payload in the `data.events` object. The `data.events` object is an array, in order to allow sending multiple events in a single POST request. Events that occur within a short time of each other will be amalgamated, with each element of the array providing information on one event.
 
 The content of each array element is an object of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/reference/api/system-log/) defines for System Log events. See the documentation there for information on the object and its sub-objects.
 
