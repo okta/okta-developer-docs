@@ -6,7 +6,10 @@ const config = {
     retries: 4
   },
   specs: ['spec/*.js'],
-  capabilities: {},
+  capabilities: {
+    'shardTestFiles': true,
+    'maxInstances': 1
+  },
   troubleshoot: true,
   SELENIUM_PROMISE_MANAGER: false
 };
