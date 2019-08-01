@@ -5,6 +5,7 @@ guides:
  - add-saml-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - byo-saml
  - create-an-api-token
  - create-token-with-groups-claim
  - custom-error-pages
@@ -23,9 +24,11 @@ guides:
  - mfa
  - protect-your-api
  - refresh-tokens
+ - request-user-consent
  - revoke-tokens
  - saml-application-setup
  - session-cookie
+ - set-up-event-hook
  - sharing-cert
  - sign-in-with-facebook
  - sign-in-with-google

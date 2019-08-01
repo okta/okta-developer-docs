@@ -164,8 +164,6 @@ For an example using group functions and for more information on using group fun
 
 ### Linked Object Function
 
-<ApiLifecycle access="ea" />
-
 Use this function to retrieve properties about the user identified with the specified `primary` relationship. You can optionally specify an app.
 
 * Function: `user.getLinkedObject().$attribute`
@@ -173,12 +171,6 @@ Use this function to retrieve properties about the user identified with the spec
     * Return Type: User
     * Example: `user.getLinkedObject("manager").lastName`
     * Example Result: `Gates`
-
-* Function: `user.getLinkedObject().appuser().$attribute`
-    * Parameters: (String primaryName) (String appName) (String userAttribute)
-    * Return type: User
-    * Example: `user.getLinkedObject("manager").appuser("Salesforce").lastName`
-    * Example Result: `Benioff`
 
 ### Time Functions
 

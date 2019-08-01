@@ -13,23 +13,23 @@ This page provides reference documentation for:
 
 - JSON objects you can include in your response
 
-This information is specific to the SAML Assertion Inline Hook, one type of inline hook supported by Okta.
+This information is specific to the SAML Assertion Inline Hook, one type of Inline Hook supported by Okta.
 
 ## See Also
 
-For a general introduction to Okta inline hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this inline hook, see below, [Enabling a SAML Assertion Inline Hook](#enabling-a-saml-assertion-inline-hook).
+For steps to enable this Inline Hook, see below, [Enabling a SAML Assertion Inline Hook](#enabling-a-saml-assertion-inline-hook).
 
 ## About
 
-This type of inline hook is triggered when Okta generates a SAML assertion in response to an authentication request. Before sending the SAML assertion to the app that will consume it, Okta calls out to your external service. Your external service can respond with commands to add attributes to the assertion or to modify its existing attributes.
+This type of Inline Hook is triggered when Okta generates a SAML assertion in response to an authentication request. Before sending the SAML assertion to the app that will consume it, Okta calls out to your external service. Your external service can respond with commands to add attributes to the assertion or to modify its existing attributes.
 
 This functionality can be used to add data to assertions, which might be data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, SAML assertions generated for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
-This inline hook works only when using custom SAML apps, not apps from the OIN.
+This Inline Hook works only when using custom SAML apps, not apps from the OIN.
 
 ## Objects in the Request from Okta
 
@@ -372,9 +372,9 @@ When modifying an existing assertions statement, the path could begin with `/sub
 
 ## Enabling a SAML Assertion Inline Hook
 
-To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-You then need to associate the registered inline hook with a SAML app by completing the following steps in Admin Console:
+You then need to associate the registered Inline Hook with a SAML app by completing the following steps in Admin Console:
 
 1. Go to **Applications** and select your SAML app.
 
@@ -386,6 +386,6 @@ You then need to associate the registered inline hook with a SAML app by complet
 
 1. Click **Next** to get to the **Configure SAML** section.
 
-1. In the **Assertion Inline Hook** field, select your registered inline hook.
+1. In the **Assertion Inline Hook** field, select your registered Inline Hook.
 
-> Note: Only one inline hook can be associated with each app.
+> Note: Only one Inline Hook can be associated with each app.

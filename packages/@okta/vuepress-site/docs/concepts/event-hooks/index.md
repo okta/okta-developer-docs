@@ -2,7 +2,7 @@
 title: Event Hooks
 meta:
   - name: description
-    content: Event hooks are outbound calls from Okta, sent when specified events occur in your org. Get information on eligible hooks and setting up event hooks in this guide.
+    content: Event Hooks are outbound calls from Okta, sent when specified events occur in your org. Get information on eligible events and setting up Event Hooks in this guide.
 ---
 
 # Event Hooks
@@ -11,37 +11,37 @@ meta:
 
 ## What Are Okta Event Hooks?
 
-Event hooks are outbound calls from Okta, sent when specified events occur in your org. They take the form of HTTPS REST calls to a URL you specify, encapsulating information about the events in JSON objects in the request body. These calls from Okta are meant to be used as triggers for process flows within your own software systems.
+Event Hooks are outbound calls from Okta, sent when specified events occur in your org. They take the form of HTTPS REST calls to a URL you specify, encapsulating information about the events in JSON objects in the request body. These calls from Okta are meant to be used as triggers for process flows within your own software systems.
 
-To handle event hook calls from Okta, you need to implement a web service with an Internet-accessible endpoint. It's your responsibility to develop the code and to arrange its hosting on a system external to Okta. Okta defines the REST API contract for the requests that it will send.
+To handle Event Hook calls from Okta, you need to implement a web service with an Internet-accessible endpoint. It's your responsibility to develop the code and to arrange its hosting on a system external to Okta. Okta defines the REST API contract for the requests that it will send.
 
-Event hooks are Okta's implementation of the industry concept of webhooks. Okta's event hooks are related to, but different from, Okta [inline hooks](/docs/concepts/inline-hooks/): event hooks are meant to deliver information about events that occurred, not offer a way to affect execution of the underlying Okta process flow. Also, event hooks are asynchronous calls, meaning that the process flow that triggered the event hook continues without stopping or waiting for any response from your external service.
+Event Hooks are Okta's implementation of the industry concept of webhooks. Okta's Event Hooks are related to, but different from, Okta [Inline Hooks](/docs/concepts/inline-hooks/): Event Hooks are meant to deliver information about events that occurred, not offer a way to affect execution of the underlying Okta process flow. Also, Event Hooks are asynchronous calls, meaning that the process flow that triggered the Event Hook continues without stopping or waiting for any response from your external service.
 
-Before the introduction of event hooks, polling the [System Log API](/docs/reference/api/system-log/) was the only method your external software systems could use to detect the occurrence of specific events in your Okta org; event hooks provide an Okta-initiated push notification.
+Before the introduction of Event Hooks, polling the [System Log API](/docs/reference/api/system-log/) was the only method your external software systems could use to detect the occurrence of specific events in your Okta org; Event Hooks provide an Okta-initiated push notification.
 
-You can have a maximum of 10 active and verified event hooks set up in your org at any time, and each event hook can be configured to deliver multiple event types.
+You can have a maximum of 10 active and verified Event Hooks set up in your org at any time, and each Event Hook can be configured to deliver multiple event types.
 
 ## Which Events are Eligible?
 
-During the initial configuration procedure for an event hook, you specify which event types you want the event hook to deliver. The event types that can be specified are a subset of the event types that the Okta System Log captures.
+During the initial configuration procedure for an Event Hook, you specify which event types you want the Event Hook to deliver. The event types that can be specified are a subset of the event types that the Okta System Log captures.
 
-To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
+To see the list of event types currently eligible for use in Event Hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
 
 <https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible>
 
 For general information on how Okta encapsulates events, see the [System Log API](/docs/reference/api/system-log/) documentation.
 
-Examples of available types of events include user lifecycle changes, the completion by a user of a specific stage in an Okta process flow, and changes in Okta objects. You could configure an event hook, for example, to deliver notifications of user deactivation events. You could use this to trigger processes that you need to execute internally every time a user is deactivated, like updating a record in an HR system, creating a ticket in a support system, or generating an email message.  
+Examples of available types of events include user lifecycle changes, the completion by a user of a specific stage in an Okta process flow, and changes in Okta objects. You could configure an Event Hook, for example, to deliver notifications of user deactivation events. You could use this to trigger processes that you need to execute internally every time a user is deactivated, like updating a record in an HR system, creating a ticket in a support system, or generating an email message.  
 
 ## Requests Sent by Okta
 
-When events occur in your org that match an event type that you configured your event hook to deliver, the event hook is automatically triggered and sends a request to your external service. The JSON payload of the request provides information on the event. A sample JSON payload is provided in [Sample Event Delivery Payload](#sample-event-delivery-payload) below.
+When events occur in your org that match an event type that you configured your Event Hook to deliver, the Event Hook is automatically triggered and sends a request to your external service. The JSON payload of the request provides information on the event. A sample JSON payload is provided in [Sample Event Delivery Payload](#sample-event-delivery-payload) below.
 
 The requests sent from Okta to your external service are HTTPS requests. POST requests are used for the ongoing delivery of events, and a one-time GET request is used for verifying your endpoint.
 
 ### One-Time Verification Request
 
-After registering an event hook, but before you can use it, you need to have Okta make a one-time GET verification request to your endpoint, passing your service a verification value that your service needs to send back. This serves as a test confirming that you control the endpoint. See [Verifying an Event Hook](#verifying-an-event-hook) below for more information on triggering that one-time verification step.
+After registering an Event Hook, but before you can use it, you need to have Okta make a one-time GET verification request to your endpoint, passing your service a verification value that your service needs to send back. This serves as a test confirming that you control the endpoint. See [Verifying an Event Hook](#verifying-an-event-hook) below for more information on triggering that one-time verification step.
 
 This one-time verification request is the only GET request Okta will send to your external service, while the ongoing requests to notify your service of event occurrences will be HTTPS POST requests. Your web service can use the GET versus POST distinction to implement logic to handle this special one-time request.
 
@@ -51,7 +51,7 @@ The way your service needs to handle this one-time verification is as follows: T
 
 After verification, for ongoing notification of events, Okta sends HTTPS POST requests to your service. The JSON payload of these requests is where Okta provides specific information about events that have occurred.
 
-Information is encapsulated in the JSON payload in the `data.events` object. The `data.events` object is an array, in order to allow sending multiple events in a single POST request. Events that occur within a short time of each other will be amalgamated, with each each element of the array providing information on one event.
+Information is encapsulated in the JSON payload in the `data.events` object. The `data.events` object is an array, in order to allow sending multiple events in a single POST request. Events that occur within a short time of each other will be amalgamated, with each element of the array providing information on one event.
 
 The content of each array element is an object of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/reference/api/system-log/) defines for System Log events. See the documentation there for information on the object and its sub-objects.
 
@@ -73,7 +73,7 @@ Content-Type: application/json
 Authorization: ${key}
 ```
 
-The value sent in the Authorization header is a secret string you provide to Okta when you register your event hook. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This is not an Okta authorization token, it is simply a text string you decide on.)
+The value sent in the Authorization header is a secret string you provide to Okta when you register your Event Hook. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This is not an Okta authorization token, it is simply a text string you decide on.)
 
 ### Security
 
@@ -89,27 +89,11 @@ As a best practice, you should return the HTTP response immediately, rather than
 
 ### Rate Limits
 
-Event hooks are limited to sending 100,000 events per 24-hour period. 
+Event Hooks are limited to sending 100,000 events per 24-hour period. 
 
 ## Event Hook Setup
 
-### Registering an Event Hook
-
-After implementing your external service, you need to register it with Okta by making a POST request to the `/api/v1/eventHooks` API. You use the JSON payload of that request to provide information on the event hook you are registering, including:
-
-- the URI of your external service's endpoint
-- the list of specific event types you want to use the event hook to deliver
-- the secret value Okta should send in the authorization header of requests
-
-The response you receive will confirm creation of the event hook and provide you with the unique ID value of the created event hook.
-
-### Verifying an Event Hook
-
-After registering the event hook, you need to trigger a one-time verification process by making a POST request to the `/api/v1/eventHooks/${eventHookId}/lifecycle/verify` API. See [Event Hooks Management API](/docs/reference/api/event-hooks/).
-
-If verification is successful, the JSON payload of the response to your call to the `/verify` API will contain a property called `verificationStatus` set to `VERIFIED`.
-
-After your event hook is verified, it can take up to a minute for delivery of events to your endpoint to begin.
+For the steps to register and verify a new Event Hook endpoint, see [Set Up Event Hooks](https://developer.okta.com/docs/guides/set-up-event-hook/overview/).
 
 ## Sample Event Delivery Payload
 
