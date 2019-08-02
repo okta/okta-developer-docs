@@ -183,13 +183,19 @@ curl -v -X GET \
 
 Returns a list of registered Inline Hooks, optionally filtered by Inline Hook type if you supply a `type` query parameter.
 
-##### Request Example
+##### Request Examples
 
 
 ```json
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 "https://{yourOktaDomain}/api/v1/inlineHooks"
+```
+
+```json
+curl -v -X GET \
+-H "Authorization: SSWS ${api_token}" \
+"https://{yourOktaDomain}/api/v1/inlineHooks?type=com.okta.user.pre-registration"
 ```
 
 ##### Response Example
