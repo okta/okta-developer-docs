@@ -34,9 +34,9 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 
 ## Okta Android SDK
 
-The Okta AppAuth Android SDK is a wrapper around the AppAuth-Android SDK for communicating with OAuth 2.0 and OpenID Connect (OIDC) providers.
+The Okta OpenID Connect (OIDC) Android SDK is for communicating with OAuth 2.0 and OIDC providers.
 
-<a href='https://github.com/okta/okta-sdk-appauth-android'>
+<a href='https://github.com/okta/okta-oidc-android'>
 	<span class='fa fa-github'></span> <span>Android SDK Source</span>
 </a>
 
