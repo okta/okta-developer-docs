@@ -195,7 +195,7 @@ curl -v -X GET \
 ```json
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/inlineHooks?type=com.okta.user.pre-registration"
+"https://{yourOktaDomain}/api/v1/inlineHooks?type=com.okta.oauth2.tokens.transform"
 ```
 
 ##### Response Example
