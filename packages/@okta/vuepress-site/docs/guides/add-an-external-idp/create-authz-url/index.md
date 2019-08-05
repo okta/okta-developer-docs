@@ -1,0 +1,28 @@
+---
+title: Create the Authorization URL
+---
+The Okta Identity Provider that you created in the <GuideLink link="../configure-idp-in-okta">second step</GuideLink> generated an authorize URL with a number of blank parameters that you must now fill in. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
+
+In the URL, replace {your OktaDomain} with your org's base URL, and then replace the following values:
+
+* `client_id`: Use the `client_id` value that you obtained from the OpenID Connect client application in the <GuideLink link="../create-app-in-okta">previous section</GuideLink>. This is not the `client_id` from the Identity Provider.
+
+* `scope`: Determines the claims that are returned in the ID token. Include the scopes that you want to request authorization for and separate each by a space. You need to include at least the `openid` scope. You can request any of the standard OpenID Connect scopes about users, such as `profile` and `email` as well as any custom scopes specific to your Identity Provider.
+
+* `response_type`: Determines which flow is used. This should be `id_token`.
+
+* `response_mode`: Determines how the authorization response should be returned. This should be `fragment`.
+
+* `state`: Protects against cross-site request forgery (CSRF). Can be any value.
+
+* `nonce`: A string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. Can be any value.
+
+* `redirect_uri`: The location where Okta returns a browser after the user finishes authenticating with their identity provider. This URL must start with HTTPS and must match one of the redirect URIs that you configured in the <GuideLink link="../create-app-in-okta">previous section</GuideLink>.
+
+For a full explanation of all these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters).
+
+An example of a complete URL looks like this:
+
+`https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaaq9pjc2ujmFZexample&client_id=GkGw4K49N4UEE1example&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2F&state=WM6D&nonce=YsG76jo`
+
+<NextSectionLink/>
