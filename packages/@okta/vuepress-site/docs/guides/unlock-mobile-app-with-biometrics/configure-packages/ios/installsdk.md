@@ -12,7 +12,7 @@ Now install the dependency and open the auto-generated workspace file:
 pod install
 ```
 
-Create instance of `OktaSecureStorage` in your code:
+Create an instance of `OktaSecureStorage` in your code:
 
 ```swift
 let secureStorage = OktaSecureStorage()
