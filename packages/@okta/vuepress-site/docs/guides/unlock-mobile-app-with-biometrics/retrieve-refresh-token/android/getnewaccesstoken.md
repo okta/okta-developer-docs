@@ -1,4 +1,4 @@
-Then override `onActivityResult` to get the results from the `Keyguard`.
+Override `onActivityResult` to get the results from the `Keyguard`.
 
 ```java
 @Override

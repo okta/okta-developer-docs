@@ -1,4 +1,4 @@
-First create a encryption manager and set it in the `WebAuthBuilder` like the following:
+First create an encryption manager and set it in the `WebAuthBuilder` like the following:
 
 ```java
 private GuardedEncryptionManager keyguardEncryptionManager = new GuardedEncryptionManager(this, Integer.MAX_VALUE);

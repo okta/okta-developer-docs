@@ -1,6 +1,6 @@
-Use the library [OktaStorage](https://github.com/okta/okta-storage-swift), available through [CocoaPods](http://cocoapods.org/pods/OktaStorage).
+Use the library [OktaStorage](https://github.com/okta/okta-storage-swift) available through [CocoaPods](http://cocoapods.org/pods/OktaStorage).
 
-To install it, add the following line to your `Podfile`:
+To install the library, add the following line to your `Podfile`:
 
 ```ruby
 pod 'OktaStorage'

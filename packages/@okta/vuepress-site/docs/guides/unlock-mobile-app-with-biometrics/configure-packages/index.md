@@ -1,7 +1,7 @@
 ---
 title: Add and configure packages
 ---
-You need to add Okta SDK to your application.
+You need to add the Okta SDK to your application.
 
 ### Install the SDK
 
