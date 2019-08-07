@@ -10,6 +10,7 @@ title: Okta API Products Release Notes
 | [LinkedIn API V2 is now supported](#linkedin-api-v2-is-now-supported)                                    | August 7, 2019           |
 | [Mappings API is now GA in Preview](#mappings-api-is-now-ga-in-preview)                                  | August 7, 2019           |
 | [Missing type property now returns a 400 error code](#missing-type-property-now-returns-a-400-error-code)| August 7, 2019           |
+| [Cookies updated to preserve cross-site functionality](#cookies-updated-to-preserve-cross-site-functionality)| August 7, 2019           |
 | [Bug Fixed in 2019.08.0](#bug-fixed-in-2019-08-0)                                                        | August 7, 2019           |
 
 ### Inline Hooks is now GA in Preview
@@ -28,6 +29,10 @@ The Okta Mappings API provides operations to manage the mapping of properties be
 ### Missing type property now returns a 400 error code
 
 If you create an [IP network zone](/docs/reference/api/zones/#ip-zone-properties) without a `type` property for an IP field, PUT or POST requests made to the Zone API now return a 400 error code. <!-- OKTA-239170 -->
+
+### Cookies updated to preserve cross-site functionality
+
+To preserve cross-site functionality in light of upcoming updates to [Chrome](https://www.chromestatus.com/feature/5088147346030592) and [Firefox](https://groups.google.com/forum/#!msg/mozilla.dev.platform/nx2uP0CzA9k/BNVPWDHsAQAJ), Okta has added the `SameSite=None' attribute to all relevant cookies. <!-- OKTA-229541 -->
 
 ### Bug Fixed in 2019.08.0
 
