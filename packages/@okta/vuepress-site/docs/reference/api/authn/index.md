@@ -3834,7 +3834,7 @@ curl -v -X POST \
 
 > If you omit `passCode` in the request a new OTP will be sent to the device, otherwise the request will attempt to verify the `passCode`
 
-#### Response Parameters for Verify SMS Factor
+##### Response Parameters for Verify SMS Factor
 
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
@@ -4287,7 +4287,7 @@ curl -v -X POST \
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_CHALLENGE",
   "relayState": "/myapp/some/deep/link/i/want/to/return/to",
-  "factorResult": "WAITING",
+  "factorResult": "TIMEOUT",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -4750,7 +4750,7 @@ curl -v -X POST \
 
 > If you omit `passCode` in the request a new OTP will be sent to the device, otherwise the request will attempt to verify the `passCode`
 
-#### Response Parameters for Verify Call Factor
+##### Response Parameters for Verify Call Factor
 
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.

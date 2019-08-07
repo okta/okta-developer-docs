@@ -3464,7 +3464,7 @@ The User model defines several read-only properties:
 
 | Property                | Description                                                             | DataType                                                                                                           | Nullable   | Unique   | Readonly |
 | :---------------------- | :---------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- | :--------- | :------- | :------- |
-| userId                  | unique key for user                                                     | String                                                                                                             | FALSE      | TRUE     | TRUE     |
+| id                      | unique key for user                                                     | String                                                                                                             | FALSE      | TRUE     | TRUE     |
 | status                  | current [status](#user-status) of user                                  | `STAGED`, `PROVISIONED`, `ACTIVE`, `RECOVERY`, `LOCKED_OUT`, `PASSWORD_EXPIRED`, `SUSPENDED`, or `DEPROVISIONED`   | FALSE      | FALSE    | TRUE     |
 | created                 | timestamp when user was created                                         | Date                                                                                                               | FALSE      | FALSE    | TRUE     |
 | activated               | timestamp when transition to `ACTIVE` status completed                  | Date                                                                                                               | FALSE      | FALSE    | TRUE     |
@@ -3645,16 +3645,17 @@ The password specified in the value property must meet the default password poli
 
 ##### Hashed Password Object
 
-Specifies a hashed password that can be imported into Okta.  This allows an existing password to be imported into Okta directly from some other store.
-A hashed password may be specified in a Password Object when creating or updating a user, but not for other operations.  When updating a user with a hashed password the user must have the `STAGED` status.
+Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, and MD5 hashing functions for password import. A hashed password may be specified in a Password Object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
 
-| Property     | DataType   | Description                                                                                                                                                                               | Required                                                    | Min Value                        | Max Value                        |
-| :----------- | :--------- | :------------------------------------------------------------------------------------------------------------                                                                             | :-----------------------------------                        | :-------------------             | :-----------------               |
-| algorithm    | String     | The algorithm used to hash the password. Must be set to `BCRYPT`, `SHA-512`, `SHA-256`, `SHA-1` or `MD5`                                                                                             | TRUE                                                        | N/A                              | N/A                              |
-| value        | String     | For `SHA-512`, `SHA-256`, `SHA-1`, `MD5`: This is the actual base64-encoded hashed password. For `BCRYPT`: This is the actual radix64-encoded hashed password.                                       | TRUE                                                        | N/A                              | N/A                              |
-| salt         | String     | For `SHA-512`, `SHA-256`, `SHA-1`, `MD5`: Specifies the base64-encoded password salt used to generate the hash. For `BCRYPT`: Specifies the radix64-encoded password salt used to generate the hash. | TRUE                                                        | 22 (only for `BCRYPT` algorithm) | 22 (only for `BCRYPT` algorithm) |
-| workFactor   | Integer    | Governs the strength of the hash, and the time required to compute it. Only relevant for `BCRYPT` algorithm                                                                               | Only for `BCRYPT` algorithm                                 | 1                                | 20                               |
-| saltOrder    | String     | Specifies whether salt was pre- or postfixed to the password before hashing. Only relevant for `SHA-512`, `SHA-256`, `SHA-1`, `MD5` algorithms. Must be set to `PREFIX` or `POSTFIX`                 | Only for `Salted SHA-512`, `Salted SHA-256`, `Salted SHA-1`, `Salted MD5` algorithms | N/A                              | N/A                              |
+> Note: Because the plain text password isn't specified when a hashed password is provided, password policy isn't applied.
+
+| Property   | DataType | Description                                                                                                                                                                                | Required                                                                      | Min Value                      | Max Value                      |
+|:-----------|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------|:-------------------------------|:-------------------------------|
+| algorithm  | String   | The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5.                                                                                            | TRUE                                                                          | N/A                            | N/A                            |
+| value      | String   | For SHA-512, SHA-256, SHA-1, MD5: This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded `value` of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the `salt` to the `password` depending on the `saltOrder`. If a `salt` was not used in the `source` system, then this should just be the the Base64 encoded `value` of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT: This is the actual radix64-encoded hashed password.                                       | TRUE                                                                          | N/A                            | N/A                            |
+| salt       | String   | For Salted SHA-512, Salted SHA-256, Salted SHA-1, Salted MD5 algorithms: Specifies the base64-encoded password salt used to generate the hash. For BCRYPT: Specifies the radix64-encoded password salt used to generate the hash. | TRUE                                                                          | 22 (only for BCRYPT algorithm) | 22 (only for BCRYPT algorithm) |
+| workFactor | Integer  | Governs the strength of the hash and the time required to compute it. Only relevant for BCRYPT algorithm.                                                                                 | Only for BCRYPT algorithm                                                     | 1                              | 20                             |
+| saltOrder  | String   | Specifies whether salt was pre- or postfixed to the password before hashing. Only relevant for SHA-512, SHA-256, SHA-1, MD5 algorithms. Must be set to PREFIX or POSTFIX.                  | Only for Salted SHA-512, Salted SHA-256, Salted SHA-1, Salted MD5 algorithms. | N/A                            | N/A                            |
 
 ###### BCRYPT Hashed Password Object Example
 
@@ -3720,14 +3721,6 @@ A hashed password may be specified in a Password Object when creating or updatin
   }
 }
 ```
-
-##### Hashing Function
-
-Okta supports the `BCRYPT`, `SHA-512`, `SHA-256`, `SHA-1`, and `MD5` hashing functions for password import.
-
-##### Default Password Policy
-
-Because the plain text password is not specified when a hashed password is provided, password policy is not applied.
 
 #### Recovery Question Object
 
