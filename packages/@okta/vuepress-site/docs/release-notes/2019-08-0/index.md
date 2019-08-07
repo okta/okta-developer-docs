@@ -15,7 +15,7 @@ title: Okta API Products Release Notes
 
 ### Cookies updated to preserve cross-site functionality
 
-To preserve cross-site functionality in light of upcoming updates to [Chrome](https://www.chromestatus.com/feature/5088147346030592) and [Firefox](https://groups.google.com/forum/#!msg/mozilla.dev.platform/nx2uP0CzA9k/BNVPWDHsAQAJ), Okta has added the `SameSite=None` attribute to all relevant cookies. <!-- OKTA-229541 -->
+To preserve cross-site functionality in light of upcoming updates to [Chrome](https://www.chromestatus.com/feature/5088147346030592), Okta has added the `SameSite=None` attribute to all relevant cookies. <!-- OKTA-229541 -->
 
 ### Inline Hooks is now GA in Preview
 
