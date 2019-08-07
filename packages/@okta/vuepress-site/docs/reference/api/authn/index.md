@@ -1893,6 +1893,7 @@ Enrolls a user with a [factor](/docs/reference/api/factors/#supported-factors-fo
 * [Enroll YubiKey Factor](#enroll-yubikey-factor)
 * [Enroll Duo Factor](#enroll-duo-factor)
 * [Enroll U2F Factor](#enroll-u2f-factor)
+* [Enroll Custom HOTP Factor](#enroll-custom-hotp-factor)
 
 > This operation is only available for users that have not previously enrolled a factor and have transitioned to the `MFA_ENROLL` [state](#transaction-state).
 
@@ -2907,6 +2908,9 @@ curl -v -X POST \
   }
 }
 ```
+
+#### Enroll Custom HOTP Factor
+Enrollment via the Authentication API is currently not supported for Custom HOTP Factor.  Please refer to the Factors API documentation [here](/docs/reference/api/factors/#enroll-custom-hotp-factor) if you would like to enroll users for this type of factor.
 
 ### Activate Factor
 
@@ -3989,7 +3993,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
 
-Verifies an OTP for a `token:software:totp` factor.
+Verifies an OTP for a `token:software:totp` or `token:hotp` factor.
 
 > This API implements [the TOTP standard](https://tools.ietf.org/html/rfc6238), which is used by apps like Okta Verify and Google Authenticator.
 
