@@ -16,6 +16,9 @@ For general information on event hooks and how to create and use them, see [Even
 
 Explore the Event Hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b02d234a2af183981254)
 
+> **Important:** In the future the Events API will not be tracking new event types added to the System Log API. For this reason we highly recommend migrating to the System Log API.
+<br>
+
 ## Event Hook Operations
 
 ### Create Event Hook
