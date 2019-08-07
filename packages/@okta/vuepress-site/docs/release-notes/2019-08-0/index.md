@@ -6,12 +6,17 @@ title: Okta API Products Release Notes
 
 | Change                                                                                                   | Expected in Preview Orgs |
 |----------------------------------------------------------------------------------------------------------|--------------------------|
+| [Added Support for TOTP Factor](#added-support-for-totp-factor)                                          | August 7, 2019           |
 | [Cookies updated to preserve cross-site functionality](#cookies-updated-to-preserve-cross-site-functionality)| August 7, 2019           |
 | [Inline Hooks is now GA in Preview](#inline-hooks-is-now-ga-in-preview)                                  | August 7, 2019           |
 | [LinkedIn API V2 is now supported](#linkedin-api-v2-is-now-supported)                                    | August 7, 2019           |
 | [Mappings API is now GA in Preview](#mappings-api-is-now-ga-in-preview)                                  | August 7, 2019           |
 | [Missing type property now returns a 400 error code](#missing-type-property-now-returns-a-400-error-code)| August 7, 2019           |
 | [Bug Fixed in 2019.08.0](#bug-fixed-in-2019-08-0)                                                        | August 7, 2019           |
+
+### Added Support for TOTP Factor
+
+Okta now supports a custom MFA factor based on the Time-based One-time Password (TOTP) algorithm. For more information, see [Custom HOTP Factor](/docs/reference/api/factors/#enroll-custom-hotp-factor). <!-- OKTA-236375 -->
 
 ### Cookies updated to preserve cross-site functionality
 
@@ -23,7 +28,7 @@ To preserve cross-site functionality in light of upcoming updates to [Chrome](ht
 
 ### LinkedIn API V2 is now supported 
 
-Okta now supports LinkedIn API V2. Creation of [LinkedIn Identity Providers](https://developer.okta.com/docs/guides/sign-in-with-linkedin/setup-app/) has been re-enabled in all Production orgs. <!-- OKTA-237649 -->
+Okta now supports LinkedIn API V2. Creation of [LinkedIn Identity Providers](/docs/guides/sign-in-with-linkedin/setup-app/) has been re-enabled in all Production orgs. <!-- OKTA-237649 -->
 
 ### Mappings API is now GA in Preview
 
