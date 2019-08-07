@@ -31,4 +31,4 @@ If you create an [IP network zone](/docs/reference/api/zones/#ip-zone-properties
 
 ### Bug Fixed in 2019.08.0
 
-In the `Update User` API, when the `secondEmail` attribute in a user's profile was updated with an empty value (instead of `null`), the `noSecondEmail` flag was incorrectly updated to `false` for the user. This led to affected users being incorrectly prompted for `secondEmail`. (OKTA-240382)
+In the `Update User` API, when the `secondEmail` attribute in a user's profile was updated with an empty value (instead of `null`), the user was incorrectly prompted for `secondEmail`. (OKTA-240382)
