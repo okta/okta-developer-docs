@@ -703,11 +703,11 @@ curl -v -X POST \
 
 ### Channel Object
 
-| Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
-| -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
-| type           | The channel type. Currently the only supported type is `HTTP`.   | channelType                      | FALSE      | FALSE    | TRUE       | Must match a valid channel type.            |
-| version        | Version of the channel. The currently-supported version is "1.0.0".                                 | String                              | FALSE      | FALSE    | TRUE       | Must match a valid version number.                |
-| config | Properties of the communications channel used to contact your external service.                     | [Channel Config object](#config-object)   | FALSE      | FALSE    | FALSE      | Validation is determined by the specific channel. |
+| Property | Description                                                                     | DataType                                | Nullable | Unique | Validation                                        |
+|----------|---------------------------------------------------------------------------------|-----------------------------------------|----------|--------|---------------------------------------------------|
+| type     | The channel type. Currently the only supported type is `HTTP`.                  | channelType                             | FALSE    | FALSE  | TRUE|Must match a valid channel type.             |
+| version  | Version of the channel. The currently-supported version is "1.0.0".             | String                                  | FALSE    | FALSE  | Must match a valid version number.                |
+| config   | Properties of the communications channel used to contact your external service. | [Channel Config object](#config-object) | FALSE    | FALSE  | Validation is determined by the specific channel. |
 
 
 ### Config Object
