@@ -8,8 +8,6 @@ excerpt: >-
 
 # Inline Hooks Management API
 
-<ApiLifecycle access="ea" />
-
 For general information on Inline Hooks and how to create and use them, see [Inline Hooks](/docs/concepts/inline-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering Inline Hooks.
 
 ## Getting Started

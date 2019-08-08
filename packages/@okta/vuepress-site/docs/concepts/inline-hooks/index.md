@@ -7,8 +7,6 @@ meta:
 
 # Inline Hooks
 
-<ApiLifecycle access="ea" />
-
 ## What Are Okta Inline Hooks?
 
 Inline hooks are outbound calls from Okta to your own custom code, triggered at specific points in Okta process flows. They allow you to integrate custom functionality into those flows.
