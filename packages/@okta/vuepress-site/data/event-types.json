@@ -1,6 +1,6 @@
 {
-  "release" : "2019.07.1",
-  "build" : "2019.07.1-begin-60-gbcaf8c51370c",
+  "release" : "2019.08.1",
+  "build" : "2019.08.1-begin-63-gdc441f75c12b",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -948,13 +948,13 @@
       "category" : "directories",
       "description" : "Directory agent performed topology import operation.",
       "tags" : [ "directory" ],
-      "mappings" : [ "system.agent.ad.read_toplogy" ]
+      "mappings" : [ "system.agent.ad.read_topology" ]
     }, {
       "id" : "app.ad.agent.read-forest-topology.error",
       "category" : "directories",
       "description" : "Directory agent encountered an error performing topology import operation.",
       "tags" : [ "directory" ],
-      "mappings" : [ "system.agent.ad.read_toplogy" ]
+      "mappings" : [ "system.agent.ad.read_topology" ]
     }, {
       "id" : "app.ad.agent.read-ldap",
       "category" : "directories",
@@ -5588,6 +5588,12 @@
       "tags" : [ "workday-app" ],
       "mappings" : [ "application.provision.user.import" ]
     }, {
+      "id" : "app.workday.api.error.timezone-deactivations-processing-errors",
+      "category" : "oin-advanced-apps",
+      "description" : "Unable to parse Worker result from Workday.",
+      "tags" : [ "workday-app" ],
+      "mappings" : [ "application.provision.user.import" ]
+    }, {
       "id" : "app.workday.api.error.universal-directory-setup-error",
       "category" : "oin-advanced-apps",
       "description" : "Unable to set up universal directory.",
@@ -5689,6 +5695,12 @@
       "description" : "App user property mapping has invalid expression.",
       "tags" : [ "app-user-management" ],
       "mappings" : [ "application.appuser.mapping.invalid.expression" ]
+    }, {
+      "id" : "core.beta.feature.enable",
+      "category" : "aelm",
+      "description" : "Beta feature was enabled for the Org.",
+      "tags" : [ "admin", "self-service-feature-management", "system" ],
+      "mappings" : [ ]
     }, {
       "id" : "core.billing.sms_usage_sent",
       "category" : "aelm",
@@ -6835,6 +6847,24 @@
       "description" : "IWA Agent encountered an error performing a FetchIWALogs action.",
       "tags" : [ "directory" ],
       "mappings" : [ "system.agent.ad.upload_iwa_log" ]
+    }, {
+      "id" : "iwa.agentless.auth.failed.client_principal_id.invalid",
+      "category" : "directories",
+      "description" : "Agentless IWA authentication failed because the client principal was not in a valid format.",
+      "tags" : [ "iwa" ],
+      "mappings" : [ "system.iwa_agentless.user.not_found" ]
+    }, {
+      "id" : "iwa.agentless.auth.failed.user.multiple_user_found",
+      "category" : "directories",
+      "description" : "Agentless IWA authentication failed because multiple users were found.",
+      "tags" : [ "iwa" ],
+      "mappings" : [ "system.iwa_agentless.user.not_found" ]
+    }, {
+      "id" : "iwa.agentless.auth.failed.user.not_found",
+      "category" : "directories",
+      "description" : "Agentless IWA authentication failed because a user was not found.",
+      "tags" : [ "iwa" ],
+      "mappings" : [ "system.iwa_agentless.user.not_found" ]
     }, {
       "id" : "iwa.agentless.auth.failure",
       "category" : "directories",
@@ -11975,7 +12005,7 @@
       },
       "beta" : false,
       "tags" : [ "app-api" ],
-      "mappings" : [ "app.api.error.download_users", "app.bloomfire.api.error.download_users", "app.boxnet.api.error.download.users", "app.confluence.api.error.download.users", "app.dropbox.api.error.download.users", "app.echosign.api.error.download.users", "app.exacttarget.api.error.download_users", "app.google.user_management.error.download_org_units", "app.google.user_management.error.download_users", "app.gotomeeting.user_management.config.failure.user_import", "app.gotomeeting_rest.user_management.config.failure.user_import", "app.hipchat.api.error.download.users", "app.jira.api.error.download.users", "app.netsuite.api.error.download_users", "app.postini.user_management.failure.download_users", "app.rightscale.api.error.download.users", "app.salesforce.user_management.failure.user_import", "app.sendwordnow.api.error.service", "app.servicenow.api.error.download.users", "app.servicenow_app2.api.error.download.users", "app.sugarcrm.api.error.download.users", "app.veeva_vault.api.error.download.users", "app.workday.api.error.connect-custom-report", "app.workday.api.error.custom-report-unknown-failure", "app.workday.api.error.get-locations", "app.workday.api.error.get-tx-logs", "app.workday.api.error.get-worker-by-username", "app.workday.api.error.get-workers", "app.workday.api.error.parse-custom-report", "app.workday.api.error.parse-workers", "app.workday.api.error.universal-directory-setup-error", "app.workday.api.get-custom-report-data-empty", "app.yammer.api.error.download.users", "gooddata.api.error.project.access.forbidden" ],
+      "mappings" : [ "app.api.error.download_users", "app.bloomfire.api.error.download_users", "app.boxnet.api.error.download.users", "app.confluence.api.error.download.users", "app.dropbox.api.error.download.users", "app.echosign.api.error.download.users", "app.exacttarget.api.error.download_users", "app.google.user_management.error.download_org_units", "app.google.user_management.error.download_users", "app.gotomeeting.user_management.config.failure.user_import", "app.gotomeeting_rest.user_management.config.failure.user_import", "app.hipchat.api.error.download.users", "app.jira.api.error.download.users", "app.netsuite.api.error.download_users", "app.postini.user_management.failure.download_users", "app.rightscale.api.error.download.users", "app.salesforce.user_management.failure.user_import", "app.sendwordnow.api.error.service", "app.servicenow.api.error.download.users", "app.servicenow_app2.api.error.download.users", "app.sugarcrm.api.error.download.users", "app.veeva_vault.api.error.download.users", "app.workday.api.error.connect-custom-report", "app.workday.api.error.custom-report-unknown-failure", "app.workday.api.error.get-locations", "app.workday.api.error.get-tx-logs", "app.workday.api.error.get-worker-by-username", "app.workday.api.error.get-workers", "app.workday.api.error.parse-custom-report", "app.workday.api.error.parse-workers", "app.workday.api.error.timezone-deactivations-processing-errors", "app.workday.api.error.universal-directory-setup-error", "app.workday.api.get-custom-report-data-empty", "app.yammer.api.error.download.users", "gooddata.api.error.project.access.forbidden" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -12928,7 +12958,7 @@
     }, {
       "id" : "inline_hook.executed",
       "category" : "extensibility",
-      "description" : "Triggered when an inline hook has been executed. Used to notify admins about the outcome of execution of an inline hook. Note that the event is fired even when the execution is unsuccessful.",
+      "description" : "Triggered when an inline hook has been executed. Used to notify admins about the outcome of execution of an inline hook. Note that the event is fired when the execution is unsuccessful.",
       "info" : {
         "created" : "2019-01-14",
         "release" : "2019.01.2"
@@ -14606,7 +14636,7 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
-      "id" : "system.agent.ad.read_toplogy",
+      "id" : "system.agent.ad.read_topology",
       "category" : "directories",
       "description" : "Directory agent performed topology import operation.",
       "info" : {
@@ -15004,6 +15034,22 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "ApiTokenResourceDetails" ]
+      }
+    }, {
+      "id" : "system.beta.feature.enable",
+      "category" : "aelm",
+      "description" : "Fired when an admin has enabled a BETA feature. This can be used to understand the status of the BETA Feature and identify who has enabled it for an org. When fired, this event contains information about the enabled BETA Feature, as well as the admin who enabled it.",
+      "info" : {
+        "created" : "2019-07-01",
+        "release" : "2019.07.1"
+      },
+      "beta" : true,
+      "tags" : [ "admin", "self-service-feature-management", "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
       }
     }, {
       "id" : "system.billing.sms_usage_sent",
@@ -15848,6 +15894,22 @@
       "beta" : false,
       "tags" : [ "iwa", "system" ],
       "mappings" : [ "iwa.agentless.update.failure", "iwa.agentless.update.success" ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "IwaResourceDetails" ]
+      }
+    }, {
+      "id" : "system.iwa_agentless.user.not_found",
+      "category" : "directories",
+      "description" : "Fired when a user could not be found during Agentless DSSO authentication, resulting in an authentication failure. This can be used to identify when an agentless authentication request resulted in a failure. The failure could be due to the user not being found in Okta, Okta not being able to connect to AD, or the user not being found in AD.  This can also be used to identify the potential cause of the failure. When fired, this event contains information about the potential cause of the failure.",
+      "info" : {
+        "created" : "2019-07-24",
+        "release" : "2019.08.0"
+      },
+      "beta" : false,
+      "tags" : [ "iwa", "system" ],
+      "mappings" : [ "iwa.agentless.auth.failed.client_principal_id.invalid", "iwa.agentless.auth.failed.user.multiple_user_found", "iwa.agentless.auth.failed.user.not_found" ],
       "schema" : {
         "debugData" : "SystemDebugData",
         "actor" : null,
@@ -17299,8 +17361,10 @@
         "name" : "AdAgentDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17317,8 +17381,10 @@
         "name" : "AdAgentGenericDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17332,8 +17398,10 @@
         "name" : "AdInstanceDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17348,8 +17416,10 @@
         "name" : "AppExceptionsDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17364,8 +17434,10 @@
         "name" : "AppInstanceDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17383,8 +17455,10 @@
         "name" : "AppInstanceKeyManagementDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17404,8 +17478,10 @@
         "name" : "AppManagerDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17420,8 +17496,10 @@
         "name" : "AppManagerUserConfigDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17444,8 +17522,10 @@
         "name" : "CallDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17462,8 +17542,10 @@
         "name" : "CommandDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17484,8 +17566,10 @@
         "name" : "DelAuthDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17507,8 +17591,10 @@
         "name" : "DeviceTrustDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17532,8 +17618,10 @@
         "name" : "DirectoryDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17550,8 +17638,10 @@
         "name" : "EmailFactorChallengeDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17566,8 +17656,10 @@
         "name" : "EmailFactorDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17582,8 +17674,10 @@
         "name" : "FeatureToggleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17600,8 +17694,10 @@
         "name" : "GroupAppDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17616,8 +17712,10 @@
         "name" : "GroupRoleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17633,8 +17731,10 @@
         "name" : "GroupRuleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17649,8 +17749,10 @@
         "name" : "IOSCommandDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17672,8 +17774,10 @@
         "name" : "IdpAuthDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17709,8 +17813,10 @@
         "name" : "InlineHookDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17726,8 +17832,10 @@
         "name" : "IwaSsoDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17748,8 +17856,10 @@
         "name" : "LdapDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17766,8 +17876,10 @@
         "name" : "NetworkZoneDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17782,8 +17894,10 @@
         "name" : "OAuth2DebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17819,8 +17933,10 @@
         "name" : "OAuth2PlatformDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17838,8 +17954,10 @@
         "name" : "Office365DebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17897,8 +18015,10 @@
         "name" : "OktaELDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17921,8 +18041,10 @@
         "name" : "OrgLifecycleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17938,8 +18060,10 @@
         "name" : "OrgRateLimitDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17960,8 +18084,10 @@
         "name" : "PluginDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17979,8 +18105,10 @@
         "name" : "PolicyDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -17995,8 +18123,10 @@
         "name" : "PolicyLifecycleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18014,8 +18144,10 @@
         "name" : "RadiusDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18036,8 +18168,10 @@
         "name" : "RichClientDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18055,8 +18189,10 @@
         "name" : "ScheduledActionDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18072,8 +18208,10 @@
         "name" : "SmsDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18092,8 +18230,10 @@
         "name" : "SuspiciousActivityDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18119,8 +18259,10 @@
         "name" : "SystemDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18134,8 +18276,10 @@
         "name" : "SystemImportDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18172,8 +18316,10 @@
         "name" : "TokenTransformDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18194,8 +18340,10 @@
         "name" : "UserAccessDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18216,8 +18364,10 @@
         "name" : "UserAuthenticationDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18235,8 +18385,10 @@
         "name" : "UserConfigDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18251,8 +18403,10 @@
         "name" : "UserDiffReportDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18267,8 +18421,10 @@
         "name" : "UserFactorDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18283,8 +18439,10 @@
         "name" : "UserLifecycleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18300,8 +18458,10 @@
         "name" : "UserProvisioningDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18318,8 +18478,10 @@
         "name" : "UserRoleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18335,8 +18497,10 @@
         "name" : "UserSsoAuthenticationDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18356,8 +18520,10 @@
         "name" : "WebhooksDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18372,8 +18538,10 @@
         "name" : "YubikeyDebugData",
         "properties" : {
           "webhooks" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
           "behaviors" : "Map",
-          "risk_score" : "Map",
+          "risk" : "Map",
           "url" : "String",
           "request_uri" : "String",
           "request_id" : "String",
@@ -18446,6 +18614,8 @@
       "IwaResourceDetails" : {
         "name" : "IwaResourceDetails",
         "properties" : {
+          "user_search_criteria_value" : "String",
+          "user_search_criteria_attribute" : "String",
           "mode" : "String",
           "realm_is_validated" : "Boolean",
           "realm_is_enabled" : "Boolean",
