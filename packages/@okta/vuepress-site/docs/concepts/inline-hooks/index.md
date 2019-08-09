@@ -159,7 +159,7 @@ For more information on implementing Inline Hooks, see the documentation for spe
 
 ## Troubleshooting
 
-The [Okta System Log](/docs/reference/api/system-log/) captures events related to Inline Hook setup and execution, which you can use to troubleshoot your implementation. To see the list of relevant event types, query the Event Types catalog with the query parameter `inline_hook`:
+The [Okta System Log](/docs/reference/api/system-log/) captures events related to Inline Hook setup and execution, which you can use to troubleshoot your implementation. To see descriptions of the relevant event types, query the Event Types catalog with the query parameter `inline_hook`:
 
 <https://developer.okta.com/docs/reference/api/event-types/?q=inline_hook>
 
