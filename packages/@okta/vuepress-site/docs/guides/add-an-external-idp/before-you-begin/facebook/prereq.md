@@ -1,1 +1,0 @@
-Go to `https://developers.facebook.com` and register for a developer account if you haven't already done so.

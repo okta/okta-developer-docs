@@ -1,11 +1,18 @@
-By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory. If your Identity Provider doesn't support this attribute, you can make it optional. See [Manage User Profiles](https://help.okta.com/en/prod/Content/Topics/Directory/eu-profile-editor.htm).
+In the **General Settings** section:
 
-After you fill in your OpenID Connect Identity Provider's settings, add the following endpoint URIs for the OpenID Connect Identity Provider that you are configuring. You can find the endpoints in the well-known configuration document for the Identity Provider (for example, `https://theIdPorg.com/.well-known/openid-configuration`. 
+* **Name**: Enter the name that you would expect to see on a button, such as **Sign in with MyOktaOrg**.
+* **Client Id**: Paste the client ID that you obtained from the Okta org that represents the Identity Provider in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>. 
+* **Client Secret**: Paste the secret that you obtained in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>. 
+* **Scopes**: Leave the defaults. These scopes are included when your Okta org makes a request to the other Okta org that represents the Identity Provider.
 
-For a list of fully-tested and supported Identity Providers, see [OpenID Connect Identity Providers](/docs/guides/federate-with-oidc/configure-idp/#openid-connect-identity-providers).
+    By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory. 
 
-* **Issuer** - The identifier of the OpenID Connect provider. For example, the Okta org where you created the Identity Provider app: `https://theIdPorg.com`
-* **Authorization endpoint** - The URL of the Identity Provider's OAuth 2.0 Authorization endpoint. For example: `https://theIdPorg.com/oauth2/v1/authorize`
-* **Token endpoint** - The URL of the Identity Provider's token endpoint for obtaining access and ID tokens. For example: `https://theIdPorg.com/oauth2/v1/token`
-* **JWKS endpoint** - The URL of the Identity Provider's JSON Web Key Set document. This document contains signing keys that are used to validate the signatures from the provider. For example: `https://theIdPorg.com/oauth2/v1/keys`
-* **Userinfo endpoint** - The endpoint for getting identity information about the user. For example: `https://theIdPorg.com/oauth2/v1/userinfo`
+In the **Endpoints** section:
+
+Add the following endpoint URIs for the Okta Identity Provider that you are configuring. In the Okta org that represents the Identity Provider, you can find the endpoints in the well-known configuration document (for example, `https://{theOktaIdPOrg}/.well-known/openid-configuration`.
+
+* **Issuer** - The identifier of the Okta Identity Provider. For example, the Okta org where you created the Identity Provider app: `https://{theOktaIdPOrg}`
+* **Authorization endpoint** - The URL of the Okta Identity Provider's OAuth 2.0 Authorization endpoint. For example: `https://{theOktaIdPOrg}/oauth2/v1/authorize`
+* **Token endpoint** - The URL of the Okta Identity Provider's token endpoint for obtaining access and ID tokens. For example: `https://{theOktaIdPOrg}/oauth2/v1/token`
+* **JWKS endpoint** - The URL of the Okta Identity Provider's JSON Web Key Set document. This document contains signing keys that are used to validate the signatures from the provider. For example: `https://{theOktaIdPOrg}/oauth2/v1/keys`
+* **Userinfo endpoint** - The endpoint for getting identity information about the user. For example: `https://{theOktaIdPOrg}/oauth2/v1/userinfo`

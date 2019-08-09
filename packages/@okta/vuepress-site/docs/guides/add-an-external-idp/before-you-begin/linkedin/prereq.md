@@ -1,1 +1,0 @@
-Go to `https://developer.linkedin.com/` and register for a developer account if you haven't already done so.

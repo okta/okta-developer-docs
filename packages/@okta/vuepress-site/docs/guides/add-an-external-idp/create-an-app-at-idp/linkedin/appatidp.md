@@ -1,8 +1,10 @@
-1. Create a LinkedIn app using these [instructions](https://www.linkedin.com/developer/apps).
+1. Go to `https://developer.linkedin.com/` and register for a developer account if you haven't already done so.
 
-2. Save the OAuth client ID and client secret values so you can add them to the Okta configuration in the next section.
+2. Create a LinkedIn app using these [instructions](https://www.linkedin.com/developer/apps).
 
-3. Leave the **Authorized redirect URLs** section blank for now. We come back to it later.
+3. Save the OAuth client ID and client secret values so you can add them to the Okta configuration in the next section.
+
+4. Leave the **Authorized redirect URLs** section blank for now. We come back to it later.
 
     > Note: You must explicitly request the `r_liteprofile` and `r_emailaddress` scopes when requesting an authorization code. See [Permissions](https://docs.microsoft.com/en-us/linkedin/shared/authentication/permissions?context=linkedin/context) for more information.
 
