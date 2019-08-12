@@ -9,8 +9,6 @@ component: Code
 
 ## Get Started with Python + Okta
 
-New to Okta? Our quickstart will walk you through adding user authentication to your Python app in minutes.
-
 <ul class='language-ctas'>
 	<li>
 		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
