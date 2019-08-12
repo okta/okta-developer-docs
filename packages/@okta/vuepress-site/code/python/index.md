@@ -1,16 +1,40 @@
 ---
-title: Add Okta authentication to your Python app
+title: Add Identity Management to Your PHP App
 language: Python
-integration: server
+integration: back-end
 component: Code
 ---
 
-# Okta + Python
+# <i class='icon-48 docsPage code-python'></i> Add Identity Management to Your Python App
 
-Okta can support your Python application via our Authentication API or our Management APIs.
+## Get Started with Python + Okta
 
-At this time we do not support official API client libraries (SDKs) for Python. You may fork our [legacy Python SDK](https://github.com/okta/okta-sdk-python) or join the conversation on [this thread](https://devforum.okta.com/t/python-support-feedback/1778) and let us know how you'd like to use Okta from Python applications.
+New to Okta? Our quickstart will walk you through adding user authentication to your Python app in minutes.
 
-## Guides
+<ul class='language-ctas'>
+	<li>
+		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
+			<span>Create Free Account</span>
+		</a>
+	</li>
+</ul>
 
-<p><a href='pysaml2'>Using PySAML2 to add Okta support (via SAML)</a></p>
+## Python Samples
+
+<ul class="language-libraries">
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/samples-python-flask">
+			<span>Samples for Python + Flask</span>
+		</a>
+	</li>
+</ul>
+
+## Recommended Guides
+
+
+- [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/)
+- [Social Login](/docs/concepts/social-login/)
+- [Validate access tokens](/docs/guides/validate-access-tokens)
+- [Validate ID tokens](/docs/guides/validate-id-tokens)
+
