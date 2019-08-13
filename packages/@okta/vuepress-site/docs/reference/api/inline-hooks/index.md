@@ -8,13 +8,11 @@ excerpt: >-
 
 # Inline Hooks Management API
 
-<ApiLifecycle access="ea" />
-
 For general information on Inline Hooks and how to create and use them, see [Inline Hooks](/docs/concepts/inline-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering Inline Hooks.
 
 ## Getting Started
 
-Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2ae80cd0a5869ca23523)
+Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b4cf1c4baa548b0ea031)
 
 ## Inline Hook Operations
 
@@ -35,7 +33,7 @@ You can also optionally specify extra headers that you wish Okta to pass to your
 
 Your external service's endpoint needs to be a valid HTTPS endpoint, and therefore the URI you specify should always begin with `https://`.
 
-The total number of Inline Hooks you can create in an Okta org is limited to 10. That is a combined total for any combination of Inline Hook types.
+The total number of Inline Hooks that you can create in an Okta org is limited to 10, which is a combined total for any combination of Inline Hook types.
 
 ##### Request Parameters
 
@@ -183,13 +181,19 @@ curl -v -X GET \
 
 Returns a list of registered Inline Hooks, optionally filtered by Inline Hook type if you supply a `type` query parameter.
 
-##### Request Example
+##### Request Examples
 
 
 ```json
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 "https://{yourOktaDomain}/api/v1/inlineHooks"
+```
+
+```json
+curl -v -X GET \
+-H "Authorization: SSWS ${api_token}" \
+"https://{yourOktaDomain}/api/v1/inlineHooks?type=com.okta.oauth2.tokens.transform"
 ```
 
 ##### Response Example
@@ -705,11 +709,11 @@ curl -v -X POST \
 
 ### Channel Object
 
-| Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
-| -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
-| type           | The channel type. Currently the only supported type is `HTTP`.   | channelType                      | FALSE      | FALSE    | TRUE       | Must match a valid channel type.            |
-| version        | Version of the channel. The currently-supported version is "1.0.0".                                 | String                              | FALSE      | FALSE    | TRUE       | Must match a valid version number.                |
-| config | Properties of the communications channel used to contact your external service.                     | [Channel Config object](#config-object)   | FALSE      | FALSE    | FALSE      | Validation is determined by the specific channel. |
+| Property | Description                                                                     | DataType                                | Nullable | Unique | Validation                                        |
+|----------|---------------------------------------------------------------------------------|-----------------------------------------|----------|--------|---------------------------------------------------|
+| type     | The channel type. Currently the only supported type is `HTTP`.                  | channelType                             | FALSE    | FALSE  | TRUE|Must match a valid channel type.             |
+| version  | Version of the channel. The currently-supported version is "1.0.0".             | String                                  | FALSE    | FALSE  | Must match a valid version number.                |
+| config   | Properties of the communications channel used to contact your external service. | [Channel Config object](#config-object) | FALSE    | FALSE  | Validation is determined by the specific channel. |
 
 
 ### Config Object

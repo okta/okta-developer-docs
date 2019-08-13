@@ -74,7 +74,7 @@ This table lists the current (and historical) major versions of our open-source 
 | [JWT verifier for Node.js][nodejs-jwt-verifier]                 | **0.x**                            | **Stable**                           |
 | [OpenID Connect middleware for Node.js][nodejs-oidc-middleware] | 0.1.2                              | Beta                                 |
 | [PHP management SDK][sdk-php]                                   | 0.2.0<br>**1.x**                   | Retired<br>**Stable**                |
-| [PowerShell Module][powershell-module]                   | 1.0.2                            | Retiring on 2010-04-26                            |
+| [PowerShell Module][powershell-module]                   | 1.0.2                            | Retiring on 2020-04-26                            |
 | [JWT verifier for PHP][php-jwt-verifier]                        | **0.x**                            | **Stable**                           |
 | [React SDK][sdk-react]                                          | 0.0.13<br>**1.x**                  | Retired<br>**Stable**                |
 | [React Native SDK][sdk-react]                                   | 0.1.0<br>**1.x**                   | Retiring on 2020-04-08<br>**Stable** |

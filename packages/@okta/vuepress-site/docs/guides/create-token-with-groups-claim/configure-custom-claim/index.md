@@ -131,3 +131,5 @@ Be sure that you have a policy and rule set up in your Custom Authorization Serv
 See [Create Groups Claims with a Dynamic Whitelist](#create-groups-claims-with-a-dynamic-whitelist) above for more information about specifying groups with `getFilteredGroups`.
 
 Now when you mint a token, groups in the `groupwhitelist` that also have the user as a member are included in the `groups` claim. Test your configuration in the next step.
+
+<NextSectionLink/>
