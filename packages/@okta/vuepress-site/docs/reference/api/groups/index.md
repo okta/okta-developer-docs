@@ -110,7 +110,6 @@ Fetches a specific group by `id` from your organization
 
 Fetched [Group](#group-model)
 
-
 ##### Request Example
 
 
