@@ -116,3 +116,5 @@ curl -X POST \
 You can add application groups, user groups, or both to the group whitelist specified as an array of IDs.
 
 To use the group whitelist for every client that gets this claim in a token, put the attribute name of the whitelist in the first parameter of the `getFilteredGroups` function described in the next step.
+
+<NextSectionLink/>
