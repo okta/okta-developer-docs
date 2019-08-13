@@ -110,7 +110,6 @@ Fetches a specific group by `id` from your organization
 
 Fetched [Group](#group-model)
 
-> This request is not supported from a browser and should not be called from there.
 
 ##### Request Example
 
