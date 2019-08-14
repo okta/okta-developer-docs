@@ -7,8 +7,6 @@ meta:
 
 # Inline Hooks
 
-<ApiLifecycle access="ea" />
-
 ## What Are Okta Inline Hooks?
 
 Inline hooks are outbound calls from Okta to your own custom code, triggered at specific points in Okta process flows. They allow you to integrate custom functionality into those flows.
@@ -158,4 +156,10 @@ After creating your external service, you need to tell Okta it exists, and enabl
 The total number of Inline Hooks that you can create in an Okta org is limited to 10, which is a combined total for any combination of Inline Hook types.
 
 For more information on implementing Inline Hooks, see the documentation for specific Inline Hook types linked to in [Currently-Supported Types](#currently-supported-types).
+
+## Troubleshooting
+
+The [Okta System Log](/docs/reference/api/system-log/) captures events related to Inline Hook setup and execution, which you can use to troubleshoot your implementation. To see descriptions of the relevant event types, query the Event Types catalog with the query parameter `inline_hook`:
+
+<https://developer.okta.com/docs/reference/api/event-types/?q=inline_hook>
 
