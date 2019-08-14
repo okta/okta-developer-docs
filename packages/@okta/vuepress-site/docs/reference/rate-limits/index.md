@@ -52,10 +52,10 @@ Note that limits for more specific endpoints override the limits for less specif
 | **Get System Log data:**<br>`/api/v1/events`                                                                 | 20               | 25               | 25      | 50         | shared with `/api/v1`               |
 | **Get session information:**<br>`/api/v1/sessions`                                                           | 100              | 300              | 300*    | 600*       | 750                |
 | **Create an organization:**<br>`/api/v1/orgs`                                                                | N/A              | N/A              | N/A     | 50         | 50                 |
-| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/{authorizationServerId}/v1` except public metadata endpoints**             | 300              | 600              | 600*    | 1200*      | 2000               |
-| **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints**            | 300              | 600              | 600*    | 1200*      | 2000               |
+| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/{authorizationServerId}/v1` except public metadata endpoints (see Note below)             | 300              | 600              | 600*    | 1200*      | 2000               |
+| **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints (see Note below)            | 300              | 600              | 600*    | 1200*      | 2000               |
 | **OAuth2 client configuration requests:**<br>`/oauth2/v1/clients`                                            | 25               | 50               | 50      | 100        | 100                |
-| **Get public metadata of Authorization Servers**:<br>each public medata endpoints**          | 600              | 1200             | 1200   | 3000      | 3000               |
+| **Get public metadata of Authorization Servers**:<br> Each endpoint has an individual limit (see Note below for list of endpoints)          | 600              | 1200             | 1200   | 3000      | 3000               |
 | **All other OAuth2 requests:**<br>`/oauth2`                                                                  | 100              | 300              | 300     | 600        | 600                |
 | **Most other API actions:**<br>`/api/v1`                                                                         | 100              | 300              | 300*    | 600*       | 1200               |
 
@@ -63,7 +63,7 @@ These rate limits apply to all new Okta organizations. For orgs created before 2
 
 *The limits for these endpoints can be increased by purchasing the [High-Capacity add-on](#high-capacity-rate-limits).
 
-**Public metadata endpoints for Org Authorization Server are: `/oauth2/v1/keys` and `/.well-known/openid-configuration`; public metadata endpoints for Custom Authorization Servers are: `/oauth2/{authorizationServerId}/v1/keys`, `/oauth2/{authorizationServerId}/.well-known/openid-configuration` and `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`.
+> **Note:** Public metadata endpoints for Org Authorization Server are: <br/> - `/oauth2/v1/keys` <br/> - `/.well-known/openid-configuration` <br/> Public metadata endpoints for Custom Authorization Servers are: <br/> - `/oauth2/{authorizationServerId}/v1/keys` <br/> - `/oauth2/{authorizationServerId}/.well-known/openid-configuration` <br/> - `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`.
 
 ### Okta API Endpoints and Per-User Limits
 API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password:
