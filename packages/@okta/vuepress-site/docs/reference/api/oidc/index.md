@@ -624,8 +624,7 @@ Returns a JSON document with claims about the currently authenticated end user.
 }
 ```
 
-The claims in the response are identical to those returned for the requested scopes in the `id_token` JWT, except for the `sub` claim that is always present.
-See [Scope-dependent claims](#scope-dependent-claims-not-always-returned) for more information about individual claims.
+Many of these claims are also included in the [ID token](/docs/reference/api/oidc/#id-token), but calling this endpoint always returns all of the user's claims. The ID token can be configured to include a subset of the user's claims. See [Scope-dependent claims](#scope-dependent-claims-not-always-returned) for more information.
 
 #### Response example (error)
 ```http
@@ -1199,14 +1198,16 @@ If more than 100 groups match the filter, then the request fails. Expect that th
 For more information about configuring an app for OpenID Connect, including group claims, see [Create a client application](/docs/guides/federate-with-oidc/create-client-app/).
 * **Important:** Scope-dependent claims are returned differently depending on the values in `response_type` and the scopes requested:
 
-| Response Type               | Claims Returned in ID Token                                                                          | Claims Returned from the Userinfo Endpoint  |
-| :-------------------------- | :--------------------------------------------------------------------------------------------------- | :------------------------------------------ |
-| `code `                     | N/A                                                                                                  | N/A                                         |
-| `token`                     | N/A                                                                                                  | N/A                                         |
-| `id_token`                  | Claims associated with requested scopes.                                                             | N/A                                         |
-| `id_token` `code `          | Claims associated with requested scopes.                                                             | N/A                                         |
-| `id_token` `token`          | `email` if email scope is requested; `name` and `preferred_username` if profile scope is requested   | Claims associated with the requested scopes |
-| `code` `id_token` `token`   | `email` if email scope is requested; `name` and `preferred_username` if profile scope is requested   | Claims associated with the requested scopes |
+  | Response Type               | Claims Returned in ID Token                                                                          | Claims Returned from the Userinfo Endpoint  |
+  | :-------------------------- | :--------------------------------------------------------------------------------------------------- | :------------------------------------------ |
+  | `code `                     | N/A                                                                                                  | N/A                                         |
+  | `token`                     | N/A                                                                                                  | N/A                                         |
+  | `id_token`                  | Claims associated with requested scopes.                                                             | N/A                                         |
+  | `id_token` `code `          | Claims associated with requested scopes.                                                             | N/A                                         |
+  | `id_token` `token`          | `email` if email scope is requested; `name` and `preferred_username` if profile scope is requested   | Claims associated with the requested scopes |
+  | `code` `id_token` `token`   | `email` if email scope is requested; `name` and `preferred_username` if profile scope is requested   | Claims associated with the requested scopes |
+
+> Note: When using the Custom Authorization Server, whether a claim is returned depends on the value set for the [`alwaysIncludeinToken` property](/docs/reference/api/authorization-servers/#claim-properties) in the claim configuration. If `alwaysIncludeinToken` is set to `True`, the claim is included. If the value is set to `False`, the claim isn't included.
 
 * The full set of claims for the requested scopes is available via the [/oauth2/v1/userinfo](#userinfo) endpoint. Call this endpoint using the access token.
 
