@@ -36,3 +36,5 @@ curl -X GET \
 In this example, the claim was configured to work with all scopes. If you specify only certain scopes to return the claim, you'll need to specify one of them in the request.
 
 To obtain an access token instead of an ID token, simply change `response_type=id_token` to `response_type='token'`.
+
+<NextSectionLink/>

@@ -19,7 +19,7 @@ There are currently 2 parts to the site, the content and the theming/plugins.
 
 ### Requirements
  - [Node](https://nodejs.org/en/download/): 8+
- - [Yarn](https://yarnpkg.com/lang/en/docs/install/#windows-stable): 1.7+
+ - [Yarn](https://yarnpkg.com/lang/en/docs/install/#windows-stable): 1.15+
 
 Before getting started, open a terminal window and make sure these commands work:
 
