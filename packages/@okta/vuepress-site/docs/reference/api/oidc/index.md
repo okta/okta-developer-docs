@@ -1198,14 +1198,14 @@ If more than 100 groups match the filter, then the request fails. Expect that th
 For more information about configuring an app for OpenID Connect, including group claims, see [Create a client application](/docs/guides/federate-with-oidc/create-client-app/).
 * **Important:** Scope-dependent claims are returned differently depending on the values in `response_type` and the scopes requested:
 
-  | Response Type               | Claims Returned in ID Token                                                                          | Claims Returned from the Userinfo Endpoint  |
-  | :-------------------------- | :--------------------------------------------------------------------------------------------------- | :------------------------------------------ |
-  | `code `                     | N/A                                                                                                  | N/A                                         |
-  | `token`                     | N/A                                                                                                  | N/A                                         |
-  | `id_token`                  | Claims associated with requested scopes.                                                             | N/A                                         |
-  | `id_token` `code `          | Claims associated with requested scopes.                                                             | N/A                                         |
-  | `id_token` `token`          | `email` if email scope is requested; `name` and `preferred_username` if profile scope is requested   | Claims associated with the requested scopes |
-  | `code` `id_token` `token`   | `email` if email scope is requested; `name` and `preferred_username` if profile scope is requested   | Claims associated with the requested scopes |
+  | Response Type             | Claims Returned in ID Token                                                                        | Claims Returned from Userinfo Endpoint  | Claims Returned ID Token for Custom AS |
+  | :-------------------------| :------------------------------------------------------------------------------------------------- | :-------------------------------------- | :------------------------------------- |
+  | `code `                   | N/A                                                                                                | N/A                                     | N/A                                    |
+  | `token`                   | N/A                                                                                                | N/A                                     | N/A                                    |
+  | `id_token`                | Claims associated with requested scopes.                                                           | N/A                                     | N/A                                    |
+  | `id_token` `code `        | Claims associated with requested scopes.                                                           | N/A                                     |
+  | `id_token` `token`        | `email` if email scope is requested; `name` and `preferred_username` if profile scope is requested | Claims associated with the requested scopes|
+  | `code` `id_token` `token` | `email` if email scope is requested; `name` and `preferred_username` if profile scope is requested | Claims associated with the requested scopes|
 
 > Note: When using the Custom Authorization Server, whether a claim is returned depends on the value set for the [`alwaysIncludeinToken` property](/docs/reference/api/authorization-servers/#claim-properties) in the claim configuration. If `alwaysIncludeinToken` is set to `True`, the claim is included. If the value is set to `False`, the claim isn't included.
 
