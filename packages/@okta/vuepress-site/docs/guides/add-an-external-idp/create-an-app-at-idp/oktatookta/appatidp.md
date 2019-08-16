@@ -8,7 +8,7 @@ When you are configuring federation between two Okta orgs using OpenID Connect:
 
 4. Enter a name for your application.
 
-5. Leave the default for **Login Redirect URI** for now. We come back to it later.
+5. Leave the default for **Login Redirect URI** for now. We will come back to it later.
 
 6. Assign a group or leave the **Everyone** default. Be sure to verify that the users you want to have access are assigned to the group that you select.
 

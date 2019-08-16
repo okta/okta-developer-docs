@@ -1,4 +1,4 @@
-1. Go to `https://developers.facebook.com` and register for a developer account if you haven't already done so.
+1. Go to [Facebook for Developers](https://developers.facebook.com) and register for a developer account if you haven't already done so.
 
 2. Access the [Facebook App Dashboard](https://developers.facebook.com/apps).
 
@@ -10,4 +10,4 @@
 
 5. Save the **App ID** and the **App Secret** values so you can add them to the Okta configuration in the next section.
 
-> Note: There may be additional settings on the `https://developers.facebook.com/apps` site that you can configure for the app. The steps in this guide address the quickest route to setting up Facebook as an Identity Provider with Okta. See the Facebook documentation for more information on additional configuration settings.
+> Note: There may be additional settings on the [Facebook App Dashboard](https://developers.facebook.com/apps) that you can configure for the app. The steps in this guide address the quickest route to setting up Facebook as an Identity Provider with Okta. See the Facebook documentation for more information on additional configuration settings.
