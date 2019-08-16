@@ -32,6 +32,9 @@ languages:
     - name: Go
       link: /code/go/
       icon: code-go-32
+    - name: Python
+      link: /code/python/
+      icon: code-python-32
     - name: java
       link: /code/java/
       icon: code-java-32
