@@ -28,7 +28,7 @@ To preserve cross-site functionality in light of upcoming updates to [Chrome](ht
 
 ### LinkedIn API V2 is now supported 
 
-Okta now supports LinkedIn API V2. Creation of [LinkedIn Identity Providers](/docs/guides/sign-in-with-linkedin/setup-app/) has been re-enabled in all Production orgs. <!-- OKTA-237649 -->
+Okta now supports LinkedIn API V2. Creation of [LinkedIn Identity Providers](/docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/) has been re-enabled in all Production orgs. <!-- OKTA-237649 -->
 
 ### Mappings API is now GA in Preview
 

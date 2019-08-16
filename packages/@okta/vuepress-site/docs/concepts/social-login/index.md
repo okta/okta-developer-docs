@@ -8,10 +8,10 @@ Okta allows your users to sign in to your app using credentials from external so
 
 Currently Okta supports the following social login providers:
 
-- [Facebook](/docs/guides/sign-in-with-facebook/)
-- [Google](/docs/guides/sign-in-with-google/)
-- [LinkedIn](/docs/guides/sign-in-with-linkedin/)
-- [Microsoft](/docs/guides/sign-in-with-microsoft/)
+- [Facebook](/docs/guides/add-an-external-idp/facebook/before-you-begin/)
+- [Google](/docs/guides/add-an-external-idp/google/before-you-begin/)
+- [LinkedIn](/docs/guides/add-an-external-idp/linkedin/before-you-begin/)
+- [Microsoft](/docs/guides/add-an-external-idp/microsoft/before-you-begin/)
 
 ### Features
 
