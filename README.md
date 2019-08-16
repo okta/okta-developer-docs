@@ -21,6 +21,8 @@ There are currently 2 parts to the site, the content and the theming/plugins.
  - [Node](https://nodejs.org/en/download/): 8+
  - [Yarn](https://yarnpkg.com/lang/en/docs/install/#windows-stable): 1.15+
 
+We recommend using one of the package manager options for installation as specified in the installation sites.
+
 Before getting started, open a terminal window and make sure these commands work:
 
 ```sh
