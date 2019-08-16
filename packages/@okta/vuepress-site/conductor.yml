@@ -1627,3 +1627,9 @@ redirects:
     to: /docs/guides/add-an-external-idp/microsoft/before-you-begin/
   - from: /docs/guides/federate-with-oidc/
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+  - from: /docs/guides/sign-in-with-linkedin/setup-app/
+    to: /docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/
+  - from: /docs/guides/federate-with-oidc/create-client-app/
+    to: /docs/guides/add-an-external-idp/openidconnect/create-an-app-at-idp/
+  - from: /docs/guides/federate-with-oidc/overview/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
