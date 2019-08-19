@@ -90,7 +90,7 @@ Always included is `data.context`, providing context information. In general, `d
 
 When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. A request is not retried if the customer endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful and not retried. If the external service endpoint responds with a redirect, it is not followed.
 
-> Note: The Okta process flow that triggered the Inline Hook remains in progress until the response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by an external service can cause open API transactions to accumulate, potentially exceeding [Okta API concurrent rate limits](/docs/reference/rate-limits/#concurrent-rate-limits).
+> Note: The Okta process flow that triggered the Inline Hook remains in progress until the response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Okta API concurrent rate limits](/docs/reference/rate-limits/#concurrent-rate-limits).
 
 ### Security
 
