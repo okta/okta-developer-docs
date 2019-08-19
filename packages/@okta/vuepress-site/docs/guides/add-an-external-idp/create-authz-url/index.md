@@ -1,7 +1,9 @@
 ---
 title: Create the Authorization URL
 ---
-The Okta Identity Provider that you created in the <GuideLink link="../configure-idp-in-okta">second step</GuideLink> generated an authorize URL with a number of blank parameters that you must now fill in. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
+The Okta Identity Provider that you created in the <GuideLink link="../configure-idp-in-okta">second step</GuideLink> generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
+
+> Note: Use this step to test your authorization URL as an HTML link. For information on using the Sign-in Widget, Okta Hosted Sign-in Page, or AuthJS, see the <GuideLink link="../use-idp-to-sign-in">next step</GuideLink>. 
 
 In the URL, replace {yourOktaDomain} with your org's base URL, and then replace the following values:
 

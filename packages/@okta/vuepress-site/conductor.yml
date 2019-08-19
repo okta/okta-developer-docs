@@ -1639,15 +1639,57 @@ redirects:
     to: /docs/guides/add-an-external-idp/facebook/use-idp-to-sign-in/
   - from: /docs/guides/sign-in-with-google/index.html
     to: /docs/guides/add-an-external-idp/google/before-you-begin/
+  - from: /docs/guides/sign-in-with-google/setup-app/index.html
+    to: /docs/guides/add-an-external-idp/google/create-an-app-at-idp/
+  - from: /docs/guides/sign-in-with-google/configure-idp/index.html
+    to: /docs/guides/add-an-external-idp/google/configure-idp-in-okta/
+  - from: /docs/guides/sign-in-with-google/add-redirect-uri/index.html
+    to: /docs/guides/add-an-external-idp/google/add-okta-redirect-uri-to-idp/
+  - from: /docs/guides/sign-in-with-google/register-oidc-app/index.html
+    to: /docs/guides/add-an-external-idp/google/register-app-in-okta/
+  - from: /docs/guides/sign-in-with-google/complete-authz-url/index.html
+    to: /docs/guides/add-an-external-idp/google/create-authz-url/
+  - from: /docs/guides/sign-in-with-google/using-facebook-login/index.html
+    to: /docs/guides/add-an-external-idp/google/use-idp-to-sign-in/
   - from: /docs/guides/sign-in-with-linkedin/index.html
     to: /docs/guides/add-an-external-idp/linkedin/before-you-begin/
-  - from: /docs/guides/sign-in-with-microsoft/index.html
-    to: /docs/guides/add-an-external-idp/microsoft/before-you-begin/
-  - from: /docs/guides/federate-with-oidc/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /docs/guides/sign-in-with-linkedin/setup-app/index.html
     to: /docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/
-  - from: /docs/guides/federate-with-oidc/create-client-app/index.html
-    to: /docs/guides/add-an-external-idp/openidconnect/create-an-app-at-idp/
-  - from: /docs/guides/federate-with-oidc/overview/index.html
+  - from: /docs/guides/sign-in-with-linkedin/configure-idp/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/configure-idp-in-okta/
+  - from: /docs/guides/sign-in-with-linkedin/add-redirect-uri/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/add-okta-redirect-uri-to-idp/
+  - from: /docs/guides/sign-in-with-linkedin/register-oidc-app/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/register-app-in-okta/
+  - from: /docs/guides/sign-in-with-linkedin/complete-authz-url/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/create-authz-url/
+  - from: /docs/guides/sign-in-with-linkedin/using-facebook-login/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/use-idp-to-sign-in/
+  - from: /docs/guides/sign-in-with-microsoft/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/before-you-begin/
+  - from: /docs/guides/sign-in-with-microsoft/setup-app/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/create-an-app-at-idp/
+  - from: /docs/guides/sign-in-with-microsoft/configure-idp/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/configure-idp-in-okta/
+  - from: /docs/guides/sign-in-with-microsoft/add-redirect-uri/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/add-okta-redirect-uri-to-idp/
+  - from: /docs/guides/sign-in-with-microsoft/register-oidc-app/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/register-app-in-okta/
+  - from: /docs/guides/sign-in-with-microsoft/complete-authz-url/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/create-authz-url/
+  - from: /docs/guides/sign-in-with-microsoft/using-facebook-login/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/use-idp-to-sign-in/
+  - from: /docs/guides/federate-with-oidc/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+  - from: /docs/guides/federate-with-oidc/create-client-app/p/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/create-an-app-at-idp/
+  - from: /docs/guides/federate-with-oidc/configure-idp/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/configure-idp-in-okta/
+  - from: /docs/guides/federate-with-oidc/add-redirect-uri/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/add-okta-redirect-uri-to-idp/
+  - from: /docs/guides/federate-with-oidc/create-okta-app/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/register-app-in-okta/
+  - from: /docs/guides/federate-with-oidc/test-authz-url/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/create-authz-url/
+  - from: /docs/guides/federate-with-oidc/use-for-signin//index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in/
