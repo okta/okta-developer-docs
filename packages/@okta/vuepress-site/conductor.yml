@@ -1649,7 +1649,7 @@ redirects:
     to: /docs/guides/add-an-external-idp/google/register-app-in-okta/
   - from: /docs/guides/sign-in-with-google/complete-authz-url/index.html
     to: /docs/guides/add-an-external-idp/google/create-authz-url/
-  - from: /docs/guides/sign-in-with-google/using-facebook-login/index.html
+  - from: /docs/guides/sign-in-with-google/using-google-login/index.html
     to: /docs/guides/add-an-external-idp/google/use-idp-to-sign-in/
   - from: /docs/guides/sign-in-with-linkedin/index.html
     to: /docs/guides/add-an-external-idp/linkedin/before-you-begin/
