@@ -85,9 +85,9 @@ You can also set up group sync to specify the groups that users should be added 
 ## See also
 See the following guides for information on how to set up various IdPs:
 
-* [Facebook](/docs/guides/sign-in-with-facebook/)
-* [Google](/docs/guides/sign-in-with-google/)
-* [LinkedIn](/docs/guides/sign-in-with-linkedin/)
-* [Microsoft](/docs/guides/sign-in-with-microsoft/)
-* [Generic OpenID Connect Identity Provider](/docs/guides/federate-with-oidc/overview/)
-* [SAML Identity Provider](/docs/guides/add-saml-idp/)
+* [Facebook](/docs/guides/add-an-external-idp/facebook/before-you-begin/)
+* [Google](/docs/guides/add-an-external-idp/google/before-you-begin/)
+* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/before-you-begin/)
+* [Microsoft](/docs/guides/add-an-external-idp/microsoft/before-you-begin/)
+* [Generic OpenID Connect Identity Provider](/docs/guides/add-an-external-idp/openidconnect/before-you-begin/)
+* [SAML Identity Provider](/docs/guides/add-an-external-idp/saml2/before-you-begin/)
