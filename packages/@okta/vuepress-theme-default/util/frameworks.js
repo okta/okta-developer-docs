@@ -30,6 +30,13 @@ const COMMON_NAME_TO_FANCY_NAME = {
   rest: 'REST',
   reactnative: 'React Native',
   xamarin: 'Xamarin',
+  oktatookta: 'Okta-to-Okta',
+  openidconnect: 'OpenID Connect',
+  saml2: 'SAML 2.0',
+  facebook: 'Facebook',
+  google: 'Google',
+  linkedin: 'LinkedIn',
+  microsoft: 'Microsoft'
 };
 
 const COMMON_NAME_TO_ICON_NAME = { 

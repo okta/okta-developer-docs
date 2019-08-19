@@ -2,6 +2,7 @@
 title: Step-by step guides for the Okta platform
 layout: Guides
 guides:
+ - add-an-external-idp
  - add-saml-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
