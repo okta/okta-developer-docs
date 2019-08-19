@@ -1615,21 +1615,21 @@ redirects:
     to: /use_cases/mobile/okta_mobile_connect/
   - from: /use_cases/promote-oan-integration
     to: /use_cases/promote-oan-integration/
-  - from: /docs/guides/add-saml-idp/overview/index.html
+  - from: /docs/guides/add-saml-idp/index.html
     to: /docs/guides/add-an-external-idp/saml2/before-you-begin/
-  - from: /docs/guides/sign-in-with-facebook/
+  - from: /docs/guides/sign-in-with-facebook/index.html
     to: /docs/guides/add-an-external-idp/facebook/before-you-begin/
-  - from: /docs/guides/sign-in-with-google/
+  - from: /docs/guides/sign-in-with-google/index.html
     to: /docs/guides/add-an-external-idp/google/before-you-begin/
-  - from: /docs/guides/sign-in-with-linkedin/
+  - from: /docs/guides/sign-in-with-linkedin/index.html
     to: /docs/guides/add-an-external-idp/linkedin/before-you-begin/
-  - from: /docs/guides/sign-in-with-microsoft/
+  - from: /docs/guides/sign-in-with-microsoft/index.html
     to: /docs/guides/add-an-external-idp/microsoft/before-you-begin/
-  - from: /docs/guides/federate-with-oidc/
+  - from: /docs/guides/federate-with-oidc/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
-  - from: /docs/guides/sign-in-with-linkedin/setup-app/
+  - from: /docs/guides/sign-in-with-linkedin/setup-app/index.html
     to: /docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/
-  - from: /docs/guides/federate-with-oidc/create-client-app/
+  - from: /docs/guides/federate-with-oidc/create-client-app/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/create-an-app-at-idp/
-  - from: /docs/guides/federate-with-oidc/overview/
+  - from: /docs/guides/federate-with-oidc/overview/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
