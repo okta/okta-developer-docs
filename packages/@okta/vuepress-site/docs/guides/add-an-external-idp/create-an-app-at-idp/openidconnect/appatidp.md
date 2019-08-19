@@ -1,0 +1,3 @@
+Use the Identity Provider's documentation to create a client application. For example, if you want to use PayPal as your OpenID Connect Identity Provider, click **Create App** on [this page](https://developer.paypal.com/developer/applications/) to create a PayPal client application.
+
+If you've built your own custom Identity Provider, you need the client ID and the client secret generated for the Identity Provider so you can add it to the Okta configuration in the next section.
