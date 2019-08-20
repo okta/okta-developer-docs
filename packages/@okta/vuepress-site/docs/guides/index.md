@@ -3,7 +3,6 @@ title: Step-by step guides for the Okta platform
 layout: Guides
 guides:
  - add-an-external-idp
- - add-saml-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
  - byo-saml
@@ -14,7 +13,6 @@ guides:
  - custom-url-domain
  - customize-authz-server
  - enable-cors
- - federate-with-oidc
  - find-your-app-credentials
  - find-your-domain
  - implement-auth-code
@@ -31,10 +29,6 @@ guides:
  - session-cookie
  - set-up-event-hook
  - sharing-cert
- - sign-in-with-facebook
- - sign-in-with-google
- - sign-in-with-linkedin
- - sign-in-with-microsoft
  - sign-into-mobile-app
  - sign-into-spa
  - sign-into-web-app
