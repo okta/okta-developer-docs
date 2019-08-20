@@ -143,6 +143,10 @@ An `ErrorCause` object must include the following fields:
 
 While there are no technical restrictions on the values for any of the fields in an `ErrorCause` object, using them as described in the table above allows you to provide rich error information that can be very useful in determining why an Inline Hook's processing failed.
 
+#### debugContext
+
+Lets you specify additional information to make available in the Okta System Log in connection with the call to to your hook. You can use this object as you wish, sending any information that would be useful for debugging purposes. In the System Log, content sent in this object is populated into the `inline_hook.response.processed` event.
+
 ## Inline Hook Setup
 
 After creating your external service, you need to tell Okta it exists, and enable it for a particular process flow. The steps are:
