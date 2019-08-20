@@ -4,6 +4,8 @@ meta:
   - name: description
     content: Okta is deprecating the Events API in favor of the System Log API. Find out more about their key differences and how to migrate to the System Log API.
 ---
+# Events API Migration
+
 ## Introduction
 
 To enable customers to leverage a unified platform for enriched, auditable event data, Okta is concentrating its efforts on the new and improved [System Log API](/docs/reference/api/system-log/) and will eventually deprecate the legacy [Events API](/docs/reference/api/events/). We encourage customers to migrate to the new API as it contains a superset of functionality.
