@@ -4,9 +4,6 @@ meta:
   - name: description
     content: Okta is deprecating the Events API in favor of the System Log API. Find out more about their key differences and how to migrate to the System Log API.
 ---
-
-# Events API Migration
-
 ## Introduction
 
 To enable customers to leverage a unified platform for enriched, auditable event data, Okta is concentrating its efforts on the new and improved [System Log API](/docs/reference/api/system-log/) and will eventually deprecate the legacy [Events API](/docs/reference/api/events/). We encourage customers to migrate to the new API as it contains a superset of functionality.
@@ -37,9 +34,9 @@ For brevity, the Events API will often be referred to as `/events` and the Syste
 
 Each of the API resources has an associated data structure, also referred to as the resource "representation" or data model. The System Log API's representation is the [LogEvent object](/docs/reference/api/system-log/#logevent-object). It captures the occurrence of notable system events. The Events API's representation is the [Event object](/docs/reference/api/events/#event-model). LogEvent has more structure and a much richer set of data elements than Event. It is one of the principal improvements of the System Log API over the Events API.
 
-One of the most important attributes of an event in the Okta system is its "event type" designation. In the Events API, the [`action.objectType` attribute](/docs/reference/api/events/#action-object) attribute denotes the event type. In the System Log API, the [`eventType` attribute](/docs/reference/api/system-log/#event-types) represents the event type. The values in each of these fields are generally different, although there is some overlap for historical purposes. In the interest of easing the transition from the Events API to the System Log API, LogEvent's [`legacyEventType` attribute](/docs/reference/api/system-log/#attributes) identifies the equivalent Event `action.objectType` value. The [Event Type Mapping](#event-type-mappings) section of this guide provides a static mapping of Events API event types to System Log API event types.
+One of the most important attributes of an event in the Okta system is its "event type" designation. In the Events API, the [`action.objectType` attribute](/docs/reference/api/events/#action-object) denotes the event type. In the System Log API, the [`eventType` attribute](/docs/reference/api/system-log/#event-types) represents the event type. The values in each of these fields are generally different, although there is some overlap for historical purposes. In the interest of easing the transition from the Events API to the System Log API, LogEvent's [`legacyEventType` attribute](/docs/reference/api/system-log/#attributes) identifies the equivalent Event `action.objectType` value. The [Event Type Mapping](#event-type-mappings) section of this guide provides a static mapping of Events API event types to System Log API event types.
 
-Another essential difference between the two systems is the manner in which detailed information is encoded. The Events API textually encodes the specifics of a particular event instance into the [`action.message` attribute](/docs/reference/api/events/#action-object). This encoding burdened consumers with having to correctly parse data themselves and led to brittleness in downstream systems when wording changed. The System Log API expands and enriches the data model to support storing these values as atomic, independent attributes. Context objects, such as the [AuthenticationContext object](/docs/reference/api/system-log/#authenticationcontext-object) and [GeographicalContext objects](/docs/reference/api/system-log/#geographicalcontext-object) objects, provide attributes that are common across event types. The [DebugContext object](/docs/reference/api/system-log/#debugcontext-object) houses event-type-specific attributes.
+Another essential difference between the two systems is the manner in which detailed information is encoded. The Events API textually encodes the specifics of a particular event instance into the [`action.message` attribute](/docs/reference/api/events/#action-object). This encoding burdened consumers with having to correctly parse data themselves and led to brittleness in downstream systems when wording changed. The System Log API expands and enriches the data model to support storing these values as atomic, independent attributes. Context objects, such as the [AuthenticationContext object](/docs/reference/api/system-log/#authenticationcontext-object) and [GeographicalContext objects](/docs/reference/api/system-log/#geographicalcontext-object), provide attributes that are common across event types. The [DebugContext object](/docs/reference/api/system-log/#debugcontext-object) houses event-type-specific attributes.
 
 #### Event / LogEvent Comparison Example
 
@@ -229,9 +226,9 @@ Given the above events from each API, the following compares each leaf-level att
 |                           | `/client/zone`                                           | New                                                                                |
 | `/action/requestUri`      | `/debugContext/debugData/requestUri`                     | New                                                                                |
 | `/action/message`         | `/displayMessage`                                        | Generally less content                                                             |
-| `/action/objectType`      | `/eventType`                                             | Generally contains different ids (see [Event Type Mappings](#event-type-mappings)) |
+| `/action/objectType`      | `/eventType`                                             | Generally contains different IDs (see [Event Type Mappings](#event-type-mappings)) |
 |                           | `/legacyEventType`                                       | Contains `/action/objectType` as its value                                         |
-|                           | `/outcome/result`                                        | Contains value that is encoded in `/action/objectType` suffix                      |
+|                           | `/outcome/result`                                        | Contains a value that is encoded in `/action/objectType` suffix                      |
 | `/published`              | `/published`                                             | Contains slightly different values                                                 |
 |                           | `/request/ipChain/0/geographicalContext`                 | New                                                                                |
 |                           | `/request/ipChain/0/geographicalContext/city`            | New                                                                                |
@@ -333,7 +330,7 @@ Note that the Events API does not support custom sorting.
 
 ### Limits
 
-Both APIs support a `limit` query parameter that governs the number of events per request to return. In the Events API, the maximum and default value is 1,000 events. The System Log API shares the same maximum value. However, the default value is 100 events. See [`limit` parameter](/docs/reference/api/system-log/#request-parameters) for details.
+Both APIs support a `limit` query parameter that governs the number of events per request to return. In the Events API, the maximum and default value is 1,000 events. The System Log API shares the same maximum value. However, the default value is 100 events. See the [`limit` parameter](/docs/reference/api/system-log/#request-parameters) for details.
 
 ### Polling
 
