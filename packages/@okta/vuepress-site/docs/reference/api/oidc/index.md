@@ -1195,7 +1195,7 @@ Be aware of the following before you work with scope-dependent claims:
 
 * To protect against arbitrarily large numbers of groups matching the group filter, the groups claim has a limit of 100.
 If more than 100 groups match the filter, then the request fails. Expect that this limit may change in the future.
-For more information about configuring an app for OpenID Connect, including group claims, see [Create a client application](/docs/guides/federate-with-oidc/create-client-app/).
+For more information about configuring an app for OpenID Connect, including group claims, see [Create a client application](/docs/guides/add-an-external-idp/openidconnect/create-an-app-at-idp/).
 * **Important:** Scope-dependent claims are returned differently depending on the values in `response_type` and the scopes requested:
 
   | Response Type             | Claims Returned in ID Token from Org     AS                                                        | Claims Returned in ID Token from Custom AS | Claims Returned from Userinfo Endpoint     |
