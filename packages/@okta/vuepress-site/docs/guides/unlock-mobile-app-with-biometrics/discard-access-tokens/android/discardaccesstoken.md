@@ -1,1 +1,4 @@
-Show how to discard access token when the app closes
+```java
+authClient.getSessionClient()
+    .clear();
+```
