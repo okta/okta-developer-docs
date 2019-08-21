@@ -155,6 +155,8 @@ The first request to exceed the concurrent limit returns an HTTP 429 error, and 
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
 
+> For information on possible interaction between Inline Hooks and concurrent rate limits, see [Inline Hooks and Concurrent Rate Limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
+
 ## Check Your Rate Limits with Okta's Rate Limit Headers
 
 Okta provides three headers in each response to report on both concurrent and org-wide rate limits.

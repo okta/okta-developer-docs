@@ -16,7 +16,7 @@ The [Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) is now
 
 ### LinkedIn IdP creation re-enabled in Preview
 
-Creation of [LinkedIn Identity Providers](/docs/guides/sign-in-with-linkedin/setup-app/) has been re-enabled in all Preview orgs. <!-- OKTA-226772 -->
+Creation of [LinkedIn Identity Providers](/docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/) has been re-enabled in all Preview orgs. <!-- OKTA-226772 -->
 
 ### Email Customization disabled for free orgs
 
