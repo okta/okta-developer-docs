@@ -1282,8 +1282,6 @@ Use an ID lookup for records that you update to ensure your results contain the 
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
 | `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with "Sm          |
 
-> When paginating a search result set (see [Pagination](/docs/reference/api-overview/#pagination)), the result set is limited to a total of 50,000 results.  Attempting to follow the `next` link from the last page will yield an error.
-
 ##### Search Examples
 
 List users with an occupation of `Leader`
