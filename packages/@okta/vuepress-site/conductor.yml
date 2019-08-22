@@ -1,5 +1,7 @@
 redirects:
-  - from: /code
+  - from: /code.html
+    to: /docs/
+  - from: /code/index.html
     to: /docs/
   - from: /use_cases/api_security
     to: /docs/concepts/api-access-management/
@@ -1691,5 +1693,23 @@ redirects:
     to: /docs/guides/add-an-external-idp/openidconnect/register-app-in-okta/
   - from: /docs/guides/federate-with-oidc/test-authz-url/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/create-authz-url/
-  - from: /docs/guides/federate-with-oidc/use-for-signin//index.html
+  - from: /docs/guides/federate-with-oidc/use-for-signin/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in/
+  - from: /docs/api/getting_started/getting_a_token.html
+    to: /docs/guides/create-an-api-token/overview/
+  - from: /reference/okta_expression_language/index
+    to: /docs/reference/okta-expression-language/
+  - from: /docs/guides/oan_guidance.html
+    to: https://www.okta.com/integrate/documentation/oin-faq/
+  - from: /authentication-guide/implementing-authentication/auth-code.html
+    to: /docs/guides/implement-auth-code/overview/
+  - from: /authentication-guide/implementing-authentication/client-creds.html
+    to: /docs/guides/implement-client-creds/overview/
+  - from: /docs/sdk/opp/javadoc/index.html
+    to: /okta-sdk-java/
+  - from: /code/react/okta_react.html
+    to: /code/react/okta_react/
+  - from: /code/javascript/okta_auth_sdk.html
+    to: /code/javascript/okta_auth_sdk/
+  - from: /code/javascript/okta_sign-in_widget.html
+    to: /code/javascript/okta_sign-in_widget/
