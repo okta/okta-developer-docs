@@ -1,6 +1,4 @@
 redirects:
-  - from: /code.html
-    to: /docs/
   - from: /code/index.html
     to: /docs/
   - from: /use_cases/api_security
