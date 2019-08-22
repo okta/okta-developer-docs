@@ -63,8 +63,8 @@ The preview server supports hot reloading. Once the server is running on your ma
 
 Documentation pages are stored as Markdown files in the `/packages/@okta/vuepress-site` directory.
 
-As an example, lets say you want to edit the [Users API](https://developer.okta.com/docs/api/resources/users) page. The public path of this page is `/docs/api/resources/users/`.
-To edit this page, you would navigate to `/packages/@okta/vuepress-site/docs/api/resources/users/index.md` and edit that Markdown file.
+As an example, lets say you want to edit the [Users API](https://developer.okta.com/docs/reference/api/users/) page. The public path of this page is `/docs/reference/api/users/`.
+To edit this page, you would navigate to `/packages/@okta/vuepress-site/docs/reference/api/users/index.md` and edit that Markdown file.
 
 An `index.md` file in a directory like `users` will be served as `/users/` when the site is live. If you name the file anything other than `index.md`, you will need to include `.html` in the URL when you view the page in your browser.
 
@@ -104,22 +104,22 @@ Framework-specific text/code bits are in separate files named 'snippets' that ar
 
 #### Details
 
-Every guide is based in a subdirectory under `guides/` in `packages/@okta/vuepress-site/`.  This directory name is used in the url of the guide, so follow best practices for URLs (human-readable, lowercase, no spaces, no special characters other than '-').
+Every guide is based in a subdirectory under `/docs/guides/` in `packages/@okta/vuepress-site/`.  This subdirectory name is used in the url of the guide, so follow best practices for URLs (human-readable, lowercase, no spaces, no special characters other than '-').
 
-The file `guides/index.md` contains the meta-data for the guides overall in the [front matter](https://github.com/vuejs/vuepress/blob/master/packages/docs/docs/guide/frontmatter.md), notably, the ordered list of guides to offer and the ordered list of "featured" guides for the main Guides page. (TODO: Move content from GuidesOverview to this index.md file) If a guide is not listed here, it IS on the site but is NOT linked to.
+The file `docs/guides/index.md` contains the meta-data for the guides overall in the [front matter](https://github.com/vuejs/vuepress/blob/master/packages/docs/docs/guide/frontmatter.md), notably, the ordered list of guides to offer and the ordered list of "featured" guides for the main Guides page. (TODO: Move content from GuidesOverview to this index.md file) If a guide is not listed here, it IS on the site but is NOT linked to.
 
-Each guide directory will have a number of section subdirectories.  These are used in the urls for each section of the guide, so follow best practices for URLs in naming these directories.  Each guide directory has an `index.md` file that holds meta-data for the guide, notably the ordered list of section directories.  Any section directory not listed can be accessed on the site but will not be linked to.  Each section directory has an `index.md` file that holds the content for that section.
+Each guide directory will have a number of section subdirectories.  These are used in the urls for each section of the guide, so follow best practices for URLs in naming these directories.  Each guide directory has an `index.md` file that holds meta-data for the guide, notably the ordered list of section directories.  Any section directory not listed can be accessed on the site but will not be linked to.  Each section directory has an `index.md` file that holds the Markdown content for that section.
 
 If a guide section has framework-specific content, you can use `<StackSelector snippet="SNIPPET-NAME"/>` where `SNIPPET-NAME` is a section-specific indicator of your choice.  This does NOT appear in a url, but please follow common filename conventions.
 
-Content for the StackSelector snippets are found in `guides/NAME-OF-GUIDE/NAME-OF-SECTION/NAME-OF-FRAMEWORK/SNIPPET-NAME.md` files.
+Content for the StackSelector snippets are found in `docs/guides/NAME-OF-GUIDE/NAME-OF-SECTION/NAME-OF-FRAMEWORK/SNIPPET-NAME.md` files.
 
 ### Writing a guide
 
-1. Create the guide directory
+1. Create the guide directory under `docs/guides`
 2. Create the guide index.md
 3. Create a subdirectory for every section
-4. Put your content into the `index.md` file for each section subdirectory
+4. Put your Markdown content into the `index.md` file for each section subdirectory
 5. For any snippets you declare, create the `NAME-OF-FRAMEWORK/NAME-OF-SNIPPET.md` files in the section subdirectory
 6. Make sure the `index.md` file for the section includes the title of the section
 7. Make sure the `index.md` file for the guide includes the title for the guide and the list of all section subdirectories (in order)
