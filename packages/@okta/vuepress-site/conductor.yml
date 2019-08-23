@@ -120,7 +120,7 @@ redirects:
   - from: /docs/getting_started/tokens.html
     to: /docs/guides/validate-access-tokens/
   - from: /docs/api/resources/tokens/index.html
-    to: /docs/guides/validate-access-tokens/
+    to: /docs/guides/create-an-api-token/overview/
   - from: /docs/reference/api/tokens/index.html
     to: /docs/guides/create-an-api-token/overview/
   - from: /docs/api/rest/users.html
