@@ -1,12 +1,18 @@
 <template>
-  <a
-    v-if=editLink
-    id="edit-link"
-    :href="editLink"
-    target="_blank"
-    rel="noopener noreferrer"
-    data-proofer-ignore
-  >{{ editLinkText }}</a>
+  <div class="editLinkWrap">
+    <div>Last updated <span v-text=$page.lastUpdated></span> — </div>
+
+    <a
+      v-if=editLink
+      id="edit-link"
+      :href="editLink"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-proofer-ignore
+      style="padding-left: 6px;"
+    >{{ editLinkText }}</a>
+  </div>
+
 </template>
 
 <script>

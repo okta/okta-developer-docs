@@ -17,7 +17,12 @@
 	}
 }
 
-#edit-link {
-	float: right;
-	margin-top: 20px;
+.editLinkWrap {
+  display: flex;
+  float: right;
 }
+
+#edit-link {
+  padding-left: 6px
+}
+
