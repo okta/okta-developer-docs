@@ -99,7 +99,7 @@ redirects:
     to: /docs/reference/api/factors/index.html
   - from: /docs/api/rest/groups.html
     to: /docs/reference/api/groups/index.html
-  - from: docs/api/rest/idps.html
+  - from: /docs/api/rest/idps.html
     to: /docs/reference/api/idps/index.html
   - from: /docs/api/resources/idps
     to: /docs/reference/api/idps/
@@ -122,7 +122,7 @@ redirects:
   - from: /docs/api/resources/tokens/index.html
     to: /docs/guides/validate-access-tokens/
   - from: /docs/reference/api/tokens/index.html
-    to: /docs/guides/validate-access-tokens/
+    to: /docs/guides/create-an-api-token/overview/
   - from: /docs/api/rest/users.html
     to: /docs/reference/api/users/
   - from: /docs/reference/api/user
@@ -1571,8 +1571,6 @@ redirects:
     to: /docs/reference/api-overview/getting_a_token/
   - from: /docs/reference/api/resource-server-beta
     to: /docs/reference/api/resource-server-beta/
-  - from: /docs/reference/api/tokens
-    to: /docs/reference/api/tokens/
   - from: /docs/sdk/core/python_api_sdk
     to: /docs/sdk/core/python_api_sdk/
   - from: /documentation
