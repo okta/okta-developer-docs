@@ -118,7 +118,7 @@ redirects:
   - from: /docs/api/rest/templates.html
     to: /docs/reference/api/templates/index.html
   - from: /docs/getting_started/tokens.html
-    to: /docs/guides/validate-access-tokens/
+    to: /docs/guides/create-an-api-token/overview/
   - from: /docs/api/resources/tokens/index.html
     to: /docs/guides/create-an-api-token/overview/
   - from: /docs/reference/api/tokens/index.html
