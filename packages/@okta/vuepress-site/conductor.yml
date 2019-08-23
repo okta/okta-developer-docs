@@ -99,7 +99,7 @@ redirects:
     to: /docs/reference/api/factors/index.html
   - from: /docs/api/rest/groups.html
     to: /docs/reference/api/groups/index.html
-  - from: docs/api/rest/idps.html
+  - from: /docs/api/rest/idps.html
     to: /docs/reference/api/idps/index.html
   - from: /docs/api/resources/idps
     to: /docs/reference/api/idps/
