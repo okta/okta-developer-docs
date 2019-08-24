@@ -6,6 +6,7 @@
 
     <!-- Begin Content -->
     <div class="PageContent-main">
+      <h1>{{ $page.title }}</h1>
       <EditLink />
       <Content />
     </div>

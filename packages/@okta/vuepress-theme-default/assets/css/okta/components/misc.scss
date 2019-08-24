@@ -18,11 +18,7 @@
 }
 
 .editLinkWrap {
-  display: flex;
-  float: right;
+  margin-bottom: $base-spacing;
+  color: $text-sub;
+  font-size: ms(-1);
 }
-
-#edit-link {
-  padding-left: 6px
-}
-

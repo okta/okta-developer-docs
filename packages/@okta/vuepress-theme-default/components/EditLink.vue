@@ -1,6 +1,6 @@
 <template>
   <div class="editLinkWrap">
-    <div>Last updated <span v-text=$page.lastUpdated></span> — </div>
+    Last updated <span v-text=$page.lastUpdated></span> &ndash;
 
     <a
       v-if=editLink
@@ -9,7 +9,6 @@
       target="_blank"
       rel="noopener noreferrer"
       data-proofer-ignore
-      style="padding-left: 6px;"
     >{{ editLinkText }}</a>
   </div>
 
