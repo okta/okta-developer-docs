@@ -643,6 +643,8 @@ The following expressions are supported for events with the `filter` query param
 | `target.id eq ":id"`                         | Events published with a specific target id                                     |
 | `actor.id eq ":id"`                          | Events published with a specific actor id                                      |
 
+> Note that SCIM filter expressions cannot use the `published` attribute since it may conflict with the logic of the `since`, `after`, and `until` query params.
+
 See [Filtering](/docs/reference/api-overview/#filtering) for more information about expressions.
 
 The following are some examples of common filter expressions.
