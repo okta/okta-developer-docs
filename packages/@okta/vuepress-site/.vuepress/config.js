@@ -117,6 +117,7 @@ module.exports = {
           { text: 'Blog', link: 'https://developer.okta.com/blog/' },
           { text: 'Release Notes', link: 'https://developer.okta.com/docs/release-notes/' },
           { text: '3rd Party Notices', link: 'https://developer.okta.com/3rd_party_notices/' },
+          { text: 'Community Toolkit', link: 'https://toolkit.okta.com/' },
         ]
       },
       {
