@@ -21,6 +21,8 @@ Before the introduction of Event Hooks, polling the [System Log API](/docs/refer
 
 You can have a maximum of 10 active and verified Event Hooks set up in your org at any time, and each Event Hook can be configured to deliver multiple event types.
 
+>Note: To deliver event information, Event Hooks use the data structure associated with the [System Log API](/docs/reference/api/system-log/), not the data structure associated with the older [Events API](/docs/reference/api/events/).
+
 ## Which Events are Eligible?
 
 During the initial configuration procedure for an Event Hook, you specify which event types you want the Event Hook to deliver. The event types that can be specified are a subset of the event types that the Okta System Log captures.
