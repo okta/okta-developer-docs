@@ -13,15 +13,18 @@ Explore the Features API: [![Run in Postman](https://run.pstmn.io/button.svg)](h
 
 ## Feature Operations
 
-### Get Feature
+Feature objects have the following operations:
+
+* [Get a Feature](#get-a-feature)
+* ...
+
+### Get a Feature
 
 <ApiOperation method="get" url="/api/v1/features/${featureId}" /> <SupportsCors />
 
-Fetches a Feature by its `id`. If you don't know the feature `id`, you can [list all Features](#list-features).
+Fetches a Feature by its `id`. If you don't know the feature `id`, you can [list all Features](#list-all-features).
 
 #### Request Parameters
-
-Fetch a feature by `id`.
 
 | Parameter | Type   | Description                      |
 | --------- | ------ | -------------------------------- |
@@ -32,6 +35,8 @@ Fetch a feature by `id`.
 The requested [Feature](#feature-model).
 
 #### Usage Example
+
+This request would fetch a Feature object with an `id` value `ftrYooGoH8b41iCZiPk7`:
 
 ##### Request
 
@@ -97,7 +102,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features" />
 
-Returns a list of all Features that are available to be self-serviced for an organization.
+Returns a list of all Features that are available to be self-serviced for an Org.
 
 #### Request Parameters
 
@@ -110,8 +115,9 @@ Array of [Feature](#feature-model) objects.
 
 #### Usage Example
 
-##### Request
+The following request would return a list of all available self-service Features:
 
+##### Request
 
 ```bash
 curl -v -X GET \
@@ -122,7 +128,6 @@ curl -v -X GET \
 ```
 
 ##### Response
-
 
 ```json
 HTTP/1.1 200 OK
@@ -195,31 +200,31 @@ Content-Type: application/json
 
 Updates a Feature's lifecycle. Use this endpoint to enable or disable a Feature for your Org.
 
-> Note: A Feature with a [stage](#stage-object) value `BETA` can be only updated in `PREVIEW` cell. A Feature
- with a [stage](#stage-object) value `BETA` and status `CLOSED` can be only disabled.
+> Note: A Feature with a `stage` value `BETA` can be only updated in a Preview cell. A Feature
+ with a `stage` value `BETA` and `status` value of `CLOSED` can be only disabled. For more information see the [Stage object](#stage-object).
 
 #### Request Parameters
 
 | Parameter   | Type   | Description                                                                      |
 | ----------- | ------ | -------------------------------------------------------------------------------- |
-| `featureId` | String | Unique identifier of the Feature to update                                       |
+| `featureId` | String | Unique identifier of the Feature to update.                                      |
 | `lifecycle` | String | Enables or disables the Feature. Possible values: `enable`, `disable`            |
 | `mode`      | String | Indicates if you want to force enable/disable a feature. Possible value: `force` |
 
 
-> Note: If `mode=force` is included in the request, then the Feature will be enabled/disabled along with all its self-service dependencies/dependents.
-Otherwise, if the Feature has dependencies that need to be enabled before the Feature is enabled (or dependents that need to be disabled
-before the Feature is disabled), an error is returned.
+> Note: If `mode=force` is included in the request, then the Feature will be enabled/disabled along with all its self-service dependencies/dependents. Otherwise, if the Feature has dependencies that need to be enabled before the Feature is enabled (or dependents that need to be disabled before the Feature is disabled), an error is returned.
 
 #### Request Body
 
-???
+None
 
 #### Response Body
 
 Updated [Feature](#feature-model)
 
 #### Example Usage
+
+The following request would...
 
 ##### Request
 
@@ -230,7 +235,7 @@ Request here
 ##### Response
 
 ```json
-example here
+Response here
 ```
 
 ##### Error Response (Invalid featureId)
@@ -254,8 +259,8 @@ Content-Type: application/json
 The following will return a `405 Method Not Allowed` status code:
 
 * An invalid `lifecycle` value
-* Update request of a `BETA` feature in a non-preview cell
-* If the feature requires support to be updated
+* Update request of a `BETA` Feature in a non-preview cell
+* If the Feature requires support to be updated
 
 ```json
 HTTP/1.1 405 Method Not Allowed
@@ -274,19 +279,25 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/features/${featureId}/{enable/disable}" />
 
-Disable or enable a self-service Feature for your Okta Org.
+Disable or enable a self-service Feature for your Okta Org. To enable a Feature, use the `/enable` endpoint, and to disable use the `/disable` endpoint.
 
 #### Request Parameters
 
+| Parameter   | Type   | Description                      |
+| ----------- | ------ | -------------------------------- |
+| `featureid` | String | The Feature's unique identifier. |
+
 #### Request Body
 
-???
+None
 
 #### Response Body
 
 Enabled [Feature](#feature-model)
 
 #### Example Usage
+
+The following request would enable the Feature with an `id` value `ftrYooGoH8b41iCZiPk7`.
 
 ##### Request
 
@@ -408,7 +419,9 @@ Array of [Feature](#feature-model) objects.
 
 #### Example Usage
 
-##### Request Example
+The following request would return the Feature dependencies for a Feature with an `id` value of `ftrcDO2RUt1sjZWSIok3`.
+
+##### Request
 
 ```bash
 curl -v -X GET \
@@ -418,7 +431,7 @@ curl -v -X GET \
 }' "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjZWSIok3/dependencies"
 ```
 
-##### Response Example
+##### Response
 
 ```json
 [
@@ -433,7 +446,7 @@ curl -v -X GET \
     },
     "_links": {
       "helpDoc": {
-        "href": "https://developer.okta.com/use_cases/event_hooks/"
+        "href": "https://developer.okta.com/docs/concepts/event-hooks/"
       },
       "disable": {
         "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn/disable",
@@ -457,7 +470,7 @@ curl -v -X GET \
 ]
 ```
 
-##### Error Response
+##### Error Response (Invalid featureId)
 
 An invalid `featureId` returns a `404 Not Found` status code.
 
@@ -474,24 +487,25 @@ Content-Type: application/json
 }
 ```
 
-
 ### Get Dependents
-
-Get the list of dependents for a feature. i.e. features which need to be disabled in order to disable the feature.
 
 <ApiOperation method="get" url="/api/v1/features/${featureId}/dependents" />
 
+Get the list of Feature dependents for a specified Feature. A Feature's dependents are the Features which need to be disabled in order for the Feature itself to be disabled.
+
 ##### Request Parameters
 
-| Parameter | Description     | Param Type | DataType | Required |
-| --------- | --------------- | ---------- | -------- | -------- |
-| featureId | `id` of feature | URL        | String   | TRUE     |
+| Parameter   | Type   | Description                      |
+| ----------- | ------ | -------------------------------- |
+| `featureid` | String | The Feature's unique identifier. |
 
 ##### Response Parameters
 
 Array of [Feature](#feature-model) objects.
 
 #### Usage Example
+
+The following request would retrieve the dependent Features for a Feature with an `id` value `ftrlBPVcGwYP2epHSMYn`.
 
 ##### Request
 
@@ -558,6 +572,20 @@ Content-Type: application/json
 
 ## Feature Objects
 
+### Feature Properties
+
+The Feature model defines several properties:
+
+| Property      | Type                                                           | Description                                                              |
+| ------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `id`          | String                                                         | Unique identifier for this Feature. (Read-only)                                       |
+| `type`        | String (Enum)                                                  | Current type of feature. Only support type is `self-service`.            |
+| `lifecycle`   | String (Enum)                                                  | Current lifecycle of the feature. Possible values: `ENABLED`, `DISABLED` |
+| `name`        | String                                                         | Name of the feature                                                      |
+| `description` | String                                                         | Brief description about the feature and what it provides                 |
+| `stage`       | [Stage Object](#stage-object)                                  | Current [Stage](#stage-object) for this Feature                          |
+| `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | ??? (Read-only)                                                                     |
+
 ### Feature Example
 
 ```json
@@ -572,7 +600,7 @@ Content-Type: application/json
   },
   "_links": {
     "helpDoc": {
-      "href": "https://developer.okta.com/use_cases/event_hooks/"
+      "href": "https://developer.okta.com/docs/concepts/event-hooks/"
     },
     "self": {
       "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn"
@@ -595,21 +623,6 @@ Content-Type: application/json
 }
 ```
 
-### Feature Properties
-
-The User model defines several read-only properties:
-
-| Property      | Type                                                           | Description                                                              |
-| ------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| `id`          | String                                                         | Unique identifier for this Feature                                       |
-| `type`        | String (Enum)                                                  | Current type of feature. Only support type is `self-service`.            |
-| `lifecycle`   | String (Enum)                                                  | Current lifecycle of the feature. Possible values: `ENABLED`, `DISABLED` |
-| `name`        | String                                                         | Name of the feature                                                      |
-| `description` | String                                                         | Brief description about the feature and what it provides                 |
-| `stage`       | [Stage Object](#stage-object)                                  | Current [Stage](#stage-object) for this Feature                          |
-| `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | ???                                                                      |
-
-
 ### Stage Object
 
 Specifies the [release cycle stage](/docs/reference/releases-at-okta/) of a Feature.
@@ -625,7 +638,7 @@ Specifies the [release cycle stage](/docs/reference/releases-at-okta/) of a Feat
 
 #### Stage Properties
 
-The feature stage has following standard properties:
+The Stage object has following properties:
 
 | Property | Type   | Description      |
 | -------- | ------ | ---------------- |
