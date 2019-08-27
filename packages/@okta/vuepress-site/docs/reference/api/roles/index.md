@@ -1317,7 +1317,7 @@ The role model defines several **read-only** properties:
 | :--------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------                              | :--------- | :------- | :-------- |
 | id               | Unique key for the role assignment                      | String                                                                                                                                     | FALSE      | TRUE     | TRUE      |
 | label            | Display name of role                                    | String                                                                                                                                     | FALSE      | FALSE    | TRUE      |
-| type             | Type of role                                            | `SUPER_ADMIN`, `ORG_ADMIN`, `API_ACCESS_MANAGEMENT_ADMIN`, `APP_ADMIN`, `USER_ADMIN`, `MOBILE_ADMIN`, `READ_ONLY_ADMIN`, `HELP_DESK_ADMIN` | FALSE      | FALSE    | TRUE      |
+| type             | Type of role                                            | `SUPER_ADMIN`, `ORG_ADMIN`, `API_ACCESS_MANAGEMENT_ADMIN`, `APP_ADMIN`, `USER_ADMIN`, `MOBILE_ADMIN`, `READ_ONLY_ADMIN`, `HELP_DESK_ADMIN`, `REPORT_ADMIN` | FALSE      | FALSE    | TRUE      |
 | status           | Status of role assignment                               | `ACTIVE`                                                                                                                                   | FALSE      | FALSE    | TRUE      |
 | assignmentType   | The type of assignment                                  | `USER`, `GROUP`                                                                                                                            | FALSE      | FALSE    | TRUE      |
 | created          | Timestamp when app user was created                     | Date                                                                                                                                       | FALSE      | FALSE    | TRUE      |
@@ -1340,6 +1340,7 @@ Refer to the [product documentation](https://help.okta.com/en/prod/Content/Topic
 | `USER_ADMIN`      | Group Administrator       | [Groups](/docs/reference/api/groups/) |
 | `MOBILE_ADMIN`    | Mobile Administrator      |                  |
 | `READ_ONLY_ADMIN` | Read-only Administrator   |                  |
+| `REPORT_ADMIN`    | Report Administrator      |                  |
 
 `API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature be enabled. For a description of what the role can do, see [API Access Management Best Practices](/docs/concepts/api-access-management/#recommended-practices-for-api-access-management).
 
