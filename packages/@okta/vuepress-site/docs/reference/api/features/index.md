@@ -59,7 +59,7 @@ curl -v -X GET \
 {
   "id": "ftrYooGoH8b41iCZiPk7",
   "type": "self-service",
-  "lifeCycle": "DISABLED",
+  "status": "DISABLED",
   "name": "Collect product feedback from end users",
   "description": "We will ask your users for their Net Promoter Score using Okta via an in-app prompt when they visit their Dashboard. Any information collected will not constitute customer data.",
   "stage": {
@@ -142,7 +142,7 @@ Content-Type: application/json
   {
      "id":"ftrYooGoH8b41iCZiPk7",
      "type":"self-service",
-     "lifeCycle":"DISABLED",
+     "status":"DISABLED",
      "name":"Collect product feedback from end users",
      "description":"We will ask your users for their Net Promoter Score using Okta via an in-app prompt when they visit their Dashboard. Any information collected will not constitute customer data.",
      "stage":{
@@ -171,7 +171,7 @@ Content-Type: application/json
   {
      "id":"ftrcDO2RUt1sjZWSIok3",
      "type":"self-service",
-     "lifeCycle":"ENABLED",
+     "status":"ENABLED",
      "name":"Event Hooks user interface in the Admin console",
      "description":"Allows an admin to configure and manage Event Hooks using the Admin console in addition to the existing Event Hooks API",
      "stage":{
@@ -247,7 +247,7 @@ curl -v -X POST \
 {
   "id": "ftrYooGoH8b41iCZiPk7",
   "type": "self-service",
-  "lifeCycle": "ENABLED",
+  "status": "ENABLED",
   "name": "Collect product feedback from end users",
   "description": "We will ask your users for their Net Promoter Score using Okta via an in-app prompt when they visit their Dashboard. Any information collected will not constitute customer data.",
   "stage": {
@@ -407,7 +407,7 @@ curl -v -X GET \
   {
     "id": "ftrlBPVcGwYP2epHSMYn",
     "type": "self-service",
-    "lifeCycle": "ENABLED",
+    "status": "ENABLED",
     "name": "Event Hooks",
     "description": "Event hooks are outbound HTTP REST calls from Okta, sent when specified events occur in your org. These calls from Okta are meant to be used as triggers for process flows within your own software systems.",
     "stage": {
@@ -494,7 +494,7 @@ curl -v -X GET \
   {
     "id": "ftrcDO2RUt1sjZWSIok3",
     "type": "self-service",
-    "lifeCycle": "ENABLED",
+    "status": "ENABLED",
     "name": "Event Hooks user interface in the Admin console",
     "description": "Allows an admin to configure and manage Event Hooks using the Admin console in addition to the existing Event Hooks API",
     "stage": {
@@ -549,7 +549,7 @@ The Feature model defines several properties:
 | ------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | `id`          | String                                                         | Unique identifier for this Feature. (Read-only)                                       |
 | `type`        | String (Enum)                                                  | Current type of feature. Only support type is `self-service`.            |
-| `lifecycle`   | String (Enum)                                                  | Current lifecycle of the feature. Possible values: `ENABLED`, `DISABLED` |
+| `status`   | String (Enum)                                                     | Current status of the feature. Possible values: `ENABLED`, `DISABLED`    |
 | `name`        | String                                                         | Name of the feature                                                      |
 | `description` | String                                                         | Brief description about the feature and what it provides                 |
 | `stage`       | [Stage Object](#stage-object)                                  | Current [Stage](#stage-object) for this Feature                          |
@@ -561,7 +561,7 @@ The Feature model defines several properties:
 {
   "id": "ftrlBPVcGwYP2epHSMYn",
   "type": "self-service",
-  "lifecycle": "ENABLED",
+  "status": "ENABLED",
   "name": "Event Hooks",
   "description": "Event hooks are outbound HTTP REST calls from Okta, sent when specified events occur in your org. These calls from Okta are meant to be used as triggers for process flows within your own software systems.",
   "stage": {
