@@ -9,7 +9,7 @@ The Okta Feature API provides operations to manage self-service Features in your
 
 ## Getting Started
 
-Explore the Features API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/{collection_id_here})
+Explore the Features API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ab22761da96ff7a7ab0c)
 
 ## Feature Operations
 
