@@ -16,13 +16,18 @@ Explore the Features API: [![Run in Postman](https://run.pstmn.io/button.svg)](h
 Feature objects have the following operations:
 
 * [Get a Feature](#get-a-feature)
-* ...
+* [List Features](#list-features)
+* [Update Feature](#update-feature)
+* [Get Dependencies](#get-dependencies)
+* [Get Dependents](#get-dependents)
 
 ### Get a Feature
 
 <ApiOperation method="get" url="/api/v1/features/${featureId}" /> <SupportsCors />
 
-Fetches a Feature by its `id`. If you don't know the feature `id`, you can [list all Features](#list-all-features).
+Fetches a Feature by its `id`. If you don't know the feature `id`, you can [list Features](#list-features).
+
+>Note: The `id` of a feature is case sensitive.
 
 #### Request Parameters
 
@@ -85,7 +90,7 @@ curl -v -X GET \
 
 An invalid `id` returns a `404 Not Found` status code.
 
-```json
+```http
 HTTP/1.1 404 Not Found
 Content-Type: application/json
 
@@ -98,7 +103,7 @@ Content-Type: application/json
 }
 ```
 
-### List all Features
+### List Features
 
 <ApiOperation method="get" url="/api/v1/features" />
 
@@ -362,7 +367,7 @@ Content-Type: application/json
 
 ##### Error Response (Feature in closed Beta)
 
-Sending a disable/enable request for a Feature with a `stage` value of `BETA CLOSED` in a Preview cell will return a `405 Method Not Allowed` status code:
+Sending an enable request for a Feature with a `stage` value of `BETA CLOSED` in a Preview cell will return a `405 Method Not Allowed` status code:
 
 ```json
 HTTP/1.1 405 Method Not Allowed
@@ -645,5 +650,8 @@ The Stage object has following properties:
 | value    | String | `EA`, `BETA`     |
 | status   | String | `OPEN`, `CLOSED` |
 
-If a Feature's stage value is `EA`, the status is null. If the value is `BETA` the status is `OPEN` or `CLOSED` depending on the `BETA` feature
+If a Feature's stage value is `EA`, the status is `null`. If the value is `BETA` the status is `OPEN` or `CLOSED` depending on the `BETA` feature
 being manageable or not.
+
+>Note: If a Feature's stage is `BETA OPEN`, it can be updated in Preview cells only. If a a Feature's stage is `BETA CLOSED`, it can
+only be disabled in Preview cells.
