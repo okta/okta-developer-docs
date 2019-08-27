@@ -553,7 +553,7 @@ The Feature model defines several properties:
 | `name`        | String                                                         | Name of the feature                                                      |
 | `description` | String                                                         | Brief description about the feature and what it provides                 |
 | `stage`       | [Stage Object](#stage-object)                                  | Current [Stage](#stage-object) for this Feature                          |
-| `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | ??? (Read-only)                                                                     |
+| `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | [link relations](#links-object) for the feature&#8217;s current `status` |
 
 ### Feature Example
 
@@ -619,3 +619,21 @@ being manageable or not.
 
 >Note: If a Feature's stage is `BETA OPEN`, it can be updated in Preview cells only. If a a Feature's stage is `BETA CLOSED`, it can
 only be disabled in Preview cells.
+
+
+### Links Object
+
+Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a feature.  The Links object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only.
+
+Here are some links that may be available on a Feature, as determined by your policies:
+
+| Link Relation Type       | Description                                                                                                           |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------------------- |
+| self                     | A self-referential link to this feature                                                                               |
+| enable                   | Lifecycle action to [enable the feature](#update-feature)                                                             |
+| disable                  | Lifecycle action to [disable the feature](#update-feature)                                                            |
+| dependencies             | A link to this feature's [dependencies](#get-dependencies)                                                            |
+| dependents               | A link to this feature's [dependents](#get-dependents)                                                                |
+| helpDoc                  | A link to this feature's help documentation                                                                           |
+| devDoc                   | A link to this feature's dev docs                                                                                     |
+| survey                   | A link to this feature's survey. Only available for `ENABLED BETA` features                                           |
