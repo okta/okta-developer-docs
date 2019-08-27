@@ -5,15 +5,14 @@ All of our Okta packages for Node are hosted on [npm](https://www.npmjs.com/). I
 You can install them via yarn:
 
 ```
-yarn add @okta/oidc-middleware --save
 yarn add express-session --save
-yarn add express
+yarn add @okta/oidc-middleware --save
 ```
 
 Or in a single command:
 
 ```
-yarn add express express-session @okta/oidc-middleware --save
+yarn add  express-session @okta/oidc-middleware --save
 ```
 
 
