@@ -6,7 +6,8 @@
     "dist"
   ],
   "scripts": {
-    "dev": "vuepress dev .",
+    "conductor:validate": "node .vuepress/scripts/yml-parse-check.js",
+    "dev": "yarn conductor:validate && vuepress dev .",
     "prebuild": "node .vuepress/scripts/yml-parse-check.js",
     "build": ".vuepress/scripts/build.sh",
     "postbuild": "node .vuepress/scripts/strip-guide-parts-from-sitemap.js"
