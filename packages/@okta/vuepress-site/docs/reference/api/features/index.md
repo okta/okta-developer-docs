@@ -229,79 +229,6 @@ Updated [Feature](#feature-model)
 
 #### Example Usage
 
-The following request would...
-
-##### Request
-
-```http
-Request here
-```
-
-##### Response
-
-```json
-Response here
-```
-
-##### Error Response (Invalid featureId)
-
-An invalid `featureId` returns a `404 Not Found` status code.
-
-```json
-HTTP/1.1 404 Not Found
-Content-Type: application/json
-
-{
-    "errorCode": "E0000007",
-    "errorSummary": "Not found: Resource not found: invalidFeatureId (Feature)",
-    "errorLink": "E0000007",
-    "errorId": "oaenAlD87mGTuWeGi7AjmhIBA",
-    "errorCauses": []
-}
-```
-##### Error Response (Method not allowed)
-
-The following will return a `405 Method Not Allowed` status code:
-
-* An invalid `lifecycle` value
-* Update request of a `BETA` Feature in a non-preview cell
-* If the Feature requires support to be updated
-
-```json
-HTTP/1.1 405 Method Not Allowed
-Content-Type: application/json
-
-{
-    "errorCode": "E0000022",
-    "errorSummary": "The endpoint does not support the provided HTTP method",
-    "errorLink": "E0000022",
-    "errorId": "oaerzuJCOHVQ8-E2XpkEKfeOQ",
-    "errorCauses": []
- }
-```
-
-#### Disable or Enable a Feature
-
-<ApiOperation method="post" url="/api/v1/features/${featureId}/{enable/disable}" />
-
-Disable or enable a self-service Feature for your Okta Org. To enable a Feature, use the `/enable` endpoint, and to disable use the `/disable` endpoint.
-
-#### Request Parameters
-
-| Parameter   | Type   | Description                      |
-| ----------- | ------ | -------------------------------- |
-| `featureid` | String | The Feature's unique identifier. |
-
-#### Request Body
-
-None
-
-#### Response Body
-
-Enabled [Feature](#feature-model)
-
-#### Example Usage
-
 The following request would enable the Feature with an `id` value `ftrYooGoH8b41iCZiPk7`.
 
 ##### Request
@@ -346,6 +273,43 @@ curl -v -X POST \
     }
   }
 }
+```
+
+##### Error Response (Invalid featureId)
+
+An invalid `featureId` returns a `404 Not Found` status code.
+
+```json
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "errorCode": "E0000007",
+    "errorSummary": "Not found: Resource not found: invalidFeatureId (Feature)",
+    "errorLink": "E0000007",
+    "errorId": "oaenAlD87mGTuWeGi7AjmhIBA",
+    "errorCauses": []
+}
+```
+##### Error Response (Method not allowed)
+
+The following will return a `405 Method Not Allowed` status code:
+
+* An invalid `lifecycle` value
+* Update request of a `BETA` Feature in a non-preview cell
+* If the Feature requires support to be updated
+
+```json
+HTTP/1.1 405 Method Not Allowed
+Content-Type: application/json
+
+{
+    "errorCode": "E0000022",
+    "errorSummary": "The endpoint does not support the provided HTTP method",
+    "errorLink": "E0000022",
+    "errorId": "oaerzuJCOHVQ8-E2XpkEKfeOQ",
+    "errorCauses": []
+ }
 ```
 
 ##### Error Response (Already disabled/enabled)
