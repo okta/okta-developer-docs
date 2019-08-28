@@ -1709,3 +1709,7 @@ redirects:
     to: /code/javascript/okta_auth_sdk/
   - from: /code/javascript/okta_sign-in_widget.html
     to: /code/javascript/okta_sign-in_widget/
+  - from: /docs/change-log.html
+    to: /docs/release-notes/
+  - from: /docs/change-log
+    to: /docs/release-notes/
