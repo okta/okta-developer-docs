@@ -69,8 +69,7 @@ Links:
 See our updated wiki for full details on contributing to the developer documentation repo:
 
 - [Home](https://github.com/okta/okta-developer-docs/wiki)
-- [Getting set up](https://github.com/okta/okta-developer-docs/wiki/Getting-set-up
-)
+- [Getting set up](https://github.com/okta/okta-developer-docs/wiki/Getting-set-up)
 - [Writing guides](https://github.com/okta/okta-developer-docs/wiki/Writing-guides)
 - [Contributing to the site](https://github.com/okta/okta-developer-docs/wiki/Contributing-to-the-Site)
 - [VuePress authoring guidelines](https://github.com/okta/okta-developer-docs/wiki/VuePress-Authoring-Guidelines)
