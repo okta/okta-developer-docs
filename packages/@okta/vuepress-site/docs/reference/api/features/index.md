@@ -5,7 +5,7 @@ category: management
 
 # Features API
 
-The Okta Features API provides operations to manage self-service Early Access (EA) and Beta Features in your Org.
+The Okta Features API provides operations to manage self-service Early Access (EA) and Beta Features in your org.
 
 > Note: Important information about the limitations of this API can be found ...
 
@@ -112,7 +112,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features" />
 
-Returns a list of all available self-service Features for your Org.
+Returns a list of all available self-service Features for your org.
 
 #### Request Parameters
 
@@ -176,8 +176,8 @@ Content-Type: application/json
      "id":"ftrcDO2RUt1sjZWSIok3",
      "type":"self-service",
      "status":"ENABLED",
-     "name":"Event Hooks user interface in the Admin console",
-     "description":"Allows an admin to configure and manage Event Hooks using the Admin console in addition to the existing Event Hooks API",
+     "name":"Event Hooks user interface in the Admin Console",
+     "description":"Allows an admin to configure and manage Event Hooks using the Admin Console in addition to the existing Event Hooks API",
      "stage":{
         "value":"BETA",
         "state":"OPEN"
@@ -207,10 +207,9 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/features/${featureId}/${lifecycle}" />
 
-Updates a Feature's lifecycle. Use this endpoint to enable or disable a Feature for your Org.
+Updates a Feature's lifecycle. Use this endpoint to enable or disable a Feature for your org.
 
-> Note: A Feature with a `stage` value `BETA` can be only updated in a Preview cell. A Feature
- with a `stage` value `BETA` and `status` value of `CLOSED` can be only disabled. For more information see the [Stage object](#stage-object).
+
 
 #### Request Path Parameters
 
@@ -226,28 +225,11 @@ Updates a Feature's lifecycle. Use this endpoint to enable or disable a Feature 
 | --------- | ------ | -------------------------------------------------------------------------------- |
 | `mode`    | String | Indicates if you want to force enable/disable a feature. Possible value: `force` |
 
-##### Feature Update Restrictions (todo)
+Force mode is used to override dependency restrictions for a particular Feature. Normally, you cannot enable a Feature if it has one or more dependencies that are not enabled.
 
-There are several conditions that restrict which Features can be updated:
+If you use the `mode=force` parameter while enabling a Feature, then Okta will first try enabling any disabled Features that this Feature may have as dependencies. If you do not pass the `mode=force` parameter and the Feature has dependencies that need to be enabled before the Feature is enabled, a `400` error is returned.
 
-If `mode=force` and the `lifecycle` is `enable` in the request, then the Feature will be enabled along with all its self-service dependencies. If you do not pass the `mode=force` parameter and the Feature has dependencies that need to be enabled before the Feature is enabled, a `400` error is returned.
-
-If `mode=force` and the `lifecycle` is `disable` in the request, then the Feature will be disabled along with all its self-service dependents. If you do not pass the `mode=force` parameter, and the Feature has dependents that need to be disabled before the Feature is disabled, a `400` error is returned.
-
-Also any of the dependencies or dependents are in Closed Beta
- 
- > Note: If the request is for a non-preview cell, updating a `BETA` feature will return an error.
- 
- > Note: If the request is for a `CLOSED BETA`. Enable request will return an error. Disable will succeed in Preview.
-
-Beta Features can only be managed in Preview cells.
-
-Betas can be open or closed. Open Betas can be enabled or disabled by an Okta Admin, however closed Betas can only be disabled by an Okta Admin. If you'd like to enabled a closed Beta, you should [contact Support](mailto:support@okta.com).
-
-> Note: Enabling an Open Beta will trigger an email.
-
-
-
+If you use the `mode=force` parameter while disabling a Feature, then Okta will first try disabling any enabled Features that this Feature may have as dependents. If you do not pass the `mode=force` parameter and the Feature has dependencies that need to be disabled before the Feature is disabled, a `400` error is returned.
 
 #### Request Body
 
@@ -532,8 +514,8 @@ curl -v -X GET \
     "id": "ftrcDO2RUt1sjZWSIok3",
     "type": "self-service",
     "status": "ENABLED",
-    "name": "Event Hooks user interface in the Admin console",
-    "description": "Allows an admin to configure and manage Event Hooks using the Admin console in addition to the existing Event Hooks API",
+    "name": "Event Hooks user interface in the Admin Console",
+    "description": "Allows an admin to configure and manage Event Hooks using the Admin Console in addition to the existing Event Hooks API",
     "stage": {
       "value": "BETA",
       "state": "OPEN"

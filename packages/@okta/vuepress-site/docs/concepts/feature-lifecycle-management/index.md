@@ -4,7 +4,7 @@ title: Feature Lifecycle Management
 
 # Feature Lifecycle Management
 
-This page will cover a few key concepts that underpin the Okta Features API.
+This page will cover a few key concepts that underpin the [Okta Features API](/docs/reference/api/features/).
 
 ## Self-service Features
 
