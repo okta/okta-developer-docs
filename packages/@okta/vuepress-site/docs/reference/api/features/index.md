@@ -107,7 +107,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features" />
 
-Returns a list of all Features that are available to be self-serviced for an Org.
+Returns a list of all available self-service Features for your Org.
 
 #### Request Parameters
 
@@ -217,7 +217,15 @@ Updates a Feature's lifecycle. Use this endpoint to enable or disable a Feature 
 | `mode`      | String | Indicates if you want to force enable/disable a feature. Possible value: `force` |
 
 
-> Note: If `mode=force` is included in the request, then the Feature will be enabled/disabled along with all its self-service dependencies/dependents. Otherwise, if the Feature has dependencies that need to be enabled before the Feature is enabled (or dependents that need to be disabled before the Feature is disabled), an error is returned.
+> Note: If `mode=force` and the `lifecycle` is `enable` in the request, then the Feature will be enabled along with all its self-service dependencies.
+ Otherwise, if the Feature has dependencies that need to be enabled before the Feature is enabled, an error is returned.
+ 
+ > Note: If `mode=force` and the `lifecycle` is `disable` in the request, then the Feature will be disabled along with all its self-service dependents.
+ Otherwise, if the Feature has dependents that need to be disabled before the Feature is disabled, an error is returned.
+ 
+ > Note: If the request is for a non-preview cell, updating a `BETA` feature will return an error.
+ 
+ > Note: If the request is for a `CLOSED BETA`. Enable request will return an error.
 
 #### Request Body
 
@@ -380,7 +388,7 @@ Get the list of Feature dependencies for a specified Feature. A Feature's depend
 
 | Parameter   | Type   | Description                      |
 | ----------- | ------ | -------------------------------- |
-| `featureid` | String | The Feature's unique identifier. |
+| `featureId` | String | The Feature's unique identifier. |
 
 #### Response Body
 
@@ -466,7 +474,7 @@ Get the list of Feature dependents for a specified Feature. A Feature's dependen
 
 | Parameter   | Type   | Description                      |
 | ----------- | ------ | -------------------------------- |
-| `featureid` | String | The Feature's unique identifier. |
+| `featureId` | String | The Feature's unique identifier. |
 
 ##### Response Parameters
 
@@ -547,8 +555,8 @@ The Feature model defines several properties:
 
 | Property      | Type                                                           | Description                                                              |
 | ------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| `id`          | String                                                         | Unique identifier for this Feature. (Read-only)                                       |
-| `type`        | String (Enum)                                                  | Current type of feature. Only support type is `self-service`.            |
+| `id`          | String                                                         | Unique identifier for this Feature. (Read-only)                          |
+| `type`        | String (Enum)                                                  | Current type of feature. The only support type is `self-service`.        |
 | `status`   | String (Enum)                                                     | Current status of the feature. Possible values: `ENABLED`, `DISABLED`    |
 | `name`        | String                                                         | Name of the feature                                                      |
 | `description` | String                                                         | Brief description about the feature and what it provides                 |
