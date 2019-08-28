@@ -13,7 +13,7 @@ Open your Okta Developer Console:
 
 3. In the **Logout redirect URIs** section, add the base URI of your application. 
 
-<StackSelector snippet="addbaseuri"/>
+    <StackSelector snippet="addbaseuri"/>
 
 4. Click **Save**.
 
