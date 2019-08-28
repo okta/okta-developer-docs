@@ -6,6 +6,7 @@ sections:
  - overview
  - protocol-to-sign-users-in
  - configure-saml-in-okta
- - assignments
+ - assign-users-to-the-app
  - config-saml-in-app
+ - next-steps
 ---

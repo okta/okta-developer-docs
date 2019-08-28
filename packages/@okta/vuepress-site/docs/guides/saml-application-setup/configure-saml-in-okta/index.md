@@ -1,7 +1,9 @@
 ---
 title: Configure SAML in Okta
 ---
-1.  On the **SAML Settings** page, paste the following URL into the **Single sign on URL** and **Audience URI (SP Entity ID)** fields: `http://example.com/saml/sso/example-okta-com`
+To configure the SAML settings of your SAML Service Provider app in Okta:
+
+1.  On the **SAML Settings** page, paste the following test URL into the **Single sign on URL** and **Audience URI (SP Entity ID)** fields: `http://example.com/saml/sso/example-okta-com`.
 
 2. In the **ATTRIBUTE STATEMENTS (OPTIONAL)** section, add three attribute statements:
     

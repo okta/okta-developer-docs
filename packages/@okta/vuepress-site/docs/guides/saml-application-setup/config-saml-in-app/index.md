@@ -1,22 +1,20 @@
 ---
 title: Configure SAML in your app
 ---
-You are now ready to configure SAML in your SAML SP application.
+You are now ready to configure SAML in your SAML Service Provider (SP) application. To do that, you need to obtain the Identity Provider metadata from the app that you just created.
 
 1. Select the **Sign On** tab.
 
-2. In the **SIGN ON METHODS** section, locate the **Identity Provider metadata** link.
-
-    ![Sign on methods](/img/okta-admin-ui-identity-provider-metadata-link.png "An arrow points to the Identity Provider metadata link in the Sign On Methods section of the page.")
+2. In the **SIGN ON METHODS** section, locate the **Identity Provider metadata** link in the note above the **CREDENTIALS DETAILS** section.
 
 3. Right-click the **Identity Provider metadata** link and select **Copy Link Address**. This metadata link contains the information that you need to configure SAML in your SAML SP application.
 
-4. Follow the SAML SP instructions on how to configure the Identity Provider metadata. If your SP doesn't support dynamic configuration of metadata (using the **Identity Provider metadata** link address), click **View Setup Instructions**. A new tab launches with the information that you need:
+4. Follow the SAML SP app instructions on how to configure the Identity Provider metadata. We recommend using the Identity Provider metadata link to dynamically configure the metadata. If your SP doesn't support dynamic configuration, click **View Setup Instructions**. A new browser tab launches with the information that you need:
 
     * Identity Provider Single Sign-On URL
     * Identity Provider Issuer
     * X.509 Certificate
 
-    Copy this information and use it to configure the Identity Provider metadata in your app.
+    Copy this information and use it to configure the Identity Provider metadata in your SAML SP app.
     
-<NextSectionLink/>
+<NextSectionLink>Next steps</NextSectionLink>
