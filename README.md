@@ -1,10 +1,11 @@
-[<img src="https://aws1.discourse-cdn.com/standard14/uploads/oktadev/original/1X/0c6402653dfb70edc661d4976a43a46f33e5e919.png" align="right" width="256px"/>][doc]
+<img src="https://aws1.discourse-cdn.com/standard14/uploads/oktadev/original/1X/0c6402653dfb70edc661d4976a43a46f33e5e919.png" align="right" width="256px"/>
 
-[![Support](https://img.shields.io/badge/support-developer%20forum-blue.svg)][devforum] [![Build Status](https://travis-ci.org/okta/okta-developer-docs.svg?branch=master)](https://travis-ci.org/okta/okta-developer-docs)
+[![Support](https://img.shields.io/badge/support-developer%20forum-blue.svg)](https://devforum.okta.com/)
+[![Build Status](https://travis-ci.org/okta/okta-developer-docs.svg?branch=master)](https://travis-ci.org/okta/okta-developer-docs)
 
 # Okta Developer Site
 
-The [Okta developer site][doc] serves Okta's API documentation and guides, including:
+The [Okta developer site](https://developer.okta.com) serves Okta's API documentation and guides, including:
 
 - [API references](https://developer.okta.com/docs/reference/)
 - [SDK references and sample code](https://developer.okta.com/documentation/)
@@ -12,15 +13,9 @@ The [Okta developer site][doc] serves Okta's API documentation and guides, inclu
 - [Guides](https://developer.okta.com/guides/)
 - [Developer Blog](https://developer.okta.com/blog/) (not published from this repo, see [okta/okta.github.io](https://github.com/okta/okta.github.io))
 
-* [API references](https://developer.okta.com/docs/reference/)
-* [SDK references and sample code](https://developer.okta.com/documentation/)
-* [Authentication quickstarts](https://developer.okta.com/quickstart/)
-* [Guides](https://developer.okta.com/guides/)
-* [Developer Blog](https://developer.okta.com/blog/) (not published from this repo, see [okta/okta.github.io](https://github.com/okta/okta.github.io))
-
 ## Getting Started
 
-Okta's developer documentation (this repo) is built using the [VuePress][vuepress] site generator.
+Okta's developer documentation (this repo) is built using the [VuePress](https://vuepress.vuejs.org/) site generator.
 There are currently 2 parts to the site, the content and the theming/plugins.
 
 ### Requirements
@@ -66,9 +61,10 @@ This starts a preview server on your machine, and watches all files for changes.
 The preview server supports hot reloading. Once the server is running on your machine, any changes you make to Markdown content will appear automatically in your browser within a few seconds. Note that changes to page frontmatter or site configuration require you to stop and start the preview server.
 
 Links:
-[Developer docs]: <https://developer.okta.com>
-[Developer forum]: <https://devforum.okta.com>
-[VuePress software]: <https://vuepress.vuejs.org>
+
+- Developer docs: <https://developer.okta.com>
+- Developer forum: <https://devforum.okta.com>
+- VuePress software: <https://vuepress.vuejs.org>
 
 See our updated wiki for full details on contributing to the developer documentation repo:
 
