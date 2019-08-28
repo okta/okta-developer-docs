@@ -8,6 +8,7 @@ title: Okta API Products Release Notes
 |------------------------------------------------------------------------------------------------|--------------------------|
 | [Bugs Fixed in 2019.08.3](#bugs-fixed-in-2019-08-3)                                            | August 29, 2019          |
 
+
 ### Bugs Fixed in 2019.08.3
 
 * The [Update Inline Hook call](/docs/reference/api/inline-hooks/#update-inline-hook) wasn't replacing the whole object. (OKTA-229337)
