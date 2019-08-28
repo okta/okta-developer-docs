@@ -1,5 +1,5 @@
 <template>
-  <div class="stack-selector">
+  <div class="stack-selector" v-if="options.length">
     <nav class="tabs">
       <ul>
         <li v-for="opt in options" :class="{ current: opt.framework === framework }" >
@@ -10,6 +10,9 @@
     <aside class="stack-content">
       <Content v-if="snippetComponentKey" :pageKey="snippetComponentKey" />
     </aside>
+  </div>
+  <div v-else class="no-stack-content">
+    No code snippets defined
   </div>
 </template>
 
@@ -46,7 +49,12 @@
         return findOnAncestor({ find: 'framework', node: this }) || this.options[0].name;
       },
       section() { return findOnAncestor({ find: 'section', node: this }); },
-      options() { return (this.section && this.section.snippetByName) ? this.section.snippetByName[this.snippet].frameworks : []; },
+      options() { 
+        return (this.section &&  // Eagerly awaiting the ?. operator 
+          this.section.snippetByName && 
+          this.section.snippetByName[this.snippet] && 
+          this.section.snippetByName[this.snippet].frameworks) || []; 
+      },
       snippetComponentKey() { 
         const option = this.options.find( option => option.framework === this.framework );
         return (option ? option.componentKey : '');
@@ -64,3 +72,9 @@
     },
   };
 </script>
+<style scoped lang="scss">
+  .no-stack-content { 
+    border: 1px solid #d66;
+    padding: 10px;
+  }
+</style>
