@@ -19,7 +19,7 @@ Feature objects have the following operations:
 
 * [Get a Feature](#get-a-feature)
 * [List Features](#list-features)
-* [Update Feature](#update-feature)
+* [Update Feature](#update-a-feature)
 * [Get Dependencies](#get-dependencies)
 * [Get Dependents](#get-dependents)
 
@@ -42,7 +42,7 @@ None
 
 #### Response Body
 
-The requested [Feature](#feature-model).
+The requested [Feature](#feature-object).
 
 #### Usage Example
 
@@ -120,7 +120,7 @@ None
 
 #### Response Body
 
-Array of [Feature](#feature-model) objects.
+Array of [Feature](#feature-object) objects.
 
 #### Usage Example
 
@@ -203,7 +203,7 @@ Content-Type: application/json
 ]
 ```
 
-### Update Feature
+### Update a Feature
 
 <ApiOperation method="post" url="/api/v1/features/${featureId}/${lifecycle}" />
 
@@ -237,7 +237,7 @@ None
 
 #### Response Body
 
-Updated [Feature](#feature-model)
+Updated [Feature](#feature-object)
 
 #### Example Usage
 
@@ -400,7 +400,7 @@ None
 
 #### Response Body
 
-Array of [Feature](#feature-model) objects.
+Array of [Feature](#feature-object) objects.
 
 #### Example Usage
 
@@ -490,7 +490,7 @@ None
 
 ##### Response Parameters
 
-Array of [Feature](#feature-model) objects.
+Array of [Feature](#feature-object) objects.
 
 #### Usage Example
 
@@ -619,6 +619,36 @@ The Feature model defines several properties:
 }
 ```
 
+
+### Stage Object
+
+Specifies the [release cycle stage](/docs/reference/releases-at-okta/) of a Feature.
+
+#### Stage Properties
+
+The Stage object has following properties:
+
+| Property | Type   | Description      |
+| -------- | ------ | ---------------- |
+| value    | String | `EA`, `BETA`     |
+| status   | String | `OPEN`, `CLOSED` |
+
+If a Feature's stage `value` is `EA`, the `status` is `null` and not returned. If the value is `BETA` the status is `OPEN` or `CLOSED` depending on the `BETA` feature
+being manageable or not.
+
+> Note: If a Feature's stage is Open Beta, it can be updated in Preview cells only. If a Feature's stage is Closed Beta, it can only be disabled in Preview cells.
+
+#### Stage Example
+
+```json
+{
+  "stage": {
+    "value": "BETA",
+    "status": "OPEN"
+  }
+}
+```
+
 ### Links Object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a Feature.  The Links object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only and returned within a Feature object.
@@ -664,33 +694,4 @@ Here are some links that may be available on a Feature, as determined by your po
         }
     }
   }
-```
-
-### Stage Object
-
-Specifies the [release cycle stage](/docs/reference/releases-at-okta/) of a Feature.
-
-#### Stage Properties
-
-The Stage object has following properties:
-
-| Property | Type   | Description      |
-| -------- | ------ | ---------------- |
-| value    | String | `EA`, `BETA`     |
-| status   | String | `OPEN`, `CLOSED` |
-
-If a Feature's stage `value` is `EA`, the `status` is `null` and not returned. If the value is `BETA` the status is `OPEN` or `CLOSED` depending on the `BETA` feature
-being manageable or not.
-
-> Note: If a Feature's stage is Open Beta, it can be updated in Preview cells only. If a Feature's stage is Closed Beta, it can only be disabled in Preview cells.
-
-#### Stage Example
-
-```json
-{
-  "stage": {
-    "value": "BETA",
-    "status": "OPEN"
-  }
-}
 ```

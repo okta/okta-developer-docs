@@ -12,7 +12,7 @@ Self-service Features are Features that can be enabled or disabled by an Okta ad
 
 > **Note**: A Beta Fature that is marked as self-service will stay as self-service even if it's closed and temporarily unavailable to be enabled. For example, if an [open Beta](#beta-features) transitions into a closed Beta, the Feature will remain self-service. This means that it will appear in the list of available self-service Features, but you will not be able to enable it without contacting Support.
 
-Only Beta and Early Access (EA) Features are considered self-service. Once a Feature transitions from either of these states to Generally Available (GA), it will no longer appear as an available self-service Feature.
+Only Beta and Early Access (EA) Features are considered self-service. Once a Feature transitions from either of these states to Generally Available (GA), it will no longer be listed as an available self-service Feature.
 
 ## Beta Features
 
