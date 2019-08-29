@@ -1,7 +1,7 @@
 ---
 title: Define the sign-out callback
 ---
-After you sign users out of your app and out of Okta, you have to redirect users to a specific location in your application. You need to whitelist the post sign-out URL in your Okta application settings.
+After you sign users out of your app and out of Okta, you have to redirect users to a specific location in your application. You need to whitelist the post sign-out URL in your Okta application settings. 
 
 Open your Okta Developer Console:
 
@@ -13,7 +13,7 @@ Open your Okta Developer Console:
 
 3. In the **Logout redirect URIs** section, add the base URI of your application. 
 
-<StackSelector snippet="addbaseuri"/>
+    <StackSelector snippet="addbaseuri"/>
 
 4. Click **Save**.
 
