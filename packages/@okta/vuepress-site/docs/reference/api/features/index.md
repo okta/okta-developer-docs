@@ -207,7 +207,7 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/features/${featureId}/${lifecycle}" />
 
-Updates a Feature's lifecycle. Use this endpoint to enable or disable a Feature for your org.
+Updates a Feature's status. Use this endpoint to enable or disable a Feature for your org.
 
 
 
