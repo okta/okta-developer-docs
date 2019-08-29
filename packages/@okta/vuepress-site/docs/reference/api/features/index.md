@@ -575,10 +575,10 @@ The Feature model defines several properties:
 | Property      | Type                                                           | Description                                                           |
 | ------------- | -------------------------------------------------------------- | --------------------------------------------------------------------- |
 | `id`          | String                                                         | Unique identifier for this Feature. (Read-only)                       |
-| `type`        | String (Enum)                                                  | Current type of feature. The only support type is `self-service`.     |
-| `status`      | String (Enum)                                                  | Current status of the feature. Possible values: `ENABLED`, `DISABLED` |
-| `name`        | String                                                         | Name of the feature                                                   |
-| `description` | String                                                         | Brief description about the feature and what it provides              |
+| `type`        | String (Enum)                                                  | Current type of Feature. Possible value: `self-service`.              |
+| `status`      | String (Enum)                                                  | Current status of the Feature. Possible values: `ENABLED`, `DISABLED` |
+| `name`        | String                                                         | Name of the Feature                                                   |
+| `description` | String                                                         | Brief description of the Feature and what it provides                 |
 | `stage`       | [Stage Object](#stage-object)                                  | Current [Stage](#stage-object) for this Feature                       |
 | `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | [Link relations](#links-object) for the Feature's current `status`    |
 
