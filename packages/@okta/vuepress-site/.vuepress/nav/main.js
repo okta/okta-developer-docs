@@ -64,7 +64,7 @@ module.exports = [
       { title: 'SAML Hook', link: '/docs/reference/saml-hook/'},
       { title: 'Registration Hook', link: '/docs/reference/registration-hook/'},
       { title: 'Token Hook', link: '/docs/reference/token-hook/'},
-         { title: 'Okta Expression Language', link: '/docs/reference/okta-expression-language/'},
+      { title: 'Okta Expression Language', link: '/docs/reference/okta-expression-language/'},
       { title: 'Postman Collections', link: '/docs/reference/postman-collections/'},
       { title: 'Rate Limits', link: '/docs/reference/rate-limits/'},
       { title: 'Release Lifecycle', link: '/docs/reference/releases-at-okta/'},
