@@ -1,5 +1,5 @@
 ---
-title: Define the protocol to sign users in
+title: Add general app information
 ---
 To define the protocol that you want to use to sign your users in:
 
