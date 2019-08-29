@@ -9,9 +9,9 @@ To configure the SAML settings of your SAML Service Provider app in Okta:
     
     | Name                    | Value                     | 
     | ----------------------- | ------------------------- | 
-    | FirstName               | user.firstName            | 
-    | LastName                | user.lastName             |
-    | Email                   | user.email                |
+    | `FirstName`             | `user.firstName`          | 
+    | `LastName`              | `user.lastName`           |
+    | `Email`                 | `user.email`              |
 
 3. Click **Next**.
 

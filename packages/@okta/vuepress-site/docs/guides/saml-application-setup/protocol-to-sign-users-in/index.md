@@ -3,7 +3,7 @@ title: Define the protocol to sign users in
 ---
 To define the protocol that you want to use to sign your users in:
 
-1.  Sign in to your Okta organization as a user with administrative privileges. If you don't have an Okta organization, you can create a free Okta <a href="https://developer.okta.com/signup/" target="_blank">Developer Edition org</a>.
+1.  Sign in to your Okta organization as a user with administrative privileges. Don't have one? [Create one for free](https://developer.okta.com/signup).
 
     > **Caution**: If you are using the Developer Console, you need to first switch to the Admin Console (Classic UI). If you see **Developer Console** in the top left of the page, click it and select **Classic UI** to switch.
 
