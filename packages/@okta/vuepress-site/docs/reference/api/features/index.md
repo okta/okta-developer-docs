@@ -124,7 +124,7 @@ Array of [Feature](#feature-model) objects.
 
 #### Usage Example
 
-The following request would return a list of all available self-service Features:
+The following request returns a list of all available self-service Features:
 
 ##### Request
 
@@ -227,9 +227,9 @@ Updates a Feature's lifecycle. Use this endpoint to enable or disable a Feature 
 
 Force mode is used to override dependency restrictions for a particular Feature. Normally, you cannot enable a Feature if it has one or more dependencies that are not enabled.
 
-If you use the `mode=force` parameter while enabling a Feature, then Okta will first try enabling any disabled Features that this Feature may have as dependencies. If you do not pass the `mode=force` parameter and the Feature has dependencies that need to be enabled before the Feature is enabled, a `400` error is returned.
+If you use the `mode=force` parameter while enabling a Feature, then Okta first tries enabling any disabled Features that this Feature may have as dependencies. If you do not pass the `mode=force` parameter and the Feature has dependencies that need to be enabled before the Feature is enabled, a `400` error is returned.
 
-If you use the `mode=force` parameter while disabling a Feature, then Okta will first try disabling any enabled Features that this Feature may have as dependents. If you do not pass the `mode=force` parameter and the Feature has dependencies that need to be disabled before the Feature is disabled, a `400` error is returned.
+If you use the `mode=force` parameter while disabling a Feature, then Okta first tries disabling any enabled Features that this Feature may have as dependents. If you do not pass the `mode=force` parameter and the Feature has dependencies that need to be disabled before the Feature is disabled, a `400` error is returned.
 
 #### Request Body
 
@@ -241,7 +241,7 @@ Updated [Feature](#feature-model)
 
 #### Example Usage
 
-The following request would enable the Feature with an `id` value `ftrZooGoT8b41iWRiQs7`.
+The following request enables the Feature with an `id` value `ftrZooGoT8b41iWRiQs7`.
 
 ##### Request
 
@@ -305,10 +305,10 @@ Content-Type: application/json
 ```
 ##### Error Response (Method not allowed)
 
-The following will return a `405 Method Not Allowed` status code:
+The following returns a `405 Method Not Allowed` status code:
 
 * An invalid `lifecycle` value
-* Update request of a `BETA` Feature in a non-preview cell
+* Update request for a `BETA` Feature in a non-preview cell
 * If the Feature requires support to be updated
 
 ```json
@@ -326,7 +326,7 @@ Content-Type: application/json
 
 ##### Error Response (Already disabled/enabled)
 
-Sending a disable/enable request for a Feature that already has that status will return a `405 Method Not Allowed` status code:
+Sending a disable/enable request for a Feature that already has that status returns a `405 Method Not Allowed` status code:
 
 ```json
 HTTP/1.1 405 Method Not Allowed
@@ -343,7 +343,7 @@ Content-Type: application/json
 
 ##### Error Response (Feature in closed Beta)
 
-Sending an enable request for a Feature with a `stage` value of `BETA CLOSED` in a Preview cell will return a `405 Method Not Allowed` status code:
+Sending an enable request for a Feature with a `stage` value of `BETA CLOSED` in a Preview cell returns a `405 Method Not Allowed` status code:
 
 ```json
 HTTP/1.1 405 Method Not Allowed
@@ -360,7 +360,7 @@ Content-Type: application/json
 
 ##### Error Response (Dependency/Dependents Conflict)
 
-If the `mode` is not `forced` and the disable/enable requires other self-service features to be enabled/disabled. `400 Bad Request` is returned.
+If the `mode` is not `force` and the disable/enable requires other self-service features to be enabled/disabled, `400 Bad Request` is returned.
 
 ```json
 HTTP/1.1 400 Bad Request
@@ -404,7 +404,7 @@ Array of [Feature](#feature-model) objects.
 
 #### Example Usage
 
-The following request would return the Feature dependencies for a Feature with an `id` value of `ftrlBPVcRtYP2epHSMHn`.
+The following request returns the Feature dependencies for a Feature with an `id` value of `ftrlBPVcRtYP2epHSMHn`.
 
 ##### Request
 
@@ -621,7 +621,9 @@ The Feature model defines several properties:
 
 ### Links Object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a Feature.  The Links object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only.
+Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a Feature.  The Links object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only and returned within a Feature object.
+
+#### Link Properties
 
 Here are some links that may be available on a Feature, as determined by your policies:
 
@@ -637,18 +639,36 @@ Here are some links that may be available on a Feature, as determined by your po
 | survey             | A link to this Feature's survey. Only available for enabled Beta Features.   |
 
 
+#### Link Example
+
+```json
+"_links": {
+    "helpDoc": {
+      "href": "https://developer.okta.com/docs/concepts/feature-name/"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn"
+    },
+    "dependents": {
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependents"
+    },
+    "dependencies": {
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependencies"
+    },
+    "disable": {
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/disable",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+    }
+  }
+```
+
 ### Stage Object
 
 Specifies the [release cycle stage](/docs/reference/releases-at-okta/) of a Feature.
-
-```json
-{
-  "stage": {
-    "value": "BETA",
-    "status": "OPEN"
-  }
-}
-```
 
 #### Stage Properties
 
@@ -663,3 +683,14 @@ If a Feature's stage `value` is `EA`, the `status` is `null` and not returned. I
 being manageable or not.
 
 > Note: If a Feature's stage is Open Beta, it can be updated in Preview cells only. If a Feature's stage is Closed Beta, it can only be disabled in Preview cells.
+
+#### Stage Example
+
+```json
+{
+  "stage": {
+    "value": "BETA",
+    "status": "OPEN"
+  }
+}
+```
