@@ -46,7 +46,7 @@ The requested [Feature](#feature-model).
 
 #### Usage Example
 
-This request fetchs a Feature object with an `id` value `ftrYooGoH8b41iCZiPk7`:
+This request fetches a Feature object with an `id` value `ftrYooGoH8b41iCZiPk7`:
 
 ##### Request
 
@@ -55,24 +55,24 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7"
+"https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
 ```
 
 ##### Response
 
 ```json
 {
-  "id": "ftrYooGoH8b41iCZiPk7",
+  "id": "ftrZooGoT8b41iWRiQs7",
   "type": "self-service",
   "status": "DISABLED",
-  "name": "Collect product feedback from end users",
-  "description": "We will ask your users for their Net Promoter Score using Okta via an in-app prompt when they visit their Dashboard. Any information collected will not constitute customer data.",
+  "name": "Example feature name",
+  "description": "Example feature description",
   "stage": {
     "value": "EA"
   },
   "_links": {
     "enable": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7/enable",
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable",
       "hints": {
         "allow": [
           "POST"
@@ -80,13 +80,13 @@ curl -v -X GET \
       }
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7"
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
     },
     "dependents": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7/dependents"
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
     },
     "dependencies": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7/dependencies"
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
     }
   }
 }
@@ -144,40 +144,40 @@ Content-Type: application/json
 
 [
   {
-     "id":"ftrYooGoH8b41iCZiPk7",
-     "type":"self-service",
-     "status":"DISABLED",
-     "name":"Collect product feedback from end users",
-     "description":"We will ask your users for their Net Promoter Score using Okta via an in-app prompt when they visit their Dashboard. Any information collected will not constitute customer data.",
-     "stage":{
-        "value":"EA"
-     },
-     "_links":{
-        "enable":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7/enable",
-           "hints":{
-              "allow":[
-                 "POST"
-              ]
-           }
-        },
-        "self":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7"
-        },
-        "dependents":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7/dependents"
-        },
-        "dependencies":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7/dependencies"
+    "id": "ftrZooGoT8b41iWRiQs7",
+    "type": "self-service",
+    "status": "DISABLED",
+    "name": "Example feature name",
+    "description": "Example feature description",
+    "stage": {
+      "value": "EA"
+    },
+    "_links": {
+      "enable": {
+        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
         }
-     }
+      },
+      "self": {
+        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
+      },
+      "dependents": {
+        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
+      },
+      "dependencies": {
+        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
+      }
+    }
   },
   {
-     "id":"ftrcDO2RUt1sjZWSIok3",
+     "id":"ftrcUG2WEt1sjXVSIok3",
      "type":"self-service",
      "status":"ENABLED",
-     "name":"Event Hooks user interface in the Admin Console",
-     "description":"Allows an admin to configure and manage Event Hooks using the Admin Console in addition to the existing Event Hooks API",
+     "name":"Example feature name",
+     "description":"Example feature description",
      "stage":{
         "value":"BETA",
         "state":"OPEN"
@@ -187,16 +187,16 @@ Content-Type: application/json
            "href":"https://https://help.okta.com/en/prod/Content/index.htm"
         },
         "self":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjZWSIok3"
+           "href":"https://{yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3"
         },
         "survey":{
            "href":"https://goo.gl/forms/aRelevantSurvey"
         },
         "dependents":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjZWSIok3/dependents"
+           "href":"https://{yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3/dependents"
         },
         "dependencies":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjZWSIok3/dependencies"
+           "href":"https://{yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3/dependencies"
         }
      }
   }
@@ -241,7 +241,7 @@ Updated [Feature](#feature-model)
 
 #### Example Usage
 
-The following request would enable the Feature with an `id` value `ftrYooGoH8b41iCZiPk7`.
+The following request would enable the Feature with an `id` value `ftrZooGoT8b41iWRiQs7`.
 
 ##### Request
 
@@ -250,24 +250,24 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7/enable"
+}' "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable"
 ```
 
 ##### Response
 
 ```json
 {
-  "id": "ftrYooGoH8b41iCZiPk7",
+  "id": "ftrZooGoT8b41iWRiQs7",
   "type": "self-service",
   "status": "ENABLED",
-  "name": "Collect product feedback from end users",
-  "description": "We will ask your users for their Net Promoter Score using Okta via an in-app prompt when they visit their Dashboard. Any information collected will not constitute customer data.",
+  "name": "Example feature name",
+  "description": "Example feature description",
   "stage": {
     "value": "EA"
   },
   "_links": {
     "disable": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7/disable",
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/disable",
       "hints": {
         "allow": [
           "POST"
@@ -275,13 +275,13 @@ curl -v -X POST \
       }
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7"
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
     },
     "dependents": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7/dependents"
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
     },
     "dependencies": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrYooGoH8b41iCZiPk7/dependencies"
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
     }
   }
 }
@@ -373,9 +373,9 @@ Content-Type: application/json
   "errorId": "oaeVqM9_L88QR23ksB9MdldXQ",
   "errorCauses": [
     {
-      "errorSummary": "Self-Service feature Event Hooks is not enabled",
+      "errorSummary": "Self-Service feature example is not enabled",
       "reason": "DEPENDENCY_NOT_ENABLED",
-      "location": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn",
+      "location": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7",
       "locationType": "url"
     }
   ]
@@ -404,7 +404,7 @@ Array of [Feature](#feature-model) objects.
 
 #### Example Usage
 
-The following request would return the Feature dependencies for a Feature with an `id` value of `ftrcDO2RUt1sjZWSIok3`.
+The following request would return the Feature dependencies for a Feature with an `id` value of `ftrlBPVcRtYP2epHSMHn`.
 
 ##### Request
 
@@ -413,7 +413,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjZWSIok3/dependencies"
+}' "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
 ```
 
 ##### Response
@@ -421,11 +421,11 @@ curl -v -X GET \
 ```json
 [
   {
-    "id": "ftrlBPVcGwYP2epHSMYn",
+    "id": "ftrlBPVcRtYP2epHSMHn",
     "type": "self-service",
     "status": "ENABLED",
-    "name": "Event Hooks",
-    "description": "Event hooks are outbound HTTP REST calls from Okta, sent when specified events occur in your org. These calls from Okta are meant to be used as triggers for process flows within your own software systems.",
+    "name": "Example feature name",
+    "description": "Example feature description.",
     "stage": {
       "value": "EA"
     },
@@ -434,7 +434,7 @@ curl -v -X GET \
         "href": "https://developer.okta.com/docs/concepts/event-hooks/"
       },
       "disable": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn/disable",
+        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/disable",
         "hints": {
           "allow": [
             "POST"
@@ -442,13 +442,13 @@ curl -v -X GET \
         }
       },
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn"
+        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn"
       },
       "dependents": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn/dependents"
+        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependents"
       },
       "dependencies": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn/dependencies"
+        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
       }
     }
   }
@@ -494,7 +494,7 @@ Array of [Feature](#feature-model) objects.
 
 #### Usage Example
 
-The following request would retrieve the dependent Features for a Feature with an `id` value `ftrlBPVcGwYP2epHSMYn`.
+The following request would retrieve the dependent Features for a Feature with an `id` value `ftrcDO2RUt1sjQsSIok3`.
 
 ##### Request
 
@@ -503,7 +503,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn/dependents"
+}' "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
 ```
 
 ##### Response
@@ -511,11 +511,11 @@ curl -v -X GET \
 ```json
 [
   {
-    "id": "ftrcDO2RUt1sjZWSIok3",
+    "id": "ftrcDO2RUt1sjQsSIok3",
     "type": "self-service",
     "status": "ENABLED",
-    "name": "Event Hooks user interface in the Admin Console",
-    "description": "Allows an admin to configure and manage Event Hooks using the Admin Console in addition to the existing Event Hooks API",
+    "name": "Example feature name",
+    "description": "Example feature description.",
     "stage": {
       "value": "BETA",
       "state": "OPEN"
@@ -525,16 +525,16 @@ curl -v -X GET \
         "href": "https://https://help.okta.com/en/prod/Content/index.htm"
       },
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjZWSIok3"
+        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3"
       },
       "survey": {
         "href": "https://goo.gl/forms/aRelevantSurvey"
       },
       "dependents": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjZWSIok3/dependents"
+        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
       },
       "dependencies": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjZWSIok3/dependencies"
+        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependencies"
       }
     }
   }
@@ -586,29 +586,29 @@ The Feature model defines several properties:
 
 ```json
 {
-  "id": "ftrlBPVcGwYP2epHSMYn",
+  "id": "ftrlBDFcGwYP2epXCGYn",
   "type": "self-service",
   "status": "ENABLED",
-  "name": "Event Hooks",
-  "description": "Event hooks are outbound HTTP REST calls from Okta, sent when specified events occur in your org. These calls from Okta are meant to be used as triggers for process flows within your own software systems.",
+  "name": "Example feature name",
+  "description": "Example feature description.",
   "stage": {
     "value": "EA"
   },
   "_links": {
     "helpDoc": {
-      "href": "https://developer.okta.com/docs/concepts/event-hooks/"
+      "href": "https://developer.okta.com/docs/concepts/feature-name/"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn"
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn"
     },
     "dependents": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn/dependents"
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependents"
     },
     "dependencies": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn/dependencies"
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependencies"
     },
     "disable": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcGwYP2epHSMYn/disable",
+      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/disable",
         "hints": {
           "allow": [
             "POST"
