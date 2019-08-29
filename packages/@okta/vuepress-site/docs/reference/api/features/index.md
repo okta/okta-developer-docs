@@ -7,7 +7,7 @@ category: management
 
 The Okta Features API provides operations to manage self-service Early Access (EA) and Beta Features in your org.
 
-> Note: Important information about the limitations of this API can be found ...
+> Note: Important background information for this API is available on this page: [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/).
 
 ## Getting Started
 
@@ -46,7 +46,7 @@ The requested [Feature](#feature-model).
 
 #### Usage Example
 
-This request would fetch a Feature object with an `id` value `ftrYooGoH8b41iCZiPk7`:
+This request fetchs a Feature object with an `id` value `ftrYooGoH8b41iCZiPk7`:
 
 ##### Request
 
