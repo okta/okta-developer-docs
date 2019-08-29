@@ -1,4 +1,4 @@
-To use ExpressOIDC you create an instance of the middleware by passing the needed configuration, then attaching its router to your Express app. You will also need to add session support to your app, so that ExpressOIDC can create an Express session after authentication is complete. Here is an example configuration:
+To use ExpressOIDC, create an instance of the middleware by passing the needed configuration, and then attach its router to your Express app. Then, add session support to your app so that ExpressOIDC can create an Express session after authentication is complete. Here is an example configuration:
 
 ```js
 const session = require('express-session');
@@ -19,6 +19,6 @@ const oidc = new ExpressOIDC({
   scope: 'openid profile'
 });
 
-// ExpressOIDC will attach handlers for the /login and /authorization-code/callback routes
+// ExpressOIDC attaches handlers for the /login and /authorization-code/callback routes
 app.use(oidc.router);
 ```
