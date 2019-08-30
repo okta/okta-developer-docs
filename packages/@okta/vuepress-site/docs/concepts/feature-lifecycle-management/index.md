@@ -40,9 +40,9 @@ object "Feature B" as featB
 object "Feature C" as featC
 object "Feature D" as featD
 
-featA -> featB
-featA -> featC
-featA -> featD
+featA ..> featB
+featA ..> featC
+featA ..> featD
 @enduml
 
 -->
