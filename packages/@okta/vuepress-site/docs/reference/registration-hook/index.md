@@ -167,35 +167,32 @@ If you do not return any value for that `errorCauses` object, but deny the user'
 
 ```json
 {
-   "eventType":"com.okta.user.pre-registration",
-   "eventTypeVersion":"1.0",
-   "cloudEventVersion":"0.1",
-   "source":"/api/v1/registration/reg17jsXFYSfBEkZh0g4/register",
-   "eventID":"763F35F3-7D83-4547-836B-F55382ADBDC7",
-   "eventTime":"2018-05-29T20:04:22Z",
-   "contentType":"application/json",
-   "data":{
-      "context":{
-         "request":{
-            "id":"reqa-0DCpdKQe-td_UodXKpag",
-            "method":"POST",
-            "url":{
-               "value":"http://example.okta.com/api/v1/registration/reg17jsXFYSfBEkZh0g4/register"
-            },
-            "ipAddress":"192.168.122.1",
-            "locale":"en-US",
-            "client":""
-         }
-      },
-      "user":{
-         "profile":{
-            "firstName":"Isaac",
-            "lastName":"Brock",
-            "login":"isaac.brock@example.com",
-            "mobilePhone":"555-415-1337"
-         }
+  "eventId": "GOsk4z6tSSeZo6X08MvKaw",
+  "eventTime": "2019-08-27T18:07:24.000Z",
+  "eventType": "com.okta.user.pre-registration",
+  "eventTypeVersion": "1.0",
+  "contentType": "application/json",
+  "cloudEventVersion": "0.1",
+  "source": "reghawlks3zOkRrau0h7",
+  "data": {
+    "context": {
+      "request": {
+        "id": "XWVxW2zcaH5-Ii74OsI6CgAACJw",
+        "method": "POST",
+        "url": {
+          "value": "/api/v1/registration/reghawlks3zOkRrau0h7/register"
+        },
+        "ipAddress": "98.124.153.138"
       }
-   }
+    },
+    "userProfile": {
+      "lastName": "Doe",
+      "firstName": "John",
+      "login": "john.doe@example.com",
+      "email": "john.doe@example.com"
+    },
+    "action": null
+  }
 }
 ```
 
