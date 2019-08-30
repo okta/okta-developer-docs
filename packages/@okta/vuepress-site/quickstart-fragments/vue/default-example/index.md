@@ -1,5 +1,5 @@
 ---
-exampleDescription: Vue Implicit
+exampleDescription: Vue PKCE
 ---
 
 ## Okta Vue.js Quickstart
@@ -31,7 +31,7 @@ In Okta, applications are OpenID Connect clients that can use Okta Authorization
 | App Name            | My SPA App                                     |
 | Base URIs           | http://localhost:{port}                        |
 | Login redirect URIs | http://localhost:{port}/implicit/callback      |
-| Grant Types Allowed | Implicit                                       |
+| Grant Types Allowed | Authorization Code                             |
 
 After you have created the application there are two more values you will need to gather:
 
@@ -64,9 +64,10 @@ import Auth from '@okta/okta-vue'
 
 Vue.use(Auth, {
   issuer: 'https://{yourOktaDomain}/oauth2/default',
-  client_id: '{client_id}',
-  redirect_uri: 'http://localhost:{port}/implicit/callback',
-  scope: 'openid profile email'
+  clientId: '{client_id}',
+  redirectUri: 'http://localhost:{port}/implicit/callback',
+  scopes: ['openid', 'profile', 'email'],
+  pkce: true
 })
 ```
 

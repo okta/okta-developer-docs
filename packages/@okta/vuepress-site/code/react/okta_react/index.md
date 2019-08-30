@@ -253,8 +253,8 @@ class App extends Component {
     return (
       <Router>
         <Security issuer='https://{yourOktaDomain}/oauth2/default'
-                  client_id='{clientId}'
-                  redirect_uri={window.location.origin + '/implicit/callback'}
+                  clientId='{clientId}'
+                  redirectUri={window.location.origin + '/implicit/callback'}
                   onAuthRequired={onAuthRequired} >
           <Route path='/' exact={true} component={Home} />
           <SecureRoute path='/protected' component={Protected} />

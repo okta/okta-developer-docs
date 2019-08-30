@@ -13,7 +13,8 @@ const config = {
   clientId: '{clientId}',
   issuer: 'https://{yourOktaDomain}/oauth2/default',
   redirectUri: 'http://localhost:8080/implicit/callback',
-  scope: 'openid profile email',
+  scopes: ['openid', 'profile', 'email'],
+  pkce: true
 };
 ```
 
@@ -35,7 +36,7 @@ const config = {
   issuer: ISSUER,
   clientId: CLIENT_ID,
   redirectUri: REDIRECT_URI,
-  scope: SCOPES,
+  scope: SCOPES.split(/\s+/),
 });
 ```
 

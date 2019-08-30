@@ -1,5 +1,5 @@
 ---
-exampleDescription: Angular Implicit
+exampleDescription: Angular PKCE
 ---
 
 ## Okta Angular Quickstart
@@ -31,7 +31,7 @@ In Okta, applications are OpenID Connect clients that can use Okta Authorization
 | App Name            | My SPA App                                     |
 | Base URIs           | http://localhost:{port}                        |
 | Login redirect URIs | http://localhost:{port}/implicit/callback      |
-| Grant Types Allowed | Implicit                                       |
+| Grant Types Allowed | Authorization Code                             |
 
 After you have created the application there are two more values you will need to gather:
 
@@ -68,7 +68,8 @@ import {
 const config = {
   issuer: 'https://{yourOktaDomain}/oauth2/default',
   redirectUri: 'http://localhost:{port}/implicit/callback',
-  clientId: '{clientId}'
+  clientId: '{clientId}',
+  pkce: true
 }
 ```
 

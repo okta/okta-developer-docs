@@ -45,8 +45,7 @@ The Okta Vue SDK is a wrapper around the Okta Auth SDK for communicating with OA
 
 ## Recommended Guides
 
-
-- [Implement the Implicit Flow](/docs/guides/implement-implicit/)
+- [Implementing the PKCE Flow](/docs/guides/implement-auth-code-pkce/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
