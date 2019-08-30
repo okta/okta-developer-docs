@@ -9,7 +9,9 @@ To configure the SAML settings of your SAML Service Provider app in Okta:
 
     > **Note**: If you are just testing the setup and are using a SAML SP such as this [SAML Service Provider on GitHub](https://github.com/mcguinness/saml-sp), enter this test URL into the **Single sign on URL** and **Audience URI (SP Entity ID)** fields: `http://example.com/saml/sso/example-okta-com`.
 
-3. In the **ATTRIBUTE STATEMENTS (OPTIONAL)** section, add three attribute statements, and then any other required SAML attributes for your app:
+3. Select the **Name ID format** that your application requires (for example, `EmailAddress`) or leave the default.
+
+4. In the **ATTRIBUTE STATEMENTS (OPTIONAL)** section, add the required SAML attributes for your app, which you gathered in the <GuideLink link="../overview">first step</GuideLink>. For example:
     
     | Name                    | Value                     | 
     | ----------------------- | ------------------------- | 
@@ -17,12 +19,12 @@ To configure the SAML settings of your SAML Service Provider app in Okta:
     | `LastName`              | `user.lastName`           |
     | `Email`                 | `user.email`              |
 
-4. Click **Next**.
+5. Click **Next**.
 
-5. On the **Feedback** page, select **I'm an Okta customer adding an internal app**. The section expands and displays more options.
+6. On the **Feedback** page, select **I'm an Okta customer adding an internal app**. The section expands and displays more options.
 
-6. Select **This is an internal app that we have created** as the **App type**.
+7. Select **This is an internal app that we have created** as the **App type**.
 
-7. Click **Finish**.
+8. Click **Finish**.
 
 <NextSectionLink/>
