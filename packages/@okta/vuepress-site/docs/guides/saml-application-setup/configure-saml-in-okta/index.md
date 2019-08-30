@@ -9,11 +9,9 @@ To configure the SAML settings of your SAML Service Provider app in Okta, follow
 
     > **Note**: If you are just testing the setup and are using a SAML SP such as this [SAML Service Provider on GitHub](https://github.com/mcguinness/saml-sp), enter this test URL into the **Single sign on URL** and **Audience URI (SP Entity ID)** fields: `http://example.com/saml/sso/example-okta-com`.
 
-3. Select the **Name ID format** that your application requires (for example, `EmailAddress`) or leave the default.
+3. Select the **Name ID format** and **Application username** that your application requires (for example, `EmailAddress` and `Email`) or leave the defaults.
 
-4. Leave the default **Application username** or select a differrent value that your application requires.
-
-5. In the **ATTRIBUTE STATEMENTS (OPTIONAL)** section, add the required SAML attributes for your app. For example:
+4. In the **ATTRIBUTE STATEMENTS (OPTIONAL)** section, add the required SAML attributes for your app. For example:
     
     | Name                    | Value                     | 
     | ----------------------- | ------------------------- | 
@@ -21,18 +19,18 @@ To configure the SAML settings of your SAML Service Provider app in Okta, follow
     | `LastName`              | `user.lastName`           |
     | `Email`                 | `user.email`              |
 
-6. In the **GROUP ATTRIBUTE STATEMENTS (OPTIONAL)** section, add the required group attributes for your app. For example:
+5. In the **GROUP ATTRIBUTE STATEMENTS (OPTIONAL)** section, add the required group attributes for your app. For example:
 
     * **Name**: groups
     * **Filter**: Matches regex
     * **Value**: .*
 
-7. Click **Next**.
+6. Click **Next**.
 
-8. On the **Feedback** page, select **I'm an Okta customer adding an internal app**. The section expands and displays more options.
+7. On the **Feedback** page, select **I'm an Okta customer adding an internal app**. The section expands and displays more options.
 
-9. Select **This is an internal app that we have created** as the **App type**.
+8. Select **This is an internal app that we have created** as the **App type**.
 
-10. Click **Finish**.
+9. Click **Finish**.
 
 <NextSectionLink/>
