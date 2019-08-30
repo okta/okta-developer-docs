@@ -1,5 +1,5 @@
 ---
-exampleDescription: React Implicit
+exampleDescription: React PKCE
 ---
 
 ## Okta React Quickstart
@@ -31,7 +31,7 @@ In Okta, applications are OpenID Connect clients that can use Okta Authorization
 | App Name            | My SPA App                                   |
 | Base URIs           | http://localhost:{port}                      |
 | Login redirect URIs | http://localhost:{port}/implicit/callback    |
-| Grant Types Allowed | Implicit                                     |
+| Grant Types Allowed | Authorization Code                           |
 
 After you have created the application there are two more values you will need to gather:
 
@@ -62,8 +62,9 @@ import { Security, ImplicitCallback } from '@okta/okta-react';
 
 const config = {
   issuer: 'https://{yourOktaDomain}/oauth2/default',
-  redirect_uri: window.location.origin + '/implicit/callback',
-  client_id: '{clientId}'
+  redirectUri: window.location.origin + '/implicit/callback',
+  clientId: '{clientId}',
+  pkce: true
 }
 ```
 
@@ -138,18 +139,16 @@ import Home from './Home';
 
 const config = {
   issuer: 'https://{yourOktaDomain}/oauth2/default',
-  redirect_uri: window.location.origin + '/implicit/callback',
-  client_id: '{clientId}'
+  redirectUri: window.location.origin + '/implicit/callback',
+  clientId: '{clientId}',
+  pkce: true
 }
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <Security issuer={config.issuer}
-                  client_id={config.client_id}
-                  redirect_uri={config.redirect_uri}
-        >
+        <Security {...config}>
           <Route path='/' exact={true} component={Home}/>
           <Route path='/implicit/callback' component={ImplicitCallback}/>
         </Security>
