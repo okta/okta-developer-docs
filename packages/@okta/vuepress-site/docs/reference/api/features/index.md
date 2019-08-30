@@ -5,7 +5,7 @@ category: management
 
 # Features API
 
-The Okta Features API provides operations to manage self-service Early Access (EA) and Beta Features in your org.
+The Okta Features API provides operations to manage self-service Early Access (EA) and Beta features in your org.
 
 > Note: Important background information for this API is available on this page: [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/).
 
@@ -15,7 +15,7 @@ Explore the Features API: [![Run in Postman](https://run.pstmn.io/button.svg)](h
 
 ## Feature Operations
 
-Feature objects have the following operations:
+The Features API has the following operations:
 
 * [Get a Feature](#get-a-feature)
 * [List Features](#list-features)
