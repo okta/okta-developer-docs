@@ -31,6 +31,7 @@ If you do not already have a **Developer Edition Account**, you can create one a
 | App Name             | OpenId Connect App *(must be unique)*               |
 | Login redirect URIs  | http://localhost:3000/implicit/callback             |
 | Logout redirect URIs | http://localhost:3000/login                         |
+| Allowed grant types  | Authorization Code                                  |
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
 
@@ -72,7 +73,10 @@ export default class OktaSignInWidget extends Component {
   componentDidMount() {
     const el = ReactDOM.findDOMNode(this);
     this.widget = new OktaSignIn({
-      baseUrl: this.props.baseUrl
+      baseUrl: this.props.baseUrl,
+      authParams: {
+        pkce: true
+      }
     });
     this.widget.renderEl({el}, this.props.onSuccess, this.props.onError);
   }
@@ -266,7 +270,8 @@ class App extends Component {
         <Security issuer='https://{yourOktaDomain}/oauth2/default'
                   clientId='{clientId}'
                   redirectUri={window.location.origin + '/implicit/callback'}
-                  onAuthRequired={onAuthRequired} >
+                  onAuthRequired={onAuthRequired}
+                  pkce={true} >
           <Route path='/' exact={true} component={Home} />
           <SecureRoute path='/protected' component={Protected} />
           <Route path='/login' render={() => <Login baseUrl='https://{yourOktaDomain}' />} />

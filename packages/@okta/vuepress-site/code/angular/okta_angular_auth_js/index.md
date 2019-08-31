@@ -23,6 +23,7 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 | Application Name     | OpenId Connect App *(must be unique)*               |
 | Login redirect URIs  | http://localhost:4200/callback                      |
 | Logout redirect URIs | http://localhost:4200/login                         |
+| Allowed grant types  | Authorization Code                                  |
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
 
@@ -72,6 +73,7 @@ export class OktaAuthService {
     clientId: '{clientId}',
     issuer: 'https://{yourOktaDomain}/oauth2/{authServerId}',
     redirectUri: 'http://localhost:4200/callback',
+    pkce: true
   });
 
   constructor(private router: Router) {}
@@ -84,7 +86,6 @@ export class OktaAuthService {
   login() {
     // Launches the login redirect.
     this.oktaAuth.token.getWithRedirect({
-      responseType: ['id_token', 'token'],
       scopes: ['openid', 'email', 'profile']
     });
   }
