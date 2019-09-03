@@ -1,7 +1,7 @@
 ---
 title: Add general app information
 ---
-To define the protocol that you want to use to sign your users in:
+Define general application information and the protocol that you want to use to sign your users in:
 
 1.  Sign in to your Okta organization as a user with administrative privileges. Don't have one? [Create one for free](https://developer.okta.com/signup).
 
