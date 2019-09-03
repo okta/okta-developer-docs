@@ -3,7 +3,7 @@ title: Overview
 ---
 Learn how to easily integrate biometric authentication like Face ID and Touch ID to your mobile apps that use Okta. 
 
-> Note: You must have already followed the [Sign users in to your mobile apps](/docs/guides/sign-into-mobile-app/android/before-you-begin/) guide to add biometric unlock with Touch ID, Face ID, and Smart Lock.
+> **Note**: You must have already followed the [Sign users in to your mobile apps](/docs/guides/sign-into-mobile-app/android/before-you-begin/) guide to add biometric unlock with Touch ID, Face ID, and Smart Lock.
 
 ## How it works
 When you [configure the Okta SDK](/docs/guides/sign-into-mobile-app/configure-packages/) with the `offline_access` scope, your mobile app gets a refresh token from Okta. The refresh token is long-lived and is used to keep the user signed in to your app.

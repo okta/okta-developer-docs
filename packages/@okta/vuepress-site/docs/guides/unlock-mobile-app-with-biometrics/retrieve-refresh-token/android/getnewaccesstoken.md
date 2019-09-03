@@ -14,4 +14,4 @@ Override `onActivityResult` to get the results from the `Keyguard`.
 ```
 
 After `RESULT_OK` is returned, the device is authenticated and `keyguardEncryptionManager` is able
-to decrypt all of the encrypted data including the access and refresh tokens.
+to decrypt all of the encrypted data, including the access and refresh tokens.
