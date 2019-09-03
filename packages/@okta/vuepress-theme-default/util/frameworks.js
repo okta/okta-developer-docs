@@ -1,4 +1,4 @@
-const FRAMEWORK_TO_COMMON_NAME = { 
+const FRAMEWORK_TO_COMMON_NAME = {
   js: 'javascript',
   reactjs: 'react',
   node: 'nodejs',
@@ -7,7 +7,7 @@ const FRAMEWORK_TO_COMMON_NAME = {
   net: 'dotnet',
 };
 
-const COMMON_NAME_TO_FANCY_NAME = { 
+const COMMON_NAME_TO_FANCY_NAME = {
   javascript: 'JS',
   angular: 'Angular',
   react: 'React',
@@ -30,14 +30,23 @@ const COMMON_NAME_TO_FANCY_NAME = {
   rest: 'REST',
   reactnative: 'React Native',
   xamarin: 'Xamarin',
+  oktatookta: 'Okta-to-Okta',
+  openidconnect: 'OpenID Connect',
+  saml2: 'SAML 2.0',
+  facebook: 'Facebook',
+  google: 'Google',
+  linkedin: 'LinkedIn',
+  microsoft: 'Microsoft',
+  nodeexpress: 'Node Express'
 };
 
-const COMMON_NAME_TO_ICON_NAME = { 
+const COMMON_NAME_TO_ICON_NAME = {
   reactnative: 'react',
   netcore: 'dotnet',
   aspnet: 'dotnet',
   aspnetcore: 'dotnet',
-  springboot: 'spring'
+  springboot: 'spring',
+  nodeexpress: 'nodejs'
 };
 
 export const commonify = framework => FRAMEWORK_TO_COMMON_NAME[framework] || framework.toLowerCase();

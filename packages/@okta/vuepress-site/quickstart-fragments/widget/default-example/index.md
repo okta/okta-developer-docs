@@ -26,7 +26,7 @@ At the end of this section can choose your server type to learn more about post-
 | Application Name    | My Web App                     |
 | Base URIs           | http://localhost:{port}        |
 | Login redirect URIs | http://localhost:{port}        |
-| Grant Types Allowed | Implicit                       |
+| Grant Types Allowed | Authorization Code and/or Implicit |
 
 > Note: if your login page is on a different URL, such as `/login`, you should change the settings to match.
 
@@ -42,18 +42,11 @@ After you have created the application there are two more values you will need t
 The easiest way to get started with the [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is to load the JS and CSS files directly from the CDN.
 
 To use our CDN, include the following links to your HTML:
+
 ```html
-<script
-src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/js/okta-sign-in.min.js"
-type="text/javascript"></script>
-<link
-href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-sign-in.min.css"
-type="text/css"
-rel="stylesheet"/>
-<link
-href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-theme.css"
-type="text/css"
-rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/3.2.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+
+<link href="https://global.oktacdn.com/okta-signin-widget/3.2.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
 > The `okta-sign-in.min.js` file will expose a global `OktaSignIn` object that can bootstrap the widget.
@@ -90,17 +83,22 @@ Then copy this widget configuration into your front-end application:
   });
   if (oktaSignIn.token.hasTokensInUrl()) {
     oktaSignIn.token.parseTokensFromUrl(
-      function success(res) {
-        // The tokens are returned in the order requested by `responseType` above
-        var accessToken = res[0];
-        var idToken = res[1]
+      function success(tokens) {
+        // Save the tokens for later use, e.g. if the page gets refreshed:
+        // Add the token to tokenManager to automatically renew the token when needed
+        tokens.forEach(token => {
+          if (token.idToken) {
+
+            signIn.tokenManager.add('idToken', token);
+          }
+          if (token.accessToken) {
+            signIn.tokenManager.add('accessToken', token);
+          }
+        });
 
         // Say hello to the person who just signed in:
+        var idToken = signIn.tokenManager.get('idToken');
         console.log('Hello, ' + idToken.claims.email);
-
-        // Save the tokens for later use, e.g. if the page gets refreshed:
-        oktaSignIn.tokenManager.add('accessToken', accessToken);
-        oktaSignIn.tokenManager.add('idToken', idToken);
 
         // Remove the tokens from the window location hash
         window.location.hash='';

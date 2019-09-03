@@ -7,7 +7,7 @@ title: OAuth 2.0 and OpenID Connect
 This page will give you an overview of OAuth 2.0 and OpenID Connect and their Okta implementations. It will explain the different flows, and help you decide which flow is best for you based on the type of application that you are building. If you already know what kind of flow you want, you can jump directly to:
 
 - [Implementing OAuth 2.0 Authentication](/docs/concepts/auth-overview/#recommended-flow-by-application-type)
-- [SAML Authentication with OIDC](/docs/guides/add-saml-idp/)
+- [SAML Authentication with OIDC](/docs/guides/add-an-external-idp/saml2/before-you-begin/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
@@ -97,7 +97,7 @@ The table below shows you which OAuth 2.0 flow to use for the type of applicatio
 | Type of Application     | OAuth 2.0 Flow                                      |
 | ----------------------- | --------------------------------------------------- |
 | Server-side (AKA Web)   | [Authorization Code Flow](/docs/guides/implement-auth-code/)                |
-| Single-Page Application | [Implicit Flow](/docs/guides/implement-implicit/)                           |
+| Single-Page Application | [Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/) or [Implicit Flow](/docs/guides/implement-implicit/) |
 | Native                  | [Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/) |
 | Trusted                 | [Resource Owner Password Flow](/docs/guides/implement-password/)            |
 | Service                 | [Client Credentials](/docs/guides/implement-client-creds/)                  |
@@ -170,7 +170,7 @@ For information how to set up your application to use this flow, see [Implement 
 
 ### Authorization Code with PKCE Flow
 
-For native/mobile applications, the client secret cannot be stored in the application because it could easily be exposed. Additionally, mobile redirects use `app://` protocols, which are prone to interception. Basically, a rogue application could intercept the authorization code as it is being passed through the mobile/native operating system. Therefore native apps should make use of Proof Key for Code Exchange (PKCE), which acts like a secret but isn't hard-coded, to keep the Authorization Code flow secure.
+For web/native/mobile applications, the client secret cannot be stored in the application because it could easily be exposed. Additionally, mobile redirects use `app://` protocols, which are prone to interception. Basically, a rogue application could intercept the authorization code as it is being passed through the mobile/native operating system. Therefore native apps should make use of Proof Key for Code Exchange (PKCE), which acts like a secret but isn't hard-coded, to keep the Authorization Code flow secure.
 
 PKCE is an extension to the regular Authorization Code flow, so the flow is very similar, except that PKCE elements are included at various steps in the flow.
 
@@ -210,7 +210,7 @@ For information how to set up your application to use this flow, see [Implement 
 
 ### Implicit Flow
 
-The Implicit Flow is intended for applications where the confidentiality of the client secret cannot be guaranteed. Because the client does not have the client secret, it cannot make a request to the `/token` endpoint, and instead receives the access token directly from the `/authorize` endpoint. We recommend it for use with Single Page Applications (SPA), since the the client must be capable of interacting with the resource owner's user-agent and capable of receiving incoming requests (via redirection) from the authorization server.
+The Implicit Flow is intended for applications where the confidentiality of the client secret cannot be guaranteed. In this flow, the client does not make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. For Single Page Applications (SPA) running in modern browsers we recommend using the [Authorization Code Flow with PKCE](#authorization-code-with-pkce-flow) instead for maximum security. If support for older browsers is required, the Implicit flow will provide a working solution. The client must be capable of interacting with the resource owner's user-agent and capable of receiving incoming requests (via redirection) from the authorization server.
 
 > NOTE: Because it is intended for less-trusted clients, the Implicit Flow does not support refresh tokens.
 

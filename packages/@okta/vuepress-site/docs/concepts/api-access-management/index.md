@@ -41,7 +41,7 @@ Using Okta's OAuth-as-a-Service feature, API Access Management, provides many be
 * Tokens are passed instead of credentials. In addition, the JWT tokens carry payloads for user context.
 * Stay protected with security standards compliance.
 * Manage API access with rules. Specifying the conditions under which actions are taken gives you precise and confident control over your APIs.
-* Control complex business requirements with polices and rules. You control the ordering and relationships.
+* Control complex business requirements with policies and rules. You control the ordering and relationships.
 * Enjoy the highest quality, always-available API Access Management.
 * Let Okta do the work of consuming standards changes to provide more or better services.
 
@@ -50,7 +50,7 @@ Using Okta's OAuth-as-a-Service feature, API Access Management, provides many be
 ## Putting the pieces together
 
 The following is a high-level look at the basic components of API Access Management.
-We use the same terms as the OpenID Connect and OAuth 2.0 spec. For complete explanations, read those specs.
+We use the same terms as the [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) and the [OAuth 2.0](https://tools.ietf.org/html/rfc6749) specifications. For complete explanations, read those specs.
 
 ### Tokens and scopes
 
@@ -68,11 +68,10 @@ Okta helps you manage ID Tokens (OpenID Connect) and Access Tokens (OAuth 2.0).
 
 The JWT specification we use with the OAuth Framework lets you include custom claims in ID and Access Tokens.
 You can design tokens to disclose the information you want to share depending on the client and the scope of the tokens.
-For example, a shopping site might have one set of claims for customers while they browse, but another claim for administrator functions
-like changing their personal information.
 
-Custom claims also help you by reducing the number of lookup calls required to retrieve user information from the identity provider (IdP).
-This benefit depends, of course, on the level of security your apps require.
+For example, a shopping site might have one set of claims for customers while they browse, but another claim for administrator functions like changing their personal information.
+
+Custom claims also help you by reducing the number of lookup calls required to retrieve user information from the Identity Provider (IdP). This benefit depends, of course, on the level of security your apps require.
 
 ## Getting started with API Access Management
 
@@ -87,7 +86,7 @@ API Access Management, or OAuth as a Service, extends Okta's security policies, 
 
 This document represents our recommendations for proper usage based on the OAuth 2.0 specifications, our design decisions, security best practices, and successful customer deployments. Your requirements and constraints may be different, so not every recommendation fits every situation. However, most recommendations fit most scenarios.
 
-> All interactions and redirects between the user, the application, and Okta must be secured via HTTPS (SSL/TLS) to ensure credentials and tokens are protected at all times. This is non-negotiable.
+> All interactions and redirects between the user, the application, and Okta must be secured via HTTPS (SSL/TLS) to ensure that credentials and tokens are protected at all times. This is non-negotiable.
 
 #### Definitions
 
@@ -146,7 +145,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * Access tokens should be used exclusively via an HTTP Authorization header instead of encoded into a payload or URL that may be logged or cached.
 * A client secret is a password and should be treated and protected as such. Therefore, it shouldn't be embedded in mobile applications, frontend JavaScript applications, or any other scenario where an attacker could access it.
 * Avoid using the resource owner password grant type (`password`) except in legacy application or transitional scenarios. The authorization code, implicit, or hybrid grant types are recommended for most scenarios.
-* For mobile applications, using the authorization code grant type with PKCE is the best practice. The implicit or hybrid grant type is the next best option.
+* For mobile and single-page web applications, using the authorization code grant type with PKCE is the best practice. The implicit or hybrid grant type is the next best option.
 * For Android or iOS applications, use [Okta OIDC iOS](https://github.com/okta/okta-oidc-ios) or [AppAuth for Android](https://github.com/okta/okta-sdk-appauth-android/).
 * When an application successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).
 * When an application retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.

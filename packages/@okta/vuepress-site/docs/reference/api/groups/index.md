@@ -185,7 +185,7 @@ Enumerates groups in your organization with pagination. A subset of groups can b
 | limit     | Specifies the number of group results in a page                                            | Query     | Number   | FALSE    | 10000   |
 | after     | Specifies the pagination cursor for the next page of groups                                | Query     | String   | FALSE    |         |
 
-> The `after` cursor should treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination)
+> The `after` cursor should be treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination)
 
 > Search currently performs a startsWith match but it should be considered an implementation detail and may change without notice in the future
 

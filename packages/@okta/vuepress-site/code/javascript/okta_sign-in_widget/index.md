@@ -25,20 +25,10 @@ The first step is to install the Widget. For this, you have two options: linking
 To use the CDN, include this in your HTML:
 
 ```html
-<!-- Latest CDN production Javascript and CSS: 2.16.0 -->
-<script
-  src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/js/okta-sign-in.min.js"
-  type="text/javascript"></script>
-<link
-  href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-sign-in.min.css"
-  type="text/css"
-  rel="stylesheet"/>
+<!-- Latest CDN production Javascript and CSS -->
+<script src="https://global.oktacdn.com/okta-signin-widget/3.2.0/js/okta-sign-in.min.js" type="text/javascript"></script>
 
-<!-- Theme file: Customize or replace this file if you want to override our default styles -->
-<link
-  href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-theme.css"
-  type="text/css"
-  rel="stylesheet"/>
+<link href="https://global.oktacdn.com/okta-signin-widget/3.2.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/> 
 ```
 
 More info, including the latest published version, can be found in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
@@ -59,7 +49,6 @@ If you are bundling your assets, import them from `@okta/okta-signin-widget`. Fo
 ```javascript
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
-import '@okta/okta-signin-widget/dist/css/okta-theme.css';
 ```
 
 > Loading CSS requires the css-loader plugin. You can find more information about it [here](https://github.com/webpack-contrib/css-loader#usage).
@@ -165,10 +154,16 @@ if (!signIn.token.hasTokensInUrl()) {
 
 else {
   signIn.token.parseTokensFromUrl(
-    function success(res) {
+    function success(tokens) {
       // Add the token to tokenManager to automatically renew the token when needed
-      signIn.tokenManager.add('id_token', res[0]);
-      signIn.tokenManager.add('access_token', res[1]);
+      tokens.forEach(token => {
+        if (token.idToken) {
+          signIn.tokenManager.add('id_token', token);
+        }
+        if (token.accessToken) {
+          signIn.tokenManager.add('access_token', token);
+        }
+      });
     },
     function error(err) {
       console.log('handle error', err);
@@ -236,6 +231,21 @@ function error(err) {
 The Okta Sign-In Widget is fully customizable via CSS and JavaScript.
 
 > You can try all these customizations for yourself using our [Live Widget](https://developer.okta.com/live-widget/).
+
+### Authorizaion Code Flow using PKCE
+
+To enable PKCE flow, set `pkce: true` in the `authParams` configuration object passed to `OktaSignIn`. For more information on how to set up your application to use this flow, see [Implement the Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/).
+
+```javascript
+var config = {
+  baseUrl: 'https://{yourOktaDomain}',
+  authParams: {
+    pkce: true
+  }
+};
+
+var signIn = new OktaSignIn(config);
+```
 
 ### Initial Login Screen
 

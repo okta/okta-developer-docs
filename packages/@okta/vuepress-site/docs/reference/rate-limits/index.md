@@ -25,7 +25,7 @@ Rate limits may be changed to protect customers. We provide advance warning of c
 API rate limits apply per minute or per second to the endpoints in an org.
 
 If an org-wide rate limit is exceeded, an HTTP 429 status code is returned.
-You can anticipate hitting the rate limit by checking [Okta's rate limiting headers](#check-your-rate-limits-with-oktas-rate-limit-headers).
+You can anticipate hitting the rate limit by checking [Okta's rate limiting headers](#check-your-rate-limits-with-okta-s-rate-limit-headers).
 
 Rate limits differ depending on the level of service you have purchased from Okta. See the [pricing page](https://developer.okta.com/pricing/) for more details.
 
@@ -154,6 +154,8 @@ The first request to exceed the concurrent limit returns an HTTP 429 error, and 
 > Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem which requires investigation.
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
+
+> For information on possible interaction between Inline Hooks and concurrent rate limits, see [Inline Hooks and Concurrent Rate Limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
 
 ## Check Your Rate Limits with Okta's Rate Limit Headers
 

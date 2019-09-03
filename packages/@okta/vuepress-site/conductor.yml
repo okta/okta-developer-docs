@@ -1,5 +1,5 @@
 redirects:
-  - from: /code
+  - from: /code/index.html
     to: /docs/
   - from: /use_cases/api_security
     to: /docs/concepts/api-access-management/
@@ -99,7 +99,7 @@ redirects:
     to: /docs/reference/api/factors/index.html
   - from: /docs/api/rest/groups.html
     to: /docs/reference/api/groups/index.html
-  - from: docs/api/rest/idps.html
+  - from: /docs/api/rest/idps.html
     to: /docs/reference/api/idps/index.html
   - from: /docs/api/resources/idps
     to: /docs/reference/api/idps/
@@ -118,11 +118,11 @@ redirects:
   - from: /docs/api/rest/templates.html
     to: /docs/reference/api/templates/index.html
   - from: /docs/getting_started/tokens.html
-    to: /docs/guides/validate-access-tokens/
+    to: /docs/guides/create-an-api-token/overview/
   - from: /docs/api/resources/tokens/index.html
-    to: /docs/guides/validate-access-tokens/
+    to: /docs/guides/create-an-api-token/overview/
   - from: /docs/reference/api/tokens/index.html
-    to: /docs/guides/validate-access-tokens/
+    to: /docs/guides/create-an-api-token/overview/
   - from: /docs/api/rest/users.html
     to: /docs/reference/api/users/
   - from: /docs/reference/api/user
@@ -1571,8 +1571,6 @@ redirects:
     to: /docs/reference/api-overview/getting_a_token/
   - from: /docs/reference/api/resource-server-beta
     to: /docs/reference/api/resource-server-beta/
-  - from: /docs/reference/api/tokens
-    to: /docs/reference/api/tokens/
   - from: /docs/sdk/core/python_api_sdk
     to: /docs/sdk/core/python_api_sdk/
   - from: /documentation
@@ -1615,3 +1613,103 @@ redirects:
     to: /use_cases/mobile/okta_mobile_connect/
   - from: /use_cases/promote-oan-integration
     to: /use_cases/promote-oan-integration/
+  - from: /docs/guides/add-saml-idp/index.html
+    to: /docs/guides/add-an-external-idp/saml2/before-you-begin/
+  - from: /docs/guides/add-saml-idp/configure-saml-idp/index.html
+    to: /docs/guides/add-an-external-idp/saml2/configure-idp-in-okta/
+  - from: /docs/guides/add-saml-idp/configure-oidc-client/index.html
+    to: /docs/guides/add-an-external-idp/saml2/register-app-in-okta/
+  - from: /docs/guides/add-saml-idp/create-authz-url/index.html
+    to: /docs/guides/add-an-external-idp/saml2/create-authz-url/
+  - from: /docs/guides/sign-in-with-facebook/index.html
+    to: /docs/guides/add-an-external-idp/facebook/before-you-begin/
+  - from: /docs/guides/sign-in-with-facebook/setup-app/index.html
+    to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
+  - from: /docs/guides/sign-in-with-facebook/configure-idp/index.html
+    to: /docs/guides/add-an-external-idp/facebook/configure-idp-in-okta/
+  - from: /docs/guides/sign-in-with-facebook/add-redirect-uri/index.html
+    to: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/
+  - from: /docs/guides/sign-in-with-facebook/register-oidc-app/index.html
+    to: /docs/guides/add-an-external-idp/facebook/register-app-in-okta/
+  - from: /docs/guides/sign-in-with-facebook/complete-authz-url/index.html
+    to: /docs/guides/add-an-external-idp/facebook/create-authz-url/
+  - from: /docs/guides/sign-in-with-facebook/using-facebook-login/index.html
+    to: /docs/guides/add-an-external-idp/facebook/use-idp-to-sign-in/
+  - from: /docs/guides/sign-in-with-google/index.html
+    to: /docs/guides/add-an-external-idp/google/before-you-begin/
+  - from: /docs/guides/sign-in-with-google/setup-app/index.html
+    to: /docs/guides/add-an-external-idp/google/create-an-app-at-idp/
+  - from: /docs/guides/sign-in-with-google/configure-idp/index.html
+    to: /docs/guides/add-an-external-idp/google/configure-idp-in-okta/
+  - from: /docs/guides/sign-in-with-google/add-redirect-uri/index.html
+    to: /docs/guides/add-an-external-idp/google/add-okta-redirect-uri-to-idp/
+  - from: /docs/guides/sign-in-with-google/register-oidc-app/index.html
+    to: /docs/guides/add-an-external-idp/google/register-app-in-okta/
+  - from: /docs/guides/sign-in-with-google/complete-authz-url/index.html
+    to: /docs/guides/add-an-external-idp/google/create-authz-url/
+  - from: /docs/guides/sign-in-with-google/using-google-login/index.html
+    to: /docs/guides/add-an-external-idp/google/use-idp-to-sign-in/
+  - from: /docs/guides/sign-in-with-linkedin/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/before-you-begin/
+  - from: /docs/guides/sign-in-with-linkedin/setup-app/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/
+  - from: /docs/guides/sign-in-with-linkedin/configure-idp/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/configure-idp-in-okta/
+  - from: /docs/guides/sign-in-with-linkedin/add-redirect-uri/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/add-okta-redirect-uri-to-idp/
+  - from: /docs/guides/sign-in-with-linkedin/register-oidc-app/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/register-app-in-okta/
+  - from: /docs/guides/sign-in-with-linkedin/complete-authz-url/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/create-authz-url/
+  - from: /docs/guides/sign-in-with-linkedin/using-facebook-login/index.html
+    to: /docs/guides/add-an-external-idp/linkedin/use-idp-to-sign-in/
+  - from: /docs/guides/sign-in-with-microsoft/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/before-you-begin/
+  - from: /docs/guides/sign-in-with-microsoft/setup-app/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/create-an-app-at-idp/
+  - from: /docs/guides/sign-in-with-microsoft/configure-idp/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/configure-idp-in-okta/
+  - from: /docs/guides/sign-in-with-microsoft/add-redirect-uri/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/add-okta-redirect-uri-to-idp/
+  - from: /docs/guides/sign-in-with-microsoft/register-oidc-app/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/register-app-in-okta/
+  - from: /docs/guides/sign-in-with-microsoft/complete-authz-url/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/create-authz-url/
+  - from: /docs/guides/sign-in-with-microsoft/using-facebook-login/index.html
+    to: /docs/guides/add-an-external-idp/microsoft/use-idp-to-sign-in/
+  - from: /docs/guides/federate-with-oidc/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+  - from: /docs/guides/federate-with-oidc/create-client-app/p/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/create-an-app-at-idp/
+  - from: /docs/guides/federate-with-oidc/configure-idp/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/configure-idp-in-okta/
+  - from: /docs/guides/federate-with-oidc/add-redirect-uri/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/add-okta-redirect-uri-to-idp/
+  - from: /docs/guides/federate-with-oidc/create-okta-app/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/register-app-in-okta/
+  - from: /docs/guides/federate-with-oidc/test-authz-url/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/create-authz-url/
+  - from: /docs/guides/federate-with-oidc/use-for-signin/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in/
+  - from: /docs/api/getting_started/getting_a_token.html
+    to: /docs/guides/create-an-api-token/overview/
+  - from: /reference/okta_expression_language/index
+    to: /docs/reference/okta-expression-language/
+  - from: /docs/guides/oan_guidance.html
+    to: https://www.okta.com/integrate/documentation/oin-faq/
+  - from: /authentication-guide/implementing-authentication/auth-code.html
+    to: /docs/guides/implement-auth-code/overview/
+  - from: /authentication-guide/implementing-authentication/client-creds.html
+    to: /docs/guides/implement-client-creds/overview/
+  - from: /docs/sdk/opp/javadoc/index.html
+    to: /okta-sdk-java/
+  - from: /code/react/okta_react.html
+    to: /code/react/okta_react/
+  - from: /code/javascript/okta_auth_sdk.html
+    to: /code/javascript/okta_auth_sdk/
+  - from: /code/javascript/okta_sign-in_widget.html
+    to: /code/javascript/okta_sign-in_widget/
+  - from: /docs/change-log.html
+    to: /docs/release-notes/
+  - from: /docs/change-log
+    to: /docs/release-notes/

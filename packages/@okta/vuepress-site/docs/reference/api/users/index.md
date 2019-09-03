@@ -1282,8 +1282,6 @@ Use an ID lookup for records that you update to ensure your results contain the 
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
 | `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with "Sm          |
 
-> When paginating a search result set (see [Pagination](/docs/reference/api-overview/#pagination)), the result set is limited to a total of 50,000 results.  Attempting to follow the `next` link from the last page will yield an error.
-
 ##### Search Examples
 
 List users with an occupation of `Leader`
@@ -2428,6 +2426,56 @@ curl -v -X POST \
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
+
+### Clear Current User Sessions
+
+Clears Okta sessions for the currently logged in user. By default, the current session remains active. Use this method in a browser-based application. 
+
+> This operation requires a session cookie for the user. API token is not allowed for this operation.
+
+<ApiOperation method="post" url="/api/v1/users/me/lifecycle/delete_sessions" /> <SupportsCors />
+
+
+##### Request Parameters
+
+
+| Parameter    | Description                                                  | Param Type | DataType | Required | Default |
+| ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- | ------- |
+| keepCurrent  | Skip deleting user's current session when set to true	      | Body       | boolean  | FALSE    |  true   |
+
+
+##### Response
+
+Returns an empty object.
+
+
+##### Request Example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Cookie: ${okta_session_cookie}" \
+-H "Origin: ${trusted_cors_origin}" \
+-d '{
+  "keepCurrent": true
+}' "https://{yourOktaDomain}/api/v1/users/me/lifecycle/delete_sessions"
+```
+
+##### Response Example
+
+If the sessions were successfully cleared, a `200 OK` response will be returned.
+
+If the current session is invalid, a `403 Forbidden` response will be returned.
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{}
+```
+
 
 ## User Sessions
 

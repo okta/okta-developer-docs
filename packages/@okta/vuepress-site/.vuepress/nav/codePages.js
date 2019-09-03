@@ -24,6 +24,7 @@ module.exports = [
       { title: 'Java', link: '/code/java/', activeCheck: '/code/java/'},
       { title: 'Node.js', link: '/code/nodejs/', activeCheck: '/code/nodejs/'},
       { title: 'PHP', link: '/code/php/', activeCheck: '/code/php/'},
+      { title: 'Python', link: '/code/python/', activeCheck: '/code/python/'},
       { title: 'REST', link: '/code/rest/', activeCheck: '/code/rest/'},
     ]
   }

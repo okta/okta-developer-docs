@@ -7,8 +7,6 @@ meta:
 
 # Inline Hooks
 
-<ApiLifecycle access="ea" />
-
 ## What Are Okta Inline Hooks?
 
 Inline hooks are outbound calls from Okta to your own custom code, triggered at specific points in Okta process flows. They allow you to integrate custom functionality into those flows.
@@ -92,6 +90,10 @@ Always included is `data.context`, providing context information. In general, `d
 
 When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. A request is not retried if the customer endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful and not retried. If the external service endpoint responds with a redirect, it is not followed.
 
+#### Inline Hooks and Concurrent Rate Limits
+
+The Okta process flow that triggered the Inline Hook remains in progress until the response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rate-limits/#concurrent-rate-limits).
+
 ### Security
 
 To secure the communication channel between Okta and your external service, HTTPS is used for requests, and support is provided for header-based authentication. Okta recommends that you implement an authentication scheme using the authentication header, to be used to authenticate every request received by your external service.
@@ -145,6 +147,10 @@ An `ErrorCause` object must include the following fields:
 
 While there are no technical restrictions on the values for any of the fields in an `ErrorCause` object, using them as described in the table above allows you to provide rich error information that can be very useful in determining why an Inline Hook's processing failed.
 
+#### debugContext
+
+Lets you specify additional information to make available in the Okta System Log in connection with the call to to your hook. You can use this object as you wish, sending any information that would be useful for debugging purposes. In the System Log, content sent in this object is populated into the `inline_hook.response.processed` event.
+
 ## Inline Hook Setup
 
 After creating your external service, you need to tell Okta it exists, and enable it for a particular process flow. The steps are:
@@ -158,4 +164,10 @@ After creating your external service, you need to tell Okta it exists, and enabl
 The total number of Inline Hooks that you can create in an Okta org is limited to 10, which is a combined total for any combination of Inline Hook types.
 
 For more information on implementing Inline Hooks, see the documentation for specific Inline Hook types linked to in [Currently-Supported Types](#currently-supported-types).
+
+## Troubleshooting
+
+The [Okta System Log](/docs/reference/api/system-log/) captures events related to Inline Hook setup and execution, which you can use to troubleshoot your implementation. To see descriptions of the relevant event types, query the Event Types catalog with the query parameter `inline_hook`:
+
+<https://developer.okta.com/docs/reference/api/event-types/?q=inline_hook>
 
