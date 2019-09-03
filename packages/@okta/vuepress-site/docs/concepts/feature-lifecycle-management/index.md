@@ -30,8 +30,6 @@ Consider the following example:
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
-Note that arrows below should use two dashes instead of one, but that breaks the HTML comment syntax.
-
 @startuml
 skinparam monochrome true
 
