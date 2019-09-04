@@ -4,8 +4,8 @@ language: React
 integration: front-end
 component: Code
 meta:
-	- name: description
-	content: Our guide helps you to add user authentication to your React app, integrate with react-router, and suggests related content.
+  - name: description
+    content: Our guide helps you to add user authentication to your React app, integrate with react-router, and suggests related content.
 ---
 
 # <i class='icon-48 docsPage code-react'></i> Add User Management to Your React App

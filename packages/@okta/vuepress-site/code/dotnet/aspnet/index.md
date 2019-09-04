@@ -4,8 +4,8 @@ language: .NET
 integration: back-end
 component: Code
 meta:
-	- name: description
-	content: Get started with ASP.NET and Okta by using our guide to help you add user authentication to your ASP.NET app.
+  - name: description
+    content: Get started with ASP.NET and Okta by using our guide to help you add user authentication to your ASP.NET app.
 ---
 
 # <i class='icon-48 docsPage code-dotnet'></i> Add User Management to Your ASP.NET App

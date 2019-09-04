@@ -4,8 +4,8 @@ language: PHP
 integration: back-end
 component: Code
 meta:
-	- name: description
-	content: Use our PHP guide, SDK, and libraries to help you add user authentication to your PHP application.
+  - name: description
+    content: Use our PHP guide, SDK, and libraries to help you add user authentication to your PHP application.
 ---
 
 # <i class='icon-48 docsPage code-php'></i> Add User Management to Your PHP App

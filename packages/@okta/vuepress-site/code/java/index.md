@@ -4,8 +4,8 @@ language: Java
 integration: back-end
 component: Code
 meta:
-	- name: description
-	content: Read our guide to add user authentication to your Java app, and see related guides to help complete your project. 
+  - name: description
+    content: Read our guide to add user authentication to your Java app, and see related guides to help complete your project. 
 ---
 
 # <i class='icon-48 docsPage code-java'></i> Add User Management to Your Java App

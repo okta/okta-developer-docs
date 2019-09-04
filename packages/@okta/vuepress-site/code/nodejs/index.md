@@ -4,8 +4,8 @@ language: Node.js
 integration: back-end
 component: Code
 meta:
-	name: description
-	content: Use our Node.js guide to add authentication to your app and our Node.js SDK to create and update users and groups.
+  - name: description
+    content: Use our Node.js guide to add authentication to your app and our Node.js SDK to create and update users and groups.
 ---
 
 # <i class='icon-48 docsPage code-nodejs'></i> Add User Management to Your Node.js App 
