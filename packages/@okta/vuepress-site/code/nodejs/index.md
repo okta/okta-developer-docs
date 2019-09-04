@@ -1,11 +1,14 @@
 ---
-title: Add Okta authentication to your Node.js app
+title: Add User Management to Your Node.js App
 language: Node.js
 integration: back-end
 component: Code
+meta:
+	name: description
+	content: Use our Node.js guide to add authentication to your app and our Node.js SDK to create and update users and groups.
 ---
 
-# <i class='icon-48 docsPage code-nodejs'></i> Add Identity Management to Your Node.js App 
+# <i class='icon-48 docsPage code-nodejs'></i> Add User Management to Your Node.js App 
 
 ## Get Started with Node.js + Okta
 
