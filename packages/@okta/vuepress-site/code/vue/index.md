@@ -1,11 +1,14 @@
 ---
-title: Add Identity Management to Your Vue.js App
+title: Add User Management to Your Vue.js App
 language: Vue
 integration: front-end
 component: Code
+meta:
+  - name: description
+    content: Add identity management to your Vue app by using our guide and the Okta Vue SDK.
 ---
 
-# <i class='icon-48 docsPage code-vue'></i> Add Identity Management to Your Vue.js App
+# <i class='icon-48 docsPage code-vue'></i> Add User Management to Your Vue.js App
 
 ## Get Started with Vue.js + Okta
 
