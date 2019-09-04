@@ -11,7 +11,7 @@ title: Okta API Products Release Notes
 | [Error Object in SAML Assertion Inline Hook](#error-object-in-saml-assertion-inline-hook)                     | September 4, 2019        |
 | [Rate Limits for /oauth2 Endpoints](#rate-limits-for-oauth2-endpoints)                                        | September 4, 2019        |
 | [Rate Limits for Authorization Server Public Metadata](#rate-limits-for-authorization-server-public-metadata) | September 4, 2019        |
-| [Bugs Fixed in 2019.09.0](#bug-fixed-in-2019-08-0)                                                             | September 4, 2019        |
+| [Bugs Fixed in 2019.09.0](#bug-fixed-in-2019-09-0)                                                             | September 4, 2019        |
 
 ### Features API is Early Access (EA) in Preview and Production
 
