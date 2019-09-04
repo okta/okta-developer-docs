@@ -15,7 +15,7 @@ title: Okta API Products Release Notes
 
 ### Features API is Early Access (EA) in Preview and Production
 
-The [Features API](/docs/reference/api/features/) provides operations to manage self-service EA features in your Production and Preview orgs and Beta features in your Preview org. <!-- OKTA-241445 -->
+The [Features API](/docs/reference/api/features/) provides operations to manage self-service features in your Production and Preview orgs and Beta features in your Preview org. <!-- OKTA-241445 -->
 
 ### Mappings API is now Generally Available (GA) in Production
 
