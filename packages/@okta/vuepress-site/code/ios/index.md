@@ -3,6 +3,9 @@ title: Add Identity Management to Your iOS App
 language: iOS
 integration: mobile
 component: Code
+meta:
+  - name: description
+    content: Our iOS developer docs help you add user authentication, integrate sign-in flows with an SDK on CocoaPods, and validate Okta OAuth 2.0 tokens.
 ---
 
 # <i class='icon-48 docsPage code-ios'></i> Add Identity Management to Your iOS App
