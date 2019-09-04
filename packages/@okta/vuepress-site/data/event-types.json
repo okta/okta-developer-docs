@@ -1,6 +1,6 @@
 {
-  "release" : "2019.08.1",
-  "build" : "2019.08.1-begin-63-gdc441f75c12b",
+  "release" : "2019.09.1",
+  "build" : "2019.09.1-begin-40-gf4bfaedcbbba",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -2278,7 +2278,7 @@
     }, {
       "id" : "app.echosign.api.error.connection",
       "category" : "oin-advanced-apps",
-      "description" : "Failed to connect with the Echosign API key.",
+      "description" : "Failed to connect to Echosign API.",
       "tags" : [ "echosign-app" ],
       "mappings" : [ "application.integration.authentication_failure" ]
     }, {
@@ -6159,7 +6159,7 @@
       "mappings" : [ "user.authentication.authenticate" ]
     }, {
       "id" : "core.user_auth.credential.enroll",
-      "category" : "mobile-device-trust",
+      "category" : "desktop-device-trust",
       "description" : "Device Trust certificate enrollment.",
       "tags" : [ "device-trust-cert-distribution-and-binding" ],
       "mappings" : [ "user.credential.enroll" ]
@@ -6417,19 +6417,19 @@
       "mappings" : [ "user.mfa.okta_verify" ]
     }, {
       "id" : "core.user_auth.pki.cert.issue",
-      "category" : "mobile-device-trust",
+      "category" : "desktop-device-trust",
       "description" : "Device Trust certificate issuance.",
       "tags" : [ "device-trust-cert-distribution-and-binding" ],
       "mappings" : [ "pki.cert.issue" ]
     }, {
       "id" : "core.user_auth.pki.cert.renew",
-      "category" : "mobile-device-trust",
+      "category" : "desktop-device-trust",
       "description" : "",
       "tags" : [ "device-trust-cert-distribution-and-binding" ],
       "mappings" : [ "pki.cert.renew" ]
     }, {
       "id" : "core.user_auth.pki.cert.revoke",
-      "category" : "mobile-device-trust",
+      "category" : "desktop-device-trust",
       "description" : "Device Trust certificate revocation.",
       "tags" : [ "device-trust-cert-distribution-and-binding" ],
       "mappings" : [ "pki.cert.revoke" ]
@@ -13725,7 +13725,7 @@
       }
     }, {
       "id" : "pki.cert.issue",
-      "category" : "mobile-device-trust",
+      "category" : "desktop-device-trust",
       "description" : "Device Trust certificate issuance.",
       "info" : {
         "created" : "2017-10-27",
@@ -13741,7 +13741,7 @@
       }
     }, {
       "id" : "pki.cert.renew",
-      "category" : "mobile-device-trust",
+      "category" : "desktop-device-trust",
       "description" : "Device Trust certificate renewal.",
       "info" : {
         "created" : "2017-10-27",
@@ -13757,7 +13757,7 @@
       }
     }, {
       "id" : "pki.cert.revoke",
-      "category" : "mobile-device-trust",
+      "category" : "desktop-device-trust",
       "description" : "Device Trust certificate revocation.",
       "info" : {
         "created" : "2017-10-27",
@@ -16797,7 +16797,7 @@
       }
     }, {
       "id" : "user.credential.enroll",
-      "category" : "mobile-device-trust",
+      "category" : "desktop-device-trust",
       "description" : "Device Trust certificate enrollment.",
       "info" : {
         "created" : "2017-10-27",
