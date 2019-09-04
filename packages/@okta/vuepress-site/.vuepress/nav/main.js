@@ -24,7 +24,7 @@ module.exports = [
       { title: 'Create tokens with group claims', link: '/docs/guides/create-token-with-groups-claim/'},
       { title: 'Protect your API endpoints', link: '/docs/guides/protect-your-api/'},
       { title: 'Request user consent during authentication', link: '/docs/guides/request-user-consent/'},
-      { title: 'Sign users in to your Web Application', link: '/docs/guides/sign-into-web-app/'},
+      { title: 'Sign users in to your web application', link: '/docs/guides/sign-into-web-app/'},
       { title: 'Sign users in to your SPA', link: '/docs/guides/sign-into-spa/'},
       { title: 'Sign users out', link: '/docs/guides/sign-users-out/'},
       { title: 'More...', link: '/docs/guides/' }
@@ -61,9 +61,10 @@ module.exports = [
         ]
       },
       { title: 'Error Codes', link: '/docs/reference/error-codes/'},
-      { title: 'Token Hooks', link: '/docs/reference/token-hook/'},
-      { title: 'Import Hooks', link: '/docs/reference/import-hook/'},
-      { title: 'SAML Hooks', link: '/docs/reference/saml-hook/'},
+      { title: 'Import Hook', link: '/docs/reference/import-hook/'},
+      { title: 'SAML Hook', link: '/docs/reference/saml-hook/'},
+      { title: 'Registration Hook', link: '/docs/reference/registration-hook/'},
+      { title: 'Token Hook', link: '/docs/reference/token-hook/'},
       { title: 'Okta Expression Language', link: '/docs/reference/okta-expression-language/'},
       { title: 'Postman Collections', link: '/docs/reference/postman-collections/'},
       { title: 'Rate Limits', link: '/docs/reference/rate-limits/'},

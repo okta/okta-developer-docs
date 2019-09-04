@@ -25,7 +25,7 @@ Rate limits may be changed to protect customers. We provide advance warning of c
 API rate limits apply per minute or per second to the endpoints in an org.
 
 If an org-wide rate limit is exceeded, an HTTP 429 status code is returned.
-You can anticipate hitting the rate limit by checking [Okta's rate limiting headers](#check-your-rate-limits-with-oktas-rate-limit-headers).
+You can anticipate hitting the rate limit by checking [Okta's rate limiting headers](#check-your-rate-limits-with-okta-s-rate-limit-headers).
 
 Rate limits differ depending on the level of service you have purchased from Okta. See the [pricing page](https://developer.okta.com/pricing/) for more details.
 

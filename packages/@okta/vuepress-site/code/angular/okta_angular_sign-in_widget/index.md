@@ -30,6 +30,7 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 | Application Name     | OpenId Connect App *(must be unique)*               |
 | Login redirect URIs  | http://localhost:4200/callback                      |
 | Logout redirect URIs | http://localhost:4200/login                         |
+| Allowed grant types  | Authorization Code                                  |
 
 ## Create an Angular App
 
@@ -173,7 +174,10 @@ import * as OktaSignIn from '@okta/okta-signin-widget';
 export class LoginComponent {
   signIn;
   widget = new OktaSignIn({
-    baseUrl: 'https://{yourOktaDomain}'
+    baseUrl: 'https://{yourOktaDomain}',
+    authParams: {
+      pkce: true
+    }
   });
 
   constructor(oktaAuth: OktaAuthService, router: Router) {
@@ -239,7 +243,8 @@ import { LoginComponent } from './login.component';
 const config = {
   issuer: 'https://{yourOktaDomain}/oauth2/default',
   redirectUri: 'http://localhost:4200/implicit/callback',
-  clientId: '{clientId}'
+  clientId: '{clientId}',
+  pkce: true
 }
 
 export function onAuthRequired({ oktaAuth, router }) {

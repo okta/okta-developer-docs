@@ -1,0 +1,4 @@
+```java
+authClient.getSessionClient()
+    .clear();
+```
