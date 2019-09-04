@@ -324,23 +324,6 @@ Content-Type: application/json
  }
 ```
 
-##### Error Response (Already disabled/enabled)
-
-Sending a disable/enable request for a Feature that already has that status returns a `405 Method Not Allowed` status code:
-
-```json
-HTTP/1.1 405 Method Not Allowed
-Content-Type: application/json
-
-{
-    "errorCode": "E0000022",
-    "errorSummary": "The endpoint does not support the provided HTTP method",
-    "errorLink": "E0000022",
-    "errorId": "oaerzuJCOHVQ8-E2XpkEKfeOQ",
-    "errorCauses": []
- }
-```
-
 ##### Error Response (Feature in closed Beta)
 
 Sending an enable request for a Feature with a `stage` value of `BETA CLOSED` in a Preview cell returns a `405 Method Not Allowed` status code:
