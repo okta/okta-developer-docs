@@ -13,7 +13,7 @@ title: Okta API Products Release Notes
 | [Rate Limits for Authorization Server Public Metadata](#rate-limits-for-authorization-server-public-metadata) | September 4, 2019        |
 | [Bug Fixed in 2019.09.0](#bug-fixed-in-2019-08-0)                                                             | September 4, 2019        |
 
-### Features API is Early Access EA in Preview and Production
+### Features API is Early Access (EA) in Preview and Production
 
 The [Features API](/docs/reference/api/features/) provides operations to manage self-service Early Access (EA) features in your Production and Preview orgs, and Beta features in your Preview org. <!-- OKTA-241445 -->
 
