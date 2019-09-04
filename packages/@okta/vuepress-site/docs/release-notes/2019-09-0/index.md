@@ -11,7 +11,7 @@ title: Okta API Products Release Notes
 | [Error Object in SAML Assertion Inline Hook](#error-object-in-saml-assertion-inline-hook)                     | September 4, 2019        |
 | [Rate Limits for /oauth2 Endpoints](#rate-limits-for-oauth2-endpoints)                                        | September 4, 2019        |
 | [Rate Limits for Authorization Server Public Metadata](#rate-limits-for-authorization-server-public-metadata) | September 4, 2019        |
-| [Bug Fixed in 2019.09.0](#bug-fixed-in-2019-08-0)                                                             | September 4, 2019        |
+| [Bugs Fixed in 2019.09.0](#bug-fixed-in-2019-08-0)                                                             | September 4, 2019        |
 
 ### Features API is Early Access (EA) in Preview and Production
 
@@ -24,17 +24,17 @@ The Okta Mappings API provides operations to manage the mapping of properties be
 
 ### Error Object in SAML Assertion Inline Hook
 
-For the SAML Assertion Inline Hook, if an external service returns an `error` object, Okta will now deny the SAML request and redirect the end user to an error page displaying the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
+For the SAML Assertion Inline Hook, if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
 
 ### Rate Limits for /oauth2 Endpoints
 
-Rate limiting has been modified for `/oauth2` endpoints, so that requests that use an invalid client ID do not consume rate limit. Additionally, a System Log warning has been introduced to provide notification of high rate limit consumption by requests that use a valid client ID. <!-- OKTA-241945 -->
+Rate limiting has been modified for `/oauth2` endpoints so that requests that use an invalid client ID do not consume rate limit. Additionally, a System Log warning has been introduced to provide notification of high rate limit consumption by requests that use a valid client ID. <!-- OKTA-241945 -->
 
 ### Rate Limits for Authorization Server Public Metadata
 
 The public metadata endpoints for Authorization Servers are now each assigned separate rate limits, which are not shared with other endpoints. <!-- OKTA-226100 -->
 
-### Bug Fixed in 2019.09.0
+### Bugs Fixed in 2019.09.0
 
 * Responses from the [`GET /groups/rules`](/docs/reference/api/groups/#get-group-rule) API included deleted groups in the `assignUserToGroups.groupIds` property. (OKTA-242994)
 
