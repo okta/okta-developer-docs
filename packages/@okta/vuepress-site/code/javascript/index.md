@@ -1,11 +1,14 @@
 ---
-title: Add Identity Management to Your JavaScript App
+title: Add User Management to Your JavaScript App
 language: JavaScript
 integration: front-end
 component: Code
+meta:
+	- name: description
+	content: Our guide explains how to add authentication to your JavaScript app and customize the sign-in experience.
 ---
 
-# <i class='icon-48 docsPage code-javascript'></i> Add Identity Management to Your JavaScript App
+# <i class='icon-48 docsPage code-javascript'></i> Add User Management to Your JavaScript App
 
 ## Get Started with JavaScript + Okta
 
