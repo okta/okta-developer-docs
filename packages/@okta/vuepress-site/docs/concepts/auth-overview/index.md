@@ -1,8 +1,11 @@
 ---
-title: OAuth 2.0 and OpenID Connect
+title: OAuth 2.0 Overview
+meta:
+  - name: description
+    content: An overview of OAuth 2.0 and OpenID Connect and their Okta implementations. This guide helps you determine what flow is best for the app you are building.
 ---
 
-# OAuth 2.0 and OpenID Connect
+# OAuth 2.0 Overview
 
 This page will give you an overview of OAuth 2.0 and OpenID Connect and their Okta implementations. It will explain the different flows, and help you decide which flow is best for you based on the type of application that you are building. If you already know what kind of flow you want, you can jump directly to:
 
