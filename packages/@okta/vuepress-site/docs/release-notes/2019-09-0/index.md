@@ -24,7 +24,7 @@ The Okta Mappings API provides operations to manage the mapping of properties be
 
 ### Error Object in SAML Assertion Inline Hook
 
-For the SAML Assertion Inline Hook, if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
+For the [SAML Assertion Inline Hook](/docs/reference/saml-hook/), if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
 
 ### Rate Limits for /oauth2 Endpoints
 
