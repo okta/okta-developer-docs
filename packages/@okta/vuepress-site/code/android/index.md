@@ -9,7 +9,7 @@ meta:
 
 ---
 
-# <i class='icon-48 docsPage code-android'></i> Add Identity Management to Your Android App
+# <i class='icon-48 docsPage code-android'></i> Add User Management to Your Android App
 
 ## Get Started with Android + Okta
 
