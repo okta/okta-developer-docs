@@ -33,4 +33,4 @@ The public metadata endpoints for Authorization Servers are now each assigned se
 
 * Responses from the [`GET /groups/rules`](/docs/reference/api/groups/#get-group-rule) API included deleted groups in the `assignUserToGroups.groupIds` property. (OKTA-242994)
 
-* Calls to the [`/users/${userid}/lifecycle/deactivate`](/docs/reference/api/users/#deactivate-user) endpoint could time out when deactivating a user with an extraordinarily high number of app assignments.
+* Calls to the [`/users/${userid}/lifecycle/deactivate`](/docs/reference/api/users/#deactivate-user) endpoint could time out when deactivating a user with an extraordinarily high number of app assignments. (OKTA-228031)
