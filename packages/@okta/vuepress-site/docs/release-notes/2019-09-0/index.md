@@ -9,7 +9,6 @@ title: Okta API Products Release Notes
 | [Features API is Early Access EA in Preview and Production](#features-api-is-ea)                              | September 4, 2019        |
 | [Mappings API is now Generally Available (GA) in Production](#mappings-api-is-now-ga-in-production)           | September 4, 2019        |
 | [Error Object in SAML Assertion Inline Hook](#error-object-in-saml-assertion-inline-hook)                     | September 4, 2019        |
-| [Rate Limits for /oauth2 Endpoints](#rate-limits-for-oauth2-endpoints)                                        | September 4, 2019        |
 | [Rate Limits for Authorization Server Public Metadata](#rate-limits-for-authorization-server-public-metadata) | September 4, 2019        |
 | [Bugs Fixed in 2019.09.0](#bugs-fixed-in-2019-09-0)                                                             | September 4, 2019        |
 
@@ -25,10 +24,6 @@ The Okta Mappings API provides operations to manage the mapping of properties be
 ### Error Object in SAML Assertion Inline Hook
 
 For the SAML Assertion Inline Hook, if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
-
-### Rate Limits for /oauth2 Endpoints
-
-Rate limiting has been modified for `/oauth2` endpoints so that requests that use an invalid client ID do not consume rate limit. Additionally, a System Log warning has been introduced to provide notification of high rate limit consumption by requests that use a valid client ID. <!-- OKTA-241945 -->
 
 ### Rate Limits for Authorization Server Public Metadata
 
