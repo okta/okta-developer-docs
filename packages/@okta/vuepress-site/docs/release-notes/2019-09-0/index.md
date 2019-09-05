@@ -23,7 +23,7 @@ The Okta Mappings API provides operations to manage the mapping of properties be
 
 ### Error Object in SAML Assertion Inline Hook
 
-For the SAML Assertion Inline Hook, if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
+For the [SAML Assertion Inline Hook](/docs/reference/saml-hook/), if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
 
 ### Rate Limits for Authorization Server Public Metadata
 
@@ -33,4 +33,4 @@ The public metadata endpoints for Authorization Servers are now each assigned se
 
 * Responses from the [`GET /groups/rules`](/docs/reference/api/groups/#get-group-rule) API included deleted groups in the `assignUserToGroups.groupIds` property. (OKTA-242994)
 
-* Calls to the [`/users/${userid}/lifecycle/deactivate`](/docs/reference/api/users/#deactivate-user) endpoint could time out when deactivating a user with an extraordinarily high number of app assignments.
+* Calls to the [`/users/${userid}/lifecycle/deactivate`](/docs/reference/api/users/#deactivate-user) endpoint could time out when deactivating a user with an extraordinarily high number of app assignments. (OKTA-228031)
