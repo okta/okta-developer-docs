@@ -72,11 +72,11 @@ ok -> ua: 302 to redirect_uri
 -->
 
 ## Account Linking and Just-in-Time Provisioning
-When you allow your users to sign in to your app using their choice of Identity Providers, you can use [Account Linking](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_match-user) to help create a unified view of your users within your org. Additionally, you can use Just in Time (JIT) provisioning to create a seamless experience for users that sign-in to your application for the first time using their credentials from another Identity Provider.
+When you allow your users to sign in to your app using their choice of Identity Providers, you can use [Account Linking](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_match-user) to help create a unified view of your users within your org. Additionally, you can use Just-In-Time (JIT) provisioning to create a seamless experience for users that sign-in to your application for the first time using their credentials from another Identity Provider.
 
 Users can use multiple Identity Providers to sign in, and Okta can link all of those profiles to a single Okta user. This is called Account Linking. If, for example, a user signs in to your app using a different Identity Provider than they used for registration, Account Linking can establish that the user owns both identities, allowing the user to sign in from either account.
 
-If a user signs in to your application for the first time using another Identity Provider, you can implement [Just in Time](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Identity_Providers) (JIT) provisioning to automatically create an Okta account for them. JIT account creation and activation only works for end users who aren't already Okta users.
+If a user signs in to your application for the first time using another Identity Provider, you can implement [JIT provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Identity_Providers) to automatically create an Okta account for them. JIT account creation and activation only works for end users who aren't already Okta users.
 
 Additionally, you can apply granular control over Account Linking and JIT by defining a policy and then rules for the policy. You can base a policy on a variety of factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for groups that have been assigned to your application. You can create multiple policies with more or less restrictive rules and apply them to different groups.
 
