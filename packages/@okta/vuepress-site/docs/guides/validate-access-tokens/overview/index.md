@@ -1,5 +1,8 @@
 ---
 title: Overview
+meta:
+  - name: description
+    content: This guide on tokens shows you how to verify a token's signature, manage key rotation, and how to use a refresh token to get a new access token.
 ---
 
 If you are building a modern app or API, you likely want to know if your end-user is authenticated. This is important to give context or to protect APIs from unauthenticated users. You can use Okta to authenticate your end-users and issue them signed access and ID tokens, which your application can then use. It is important that your application only uses the access token to grant access, and not the ID token. For more information about this, see the [Access Tokens VS ID Tokens](#access-tokens-vs-id-tokens) section below.

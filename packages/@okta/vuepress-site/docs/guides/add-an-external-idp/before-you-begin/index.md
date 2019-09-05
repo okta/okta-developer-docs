@@ -1,5 +1,8 @@
 ---
 title: Before you begin
+meta:
+  - name: description
+    content: Okta supports authentication with an external OpenID Connect and SAML Identity Providers. Get an overview of the process and prerequisites, and the instructions required to set one up.
 ---
 You want to give your users the freedom to choose which Identity Provider that they can use to sign in to your application. Okta manages connections to Identity Providers for your application, sitting between your application and the Identity Provider that authenticates your users.
 
@@ -13,6 +16,7 @@ This guide assumes that you:
 > Note: This guide doesn't explain the differences between SAML and OpenID Connect and doesn't help you choose between them. See [External Identity Providers](/docs/concepts/identity-providers/#the-big-picture) for more information.
 
 ## Supported Identity Providers
+
 We support a lot of Identity Providers. This guide provides instructions for the following Identity Providers. If the provider that you need isn't listed, we may still support it through generic OpenID Connect or SAML. The Identity Provider's documentation should say which protocol you need to use.
 
 * [Facebook](/docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/)
@@ -24,4 +28,3 @@ We support a lot of Identity Providers. This guide provides instructions for the
 * [SAML 2.0](/docs/guides/add-an-external-idp/saml2/create-an-app-at-idp/)
 
 <NextSectionLink/>
-
