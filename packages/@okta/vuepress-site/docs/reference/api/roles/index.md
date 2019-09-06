@@ -1,6 +1,9 @@
 ---
 title: Administrator Roles
 category: management
+meta:
+  - name: description
+    content: The Okta Administrator Roles API provides operations to manage administrative role assignments for a user. Read this page to get started with Admin Roles.
 ---
 
 # Administrator Roles API
