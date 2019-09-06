@@ -1,12 +1,13 @@
 ---
-title: API Overview
+title: Okta API Design Principles
+meta:
+  - name: description
+    content: Learn how the Okta API works and learn about the compatibility rules and design principles.
 ---
 
 ### Versioning
 
-The Okta API is a versioned API.  Okta reserves the right to add new parameters, properties, or resources to the API without advance notice.
-These updates are considered **non-breaking** and the compatibility rules below should be followed to ensure your application does not break.
-Breaking changes such as removing or renaming an attribute will be released as a new version of the API.  Okta will provide a migration path for new versions of APIs and will communicate timelines for end-of-life when deprecating APIs.
+The Okta API is a versioned API. Okta reserves the right to add new parameters, properties, or resources to the API without advance notice. These updates are considered **non-breaking** and the compatibility rules below should be followed to ensure your application does not break. Breaking changes such as removing or renaming an attribute will be released as a new version of the API. Okta will provide a migration path for new versions of APIs and will communicate timelines for end-of-life when deprecating APIs.
 
 Do not consume any Okta API unless it is documented on this site. All undocumented endpoints should be considered private, subject to change without notice, and not covered by any agreements.
 
@@ -37,7 +38,7 @@ The `apiversion` is currently v1.
 
 > JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, make sure to properly escape all values before use in a browser or any HTML context.
 
-The API currently only supports JSON as an exchange format.  Be sure to set both the Content-Type and Accept headers for every request as `application/json`.
+The API currently only supports JSON as an exchange format. Be sure to set both the Content-Type and Accept headers for every request as `application/json`.
 
 All Date objects are returned in [ISO 8601 format](https://tools.ietf.org/html/rfc3339):
 
@@ -58,23 +59,21 @@ Used for retrieving resources.
 #### POST
 
 Used for creating resources, or performing custom actions (such as
-user lifecycle operations).  For POST requests
-with no `body` param, be sure to set the `Content-Length` header to zero.
+user lifecycle operations). For POST requests with no `body` param, be sure to set the `Content-Length` header to zero.
 
 #### PUT
 
-Used for replacing resources or collections. For PUT requests
-with no `body` param, be sure to set the `Content-Length` header to zero.
+Used for replacing resources or collections. For PUT requests with no `body` param, be sure to set the `Content-Length` header to zero.
 
 #### DELETE
 
 Used for deleting resources.
 
-> Any PUT or POST request with no Content-Length header nor a body will return a 411 error.  To get around this, include a `Content-Length: 0` header
+> Any PUT or POST request with no Content-Length header nor a body will return a 411 error. To get around this, include a `Content-Length: 0` header
 
 ### Client Request Context
 
-Okta will derive client request context directly from the HTTP request headers and client TCP socket.  Request context is used to evaluate policies such as **Okta Sign-On Policy** and provide client information for [troubleshooting and auditing](/docs/reference/api/events/#client-objecttype) purposes.
+Okta will derive client request context directly from the HTTP request headers and client TCP socket. Request context is used to evaluate policies such as **Okta Sign-On Policy** and provide client information for [troubleshooting and auditing](/docs/reference/api/events/#client-objecttype) purposes.
 
 ### User Agent
 
@@ -107,7 +106,7 @@ All requests that result in an error will return the appropriate 4xx or 5xx erro
 - `errorCode`: A code that is associated with this error type
 - `errorLink`: A link to documentation with a more detailed explanation of the error (note: this has yet to be implemented and for the time being is the same value as the errorCode)
 - `errorSummary`: A natural language explanation of the error
-- `errorId`: An id that identifies this request.  These ids are mapped to the internal error on the server side in order to assist in troubleshooting.
+- `errorId`: An id that identifies this request. These ids are mapped to the internal error on the server side in order to assist in troubleshooting.
 
 ``` json
 {
@@ -125,7 +124,7 @@ All requests that result in an error will return the appropriate 4xx or 5xx erro
 
 See [Error Codes](/docs/reference/error-codes/) for a list of API error codes.
 
-> Only the `errorCode` property is supported for runtime error flow control.  The `errorSummary` property is only intended for troubleshooting and may change over time.
+> Only the `errorCode` property is supported for runtime error flow control. The `errorSummary` property is only intended for troubleshooting and may change over time.
 
 ### Authentication
 
@@ -139,7 +138,7 @@ The API key (API token) isn't interchangeable with an Okta [session token](/docs
 
 ### Pagination
 
-Requests that return a list of resources may support paging.  Pagination is based on a cursor and not on page number. The cursor is opaque to the client and specified in either the `before` or `after` query parameter.  For some resources, you can also set a custom page size with the `limit` parameter.
+Requests that return a list of resources may support paging. Pagination is based on a cursor and not on page number. The cursor is opaque to the client and specified in either the `before` or `after` query parameter. For some resources, you can also set a custom page size with the `limit` parameter.
 
 Note that for technical reasons not all APIs respect pagination or the `before` and `limit` parameters, see the [Events API](/docs/reference/api/events/) for example.
 
@@ -174,7 +173,7 @@ When you first make an API call and get a cursor-paged list of objects, the end 
 
 ### Filtering
 
-Filtering allows a requestor to specify a subset of resources to return and is often needed for large collection resources such as Users.  While filtering semantics are standardized in the Okta API, not all resources in the Okta API support filtering. When filtering is supported for a resource, the `filter` URL query parameter contains a filter expression.
+Filtering allows a requestor to specify a subset of resources to return and is often needed for large collection resources such as Users. While filtering semantics are standardized in the Okta API, not all resources in the Okta API support filtering. When filtering is supported for a resource, the `filter` URL query parameter contains a filter expression.
 
 The expression language that is used in the filter and search parameters supports references to JSON attributes and literals. The literal values can be strings enclosed in double quotes, numbers, date times enclosed in double quotes, and Boolean values; i.e., true or false. String literals must be valid JSON strings.
 
@@ -186,7 +185,7 @@ The attribute names are case-sensitive while attribute operators are case-insens
 
 The filter and search parameters **must** contain at least one valid Boolean expression. Each expression **must** contain an attribute name followed by an attribute operator and optional value. Multiple expressions **may** be combined using the two logical operators. Furthermore expressions can be grouped together using "()".
 
-> Each resource in the Okta API defines what attributes and operators are supported for expression.  *Please refer to resource-specific documentation for details.*
+> Each resource in the Okta API defines what attributes and operators are supported for expression. *Please refer to resource-specific documentation for details.*
 
 ### Operators
 
@@ -223,11 +222,11 @@ Filters must be evaluated using standard order of operations. Attribute operator
 
 ### Hypermedia
 
-Resources in the Okta API use hypermedia for "discoverability".  Hypermedia enables API clients to navigate  resources by following links like a web browser instead of hard-coding URLs in your application.  Links are identified by link relations which are named keys. Link relations describe what resources are available and how they can be interacted with.  Each resource may publish a set of link relationships based on the state of the resource.  For example, the status of a user in the [User API](/docs/reference/api/users/#links-object) will govern which lifecycle operations are permitted.  Only the permitted operations will be published as lifecycle operations.
+Resources in the Okta API use hypermedia for "discoverability". Hypermedia enables API clients to navigate  resources by following links like a web browser instead of hard-coding URLs in your application. Links are identified by link relations which are named keys. Link relations describe what resources are available and how they can be interacted with. Each resource may publish a set of link relationships based on the state of the resource. For example, the status of a user in the [User API](/docs/reference/api/users/#links-object) will govern which lifecycle operations are permitted. Only the permitted operations will be published as lifecycle operations.
 
-The Okta API had incorporated [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia "discoverability".  HAL provides a set of conventions for expressing hyperlinks in JSON responses representing two simple concepts: Resources and Links.
+The Okta API had incorporated [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia "discoverability". HAL provides a set of conventions for expressing hyperlinks in JSON responses representing two simple concepts: Resources and Links.
 
-> The HAL-specific media type `application/hal+json` is currently not supported as a formal media type for content negotiation.  Use the standard `application/json` media type.  As we get more experience with the media format we may add support for the media type.
+> The HAL-specific media type `application/hal+json` is currently not supported as a formal media type for content negotiation. Use the standard `application/json` media type. As we get more experience with the media format we may add support for the media type.
 
 ### Resources
 
@@ -246,7 +245,7 @@ Object whose property names are link relation types (as defined by [RFC5988](htt
 - A target URI
 - The name of the link relation (`rel`)
 - Other optional properties to help with deprecation, object state or lifecycle management, content negotiation, etc.
-- Links are implicitly of media type `application/json`.  Other media types are only returned in cases where the link is not an API endpoint.
+- Links are implicitly of media type `application/json`. Other media types are only returned in cases where the link is not an API endpoint.
 
 > A resource may have multiple links that share the same link relation, as shown below for the "logo" link.
 
@@ -273,7 +272,7 @@ Object whose property names are link relation types (as defined by [RFC5988](htt
 
 ### Links in Collections
 
-Note that HAL links returned in a collection of resources may not reflect the total set of operations that are possible on that resource.  For example, in a user collection links indicating that a given user can be "unlocked" may not be returned and, if returned, may not reflect the correct user state.
+Note that HAL links returned in a collection of resources may not reflect the total set of operations that are possible on that resource. For example, in a user collection links indicating that a given user can be "unlocked" may not be returned and, if returned, may not reflect the correct user state.
 
 Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state.
 
@@ -293,9 +292,9 @@ X-Okta-Request-Id: reqVy8wsvmBQN27h4soUE3ZEnA
 
 ### Cross-Origin Resource Sharing (CORS)
 
-[Cross-Origin Resource Sharing (CORS)](http://en.wikipedia.org/wiki/Cross-Origin_Resource_Sharing) is a mechanism that allows a web page to make an AJAX call using [XMLHttpRequest (XHR)](http://en.wikipedia.org/wiki/XMLHttpRequest) to a domain that is  different from the one from where the script was loaded.  Such "cross-domain" requests would otherwise be forbidden by web browsers, per the [same origin security policy](http://en.wikipedia.org/wiki/Same_origin_policy).  CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether or not to allow the cross-origin request.
+[Cross-Origin Resource Sharing (CORS)](http://en.wikipedia.org/wiki/Cross-Origin_Resource_Sharing) is a mechanism that allows a web page to make an AJAX call using [XMLHttpRequest (XHR)](http://en.wikipedia.org/wiki/XMLHttpRequest) to a domain that is  different from the one from where the script was loaded. Such "cross-domain" requests would otherwise be forbidden by web browsers, per the [same origin security policy](http://en.wikipedia.org/wiki/Same_origin_policy). CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether or not to allow the cross-origin request.
 
-In Okta, CORS allows JavaScript hosted on your websites to make an XHR to the Okta API with the Okta session cookie. Every website origin must be explicitly permitted via the administrator UI for CORS.  See [Enabling CORS](/docs/guides/enable-cors/) for details on how to allow your website to make cross-origin requests.
+In Okta, CORS allows JavaScript hosted on your websites to make an XHR to the Okta API with the Okta session cookie. Every website origin must be explicitly permitted via the administrator UI for CORS. See [Enabling CORS](/docs/guides/enable-cors/) for details on how to allow your website to make cross-origin requests.
 
 > **Caution:** Only grant access to specific origins (websites) that you control and trust to access the Okta API.
 

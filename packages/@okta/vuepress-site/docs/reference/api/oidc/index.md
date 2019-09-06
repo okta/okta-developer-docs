@@ -1,7 +1,9 @@
 ---
 title: OpenID Connect & OAuth 2.0 API
 category: authentication
-excerpt: Control user access to your applications.
+meta:
+  - name: description
+    content: Find information about the OAuth 2.0 and OpenID Connect endpoints that Okta exposes on its authorization servers.
 ---
 
 # OpenID Connect & OAuth 2.0 API

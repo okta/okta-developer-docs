@@ -1,13 +1,15 @@
 ---
-title: Okta Expression Language
-excerpt: Read and transform attributes in our APIs and admin UI.
+title: Expression Language Overview
+meta:
+  - name: description
+    content: Learn more about the features and syntax of the Okta Expression Language, which can be used throughout the administrator UI and API.
 ---
 
 # Overview
 
 Expressions allow you to reference, transform, and combine attributes before you store them on a user profile or before passing them to an application for authentication or provisioning. For example, you might use a custom expression to create a username by stripping @company.com from an email address. Or, you might combine `firstName` and `lastName` attributes into a single `displayName` attribute.
 
-This document details the features and syntax of Okta's Expression Language, which can be used throughout the administrator UI and API. This document will be updated over time as new capabilities are added to the language. Okta's expression language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of functionalities offered by SpEL.
+This document details the features and syntax of the Okta Expression Language, which can be used throughout the administrator UI and API. This document will be updated over time as new capabilities are added to the language. Okta's expression language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of functionalities offered by SpEL.
 
 ## Referencing User Attributes
 When you create an Okta expression, you can reference any attribute that lives on an Okta user profile or App user profile.
@@ -36,10 +38,10 @@ In addition to an Okta user profile, some users have separate IdP user profiles 
 | `idpuser.$attribute`   | `idpuser` implicit reference to in-context IdP<br>`$attribute` the attribute variable name   | idpuser.firstName |
 
 
-> With Universal Directory, there are about 30 attributes in the base Okta profile and any number of custom attributes can be added.  All App user profiles have a username attribute and possibly others depending on the application. To find a full list of Okta user and App user attributes and their variable names, go to People > Profile Editor. If you're not yet using Universal Directory, contact your Support or Professional Services team.
+> With Universal Directory, there are about 30 attributes in the base Okta profile and any number of custom attributes can be added. All App user profiles have a username attribute and possibly others depending on the application. To find a full list of Okta user and App user attributes and their variable names, go to People > Profile Editor. If you're not yet using Universal Directory, contact your Support or Professional Services team.
 
 ## Referencing Application and Organization Properties
-In addition to referencing user attributes, you can also reference App properties and the properties of your Organization.  To reference a particular attribute, just specify the appropriate binding and the attribute variable name.  Here are some examples:
+In addition to referencing user attributes, you can also reference App properties and the properties of your Organization. To reference a particular attribute, just specify the appropriate binding and the attribute variable name. Here are some examples:
 
 ### Application Properties
 
@@ -214,7 +216,7 @@ The following should be noted about these functions:
 | `findDirectoryUser()` | Finds the Active Directory App user object and returns that object or null if the user has more than one or no Active Directory assignments |
 | `findWorkdayUser()`   | Finds the Workday App user object and returns that object or null if the user has more than one or no Active Directory assignments          |
 
-The functions above are often used in tandem to check whether a user has an AD or Workday assignment, and if so, return an AD or Workday attribute.  See the 'Popular Expressions' table below for some examples.
+The functions above are often used in tandem to check whether a user has an AD or Workday assignment, and if so, return an AD or Workday attribute. See the 'Popular Expressions' table below for some examples.
 
 ## Constants and Operators
 
