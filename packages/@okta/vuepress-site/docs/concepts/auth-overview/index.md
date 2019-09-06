@@ -7,7 +7,7 @@ meta:
 
 # OAuth 2.0 Overview
 
-This page explains the differences between OAuth 2.0 and OpenID Connect and how these can be implemented using Okta. It will help you decide which flow is best for you based on the type of application that you are building. If you already know what kind of flow you want, you can jump directly to:
+This page provides an overview of OAuth 2.0 and OpenID Connect and how these different flows can be implemented using Okta. It will help you decide which flow is best for you based on the type of application that you are building. If you already know what kind of flow you want, you can jump directly to:
 
 - [Implementing OAuth 2.0 Authentication](/docs/concepts/auth-overview/#recommended-flow-by-application-type)
 - [SAML Authentication with OIDC](/docs/guides/add-an-external-idp/saml2/before-you-begin/)
@@ -25,7 +25,7 @@ There are three major kinds of authentication that you can perform with Okta:
 
 If you would like to work with the Okta API and control user access to Okta, then you should use [the Authentication API](/docs/reference/api/authn/).
 
-If you are interested in controlling access to your own application, then use the OAuth 2.0 and OpenID Connect (OIDC) protocols. The OAuth 2.0 protocol enables you to delegate authorization, while the OIDC protocol enables you to retrieve and store authentication information about your end-users. The Okta Authentication Guide is intended to help you figure out how to implement and use OAuth 2.0 and OIDC with Okta.
+If you are interested in controlling access to your own application, then use the OAuth 2.0 and OpenID Connect (OIDC) protocols. The OAuth 2.0 protocol enables you to delegate authorization, while the OIDC protocol enables you to retrieve and store authentication information about your end users. The Okta Authentication Guide is intended to help you figure out how to implement and use OAuth 2.0 and OIDC with Okta.
 
 ### Authentication API
 
@@ -44,7 +44,7 @@ OAuth 2.0 is a standard that apps use to provide client applications with access
 The OAuth 2.0 spec has four important roles:
 
 - The "authorization server", which is the server that issues the access token. In this case Okta is the authorization server.
-- The "resource owner", normally your application's end-user, that grants permission to access the resource server with an access token.
+- The "resource owner", normally your application's end user, that grants permission to access the resource server with an access token.
 - The "client", which is the application that requests the access token from Okta and then passes it to the resource server.
 - The "resource server", which accepts the access token and must verify that it is valid. In this case this is your application.
 
@@ -78,11 +78,11 @@ OpenID Connect is an authentication standard built on top of OAuth 2.0. It adds 
 Although OpenID Connect (OIDC) is built on top of OAuth 2.0, the specification uses slightly different terms for the roles in the flows:
 
 - The "OpenID provider", which is the authorization server that issues the ID token. In this case Okta is the OpenID provider.
-- The "end-user" whose information is contained in the ID token.
+- The "end user" whose information is contained in the ID token.
 - The "relying party", which is the client application that requests the ID token from Okta.
 
-- The "ID token" is issued by the OpenID Provider and contains information about the End-User in the form of claims.
-- A "claim" is a piece of information about the End-User.
+- The "ID token" is issued by the OpenID Provider and contains information about the End User in the form of claims.
+- A "claim" is a piece of information about the End User.
 
 The high-level flow looks the same for both OIDC and regular OAuth 2.0 flows, the primary difference being simply that an OIDC flow results in an ID token, in addition to any access or refresh tokens.
 
@@ -124,7 +124,7 @@ Depending on what kind of client you are building, you will want to use a differ
 
 ##### Is your client public?
 
-A client application is considered "public" when an end-user could possibly view and modify the code. This includes Single Page Apps (SPAs) or any mobile or native applications. In both cases, the application cannot keep secrets from malicious users.
+A client application is considered "public" when an end user could possibly view and modify the code. This includes Single Page Apps (SPAs) or any mobile or native applications. In both cases, the application cannot keep secrets from malicious users.
 
 ###### Is your client a SPA or native?
 
@@ -132,17 +132,17 @@ If your client application is a Single Page Application (SPA), you should use th
 
 If your client application is a native application, you should use the [Authorization code with PKCE flow](#authorization-code-with-pkce-flow).
 
-##### Does the client have an end-user?
+##### Does the client have an end user?
 
 If your client application is running on a server with no direct end user, then it can be trusted to store credentials and use them responsibly. If your client application will only be doing machine-to-machine interaction, then you should use the [Client Credentials flow](#client-credentials-flow).
 
 ##### Does the resource owner own the client?
 
-If you own both the client application and the resource that it is accessing, then your application can be trusted to store your end-user's login and password. Because of the high degree of trust required here, you should only use this flow if other flows are not viable. In this case, you can use the [Resource Owner Password flow](#resource-owner-password-flow).
+If you own both the client application and the resource that it is accessing, then your application can be trusted to store your end user's login and password. Because of the high degree of trust required here, you should only use this flow if other flows are not viable. In this case, you can use the [Resource Owner Password flow](#resource-owner-password-flow).
 
 ### Authorization Code Flow
 
-The Authorization Code flow is best used by server-side apps where the source code is not publicly exposed. The apps should be server-side because the request that exchanges the authorization code for a token requires a client secret, which will have to be stored in your client. The server-side app requires an end-user, however, because it relies on interaction with the end-user's web browser which will redirect the user and then receive the authorization code.
+The Authorization Code flow is best used by server-side apps where the source code is not publicly exposed. The apps should be server-side because the request that exchanges the authorization code for a token requires a client secret, which will have to be stored in your client. The server-side app requires an end user, however, because it relies on interaction with the end user's web browser which will redirect the user and then receive the authorization code.
 
 ![Auth Code Flow width:](/img/oauth_auth_code_flow.png "Auth Code Flow width:")
 
@@ -264,7 +264,7 @@ For information how to set up your application to use this flow, see [Implement 
 
 ### Client Credentials Flow
 
-The Client Credentials flow is intended for server-side (AKA "confidential") client applications with no end user, which normally describes machine-to-machine communication. The application must be server-side because it must be trusted with the client secret, and since the credentials are hard-coded, it cannot be used by an actual end-user. It involves a single, authenticated request to the `/token` endpoint, which returns an access token.
+The Client Credentials flow is intended for server-side (AKA "confidential") client applications with no end user, which normally describes machine-to-machine communication. The application must be server-side because it must be trusted with the client secret, and since the credentials are hard-coded, it cannot be used by an actual end user. It involves a single, authenticated request to the `/token` endpoint, which returns an access token.
 
 > NOTE: The Client Credentials Flow does not support refresh tokens.
 
