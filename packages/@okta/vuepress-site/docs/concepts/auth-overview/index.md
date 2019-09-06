@@ -10,7 +10,7 @@ meta:
 This page provides an overview of OAuth 2.0 and OpenID Connect and how these different flows can be implemented using Okta. It will help you decide which flow is best for you based on the type of application that you are building. If you already know what kind of flow you want, you can jump directly to:
 
 - [Implementing OAuth 2.0 Authentication](/docs/concepts/auth-overview/#recommended-flow-by-application-type)
-- [SAML Authentication with OIDC](/docs/guides/add-an-external-idp/saml2/before-you-begin/)
+- [Add an External Identity Provider](/docs/guides/add-an-external-idp/saml2/before-you-begin/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
