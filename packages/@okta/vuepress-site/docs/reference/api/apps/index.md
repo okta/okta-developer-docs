@@ -5353,7 +5353,7 @@ Specifies (optional) attribute statements for a SAML application.
 
 #### Group Attribute Statements Object
 
-Group Attribute Statements can be used in place of Attribute Statements if your org supports a large number of groups and you wish to filter them into a single SAML assertion.
+Group Attribute Statements can be used in place of Attribute Statements if your Org supports a large number of groups and you want to filter them into a single SAML assertion.
 
 | Property    | Description                                   | DataType                                        | Nullable |
 | ----------- | --------------------------------------------- | ----------------------------------------------- | -------- |
