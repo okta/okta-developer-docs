@@ -21,7 +21,7 @@ There are currently 2 parts to the site, the content and the theming/plugins.
 ### Requirements
 
 - [Node](https://nodejs.org/en/download/): 8+
-- [Yarn](https://yarnpkg.com/lang/en/docs/install/#windows-stable): 1.15+
+- [Yarn](https://yarnpkg.com/lang/en/docs/install/): 1.7 or later
 
 We recommend using one of the package manager options for installation as specified in the installation sites.
 
