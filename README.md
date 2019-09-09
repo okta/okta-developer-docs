@@ -35,7 +35,8 @@ yarn --version
 
 ### Local setup
 
-1. Clone the repo (use the **Clone or download** button above)
+1. Fork the repo [help](https://help.github.com/en/articles/fork-a-repo)
+2. Clone the repo (use the **Clone or download** button above)
 2. Install the dependencies with `yarn`:
 
 ```sh
