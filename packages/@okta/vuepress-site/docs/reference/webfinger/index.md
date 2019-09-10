@@ -2,7 +2,7 @@
 title: WebFinger
 meta:
   - name: description
-    content: The Webfinger protocol helps to determine the identity provider where a given username should be routed. This guide explains the process of finding a user's identity provider.
+    content: The Webfinger protocol helps to determine the identity provider where a given username should be routed. This guide explains the process of finding the identity provider for a user.
 ---
 
 # WebFinger
