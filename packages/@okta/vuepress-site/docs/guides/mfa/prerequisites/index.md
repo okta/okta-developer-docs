@@ -1,8 +1,5 @@
 ---
 title: Prerequisites
-meta:
-  - name: description
-    content: Use this guide to learn how to add multi-factor authentication to your apps, and how to either deploy our built-in factors or integrate with existing tokens. 
 ---
 
 Application developers and organizations are increasingly
