@@ -367,7 +367,7 @@ curl -v -X POST \
       "buttonSelector": "#btn-login",
       "passwordSelector": "#txtbox-password",
       "userNameSelector": "#txtbox-username",
-      "targetUrl": "https://example.com/login.html",
+      "targetURL": "https://example.com/login.html",
       "extraFieldSelector": ".login",
       "extraFieldValue": "SOMEVALUE",
       "loginUrlRegex": "REGEX_EXPRESSION"
