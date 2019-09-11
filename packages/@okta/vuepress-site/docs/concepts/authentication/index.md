@@ -2,7 +2,7 @@
 title: Authentication
 meta:
   - name: description
-    content: Use Okta to create a custom login experience for your apps. Learn more about OAuth 2.0 and OIDC implementations, the Authentication API, and the Sign-in Widget.
+    content: Use Okta to create a custom login experience for your apps. Learn more about OAuth 2.0 and OIDC implementations, the Authentication API, and the Sign-In Widget.
 ---
 
 # Authentication with Okta
