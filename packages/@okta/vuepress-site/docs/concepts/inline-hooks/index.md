@@ -149,7 +149,7 @@ While there are no technical restrictions on the values for any of the fields in
 
 #### debugContext
 
-Lets you specify additional information to make available in the Okta System Log in connection with the call to to your hook. You can use this object as you wish, sending any information that would be useful for debugging purposes. In the System Log, content sent in this object is populated into the `inline_hook.response.processed` event.
+Lets you specify additional information to make available in the Okta System Log in connection with the call to your hook. You can use this object as you wish, sending any information that would be useful for debugging purposes. In the System Log, content sent in this object is populated into the `inline_hook.response.processed` event.
 
 ## Inline Hook Setup
 
