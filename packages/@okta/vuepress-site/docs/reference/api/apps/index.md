@@ -367,7 +367,7 @@ curl -v -X POST \
       "buttonSelector": "#btn-login",
       "passwordSelector": "#txtbox-password",
       "userNameSelector": "#txtbox-username",
-      "targetUrl": "https://example.com/login.html",
+      "targetURL": "https://example.com/login.html",
       "extraFieldSelector": ".login",
       "extraFieldValue": "SOMEVALUE",
       "loginUrlRegex": "REGEX_EXPRESSION"
@@ -5340,7 +5340,7 @@ There are four choices for the `connection` property.
  - `ON_NETWORK` - Displays VPN connection information only when a browser's client IP matches the configured Pubic Gateway IPs. The notification appears before the end user can access the app.
  - `OFF_NETWORK` - Displays VPN connection information only when the browser's client IP doesn't match the configured Pubic Gateway IPs. The notification appears before the end user can access the app.
 
-#### Attribute Statements Object
+### Attribute Statements Object
 
 Specifies (optional) attribute statements for a SAML application.
 
@@ -5348,9 +5348,22 @@ Specifies (optional) attribute statements for a SAML application.
 | ---------- | -------------------------------------------------------------------------------------------- | ----------- | -------- |
 | name       | The reference name of the attribute statement                                                | String      | FALSE    |
 | namespace  | The name format of the attribute                                                             | String      | FALSE    |
-| values     | The value of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)      | String      | FALSE    |
+| values     | The value of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)    | String      | FALSE    |
+| type       | The type of attribute statements object                                                      | `GENERIC`   | FALSE    |
 
-##### Supported Namespaces
+#### Group Attribute Statements Object
+
+Group Attribute Statements can be used in place of Attribute Statements if your Org supports a large number of groups and you want to filter them into a single SAML assertion.
+
+| Property    | Description                                   | DataType                                        | Nullable |
+| ----------- | --------------------------------------------- | ----------------------------------------------- | -------- |
+| name        | The reference name of the attribute statement | String                                          | FALSE    |
+| namespace   | The name format of the attribute              | String                                          | FALSE    |
+| filterValue | What to filter on                             | String                                          | FALSE    |
+| filterType  | How to use `filterValue` for filtering        | `STARTS_WITH`, `EQUALS`, `CONTAINS`, or `REGEX` | FALSE    |
+| type        | The type of attribute statements object       | `GROUP`                                         | FALSE    |
+
+#### Supported Namespaces
 
 | Label            | Value                                                   |
 | ---------------- | ------------------------------------------------------- |
@@ -5362,11 +5375,11 @@ Specifies (optional) attribute statements for a SAML application.
 {
   ...
   "settings": {
-    "signOn" : {
+    "signOn": {
       ...
       "attributeStatements": [
         {
-          "type": "EXPRESSION",
+          "type": "GENERIC",
           "name": "Attribute One",
           "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
           "values": [
@@ -5374,12 +5387,19 @@ Specifies (optional) attribute statements for a SAML application.
           ]
         },
         {
-          "type": "EXPRESSION",
+          "type": "GENERIC",
           "name": "Attribute Two",
           "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
           "values": [
             "Value Two"
           ]
+        },
+        {
+          "type": "GROUP",
+          "name": "Attribute Three",
+          "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+          "filterType": "STARTS_WITH",
+          "filterValue": "starting"
         }
       ]
     }

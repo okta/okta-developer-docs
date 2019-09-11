@@ -3523,7 +3523,7 @@ The User model defines several read-only properties:
 | transitioningToStatus   | target status of an in-progress asynchronous status transition          | `PROVISIONED`, `ACTIVE`, or `DEPROVISIONED`                                                                        | TRUE       | FALSE    | TRUE     |
 | profile                 | user profile properties                                                 | [Profile Object](#profile-object)                                                                                  | FALSE      | FALSE    | FALSE    |
 | credentials             | user's primary authentication and recovery credentials                  | [Credentials Object](#credentials-object)                                                                          | FALSE      | FALSE    | FALSE    |
-| _links                  | [link relations](#links-object) for the user&#8217;s current `status`   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | TRUE       | FALSE    | TRUE     |
+| _links                  | [link relations](#links-object) for the user's current `status`   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | TRUE       | FALSE    | TRUE     |
 | _embedded               | embedded resources related to the user                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | TRUE       | FALSE    | TRUE     |
 
 Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded` are only available after a user is created.
