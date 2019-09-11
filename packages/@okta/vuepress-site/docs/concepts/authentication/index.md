@@ -15,7 +15,7 @@ The sign-in experience is one of the most important user experiences any app dev
 
 Okta provides many options for developers to handle the authentication experience that are built on top of the underlying feature set in Okta. Password policies, strong and adaptive authentication policies, and password reset workflow can all be configured easily in the administrator UI. Many of these policies can also be controlled through Okta's API.
 
-Okta provides OAuth 2.0 and OpenID Connect implementations, the Sign-in Widget, the Auth JS SDK, and the Authentication API.
+Okta provides OAuth 2.0 and OpenID Connect implementations, the Sign-In Widget, the Auth JS SDK, and the Authentication API.
 
 ### OAuth 2.0, OpenID Connect, and Social Login
 
