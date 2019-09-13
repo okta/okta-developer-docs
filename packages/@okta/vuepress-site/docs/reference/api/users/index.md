@@ -1543,6 +1543,8 @@ in the request is deleted.
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
+>Note: The User Type of a user cannot be changed. If the Request Parameters include the `type` element from the [User Model](#user-model), the value must match the existing type of the user. To change a User's type, the User object must be deleted and recreated with the desired Type.
+
 ##### Response Parameters
 
 
