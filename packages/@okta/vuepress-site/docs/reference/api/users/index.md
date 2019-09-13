@@ -3613,7 +3613,7 @@ curl -v -X GET \
 }
 ```
 
->Note: The `type` element and the `schema` and `type` links are present only if the User Types feature is enabled. See <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types).
+>Note: The `type` element and the `schema` and `type` links are present only if the User Types feature is enabled. If enabled, they appear for all users, even those with the default User Type. See <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types).
 
 ### User Properties
 
