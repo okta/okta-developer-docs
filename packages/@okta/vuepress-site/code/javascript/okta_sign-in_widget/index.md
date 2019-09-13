@@ -232,7 +232,7 @@ The Okta Sign-In Widget is fully customizable via CSS and JavaScript.
 
 > You can try all these customizations for yourself using our [Live Widget](https://developer.okta.com/live-widget/).
 
-### Authorizaion Code Flow using PKCE
+### Authorization Code Flow using PKCE
 
 To enable PKCE flow, set `pkce: true` in the `authParams` configuration object passed to `OktaSignIn`. For more information on how to set up your application to use this flow, see [Implement the Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/).
 
