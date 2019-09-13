@@ -262,7 +262,43 @@ curl -s -XPUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_
 
 ### Delete User Type
 
-This operation is not supported for beta. It is on the roadmap to be implemented before the User Types feature becomes Generally Available.
+<ApiOperation method="delete" url="/api/v1/meta/types/user/${typeId}" />
+
+Deletes a User Type permanently. This operation is not permitted for the default type, nor if there are non-deleted users with the specified type. After a User Type has been deleted, it cannot be used as the type for new users, and it no longer counts against the limit of 10 User Types.
+
+##### Request Parameters
+
+| Parameter | Description                                                                           | Param Type | DataType | Required | Default |
+| --------- | ------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| typeId    | `id` of user type                                                                     | URL        | String   | TRUE     |         |
+
+##### Response Parameters
+
+None.
+
+Passing an invalid `typeId` returns a `404 Not Found` status code with error code `E0000007`.
+
+Passing the id of the default type returns a `403 Forbidden` status code with error code `E0000142` and a `reason` of `PROHIBITED`.
+
+Passing the id of a type for which non-deleted users exist returns a `403 Forbidden` status code with error code `E0000142` and a `reason` of `UNMET_REQUIREMENTS`.
+
+##### Request Example
+
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4"
+```
+
+##### Response Example
+
+
+```http
+HTTP/1.1 204 No Content
+```
 
 ## Specify the User Type of a New User
 
