@@ -95,7 +95,7 @@ curl -s -H "Authorization: SSWS ${api_token}" https://{yourOktaDomain}/api/v1/me
 
 <ApiOperation method="get" url="/api/v1/meta/types/user/{typeId}" />
 
-This operation will fetch a User Type by ID. The special identifier `default` may be used to fetch the default User Type.
+Fetches a User Type by ID. The special identifier `default` may be used to fetch the default User Type.
 
 ##### Request Parameters
 
@@ -149,9 +149,9 @@ curl -s -H "Authorization: SSWS ${api_token}" https://{yourOktaDomain}/api/v1/me
 
 Creates a new User Type. A `default` User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
 
-Okta periodically updates the default schemas for new orgs, and new User Types will be based on the most up to date schema. This means that the schema associated with a new User Type is initialized with the same set of properties as a newly-created default User Type. This is not necessarily the same as the properties your default type received (if it was created a long time ago).
+Okta periodically updates the default schemas for new orgs, and new User Types will be based on the most up to date schema. This means that the schema associated with a new User Type is initialized with the same set of properties as a newly-created default User Type. This is not necessarily the same as the properties your default type received.
 
-Note: If you have modified your default schema, those changes will not propagate into this new User Type.
+>Note: If you have modified your default schema, those changes will not propagate into this new User Type.
 
 ##### Request Parameters
 
@@ -265,7 +265,7 @@ curl -s -XPUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_
 
 <ApiOperation method="delete" url="/api/v1/meta/types/user/${typeId}" />
 
-Deletes a User Type permanently. This operation is not permitted for the default type, nor if there are non-deleted users with the specified type. After a User Type has been deleted, it cannot be used as the type for new users, and it no longer counts against the limit of 10 User Types.
+Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users. After a User Type has been deleted, it cannot be used as the type for new users, and it no longer counts against the limit of 10 User Types.
 
 ##### Request Parameters
 
@@ -303,7 +303,7 @@ HTTP/1.1 204 No Content
 
 ## Specify the User Type of a New User
 
-The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is "id". The type specification is also added to the [User Model](/docs/reference/api/users/#user-model) (see [User object updates](#user-object-updates)), but after user creation the type is read-only.
+The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is "id". The type specification is also added to the [User Model](/docs/reference/api/users/#user-model), but after user creation the type is read-only.
 
 ##### Example
 
@@ -317,9 +317,7 @@ The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-t
 
 All operations documented under [User Schema Operations](/docs/reference/api/schemas/#user-schema-operations) will continue to operate as before. All these APIs now have an alternate form - replace the trailing `/default` with a schema ID - which will perform the relevant operation on the schema associated with any type.
 
-Just as a schema is currently associated with a User Type, the schema ID is related to the type ID: replace the leading `oty` with `osc`. For example, a User Type with ID `oty1234567890abcdefg` would have a Schema ID of `osc1234567890abcdefg`.
-
-In the future the linkage between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship.
+Each User Type has an associated schema. In the future the linkage between Schema and User Type may be extended (for example, to allow multuiple Types to share a Schema) but for now this is a 1:1 relationship. Given a User Type, the schema ID of the associated Schema can be derived by replacing the leading `oty` of the type ID with `osc`. For example, a User Type with ID `oty1234567890abcdefg` would have a Schema ID of `osc1234567890abcdefg`.
 
 ### Example
 
@@ -345,49 +343,6 @@ To create a Linked Object Definition, you can continue to POST to `/api/v1/meta/
 You should POST to the new URL `/api/v1/meta/schemas/user/linkedObjects` instead.
 
 Everything else - body of the payload, return values, etc. - is unchanged. This is simply a change of the URL endpoint.
-
-## User object updates
-
-When a User object is returned, some additional fields will return information about the User's type. The type ID will be returned as a new top-level entry in the JSON. Currently, Okta does not support changing the User Type of an existing User, and attempting to do so will result in an error. To change a User's type, the User object must be deleted and recreated with the desired type.
-
-Two additional `_links` will be returned, one for the schema and another for the User Type. See example below.
-
-```json
-{
-  "_links": {
-    "activate": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u6d60iOU2PvPYya0g4/lifecycle/activate",
-      "method": "POST"
-    },
-    "schema": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscolnyE70oiSYul90g3"
-    },
-    "self": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u6d60iOU2PvPYya0g4"
-    },
-    "type": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyolnyE70oiSYul90g3"
-    }
-  },
-  "activated": null,
-  "created": "2018-06-11T18:56:20.000Z",
-  "credentials": {
-    "...": "..."
-  },
-  "id": "00u6d60iOU2PvPYya0g4",
-  "lastLogin": null,
-  "lastUpdated": "2018-08-20T23:42:06.000Z",
-  "passwordChanged": null,
-  "profile": {
-    "...": "..."
-  },
-  "status": "STAGED",
-  "statusChanged": null,
-  "type": {
-    "id": "otyolnyE70oiSYul90g3"
-  }
-}
-```
 
 ## User Type Model
 
