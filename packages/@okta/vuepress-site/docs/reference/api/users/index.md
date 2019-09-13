@@ -29,6 +29,7 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User with Password & Recovery Question](#create-user-with-password-recovery-question)
 - [Create User with Authentication Provider](#create-user-with-authentication-provider)
 - [Create User in Group](#create-user-in-group)
+- [Create User with Non-Default User Type](#create-user-with-non-default-user-type)
 
 ##### Request Parameters
 
@@ -123,6 +124,9 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -193,6 +197,9 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -260,6 +267,9 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -334,6 +344,9 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -408,6 +421,9 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -482,6 +498,9 @@ curl -v -X POST \
     "deactivate": {
       "href": "https://{yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/lifecycle/deactivate",
       "method": "POST"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -546,10 +565,87 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
 ```
+
+#### Create User with Non-Default User Type
+
+Creates a user with a specified User Type (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
+
+The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user cannot be assigned a different User Type.
+
+##### Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.brock@example.com",
+    "login": "isaac.brock@example.com",
+    "mobilePhone": "555-415-1337"
+  },
+  "type": {
+    "id": "otyfnjfba4ye7pgjB0g4"
+  }
+}' "https://{yourOktaDomain}/api/v1/users?activate=false"
+```
+
+##### Response Example
+
+```json
+{
+  "id": "00ub0oNGTSWTBKOLGLNR",
+  "status": "STAGED",
+  "created": "2013-07-02T21:36:25.344Z",
+  "activated": null,
+  "statusChanged": null,
+  "lastLogin": null,
+  "lastUpdated": "2013-07-02T21:36:25.344Z",
+  "passwordChanged": null,
+  "type": {
+    "id": "otyfnjfba4ye7pgjB0g4"
+  },
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.brock@example.com",
+    "login": "isaac.brock@example.com",
+    "mobilePhone": "555-415-1337"
+  },
+  "credentials": {
+    "provider": {
+      "type": "OKTA",
+      "name": "OKTA"
+    }
+  },
+  "_links": {
+    "schema": {
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
+    },
+    "activate": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+    },
+    "type": {
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
+    }
+  }
+}
+```
+
+>Note: The `type` property and the `schema` and `type` links will be present in all responses if the User Types feature is enabled, whether or not the user is created with a non-default User Type. See [User Model](#user-model).
 
 ### Get User
 
@@ -3445,6 +3541,9 @@ curl -v -X GET \
   "lastLogin": "2013-06-24T17:39:19.000Z",
   "lastUpdated": "2013-06-27T16:35:28.000Z",
   "passwordChanged": "2013-06-24T16:39:19.000Z",
+  "type": {
+    "id": "otyfnjfba4ye7pgjB0g4"
+   },
   "profile": {
     "login": "isaac.brock@example.com",
     "firstName": "Isaac",
@@ -3501,10 +3600,18 @@ curl -v -X GET \
     },
     "changePassword": {
       "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+    },
+    "schema": {
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
+    },
+    "type": {
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
     }
   }
 }
 ```
+
+>Note: The `type` element and the `schema` and `type` links are present only if the User Types feature is enabled. See <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types).
 
 ### User Properties
 
@@ -3520,6 +3627,7 @@ The User model defines several read-only properties:
 | lastLogin               | timestamp of last login                                                 | Date                                                                                                               | TRUE       | FALSE    | TRUE     |
 | lastUpdated             | timestamp when user was last updated                                    | Date                                                                                                               | FALSE      | FALSE    | TRUE     |
 | passwordChanged         | timestamp when password last changed                                    | Date                                                                                                               | TRUE       | FALSE    | TRUE     |
+| type <ApiLifecycle access="ea" />  | user type that determines the schema for the user's profile  | Map (see below)                                                                                                    | FALSE      | FALSE    | TRUE     |
 | transitioningToStatus   | target status of an in-progress asynchronous status transition          | `PROVISIONED`, `ACTIVE`, or `DEPROVISIONED`                                                                        | TRUE       | FALSE    | TRUE     |
 | profile                 | user profile properties                                                 | [Profile Object](#profile-object)                                                                                  | FALSE      | FALSE    | FALSE    |
 | credentials             | user's primary authentication and recovery credentials                  | [Credentials Object](#credentials-object)                                                                          | FALSE      | FALSE    | FALSE    |
@@ -3530,6 +3638,8 @@ Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded
 
 * The `activated` timestamp will only be available for users activated after 06/30/2013.
 * The`statusChanged` and `lastLogin` timestamps will be missing for users created before 06/30/2013 and updated on next status change or login.
+
+The `type` property is a map that identifies the User Type of the user (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new user, but once the user is created the value is read-only.
 
 ### User Status
 
