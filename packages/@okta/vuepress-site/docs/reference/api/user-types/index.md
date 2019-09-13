@@ -3,7 +3,7 @@ title: User Types
 category: management
 ---
 
-# User Types API
+# User Types API <ApiLifecycle access="ea" />
 
 The User Types API provides operations to manage User Types. To manage the schemas associated with the User Types, refer to the [User Schema API reference](/docs/reference/api/schemas/#user-schema-operations) and see below for updates for this feature.
 
@@ -264,9 +264,21 @@ curl -s -XPUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_
 
 This operation is not supported for beta. It is on the roadmap to be implemented before the User Types feature becomes Generally Available.
 
+## Specify the User Type of a New User
+
+The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is "id". The type specification is also added to the [User Model](/docs/reference/api/users/#user-model) (see [User object updates](#user-object-updates)), but after user creation the type is read-only.
+
+##### Example
+
+```json
+  "type": {
+    "id": "otyfnjfba4ye7pgjB0g4"
+  }
+```
+
 ## User Schema Operation Extensions to Non-Default Types
 
-All operations documented under [User Schema Operations](/docs/reference/api/schemas/#user-schema-operations) will continue to operate as normal. All these APIs now have an alternate form - replace the trailing `/default` with a schema ID - which will perform the relevant operation on the schema associated with any type.
+All operations documented under [User Schema Operations](/docs/reference/api/schemas/#user-schema-operations) will continue to operate as before. All these APIs now have an alternate form - replace the trailing `/default` with a schema ID - which will perform the relevant operation on the schema associated with any type.
 
 Just as a schema is currently associated with a User Type, the schema ID is related to the type ID: replace the leading `oty` with `osc`. For example, a User Type with ID `oty1234567890abcdefg` would have a Schema ID of `osc1234567890abcdefg`.
 
