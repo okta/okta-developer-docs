@@ -303,7 +303,7 @@ HTTP/1.1 204 No Content
 
 ## Specify the User Type of a New User
 
-The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is "id". The type specification is also added to the [User Model](/docs/reference/api/users/#user-model), but after user creation the type is read-only.
+The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is `id`. The type specification is also added to the [User Model](/docs/reference/api/users/#user-model), but after user creation the type is read-only.
 
 ##### Example
 
@@ -312,20 +312,6 @@ The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-t
     "id": "otyfnjfba4ye7pgjB0g4"
   }
 ```
-
-## User Schema Operation Extensions to Non-Default Types
-
-All operations documented under [User Schema Operations](/docs/reference/api/schemas/#user-schema-operations) will continue to operate as before. All these APIs now have an alternate form - replace the trailing `/default` with a schema ID - which will perform the relevant operation on the schema associated with any type.
-
-Each User Type has an associated schema. In the future the linkage between Schema and User Type may be extended (for example, to allow multuiple Types to share a Schema) but for now this is a 1:1 relationship. Given a User Type, the schema ID of the associated Schema can be derived by replacing the leading `oty` of the type ID with `osc`. For example, a User Type with ID `oty1234567890abcdefg` would have a Schema ID of `osc1234567890abcdefg`.
-
-### Example
-
-With the existing Schemas API without User Types, if you want to add a new property to the schema you would make a POST to `/api/v1/meta/schemas/user/default` (updating the default because that is the only type).
-
-With the User Types API, if you created a new type `oty1234567890abcdefg` and later wish to add a property to its schema, send a POST to the same endpoint, replacing `default` with the appropriate Schema ID: `/api/v1/meta/schemas/user/osc1234567890abcdefg`.
-
-Everything else - body of the payload, return values, etc. - is the same as the [Schemas API](/docs/reference/api/schemas/).
 
 ## Linked Object endpoint updates
 
