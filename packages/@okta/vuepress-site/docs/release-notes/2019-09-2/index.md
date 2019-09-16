@@ -10,4 +10,4 @@ title: Okta API Products Release Notes
 
 ### Bug Fixed in 2019.09.2
 
-* The request URI provided in the Token Inline Hook request to the [Token Inline Hook Management API](/docs/reference/token-hook/#sample-json-payload-of-a-request) was wrong when users tried to sign in through Identity Provider Discovery or the default Identity Provider. (OKTA-243190)
+* When users signed in using IdP Discovery or a Default IdP, any [outgoing Hooks](/docs/reference/token-hook/#sample-json-payload-of-a-request) related to that sign-in event contained an incorrect request URL `value`. (OKTA-243190)
