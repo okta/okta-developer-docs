@@ -1,11 +1,14 @@
 ---
-title: Add Identity Management to Your Spring App
+title: Add User Management to Your Spring App
 language: Java
 integration: back-end
 component: Code
+meta:
+  - name: description
+    content: Our guide details how to add user authentication to your Java Spring app.
 ---
 
-# <i class='icon-48 docsPage code-spring'></i> Add Identity Management to Your Spring App
+# <i class='icon-48 docsPage code-spring'></i> Add User Management to Your Spring App
 
 <ul class='language-tabs'>
 	<li>

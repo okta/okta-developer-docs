@@ -1,6 +1,8 @@
 ---
 title: Postman Collections
-excerpt: Import Okta API collections in Postman for easy inspection.
+meta:
+  - name: description
+    content: Find all of the Okta API collections which you can use with Postman.
 ---
 
 # Import a Postman Collection
