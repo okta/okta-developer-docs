@@ -16,12 +16,18 @@ Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 ## User Schema Operations
 
+Each of the operations described here affects the Schema associated with a single User Type (see [User Types](/docs/reference/api/user-types)). The `${typeId}` element in the URI specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.
+
+Each User Type has an associated Schema. In the future the linkage between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. Given a User Type, the schema ID of the associated Schema can be derived by replacing the leading `oty` of the user type ID with `osc`. For example, a User Type with ID `oty1234567890abcdefg` would have a schema ID of `osc1234567890abcdefg`. The ID can also be obtained from the `schema` link associated with a User Type as returned by a User Types operation.
+
+The Request Examples below all use the `default` form, as all orgs include a default User Type.
+
 ### Get User Schema
 
 
-<ApiOperation method="get" url="/api/v1/meta/schemas/user/default" />
+<ApiOperation method="get" url="/api/v1/meta/schemas/user/${typeId}" />
 
-Fetches the default schema for a User
+Fetches the schema for a User Type
 
 ##### Request Parameters
 
@@ -148,7 +154,7 @@ curl -v -X GET \
 ### Add Property to User Profile Schema
 
 
-<ApiOperation method="post" url="/api/v1/meta/schemas/user/default" />
+<ApiOperation method="post" url="/api/v1/meta/schemas/user/${typeId}" />
 
 Adds one or more [custom user profile properties](#user-profile-schema-property-object) to the user schema
 
@@ -317,7 +323,7 @@ curl -v -X POST \
 ### Update User Profile Schema Property
 
 
-<ApiOperation method="post" url="/api/v1/meta/schemas/user/default" />
+<ApiOperation method="post" url="/api/v1/meta/schemas/user/${typeId}" />
 
 Updates one or more [custom user profile properties](#user-profile-schema-property-object) in the schema, a [permission](#schema-property-permission-object) for a [user profile base property](#user-profile-base-subschema), or the nullability of the `firstName` and `lastName` properties in the [user profile base schema](#user-profile-base-subschema).
 
@@ -506,10 +512,10 @@ curl -v -X POST \
 ### Remove Property from User Profile Schema
 
 
-<ApiOperation method="post" url="/api/v1/meta/schemas/user/default" />
+<ApiOperation method="post" url="/api/v1/meta/schemas/user/${typeId}" />
 
 Removes one or more [custom user profile properties](#user-profile-schema-property-object) from the user schema.
-A property cannot be removed if it is being referenced as a [matchAttribute](/docs/reference/api/idps/#subject-policy-object) in SAML2 IdPs.
+A property cannot be removed from the default schema if it is being referenced as a [matchAttribute](/docs/reference/api/idps/#subject-policy-object) in SAML2 IdPs. (Currently, all validation of SAML assertions is performed only against the default user type.)
 
 ##### Request Parameters
 
@@ -650,12 +656,14 @@ curl -v -X POST \
 
 ## App User Schema Operations
 
+At present, an App Instance can be associated with users of multiple User Types (see [User Types](/docs/reference/api/user-types)). Different User Types may be configured with different mappings between the user and app user, but all users who are assigned the app share the same App User Schema. Thus, unlike the User Schema operations, the App User Schema operations all specify `default` and do not accept a schema ID.
+
 ### Get App User Schema
 
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/apps/${instanceId}/default" />
 
-Fetches the default schema for an App User
+Fetches the schema for an App User
 
 ##### Request Parameters
 
@@ -956,7 +964,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/meta/schemas/apps/${instanceId}/default" />
 
-Removes one or more [custom app user profile properties](#app-user-profile-schema-property-object) from the user schema.
+Removes one or more [custom app user profile properties](#app-user-profile-schema-property-object) from the app user schema.
 
 ##### Request Parameters
 
@@ -1260,7 +1268,9 @@ The base user profile is based on the [System for Cross-Domain Identity Manageme
 | managerId         | `id` of a user's manager                                                                                                     | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | manager           | displayName of the user's manager                                                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 
-> Note: A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code; e.g., 'en_US' specifies the language English and country US.
+>Note: A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code; e.g., 'en_US' specifies the language English and country US.
+
+>Note: The `userType` field is an arbitrary String value and is not related to the newer User Types feature (see [User Types](/docs/reference/api/user-types)).
 
 ##### Login Pattern Validation
 
