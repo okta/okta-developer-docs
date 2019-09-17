@@ -242,7 +242,7 @@ body {
     background: -webkit-linear-gradient(top, #46b3e9 0%, #007dc1 74%, #007dc1 100%);
     background: linear-gradient(to bottom, #46b3e9 0%, #007dc1 74%, #007dc1 100%); }
   .section--full-width.bg--light-blue {
-    background-image: image_url("okta-home-hero.png");
+    background-image: url("/img/okta-home-hero.png");
     background-size: cover; }
   .section--full-width.bg--light-grey {
     background: #fafafa; }
@@ -356,7 +356,7 @@ a[class*=col-] {
     top: 20px;
     width: 160px; }
   .site-header .search-button {
-    background: image_url("magnify.svg");
+    background: url("/img/magnify.svg");
     background-size: 30px;
     display: block;
     height: 30px;
@@ -429,7 +429,7 @@ a[class*=col-] {
     display: none; }
 
 .site-title {
-  background: image_url("logo-new.png?151028") no-repeat center;
+  background: url("/img/logo-new.png?151028") no-repeat center;
   background-size: auto 34px;
   display: block;
   float: left;
@@ -584,13 +584,13 @@ a[class*=col-] {
         margin-bottom: 0;
         padding-bottom: 0; }
       .site-nav .dropdown-window > p.stack-overflow {
-        background-image: image_url("icons/rounded-stackoverflow--small-blue.png");
+        background-image: url("/img/icons/rounded-stackoverflow--small-blue.png");
         height: 30px;
         padding-top: 10px; }
       .site-nav .dropdown-window > p.email {
-        background-image: image_url("icons/rounded-email--small-blue.png"); }
+        background-image: url("/img/icons/rounded-email--small-blue.png"); }
       .site-nav .dropdown-window > p.tel {
-        background-image: image_url("icons/rounded-mobile--small-blue.png"); }
+        background-image: url("/img/icons/rounded-mobile--small-blue.png"); }
     .site-nav .dropdown-window a {
       font-weight: 500;
       text-decoration: none; }
@@ -629,11 +629,11 @@ a[class*=col-] {
       .site-nav .pac-nav--mobile .has-dropdown .dropdown-window > p:last-child {
         border-bottom: 0; }
       .site-nav .pac-nav--mobile .has-dropdown .dropdown-window > p.stack-overflow {
-        background-image: image_url("icons/rounded-stackoverflow--small-grey.png"); }
+        background-image: url("/img/icons/rounded-stackoverflow--small-grey.png"); }
       .site-nav .pac-nav--mobile .has-dropdown .dropdown-window > p.email {
-        background-image: image_url("icons/rounded-email--small-grey.png"); }
+        background-image: url("/img/icons/rounded-email--small-grey.png"); }
       .site-nav .pac-nav--mobile .has-dropdown .dropdown-window > p.tel {
-        background-image: image_url("icons/rounded-mobile--small-grey.png"); }
+        background-image: url("/img/icons/rounded-mobile--small-grey.png"); }
 
 iframe[name='google_conversion_frame'] {
   height: 0 !important;
@@ -750,19 +750,19 @@ iframe[name='google_conversion_frame'] {
     background-position: bottom; }
 
 .icon-with-hover--github {
-  background-image: image_url("icons/rounded-github--grey-with-hover.png"); }
+  background-image: url("/img/icons/rounded-github--grey-with-hover.png"); }
 
 .icon-with-hover--twitter {
-  background-image: image_url("icons/rounded-twitter--grey-with-hover.png"); }
+  background-image: url("/img/icons/rounded-twitter--grey-with-hover.png"); }
 
 .icon-with-hover--stack-overflow {
-  background-image: image_url("icons/rounded-stackoverflow--grey-with-hover.png"); }
+  background-image: url("/img/icons/rounded-stackoverflow--grey-with-hover.png"); }
 
 .icon-with-hover--rss {
-  background-image: image_url("icons/rounded-rss--grey-with-hover.png"); }
+  background-image: url("/img/icons/rounded-rss--grey-with-hover.png"); }
 
 .icon-with-hover--help {
-  background-image: image_url("icons/rounded-help--grey-with-hover.png"); }
+  background-image: url("/img/icons/rounded-help--grey-with-hover.png"); }
 
 [class*=icon-small--] {
   background: no-repeat top;
@@ -772,16 +772,16 @@ iframe[name='google_conversion_frame'] {
   width: 26px; }
 
 .icon-small--okta {
-  background-image: image_url('icons/flat-okta--with-hover.png'); }
+  background-image: url('/img/icons/flat-okta--with-hover.png'); }
 
 .icon-small--folder {
-  background-image: image_url('icons/flat-folder--with-hover.png'); }
+  background-image: url('/img/icons/flat-folder--with-hover.png'); }
 
 .icon-small--updown {
-  background-image: image_url('icons/flat-updown--with-hover.png'); }
+  background-image: url('/img/icons/flat-updown--with-hover.png'); }
 
 .icon-small--db {
-  background-image: image_url('icons/flat-database--with-hover.png'); }
+  background-image: url('/img/icons/flat-database--with-hover.png'); }
 
 .icon-small--social {
-  background-image: image_url('icons/flat-twitter--with-hover.png'); }
+  background-image: url('/img/icons/flat-twitter--with-hover.png'); }
