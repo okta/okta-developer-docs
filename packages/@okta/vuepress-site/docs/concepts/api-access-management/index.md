@@ -136,7 +136,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * When a gateway retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 * If the gateway is performing endpoint or HTTP verb-level authorization using scopes, the scopes must be defined and granted in the Okta Authorization Server or Custom Authorization Server before being used in the gateway.
 
-    **Note:** If a user requests scopes from the authorization server that haven't been configured, an error is returned.
+> **Note:** If a user requests scopes from the authorization server that haven't been configured, an error is returned.
 
 ##### Securing applications
 
