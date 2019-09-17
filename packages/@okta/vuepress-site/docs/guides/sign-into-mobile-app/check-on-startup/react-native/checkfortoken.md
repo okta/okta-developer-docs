@@ -1,11 +1,9 @@
 Call `isAuthenticated` function if you want to check whether the user is signed-in:
 
 ```javascript
-async checkAuthentication() {
-    const result = await isAuthenticated();
-    if (result.authenticated !== this.state.authenticated) {
-        this.setState({authenticated: result.authenticated});
-    }
+const result = await isAuthenticated();
+if (result.authenticated !== this.state.authenticated) {
+    this.setState({authenticated: result.authenticated});
 }
 ```
 
