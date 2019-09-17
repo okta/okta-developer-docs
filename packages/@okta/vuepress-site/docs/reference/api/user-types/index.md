@@ -313,23 +313,6 @@ The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-t
   }
 ```
 
-## Linked Object endpoint updates
-
-Linked Objects now apply to every User Type. If an org has the default type and 2 custom types, a Linked Object will be capable of linking a User of any of those 3 types to any other User. Each type sees exactly the same Linked Object definitions.
-
-As such, the reference to `/default` in the Linked Objects URL is now deprecated. All old URLs from the [Linked Objects API](/docs/reference/api/linked-objects/) will continue to work for backwards compatibility purposes. But the operations now reside at the new URLs (formed by removing `/default`).
-
-Deprecated URL: `/api/v1/meta/schemas/user/default/linkedObjects`
-New URL: `/api/v1/meta/schemas/user/linkedObjects`
-
-### Example
-
-To create a Linked Object Definition, you can continue to POST to `/api/v1/meta/schemas/user/default/linkedObjects`.
-
-You should POST to the new URL `/api/v1/meta/schemas/user/linkedObjects` instead.
-
-Everything else - body of the payload, return values, etc. - is unchanged. This is simply a change of the URL endpoint.
-
 ## User Type Model
 
 ### Example User Type
