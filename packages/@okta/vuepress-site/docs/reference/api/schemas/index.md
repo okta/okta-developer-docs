@@ -16,7 +16,7 @@ Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 ## User Schema Operations
 
-Each of the operations described here affects the Schema associated with a single User Type (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). The `${typeId}` element in the URI specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.
+Each of the operations described here affects the Schema associated with a single User Type (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). The `${typeId}` element in the URL specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.
 
 Each User Type has an associated Schema. In the future the linkage between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. Given a User Type, the schema ID of the associated Schema can be derived by replacing the leading `oty` of the user type ID with `osc`. For example, a User Type with ID `oty1234567890abcdefg` would have a schema ID of `osc1234567890abcdefg`. The ID can also be obtained from the `schema` link associated with a User Type as returned by a User Types operation.
 
