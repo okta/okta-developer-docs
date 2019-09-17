@@ -6,7 +6,7 @@ category: management
 # User Types API
 <ApiLifecycle access="ea" />
 
-The User Types API provides operations to manage User Types. To manage the schemas associated with the User Types, refer to the [User Schema API reference](/docs/reference/api/schemas/#user-schema-operations) and see below for updates for this feature.
+The User Types API provides operations to manage User Types. To manage the schemas associated with the User Types, refer to the [User Schema API reference](/docs/reference/api/schemas/#user-schema-operations).
 
 ## User Types Operations
 
@@ -301,7 +301,7 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-## Specify the User Type of a New User
+## Specify the User Type of a new user
 
 The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is `id`. The type specification is also added to the [User Model](/docs/reference/api/users/#user-model), but after user creation the type is read-only.
 
