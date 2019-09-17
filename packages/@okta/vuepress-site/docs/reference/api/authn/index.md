@@ -475,7 +475,7 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-on and
         "status": "NOT_SETUP",
         "enrollment": "OPTIONAL"
       },
-      {      
+      {
         "factorType": "token:software:totp",
         "provider": "OKTA",
         "_links": {
