@@ -1268,9 +1268,9 @@ The base user profile is based on the [System for Cross-Domain Identity Manageme
 | managerId         | `id` of a user's manager                                                                                                     | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | manager           | displayName of the user's manager                                                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 
->Note: A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code; e.g., 'en_US' specifies the language English and country US.
+>**Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code; e.g., 'en_US' specifies the language English and country US.
 
->Note: The `userType` field is an arbitrary String value and is not related to the newer User Types feature (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)).
+>**Note:** The `userType` field is an arbitrary String value and is not related to the newer User Types feature (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)).
 
 ##### Login Pattern Validation
 

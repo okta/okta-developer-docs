@@ -151,7 +151,7 @@ Creates a new User Type. A `default` User Type is automatically created along wi
 
 Okta periodically updates the default schemas for new orgs, and new User Types will be based on the most up to date schema. This means that the schema associated with a new User Type is initialized with the same set of properties as a newly-created default User Type. This is not necessarily the same as the properties your default type received.
 
->Note: If you have modified your default schema, those changes will not propagate into this new User Type.
+>**Note:** If you have modified your default schema, those changes will not propagate into this new User Type.
 
 ##### Request Parameters
 
