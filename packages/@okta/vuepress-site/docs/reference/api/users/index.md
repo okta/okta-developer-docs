@@ -53,7 +53,7 @@ All responses return the created [User](#user-model).  Activation of a user is a
 
 The user is emailed a one-time activation token if activated without a password.
 
->Note: If the user is assigned to an application that is configured for provisioning, the activation process triggers downstream provisioning to the application.  It is possible for a user to login before these applications have been successfully provisioned for the user.
+>**Note:** If the user is assigned to an application that is configured for provisioning, the activation process triggers downstream provisioning to the application.  It is possible for a user to login before these applications have been successfully provisioned for the user.
 
 | Security Q & A   | Password   | Activate Query Parameter   | User Status     | Login Credential         | Welcome Screen   |
 | :--------------: | :--------: | :------------------------: | :-------------: | :----------------------: | :--------------: |
@@ -645,7 +645,7 @@ curl -v -X POST \
 }
 ```
 
->Note: The `type` property and the `schema` and `type` links will be present in all responses if the User Types feature is enabled, whether or not the user is created with a non-default User Type. See [User Model](#user-model).
+>**Note:** The `type` property and the `schema` and `type` links will be present in all responses if the User Types feature is enabled, whether or not the user is created with a non-default User Type. See [User Model](#user-model).
 
 ### Get User
 
@@ -1543,7 +1543,7 @@ in the request is deleted.
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
->Note: The User Type of a user cannot be changed. If the Request Parameters include the `type` element from the [User Model](#user-model), the value must match the existing type of the user. To change a User's type, the User object must be deleted and recreated with the desired Type.
+>**Note:** The User Type of a user cannot be changed. If the Request Parameters include the `type` element from the [User Model](#user-model), the value must match the existing type of the user. To change a User's type, the User object must be deleted and recreated with the desired Type.
 
 ##### Response Parameters
 
@@ -2320,7 +2320,7 @@ Generates a one-time token (OTT) that can be used to reset a user's password.  T
 
 This operation will transition the user to the status of `RECOVERY` and the user will not be able to login or initiate a forgot password flow until they complete the reset flow.
 
-**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
+>**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
 
 ##### Request Parameters
 
@@ -2584,7 +2584,7 @@ Content-Type: application/json
 
 Removes all active identity provider sessions. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.
 
->Note: This operation doesn't clear the sessions created for web sign in or native applications.
+>**Note:** This operation doesn't clear the sessions created for web sign in or native applications.
 
 #### Request Parameters
 
@@ -3613,7 +3613,7 @@ curl -v -X GET \
 }
 ```
 
->Note: The `type` element and the `schema` and `type` links are present only if the User Types feature is enabled. If enabled, they appear for all users, even those with the default User Type. See <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types).
+>**Note:** The `type` element and the `schema` and `type` links are present only if the User Types feature is enabled. If enabled, they appear for all users, even those with the default User Type. See <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types).
 
 ### User Properties
 
