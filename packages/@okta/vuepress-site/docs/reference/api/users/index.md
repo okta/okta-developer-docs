@@ -3641,7 +3641,7 @@ Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded
 * The `activated` timestamp will only be available for users activated after 06/30/2013.
 * The`statusChanged` and `lastLogin` timestamps will be missing for users created before 06/30/2013 and updated on next status change or login.
 
-The `type` property is a map that identifies the User Type of the user (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new user, but once the user is created the value is read-only.
+The `type` property is a map that identifies the User Type of the user (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new User, but once the User is created the value is read-only.
 
 ### User Status
 
