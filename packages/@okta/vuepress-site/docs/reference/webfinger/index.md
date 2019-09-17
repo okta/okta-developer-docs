@@ -1,6 +1,8 @@
 ---
 title: WebFinger
-excerpt: Determine the Identity Provider that a user should be routed to.
+meta:
+  - name: description
+    content: The Webfinger protocol helps to determine the Identity Provider where a given username should be routed. This guide explains the process of finding the Identity Provider for a user.
 ---
 
 # WebFinger

@@ -78,7 +78,7 @@ curl -v -X POST \
 }' "https://{yourOktaDomain}/api/v1/inlineHooks"
 ```
 
-> Note: `X-Other-Header` is an example of an additional optional header, with its value specified as `some-other-value`. For each optional header, you choose the name and value you wish Okta to pass to your external service.
+> **Note:** `X-Other-Header` is an example of an additional optional header, with its value specified as `some-other-value`. For each optional header, you choose the name and value you wish Okta to pass to your external service.
 
 ##### Response Example
 
@@ -113,7 +113,7 @@ curl -v -X POST \
 }
 ```
 
-> Note: The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses.
+> **Note:** The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses.
 
 ### Get Inline Hook
 

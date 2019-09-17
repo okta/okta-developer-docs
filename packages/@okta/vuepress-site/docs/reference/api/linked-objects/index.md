@@ -1,9 +1,9 @@
 ---
 title: Linked Objects
 category: management
-excerpt: >-
-  The Linked Objects API helps you create relationships between pairs of users,
-  such as Manager and Subordinate.
+meta:
+  - name: description
+    content: Users have relationships to each other, such as managers and reporting employees. With the Linked Objects API, you can create up to 200 linked object definitions.
 ---
 
 # Linked Objects API
@@ -192,7 +192,7 @@ HTTP/1.1 200 OK
     }
 }
 ```
-> Note: Regardless of whether you specify the `primary` or `associated` name in the request, the resulting link contains the `primary`.
+> **Note:** Regardless of whether you specify the `primary` or `associated` name in the request, the resulting link contains the `primary`.
 
 ### Get All Linked Object Definitions
 

@@ -18,11 +18,11 @@ Google Authenticator, RSA SecurID, Symantec VIP, and Duo Security.
 
 To follow along with this guide, you will need to have your own Okta Developer Edition org and have Postman configured to make API requests to that account.
 
-1.  Creating your Okta Developer Edition org
+1. Creating your Okta Developer Edition org
     If you don't already have one, create your own Okta Developer
     Edition org by visiting: <https://developer.okta.com/signup/>
     and following the instructions.
-2.  Setting up the Postman API client
+2. Setting up the Postman API client
     After you have logged in to your account in your Okta Developer
     Edition org, follow the
     [instructions on the Okta Developer Documentation page for setting up Postman](/code/rest/).

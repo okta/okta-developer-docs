@@ -223,7 +223,7 @@ PHP, reconfiguring Apache, and creating some symbolic links.
     "[Setting up a SAML application in Okta](/docs/guides/saml-application-setup/)"
     instructions that you followed above!
 
-    > Note: The contents of `{metadata-url}` should look similar to this:
+    > **Note:** The contents of `{metadata-url}` should look similar to this:
     > `https://{yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
 
 

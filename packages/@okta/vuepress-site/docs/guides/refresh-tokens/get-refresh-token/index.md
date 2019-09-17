@@ -20,7 +20,7 @@ The following combinations of grant type and scope, when sent to `/token` endpoi
 | `refresh_token`      | `offline_access`            |
 | `password`           | `offline_access`            |
 
-> NOTE: The authorization code flow is unique, in that the `offline_access` scope has to be requested as part of the code request to the `/authorize` endpoint, and not the request sent to the `/token` endpoint.
+> **Note:** The authorization code flow is unique, in that the `offline_access` scope has to be requested as part of the code request to the `/authorize` endpoint, and not the request sent to the `/token` endpoint.
 
 This table only shows the minimum requirements. For example, with the `password` grant type you can also include an `openid` scope alongside the `offline_access` scope:
 

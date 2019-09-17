@@ -54,7 +54,7 @@ Early Access (EA) features are opt-in features that you can try out in your org 
 
 You can disable the EA features that you've enabled by deselecting them on the **Features** page. EA features that you disable are re-enabled by Okta automatically when the feature becomes GA.
 
-> Note: You can track availability of EA features using the [Product Roadmap](https://support.okta.com/help/OktaProductRoadMap).
+> **Note:** You can track availability of EA features using the [Product Roadmap](https://support.okta.com/help/OktaProductRoadMap).
 
 ## Rate Limits
 Rate limiting controls the number of API requests that can be sent to an organization in a given amount of time. Rate limits are enforced for every Okta org.

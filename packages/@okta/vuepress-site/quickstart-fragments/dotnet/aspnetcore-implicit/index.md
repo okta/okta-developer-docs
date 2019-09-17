@@ -99,7 +99,7 @@ The Okta middleware automatically validates tokens and populates `HttpContext.Us
 
 If you want to do more with the user, you can use the [Okta .NET SDK] to get or update the user's details stored in Okta.
 
-> Note: If your client application is running on a different server (or port) than your ASP.NET Core server, you'll need to add [CORS middleware](https://docs.microsoft.com/en-us/aspnet/core/security/cors) to the pipeline as well. Check out our [`resource server` sample](https://github.com/okta/samples-aspnetcore/tree/master/resource-server) which is pre-configured with an open CORS policy to make it easy to test with frontend projects!
+> **Note:** If your client application is running on a different server (or port) than your ASP.NET Core server, you'll need to add [CORS middleware](https://docs.microsoft.com/en-us/aspnet/core/security/cors) to the pipeline as well. Check out our [`resource server` sample](https://github.com/okta/samples-aspnetcore/tree/master/resource-server) which is pre-configured with an open CORS policy to make it easy to test with frontend projects!
 
 [config reference]:https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-webapi.md#configuration-reference
 [example-repo]: https://github.com/okta/samples-aspnetcore/

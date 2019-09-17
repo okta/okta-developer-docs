@@ -1,6 +1,9 @@
 ---
 title: Administrator Roles
 category: management
+meta:
+  - name: description
+    content: The Okta Administrator Roles API provides operations to manage administrative role assignments for a user. Read this page to get started with Admin Roles.
 ---
 
 # Administrator Roles API
@@ -602,7 +605,7 @@ HTTP/1.1 204 No Content
 
 Removes a group target from a `USER_ADMIN` or `HELP_DESK_ADMIN` role assigned to a user.
 
-> Note: Don't remove the last group target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all groups, the API consumer should delete the `USER_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last group target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all groups, the API consumer should delete the `USER_ADMIN` role assignment and recreate it.
 
 ###### Request Parameters
 
@@ -645,7 +648,7 @@ HTTP/1.1 204 No Content
 
 Removes a group target from a `USER_ADMIN` or `HELP_DESK_ADMIN` role assigned to a group.
 
-> Note: Don't remove the last group target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all groups, the API consumer should delete the `USER_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last group target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all groups, the API consumer should delete the `USER_ADMIN` role assignment and recreate it.
 
 ###### Request Parameters
 
@@ -1100,7 +1103,7 @@ HTTP/1.1 204 No Content
 
 Removes an app target from an `APP_ADMIN` role assigned to a user
 
-> Note: Don't remove the last app target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last app target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
 
 ###### Request Parameters
 
@@ -1143,7 +1146,7 @@ HTTP/1.1 204 No Content
 
 Removes an app target from an `APP_ADMIN` role assigned to a group
 
-> Note: Don't remove the last app target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last app target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
 
 ###### Request Parameters
 
@@ -1188,7 +1191,7 @@ HTTP/1.1 204 No Content
 
 Removes an app instance target from an `APP_ADMIN` role assigned to a user.
 
-> Note: Don't remove the last app target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last app target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
 
 ###### Request Parameters
 
@@ -1232,7 +1235,7 @@ HTTP/1.1 204 No Content
 
 Removes an app instance target from an `APP_ADMIN` role assigned to a group.
 
-> Note: Don't remove the last app target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last app target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
 
 ###### Request Parameters
 

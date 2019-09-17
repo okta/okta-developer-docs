@@ -294,6 +294,6 @@ You then need to associate the registered Inline Hook with an app by completing 
 
 1. Click **Save**.
 
-> Note: The above procedure for associating an Import Inline Hook with an app using Admin Console cannot be used with AD or LDAP.
+> **Note:** The above procedure for associating an Import Inline Hook with an app using Admin Console cannot be used with AD or LDAP.
 
 

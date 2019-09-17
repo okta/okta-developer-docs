@@ -96,7 +96,7 @@ The following commands are supported for the Token Inline Hook type:
 | com.okta.identity.patch | Modify an ID token.     |
 | com.okta.access.patch   | Modify an access token. |
 
-> Note: The `commands` array should only contain commands that can be applied to the requested tokens. For example, if only an ID token is requested, the `commands` array shouldn't contain commands of the type `com.okta.access.patch`.
+> **Note:** The `commands` array should only contain commands that can be applied to the requested tokens. For example, if only an ID token is requested, the `commands` array shouldn't contain commands of the type `com.okta.access.patch`.
 
 #### value
 
@@ -316,7 +316,7 @@ The existing target JSON object:
 ```
 Add `department_id` by specifying the claim in the path, followed by the name of the object member.
 
-> Note: Attempting to add a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
+> **Note:** Attempting to add a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
 {  
@@ -407,7 +407,7 @@ This `add` operation adds `lax` to the end of the array. Alternatively, you can 
    ]
 }
 ```
-> Note: Attempting to add an element within an array that doesn't exist or specifying an invalid index results in the entire PATCH failing and errors logged in the token hooks events. 
+> **Note:** Attempting to add an element within an array that doesn't exist or specifying an invalid index results in the entire PATCH failing and errors logged in the token hooks events. 
 
 ### Sample Response to Replace an Existing Claim
 
@@ -458,7 +458,7 @@ The existing target JSON object:
 ```
 Specify the claim in the path, followed by the name of the object member that you want to modify. 
 
-> Note: Attempting to modify a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
+> **Note:** Attempting to modify a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
 {  
@@ -527,7 +527,7 @@ For the list of access token reserved claims that you can't remove, see [Access 
 
 See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
 
-> Note: The `value` property for the `remove` operation isn't required. If you provide it in the response, it should be set to `null`. Providing any other value fails the entire PATCH response.
+> **Note:** The `value` property for the `remove` operation isn't required. If you provide it in the response, it should be set to `null`. Providing any other value fails the entire PATCH response.
 
 ```json
 {
@@ -571,7 +571,7 @@ Existing target JSON object:
 ```
 You can remove the element from the array by specifying the array name followed by the index of the element that you want to remove. You don't need to specify a value for the `remove` operation. But, you can specify `null` as the value if you want. 
 
-> Note: Attempting to remove an element within an array that doesn't exist or specifying an invalid value results in the entire PATCH failing and errors logged in the token hooks events.
+> **Note:** Attempting to remove an element within an array that doesn't exist or specifying an invalid value results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
 {  
@@ -602,7 +602,7 @@ The resulting JSON object
 
 Similarly, you can remove a JSON object member by specifying the JSON object in the path, followed by the claim member that you would like to remove. For example, you have an `employee_profile` claim, and you want to remove `email` from it.
 
-> Note: Attempting to remove a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
+> **Note:** Attempting to remove a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 The existing target JSON object:
 ```json
@@ -660,5 +660,5 @@ You then need to associate the registered Inline Hook with a Custom Authorizatio
 
 1. Click **Update Rule**.
 
-> Note: Only one Inline Hook can be associated with each rule.
+> **Note:** Only one Inline Hook can be associated with each rule.
 

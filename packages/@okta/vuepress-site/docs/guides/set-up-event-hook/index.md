@@ -1,6 +1,8 @@
 ---
 title: Set Up Event Hooks
-excerpt: Configure and enable an Event Hook
+meta:
+  - name: description
+    content: Event hooks are outbound calls from Okta, sent when specified events occur in your Okta organization. Get information on eligible hooks and how to set up event hooks in this guide.
 layout: Guides
 sections:
  - overview

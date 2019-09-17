@@ -7,7 +7,7 @@ category: management
 
 The Okta Features API provides operations to manage self-service Early Access (EA) and Beta features in your org.
 
-> Note: Important background information for this API is available on this page: [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/).
+> **Note:** Important background information for this API is available on this page: [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/).
 
 ## Getting Started
 
@@ -619,7 +619,7 @@ The Stage object has following properties:
 If a Feature's stage `value` is `EA`, the `status` is `null` and not returned. If the value is `BETA` the status is `OPEN` or `CLOSED` depending on the `BETA` feature
 being manageable or not.
 
-> Note: If a Feature's stage is Open Beta, it can be updated in Preview cells only. If a Feature's stage is Closed Beta, it can only be disabled in Preview cells.
+> **Note:** If a Feature's stage is Open Beta, it can be updated in Preview cells only. If a Feature's stage is Closed Beta, it can only be disabled in Preview cells.
 
 #### Stage Example
 

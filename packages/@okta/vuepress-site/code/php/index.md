@@ -1,11 +1,14 @@
 ---
-title: Add Identity Management to Your PHP App
+title: Add User Management to Your PHP App
 language: PHP
 integration: back-end
 component: Code
+meta:
+  - name: description
+    content: Use our PHP guide, SDK, and libraries to help you add user authentication to your PHP application.
 ---
 
-# <i class='icon-48 docsPage code-php'></i> Add Identity Management to Your PHP App
+# <i class='icon-48 docsPage code-php'></i> Add User Management to Your PHP App
 
 ## Get Started with PHP + Okta
 

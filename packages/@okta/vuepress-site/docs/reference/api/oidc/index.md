@@ -1,7 +1,9 @@
 ---
 title: OpenID Connect & OAuth 2.0 API
 category: authentication
-excerpt: Control user access to your applications.
+meta:
+  - name: description
+    content: Find information about the OAuth 2.0 and OpenID Connect endpoints that Okta exposes on its authorization servers.
 ---
 
 # OpenID Connect & OAuth 2.0 API
@@ -232,7 +234,7 @@ This endpoint returns access tokens, ID tokens, and refresh tokens, depending on
 #### Request parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/token` endpoint requires client authentication. See the [Client authentication methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> **Note:** The `/token` endpoint requires client authentication. See the [Client authentication methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                                                                                                                                                                                                                                                        | Type   |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
@@ -319,12 +321,12 @@ Content-Type: application/json;charset=UTF-8
 This endpoint takes an access, ID, or refresh token, and returns a boolean that indicates whether it is active or not.
 If the token is active, additional data about the token is also returned. If the token is invalid, expired, or revoked, it is considered inactive.
 
-> Note: Although [ID tokens](#id-token) can be sent to this endpoint, they are usually validated on the service provider or app side of a flow.
+> **Note:** Although [ID tokens](#id-token) can be sent to this endpoint, they are usually validated on the service provider or app side of a flow.
 
 #### Request parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/introspect` endpoint requires client authentication. See the [Client authentication methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> **Note:** The `/introspect` endpoint requires client authentication. See the [Client authentication methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                                    | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------------------- | :-----        |
@@ -418,7 +420,7 @@ The API takes an access or refresh token and revokes it. Revoked tokens are cons
 #### Request parameters
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
-> Note: The `/revoke` endpoint requires client authentication. See the [Client authentication methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+> **Note:** The `/revoke` endpoint requires client authentication. See the [Client authentication methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
 
 | Parameter               | Description                                                                                       | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------ | :-----        |
@@ -517,7 +519,7 @@ These keys can be used to locally validate JWTs returned by Okta. Standard open-
 
 >Okta also recommends caching or persisting these keys to improve performance. If you cache signing keys and automatic key rotation is enabled, be aware that verification fails when Okta rotates the keys automatically. Clients that cache keys should periodically check the JWKS for updated signing keys.
 
-> Note: The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
+> **Note:** The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
 
 #### Request parameters
 | Parameter   | Description                   | Param Type   | DataType   | Required   | Default |
@@ -648,7 +650,7 @@ Returns OAuth 2.0 metadata related to your Custom Authorization Server. This inf
 
 > This API doesn't require any authentication.
 
-> Note: The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
+> **Note:** The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
 
 #### Request example
 ```bash
@@ -785,7 +787,7 @@ Returns OpenID Connect metadata about your authorization server. This informatio
 
 This API doesn't require any authentication.
 
-> Note: The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
+> **Note:** The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
 
 #### Request example
 ```bash
@@ -974,7 +976,7 @@ Tokens issued by Okta contain claims that are statements about a subject (user).
 The claims requested by the `profile`, `email`, `address`, and `phone` scope values are returned from the `/userinfo` [endpoint](#userinfo) when a `response_type` value is used that results in an access token being issued. However, when no access token is issued (which is the case for the `response_type` value `id_token`), the resulting claims are returned in the ID token.
 
 ### Access token
-> NOTE: Use of the access token differs depending on whether you are using the Okta Org Authorization Server or a Custom Authorization Server. While the structure of an access token retrieved from a Custom Authorization Server is guaranteed to not change, the structure of the access token issued by the Okta Org Authorization Server is subject to change.
+> **Note:** Use of the access token differs depending on whether you are using the Okta Org Authorization Server or a Custom Authorization Server. While the structure of an access token retrieved from a Custom Authorization Server is guaranteed to not change, the structure of the access token issued by the Okta Org Authorization Server is subject to change.
 
 An access token is a JSON web token (JWT) encoded in Base64 URL-encoded format that contains [a header](#access-token-header), [payload](#access-token-payload), and [signature](#access-token-signature). A resource server can authorize the client to access particular resources based on the [scopes and claims](#access-token-scopes-and-claims) in the access token.
 
@@ -1218,7 +1220,7 @@ Some endpoints require client authentication. To make requests to these endpoint
 
 When registering an OAuth 2.0 client application, specify an authentication method by including the [token_endpoint_auth_method](/docs/reference/api/apps/#add-oauth-2-0-client-application) parameter.
 
-> Note: If you don't specify a method when registering your client, the default method is `client_secret_basic`.
+> **Note:** If you don't specify a method when registering your client, the default method is `client_secret_basic`.
 
 > To create a client application and specify the authentication method, see the [Add OAuth 2.0 client application](/docs/reference/api/apps/#add-oauth-2-0-client-application) API Reference section. To change the client authentication method of an existing app, see the [Update the client authentication method](/docs/reference/api/apps/#update-the-client-authentication-method) API Reference section.
 
@@ -1264,7 +1266,7 @@ If you configured your client to use the `private_key_jwt` client authentication
 
 Provide the `client_id` in a JWT that you sign with your private key using an RSA or ECDSA algorithm (RS256, RS384, RS512, ES256, ES384, ES512). See [Build a JWT for client authentication](/docs/guides/build-self-signed-jwt/). The JWT must also contain other values, such as issuer and subject. See [Token claims for client authentication with client secret or private key JWT](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt).
 
-> Note: The private key that you use to sign the JWT must have the corresponding public key registered in the client's [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set).
+> **Note:** The private key that you use to sign the JWT must have the corresponding public key registered in the client's [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set).
 
 After you create the JWT, in the request you need to specify the `client_assertion_type` as `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` and specify the JWT as the value for the `client_assertion` parameter.
 

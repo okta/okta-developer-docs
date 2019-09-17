@@ -87,7 +87,7 @@ Your external service's responses to Okta's ongoing event delivery POST requests
 
 As a best practice, you should return the HTTP response immediately, rather than waiting for any of your own internal process flows triggered by the event to complete.
 
-> Note: If your service does not return the HTTP response within the timeout limit, Okta will consider the delivery to have failed.
+> **Note:** If your service does not return the HTTP response within the timeout limit, Okta will consider the delivery to have failed.
 
 ### Rate Limits
 

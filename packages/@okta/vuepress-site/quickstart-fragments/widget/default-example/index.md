@@ -15,7 +15,7 @@ At the end of this section can choose your server type to learn more about post-
 
 ## Prerequisites
 
-> Note: The rest of these instructions assume you are using the developer console. If you already have an Okta org, you can toggle to the developer console by using the drop-down menu in the upper-left of the Okta administrator UI.
+> **Note:** The rest of these instructions assume you are using the developer console. If you already have an Okta org, you can toggle to the developer console by using the drop-down menu in the upper-left of the Okta administrator UI.
 
 ## Add and Configure an OpenID Connect Client
 * Log into the Okta Developer Dashboard, click **Applications** then **Add Application**.
@@ -28,7 +28,7 @@ At the end of this section can choose your server type to learn more about post-
 | Login redirect URIs | http://localhost:{port}        |
 | Grant Types Allowed | Authorization Code and/or Implicit |
 
-> Note: if your login page is on a different URL, such as `/login`, you should change the settings to match.
+> **Note:** if your login page is on a different URL, such as `/login`, you should change the settings to match.
 
 After you have created the application there are two more values you will need to gather before continuing, these values will be used in your application to setup the OpenID Connect flow with Okta.
 
