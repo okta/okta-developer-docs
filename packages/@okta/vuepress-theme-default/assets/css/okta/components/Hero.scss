@@ -107,7 +107,7 @@
 .Hero--product {
 	@extend %Hero;
 	@include padding(large 0);
-	background-image: image_url('bg--hero-product.png');
+	background-image: url('/img/bg--hero-product.png');
 	background-repeat: repeat;
 	background-size: auto 100%;
 	text-align: center;
@@ -129,7 +129,7 @@
 .Hero--integrate {
 	@extend %Hero;
 	padding: 110px 0 115px;
-	background-image: image_url('bg--hero-integrate.png');
+	background-image: url('/img/bg--hero-integrate.png');
 	background-repeat: repeat;
 	background-size: auto 100%;
 	text-align: center;

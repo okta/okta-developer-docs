@@ -93,7 +93,7 @@
 			&:hover a:after,
 			a:active:after,
 			a:hover:after {
-				background: image_url('icon-link.svg') no-repeat center;
+				background: url('/img/icon-link.svg') no-repeat center;
 				background-size: contain;
 				content: '';
 				display: inline-block;
