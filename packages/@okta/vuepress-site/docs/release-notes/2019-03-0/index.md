@@ -4,7 +4,7 @@ title: Okta API Products Release Notes
 
 ## 2019.03.0
 
-> NOTE: Okta has changed our release model and version numbering. For more information, see: <https://support.okta.com/help/s/article/New-Okta-Release-Model>
+> **Note:** Okta has changed our release model and version numbering. For more information, see: <https://support.okta.com/help/s/article/New-Okta-Release-Model>
 
 | Change                                      | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------------------------|--------------------------|

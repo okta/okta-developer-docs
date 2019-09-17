@@ -28,7 +28,7 @@ You can enable CORS for websites that need cross-origin requests to the Okta API
 
 Select **Add Origin** to specify the base URL of the website that you want to allow cross-origin requests from, then make sure **CORS** is selected.
 
-> Note: If you do not enable CORS, or disable it at a later date, the list of websites is retained.
+> **Note:** If you do not enable CORS, or disable it at a later date, the list of websites is retained.
 
 ![Add CORS Origin](/img/okta-admin-ui-cors-new-dev.png "Add CORS Origin" )
 

@@ -14,7 +14,7 @@ You need the following values from the Okta Application and the Developer Consol
 * **Client ID** - Find it in the applications list or on the application's **General** tab.
 * **Okta Domain** - Find it on the Developer Console dashboard in the upper-right corner as the **Org URL**.
 
-> Note: Your Okta domain is different from your admin domain. Don't include `-admin` in your Okta domain.
+> **Note:** Your Okta domain is different from your admin domain. Don't include `-admin` in your Okta domain.
 
 You'll also need the full redirect URI that you defined in <GuideLink link="../define-callback">Define a callback route</GuideLink>.
 

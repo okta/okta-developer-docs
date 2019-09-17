@@ -5144,7 +5144,7 @@ Each application defines one or more appLinks that can be published. You can dis
 
 Specifies credentials and scheme for the application's `signOnMode`.
 
-> Note: To update the app, you can provide just the [Signing Credential Object](#signing-credential-object) instead of the entire Application Credential Object.
+> **Note:** To update the app, you can provide just the [Signing Credential Object](#signing-credential-object) instead of the entire Application Credential Object.
 
 | Property         | Description                                                                                                    | DataType                                                  | Nullable | Default         | MinLength | MaxLength | Validation |
 | ---------------- | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | -------- | --------------- | --------- | --------- | ---------- |

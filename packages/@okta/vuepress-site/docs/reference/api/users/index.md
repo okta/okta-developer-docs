@@ -1088,7 +1088,7 @@ curl -v -X GET \
 ]
 ```
 
-> Note: This omits users that have a status of `DEPROVISIONED`. To return all users, use a [filter query](#list-users-with-a-filter) instead.
+> **Note:** This omits users that have a status of `DEPROVISIONED`. To return all users, use a [filter query](#list-users-with-a-filter) instead.
 
 #### List Users with a Filter
 
@@ -1424,7 +1424,7 @@ curl -v -X GET \
 ### Update User
 
 
-> Note: Use the `POST` method to make a partial update and the `PUT` method to delete unspecified properties.
+> **Note:** Use the `POST` method to make a partial update and the `PUT` method to delete unspecified properties.
 
 <ApiOperation method="put" url="/api/v1/users/${userId}" />
 
@@ -2180,7 +2180,7 @@ Content-Type: application/json
 
 Unlocks a user with a `LOCKED_OUT` status and returns them to `ACTIVE` status.  Users will be able to login with their current password.
 
-> Note: This operation works with Okta-mastered users. It doesn't support directory-mastered accounts such as Active Directory.
+> **Note:** This operation works with Okta-mastered users. It doesn't support directory-mastered accounts such as Active Directory.
 
 ##### Request Parameters
 
@@ -2774,7 +2774,7 @@ Lists all grants for the specified user
 | limit       | The number of grants to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of grants                                    | Query        | String     | FALSE      |         |
 
-> Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
+> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
 
 
 #### Request Example
@@ -3130,7 +3130,7 @@ Lists all refresh tokens issued for the specified User and Client.
 | limit       | The number of tokens to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of tokens                                    | Query        | String     | FALSE      |         |
 
-> Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
+> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
 
 
 #### Request Example
@@ -3216,7 +3216,7 @@ Gets a refresh token issued for the specified User and Client.
 | limit       | The number of grants to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of grants                                    | Query        | String     | FALSE      |         |
 
-> Note: `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
+> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
 
 
 #### Request Example
@@ -3616,7 +3616,7 @@ The default user profile is based on the [System for Cross-Domain Identity Manag
 | managerId           | `id` of a user's manager                                                                                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 | manager             | displayName of the user's manager                                                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 
-> Note: A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code. For example, `en_US` specifies the language English and country US.
+> **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code. For example, `en_US` specifies the language English and country US.
 
 ##### Okta Login
 
@@ -3695,7 +3695,7 @@ The password specified in the value property must meet the default password poli
 
 Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, and MD5 hashing functions for password import. A hashed password may be specified in a Password Object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
 
-> Note: Because the plain text password isn't specified when a hashed password is provided, password policy isn't applied.
+> **Note:** Because the plain text password isn't specified when a hashed password is provided, password policy isn't applied.
 
 | Property   | DataType | Description                                                                                                                                                                                | Required                                                                      | Min Value                      | Max Value                      |
 |:-----------|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------|:-------------------------------|:-------------------------------|

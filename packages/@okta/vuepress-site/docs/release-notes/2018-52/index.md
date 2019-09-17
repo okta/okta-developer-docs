@@ -4,7 +4,7 @@ title: Okta API Products Release Notes
 
 ## 2018.12.2
 
-> NOTE: Okta has changed our release model and version numbering. Under the old system, this would have been release 2018.52. For more information, see here: <https://support.okta.com/help/s/article/New-Okta-Release-Model>
+> **Note:** Okta has changed our release model and version numbering. Under the old system, this would have been release 2018.52. For more information, see here: <https://support.okta.com/help/s/article/New-Okta-Release-Model>
 
 | Change                                                                                                               | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |

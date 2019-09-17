@@ -14,6 +14,6 @@ If you only need one Authorization Server, but you'd like to know more about cus
 - [Create Claims](/docs/guides/customize-authz-server/create-claims/)
 - [Test your Authorization Server](/docs/guides/customize-authz-server/test-authz-server/)
 
-> NOTE: For a high-level explanation of OAuth 2.0 and OpenID Connect see our [OAuth 2.0 Overview](/docs/concepts/auth-overview/).
+> **Note:** For a high-level explanation of OAuth 2.0 and OpenID Connect see our [OAuth 2.0 Overview](/docs/concepts/auth-overview/).
 
 <NextSectionLink/>

@@ -44,6 +44,6 @@ Response:
 }
 ```
 
-> Note: If you try to clone a credential that the target app instance already has, the API responds with a 400 error code.
+> **Note:** If you try to clone a credential that the target app instance already has, the API responds with a 400 error code.
 
 <NextSectionLink/>

@@ -161,7 +161,7 @@ In the case of the Registration Inline Hook, the `error` object provides a way o
 
 If you do not return any value for that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
 
-> Note: If you include an error object in your response, no commands will be executed and the registration will fail. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
+> **Note:** If you include an error object in your response, no commands will be executed and the registration will fail. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
 
 ## Sample JSON Payload of Request
 
@@ -243,4 +243,4 @@ You then need to associate the registered Inline Hook with your Self-Service Reg
 
 Your Registration Inline Hook is now configured.
 
-> Note: Only one Inline Hook can be associated with your Self-Service Registration policy at a time.
+> **Note:** Only one Inline Hook can be associated with your Self-Service Registration policy at a time.

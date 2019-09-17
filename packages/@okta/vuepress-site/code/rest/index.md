@@ -49,7 +49,7 @@ If you have Postman installed, clicking the button above gives you the option of
 
 You can also import the collection by following the Web View link and downloading the collection as a JSON file. Import that file into Postman by clicking the **Import** button and browsing to your download location.
 
-> Note: You can import and work with the rest of the Okta API using the link at the top of each API reference page,
+> **Note:** You can import and work with the rest of the Okta API using the link at the top of each API reference page,
 or see [all Postman collections](/docs/reference/postman-collections/). This tutorial only requires the Users API collection.
 
 ## Send a Request

@@ -45,7 +45,7 @@ Using Okta's OAuth-as-a-Service feature, API Access Management, provides many be
 * Enjoy the highest quality, always-available API Access Management.
 * Let Okta do the work of consuming standards changes to provide more or better services.
 
-> Note: In some places we have implemented stricter requirements or behaviors for additional security.
+> **Note:** In some places we have implemented stricter requirements or behaviors for additional security.
 
 ## Putting the pieces together
 

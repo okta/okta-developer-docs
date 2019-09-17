@@ -4,13 +4,13 @@ title: Test the Authorization Server
 
 Once you have followed the above instructions to set-up and/or customize your Authorization Server, you can test it by sending any one of the API calls that returns OAuth 2.0 and/or OpenID Connect tokens.
 
-> NOTE: The `{authServerId}` for the default server is `default`.
+> **Note:** The `{authServerId}` for the default server is `default`.
 
 A full description of Okta's relevant APIs can be found here: [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/).
 
 We have included here a few things that you can try to ensure that your Authorization Server is functioning as expected.
 
-> Note: This is not meant to be an exhaustive testing reference, but only to show some examples.
+> **Note:** This is not meant to be an exhaustive testing reference, but only to show some examples.
 
 ### OpenID Connect Configuration
 

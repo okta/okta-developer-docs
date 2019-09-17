@@ -388,4 +388,4 @@ You then need to associate the registered Inline Hook with a SAML app by complet
 
 1. In the **Assertion Inline Hook** field, select your registered Inline Hook.
 
-> Note: Only one Inline Hook can be associated with each app.
+> **Note:** Only one Inline Hook can be associated with each app.

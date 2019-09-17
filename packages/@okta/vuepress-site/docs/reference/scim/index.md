@@ -553,7 +553,7 @@ $ curl 'https://scim-server.example.com/scim/v2/Users?count=1&startIndex=1'
 }
 ```
 
-> Note: When returning a paged resource, your API should return a
+> **Note:** When returning a paged resource, your API should return a
 > capitalized `Resources` JSON key ("Resources"), however Okta will also
 > support a lowercase string ("resources"). Okta will also accept
 > lowercase JSON strings for the keys of child nodes inside
