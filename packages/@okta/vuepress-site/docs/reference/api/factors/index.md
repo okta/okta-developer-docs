@@ -1549,7 +1549,7 @@ curl -v -X POST \
 
 Enrolls a user for a Custom HMAC-based One-time Password (HOTP) factor. The enrollment process involves passing a factor profile Id and shared secret for a particular token.  
 
-> Note: Currently only auto-activation is supported for Custom HOTP Factor. 
+> **Note:** Currently only auto-activation is supported for Custom HOTP Factor. 
 
 ##### Enroll and Auto-Activate Custom HOTP Factor
 

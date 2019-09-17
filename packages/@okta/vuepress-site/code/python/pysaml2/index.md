@@ -64,7 +64,7 @@ the following steps, you will have a working example of connecting Okta to a sam
 
 1.  Install platform-dependent prerequisites:
 
-    > Note: These instructions assume that you are running on a recent version of your operating system.
+    > **Note:** These instructions assume that you are running on a recent version of your operating system.
 
     For Mac OS X:
 

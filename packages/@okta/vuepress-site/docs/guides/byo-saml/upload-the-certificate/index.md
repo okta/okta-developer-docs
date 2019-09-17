@@ -6,7 +6,7 @@ title: Upload the new certificate to the ISV
 
 For Outbound SAML, complete the following four steps.
 
-> Note: This step can't be automated.
+> **Note:** This step can't be automated.
 
 1. In the administrator UI, select **Applications** and choose your app.
 2. Select **Sign-On Options**.

@@ -502,7 +502,7 @@ The following sections outline the key event types captured by the system log. F
 
 Rate limit warnings are sent at different times, depending on the org type. For One App and Enterprise orgs, the warning is sent when the org is at 60% of its limit.
 
-> Note: For orgs created before 2018-05-17, the warning is sent at 90%.
+> **Note:** For orgs created before 2018-05-17, the warning is sent at 90%.
 
 Rate limit violations are sent when a rate limit is exceeded.
 
@@ -685,7 +685,7 @@ The following are some examples of common keyword filtering:
 * Events that mention a specific url: `q=interestingURI.com`
 * Events that mention a specific person: `q=firstName lastName`
 
-> Note: When hyphens are present in an event instance's attribute value they are split and added to the list of matching candidates, in addition to the full hyphenated value. Thus a `q` value of `XOxBw-2JIRnCFd0gG0GjHAAABjY` would match events containing the text `XOxBw`, `2JIRnCFd0gG0GjHAAABjY`, or `XOxBw-2JIRnCFd0gG0GjHAAABjY`.
+> **Note:** When hyphens are present in an event instance's attribute value they are split and added to the list of matching candidates, in addition to the full hyphenated value. Thus a `q` value of `XOxBw-2JIRnCFd0gG0GjHAAABjY` would match events containing the text `XOxBw`, `2JIRnCFd0gG0GjHAAABjY`, or `XOxBw-2JIRnCFd0gG0GjHAAABjY`.
 
 ###### Datetime Filter
 

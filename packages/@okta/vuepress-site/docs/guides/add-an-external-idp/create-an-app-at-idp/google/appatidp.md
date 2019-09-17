@@ -6,4 +6,4 @@
 
 4. Leave the **Authorized redirect URIs** section blank for now. We will come back to it later.
 
-> Note: There may be additional settings on the [Google Developers Console](developers.google.com) site that you can configure for the app. The steps in this guide address the quickest route to setting up Google as an Identity Provider with Okta. See the Google documentation for more information on additional configuration settings.
+> **Note:** There may be additional settings on the [Google Developers Console](developers.google.com) site that you can configure for the app. The steps in this guide address the quickest route to setting up Google as an Identity Provider with Okta. See the Google documentation for more information on additional configuration settings.

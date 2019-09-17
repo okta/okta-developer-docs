@@ -895,7 +895,7 @@ Specifies a user identifier condition to match on.
 | type      | What to match against, either user ID or an attribute in the user's Okta profile.         | `IDENTIFIER`, `ATTRIBUTE`                      | Yes      |
 | attribute | The name of the profile attribute to match against. Only used when `type` is `ATTRIBUTE`. | String                                         | No       |
 
-> Note: When using a regex expression, or when matching against Okta user profile attributes, the `patterns` array can have only one element.
+> **Note:** When using a regex expression, or when matching against Okta user profile attributes, the `patterns` array can have only one element.
 
 #### Patterns Object
 
@@ -1502,7 +1502,7 @@ The following conditions may be applied to the rules associated with Password Po
 
 The IdP Discovery Policy determines where to route users when they are attempting to log in to your org. Users can be routed to a variety of identity providers (`SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`) based on multiple conditions listed below.
 
-> Note: All Okta orgs with `IDP_DISCOVERY` enabled contain one and only one IdP Discovery Policy with an immutable default rule routing to your org's login page.
+> **Note:** All Okta orgs with `IDP_DISCOVERY` enabled contain one and only one IdP Discovery Policy with an immutable default rule routing to your org's login page.
 
 ### Policy Conditions
 The following conditions may be applied to IdP Discovery Policy
@@ -1525,7 +1525,7 @@ The following conditions may be applied to IdP Discovery Policy
 | ---       | ---                                                                  | ---       | ---      |
 | providers | List of configured identity providers that a given rule can route to | array     | Yes      |
 
-> Note: Currently, this `providers` list only supports one value. IdP types `OKTA`, `AgentlessDSSO`, and `IWA` do not require an `id`.
+> **Note:** Currently, this `providers` list only supports one value. IdP types `OKTA`, `AgentlessDSSO`, and `IWA` do not require an `id`.
 
 #### Policy Action Example
 

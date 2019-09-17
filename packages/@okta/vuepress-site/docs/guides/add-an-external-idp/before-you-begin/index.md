@@ -13,7 +13,7 @@ This guide assumes that you:
 * Have an Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
 * Have an application that you want to add authentication to.
 
-> Note: This guide doesn't explain the differences between SAML and OpenID Connect and doesn't help you choose between them. See [External Identity Providers](/docs/concepts/identity-providers/#the-big-picture) for more information.
+> **Note:** This guide doesn't explain the differences between SAML and OpenID Connect and doesn't help you choose between them. See [External Identity Providers](/docs/concepts/identity-providers/#the-big-picture) for more information.
 
 ## Supported Identity Providers
 

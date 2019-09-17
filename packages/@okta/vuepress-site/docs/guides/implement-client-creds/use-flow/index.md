@@ -14,7 +14,7 @@ curl --request POST \
   --data 'grant_type=client_credentials&scope=customScope'
 ```
 
-> NOTE: The Client ID and Secret aren't included in the POST body, but rather are placed in the HTTP Authorization header following the rules of HTTP Basic Auth.
+> **Note:** The Client ID and Secret aren't included in the POST body, but rather are placed in the HTTP Authorization header following the rules of HTTP Basic Auth.
 
 Note the parameters that are being passed:
 

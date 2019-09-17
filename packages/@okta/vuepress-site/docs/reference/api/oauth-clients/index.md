@@ -41,7 +41,7 @@ Adds a new client application to your organization
 
 The [OAuth Client](#client-application-model) created by the request
 
-> <ApiLifecycle access="ea" /> Note: Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
+> <ApiLifecycle access="ea" /> **Note:** Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
 
 ##### Request Example
 

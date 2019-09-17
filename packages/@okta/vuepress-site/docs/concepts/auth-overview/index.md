@@ -86,7 +86,7 @@ Although OpenID Connect (OIDC) is built on top of OAuth 2.0, the specification u
 
 The high-level flow looks the same for both OIDC and regular OAuth 2.0 flows, the primary difference being simply that an OIDC flow results in an ID token, in addition to any access or refresh tokens.
 
-> Note: If you would like to see the OpenID Connect specification, you can find it here: <https://openid.net/connect/>
+> **Note:** If you would like to see the OpenID Connect specification, you can find it here: <https://openid.net/connect/>
 
 ## Choosing an OAuth 2.0 Flow
 
@@ -214,7 +214,7 @@ For information how to set up your application to use this flow, see [Implement 
 
 The Implicit Flow is intended for applications where the confidentiality of the client secret cannot be guaranteed. In this flow, the client does not make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. For Single Page Applications (SPA) running in modern browsers we recommend using the [Authorization Code Flow with PKCE](#authorization-code-with-pkce-flow) instead for maximum security. If support for older browsers is required, the Implicit flow will provide a working solution. The client must be capable of interacting with the resource owner's user-agent and capable of receiving incoming requests (via redirection) from the authorization server.
 
-> NOTE: Because it is intended for less-trusted clients, the Implicit Flow does not support refresh tokens.
+> **Note:** Because it is intended for less-trusted clients, the Implicit Flow does not support refresh tokens.
 
 ![Implicit Flow width:](/img/oauth_implicit_flow.png "Implicit Flow width:")
 
@@ -266,7 +266,7 @@ For information how to set up your application to use this flow, see [Implement 
 
 The Client Credentials flow is intended for server-side (AKA "confidential") client applications with no end user, which normally describes machine-to-machine communication. The application must be server-side because it must be trusted with the client secret, and since the credentials are hard-coded, it cannot be used by an actual end user. It involves a single, authenticated request to the `/token` endpoint, which returns an access token.
 
-> NOTE: The Client Credentials Flow does not support refresh tokens.
+> **Note:** The Client Credentials Flow does not support refresh tokens.
 
 ![Resource Owner Password Flow width:](/img/oauth_client_creds_flow.png "Resource Owner Password Flow width:")
 

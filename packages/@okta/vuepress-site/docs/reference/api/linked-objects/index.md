@@ -192,7 +192,7 @@ HTTP/1.1 200 OK
     }
 }
 ```
-> Note: Regardless of whether you specify the `primary` or `associated` name in the request, the resulting link contains the `primary`.
+> **Note:** Regardless of whether you specify the `primary` or `associated` name in the request, the resulting link contains the `primary`.
 
 ### Get All Linked Object Definitions
 

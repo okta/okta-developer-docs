@@ -20,7 +20,7 @@ In tempor Sit pretium. Potenti nisi est. Tortor. Nullam natoque venenatis maecen
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1755573c5cf5fbf7968b)
 
-> Note: Viverra aenean senectus cras ante fusce. Commodo.
+> **Note:** Viverra aenean senectus cras ante fusce. Commodo.
 
 Taciti porta fermentum. Bibendum. Inceptos. - [Third Section](#third-section).
 
@@ -100,7 +100,7 @@ Consequat torquent magna. [Ridiculus](#last-section). Ac, mattis. Cras cum. Accu
 | `NONE`              | `REQUIRED`                         | `REQUIRED`                    | Prompted     |
 | `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
 
-> <ApiLifecycle access="beta" /> Note: Cubilia `semper` ut aenean arcu. Quam lobortis duis.Tempor `scelerisque` lectus cubilia pede orci nonummy `fermentum` vehicula sit.
+> <ApiLifecycle access="beta" /> **Note:** Cubilia `semper` ut aenean arcu. Quam lobortis duis.Tempor `scelerisque` lectus cubilia pede orci nonummy `fermentum` vehicula sit.
 
 
 > *Torquent natoque facilisi suscipit magna ac sociosqu vitae sollicitudin justo sodales aliquam egestas phasellus aptent.*

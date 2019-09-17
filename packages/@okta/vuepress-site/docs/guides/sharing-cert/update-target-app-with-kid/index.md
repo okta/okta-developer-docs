@@ -56,6 +56,6 @@ Response:
 
 ```
 
-> Note: The response has been truncated for clarity.
+> **Note:** The response has been truncated for clarity.
 
 <NextSectionLink/>

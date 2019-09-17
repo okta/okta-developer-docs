@@ -7,7 +7,7 @@ To add another Identity Provider:
 * If you have already created an app at the Identity Provider, start by <GuideLink link="../configure-idp-in-okta">configuring the Identity Provider in Okta</GuideLink>.
 * If you haven't already created an app at the Identity Provider, start by <GuideLink link="../create-an-app-at-idp/">creating an app at the Identity Provider</GuideLink>.
 
-> Note: You don't need to <GuideLink link="../register-app-in-okta">register another app in Okta</GuideLink> unless you want to use a different application with the new Identity Provider that you are creating.
+> **Note:** You don't need to <GuideLink link="../register-app-in-okta">register another app in Okta</GuideLink> unless you want to use a different application with the new Identity Provider that you are creating.
 
 For more information about topics mentioned in this guide:
 
