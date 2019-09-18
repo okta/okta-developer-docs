@@ -7,15 +7,15 @@ Before you begin, be sure to:
 1. In Postman, expand the **Policies (Okta API)** folder, and then the **Okta Sign On** folder.
 2. Click the **Get Okta Sign On Policies** request to open it, and then click **Send** to run it.
 
-    Example:
+    Example request:
     ```bash
     GET https://{yourOktaDomain}/api/v1/policies?type=OKTA_SIGN_ON
     ```
 3. In the response, locate the policy that you want to modify and copy its `id` value.
-    > **Note:** You can also highlight the policy ID, right-click it, and set it as the value for the `policyId` variable in your environment.
+    > **Tip:** You can also highlight the policy ID, right-click it, and set it as the value for the `policyId` variable in your environment.
 4. Click the **Get Rules** request to open it.
-5. In the request URL, replace the `{{policyId}}` variable with the policy ID that you copied. If you assigned the policy ID as a variable, skip this step.
-    > **Note:** To see what value is assigned to a variable, hover over the variable in the request URL and a box pops up that displays the currently assigned variable value.
+5. In the request URL, replace the `policyId` variable with the policy ID that you copied. If you assigned the policy ID as a variable in your environment, skip this step.
+    > **Tip:** To see which value is assigned to a variable, hover over the variable in the request URL and a box pops up that displays the currently assigned variable value.
 6. Click **Send** to run the request.
 
     Example:
@@ -23,9 +23,9 @@ Before you begin, be sure to:
     GET https://{yourOktaDomain}/api/v1/policies/00p2sy9ploJnRwPwp5g7/rules
     ```
 7. In the response, locate the rule that you want to modify, copy its `id` value, and copy the `actions` property section of the JSON payload.
-    > **Note:** You can also highlight the rule ID, right-click, and set it as the value for the `ruleId` variable in your environment.
+    > **Tip:** You can also highlight the rule ID, right-click, and set it as the value for the `ruleId` variable in your environment.
 8. Click the **Update Sign On Rule** request to open it.
-9. In the request URL, replace the `{{policyId}}` and `{{ruleId}}` variables with the policy ID and rule ID that you copied previously. If you assigned these as variables, skip this step.
+9. In the request URL, replace the `policyId` and `ruleId` variables with the policy ID and rule ID that you copied previously. If you assigned these as variables in your environment, skip this step.
 
     Example:
     ```bash
