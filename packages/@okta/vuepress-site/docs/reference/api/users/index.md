@@ -1352,9 +1352,11 @@ curl -v -X GET \
 #### List Users with Search
 
 
-> Listing users with search should not be used as a part of any critical flows, like authentication.
+> Listing users with search should not be used as a part of any critical flows, such as authentication.
 
-Searches for users based on the properties specified in the search parameter (case insensitive)
+Searches for users based on the properties specified in the search parameter
+
+Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.
 
 This operation:
 
@@ -1368,15 +1370,17 @@ Use an ID lookup for records that you update to ensure your results contain the 
 * Searches many properties:
    - Any user profile property, including custom-defined properties
    - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged` and `lastUpdated`
+   - The <ApiLifecycle access="ea" /> [User Type](/docs/reference/api/user-types), accessed as `type.id`
 
 | Search Term Example                             | Description                                     |
 | :---------------------------------------------- | :---------------------------------------------- |
 | `status eq "STAGED"`                            | Users that have a `status` of `STAGED`          |
 | `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp   |
 | `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                     |
+| `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified User Type ID             |
 | `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
-| `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with "Sm          |
+| `profile.lastName sw "Sm"`                      | Users whose `lastName` starts with "Sm"         |
 
 ##### Search Examples
 
