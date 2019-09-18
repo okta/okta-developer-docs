@@ -309,6 +309,10 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
+### Deprecated Operations
+
+An earlier version of this API included the element `/default/linkedObjects` instead of just `/linkedObjects` in all the URLs for operations on Linked Object definitions. These earlier endpoints are still supported but are deprecated. As described under [Links Between User Types](#links-between-user-types), all Linked Object definitions apply to all User Types, not just to the default type. That is true for the deprecated operations as well; they affect all User Types, just like the corresponding endpoints that omit `/default`.
+
 ## Link Value Operations
 
 Use link value operations to assign users to a relationship (pair of `primary` and `associated` links).
@@ -495,10 +499,6 @@ curl -v -X GET \
 ```bash
 HTTP/1.1 204 No Content
 ```
-
-## Deprecated Operations
-
-An earlier version of this API included the element `/default/linkedObjects` instead of just `/linkedObjects` in all the URLs. These earlier endpoints are still supported but are deprecated. As described under [Links Between User Types](#links-between-user-types), all Linked Object definitions apply to all User Types, not just to the default type. That is true for the deprecated operations as well; they behave exactly the same as the corresponding endpoints that omit `/default`.
 
 ## Linked Object Model
 
