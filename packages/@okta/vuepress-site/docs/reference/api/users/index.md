@@ -577,7 +577,7 @@ curl -v -X POST \
 
 Creates a user with a specified User Type (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
 
-The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user cannot be assigned a different User Type.
+The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user currently cannot be assigned a different User Type.
 
 ##### Request Example
 
@@ -1547,7 +1547,7 @@ in the request is deleted.
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
->**Note:** The User Type of a user cannot be changed. If the Request Parameters include the `type` element from the [User Model](#user-model), the value must match the existing type of the user. To change a User's type, the User object must be deleted and recreated with the desired Type.
+>**Note:** Currently, the User Type of a user cannot be changed. If the Request Parameters include the `type` element from the [User Model](#user-model), the value must match the existing type of the user. To change a User's type, the User object must be deleted and recreated with the desired Type.
 
 ##### Response Parameters
 
