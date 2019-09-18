@@ -1,4 +1,5 @@
-Call `createConfig` function to create a configured client on the native modules. Resolves true if successfully configures a client. Note: `requireHardwareBackedKeyStore` is a configurable setting only on Android devices. If you're testing on Android emulators, set this field to false
+Call `createConfig` function to create a configured client on the native modules. Resolves true if it successfully configures a client.
+**Note:** `requireHardwareBackedKeyStore` is a configurable setting only on Android devices. If you're testing on Android emulators, set this field to `false`.
 
 ```javascript
 await createConfig({

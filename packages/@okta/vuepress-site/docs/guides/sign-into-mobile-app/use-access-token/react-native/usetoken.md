@@ -1,4 +1,4 @@
-Get the access token using the `getAccessToken` method and prepare a http header`:
+Get the access token using the `getAccessToken` method and prepare an HTTP header`:
 
 ```javascript
 const accessToken = await getAccessToken();

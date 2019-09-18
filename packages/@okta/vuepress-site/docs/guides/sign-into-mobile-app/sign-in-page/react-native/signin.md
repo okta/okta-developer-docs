@@ -1,4 +1,5 @@
-The async `signIn` method will automatically redirect users to your Okta organziation for authentication. It will emit an event once a user successfully signs in. Make sure your event listeners are mounted and unmounted. Note: on iOS there isn't a onCancelled event. If the sign in process is cancelled, onError will be triggered.
+The async `signIn` method will automatically redirect users to your Okta organization for authentication. It will emit an event once a user successfully signs in. Make sure your event listeners are mounted and unmounted.
+**Note:** On iOS there isn't an `onCancelled` event. If the sign in process is cancelled, `onError` will be triggered.
 
 ```javascript
 import { signIn, EventEmitter } from '@okta/okta-react-native';
