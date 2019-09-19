@@ -149,7 +149,7 @@ curl -s -H "Authorization: SSWS ${api_token}" https://{yourOktaDomain}/api/v1/me
 
 Creates a new User Type. A `default` User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
 
-Okta periodically updates the default schemas for new orgs, and new User Types will be based on the most up to date schema. This means that the schema associated with a new User Type is initialized with the same set of properties as a newly-created default User Type. This is not necessarily the same as the properties your default type received.
+Okta periodically updates the default schema template used for new orgs, and new User Types will be based on the most up to date template. This means the properties with which a new User Type is initialized are not necessarily the same properties that your default type received.
 
 >**Note:** If you have modified your default schema, those changes will not propagate into this new User Type.
 
