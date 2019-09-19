@@ -209,7 +209,9 @@ Content-Type: application/json
 
 Updates a Feature's status. Use this endpoint to enable or disable a Feature for your org.
 
+The following chart shows the different state transitions for a Feature:
 
+[![Update Feature Flowchart](/img/update-ssfeat-flowchart.png "Update Feature Flowchart")](/img/update-ssfeat-flowchart.png)
 
 #### Request Path Parameters
 
@@ -250,7 +252,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable"
+"https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable"
 ```
 
 ##### Response
