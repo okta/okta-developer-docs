@@ -112,7 +112,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features" />
 
-Returns a list of all available self-service Features for your org.
+Fetches a list of all available self-service Features for your org.
 
 #### Request Parameters
 
@@ -371,7 +371,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features/${featureId}/dependencies" />
 
-Get the list of Feature dependencies for a specified Feature. A Feature's dependencies are the Features which it requires to be enabled in order to itself be enabled.
+Fetches the list of Feature dependencies for a specified Feature. A Feature's dependencies are the Features which it requires to be enabled in order to itself be enabled.
 
 #### Request Path Parameters
 
@@ -461,7 +461,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features/${featureId}/dependents" />
 
-Get the list of Feature dependents for a specified Feature. A Feature's dependents are the Features which need to be disabled in order for the Feature itself to be disabled.
+Fetches the list of Feature dependents for a specified Feature. A Feature's dependents are the Features which need to be disabled in order for the Feature itself to be disabled.
 
 #### Request Path Parameters
 
