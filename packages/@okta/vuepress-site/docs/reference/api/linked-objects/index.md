@@ -58,9 +58,7 @@ If you have created multiple User Types (see <ApiLifecycle access="ea" /> [User 
 
 ## Getting Started
 
-Explore the Linked Objects API:
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ed4c5606d25d1014b7ea)
+Explore the Linked Objects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/09416941ad62f022cabb)
 
 ## Link Definition Operations
 
