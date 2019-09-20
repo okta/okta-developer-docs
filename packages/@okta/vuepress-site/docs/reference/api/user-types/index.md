@@ -8,6 +8,10 @@ category: management
 
 The User Types API provides operations to manage User Types. To manage the schemas associated with the User Types, refer to the [User Schema API reference](/docs/reference/api/schemas/#user-schema-operations).
 
+## Getting Started
+
+Explore the User Types API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7f16d9b7259fdf0f91f6)
+
 ## User Types Operations
 
 ### Get all User Types
