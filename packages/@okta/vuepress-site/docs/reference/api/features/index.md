@@ -398,7 +398,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
+"https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
 ```
 
 ##### Response
@@ -488,7 +488,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
+"https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
 ```
 
 ##### Response
