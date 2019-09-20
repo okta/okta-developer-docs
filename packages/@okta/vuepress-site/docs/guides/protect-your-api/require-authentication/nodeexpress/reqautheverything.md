@@ -1,4 +1,4 @@
-Similar to protecrting an individual route, we will use a middleware to check for a bearer token and verify it:
+Similar to protecting an individual route, we will use a middleware to check for a bearer token and verify it:
 
 ```js
 function authenticationRequired(req, res, next) {
@@ -23,7 +23,7 @@ function authenticationRequired(req, res, next) {
 }}
 ```
 
-Then, once you have your app instance, you will apply the middleware to `*`:
+Once you have your app instance, you will apply the middleware to `*`:
 
 ```js
 app.all('*', authenticationRequired);

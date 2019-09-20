@@ -23,7 +23,7 @@ function authenticationRequired(req, res, next) {
 }}
 ```
 
-Then, when you have a route you want to protect, use the above middleware:
+If you have a route you want to protect, use the above middleware:
 
 ```js
 app.get('/api/messages', authenticationRequired, (req, res) => {
