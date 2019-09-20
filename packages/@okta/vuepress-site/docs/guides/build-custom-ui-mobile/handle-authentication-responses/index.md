@@ -5,4 +5,4 @@ Every authentication transaction starts with primary authentication, which valid
 
 <StackSelector snippet="handle-responses" />
 
-<NextSectionLink/>
+<NextSectionLink>Next steps</NextSectionLink>

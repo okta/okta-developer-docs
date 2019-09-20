@@ -1,7 +1,7 @@
 ---
 title: Key Rotation
 ---
-
+# Key Rotation
 - For security purposes, Okta automatically rotates keys used to sign the token.
 - The current key rotation schedule is four times a year. This schedule can change without notice.
 - In case of an emergency, Okta can rotate keys as needed.

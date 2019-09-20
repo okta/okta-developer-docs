@@ -112,7 +112,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features" />
 
-Returns a list of all available self-service Features for your org.
+Fetches a list of all available self-service Features for your org.
 
 #### Request Parameters
 
@@ -209,7 +209,9 @@ Content-Type: application/json
 
 Updates a Feature's status. Use this endpoint to enable or disable a Feature for your org.
 
+The following chart shows the different state transitions for a Feature:
 
+[![Update Feature Flowchart](/img/update-ssfeat-flowchart.png "Update Feature Flowchart")](/img/update-ssfeat-flowchart.png)
 
 #### Request Path Parameters
 
@@ -250,7 +252,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable"
+"https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable"
 ```
 
 ##### Response
@@ -369,7 +371,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features/${featureId}/dependencies" />
 
-Get the list of Feature dependencies for a specified Feature. A Feature's dependencies are the Features which it requires to be enabled in order to itself be enabled.
+Fetches the list of Feature dependencies for a specified Feature. A Feature's dependencies are the Features which it requires to be enabled in order to itself be enabled.
 
 #### Request Path Parameters
 
@@ -396,7 +398,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
+"https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
 ```
 
 ##### Response
@@ -459,7 +461,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features/${featureId}/dependents" />
 
-Get the list of Feature dependents for a specified Feature. A Feature's dependents are the Features which need to be disabled in order for the Feature itself to be disabled.
+Fetches the list of Feature dependents for a specified Feature. A Feature's dependents are the Features which need to be disabled in order for the Feature itself to be disabled.
 
 #### Request Path Parameters
 
@@ -486,7 +488,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
+"https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
 ```
 
 ##### Response
