@@ -26,7 +26,7 @@ The Administrator Console (or Admin Console) is where you go to manage your Okta
 There are two views of the Administrator Console available in each org, the Classic UI and the Developer Console. The Developer Console provides you with quick access to your application configuration and API Access Management features. The Classic UI isn't developer-centric, so it presents all the menus and features in the original format. You can change between the Classic UI and the Developer Console using the drop-down menu in the upper-left corner of the page.
 
 ## Cells
-Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are completely independent of each other, so failure in one cell doesn't affect a failure in another cell. You can locate which cell that your org belongs in by looking at the footer of any page of your Okta Administrator Console.
+Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are completely independent of each other, so failure in one cell doesn't affect a failure in another cell. You can locate the cell that your org belongs to by looking at the footer of any page of your Okta Administrator Console.
 
 * `OK` represents a production cell.
 * `EU ` represents a European production cell.
@@ -49,7 +49,7 @@ A Generally Available (GA) feature is new or enhanced functionality that is enab
 
 Early Access (EA) features are opt-in features that you can try out in your org by asking Okta Support to enable them. Additionally, the **Features** page in the Okta Admin Console (**Settings** > **Features**) allows Super Admins to enable and disable some EA features themselves (assuming your org is eligible for the feature). 
 
-You can disable the EA features that you've enabled by clearing the associated boxes on the **Features** page. EA features that you disable are re-enabled by Okta automatically when the feature becomes GA.
+You can disable the EA features that you've enabled by clearing the associated check boxes on the **Features** page. EA features that you disable are re-enabled by Okta automatically when the feature becomes GA.
 
 > **Note:** You can track availability of EA features using the [Product Roadmap](https://support.okta.com/help/OktaProductRoadMap).
 
