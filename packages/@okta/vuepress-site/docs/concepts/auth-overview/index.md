@@ -168,7 +168,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/).
+For information on how to set up your application to use this flow, see [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/).
 
 ### Authorization Code with PKCE Flow
 
@@ -208,7 +208,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/).
+For information on how to set up your application to use this flow, see [Implement the Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/).
 
 ### Implicit Flow
 
@@ -235,7 +235,7 @@ client -> app: Request with access token
 app -> client: Response
 -->
 
-For information how to set up your application to use this flow, see [Implement the Implicit Flow](/docs/guides/implement-implicit/).
+For information on how to set up your application to use this flow, see [Implement the Implicit Flow](/docs/guides/implement-implicit/).
 
 ### Resource Owner Password Flow
 
@@ -260,7 +260,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Resource Owner Password Flow](/docs/guides/implement-password/).
+For information on how to set up your application to use this flow, see [Implement the Resource Owner Password Flow](/docs/guides/implement-password/).
 
 ### Client Credentials Flow
 
@@ -285,7 +285,7 @@ app -> client: Response
 
 -->
 
-For information how to set up your application to use this flow, see [Implement the Client Credentials Flow](/docs/guides/implement-client-creds/).
+For information on how to set up your application to use this flow, see [Implement the Client Credentials Flow](/docs/guides/implement-client-creds/).
 
 ## Authorization Servers
 
@@ -295,7 +295,7 @@ Okta provides two types of authorization servers:
 
 **Okta Authorization Server**
 
-Use the Okta Authorization Server to perform Single Sign-On with Okta, or get an access token for Okta. The Okta Authorization Server can't be customized. Access tokens issued by the Okta Authorization Server can only be consumed and validated by Okta. The token audience is Okta-specific, so the token can't be used or validated by your own applications.
+Use the Okta Authorization Server to perform Single Sign-On with Okta or get an access token for Okta. The Okta Authorization Server can't be customized. Access tokens issued by the Okta Authorization Server can only be consumed and validated by Okta. The token audience is Okta-specific, so the token can't be used or validated by your own applications.
 
 **Custom Authorization Server**
 
@@ -306,6 +306,6 @@ Okta provides a pre-configured Custom Authorization with the name `default`. It 
 `https://{yourOktaDomain}/api/v1/authorizationServers/${authServerId}` becomes
 `https://{yourOktaDomain}/api/v1/authorizationServers/default`
 
-For Custom Authorization Servers you create yourself, `${authServerId}` will be a random ID like `aus9o8wzkhckw9TLa0h7z`.
+For Custom Authorization Servers that you create yourself, `${authServerId}` will be a random ID like `aus9o8wzkhckw9TLa0h7z`.
 
 
