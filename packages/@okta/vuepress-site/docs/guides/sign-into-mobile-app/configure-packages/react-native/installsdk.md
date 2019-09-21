@@ -32,7 +32,7 @@ github "okta/okta-oidc-ios" ~> 3.5.0
 ```
 Then run `carthage update --platform iOS`.
 
-Open project settings and choose your application target. Then open `Build Phases` and add `OktaOidc.framework` from `ios/Carthage/Build/iOS` into the `Embed Frameworks` section
+Open project settings and choose your application target. Then open `Build Phases` and add `OktaOidc.framework` from `ios/Carthage/Build/iOS` into the `Embed Frameworks` section.
 
 ### Install Android OIDC SDK
 
