@@ -40,11 +40,13 @@ redirects:
   - from: /code/javascript/okta_auth_sdk_external_ref.html
     to: /code/javascript/okta_auth_sdk_ref/index.html
   - from: /docs/guides/okta_sign-in_widget.html
-    to: /code/javascript/okta_sign-in_widget/index.html
+    to: /code/javascript/okta_sign-in_widget/
+  - from: /code/javascript/okta_sign-in_widget_ref
+    to: /code/javascript/okta_sign-in_widget/
   - from: /code/javascript/okta_sign-in_widget_ref/index.html
-    to: https://github.com/okta/okta-signin-widget
+    to: /code/javascript/okta_sign-in_widget/
   - from: /code/javascript/okta_sign-in_widget_external_ref.html
-    to: /code/javascript/okta_sign-in_widget_ref/index.html
+    to: /code/javascript/okta_sign-in_widget/
   - from: /docs/reference/api/okta_signin_widget.html
     to: /code/javascript/okta_sign-in_widget_ref/index.html
   - from: /code/php/jwt-validation/index.html
