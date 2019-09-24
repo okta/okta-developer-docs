@@ -28,6 +28,7 @@ guides:
  - saml-application-setup
  - session-cookie
  - set-up-event-hook
+ - shared-sso-android-ios
  - sharing-cert
  - sign-into-mobile-app
  - sign-into-spa
