@@ -10,4 +10,4 @@ title: Okta API Products Release Notes
 
 ### Bug Fixed in 2019.09.3
 
-* After a user successfully scanned the QR code and completed the MFA enrollment process, the [`factorResult`](/docs/reference/api/factors/) parameter was missing from the response. (OKTA-244102)
+* After a user successfully scanned the QR code and completed the MFA enrollment process, the `factorResult` [parameter](/docs/reference/api/factors/) was missing from the response. (OKTA-244102)
