@@ -1,0 +1,1 @@
+We recommend not using the `prompt=none` parameter as iOS can't silently check a user's session. 

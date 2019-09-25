@@ -461,6 +461,7 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-on and
       {
         "factorType": "token",
         "provider": "RSA",
+        "vendorName": "RSA",
         "_links": {
           "enroll": {
             "href": "https://{yourOktaDomain}/api/v1/authn/factors",
@@ -470,7 +471,9 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-on and
               ]
             }
           }
-        }
+        },
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       },
       {
         "factorType": "token:software:totp",
@@ -484,7 +487,9 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-on and
               ]
             }
           }
-        }
+        },
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       },
       {
         "factorType": "sms",
@@ -498,7 +503,9 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-on and
               ]
             }
           }
-        }
+        },
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       },
       {
         "factorType": "call",
@@ -512,7 +519,9 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-on and
                ]
             }
           }
-         }
+         },
+         "status": "NOT_SETUP",
+         "enrollment": "OPTIONAL"
       },
       {
         "factorType": "push",
@@ -526,7 +535,9 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-on and
               ]
             }
           }
-        }
+        },
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       }
     ]
   },
@@ -692,7 +703,8 @@ curl -v -X POST \
             }
           }
         },
-        "status": "NOT_SETUP"
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       },
       {
         "factorType": "token:software:totp",
@@ -708,7 +720,8 @@ curl -v -X POST \
             }
           }
         },
-        "status": "NOT_SETUP"
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       },
       {
         "factorType": "token:software:totp",
@@ -724,7 +737,8 @@ curl -v -X POST \
             }
           }
         },
-        "status": "NOT_SETUP"
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       },
       {
         "factorType": "sms",
@@ -740,7 +754,8 @@ curl -v -X POST \
             }
           }
         },
-        "status": "NOT_SETUP"
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       },
       {
         "factorType": "push",
@@ -756,7 +771,8 @@ curl -v -X POST \
             }
           }
         },
-        "status": "NOT_SETUP"
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       },
       {
         "factorType": "token:hardware",
@@ -772,7 +788,8 @@ curl -v -X POST \
             }
           }
         },
-        "status": "NOT_SETUP"
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       }
     ]
   },
@@ -1223,7 +1240,8 @@ User is assigned to an MFA Policy that requires enrollment during sign-on and mu
                   }
                }
             },
-            "status":"NOT_SETUP"
+            "status":"NOT_SETUP",
+            "enrollment": "OPTIONAL"
          }
       ],
       "target":{
@@ -1569,7 +1587,8 @@ User is assigned to an MFA Policy that requires enrollment during sign-on and mu
                   }
                }
             },
-            "status":"NOT_SETUP"
+            "status":"NOT_SETUP",
+            "enrollment": "OPTIONAL"
          }
       ],
       "target":{
@@ -6207,6 +6226,7 @@ curl -v -X POST \
       {
         "factorType": "token",
         "provider": "RSA",
+        "vendorName": "RSA",
         "_links": {
           "enroll": {
             "href": "https://{yourOktaDomain}/api/v1/authn/factors",
@@ -6216,11 +6236,14 @@ curl -v -X POST \
               ]
             }
           }
-        }
+        },
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       },
       {
         "factorType": "token:software:totp",
         "provider": "OKTA",
+        "vendorName": "OKTA",
         "_links": {
           "enroll": {
             "href": "https://{yourOktaDomain}/api/v1/authn/factors",
@@ -6230,11 +6253,14 @@ curl -v -X POST \
               ]
             }
           }
-        }
+        },
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       },
       {
         "factorType": "sms",
         "provider": "OKTA",
+        "vendorName": "OKTA",
         "_links": {
           "enroll": {
             "href": "https://{yourOktaDomain}/api/v1/authn/factors",
@@ -6244,11 +6270,14 @@ curl -v -X POST \
               ]
             }
           }
-        }
+        },
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       },
       {
         "factorType": "push",
         "provider": "OKTA",
+        "vendorName": "OKTA",
         "_links": {
           "enroll": {
             "href": "https://{yourOktaDomain}/api/v1/authn/factors",
@@ -6258,7 +6287,9 @@ curl -v -X POST \
               ]
             }
           }
-        }
+        },
+        "status": "NOT_SETUP",
+        "enrollment": "OPTIONAL"
       }
     ]
   },
