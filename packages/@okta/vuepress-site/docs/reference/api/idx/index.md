@@ -144,6 +144,28 @@ curl -X POST \
 }'
 ```
 
+
+### Enroll
+
+```bash
+curl -X POST \
+  https://dev-887252-admin.oktapreview.com/idp/idx/enroll \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: 7b55eb46-16ad-4717-82b7-a03e1f74eacb' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"stateHandle" : "{{stateHandle}}",
+	"userProfile" : {
+		"firstName" : "First",
+		"lastName" : "Last",
+		"email" : "{{nextUserIdentifier}}"
+	}
+}'
+```
+
+
+
+
 ## IdX API Objects
 
 stateHandle
