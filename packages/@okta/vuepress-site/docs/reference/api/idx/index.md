@@ -8,7 +8,7 @@ category: management
 
 ## Getting Started
 
-Need to create postman collection, minus internal test environment provisioning library?
+Need to create postman collection, minus internal test environment provisioning library? Separate out idx from policy and other.
 
 
 ## IdX API Operations
@@ -26,10 +26,14 @@ Need to create postman collection, minus internal test environment provisioning 
 #### Request Example
 
 ```bash
-curl --X POST \
-"https://{yourOktaDomain}/idp/idx/introspect" \
---H "Content-Type: application/json" \
---d "stateHandle : {stateHandle}"
+curl -X POST \
+  https://dev-887252-admin.oktapreview.com/idp/idx/introspect \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: 1ff9fbff-64fb-4597-bbb1-3d9f46fa11b0' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"stateHandle" : "{{stateHandle}}"
+}'
 ```
 
 
@@ -128,7 +132,17 @@ curl --X POST \
 
 ### Identify
 
-
+```bash
+curl -X POST \
+  https://dev-887252-admin.oktapreview.com/idp/idx/identify \
+  -H 'Content-Type: application/json' \
+  -H 'Postman-Token: b0449297-a690-485a-a9b0-9eb3f575591f' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"stateHandle" : "{{stateHandle}}",
+	"identifier" : ""
+}'
+```
 
 ## IdX API Objects
 
