@@ -79,7 +79,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 #### Parameter details
  * `idp`, `sessionToken` and `idp_scope` are Okta extensions to [the OpenID specification](http://openid.net/specs/openid-connect-core-1_0.html#Authentication).
     All other parameters comply with the OpenID Connect specification and their behavior is consistent with the specification.
-
+* `idp`: If an Okta session does not already exist, the user will be redirected to the [Identity Provider](/docs/reference/api/idps/) which has this id for authentication.
 * `prompt`:
 
     If no `prompt` parameter is specified, the standard behavior occurs:
@@ -89,7 +89,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
     There are four possible values for this parameter:
 
     * `none`: Don't prompt for authentication or consent. If an Okta session already exists, the user is silently authenticated. Otherwise, an error is returned.
-    * `login`: Always prompt the user for authentication, regardless of whether they have an Okta session.
+    * `login`: Always prompt the user for authentication, regardless of whether they have an Okta session. If the `idp` parameter is provided the user will be redirected to this specified Identity Provider for authentication.
     * `consent`: <ApiLifecycle access="ea" /> Depending on the [values set for `consent_method` in the app and `consent` on the scope](/docs/reference/api/apps/#add-oauth-20-client-application), display the Okta consent dialog, even if the user has already given consent. User consent is available for Custom Authorization Servers (requires the API Access Management feature and the User Consent feature enabled).
     * `login consent` or `consent login` (order doesn't matter): The user is always prompted for authentication, and the user consent dialog appears depending on the [values set for `consent_method` in the app and `consent` on the scope](/docs/reference/api/apps/#add-oauth-20-client-application), even if the user has already given consent.
 
