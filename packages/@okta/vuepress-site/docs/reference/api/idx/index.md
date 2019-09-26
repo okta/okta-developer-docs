@@ -2,7 +2,7 @@
 title: IdX
 category: management
 excerpt: >-
-  The IdX API provides an interface for taking end user through the steps of the Okta Identity Engine Pipeline.
+  The IdX API provides an interface for taking end user through the steps of the Okta Identity Engine pipeline.
 ---
 
 # IdX API
