@@ -31,10 +31,10 @@ The [`private_key_jwt`](/docs/reference/api/oidc/#jwt-with-private-key) client a
     }
     ```
 ## Create a Service app
-Register the public key with the Service app by creating an OAuth Service client app using the `/apps` API. The following example uses the **Add OAuth2 Client App** request in Postman:
+Create an OAuth Service client app and register the public key with the Service app using the `/apps` API. The following example uses the **Add OAuth2 Client App** request in Postman:
 
 1. In Postman, select the **Add OAuth2 Client App** request within the **Apps** collection.
-2. On the **Body** tab, make the following noted changes to the parameter values and add the `jwks` section.
+2. On the **Body** tab, make the following noted changes to the parameter values and add the `JWKS` section.
 
     For example:
     ```json

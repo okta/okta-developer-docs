@@ -1,12 +1,13 @@
 ---
 title: Get an access token using a Service app
 ---
-To get an access token using the Client Credentials grant flow, do the following in Postman:
+To request an access token using the Client Credentials grant flow, you make a request to your Okta Authorization Server's `/token` endpoint.
+To make that request, do the following in Postman:
 
 > **Note:** Move on to the <GuideLink link="../save-access-token">next section</GuideLink> if you aren't using the Client Credentials grant flow.
 
 1. Open the **Get Access Token with Client Credentials and Client Secret JWT** request in the **API Access Management (Okta API)** collection.
-2. This guide assumes that you are using your Org authorization server, so remove the `{{authorizationServerId}}` parameter from the URL. The URL should look something like this:
+2. This guide assumes that you are using your Org Authorization Server, so remove the `{{authorizationServerId}}` parameter from the URL. The URL should look something like this:
 	
 	`{yourOktadomain}/oauth2/v1/token`
 

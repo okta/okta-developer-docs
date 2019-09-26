@@ -9,7 +9,7 @@ After you have the following, you can request an access token:
 
 > **Note:** Using a Service app? See <GuideLink link="../get-access-token-using-service-app">Get an access token using a Service app</GuideLink> for the steps.
 
-1. Request an access token by making a request to your Okta authorization server's `/authorize` endpoint. For testing purposes, we recommend that you use a private browser window and the Implicit grant flow. Using the Implicit grant flow streamlines authentication for testing by returning a token without introducing any additional steps.
+1. Request an access token by making a request to your Okta Org Authorization Server's `/authorize` endpoint. For testing purposes, we recommend that you use a private browser window and the Implicit grant flow. Using the Implicit grant flow streamlines authentication for testing by returning a token without introducing any additional steps. The Authorization Code grant flow is also supported.
 
     > **Note:** If this is your first time working with Okta's APIs, you should read [Get Started with the Okta REST APIs](https://developer.okta.com/code/rest/) first. See [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/) for more information on this grant type.
 
@@ -30,7 +30,7 @@ After you have the following, you can request an access token:
 
 3. Enter your credentials on the Okta Sign-in Page that appears. After you authenticate, the browser returns an access token in the address bar.
 
-    In this example, you previously added the `okta.users.manage` scope to the application's grants collection. You then requested that scope be included in the access token. Since this is an admin-level scope, you need to sign in with an admin user that is associated with our app.
+    In this example, you previously added the `okta.users.manage` scope to the application's grants collection. You then requested that scope be included in the access token. Since this is an admin-level scope, you need to sign in with admin user credentials that are associated with your app.
 
     The response that is returned looks something like this (the token is truncated for brevity):
 
