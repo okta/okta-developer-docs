@@ -1,15 +1,17 @@
 ---
 title: IdX
 category: management
+excerpt: >-
+  The IdX API provides an interface for taking end user through the steps of the Okta Identity Engine Pipeline.
 ---
 
 # IdX API
 
+<ApiLifecycle access="ea" />
 
 ## Getting Started
 
-Need to create postman collection, minus internal test environment provisioning library? Separate out idx from policy and other.
-
+Explore the IdX API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/<!--fill in collection id here-->)
 
 ## IdX API Operations
 
