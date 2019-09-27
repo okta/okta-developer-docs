@@ -33,7 +33,7 @@ The IdX API provides the following operations:
 
 <ApiOperation method="post" url="/idp/idx/identify" />
 
-Given a username, checks if the user already exists, and, if so, returns the User ID. The Remediation object returns specifies the next step to take, which is enrollment, if the user doesn't exist, and authentication, if they do.
+Given a username, checks if the user already exists, and, if so, returns the User ID. The Remediation object returned specifies the next step to take to enroll or authenticate this user.
 
 #### Request Body
 
@@ -70,7 +70,7 @@ curl -X POST \
 ```
 ##### Response
 
-In this response, the user has been identified as an existing user, so their User ID is returned. The Remediation object provides information on the next step to take, which is to have the user select a factor to use to authenticate themselves.
+In this response, the user has been identified as existing, so their User ID is returned. The Remediation object provides information on the next step to take, which is to prompt the user to select an authentication factor.
 
 ```json
 {
@@ -161,7 +161,7 @@ In this response, the user has been identified as an existing user, so their Use
 
 <ApiOperation method="post" url="/idp/idx/enroll" />
 
-Begins the enrollment process for a new user. You typically need to call this endpoint twice: first to get the list of user attributes you need to collect from the end user, and then again to pass to Okta the values collected.
+Begins the enrollment process for a new user. You typically need to call this endpoint twice: first to get the list of user attributes you need to collect from the end user, and then again to pass the values collected.
 
 ### Request Body
 
@@ -189,7 +189,7 @@ curl -X POST \
 
 ##### Response
 
-In this response, the Remediation object provides information on the User Profile attributes that the end user needs to be prompted to supply, so that enrollment can proceed. It also specifies that the next step is to make a request to this same endpoint again, which is how you pass the values supplied by the end user.
+In this response, the Remediation object provides information on the User Profile attributes that you need to prompt the end user to supply. It also specifies that the next step is to make a request to this same endpoint again, to pass the values.
 
 ```json
 {
@@ -314,7 +314,7 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
-	"stateHandle" : "${stateHandle}}",
+	"stateHandle" : "${stateHandle}",
 	"userProfile" : {
 		"firstName" : "Joe",
 		"lastName" : "Smith",
@@ -323,9 +323,9 @@ curl -X POST \
 }'
 ```
 
-<!-- To Do:
+<!-- To Do, sections for each of the remaining endpoints:
 Enroll, cont'd:
-- /credential/enroll, two requests: select factors, then enroll factors.
+- /credential/enroll (explain that need to select factors, then enroll factors)
 - /challenge/answer
 Authenticate
 - /challenge
@@ -335,8 +335,6 @@ Other
 - /cancel
 - /context
 -->
-
-
 
 ## IdX API Objects
 
@@ -367,7 +365,7 @@ The state handle is unique ID that serves as a state token during the end user's
 
 ### Remediation Object
 
-This object tells you what you need to do next, supplying the URL of the endpoint you need to use for the next step, and specifying the objects you need to supply when calling that endpoint.
+This object tells you what you need to do next, supplying the URL of the next endpoint to call, and specifying the objects you need to supply in your request.
 
 | Property       | Type   | Description                                                 |
 |----------------|--------|-------------------------------------------------------------|
@@ -375,4 +373,40 @@ This object tells you what you need to do next, supplying the URL of the endpoin
 | `value.method` | String | The HTTP verb you need to use for the request.              |
 | `value.value`  | Array  | An array of objects to supply when making the next request. |
  
+### Remediation Object Example
 
+```json
+{  
+   "type":"array",
+   "value":[  
+      {  
+         "rel":[  
+            "create-form"
+         ],
+         "name":"select-factor",
+         "href":"https://{yourOktaDomain}/idp/idx/credential/enroll",
+         "method":"POST",
+         "accepts":"application/vnd.okta.v1+json",
+         "value":[  
+            {  
+               "name":"factorProfileId",
+               "type":"set",
+               "options":[  
+                  {  
+                     "label":"Password",
+                     "value":"fpr1lzruD60jsYVOX0g4"
+                  }
+               ]
+            },
+            {  
+               "name":"stateHandle",
+               "required":true,
+               "value":"026NzuG-g2p_oyDCJqhfmk_0r2f7PMCVcva-geDZ_R",
+               "visible":false,
+               "mutable":false
+            }
+         ]
+      }
+   ]
+}
+```
