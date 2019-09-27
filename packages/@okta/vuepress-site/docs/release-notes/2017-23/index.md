@@ -69,7 +69,7 @@ With the following enhancements, the API Access Management Authorization Servers
 * Manage Authorization Server policies, policy rules, claims, and scopes with the API.
 * Activate or deactivate Authorization Servers, or delete them.
 * Scopes were actions previously, but are now conditions in a policy rule.
-* Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/en/prev/Content/Topics/Security/API_Access.htm#create_claims).
+* Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_API_Access).
 
 For more information see the [Authorization Server API documentation](/docs/reference/api/authorization-servers/#authorization-server-operations).
 <!-- OKTA-127511, OKTA-123638 -->

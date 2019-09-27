@@ -37,7 +37,7 @@ For more information on this endpoint, see here: [Get all claims](/docs/referenc
 To test your Authorization Server more thoroughly, you can try a full authentication flow which returns an ID Token. To do this, you will need a client Application in Okta with at least one User assigned to it.
 
 For more information you can read about:
-- [The OpenID Connect Application Wizard](https://help.okta.com/en/prev/Content/Topics/Apps/Apps_App_Integration_Wizard.htm)
+- [The OpenID Connect Application Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc)
 - [How to assign a User to an Application](https://support.okta.com/help/Documentation/Knowledge_Article/27418177-Using-the-Okta-Applications-Page#Assigning)
 
 You will need the following values from your Okta OpenID Connect application, both of which can be found on your Application's General tab:
