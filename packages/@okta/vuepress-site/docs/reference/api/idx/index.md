@@ -1,52 +1,77 @@
 ---
 title: IdX
-category: management
-excerpt: >-
-  The IdX API provides an interface for taking end user through the steps of the Okta Identity Engine pipeline.
 ---
 
 # IdX API
 
 <ApiLifecycle access="ea" />
 
+The Okta IdX API provides performs end user enrollment and authentication using the pipeline implemented by the Identity Engine.
+
 ## Getting Started
 
-Explore the IdX API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/<!--fill in collection id here-->)
+Explore the IdX API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/x) <!--Put in real link to Postman collection when available-->
 
 ## IdX API Operations
 
+The IdX API provides the following operations:
 
+[Identify a User](#identify-a-user)
+[Enroll a User](#)
+[Authenticate a User](#)
+[Introspect a state token](#)
+[Cancel a state token](#)
+[Get app context](#)
 
+### Identify a User
 
-### Introspect
+<ApiOperation method="post" url="/api/v1//idp/idx/identify" />
 
-#### Request Parameters
+Given a username, checks if the user exists already.
 
+#### Request Path Parameters
 
-#### Response Parameters
+| Parameter     | Type   | Description      |
+|---------------|--------|------------------|
+| `stateHandle` | String | The state token. |
+| `identifier`  | String | The username.    |
 
-#### Request Example
+#### Request Query Parameters
+
+None
+
+#### Response Body
+
+A [User object](#user-object), if the user exists.
+
+A [Remediation object](#remediation-object).
+
+#### Usage Example
+
+This request checks if the user "joe.smith@example.com" already exists:
+
+##### Request
 
 ```bash
-curl -X POST \
-  https://dev-887252-admin.oktapreview.com/idp/idx/introspect \
-  -H 'Content-Type: application/json' \
-  -H 'Postman-Token: 1ff9fbff-64fb-4597-bbb1-3d9f46fa11b0' \
-  -H 'cache-control: no-cache' \
-  -d '{
-	"stateHandle" : "{{stateHandle}}"
-}'
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+	"stateHandle" : "${stateHandle}",
+	"identifier" : "joe.smith@example.com"
+"https://{yourOktaDomain}/idp/idx/identify"
 ```
+##### Response
 
-
-#### Response Example
+In this response, the user has been identifies as an existing user, and their User ID is returned. The remediation object provides information on the next step to take, which is to have the user select a factor to use to authenticate.
 
 ```json
 {
     "stateHandle": "02YPzYGCoh2jl3JscO3oEaWfcZShVYL7NkOnMbFRXS",
     "version": "1.0.0",
-    "expiresAt": "2019-09-25T17:18:52.000Z",
-    "step": "IDENTIFY",
+    "expiresAt": "2019-09-25T17:22:28.000Z",
+    "step": "AUTHENTICATE",
     "intent": "LOGIN",
     "remediation": {
         "type": "array",
@@ -55,33 +80,21 @@ curl -X POST \
                 "rel": [
                     "create-form"
                 ],
-                "name": "identify",
-                "href": "http://idx.okta1.com:1802/idp/idx/identify",
+                "name": "select-factor",
+                "href": "{yourOktaDomain}/idp/idx/challenge",
                 "method": "POST",
                 "accepts": "application/vnd.okta.v1+json",
                 "value": [
                     {
-                        "name": "identifier",
-                        "label": "Username"
+                        "name": "factorId",
+                        "type": "set",
+                        "options": [
+                            {
+                                "label": "default",
+                                "value": "00u1cb85NSRYsqo470g4"
+                            }
+                        ]
                     },
-                    {
-                        "name": "stateHandle",
-                        "required": true,
-                        "value": "02YPzYGCoh2jl3JscO3oEaWfcZShVYL7NkOnMbFRXS",
-                        "visible": false,
-                        "mutable": false
-                    }
-                ]
-            },
-            {
-                "rel": [
-                    "create-form"
-                ],
-                "name": "select-enroll-profile",
-                "href": "http://idx.okta1.com:1802/idp/idx/enroll",
-                "method": "POST",
-                "accepts": "application/vnd.okta.v1+json",
-                "value": [
                     {
                         "name": "stateHandle",
                         "required": true,
@@ -93,12 +106,18 @@ curl -X POST \
             }
         ]
     },
+    "user": {
+        "type": "object",
+        "value": {
+            "id": "00u1cb85NSRYsqo470g4"
+        }
+    },
     "cancel": {
         "rel": [
             "create-form"
         ],
         "name": "cancel",
-        "href": "http://idx.okta1.com:1802/idp/idx/cancel",
+        "href": "{yourOktaDomain}/idp/idx/cancel",
         "method": "POST",
         "accepts": "application/vnd.okta.v1+json",
         "value": [
@@ -116,7 +135,7 @@ curl -X POST \
             "create-form"
         ],
         "name": "context",
-        "href": "http://idx.okta1.com:1802/idp/idx/context",
+        "href": "{yourOktaDomain}/idp/idx/context",
         "method": "POST",
         "accepts": "application/vnd.okta.v1+json",
         "value": [
@@ -132,119 +151,35 @@ curl -X POST \
 }
 ```
 
-### Identify
 
-```bash
-curl -X POST \
-  https://dev-887252-admin.oktapreview.com/idp/idx/identify \
-  -H 'Content-Type: application/json' \
-  -H 'Postman-Token: b0449297-a690-485a-a9b0-9eb3f575591f' \
-  -H 'cache-control: no-cache' \
-  -d '{
-	"stateHandle" : "{{stateHandle}}",
-	"identifier" : ""
-}'
-```
-
-
-### Enroll
-
-```bash
-curl -X POST \
-  https://dev-887252-admin.oktapreview.com/idp/idx/enroll \
-  -H 'Content-Type: application/json' \
-  -H 'Postman-Token: 7b55eb46-16ad-4717-82b7-a03e1f74eacb' \
-  -H 'cache-control: no-cache' \
-  -d '{
-	"stateHandle" : "{{stateHandle}}",
-	"userProfile" : {
-		"firstName" : "First",
-		"lastName" : "Last",
-		"email" : "{{nextUserIdentifier}}"
-	}
-}'
-```
 
 
 
 
 ## IdX API Objects
 
-stateHandle
+This API uses the following objects:
 
-step
-	IDENTIFY
-	AUTHENTICATE
-	ENROLL
-	RECOVER
-	GRANT
+* [stateHandle](#state-handle-object)
+* [step](#step-object)
+* [intent](#intent-object)
+* [remediation](#remediation-object)
+* [context](#context-object)
+* [cancel](#cancel-object)
 
-intent
-	ENROLL_NEW_USER
-	LOGIN
-	SESSION_STEP_UP
-	CREDENTIAL_ENROLLMENT
-	CREDENTIAL_RECOVERY
+### State Handle Object
 
+The state handle is unique ID that serves as a state token during the end user's progress through the pipeline.
 
+| Property      | Type   | Description                    |
+|---------------|--------|--------------------------------|
+| `stateHandle` | String | Unique identifier. (Read-only) |
 
-
-### Remediation Object
-
-### Remediation Object Example
+### State Handle Example
 
 ```json
-"remediation": {
-        "type": "array",
-        "value": [
-            {
-                "rel": [
-                    "create-form"
-                ],
-                "name": "identify",
-                "href": "http://idx.okta1.com:1802/idp/idx/identify",
-                "method": "POST",
-                "accepts": "application/vnd.okta.v1+json",
-                "value": [
-                    {
-                        "name": "identifier",
-                        "label": "Username"
-                    },
-                    {
-                        "name": "stateHandle",
-                        "required": true,
-                        "value": "02YPzYGCoh2jl3JscO3oEaWfcZShVYL7NkOnMbFRXS",
-                        "visible": false,
-                        "mutable": false
-                    }
-                ]
-            },
-            {
-                "rel": [
-                    "create-form"
-                ],
-                "name": "select-enroll-profile",
-                "href": "http://idx.okta1.com:1802/idp/idx/enroll",
-                "method": "POST",
-                "accepts": "application/vnd.okta.v1+json",
-                "value": [
-                    {
-                        "name": "stateHandle",
-                        "required": true,
-                        "value": "02YPzYGCoh2jl3JscO3oEaWfcZShVYL7NkOnMbFRXS",
-                        "visible": false,
-                        "mutable": false
-                    }
-                ]
-            }
-        ]
-    }
+{
+    "stateHandle": "02YPzYGCoh2jl3JscO3oEaWfcZShVYL7NkOnMbFRXS"
+}
 ```
-
-
-context
-
-cancel
-
-
 
