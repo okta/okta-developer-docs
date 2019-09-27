@@ -27,9 +27,9 @@ The IdX API provides the following operations:
 
 ### Identify User
 
-<ApiOperation method="post" url="/api/v1//idp/idx/identify" />
+<ApiOperation method="post" url="/idp/idx/identify" />
 
-Given a username, checks if the user exists already.
+Given a username, checks if the user already exists, and, if so, returns their User ID.
 
 #### Request Path Parameters
 
@@ -55,19 +55,18 @@ This request checks if the user "joe.smith@example.com" already exists:
 ##### Request
 
 ```bash
-curl -v -X GET \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
--d '{
-	"stateHandle" : "{{stateHandle}}",
+curl -X POST \
+  https://{yourOktaDomain}/idp/idx/identify \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"stateHandle" : "${stateHandle}",
 	"identifier" : "joe.smith@example.com"
 }'
-"https://{yourOktaDomain}/idp/idx/identify"
 ```
 ##### Response
 
-In this response, the user has been identified as an existing user, and their User ID is returned. The remediation object provides information on the next step to take, which is to have the user select a factor to use to authenticate themselves.
+In this response, the user has been identified as an existing user, so their User ID is returned. The Remediation object provides information on the next step to take, which is to have the user select a factor to use to authenticate themselves.
 
 ```json
 {
@@ -84,7 +83,7 @@ In this response, the user has been identified as an existing user, and their Us
                     "create-form"
                 ],
                 "name": "select-factor",
-                "href": "{yourOktaDomain}/idp/idx/challenge",
+                "href": "https://{yourOktaDomain}/idp/idx/challenge",
                 "method": "POST",
                 "accepts": "application/vnd.okta.v1+json",
                 "value": [
@@ -120,7 +119,7 @@ In this response, the user has been identified as an existing user, and their Us
             "create-form"
         ],
         "name": "cancel",
-        "href": "{yourOktaDomain}/idp/idx/cancel",
+        "href": "https://{yourOktaDomain}/idp/idx/cancel",
         "method": "POST",
         "accepts": "application/vnd.okta.v1+json",
         "value": [
@@ -138,7 +137,7 @@ In this response, the user has been identified as an existing user, and their Us
             "create-form"
         ],
         "name": "context",
-        "href": "{yourOktaDomain}/idp/idx/context",
+        "href": "https://{yourOktaDomain}/idp/idx/context",
         "method": "POST",
         "accepts": "application/vnd.okta.v1+json",
         "value": [
@@ -154,10 +153,155 @@ In this response, the user has been identified as an existing user, and their Us
 }
 ```
 
+### Enroll User
 
+<ApiOperation method="post" url="/idp/idx/enroll" />
 
+Begins the enrollment process for a new user.
 
+### Request Path Parameters
 
+| Parameter     | Type   | Description                                                                |
+|---------------|--------|----------------------------------------------------------------------------|
+| `stateHandle` | String | The state token.                                                           |
+
+#### Usage Example
+
+##### Request
+
+```bash
+curl -X POST \
+  https://{yourOktaDomain}/idp/idx/enroll \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"stateHandle" : "${stateHandle}}"
+}'
+```
+
+##### Response
+
+In this response, the Remediation object provides information on the User Profile attributes that the end user needs to be prompted to supply, so that enrollment can proceed. It also specifies that the next step is to make a request to this same endpoint again, which is how you pass to Okta the values supplied by the end user.
+
+```json
+{
+    "stateHandle": "026NzuG-g2p_oyDCJqhfmk_0r2f7PMCVcva-geDZ_R",
+    "version": "1.0.0",
+    "expiresAt": "2019-09-26T18:24:59.000Z",
+    "step": "ENROLL",
+    "intent": "LOGIN",
+    "remediation": {
+        "type": "array",
+        "value": [
+            {
+                "rel": [
+                    "create-form"
+                ],
+                "name": "enroll-profile",
+                "href": "https://{yourOktaDomain}/idp/idx/enroll",
+                "method": "POST",
+                "accepts": "application/vnd.okta.v1+json",
+                "value": [
+                    {
+                        "name": "userProfile",
+                        "form": {
+                            "value": [
+                                {
+                                    "name": "lastName",
+                                    "label": "Last name",
+                                    "required": true
+                                },
+                                {
+                                    "name": "firstName",
+                                    "label": "First name",
+                                    "required": true
+                                },
+                                {
+                                    "name": "email",
+                                    "label": "Email",
+                                    "required": true,
+                                    "value": "user6@idx.com"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "stateHandle",
+                        "required": true,
+                        "value": "026NzuG-g2p_oyDCJqhfmk_0r2f7PMCVcva-geDZ_R",
+                        "visible": false,
+                        "mutable": false
+                    }
+                ]
+            },
+            {
+                "rel": [
+                    "create-form"
+                ],
+                "name": "select-identify",
+                "href": "https://{yourOktaDomain}/idp/idx/identify",
+                "method": "POST",
+                "accepts": "application/vnd.okta.v1+json",
+                "value": [
+                    {
+                        "name": "stateHandle",
+                        "required": true,
+                        "value": "026NzuG-g2p_oyDCJqhfmk_0r2f7PMCVcva-geDZ_R",
+                        "visible": false,
+                        "mutable": false
+                    }
+                ]
+            }
+        ]
+    },
+    "user": {
+        "type": "object",
+        "value": {}
+    },
+    "cancel": {
+        "rel": [
+            "create-form"
+        ],
+        "name": "cancel",
+        "href": "https://{yourOktaDomain}/idp/idx/cancel",
+        "method": "POST",
+        "accepts": "application/vnd.okta.v1+json",
+        "value": [
+            {
+                "name": "stateHandle",
+                "required": true,
+                "value": "026NzuG-g2p_oyDCJqhfmk_0r2f7PMCVcva-geDZ_R",
+                "visible": false,
+                "mutable": false
+            }
+        ]
+    },
+    "context": {
+        "rel": [
+            "create-form"
+        ],
+        "name": "context",
+        "href": "https://{yourOktaDomain}/idp/idx/context",
+        "method": "POST",
+        "accepts": "application/vnd.okta.v1+json",
+        "value": [
+            {
+                "name": "stateHandle",
+                "required": true,
+                "value": "026NzuG-g2p_oyDCJqhfmk_0r2f7PMCVcva-geDZ_R",
+                "visible": false,
+                "mutable": false
+            }
+        ]
+    }
+}
+```
+
+### Enroll User
+
+<ApiOperation method="post" url="/idp/idx/enroll" />
+
+Begins the enrollment process for a new user.
 
 ## IdX API Objects
 
