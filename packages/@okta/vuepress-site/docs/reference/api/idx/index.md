@@ -12,6 +12,8 @@ Background information on using this API is available on this page: [Identity En
 
 You are required to supply a `stateHandle` object in each request you make to this API. That object represents a state token. You receive it originally from the Okta Oauth 2.0 `/authorize` endpoint.
 
+The JSON objects returned by this API follow the [Ion Hypermedia Type](https://ionspec.org/) specification.
+
 ## Getting Started
 
 Explore the IdX API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/x) <!--Put in real link to Postman collection when available-->
@@ -31,7 +33,7 @@ The IdX API provides the following operations:
 
 <ApiOperation method="post" url="/idp/idx/identify" />
 
-Given a username, checks if the user already exists, and, if so, returns their User ID. The Remediation object returns specifies the next step to take, which is enrollment, if the user doesn't exist, and authentication, if they do.
+Given a username, checks if the user already exists, and, if so, returns the User ID. The Remediation object returns specifies the next step to take, which is enrollment, if the user doesn't exist, and authentication, if they do.
 
 #### Request Body
 
@@ -159,7 +161,7 @@ In this response, the user has been identified as an existing user, so their Use
 
 <ApiOperation method="post" url="/idp/idx/enroll" />
 
-Begins the enrollment process for a new user.
+Begins the enrollment process for a new user. You typically need to call this endpoint twice: first to get the list of user attributes you need to collect from the end user, and then again to pass to Okta the values collected.
 
 ### Request Body
 
@@ -302,9 +304,9 @@ In this response, the Remediation object provides information on the User Profil
     }
 }
 ```
-##### Second Request, Supplying User Attributes
+##### Second Request, Supplying User Attribute Values
 
-In this example, user profile attributes, collected from the end user, are sent:
+In this example, user profile attributes are sent:
 
 ```bash
 curl -X POST \
@@ -321,11 +323,20 @@ curl -X POST \
 }'
 ```
 
-### Authenticate User
+<!-- To Do:
+Enroll, cont'd:
+- /credential/enroll, two requests: select factors, then enroll factors.
+- /challenge/answer
+Authenticate
+- /challenge
+- /challenge/answer
+Other
+- /introspect
+- /cancel
+- /context
+-->
 
-<ApiOperation method="post" url="/idp/idx/enroll" />
 
-Begins the enrollment process for a new user.
 
 ## IdX API Objects
 
@@ -335,7 +346,7 @@ This API uses the following objects:
 * [Step](#step-object)
 * [Intent](#intent-object)
 * [Remediation](#remediation-object)
-* [context](#context-object)
+* [Context](#context-object)
 * [Cancel](#cancel-object)
 
 ### State Handle Object
@@ -353,4 +364,15 @@ The state handle is unique ID that serves as a state token during the end user's
     "stateHandle": "02YPzYGCoh2jl3JscO3oEaWfcZShVYL7NkOnMbFRXS"
 }
 ```
+
+### Remediation Object
+
+This object tells you what you need to do next, supplying the URL of the endpoint you need to use for the next step, and specifying the objects you need to supply when calling that endpoint.
+
+| Property       | Type   | Description                                                 |
+|----------------|--------|-------------------------------------------------------------|
+| `value.href`   | String | The URL of the endpoint you need to use for the next step.  |
+| `value.method` | String | The HTTP verb you need to use for the request.              |
+| `value.value`  | Array  | An array of objects to supply when making the next request. |
+ 
 
