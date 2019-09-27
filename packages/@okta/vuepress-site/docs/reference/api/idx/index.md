@@ -6,7 +6,7 @@ title: IdX
 
 <ApiLifecycle access="ea" />
 
-The Okta IdX API provides implements enrollment and authentication using the steps defined in the Identity Engine.
+The Okta IdX API implements enrollment and authentication steps for end users, using the steps defined in the Identity Engine.
 
 Background information on using this API is available on this page: [Identity Engine](/docs/concepts/identity-engine/) <!--Page doesn't exist yet; will be a conceptual overview, and talk about  state token, remediation, use of policies, and the steps in the pipeline -->
 
