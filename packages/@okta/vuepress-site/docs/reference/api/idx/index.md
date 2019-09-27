@@ -8,6 +8,8 @@ title: IdX
 
 The Okta IdX API provides performs end user enrollment and authentication using the pipeline implemented by the Identity Engine.
 
+Background information on using this API is available on this page: [Identity Engine](/docs/concepts/identity-engine/) <!--Page doesn't exist yet; will be conceptual overview and describe state token, remediation, use of policies -->
+
 ## Getting Started
 
 Explore the IdX API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/x) <!--Put in real link to Postman collection when available-->
@@ -16,14 +18,14 @@ Explore the IdX API: [![Run in Postman](https://run.pstmn.io/button.svg)](https:
 
 The IdX API provides the following operations:
 
-[Identify a User](#identify-a-user)
-[Enroll a User](#)
-[Authenticate a User](#)
-[Introspect a state token](#)
-[Cancel a state token](#)
-[Get app context](#)
+ * [Identify User](#identify-a-user)
+ * [Enroll User](#enroll-a-user)
+ * [Authenticate User](#authenticate-a-user)
+ * [Introspect State Token](#introspect-a-state-token)
+ * [Cancel State Token](#cancel-a-state-token)
+ * [Get Context](#get-context)
 
-### Identify a User
+### Identify User
 
 <ApiOperation method="post" url="/api/v1//idp/idx/identify" />
 
@@ -64,7 +66,7 @@ curl -v -X GET \
 ```
 ##### Response
 
-In this response, the user has been identifies as an existing user, and their User ID is returned. The remediation object provides information on the next step to take, which is to have the user select a factor to use to authenticate.
+In this response, the user has been identified as an existing user, so their User ID is returned. The remediation object provides information on the next step to take, which is to have the user select a factor to use to authenticate themselves.
 
 ```json
 {
