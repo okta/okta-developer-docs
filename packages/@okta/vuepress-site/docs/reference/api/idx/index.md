@@ -6,11 +6,11 @@ title: IdX
 
 <ApiLifecycle access="ea" />
 
-The Okta IdX API implements enrollment and authentication steps for end users, using the steps defined by the Identity Engine pipeline.
+The Okta IdX API implements enrollment and authentication steps for end users, using the Okta Identity Engine pipeline.
 
-Background information on using this API is available on this page: [Identity Engine](/docs/concepts/identity-engine/) <!--Page doesn't exist yet; will be a conceptual overview, and talk about  state token, remediation, use of policies, and the steps in the pipeline -->
+Background information on using this API is available on this page: [Identity Engine Overview](/docs/concepts/identity-engine/) <!--Page doesn't exist yet; will be a conceptual overview, and talk about  state token, remediation, use of policies, and the steps in the pipeline -->
 
-You are required to supply a `stateHandle` object in each request you make to this API. That object represents a state token. You receive it originally from the Okta Oauth 2.0 `/authorize` endpoint.
+You are required to supply a `stateHandle` object, which functions as a state toke, in each request you make to this API. You receive that object originally from the Okta Oauth 2.0 `/authorize` endpoint when the authentication or enrollment process for an app is launched.
 
 The JSON objects returned by this API follow the [Ion Hypermedia Type](https://ionspec.org/) specification.
 
@@ -22,11 +22,11 @@ Explore the IdX API: [![Run in Postman](https://run.pstmn.io/button.svg)](https:
 
 The IdX API provides the following operations:
 
- * [Identify User](#identify-a-user)
- * [Enroll User](#enroll-a-user)
- * [Authenticate User](#authenticate-a-user)
- * [Introspect State Token](#introspect-a-state-token)
- * [Cancel State Token](#cancel-a-state-token)
+ * [Identify User](#identify-user)
+ * [Enroll User](#enroll-user)
+ * [Authenticate User](#authenticate-user)
+ * [Introspect State Token](#introspect-state-token)
+ * [Cancel State Token](#cancel-state-token)
  * [Get Context](#get-context)
 
 ### Identify User
