@@ -33,10 +33,10 @@ Given a username, checks if the user exists already.
 
 #### Request Path Parameters
 
-| Parameter     | Type   | Description      |
-|---------------|--------|------------------|
-| `stateHandle` | String | The state token. |
-| `identifier`  | String | The username.    |
+| Parameter     | Type   | Description                                                                |
+|---------------|--------|----------------------------------------------------------------------------|
+| `stateHandle` | String | The state token.                                                           |
+| `identifier`  | String | The username. If user is unknown, this can be an empty string, i.e., `""`. |
 
 #### Request Query Parameters
 
@@ -60,13 +60,14 @@ curl -v -X GET \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-	"stateHandle" : "${stateHandle}",
+	"stateHandle" : "{{stateHandle}}",
 	"identifier" : "joe.smith@example.com"
+}'
 "https://{yourOktaDomain}/idp/idx/identify"
 ```
 ##### Response
 
-In this response, the user has been identified as an existing user, so their User ID is returned. The remediation object provides information on the next step to take, which is to have the user select a factor to use to authenticate themselves.
+In this response, the user has been identified as an existing user, and their User ID is returned. The remediation object provides information on the next step to take, which is to have the user select a factor to use to authenticate themselves.
 
 ```json
 {
