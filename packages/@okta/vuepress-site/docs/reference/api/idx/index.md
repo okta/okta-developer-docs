@@ -10,6 +10,8 @@ The Okta IdX API provides performs end user enrollment and authentication using 
 
 Background information on using this API is available on this page: [Identity Engine](/docs/concepts/identity-engine/) <!--Page doesn't exist yet; will be conceptual overview and describe state token, remediation, use of policies -->
 
+You are required to supply a `stateHandle` object, which functions as a state token, in each request you make to this API. You receive the `stateHandle` from the Okta Oauth 2.0 `/authorize` endpoint.
+
 ## Getting Started
 
 Explore the IdX API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/x) <!--Put in real link to Postman collection when available-->
@@ -296,8 +298,26 @@ In this response, the Remediation object provides information on the User Profil
     }
 }
 ```
+##### Second Request, Supplying User Attributes
 
-### Enroll User
+In this example, user profile attributes supplied by the end user are sent:
+
+```bash
+curl -X POST \
+  https://{yourOktaDomain}/idp/idx/enroll \
+  -H 'Content-Type: application/json' \
+  -H 'cache-control: no-cache' \
+  -d '{
+	"stateHandle" : "${stateHandle}}",
+	"userProfile" : {
+		"firstName" : "Joe",
+		"lastName" : "Smith",
+		"email" : "joe.smith@example.com"
+	}
+}'
+```
+
+### Authenticate User
 
 <ApiOperation method="post" url="/idp/idx/enroll" />
 
