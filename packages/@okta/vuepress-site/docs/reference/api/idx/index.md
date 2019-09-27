@@ -6,11 +6,11 @@ title: IdX
 
 <ApiLifecycle access="ea" />
 
-The Okta IdX API provides performs end user enrollment and authentication using the pipeline implemented by the Identity Engine.
+The Okta IdX API provides implements enrollment and authentication using the steps defined in the Identity Engine.
 
-Background information on using this API is available on this page: [Identity Engine](/docs/concepts/identity-engine/) <!--Page doesn't exist yet; will be conceptual overview and describe state token, remediation, use of policies -->
+Background information on using this API is available on this page: [Identity Engine](/docs/concepts/identity-engine/) <!--Page doesn't exist yet; will be a conceptual overview, and talk about  state token, remediation, use of policies, and the steps in the pipeline -->
 
-You are required to supply a `stateHandle` object, which functions as a state token, in each request you make to this API. You receive the `stateHandle` from the Okta Oauth 2.0 `/authorize` endpoint.
+You are required to supply a `stateHandle` object in each request you make to this API. That object represents a state token. You receive it originally from the Okta Oauth 2.0 `/authorize` endpoint.
 
 ## Getting Started
 
@@ -31,14 +31,14 @@ The IdX API provides the following operations:
 
 <ApiOperation method="post" url="/idp/idx/identify" />
 
-Given a username, checks if the user already exists, and, if so, returns their User ID.
+Given a username, checks if the user already exists, and, if so, returns their User ID. The Remediation object returns specifies the next step to take, which is enrollment, if the user doesn't exist, and authentication, if they do.
 
-#### Request Path Parameters
+#### Request Body
 
-| Parameter     | Type   | Description                                                                |
-|---------------|--------|----------------------------------------------------------------------------|
-| `stateHandle` | String | The state token.                                                           |
-| `identifier`  | String | The username. If user is unknown, this can be an empty string, i.e., `""`. |
+| Property      | Type   | Description      |
+|---------------|--------|------------------|
+| `stateHandle` | String | The state token. |
+| `identifier`  | String | The username.    |
 
 #### Request Query Parameters
 
@@ -52,7 +52,7 @@ A [Remediation object](#remediation-object).
 
 #### Usage Example
 
-This request checks if the user "joe.smith@example.com" already exists:
+This request checks if the user "joe.smith@example.com" exists:
 
 ##### Request
 
@@ -177,13 +177,13 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
   -d '{
-	"stateHandle" : "${stateHandle}}"
+	"stateHandle" : "${stateHandle}"
 }'
 ```
 
 ##### Response
 
-In this response, the Remediation object provides information on the User Profile attributes that the end user needs to be prompted to supply, so that enrollment can proceed. It also specifies that the next step is to make a request to this same endpoint again, which is how you pass to Okta the values supplied by the end user.
+In this response, the Remediation object provides information on the User Profile attributes that the end user needs to be prompted to supply, so that enrollment can proceed. It also specifies that the next step is to make a request to this same endpoint again, which is how you pass the values supplied by the end user.
 
 ```json
 {
@@ -300,7 +300,7 @@ In this response, the Remediation object provides information on the User Profil
 ```
 ##### Second Request, Supplying User Attributes
 
-In this example, user profile attributes supplied by the end user are sent:
+In this example, user profile attributes are sent:
 
 ```bash
 curl -X POST \
@@ -327,12 +327,12 @@ Begins the enrollment process for a new user.
 
 This API uses the following objects:
 
-* [stateHandle](#state-handle-object)
-* [step](#step-object)
-* [intent](#intent-object)
-* [remediation](#remediation-object)
+* [State Handle](#state-handle-object)
+* [Step](#step-object)
+* [Intent](#intent-object)
+* [Remediation](#remediation-object)
 * [context](#context-object)
-* [cancel](#cancel-object)
+* [Cancel](#cancel-object)
 
 ### State Handle Object
 
