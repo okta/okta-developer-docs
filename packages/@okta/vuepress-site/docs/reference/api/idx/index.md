@@ -52,7 +52,7 @@ A [Remediation object](#remediation-object).
 
 #### Usage Example
 
-This request checks if the user "joe.smith@example.com" exists:
+This request attempts to identify the user "joe.smith@example.com":
 
 ##### Request
 
@@ -161,11 +161,15 @@ In this response, the user has been identified as an existing user, so their Use
 
 Begins the enrollment process for a new user.
 
-### Request Path Parameters
+### Request Body
 
-| Parameter     | Type   | Description                                                                |
-|---------------|--------|----------------------------------------------------------------------------|
-| `stateHandle` | String | The state token.                                                           |
+| Property      | Type   | Description      |
+|---------------|--------|------------------|
+| `stateHandle` | String | The state token. |
+
+#### Request Query Parameters
+
+None
 
 #### Usage Example
 
@@ -300,7 +304,7 @@ In this response, the Remediation object provides information on the User Profil
 ```
 ##### Second Request, Supplying User Attributes
 
-In this example, user profile attributes are sent:
+In this example, user profile attributes, collected from the end user, are sent:
 
 ```bash
 curl -X POST \
