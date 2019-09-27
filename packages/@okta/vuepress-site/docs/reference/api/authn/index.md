@@ -1,7 +1,6 @@
 ---
 title: Authentication
 category: authentication
-excerpt: Control user access to Okta.
 ---
 
 # Authentication API
