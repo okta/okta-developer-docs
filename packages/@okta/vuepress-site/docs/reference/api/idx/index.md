@@ -305,7 +305,7 @@ In this response, the Remediation object provides information on the User Profil
     }
 }
 ```
-##### Second Request, Supplying User Attribute Values
+##### Second Request Supplying User Attribute Values
 
 In this example, user profile attributes are sent:
 
@@ -362,7 +362,7 @@ The state handle is unique ID that serves as a state token during the end user's
 |---------------|--------|--------------------------------|
 | `stateHandle` | String | Unique identifier. (Read-only) |
 
-### State Handle Example
+### State Handle Object Example
 
 ```json
 {
