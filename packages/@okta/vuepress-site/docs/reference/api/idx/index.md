@@ -345,9 +345,14 @@ This API uses the following objects:
 * [Step](#step-object)
 * [Intent](#intent-object)
 * [Remediation](#remediation-object)
-* [User Profile](#user-profile-object)
 * [Context](#context-object)
 * [Cancel](#cancel-object)
+* [User Profile](#user-profile-object)
+* [Factor Profile ID](#factor-profile-id-object)
+* [Credential](#credential-object)
+* [Password](password-object)
+* [Factor ID](#factor-id-object)
+
 
 ### State Handle Object
 
