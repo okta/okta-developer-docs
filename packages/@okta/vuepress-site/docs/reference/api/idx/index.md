@@ -8,9 +8,9 @@ title: IdX
 
 The Okta IdX API implements enrollment and authentication steps for end users, using the Okta Identity Engine pipeline.
 
-Background information on using this API is available on this page: [Identity Engine Overview](/docs/concepts/identity-engine/) <!--Page doesn't exist yet; will be a conceptual overview, and talk about  state token, remediation, use of policies, and the steps in the pipeline -->
+Background information on using this API is available on this page: [Identity Engine Overview](/docs/concepts/identity-engine/) <!--Page doesn't exist yet; will be a conceptual overview, covering state token, remediation, use of policies, and the steps in the pipeline -->
 
-You are required to supply a `stateHandle` object, which functions as a state toke, in each request you make to this API. You receive that object originally from the Okta Oauth 2.0 `/authorize` endpoint when the authentication or enrollment process for an app is launched.
+You are required to supply a `stateHandle` object, which functions as a state token, in each request you make to this API. You receive that object originally from the Okta Oauth 2.0 `/authorize` endpoint when the authentication or enrollment process flow is launched.
 
 The JSON objects returned by this API follow the [Ion Hypermedia Type](https://ionspec.org/) specification.
 
@@ -33,7 +33,7 @@ The IdX API provides the following operations:
 
 <ApiOperation method="post" url="/idp/idx/identify" />
 
-Given a username, checks if the user already exists, and, if so, returns the User ID. The Remediation object returned specifies the next step to take to enroll or authenticate this user.
+Given a username, checks if the user already exists, and, if so, returns the User ID. The Remediation object returned specifies the next step to take to authenticate the user, if they already exist, or to enroll them, if they do not.
 
 #### Request Body
 
@@ -161,13 +161,14 @@ In this response, the user has been identified as existing, so their User ID is 
 
 <ApiOperation method="post" url="/idp/idx/enroll" />
 
-Begins the enrollment process for a new user. You typically need to call this endpoint twice: first to get the list of user attributes you need to collect from the end user, and then again to pass the values collected.
+Begins the enrollment process for a new user. You typically need to call this endpoint twice: first to get the list of user attributes you need to collect from the end user, and then again to pass to Okta the values collected.
 
 ### Request Body
 
-| Property      | Type   | Description      |
-|---------------|--------|------------------|
-| `stateHandle` | String | The state token. |
+| Property      | Type                                        | Description                                                       |
+|---------------|---------------------------------------------|-------------------------------------------------------------------|
+| `stateHandle` | String                                      | The state token.                                                  |
+| `userProfile` | [User Profile](#user-profile-object) object | An object containing user attributes collected from the end user. |
 
 #### Request Query Parameters
 
@@ -344,6 +345,7 @@ This API uses the following objects:
 * [Step](#step-object)
 * [Intent](#intent-object)
 * [Remediation](#remediation-object)
+* [User Profile](#user-profile-object)
 * [Context](#context-object)
 * [Cancel](#cancel-object)
 
