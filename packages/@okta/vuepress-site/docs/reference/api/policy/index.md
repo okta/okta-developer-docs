@@ -962,6 +962,9 @@ Specifies either a general application or specific app instance to match on.
 | Parameter | Description                                           | Data Type | Required |
 | ---       | ---                                                   | ---       | ---      |
 | include   | The list of applications or app instances to match on | Array     | Yes      |
+| exclude   | The list of applications to exclude                   | Array     | Yes      |
+
+> **NOTE:** If both include and exclude are empty, then the condition is met for all applications.
 
 #### Application and App Instance Condition Object Example
 
@@ -1192,6 +1195,10 @@ At present the Policy Factor Consent Terms settings are ignored.
 The following conditions may be applied to Multifactor Policy
 
 [People Condition](#people-condition-object)
+
+[Network Condition](#network-condition-object)
+
+[Application and App Instance Condition](#application-and-app-instance-condition-object)
 
 ### Multifactor Rules Action Data
 
