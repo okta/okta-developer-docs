@@ -1326,7 +1326,7 @@ The system log contains detailed information about why a request was denied and 
     * Revocation happens when a configuration is changed or deleted:
         * User deactivation or deletion.
         * Configuration in the authorization server is changed or deleted.
-        * The [client app](https://help.okta.com/en/prev/Content/Topics/Apps/Apps_App_Integration_Wizard.htm#OIDCWizard) is deactivated, changed, unassigned, or deleted.
+        * The [client app](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc) is deactivated, changed, unassigned, or deleted.
 
 ### Subtle behavior
 Some behaviors aren't obvious:
