@@ -5,36 +5,38 @@ For machine to machine use cases where a backend service or a daemon has to call
 
 > **Note:** Move on to the <GuideLink link="../define-allowed-scopes">next section</GuideLink> if you don't need to use the Client Credentials grant flow.
 
+The following steps are required to configure the Client Credentials grant flow with an OAuth Service app: 
+
+1. Create the private key and then extract the public key from the private key to create a  JSON Web Key Set (`jwks`). 
+2. Create the app and register the public key with the app.
+3. Sign the JWT with the private key.
+
 ## Create a public/private key pair
 The [`private_key_jwt`](/docs/reference/api/oidc/#jwt-with-private-key) client authentication method is the only supported method for OAuth Service apps that want to get Okta-scoped tokens. The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth Service app. So, we recommend generating the public/private key pair first before creating the OAuth Service app.
 
-1. Generate an RSA 2048-bit private key and then output the key to a PEM file. The following example is using openSSL in a terminal window:
+You can use a tool such as https://mkjwk.org/ to create a test `jwks`.
 
-   ```bash
-   openssl genrsa -out key.pem 2048
-   ```
+Alternatively, you can use a command line tool such as `openSSL` to generate an RSA 2048-bit private key and save it to a PEM file. You then need to extract the public key and create the JSON Web Key Set (`jwks`).
 
-2. Extract the public key from the private key and create a JSON Web Key Set (`jwks`). This can be done in several ways.
+The `jwks` should look something like this:
 
-    The `jwks` should look something like this:
-
-    ```json
-    {
-        "keys": [
-            {
-                "kty": "RSA",
-                "e":"AQAB",
-                "kid": "jwks1",
-                "n":"AJncrKuine49_CE….RL0HU=" // key truncated for brevity
-            }    
-        ]
-    }
-    ```
+```json
+{
+    "keys": [
+        {
+             "kty": "RSA",
+            "e":"AQAB",
+            "kid": "jwks1",
+            "n":"AJncrKuine49_CE….RL0HU=" // key truncated for brevity
+        }    
+    ]
+}
+```
 ## Create a Service app
 Create an OAuth Service client app and register the public key with the Service app using the `/apps` API. The following example uses the **Add OAuth2 Client App** request in Postman:
 
 1. In Postman, select the **Add OAuth2 Client App** request within the **Apps** collection.
-2. On the **Body** tab, make the following noted changes to the parameter values and add the `JWKS` section.
+2. On the **Body** tab, make the following noted changes to the parameter values and add the `jwks` section.
 
     For example:
     ```json
@@ -75,10 +77,39 @@ Create an OAuth Service client app and register the public key with the Service 
         }
     }
     ```
-3. When you finish, click **Send** to create the Service app with the `JWKS`.
+
+   You can also create a service client using the dynamic `/oauth/v1/clients` registration endpoint:
+
+    ```json
+    { 
+    "client_name":"OAuthServiceClient",
+    "response_types":[ 
+        "token"
+    ],
+    "grant_types":[ 
+        "client_credentials"
+    ],
+    "token_endpoint_auth_method":"private_key_jwt",
+    "application_type":"service",
+    "jwks":{ 
+        "keys":[ 
+            { 
+                "kty":"RSA",
+                "e":"AQAB",
+                "use":"sig",
+                "kid":"7164109848619491",
+                "alg":"RS256",
+                "n":"1rM-gaSnogAzxdbuEc0M6nKkurrOdSXbSH_NqSjn-FDAWl4tZQHTg6cUaYkhsmpT5PAh5AngsCgvoqRydx-m6irfL-4xkvXV4PNbZkGpNdcQluEpwZvGwUz69wwo_tZl_3syBQSV3TRqRUv7-p7WyeHD78oM0SpPbm7cEzM_A2kDHROFiR9njWdr6R_PCHXmQHjp28ChwnxiA_WJczmmnU88K6cf0OatQsthn649XG2pqtSyZwr0uYu5mWiJvVAcGAD6eZH9u7hsGKQ3iJiPuToaY3QUqH-fJnU64_jxHIYlLdbgJhmY8LxeAomUdgYj3EegmQCtik3uWK00EnK3PQ"
+            }
+        ]
+    }
+    }'
+    ```
+ 
+3. When you finish, click **Send** to create the Service app with the `jwks`.
 
 ## Sign the JWT
-You need to now sign the JWT with your private key for use in the request for a scoped access token. Crafting this `client_credentials` JWT can be done in several ways. See [Build a JWT with a private key](/docs/guides/build-self-signed-jwt/java/jwt-with-private-key/) for both a Java and a JavaScript example.
+You now need to sign the JWT with your private key for use in the request for a scoped access token. Crafting this `client_credentials` JWT can be done in several ways. See [Build a JWT with a private key](/docs/guides/build-self-signed-jwt/java/jwt-with-private-key/) for both a Java and a JavaScript example.
 
 > **Note:** After the Service app has Okta-scoped grants, only an admin with Super Admin permissions can rotate the keys.
 
