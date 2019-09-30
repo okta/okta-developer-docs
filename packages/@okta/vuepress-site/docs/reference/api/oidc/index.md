@@ -1,6 +1,7 @@
 ---
 title: OpenID Connect & OAuth 2.0 API
 category: authentication
+excerpt: Control user access to your applications.
 meta:
   - name: description
     content: Find information about the OAuth 2.0 and OpenID Connect endpoints that Okta exposes on its authorization servers.
@@ -63,7 +64,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 | code_challenge_method            | Method used to derive the code challenge for [PKCE](/docs/guides/implement-auth-code-pkce/). Valid value: `S256`                                                                                                                                                                                                                                                                                                         | Query       | String    | FALSE      |
 | display                          | The `display` parameter to be passed to the Social Identity Provider when performing Social Login.                                                                                                                                                                                                                                                                                                                                                 | Query       | String    | FALSE      |
 | idp_scope                        | A space delimited list of scopes to be provided to the Social Identity Provider when performing [Social Login](/docs/concepts/social-login/). These scopes are used in addition to the scopes already configured on the Identity Provider.                                                                                                                                                                                                  | Query       | String    | FALSE      |
-| [idp](/docs/reference/api/idps/) | Identity provider (default is Okta, unless you are using [Social Login](/docs/concepts/social-login/) or enterprise SAML)                                                                                                                                                                                                                                                                                                                   | Query       | String    | FALSE      |
+| [idp](/docs/reference/api/idps/) | Identity provider to use if there is no Okta Session.                                                                                                                                                                                                                                                                                                                   | Query       | String    | FALSE      |
 | login_hint                       | A username to prepopulate if prompting for authentication.                                                                                                                                                                                                                                                                                                                                                                                         | Query       | String    | FALSE      |
 | max_age                          | Allowable elapsed time, in seconds, since the last time the end user was actively authenticated by Okta.                                                                                                                                                                                                                                                                                                                                           | Query       | String    | FALSE      |
 | nonce                            | A value that is returned in the ID token. It is used to mitigate replay attacks.                                                                                                                                                                                                                                                                                                                                                              | Query       | String    | TRUE       |
@@ -79,7 +80,6 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 #### Parameter details
  * `idp`, `sessionToken` and `idp_scope` are Okta extensions to [the OpenID specification](http://openid.net/specs/openid-connect-core-1_0.html#Authentication).
     All other parameters comply with the OpenID Connect specification and their behavior is consistent with the specification.
-
 * `prompt`:
 
     If no `prompt` parameter is specified, the standard behavior occurs:
@@ -1326,7 +1326,7 @@ The system log contains detailed information about why a request was denied and 
     * Revocation happens when a configuration is changed or deleted:
         * User deactivation or deletion.
         * Configuration in the authorization server is changed or deleted.
-        * The [client app](https://help.okta.com/en/prev/Content/Topics/Apps/Apps_App_Integration_Wizard.htm#OIDCWizard) is deactivated, changed, unassigned, or deleted.
+        * The [client app](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc) is deactivated, changed, unassigned, or deleted.
 
 ### Subtle behavior
 Some behaviors aren't obvious:
