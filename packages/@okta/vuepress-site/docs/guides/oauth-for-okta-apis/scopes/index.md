@@ -1,36 +1,37 @@
 ---
-title: Scopes
+title: Scopes & Supported Endpoints
 ---
-Every action on an endpoint that supports OAuth 2.0 requires a specific scope. The following table shows the scopes that are currently available as a part of Early Access (EA):
+Every action on an endpoint that supports OAuth 2.0 requires a specific scope. Okta scopes have the following format: `okta.<resource name>.<operation>`. For example, you can have resources that are users, clients, or apps with `read` or `manage` operations. The `read` scope is used to read information about a resource. The `manage` scope is used to create a new resource, manage a resource, or delete a resource. Use the `okta.<resource>.read` scopes to perform GET API operations and the `okta.<resource>.manage` scopes to perform POST, PUT, and DELETE API operations. The self scopes (`okta.<resource>.<operation>.self`> only allow access to the user who authorized the token. These scopes are used to perform end user API operations.
 
-| Namespace              | Scope                    | Description                                                            |
-|------------------------|--------------------------|------------------------------------------------------------------------|
-| Apps                   | `okta.apps.manage`      | Allows the app to create and manage Apps in your Okta organization     |
-|                        | `okta.apps.read`         | Allows the app to read information about Apps in your Okta organization|
-| Authorization Servers  | `okta.authorizationServers.manage`| Allows an app to manage authorization servers                 |
-|                        | `okta.authorizationServers.read`| Allows an app to read authorization server information          |
-| Clients                | `okta.clients.manage`    | Allows an app to manage all OAuth/OIDC clients and to create new clients|
-|                        | `okta.clients.read`      | Allows an app to read information for all OAuth/OIDC clients           |
-|                        | `okta.clients.register`  | Allows an app to create new OAuth/OIDC clients (but not read information about existing clients)|
-| Event Hooks            | `okta.eventHooks.manage` | Allows the app to create and manage Event Hooks in your Okta organization|
-|                        | `okta.eventHoods.read`   | Allows the app to read information about Event Hooks in your Okta organization|
-| Events                 | `okta.events.read`       | Allows the app to read information about deprecated Events v1 API entries in your Okta organization|
-| Factors                | `okta.factors.manage`    | Allows the app to manage all admin operations for org factors (for example, activate, deactive, read)|
-|                        | `okta.factors.read`      | Allows the app to read org factors information                          |
-| Groups                 | `okta.groups.manage`     | Allows the app to manage groups in your Okta organization               |
-|                        | `okta.groups.read`       | Allows the app to read information about groups and their members in your Okta organization|
-|                        | `okta.groups.register`   | Allows the app to create new groups in your Okta organization           |
-| IDPS                   | `okta.idps.manage`       | Allows the app to create and manage Identity Providers in your Okta organization|
-|                        | `okta.idps.read`         | Allows the app to read information about Identity Providers in your Okta organization|
-| Logs                   | `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization|
-| Schemas                | `okta.schemas.manage`    | Allows the app to create and manage Schemas in your Okta organization   |
-|                        | `okta.schemas.read`      | Allows the app to read information about Schemas in your Okta organization|
-| Users                  | `okta.users.manage`      | Allows an app to manage any user's profile and credential information and to create new users|
-|                        | `okta.users.manage.self` | Allows an app to manage the currently signed-in user's profile           |
-|                        | `okta.users.read`        | Allows an app to read any user's profile and credential information      |
-|                        | `okta.users.read.self`   | Allows an app to read the currently signed-in user's profile and credential information|
+The following table shows the scopes that are currently available as a part of Early Access (EA):
 
-The full list of endpoints included in this EA, as well as the scope that is required for each endpoint and action, is located in the <GuideLink link="../supported-endpoints">Supported Endpoints</GuideLink> section.
+| Scope                    | Description                                                            | API                                    |
+|--------------------------|------------------------------------------------------------------------|----------------------------------------|
+| `okta.apps.manage`       | Allows the app to create and manage Apps in your Okta organization     | [Apps API](/docs/reference/api/apps/)  |
+| `okta.apps.read`         | Allows the app to read information about Apps in your Okta organization| [Apps API](/docs/reference/api/apps/)  |
+| `okta.authorizationServers.manage`| Allows an app to manage authorization servers                 | [Authorization Servers API](/docs/reference/api/authorization-servers/)|
+| `okta.authorizationServers.read`| Allows an app to read authorization server information          | [Authorization Servers API](/docs/reference/api/authorization-servers/)|
+| `okta.clients.manage`    | Allows an app to manage all OAuth/OIDC clients and to create new clients| [Dynamic Client Registration API](/docs/reference/api/authorization-servers/)|
+| `okta.clients.read`      | Allows an app to read information for all OAuth/OIDC clients           | [Dynamic Client Registration API](/docs/reference/api/authorization-servers/)|
+| `okta.clients.register`  | Allows an app to create new OAuth/OIDC clients (but not read information about existing clients)| [Dynamic Client Registration API](/docs/reference/api/authorization-servers/)|
+| `okta.eventHooks.manage` | Allows the app to create and manage Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
+| `okta.eventHooks.read`   | Allows the app to read information about Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
+| `okta.factors.manage`    | Allows the app to manage all admin operations for org factors (for example, activate, deactive, read)| [Factors API](/docs/reference/api/factors/#factor-operations)|
+| `okta.factors.read`      | Allows the app to read org factors information                          | [Factors API](/docs/reference/api/factors/#factor-operations)|
+| `okta.groups.manage`     | Allows the app to manage groups in your Okta organization               | [Groups API](/docs/reference/api/groups/#getting-started-with-the-groups-api)|
+| `okta.groups.read`       | Allows the app to read information about groups and their members in your Okta organization| [Groups API](/docs/reference/api/groups/#getting-started-with-the-groups-api)|
+| `okta.groups.register`   | Allows the app to create new groups in your Okta organization           | [Add Groups API](/docs/reference/api/groups/#add-group)|
+| `okta.idps.manage`       | Allows the app to create and manage Identity Providers in your Okta organization| [Identity Providers API](/docs/reference/api/idps/#getting-started)|
+| `okta.idps.read`         | Allows the app to read information about Identity Providers in your Okta organization| [Identity Providers API](/docs/reference/api/idps/#getting-started)|
+| `okta.inlineHooks.manage`| Allows the app to create and manage Inline Hooks in your Okta organization.| [Inline Hooks API](/docs/reference/api/inline-hooks/)|
+| `okta.inlineHooks.read` | Allows the app to read information about Inline Hooks in your Okta organization.| [Inline Hooks API](/docs/reference/api/inline-hooks/)|
+| `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization| [System Log API](/docs/reference/api/system-log/)|
+| `okta.schemas.manage`    | Allows the app to create and manage Schemas in your Okta organization   | [Schemas API](/docs/reference/api/schemas/#getting-started)|
+| `okta.schemas.read`      | Allows the app to read information about Schemas in your Okta organization| [Schemas API](/docs/reference/api/schemas/#getting-started)|
+| `okta.users.manage`      | Allows an app to manage any user's profile and credential information and to create new users| [Users API](https://developer.okta.com/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations)|
+| `okta.users.read`        | Allows an app to read any user's profile and credential information      | [Users API](https://developer.okta.com/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations)|
+| `okta.users.manage.self` | Allows an app to manage the currently signed-in user's profile           |   |
+| `okta.users.read.self`   | Allows an app to read the currently signed-in user's profile and credential information|  |
 
 ## Scope Hierarchy 
 The available scopes exist in a hierarchy, so that the `manage` scopes can do everything that the `read` scopes do, but more. Additionally, the `self` scopes only allow for access to the user who authorized the token. For example, a `GET` request to the `/users` endpoint with the `okta.users.read` scope returns all the users that the admin has access to. If the same request is sent with the `okta.users.read.self` scope, only the current user's account returns.

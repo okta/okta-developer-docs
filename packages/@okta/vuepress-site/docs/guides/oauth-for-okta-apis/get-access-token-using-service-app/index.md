@@ -13,7 +13,7 @@ To make that request, do the following in Postman:
 
 3. On the **Body** tab, replace the variables for the following key values:
 
-	* `scope`: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the application's grants collection and the user must have the permission to perform those actions. See <GuideLink link="../scopes">Scopes</GuideLink> for more information.
+	* `scope`: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the application's grants collection and the user must have the permission to perform those actions. See <GuideLink link="../scopes">Scopes & Supported Endpoints</GuideLink> for more information.
 	* `client_assertion`: Paste the `jwt` that you signed in the <GuideLink link="../use-client-credentials-grant-flow/#sign-the-jwt">Sign the JWT</GuideLink> section.
 
  4. Click **Send**. The response should look something like this:

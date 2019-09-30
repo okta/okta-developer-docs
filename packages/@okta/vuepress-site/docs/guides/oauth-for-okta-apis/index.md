@@ -11,5 +11,4 @@ sections:
  - get-access-token-using-service-app
  - save-access-token
  - scopes
- - supported-endpoints
 ---

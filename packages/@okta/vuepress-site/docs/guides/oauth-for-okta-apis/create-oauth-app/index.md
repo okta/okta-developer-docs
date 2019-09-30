@@ -17,6 +17,6 @@ Create the client service application that you want to use with the Okta APIs.
 
 5. Click **Done**. The application's page appears and you land on the application's **General** tab. Make note of the **Client ID** listed in the **Client Credentials** section at the bottom of the page. You need this in the <GuideLink link="../request-access-token">Request an access token</GuideLink> section.
 
-6. Click **Assignments** and ensure that the right users are assigned to the app. For more information about which users have access to which scopes, see the <GuideLink link="../scopes">Scopes</GuideLink> section.
+6. Click **Assignments** and ensure that the right users are assigned to the app. For more information about which users have access to which scopes, see the <GuideLink link="../scopes">Scopes & Supported Endpoints</GuideLink> section.
  
 <NextSectionLink/> 

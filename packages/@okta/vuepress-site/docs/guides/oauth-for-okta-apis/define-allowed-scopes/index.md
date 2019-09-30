@@ -18,6 +18,6 @@ POST /api/v1/apps/{{clientID}}/grants
     "issuer": "https://example.oktapreview.com"  //your Org URL
 }
 ```
-> **Note:** The list of available values for `scopeId` can be found in the <GuideLink link="../scopes">Scopes</GuideLink> section.
+> **Note:** The list of available values for `scopeId` can be found in the <GuideLink link="../scopes">Scopes & Supported Endpoints</GuideLink> section.
 
 <NextSectionLink/>
