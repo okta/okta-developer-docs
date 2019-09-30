@@ -95,11 +95,12 @@ Event Hooks are limited to sending 100,000 events per 24-hour period.
 
 ### Debugging
 
-Events identified to be delivered to your event hook(s) will contain information about which event hooks they were attempted to be delivered to. The `debugData` section of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) object contains the ids of the event hook(s) the particular event was delivered to.
+Events identified for delivery to your event hooks contain information about which event hooks were attempted for delivery.
+The `debugData` section of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) object contains the IDs of the event hooks that the particular event was delivered to.
 
 Note that this information is available in the event regardless of whether the delivery was successful or failed.
 
-Thus, in conjunction with the `event_hook.delivery` System Log event, you would be able to debug an end-to-end flow.
+Thus, in conjunction with the `event_hook.delivery` System Log event, you can debug an end-to-end flow.
 
 ## Event Hook Setup
 
