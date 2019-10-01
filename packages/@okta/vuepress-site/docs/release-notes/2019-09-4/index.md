@@ -6,7 +6,7 @@ title: Okta API Products Release Notes
 
 | Change                                                                             | Expected in Preview Orgs |
 |------------------------------------------------------------------------------------|--------------------------|
-| [Scope Naming Restriction](#bug-fixed-in-2019-09-4)                                  | October 2, 2019       |
+| [Scope Naming Restriction](#scope-naming-restriction)                                  | October 2, 2019       |
 
 ### Scope Naming Restriction
 
