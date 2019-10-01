@@ -1,5 +1,5 @@
 ---
-layout: SectionIndex
+layout: Landing
 title: API Reference
 top_links:
   - name: API Concepts

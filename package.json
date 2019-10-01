@@ -23,7 +23,8 @@
     "posttest": "yarn stop",
     "stop": "if-env CI=true && exit 0 || yarn test:stop-web-driver || echo 'done'",
     "stop-all": "if-env CI=true && exit 0 || pkill -f 'yarn' || echo 'done'",
-    "update-event-types": "bash scripts/update-event-types.sh"
+    "update-event-types": "bash scripts/update-event-types.sh",
+    "path": "echo $PATH"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
