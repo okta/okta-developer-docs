@@ -14,7 +14,7 @@ There are four primary ways to kick off the sign-in flow.
 
 ## HTML Link
 
-Create a link that the user clicks to log in. The HREF for that link is the authorize URL that you created in the <GuideLink link="../create-authz-url">previous section</GuideLink>:
+Create a link that the user clicks to sign in. The HREF for that link is the authorize URL that you created in the <GuideLink link="../create-authz-url">previous section</GuideLink>:
 
 `<a href="https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaaq9pjc2ujmFZexample&client_id=GkGw4K49N4UEE1example&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2F&state=WM6D&nonce=YsG76jo">Sign in with Identity Provider</a>`
 
@@ -22,16 +22,16 @@ After the user clicks the link, they are prompted to sign in with the Identity P
 
 ## Okta Sign-in Widget
 
-Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. Adding a **Sign in with {IdentityProviderName}** button is as simple as adding the following code to your Okta Sign-in Widget configuration:
+Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with {IdentityProviderName}** button by adding the following code to your Okta Sign-in Widget configuration:
 
 ```js
 config.idps= [
-                {type: 'IdentityProviderName', id: 'Your_IDP_ID_Here'}
+        {type: 'IdentityProviderName', id: 'Your_IDP_ID_Here'}
         ]; 
-	    config.idpDisplay ="SECONDARY";
+	config.idpDisplay ="SECONDARY";
 ```
 
-You can find out more about it [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign in with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
+You can find out more about the Okta Sign-in Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign in with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
 
 ## Custom Okta-hosted Sign-in Page
 
@@ -39,15 +39,14 @@ If you configured a [Custom Okta-hosted Sign-in Page](/docs/guides/custom-hosted
 
 ```js
 config.idps= [
-                {type: 'IdentityProviderName', id: 'Your_IDP_ID_Here'}
+        {type: 'IdentityProviderName', id: 'Your_IDP_ID_Here'}
         ]; 
-	    config.idpDisplay ="SECONDARY";
+	config.idpDisplay ="SECONDARY";
 ```
 
 ## AuthJS
 
-If you don't want pre-built views, or need deeper levels of customization, then you can use the same AuthJS SDK that the Sign-in Widget is built with. For further information see [the AuthJS GitHub repo](https://github.com/okta/okta-auth-js#install). Implementing sign in with an Identity Provider would use the SDK's [OpenID Connect authentication flow](https://github.com/okta/okta-auth-js#openid-connect-options).
+If you don't want pre-built views, or need deeper levels of customization, then you can use the same AuthJS SDK that the Sign-in Widget is built with. For further information see [the AuthJS GitHub repo](https://github.com/okta/okta-auth-js#install). Implementing sign in with an Identity Provider uses the SDK's [OpenID Connect authentication flow](https://github.com/okta/okta-auth-js#openid-connect-options).
 
-
-<NextSectionLink/>
+<NextSectionLink>Next steps</NextSectionLink>
 

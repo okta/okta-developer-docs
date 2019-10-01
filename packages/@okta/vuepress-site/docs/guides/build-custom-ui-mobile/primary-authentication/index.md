@@ -8,9 +8,9 @@ You can implement an authentication flow using one screen or using multiple scre
 For example, multiple screens could handle:
 
 * login/password input
-* multifactor enrollment
+* multi-factor enrollment
 * factor selection
-* multifactor verification
+* multi-factor verification
 
 
 <StackSelector snippet="primaryauth" />

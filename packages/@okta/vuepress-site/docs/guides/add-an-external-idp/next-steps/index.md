@@ -1,7 +1,7 @@
 ---
 title: Next steps
 ---
-You should now understand how to add an external identity provider and have successfully <GuideLink link="../create-an-app-at-idp">added</GuideLink> and <GuideLink link="../use-idp-to-sign-in">tested the authorization URL</GuideLink> with the external Identity provider. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
+You should now understand how to add an external Identity Provider and have successfully <GuideLink link="../create-an-app-at-idp">added</GuideLink> and <GuideLink link="../use-idp-to-sign-in">tested the authorization URL</GuideLink> with the external Identity Provider. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
 
 To add another Identity Provider:
 * If you have already created an app at the Identity Provider, start by <GuideLink link="../configure-idp-in-okta">configuring the Identity Provider in Okta</GuideLink>.
