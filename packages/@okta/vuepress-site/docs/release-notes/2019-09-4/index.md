@@ -10,4 +10,4 @@ title: Okta API Products Release Notes
 
 ### Scope Naming Restriction
 
-OAuth Scopes are not allowed to start with the `okta.` prefix. <!-- OKTA-212397 -->
+OAuth Scopes are not allowed to start with the `okta.` prefix. See the Note under [Scope properties](/docs/reference/api/authorization-servers/#scope-properties) for more information. <!-- OKTA-212397 -->
