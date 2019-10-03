@@ -41,7 +41,7 @@ Adds a new client application to your organization
 
 The [OAuth Client](#client-application-model) created by the request
 
-> <ApiLifecycle access="ea" /> **Note:** Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
+> **Note:** <ApiLifecycle access="ea" /> Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
 
 ##### Request Example
 
@@ -107,6 +107,77 @@ Content-Type: application/json;charset=UTF-8
   ],
   "token_endpoint_auth_method": "client_secret_post",
   "initiate_login_uri": "https://www.example-application.com/oauth2/login"
+}
+```
+
+##### Request Example: Create a Service app with a JWKS
+
+> **Note:** The key is truncated for brevity.
+
+```bash
+curl -X POST \
+  -H 'Accept: application/json' \
+  -H "Authorization: SSWS ${api_token}" \
+  -H 'Content-Type: application/json' \
+  -d ' {
+    "client_name": "Example Service Client",
+    "response_types": [
+      "token"
+    ],
+    "grant_types": [
+      "client_credentials"
+    ],
+    "token_endpoint_auth_method": "private_key_jwt",
+    "application_type": "service",
+    "jwks": {
+                "keys": [
+                    {
+                        "kty": "RSA",
+                        "e":"AQAB",
+                        "kid": "key1",
+                        "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU="
+                    }    
+                ]
+            }
+ }' "https://{yourOktaDomain}/oauth2/v1/clients"
+```
+
+##### Response Example
+
+> **Note:** The key is truncated for brevity.
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json;charset=UTF-8
+```
+
+```json
+{
+    "jwks": {
+        "keys": [
+            {
+                "kty": "RSA",
+                "kid": "key1",
+                "use": null,
+                "e": "AQAB",
+                "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU="
+            }
+        ]
+    },
+    "client_id": "0oanq59zytBKVwQQ80h7",
+    "client_id_issued_at": 1570131438,
+    "client_name": "Example Service Client",
+    "client_uri": null,
+    "logo_uri": null,
+    "redirect_uris": [],
+    "response_types": [
+        "token"
+    ],
+    "grant_types": [
+        "client_credentials"
+    ],
+    "token_endpoint_auth_method": "private_key_jwt",
+    "application_type": "service"
 }
 ```
 
@@ -757,6 +828,8 @@ The `jwks` object has precisely one attribute: `keys`, which is an array of JSON
 | Property   | DataType                       | Nullable  | Unique  | Readonly   |
 | ---------- | :----------------------------- | :-------- | :------ | :--------- |
 | keys       | An array of JSON Web Keys      | TRUE      | FALSE   | FALSE      |
+
+> **Note:** For an example request using a JWKS, see the **Create a Service app with a JWKS** example in the [Register New Client](/docs/reference/api/oauth-clients/#register-new-client) section.
 
 ## JSON Web Key
 
