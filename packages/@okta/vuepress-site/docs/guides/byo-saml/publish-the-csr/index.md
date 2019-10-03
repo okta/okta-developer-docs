@@ -11,7 +11,7 @@ Base64 encoding and both PEM and CER certificate formats are supported.
 - For CER format, change the Content-Type statement to `Content-Type: application/x-x509-ca-cert`.
 - For Base64-encoded format, add the statement `Content-Transfer-Encoding: base64` after the Content-Type statement.
 
-Collect the returned Key ID (credentials.signing.kid) to use in the next step.
+Collect the returned Key ID (`credentials.signing.kid`) to use in the next step.
 
 The following request publishes a CSR with a certificate in PEM format.
 

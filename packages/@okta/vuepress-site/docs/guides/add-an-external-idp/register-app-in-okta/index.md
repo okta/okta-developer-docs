@@ -17,6 +17,6 @@ You can either use an existing OpenID Connect app or create one. This is the app
 
 6. Click **Done**.
 
-7. Scroll to the **Client Credentials** section and copy the Client ID that you use to complete the Authorize URL in the next step.
+7. Scroll to the **Client Credentials** section and copy the client ID that you use to complete the Authorize URL in the next step.
 
 <NextSectionLink/>

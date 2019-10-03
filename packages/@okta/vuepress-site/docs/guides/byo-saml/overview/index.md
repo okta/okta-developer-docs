@@ -4,7 +4,7 @@ title: Overview
 
 Okta Admins can upload their own SAML certificates to sign the assertion for Outbound SAML apps and to sign the AuthNRequest and decrypt the assertion for Inbound SAML.
 
-**Note:** Okta as a SAML SP is referred to as Inbound SAML. Okta as a SAML IdP is referred to as Outbound SAML.
+> **Note:** Okta as a SAML SP is referred to as Inbound SAML. Okta as a SAML IdP is referred to as Outbound SAML.
 
 ## Prerequisite
 
@@ -12,7 +12,7 @@ To use your own SAML certificate, update the key credential for the affected app
 
 ### Outbound and Inbound SAML Applications
 
-The general procedure is the same for Outbound and Inbound SAML application; however, some of the api calls are different, as described in the steps below. The general procedure contains the following seven steps:
+The general procedure is the same for Outbound and Inbound SAML application; however, some of the API calls are different, as described in the steps below. The general procedure contains the following seven steps:
 
   1. [List your apps](/docs/guides/byo-saml/list-your-apps/)
   2. [Generate a certificate signing request (CSR)](/docs/guides/byo-saml/generate-a-csr/)
