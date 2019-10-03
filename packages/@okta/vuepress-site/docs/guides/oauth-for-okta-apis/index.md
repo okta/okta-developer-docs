@@ -1,6 +1,6 @@
 ---
-title: OAuth for Okta APIs
-excerpt: Learn how to interat with Okta APIs using scoped OAuth 2.0 access tokens.
+title: OAuth 2 for Okta APIs
+excerpt: Learn how to interact with Okta APIs using scoped OAuth 2.0 access tokens.
 layout: Guides
 sections: 
  - overview

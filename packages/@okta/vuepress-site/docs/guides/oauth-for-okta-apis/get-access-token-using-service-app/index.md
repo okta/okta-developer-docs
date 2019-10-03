@@ -1,29 +1,30 @@
 ---
 title: Get an access token using a Service app
 ---
-To request an access token using the Client Credentials grant flow, you make a request to your Okta Authorization Server's `/token` endpoint.
-To make that request, do the following in Postman:
+To request an access token using the Client Credentials grant flow, you make a request to your Okta Org Authorization Server's `/token` endpoint.
+The following is an example request for an access token (the JWT is truncated for brevity):
 
 > **Note:** Move on to the <GuideLink link="../save-access-token">next section</GuideLink> if you aren't using the Client Credentials grant flow.
 
-1. Open the **Get Access Token with Client Credentials and Client Secret JWT** request in the **API Access Management (Okta API)** collection.
-2. This guide assumes that you are using your Org Authorization Server, so remove the `{{authorizationServerId}}` parameter from the URL. The URL should look something like this:
-	
-	`{yourOktadomain}/oauth2/v1/token`
+```json
+curl -X POST "https://{yourOktaDomain}/oauth2/v1/token"
+    -H "Accept: application/json"
+    -H "Content-Type: application/x-www-form-urlencoded"
+    -d "grant_type=client_credentials&scope=okta.users.manage&client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&client_assertion=eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIwb2Fua3JrMHJqYXJBOXhpSzBoNyIsImlzcyI6IjBvYW5rcmswcmphckE5eGlLMGg3IiwiYXVkIjoiaHR0cHM6Ly9nZW5lcmljb2lkYy5va3RhcHJldmlldy5jb20vb2F1dGgyL3YxL3Rva2VuIiwiaWF0IjoxNTY5NDI2NDY1LCJleHAiOjE1Njk0MjcwNjUsImp0aSI6IjUxMzNiY2M4LTBkNTctNDlhZi04YTZjLTMyNThkMjlmODIzYiJ9.MdYZ6haG3zK....I6W7VAA&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fauthorization-code%2Fcallback"
+```
 
-3. On the **Body** tab, replace the variables for the following key values:
+* `scope`: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the application's grants collection. See <GuideLink link="../scopes">Scopes & Supported Endpoints</GuideLink> for more information.
+* `client_assertion`: Paste the `jwt` that you signed in the <GuideLink link="../use-client-credentials-grant-flow/#sign-the-jwt">Sign the JWT</GuideLink> section.
 
-	* `scope`: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the application's grants collection and the user must have the permission to perform those actions. See <GuideLink link="../scopes">Scopes & Supported Endpoints</GuideLink> for more information.
-	* `client_assertion`: Paste the `jwt` that you signed in the <GuideLink link="../use-client-credentials-grant-flow/#sign-the-jwt">Sign the JWT</GuideLink> section.
+The response should look something like this (the token is truncated for brevity):
 
- 4. Click **Send**. The response should look something like this:
+```json
+{
+    "token_type": "Bearer",
+    "expires_in": 3600,
+    "access_token": "eyJraWQiOiJ…….UfThlJ7w",
+    "scope": "okta.users.manage"
+}
+```
 
-    ```json
-    {
-        "token_type": "Bearer",
-        "expires_in": 3600,
-        "access_token": "eyJraWQiOiJ…….UfThlJ7w", //token truncated for brevity
-        "scope": "okta.users.manage"
-    }
-    ```
 <NextSectionLink/>
