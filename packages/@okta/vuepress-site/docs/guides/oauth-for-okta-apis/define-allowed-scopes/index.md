@@ -14,7 +14,7 @@ When a request is sent to the Okta Org Authorization Server, it validates all of
 
     {
         "scopeId": "okta.users.manage",
-            "issuer": "https://{yourOktaDomain}"
+        "issuer": "https://{yourOktaDomain}"
     }
     ```
     > **Note:** You can find a list of available values for `scopeId` in the <GuideLink link="../scopes">Scopes & Supported Endpoints</GuideLink> section.

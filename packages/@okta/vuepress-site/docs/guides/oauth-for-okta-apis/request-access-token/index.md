@@ -15,11 +15,12 @@ After you have the following, you can request an access token:
 
 2. Paste your request URL into a private browser window. Your request URL should look something like this:
 
-    > **Note:** You must use your Okta Org Authorization Server to obtain Okta scopes.
-
     ```bash
     https://{yourOktadomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.manage&redirect_uri={yourConfiguredRedirectUri}&nonce=UBGW&state=1234
     ```
+
+    > **Note:** You must use your Okta Org Authorization Server to obtain Okta scopes.
+
     Note the parameters being passed:
 
     * `client_id`: Use the `client_id` of your Okta OAuth application that you created in the <GuideLink link="../create-oauth-app">previous step</GuideLink>. 

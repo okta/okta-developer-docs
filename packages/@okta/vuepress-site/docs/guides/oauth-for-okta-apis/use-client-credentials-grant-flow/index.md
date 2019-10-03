@@ -27,85 +27,18 @@ The JWKS should look something like this (the key is truncated for brevity):
              "kty": "RSA",
              "e":"AQAB",
              "kid": "jwks1",
-             "n":"AJncrKuine49_CE….RL0HU="
+             "n":"AJncrKuine49_CE.....RL0HU="
         }    
     ]
 }
 ```
 ## Create a Service app
-Create an OAuth Service client app and register the public key with the Service app using the `/apps` endpoint. See the ?? The following is an example POST request to create an OAuth 2 Client Service app (the JWT is truncated for brevity):
+You can create an OAuth Service client app and register the public key with the Service app using the `/apps` endpoint or the dynamic `/oauth/v1/clients` registration endpoint.
 
-```json
-curl -L -X POST "https://{yourOktaDomain}/api/v1/apps"
-  -H "Content-Type: application/json"
-  -H "Accept: application/json"
-  -H "Authorization: SSWS API KEY"
-  -d {
-    "name": "oidc_client",
-    "label": "Name of your app", 
-    "signOnMode": "OPENID_CONNECT",
-    "credentials": {
-        "oauthClient": {
-            "token_endpoint_auth_method": "private_key_jwt"
-        }
-    },
-    "settings": {
-        "oauthClient": {
-            "client_uri": "http://localhost:8080",
-            "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
-            "response_types": [
-                "token"
-            ],
-            "grant_types": [
-                "client_credentials"   
-            ],
-            "application_type": "service",
-            "jwks": {
-                "keys": [
-                    {
-                        "kty": "RSA",
-                        "e":"AQAB",
-                        "kid": "name your jwks",
-                        "n":"AJncrKuine49_CE......RL0HU="
-                    }    
-                ]
-            }
-        }
-    }
-}
-```
+* `/apps`: See the request example that shows how to create an OAuth 2.0 client application with `private_key_jwt` in the [Add an OAuth 2.0 Client Application](/docs/reference/api/apps/#add-oauth-2-0-client-application) section. 
 
-You can also create a service client using the dynamic `/oauth/v1/clients` registration endpoint (the JWT is truncated for brevity):
+* `/oauth/v1/clients`: See the **Create a Service app with a JWKS** example in the [Register New Client](/docs/reference/api/oauth-clients/#register-new-client) section.
 
-```json
-curl -L -X POST "https://{yourOktaDomain}/oauth/v1/clients"
-    -H "Content-Type: application/json"
-    -H "Accept: application/json"
-    -H "Authorization: SSWS API KEY"
-    -d { 
-        "client_name":"OAuthServiceClient",
-        "response_types":[ 
-            "token"
-        ],
-        "grant_types":[ 
-            "client_credentials"
-        ],
-        "token_endpoint_auth_method":"private_key_jwt",
-        "application_type":"service",
-        "jwks":{ 
-            "keys":[ 
-                { 
-                    "kty":"RSA",
-                    "e":"AQAB",
-                    "use":"sig",
-                    "kid":"7164109848619491",
-                    "alg":"RS256",
-                    "n":"1rM-gaSnogAzxdbuEc0.....uWK00EnK3PQ"
-                }
-        ]
-    }
-}'
-```
 ## Sign the JWT
 You now need to sign the JWT with your private key for use in the request for a scoped access token. You can craft this `client_credentials` JWT in several ways. See [Build a JWT with a private key](/docs/guides/build-self-signed-jwt/java/jwt-with-private-key/) for both a Java and a JavaScript example.
 

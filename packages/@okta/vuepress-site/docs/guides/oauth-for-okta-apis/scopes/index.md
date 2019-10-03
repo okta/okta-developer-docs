@@ -33,7 +33,7 @@ The following table shows the scopes that are currently available as a part of E
 | `okta.users.manage.self` | Allows the app to manage the currently signed-in user's profile           |   |
 | `okta.users.read.self`   | Allows the app to read the currently signed-in user's profile and credential information|  |
 
-## Scope Hierarchy 
+## Scope Naming 
 The available scopes exist in a hierarchy, so that the `manage` scopes can do everything that the `read` scopes do, but more. Additionally, the `self` scopes only allow for access to the user who authorized the token. For example, a `GET` request to the `/users` endpoint with the `okta.users.read` scope returns all the users that the admin has access to. If the same request is sent with the `okta.users.read.self` scope, only the current user's account returns.
 
 ## Silent Downscoping
