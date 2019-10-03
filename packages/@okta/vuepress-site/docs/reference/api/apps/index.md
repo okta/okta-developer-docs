@@ -980,7 +980,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | :--------------------------- | :------------------------------------------- | :--------- | :-------------------- |
 | client_id                    | Unique identifier for the client application. **Note**: When not specified, `client_id` and application `id` are the same. You can specify a `client_id`, if necessary. See the [OAuth Credential Object](#oauth-credential-object) section for more details.   | String     |                       |
 | client_secret                | OAuth 2.0 client secret string (used for confidential clients)                                                                                      | String     |                       |
-| token_endpoint_auth_method   | Requested authentication method for the token endpoint. Valid values: `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`   | String     | `client_secret_basic` |
+| token_endpoint_auth_method   | Requested authentication method for the token endpoint. Valid values: `none`, `client_secret_post`, `client_secret_basic`, `client_secret_jwt`, or `private_key_jwt`   | String     | `client_secret_basic` |
 | autoKeyRotation              | Requested key rotation mode                                                                                                                         | Boolean    | `true`                |
 
 ##### Settings
@@ -1199,7 +1199,6 @@ The following example shows how to create an OAuth 2.0 client application with `
 
 ```bash
 curl -X POST \
-  https://{yourOktaDomain}/api/v1/apps \
   -H "Accept: application/json" \
   -H "Authorization: key" \
   -H "Content-Type: application/json" \
@@ -1237,7 +1236,7 @@ curl -X POST \
             }
         }
     }
-}'
+}' "https://{yourOktaDomain}/api/v1/apps"
 ```
 
 ##### Response Example
