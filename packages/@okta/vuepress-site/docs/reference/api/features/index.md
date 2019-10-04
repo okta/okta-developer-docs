@@ -55,7 +55,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
+"https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
 ```
 
 ##### Response
@@ -72,7 +72,7 @@ curl -v -X GET \
   },
   "_links": {
     "enable": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable",
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable",
       "hints": {
         "allow": [
           "POST"
@@ -80,13 +80,13 @@ curl -v -X GET \
       }
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
     },
     "dependents": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
     },
     "dependencies": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
     }
   }
 }
@@ -133,7 +133,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/features"
+"https://${yourOktaDomain}/api/v1/features"
 ```
 
 ##### Response
@@ -154,7 +154,7 @@ Content-Type: application/json
     },
     "_links": {
       "enable": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable",
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable",
         "hints": {
           "allow": [
             "POST"
@@ -162,13 +162,13 @@ Content-Type: application/json
         }
       },
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
       },
       "dependents": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
       },
       "dependencies": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
       }
     }
   },
@@ -187,16 +187,16 @@ Content-Type: application/json
            "href":"https://https://help.okta.com/en/prod/Content/index.htm"
         },
         "self":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3"
+           "href":"https://${yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3"
         },
         "survey":{
            "href":"https://goo.gl/forms/aRelevantSurvey"
         },
         "dependents":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3/dependents"
+           "href":"https://${yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3/dependents"
         },
         "dependencies":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3/dependencies"
+           "href":"https://${yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3/dependencies"
         }
      }
   }
@@ -252,7 +252,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable"
+"https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable"
 ```
 
 ##### Response
@@ -269,7 +269,7 @@ curl -v -X POST \
   },
   "_links": {
     "disable": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/disable",
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/disable",
       "hints": {
         "allow": [
           "POST"
@@ -277,13 +277,13 @@ curl -v -X POST \
       }
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
     },
     "dependents": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
     },
     "dependencies": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
     }
   }
 }
@@ -360,7 +360,7 @@ Content-Type: application/json
     {
       "errorSummary": "Self-Service feature example is not enabled",
       "reason": "DEPENDENCY_NOT_ENABLED",
-      "location": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7",
+      "location": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7",
       "locationType": "url"
     }
   ]
@@ -398,7 +398,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
+"https://${yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
 ```
 
 ##### Response
@@ -419,7 +419,7 @@ curl -v -X GET \
         "href": "https://developer.okta.com/docs/concepts/event-hooks/"
       },
       "disable": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/disable",
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/disable",
         "hints": {
           "allow": [
             "POST"
@@ -427,13 +427,13 @@ curl -v -X GET \
         }
       },
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn"
       },
       "dependents": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependents"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependents"
       },
       "dependencies": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
       }
     }
   }
@@ -488,7 +488,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
+"https://${yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
 ```
 
 ##### Response
@@ -510,16 +510,16 @@ curl -v -X GET \
         "href": "https://https://help.okta.com/en/prod/Content/index.htm"
       },
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3"
       },
       "survey": {
         "href": "https://goo.gl/forms/aRelevantSurvey"
       },
       "dependents": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
       },
       "dependencies": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependencies"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependencies"
       }
     }
   }
@@ -584,16 +584,16 @@ The Feature model defines several properties:
       "href": "https://developer.okta.com/docs/concepts/feature-name/"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn"
     },
     "dependents": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependents"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependents"
     },
     "dependencies": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependencies"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependencies"
     },
     "disable": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/disable",
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/disable",
         "hints": {
           "allow": [
             "POST"
@@ -662,16 +662,16 @@ Here are some links that may be available on a Feature, as determined by your po
       "href": "https://developer.okta.com/docs/concepts/feature-name/"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn"
     },
     "dependents": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependents"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependents"
     },
     "dependencies": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependencies"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependencies"
     },
     "disable": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/disable",
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/disable",
         "hints": {
           "allow": [
             "POST"

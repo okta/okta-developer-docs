@@ -6,7 +6,7 @@ config = new OIDCConfig.Builder()
     .redirectUri("{redirectUri}")
     .endSessionRedirectUri("{endSessionUri}")
     .scopes("openid", "profile", "offline_access")
-    .discoveryUri("https://{yourOktaDomain}")
+    .discoveryUri("https://${yourOktaDomain}")
     .create();
 ```
 
@@ -22,7 +22,7 @@ Or, create a new `okta_oidc_config.json` file in your application's `res/raw` wi
     "profile",
     "offline_access"
   ],
-  "discovery_uri": "https://{yourOktaDomain}"
+  "discovery_uri": "https://${yourOktaDomain}"
 }
 ```
 

@@ -38,7 +38,7 @@ After you have created the application there are two more values you will need t
 | Setting       | Where to Find                                                                                                                       |
 | ------------- | ------------------------------------------------------------------------------                                                      |
 | Client ID     | In the applications list, or on the "General" tab of a specific application.                                                        |
-| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right. |
+| Org URL       | <span class="is-signed-in">`https://${yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right. |
 
 These values will be used in your React application to setup the OpenID Connect flow with Okta.
 
@@ -61,7 +61,7 @@ In your application's `App.js` file, import the following objects and pass in yo
 import { Security, ImplicitCallback } from '@okta/okta-react';
 
 const config = {
-  issuer: 'https://{yourOktaDomain}/oauth2/default',
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
   redirectUri: window.location.origin + '/implicit/callback',
   clientId: '{clientId}',
   pkce: true
@@ -138,7 +138,7 @@ import { Security, ImplicitCallback } from '@okta/okta-react';
 import Home from './Home';
 
 const config = {
-  issuer: 'https://{yourOktaDomain}/oauth2/default',
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
   redirectUri: window.location.origin + '/implicit/callback',
   clientId: '{clientId}',
   pkce: true

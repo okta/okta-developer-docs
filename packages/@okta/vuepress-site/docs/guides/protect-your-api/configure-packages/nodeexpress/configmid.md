@@ -4,6 +4,6 @@ Create a verifier instance, bound to the issuer:
 const OktaJwtVerifier = require('@okta/jwt-verifier');
 
 const oktaJwtVerifier = new OktaJwtVerifier({
-  issuer: 'https://{yourOktaDomain}/oauth2/default' // required
+  issuer: 'https://${yourOktaDomain}/oauth2/default' // required
 });
 ```
