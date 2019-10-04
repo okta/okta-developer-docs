@@ -7370,48 +7370,6 @@
       "tags" : [ "system-task" ],
       "mappings" : [ "task.lifecycle.update" ]
     }, {
-      "id" : "platform.tokens.transform.oauth2.process.failure",
-      "category" : "federation",
-      "description" : "Failed to process OAuth2 command.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "oauth2.tokens.transform.process" ]
-    }, {
-      "id" : "platform.tokens.transform.oauth2.response",
-      "category" : "federation",
-      "description" : "Received response from OAuth2 inline hook.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "oauth2.tokens.transform.response" ]
-    }, {
-      "id" : "platform.tokens.transform.oauth2.response.error",
-      "category" : "federation",
-      "description" : "Received error response from OAuth2 inline hook.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "oauth2.tokens.transform.error.response" ]
-    }, {
-      "id" : "platform.tokens.transform.oauth2.response.failure",
-      "category" : "federation",
-      "description" : "Failed to receive response from OAuth2 inline hook.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "oauth2.tokens.transform.response" ]
-    }, {
-      "id" : "platform.tokens.transform.saml.process.failure",
-      "category" : "federation",
-      "description" : "Failed to process SAML command.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "saml.tokens.transform.process" ]
-    }, {
-      "id" : "platform.tokens.transform.saml.response",
-      "category" : "federation",
-      "description" : "Received response from SAML inline hook.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "saml.tokens.transform.response" ]
-    }, {
-      "id" : "platform.tokens.transform.saml.response.failure",
-      "category" : "federation",
-      "description" : "Failed to receive response from SAML inline hook.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "saml.tokens.transform.response" ]
-    }, {
       "id" : "platform.union_gaa_failure_event",
       "category" : "sync",
       "description" : "A job was scheduled to update group priority settings with an app instance name and app instance id and reached a failure count limit. Contact support to run group reconcile job.",
@@ -13516,54 +13474,6 @@
         "targets" : [ "AuthorizationServerResourceDetails" ]
       }
     }, {
-      "id" : "oauth2.tokens.transform.error.response",
-      "category" : "federation",
-      "description" : "Fired when Okta's authorization server receives a response from an external service and the response format is valid, but the response contains an error. This can also be used to debug why command response erred. When fired, the event contains information about the error summary. Related events include: oauth2_tokens_transform_response.",
-      "info" : {
-        "created" : "2019-01-25",
-        "release" : "2019.01.3"
-      },
-      "beta" : false,
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.oauth2.response.error" ],
-      "schema" : {
-        "debugData" : "TokenTransformDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
-      "id" : "oauth2.tokens.transform.process",
-      "category" : "federation",
-      "description" : "Fired when Okta's authorization server used the command response for token transform, and the token transform failed. This event fires only when the token transform has failed due to the command response from the external server, for example  that the response contained info to transform an access token and an access token was not requested in the request. This can also be used to debug why a token transformation failed. When fired, this event contains information about the entities involved in the inline hook request and response - including the relevant application, user, authorization server, and policy. This event also contains information about why the token transformation failed. Related events include: oauth2_tokens_transform_response.",
-      "info" : {
-        "created" : "2019-01-25",
-        "release" : "2019.01.3"
-      },
-      "beta" : false,
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.oauth2.process.failure" ],
-      "schema" : {
-        "debugData" : "TokenTransformDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
-      "id" : "oauth2.tokens.transform.response",
-      "category" : "federation",
-      "description" : "Fired when Okta's authorization server sends an inline hook to an external service. This event fires when the response is successful or when a response is not received. This can be used to audit the details of the entities involved in the inline hook request and response. When fired, this event contains information about the entities involved in the inline hook request and response - including the relevant application, user, authorization server, and policy.",
-      "info" : {
-        "created" : "2019-01-25",
-        "release" : "2019.01.3"
-      },
-      "beta" : false,
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.oauth2.response", "platform.tokens.transform.oauth2.response.failure" ],
-      "schema" : {
-        "debugData" : "TokenTransformDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
       "id" : "omm.app.VPN.settings.changed",
       "category" : "mobile-omm",
       "description" : "",
@@ -14058,38 +13968,6 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "ExecutePolicyResourceDetails" ]
-      }
-    }, {
-      "id" : "saml.tokens.transform.process",
-      "category" : "federation",
-      "description" : "Fired when Okta used the command response for token transform, and the token transform failed. This event fires only when the token transform has failed due to the command response from the external server, for example that the response tried to add a duplicate attribute to the assertion. This can also be used to debug why a token transformation failed. When fired, this event contains information about the entities involved in the inline hook request and response - including the relevant application and user. This event also contains information about why the token transformation failed. Related events include: saml_tokens_transform_response.",
-      "info" : {
-        "created" : "2018-07-01",
-        "release" : "2018.28"
-      },
-      "beta" : false,
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.saml.process.failure" ],
-      "schema" : {
-        "debugData" : "TokenTransformDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
-      "id" : "saml.tokens.transform.response",
-      "category" : "federation",
-      "description" : "Fired when Okta sends an inline hook to an external service for modifying a SAML Assertion. This event fires when the response is successful or when a response is not received. This can be used to audit the details of the entities involved in the inline hook request and response. When fired, this event contains information about the entites involved in the inline hook request and response - including the relevant application and user.",
-      "info" : {
-        "created" : "2018-07-01",
-        "release" : "2018.28"
-      },
-      "beta" : false,
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.saml.response", "platform.tokens.transform.saml.response.failure" ],
-      "schema" : {
-        "debugData" : "TokenTransformDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "scheduled_action.user_suspension.canceled",
