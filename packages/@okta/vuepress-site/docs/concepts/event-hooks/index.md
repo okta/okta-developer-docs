@@ -98,7 +98,7 @@ The `debugData` section of the [LogEvent](/docs/reference/api/system-log/#exampl
 
 Note that this information is available in the event regardless of whether the delivery was successful or failed.
 
-Thus, in conjunction with the [System Log event](docs/reference/api/event-types/?q=event_hook.delivery) for event hook delivery failures, you can debug an end-to-end flow.
+Thus, in conjunction with the [System Log event](/docs/reference/api/event-types/?q=event_hook.delivery) for event hook delivery failures, you can debug an end-to-end flow.
 
 ## Event Hook Setup
 
