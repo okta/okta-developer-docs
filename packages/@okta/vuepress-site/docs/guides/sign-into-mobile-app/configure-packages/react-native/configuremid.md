@@ -6,7 +6,7 @@ await createConfig({
     clientId: "{clientId}",
     redirectUri: "{redirectUri}",
     endSessionRedirectUri: "{endSessionRedirectUri}",
-    discoveryUri: "https://{yourOktaDomain}",
+    discoveryUri: "https://${yourOktaDomain}",
     scopes: ["openid", "profile", "offline_access"],
     requireHardwareBackedKeyStore: false
 });

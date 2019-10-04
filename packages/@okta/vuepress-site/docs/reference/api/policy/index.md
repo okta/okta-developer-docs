@@ -44,7 +44,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}"
 ```
 
 ##### Response Example
@@ -71,7 +71,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}?expand=rules"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}?expand=rules"
 ```
 
 ##### Response Types
@@ -99,7 +99,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies?type={type}"
+"https://${yourOktaDomain}/api/v1/policies?type={type}"
 ```
 
 ##### Response Types
@@ -127,7 +127,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}"
 ```
 
 ##### Response Types
@@ -169,7 +169,7 @@ curl -v -X PUT \
       }
     }
   }
-}' "https://{yourOktaDomain}/api/v1/policies/{policyId}"
+}' "https://${yourOktaDomain}/api/v1/policies/{policyId}"
 ```
 
 ##### Response Types
@@ -205,7 +205,7 @@ curl -v -X POST \
       }
     }
   }
-}' "https://{yourOktaDomain}/api/v1/policies"
+}' "https://${yourOktaDomain}/api/v1/policies"
 ```
 
 ##### Response Types
@@ -231,7 +231,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/lifecycle/activate"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/lifecycle/activate"
 ```
 
 ##### Response Types
@@ -257,7 +257,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/lifecycle/deactivate"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/lifecycle/deactivate"
 ```
 
 ##### Response Types
@@ -285,7 +285,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/rules"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/rules"
 ```
 
 ##### Response Types
@@ -335,7 +335,7 @@ curl -v -X POST \
       "access": "ALLOW"
     }
   }
-}' "https://{yourOktaDomain}/api/v1/policies/{policyId}/rules"
+}' "https://${yourOktaDomain}/api/v1/policies/{policyId}/rules"
 ```
 
 ##### Response Types
@@ -361,7 +361,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
 ```
 
 ##### Response Types
@@ -387,7 +387,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
 ```
 
 ##### Response Types
@@ -437,7 +437,7 @@ curl -v -X PUT \
       "access": "DENY"
     }
   }
-}' "https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
+}' "https://${yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
 ```
 
 ##### Response Types
@@ -463,7 +463,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/activate"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/activate"
 ```
 
 ##### Response Types
@@ -489,7 +489,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate"
 ```
 
 ##### Response Types

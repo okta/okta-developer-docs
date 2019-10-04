@@ -32,7 +32,7 @@ You'll need a free Okta developer organization to get started. If you don't have
 
 1. Click the eye icon next to `example.oktapreview.com` and select **Edit** to replace or add these values:
     * Rename your environment to something you'll recognize. For example, `My Org`.
-    * `url`: Replace the example value with your org's full URL: . For example, `https://{yourOktaDomain}`. (Make sure you don't include `-admin` in the subdomain!)
+    * `url`: Replace the example value with your org's full URL: . For example, `https://${yourOktaDomain}`. (Make sure you don't include `-admin` in the subdomain!)
     * `apikey`: Enter the API token you created earlier, for example `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
 1. Click **Update** to save your changes.

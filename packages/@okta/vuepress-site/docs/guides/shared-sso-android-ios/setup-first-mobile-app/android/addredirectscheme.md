@@ -15,7 +15,7 @@ To compile your project, you need to set up the `AuthenticationClient` with an `
 
 Example
 ```gradle
-    authn.orgUrl="https://{yourOktaDomain}"
+    authn.orgUrl="https://${yourOktaDomain}"
 ```
 
 > **Note:** When you finish, you can build and run the app.

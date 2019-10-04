@@ -46,7 +46,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/mappings?sourceId=${sourceId}"
+"https://${yourOktaDomain}/api/v1/mappings?sourceId=${sourceId}"
 ```
 
 ##### Response Example
@@ -61,10 +61,10 @@ curl -v -X GET \
             "type": "user",
             "_links": {
                 "self": {
-                    "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                    "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
                 },
                 "schema": {
-                    "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                    "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
                 }
             }
         },
@@ -74,16 +74,16 @@ curl -v -X GET \
             "type": "appuser",
             "_links": {
                 "self": {
-                    "href": "https://{yourOktaDomain}/api/v1/apps/0oa1xz9cb7yt5SsZV0g4"
+                    "href": "https://${yourOktaDomain}/api/v1/apps/0oa1xz9cb7yt5SsZV0g4"
                 },
                 "schema": {
-                    "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1xz9cb7yt5SsZV0g4/default"
+                    "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1xz9cb7yt5SsZV0g4/default"
                 }
             }
         },
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/mappings/prm1k47ghydIQOTBW0g4"
+                "href": "https://${yourOktaDomain}/api/v1/mappings/prm1k47ghydIQOTBW0g4"
             }
         }
     },
@@ -95,10 +95,10 @@ curl -v -X GET \
             "type": "user",
             "_links": {
                 "self": {
-                    "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                    "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
                 },
                 "schema": {
-                    "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                    "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
                 }
             }
         },
@@ -108,16 +108,16 @@ curl -v -X GET \
             "type": "appuser",
             "_links": {
                 "self": {
-                    "href": "https://{yourOktaDomain}/api/v1/apps/0oa1ycesCAeQrbO3s0g4"
+                    "href": "https://${yourOktaDomain}/api/v1/apps/0oa1ycesCAeQrbO3s0g4"
                 },
                 "schema": {
-                    "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1ycesCAeQrbO3s0g4/default"
+                    "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1ycesCAeQrbO3s0g4/default"
                 }
             }
         },
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/mappings/prm1k48weFSOnEUnw0g4"
+                "href": "https://${yourOktaDomain}/api/v1/mappings/prm1k48weFSOnEUnw0g4"
             }
         }
     }
@@ -147,7 +147,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
+"https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
 ```
 
 ##### Response Example
@@ -161,10 +161,10 @@ curl -v -X GET \
         "type": "user",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
             },
             "schema": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
             }
         }
     },
@@ -174,10 +174,10 @@ curl -v -X GET \
         "type": "appuser",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
+                "href": "https://${yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
             },
             "schema": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
             }
         }
     },
@@ -193,7 +193,7 @@ curl -v -X GET \
     },
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
+            "href": "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
         }
     }
 }
@@ -241,7 +241,7 @@ curl -v -X POST \
             "pushStatus": "PUSH"
         }
     }
-}' "https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
+}' "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
 ```
 
 ##### Response Example
@@ -255,10 +255,10 @@ curl -v -X POST \
         "type": "user",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
             },
             "schema": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
             }
         }
     },
@@ -268,10 +268,10 @@ curl -v -X POST \
         "type": "appuser",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
+                "href": "https://${yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
             },
             "schema": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
             }
         }
     },
@@ -287,7 +287,7 @@ curl -v -X POST \
     },
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
+            "href": "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
         }
     }
 }
@@ -311,7 +311,7 @@ curl -v -X POST \
             "pushStatus": "DONT_PUSH"
         }
     }
-}' "https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
+}' "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
 ```
 
 ##### Response Example
@@ -325,10 +325,10 @@ curl -v -X POST \
         "type": "user",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
             },
             "schema": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
             }
         }
     },
@@ -338,10 +338,10 @@ curl -v -X POST \
         "type": "appuser",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
+                "href": "https://${yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
             },
             "schema": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
             }
         }
     },
@@ -357,7 +357,7 @@ curl -v -X POST \
     },
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
+            "href": "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
         }
     }
 }
@@ -378,7 +378,7 @@ curl -v -X POST \
     "properties": {
         "nickName": null
     }
-}' "https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
+}' "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
 ```
 
 ##### Response Example
@@ -392,10 +392,10 @@ curl -v -X POST \
         "type": "user",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
             },
             "schema": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
             }
         }
     },
@@ -405,10 +405,10 @@ curl -v -X POST \
         "type": "appuser",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
+                "href": "https://${yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
             },
             "schema": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
             }
         }
     },
@@ -420,7 +420,7 @@ curl -v -X POST \
     },
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
+            "href": "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
         }
     }
 }
@@ -444,10 +444,10 @@ using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04
         "type": "appuser",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
+                "href": "https://${yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
             },
             "schema": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
             }
         }
     },
@@ -457,10 +457,10 @@ using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04
         "type": "user",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
             },
             "schema": {
-                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
             }
         }
     },
@@ -476,7 +476,7 @@ using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04
     },
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/mappings/prm1xzjkHwo8uG77c0g4"
+            "href": "https://${yourOktaDomain}/api/v1/mappings/prm1xzjkHwo8uG77c0g4"
         }
     }
 }

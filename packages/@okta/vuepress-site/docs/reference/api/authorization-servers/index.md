@@ -33,8 +33,8 @@ Okta provides a pre-configured Custom Authorization Server with the name `defaul
 This default Authorization Server includes a basic access policy and rule, which you can edit to control access.
 It allows you to specify `default` instead of the `authServerId` in requests to it:
 
-* `https://{yourOktaDomain}/api/v1/authorizationServers/default` vs
-* `https://{yourOktaDomain}/api/v1/authorizationServers/${authServerId}` for other Custom Authorization Servers
+* `https://${yourOktaDomain}/api/v1/authorizationServers/default` vs
+* `https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}` for other Custom Authorization Servers
 
 #### Authorization Server Object
 When you use these API endpoints to create or modify an Authorization Server resource, the response looks like:
@@ -45,7 +45,7 @@ When you use these API endpoints to create or modify an Authorization Server res
   "name": "Sample Authorization Server",
   "description": "Authorization Server Description",
   "audiences": "https://api.resource.com",
-  "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+  "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
   "issuerMode": "ORG_URL",
   "status": "ACTIVE",
   "created": "2017-05-17T22:25:57.000Z",
@@ -60,7 +60,7 @@ When you use these API endpoints to create or modify an Authorization Server res
   },
   "_links": {
       "scopes": {
-        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes",
+        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes",
         "hints": {
           "allow": [
             "GET"
@@ -68,7 +68,7 @@ When you use these API endpoints to create or modify an Authorization Server res
         }
       },
       "claims": {
-        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims",
+        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims",
         "hints": {
           "allow": [
             "GET"
@@ -76,7 +76,7 @@ When you use these API endpoints to create or modify an Authorization Server res
         }
       },
       "policies": {
-        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies",
+        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies",
         "hints": {
           "allow": [
             "GET"
@@ -97,7 +97,7 @@ When you use these API endpoints to create or modify an Authorization Server res
     "metadata": [
       {
         "name": "oauth-authorization-server",
-        "href": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7/.well-known/oauth-authorization-server",
+        "href": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7/.well-known/oauth-authorization-server",
         "hints": {
           "allow": [
             "GET"
@@ -106,7 +106,7 @@ When you use these API endpoints to create or modify an Authorization Server res
       },
       {
         "name": "openid-configuration",
-        "href": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7/.well-known/openid-configuration",
+        "href": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7/.well-known/openid-configuration",
         "hints": {
           "allow": [
             "GET"
@@ -115,7 +115,7 @@ When you use these API endpoints to create or modify an Authorization Server res
       }
     ],
     "rotateKey": {
-      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/credentials/lifecycle/keyRotate",
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/credentials/lifecycle/keyRotate",
       "hints": {
         "allow": [
           "POST"
@@ -123,7 +123,7 @@ When you use these API endpoints to create or modify an Authorization Server res
       }
     },
     "deactivate": {
-          "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/lifecycle/deactivate",
+          "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/lifecycle/deactivate",
           "hints": {
             "allow": [
               "POST"
@@ -151,7 +151,7 @@ When you use these API endpoints to create or modify an Authorization Server res
 
 `issuerMode` is visible if you have the Custom URL Domain feature enabled. If the feature is enabled, you can set a custom domain URL in a Custom Authorization Server, and this property is returned in the appropriate responses. To enable the Custom URL Domain feature, contact [Support](https://support.okta.com/help/open_case).
 
-* If set to `ORG_URL`, then in responses, `issuer` is the Okta org's original domain URL: `https://{yourOktaDomain}`.
+* If set to `ORG_URL`, then in responses, `issuer` is the Okta org's original domain URL: `https://${yourOktaDomain}`.
 
 * If set to `CUSTOM_URL_DOMAIN`, then in responses, `issuer` is the custom domain URL configured in the administration user interface.
 
@@ -180,7 +180,7 @@ curl -v -X POST \
   "audiences": [
     "api://default"
   ]
-}' "https://{yourOktaDomain}/api/v1/authorizationServers"
+}' "https://${yourOktaDomain}/api/v1/authorizationServers"
 ```
 
 ##### Response Example
@@ -208,7 +208,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers"
+"https://${yourOktaDomain}/api/v1/authorizationServers"
 ```
 
 ##### Response Example
@@ -238,7 +238,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/aus5m9r1o4AsDJLe50g4"
+"https://${yourOktaDomain}/api/v1/authorizationServers/aus5m9r1o4AsDJLe50g4"
 ```
 
 ##### Response Example
@@ -279,7 +279,7 @@ curl -X PUT \
   "audiences": [
     "api://default"
   ]
-}' "https://{yourOktaDomain}/api/v1/authorizationServers/aus1rqsshhhRoat780g7"
+}' "https://${yourOktaDomain}/api/v1/authorizationServers/aus1rqsshhhRoat780g7"
 ```
 
 ##### Response Example
@@ -309,7 +309,7 @@ curl -X DELETE \
 -H 'Accept: application/json' \
 -H 'Content-Type: application/json' \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/aus1rqsshhhRoat780g7"
+"https://${yourOktaDomain}/api/v1/authorizationServers/aus1rqsshhhRoat780g7"
 ```
 
 ##### Response Example
@@ -341,7 +341,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/aus1sb3dl8L5WoTOO0g7/lifecycle/activate"
+"https://${yourOktaDomain}/api/v1/authorizationServers/aus1sb3dl8L5WoTOO0g7/lifecycle/activate"
 ```
 
 ##### Response Example
@@ -373,7 +373,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/aus1sb3dl8L5WoTOO0g7/lifecycle/deactivate"
+"https://${yourOktaDomain}/api/v1/authorizationServers/aus1sb3dl8L5WoTOO0g7/lifecycle/deactivate"
 ```
 
 ##### Response Example
@@ -415,7 +415,7 @@ When you use these API endpoints to create or modify a Policy resource, the resp
     "lastUpdated": "2017-06-07T15:28:17.000Z",
     "_links": {
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7",
+        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7",
         "hints": {
           "allow": [
             "GET",
@@ -425,7 +425,7 @@ When you use these API endpoints to create or modify a Policy resource, the resp
         }
       },
       "deactivate": {
-        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7/lifecycle/deactivate",
+        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -433,7 +433,7 @@ When you use these API endpoints to create or modify a Policy resource, the resp
         }
       },
       "rules": {
-        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7/rules",
+        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies/00palyaappA22DPkj0h7/rules",
         "hints": {
           "allow": [
             "GET"
@@ -479,7 +479,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies"
 ```
 
 ##### Response Example
@@ -508,7 +508,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4"
 ```
 
 ##### Response Example
@@ -548,7 +548,7 @@ curl -v -X POST \
       ]
     }
   }
-}' "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies"
+}' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies"
 ```
 
 ##### Response Example
@@ -594,7 +594,7 @@ curl -v -X PUT \
       ]
     }
   }
-}' "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4"
+}' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4"
 ```
 
 ##### Response Example
@@ -625,7 +625,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4"
 ```
 
 ##### Response Example
@@ -711,7 +711,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes"
 ```
 
 ##### Response Example
@@ -742,7 +742,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes/scpanemfdtktNn7w10h7"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes/scpanemfdtktNn7w10h7"
 ```
 
 ##### Response Example
@@ -775,7 +775,7 @@ curl -v -X POST \
   "description": "Drive car",
   "name": "car:drive",
   "consent": "REQUIRED"
-}' "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes"
+}' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes"
 ```
 
 ##### Response Example
@@ -811,7 +811,7 @@ curl -v -X PUT \
   "name": "car:order",
   "consent": "REQUIRED",
   "metadataPublish": "ALL_CLIENTS"
-}' "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes/scpanemfdtktNn7w10h7"
+}' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes/scpanemfdtktNn7w10h7"
 ```
 
 ##### Response Example
@@ -842,7 +842,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes/00p5m9xrrBffPd9ah0g4"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes/00p5m9xrrBffPd9ah0g4"
 ```
 
 ##### Response Example
@@ -931,7 +931,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims"
 ```
 
 ##### Response Example
@@ -962,7 +962,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims/scpanemfdtktNn7w10h7"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims/scpanemfdtktNn7w10h7"
 ```
 
 ##### Response Example
@@ -1002,7 +1002,7 @@ curl -v -X POST \
       "car:drive"
     ]
   }
-}' "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims"
+}' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims"
 ```
 
 ##### Response Example
@@ -1042,7 +1042,7 @@ curl -v -X PUT \
       "car:drive"
     ]
   }
-}' "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims/oclain6za1HQ0noop0h7"
+}' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims/oclain6za1HQ0noop0h7"
 ```
 
 ##### Response Example
@@ -1068,7 +1068,7 @@ Delete a claim specified by the `claimId`
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims/oclain6za1HQ0noop0h7"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims/oclain6za1HQ0noop0h7"
 ```
 
 ##### Response Example
@@ -1127,7 +1127,7 @@ When you use these API endpoints to create or modify a Certificate JSON Web Key 
             "use": "sig",
             "_links": {
               "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/credentials/keys/Vy8zLvevjtTVBAXC138BCq4HQ_vj_RzaTXtlr7ekxfY",
+                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/credentials/keys/Vy8zLvevjtTVBAXC138BCq4HQ_vj_RzaTXtlr7ekxfY",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1172,7 +1172,7 @@ Returns the current, future, and expired [keys](#certificate-json-web-key-object
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys"
 ```
 
 ##### Response Example
@@ -1190,7 +1190,7 @@ curl -v -X GET \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
+                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1212,7 +1212,7 @@ curl -v -X GET \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
+                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1234,7 +1234,7 @@ curl -v -X GET \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/h5Sr3LXcpQiQlAUVPdhrdLFoIvkhRTAVs_h39bQnxlU",
+                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/h5Sr3LXcpQiQlAUVPdhrdLFoIvkhRTAVs_h39bQnxlU",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1273,7 +1273,7 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "use": "sig"
-}' "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/lifecycle/keyRotate"
+}' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/lifecycle/keyRotate"
 ```
 
 ##### Response Example
@@ -1290,7 +1290,7 @@ curl -v -X POST \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
+                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1312,7 +1312,7 @@ curl -v -X POST \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/T5dZ1dYT-l-I0j-gRQ82XjutSX00TeWiSguuDhW3zdf",
+                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/T5dZ1dYT-l-I0j-gRQ82XjutSX00TeWiSguuDhW3zdf",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1334,7 +1334,7 @@ curl -v -X POST \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
+                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1425,7 +1425,7 @@ Content-Type: application/json;charset=UTF-8
   },
   "_links":{
     "self":{
-      "href":"https://{yourOktaDomain}/api/v1/authorizationServers/default/policies/00pbsjfykycpTsBvv0h7/rules/0prbsjfyl01zfSZ9K0h7",
+      "href":"https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/00pbsjfykycpTsBvv0h7/rules/0prbsjfyl01zfSZ9K0h7",
       "hints":{
         "allow":[
           "GET",
@@ -1435,7 +1435,7 @@ Content-Type: application/json;charset=UTF-8
       }
     },
     "deactivate":{
-      "href":"https://{yourOktaDomain}/api/v1/authorizationServers/default/policies/00pbsjfykycpTsBvv0h7/rules/0prbsjfyl01zfSZ9K0h7/lifecycle/deactivate",
+      "href":"https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/00pbsjfykycpTsBvv0h7/rules/0prbsjfyl01zfSZ9K0h7/lifecycle/deactivate",
       "hints":{
         "allow":[
           "POST"
@@ -1533,7 +1533,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients"
 ```
 
 #### Response Example
@@ -1548,7 +1548,7 @@ curl -v -X GET \
         "logo_uri": null,
         "_links": {
             "tokens": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens"
+                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens"
             }
         }
     }
@@ -1591,7 +1591,7 @@ Lists all refresh tokens issued by an Authorization Server for a specific Client
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens"
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens"
 ```
 
 #### Response Example
@@ -1605,7 +1605,7 @@ curl -v -X GET \
     "created": "2018-03-09T03:18:06.000Z",
     "lastUpdated": "2018-03-09T03:18:06.000Z",
     "expiresAt": "2018-03-16T03:18:06.000Z",
-    "issuer": "https://{yourOktaDomain}/oauth2/ausnsopoM6vBRB3PD0g3",
+    "issuer": "https://${yourOktaDomain}/oauth2/ausnsopoM6vBRB3PD0g3",
     "clientId": "0oabskvc6442nkvQO0h7",
     "userId": "00upcgi9dyWEOeCwM0g3",
     "scopes": [
@@ -1614,14 +1614,14 @@ curl -v -X GET \
     ],
     "_links": {
       "app": {
-        "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+        "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
         "title": "Native"
       },
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
       },
       "revoke": {
-        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
         "hints": {
           "allow": [
             "DELETE"
@@ -1629,15 +1629,15 @@ curl -v -X GET \
         }
       },
       "client": {
-        "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+        "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
         "title": "Example Client App"
       },
       "user": {
-        "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+        "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
         "title": "Saml Jackson"
       },
       "authorizationServer": {
-        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3",
+        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3",
         "title": "Example Authorization Server"
       }
     }
@@ -1670,7 +1670,7 @@ Gets a refresh token issued by an Authorization Server for the specified Client.
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3?expand=scope"
+"https://${yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3?expand=scope"
 ```
 
 #### Response Example
@@ -1683,7 +1683,7 @@ curl -v -X GET \
   "created": "2018-03-09T03:18:06.000Z",
   "lastUpdated": "2018-03-09T03:18:06.000Z",
   "expiresAt": "2018-03-16T03:18:06.000Z",
-  "issuer": "https://{yourOktaDomain}/oauth2/default",
+  "issuer": "https://${yourOktaDomain}/oauth2/default",
   "clientId": "0oabskvc6442nkvQO0h7",
   "userId": "00upcgi9dyWEOeCwM0g3",
   "scopes": [
@@ -1698,7 +1698,7 @@ curl -v -X GET \
         "description": "Requests a refresh token by default, used to obtain more access tokens without re-prompting the user for authentication.",
         "_links": {
           "scope": {
-            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/scopes/scppb56cIl4GvGxy70g3",
+            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/scopes/scppb56cIl4GvGxy70g3",
             "title": "offline_access"
           }
         }
@@ -1710,7 +1710,7 @@ curl -v -X GET \
         "description": "Allows the user to drive a car.",
         "_links": {
           "scope": {
-            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/scopes/scp142iq2J8IGRUCS0g4",
+            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/scopes/scp142iq2J8IGRUCS0g4",
             "title": "Drive car"
           }
         }
@@ -1719,14 +1719,14 @@ curl -v -X GET \
   },
   "_links": {
     "app": {
-      "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
       "title": "Native"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
     },
     "revoke": {
-      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
       "hints": {
         "allow": [
           "DELETE"
@@ -1734,15 +1734,15 @@ curl -v -X GET \
       }
     },
     "client": {
-      "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+      "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
       "title": "Example Client App"
     },
     "user": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+      "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
       "title": "Saml Jackson"
     },
     "authorizationServer": {
-      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default",
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default",
       "title": "Example Authorization Server"
     }
   }
@@ -1774,7 +1774,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens"
+"https://${yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens"
 ```
 
 #### Response Example
@@ -1810,7 +1810,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+"https://${yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
 ```
 
 #### Response Example
