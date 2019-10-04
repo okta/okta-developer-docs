@@ -1280,7 +1280,7 @@ Use an ID lookup for records that you update to ensure your results contain the 
 | `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                     |
 | `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
-| `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with "Sm          |
+| `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with `Sm`         |
 
 ##### Search Examples
 
