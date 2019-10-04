@@ -502,7 +502,7 @@ This redirects the browser to either the Okta sign-in page or the specified logo
 #### Error conditions
 If the Okta session has expired (or doesn't exist), a logout request simply redirects to the Okta sign-in page or the `post_logout_redirect_uri` (if specified).
 
-If the ID token passed via `id_token_hint` is invalid or expired, the browser is redirected to an error page.
+If the ID token passed via `id_token_hint` is invalid, the browser is redirected to an error page.
 
 ### /keys
 <ApiOperation method="get" url="${baseUrl}/v1/keys" />
