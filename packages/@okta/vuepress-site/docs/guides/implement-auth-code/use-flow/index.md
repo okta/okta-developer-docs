@@ -5,7 +5,7 @@ title: Use the Authorization Code Flow
 To get an authorization code, you make a request to your authorization server's `/authorize` endpoint. If you are using the default Okta authorization server, then your request URL would look something like this:
 
 ```
-https://{yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabucvy
+https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabucvy
 c38HLL1ef0h7&response_type=code&scope=openid&redirect_uri=http%3A%2F%2Flocal
 host%3A8080&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601'
 ```

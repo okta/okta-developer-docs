@@ -118,7 +118,7 @@ The following is an example of a JSON payload of a request from Okta to your ext
   "contentType": "application/json",
   "eventId": "b5a188b9-5ece-4636-b041-482ffda96311",
   "eventTime": "2019-03-27T16:59:53.032Z",
-  "source": "https://{yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
+  "source": "https://${yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
   "data": {
     "events": [
       {

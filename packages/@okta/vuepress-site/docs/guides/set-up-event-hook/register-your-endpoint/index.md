@@ -4,7 +4,7 @@ title: Register Your Endpoint
 
 After implementing your external service, you need to register it with Okta. To do this, you need to make a REST API call to the [Event Hooks Management API](/docs/reference/api/event-hooks/). You can use a tool like Postman to make the call, and Okta provides a [Postman collection](/docs/reference/api/event-hooks/#getting-started) to make this easier.
 
-You make a `POST` call to `https://{yourOktaDomain}/api/v1/eventHooks` to register your endpoint. The body of the request needs to contain a JSON payload containing an [eventHook](/docs/reference/api/event-hooks/#event-hook-object) object, which specifies the properties of the Event Hook you are registering, including:
+You make a `POST` call to `https://${yourOktaDomain}/api/v1/eventHooks` to register your endpoint. The body of the request needs to contain a JSON payload containing an [eventHook](/docs/reference/api/event-hooks/#event-hook-object) object, which specifies the properties of the Event Hook you are registering, including:
 
  - the URI of your external service's endpoint
  - the list of specific event types this Event Hook should deliver

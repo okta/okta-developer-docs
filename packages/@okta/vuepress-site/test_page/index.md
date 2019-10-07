@@ -123,7 +123,7 @@ curl -v -X POST \
       "url": "https://example.com/bookmark.htm"
     }
   }
-}' "https://{yourOktaDomain}/api/v1/apps"
+}' "https://${yourOktaDomain}/api/v1/apps"
 ```
 
 ##### Response Example
@@ -174,16 +174,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/users"
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/users"
     },
     "groups": {
-      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/groups"
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/groups"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ"
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ"
     },
     "deactivate": {
-      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/lifecycle/deactivate"
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/lifecycle/deactivate"
     }
   }
 }
@@ -256,15 +256,15 @@ Ut mattis, nulla cubilia velit. Etiam. Suspendisse.
     Torquent=natoque.facilisi suscipit "magna" ac sociosqu vitae "sollicitudin" justo sodales aliquam egestas phasellus "aptent"
 
 ```
-https://{yourOktaDomain}/apiEndpoint
+https://${yourOktaDomain}/apiEndpoint
 ```
 
 ```
-http://{yourOktaDomain}/apiEndpoint
+http://${yourOktaDomain}/apiEndpoint
 ```
 
 ```bash
-"https://{yourOktaDomain}/api/v1/apps"
+"https://${yourOktaDomain}/api/v1/apps"
 ```
 
-`https://{yourOktaDomain}/apiEndpoint`
+`https://${yourOktaDomain}/apiEndpoint`

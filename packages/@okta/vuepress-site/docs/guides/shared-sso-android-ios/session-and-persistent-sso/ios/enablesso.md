@@ -9,7 +9,7 @@ Before you begin, be sure to:
 
     Example request:
     ```bash
-    GET https://{yourOktaDomain}/api/v1/policies?type=OKTA_SIGN_ON
+    GET https://${yourOktaDomain}/api/v1/policies?type=OKTA_SIGN_ON
     ```
 3. In the response, locate the policy that you want to modify and copy its `id` value.
     > **Tip:** You can also highlight the policy ID, right-click it, and set it as the value for the `policyId` variable in your environment.
@@ -20,7 +20,7 @@ Before you begin, be sure to:
 
     Example:
     ```bash
-    GET https://{yourOktaDomain}/api/v1/policies/00p2sy9ploJnRwPwp5g7/rules
+    GET https://${yourOktaDomain}/api/v1/policies/00p2sy9ploJnRwPwp5g7/rules
     ```
 7. In the response, locate the rule that you want to modify, copy its `id` value, and copy the `actions` property section of the JSON payload.
     > **Tip:** You can also highlight the rule ID, right-click, and set it as the value for the `ruleId` variable in your environment.
@@ -29,14 +29,14 @@ Before you begin, be sure to:
 
     Example:
     ```bash
-    PUT https://{yourOktaDomain}/api/v1/policies/00p2sy9ploJnRwPwp5g7/rules/0pr2syd4moJ2gFXnD5g7
+    PUT https://${yourOktaDomain}/api/v1/policies/00p2sy9ploJnRwPwp5g7/rules/0pr2syd4moJ2gFXnD5g7
 
     ```
 
     Or
 
     ```bash
-    https://{yourOktaDomain}/api/v1/policies/{{policyId}}/rules/{{ruleId}}
+    https://${yourOktaDomain}/api/v1/policies/{{policyId}}/rules/{{ruleId}}
     ```
 10. Select the **Body** tab of the request and add `"type": "SIGN_ON",` just below the `name` parameter.
 11. Replace the `actions` property with the `actions` property that you copied previously.

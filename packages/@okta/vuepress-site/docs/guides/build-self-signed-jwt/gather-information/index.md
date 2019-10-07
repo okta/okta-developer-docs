@@ -5,7 +5,7 @@ When you create a JWT assertion claim for client authentication (`client_secret_
 
 | Claim    | Description                                                  | Type        |
 |----------|--------------------------------------------------------------|-------------|
-| aud      | Required. The full URL of the resource that you're trying to access using the JWT to authenticate. For example: `https://{yourOktaDomain}/oauth2/default/v1/token` | String  |
+| aud      | Required. The full URL of the resource that you're trying to access using the JWT to authenticate. For example: `https://${yourOktaDomain}/oauth2/default/v1/token` | String  |
 | exp      | Required. The token expiration time in seconds since January 1, 1970 UTC (UNIX timestamp), for example, `1555594819`. This claim fails the request if the expiration time is more than one hour in the future or if the token is already expired.            | Integer     |
 | iss      | Required. The issuer of the token. This value must be the same as the `client_id` of the application that you are accessing.  | String      |
 | sub      | Required. The subject of the token. This value must be the same as the `client_id` of the application that you are accessing. | String       |

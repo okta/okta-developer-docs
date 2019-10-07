@@ -7,7 +7,7 @@ Kicking off this flow is very similar to the [authorization code flow](/docs/gui
 Your browser makes a request to your authorization server's `/authorize` endpoint. If you are using the default Okta authorization server, then your request URL would look something like this:
 
 ```
-https://{yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabv6kx4qq6
+https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabv6kx4qq6
 h1U5l0h7&response_type=token&scope=openid&redirect_uri=http%3A%2F%2Flocalhost%3
 A8080&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo'
 ```

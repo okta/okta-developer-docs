@@ -38,7 +38,7 @@ public static class OktaAccessTokenFilter implements Filter {
 
         try {
             this.jwtVerifier = new JwtHelper()
-                    .setIssuerUrl("https://{yourOktaDomain}/oauth2/default"))
+                    .setIssuerUrl("https://${yourOktaDomain}/oauth2/default"))
                     .setAudience("api://default")
                     .build();
 

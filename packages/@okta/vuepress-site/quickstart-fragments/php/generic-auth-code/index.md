@@ -23,7 +23,7 @@ $query = http_build_query([
     'nonce' => $nonce
 ]);
 
-header('Location: ' . 'https://{yourOktaDomain}/oauth2/default/v1/authorize?'.$query);
+header('Location: ' . 'https://${yourOktaDomain}/oauth2/default/v1/authorize?'.$query);
 ```
 > The `nonce` should be a generated string such as UUID, and the `state` can be any string representing state of the
 application.
@@ -58,7 +58,7 @@ function exchangeCode($code) {
         'Connection: close',
         'Content-Length: 0'
     ];
-    $url = 'https://{yourOktaDomain}/oauth2/default/v1/token?' . $query;
+    $url = 'https://${yourOktaDomain}/oauth2/default/v1/token?' . $query;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

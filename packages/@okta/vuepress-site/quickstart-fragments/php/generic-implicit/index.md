@@ -99,7 +99,7 @@ try {
     $jwtVerifier = ( new \Okta\JwtVerifier\JwtVerifierBuilder() )
         ->setAdaptor( new \Okta\JwtVerifier\Adaptors\SpomkyLabsJose() )
         ->setClientId( '{clientId}' )
-        ->setIssuer( 'https://{yourOktaDomain}/oauth2/default' )
+        ->setIssuer( 'https://${yourOktaDomain}/oauth2/default' )
         ->build();
 
     // Verify the JWT from the Authorization Header.
@@ -171,7 +171,7 @@ try {
     $jwtVerifier = ( new \Okta\JwtVerifier\JwtVerifierBuilder() )
         ->setAdaptor( new \Okta\JwtVerifier\Adaptors\SpomkyLabsJose() )
         ->setClientId( '{clientId}' )
-        ->setIssuer( 'https://{yourOktaDomain}/oauth2/default' )
+        ->setIssuer( 'https://${yourOktaDomain}/oauth2/default' )
         ->build();
 
     // Verify the JWT from the Authorization Header.
