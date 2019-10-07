@@ -904,7 +904,7 @@ A subset of users can be returned that match a supported filter expression or se
 ##### Request Parameters
 
 
-The first three parameters correspond to different types of lists:
+The last three parameters correspond to different types of lists:
 
 - [List All Users](#list-all-users) (no parameters)
 - [Find Users](#find-users) (`q`)
