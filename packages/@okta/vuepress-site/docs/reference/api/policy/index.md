@@ -964,7 +964,7 @@ Specifies either a general application or specific app instance to match on.
 | include   | The list of applications or app instances to match on | Array     | Yes      |
 | exclude   | The list of applications to exclude                   | Array     | Yes      |
 
-> **NOTE:** If both include and exclude are empty, then the condition is met for all applications.
+> **NOTE:** If both `include` and `exclude` are empty, then the condition is met for all applications.
 
 #### Application and App Instance Condition Object Example
 
