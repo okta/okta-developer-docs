@@ -34,7 +34,7 @@ services.AddAuthentication(options =>
 })
 .AddOktaWebApi(new OktaWebApiOptions()
 {
-    OktaDomain = "https://{yourOktaDomain}"
+    OktaDomain = "https://${yourOktaDomain}"
 });
 
 // ... the rest of ConfigureServices

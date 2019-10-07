@@ -31,7 +31,7 @@ An array of fetched [User Types](#user-type-model)
 ##### Request example
 
 ```bash
-curl -s -H "Authorization: SSWS ${api_token}" https://{yourOktaDomain}/api/v1/meta/types/user
+curl -s -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/meta/types/user
 ```
 
 ##### Response example
@@ -41,12 +41,12 @@ curl -s -H "Authorization: SSWS ${api_token}" https://{yourOktaDomain}/api/v1/me
   {
     "_links": {
       "schema": {
-        "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+        "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
         "method": "GET",
         "rel": "schema"
       },
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+        "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
         "method": "GET",
         "rel": "self"
       }
@@ -68,12 +68,12 @@ curl -s -H "Authorization: SSWS ${api_token}" https://{yourOktaDomain}/api/v1/me
   {
     "_links": {
       "schema": {
-        "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4",
+        "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4",
         "method": "GET",
         "rel": "schema"
       },
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4",
+        "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4",
         "method": "GET",
         "rel": "self"
       }
@@ -112,7 +112,7 @@ The fetched [User Type](#user-type-model)
 ##### Request Example
 
 ```bash
-curl -s -H "Authorization: SSWS ${api_token}" https://{yourOktaDomain}/api/v1/meta/types/user/${typeId}
+curl -s -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/meta/types/user/${typeId}
 ```
 
 ##### Response Example
@@ -121,12 +121,12 @@ curl -s -H "Authorization: SSWS ${api_token}" https://{yourOktaDomain}/api/v1/me
 {
   "_links": {
     "schema": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "schema"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "self"
     }
@@ -168,7 +168,7 @@ The created [User Type](#user-type-model)
 ##### Request Example
 
 ```bash
-curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api_token}" https://{yourOktaDomain}/api/v1/meta/types/user -d '{
+curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/meta/types/user -d '{
 "description": "Any description that means something useful to you",
 "displayName": "Display Name for UI",
 "name": "aNewType"
@@ -181,12 +181,12 @@ curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 {
   "_links": {
     "schema": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "schema"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "self"
     }
@@ -226,7 +226,7 @@ The updated [User types](#user-type-model)
 ##### Request Example
 
 ```bash
-curl -s -XPUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_token}" https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4 -d '{
+curl -s -XPUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4 -d '{
 "description": "Updated description",
 "displayName": "Updated Name for UI",
 "name": "updatedTypeName"
@@ -239,12 +239,12 @@ curl -s -XPUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_
 {
   "_links": {
     "schema": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "schema"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
       "method": "GET",
       "rel": "self"
     }
@@ -295,7 +295,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4"
+"https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4"
 ```
 
 ##### Response Example
@@ -334,10 +334,10 @@ The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-t
   "lastUpdated": "2013-07-02T21:36:25.344Z",
   "_links": {
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4"
+      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4"
     },
     "schema": {
-      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4"
+      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4"
     }
   }
 }

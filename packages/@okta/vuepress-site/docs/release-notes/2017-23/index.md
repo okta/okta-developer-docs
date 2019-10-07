@@ -69,7 +69,7 @@ With the following enhancements, the API Access Management Authorization Servers
 * Manage Authorization Server policies, policy rules, claims, and scopes with the API.
 * Activate or deactivate Authorization Servers, or delete them.
 * Scopes were actions previously, but are now conditions in a policy rule.
-* Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/en/prev/Content/Topics/Security/API_Access.htm#create_claims).
+* Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_API_Access).
 
 For more information see the [Authorization Server API documentation](/docs/reference/api/authorization-servers/#authorization-server-operations).
 <!-- OKTA-127511, OKTA-123638 -->
@@ -105,34 +105,34 @@ Before release 2017.19, a user object returned in a collection contained some or
 ```
 "_links": {
     "suspend": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/suspend",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/suspend",
       "method": "POST"
     },
     "resetPassword": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/reset_password",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/reset_password",
       "method": "POST"
     },
     "expirePassword": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/expire_password",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/expire_password",
       "method": "POST"
     },
     "forgotPassword": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/forgot_password",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/forgot_password",
       "method": "POST"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3"
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3"
     },
     "changeRecoveryQuestion": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/change_recovery_question",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/change_recovery_question",
       "method": "POST"
     },
     "deactivate": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/deactivate",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/deactivate",
       "method": "POST"
     },
     "changePassword": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/change_password",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/change_password",
       "method": "POST"
     }
 }
@@ -148,7 +148,7 @@ The Simple HAL Links on User Collections feature ensures that possibly invalid s
 ```
 "_links": {
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3"
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3"
     }
 }
 ```

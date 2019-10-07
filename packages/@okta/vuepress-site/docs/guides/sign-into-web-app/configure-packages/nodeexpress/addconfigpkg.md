@@ -2,17 +2,17 @@ All of our Okta packages for Node are hosted on [npm](https://www.npmjs.com/). I
 
 * [@okta/oidc-middleware](https://www.npmjs.com/package/@okta/oidc-middleware) 2.0.0 or higher
 
-You can install them using yarn:
+You can install them using npm:
 
 ```
-yarn add express-session --save
-yarn add @okta/oidc-middleware --save
+npm install --save express-session
+npm install --save @okta/oidc-middleware
 ```
 
 Or in a single command:
 
 ```
-yarn add  express-session @okta/oidc-middleware --save
+npm install --save express-session @okta/oidc-middleware
 ```
 
 

@@ -715,7 +715,7 @@ Link: <url>; rel="self"
 
 For example:
 ```
-Link: <https://{yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T23%3A59%3A59%2B00%3A00&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="self"
+Link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T23%3A59%3A59%2B00%3A00&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="self"
 ```
 
 ###### Next Link Response Header
@@ -728,7 +728,7 @@ Link: <url>; rel="next"
 
 For example:
 ```
-Link: <https://{yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T15%3A41%3A12.994Z&after=349996bd-5091-45dc-a39f-d357867a30d7&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="next"
+Link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T15%3A41%3A12.994Z&after=349996bd-5091-45dc-a39f-d357867a30d7&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="next"
 ```
 
 #### Timeouts
@@ -829,7 +829,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/logs?q=Jane+Doe"
+"https://${yourOktaDomain}/api/v1/logs?q=Jane+Doe"
 ```
 
 You can also use this API to search for particular types of events:
@@ -839,7 +839,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/logs?filter=event_type+eq+%22user.session.start%22"
+"https://${yourOktaDomain}/api/v1/logs?filter=event_type+eq+%22user.session.start%22"
 ```
 
 ### Transferring Data to a Separate System
@@ -850,7 +850,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/logs?since=2017-10-01T00:00:00.000Z"
+"https://${yourOktaDomain}/api/v1/logs?since=2017-10-01T00:00:00.000Z"
 ```
 
 and retrieve the next page of events through the [`Link` response header](/docs/reference/api-overview/#link-header) value with the `next` link relation. Continue this process until no events are returned.

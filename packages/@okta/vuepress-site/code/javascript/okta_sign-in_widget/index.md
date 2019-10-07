@@ -71,7 +71,7 @@ The code that initializes the Widget looks like this:
 <div id="widget-container"></div>
 
 <script>
-  var signIn = new OktaSignIn({baseUrl: 'https://{yourOktaDomain}'});
+  var signIn = new OktaSignIn({baseUrl: 'https://${yourOktaDomain}'});
   signIn.renderEl({
     el: '#widget-container'
   }, function success(res) {
@@ -109,7 +109,7 @@ In this case, you would like to use the Widget to sign in to the default Okta da
 ```javascript
 function success(res) {
   if (res.status === 'SUCCESS') {
-    res.session.setCookieAndRedirect('https://{yourOktaDomain}/app/UserHome');
+    res.session.setCookieAndRedirect('https://${yourOktaDomain}/app/UserHome');
   }
 }
 ```
@@ -136,7 +136,7 @@ If you'd like to use the Widget to sign in to your own application instead of Ok
 
 ```javascript
 var signIn = new OktaSignIn({
-  baseUrl: 'https://{yourOktaDomain}',
+  baseUrl: 'https://${yourOktaDomain}',
   clientId: '${clientId}',
   redirectUri: '${redirectUri configured in OIDC app}',
   authParams: {
@@ -238,7 +238,7 @@ To enable PKCE flow, set `pkce: true` in the `authParams` configuration object p
 
 ```javascript
 var config = {
-  baseUrl: 'https://{yourOktaDomain}',
+  baseUrl: 'https://${yourOktaDomain}',
   authParams: {
     pkce: true
   }
@@ -448,7 +448,7 @@ lang: {
 
 ```javascript
 var config = {
-  baseUrl: 'https://{yourOktaDomain}',
+  baseUrl: 'https://${yourOktaDomain}',
   ...
   i18n: {
     'en': {

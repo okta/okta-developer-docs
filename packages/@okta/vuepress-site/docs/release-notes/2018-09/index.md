@@ -44,7 +44,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/sessions/me/refresh"
+"https://${yourOktaDomain}/api/v1/sessions/me/refresh"
 ```
 Note: `me` can also be an ID.
 

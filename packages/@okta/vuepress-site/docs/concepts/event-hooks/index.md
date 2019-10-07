@@ -93,6 +93,15 @@ As a best practice, you should return the HTTP response immediately, rather than
 
 Event Hooks are limited to sending 100,000 events per 24-hour period. 
 
+### Debugging
+
+Events identified for delivery to your event hooks contain information about which event hooks were attempted for delivery.
+The `debugData` section of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) object contains the IDs of the event hooks that the particular event was delivered to.
+
+Note that this information is available in the event regardless of whether the delivery was successful or failed.
+
+Thus, in conjunction with the `event_hook.delivery` System Log event, you can debug an end-to-end flow.
+
 ## Event Hook Setup
 
 For the steps to register and verify a new Event Hook endpoint, see [Set Up Event Hooks](https://developer.okta.com/docs/guides/set-up-event-hook/overview/).
@@ -109,7 +118,7 @@ The following is an example of a JSON payload of a request from Okta to your ext
   "contentType": "application/json",
   "eventId": "b5a188b9-5ece-4636-b041-482ffda96311",
   "eventTime": "2019-03-27T16:59:53.032Z",
-  "source": "https://{yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
+  "source": "https://${yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
   "data": {
     "events": [
       {

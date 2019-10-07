@@ -114,7 +114,7 @@ public class SampleActivity extends AppCompatActivity implements SignInDialog.Si
 ```
 
 ### Use the Okta Java Authentication SDK
-After you initialize the `AuthClient` instance, obtain a one-time use `sessionToken` that you can exchange for `Tokens`. Obtain a `sessionToken` using the [Okta Java Authentication SDK](https://github.com/okta/okta-auth-java).
+After you initialize the `AuthClient` instance, obtain a one-time use `sessionToken` that you can exchange for tokens. Obtain a `sessionToken` using the [Okta Java Authentication SDK](https://github.com/okta/okta-auth-java).
 
 Then implement the callback `onSignIn`:
 

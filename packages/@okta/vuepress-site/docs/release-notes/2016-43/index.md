@@ -12,18 +12,18 @@ The [OpenID Connect discovery endpoint](/docs/reference/api/oidc/#well-knownopen
 Request Example:
 
 ```bash
-GET https://{yourOktaDomain}/.well-known/openid-configuration
+GET https://${yourOktaDomain}/.well-known/openid-configuration
 ```
 
 Response Example:
 
 ```bash
 {
-    "issuer": "https://{yourOktaDomain}",
-    "authorization_endpoint": "https://{yourOktaDomain}/oauth2/v1/authorize",
-    "token_endpoint": "https://{yourOktaDomain}/oauth2/v1/token",
-    "userinfo_endpoint": "https://{yourOktaDomain}/oauth2/v1/userinfo",
-    "jwks_uri": "https://{yourOktaDomain}/oauth2/v1/keys",
+    "issuer": "https://${yourOktaDomain}",
+    "authorization_endpoint": "https://${yourOktaDomain}/oauth2/v1/authorize",
+    "token_endpoint": "https://${yourOktaDomain}/oauth2/v1/token",
+    "userinfo_endpoint": "https://${yourOktaDomain}/oauth2/v1/userinfo",
+    "jwks_uri": "https://${yourOktaDomain}/oauth2/v1/keys",
     "response_types_supported": [
         "code",
         "code id_token",
@@ -33,13 +33,13 @@ Response Example:
         "token"
     ],
     ...
-    "introspection_endpoint": "https://{yourOktaDomain}/oauth2/v1/introspect",
+    "introspection_endpoint": "https://${yourOktaDomain}/oauth2/v1/introspect",
     "introspection_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
         "none"
     ],
-    "revocation_endpoint": "https://{yourOktaDomain}/oauth2/v1/revoke",
+    "revocation_endpoint": "https://${yourOktaDomain}/oauth2/v1/revoke",
     "revocation_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",

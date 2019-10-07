@@ -2,7 +2,7 @@ Create a configuration object in code:
 
 ```swift
 let configuration = OktaOidcConfig(with: [
-    "issuer": "https://{yourOktaDomain}/oauth2/default",
+    "issuer": "https://${yourOktaDomain}/oauth2/default",
     "clientId": "{clientId}",
     "redirectUri": "{redirectUri}",
     "scopes": "openid profile offline_access"
@@ -22,7 +22,7 @@ Or, create a new `Okta.plist` file in your application's bundle with the followi
 <plist version="1.0">
 <dict>
     <key>issuer</key>
-    <string>https://{yourOktaDomain}/oauth2/default</string>
+    <string>https://${yourOktaDomain}/oauth2/default</string>
     <key>clientId</key>
     <string>{clientId}</string>
     <key>redirectUri</key>

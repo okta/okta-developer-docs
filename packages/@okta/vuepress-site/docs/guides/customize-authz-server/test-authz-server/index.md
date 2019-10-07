@@ -14,7 +14,7 @@ We have included here a few things that you can try to ensure that your Authoriz
 
 ### OpenID Connect Configuration
 
-To verify that your server was created and has the expected configuration values, you can send an API request to the Server's OpenID Connect Metadata URI: `https://{yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside of a browser. This will return information about the OpenID configuration of your Authorization Server, though it does not currently return any custom scopes or claims that you might have created.
+To verify that your server was created and has the expected configuration values, you can send an API request to the Server's OpenID Connect Metadata URI: `https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration` using an HTTP client or by typing the URI inside of a browser. This will return information about the OpenID configuration of your Authorization Server, though it does not currently return any custom scopes or claims that you might have created.
 
 For more information on this endpoint, see here: [Retrieve Authorization Server OpenID Connect Metadata](/docs/reference/api/oidc/#well-known-openid-configuration).
 
@@ -37,7 +37,7 @@ For more information on this endpoint, see here: [Get all claims](/docs/referenc
 To test your Authorization Server more thoroughly, you can try a full authentication flow which returns an ID Token. To do this, you will need a client Application in Okta with at least one User assigned to it.
 
 For more information you can read about:
-- [The OpenID Connect Application Wizard](https://help.okta.com/en/prev/Content/Topics/Apps/Apps_App_Integration_Wizard.htm)
+- [The OpenID Connect Application Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc)
 - [How to assign a User to an Application](https://support.okta.com/help/Documentation/Knowledge_Article/27418177-Using-the-Okta-Applications-Page#Assigning)
 
 You will need the following values from your Okta OpenID Connect application, both of which can be found on your Application's General tab:
@@ -47,9 +47,9 @@ You will need the following values from your Okta OpenID Connect application, bo
 
 Once you have an OpenID Connect Application set-up, and a User assigned to it you can try the authentication flow.
 
-First, you will need your Authorization Server's Authorization Endpoint, which you can retrieve using the Server's Metadata URI: `https://{yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration`. It will look like this:
+First, you will need your Authorization Server's Authorization Endpoint, which you can retrieve using the Server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration`. It will look like this:
 
-`https://{yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
+`https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 
 To this you will need to add the following URL query parameters:
 
@@ -62,11 +62,11 @@ All of the values are fully documented here: [Obtain an Authorization Grant from
 
 The resulting URL would look like this:
 
-`https://{yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA&response_type=id_token&response_mode=fragment&scope=openid%20profile&redirect_uri=https%3A%2F%2FyourRedirectUriHere.com&state=WM6D&nonce=YsG76jo`
+`https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA&response_type=id_token&response_mode=fragment&scope=openid%20profile&redirect_uri=https%3A%2F%2FyourRedirectUriHere.com&state=WM6D&nonce=YsG76jo`
 
 If you paste this into your browser you are redirected to the sign-in page for your Okta org, with a URL that looks like this:
 
-`https://{yourOktaDomain}/login/login.htm?fromURI=%2Foauth2%2Fv1%2Fauthorize%2Fredirect%3Fokta_key%aKeyValueWillBeHere`
+`https://${yourOktaDomain}/login/login.htm?fromURI=%2Foauth2%2Fv1%2Fauthorize%2Fredirect%3Fokta_key%aKeyValueWillBeHere`
 
 Here you enter in the credentials for a user who is mapped to your Open ID Connect Application and you will be directed to the `redirect_uri` that you specified along with an ID Token, and any state that you included as well:
 
@@ -80,7 +80,7 @@ To check the returned ID Token you can copy the value and paste it into your JWT
  "name": "John Smith",
  "locale": "en-US",
  "ver": 1,
- "iss": "https://{yourOktaDomain}/oauth2/${authServerId}",
+ "iss": "https://${yourOktaDomain}/oauth2/${authServerId}",
  "aud": "fa39J40exampleXdcCwWA",
  "iat": 1498328175,
  "exp": 1498331912,
