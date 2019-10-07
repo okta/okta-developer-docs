@@ -20,13 +20,26 @@ You can customize your Okta org URL by replacing the Okta domain name with your 
 
 Each organization also has an administrator URL to sign in to the administrator console. The admin URL is the subdomain plus `-admin` (for example, `companyname-admin.okta.com`). If you have [customized your org URL](/docs/guides/custom-url-domain/overview/), access the admin console using your un-customized URL.
 
+### Preview and Production
+Okta orgs come in two varieties: preview orgs and production orgs.
+
+Preview orgs allow you to see the next release early and play with Beta features. Preview orgs include [Beta](/docs/reference/releases-at-okta/#beta) and [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (EA) features by invitation and include all features that are [Generally Available](/docs/reference/releases-at-okta/#general-availability-ga) (GA).
+
+> **Note:** You can't convert Preview orgs into Production orgs, and you can't convert Production orgs into Preview orgs.
+
+Production orgs are always a known-stable release, covered by our Software License Agreement, and don't include [Beta](/docs/reference/releases-at-okta/#beta) features. Production orgs include EA features by request and include all features that are GA.
+
+> **Tip:** To verify which type of org you have, look at the footer of any page of your Okta Admin or Developer Console. Preview org footers have the word Preview in the cell name (for example: `OP1 Preview Cell (US)`) and include `oktapreview` as part of the org URL (for example: `companyname.oktapreview.com`). Production org don't have production indicators in their URLs or cells.
+
 ## Administrator Console
 The Administrator Console (or Admin Console) is where you go to manage your Okta org. The first page that you see when you sign in as an Okta admin is the Dashboard tab. This landing page provides a summary of activity in Okta and your apps. The page also lists notifications of any problems or outstanding work that you need to complete.
 
 There are two views of the Administrator Console available in each org, the Classic UI and the Developer Console. The Developer Console provides you with quick access to your application configuration and API Access Management features. The Classic UI isn't developer-centric, so it presents all the menus and features in the original format. You can change between the Classic UI and the Developer Console using the drop-down menu in the upper-left corner of the page.
 
 ## Cells
-Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are completely independent of each other, so failure in one cell doesn't affect a failure in another cell. You can locate the cell that your org belongs to by looking at the footer of any page of your Okta Administrator Console.
+Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are completely independent of each other, so failure in one cell doesn't affect a failure in another cell.
+
+> **Tip:** You can locate the cell that your org belongs to by looking at the footer of any page of your Okta Administrator or Developer Console.
 
 * `OK` represents a production cell.
 * `EU ` represents a European production cell.
