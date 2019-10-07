@@ -37,7 +37,7 @@ The Administrator Console (or Admin Console) is where you go to manage your Okta
 There are two views of the Administrator Console available in each org, the Classic UI and the Developer Console. The Developer Console provides you with quick access to your application configuration and API Access Management features. The Classic UI isn't developer-centric, so it presents all the menus and features in the original format. You can change between the Classic UI and the Developer Console using the drop-down menu in the upper-left corner of the page.
 
 ## Cells
-Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are completely independent of each other, so failure in one cell doesn't affect a failure in another cell.
+Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are completely independent of each other and of feature redundancy to ensure availability.
 
 > **Tip:** You can locate the cell that your org belongs to by looking at the footer of any page of your Okta Admin or Developer Console.
 
