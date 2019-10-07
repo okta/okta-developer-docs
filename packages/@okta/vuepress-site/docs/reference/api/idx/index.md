@@ -12,7 +12,7 @@ Background information on using this API is available on this page: [Identity En
 
 You are required to supply a `stateHandle` object, which functions as a state token, in each request you make to this API. You receive that object originally from the Okta Oauth 2.0 `/authorize` endpoint when the authentication or enrollment process flow is launched.
 
-The JSON objects returned by this API follow the [Ion Hypermedia Type](https://ionspec.org/) specification.
+The JSON objects returned by this API follow the [Ion Hypermedia Type](https://ionspec.org/) specification. A [Remediation](#remediation-object) is returned in every response, providing information on the next step that needs to be taken as the end user progresses through the Okta Identity Engine pipeline, including the URL of the next endpoint that should be called and the objects to send in the request body of that call.
 
 ## Getting Started
 
@@ -70,7 +70,7 @@ curl -X POST \
 ```
 ##### Response
 
-In this response, the user has been identified as existing, so their User ID is returned. The Remediation object provides information on the next step to take, which is to prompt the user to select an authentication factor.
+In this response, the user has been identified as existing, so their User ID is returned. The Remediation object provides information on the next step to take, which is to prompt the user to select an authentication factor to use to authenticate themselves.
 
 ```json
 {
@@ -161,7 +161,7 @@ In this response, the user has been identified as existing, so their User ID is 
 
 <ApiOperation method="post" url="/idp/idx/enroll" />
 
-Begins the enrollment process for a new user. You typically need to call this endpoint twice: first to get the list of user attributes you need to collect from the end user, and then again to pass to Okta the values collected.
+Begins the enrollment process for a new user. You typically need to call this endpoint twice: first to get the list of user attributes you need to collect from the end user, and then again to pass the values to Okta.
 
 ### Request Body
 
@@ -190,7 +190,7 @@ curl -X POST \
 
 ##### Response
 
-In this response, the Remediation object provides information on the User Profile attributes that you need to prompt the end user to supply. It also specifies that the next step is to make a request to this same endpoint again, to pass the values.
+In this response, the Remediation object provides information on the User Profile attributes that you need to prompt the end user to supply. It also specifies that the next step is to make a request to this same endpoint again, to pass the values collected from the end user.
 
 ```json
 {
