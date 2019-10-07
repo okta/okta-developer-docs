@@ -251,13 +251,13 @@ The Factor Profile model defines several attributes:
 
 | Parameter   | Description                                                                                                              | Data Type                                          | Required | Default  |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- | -------- | -------- |
-| id          | Identifier of the factor profile.                                                                                        | String                                             | No       | Assigned |
-| name        | Name of the factor profile.                                                                                              | String                                             | Yes      |          |
-| default     | This is set to `true` on the profile to be used for a factor enrollment that does not have a profile associated with it. | Boolean                                            | Yes      |          |
-| settings    | Settings for factor profile.                                                                                             | [Settings Object](#factor-profile-settings-object) | Yes      |          |
-| created     | Timestamp when the factor profile was created.                                                                           | Date                                               | No       | Assigned |
-| lastUpdated | Timestamp when the factor profile was last modified.                                                                     | Date                                               | No       | Assigned |
-| _links      | Hyperlinks.                                                                                                              | [Links Object](#factor-profile-links-object)       | No       | Assigned |
+| `id`          | Identifier of the factor profile.                                                                                        | String                                             | No       | Assigned |
+| `name`        | Name of the factor profile.                                                                                              | String                                             | Yes      |          |
+| `default`     | This is set to `true` on the profile to be used for a factor enrollment that does not have a profile associated with it. | Boolean                                            | Yes      |          |
+| `settings`    | Settings for factor profile.                                                                                             | [Settings Object](#factor-profile-settings-object) | Yes      |          |
+| `created`     | Timestamp when the factor profile was created.                                                                           | Date                                               | No       | Assigned |
+| `lastUpdated` | Timestamp when the factor profile was last modified.                                                                     | Date                                               | No       | Assigned |
+| `_links`      | Hyperlinks.                                                                                                              | [Links Object](#factor-profile-links-object)       | No       | Assigned |
 
 ### Factor Profile Settings Object
 
@@ -265,8 +265,8 @@ The factor profile settings object contains the settings for the particular fact
 
 | Factor Name   | Description   |
 | ------------- | ------------- |
-| okta_email    | Okta Email    |
-| okta_password | Okta Password |
+| `okta_email`    | Okta Email    |
+| `okta_password` | Okta Password |
 
 #### Password Factor Profile Settings Object
 
@@ -282,8 +282,8 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 | Parameter | Description                                                  |
 | --------- | ------------------------------------------------------------ |
-| self      | The factor profile.                                          |
-| features  | Action to retrieve the features of the given factor profile. |
+| `self`      | The factor profile.                                          |
+| `features`  | Action to retrieve the features of the given factor profile. |
 
 ## Factor Profile Features
 
@@ -295,11 +295,11 @@ The Factor Profile Feature model defines several common attributes:
 
 | Parameter     | Description                                                  | Data Type                                            | Required | Default  |
 | ------------- | ------------------------------------------------------------ | ---------------------------------------------------- | -------- | -------- |
-| id            | Identifier of the factor profile feature.                    | String                                               | No       | Assigned |
-| type          | Feature type.                                                | String (Enum)                                        | Yes      |          |
-| created       | Timestamp when the factor profile feature was created.       | Date                                                 | No       | Assigned |
-| lastUpdated   | Timestamp when the factor profile feature was last modified. | Date                                                 | No       | Assigned |
-| _links        | Hyperlinks.                                                  | [Links Object](#factor-profile-feature-links-object) | No       | Assigned |
+| `id`            | Identifier of the factor profile feature.                    | String                                               | No       | Assigned |
+| `type`          | Feature type.                                                | String (Enum)                                        | Yes      |          |
+| `created`       | Timestamp when the factor profile feature was created.       | Date                                                 | No       | Assigned |
+| `lastUpdated`   | Timestamp when the factor profile feature was last modified. | Date                                                 | No       | Assigned |
+| `_links`        | Hyperlinks.                                                  | [Links Object](#factor-profile-feature-links-object) | No       | Assigned |
 
 #### Adoption Factor Profile Feature Object
 
@@ -307,14 +307,14 @@ The adoption feature is available for all factor profiles and adds the following
 
 | Parameter   | Description           | Data Type                                                                 | Required | Default  |
 | ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
-| cardinality | Cardinality settings. | [Cardinality Object](#adoption-cardinality-factor-profile-feature-object) | Yes      |          |
+| `cardinality` | Cardinality settings. | [Cardinality Object](#adoption-cardinality-factor-profile-feature-object) | Yes      |          |
 
 ##### Adoption Cardinality Factor Profile Feature Object
 
 | Parameter | Description                                                          | Data Type | Required | Default |
 | --------- | -------------------------------------------------------------------- | --------- | -------- | ------- |
-| min       | The minimum number of factor instances user must enroll in.          | Integer   | Yes      |         |
-| max       | The maximum number of factor instances user is allowed to enroll in. | Integer   | Yes      |         |
+| `min`       | The minimum number of factor instances user must enroll in.          | Integer   | Yes      |         |
+| `max`       | The maximum number of factor instances user is allowed to enroll in. | Integer   | Yes      |         |
 
 #### Enrollment Source Factor Profile Feature Object
 
@@ -342,4 +342,4 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 | Parameter | Description                 |
 | --------- | --------------------------- |
-| self      | The factor profile feature. |
+| `self`      | The factor profile feature. |
