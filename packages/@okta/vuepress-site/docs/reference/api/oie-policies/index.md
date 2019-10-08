@@ -90,6 +90,7 @@ curl -v -X GET \
 }
 ```
 
+<!-- Add remaining operations. I think it's best to omit the example responses for the remaining operations, would be too cluttered, and just repeats. Enough to just give the curl listing for the request, say that the required parameter is a Policy or Rule ID, and that the response is a Policy or Rule object -->
 
 ## Okta Identity Engine Policy Objects
 
@@ -98,7 +99,7 @@ This API uses the following objects:
 * [IdP Routing Policy Object](#idp-routing-policy-object)
 * [IdP Routing Rule Object](#idp-routing-rule-object)
 
-
+<!-- Add one routing and one rule object for each of the OIE policy types-->
 
 ### IdP Routing Policy Object
 
@@ -154,11 +155,23 @@ You need to create at least one IdP Routing Rule Object. Currently, the Okta Ide
 ```
 
 
-| Property | Type | Description |
-|----------|------|-------------|
-|          |      |             |
-|          |      |             |
-|          |      |             |
+| Property | Type   | Description |
+|----------|--------|-------------|
+| name     | String |             |
+| id       |        |             |
+| type     |        |             |
+| priority |        |             |
+| conditions | Array ||
+| action | String | Either `ALLOW` or `DENY`. |
+| requirement | An [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object). |
+
+
+#### IdP Routing Rule Requirement Object
+
+| Property | Type   | Description |
+|----------|--------|-------------|
+| idpId    | String |             |
+| type     |        |             |
  
 ### IdP Routing Rule Object
 
