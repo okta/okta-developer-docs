@@ -105,7 +105,7 @@ This API uses the following objects:
 
 ### IdP Routing Policy Object
 
-This object is meant to determine which IdP end users are routed to. You need to create one IdP Routing Policy object. Additional IdP Routing Policy objects, beyond the first, cannot be created. Currently, only the Okta Identity Provider can be used with the Okta Identity Engine Pipeline, so that, although this object needs to exist, it cannot change the behavior of the pipeline.
+This object determines which IdP end users are routed to. You need to create one IdP Routing Policy object. Additional IdP Routing Policy objects cannot be created. Currently, only the only IdP you can configure for use with the Okta Identity Engine Pipeline is the Okta IdP, so that, although this object needs to exist, it cannot change the behavior of the pipeline.
 
 | Property | Type   | Description                                                                             |
 |----------|--------|-----------------------------------------------------------------------------------------|
