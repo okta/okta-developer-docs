@@ -44,8 +44,7 @@
               </ul>
             </aside>
             <div class="guide-content">
-              <h1>Title</h1>
-              <Content :pageKey="componentKey"/>
+              <Content />
             </div>
           </div>
         </div>
