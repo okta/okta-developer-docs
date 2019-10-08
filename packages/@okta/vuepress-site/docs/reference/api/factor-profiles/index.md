@@ -3,9 +3,11 @@ title: Factor Profiles
 category: management
 ---
 
-# Factor Profiles (Authenticator) API
+# Factor Profiles API
 
-The Okta Factor Profiles API enables an Administrator configure which factor profiles (authenticators) are available to use for multi-factor authentication.
+The Okta Factor Profiles API enables an Administrator configure which factor profiles are available to use for multi-factor authentication.
+
+> **Note:** In the Admin Dashboard
 
 The factor profiles API supports the following **profile operations**:
 
@@ -249,15 +251,15 @@ HTTP 200:
 
 The Factor Profile model defines several attributes:
 
-| Parameter   | Description                                                                                                              | Data Type                                          | Required | Default  |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- | -------- | -------- |
-| `id`          | Identifier of the factor profile.                                                                                        | String                                             | No       | Assigned |
-| `name`        | Name of the factor profile.                                                                                              | String                                             | Yes      |          |
-| `default`     | This is set to `true` on the profile to be used for a factor enrollment that does not have a profile associated with it. | Boolean                                            | Yes      |          |
-| `settings`    | Settings for factor profile.                                                                                             | [Settings Object](#factor-profile-settings-object) | Yes      |          |
-| `created`     | Timestamp when the factor profile was created.                                                                           | Date                                               | No       | Assigned |
-| `lastUpdated` | Timestamp when the factor profile was last modified.                                                                     | Date                                               | No       | Assigned |
-| `_links`      | Hyperlinks.                                                                                                              | [Links Object](#factor-profile-links-object)       | No       | Assigned |
+| Property      | Type                                               | Description                                                                                                              |
+| ------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `id`          | String                                             | Identifier of the factor profile.                                                                                        |
+| `name`        | String                                             | Name of the factor profile.                                                                                              |
+| `default`     | Boolean                                            | This is set to `true` on the profile to be used for a factor enrollment that does not have a profile associated with it. |
+| `settings`    | [Settings Object](#factor-profile-settings-object) | Settings for factor profile.                                                                                             |
+| `created`     | String (ISO-8601)                                  | Timestamp when the factor profile was created.                                                                           |
+| `lastUpdated` | String (ISO-8601)                                  | Timestamp when the factor profile was last modified.                                                                     |
+| `_links`      |                                                    | Link relations for this object                                                                                           |
 
 ### Factor Profile Settings Object
 
@@ -272,15 +274,23 @@ The factor profile settings object contains the settings for the particular fact
 
 TODO
 
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `.`      | .    | .           |
+
 #### Email Factor Profile Settings Object
 
 TODO
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `.`      | .    | .           |
 
 ### Factor Profile Links Object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current factor profile. The Links Object is used for dynamic discovery of related resources.  The Links Object is **read-only**.
 
-| Parameter | Description                                                  |
+| Property | Description                                                  |
 | --------- | ------------------------------------------------------------ |
 | `self`      | The factor profile.                                          |
 | `features`  | Action to retrieve the features of the given factor profile. |
@@ -293,67 +303,66 @@ Each factor profile contains one or more features of various types. Currently th
 
 The Factor Profile Feature model defines several common attributes:
 
-| Parameter     | Description                                                  | Data Type                                            | Required | Default  |
-| ------------- | ------------------------------------------------------------ | ---------------------------------------------------- | -------- | -------- |
-| `id`            | Identifier of the factor profile feature.                    | String                                               | No       | Assigned |
-| `type`          | Feature type.                                                | String (Enum)                                        | Yes      |          |
-| `created`       | Timestamp when the factor profile feature was created.       | Date                                                 | No       | Assigned |
-| `lastUpdated`   | Timestamp when the factor profile feature was last modified. | Date                                                 | No       | Assigned |
-| `_links`        | Hyperlinks.                                                  | [Links Object](#factor-profile-feature-links-object) | No       | Assigned |
+| Property      | Type                                                 | Description                                                  |
+| ------------- | ---------------------------------------------------- | ------------------------------------------------------------ |
+| `id`          | String                                               | Identifier of the factor profile feature.                    |
+| `type`        | String (Enum)                                        | Feature type.                                                |
+| `created`     | String (ISO-8601)                                    | Timestamp when the factor profile feature was created.       |
+| `lastUpdated` | String (ISO-8601)                                    | Timestamp when the factor profile feature was last modified. |
+| `_links`      | [Links Object](#factor-profile-feature-links-object) | Link relations for this object                               |
 
 #### Adoption Factor Profile Feature Object
 
-The adoption feature is available for all factor profiles and adds the following attributes:
+The adoption feature is available for all factor profiles and adds the following property:
 
-| Parameter   | Description           | Data Type                                                                 | Required | Default  |
-| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
-| `cardinality` | Cardinality settings. | [Cardinality Object](#adoption-cardinality-factor-profile-feature-object) | Yes      |          |
+| Property      | Type                                                                      | Description           |
+| ------------- | ------------------------------------------------------------------------- | --------------------- |
+| `cardinality` | [Cardinality Object](#adoption-cardinality-factor-profile-feature-object) | Cardinality settings. |
 
 ##### Adoption Cardinality Factor Profile Feature Object
 
-| Parameter | Description                                                          | Data Type | Required | Default |
-| --------- | -------------------------------------------------------------------- | --------- | -------- | ------- |
-| `min`       | The minimum number of factor instances user must enroll in.          | Integer   | Yes      |         |
-| `max`       | The maximum number of factor instances user is allowed to enroll in. | Integer   | Yes      |         |
+| Property | Type   | Description                                                          |
+| -------- | ------ | -------------------------------------------------------------------- |
+| `min`    | Number | The minimum number of factor instances user must enroll in.          |
+| `max`    | Number | The maximum number of factor instances user is allowed to enroll in. |
 
- 
  #### Enrollment Source Factor Profile Feature Object
- 
+
  The enrollment source feature is available for the Email factor profile.  It controls the settings used when enrolling an email factor and adds the following attributes:
- 
- 
-| Parameter   | Description           | Data Type                                                                 | Required | Default  |
-| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
-| `source` | Specifies where the email address to be used with the factor is located| [Source Object](#enrollment-source-factor-profile-feature-source-object) | Yes      |         
-|`verification`| Controls how the email factor is verified following enrollment. |[Verification Object](#enrollment-source-factor-profile-feature-verification-object)|Yes
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `source`      | [Source Object](#enrollment-source-factor-profile-feature-source-object)    | Specifies where the email address to be used with the factor is located           |
+| `verification`      | [Verification Object](#enrollment-source-factor-profile-feature-verification-object)    | Controls how the email factor is verified following enrollment.           |
 
  ##### Enrollment Source Factor Profile Feature Source Object
 
-| Parameter   | Description           | Data Type                                                                 | Required | Default  |
-| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
-| `simpleUserAttribute` | Specifies that a user profile attribute contains the email address. | [Simple User Attribute Object](#enrollment-source-factor-profile-feature-simple-user-attribute-object) | Yes      |         
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `simpleUserAttribute`      | [Simple User Attribute Object](#enrollment-source-factor-profile-feature-simple-user-attribute-object)    | Specifies that a user profile attribute contains the email address.           |
 
 ###### Enrollment Source Factor Profile Feature Simple User Attribute Object
 
-| Parameter   | Description           | Data Type                                                                 | Required | Default  |
-| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
-| `name` | The name of the user profile attribute. | String | Yes      |         
+| Property | Type   | Description                             |
+| -------- | ------ | --------------------------------------- |
+| `name`   | String | The name of the user profile attribute. |
 
- ##### Enrollment Source Factor Profile Feature Verification Object
+###### Enrollment Source Factor Profile Feature Verification Object
 
-| Parameter   | Description           | Data Type                                                                 | Required | Default  |
-| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
-| `automatic` | Specifies that factor may be automatically verified following enrollment. | [Automatic Object](#enrollment-source-factor-profile-feature-automatic-object) | Yes      |         
+| Property    | Type                                                                           | Description                                                               |
+| ----------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| `automatic` | [Automatic Object](#enrollment-source-factor-profile-feature-automatic-object) | Specifies that factor may be automatically verified following enrollment. |
 
 ###### Enrollment Source Factor Profile Feature Automatic Object
 
-| Parameter   | Description           | Data Type                                                                 | Required | Default  |
-| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
-| `enabled` | Indicates if automatic verification is enabled.  If `false` the user will be prompted to verifiy their email address followng enrollment| boolean | Yes      |         
+| Property  | Type    | Description                                                                                                                              |
+| --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `enabled` | Boolean | Indicates if automatic verification is enabled.  If `false` the user will be prompted to verify their email address following enrollment |
+
 
 Example:
- 
-```aidl
+
+```json
     {
         "type": "enrollment_source",
         "id": "fpfuieOAhoe6a5ISj0g3",
@@ -371,7 +380,7 @@ Example:
         },
         "_links": {
             "self": {
-                "href": "https://domain.okta.com/api/v1/org/factors/profiles/fpruib7klOvW4pAuK0g3/features/fpfuieOAhoe6a5ISj0g3",
+                "href": "https://{yourOktaDomain}/api/v1/org/factors/profiles/fpruib7klOvW4pAuK0g3/features/fpfuieOAhoe6a5ISj0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -388,35 +397,44 @@ Example:
 
 TODO
 
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `.`      | .    | .           |
+
 #### Reuse Factor Profile Feature Object
 
 TODO
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `.`      | .    | .           |
 
 #### Token Security Factor Profile Feature Object
 
 The token security  feature is available for the Email factor profile.  It controls the settings that govern the tokens issued by the email factor and adds the following attributes:
 
-| Parameter   | Description           | Data Type                                                                 | Required | Default  |
-| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
-| `lifespan` | Contains properties that control the token lifespan | [Source Object](#token-security-factor-profile-feature-lifespan-object) | Yes      |         
+| Property   | Type                                                                    | Description                                         |
+| ---------- | ----------------------------------------------------------------------- | --------------------------------------------------- |
+| `lifespan` | [Source Object](#token-security-factor-profile-feature-lifespan-object) | Contains properties that control the token lifespan |
+
 
 
 ##### Token Security Factor Profile Feature Lifespan Object
 
-| Parameter   | Description           | Data Type                                                                 | Required | Default  |
-| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
-| `ttl` | Allows the token lifespan to be specified as a TTL (time to live) duration | [TTL Object](#token-security-factor-profile-feature-ttl-object) | Yes      |         
-
+| Property | Type                                                            | Description                                                                |
+| -------- | --------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `ttl`    | [TTL Object](#token-security-factor-profile-feature-ttl-object) | Allows the token lifespan to be specified as a TTL (time to live) duration |
 
 ###### Token Security Factor Profile Feature TTL Object
 
-| Parameter   | Description           | Data Type                                                                 | Required | Default  |
-| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
-| `period` | The lifespan of the token specified as an ISO 8601 duration  | String | Yes      |         
+| Property | Type   | Description                                                 |
+| -------- | ------ | ----------------------------------------------------------- |
+| `period` | String | The lifespan of the token specified as an ISO 8601 duration |
 
 
 Example:
-```aidl
+
+```json
     {
         "type": "token_security",
         "id": "fpfuifa1aEuPznkem0g3",
@@ -429,7 +447,7 @@ Example:
         },
         "_links": {
             "self": {
-                "href": "http://domain.okta.com/api/v1/org/factors//profiles/fpruib7klOvW4pAuK0g3/features/fpfuifa1aEuPznkem0g3",
+                "href": "http://{yourOktaDomain}/api/v1/org/factors//profiles/fpruib7klOvW4pAuK0g3/features/fpfuifa1aEuPznkem0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -447,10 +465,14 @@ Example:
 
 TODO
 
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `.`      | .    | .           |
+
 ### Factor Profile Feature Links Object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current factor profile feature. The Links Object is used for dynamic discovery of related resources.  The Links Object is **read-only**.
 
-| Parameter | Description                 |
-| --------- | --------------------------- |
-| `self`      | The factor profile feature. |
+| Property | Type   | Description                 |
+| -------- | ------ | --------------------------- |
+| `self`   | Object | The factor profile feature. |
