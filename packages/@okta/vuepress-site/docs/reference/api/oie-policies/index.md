@@ -6,7 +6,7 @@ title: Okta Identity Engine Policy API
 
 <ApiLifecycle access="ea" />
 
-Okta Identity Engine adds new Policy objects to the Okta `/policies` API, which control and configure the behavior of the steps of the Okta Identity Engine Pipeline.
+Okta Identity Engine adds new Policy objects to the Okta `/policies` API, to control and configure the behavior of the steps of the Okta Identity Engine Pipeline.
 
 During the Limited EA phase, Okta Identity Engine is enabled or disabled for an org as a whole. If Okta Identity Engine is enabled for an org, these new Policies control the pipeline that end users progress through when accessing OpenID Connect apps. You cannot mix old Policy and Rule objects with new Okta Identity Engine objects; old objects do not affect the new pipeline.
 
@@ -31,7 +31,7 @@ The API endpoints support the following operations:
 
 <ApiOperation method="get" url="/policies/${PolicyID}" />
 
-Given a `PolicyID` identifier, returns a [Policy Object](#policy-object).
+Given a `PolicyID` identifier, returns a [Policy Object](#okta-identity-engine-policy-objects).
 
 #### Request Body
 
@@ -45,7 +45,7 @@ None
 
 #### Response Body
 
-A [Policy Object](#policy-object).
+A [Policy Object](#okta-identity-engine-policy-objects).
 
 #### Usage Example
 
@@ -102,15 +102,14 @@ This API uses the following objects:
 
 ### IdP Routing Policy Object
 
-This object is meant to determine which IdP is used for end users entering the pipeline. One instance of this Policy needs to exist. Additional instances cannot be created. Currently, only one Idp, Okta, can be used with the Okta Identity Engine Pipeline, so that, although this object together with its rule sub-object, needs to exist, this object cannot change the behavior of the pipeline.
+This object is meant to determine which IdP end users are routed to. You need to create one IdP Routing Policy object. Additional IdP Routing Policy objects, beyond the first, cannot be created. Currently, only the Okta Identity Provider can be used with the Okta Identity Engine Pipeline, so that, although this object needs to exist, it cannot change the behavior of the pipeline.
 
-| Property | Type   | Description                                                                    |
-|----------|--------|--------------------------------------------------------------------------------|
-| id       | String | Unique identifier for this Policy (read-only)                                  |
-| name     | String | Human-readable name for the Policy, configurable during creation or updating.  |
-| type     | String | Type of the policy. For IdP Routing Policy objects, this is `Okta:IdpRouting`. |
-| status   | String |                                                                                |
-
+| Property | Type   | Description                                                                             |
+|----------|--------|-----------------------------------------------------------------------------------------|
+| id       | String | Unique identifier for this Policy (read-only)                                           |
+| name     | String | Human-readable name for the Policy, configurable during creation or updating.           |
+| type     | String | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdpRouting`. |
+| status   | String |                                                                                         |
 
 ### IdP Routing Object Example
 
@@ -145,7 +144,15 @@ This object is meant to determine which IdP is used for end users entering the p
 
 ### IdP Routing Rule Object
 
-Intro
+You need to create at least one IdP Routing Rule Object. Currently, the Okta Identity Provider is the only supported IdP, and the only supported value for the `requirement` property of this rule is:
+
+```json
+{
+    "idpId": "OKTA",
+    "type": "okta_idp"
+}
+```
+
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -156,7 +163,79 @@ Intro
 ### IdP Routing Rule Object
 
 ```json
-{  
-
-}
+[
+    {
+        "name": "Catch-all Rule",
+        "id": "rul10y0LatXn0HP2p0g4",
+        "type": "Okta:IdpRouting",
+        "priority": 2,
+        "conditions": [],
+        "action": "ALLOW",
+        "requirement": {
+            "idpId": "OKTA",
+            "type": "okta_idp"
+        },
+        "status": "ACTIVE",
+        "default": false,
+        "_links": {
+            "self": {
+                "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            },
+            "deactivate": {
+                "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4/lifecycle/deactivate",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            },
+            "policy": {
+                "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "name": "Default Rule",
+        "id": "default-rule",
+        "type": "Okta:IdpRouting",
+        "priority": -1,
+        "conditions": [],
+        "action": "DENY",
+        "requirement": {},
+        "status": "ACTIVE",
+        "default": true,
+        "_links": {
+            "self": {
+                "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/default-rule",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            "policy": {
+                "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT"
+                    ]
+                }
+            }
+        }
+    }
+]
 ```
