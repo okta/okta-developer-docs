@@ -3,9 +3,9 @@ title: Factor Profiles
 category: management
 ---
 
-# Factor Profiles API
+# Factor Profiles (Authenticator) API
 
-The Okta Factor Profiles API enables an Administrator configure which factor profiles are available to use for multi-factor authentication.
+The Okta Factor Profiles API enables an Administrator configure which factor profiles (authenticators) are available to use for multi-factor authentication.
 
 The factor profiles API supports the following **profile operations**:
 
@@ -287,7 +287,7 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 ## Factor Profile Features
 
-Each factor profile contains one or more features of various types. Currently the `adoption`, `enrollment_source`, `string_validation`, `reuse`, `token_security` and `recovery` feature types are supported.
+Each factor profile contains one or more features of various types. Currently the `adoption`, `enrollment_source`, `string_validation`, `reuse`, `token_security` and `recovery` feature types are supported.  Some features are common to all profiles, and some are specific to a particular profile.
 
 ### Factor Profile Feature Object
 
@@ -316,9 +316,73 @@ The adoption feature is available for all factor profiles and adds the following
 | `min`       | The minimum number of factor instances user must enroll in.          | Integer   | Yes      |         |
 | `max`       | The maximum number of factor instances user is allowed to enroll in. | Integer   | Yes      |         |
 
-#### Enrollment Source Factor Profile Feature Object
+ 
+ #### Enrollment Source Factor Profile Feature Object
+ 
+ The enrollment source feature is available for the Email factor profile.  It controls the settings used when enrolling an email factor and adds the following attributes:
+ 
+ 
+| Parameter   | Description           | Data Type                                                                 | Required | Default  |
+| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
+| `source` | Specifies where the email address to be used with the factor is located| [Source Object](#enrollment-source-factor-profile-feature-source-object) | Yes      |         
+|`verification`| Controls how the email factor is verified following enrollment. |[Verification Object](#enrollment-source-factor-profile-feature-verification-object)|Yes
 
-TODO
+ ##### Enrollment Source Factor Profile Feature Source Object
+
+| Parameter   | Description           | Data Type                                                                 | Required | Default  |
+| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
+| `simpleUserAttribute` | Specifies that a user profile attribute contains the email address. | [Simple User Attribute Object](#enrollment-source-factor-profile-feature-simple-user-attribute-object) | Yes      |         
+
+###### Enrollment Source Factor Profile Feature Simple User Attribute Object
+
+| Parameter   | Description           | Data Type                                                                 | Required | Default  |
+| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
+| `name` | The name of the user profile attribute. | String | Yes      |         
+
+ ##### Enrollment Source Factor Profile Feature Verification Object
+
+| Parameter   | Description           | Data Type                                                                 | Required | Default  |
+| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
+| `automatic` | Specifies that factor may be automatically verified following enrollment. | [Automatic Object](#enrollment-source-factor-profile-feature-automatic-object) | Yes      |         
+
+###### Enrollment Source Factor Profile Feature Automatic Object
+
+| Parameter   | Description           | Data Type                                                                 | Required | Default  |
+| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
+| `enabled` | Indicates if automatic verification is enabled.  If `false` the user will be prompted to verifiy their email address followng enrollment| boolean | Yes      |         
+
+Example:
+ 
+```aidl
+    {
+        "type": "enrollment_source",
+        "id": "fpfuieOAhoe6a5ISj0g3",
+        "created": "2019-10-08T18:19:04.000Z",
+        "lastUpdated": "2019-10-08T18:19:04.000Z",
+        "source": {
+            "simpleUserAttribute": {
+                "name": "email"
+            }
+        },
+        "verification": {
+            "automatic": {
+                "enabled": true
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "https://domain.okta.com/api/v1/org/factors/profiles/fpruib7klOvW4pAuK0g3/features/fpfuieOAhoe6a5ISj0g3",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            }
+        }
+    }
+```
 
 #### String Validation Factor Profile Feature Object
 
@@ -330,7 +394,54 @@ TODO
 
 #### Token Security Factor Profile Feature Object
 
-TODO
+The token security  feature is available for the Email factor profile.  It controls the settings that govern the tokens issued by the email factor and adds the following attributes:
+
+| Parameter   | Description           | Data Type                                                                 | Required | Default  |
+| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
+| `lifespan` | Contains properties that control the token lifespan | [Source Object](#token-security-factor-profile-feature-lifespan-object) | Yes      |         
+
+
+##### Token Security Factor Profile Feature Lifespan Object
+
+| Parameter   | Description           | Data Type                                                                 | Required | Default  |
+| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
+| `ttl` | Allows the token lifespan to be specified as a TTL (time to live) duration | [TTL Object](#token-security-factor-profile-feature-ttl-object) | Yes      |         
+
+
+###### Token Security Factor Profile Feature TTL Object
+
+| Parameter   | Description           | Data Type                                                                 | Required | Default  |
+| ----------- | --------------------- | ------------------------------------------------------------------------- | -------- | -------- |
+| `period` | The lifespan of the token specified as an ISO 8601 duration  | String | Yes      |         
+
+
+Example:
+```aidl
+    {
+        "type": "token_security",
+        "id": "fpfuifa1aEuPznkem0g3",
+        "created": "2019-10-08T18:19:04.000Z",
+        "lastUpdated": "2019-10-08T18:19:04.000Z",
+        "lifespan": {
+            "ttl": {
+                "period": "PT15M"
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "http://domain.okta.com/api/v1/org/factors//profiles/fpruib7klOvW4pAuK0g3/features/fpfuifa1aEuPznkem0g3",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            }
+        }
+    }
+```
+
 
 #### Recovery Factor Profile Feature Object
 
