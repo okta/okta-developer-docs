@@ -328,39 +328,9 @@ The adoption feature is available for all factor profiles and adds the following
 
  #### Enrollment Source Factor Profile Feature Object
 
- The enrollment source feature is available for the Email factor profile.  It controls the settings used when enrolling an email factor and adds the following attributes:
+The enrollment source feature is available for the Email factor profile.  It controls the settings used when enrolling an email factor.
 
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `source`      | [Source Object](#enrollment-source-factor-profile-feature-source-object)    | Specifies where the email address to be used with the factor is located           |
-| `verification`      | [Verification Object](#enrollment-source-factor-profile-feature-verification-object)    | Controls how the email factor is verified following enrollment.           |
-
- ##### Enrollment Source Factor Profile Feature Source Object
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `simpleUserAttribute`      | [Simple User Attribute Object](#enrollment-source-factor-profile-feature-simple-user-attribute-object)    | Specifies that a user profile attribute contains the email address.           |
-
-###### Enrollment Source Factor Profile Feature Simple User Attribute Object
-
-| Property | Type   | Description                             |
-| -------- | ------ | --------------------------------------- |
-| `name`   | String | The name of the user profile attribute. |
-
-###### Enrollment Source Factor Profile Feature Verification Object
-
-| Property    | Type                                                                           | Description                                                               |
-| ----------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| `automatic` | [Automatic Object](#enrollment-source-factor-profile-feature-automatic-object) | Specifies that factor may be automatically verified following enrollment. |
-
-###### Enrollment Source Factor Profile Feature Automatic Object
-
-| Property  | Type    | Description                                                                                                                              |
-| --------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `enabled` | Boolean | Indicates if automatic verification is enabled.  If `false` the user will be prompted to verify their email address following enrollment |
-
-
-Example:
+##### Example:
 
 ```json
     {
@@ -393,6 +363,14 @@ Example:
     }
 ```
 
+##### Properties
+
+| Property | Type   | Description                             |
+| -------- | ------ | --------------------------------------- |
+| `source.simpleUserAttribute.name`   | String | The name of the user profile attribute which containe the email address to be used in the factor. |
+| `verification.automatic.enabled` | Boolean | Indicates if automatic verification is enabled.  If `false` the user will be prompted to verify their email address following enrollment.  It `true` the factor will be automatically verified. |
+
+
 #### String Validation Factor Profile Feature Object
 
 TODO
@@ -411,29 +389,9 @@ TODO
 
 #### Token Security Factor Profile Feature Object
 
-The token security  feature is available for the Email factor profile.  It controls the settings that govern the tokens issued by the email factor and adds the following attributes:
+The token security  feature is available for the Email factor profile.  It controls the settings that govern the tokens issued by the email factor.
 
-| Property   | Type                                                                    | Description                                         |
-| ---------- | ----------------------------------------------------------------------- | --------------------------------------------------- |
-| `lifespan` | [Source Object](#token-security-factor-profile-feature-lifespan-object) | Contains properties that control the token lifespan |
-
-
-
-##### Token Security Factor Profile Feature Lifespan Object
-
-| Property | Type                                                            | Description                                                                |
-| -------- | --------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `ttl`    | [TTL Object](#token-security-factor-profile-feature-ttl-object) | Allows the token lifespan to be specified as a TTL (time to live) duration |
-
-###### Token Security Factor Profile Feature TTL Object
-
-| Property | Type   | Description                                                 |
-| -------- | ------ | ----------------------------------------------------------- |
-| `period` | String | The lifespan of the token specified as an ISO 8601 duration |
-
-
-Example:
-
+##### Example
 ```json
     {
         "type": "token_security",
@@ -459,6 +417,14 @@ Example:
         }
     }
 ```
+
+##### Properties
+
+| Property | Type   | Description                                                 |
+| -------- | ------ | ----------------------------------------------------------- |
+| `lifespan.ttl.period` | String | Token lifespan specified as an ISO 8601 duration |
+
+
 
 
 #### Recovery Factor Profile Feature Object
