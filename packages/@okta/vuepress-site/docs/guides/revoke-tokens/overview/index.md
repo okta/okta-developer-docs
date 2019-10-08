@@ -5,7 +5,7 @@ title: Overview
 If for whatever reason you would like to disable an access or refresh token, simply send a request to your `/revoke` endpoint:
 
 ```
-http --form POST https://{yourOktaDomain}/oauth2/default/v1/revoke \
+http --form POST https://${yourOktaDomain}/oauth2/default/v1/revoke \
   accept:application/json \
   authorization:'Basic ZmEz...' \
   cache-control:no-cache \

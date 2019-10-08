@@ -16,7 +16,7 @@ To learn more about validating Okta access tokens, please see [Validate Access T
 const OktaJwtVerifier = require('@okta/jwt-verifier');
 
 const oktaJwtVerifier = new OktaJwtVerifier({
-  issuer: 'https://{yourOktaDomain}/oauth2/default',
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
   assertClaims: {
     aud: 'api://default'
   }

@@ -43,7 +43,7 @@ Use the following procedure to display the user consent dialog as part of an Ope
 5. Test your configuration by initiating an authentication or authorization request. For instance, if you set `consent` to `REQUIRED` for the `email` scope, you can open this URL in a browser:
 
     ```bash
-    https://{yourOktaDomain}/oauth2/${authenticationServerId}/v1/authorize?client_id=${clientId}&response_type=token&response_mode=fragment&scope=email&redirect_uri=http://localhost:54321&state=${state}&nonce=${nonce}
+    https://${yourOktaDomain}/oauth2/${authenticationServerId}/v1/authorize?client_id=${clientId}&response_type=token&response_mode=fragment&scope=email&redirect_uri=http://localhost:54321&state=${state}&nonce=${nonce}
     ```
 
     Opening this URL will show the user consent dialog. Click **Allow** to create the grant.
@@ -58,7 +58,7 @@ If you want to verify that you've successfully created a user grant, here are a 
     {
       "ver": 1,
       "jti": "AT.HVDRVIwbyq2jmP0SeNjyvMKq5zsMvUNJlzvXH5rfvOA",
-      "iss": "https://{yourOktaDomain}/oauth2/default",
+      "iss": "https://${yourOktaDomain}/oauth2/default",
       "aud": "Test",
       "iat": 1524520458,
       "exp": 1524524058,
@@ -78,7 +78,7 @@ If you want to verify that you've successfully created a user grant, here are a 
       "sub": "00u5t60iloOHN9pBi0h7",
       "email": "saml.jackson@stark.com",
       "ver": 1,
-      "iss": "https://{yourOktaDomain}/oauth2/${authenticationServerId}",
+      "iss": "https://${yourOktaDomain}/oauth2/${authenticationServerId}",
       "aud": "xfnIflwIn2TkbpNBs6JQ",
       "iat": 1524520458,
       "exp": 1524524058,
@@ -99,7 +99,7 @@ If you want to verify that you've successfully created a user grant, here are a 
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -H "Authorization: SSWS ${api_token} \
-    "https://{yourOktaDomain}/api/v1/users/${userId}/grants"
+    "https://${yourOktaDomain}/api/v1/users/${userId}/grants"
     ```
 
     The response should contain the grant you created when you clicked **Allow** in the previous step.
@@ -118,22 +118,22 @@ If you want to verify that you've successfully created a user grant, here are a 
             "scopeId": "scpcl1o4toFjganq10h7",
             "_links": {
                 "app": {
-                    "href": "https://{yourOktaDomain}/api/v1/apps/0oaaggpxeqxTDuP780h7",
+                    "href": "https://${yourOktaDomain}/api/v1/apps/0oaaggpxeqxTDuP780h7",
                     "title": "Acme OIDC Client"
                 },
                 "authorizationServer": {
-                    "href": "https://{yourOktaDomain}/api/v1/authorizationServers/auscl1o4tnf48w5Wt0h7",
+                    "href": "https://${yourOktaDomain}/api/v1/authorizationServers/auscl1o4tnf48w5Wt0h7",
                     "title": "My Authorization Server"
                 },
                 "scope": {
-                    "href": "https://{yourOktaDomain}/api/v1/authorizationServers/auscl1o4tnf48w5Wt0h7/scopes/scpcl1o4toFjganq10h7",
+                    "href": "https://${yourOktaDomain}/api/v1/authorizationServers/auscl1o4tnf48w5Wt0h7/scopes/scpcl1o4toFjganq10h7",
                     "title": "openid"
                 },
                 "self": {
-                    "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag4xfx62r6S53kHr0h6"
+                    "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag4xfx62r6S53kHr0h6"
                 },
                 "revoke": {
-                    "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag4xfx62r6S53kHr0h6",
+                    "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag4xfx62r6S53kHr0h6",
                     "hints": {
                         "allow": [
                             "DELETE"
@@ -141,15 +141,15 @@ If you want to verify that you've successfully created a user grant, here are a 
                     }
                 },
                 "client": {
-                    "href": "https://{yourOktaDomain}/oauth2/v1/clients/xfnIflwIn2TkbpNBs6JQ",
+                    "href": "https://${yourOktaDomain}/oauth2/v1/clients/xfnIflwIn2TkbpNBs6JQ",
                     "title": "Acme OIDC Client"
                 },
                 "user": {
-                    "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
+                    "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
                     "title": "Saml Jackson "
                 },
                 "issuer": {
-                    "href": "https://{yourOktaDomain}/api/v1/authorizationServers/auscl1o4tnf48w5Wt0h7",
+                    "href": "https://${yourOktaDomain}/api/v1/authorizationServers/auscl1o4tnf48w5Wt0h7",
                     "title": "My Authentication Server"
                 }
             }
