@@ -12,6 +12,8 @@ During the Limited EA phase, Okta Identity Engine is enabled or disabled for an 
 
 API endpoints for creating, getting, and updating Policy and Rule objects function the same way in Okta Identity Engine as they do in the existing Okta `/policies` API; only the objects used are different, with Okta Identity Engine introducing a set of new Policy and Rule objects. See the [Okta Identity Engine Policy Objects](#okta-identity-enging-policy-objects) section of this document for descriptions of the objects.
 
+To enable the Okta Identity Engine Pipeline, you need to create at least one of each of the defined Okta Identity Engine Policy objects, and at least one Rule object for each Policy.
+
 ## Policies API Operations
 
 The API endpoints support the following operations:
