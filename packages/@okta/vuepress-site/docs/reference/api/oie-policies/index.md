@@ -149,15 +149,15 @@ This object determines which IdP end users are routed to. You need to create one
 
 You need to create at least one IdP Routing Rule Object. Currently, the Okta Identity Provider is the only supported IdP, and the only supported value for the `requirement.type` property of this rule is `okta_idp`.
 
-| Property    | Type                                                                            | Description               |
-|-------------|---------------------------------------------------------------------------------|---------------------------|
-| name        | String                                                                          |                           |
-| id          |                                                                                 |                           |
-| type        |                                                                                 |                           |
-| priority    |                                                                                 |                           |
-| conditions  | Array                                                                           |                           |
-| action      | String                                                                          | Either `ALLOW` or `DENY`. |
-| requirement | An [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object). |                           |
+| Property    | Type                                                                        | Description               |
+|-------------|-----------------------------------------------------------------------------|---------------------------|
+| name        | String                                                                      |                           |
+| id          |                                                                             |                           |
+| type        |                                                                             |                           |
+| priority    |                                                                             |                           |
+| conditions  | Array                                                                       |                           |
+| action      | String                                                                      | Either `ALLOW` or `DENY`. |
+| requirement | [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object) | Specifies the IdP to use. |
 
 #### IdP Routing Rule Requirement Object
 
