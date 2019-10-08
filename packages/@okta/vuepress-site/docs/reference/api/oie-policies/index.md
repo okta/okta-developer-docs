@@ -147,33 +147,24 @@ This object determines which IdP end users are routed to. You need to create one
 
 ### IdP Routing Rule Object
 
-You need to create at least one IdP Routing Rule Object. Currently, the Okta Identity Provider is the only supported IdP, and the only supported value for the `requirement` property of this rule is:
+You need to create at least one IdP Routing Rule Object. Currently, the Okta Identity Provider is the only supported IdP, and the only supported value for the `requirement.type` property of this rule is `okta_idp`.
 
-```json
-{
-    "idpId": "OKTA",
-    "type": "okta_idp"
-}
-```
-
-
-| Property | Type   | Description |
-|----------|--------|-------------|
-| name     | String |             |
-| id       |        |             |
-| type     |        |             |
-| priority |        |             |
-| conditions | Array ||
-| action | String | Either `ALLOW` or `DENY`. |
-| requirement | An [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object). |
-
+| Property    | Type                                                                            | Description               |
+|-------------|---------------------------------------------------------------------------------|---------------------------|
+| name        | String                                                                          |                           |
+| id          |                                                                                 |                           |
+| type        |                                                                                 |                           |
+| priority    |                                                                                 |                           |
+| conditions  | Array                                                                           |                           |
+| action      | String                                                                          | Either `ALLOW` or `DENY`. |
+| requirement | An [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object). |                           |
 
 #### IdP Routing Rule Requirement Object
 
 | Property | Type   | Description |
 |----------|--------|-------------|
 | idpId    | String |             |
-| type     |        |             |
+| type     | String |             |
  
 ### IdP Routing Rule Object
 
