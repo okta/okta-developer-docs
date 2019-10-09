@@ -23,7 +23,7 @@ The [User Types API](/docs/reference/api/user-types/) is in Early Access (EA) in
 
 ### Tokens transform events no longer available
 
-Token transform System Log [events](/docs/reference/api/event-types/) will no longer fire. They have been replaced by Inline Hook events.  <!-- OKTA-249601 -->
+Token transform System Log [events](/docs/reference/api/event-types/) will no longer fire for SAML and Token Inline Hooks. They have been replaced by Inline Hook events.  <!-- OKTA-249601 -->
 
 ### Cookies updated to preserve cross-functionality
 
