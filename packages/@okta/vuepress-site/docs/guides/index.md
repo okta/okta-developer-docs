@@ -21,7 +21,7 @@ guides:
  - implement-implicit
  - implement-password
  - mfa
- - oauth-for-okta-apis
+ - oauth-for-okta
  - protect-your-api
  - refresh-tokens
  - request-user-consent
