@@ -1,7 +1,7 @@
 ---
 title: Request an access token
 ---
-After you have the following, you can request an access token: 
+After you have the following, you can request an access token:
 
 * An Okta OIDC or OAuth 2.0 Service app
 * One or more grants associated with that app
@@ -23,12 +23,12 @@ After you have the following, you can request an access token:
 
     Note the parameters being passed:
 
-    * `client_id`: Use the `client_id` of your Okta OAuth application that you created in the <GuideLink link="../create-oauth-app">previous step</GuideLink>. 
-    * `response_type`: Use `token` in this instance, since you are testing in a browser and want the authorization server to return the access token rather than an authorization code. In a production environment, this value would be `code`. 
-    * `response_mode`: Use `fragment` to indicate that you want the authorization server to return the authorization response parameters encoded in a fragment that is added to the `redirect_uri` when redirecting back to the client. 
+    * `client_id`: Use the `client_id` of your Okta OAuth application that you created in the <GuideLink link="../create-oauth-app">previous step</GuideLink>.
+    * `response_type`: Use `token` in this instance, since you are testing in a browser and want the authorization server to return the access token rather than an authorization code. In a production environment, this value would be `code`.
+    * `response_mode`: Use `fragment` to indicate that you want the authorization server to return the authorization response parameters encoded in a fragment that is added to the `redirect_uri` when redirecting back to the client.
     * `scope`: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the application's grants collection and the user must have the permission to perform those actions. See Scopes and Consent for more information.
     * `redirect_uri`: Define the callback location where Okta returns a browser (along with the token) after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the <GuideLink link="../create-an-OAuth-2.0-app-in-okta">Create an OAuth 2.0 app in Okta</GuideLink> section.
-    * `state`: Use any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which helps prevent cross-site request forgery. 
+    * `state`: Use any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which helps prevent cross-site request forgery.
     * `nonce`: Use any value. This is a string that is included in the returned ID token. It associates a client session with an ID token and mitigates replay attacks. In this example, we aren't requesting the `id_token` response type, so an ID token isn't returned.
 
 3. Enter your credentials on the Okta Sign-in Page that appears. After you authenticate, the browser returns an access token in the address bar.

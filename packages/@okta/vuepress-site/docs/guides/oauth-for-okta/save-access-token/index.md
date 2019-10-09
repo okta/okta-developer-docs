@@ -7,6 +7,6 @@ Save the access token and use it to make a request to an endpoint that supports 
 2. On the **Header** tab, remove the existing SSWS Authorization API Key.
 3. Click the **Authorization** tab and from the **Type** drop-down list, select **Bearer Token**.
 4. Paste the access token into the **Token** box on the right.
-5. Click **Send**. The response should contain an array of all the users associated with your app. This is dependent on the user's permissions. 
+5. Click **Send**. The response should contain an array of all the users associated with your app. This is dependent on the user's permissions.
 
 <NextSectionLink/>
