@@ -367,7 +367,7 @@ The enrollment source feature is available for the Email factor profile.  It con
 
 | Property | Type   | Description                             |
 | -------- | ------ | --------------------------------------- |
-| `source.simpleUserAttribute.name`   | String | The name of the user profile attribute which containe the email address to be used in the factor. |
+| `source.simpleUserAttribute.name`   | String | The name of the user profile attribute which contains the email address to be used in the factor. |
 | `verification.automatic.enabled` | Boolean | Indicates if automatic verification is enabled.  If `false` the user will be prompted to verify their email address following enrollment.  It `true` the factor will be automatically verified. |
 
 
