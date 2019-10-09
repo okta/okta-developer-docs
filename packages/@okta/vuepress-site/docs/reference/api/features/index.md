@@ -1,5 +1,6 @@
 ---
 title: Features
+<ApiLifecycle access="ea" />
 category: management
 ---
 
