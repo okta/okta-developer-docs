@@ -350,7 +350,7 @@ The enrollment source feature is available for the Email factor profile.  It con
         },
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/org/factors/profiles/fpruib7klOvW4pAuK0g3/features/fpfuieOAhoe6a5ISj0g3",
+                "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_email/profiles/fpruib7klOvW4pAuK0g3/features/fpfuieOAhoe6a5ISj0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -405,7 +405,7 @@ The token security  feature is available for the Email factor profile.  It contr
         },
         "_links": {
             "self": {
-                "href": "http://{yourOktaDomain}/api/v1/org/factors//profiles/fpruib7klOvW4pAuK0g3/features/fpfuifa1aEuPznkem0g3",
+                "href": "http://{yourOktaDomain}/api/v1/org/factors/okta_email/profiles/fpruib7klOvW4pAuK0g3/features/fpfuifa1aEuPznkem0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -424,10 +424,106 @@ The token security  feature is available for the Email factor profile.  It contr
 | -------- | ------ | ----------------------------------------------------------- |
 | `lifespan.ttl.period` | String | Token lifespan specified as an ISO 8601 duration |
 
-
-
-
 #### Recovery Factor Profile Feature Object
+
+The recovery feature is available for all factor profiles.  It controls the settings that govern how a user can recover if they lose access to an authenticator (factor profile)
+
+##### Example
+```json
+{
+    "type": "recovery",
+    "id": "fpfuidgo5kiGGK3WU0g3",
+    "created": "2019-10-08T18:19:04.000Z",
+    "lastUpdated": "2019-10-09T22:15:50.000Z",
+    "eligibility": "ALLOWED",
+    "verificationMethod": {
+        "type": "ANY_FACTOR"
+    },
+    "_links": {
+        "self": {
+            "href": "http://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuidgo5kiGGK3WU0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
+
+##### Properties
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `eligiblity`      | String  | Indicates if factor may be recovered |
+| `verificationMethod.type`      | String | Indicates which factors may be used to verify a recover operation|
+
+
+###### Eligibility
+The `eligibility` property may be set to the following values:
+
+| Value | Description|
+| ------| ---------- |
+|`ALLOWED` | The factor may be recovered if the user loses access to the authenticator |
+|`NOT_ALLOWED` | Recovery is not permitted |
+
+
+###### VerificationMethod.type
+The `verificationMethod.type` property may be set to the following values:
+
+| Value | Description|
+| ------| ---------- |
+|`ANY_FACTOR` | Any available factor may be used to verify the recovery |
+|`CHAIN` | A specific factor may be used to verify the recovery |
+
+###### Chain verification
+Chain verification may be used to specify which factor may be used to verify the recovery
+
+###### Example
+```json
+{
+    "type": "recovery",
+    "id": "fpfuidgo5kiGGK3WU0g3",
+    "created": "2019-10-08T18:19:04.000Z",
+    "lastUpdated": "2019-10-08T22:56:46.000Z",
+    "eligibility": "ALLOWED",
+    "verificationMethod": {
+        "type": "CHAIN",
+        "chains": [
+            {
+                "criteria": [
+                    {
+                        "factorProfileId": "fpruihGXyLzyGYCq30g3"
+                    }
+                ]
+            }
+        ],
+        "noAuthNEmptyChain": false
+    },
+    "_links": {
+        "self": {
+            "href": "http://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuidgo5kiGGK3WU0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
+###### Properties
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `verificationMethod.chains.criteria.factorProfileId`      | String       | Profile Id of the authenticator (factor profile) that can be used to verify the recovery |
+
+#### Enrollment Profile Feature Object
 
 TODO
 
