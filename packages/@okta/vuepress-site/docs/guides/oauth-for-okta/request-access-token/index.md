@@ -19,7 +19,7 @@ After you have the following, you can request an access token:
     https://{yourOktadomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.manage&redirect_uri={yourConfiguredRedirectUri}&nonce=UBGW&state=1234
     ```
 
-    > **Note:** You must use your Okta Org Authorization Server to obtain Okta scopes.
+    > **Note:** Only the [Org Authorization Server](/docs/concepts/auth-servers) can mint access tokens that contain Okta API scopes.
 
     Note the parameters being passed:
 
@@ -40,6 +40,7 @@ After you have the following, you can request an access token:
     ```bash
     http://{yourOktadomain}/authorization-code/callback#access_token=eyJraWQiOiJEa1lUbmhTdkd5OEJk.......Y5D6XGtoken_type=Bearer&expires_in=3600&scope=openid+okta.users.manage&state=1234
     ```
+
     > **Note:** The lifetime for this token is fixed at one hour.
 
 4. Copy the access token for use in subsequent <GuideLink link="../save-access-token">requests to Okta API endpoints</GuideLink>.

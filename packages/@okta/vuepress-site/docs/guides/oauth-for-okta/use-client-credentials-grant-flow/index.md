@@ -12,6 +12,7 @@ The following steps are required to configure the Client Credentials grant flow 
 3. Sign the JWT with the private key.
 
 ## Create a public/private key pair
+
 The [`private_key_jwt`](/docs/reference/api/oidc/#jwt-with-private-key) client authentication method is the only supported method for OAuth Service apps that want to get Okta-scoped tokens. The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth Service app. So, we recommend generating the public/private key pair first before creating the OAuth Service app.
 
 You can use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate an RSA 2048 JWKS key pair for testing.
@@ -32,7 +33,9 @@ The JWKS should look something like this (the key is truncated for brevity):
     ]
 }
 ```
+
 ## Create a Service app
+
 You can create an OAuth Service client app and register the public key with the Service app using the `/apps` endpoint or the dynamic `/oauth/v1/clients` registration endpoint.
 
 * `/apps`: See the request example that shows how to create an OAuth 2.0 client application with `private_key_jwt` in the [Add an OAuth 2.0 Client Application](/docs/reference/api/apps/#add-oauth-2-0-client-application) section.
@@ -40,6 +43,7 @@ You can create an OAuth Service client app and register the public key with the 
 * `/oauth/v1/clients`: See the **Create a Service app with a JWKS** example in the [Register New Client](/docs/reference/api/oauth-clients/#register-new-client) section.
 
 ## Sign the JWT
+
 You now need to sign the JWT with your private key for use in the request for a scoped access token. You can craft this `client_credentials` JWT in several ways. See [Build a JWT with a private key](/docs/guides/build-self-signed-jwt/java/jwt-with-private-key/) for both a Java and a JavaScript example.
 
 > **Note:** After the Service app has Okta-scoped grants, only an admin with Super Admin permissions can rotate the keys.
