@@ -1,10 +1,10 @@
 ---
 title: Features
-<ApiLifecycle access="ea" />
 category: management
 ---
 
 # Features API
+<ApiLifecycle access="ea" />
 
 The Okta Features API provides operations to manage self-service Early Access (EA) and Beta features in your org.
 
