@@ -36,4 +36,4 @@ App Condition is now available for the [Enroll Policy](/docs/reference/api/polic
 ### Bugs Fixed in 2019.10.0
 
 * WebAuthn Factors could not be verified using the [Factors API](/docs/reference/api/factors/). (OKTA-228239)
-* The Okta Sign-In Widget would incorrectly render pre-populated usernames, substituting `+` with a space. (OKTA-235187)
+* During OAuth 2 and OIDC sign in flows, the Okta Sign-In Widget would incorrectly render pre-populated usernames, substituting `+` with a space. (OKTA-235187)
