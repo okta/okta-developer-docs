@@ -27,9 +27,9 @@ The Expression Language function for [linked objects](/docs/reference/okta-expre
 
 Okta allows you to create up to 200 linked object definitions. These definitions are one-to-many, for example:
 
-* A manager has many subordinates
-* A sales representative has many customers
-* A case worker has many clients
+* A manager has many subordinates; each subordinate has one manager
+* A sales representative has many customers; each customer has one sales rep
+* A case worker has many clients; each client has one case worker
 
 Of course, most organizations have more than one manager or sales representative. You can create the linked object definition once, then assign the `primary` relationship to as many users as you have people in that relationship.
 
@@ -50,13 +50,15 @@ Then, if you created another linked object relationship for scrum team membershi
 
 Bob can be the `primary` for a Manager:Subordinate, an `associated` user for that same linked object definition, and also the `primary` for the Scrummaster:Contributor linked object definition.
 
-To represent a relationship, create a linked object definition that specifies a `primary` (parent) relationship and an `associated` (child), and then assign each side of that link type to the appropriate user.
+To represent a relationship, create a linked object definition that specifies a `primary` (parent) relationship and an `associated` (child), then add a link in which the appropriate user is assigned to each side of that link type.
+
+## Links Between User Types
+
+If you have created multiple User Types (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)), they all share the same linked object definitions. For example, if you have separate User Types for Employees and Contractors, a link could designate an Employee as the Manager for a Contractor, with the Contractor being a Subordinate of that Employee.
 
 ## Getting Started
 
-Explore the Linked Objects API:
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ed4c5606d25d1014b7ea)
+Explore the Linked Objects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/09416941ad62f022cabb)
 
 ## Link Definition Operations
 
@@ -69,7 +71,7 @@ Each org can create up to 200 definitions, and assign them to an unlimited numbe
 ### Add Linked Object Definition to User Profile Schema
 
 
-<ApiOperation method="post" url="/api/v1/meta/schemas/user/default/linkedObjects" />
+<ApiOperation method="post" url="/api/v1/meta/schemas/user/linkedObjects" />
 
 Adds a linked object definition to the user profile schema. The `name` field found in both the `primary` and `associated` objects may not start with a digit, and can only contain the following characters: `a-z`, `A-Z`, `0-9`, and `_`.
 
@@ -106,7 +108,7 @@ curl -X POST \
     "description": "Subordinate link property",
     "type": "USER"
   }
-}' "https://${yourOktaDomain}/api/v1/meta/schemas/user/default/linkedObjects"
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects"
 ```
 
 ##### Response Example
@@ -129,7 +131,7 @@ HTTP/1.1 201 Created
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/default/linkedObjects/manager"
+            "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
         }
     }
 }
@@ -137,7 +139,7 @@ HTTP/1.1 201 Created
 
 ### Get a Linked Object Definition by Name
 
-<ApiOperation method="get" url="/api/v1/meta/schemas/user/default/linkedObjects/${name}" />
+<ApiOperation method="get" url="/api/v1/meta/schemas/user/linkedObjects/${name}" />
 
 Gets a single linked object definition
 
@@ -163,7 +165,7 @@ curl -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/meta/schemas/user/default/linkedObjects/manager"
+"https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
 ```
 
 ##### Response Example
@@ -187,17 +189,17 @@ HTTP/1.1 200 OK
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/default/linkedObjects/manager"
+            "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
         }
     }
 }
 ```
-> **Note:** Regardless of whether you specify the `primary` or `associated` name in the request, the resulting link contains the `primary`.
+>**Note:** Regardless of whether you specify the `primary` or `associated` name in the request, the resulting `self` link contains the `primary`.
 
 ### Get All Linked Object Definitions
 
 
-<ApiOperation method="get" url="/api/v1/meta/schemas/user/default/linkedObjects" />
+<ApiOperation method="get" url="/api/v1/meta/schemas/user/linkedObjects" />
 
 Gets all the linked object definitions for an org
 
@@ -219,7 +221,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/meta/schemas/user/default/linkedObjects"
+"https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects"
 ```
 
 ##### Response Example
@@ -242,7 +244,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/default/linkedObjects/manager"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
             }
         }
     },
@@ -261,7 +263,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/default/linkedObjects/mother"
+                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/mother"
             }
         }
     }
@@ -271,7 +273,7 @@ curl -v -X GET \
 ### Remove Linked Object Definition
 
 
-<ApiOperation method="delete" url="/api/v1/meta/schemas/user/default/linkedObjects/${name}" />
+<ApiOperation method="delete" url="/api/v1/meta/schemas/user/linkedObjects/${name}" />
 
 Removes the linked object definition specified by either `primary` or `associated` name. The entire definition is removed, regardless of which name you specify
 
@@ -295,7 +297,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/meta/schemas/user/default/linkedObjects/mother"
+"https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/mother"
 ```
 
 ##### Response Example
@@ -304,6 +306,10 @@ curl -v -X DELETE \
 ```bash
 HTTP/1.1 204 No Content
 ```
+
+### Deprecated Operations
+
+An earlier version of this API included the element `/default/linkedObjects` instead of just `/linkedObjects` in all the URLs for operations on Linked Object definitions. These earlier endpoints are still supported but are deprecated. As described under [Links Between User Types](#links-between-user-types), all Linked Object definitions apply to all User Types, not just to the default type. That is true for the deprecated operations as well; they affect all User Types, just like the corresponding endpoints that omit `/default`.
 
 ## Link Value Operations
 
@@ -512,7 +518,7 @@ The following model contains example values for each attribute.
     },
     "_links": {
           "self": {
-               "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/default/linkedObjects/manager"
+               "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
           }
     }
 }
