@@ -27,7 +27,7 @@ Tokens transform System Log [events](/docs/reference/api/event-types/) will no l
 
 ### Cookies updated to preserve cross-functionality
 
-To preserve cross-site functionality, Okta now adds the `SameSite=None`attribute to all relevant cookies when the client browser is Firefox 69 or above. Previously this was enabled only for Chrome 76 and above. <!-- OKTA-248255 -->
+To preserve cross-site functionality, Okta now adds the `SameSite=None` attribute to all relevant cookies when the client browser is Firefox 69 or above. Previously this was enabled only for Chrome 76 and above. <!-- OKTA-248255 -->
 
 ### App Condition available for Enroll Policy
 
@@ -36,4 +36,4 @@ App Condition is now available for the [Enroll Policy](/docs/reference/api/polic
 ### Bugs Fixed in 2019.10.0
 
 * WebAuthn Factors could not be verified using the [Factors API](/docs/reference/api/factors/). (OKTA-228239)
-* During OAuth 2 and OIDC sign in flows, the Okta Sign-In Widget incorrectly rendered pre-populated usernames, substituting `+` with a space. (OKTA-235187)
+* During OAuth 2 and OIDC sign-in flows, the Okta Sign-In Widget incorrectly rendered pre-populated usernames, substituting `+` with a space. (OKTA-235187)
