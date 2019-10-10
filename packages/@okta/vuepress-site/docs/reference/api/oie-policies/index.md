@@ -313,12 +313,12 @@ One Identifier Match Rule Object is created by default.
 
 #### Identifier Match Rule Requirement Object
 
-| Property              | Type   | Description                                                                                                                                                       |
-|-----------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| identifyingAttributes | Array  | User profile attributes to match. For each, you need to specify the ID of the `userType` that the attribute is a part of, as well as the name of the `attribute`. |
-| onConflictingUser     | String | Whether to proceed if more than one match is found. Can be `ALLOW` or `DENY`.                                                                                     |
+| Property              | Type   | Description                                                                                                                                                                                                                             |
+|-----------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| identifyingAttributes | Array  | User profile attributes to match. For each, you need to specify the valid ID of a `userType` that the attribute is a part of, as well as the name of the `attribute` that is included in the User Profile Attributes of that User Type. |
+| onConflictingUser     | String | Whether to proceed if more than one match is found. Can be `ALLOW` or `DENY`.                                                                                                                                                           |                                                                            |
  
-### IdP Routing Rule Object
+### Identifier Match Rule Object
 
 ```json
 {
