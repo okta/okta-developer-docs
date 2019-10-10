@@ -438,19 +438,121 @@ The enrollment source feature is available for the Email factor profile.  It con
 
 #### String Validation Factor Profile Feature Object
 
-TODO
+The string validation feature is available for the password factor profile. It defines the validation contraints on new enrollments with the following attributes:
 
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `.`      | .    | .           |
+| Property   | Type                                                                 | Description           |
+| ----------- | ------------------------------------------------------------------------- | --------------------- |
+| `complexity` | [Complexity Object](#string-validation-complexity-factor-profile-feature-object) | Complexity settings. |
+| `exclude` | [Exclude Object](#string-validation-exclude-factor-profile-feature-object) | Exclusion settings. |
+
+#### String Validation Complexity Factor Profile Feature Object
+
+| Property   | Type                                                                 | Description           |
+| ----------- | ------------------------------------------------------------------------- | --------------------- |
+| `minLength` | Integer | Minimum length required. |
+| `minLowerCase` | Integer | Minimum number of lower case characters required. |
+| `minUpperCase` | Integer | Minimum number of upper case characters required. |
+| `minNumbers` | Integer | Minimum number of numerical characters required. |
+| `minSymbols` | Integer | Minimum number of symbols required. |
+
+#### String Validation Exclude Factor Profile Feature Object
+
+| Property   | Type                                                                 | Description           |
+| ----------- | ------------------------------------------------------------------------- | --------------------- |
+| `common` | [Common Object](#string-validation-exclude-common-factor-profile-feature-object) | Common values settings (Optional). |
+| `attributeCriteria` | Array ([Attribute Criterion Object](#string-validation-exclude-attribute-criterion-factor-profile-feature-object)) | Attribute criteria settings (Required but empty allowed). |
+
+#### String Validation Exclude Common Factor Profile Feature Object
+
+| Property   | Type                                                                 | Description           |
+| ----------- | ------------------------------------------------------------------------- | --------------------- |
+| `source.type` | String (Enum) | Source settings. Possible values: `okta` |
+
+#### String Validation Exclude Attribute Criterion Factor Profile Feature Object
+
+| Property   | Type                                                                 | Description           |
+| ----------- | ------------------------------------------------------------------------- | --------------------- |
+| `name` | String | Name of the attribute. |
+
+Example:
+
+```json
+    {
+        "type": "string_validation",
+        "id": "fpf3qbixISW8mRVb00g4",
+        "created": "2019-10-09T19:38:18.000Z",
+        "lastUpdated": "2019-10-09T19:38:18.000Z",
+        "complexity": {
+            "minLength": 8,
+            "minLowerCase": 1,
+            "minUpperCase": 1,
+            "minNumbers": 1,
+            "minSymbols": 0
+        },
+        "exclude": {
+            "common": {
+                "source": {
+                    "type": "okta"
+                }
+            },
+            "attributeCriteria": []
+        },
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_password/profiles/fpr3qbfxjK6iECycn0g4/features/fpf3qbixISW8mRVb00g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            }
+        }
+    }
+```
 
 #### Reuse Factor Profile Feature Object
 
-TODO
+The reuse feature is available for the password factor profile. It defines the reuse contraints on new enrollments with the following attributes:
 
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `.`      | .    | .           |
+| Property   | Type                                                                 | Description           |
+| ----------- | ------------------------------------------------------------------------- | --------------------- |
+| `prevention` | [Prevention Object](#reuse-prevention-factor-profile-feature-object) | Prevention settings. |
+
+#### Reuse Prevention Factor Profile Feature Object
+
+| Property   | Type                                                                 | Description           |
+| ----------- | ------------------------------------------------------------------------- | --------------------- |
+| `numPrevious` | Integer | Number of previously used values to disallow. |
+| `minimumAge` | String (ISO-8601)  | Minimum age of enrollment before change is allowed (Optional). |
+
+Example:
+
+```json
+    {
+        "type": "reuse",
+        "id": "fpf3qbjTT34TEZdIp0g4",
+        "created": "2019-10-09T19:38:18.000Z",
+        "lastUpdated": "2019-10-09T19:38:18.000Z",
+        "prevention": {
+            "numPrevious": 4,
+            "minimumAge": null
+        },
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_password/profiles/fpr3qbfxjK6iECycn0g4/features/fpf3qbjTT34TEZdIp0g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            }
+        }
+    }
+```
 
 #### Token Security Factor Profile Feature Object
 
