@@ -263,20 +263,7 @@ The Factor Profile model defines several attributes:
 
 ### Factor Profile Settings Object
 
-The factor profile settings object contains the settings for the particular factor type. Currently factor profiles can be created for the following factor types:
-
-| Factor Name   | Description   |
-| ------------- | ------------- |
-| `okta_email`    | Okta Email    |
-| `okta_password` | Okta Password |
-
-#### Password Factor Profile Settings Object
-
-This object currently does not contain any properties.
-
-#### Email Factor Profile Settings Object
-
-This object currently does not contain any properties.
+The factor profile settings object contains the settings for the particular factor type. Currently factor profiles can be created for two factor types: `okta_email` and `okta_password`.
 
 ### Factor Profile Links Object
 
