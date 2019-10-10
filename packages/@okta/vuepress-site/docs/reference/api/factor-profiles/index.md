@@ -458,26 +458,8 @@ The recovery feature is available for all factor profiles.  It controls the sett
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `eligiblity`      | String  | Indicates if factor may be recovered |
-| `verificationMethod.type`      | String | Indicates which factors may be used to verify a recover operation|
-
-
-###### Eligibility
-The `eligibility` property may be set to the following values:
-
-| Value | Description|
-| ------| ---------- |
-|`ALLOWED` | The factor may be recovered if the user loses access to the authenticator |
-|`NOT_ALLOWED` | Recovery is not permitted |
-
-
-###### VerificationMethod.type
-The `verificationMethod.type` property may be set to the following values:
-
-| Value | Description|
-| ------| ---------- |
-|`ANY_FACTOR` | Any available factor may be used to verify the recovery |
-|`CHAIN` | A specific factor may be used to verify the recovery |
+| `eligiblity`      | String  | Indicates if factor may be recovered. Possible values: `ALLOWED`, `NOT_ALLOWED` |
+| `verificationMethod.type`      | String | Indicates which factors may be used to verify a recover operation. Possible values: `ANY_FACTOR`, `CHAIN` |
 
 ###### Chain verification
 Chain verification may be used to specify which factor may be used to verify the recovery
