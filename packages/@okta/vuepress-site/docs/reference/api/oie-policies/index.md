@@ -101,7 +101,9 @@ This API uses the following objects:
 * [IdP Routing Policy Object](#idp-routing-policy-object)
 * [IdP Routing Rule Object](#idp-routing-rule-object)
 * [Identifier Match Policy Object](#identifier-match-policy-object)
-* [Identifier Match Rule Rule](#identifier-match-rule-object)
+* [Identifier Match Rule Object](#identifier-match-rule-object)
+* [Unknown User Policy Object](#uknown-user-policy-object)
+* [Unknown User Rule Object](#unknown-user-rule-object)
 
 <!-- Add one routing and one rule object for each of the OIE policy types-->
 
@@ -372,3 +374,47 @@ One Identifier Match Rule Object is created by default.
     }
 }
 ```
+
+## Unknown User Policy Object
+
+Evaluated if a match was not found with an existing User Profile, the Unknown User Policy determines whether is allowed to register and, if so, what User Type should be used for them.
+
+| Property | Type    | Description                                                                             |
+|----------|---------|-----------------------------------------------------------------------------------------|
+| id       | String  | Unique identifier for this Policy (read-only).                                           |
+| name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
+| type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:UnknownUser`. |
+| status   | String  | 'ACTIVE' or                                                                             |
+| default  | Boolean | `True` for the first instance of this policy, which gets created by default.            |
+
+### Identifier Match Policy Object Example
+
+```json
+{
+    "id": "rst10y3icArzJtWvf0g4",
+    "name": "Default Policy",
+    "type": "Okta:UnknownUser",
+    "status": "ACTIVE",
+    "default": true,
+    "_links": {
+        "self": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10y3icArzJtWvf0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        },
+        "rules": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10y3icArzJtWvf0g4/rules",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+```
+
