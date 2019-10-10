@@ -263,28 +263,7 @@ The Factor Profile model defines several attributes:
 
 ### Factor Profile Settings Object
 
-The factor profile settings object contains the settings for the particular factor type. Currently factor profiles can be created for the following factor types:
-
-| Factor Name   | Description   |
-| ------------- | ------------- |
-| `okta_email`    | Okta Email    |
-| `okta_password` | Okta Password |
-
-#### Password Factor Profile Settings Object
-
-TODO
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `.`      | .    | .           |
-
-#### Email Factor Profile Settings Object
-
-TODO
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `.`      | .    | .           |
+The factor profile settings object contains the settings for the particular factor type. Currently factor profiles can be created for two factor types: `okta_email` and `okta_password`.
 
 ### Factor Profile Links Object
 
@@ -313,18 +292,104 @@ The Factor Profile Feature model defines several common attributes:
 
 #### Adoption Factor Profile Feature Object
 
-The adoption feature is available for all factor profiles and adds the following property:
+The adoption feature is available for all factor profiles. It controls the settings that determine when a factor may be configured, or "adopted", for a user.
 
-| Property      | Type                                                                      | Description           |
-| ------------- | ------------------------------------------------------------------------- | --------------------- |
-| `cardinality` | [Cardinality Object](#adoption-cardinality-factor-profile-feature-object) | Cardinality settings. |
+##### Example
 
-##### Adoption Cardinality Factor Profile Feature Object
+```json
+{
+        "type": "adoption",
+        "id": "fpfuicb8700wW0Jq20g3",
+        "created": "2019-10-08T18:19:04.000Z",
+        "lastUpdated": "2019-10-10T16:11:43.000Z",
+        "cardinality": {
+            "min": 0,
+            "max": 1
+        },
+        "selfService": {
+            "eligibility": "ALLOWED",
+            "verificationMethod": {
+                "type": "ANY_FACTOR"
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "http://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuicb8700wW0Jq20g3",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            }
+        }
+    }
+```
+
+##### Properties
 
 | Property | Type   | Description                                                          |
 | -------- | ------ | -------------------------------------------------------------------- |
 | `min`    | Number | The minimum number of factor instances user must enroll in.          |
 | `max`    | Number | The maximum number of factor instances user is allowed to enroll in. |
+| `selfService.eligiblity`      | String  | Indicates if factor may be adopted. Possible values: `ALLOWED`, `NOT_ALLOWED` |
+| `selfService.verificationMethod.type`      | String | Indicates which factors may be used to verify an adoption operation. Possible values: `ANY_FACTOR`, `CHAIN` |
+
+
+###### Chain verification
+Chain verification may be used to specify which factor may be used to verify the recovery
+
+###### Example
+```json
+{
+        "type": "adoption",
+        "id": "fpfuicb8700wW0Jq20g3",
+        "created": "2019-10-08T18:19:04.000Z",
+        "lastUpdated": "2019-10-10T16:11:43.000Z",
+        "cardinality": {
+            "min": 0,
+            "max": 1
+        },
+        "selfService": {
+            "eligibility": "ALLOWED",
+            "verificationMethod": {
+                "type": "CHAIN",
+                "chains": [
+                    {
+                        "criteria": [
+                            {
+                                "factorProfileId": "fpruihGXyLzyGYCq30g3"
+                            }
+                        ]
+                    }
+                ],
+                "noAuthNEmptyChain": false
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "http://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuicb8700wW0Jq20g3",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            }
+        }
+    }
+```
+###### Properties
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `selfService.verificationMethod.chains.criteria.factorProfileId`      | String       | Profile Id of the authenticator (factor profile) that can be used to verify the adoption |
+
+
+
+
 
  #### Enrollment Source Factor Profile Feature Object
 
@@ -350,7 +415,7 @@ The enrollment source feature is available for the Email factor profile.  It con
         },
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/org/factors/profiles/fpruib7klOvW4pAuK0g3/features/fpfuieOAhoe6a5ISj0g3",
+                "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_email/profiles/fpruib7klOvW4pAuK0g3/features/fpfuieOAhoe6a5ISj0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -405,7 +470,7 @@ The token security  feature is available for the Email factor profile.  It contr
         },
         "_links": {
             "self": {
-                "href": "http://{yourOktaDomain}/api/v1/org/factors//profiles/fpruib7klOvW4pAuK0g3/features/fpfuifa1aEuPznkem0g3",
+                "href": "http://{yourOktaDomain}/api/v1/org/factors/okta_email/profiles/fpruib7klOvW4pAuK0g3/features/fpfuifa1aEuPznkem0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -424,16 +489,87 @@ The token security  feature is available for the Email factor profile.  It contr
 | -------- | ------ | ----------------------------------------------------------- |
 | `lifespan.ttl.period` | String | Token lifespan specified as an ISO 8601 duration |
 
-
-
-
 #### Recovery Factor Profile Feature Object
 
-TODO
+The recovery feature is available for all factor profiles.  It controls the settings that govern how a user can recover if they lose access to an authenticator (factor profile)
+
+##### Example
+```json
+{
+    "type": "recovery",
+    "id": "fpfuidgo5kiGGK3WU0g3",
+    "created": "2019-10-08T18:19:04.000Z",
+    "lastUpdated": "2019-10-09T22:15:50.000Z",
+    "eligibility": "ALLOWED",
+    "verificationMethod": {
+        "type": "ANY_FACTOR"
+    },
+    "_links": {
+        "self": {
+            "href": "http://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuidgo5kiGGK3WU0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
+
+##### Properties
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `.`      | .    | .           |
+| `eligiblity`      | String  | Indicates if factor may be recovered. Possible values: `ALLOWED`, `NOT_ALLOWED` |
+| `verificationMethod.type`      | String | Indicates which factors may be used to verify a recover operation. Possible values: `ANY_FACTOR`, `CHAIN` |
+
+###### Chain verification
+Chain verification may be used to specify which factor may be used to verify the recovery
+
+###### Example
+```json
+{
+    "type": "recovery",
+    "id": "fpfuidgo5kiGGK3WU0g3",
+    "created": "2019-10-08T18:19:04.000Z",
+    "lastUpdated": "2019-10-08T22:56:46.000Z",
+    "eligibility": "ALLOWED",
+    "verificationMethod": {
+        "type": "CHAIN",
+        "chains": [
+            {
+                "criteria": [
+                    {
+                        "factorProfileId": "fpruihGXyLzyGYCq30g3"
+                    }
+                ]
+            }
+        ],
+        "noAuthNEmptyChain": false
+    },
+    "_links": {
+        "self": {
+            "href": "http://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuidgo5kiGGK3WU0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
+###### Properties
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `verificationMethod.chains.criteria.factorProfileId`      | String       | Profile Id of the authenticator (factor profile) that can be used to verify the recovery |
+
 
 ### Factor Profile Feature Links Object
 
@@ -441,4 +577,5 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 | Property | Type   | Description                 |
 | -------- | ------ | --------------------------- |
-| `self`   | Object | The factor profile feature. |
+| `self.href`   | String | Url that can be used to reference the factor profile feature |
+| `hints.allow` | Array (Strings) | An array of operations that can be performed on the factor profile feature |
