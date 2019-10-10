@@ -292,7 +292,7 @@ The Factor Profile Feature model defines several common attributes:
 
 #### Adoption Factor Profile Feature Object
 
-The adoption feature is available for all factor profiles.  It controls the settings that determine when a factor may be configured for a user (adopted).
+The adoption feature is available for all factor profiles. It controls the settings that determine when a factor may be configured, or "adopted", for a user.
 
 ##### Example
 
