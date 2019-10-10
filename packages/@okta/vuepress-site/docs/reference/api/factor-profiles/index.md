@@ -577,5 +577,5 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 | Property | Type   | Description                 |
 | -------- | ------ | --------------------------- |
-| `self.href`   | Url | Url that can be used to reference the factor profile feature |
-| `hints.allow` | String array | A list of operations that can be performed on the factor profile feature |
+| `self.href`   | String | Url that can be used to reference the factor profile feature |
+| `hints.allow` | Array (Strings) | An array of operations that can be performed on the factor profile feature |
