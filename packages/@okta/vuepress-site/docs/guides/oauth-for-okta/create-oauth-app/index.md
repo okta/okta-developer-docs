@@ -1,7 +1,7 @@
 ---
 title: Create an OAuth 2.0 app in Okta
 ---
-Create the client service application that you want to use with the Okta APIs.
+Create the client application that you want to use with the Okta APIs.
 
 1. Sign in to your Okta organization as a user with administrative privileges. Don't have one? [Create one for free](https://developer.okta.com/signup).
 

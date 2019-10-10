@@ -13,7 +13,7 @@ The following steps are required to configure the Client Credentials grant flow 
 
 ## Create a public/private key pair
 
-The [`private_key_jwt`](/docs/reference/api/oidc/#jwt-with-private-key) client authentication method is the only supported method for OAuth Service apps that want to get Okta-scoped tokens. The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth Service app. So, we recommend generating the public/private key pair first before creating the OAuth Service app.
+The [`private_key_jwt`](/docs/reference/api/oidc/#jwt-with-private-key) client authentication method is the only supported method for OAuth Service apps that want to get access tokens with Okta scopes. The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth Service app. So, we recommend generating the public/private key pair first before creating the OAuth Service app.
 
 You can use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate an RSA 2048 JWKS key pair for testing.
 
