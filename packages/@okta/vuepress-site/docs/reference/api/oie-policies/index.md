@@ -118,8 +118,8 @@ This object determines which IdP end users are routed to. One IdP Routing Policy
 | id       | String  | Unique identifier for this Policy (read-only).                                           |
 | name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
 | type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdpRouting`. |
-| status   | String  | 'ACTIVE' or                                                                             |
-| default  | Boolean | `True` for the first instance of this policy, which gets created by default.            |
+| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                            |
+| default  | Boolean | `true` for the first instance of this policy, which gets created by default.            |
 
 ### IdP Routing Object Example
 
@@ -165,8 +165,8 @@ One IdP Routing Rule Object is created by default. Currently, the Okta Identity 
 | conditions  | Array                                                                       | No conditions are supported for this rule type, so this must be an empty array.         |
 | action      | String                                                                      | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.              |
 | requirement | [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object) | Specifies the IdP to use.                                                               |
-| status      | String                                                                      | 'ACTIVE' or                                                                             |
-| default     | Boolean                                                                     | `True` for the first instance of this rule, which gets created by default.              |
+| status      | String                                                                      | `ACTIVE`  or  `INACTIVE`.                                                                            |
+| default     | Boolean                                                                     | `true` for the first instance of this rule, which gets created by default.              |
 
 #### IdP Routing Rule Requirement Object
 
@@ -264,8 +264,8 @@ This object determines which user profile attributes are used to check for match
 | id       | String  | Unique identifier for this Policy (read-only).                                           |
 | name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
 | type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdpRouting`. |
-| status   | String  | 'ACTIVE' or                                                                             |
-| default  | Boolean | `True` for the first instance of this policy, which gets created by default.            |
+| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                            |
+| default  | Boolean | `true` for the first instance of this policy, which gets created by default.            |
 
 ### Identifier Match Policy Object Example
 
@@ -310,8 +310,8 @@ One Identifier Match Rule Object is created by default.
 | conditions  | Array                                                                                 | No conditions are supported for this rule type, so this must be an empty array.                                                            |
 | action      | String                                                                                | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                                                                 |
 | requirement | [Identifier Match Rule Requirement Object](#identifier-match-rule-requirement-object) | Specifies the user profile attributes to match against and the action to take in case of conflict between multiple possible user profiles. |
-| status      | String                                                                                | 'ACTIVE' or                                                                                                                                |
-| default     | Boolean                                                                               | `True` for the first instance of this rule, which gets created by default.                                                                 |
+| status      | String                                                                                | `ACTIVE`  or  `INACTIVE`.                                                                                                                               |
+| default     | Boolean                                                                               | `true` for the first instance of this rule, which gets created by default.                                                                 |
 
 #### Identifier Match Rule Requirement Object
 
@@ -384,8 +384,8 @@ Evaluated if a match was not found with an existing User Profile, the Unknown Us
 | id       | String  | Unique identifier for this Policy (read-only).                                           |
 | name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
 | type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:UnknownUser`. |
-| status   | String  | 'ACTIVE' or                                                                             |
-| default  | Boolean | `True` for the first instance of this policy, which gets created by default.            |
+| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                            |
+| default  | Boolean | `true` for the first instance of this policy, which gets created by default.            |
 
 ### Unknown User Policy Object Example
 
@@ -431,8 +431,8 @@ One Unknown User Rule Object is created by default.
 | conditions  | Array                                                                                 | No conditions are supported for this rule type, so this must be an empty array.                                                            |
 | action      | String                                                                                | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                                                                 |
 | requirement | [Unknown User Rule Requirement Object](#unknow-user-rule-requirement-object) | Specifies whether to allow an unknown user to register and, if so, what User Type to use for them. |
-| status      | String                                                                                | 'ACTIVE' or                                                                                                                                |
-| default     | Boolean                                                                               | `True` for the first instance of this rule, which gets created by default.                                                                 |
+| status      | String                                                                                | `ACTIVE`  or  `INACTIVE`.                                                                                                                               |
+| default     | Boolean                                                                               | `true` for the first instance of this rule, which gets created by default.                                                                 |
 
 #### Unkown User Rule Requirement Object
 
@@ -459,3 +459,72 @@ One Unknown User Rule Object is created by default.
     }
 }
 ```
+
+## Sign-On Policy Object
+
+This object determines which user profile attributes are used to check for matches between the user and existing user profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
+
+| Property | Type    | Description                                                                             |
+|----------|---------|-----------------------------------------------------------------------------------------|
+| id       | String  | Unique identifier for this Policy (read-only).                                           |
+| name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
+| type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:SignOn`. |
+| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                            |
+| default  | Boolean | `true` for the first instance of this policy, which gets created by default.            |
+
+### Sign-On Policy Object Example
+
+```json
+{
+    "id": "rst6v8jmmTIJdv6ms0g4",
+    "name": "Sign On Policy",
+    "type": "Okta:SignOn",
+    "status": "ACTIVE",
+    "default": false,
+    "_links": {
+        "mappings": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst6v8jmmTIJdv6ms0g4/mappings",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst6v8jmmTIJdv6ms0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "rules": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst6v8jmmTIJdv6ms0g4/rules",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst6v8jmmTIJdv6ms0g4/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "applications": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst6v8jmmTIJdv6ms0g4/app",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+```
+
