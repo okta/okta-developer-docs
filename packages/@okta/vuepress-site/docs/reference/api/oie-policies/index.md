@@ -104,6 +104,8 @@ This API uses the following objects:
 * [Identifier Match Rule Object](#identifier-match-rule-object)
 * [Unknown User Policy Object](#uknown-user-policy-object)
 * [Unknown User Rule Object](#unknown-user-rule-object)
+* [Sign On Policy Object](#sign-on-policy-object)
+* [Sign On Rule Object](#sign-on-rule-object)
 
 <!-- Add one routing and one rule object for each of the OIE policy types-->
 
@@ -434,12 +436,13 @@ One Unknown User Rule Object is created by default.
 | status      | String                                                                                | `ACTIVE`  or  `INACTIVE`.                                                                                                                               |
 | default     | Boolean                                                                               | `true` for the first instance of this rule, which gets created by default.                                                                 |
 
-#### Unkown User Rule Requirement Object
+#### Unknown User Rule Requirement Object
 
 | Property                                   | Type   | Description                                                                                                                                                            |
 |--------------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `noUserMatch.action`                       | String | `REGISTER` or `DENY` to determine whether unknown users should be allowed to register.                                                                                 |
 | `noUserMatch.registration.defaultUserType` | String | Valid ID of a User Type. Sets the User Type to enroll unknown users as, if you have allowed unknown users to register. Not required if `noUserMatch.action` is `DENY`. |      
+
 ### Unknown User Rule Object Example
 
 ```json
@@ -462,7 +465,7 @@ One Unknown User Rule Object is created by default.
 
 ## Sign-On Policy Object
 
-This object determines which user profile attributes are used to check for matches between the user and existing user profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
+This object determines which credentials to prompt users for. One Sign On Policy Object is created by default.
 
 | Property | Type    | Description                                                                             |
 |----------|---------|-----------------------------------------------------------------------------------------|
@@ -523,6 +526,64 @@ This object determines which user profile attributes are used to check for match
                     "GET"
                 ]
             }
+        }
+    }
+}
+```
+
+## Sign On Rule Object
+
+One Sign On Rule Object is created by default.
+
+| Property    | Type                                                                | Description                                                                            |
+|-------------|---------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| name        | String                                                              | Human-readable name for the Policy, configurable during creation or updating.          |
+| id          | String                                                              | Unique identifier for this Policy (read-only)                                          |
+| type        | String                                                              | Type of the policy. For Identifier Match Rule Objects, this needs to be `Okta:SignOn`. |
+| priority    | Integer                                                             | Used to determine which rules take precedence.                                         |
+| conditions  | Array                                                               | No conditions are supported for this rule type, so this must be an empty array.        |
+| action      | String                                                              | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.             |
+| requirement | [Sign On Rule Requirement Object](#sign-on-rule-requirement-object) | Specifies credentials to prompt user for.                                              |
+| status      | String                                                              | `ACTIVE`  or  `INACTIVE`.                                                              |
+| default     | Boolean                                                             | `true` for the first instance of this rule, which gets created by default.             |
+
+#### Sign On Rule Requirement Object
+
+| Property                  | Type   | Description                                                                                                                            |
+|---------------------------|--------|----------------------------------------------------------------------------------------------------------------------------------------|
+| `verificationMethod.type` | String | `CHAIN` or `ANY_FACTOR` to determine whether users should be prompted for a sequence of credentials or allowed to choose one of a set. |
+| chains                    | Array  | Array specifying the chain of factor types to require. Not required if `verificationMethod.type` is `ANY_FACTOR`.                      |      
+
+### Sign On Rule Object Example
+
+```json
+{
+	"name": "Password THEN Email",
+    "type": "Okta:SignOn",
+    "priority": 0,
+    "conditions": [],
+    "action": "ALLOW",
+    "requirement": {
+        "verificationMethod": {
+            "type": "CHAIN",
+            "chains": [
+                {
+                    "criteria": [
+                        {
+                            "factorType": "password"
+                        }
+                    ],
+                    "next": [
+                        {
+                            "criteria": [
+                                {
+                                    "factorType": "email"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     }
 }
