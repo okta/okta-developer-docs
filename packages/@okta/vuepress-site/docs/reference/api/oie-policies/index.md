@@ -8,7 +8,7 @@ title: Okta Identity Engine Policy API
 
 Okta Identity Engine adds new Policy objects to the Okta `/policies` API, to control and configure the behavior of the steps of the Okta Identity Engine Pipeline.
 
-During the Limited EA phase, Okta Identity Engine is enabled or disabled for an org as a whole. If Okta Identity Engine is enabled for an org, these new Policies control the pipeline that end users progress through when accessing OpenID Connect apps. You cannot mix old Policy and Rule objects with new Okta Identity Engine objects; old objects do not affect the new pipeline.
+During the Limited EA phase, Okta Identity Engine is enabled or disabled for an org as a whole. If Okta Identity Engine is enabled for an org, these new Policies control the pipeline end users progress through when accessing OpenID Connect apps. You cannot mix old Policy and Rule objects with new Okta Identity Engine objects; old Policy and Rule objects do not affect the new pipeline.
 
 API endpoints for creating, getting, and updating Policy and Rule objects function the same way in Okta Identity Engine as they do in the existing Okta `/policies` API; only the objects used are different, with Okta Identity Engine introducing a set of new Policy and Rule objects. See the [Okta Identity Engine Policy Objects](#okta-identity-enging-policy-objects) section of this document for descriptions of the objects.
 
@@ -100,19 +100,24 @@ This API uses the following objects:
 
 * [IdP Routing Policy Object](#idp-routing-policy-object)
 * [IdP Routing Rule Object](#idp-routing-rule-object)
+* [Identifier Match Policy Object](#identifier-match-policy-object)
+* [Identifier Match Rule Rule](#identifier-match-rule-object)
 
 <!-- Add one routing and one rule object for each of the OIE policy types-->
 
+Default instances of each Policy type are created automatically when Okta Identity Engine is enabled for your org. Each of those default Policy objects also has a default rule that is created automatically.
+
 ### IdP Routing Policy Object
 
-This object determines which IdP end users are routed to. You need to create one IdP Routing Policy object. Additional IdP Routing Policy objects cannot be created. Currently, only the only IdP you can configure for use with the Okta Identity Engine Pipeline is the Okta IdP, so that, although this object needs to exist, it cannot change the behavior of the pipeline.
+This object determines which IdP end users are routed to. One IdP Routing Policy object is created by default. Additional IdP Routing Policy objects cannot be created. Currently, only the only IdP you can configure for use with the Okta Identity Engine Pipeline is the Okta IdP, so that, although this object needs to exist, it cannot change the behavior of the pipeline.
 
-| Property | Type   | Description                                                                             |
-|----------|--------|-----------------------------------------------------------------------------------------|
-| id       | String | Unique identifier for this Policy (read-only)                                           |
-| name     | String | Human-readable name for the Policy, configurable during creation or updating.           |
-| type     | String | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdpRouting`. |
-| status   | String |                                                                                         |
+| Property | Type    | Description                                                                             |
+|----------|---------|-----------------------------------------------------------------------------------------|
+| id       | String  | Unique identifier for this Policy (read-only).                                           |
+| name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
+| type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdpRouting`. |
+| status   | String  | 'ACTIVE' or                                                                             |
+| default  | Boolean | `True` for the first instance of this policy, which gets created by default.            |
 
 ### IdP Routing Object Example
 
@@ -147,24 +152,26 @@ This object determines which IdP end users are routed to. You need to create one
 
 ### IdP Routing Rule Object
 
-You need to create at least one IdP Routing Rule Object. Currently, the Okta Identity Provider is the only supported IdP, and the only supported value for the `requirement.type` property of this rule is `okta_idp`.
+One IdP Routing Rule Object is created by default. Currently, the Okta Identity Provider is the only supported IdP, and the only supported value for the `requirement.type` property of this rule is `okta_idp`.
 
-| Property    | Type                                                                        | Description               |
-|-------------|-----------------------------------------------------------------------------|---------------------------|
-| name        | String                                                                      |                           |
-| id          |                                                                             |                           |
-| type        |                                                                             |                           |
-| priority    |                                                                             |                           |
-| conditions  | Array                                                                       |                           |
-| action      | String                                                                      | Either `ALLOW` or `DENY`. |
-| requirement | [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object) | Specifies the IdP to use. |
+| Property    | Type                                                                        | Description                                                                             |
+|-------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| name        | String                                                                      | Human-readable name for the Policy, configurable during creation or updating.           |
+| id          | String                                                                      | Unique identifier for this Policy (read-only)                                           |
+| type        | String                                                                      | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdpRouting`. |
+| priority    | Integer                                                                     | Used to determine which rules take precedence.                                          |
+| conditions  | Array                                                                       | No conditions are supported for this rule type, so this must be an empty array.         |
+| action      | String                                                                      | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.              |
+| requirement | [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object) | Specifies the IdP to use.                                                               |
+| status      | String                                                                      | 'ACTIVE' or                                                                             |
+| default     | Boolean                                                                     | `True` for the first instance of this rule, which gets created by default.              |
 
 #### IdP Routing Rule Requirement Object
 
-| Property | Type   | Description |
-|----------|--------|-------------|
-| idpId    | String |             |
-| type     | String |             |
+| Property | Type   | Description         |
+|----------|--------|---------------------|
+| idpId    | String | Must be 'OKTA'.     |
+| type     | String | Must be `okta_idp`. |
  
 ### IdP Routing Rule Object
 
@@ -244,4 +251,124 @@ You need to create at least one IdP Routing Rule Object. Currently, the Okta Ide
         }
     }
 ]
+```
+
+## Identifier Match Policy Object
+
+This object determines which user profile attributes are used to check for matches between the user and existing user progiles. One Identifier Match Policy object is created by default.
+
+| Property | Type    | Description                                                                             |
+|----------|---------|-----------------------------------------------------------------------------------------|
+| id       | String  | Unique identifier for this Policy (read-only).                                           |
+| name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
+| type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdpRouting`. |
+| status   | String  | 'ACTIVE' or                                                                             |
+| default  | Boolean | `True` for the first instance of this policy, which gets created by default.            |
+
+### Identifier Match Policy Object Example
+
+```json
+{
+    "id": "rst10y1rmKOjickDM0g4",
+    "name": "Default Policy",
+    "type": "Okta:IdentifierMatch",
+    "status": "ACTIVE",
+    "default": true,
+    "_links": {
+        "self": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10y1rmKOjickDM0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        },
+        "rules": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10y1rmKOjickDM0g4/rules",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+```
+## Identifier Match Rule Object
+
+One Identifier Match Rule Object is created by default.
+
+| Property    | Type                                                                                  | Description                                                                                                                                |
+|-------------|---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| name        | String                                                                                | Human-readable name for the Policy, configurable during creation or updating.                                                              |
+| id          | String                                                                                | Unique identifier for this Policy (read-only)                                                                                              |
+| type        | String                                                                                | Type of the policy. For Identifier Match Rule Objects, this needs to be `Okta:IdentifierMatch`.                                            |
+| priority    | Integer                                                                               | Used to determine which rules take precedence.                                                                                             |
+| conditions  | Array                                                                                 | No conditions are supported for this rule type, so this must be an empty array.                                                            |
+| action      | String                                                                                | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                                                                 |
+| requirement | [Identifier Match Rule Requirement Object](#identifier-match-rule-requirement-object) | Specifies the user profile attributes to match against and the action to take in case of conflict between multiple possible user profiles. |
+| status      | String                                                                                | 'ACTIVE' or                                                                                                                                |
+| default     | Boolean                                                                               | `True` for the first instance of this rule, which gets created by default.                                                                 |
+
+#### Identifier Match Rule Requirement Object
+
+| Property              | Type   | Description                                                                                                                                                       |
+|-----------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| identifyingAttributes | Array  | User profile attributes to match. For each, you need to specify the ID of the `userType` that the attribute is a part of, as well as the name of the `attribute`. |
+| onConflictingUser     | String | Whether to proceed if more than one match is found. Can be `ALLOW` or `DENY`.                                                                                     |
+ 
+### IdP Routing Rule Object
+
+```json
+{
+    "name": "Catch-all Rule",
+    "id": "rul10y292nt87pGec0g4",
+    "type": "Okta:IdentifierMatch",
+    "priority": 1,
+    "conditions": [],
+    "action": "ALLOW",
+    "requirement": {
+        "identifyingAttributes": [
+            {
+                "userType": "otyt190o2hyJtSHVZ0g3",
+                "attribute": "email"
+            }
+        ],
+        "onConflictingUser": {
+            "action": "DENY"
+        }
+    },
+    "status": "ACTIVE",
+    "default": false,
+    "_links": {
+        "self": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10y1rmKOjickDM0g4/rules/rul10y292nt87pGec0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10y1rmKOjickDM0g4/rules/rul10y292nt87pGec0g4/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "policy": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10y1rmKOjickDM0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
 ```
