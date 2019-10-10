@@ -257,7 +257,7 @@ One IdP Routing Rule Object is created by default. Currently, the Okta Identity 
 
 ## Identifier Match Policy Object
 
-This object determines which user profile attributes are used to check for matches between the user and existing user progiles. One Identifier Match Policy object is created by default.
+This object determines which user profile attributes are used to check for matches between the user and existing user profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
 
 | Property | Type    | Description                                                                             |
 |----------|---------|-----------------------------------------------------------------------------------------|
@@ -387,7 +387,7 @@ Evaluated if a match was not found with an existing User Profile, the Unknown Us
 | status   | String  | 'ACTIVE' or                                                                             |
 | default  | Boolean | `True` for the first instance of this policy, which gets created by default.            |
 
-### Identifier Match Policy Object Example
+### Unknown User Policy Object Example
 
 ```json
 {
@@ -418,3 +418,44 @@ Evaluated if a match was not found with an existing User Profile, the Unknown Us
 }
 ```
 
+## Unknown User Rule Object
+
+One Unknown User Rule Object is created by default.
+
+| Property    | Type                                                                                  | Description                                                                                                                                |
+|-------------|---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| name        | String                                                                                | Human-readable name for the Policy, configurable during creation or updating.                                                              |
+| id          | String                                                                                | Unique identifier for this Policy (read-only)                                                                                              |
+| type        | String                                                                                | Type of the policy. For Identifier Match Rule Objects, this needs to be `Okta:UnknownUser`.                                            |
+| priority    | Integer                                                                               | Used to determine which rules take precedence.                                                                                             |
+| conditions  | Array                                                                                 | No conditions are supported for this rule type, so this must be an empty array.                                                            |
+| action      | String                                                                                | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                                                                 |
+| requirement | [Unknown User Rule Requirement Object](#unknow-user-rule-requirement-object) | Specifies whether to allow an unknown user to register and, if so, what User Type to use for them. |
+| status      | String                                                                                | 'ACTIVE' or                                                                                                                                |
+| default     | Boolean                                                                               | `True` for the first instance of this rule, which gets created by default.                                                                 |
+
+#### Unkown User Rule Requirement Object
+
+| Property                                   | Type   | Description                                                                                                                                                            |
+|--------------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `noUserMatch.action`                       | String | `REGISTER` or `DENY` to determine whether unknown users should be allowed to register.                                                                                 |
+| `noUserMatch.registration.defaultUserType` | String | Valid ID of a User Type. Sets the User Type to enroll unknown users as, if you have allowed unknown users to register. Not required if `noUserMatch.action` is `DENY`. |      
+### Unknown User Rule Object Example
+
+```json
+{
+    "name": "New Rule",
+    "type": "Okta:UnknownUser",
+    "priority": 0,
+    "action": "ALLOW",
+    "conditions": [], 
+    "requirement": {
+        "noUserMatch": {
+            "action": "REGISTER", 
+            "registration": {
+                "defaultUserType": "{{defaultUserTypeId}}" 
+            }
+        }
+    }
+}
+```
