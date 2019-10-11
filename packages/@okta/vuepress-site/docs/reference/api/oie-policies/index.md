@@ -120,10 +120,10 @@ This object determines which IdP end users are routed to. One IdP Routing Policy
 
 | Property | Type    | Description                                                                             |
 |----------|---------|-----------------------------------------------------------------------------------------|
-| id       | String  | Unique identifier for this Policy (read-only).                                           |
+| id       | String  | Unique identifier for this Policy (read-only).                                          |
 | name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
 | type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdpRouting`. |
-| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                            |
+| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                               |
 | default  | Boolean | `true` for the first instance of this policy, which gets created by default.            |
 
 ### IdP Routing Object Example
@@ -159,7 +159,7 @@ This object determines which IdP end users are routed to. One IdP Routing Policy
 
 ### IdP Routing Rule Object
 
-One IdP Routing Rule Object is created by default. Currently, the Okta Identity Provider is the only supported IdP, and the only supported value for the `requirement.type` property of this rule is `okta_idp`.
+One IdP Routing Rule Object is created by default. Currently, the Okta Identity Provider is the only supported IdP.
 
 | Property    | Type                                                                        | Description                                                                             |
 |-------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
@@ -175,10 +175,10 @@ One IdP Routing Rule Object is created by default. Currently, the Okta Identity 
 
 #### IdP Routing Rule Requirement Object
 
-| Property | Type   | Description         |
-|----------|--------|---------------------|
-| idpId    | String | Must be 'OKTA'.     |
-| type     | String | Must be `okta_idp`. |
+| Property | Type   | Description                    |
+|----------|--------|--------------------------------|
+| idpId    | String | Currently, must be 'OKTA'.     |
+| type     | String | Currently, must be `okta_idp`. |
  
 ### IdP Routing Rule Object
 
@@ -262,7 +262,7 @@ One IdP Routing Rule Object is created by default. Currently, the Okta Identity 
 
 ## Identifier Match Policy Object
 
-This object determines which user profile attributes are used to check for matches between the user and existing user profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
+This object determines which user profile attributes are used to check for matches between the incoming user and existing user profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
 
 | Property | Type    | Description                                                                             |
 |----------|---------|-----------------------------------------------------------------------------------------|
@@ -320,10 +320,10 @@ One Identifier Match Rule Object is created by default.
 
 #### Identifier Match Rule Requirement Object
 
-| Property              | Type   | Description                                                                                                                                                                                                                             |
-|-----------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| identifyingAttributes | Array  | User profile attributes to match. For each, you need to specify the valid ID of a `userType` that the attribute is a part of, as well as the name of the `attribute` that is included in the User Profile Attributes of that User Type. |
-| onConflictingUser     | String | Whether to proceed if more than one match is found. Can be `ALLOW` or `DENY`.                                                                                                                                                           |                                                                            |
+| Property              | Type   | Description                                                                                                                                                                                                  |
+|-----------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| identifyingAttributes | Array  | User profile attributes to match. For each, you need to specify the valid ID of a `userType` that the attribute is a part of, as well as the name of an `attribute` in the Profile schema of that User Type. |
+| onConflictingUser     | String | Whether to proceed if more than one match is found. Can be `ALLOW` or `DENY`.|                                                                                                                               |                                                                        |
  
 ### Identifier Match Rule Object
 
@@ -382,7 +382,7 @@ One Identifier Match Rule Object is created by default.
 
 ## Unknown User Policy Object
 
-Evaluated if a match was not found with an existing User Profile, the Unknown User Policy determines whether is allowed to register and, if so, what User Type should be used for them.
+the Unknown User Policy is evaluated if a match was not found with an existing User Profile and determines whether the user is allowed to register and, if so, what User Type they should be assigned.
 
 | Property | Type    | Description                                                                             |
 |----------|---------|-----------------------------------------------------------------------------------------|
@@ -424,8 +424,6 @@ Evaluated if a match was not found with an existing User Profile, the Unknown Us
 ```
 
 ## Unknown User Rule Object
-
-One Unknown User Rule Object is created by default.
 
 | Property    | Type                                                                                  | Description                                                                                                                                |
 |-------------|---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -552,10 +550,10 @@ One Sign On Rule Object is created by default.
 
 #### Sign On Rule Requirement Object
 
-| Property                  | Type   | Description                                                                                                                            |
-|---------------------------|--------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `verificationMethod.type` | String | `CHAIN` or `ANY_FACTOR` to determine whether users should be prompted for a sequence of credentials or allowed to choose one of a set. |
-| chains                    | Array  | Array specifying the chain of factor types to require. Not required if `verificationMethod.type` is `ANY_FACTOR`.                      |      
+| Property                  | Type   | Description                                                                                                                                         |
+|---------------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `verificationMethod.type` | String | `CHAIN` or `ANY_FACTOR` to determine whether users should be prompted for a sequence of credentials or allowed to choose one credential from a set. |
+| chains                    | Array  | Array specifying the chain of factor types to require. Not required if `verificationMethod.type` is `ANY_FACTOR`.                                   |                 |      
 
 ### Sign On Rule Object Example
 
