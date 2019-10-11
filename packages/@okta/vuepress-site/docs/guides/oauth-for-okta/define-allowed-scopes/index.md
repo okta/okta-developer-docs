@@ -21,6 +21,6 @@ When a request is sent to the Okta [Org Authorization Server](/docs/concepts/aut
     }
     ```
 
-    > **Note:** You can find a list of available values for `scopeId` in the <GuideLink link="../scopes">Scopes & Supported Endpoints</GuideLink> section.
+    > **Note:** You can find a list of available values for `scopeId` in the <GuideLink link="../scopes">Scopes & supported endpoints</GuideLink> section.
 
 <NextSectionLink/>
