@@ -264,13 +264,13 @@ Currently, the Okta Identity Provider is the only supported IdP.
 
 This object determines which user profile attributes are used to check for matches between the incoming user and existing user profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
 
-| Property | Type    | Description                                                                             |
-|----------|---------|-----------------------------------------------------------------------------------------|
-| id       | String  | Unique identifier for this Policy (read-only).                                           |
-| name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
-| type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdpRouting`. |
-| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                            |
-| default  | Boolean | `true` for the first instance of this policy, which gets created by default.            |
+| Property | Type    | Description                                                                                  |
+|----------|---------|----------------------------------------------------------------------------------------------|
+| id       | String  | Unique identifier for this Policy (read-only).                                               |
+| name     | String  | Human-readable name for the Policy, configurable during creation or updating.                |
+| type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdentifierMatch`. |
+| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                    |
+| default  | Boolean | `true` for the first instance of this policy, which gets created by default.                 |
 
 ### Identifier Match Policy Object Example
 
@@ -462,7 +462,7 @@ the Unknown User Policy is evaluated if a match was not found with an existing U
 }
 ```
 
-## Sign-On Policy Object
+## Sign On Policy Object
 
 This object determines which credentials to prompt users for. One Sign On Policy Object is created by default.
 
