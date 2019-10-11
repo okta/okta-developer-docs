@@ -590,13 +590,13 @@ This object determines which credentials to prompt users for. One Sign On Policy
 
 This object determines which profile attributes to require users to supply prompt users for. One User Profile Policy Object is created by default.
 
-| Property | Type    | Description                                                                              |
-|----------|---------|------------------------------------------------------------------------------------------|
-| id       | String  | Unique identifier for this Policy (read-only).                                           |
-| name     | String  | Human-readable name for the Policy, configurable during creation or updating.            |
-| type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:UserProfile`. |
-| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                |
-| default  | Boolean | `true` for the first instance of this policy, which gets created by default.             |
+| Property | Type    | Description                                                                               |
+|----------|---------|-------------------------------------------------------------------------------------------|
+| id       | String  | Unique identifier for this Policy (read-only).                                            |
+| name     | String  | Human-readable name for the Policy, configurable during creation or updating.             |
+| type     | String  | Type of the policy. For User Profile Policy objects, this needs to be `Okta:UserProfile`. |
+| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                 |
+| default  | Boolean | `true` for the first instance of this policy, which gets created by default.              |
 
 ### User Profile Policy Object Example
 
