@@ -8,11 +8,11 @@ title: Okta Identity Engine Policy API
 
 Okta Identity Engine adds new Policy objects to the Okta `/policies` API, to control and configure the behavior of the steps of the Okta Identity Engine Pipeline.
 
-During the Limited EA phase, Okta Identity Engine is enabled or disabled for an org as a whole. If Okta Identity Engine is enabled for an org, these new Policies control the pipeline end users progress through when accessing OpenID Connect apps. You cannot mix old Policy and Rule objects with new Okta Identity Engine objects; old Policy and Rule objects do not affect the new pipeline.
+During the Limited EA phase, Okta Identity Engine is enabled or disabled for an org as a whole. If Okta Identity Engine is enabled for an org, these new Policies control the pipeline that end users progress through when accessing OpenID Connect apps. You cannot mix old Policy and Rule objects with new Okta Identity Engine objects; old Policy and Rule objects do not affect the new pipeline.
 
 API endpoints for creating, getting, and updating Policy and Rule objects function the same way in Okta Identity Engine as they do in the existing Okta `/policies` API; only the objects used are different, with Okta Identity Engine introducing a set of new Policy and Rule objects. See the [Okta Identity Engine Policy Objects](#okta-identity-enging-policy-objects) section of this document for descriptions of the objects.
 
-To enable the Okta Identity Engine Pipeline, you need to create at least one of each of the defined Okta Identity Engine Policy objects, and at least one Rule object for each Policy.
+To enable the Okta Identity Engine Pipeline, you need to create at least one of each of the defined Okta Identity Engine Policy objects, and at least one Rule object for each Policy object.
 
 ## Policies API Operations
 
@@ -106,8 +106,8 @@ This API uses the following objects:
 * [Unknown User Rule Object](#unknown-user-rule-object)
 * [Sign On Policy Object](#sign-on-policy-object)
 * [Sign On Rule Object](#sign-on-rule-object)
-
-<!-- Add one routing and one rule object for each of the OIE policy types-->
+* [User Profile Policy Object](#user-profile-policy-object)
+* [User Profile Rule Object](#user-profile-rule-object)
 
 Default instances of each Policy type are created automatically when Okta Identity Engine is enabled for your org. Each of those default Policy objects also has a default rule that is created automatically.
 
@@ -467,13 +467,13 @@ One Unknown User Rule Object is created by default.
 
 This object determines which credentials to prompt users for. One Sign On Policy Object is created by default.
 
-| Property | Type    | Description                                                                             |
-|----------|---------|-----------------------------------------------------------------------------------------|
-| id       | String  | Unique identifier for this Policy (read-only).                                           |
-| name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
+| Property | Type    | Description                                                                         |
+|----------|---------|-------------------------------------------------------------------------------------|
+| id       | String  | Unique identifier for this Policy (read-only).                                      |
+| name     | String  | Human-readable name for the Policy, configurable during creation or updating.       |
 | type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:SignOn`. |
-| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                            |
-| default  | Boolean | `true` for the first instance of this policy, which gets created by default.            |
+| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                           |
+| default  | Boolean | `true` for the first instance of this policy, which gets created by default.        |
 
 ### Sign-On Policy Object Example
 
