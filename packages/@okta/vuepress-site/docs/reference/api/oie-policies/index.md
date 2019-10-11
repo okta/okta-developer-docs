@@ -16,20 +16,20 @@ To enable the Okta Identity Engine Pipeline, you need to create at least one of 
 
 ## Policies API Operations
 
-The API endpoints support the following operations:
+API endpoints for creating, getting, and updating Policy and Rule objects function the same way in Okta Identity Engine as they do in the existing Okta `/policies` API. The API endpoints support the following operations:
 
- * [Get Policy](#get-policy)
- * [List Policies](#list-policies)
- * [Get Rule](#get-rule)
- * [List Rules](#list-rules)
- * [Create Policy](#create-policy)
- * [Create Rule](#create-rule)
- * [Update Policy](#update-policy)
- * [Update Rule](#update-rule)
- * [Delete Policy](#delete-policy)
- * [Delete Rule](#delete-rule)
+ * Get Policy
+ * List Policies
+ * Get Rule
+ * List Rules
+ * Create Policy
+ * Create Rule
+ * Update Policy
+ * Update Rule
+ * Delete Policy
+ * Delete Rule
  
-### Get Policy
+### Sample Operation: Get Policy
 
 <ApiOperation method="get" url="/policies/${PolicyID}" />
 
@@ -61,6 +61,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/policies/${policyId}"
 }'
 ```
+
 ##### Response
 
 ```json
@@ -92,11 +93,13 @@ curl -v -X GET \
 }
 ```
 
-<!-- Add remaining operations. I think it's best to omit the example responses for the remaining operations, would be too cluttered, and just repeats. Enough to just give the curl listing for the request, say that the required parameter is a Policy or Rule ID, and that the response is a Policy or Rule object -->
+### Syntax for All Other Operations
+
+See <https://developer.okta.com/docs/reference/api/policy/#policy-api-operations> for request syntax for all operations.
 
 ## Okta Identity Engine Policy Objects
 
-This API uses the following objects:
+Okta Identity Engine introducing a set of new Policy and Rule objects that are different from the existing Policy and API objects. These are the objects:
 
 * [IdP Routing Policy Object](#idp-routing-policy-object)
 * [IdP Routing Rule Object](#idp-routing-rule-object)
@@ -109,7 +112,7 @@ This API uses the following objects:
 * [User Profile Policy Object](#user-profile-policy-object)
 * [User Profile Rule Object](#user-profile-rule-object)
 
-Default instances of each Policy type are created automatically when Okta Identity Engine is enabled for your org. Each of those default Policy objects also has a default rule that is created automatically.
+Default instances of each Policy type are created automatically when Okta Identity Engine is enabled for your org. Each of the default Policy objects also has a default rule that is created automatically.
 
 ### IdP Routing Policy Object
 
