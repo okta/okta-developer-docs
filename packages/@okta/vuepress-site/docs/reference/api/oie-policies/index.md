@@ -37,9 +37,9 @@ Given a `PolicyID` identifier, returns a [Policy Object](#okta-identity-engine-p
 
 #### Request Body
 
-| Property   | Type   | Description                          |
-|------------|--------|--------------------------------------|
-| `PolicyID` | String | The unique identifier of the Policy. |
+| Property | Type   | Description                          |
+|----------|--------|--------------------------------------|
+| PolicyID | String | The unique identifier of the Policy. |
 
 #### Request Query Parameters
 
