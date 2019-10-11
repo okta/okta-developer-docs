@@ -96,11 +96,11 @@ curl -v -X GET \
 
 ### Syntax for All Other Operations
 
-See <https://developer.okta.com/docs/reference/api/policy/#policy-api-operations> for request syntax for all operations.
+See <https://developer.okta.com/docs/reference/api/policy/#policy-api-operations> for request syntax for all other operations.
 
 ## Okta Identity Engine Policy Objects
 
-Okta Identity Engine introducing a set of new Policy and Rule objects that are different from the existing Policy and API objects. These are the objects:
+Okta Identity Engine introduces a set of new Policy and Rule objects that are different from the existing Policy and API objects:
 
 * [IdP Routing Policy Object](#idp-routing-policy-object)
 * [IdP Routing Rule Object](#idp-routing-rule-object)
@@ -117,7 +117,7 @@ Default instances of each Policy type are created automatically when Okta Identi
 
 ### IdP Routing Policy Object
 
-This object determines which IdP end users are routed to. One IdP Routing Policy object is created by default. Additional IdP Routing Policy objects cannot be created. Currently, only the only IdP you can configure for use with the Okta Identity Engine Pipeline is the Okta IdP, so that, although this object needs to exist, it cannot change the behavior of the pipeline.
+This object determines which IdP end users are routed to. One IdP Routing Policy object is created by default. Additional IdP Routing Policy objects cannot be created. Currently, the only IdP you can configure for use with the Okta Identity Engine Pipeline is the Okta IdP, so that, although this object needs to exist, it cannot change the behavior of the pipeline.
 
 | Property | Type    | Description                                                                             |
 |----------|---------|-----------------------------------------------------------------------------------------|
@@ -159,8 +159,6 @@ This object determines which IdP end users are routed to. One IdP Routing Policy
 ```
 
 ### IdP Routing Rule Object
-
-Currently, the Okta Identity Provider is the only supported IdP.
 
 | Property    | Type                                                                        | Description                                                                             |
 |-------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
@@ -263,7 +261,7 @@ Currently, the Okta Identity Provider is the only supported IdP.
 
 ## Identifier Match Policy Object
 
-This object determines which user profile attributes are used to check for matches between the incoming user and existing user profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
+The Identifier Match Object determines which user profile attributes are used to check for matches between the incoming user and existing Okta User Profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
 
 | Property | Type    | Description                                                                                  |
 |----------|---------|----------------------------------------------------------------------------------------------|
@@ -381,7 +379,7 @@ This object determines which user profile attributes are used to check for match
 
 ## Unknown User Policy Object
 
-the Unknown User Policy is evaluated if a match was not found with an existing User Profile and determines whether the user is allowed to register and, if so, what User Type they should be assigned.
+The Unknown User Policy is evaluated if a match was not found with an existing User Profile and determines whether the user is allowed to register and, if so, what User Type they should be assigned.
 
 | Property | Type    | Description                                                                              |
 |----------|---------|------------------------------------------------------------------------------------------|
@@ -465,7 +463,7 @@ the Unknown User Policy is evaluated if a match was not found with an existing U
 
 ## Sign On Policy Object
 
-This object determines which credentials to prompt users for. One Sign On Policy Object is created by default.
+The sign on object determines which credentials to prompt users for. One Sign On Policy Object is created by default.
 
 | Property | Type    | Description                                                                         |
 |----------|---------|-------------------------------------------------------------------------------------|
@@ -475,7 +473,7 @@ This object determines which credentials to prompt users for. One Sign On Policy
 | status   | String  | `ACTIVE`  or  `INACTIVE`.                                                           |
 | default  | Boolean | `true` for the first instance of this policy, which gets created by default.        |
 
-### Sign-On Policy Object Example
+### Sign On Policy Object Example
 
 ```json
 {
@@ -589,7 +587,7 @@ This object determines which credentials to prompt users for. One Sign On Policy
 
 ## User Profile Policy Object
 
-This object determines which profile attributes to require users to supply prompt users for. One User Profile Policy Object is created by default.
+The User Profile Object determines which profile attributes to require users to supply prompt users for. One User Profile Policy Object is created by default.
 
 | Property | Type    | Description                                                                               |
 |----------|---------|-------------------------------------------------------------------------------------------|
@@ -696,7 +694,7 @@ Mappings can be used with the following Policy types:
 * Sign On
 * User Profile
 
-Mappings cannot be used with the following Policy types, which apply universally:
+The following Policy types apply universally, and mappings cannot be used with them:
 
 * IdP Routing
 * Identifier Match
