@@ -5,7 +5,7 @@ category: management
 
 # Factor Profiles API
 
-The Okta Factor Profiles API enables an Administrator configure which factor profiles are available to use for multi-factor authentication.
+The Okta Factor Profiles API enables an Administrator to configure which factor profiles are available to use for multi-factor authentication.
 
 > **Note:** In the Admin Dashboard
 
@@ -70,7 +70,7 @@ curl -v -X GET \
 #### Response Types
 
 HTTP 200:
-[Factor Profile Object](#factor-profile-object)
+Array of [Factor Profile Object](#factor-profile-object)
 
 ### Delete a Factor Profile
 
@@ -154,7 +154,7 @@ curl -v -X POST \
 
 #### Response Types
 
-HTTP 204:
+HTTP 200:
 [Factor Profile Object](#factor-profile-object)
 
 ## Factor Profile Feature Operations
@@ -183,7 +183,7 @@ curl -v -X GET \
 #### Response Types
 
 HTTP 200:
-[Factor Profile Feature Object](#factor-profile-feature-object)
+Array of [Factor Profile Feature Object](#factor-profile-feature-object)
 
 ### Get a Factor Profile Feature
 
@@ -236,6 +236,12 @@ curl -v -X PUT \
   "cardinality": {
     "min": 0,
     "max": 1
+  },
+  "selfService": {
+    "eligibility": "ALLOWED",
+    "verificationMethod": {
+      "type": "ANY_FACTOR"
+    }
   }
 }' "https://{yourOktaDomain}/api/v1/org/factors/{factorName}/profiles/{profileId}/features/{featureId}"
 ```
@@ -278,7 +284,7 @@ The Factor Profile model defines several attributes:
 | Property      | Type                                               | Description                                                                                                              |
 | ------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `id`          | String                                             | Identifier of the factor profile.                                                                                        |
-| `name`        | String                                             | Name of the factor profile.                                                                                              |
+| `name`        | String                                             | Name of the factor profile. This has to be unique for a given factorName.                                                |
 | `default`     | Boolean                                            | This is set to `true` on the profile to be used for a factor enrollment that does not have a profile associated with it. |
 | `settings`    | [Settings Object](#factor-profile-settings-object) | Settings for factor profile.                                                                                             |
 | `created`     | String (ISO-8601)                                  | Timestamp when the factor profile was created.                                                                           |
@@ -288,6 +294,7 @@ The Factor Profile model defines several attributes:
 ### Factor Profile Settings Object
 
 The factor profile settings object contains the settings for the particular factor type. Currently factor profiles can be created for two factor types: `okta_email` and `okta_password`.
+There could be multiple `okta_password` profiles created but currently, only the default one is consumed.
 
 ### Factor Profile Links Object
 
