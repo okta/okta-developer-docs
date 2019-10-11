@@ -5,6 +5,9 @@
     grid-auto-rows: 1fr;
     align-items: stretch;
     
+    &.cols-4 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
     .card {
         position: relative;
         align-self: start;
@@ -64,9 +67,34 @@
     .card--header-icon {
         flex-basis: auto;
         height: 3rem;
-        margin: 0.75rem;
+        margin: 0.75rem  0.75rem 1rem 0;
         line-height: 1; 
         
+        [class^='-75'],
+        [class*='-75'] {
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+
+        [class^='-75']::before,
+        [class*='-75']::before,
+        [class^='-75']::after,
+        [class*='-75']::after {
+            display: block;
+            position: absolute;
+            white-space: normal;
+            text-indent: 0;
+
+            font-size: 75px;
+            font-family: 'okticon';
+            font-weight: 300 !important;
+            font-style: normal !important;
+            speak: none;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-smoothing: antialiased;
+        }
+
         svg {
             height: 100%; 
         }

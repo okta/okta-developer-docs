@@ -11,10 +11,25 @@ $small-spacing: 0.75rem;
 $base-spacing: 1.5rem;
 $big-spacing: 3rem;
 
+
+.landing-page-content {
+  display: flex;
+  padding-top: 20px;
+}
+
+.landing-content { 
+  width: 100%;
+  max-width: 890px;
+}
+
 .landing-navigation {
   padding-right: 2rem;
   width: 250px;
   flex: 0 0 auto;
+
+  a {
+    cursor: pointer
+  }
 
   ul, ol {
     list-style: none;
@@ -48,6 +63,9 @@ $big-spacing: 3rem;
         display: inline-block;
         margin-left: -($icon-size);
         width: $icon-size;
+    }
+    &.subnav.open:before {
+      content: '\f13a'; /* chevron-circle-down per https://fontawesome.com/cheatsheet?from=io*/
     }
   }
 
