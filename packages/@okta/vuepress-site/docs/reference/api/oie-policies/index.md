@@ -159,7 +159,7 @@ This object determines which IdP end users are routed to. One IdP Routing Policy
 
 ### IdP Routing Rule Object
 
-One IdP Routing Rule Object is created by default. Currently, the Okta Identity Provider is the only supported IdP.
+Currently, the Okta Identity Provider is the only supported IdP.
 
 | Property    | Type                                                                        | Description                                                                             |
 |-------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
@@ -303,8 +303,6 @@ This object determines which user profile attributes are used to check for match
 }
 ```
 ## Identifier Match Rule Object
-
-One Identifier Match Rule Object is created by default.
 
 | Property    | Type                                                                                  | Description                                                                                                                                |
 |-------------|---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
@@ -534,8 +532,6 @@ This object determines which credentials to prompt users for. One Sign On Policy
 
 ## Sign On Rule Object
 
-One Sign On Rule Object is created by default.
-
 | Property    | Type                                                                | Description                                                                            |
 |-------------|---------------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | name        | String                                                              | Human-readable name for the Policy, configurable during creation or updating.          |
@@ -635,8 +631,6 @@ This object determines which profile attributes to require users to supply promp
 ```
 
 ## User Profile Rule Object
-
-One Sign On Rule Object is created by default.
 
 | Property    | Type                                                                | Description                                                                            |
 |-------------|---------------------------------------------------------------------|----------------------------------------------------------------------------------------|
