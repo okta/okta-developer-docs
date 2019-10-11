@@ -701,14 +701,20 @@ Mappings cannot be used with the following Policy types, which apply universally
 * Identifier Match
 * Unknown User
 
-#### Request Body
+#### Mappings Request Body
 
 | Property     | Type   | Description              |
 |--------------|--------|--------------------------|
 | resourceType | String | Must be `APP`.           |
 | resourceID   | String | A valid App Instance ID. |
 
-#### Usage Example
+#### Mappings Path Parameter
+
+| Property | Type   | Description                                           |
+|----------|--------|-------------------------------------------------------|
+| policyId | String | The ID of the Policy object to apply this mapping to. |
+
+#### Mappings Usage Example
 
 ##### Request
 
@@ -720,9 +726,8 @@ curl -v -X GET \
 -d '{
 	"resourceType": "APP",
 	"resourceId": "{{appInstanceId}}"
-}' 
+ }' 
 "https://${yourOktaDomain}/api/v1/policies/${policyId}/mappings"
-}'
 ```
 
 ##### Response
