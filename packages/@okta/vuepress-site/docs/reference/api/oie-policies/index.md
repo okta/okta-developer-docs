@@ -691,13 +691,15 @@ This object determines which profile attributes to require users to supply promp
 Mappings specify which Policies apply to which Apps. You call the `/policies/${policyId}/mappings` endpoint to set a mapping. You cannot update mappings once you have created them.
 
 Mappings can be used with the following Policy types:
-* 
-* 
 
-Mappings cannot be used with the following Policy types because these Policies apply universally to all apps:
+* Sign On
+* User Profile
 
-* 
-* 
+Mappings cannot be used with the following Policy types, which apply universally:
+
+* IdP Routing
+* Identifier Match
+* Unknown User
 
 #### Request Body
 
