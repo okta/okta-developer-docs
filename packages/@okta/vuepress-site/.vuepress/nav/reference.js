@@ -6,16 +6,19 @@ module.exports = [
         link: "/docs/reference/"
     },
     {
-        title: "OpenID Connect & OAuth 2.0 API",
-        link: "#"
+        title: "Authentication API",
+        link: "/docs/reference/api/authn/"
     },
     {
-        title: "Authentication API",
-        link: "#"
+        title: "Design Principles",
+        link: "/docs/reference/api-overview/"
+    },
+    {
+        title: "Error Codes",
+        link: "/docs/reference/error-codes/"
     },
     {
         title: "Management APIs",
-        link: "#",
         links: [
             { title: 'Administrator Roles', link: '/docs/reference/api/roles/'},
             { title: 'Apps', link: '/docs/reference/api/apps/'},
@@ -38,23 +41,19 @@ module.exports = [
           ]
     },
     {
-        title: "Design Principles",
-        link: "#"
-    },
-    {
-        title: "Error Codes",
-        link: "#"
-    },
-    {
         title: "Okta Expression Language",
-        link: "#"
+        link: "/docs/reference/okta-expression-language/"
     },
     {
-        title: "Rate Limits",
-        link: "#"
+        title: "OpenID Connect & OAuth 2.0 API",
+        link: "/docs/reference/api/oidc/"
     },
     {
         title: "Postman Collections",
-        link: "#"
+        link: "/docs/reference/postman-collections/"
+    },
+    {
+        title: "Rate Limits",
+        link: "/docs/reference/rate-limits/"
     }
 ]

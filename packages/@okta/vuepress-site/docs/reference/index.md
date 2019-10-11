@@ -9,6 +9,6 @@ Eiusmod proident aute aute laboris eiusmod eiusmod labore tempor dolore reprehen
 ## Featured Concepts
 
 <Cards>
-  <Card href="https://okta.com" :showHeaderIcon=true cardTitle="Lorem Ipsum" cardMeta="Some Extra Data" cardLinkText="Read Article">Ex minim anim aliqua est esse ad ullamco veniam ex id. Laborum nulla est occaecat id eu ad et sit excepteur ad deserunt nulla.</Card>
-  <Card :showFooter=false></Card>
+  <Card href="/docs/concepts/authentication/" :showHeaderIcon=true cardTitle="Authentication" :showFooter=false>Use Okta to create a custom login experience for your apps. Learn more about OAuth 2.0 and OIDC implementations, the Authentication API, and the Sign-In Widget.</Card>
+  <Card href="/docs/concepts/auth-overview/" :showHeaderIcon=true cardTitle="OAuth 2.0 Overview" :showFooter=false>An overview of OAuth 2.0 and OpenID Connect and their Okta implementations. This guide helps you determine what flow is best for the app you are building.</Card>
 </Cards>
