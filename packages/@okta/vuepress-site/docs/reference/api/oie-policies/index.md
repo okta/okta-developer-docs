@@ -14,7 +14,7 @@ API endpoints for creating, getting, and updating Policy and Rule objects functi
 
 Each Policy object, as well as a Rule for it, needs to exist, in order for Okta Identity Engine to function. One of each is created by default when Okta Identity Engine is enabled for an org.
 
-A `mappings` endpoint is used to set which Policies apply to which Apps. See [Mappings Between Apps and Policies](#mappings-between-apps-and-policies) below for information.
+A `/mappings` endpoint is used to set which Policies apply to which Apps. See the [Mappings Between Apps and Policies](#mappings-between-apps-and-policies) section of this document for a description of how to set mappings.
 
 ## Policies API Operations
 
@@ -61,7 +61,6 @@ curl -v -X GET \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/policies/${policyId}"
-}'
 ```
 
 ##### Response
@@ -728,7 +727,7 @@ curl -v -X GET \
 -d '{
 	"resourceType": "APP",
 	"resourceId": "{{appInstanceId}}"
- }' 
+}' \
 "https://${yourOktaDomain}/api/v1/policies/${policyId}/mappings"
 ```
 
