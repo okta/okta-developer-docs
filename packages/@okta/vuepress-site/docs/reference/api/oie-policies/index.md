@@ -686,3 +686,78 @@ This object determines which profile attributes to require users to supply promp
     }
 }
 ```
+## Mappings Between Apps and Policies
+
+Mappings specify which Policies apply to which Apps. You call the `/policies/${policyId}/mappings` endpoint to set a mapping. You cannot update mappings once you have created them.
+
+Mappings can be used with the following Policy types:
+* 
+* 
+
+Mappings cannot be used with the following Policy types because these Policies apply universally to all apps:
+
+* 
+* 
+
+#### Request Body
+
+| Property     | Type   | Description              |
+|--------------|--------|--------------------------|
+| resourceType | String | Must be `APP`.           |
+| resourceID   | String | A valid App Instance ID. |
+
+#### Usage Example
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+	"resourceType": "APP",
+	"resourceId": "{{appInstanceId}}"
+}' 
+"https://${yourOktaDomain}/api/v1/policies/${policyId}/mappings"
+}'
+```
+
+##### Response
+
+```json
+{
+    "id": "rsm6v8k4qjUvQgPsa0g4",
+    "_links": {
+        "application": {
+            "href": "https://idx.okta1.com/api/v1/apps/0oat3dEB15WDr5SW30g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst6v8abMiZPFyVfY0g4/mappings/rsm6v8k4qjUvQgPsa0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        },
+        "policy": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst6v8abMiZPFyVfY0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
