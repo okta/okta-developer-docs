@@ -95,8 +95,8 @@
       },
 
       expandSubNav: function (event) {
-        let parent = event.target.parentElement;
-        let sections = parent.querySelector('.sections');
+        const parent = event.target.parentElement;
+        const sections = parent.querySelector('.sections');
         if( !sections ) {
           return;
         }
