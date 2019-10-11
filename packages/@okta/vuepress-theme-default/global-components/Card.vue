@@ -9,10 +9,10 @@
                 <i class="icon-75" :class=headerIcon v-else></i>
             </figure>
             <section class="card--header-main">
-                <h2 class="card--title" v-if="cardTitle != ''">
+                <h2 class="card--title" v-if="cardTitle">
                     {{cardTitle}}
                 </h2>
-                <section class="card--meta" v-if="cardMeta != ''">
+                <section class="card--meta" v-if="cardMeta">
                     {{cardMeta}}
                 </section>
             </section>

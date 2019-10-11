@@ -95,9 +95,9 @@
       },
 
       expandSubNav: function (event) {
-        var parent = event.target.parentElement;
-        var sections = parent.querySelector('.sections');
-        if(sections === null) {
+        let parent = event.target.parentElement;
+        let sections = parent.querySelector('.sections');
+        if( !sections ) {
           return;
         }
 
@@ -107,8 +107,8 @@
           parent.classList.remove('open');
           sections.style.display = 'none';
         } else {        
-          parent.classList.add("open");
-          sections.style.display = "block";
+          parent.classList.add('open');
+          sections.style.display = 'block';
         }
       }
     }

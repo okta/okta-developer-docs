@@ -17,7 +17,7 @@ Code and resources for your platform.
 ## Front-end
 
 <Cards class="cols-4">
-  <Card href="/code/angular/" :showHeaderIcon=true headerIcon="code-angular" :showFooter=false>Angular</Card>
+  <Card href="/code/angular/" :showHeaderIcon=true headerIcon="code-angular" :showFooter=false cardTitle="Test">Angular</Card>
   <Card href="/code/javascript/" :showHeaderIcon=true headerIcon="code-javascript" :showFooter=false>JavaScript</Card>
   <Card href="/code/react/" :showHeaderIcon=true headerIcon="code-react" :showFooter=false>React</Card>
   <Card href="/code/vue/" :showHeaderIcon=true headerIcon="code-vue" :showFooter=false>Vue.js</Card>
