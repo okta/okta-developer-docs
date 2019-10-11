@@ -1,7 +1,7 @@
 ---
 title: Use the Client Credentials grant flow
 ---
-For machine to machine use cases where a backend service or a daemon has to call Okta APIs, use the Client Credentials grant flow with an OAuth Service app. The Client Credentials grant flow is the only valid grant type for an OAuth Service app.
+For machine-to-machine use cases where a backend service or a daemon has to call Okta APIs, use the Client Credentials grant flow with an OAuth Service app. The Client Credentials grant flow is the only valid grant type for an OAuth Service app.
 
 > **Note:** Move on to the <GuideLink link="../define-allowed-scopes">next section</GuideLink> if you don't need to use the Client Credentials grant flow.
 
@@ -38,9 +38,9 @@ The JWKS should look something like this (the key is truncated for brevity):
 
 You can create an OAuth Service client app and register the public key with the Service app using the `/apps` endpoint or the dynamic `/oauth/v1/clients` registration endpoint.
 
-* `/apps`: See the request example that shows how to create an OAuth 2.0 client application with `private_key_jwt` in the [Add an OAuth 2.0 Client Application](/docs/reference/api/apps/#add-oauth-2-0-client-application) section.
+* `/apps`: See the request example that shows how to create an OAuth 2.0 client application with `private_key_jwt` in the [Add an OAuth 2.0 Client Application](/docs/reference/api/apps/#add-oauth-2-0-client-application) API reference section.
 
-* `/oauth/v1/clients`: See the **Create a Service app with a JWKS** example in the [Register New Client](/docs/reference/api/oauth-clients/#register-new-client) section.
+* `/oauth/v1/clients`: See the **Create a Service app with a JWKS** example in the [Register New Client](/docs/reference/api/oauth-clients/#register-new-client) API reference section.
 
 ## Sign the JWT
 

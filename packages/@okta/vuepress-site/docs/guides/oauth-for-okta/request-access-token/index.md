@@ -38,7 +38,7 @@ After you have the following, you can request an access token:
     The response that is returned looks something like this (the token is truncated for brevity):
 
     ```bash
-    http://{yourOktadomain}/authorization-code/callback#access_token=eyJraWQiOiJEa1lUbmhTdkd5OEJk.......Y5D6XGtoken_type=Bearer&expires_in=3600&scope=okta.users.read&state=1234
+    http://{yourOktadomain}/authorization-code/callback#access_token=eyJraWQiOiJEa1lUbmhTdkd5OEJk.......Y5D6XG&token_type=Bearer&expires_in=3600&scope=okta.users.read&state=1234
     ```
 
     > **Note:** The lifetime for this token is fixed at one hour.

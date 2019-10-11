@@ -19,6 +19,6 @@ To use this guide, you need the following:
 * The OAUTH_FOR_OKTA feature flag enabled for your Org. Use the [Early Access Features](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Manage_Early_Access_features) page in your Org to enable this feature flag.
 * [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
 
-> **Note:** At this time, the OAuth 2 for Okta works only with the APIs listed in the <GuideLink link="../scopes">Scopes & supported endpoints</GuideLink> section. We are actively working towards supporting additional APIs. Our goal is to cover all Okta public API endpoints.
+> **Note:** At this time, OAuth for Okta works only with the APIs listed in the <GuideLink link="../scopes">Scopes & supported endpoints</GuideLink> section. We are actively working towards supporting additional APIs. Our goal is to cover all Okta public API endpoints.
 
 <NextSectionLink/>
