@@ -590,3 +590,105 @@ One Sign On Rule Object is created by default.
 }
 ```
 
+## User Profile Policy Object
+
+This object determines which profile attributes to require users to supply prompt users for. One User Profile Policy Object is created by default.
+
+| Property | Type    | Description                                                                         |
+|----------|---------|-------------------------------------------------------------------------------------|
+| id       | String  | Unique identifier for this Policy (read-only).                                      |
+| name     | String  | Human-readable name for the Policy, configurable during creation or updating.       |
+| type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:UserProfile`. |
+| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                           |
+| default  | Boolean | `true` for the first instance of this policy, which gets created by default.        |
+
+### User Profile Policy Object Example
+
+```json
+{
+    "id": "rst10y7ftlPBUWJzu0g4",
+    "name": "Default Policy",
+    "type": "Okta:UserProfile",
+    "status": "ACTIVE",
+    "default": true,
+    "_links": {
+        "self": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10y7ftlPBUWJzu0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        },
+        "rules": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10y7ftlPBUWJzu0g4/rules",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+
+```
+
+## User Profile Rule Object
+
+One Sign On Rule Object is created by default.
+
+| Property    | Type                                                                | Description                                                                            |
+|-------------|---------------------------------------------------------------------|----------------------------------------------------------------------------------------|
+| name        | String                                                              | Human-readable name for the Policy, configurable during creation or updating.          |
+| id          | String                                                              | Unique identifier for this Policy (read-only)                                          |
+| type        | String                                                              | Type of the policy. For Identifier Match Rule Objects, this needs to be `Okta:SignOn`. |
+| priority    | Integer                                                             | Used to determine which rules take precedence.                                         |
+| conditions  | Array                                                               | No conditions are supported for this rule type, so this must be an empty array.        |
+| action      | String                                                              | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.             |
+| requirement | [Sign On Rule Requirement Object](#sign-on-rule-requirement-object) | Specifies credentials to prompt user for.                                              |
+| status      | String                                                              | `ACTIVE`  or  `INACTIVE`.                                                              |
+| default     | Boolean                                                             | `true` for the first instance of this rule, which gets created by default.             |
+
+#### User Profile Rule Requirement Object
+
+| Property                   | Type   | Description                                                                                                                                                                                                                                     |
+|----------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| preRegistrationInlineHooks | String | Optional. The valid ID of an Inline Hook. Sets a Registration Inline Hook to invoke.                                                                                                                                                            |
+| profileAttributes          | Array  | Array specifying the `label` and `name` of each User Profile Attribute that should be collected from the user. `label` is human-readable text that can be displayed to the user in a web form. `name` is the name of a User Profile Attribute.| |   
+
+### User Profile Rule Object Example
+
+```json
+{
+	"name": "New Rule",
+    "type": "Okta:UserProfile",
+    "priority": 1,
+    "action": "ALLOW",
+    "conditions": [],
+    "requirement": {
+        "preRegistrationInlineHooks": [
+            {
+                "inlineHookId": "{{inlineHookId}}"
+            }
+        ],
+        "profileAttributes": [
+            {
+                "label": "First Name",
+                "name": "firstName",
+                "required": true
+            },
+            {
+                "label": "Last Name",
+                "name": "lastName",
+                "required": true
+            },
+            {
+                "label": "Email",
+                "name": "email",
+                "required": true
+            }
+        ]
+    }
+}
+```
