@@ -394,8 +394,7 @@ Chain verification may be used to specify which factor may be used to verify the
                             }
                         ]
                     }
-                ],
-                "noAuthNEmptyChain": false
+                ]
             }
         },
         "_links": {
@@ -655,8 +654,7 @@ Chain verification may be used to specify which factor may be used to verify the
                     }
                 ]
             }
-        ],
-        "noAuthNEmptyChain": false
+        ]
     },
     "_links": {
         "self": {
