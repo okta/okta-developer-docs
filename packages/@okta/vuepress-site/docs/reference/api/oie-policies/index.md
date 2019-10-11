@@ -313,7 +313,7 @@ This object determines which user profile attributes are used to check for match
 | conditions  | Array                                                                                 | No conditions are supported for this rule type, so this must be an empty array.                                                            |
 | action      | String                                                                                | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                                                                 |
 | requirement | [Identifier Match Rule Requirement Object](#identifier-match-rule-requirement-object) | Specifies the user profile attributes to match against and the action to take in case of conflict between multiple possible user profiles. |
-| status      | String                                                                                | `ACTIVE`  or  `INACTIVE`.                                                                                                                               |
+| status      | String                                                                                | `ACTIVE`  or  `INACTIVE`.                                                                                                                  |
 | default     | Boolean                                                                               | `true` for the first instance of this rule, which gets created by default.                                                                 |
 
 #### Identifier Match Rule Requirement Object
@@ -382,13 +382,13 @@ This object determines which user profile attributes are used to check for match
 
 the Unknown User Policy is evaluated if a match was not found with an existing User Profile and determines whether the user is allowed to register and, if so, what User Type they should be assigned.
 
-| Property | Type    | Description                                                                             |
-|----------|---------|-----------------------------------------------------------------------------------------|
+| Property | Type    | Description                                                                              |
+|----------|---------|------------------------------------------------------------------------------------------|
 | id       | String  | Unique identifier for this Policy (read-only).                                           |
-| name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
+| name     | String  | Human-readable name for the Policy, configurable during creation or updating.            |
 | type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:UnknownUser`. |
-| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                            |
-| default  | Boolean | `true` for the first instance of this policy, which gets created by default.            |
+| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                |
+| default  | Boolean | `true` for the first instance of this policy, which gets created by default.             |
 
 ### Unknown User Policy Object Example
 
@@ -423,24 +423,24 @@ the Unknown User Policy is evaluated if a match was not found with an existing U
 
 ## Unknown User Rule Object
 
-| Property    | Type                                                                                  | Description                                                                                                                                |
-|-------------|---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| name        | String                                                                                | Human-readable name for the Policy, configurable during creation or updating.                                                              |
-| id          | String                                                                                | Unique identifier for this Policy (read-only)                                                                                              |
-| type        | String                                                                                | Type of the policy. For Identifier Match Rule Objects, this needs to be `Okta:UnknownUser`.                                            |
-| priority    | Integer                                                                               | Used to determine which rules take precedence.                                                                                             |
-| conditions  | Array                                                                                 | No conditions are supported for this rule type, so this must be an empty array.                                                            |
-| action      | String                                                                                | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                                                                 |
+| Property    | Type                                                                         | Description                                                                                        |
+|-------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| name        | String                                                                       | Human-readable name for the Policy, configurable during creation or updating.                      |
+| id          | String                                                                       | Unique identifier for this Policy (read-only)                                                      |
+| type        | String                                                                       | Type of the policy. For Identifier Match Rule Objects, this needs to be `Okta:UnknownUser`.        |
+| priority    | Integer                                                                      | Used to determine which rules take precedence.                                                     |
+| conditions  | Array                                                                        | No conditions are supported for this rule type, so this must be an empty array.                    |
+| action      | String                                                                       | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                         |
 | requirement | [Unknown User Rule Requirement Object](#unknow-user-rule-requirement-object) | Specifies whether to allow an unknown user to register and, if so, what User Type to use for them. |
-| status      | String                                                                                | `ACTIVE`  or  `INACTIVE`.                                                                                                                               |
-| default     | Boolean                                                                               | `true` for the first instance of this rule, which gets created by default.                                                                 |
+| status      | String                                                                       | `ACTIVE`  or  `INACTIVE`.                                                                          |
+| default     | Boolean                                                                      | `true` for the first instance of this rule, which gets created by default.                         |
 
 #### Unknown User Rule Requirement Object
 
 | Property                                   | Type   | Description                                                                                                                                                            |
 |--------------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `noUserMatch.action`                       | String | `REGISTER` or `DENY` to determine whether unknown users should be allowed to register.                                                                                 |
-| `noUserMatch.registration.defaultUserType` | String | Valid ID of a User Type. Sets the User Type to enroll unknown users as, if you have allowed unknown users to register. Not required if `noUserMatch.action` is `DENY`. |      
+| `noUserMatch.registration.defaultUserType` | String | Valid ID of a User Type. Sets the User Type to enroll unknown users as, if you have allowed unknown users to register. Not required if `noUserMatch.action` is `DENY`. |
 
 ### Unknown User Rule Object Example
 
@@ -549,7 +549,7 @@ This object determines which credentials to prompt users for. One Sign On Policy
 | Property                  | Type   | Description                                                                                                                                         |
 |---------------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `verificationMethod.type` | String | `CHAIN` or `ANY_FACTOR` to determine whether users should be prompted for a sequence of credentials or allowed to choose one credential from a set. |
-| chains                    | Array  | Array specifying the chain of factor types to require. Not required if `verificationMethod.type` is `ANY_FACTOR`.                                   |                 |      
+| chains                    | Array  | Array specifying the chain of factor types to require. Not required if `verificationMethod.type` is `ANY_FACTOR`.|                                  |      
 
 ### Sign On Rule Object Example
 
@@ -590,13 +590,13 @@ This object determines which credentials to prompt users for. One Sign On Policy
 
 This object determines which profile attributes to require users to supply prompt users for. One User Profile Policy Object is created by default.
 
-| Property | Type    | Description                                                                         |
-|----------|---------|-------------------------------------------------------------------------------------|
-| id       | String  | Unique identifier for this Policy (read-only).                                      |
-| name     | String  | Human-readable name for the Policy, configurable during creation or updating.       |
+| Property | Type    | Description                                                                              |
+|----------|---------|------------------------------------------------------------------------------------------|
+| id       | String  | Unique identifier for this Policy (read-only).                                           |
+| name     | String  | Human-readable name for the Policy, configurable during creation or updating.            |
 | type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:UserProfile`. |
-| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                           |
-| default  | Boolean | `true` for the first instance of this policy, which gets created by default.        |
+| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                |
+| default  | Boolean | `true` for the first instance of this policy, which gets created by default.             |
 
 ### User Profile Policy Object Example
 
@@ -646,10 +646,10 @@ This object determines which profile attributes to require users to supply promp
 
 #### User Profile Rule Requirement Object
 
-| Property                   | Type   | Description                                                                                                                                                                                                                                     |
-|----------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| preRegistrationInlineHooks | String | Optional. The valid ID of an Inline Hook. Sets a Registration Inline Hook to invoke.                                                                                                                                                            |
-| profileAttributes          | Array  | Array specifying the `label` and `name` of each User Profile Attribute that should be collected from the user. `label` is human-readable text that can be displayed to the user in a web form. `name` is the name of a User Profile Attribute.| |   
+| Property                   | Type   | Description                                                                                                                                                                                                                                    |
+|----------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| preRegistrationInlineHooks | String | Optional. The valid ID of an Inline Hook. Sets a Registration Inline Hook to invoke.                                                                                                                                                           |
+| profileAttributes          | Array  | Array specifying the `label` and `name` of each User Profile Attribute that should be collected from the user. `label` is human-readable text that can be displayed to the user in a web form. `name` is the name of a User Profile Attribute. |
 
 ### User Profile Rule Object Example
 
