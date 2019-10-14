@@ -440,7 +440,7 @@ The Unknown User Policy determines whether a user who has not been found to matc
             "key": "Okta:AppInstance",
             "op": "IN_LIST",
             "value": [
-            	"{{appInstanceId}}"
+            	"${appInstanceId}"
         	]
         }
     ], 
@@ -525,17 +525,17 @@ The Sign On Policy Object determines which authentication factors to prompt user
 
 ## Sign On Rule Object
 
-| Property    | Type                                                                | Description                                                                           |
-|-------------|---------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| name        | String                                                              | Human-readable name for the Rule, configurable during creation or updating.           |
-| id          | String                                                              | Unique identifier for this Rule (read-only).                                          |
-| type        | String                                                              | Type of the Rule. For Identifier Match Rule Objects, this needs to be `Okta:SignOn`.  |
-| priority    | Integer                                                             | Used to determine which Rules take precedence.                                        |
-| conditions  | Array                                                               | UserType, User, Group and various Device conditions are supported for this rule type. |
-| action      | String                                                              | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.            |
-| requirement | [Sign On Rule Requirement Object](#sign-on-rule-requirement-object) | Specifies credentials to prompt user for.                                             |
-| status      | String                                                              | `ACTIVE`  or  `INACTIVE`.                                                             |
-| default     | Boolean                                                             | `true` for the first instance of this Rule, which gets created by default.            |
+| Property    | Type                                                                | Description                                                                 |
+|-------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| name        | String                                                              | Human-readable name for the Rule, configurable during creation or updating. |
+| id          | String                                                              | Unique identifier for this Rule (read-only).                                |
+| type        | String                                                              | Type of the Rule. For Sign On Rule Objects, this needs to be `Okta:SignOn`. |
+| priority    | Integer                                                             | Used to determine which Rules take precedence.                              |
+| conditions  | Array                                                               | User Type and Group conditions are supported for this Rule type.            |
+| action      | String                                                              | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.  |
+| requirement | [Sign On Rule Requirement Object](#sign-on-rule-requirement-object) | Specifies credentials to prompt user for.                                   |
+| status      | String                                                              | `ACTIVE`  or  `INACTIVE`.                                                   |
+| default     | Boolean                                                             | `true` for the first instance of this Rule, which gets created by default.  |
 
 #### Sign On Rule Requirement Object
 
@@ -551,7 +551,22 @@ The Sign On Policy Object determines which authentication factors to prompt user
 	"name": "Password THEN Email",
     "type": "Okta:SignOn",
     "priority": 0,
-    "conditions": [],
+    "conditions": [
+        {
+            "key": "Okta:UserType",
+            "op": "IN_LIST",
+            "value": [
+            	"${userTypeId}"
+        	]
+        },
+        {
+            "key": "Okta:Group",
+            "op": "INTERSECTS",
+            "value": [
+                "${groupId}"
+            ]
+        }	
+    ],
     "action": "ALLOW",
     "requirement": {
         "verificationMethod": {
