@@ -157,7 +157,7 @@ curl -v -X DELETE \
 HTTP 204:
 *No Content*
 
-## Factor Profile Feature Operations
+
 
 ### Get Factor Profile Features
 
@@ -194,8 +194,8 @@ Array of [Factor Profile Feature Object](#factor-profile-feature-object)
 | Parameter    | Type   | Description                                     |
 | ------------ | ------ | ----------------------------------------------- |
 | `factorName` | String | The name of the factor type the profile is for. |
-| `profileId`  | String | The Factor Profile's unique identifier.         |
 | `featureId`  | String | The Factor Profile feature's unique identifier. |
+| `profileId`  | String | The Factor Profile's unique identifier.         |
 
 #### Request Example
 
@@ -221,8 +221,8 @@ HTTP 200:
 | Parameter    | Type   | Description                                     |
 | ------------ | ------ | ----------------------------------------------- |
 | `factorName` | String | The name of the factor type the profile is for. |
-| `profileId`  | String | The Factor Profile's unique identifier.         |
 | `featureId`  | String | The Factor Profile feature's unique identifier. |
+| `profileId`  | String | The Factor Profile's unique identifier.         |
 
 #### Request Example
 
@@ -253,10 +253,18 @@ HTTP 200:
 
 ## Factor Profile API Objects
 
-This API has the following objects:
+This API has one main object:
 
 * Factor Profile Object
-*
+
+As well as number of Factor Profile Feature objects:
+
+* Adoption
+* Enrollment Source
+* String Validation
+* Reuse
+* Token Security
+* Recovery
 
 ### Factor Profile Object
 
@@ -264,18 +272,17 @@ This API has the following objects:
 
 The Factor Profile model defines several attributes:
 
-| Property      | Type                                                           | Description                                                                                                              |
-| ------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `created`     | String (ISO-8601)                                              | Timestamp when the Factor Profile was created.                                                                           |
-| `default`     | Boolean                                                        | This is set to `true` on the profile to be used for a factor enrollment that does not have a profile associated with it. |
-| `id`          | String                                                         | Identifier of the Factor Profile.                                                                                        |
-| `lastUpdated` | String (ISO-8601)                                              | Timestamp when the Factor Profile was last modified.                                                                     |
-| `name`        | String                                                         | Name of the Factor Profile. This has to be unique for a given `factorName`.                                              |
-| `settings`    | Object                                                         | Settings for a Factor Profile. There are no available Settings at this time.                                             |
-| `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                                                           |
+| Property      | Type                                               | Description                                                                                                              |
+| ------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `_links`      |                                                    | Link relations for this object                                                                                           |
+| `created`     | String (ISO-8601)                                  | Timestamp when the Factor Profile was created.                                                                           |
+| `default`     | Boolean                                            | This is set to `true` on the profile to be used for a factor enrollment that does not have a profile associated with it. |
+| `id`          | String                                             | Identifier of the Factor Profile.                                                                                        |
+| `lastUpdated` | String (ISO-8601)                                  | Timestamp when the Factor Profile was last modified.                                                                     |
+| `name`        | String                                             | Name of the Factor Profile. This has to be unique for a given `factorName`.                                                |
+| `settings`    | [Settings Object](#factor-profile-settings-object) | Settings for Factor Profile.                                                                                             |
 
-
-#### Factor Profile Example
+### Factor Profile Example
 
 ```json
     {
@@ -287,7 +294,7 @@ The Factor Profile model defines several attributes:
         "default": true,
         "_links": {
             "self": {
-                "href": "http://ed.okta1.com:1802/api/v1/org/factors/okta_email/profiles/fpruib7klOvW4pAuK0g3",
+                "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_email/profiles/fpruib7klOvW4pAuK0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -300,34 +307,11 @@ The Factor Profile model defines several attributes:
     }
 ```
 
-### Factor Profile Feature Object
-
-Each Factor Profile contains one or more Features of various types. Some Features are common to all Factor Profiles, and some are specific to a particular Profile. Currently the following Feature types are available:
-
-* `adoption`
-* `enrollment_source`
-* `string_validation`
-* `reuse`
-* `token_security`
-* `recovery`
-
-#### Factor Profile Feature Properties
-
-The Factor Profile Feature model defines several common attributes:
-
-| Property      | Type                                                           | Description                                                  |
-| ------------- | -------------------------------------------------------------- | ------------------------------------------------------------ |
-| `id`          | String                                                         | Identifier of the Factor Profile feature.                    |
-| `type`        | String (Enum)                                                  | Feature type.                                                |
-| `created`     | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was created.       |
-| `lastUpdated` | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was last modified. |
-| `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                               |
-
 #### Adoption Factor Profile Feature Object
 
-The adoption feature is available for all Factor Profiles. It controls the settings that determine when a factor may be configured, or "adopted", for a user.
+The Adoption Feature is available for all Factor Profiles. It controls the settings that determine when a Factor may be configured, or "adopted", for a user.
 
-##### Example
+##### Adoption Factor Profile Feature Example
 
 ```json
 {
@@ -347,7 +331,7 @@ The adoption feature is available for all Factor Profiles. It controls the setti
         },
         "_links": {
             "self": {
-                "href": "http://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuicb8700wW0Jq20g3",
+                "href": "https://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuicb8700wW0Jq20g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -360,10 +344,11 @@ The adoption feature is available for all Factor Profiles. It controls the setti
     }
 ```
 
-##### Properties
+##### Adoption Factor Profile Feature Properties
 
 | Property                              | Type                                                           | Description                                                                                                 |
 | ------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `_links`                              | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                                              |
 | `cardinality.max`                     | Number                                                         | The maximum number of factor instances user is allowed to enroll in.                                        |
 | `cardinality.min`                     | Number                                                         | The minimum number of factor instances user must enroll in.                                                 |
 | `created`                             | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was created.                                                      |
@@ -372,7 +357,6 @@ The adoption feature is available for all Factor Profiles. It controls the setti
 | `selfService.eligiblity`              | String                                                         | Indicates if factor may be adopted. Possible values: `ALLOWED`, `NOT_ALLOWED`                               |
 | `selfService.verificationMethod.type` | String                                                         | Indicates which factors may be used to verify an adoption operation. Possible values: `ANY_FACTOR`, `CHAIN` |
 | `type`                                | String (Enum)                                                  | Feature type.                                                                                               |
-| `_links`                              | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                                              |
 
 
 ###### Chain verification
@@ -408,7 +392,7 @@ Chain verification may be used to specify which factor may be used to verify the
         },
         "_links": {
             "self": {
-                "href": "http://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuicb8700wW0Jq20g3",
+                "href": "https://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuicb8700wW0Jq20g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -424,13 +408,13 @@ Chain verification may be used to specify which factor may be used to verify the
 
 | Property                                                         | Type   | Description                                                                              |
 | ---------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------- |
-| `selfService.verificationMethod.chains.criteria.factorProfileId` | String | Profile Id of the authenticator (Factor Profile) that can be used to verify the adoption |
+| `selfService.verificationMethod.chains.criteria.factorProfileId` | String | Id of the Factor Profile that can be used to verify the adoption |
 
- #### Enrollment Source Factor Profile Feature Object
+#### Enrollment Source Factor Profile Feature Object
 
 The enrollment source feature is available for the Email Factor Profile.  It controls the settings used when enrolling an email factor.
 
-##### Example:
+##### Enrollment Source Factor Profile Feature Example:
 
 ```json
     {
@@ -463,19 +447,25 @@ The enrollment source feature is available for the Email Factor Profile.  It con
     }
 ```
 
-##### Properties
+##### Enrollment Source Factor Profile Feature Properties
 
-| Property | Type   | Description                             |
-| -------- | ------ | --------------------------------------- |
-| `source.simpleUserAttribute.name`   | String | The name of the user profile attribute which contains the email address to be used in the factor. |
-| `verification.automatic.enabled` | Boolean | Indicates if automatic verification is enabled.  If `false` the user will be prompted to verify their email address following enrollment.  It `true` the factor will be automatically verified. |
+| Property                          | Type                                                           | Description                                                                                                                                                                                     |
+| --------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `_links`                          | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                                                                                                                                  |
+| `created`                         | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was created.                                                                                                                                          |
+| `id`                              | String                                                         | Identifier of the Factor Profile feature.                                                                                                                                                       |
+| `lastUpdated`                     | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was last modified.                                                                                                                                    |
+| `source.simpleUserAttribute.name` | String                                                         | The name of the user profile attribute which contains the email address to be used in the factor.                                                                                               |
+| `type`                            | String (Enum)                                                  | Feature type.                                                                                                                                                                                   |
+| `verification.automatic.enabled`  | Boolean                                                        | Indicates if automatic verification is enabled.  If `false` the user will be prompted to verify their email address following enrollment.  It `true` the factor will be automatically verified. |
 
 
 #### String Validation Factor Profile Feature Object
 
 The string validation feature is available for the password Factor Profile. It defines the validation contraints on new enrollments with the following attributes:
 
-##### Example
+##### String Validation Factor Profile Feature Example
+
 ```json
     {
         "type": "string_validation",
@@ -512,24 +502,29 @@ The string validation feature is available for the password Factor Profile. It d
     }
 ```
 
-##### Properties
+##### String Validation Factor Profile Feature Properties
 
-| Property   | Type                                                                 | Description           |
-| ----------- | ------------------------------------------------------------------------- | --------------------- |
-| `complexity.minLength` | Integer | Minimum length required. |
-| `complexity.minLowerCase` | Integer | Minimum number of lower case characters required. |
-| `complexity.minUpperCase` | Integer | Minimum number of upper case characters required. |
-| `complexity.minNumbers` | Integer | Minimum number of numerical characters required. |
-| `complexity.minSymbols` | Integer | Minimum number of symbols required. |
-| `exclude.common.source.type` | String (Enum) | Source settings. Possible values: `okta` |
-| `exclude.attributeCriteria` | Array ([Attribute Criterion Object](#string-validation-exclude-attribute-criterion-factor-profile-feature-object)) | Attribute criteria settings (Required but empty allowed). |
+| Property                     | Type                                                                                                               | Description                                                  |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
+| `_links`                     | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | Link relations for this object                               |
+| `complexity.minLength`       | Integer                                                                                                            | Minimum length required.                                     |
+| `complexity.minLowerCase`    | Integer                                                                                                            | Minimum number of lower case characters required.            |
+| `complexity.minNumbers`      | Integer                                                                                                            | Minimum number of numerical characters required.             |
+| `complexity.minSymbols`      | Integer                                                                                                            | Minimum number of symbols required.                          |
+| `complexity.minUpperCase`    | Integer                                                                                                            | Minimum number of upper case characters required.            |
+| `created`                    | String (ISO-8601)                                                                                                  | Timestamp when the Factor Profile feature was created.       |
+| `exclude.attributeCriteria`  | Array ([Attribute Criterion Object](#string-validation-exclude-attribute-criterion-factor-profile-feature-object)) | Attribute criteria settings (Required but empty allowed).    |
+| `exclude.common.source.type` | String (Enum)                                                                                                      | Source settings. Possible values: `okta`                     |
+| `id`                         | String                                                                                                             | Identifier of the Factor Profile feature.                    |
+| `lastUpdated`                | String (ISO-8601)                                                                                                  | Timestamp when the Factor Profile feature was last modified. |
+| `type`                       | String (Enum)                                                                                                      | Feature type.                                                |
 
 
 #### Reuse Factor Profile Feature Object
 
 The reuse feature is available for the password Factor Profile. It defines the reuse contraints on new enrollments with the following attributes:
 
-##### Example:
+##### Reuse Factor Profile Feature Example:
 
 ```json
     {
@@ -556,19 +551,25 @@ The reuse feature is available for the password Factor Profile. It defines the r
     }
 ```
 
-##### Properties
+##### Reuse Factor Profile Feature Properties
 
-| Property   | Type                                                                 | Description           |
-| ----------- | ------------------------------------------------------------------------- | --------------------- |
-| `prevention.numPrevious` | Integer | Number of previously used values to disallow. |
-| `prevention.minimumAge` | String (ISO-8601)  | Minimum age of enrollment before change is allowed (Optional). |
+| Property                 | Type                                                 | Description                                                    |
+| ------------------------ | ---------------------------------------------------- | -------------------------------------------------------------- |
+| `_links`                 | [Links Object](#factor-profile-feature-links-object) | Link relations for this object                                 |
+| `created`                | String (ISO-8601)                                    | Timestamp when the Factor Profile feature was created.         |
+| `id`                     | String                                               | Identifier of the Factor Profile feature.                      |
+| `lastUpdated`            | String (ISO-8601)                                    | Timestamp when the Factor Profile feature was last modified.   |
+| `prevention.minimumAge`  | String (ISO-8601)                                    | Minimum age of enrollment before change is allowed (Optional). |
+| `prevention.numPrevious` | Integer                                              | Number of previously used values to disallow.                  |
+| `type`                   | String (Enum)                                        | Feature type.                                                  |
 
 
 #### Token Security Factor Profile Feature Object
 
-The token security  feature is available for the Email Factor Profile.  It controls the settings that govern the tokens issued by the email factor.
+The token security feature is available for the Email Factor Profile.  It controls the settings that govern the tokens issued by the email factor.
 
-##### Example
+##### Token Security Factor Profile Feature Example
+
 ```json
     {
         "type": "token_security",
@@ -582,7 +583,7 @@ The token security  feature is available for the Email Factor Profile.  It contr
         },
         "_links": {
             "self": {
-                "href": "http://{yourOktaDomain}/api/v1/org/factors/okta_email/profiles/fpruib7klOvW4pAuK0g3/features/fpfuifa1aEuPznkem0g3",
+                "href": "https://{yourOktaDomain}/api/v1/org/factors/okta_email/profiles/fpruib7klOvW4pAuK0g3/features/fpfuifa1aEuPznkem0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -595,17 +596,23 @@ The token security  feature is available for the Email Factor Profile.  It contr
     }
 ```
 
-##### Properties
+##### Token Security Factor Profile Feature Properties
 
-| Property | Type   | Description                                                 |
-| -------- | ------ | ----------------------------------------------------------- |
-| `lifespan.ttl.period` | String | Token lifespan specified as an ISO 8601 duration |
+| Property              | Type                                                           | Description                                                  |
+| --------------------- | -------------------------------------------------------------- | ------------------------------------------------------------ |
+| `_links`              | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                               |
+| `created`             | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was created.       |
+| `id`                  | String                                                         | Identifier of the Factor Profile feature.                    |
+| `lastUpdated`         | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was last modified. |
+| `lifespan.ttl.period` | String                                                         | Token lifespan specified as an ISO 8601 duration             |
+| `type`                | String (Enum)                                                  | Feature type.                                                |
 
 #### Recovery Factor Profile Feature Object
 
 The recovery feature is available for all Factor Profiles.  It controls the settings that govern how a user can recover if they lose access to an authenticator (Factor Profile)
 
-##### Example
+##### Recovery Factor Profile Feature Example
+
 ```json
 {
     "type": "recovery",
@@ -618,7 +625,7 @@ The recovery feature is available for all Factor Profiles.  It controls the sett
     },
     "_links": {
         "self": {
-            "href": "http://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuidgo5kiGGK3WU0g3",
+            "href": "https://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuidgo5kiGGK3WU0g3",
             "hints": {
                 "allow": [
                     "GET",
@@ -631,14 +638,20 @@ The recovery feature is available for all Factor Profiles.  It controls the sett
 }
 ```
 
-##### Properties
+##### Recovery Factor Profile Feature Properties
 
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `eligiblity`      | String  | Indicates if factor may be recovered. Possible values: `ALLOWED`, `NOT_ALLOWED` |
-| `verificationMethod.type`      | String | Indicates which factors may be used to verify a recover operation. Possible values: `ANY_FACTOR`, `CHAIN` |
+| Property                  | Type                                                           | Description                                                                                               |
+| ------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `_links`                  | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                                            |
+| `created`                 | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was created.                                                    |
+| `eligiblity`              | String                                                         | Indicates if factor may be recovered. Possible values: `ALLOWED`, `NOT_ALLOWED`                           |
+| `id`                      | String                                                         | Identifier of the Factor Profile feature.                                                                 |
+| `lastUpdated`             | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was last modified.                                              |
+| `type`                    | String (Enum)                                                  | Feature type.                                                                                             |
+| `verificationMethod.type` | String                                                         | Indicates which factors may be used to verify a recover operation. Possible values: `ANY_FACTOR`, `CHAIN` |
 
 ###### Chain verification
+
 Chain verification may be used to specify which factor may be used to verify the recovery
 
 ###### Example
@@ -663,7 +676,7 @@ Chain verification may be used to specify which factor may be used to verify the
     },
     "_links": {
         "self": {
-            "href": "http://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuidgo5kiGGK3WU0g3",
+            "href": "https://{yourOktaDomain}/api/v1/org/factors/{factorType}/profiles/fpruib7klOvW4pAuK0g3/features/fpfuidgo5kiGGK3WU0g3",
             "hints": {
                 "allow": [
                     "GET",
@@ -677,14 +690,19 @@ Chain verification may be used to specify which factor may be used to verify the
 ```
 ###### Properties
 
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `verificationMethod.chains.criteria.factorProfileId`      | String       | Profile Id of the authenticator (Factor Profile) that can be used to verify the recovery |
+| Property                                             | Type                                                           | Description                                                                              |
+| ---------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `_links`                                             | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                           |
+| `created`                                            | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was created.                                   |
+| `id`                                                 | String                                                         | Identifier of the Factor Profile feature.                                                |
+| `lastUpdated`                                        | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was last modified.                             |
+| `type`                                               | String (Enum)                                                  | Feature type.                                                                            |
+| `verificationMethod.chains.criteria.factorProfileId` | String                                                         | Profile Id of the authenticator (Factor Profile) that can be used to verify the recovery |
 
 
 ### Factor Profile Feature Links Object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current Factor Profile feature. The Links Object is used for dynamic discovery of related resources.  The Links Object is **read-only**.
+Specifies link relations (See [Web Linking](https://tools.ietf.org/html/rfc5988)) available for the current Factor Profile feature. The Links Object is used for dynamic discovery of related resources.  The Links Object is **read-only**.
 
 | Property | Type   | Description                 |
 | -------- | ------ | --------------------------- |
