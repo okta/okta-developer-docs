@@ -229,7 +229,7 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
 
 ## Identifier Match Policy Object
 
-The Identifier Match Object determines which user profile attributes are used to check for matches between the incoming user and existing Okta User Profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
+The Identifier Match Policy Object determines which user profile attributes are used to check for matches between the user entering the Identity Engine Pipeline and existing Okta User Profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
 
 | Property | Type    | Description                                                                                  |
 |----------|---------|----------------------------------------------------------------------------------------------|
@@ -273,8 +273,8 @@ The Identifier Match Object determines which user profile attributes are used to
 
 | Property    | Type                                                                                  | Description                                                                                                                                |
 |-------------|---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| name        | String                                                                                | Human-readable name for the Policy, configurable during creation or updating.                                                              |
-| id          | String                                                                                | Unique identifier for this Policy (read-only)                                                                                              |
+| name        | String                                                                                | Human-readable name for the Rule, configurable during creation or updating.                                                                |
+| id          | String                                                                                | Unique identifier for this Rule (read-only).                                                                                               |
 | type        | String                                                                                | Type of the policy. For Identifier Match Rule Objects, this needs to be `Okta:IdentifierMatch`.                                            |
 | priority    | Integer                                                                               | Used to determine which rules take precedence.                                                                                             |
 | conditions  | Array                                                                                 | No conditions are supported for this rule type, so this must be an empty array.                                                            |
@@ -285,12 +285,12 @@ The Identifier Match Object determines which user profile attributes are used to
 
 #### Identifier Match Rule Requirement Object
 
-| Property              | Type   | Description                                                                                                                                                                                                  |
-|-----------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| identifyingAttributes | Array  | User profile attributes to match. For each, you need to specify the valid ID of a `userType` that the attribute is a part of, as well as the name of an `attribute` in the Profile schema of that User Type. |
-| onConflictingUser     | String | Whether to proceed if more than one match is found. Can be `ALLOW` or `DENY`.|                                                                                                                               |                                                                        |
+| Property              | Type   | Description                                                                                                                                 |
+|-----------------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| identifyingAttributes | Array  | User profile attributes to match. For each user profile attribute, you need to specify the `userType` ID, as well as the  `attribute` name. |
+| onConflictingUser     | String | Whether to proceed if more than one match is found. Can be `ALLOW` or `DENY`.|                                                              |                                                                       |
  
-### Identifier Match Rule Object
+### Identifier Match Rule Object Example
 
 ```json
 {
