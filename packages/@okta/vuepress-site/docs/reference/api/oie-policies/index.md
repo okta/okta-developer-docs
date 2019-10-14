@@ -285,10 +285,10 @@ The Identifier Match Policy Object determines which user profile attributes are 
 
 #### Identifier Match Rule Requirement Object
 
-| Property              | Type   | Description                                                                                                                                 |
-|-----------------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| identifyingAttributes | Array  | User profile attributes to match. For each user profile attribute, you need to specify the `userType` ID, as well as the  `attribute` name. |
-| onConflictingUser     | String | Whether to proceed if more than one match is found. Can be `ALLOW` or `DENY`.|                                                              |                                                                       |
+| Property                   | Type   | Description                                                                                                                                 |
+|----------------------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| identifyingAttributes      | Array  | User profile attributes to match. For each user profile attribute, you need to specify the `userType` ID, as well as the  `attribute` name. |
+| `onConflictingUser.action` | String | Whether to proceed if more than one match is found. Currently, only `DENY` is supported.||                                                  |
  
 ### Identifier Match Rule Object Example
 
