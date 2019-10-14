@@ -14,7 +14,7 @@ Code and resources for your platform.
   <Card href="/code/react-native/" :showHeaderIcon=true headerIcon="code-react" :showFooter=false>React Native</Card>
 </Cards>
 
-## Front-end
+## Front End
 
 <Cards class="cols-4">
   <Card href="/code/angular/" :showHeaderIcon=true headerIcon="code-angular" :showFooter=false cardTitle="Test">Angular</Card>
@@ -23,7 +23,7 @@ Code and resources for your platform.
   <Card href="/code/vue/" :showHeaderIcon=true headerIcon="code-vue" :showFooter=false>Vue.js</Card>
 </Cards>
 
-## Back-end
+## Back End
 
 <Cards class="cols-4">
   <Card href="/code/go/" :showHeaderIcon=true headerIcon="code-go" :showFooter=false>Go</Card>
