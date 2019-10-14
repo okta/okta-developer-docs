@@ -113,7 +113,7 @@ Okta Identity Engine introduces a set of new Policy and Rule objects that are di
 * [User Profile Policy Object](#user-profile-policy-object)
 * [User Profile Rule Object](#user-profile-rule-object)
 
-Default instances of each Policy type are created automatically when Okta Identity Engine is enabled for your org. Each of the default Policy objects also has a default rule that is created automatically.
+Default instances of each Policy type are created automatically when Okta Identity Engine is enabled for your org. Each of the default Policy objects also has a default Rule that is created automatically.
 
 ### IdP Routing Policy Object
 
@@ -165,12 +165,12 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
 | name        | String                                                                      | Human-readable name for this Rule, configurable during creation or updating.        |
 | id          | String                                                                      | Unique identifier for this Rule (read-only).                                        |
 | type        | String                                                                      | Type of the Rule. For IdP Routing Rule objects, this needs to be `Okta:IdpRouting`. |
-| priority    | Integer                                                                     | Used to determine which rules take precedence.                                      |
-| conditions  | Array                                                                       | No conditions are supported for this rule type, so this must be an empty array.     |
+| priority    | Integer                                                                     | Used to determine which Rules take precedence.                                      |
+| conditions  | Array                                                                       | No conditions are supported for this Rule type, so this must be an empty array.     |
 | action      | String                                                                      | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.          |
 | requirement | [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object) | Specifies the IdP to use.                                                           |
 | status      | String                                                                      | `ACTIVE`  or  `INACTIVE`.                                                           |
-| default     | Boolean                                                                     | `true` for the first instance of this rule, which gets created by default.          |
+| default     | Boolean                                                                     | `true` for the first instance of this Rule, which gets created by default.          |
 
 #### IdP Routing Rule Requirement Object
 
@@ -276,12 +276,12 @@ The Identifier Match Policy Object determines which user profile attributes are 
 | name        | String                                                                                | Human-readable name for the Rule, configurable during creation or updating.                                        |
 | id          | String                                                                                | Unique identifier for this Rule (read-only).                                                                       |
 | type        | String                                                                                | Type of the policy. For Identifier Match Rule Objects, this needs to be `Okta:IdentifierMatch`.                    |
-| priority    | Integer                                                                               | Used to determine which rules take precedence.                                                                     |
-| conditions  | Array                                                                                 | No conditions are supported for this rule type, so this must be an empty array.                                    |
+| priority    | Integer                                                                               | Used to determine which Rules take precedence.                                                                     |
+| conditions  | Array                                                                                 | Identifier and App conditions are supported for this Rule type.                                                    |
 | action      | String                                                                                | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                                         |
 | requirement | [Identifier Match Rule Requirement Object](#identifier-match-rule-requirement-object) | Specifies the user profile attributes to match against, as well as the action to take in case of multiple matches. |
 | status      | String                                                                                | `ACTIVE`  or  `INACTIVE`.                                                                                          |
-| default     | Boolean                                                                               | `true` for the first instance of this rule, which gets created by default.                                         |
+| default     | Boolean                                                                               | `true` for the first instance of this Rule, which gets created by default.                                         |
 
 #### Identifier Match Rule Requirement Object
 
@@ -347,7 +347,7 @@ The Identifier Match Policy Object determines which user profile attributes are 
 
 ## Unknown User Policy Object
 
-The Unknown User Policy determines whether a user who has not been found to match with any existing Okta User Profiles is allowed to register and, if so, what User Type they should be assigned.
+The Unknown User Policy determines whether a user who has not been found to match with any existing Okta User Profiles is allowed to register and, if so, what User Type they should be assigned. One Unknown User Policy object is created by default. You cannot create additional Unknown User Policy objects.
 
 | Property | Type    | Description                                                                              |
 |----------|---------|------------------------------------------------------------------------------------------|
@@ -395,12 +395,12 @@ The Unknown User Policy determines whether a user who has not been found to matc
 | name        | String                                                                       | Human-readable name for the Rule, configurable during creation or updating.                        |
 | id          | String                                                                       | Unique identifier for this Rule (read-only)                                                        |
 | type        | String                                                                       | Type of the Rule. For Identifier Match Rule Objects, this needs to be `Okta:UnknownUser`.          |
-| priority    | Integer                                                                      | Used to determine which rules take precedence.                                                     |
-| conditions  | Array                                                                        | No conditions are supported for this rule type, so this must be an empty array.                    |
+| priority    | Integer                                                                      | Used to determine which Rules take precedence.                                                     |
+| conditions  | Array                                                                        | No conditions are supported for this Rule type, so this must be an empty array.                    |
 | action      | String                                                                       | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                         |
 | requirement | [Unknown User Rule Requirement Object](#unknow-user-rule-requirement-object) | Specifies whether to allow an unknown user to register and, if so, what User Type to use for them. |
 | status      | String                                                                       | `ACTIVE`  or  `INACTIVE`.                                                                          |
-| default     | Boolean                                                                      | `true` for the first instance of this rule, which gets created by default.                         |
+| default     | Boolean                                                                      | `true` for the first instance of this Rule, which gets created by default.                         |
 
 #### Unknown User Rule Requirement Object
 
@@ -499,17 +499,17 @@ The Sign On Policy Object determines which authentication factors to prompt user
 
 ## Sign On Rule Object
 
-| Property    | Type                                                                | Description                                                                          |
-|-------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| name        | String                                                              | Human-readable name for the Rule, configurable during creation or updating.          |
-| id          | String                                                              | Unique identifier for this Rule (read-only).                                         |
-| type        | String                                                              | Type of the Rule. For Identifier Match Rule Objects, this needs to be `Okta:SignOn`. |
-| priority    | Integer                                                             | Used to determine which rules take precedence.                                       |
-| conditions  | Array                                                               | No conditions are supported for this rule type, so this must be an empty array.      |
-| action      | String                                                              | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.           |
-| requirement | [Sign On Rule Requirement Object](#sign-on-rule-requirement-object) | Specifies credentials to prompt user for.                                            |
-| status      | String                                                              | `ACTIVE`  or  `INACTIVE`.                                                            |
-| default     | Boolean                                                             | `true` for the first instance of this Rule, which gets created by default.           |
+| Property    | Type                                                                | Description                                                                           |
+|-------------|---------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| name        | String                                                              | Human-readable name for the Rule, configurable during creation or updating.           |
+| id          | String                                                              | Unique identifier for this Rule (read-only).                                          |
+| type        | String                                                              | Type of the Rule. For Identifier Match Rule Objects, this needs to be `Okta:SignOn`.  |
+| priority    | Integer                                                             | Used to determine which Rules take precedence.                                        |
+| conditions  | Array                                                               | UserType, User, Group and various Device conditions are supported for this rule type. |
+| action      | String                                                              | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.            |
+| requirement | [Sign On Rule Requirement Object](#sign-on-rule-requirement-object) | Specifies credentials to prompt user for.                                             |
+| status      | String                                                              | `ACTIVE`  or  `INACTIVE`.                                                             |
+| default     | Boolean                                                             | `true` for the first instance of this Rule, which gets created by default.            |
 
 #### Sign On Rule Requirement Object
 
@@ -599,17 +599,17 @@ The User Profile Object determines which user profile attributes to require user
 
 ## User Profile Rule Object
 
-| Property    | Type                                                                | Description                                                                          |
-|-------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| name        | String                                                              | Human-readable name for the Rule, configurable during creation or updating.          |
-| id          | String                                                              | Unique identifier for this Rule (read-only).                                         |
-| type        | String                                                              | Type of the Rule. For Identifier Match Rule Objects, this needs to be `Okta:SignOn`. |
-| priority    | Integer                                                             | Used to determine which rules take. precedence.                                      |
-| conditions  | Array                                                               | No conditions are supported for this Rule. type, so this must be an empty array.     |
-| action      | String                                                              | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.           |
-| requirement | [Sign On Rule Requirement Object](#sign-on-rule-requirement-object) | Specifies profile attributes to prompt user for.                                     |
-| status      | String                                                              | `ACTIVE`  or  `INACTIVE`.                                                            |
-| default     | Boolean                                                             | `true` for the first instance of this rule, which gets created by default.           |
+| Property    | Type                                                                          | Description                                                                           |
+|-------------|-------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| name        | String                                                                        | Human-readable name for the Rule, configurable during creation or updating.           |
+| id          | String                                                                        | Unique identifier for this Rule (read-only).                                          |
+| type        | String                                                                        | Type of the Rule. For Identifier Match Rule Objects, this needs to be `Okta:SignOn`.  |
+| priority    | Integer                                                                       | Used to determine which Rules take. precedence.                                       |
+| conditions  | Array                                                                         | UserType, User, Group and various Device conditions are supported for this rule type. |
+| action      | String                                                                        | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.            |
+| requirement | [User Profile Rule Requirement Object](#user-profile-rule-requirement-object) | Specifies profile attributes to prompt user for.                                      |
+| status      | String                                                                        | `ACTIVE`  or  `INACTIVE`.                                                             |
+| default     | Boolean                                                                       | `true` for the first instance of this Rule, which gets created by default.            |
 
 #### User Profile Rule Requirement Object
 
@@ -655,7 +655,7 @@ The User Profile Object determines which user profile attributes to require user
 ```
 ## Mappings Between Apps and Policies
 
-Mappings specify which Policies apply to which Apps. You call the `/policies/${policyId}/mappings` endpoint to set a mapping. You cannot update mappings once you have created them.
+Mappings specify which Policies apply to which Apps. You call the `/policies/${policyId}/mappings` endpoint to set a mapping. You cannot update mappings once you have created them. Only deletion is allowed.
 
 Mappings can be used with the following Policy types:
 
@@ -673,7 +673,7 @@ The following Policy types apply universally, and mappings cannot be used with t
 | Property     | Type   | Description              |
 |--------------|--------|--------------------------|
 | resourceType | String | Must be `APP`.           |
-| resourceID   | String | A valid App Instance ID. |
+| resourceId   | String | A valid App Instance ID. |
 
 #### Mappings Path Parameter
 
