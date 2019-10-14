@@ -347,7 +347,7 @@ The Identifier Match Policy Object determines which user profile attributes are 
 
 ## Unknown User Policy Object
 
-The Unknown User Policy is evaluated if a match was not found with an existing User Profile and determines whether the user is allowed to register and, if so, what User Type they should be assigned.
+The Unknown User Policy determines whether a user who has not been found to match with any existing Okta User Profiles is allowed to register and, if so, what User Type they should be assigned.
 
 | Property | Type    | Description                                                                              |
 |----------|---------|------------------------------------------------------------------------------------------|
