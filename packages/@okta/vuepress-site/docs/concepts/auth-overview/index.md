@@ -286,3 +286,7 @@ app -> client: Response
 -->
 
 For information on how to set up your application to use this flow, see [Implement the Client Credentials Flow](/docs/guides/implement-client-creds/).
+
+## Authorization Servers
+
+For information on authorization servers, how they work, and how you can use them, see [Authorization Servers](/docs/concepts/auth-servers).
