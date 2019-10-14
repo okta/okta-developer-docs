@@ -160,17 +160,17 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
 
 ### IdP Routing Rule Object
 
-| Property    | Type                                                                        | Description                                                                             |
-|-------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| name        | String                                                                      | Human-readable name for the Policy, configurable during creation or updating.           |
-| id          | String                                                                      | Unique identifier for this Policy (read-only)                                           |
-| type        | String                                                                      | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdpRouting`. |
-| priority    | Integer                                                                     | Used to determine which rules take precedence.                                          |
-| conditions  | Array                                                                       | No conditions are supported for this rule type, so this must be an empty array.         |
-| action      | String                                                                      | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.              |
-| requirement | [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object) | Specifies the IdP to use.                                                               |
-| status      | String                                                                      | `ACTIVE`  or  `INACTIVE`.                                                                            |
-| default     | Boolean                                                                     | `true` for the first instance of this rule, which gets created by default.              |
+| Property    | Type                                                                        | Description                                                                         |
+|-------------|-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| name        | String                                                                      | Human-readable name for this Rule, configurable during creation or updating.        |
+| id          | String                                                                      | Unique identifier for this Rule (read-only).                                        |
+| type        | String                                                                      | Type of the Rule. For IdP Routing Rule objects, this needs to be `Okta:IdpRouting`. |
+| priority    | Integer                                                                     | Used to determine which rules take precedence.                                      |
+| conditions  | Array                                                                       | No conditions are supported for this rule type, so this must be an empty array.     |
+| action      | String                                                                      | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.          |
+| requirement | [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object) | Specifies the IdP to use.                                                           |
+| status      | String                                                                      | `ACTIVE`  or  `INACTIVE`.                                                           |
+| default     | Boolean                                                                     | `true` for the first instance of this rule, which gets created by default.          |
 
 #### IdP Routing Rule Requirement Object
 
