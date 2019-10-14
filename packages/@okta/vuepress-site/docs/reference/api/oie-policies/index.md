@@ -392,9 +392,9 @@ The Unknown User Policy determines whether a user who has not been found to matc
 
 | Property    | Type                                                                         | Description                                                                                        |
 |-------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| name        | String                                                                       | Human-readable name for the Policy, configurable during creation or updating.                      |
-| id          | String                                                                       | Unique identifier for this Policy (read-only)                                                      |
-| type        | String                                                                       | Type of the policy. For Identifier Match Rule Objects, this needs to be `Okta:UnknownUser`.        |
+| name        | String                                                                       | Human-readable name for the Rule, configurable during creation or updating.                        |
+| id          | String                                                                       | Unique identifier for this Rule (read-only)                                                        |
+| type        | String                                                                       | Type of the Rule. For Identifier Match Rule Objects, this needs to be `Okta:UnknownUser`.          |
 | priority    | Integer                                                                      | Used to determine which rules take precedence.                                                     |
 | conditions  | Array                                                                        | No conditions are supported for this rule type, so this must be an empty array.                    |
 | action      | String                                                                       | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                         |
