@@ -285,10 +285,10 @@ The Identifier Match Policy Object determines which user profile attributes are 
 
 #### Identifier Match Rule Requirement Object
 
-| Property                   | Type   | Description                                                                                                                                 |
-|----------------------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| identifyingAttributes      | Array  | User profile attributes to match. For each user profile attribute, you need to specify the `userType` ID, as well as the  `attribute` name. |
-| `onConflictingUser.action` | String | Whether to proceed if more than one match is found. Currently only `DENY` is supported.||                                                  |
+| Property                 | Type   | Description                                                                                                                                |
+|--------------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| identifyingAttributes    | Array  | User profile attributes to match. For each user profile attribute, you need to specify the `userType` ID, as well as the `attribute` name. |
+| onConflictingUser.action | String | Whether to proceed if more than one match is found. Currently only `DENY` is supported.                                                    |
  
 ### Identifier Match Rule Object Example
 
@@ -407,9 +407,9 @@ The Unknown User Policy determines whether a user who has not been found to matc
 |-------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | name        | String                                                                       | Human-readable name for the Rule, configurable during creation or updating.                        |
 | id          | String                                                                       | Unique identifier for this Rule (read-only)                                                        |
-| type        | String                                                                       | Type of the Rule. For Identifier Match Rule Objects, this needs to be `Okta:UnknownUser`.          |
+| type        | String                                                                       | Type of the Rule. For Unknown User Rule Objects, this needs to be `Okta:UnknownUser`.              |
 | priority    | Integer                                                                      | Used to determine which Rules take precedence.                                                     |
-| conditions  | Array                                                                        | No conditions are supported for this Rule type, so this must be an empty array.                    |
+| conditions  | Array                                                                        | Identifier and App conditions are supported for this Rule type.                                    |
 | action      | String                                                                       | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                         |
 | requirement | [Unknown User Rule Requirement Object](#unknow-user-rule-requirement-object) | Specifies whether to allow an unknown user to register and, if so, what User Type to use for them. |
 | status      | String                                                                       | `ACTIVE`  or  `INACTIVE`.                                                                          |
@@ -430,7 +430,20 @@ The Unknown User Policy determines whether a user who has not been found to matc
     "type": "Okta:UnknownUser",
     "priority": 0,
     "action": "ALLOW",
-    "conditions": [], 
+    "conditions": [
+        {
+            "key": "Okta:Identifier",
+            "op": "STRING_ENDS_WITH",
+            "value": "idx.com"
+        },
+        {
+            "key": "Okta:AppInstance",
+            "op": "IN_LIST",
+            "value": [
+            	"{{appInstanceId}}"
+        	]
+        }
+    ], 
     "requirement": {
         "noUserMatch": {
             "action": "REGISTER", 
