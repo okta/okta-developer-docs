@@ -59,8 +59,8 @@
           return this.$site.themeConfig.sidebars.codePages
         }
 
-        if (this.$page.path == '/docs/reference/') {
-          return this.$site.themeConfig.sidebars.reference
+        if (this.$page.path == '/docs/concepts/') {
+          return this.$site.themeConfig.sidebars.concepts
         }
 
         return this.$site.themeConfig.sidebars.main

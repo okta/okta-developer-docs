@@ -34,6 +34,14 @@
           return crumbs;
         }
 
+        if(this.$page.path.startsWith('/docs/concepts/')) {
+          crumbs.push(
+            {path: '/docs/', title: 'Docs'},
+            {path: '/docs/concepts/', title: 'Concepts' },
+          );
+          return crumbs;
+        }
+
         if(this.$page.path == '/reference/' || this.$page.path.startsWith('/code/')) {
           crumbs.push({path: '/docs/', title: 'DOCS'})
           return crumbs

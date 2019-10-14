@@ -1,6 +1,6 @@
 ---
 layout: Landing
-title: API Reference
+title: Languages and SDKs
 ---
 
 # Languages & SDKs
