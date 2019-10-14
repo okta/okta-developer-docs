@@ -8,9 +8,9 @@ title: Okta Identity Engine Policy API
 
 Okta Identity Engine adds new Policy objects to the Okta `/policies` API, to control and configure the behavior of the steps of the Okta Identity Engine Pipeline.
 
-During the Limited EA phase, Okta Identity Engine is enabled or disabled for an org as a whole. If Okta Identity Engine is enabled for an org, these new Policies control the pipeline that end users progress through when accessing OpenID Connect apps. You cannot mix old Policy and Rule objects with new Okta Identity Engine objects; old Policy and Rule objects do not affect the new pipeline.
+During the Limited EA phase, Okta Identity Engine is enabled or disabled for an org as a whole. If Okta Identity Engine is enabled for an org, these new Policies control the pipeline through which end users progress when accessing OpenID Connect apps. You cannot mix old Policy and Rule objects with new Okta Identity Engine objects; old Policy and Rule objects do not affect the new pipeline.
 
-API endpoints for creating, getting, and updating Policy and Rule objects function the same way in Okta Identity Engine as they do in the existing Okta `/policies` API; only the objects used are different, with Okta Identity Engine introducing a set of new Policy and Rule objects. See the [Okta Identity Engine Policy Objects](#okta-identity-enging-policy-objects) section of this document for descriptions of the objects.
+API endpoints for listing, getting, creating, updating and deleting Policy and Rule objects function the same way in Okta Identity Engine as they do in the existing Okta `/policies` API; only the objects used are different, with Okta Identity Engine introducing a set of new Policy and Rule objects. See the [Okta Identity Engine Policy Objects](#okta-identity-enging-policy-objects) section of this document for descriptions of the objects.
 
 Each Policy object, as well as a Rule for it, needs to exist, in order for Okta Identity Engine to function. One of each is created by default when Okta Identity Engine is enabled for an org.
 
@@ -33,15 +33,15 @@ API endpoints for creating, getting, and updating Policy and Rule objects functi
  
 ### Sample Operation: Get Policy
 
-<ApiOperation method="get" url="/policies/${PolicyID}" />
+<ApiOperation method="get" url="/policies/${policyId}" />
 
-Given a `PolicyID` identifier, returns a [Policy Object](#okta-identity-engine-policy-objects).
+Given a `policyId` identifier, returns a [Policy Object](#okta-identity-engine-policy-objects).
 
 #### Request Body
 
 | Property | Type   | Description                          |
 |----------|--------|--------------------------------------|
-| PolicyID | String | The unique identifier of the Policy. |
+| policyId | String | The unique identifier of the Policy. |
 
 #### Request Query Parameters
 
@@ -176,7 +176,7 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
 
 | Property | Type   | Description                    |
 |----------|--------|--------------------------------|
-| idpId    | String | Currently, must be 'OKTA'.     |
+| idpId    | String | Currently, must be `OKTA`.     |
 | type     | String | Currently, must be `okta_idp`. |
  
 ### IdP Routing Rule Object Example
@@ -422,7 +422,7 @@ The Unknown User Policy determines whether a user who has not been found to matc
         "noUserMatch": {
             "action": "REGISTER", 
             "registration": {
-                "defaultUserType": "${userTypeId}}" 
+                "defaultUserType": "${userTypeId}" 
             }
         }
     }
@@ -630,7 +630,7 @@ The User Profile Object determines which user profile attributes to require user
     "requirement": {
         "preRegistrationInlineHooks": [
             {
-                "inlineHookId": "{{inlineHookId}}"
+                "inlineHookId": "${inlineHookId}"
             }
         ],
         "profileAttributes": [
@@ -692,7 +692,7 @@ curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 	"resourceType": "APP",
-	"resourceId": "{{appInstanceId}}"
+	"resourceId": "${appInstanceId}"
 }' \
 "https://${yourOktaDomain}/api/v1/policies/${policyId}/mappings"
 ```
