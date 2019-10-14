@@ -1952,6 +1952,377 @@ curl -v -X GET \
   }
 ]
 ```
+## Device User Links
+
+For more information on Device and User link, please refer [Devices User Link](/docs/reference/api/devices/#device-user-link) in Devices API reference. 
+
+### Device User Link operations for a Device
+
+Please refer [Device User operations](/docs/reference/api/devices/#related-resources) in Users API.
+
+### List Devices Linked to a User
+
+<ApiOperation method="get" url="/api/v1/users/${userId}/devices" />
+
+Gets a list of devices linked to a user. 
+
+##### Request Path Parameters
+
+| Parameter   | Type   | Description                                                             |
+| ----------- | ------ | ----------------------------------------------------------------------- |
+| `userId`    | String | The `id` of [User](/docs/reference/api/users/#user-model) object        |
+
+##### Request Query Parameters
+
+None
+
+##### Request Body
+
+None
+
+##### Response Body
+
+Array of [User](/docs/reference/api/users/#user-model)
+
+##### Usage Example
+
+###### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://{yourOktaDomain}/api/v1/users/00u284bTkggwjV2Lv0w4/devices"
+```
+
+###### Response
+
+```json
+[
+    {
+        "created": "2019-09-16T20:29:03.000Z",
+        "device": {
+            "id": "guo1zvpLitWksBmKx0w4",
+            "status": "ACTIVE",
+            "created": "2019-09-16T20:29:03.000Z",
+            "lastUpdated": "2019-09-16T20:29:05.000Z",
+            "profile": {
+                "displayName": "DIP-RLMWYH4G",
+                "platform": "WINDOWS",
+                "manufacturer": null,
+                "model": null,
+                "osVersion": null,
+                "serialNumber": null,
+                "imei": null,
+                "meid": null,
+                "udid": null,
+                "sid": "S-1-000828156971811489-0"
+            },
+            "_links": {
+                "suspend": {
+                    "href": "https://{yourOktaDomain}/api/v1/devices/guo1zvpLitWksBmKx0w4/lifecycle/suspend",
+                    "hints": {
+                        "allow": [
+                            "POST"
+                        ]
+                    }
+                },
+                "self": {
+                    "href": "https://{yourOktaDomain}/api/v1/devices/guo1zvpLitWksBmKx0w4",
+                    "hints": {
+                        "allow": [
+                            "GET",
+                            "PATCH",
+                            "PUT"
+                        ]
+                    }
+                },
+                "users": {
+                    "href": "https://{yourOktaDomain}/api/v1/devices/guo1zvpLitWksBmKx0w4/users",
+                    "hints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                },
+                "deactivate": {
+                    "href": "https://{yourOktaDomain}/api/v1/devices/guo1zvpLitWksBmKx0w4/lifecycle/deactivate",
+                    "hints": {
+                        "allow": [
+                            "POST"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "created": "2019-09-16T20:31:59.000Z",
+        "device": {
+            "id": "guo2hpaP3ggAbesL50w4",
+            "status": "ACTIVE",
+            "created": "2019-09-16T20:31:57.000Z",
+            "lastUpdated": "2019-09-16T20:31:59.000Z",
+            "profile": {
+                "displayName": "DIP-IGYERXW4",
+                "platform": "WINDOWS",
+                "manufacturer": null,
+                "model": null,
+                "osVersion": null,
+                "serialNumber": null,
+                "imei": null,
+                "meid": null,
+                "udid": null,
+                "sid": "S-1-000591625447946176-0"
+            },
+            "_links": {
+                "suspend": {
+                    "href": "https://{yourOktaDomain}/api/v1/devices/guo2hpaP3ggAbesL50w4/lifecycle/suspend",
+                    "hints": {
+                        "allow": [
+                            "POST"
+                        ]
+                    }
+                },
+                "self": {
+                    "href": "https://{yourOktaDomain}/api/v1/devices/guo2hpaP3ggAbesL50w4",
+                    "hints": {
+                        "allow": [
+                            "GET",
+                            "PATCH",
+                            "PUT"
+                        ]
+                    }
+                },
+                "users": {
+                    "href": "https://{yourOktaDomain}/api/v1/devices/guo2hpaP3ggAbesL50w4/users",
+                    "hints": {
+                        "allow": [
+                            "GET"
+                        ]
+                    }
+                },
+                "deactivate": {
+                    "href": "https://{yourOktaDomain}/api/v1/devices/guo2hpaP3ggAbesL50w4/lifecycle/deactivate",
+                    "hints": {
+                        "allow": [
+                            "POST"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+]
+```
+
+###### Error Response
+
+* Passing an invalid User `id` returns a `404 Not Found` status code with error code `E0000007`.
+
+
+### Get a Device Linked to a User
+
+<ApiOperation method="get" url="/api/v1/users/${userId}/devices/${deviceId}" />
+
+Gets a Device linked to a user. 
+
+##### Request Path Parameters
+
+| Parameter   | Type   | Description                                                             |
+| ----------- | ------ | ----------------------------------------------------------------------- |
+| `userId`    | String | The `id` of [User](/docs/reference/api/users/#user-model) object        |
+| `deviceId`  | String | The `id` of [Device](/docs/reference/api/devices/#device-model) object  |
+
+##### Request Query Parameters
+
+None
+
+##### Request Body
+
+None
+
+##### Response Body
+
+The linked [Device](/docs/reference/api/devices/#device-model)
+
+##### Usage Example
+
+###### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://{yourOktaDomain}/api/v1/users/00u284bTkggwjV2Lv0w4/devices/guo1zvpLitWksBmKx0w4"
+```
+
+###### Response
+
+```json
+{
+    "created": "2019-09-16T20:29:03.000Z",
+    "device": {
+        "id": "guo1zvpLitWksBmKx0w4",
+        "status": "ACTIVE",
+        "created": "2019-09-16T20:29:03.000Z",
+        "lastUpdated": "2019-09-16T20:29:05.000Z",
+        "profile": {
+            "displayName": "DIP-RLMWYH4G",
+            "platform": "WINDOWS",
+            "manufacturer": null,
+            "model": null,
+            "osVersion": null,
+            "serialNumber": null,
+            "imei": null,
+            "meid": null,
+            "udid": null,
+            "sid": "S-1-000828156971811489-0"
+        },
+        "_links": {
+            "suspend": {
+                "href": "https://{yourOktaDomain}/api/v1/devices/guo1zvpLitWksBmKx0w4/lifecycle/suspend",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            },
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/devices/guo1zvpLitWksBmKx0w4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PATCH",
+                        "PUT"
+                    ]
+                }
+            },
+            "users": {
+                "href": "https://{yourOktaDomain}/api/v1/devices/guo1zvpLitWksBmKx0w4/users",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            "deactivate": {
+                "href": "https://{yourOktaDomain}/api/v1/devices/guo1zvpLitWksBmKx0w4/lifecycle/deactivate",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            }
+        }
+    }
+}
+```
+
+###### Error Response
+
+* Passing an invalid User or Device `id` returns a `404 Not Found` status code with error code `E0000007`.
+
+### Delete a User and Device Link
+
+<ApiOperation method="delete" url="/api/v1/users/${userId}/devices/${deviceId}" />
+
+Deletes a user and device link. Similar to [Delete a Device and User Link](/docs/reference/api/devices/#delete-a-device-and-user-link)
+
+##### Request Path Parameters
+
+| Parameter   | Type   | Description                                                             |
+| ----------- | ------ | ----------------------------------------------------------------------- |
+| `userId`    | String | The `id` of [User](/docs/reference/api/users/#user-model) object        |
+| `deviceId`  | String | The `id` of [Device](/docs/reference/api/devices/#device-model) object                              |
+
+##### Request Query Parameters
+
+None
+
+##### Request Body
+
+None
+
+##### Response Body
+
+None
+
+##### Usage Example
+
+###### Request
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://{yourOktaDomain}/api/v1/users/00u22su1vjcpCaKhV0w4/devices/guo4a5u7YAHhjXrMK0g4"
+```
+
+###### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
+
+###### Error Response
+
+* Passing an invalid User or Device `id` returns a `404 Not Found` status code with error code `E0000007`.
+* If the Device User link does not exists, returns a `404 Not Found` status code with error code `E0000007`.
+
+### Delete All Device Links of a User
+
+<ApiOperation method="delete" url="/api/v1/users/${userId}/devices" />
+
+Deletes all Device and User links for the given user. 
+
+##### Request Path Parameters
+
+| Parameter   | Type   | Description                                                             |
+| ----------- | ------ | ----------------------------------------------------------------------- |
+| `userId`    | String | The `id` of [User](/docs/reference/api/users/#user-model) object        |
+
+##### Request Query Parameters
+
+None
+
+##### Request Body
+
+None
+
+##### Response Body
+
+None
+
+* Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
+
+##### Usage Example
+
+###### Request
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://{yourOktaDomain}/api/v1/users/00u22su1vjcpCaKhV0w4/devices"
+```
+
+###### Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
+
+###### Error Response
+
+* Passing an invalid User `id` returns a `404 Not Found` status code with error code `E0000007`.
+
 
 ## Lifecycle Operations
 
@@ -2099,6 +2470,8 @@ This operation can only be performed on users that do not have a `DEPROVISIONED`
 * The user's status is `DEPROVISIONED` when the deactivation process is complete.
 
 > Important: Deactivating a user is a **destructive** operation.  The user is deprovisioned from all assigned applications which may destroy their data such as email or files.  **This action cannot be recovered!**
+
+As a result of device deactivation, all the Device User links will be [deleted](/docs/reference/api/users/#delete-all-device-links-of-a-user).
 
 ##### Request Parameters
 
