@@ -7,7 +7,7 @@
     <Breadcrumb></Breadcrumb>
 
     <div class="page-content">
-      <section class="PageContent SectionIndex">
+      <section class="PageContent SectionIndex NoPaddingTop">
     <!-- Begin Page Content -->
         <div class="PageContent-main">
           
