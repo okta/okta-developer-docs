@@ -179,7 +179,7 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
 | idpId    | String | Currently, must be 'OKTA'.     |
 | type     | String | Currently, must be `okta_idp`. |
  
-### IdP Routing Rule Object
+### IdP Routing Rule Object Example
 
 ```json
 [
