@@ -19,7 +19,7 @@ After you have the following, you can request an access token:
     https://{yourOktadomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.read&redirect_uri={yourConfiguredRedirectUri}&nonce=UBGW&state=1234
     ```
 
-    > **Note:** Only the [Org Authorization Server](/docs/concepts/auth-servers) can mint access tokens that contain Okta API scopes.
+    > **Note:** Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
 
     Note the parameters being passed:
 

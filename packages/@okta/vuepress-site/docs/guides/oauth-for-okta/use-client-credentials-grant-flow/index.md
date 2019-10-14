@@ -1,7 +1,7 @@
 ---
 title: Use the Client Credentials grant flow
 ---
-For machine-to-machine use cases where a backend service or a daemon has to call Okta APIs, use the Client Credentials grant flow with an OAuth Service app. The Client Credentials grant flow is the only valid grant type for an OAuth Service app.
+For machine-to-machine use cases where a backend service or a daemon has to call Okta APIs, use the [Client Credentials grant flow](/docs/guides/implement-client-creds/) with an OAuth Service app. The Client Credentials grant flow is the only valid grant type for an OAuth Service app.
 
 > **Note:** Move on to the <GuideLink link="../define-allowed-scopes">next section</GuideLink> if you don't need to use the Client Credentials grant flow.
 

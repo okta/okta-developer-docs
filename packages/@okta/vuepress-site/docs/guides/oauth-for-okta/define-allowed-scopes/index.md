@@ -1,7 +1,7 @@
 ---
 title: Define allowed scopes
 ---
-When a request is sent to the Okta [Org Authorization Server](/docs/concepts/auth-servers), it validates all of the requested scopes in the OAuth2 authorize or token request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
+When a request is sent to the Okta Org Authorization Server, it validates all of the requested scopes in the OAuth2 authorize or token request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
 
 ## Add grants using the Developer Console
 
