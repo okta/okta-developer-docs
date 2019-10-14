@@ -19,7 +19,7 @@ OpenID Connect ID tokens can now be retrieved using a refresh token. For more in
 
 ### Custom URL Domains are in Early Access
 
-You can customize your Okta org by replacing the Okta domain name with a custom URL domain name that you specify. For example, if the URL of your Okta org is `https://{yourOktaDomain}`, you can configure a custom URL for the org such as `https://id.example.com`. For details, see the [Configure a custom URL domain](https://help.okta.com/en/prod/Content/Topics/Settings/custom-url-domain.htm).
+You can customize your Okta org by replacing the Okta domain name with a custom URL domain name that you specify. For example, if the URL of your Okta org is `https://${yourOktaDomain}`, you can configure a custom URL for the org such as `https://id.example.com`. For details, see the [Configure a custom URL domain](https://help.okta.com/en/prod/Content/Topics/Settings/custom-url-domain.htm).
 
 ### Custom Okta-hosted Sign-In Page is in Early Access
 

@@ -20,13 +20,13 @@ For Okta Authorization Server, you can only create an ID token with a groups cla
 
 #### Step Four: Send a Test Request
 
-To obtain a token with the configured groups claim, send a request for an ID token that includes the `groups` claim set in Step 3.c. as a scope to `https://{yourOktaDomain}/oauth2/v1/authorize`, as illustrated in the following example.
+To obtain a token with the configured groups claim, send a request for an ID token that includes the `groups` claim set in Step 3.c. as a scope to `https://${yourOktaDomain}/oauth2/v1/authorize`, as illustrated in the following example.
 
 Request Example for Okta Authorization Server:
 
 ```bash
 curl -X GET \
-"https://{yourOktaDomain}/oauth2/v1/authorize?client_id=0oabskvc6442nkvQO0h7
+"https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oabskvc6442nkvQO0h7
 &response_type=id_token
 &response_mode=fragment&scope=openid%20groups
 &redirect_uri=https%3A%2F%2Fexample.com
@@ -47,7 +47,7 @@ Example Payload Data for the ID Token:
 {
   "sub": "00u5t60iloOHN9pBi0h7",
   "ver": 1,
-  "iss": "https://{yourOktaDomain}",
+  "iss": "https://${yourOktaDomain}",
   "aud": "0oabskvc6442nkvQO0h7",
   "iat": 1514497781,
   "exp": 1514501381,
@@ -66,7 +66,7 @@ Example Payload Data for the ID Token:
 
 The ID token contains the group `WestCoastDivision` so the audience (`aud`) has access to the group information about the user.
 
-For flows other than implicit, post to the token endpoint `https://{yourOktaDomain}/oauth2/v1/token` with the user or client that you want. Make sure the user is assigned to the app and to one of the groups from your whitelist.
+For flows other than implicit, post to the token endpoint `https://${yourOktaDomain}/oauth2/v1/token` with the user or client that you want. Make sure the user is assigned to the app and to one of the groups from your whitelist.
 
 If the results aren't as expected, start your troubleshooting by inspecting the System Log to see what went wrong. Also, try requesting only an ID token instead of both an ID token and an access token.
 
@@ -88,7 +88,7 @@ In the following two examples for creating the groups claim, the `name` for the 
 
 ```bash
 curl -X POST \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims" \
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims" \
 -H 'accept: application/json' \
 -H 'authorization: SSWS ${api_token}' \
 -H 'cache-control: no-cache' \
@@ -109,7 +109,7 @@ curl -X POST \
 
 ```bash
 curl -X POST \
-"https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims" \
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims" \
 -H 'accept: application/json' \
 -H 'authorization: SSWS ${api_token}' \
 -H 'cache-control: no-cache' \

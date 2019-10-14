@@ -15,7 +15,7 @@ In the URL, replace {yourOktaDomain} with your org's base URL, and then replace 
 
 * `scope`: Determines the claims that are returned in the ID token. Include the scopes that you want to request authorization for and separate each by a space. You need to include at least the `openid` scope. You can request any of the standard OpenID Connect scopes about users, such as `profile` and `email` as well as any custom scopes specific to your Identity Provider.
 
-* `redirect_uri`: The location where Okta returns a browser after the user finishes authenticating with their identity provider. This URL must start with HTTPS and must match one of the redirect URIs that you configured in the <GuideLink link="../create-app-in-okta">previous section</GuideLink>.
+* `redirect_uri`: The location where Okta returns a browser after the user finishes authenticating with their Identity Provider. This URL must start with HTTPS and must match one of the redirect URIs that you configured in the <GuideLink link="../create-app-in-okta">previous section</GuideLink>.
 
 * `state`: Protects against cross-site request forgery (CSRF). Can be any value.
 
@@ -25,6 +25,6 @@ For a full explanation of all these parameters, see: [/authorize Request paramet
 
 An example of a complete URL looks like this:
 
-`https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaaq9pjc2ujmFZexample&client_id=GkGw4K49N4UEE1example&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2F&state=WM6D&nonce=YsG76jo`
+`https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oaaq9pjc2ujmFZexample&client_id=GkGw4K49N4UEE1example&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2F&state=WM6D&nonce=YsG76jo`
 
 <NextSectionLink/>

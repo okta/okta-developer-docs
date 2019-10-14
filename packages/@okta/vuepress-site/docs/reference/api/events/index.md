@@ -120,7 +120,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/events?startDate=2013-07-15T16%3A00%3A00.000Z&limit=3"
+"https://${yourOktaDomain}/api/v1/events?startDate=2013-07-15T16%3A00%3A00.000Z&limit=3"
 ```
 
 ##### Response Example
@@ -129,8 +129,8 @@ curl -v -X GET \
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
-Link: <https://{yourOktaDomain}/api/v1/events?startDate=2017-09-15T16%3A00%3A00.000Z&limit=3>; rel="self"
-Link: <https://{yourOktaDomain}/api/v1/events?after=tevZxTo4IyHR9yUHIFdU0-f0w1373905100000&limit=3>; rel="next"
+Link: <https://${yourOktaDomain}/api/v1/events?startDate=2017-09-15T16%3A00%3A00.000Z&limit=3>; rel="self"
+Link: <https://${yourOktaDomain}/api/v1/events?after=tevZxTo4IyHR9yUHIFdU0-f0w1373905100000&limit=3>; rel="next"
 
 [
     {

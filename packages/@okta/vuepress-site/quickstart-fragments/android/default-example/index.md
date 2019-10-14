@@ -31,7 +31,7 @@ After you have created the application there are two more values you will need t
 | Setting       | Where to Find                                                                                                                       |
 | ------------- | ------------------------------------------------------------------------------                                                      |
 | Client ID     | In the applications list, or on the "General" tab of a specific application.                                                        |
-| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right. |
+| Org URL       | <span class="is-signed-in">`https://${yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right. |
 
 
 These values will be used in your Android application to setup the OpenID Connect flow with Okta.
@@ -55,7 +55,7 @@ Create a new `okta_app_auth_config.json` file in your application's `res/raw` di
     "profile",
     "offline_access"
   ],
-  "issuer_uri": "https://{yourOktaDomain}/oauth2/default"
+  "issuer_uri": "https://${yourOktaDomain}/oauth2/default"
 }
 ```
 **Note**: *To receive a **refresh_token**, you must include the `offline_access` scope.*

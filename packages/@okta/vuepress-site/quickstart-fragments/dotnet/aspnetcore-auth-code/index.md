@@ -36,7 +36,7 @@ services.AddAuthentication(options =>
 .AddCookie()
 .AddOktaMvc(new OktaMvcOptions
 {
-    OktaDomain = "https://{yourOktaDomain}",
+    OktaDomain = "https://${yourOktaDomain}",
     ClientId = "{clientId}",
     ClientSecret = "{clientSecret}"
 });

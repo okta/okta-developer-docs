@@ -6,7 +6,7 @@ SecretKey sharedSecret = Keys.hmacShaKeyFor(clientSecret.getBytes(StandardCharse
 Instant now = Instant.now();
 
 String jwt = Jwts.builder()
-        .setAudience("https://{yourOktaDomain}/oauth2/default/v1/token")
+        .setAudience("https://${yourOktaDomain}/oauth2/default/v1/token")
         .setIssuedAt(Date.from(now))
         .setExpiration(Date.from(now.plus(5L, ChronoUnit.MINUTES)))
         .setIssuer(clientId)

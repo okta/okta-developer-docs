@@ -31,7 +31,7 @@ After you have created the application there are two more values you will need t
 | Setting       | Where to Find                                                                                                                       |
 | ------------- | ------------------------------------------------------------------------------                                                      |
 | Client ID     | In the applications list, or on the "General" tab of a specific application.                                                        |
-| Org URL       | <span class="is-signed-in">`https://{yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right. |
+| Org URL       | <span class="is-signed-in">`https://${yourOktaDomain}` <br></span>On the home screen of the developer dashboard, in the upper right. |
 
 
 These values will be used in your iOS application to setup the OpenID Connect flow with Okta.
@@ -58,7 +58,7 @@ Create a new `Okta.plist` file in your application's bundle with the following f
 <plist version="1.0">
 <dict>
   <key>issuer</key>
-  <string>https://{yourOktaDomain}/oauth2/default</string>
+  <string>https://${yourOktaDomain}/oauth2/default</string>
   <key>clientId</key>
   <string>{clientIdValue}</string>
   <key>redirectUri</key>

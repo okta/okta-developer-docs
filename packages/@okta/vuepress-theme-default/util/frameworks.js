@@ -5,6 +5,7 @@ const FRAMEWORK_TO_COMMON_NAME = {
   vuejs: 'vue',
   '.net': 'dotnet',
   net: 'dotnet',
+  'react-native': 'reactnative',
 };
 
 const COMMON_NAME_TO_FANCY_NAME = {
