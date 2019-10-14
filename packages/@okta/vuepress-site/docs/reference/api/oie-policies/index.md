@@ -288,7 +288,7 @@ The Identifier Match Policy Object determines which user profile attributes are 
 | Property                   | Type   | Description                                                                                                                                 |
 |----------------------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | identifyingAttributes      | Array  | User profile attributes to match. For each user profile attribute, you need to specify the `userType` ID, as well as the  `attribute` name. |
-| `onConflictingUser.action` | String | Whether to proceed if more than one match is found. Currently, only `DENY` is supported.||                                                  |
+| `onConflictingUser.action` | String | Whether to proceed if more than one match is found. Currently only `DENY` is supported.||                                                  |
  
 ### Identifier Match Rule Object Example
 
@@ -298,7 +298,20 @@ The Identifier Match Policy Object determines which user profile attributes are 
     "id": "rul10y292nt87pGec0g4",
     "type": "Okta:IdentifierMatch",
     "priority": 1,
-    "conditions": [],
+    "conditions": [
+        {
+            "key": "Okta:Identifier",
+            "op": "STRING_ENDS_WITH",
+            "value": "idx.com"
+        },
+        {
+            "key": "Okta:AppInstance",
+            "op": "IN_LIST",
+            "value": [
+            	"${appInstanceId}"
+        	]
+        }
+    ],
     "action": "ALLOW",
     "requirement": {
         "identifyingAttributes": [
