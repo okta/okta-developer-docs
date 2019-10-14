@@ -3,9 +3,6 @@ layout: Landing
 title: API Reference
 ---
 
-# Concepts Overview
-Eiusmod proident aute aute laboris eiusmod eiusmod labore tempor dolore reprehenderit aliqua ad pariatur id.
-
 ## Featured Concepts
 
 <Cards>
