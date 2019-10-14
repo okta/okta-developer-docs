@@ -182,81 +182,49 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
 ### IdP Routing Rule Object Example
 
 ```json
-[
-    {
-        "name": "Catch-all Rule",
-        "id": "rul10y0LatXn0HP2p0g4",
-        "type": "Okta:IdpRouting",
-        "priority": 2,
-        "conditions": [],
-        "action": "ALLOW",
-        "requirement": {
-            "idpId": "OKTA",
-            "type": "okta_idp"
-        },
-        "status": "ACTIVE",
-        "default": false,
-        "_links": {
-            "self": {
-                "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4",
-                "hints": {
-                    "allow": [
-                        "GET",
-                        "PUT",
-                        "DELETE"
-                    ]
-                }
-            },
-            "deactivate": {
-                "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4/lifecycle/deactivate",
-                "hints": {
-                    "allow": [
-                        "POST"
-                    ]
-                }
-            },
-            "policy": {
-                "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4",
-                "hints": {
-                    "allow": [
-                        "GET",
-                        "PUT"
-                    ]
-                }
-            }
-        }
+{
+    "name": "Catch-all Rule",
+    "id": "rul10y0LatXn0HP2p0g4",
+    "type": "Okta:IdpRouting",
+    "priority": 2,
+    "conditions": [],
+    "action": "ALLOW",
+    "requirement": {
+        "idpId": "OKTA",
+        "type": "okta_idp"
     },
-    {
-        "name": "Default Rule",
-        "id": "default-rule",
-        "type": "Okta:IdpRouting",
-        "priority": -1,
-        "conditions": [],
-        "action": "DENY",
-        "requirement": {},
-        "status": "ACTIVE",
-        "default": true,
-        "_links": {
-            "self": {
-                "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/default-rule",
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                }
-            },
-            "policy": {
-                "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4",
-                "hints": {
-                    "allow": [
-                        "GET",
-                        "PUT"
-                    ]
-                }
+    "status": "ACTIVE",
+    "default": false,
+    "_links": {
+        "self": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "policy": {
+            "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
             }
         }
     }
-]
+}
 ```
 
 ## Identifier Match Policy Object
