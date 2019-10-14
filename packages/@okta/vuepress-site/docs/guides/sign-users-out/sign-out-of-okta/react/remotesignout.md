@@ -18,7 +18,7 @@ Open your Okta Developer Console:
 import React, { Component } from 'react';
 import { withAuth } from '@okta/okta-react';
 
-const issuer = 'https://{yourOktaDomain}/oauth2/default';
+const issuer = 'https://${yourOktaDomain}/oauth2/default';
 const redirectUri = `${window.location.origin}/logged_out`;
 
 // Basic component with logout button

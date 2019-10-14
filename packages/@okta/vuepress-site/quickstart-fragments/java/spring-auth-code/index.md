@@ -29,7 +29,7 @@ An example `application.properties` file would look like:
 <DomainAdminWarning />
 
 ```properties
-okta.oauth2.issuer=https://{yourOktaDomain}/oauth2/default
+okta.oauth2.issuer=https://${yourOktaDomain}/oauth2/default
 okta.oauth2.client-id={clientId}
 okta.oauth2.client-secret={clientSecret}
 # Configure the callback URL to match the previous section

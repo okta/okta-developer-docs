@@ -11,7 +11,7 @@ public void ConfigureServices(IServiceCollection services)
     })
     .AddOktaWebApi(new OktaWebApiOptions()
     {
-        OktaDomain = "https://{yourOktaDomain}",
+        OktaDomain = "https://${yourOktaDomain}",
     });
 
     services.AddMvc();

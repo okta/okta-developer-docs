@@ -7,7 +7,7 @@ public void Configuration(IAppBuilder app)
 {
     app.UseOktaWebApi(new OktaWebApiOptions()
     {
-        OktaDomain = "https://{yourOktaDomain}",
+        OktaDomain = "https://${yourOktaDomain}",
     });
 }
 ```

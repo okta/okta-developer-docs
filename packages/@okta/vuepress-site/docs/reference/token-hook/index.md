@@ -130,7 +130,7 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
 
 ```json
 {
-  "source": "https://{yourOktaDomain}/oauth2/default/v1/authorize",
+  "source": "https://${yourOktaDomain}/oauth2/default/v1/authorize",
   "eventId": "3OWo4oo-QQ-rBWfRyTmQYw",
   "eventTime": "2019-01-15T23:20:47.000Z",
   "eventTypeVersion": "1.0",
@@ -143,7 +143,7 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
         "id": "reqv66CbCaCStGEFc8AdfS0ng",
         "method": "GET",
         "url": {
-          "value": "https://{yourOktaDomain}/oauth2/default/v1/authorize?scope=openid+profile+email&response_type=token+id_token&redirect_uri=https%3A%2F%2Fhttpbin.org%2Fget&state=foobareere&nonce=asf&client_id=customClientIdNative"
+          "value": "https://${yourOktaDomain}/oauth2/default/v1/authorize?scope=openid+profile+email&response_type=token+id_token&redirect_uri=https%3A%2F%2Fhttpbin.org%2Fget&state=foobareere&nonce=asf&client_id=customClientIdNative"
         },
         "ipAddress": "127.0.0.1"
       },
@@ -158,7 +158,7 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
           "client_id": "customClientIdNative"
         },
         "issuer": {
-          "uri": "https://{yourOktaDomain}/oauth2/default"
+          "uri": "https://${yourOktaDomain}/oauth2/default"
         },
         "client": {
           "id": "customClientIdNative",
@@ -195,10 +195,10 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
         },
         "_links": {
           "groups": {
-            "href": "https://{yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups"
+            "href": "https://${yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups"
           },
           "factors": {
-            "href": "https://{yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors"
+            "href": "https://${yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors"
           }
         }
       },
@@ -215,7 +215,7 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
         "name": "Add-Min O'Cloudy Tud",
         "email": "webmaster@clouditude.net",
         "ver": 1,
-        "iss": "https://{yourOktaDomain}/oauth2/default",
+        "iss": "https://${yourOktaDomain}/oauth2/default",
         "aud": "customClientIdNative",
         "jti": "ID.YxF2whJfB3Eu4ktG_7aClqtCgjDq6ab_hgpiV7-ZZn0",
         "amr": [
@@ -236,7 +236,7 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
       "claims": {
         "ver": 1,
         "jti": "AT.W-rrB-z-kkZQmHW0e6VS3Or--QfEN_YvoWJa46A7HAA",
-        "iss": "https://{yourOktaDomain}/oauth2/default",
+        "iss": "https://${yourOktaDomain}/oauth2/default",
         "aud": "api://default",
         "cid": "customClientIdNative",
         "uid": "00uq8tMo3zV0OfJON0g3",

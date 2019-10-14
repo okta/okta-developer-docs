@@ -4,7 +4,7 @@ title: Get the Group IDs
 
 ### If you have an Okta Authorization Server:
 
-Send a request to `https://{yourOktaDomain}/api/v1/groups` and collect the IDs for all the groups you'll want to whitelist.
+Send a request to `https://${yourOktaDomain}/api/v1/groups` and collect the IDs for all the groups you'll want to whitelist.
 
    Request Example:
 
@@ -13,7 +13,7 @@ curl -X GET \
 -H 'accept: application/json' \
 -H 'authorization: SSWS ${api_token}' \
 -H 'content-type: application/json' \
-"https://{yourOktaDomain}/api/v1/groups"
+"https://${yourOktaDomain}/api/v1/groups"
 ```
 
    Response Example:
@@ -47,10 +47,10 @@ curl -X GET \
         }
       ],
       "users": {
-        "href": "https://{yourOktaDomain}/api/v1/groups/00gbso71miOMjxHRW0h7/users"
+        "href": "https://${yourOktaDomain}/api/v1/groups/00gbso71miOMjxHRW0h7/users"
       },
       "apps": {
-        "href": "https://{yourOktaDomain}/api/v1/groups/00gbso71miOMjxHRW0h7/apps"
+        "href": "https://${yourOktaDomain}/api/v1/groups/00gbso71miOMjxHRW0h7/apps"
       }
     }
   }
@@ -61,7 +61,7 @@ This example uses one `groupId` for simplicity's sake.
 
 ### If you have a Custom Authorization Server:
 
-Send a request to `https://{yourOktaDomain}/api/v1/groups` and collect the IDs for all the groups you'll want to whitelist.
+Send a request to `https://${yourOktaDomain}/api/v1/groups` and collect the IDs for all the groups you'll want to whitelist.
 
 Request Example:
 
@@ -70,7 +70,7 @@ curl -X GET \
 -H 'accept: application/json' \
 -H 'authorization: SSWS ${api_token}' \
 -H 'content-type: application/json' \
-"https://{yourOktaDomain}/api/v1/groups"
+"https://${yourOktaDomain}/api/v1/groups"
 ```
 
 This example uses one `groupId` for simplicity's sake.
@@ -106,10 +106,10 @@ This example uses one `groupId` for simplicity's sake.
         }
       ],
       "users": {
-        "href": "https://{yourOktaDomain}/api/v1/groups/00gbso71miOMjxHRW0h7/users"
+        "href": "https://${yourOktaDomain}/api/v1/groups/00gbso71miOMjxHRW0h7/users"
       },
       "apps": {
-        "href": "https://{yourOktaDomain}/api/v1/groups/00gbso71miOMjxHRW0h7/apps"
+        "href": "https://${yourOktaDomain}/api/v1/groups/00gbso71miOMjxHRW0h7/apps"
       }
     }
   }
