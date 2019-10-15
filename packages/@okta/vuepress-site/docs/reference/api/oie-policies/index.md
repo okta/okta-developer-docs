@@ -737,7 +737,9 @@ The User Profile object determines which user profile attributes to require user
 | Property                   | Type  | Description                                                                                                                                                                                                                                    |
 |----------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | preRegistrationInlineHooks | Array | Optional. An array that can currently contain only one element. The element must be the unique ID of a Registration Inline Hook to invoke.                                                                                                     |
-| profileAttributes          | Array | Array specifying the `label` and `name` of each User Profile Attribute that should be collected from the user. `label` is human-readable text that can be displayed to the user in a web form. `name` is the name of a User Profile Attribute. |
+| profileAttributes          | Array | Array specifying the `label` and `name` of each User Profile Attribute that should be collected from the user, as well as a `required` property set to `true` or `false` . `label` is human-readable text that can be displayed to the user in a web form. `name` is the name of a User Profile Attribute. |
+
+>**Note**: Even if a User Profile Attribute is not set to be required, it can be required at user enrollment time based on the User Type schema.
 
 ### User Profile Rule Object Example
 
