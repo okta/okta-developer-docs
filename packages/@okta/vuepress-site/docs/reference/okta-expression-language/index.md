@@ -164,10 +164,10 @@ For an example using group functions and for more information on using group fun
 
 ### Linked Object Function
 
-Use this function to retrieve properties about the user identified with the specified `primary` relationship. You can optionally specify an app.
+Use this function to retrieve the user identified with the specified `primary` relationship. You can then access properties of that user.
 
-* Function: `user.getLinkedObject().$attribute`
-    * Parameters: (String primaryName, String userAttribute)
+* Function: `user.getLinkedObject($primaryName)`
+    * Parameter: (String primaryName)
     * Return Type: User
     * Example: `user.getLinkedObject("manager").lastName`
     * Example Result: `Gates`
