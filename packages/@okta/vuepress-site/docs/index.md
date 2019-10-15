@@ -61,6 +61,8 @@ sections:
         link: /docs/concepts/inline-hooks/
       - title: Authentication overview
         link: /docs/concepts/authentication/
+      - title: SAML
+        link: /docs/concepts/saml/
 
   - title: Guides
     link: /docs/guides/
