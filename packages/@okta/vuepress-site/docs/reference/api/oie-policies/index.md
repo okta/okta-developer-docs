@@ -12,7 +12,7 @@ During the Limited EA phase, Okta Identity Engine is enabled or disabled for an 
 
 API endpoints for listing, getting, creating, updating and deleting Policy and Rule objects function the same way in Okta Identity Engine as they do in the existing Okta `/policies` API; only the objects used are different, with Okta Identity Engine introducing a set of new Policy and Rule objects. See the [Okta Identity Engine Policy and Rule Objects](#okta-identity-enging-policy-and-rule-objects) section of this document for descriptions of the objects.
 
-Each Policy object, as well as a Rule for it, needs to exist, in order for Okta Identity Engine to function. One of each is created by default when Okta Identity Engine is enabled for an org.
+Each Policy object, as well as a related Rule object, needs to exist, in order for Okta Identity Engine to function. One of each is created by default when Okta Identity Engine is enabled for an org.
 
 A `/mappings` endpoint is used to set which Policies apply to which Apps. See the [Mappings Between Apps and Policies](#mappings-between-apps-and-policies) section of this document for a description of how to set mappings.
 
