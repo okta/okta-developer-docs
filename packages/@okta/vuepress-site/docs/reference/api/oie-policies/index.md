@@ -35,7 +35,7 @@ API endpoints function the same way in Okta Identity Engine as they do in the ex
 
 <ApiOperation method="get" url="/policies/${policyId}" />
 
-Given a `policyId` identifier, returns a [Policy Object](#okta-identity-engine-policy-objects).
+Given a `policyId` identifier, returns a [Policy Object](#okta-identity-engine-policy-and-rule-objects).
 
 #### Request Body
 
@@ -49,7 +49,7 @@ None
 
 #### Response Body
 
-A [Policy Object](#okta-identity-engine-policy-objects).
+A [Policy Object](#okta-identity-engine-policy-and-rule-objects).
 
 #### Usage Example
 
@@ -87,6 +87,86 @@ curl -v -X GET \
             "hints": {
                 "allow": [
                     "GET"
+                ]
+            }
+        }
+    }
+}
+```
+### Sample Operation: Get Rule
+
+<ApiOperation method="get" url="/policies/${policyId}/rules/${ruleId}" />
+
+Given a `policyId` identifier and a `ruleId`, returns a [Rule Object](#okta-identity-engine-policy-and-rule-objects).
+
+#### Request Body
+
+| Property | Type   | Description                          |
+|----------|--------|--------------------------------------|
+| policyId | String | The unique identifier of the Policy. |
+| ruleId   | String | The unique identifier of a Rule.     |
+
+#### Request Query Parameters
+
+None
+
+#### Response Body
+
+A [Rule Object](#okta-identity-engine-policy-and-rule-objects).
+
+#### Usage Example
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/policies/${policyId}/rules/${ruleId}"
+```
+
+##### Response
+
+```json
+{
+    "name": "Catch-all Rule",
+    "id": "rul10y0LatXn0HP2p0g4",
+    "type": "Okta:IdpRouting",
+    "priority": 0,
+    "conditions": [],
+    "action": "ALLOW",
+    "requirement": {
+        "idpId": "OKTA",
+        "type": "okta_idp"
+    },
+    "status": "ACTIVE",
+    "default": false,
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "policy": {
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10xzYOyK9ux6v70g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
                 ]
             }
         }
