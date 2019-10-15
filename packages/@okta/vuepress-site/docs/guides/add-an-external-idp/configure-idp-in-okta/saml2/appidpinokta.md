@@ -12,14 +12,14 @@ In the **Authentication Settings** section:
 
 In the **SAML Protocol Settings** section:
 
-> Note: When you are setting up the IdP in Okta, sometimes the Issuer, Single Sign-On URL, and Certificate aren't available from the external IdP until the metadata (the Assertion Consumer Service URL (ACS URL) and Audience URI) is uploaded to the IdP. And, the ACS URL and Audience URI values aren't available until the IdP in Okta is configured.<br>
+> **Note:** When you are setting up the IdP in Okta, sometimes the Issuer, Single Sign-On URL, and Certificate aren't available from the external IdP until the metadata (the Assertion Consumer Service URL (ACS URL) and Audience URI) is uploaded to the IdP. And, the ACS URL and Audience URI values aren't available until the IdP in Okta is configured.<br>
 <br>
 We recommend that if the external IdP requires information from Okta for setup before you have that information, enter any text for the **IdP Issuer URI** and enter **https:url** for the **IdP Single Sign-On URL**. After you upload the metadata to the external IdP in the next step, you can edit the IdP in Okta and enter the appropriate **IdP Issuer URI**, **IdP Single Sign-On URL**, and **Certificate** information.
 
 * **IdP Issuer URI**: The issuer. The Identity Provider provides this value.
 
-* **IdP Single Sign-On URL**: The sign-on URL from the Identity Provider. If you sign the authN request by selecting the Request Signature option, but don't specify a destination in the **Destination** field (see [Advanced Settings](/docs/reference/social-settings/)), Okta automatically sends the authN request to the Identity Provider Single Sign-On URL.
+* **IdP Single Sign-On URL**: The sign-on URL from the Identity Provider. If you sign the authN request by selecting the **Request Signature** option, but don't specify a destination in the **Destination** field (see [Advanced Settings](/docs/reference/social-settings/)), Okta automatically sends the authN request to the Identity Provider Single Sign-On URL.
 
 * **IdP Signature Certificate**: Click **Browse files** to upload the certificate from the Identity Provider used to sign the assertion.
 
-> Note: For more information about the **Advanced Settings**, see [Social Identity Provider Settings](/docs/reference/social-settings/).
+> **Note:** For more information about **Advanced Settings**, see [Social Identity Provider Settings](/docs/reference/social-settings/).

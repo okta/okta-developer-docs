@@ -21,7 +21,7 @@ You need to add a DNS TXT record to your domain to verify ownership of your doma
 > Important: Depending on your registrar, you may only need to enter `_oktaverification` rather than `_oktaverification.login.example.com`. If your registrar doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
 4. Paste the value that you copied from the **Data** column into the appropriate field, for example, the **Record** or **Value** field.
 5. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer), and then return to Okta and click **Verify** to prove to Okta that you have rights to use the domain name.
-> Note: It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
+> **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
 6. If **Verified** appears, click **Next**. If an error occurs, possible issues may be that the TXT record may not have propagated yet or there may be a copy and paste issue with the values.
 
     Uploading your TLS certificate is the next step in the configuration wizard.
@@ -33,7 +33,7 @@ Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to 
 2. Paste your PEM-encoded private key for your subdomain in the **Private Key** field. Be sure to include the `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----` lines.
 3. We recommend that you enter a PEM-encoded certificate chain (if you have one) in the **Certificate Chain** field. Certificate chain files can contain keys that are up to 4096 bits. The order in which the root and intermediary certificates appear in the file matters. The intermediate CA certificate should be at the top and then the root CA certificate at the bottom.
 
-    > Note: Android devices require a certificate chain. You must provide a certificate chain if you want your custom domain to work with apps on Android. For a list of trusted root certificates on Android, see [this article](https://www.digicert.com/blog/official-list-trusted-root-certificates-android/).
+    > **Note:** Android devices require a certificate chain. You must provide a certificate chain if you want your custom domain to work with apps on Android. For a list of trusted root certificates on Android, see [this article](https://www.digicert.com/blog/official-list-trusted-root-certificates-android/).
 
 4. Click **Next**. Making your custom domain an alias for your Okta domain is the next step in the configuration wizard.
 

@@ -5,7 +5,7 @@ excerpt: A JavaScript wrapper for Okta's Authentication APIs.
 component: Code
 ---
 
-## <i class='icon-48 docsPage code-javascript'></i> Okta Auth SDK Guide
+## Okta Auth SDK Guide
 
 The Okta Auth SDK builds on top of our [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/) to enable you to create a fully branded sign-in experience using JavaScript.
 
@@ -23,9 +23,9 @@ If you'd like to explore the entire Auth SDK, please see the [Okta AuthJS Source
 You will need the following things for this guide:
 
 - An Okta org - If you don't have an existing org, register for [Okta Developer Edition](https://developer.okta.com/signup/).
-- An OpenID Connect Application. Instructions for creating one can be found on [this page](https://help.okta.com/en/prev/Content/Topics/Apps/Apps_App_Integration_Wizard.htm), under the "OpenID Connect Wizard" section.
+- An OpenID Connect Application. Instructions for creating one can be found on [this page](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard), under the "OpenID Connect Wizard" section.
 - At least one User [assigned to the Application](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Apps_Page.htm#Assigning).
-- An entry in your Org's "Trusted Origins" for your application. To do this, follow the steps found under the "Trusted Origins tab" section in our [API Security help page](https://help.okta.com/en/prev/Content/Topics/Security/API.htm).
+- An entry in your Org's "Trusted Origins" for your application. To do this, follow the steps found under the "Trusted Origins tab" section in our [API Security help page](https://help.okta.com/en/prod/okta_help_CSH.htm#Security_API).
 
 ## Installation
 
@@ -53,7 +53,7 @@ To initialize the SDK, create a new instance of the `OktaAuth` object:
 
 ``` js
 var authClient = new OktaAuth({
-  url: 'https://{yourOktaDomain}',
+  url: 'https://${yourOktaDomain}',
   clientId: '0oab4exampleR4Jbi0h7',
   redirectUri: 'http://localhost:3333'
 });
@@ -139,7 +139,7 @@ Putting it all together, the final example looks like this:
     // Bootstrap the AuthJS Client
     var authClient = new OktaAuth({
       // Org URL
-      url: 'https://{yourOktaDomain}',
+      url: 'https://${yourOktaDomain}',
       // OpenID Connect APP Client ID
       clientId: '0oab4qpkhz1UR4Jbi0h7',
       // Trusted Origin Redirect URI
@@ -211,7 +211,7 @@ else {
     // Bootstrap the AuthJS Client
     var authClient = new OktaAuth({
       // Org URL
-      url: 'https://{yourOktaDomain}',
+      url: 'https://${yourOktaDomain}',
       // OpenID Connect APP Client ID
       clientId: '0oab4example4Jbi0h7',
       // Trusted Origin Redirect URI

@@ -5,7 +5,7 @@ title: Overview
 If for whatever reason you would like to disable an access or refresh token, simply send a request to your `/revoke` endpoint:
 
 ```
-http --form POST https://{yourOktaDomain}/oauth2/default/v1/revoke \
+http --form POST https://${yourOktaDomain}/oauth2/default/v1/revoke \
   accept:application/json \
   authorization:'Basic ZmEz...' \
   cache-control:no-cache \
@@ -14,7 +14,7 @@ http --form POST https://{yourOktaDomain}/oauth2/default/v1/revoke \
   token_type_hint=access_token
 ```
 
-> Note: Revoking a token that is invalid, expired, or already revoked will still return a `200 OK` so as to not leak information.
+> **Note:** Revoking a token that is invalid, expired, or already revoked will still return a `200 OK` so as to not leak information.
 
 For more information, see [Revoke a Token](/docs/reference/api/oidc/#revoke) in the Okta OIDC & OAuth 2.0 reference.
 
@@ -36,6 +36,6 @@ For more information on configuring TTL and other parameters involving access an
 
 Separate from access and refresh tokens, there is also the Okta session cookie which provides access to your Okta organization and applications. For a more complete explanation of Okta User sessions, see [the Sessions API documentation](/docs/reference/api/sessions/). Okta sessions can be revoked in one of two ways: you can either close a specific session using the Sessions API, or revoke all sessions for a given user using the Users API.
 
-> Note: Removing all user sessions can optionally also remove all related access and refresh tokens as well.
+> **Note:** Removing all user sessions can optionally also remove all related access and refresh tokens as well.
 
 For more information on removing a specific session, see [Close Session](/docs/reference/api/sessions/#close-session) in the Sessions API reference. For more on removing all of a user's sessions, see [Clear User Sessions](/docs/reference/api/users/#clear-user-sessions) in the Users API reference.

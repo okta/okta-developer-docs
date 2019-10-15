@@ -5,9 +5,11 @@ category: management
 
 # Features API
 
+<ApiLifecycle access="ea" />
+
 The Okta Features API provides operations to manage self-service Early Access (EA) and Beta features in your org.
 
-> Note: Important background information for this API is available on this page: [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/).
+> **Note:** Important background information for this API is available on this page: [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/).
 
 ## Getting Started
 
@@ -55,7 +57,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
+"https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
 ```
 
 ##### Response
@@ -72,7 +74,7 @@ curl -v -X GET \
   },
   "_links": {
     "enable": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable",
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable",
       "hints": {
         "allow": [
           "POST"
@@ -80,13 +82,13 @@ curl -v -X GET \
       }
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
     },
     "dependents": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
     },
     "dependencies": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
     }
   }
 }
@@ -112,7 +114,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features" />
 
-Returns a list of all available self-service Features for your org.
+Fetches a list of all available self-service Features for your org.
 
 #### Request Parameters
 
@@ -133,7 +135,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/features"
+"https://${yourOktaDomain}/api/v1/features"
 ```
 
 ##### Response
@@ -154,7 +156,7 @@ Content-Type: application/json
     },
     "_links": {
       "enable": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable",
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable",
         "hints": {
           "allow": [
             "POST"
@@ -162,13 +164,13 @@ Content-Type: application/json
         }
       },
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
       },
       "dependents": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
       },
       "dependencies": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
       }
     }
   },
@@ -187,16 +189,16 @@ Content-Type: application/json
            "href":"https://https://help.okta.com/en/prod/Content/index.htm"
         },
         "self":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3"
+           "href":"https://${yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3"
         },
         "survey":{
            "href":"https://goo.gl/forms/aRelevantSurvey"
         },
         "dependents":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3/dependents"
+           "href":"https://${yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3/dependents"
         },
         "dependencies":{
-           "href":"https://{yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3/dependencies"
+           "href":"https://${yourOktaDomain}/api/v1/features/ftrcUG2WEt1sjXVSIok3/dependencies"
         }
      }
   }
@@ -209,7 +211,9 @@ Content-Type: application/json
 
 Updates a Feature's status. Use this endpoint to enable or disable a Feature for your org.
 
+The following chart shows the different state transitions for a Feature:
 
+[![Update Feature Flowchart](/img/update-ssfeat-flowchart.png "Update Feature Flowchart")](/img/update-ssfeat-flowchart.png)
 
 #### Request Path Parameters
 
@@ -250,7 +254,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable"
+"https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/enable"
 ```
 
 ##### Response
@@ -267,7 +271,7 @@ curl -v -X POST \
   },
   "_links": {
     "disable": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/disable",
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/disable",
       "hints": {
         "allow": [
           "POST"
@@ -275,13 +279,13 @@ curl -v -X POST \
       }
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7"
     },
     "dependents": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependents"
     },
     "dependencies": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7/dependencies"
     }
   }
 }
@@ -358,7 +362,7 @@ Content-Type: application/json
     {
       "errorSummary": "Self-Service feature example is not enabled",
       "reason": "DEPENDENCY_NOT_ENABLED",
-      "location": "https://{yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7",
+      "location": "https://${yourOktaDomain}/api/v1/features/ftrZooGoT8b41iWRiQs7",
       "locationType": "url"
     }
   ]
@@ -369,7 +373,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features/${featureId}/dependencies" />
 
-Get the list of Feature dependencies for a specified Feature. A Feature's dependencies are the Features which it requires to be enabled in order to itself be enabled.
+Fetches the list of Feature dependencies for a specified Feature. A Feature's dependencies are the Features which it requires to be enabled in order to itself be enabled.
 
 #### Request Path Parameters
 
@@ -396,7 +400,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
+"https://${yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
 ```
 
 ##### Response
@@ -417,7 +421,7 @@ curl -v -X GET \
         "href": "https://developer.okta.com/docs/concepts/event-hooks/"
       },
       "disable": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/disable",
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/disable",
         "hints": {
           "allow": [
             "POST"
@@ -425,13 +429,13 @@ curl -v -X GET \
         }
       },
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn"
       },
       "dependents": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependents"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependents"
       },
       "dependencies": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrlBPVcRtYP2epHSMHn/dependencies"
       }
     }
   }
@@ -459,7 +463,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features/${featureId}/dependents" />
 
-Get the list of Feature dependents for a specified Feature. A Feature's dependents are the Features which need to be disabled in order for the Feature itself to be disabled.
+Fetches the list of Feature dependents for a specified Feature. A Feature's dependents are the Features which need to be disabled in order for the Feature itself to be disabled.
 
 #### Request Path Parameters
 
@@ -486,7 +490,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-}' "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
+"https://${yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
 ```
 
 ##### Response
@@ -508,16 +512,16 @@ curl -v -X GET \
         "href": "https://https://help.okta.com/en/prod/Content/index.htm"
       },
       "self": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3"
       },
       "survey": {
         "href": "https://goo.gl/forms/aRelevantSurvey"
       },
       "dependents": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependents"
       },
       "dependencies": {
-        "href": "https://{yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependencies"
+        "href": "https://${yourOktaDomain}/api/v1/features/ftrcDO2RUt1sjQsSIok3/dependencies"
       }
     }
   }
@@ -557,12 +561,12 @@ The Feature model defines several properties:
 
 | Property      | Type                                                           | Description                                                           |
 | ------------- | -------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `id`          | String                                                         | Unique identifier for this Feature. (Read-only)                       |
-| `type`        | String (Enum)                                                  | Current type of Feature. Possible value: `self-service`.              |
-| `status`      | String (Enum)                                                  | Current status of the Feature. Possible values: `ENABLED`, `DISABLED` |
-| `name`        | String                                                         | Name of the Feature                                                   |
 | `description` | String                                                         | Brief description of the Feature and what it provides                 |
+| `id`          | String                                                         | Unique identifier for this Feature. (Read-only)                       |
+| `name`        | String                                                         | Name of the Feature                                                   |
 | `stage`       | [Stage Object](#stage-object)                                  | Current [Stage](#stage-object) for this Feature                       |
+| `status`      | String (Enum)                                                  | Current status of the Feature. Possible values: `ENABLED`, `DISABLED` |
+| `type`        | String (Enum)                                                  | Current type of Feature. Possible value: `self-service`.              |
 | `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | [Link relations](#links-object) for the Feature's current `status`    |
 
 ### Feature Example
@@ -582,16 +586,16 @@ The Feature model defines several properties:
       "href": "https://developer.okta.com/docs/concepts/feature-name/"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn"
     },
     "dependents": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependents"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependents"
     },
     "dependencies": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependencies"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependencies"
     },
     "disable": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/disable",
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/disable",
         "hints": {
           "allow": [
             "POST"
@@ -613,13 +617,13 @@ The Stage object has following properties:
 
 | Property | Type   | Description      |
 | -------- | ------ | ---------------- |
-| value    | String | `EA`, `BETA`     |
-| status   | String | `OPEN`, `CLOSED` |
+| `status`   | String | `OPEN`, `CLOSED` |
+| `value`    | String | `EA`, `BETA`     |
 
 If a Feature's stage `value` is `EA`, the `status` is `null` and not returned. If the value is `BETA` the status is `OPEN` or `CLOSED` depending on the `BETA` feature
 being manageable or not.
 
-> Note: If a Feature's stage is Open Beta, it can be updated in Preview cells only. If a Feature's stage is Closed Beta, it can only be disabled in Preview cells.
+> **Note:** If a Feature's stage is Open Beta, it can be updated in Preview cells only. If a Feature's stage is Closed Beta, it can only be disabled in Preview cells.
 
 #### Stage Example
 
@@ -642,14 +646,14 @@ Here are some links that may be available on a Feature, as determined by your po
 
 | Link Relation Type | Description                                                                  |
 | ------------------ | ---------------------------------------------------------------------------- |
-| self               | A self-referential link to this Feature.                                     |
-| enable             | Lifecycle action to [enable the Feature](#update-feature).                   |
-| disable            | Lifecycle action to [disable the Feature](#update-feature).                  |
-| dependencies       | A link to this Feature's [dependencies](#get-dependencies).                  |
-| dependents         | A link to this Feature's [dependents](#get-dependents).                      |
-| helpDoc            | A link to this Feature's help documentation.                                 |
-| devDoc             | A link to this Feature's developer documentation.                            |
-| survey             | A link to this Feature's survey. Only available for enabled Beta Features.   |
+| `dependencies`       | A link to this Feature's [dependencies](#get-dependencies).                  |
+| `dependents`         | A link to this Feature's [dependents](#get-dependents).                      |
+| `devDoc`             | A link to this Feature's developer documentation.                            |
+| `disable`            | Lifecycle action to [disable the Feature](#update-feature).                  |
+| `enable`             | Lifecycle action to [enable the Feature](#update-feature).                   |
+| `helpDoc`            | A link to this Feature's help documentation.                                 |
+| `self`               | A self-referential link to this Feature.                                     |
+| `survey`             | A link to this Feature's survey. Only available for enabled Beta Features.   |
 
 
 #### Link Example
@@ -660,16 +664,16 @@ Here are some links that may be available on a Feature, as determined by your po
       "href": "https://developer.okta.com/docs/concepts/feature-name/"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn"
     },
     "dependents": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependents"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependents"
     },
     "dependencies": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependencies"
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/dependencies"
     },
     "disable": {
-      "href": "https://{yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/disable",
+      "href": "https://${yourOktaDomain}/api/v1/features/ftrlBDFcGwYP2epXCGYn/disable",
         "hints": {
           "allow": [
             "POST"

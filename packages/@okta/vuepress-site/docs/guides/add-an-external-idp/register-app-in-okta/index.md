@@ -13,10 +13,10 @@ You can either use an existing OpenID Connect app or create one. This is the app
 
 5. In the **Grant type allowed** section, enable **Implicit**. Using the [Implicit](/docs/guides/implement-implicit/overview/) flow streamlines authentication by returning tokens without introducing any unnecessary additional steps. It allows you to get an ID token quickly, which makes it easy to test your configuration.
 
-    > Note: The Authorization Code grant flow is also supported.
+    > **Note:** The Authorization Code grant flow is also supported.
 
 6. Click **Done**.
 
-7. Scroll to the **Client Credentials** section and copy the Client ID that you use to complete the Authorize URL in the next step.
+7. Scroll to the **Client Credentials** section and copy the client ID that you use to complete the Authorize URL in the next step.
 
 <NextSectionLink/>

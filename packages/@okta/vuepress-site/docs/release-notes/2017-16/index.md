@@ -35,34 +35,34 @@ Currently, a user object returned in a collection contains some or all of the fo
 ```
 "_links": {
     "suspend": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/suspend",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/suspend",
       "method": "POST"
     },
     "resetPassword": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/reset_password",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/reset_password",
       "method": "POST"
     },
     "expirePassword": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/expire_password",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/expire_password",
       "method": "POST"
     },
     "forgotPassword": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/forgot_password",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/forgot_password",
       "method": "POST"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3"
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3"
     },
     "changeRecoveryQuestion": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/change_recovery_question",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/change_recovery_question",
       "method": "POST"
     },
     "deactivate": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/deactivate",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/lifecycle/deactivate",
       "method": "POST"
     },
     "changePassword": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/change_password",
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3/credentials/change_password",
       "method": "POST"
     }
 }
@@ -78,7 +78,7 @@ The Simple HAL Links on User Collections feature ensures that possibly invalid s
 ```
 "_links": {
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3"
+      "href": "https://${yourOktaDomain}/api/v1/users/00ulxgGOjrKcnmDHT0g3"
     }
 }
 ```

@@ -159,7 +159,7 @@ When modifying an existing assertions statement, the path could begin with `/sub
 
 ```json
 {
-  "source": "https://{yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml",
+  "source": "https://${yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml",
   "eventId": "XMFoHCM1S4Wi_SGWzL8T9A",
   "eventTime": "2019-03-28T19:15:23.000Z",
   "data": {
@@ -168,7 +168,7 @@ When modifying an existing assertions statement, the path could begin with `/sub
         "id": "reqqXypjzYJRSu2j1G1imUovA",
         "method": "GET",
         "url": {
-          "value": "https://{yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml"
+          "value": "https://${yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml"
         },
         "ipAddress": "127.0.0.1"
       },
@@ -209,10 +209,10 @@ When modifying an existing assertions statement, the path could begin with `/sub
         },
         "_links": {
           "groups": {
-            "href": "https://{yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups"
+            "href": "https://${yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups"
           },
           "factors": {
-            "href": "https://{yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors"
+            "href": "https://${yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors"
           }
         }
       }
@@ -388,4 +388,4 @@ You then need to associate the registered Inline Hook with a SAML app by complet
 
 1. In the **Assertion Inline Hook** field, select your registered Inline Hook.
 
-> Note: Only one Inline Hook can be associated with each app.
+> **Note:** Only one Inline Hook can be associated with each app.

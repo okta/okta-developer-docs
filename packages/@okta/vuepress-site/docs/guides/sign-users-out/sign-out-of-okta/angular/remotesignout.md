@@ -6,7 +6,7 @@ This page clears the user's Okta session, and then redirects back to the `post_l
 import { Component } from '@angular/core';
 import { OktaAuthService } from '@okta/okta-angular';
 
-const issuer = 'https://{yourOktaDomain}/oauth2/default';
+const issuer = 'https://${yourOktaDomain}/oauth2/default';
 const redirectUri = `${window.location.origin}/logged_out`;
 
 @Component()

@@ -11,7 +11,7 @@ When you use Okta to [get OAuth 2.0 or OpenID Connect tokens for a user](/docs/c
 
 If you are writing low-level code that retrieves or uses these tokens, it's important to validate the tokens before you trust them. This guide will show you how to validate tokens manually.
 
-> Note: This guide is specific to .NET and C#.  If you need general information, read [Validate Access Tokens](/docs/guides/validate-access-tokens/) and [Validate ID Tokens](/docs/guides/validate-id-tokens/) instead.
+> **Note:** This guide is specific to .NET and C#.  If you need general information, read [Validate Access Tokens](/docs/guides/validate-access-tokens/) and [Validate ID Tokens](/docs/guides/validate-id-tokens/) instead.
 
 ## Who should use this guide
 
@@ -38,7 +38,7 @@ The `OpenIdConnectConfigurationRetriever` class in the [Microsoft.IdentityModel.
 
 ```csharp
 // Replace with your authorization server URL:
-var issuer = "https://{yourOktaDomain}/oauth2/default";
+var issuer = "https://${yourOktaDomain}/oauth2/default";
 
 var configurationManager = new ConfigurationManager<OpenIdConnectConfiguration>(
     issuer + "/.well-known/oauth-authorization-server",

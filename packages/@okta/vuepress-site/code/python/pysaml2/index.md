@@ -64,7 +64,7 @@ the following steps, you will have a working example of connecting Okta to a sam
 
 1.  Install platform-dependent prerequisites:
 
-    > Note: These instructions assume that you are running on a recent version of your operating system.
+    > **Note:** These instructions assume that you are running on a recent version of your operating system.
 
     For Mac OS X:
 
@@ -109,7 +109,7 @@ the following steps, you will have a working example of connecting Okta to a sam
     "[Setting up a SAML application in Okta](/docs/guides/customize-authz-server/)"
     instructions that you followed above!
 
-    Note: The contents of `${metadata_url}` should look similar to: `https://{yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
+    Note: The contents of `${metadata_url}` should look similar to: `https://${yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
 
 7.  Install the dependencies; for example, Python SAML SP:
 

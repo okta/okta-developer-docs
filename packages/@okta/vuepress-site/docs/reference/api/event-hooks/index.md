@@ -8,8 +8,6 @@ excerpt: >-
 
 # Event Hooks Management API
 
-<ApiLifecycle access="ea" />
-
 For general information on event hooks and how to create and use them, see [Event Hooks](/docs/concepts/event-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering Event Hooks. For a step-by-step guide to registering an Event Hook, see [Set Up Event Hooks](/docs/guides/set-up-event-hook/).
 
 ## Getting Started
@@ -79,10 +77,10 @@ curl -v -X POST \
             }
         }
     }
-}' "https://{yourOktaDomain}/api/v1/eventHooks"
+}' "https://${yourOktaDomain}/api/v1/eventHooks"
 ```
 
-> Note: `X-Other-Header` is an example of an additional optional header, with its value specified as `some-other-value`. For each optional header, you choose the name and value you wish Okta to pass to your external service.
+> **Note:** `X-Other-Header` is an example of an additional optional header, with its value specified as `some-other-value`. For each optional header, you choose the name and value you wish Okta to pass to your external service.
 
 ##### Response Example
 
@@ -122,7 +120,7 @@ curl -v -X POST \
 }
 ```
 
-> Note: The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses.
+> **Note:** The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses.
 
 ### Get Event Hook
 
@@ -143,7 +141,7 @@ The response is an [Event Hook object](#event-hook-object) representing the regi
 ```json
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/eventHooks/${id}"
+"https://${yourOktaDomain}/api/v1/eventHooks/${id}"
 ```
 
 ##### Response Example
@@ -195,7 +193,7 @@ Returns a list of registered event hooks.
 ```json
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/eventHooks"
+"https://${yourOktaDomain}/api/v1/eventHooks"
 ```
 
 ##### Response Example
@@ -290,7 +288,7 @@ curl -v -X PUT \
             }
         }
     }
-}' "https://{yourOktaDomain}/api/v1/eventHooks/${id}"
+}' "https://${yourOktaDomain}/api/v1/eventHooks/${id}"
 ```
 
 ##### Response Example
@@ -331,7 +329,7 @@ curl -v -X PUT \
     "lastUpdated": "2018-05-15T01:23:08.000Z"
 }
 ```
-> Note: Updating the `channel` property will require you to verify an event hook again.
+> **Note:** Updating the `channel` property will require you to verify an event hook again.
 
 ### Verify Event Hook
 
@@ -354,7 +352,7 @@ A timeout of 3 seconds is enforced on all outbound requests, with one retry in t
 ```bash
 curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/verify"
+"https://${yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/verify"
 ```
 
 ##### Response Example
@@ -417,7 +415,7 @@ The response is an [Event Hook object](#event-hook-object) representing the acti
 ```json
 curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/activate"
+"https://${yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/activate"
 ```
 
 ##### Response Example
@@ -479,7 +477,7 @@ The response is an [Event Hook object](#event-hook-object) representing the deac
 ```json
 curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/deactivate"
+"https://${yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/deactivate"
 ```
 
 ##### Response Example
@@ -541,7 +539,7 @@ All responses will return a 204 status with no content.
 ```json
 curl -v -X DELETE \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/eventHooks/${id}"
+"https://${yourOktaDomain}/api/v1/eventHooks/${id}"
 ```
 
 ##### Response Example

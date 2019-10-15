@@ -20,7 +20,7 @@ In tempor Sit pretium. Potenti nisi est. Tortor. Nullam natoque venenatis maecen
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1755573c5cf5fbf7968b)
 
-> Note: Viverra aenean senectus cras ante fusce. Commodo.
+> **Note:** Viverra aenean senectus cras ante fusce. Commodo.
 
 Taciti porta fermentum. Bibendum. Inceptos. - [Third Section](#third-section).
 
@@ -100,7 +100,7 @@ Consequat torquent magna. [Ridiculus](#last-section). Ac, mattis. Cras cum. Accu
 | `NONE`              | `REQUIRED`                         | `REQUIRED`                    | Prompted     |
 | `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
 
-> <ApiLifecycle access="beta" /> Note: Cubilia `semper` ut aenean arcu. Quam lobortis duis.Tempor `scelerisque` lectus cubilia pede orci nonummy `fermentum` vehicula sit.
+> <ApiLifecycle access="beta" /> **Note:** Cubilia `semper` ut aenean arcu. Quam lobortis duis.Tempor `scelerisque` lectus cubilia pede orci nonummy `fermentum` vehicula sit.
 
 
 > *Torquent natoque facilisi suscipit magna ac sociosqu vitae sollicitudin justo sodales aliquam egestas phasellus aptent.*
@@ -123,7 +123,7 @@ curl -v -X POST \
       "url": "https://example.com/bookmark.htm"
     }
   }
-}' "https://{yourOktaDomain}/api/v1/apps"
+}' "https://${yourOktaDomain}/api/v1/apps"
 ```
 
 ##### Response Example
@@ -174,16 +174,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/users"
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/users"
     },
     "groups": {
-      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/groups"
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/groups"
     },
     "self": {
-      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ"
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ"
     },
     "deactivate": {
-      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/lifecycle/deactivate"
+      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/lifecycle/deactivate"
     }
   }
 }
@@ -256,15 +256,15 @@ Ut mattis, nulla cubilia velit. Etiam. Suspendisse.
     Torquent=natoque.facilisi suscipit "magna" ac sociosqu vitae "sollicitudin" justo sodales aliquam egestas phasellus "aptent"
 
 ```
-https://{yourOktaDomain}/apiEndpoint
+https://${yourOktaDomain}/apiEndpoint
 ```
 
 ```
-http://{yourOktaDomain}/apiEndpoint
+http://${yourOktaDomain}/apiEndpoint
 ```
 
 ```bash
-"https://{yourOktaDomain}/api/v1/apps"
+"https://${yourOktaDomain}/api/v1/apps"
 ```
 
-`https://{yourOktaDomain}/apiEndpoint`
+`https://${yourOktaDomain}/apiEndpoint`

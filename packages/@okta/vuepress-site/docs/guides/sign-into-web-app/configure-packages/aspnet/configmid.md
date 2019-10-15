@@ -9,7 +9,7 @@ Open the `Web.config` file and add your Okta configuration to the `<appSettings>
         <!-- 2. Replace these values with your Okta configuration: -->
         <add key="okta:ClientId" value="{ClientId}" />
         <add key="okta:ClientSecret" value="{ClientSecret}" />
-        <add key="okta:OktaDomain" value="https://{yourOktaDomain}" />
+        <add key="okta:OktaDomain" value="https://${yourOktaDomain}" />
     </appSettings>
     ...
   </configuration>

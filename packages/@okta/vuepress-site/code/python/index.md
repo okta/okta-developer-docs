@@ -1,11 +1,14 @@
 ---
-title: Add Identity Management to Your Python App
+title: Add User Management to Your Python App
 language: Python
 integration: back-end
 component: Code
+meta:
+  - name: description
+    content: Our guide shows you how to add user management to your Python app with examples using Flask.
 ---
 
-# <i class='icon-48 docsPage code-python'></i> Add Identity Management to Your Python App
+# <i class='icon-48 docsPage code-python'></i> Add User Management to Your Python App
 
 ## Get Started with Python + Okta
 

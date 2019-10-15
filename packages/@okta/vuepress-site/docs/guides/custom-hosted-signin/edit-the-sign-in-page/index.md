@@ -19,7 +19,7 @@ To change the heading and labels, and to customize help links on the sign-in pag
 
 You can also customize the placeholder text that appears in recovery flows when end users click account recovery links (for example, Forgot password and Unlock account). If you leave a label field blank, Okta uses the default text. 
 
-> Note: Although Okta displays default labels, links, and headings in the end user's display language or browser language, Okta doesn't display localized versions of customized text and links. Text that you change here is hard-coded. To specify multiple localized versions of headings and labels, use the [Sign-in Widget text configuration options](https://github.com/okta/okta-signin-widget/#language-and-text). 
+> **Note:** Although Okta displays default labels, links, and headings in the end user's display language or browser language, Okta doesn't display localized versions of customized text and links. Text that you change here is hard-coded. To specify multiple localized versions of headings and labels, use the [Sign-in Widget text configuration options](https://github.com/okta/okta-signin-widget/#language-and-text). 
 
 ## Use the embedded HTML editor
 If you are familiar with using HTML and want to change the page layout, colors, button shapes, and other elements, use the embedded HTML editor in the middle of the page. You can modify the current HTML/CSS and JavaScript or paste your own code.
@@ -29,12 +29,12 @@ If you are familiar with using HTML and want to change the page layout, colors, 
 3. Click **Reset to Default** if you need to remove all of your customizations and restore the default HTML/CSS and JavaScript code. 
 4. Click **Save and Publish** when you finish.
 
-> Note: See the <GuideLink link="../customization-examples">Customization examples</GuideLink> section for examples that you can alter and use on your hosted sign-in page.
+> **Note:** See the <GuideLink link="../customization-examples">Customization examples</GuideLink> section for examples that you can alter and use on your hosted sign-in page.
 
 ## Bypass the Custom Sign-In Page
 Use the `/login/default` backdoor sign-in URL to bypass the custom sign-in page. If, for example, something goes wrong with your customizations and your sign-in page won't load, add `/login/default` to the end of your Okta URL to bring up the default sign-in page and sign in:
 
-`https://{yourOktaDomain}/login/default`
+`https://${yourOktaDomain}/login/default`
 
 This URL only bypasses changes that you have made to the HTML in the HTML editor. It doesn't bypass changes that you made using the controls on the left side of the page.
 

@@ -41,7 +41,7 @@ Adds a new client application to your organization
 
 The [OAuth Client](#client-application-model) created by the request
 
-> <ApiLifecycle access="ea" /> Note: Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
+> **Note:** <ApiLifecycle access="ea" /> Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
 
 ##### Request Example
 
@@ -72,7 +72,7 @@ curl -v -X POST \
   ],
   "token_endpoint_auth_method": "client_secret_post",
   "initiate_login_uri": "https://www.example-application.com/oauth2/login"
-}' "https://{yourOktaDomain}/oauth2/v1/clients"
+}' "https://${yourOktaDomain}/oauth2/v1/clients"
 ```
 
 ##### Response Example
@@ -107,6 +107,77 @@ Content-Type: application/json;charset=UTF-8
   ],
   "token_endpoint_auth_method": "client_secret_post",
   "initiate_login_uri": "https://www.example-application.com/oauth2/login"
+}
+```
+
+##### Request Example: Create a Service app with a JWKS
+
+> **Note:** The key is truncated for brevity.
+
+```bash
+curl -X POST \
+  -H 'Accept: application/json' \
+  -H "Authorization: SSWS ${api_token}" \
+  -H 'Content-Type: application/json' \
+  -d ' {
+    "client_name": "Example Service Client",
+    "response_types": [
+      "token"
+    ],
+    "grant_types": [
+      "client_credentials"
+    ],
+    "token_endpoint_auth_method": "private_key_jwt",
+    "application_type": "service",
+    "jwks": {
+                "keys": [
+                    {
+                        "kty": "RSA",
+                        "e":"AQAB",
+                        "kid": "key1",
+                        "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU="
+                    }    
+                ]
+            }
+ }' "https://${yourOktaDomain}/oauth2/v1/clients"
+```
+
+##### Response Example
+
+> **Note:** The key is truncated for brevity.
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json;charset=UTF-8
+```
+
+```json
+{
+    "jwks": {
+        "keys": [
+            {
+                "kty": "RSA",
+                "kid": "key1",
+                "use": null,
+                "e": "AQAB",
+                "n":"AJncrKuine49_CEVR4GPn.....zOrouIUCSMlRL0HU="
+            }
+        ]
+    },
+    "client_id": "0oanq59zytBKVwQQ80h7",
+    "client_id_issued_at": 1570131438,
+    "client_name": "Example Service Client",
+    "client_uri": null,
+    "logo_uri": null,
+    "redirect_uris": [],
+    "response_types": [
+        "token"
+    ],
+    "grant_types": [
+        "client_credentials"
+    ],
+    "token_endpoint_auth_method": "private_key_jwt",
+    "application_type": "service"
 }
 ```
 
@@ -157,7 +228,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/oauth2/v1/clients"
+"https://${yourOktaDomain}/oauth2/v1/clients"
 ```
 
 ##### Response Example
@@ -170,8 +241,8 @@ Content-Type: application/json;charset=UTF-8
 Header links for pagination:
 
 ```http
-<https://{yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
-<https://{yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=20>; rel="next"
+<https://${yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
+<https://${yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=20>; rel="next"
 ```
 
 Response body:
@@ -291,7 +362,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/oauth2/v1/clients?q=web&limit=1"
+"https://${yourOktaDomain}/oauth2/v1/clients?q=web&limit=1"
 ```
 
 ##### Response Example
@@ -304,8 +375,8 @@ Content-Type: application/json;charset=UTF-8
 Header links for pagination:
 
 ```http
-<https://{yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
-<https://{yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=1>; rel="next"
+<https://${yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
+<https://${yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=1>; rel="next"
 ```
 
 Response body:
@@ -365,7 +436,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/oauth2/v1/clients/0jrabyQWm4B9zVJPbotY"
+"https://${yourOktaDomain}/oauth2/v1/clients/0jrabyQWm4B9zVJPbotY"
 ```
 
 ##### Response Example
@@ -467,7 +538,7 @@ curl -v -X PUT \
   ],
   "token_endpoint_auth_method": "client_secret_post",
   "initiate_login_uri": "https://www.example-application.com/oauth2/login"
-}' "https://{yourOktaDomain}/oauth2/v1/clients/0jrabyQWm4B9zVJPbotY"
+}' "https://${yourOktaDomain}/oauth2/v1/clients/0jrabyQWm4B9zVJPbotY"
 ```
 
 ##### Response Example
@@ -549,7 +620,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/oauth2/v1/clients/0jrabyQWm4B9zVJPbotY/lifecycle/newSecret"
+"https://${yourOktaDomain}/oauth2/v1/clients/0jrabyQWm4B9zVJPbotY/lifecycle/newSecret"
 ```
 
 ##### Response Example
@@ -632,7 +703,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/oauth2/v1/clients/0jrabyQWm4B9zVJPbotY"
+"https://${yourOktaDomain}/oauth2/v1/clients/0jrabyQWm4B9zVJPbotY"
 ```
 
 
@@ -757,6 +828,8 @@ The `jwks` object has precisely one attribute: `keys`, which is an array of JSON
 | Property   | DataType                       | Nullable  | Unique  | Readonly   |
 | ---------- | :----------------------------- | :-------- | :------ | :--------- |
 | keys       | An array of JSON Web Keys      | TRUE      | FALSE   | FALSE      |
+
+> **Note:** For an example request using a JWKS, see the **Create a Service app with a JWKS** example in the [Register New Client](/docs/reference/api/oauth-clients/#register-new-client) section.
 
 ## JSON Web Key
 

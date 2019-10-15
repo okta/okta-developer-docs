@@ -5,14 +5,14 @@ title: Add a List of Groups to the Profile of the Client App
 ### If you have an Okta Authorization Server:
 
 If you only have one or two groups to specify, simply add the group IDs to the first parameter of the `getFilteredGroups` function described in the next step.
-However, if you have a lot of groups to whitelist, you can put the group IDs in the client app's profile property bag: `https://{yourOktaDomain}/api/v1/apps/${applicationId}`.
+However, if you have a lot of groups to whitelist, you can put the group IDs in the client app's profile property bag: `https://${yourOktaDomain}/api/v1/apps/${applicationId}`.
 The following example names the group whitelist `groupwhitelist`, but you can name it anything.
 
 Request Example:
 
 ```bash
 curl -X PUT \
-"https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7" \
+"https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7" \
 -H 'accept: application/json' \
 -H 'authorization: SSWS ${api_token}' \
 -H 'cache-control: no-cache' \
@@ -62,7 +62,7 @@ To use the group whitelist for every client that gets this claim in a token, put
 ### If you have a custom Authorization Server:
 
 If you only have one or two groups to specify, simply add the group IDs to the first parameter of the `getFilteredGroups` function described in the next step.
-However, if you have a lot of groups to whitelist, you can put the group IDs in the client app's profile property bag: `https://{yourOktaDomain}/api/v1/apps/${applicationId}`.
+However, if you have a lot of groups to whitelist, you can put the group IDs in the client app's profile property bag: `https://${yourOktaDomain}/api/v1/apps/${applicationId}`.
 
 This example names the group whitelist `groupwhitelist`, but you can name it anything.
 
@@ -70,7 +70,7 @@ Request Example:
 
 ```bash
 curl -X POST \
-"https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7" \
+"https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7" \
 -H 'accept: application/json' \
 -H 'authorization: SSWS ${api_token}' \
 -H 'cache-control: no-cache' \

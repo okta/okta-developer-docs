@@ -44,7 +44,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}"
 ```
 
 ##### Response Example
@@ -71,7 +71,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}?expand=rules"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}?expand=rules"
 ```
 
 ##### Response Types
@@ -99,7 +99,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies?type={type}"
+"https://${yourOktaDomain}/api/v1/policies?type={type}"
 ```
 
 ##### Response Types
@@ -127,7 +127,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}"
 ```
 
 ##### Response Types
@@ -169,7 +169,7 @@ curl -v -X PUT \
       }
     }
   }
-}' "https://{yourOktaDomain}/api/v1/policies/{policyId}"
+}' "https://${yourOktaDomain}/api/v1/policies/{policyId}"
 ```
 
 ##### Response Types
@@ -205,7 +205,7 @@ curl -v -X POST \
       }
     }
   }
-}' "https://{yourOktaDomain}/api/v1/policies"
+}' "https://${yourOktaDomain}/api/v1/policies"
 ```
 
 ##### Response Types
@@ -231,7 +231,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/lifecycle/activate"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/lifecycle/activate"
 ```
 
 ##### Response Types
@@ -257,7 +257,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/lifecycle/deactivate"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/lifecycle/deactivate"
 ```
 
 ##### Response Types
@@ -285,7 +285,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/rules"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/rules"
 ```
 
 ##### Response Types
@@ -335,7 +335,7 @@ curl -v -X POST \
       "access": "ALLOW"
     }
   }
-}' "https://{yourOktaDomain}/api/v1/policies/{policyId}/rules"
+}' "https://${yourOktaDomain}/api/v1/policies/{policyId}/rules"
 ```
 
 ##### Response Types
@@ -361,7 +361,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
 ```
 
 ##### Response Types
@@ -387,7 +387,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
 ```
 
 ##### Response Types
@@ -437,7 +437,7 @@ curl -v -X PUT \
       "access": "DENY"
     }
   }
-}' "https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
+}' "https://${yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}"
 ```
 
 ##### Response Types
@@ -463,7 +463,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/activate"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/activate"
 ```
 
 ##### Response Types
@@ -489,7 +489,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate"
+"https://${yourOktaDomain}/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate"
 ```
 
 ##### Response Types
@@ -895,7 +895,7 @@ Specifies a user identifier condition to match on.
 | type      | What to match against, either user ID or an attribute in the user's Okta profile.         | `IDENTIFIER`, `ATTRIBUTE`                      | Yes      |
 | attribute | The name of the profile attribute to match against. Only used when `type` is `ATTRIBUTE`. | String                                         | No       |
 
-> Note: When using a regex expression, or when matching against Okta user profile attributes, the `patterns` array can have only one element.
+> **Note:** When using a regex expression, or when matching against Okta user profile attributes, the `patterns` array can have only one element.
 
 #### Patterns Object
 
@@ -962,6 +962,9 @@ Specifies either a general application or specific app instance to match on.
 | Parameter | Description                                           | Data Type | Required |
 | ---       | ---                                                   | ---       | ---      |
 | include   | The list of applications or app instances to match on | Array     | Yes      |
+| exclude   | The list of applications to exclude                   | Array     | Yes      |
+
+> **NOTE:** If both `include` and `exclude` are empty, then the condition is met for all applications.
 
 #### Application and App Instance Condition Object Example
 
@@ -1192,6 +1195,10 @@ At present the Policy Factor Consent Terms settings are ignored.
 The following conditions may be applied to Multifactor Policy
 
 [People Condition](#people-condition-object)
+
+[Network Condition](#network-condition-object)
+
+[Application and App Instance Condition](#application-and-app-instance-condition-object)
 
 ### Multifactor Rules Action Data
 
@@ -1502,7 +1509,7 @@ The following conditions may be applied to the rules associated with Password Po
 
 The IdP Discovery Policy determines where to route users when they are attempting to log in to your org. Users can be routed to a variety of identity providers (`SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`) based on multiple conditions listed below.
 
-> Note: All Okta orgs with `IDP_DISCOVERY` enabled contain one and only one IdP Discovery Policy with an immutable default rule routing to your org's login page.
+> **Note:** All Okta orgs with `IDP_DISCOVERY` enabled contain one and only one IdP Discovery Policy with an immutable default rule routing to your org's login page.
 
 ### Policy Conditions
 The following conditions may be applied to IdP Discovery Policy
@@ -1525,7 +1532,7 @@ The following conditions may be applied to IdP Discovery Policy
 | ---       | ---                                                                  | ---       | ---      |
 | providers | List of configured identity providers that a given rule can route to | array     | Yes      |
 
-> Note: Currently, this `providers` list only supports one value. IdP types `OKTA`, `AgentlessDSSO`, and `IWA` do not require an `id`.
+> **Note:** Currently, this `providers` list only supports one value. IdP types `OKTA`, `AgentlessDSSO`, and `IWA` do not require an `id`.
 
 #### Policy Action Example
 

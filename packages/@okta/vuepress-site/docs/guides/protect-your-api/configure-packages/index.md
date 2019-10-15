@@ -16,7 +16,7 @@ You need to configure the Okta SDK with some information about your Okta domain.
 * **Okta Domain** - Find it on the Developer Console dashboard in the upper-right corner as the **Org URL**.
 * **Audience** - The audience of your [Authorization Server](https://developer.okta.com/docs/guides/customize-authz-server/). The default value is `api://default`.
 
-> Note: `https://{yourOktaDomain}` is different from your admin URL. Don't include `-admin` in the value. 
+> **Note:** `https://${yourOktaDomain}` is different from your admin URL. Don't include `-admin` in the value. 
 
 <StackSelector snippet="configmid"/>
 

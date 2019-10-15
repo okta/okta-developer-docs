@@ -75,10 +75,10 @@ curl -v -X POST \
             }
         }
     }
-}' "https://{yourOktaDomain}/api/v1/inlineHooks"
+}' "https://${yourOktaDomain}/api/v1/inlineHooks"
 ```
 
-> Note: `X-Other-Header` is an example of an additional optional header, with its value specified as `some-other-value`. For each optional header, you choose the name and value you wish Okta to pass to your external service.
+> **Note:** `X-Other-Header` is an example of an additional optional header, with its value specified as `some-other-value`. For each optional header, you choose the name and value you wish Okta to pass to your external service.
 
 ##### Response Example
 
@@ -113,7 +113,7 @@ curl -v -X POST \
 }
 ```
 
-> Note: The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses.
+> **Note:** The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses.
 
 ### Get Inline Hook
 
@@ -135,7 +135,7 @@ The response is an [Inline Hook object](#inline-hook-object) representing the re
 ```json
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/inlineHooks/${id}"
+"https://${yourOktaDomain}/api/v1/inlineHooks/${id}"
 ```
 
 ##### Response Example
@@ -187,13 +187,13 @@ Returns a list of registered Inline Hooks, optionally filtered by Inline Hook ty
 ```json
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/inlineHooks"
+"https://${yourOktaDomain}/api/v1/inlineHooks"
 ```
 
 ```json
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/inlineHooks?type=com.okta.oauth2.tokens.transform"
+"https://${yourOktaDomain}/api/v1/inlineHooks?type=com.okta.oauth2.tokens.transform"
 ```
 
 ##### Response Example
@@ -279,7 +279,7 @@ curl -v -X PUT \
             }
         }
     }
-}' "https://{yourOktaDomain}/api/v1/inlineHooks/${id}"
+}' "https://${yourOktaDomain}/api/v1/inlineHooks/${id}"
 ```
 
 ##### Response Example
@@ -338,7 +338,7 @@ The response is an [Inline Hook object](#inline-hook-object) representing the ac
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/inlineHooks/${id}/lifecycle/activate"
+"https://${yourOktaDomain}/api/v1/inlineHooks/${id}/lifecycle/activate"
 ```
 
 ##### Response Example
@@ -397,7 +397,7 @@ The response is an [Inline Hook object](#inline-hook-object) representing the de
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/inlineHooks/${id}/lifecycle/deactivate"
+"https://${yourOktaDomain}/api/v1/inlineHooks/${id}/lifecycle/deactivate"
 ```
 
 ##### Response Example
@@ -455,7 +455,7 @@ All responses will return a 204 status with no content.
 ```json
 curl -v -X DELETE \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/inlineHooks/${id}"
+"https://${yourOktaDomain}/api/v1/inlineHooks/${id}"
 ```
 
 ##### Response Example
@@ -493,7 +493,7 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '
 {
-  "source": "https://{yourOktaDomain}/oauth2/default/v1/authorize",
+  "source": "https://${yourOktaDomain}/oauth2/default/v1/authorize",
   "eventId": "3OWo4oo-QQ-rBWfRyTmQYw",
   "eventTime": "2019-01-15T23:20:47.000Z",
   "eventTypeVersion": "1.0",
@@ -506,7 +506,7 @@ curl -v -X POST \
         "id": "reqv66CbCaCStGEFc8AdfS0ng",
         "method": "GET",
         "url": {
-          "value": "https://{yourOktaDomain}/oauth2/default/v1/authorize?scope=openid+profile+email&response_type=token+id_token&redirect_uri=https%3A%2F%2Fhttpbin.org%2Fget&state=foobareere&nonce=asf&client_id=customClientIdNative"
+          "value": "https://${yourOktaDomain}/oauth2/default/v1/authorize?scope=openid+profile+email&response_type=token+id_token&redirect_uri=https%3A%2F%2Fhttpbin.org%2Fget&state=foobareere&nonce=asf&client_id=customClientIdNative"
         },
         "ipAddress": "127.0.0.1"
       },
@@ -521,7 +521,7 @@ curl -v -X POST \
           "client_id": "customClientIdNative"
         },
         "issuer": {
-          "uri": "https://{yourOktaDomain}/oauth2/default"
+          "uri": "https://${yourOktaDomain}/oauth2/default"
         },
         "client": {
           "id": "customClientIdNative",
@@ -558,10 +558,10 @@ curl -v -X POST \
         },
         "_links": {
           "groups": {
-            "href": "https://{yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups"
+            "href": "https://${yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups"
           },
           "factors": {
-            "href": "https://{yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors"
+            "href": "https://${yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors"
           }
         }
       },
@@ -578,7 +578,7 @@ curl -v -X POST \
         "name": "Add-Min OCloudy Tud",
         "email": "webmaster@clouditude.net",
         "ver": 1,
-        "iss": "https://{yourOktaDomain}/oauth2/default",
+        "iss": "https://${yourOktaDomain}/oauth2/default",
         "aud": "customClientIdNative",
         "jti": "ID.YxF2whJfB3Eu4ktG_7aClqtCgjDq6ab_hgpiV7-ZZn0",
         "amr": [
@@ -599,7 +599,7 @@ curl -v -X POST \
       "claims": {
         "ver": 1,
         "jti": "AT.W-rrB-z-kkZQmHW0e6VS3Or--QfEN_YvoWJa46A7HAA",
-        "iss": "https://{yourOktaDomain}/oauth2/default",
+        "iss": "https://${yourOktaDomain}/oauth2/default",
         "aud": "api://default",
         "cid": "customClientIdNative",
         "uid": "00uq8tMo3zV0OfJON0g3",
@@ -629,7 +629,7 @@ curl -v -X POST \
     }
   }
 }
-' "https://{yourOktaDomain}/api/v1/inlineHooks/${id}/execute"
+' "https://${yourOktaDomain}/api/v1/inlineHooks/${id}/execute"
 ```
 
 ##### Response Example

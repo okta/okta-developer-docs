@@ -1,6 +1,6 @@
 {
-  "release" : "2019.09.1",
-  "build" : "2019.09.1-begin-40-gf4bfaedcbbba",
+  "release" : "2019.10.1",
+  "build" : "2019.10.1-begin-62-g772f5e857ef5",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -7190,6 +7190,30 @@
       "tags" : [ "unconfigured-origin-usage" ],
       "mappings" : [ "org.not_configured_origin.redirection.usage" ]
     }, {
+      "id" : "platform.directory.debugger.extend",
+      "category" : "directories",
+      "description" : "Extend Directory Debugger access for Okta support.",
+      "tags" : [ "agent" ],
+      "mappings" : [ "system.directory.debugger.extend" ]
+    }, {
+      "id" : "platform.directory.debugger.grant",
+      "category" : "directories",
+      "description" : "Grant Directory Debugger access for Okta support.",
+      "tags" : [ "agent" ],
+      "mappings" : [ "system.directory.debugger.grant" ]
+    }, {
+      "id" : "platform.directory.debugger.query.executed",
+      "category" : "directories",
+      "description" : "A read-only query executed against AD/LDAP instance by Okta support using the Directory Debugger tool.",
+      "tags" : [ "agent" ],
+      "mappings" : [ "system.directory.debugger.query_executed" ]
+    }, {
+      "id" : "platform.directory.debugger.revoke",
+      "category" : "directories",
+      "description" : "Revoke Directory Debugger access for Okta support.",
+      "tags" : [ "agent" ],
+      "mappings" : [ "system.directory.debugger.revoke" ]
+    }, {
       "id" : "platform.event_hook.activated",
       "category" : "extensibility",
       "description" : "Event hook was activated.",
@@ -12627,7 +12651,7 @@
         "created" : "2019-02-27",
         "release" : "2019.04.0"
       },
-      "beta" : true,
+      "beta" : false,
       "tags" : [ "event-hook" ],
       "mappings" : [ "platform.event_hook.delivered.failure", "platform.event_hook.delivered.success" ],
       "schema" : {
@@ -12750,7 +12774,7 @@
     }, {
       "id" : "group.privilege.revoke",
       "category" : "aelm",
-      "description" : "Fired when a group within Okta has had admin privileges revoked. The group with revoked privileges can be an Okta mastered group, and AD mastered group, or an LDAP mastered group. This can be used to can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been revoked, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
+      "description" : "Fired when a group within Okta has had admin privileges revoked. The group with revoked privileges can be an Okta mastered group, and AD mastered group, or an LDAP mastered group. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been revoked, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
       "info" : {
         "created" : "2019-02-25",
         "release" : "2019.03.0"
@@ -15078,6 +15102,70 @@
       "beta" : false,
       "tags" : [ "system" ],
       "mappings" : [ "app.csv.import_user.skipped_user", "app.csv.import_user.skipped_user.unknown_user" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "system.directory.debugger.extend",
+      "category" : "directories",
+      "description" : "Extend Directory Debugger access for Okta support. This can be used to audit the Directory Debugger access extension. When fired, this event contains information about Directory Debugger access extension.",
+      "info" : {
+        "created" : "2019-09-16",
+        "release" : "2019.09.0"
+      },
+      "beta" : false,
+      "tags" : [ "agent" ],
+      "mappings" : [ "platform.directory.debugger.extend" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "system.directory.debugger.grant",
+      "category" : "directories",
+      "description" : "Grant Directory Debugger access for Okta support. This can be used to audit the Directory Debugger access grants to Okta support. When fired, this event contains information about Directory Debugger access grant.",
+      "info" : {
+        "created" : "2019-09-16",
+        "release" : "2019.09.0"
+      },
+      "beta" : false,
+      "tags" : [ "agent" ],
+      "mappings" : [ "platform.directory.debugger.grant" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "system.directory.debugger.query_executed",
+      "category" : "directories",
+      "description" : "A read-only query executed against AD/LDAP instance by Okta support using the Directory Debugger tool. This can be used to audit the queries executed by Okta support using Directory Debugger. When fired, this event contains information about Directory Debugger query.",
+      "info" : {
+        "created" : "2019-09-16",
+        "release" : "2019.09.0"
+      },
+      "beta" : false,
+      "tags" : [ "agent" ],
+      "mappings" : [ "platform.directory.debugger.query.executed" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "system.directory.debugger.revoke",
+      "category" : "directories",
+      "description" : "Revoke Directory Debugger access for Okta support. This can be used to audit the Directory Debugger access revoke. When fired, this event contains information about Directory Debugger access revoke.",
+      "info" : {
+        "created" : "2019-09-16",
+        "release" : "2019.09.0"
+      },
+      "beta" : false,
+      "tags" : [ "agent" ],
+      "mappings" : [ "platform.directory.debugger.revoke" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -17649,6 +17737,7 @@
           "original_principal" : "Resource",
           "device_fingerprint" : "String",
           "authn_request_id" : "String",
+          "same_browser" : "Boolean",
           "action" : "String"
         }
       },

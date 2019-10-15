@@ -29,7 +29,7 @@ For example:
 
 You can also specify authorization servers in your OpenID Connect API calls.
 Every OpenID resource is also available in a version that lets you specify an authorization server that you created in Okta.
-See [OAuth 2.0 and OpenID Connect](#oauth-20-and-openid-connect) for details.
+See [OAuth 2.0 and OpenID Connect](/docs/concepts/auth-overview/) for details.
 
 ## Benefits of API Access Management
 
@@ -45,7 +45,7 @@ Using Okta's OAuth-as-a-Service feature, API Access Management, provides many be
 * Enjoy the highest quality, always-available API Access Management.
 * Let Okta do the work of consuming standards changes to provide more or better services.
 
-> Note: In some places we have implemented stricter requirements or behaviors for additional security.
+> **Note:** In some places we have implemented stricter requirements or behaviors for additional security.
 
 ## Putting the pieces together
 
@@ -136,7 +136,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * When a gateway retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 * If the gateway is performing endpoint or HTTP verb-level authorization using scopes, the scopes must be defined and granted in the Okta Authorization Server or Custom Authorization Server before being used in the gateway.
 
-    **Note:** If a user requests scopes from the authorization server that haven't been configured, an error is returned.
+> **Note:** If a user requests scopes from the authorization server that haven't been configured, an error is returned.
 
 ##### Securing applications
 

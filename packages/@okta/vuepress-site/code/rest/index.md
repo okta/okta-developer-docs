@@ -3,6 +3,9 @@ title: Get Started with the Okta REST APIs
 language: rest
 integration: back-end
 component: Code
+meta:
+  - name: description
+    content: Find documentation to get started with Okta REST APIs and learn how to import a collection and send requests in Postman.
 ---
 
 # <i class='icon-48 docsPage code-rest'></i> Get Started with the Okta REST APIs
@@ -29,7 +32,7 @@ You'll need a free Okta developer organization to get started. If you don't have
 
 1. Click the eye icon next to `example.oktapreview.com` and select **Edit** to replace or add these values:
     * Rename your environment to something you'll recognize. For example, `My Org`.
-    * `url`: Replace the example value with your org's full URL: . For example, `https://{yourOktaDomain}`. (Make sure you don't include `-admin` in the subdomain!)
+    * `url`: Replace the example value with your org's full URL: . For example, `https://${yourOktaDomain}`. (Make sure you don't include `-admin` in the subdomain!)
     * `apikey`: Enter the API token you created earlier, for example `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
 1. Click **Update** to save your changes.
@@ -46,7 +49,7 @@ If you have Postman installed, clicking the button above gives you the option of
 
 You can also import the collection by following the Web View link and downloading the collection as a JSON file. Import that file into Postman by clicking the **Import** button and browsing to your download location.
 
-> Note: You can import and work with the rest of the Okta API using the link at the top of each API reference page,
+> **Note:** You can import and work with the rest of the Okta API using the link at the top of each API reference page,
 or see [all Postman collections](/docs/reference/postman-collections/). This tutorial only requires the Users API collection.
 
 ## Send a Request

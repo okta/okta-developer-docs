@@ -53,7 +53,7 @@ curl -v -X POST \
     "fr" : "${org.name}: votre code de vérification est ${code}",
     "it" : "${org.name}: il codice di verifica è ${code}"
   }
-}' "https://{yourOktaDomain}/api/v1/templates/sms"
+}' "https://${yourOktaDomain}/api/v1/templates/sms"
 ```
 
 ##### Response Example
@@ -103,7 +103,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/templates/sms/${templateId}"
+"https://${yourOktaDomain}/api/v1/templates/sms/${templateId}"
 ```
 
 ##### Response Example
@@ -154,7 +154,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/templates/sms"
+"https://${yourOktaDomain}/api/v1/templates/sms"
 ```
 
 ##### Response Example
@@ -185,7 +185,7 @@ curl -v -X GET \
 
 Updates the SMS template.
 
-> NOTE: The default SMS template can't be updated.
+> **Note:** The default SMS template can't be updated.
 
 ##### Request Parameters
 
@@ -219,7 +219,7 @@ curl -v -X PUT \
     "es": "${org.name}: su código de inscripción es ${code}",
     "de": "${org.name}: ihre anmeldung code ist ${code}"
   }
-}' "https://{yourOktaDomain}/api/v1/templates/sms/${templateId}"
+}' "https://${yourOktaDomain}/api/v1/templates/sms/${templateId}"
 ```
 
 ##### Response Example
@@ -277,7 +277,7 @@ curl -v -X POST \
   "translations": {
     "de" : "${org.name}: ihre bestätigungscode ist ${code}."
   }
-}' "https://{yourOktaDomain}/api/v1/templates/sms/${templateId}"
+}' "https://${yourOktaDomain}/api/v1/templates/sms/${templateId}"
 ```
 
 ##### Response Example
@@ -329,7 +329,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/templates/sms/${templateId}"
+"https://${yourOktaDomain}/api/v1/templates/sms/${templateId}"
 ```
 
 
@@ -373,7 +373,7 @@ All templates have the following properties:
 | lastUpdated            | Timestamp when template was last updated                            | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
 | translations           | Array of [translations](#translation-attributes)                    | Array                                                          | N/A      | N/A       | N/A       |
 
-> NOTE: The final length of your SMS message cannot exceed 160 characters. If the verification code portion of the message falls outside of the 160-character limit, your message will not be sent.
+> **Note:** The final length of your SMS message cannot exceed 160 characters. If the verification code portion of the message falls outside of the 160-character limit, your message will not be sent.
 
 #### Translation Attributes
 
@@ -389,7 +389,7 @@ Template translations are optionally provided when you want to localize the SMS 
 
 The key portion is a two-letter country code conforming to [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), and the value is the translated SMS template.
 
-> NOTE: Just like with regular SMS templates, the final processed SMS message cannot exceed 160 characters.
+> **Note:** Just like with regular SMS templates, the final processed SMS message cannot exceed 160 characters.
 
 ### SMS Template Types
 

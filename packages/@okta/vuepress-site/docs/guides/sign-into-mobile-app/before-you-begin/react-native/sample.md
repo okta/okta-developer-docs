@@ -1,0 +1,1 @@
+If you want to skip this guide and just download a working sample app, download our [React-Native browser sign-in example](https://github.com/okta/samples-js-react-native/tree/master/browser-sign-in).

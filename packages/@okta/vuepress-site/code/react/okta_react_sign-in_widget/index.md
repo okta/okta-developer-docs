@@ -267,14 +267,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Security issuer='https://{yourOktaDomain}/oauth2/default'
+        <Security issuer='https://${yourOktaDomain}/oauth2/default'
                   clientId='{clientId}'
                   redirectUri={window.location.origin + '/implicit/callback'}
                   onAuthRequired={onAuthRequired}
                   pkce={true} >
           <Route path='/' exact={true} component={Home} />
           <SecureRoute path='/protected' component={Protected} />
-          <Route path='/login' render={() => <Login baseUrl='https://{yourOktaDomain}' />} />
+          <Route path='/login' render={() => <Login baseUrl='https://${yourOktaDomain}' />} />
           <Route path='/implicit/callback' component={ImplicitCallback} />
         </Security>
       </Router>

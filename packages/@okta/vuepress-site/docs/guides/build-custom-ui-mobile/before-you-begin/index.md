@@ -8,7 +8,7 @@ This guide assumes that:
 * You have an app that you want to add a custom UI to
 * You have already walked through the [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/) guide.
 
-> Note: If the browser sign-in works for your application, we recommend using that since building a custom sign-in UI takes more effort and development time.
+> **Note:** If the browser sign-in works for your application, we recommend using that since building a custom sign-in UI takes more effort and development time.
 
 <StackSelector snippet="sample" />
 
