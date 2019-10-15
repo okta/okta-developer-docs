@@ -42,7 +42,7 @@ Okta allows you to create multiple Custom Authorization Servers within a single 
 
 #### Default Custom Authorization Server
 
-Okta provides a pre-configured Custom Authorization Server called `default`. It includes a basic access policy and a rule to quickly get you started. For simple use cases, this Custom Authorization Server is usually all that you need.
+Okta provides a pre-configured Custom Authorization Server called `default`. It includes a basic access policy and a rule to quickly get you started. For simple use cases, this out-of-the-box Custom Authorization Server is usually all that you need.
 
 To use the `default` Custom Authorization Server, use `default` as the authorization server ID:
 
