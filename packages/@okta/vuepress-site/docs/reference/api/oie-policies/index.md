@@ -206,7 +206,7 @@ The IdP Routing Policy object determines which IdP users are routed to. One IdP 
 | id       | String  | Unique identifier for this Policy (read-only).                                          |
 | name     | String  | Human-readable name for the Policy, configurable during creation or updating.           |
 | type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdpRouting`. |
-| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                               |
+| status   | String  | `ACTIVE` or `INACTIVE`.                                                                 |
 | default  | Boolean | `true` for the first instance of this policy, which gets created by default.            |
 
 ### IdP Routing Object Example
@@ -251,7 +251,7 @@ The IdP Routing Policy object determines which IdP users are routed to. One IdP 
 | conditions  | Array                                                                       | No conditions are supported for this Rule type, so this must be an empty array.     |
 | action      | String                                                                      | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.          |
 | requirement | [IdP Routing Rule Requirement Object](#idp-routing-rule-requirement-object) | Specifies the IdP to use.                                                           |
-| status      | String                                                                      | `ACTIVE`  or  `INACTIVE`.                                                           |
+| status      | String                                                                      | `ACTIVE` or `INACTIVE`.                                                             |
 | default     | Boolean                                                                     | `true` for the first instance of this Rule, which gets created by default.          |
 
 #### IdP Routing Rule Requirement Object
@@ -318,7 +318,7 @@ The Identifier Match Policy object determines which user profile attributes are 
 | id       | String  | Unique identifier for this Policy (read-only).                                               |
 | name     | String  | Human-readable name for the Policy, configurable during creation or updating.                |
 | type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:IdentifierMatch`. |
-| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                    |
+| status   | String  | `ACTIVE` or `INACTIVE`.                                                                      |
 | default  | Boolean | `true` for the first instance of this policy, which gets created by default.                 |
 
 ### Identifier Match Policy Object Example
@@ -359,10 +359,10 @@ The Identifier Match Policy object determines which user profile attributes are 
 | id          | String                                                                                | Unique identifier for this Rule (read-only).                                                                       |
 | type        | String                                                                                | Type of the policy. For Identifier Match Rule objects, this needs to be `Okta:IdentifierMatch`.                    |
 | priority    | Integer                                                                               | Used to determine which Rules take precedence.                                                                     |
-| conditions  | Array                                                                                 | User Type and Group conditions are supported for this Rule type.                                                    |
+| conditions  | Array                                                                                 | User Type and Group conditions are supported for this Rule type.                                                   |
 | action      | String                                                                                | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                                         |
 | requirement | [Identifier Match Rule Requirement Object](#identifier-match-rule-requirement-object) | Specifies the user profile attributes to match against, as well as the action to take in case of multiple matches. |
-| status      | String                                                                                | `ACTIVE`  or  `INACTIVE`.                                                                                          |
+| status      | String                                                                                | `ACTIVE` or `INACTIVE`.                                                                                            |
 | default     | Boolean                                                                               | `true` for the first instance of this Rule, which gets created by default.                                         |
 
 #### Identifier Match Rule Requirement Object
@@ -451,7 +451,7 @@ The Unknown User Policy determines whether a user who has not been found to matc
 | id       | String  | Unique identifier for this Policy (read-only).                                           |
 | name     | String  | Human-readable name for the Policy, configurable during creation or updating.            |
 | type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:UnknownUser`. |
-| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                |
+| status   | String  | `ACTIVE` or `INACTIVE`.                                                                  |
 | default  | Boolean | `true` for the first instance of this policy, which gets created by default.             |
 
 ### Unknown User Policy Object Example
@@ -496,7 +496,7 @@ The Unknown User Policy determines whether a user who has not been found to matc
 | conditions  | Array                                                                        | Identifier and App conditions are supported for this Rule type.                                    |
 | action      | String                                                                       | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                         |
 | requirement | [Unknown User Rule Requirement Object](#unknow-user-rule-requirement-object) | Specifies whether to allow an unknown user to register and, if so, what User Type to use for them. |
-| status      | String                                                                       | `ACTIVE`  or  `INACTIVE`.                                                                          |
+| status      | String                                                                       | `ACTIVE` or `INACTIVE`.                                                                            |
 | default     | Boolean                                                                      | `true` for the first instance of this Rule, which gets created by default.                         |
 
 #### Unknown User Rule Requirement Object
@@ -548,7 +548,7 @@ The Sign On Policy object determines which authentication factors to prompt user
 | id       | String  | Unique identifier for this Policy (read-only).                                      |
 | name     | String  | Human-readable name for the Policy, configurable during creation or updating.       |
 | type     | String  | Type of the policy. For IdP Routing Policy objects, this needs to be `Okta:SignOn`. |
-| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                           |
+| status   | String  | `ACTIVE` or `INACTIVE`.                                                             |
 | default  | Boolean | `true` for the first instance of this policy, which gets created by default.        |
 
 ### Sign On Policy Object Example
@@ -618,7 +618,7 @@ The Sign On Policy object determines which authentication factors to prompt user
 | conditions  | Array                                                               | User Type and Group conditions are supported for this Rule type.            |
 | action      | String                                                              | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.  |
 | requirement | [Sign On Rule Requirement Object](#sign-on-rule-requirement-object) | Specifies credentials to prompt user for.                                   |
-| status      | String                                                              | `ACTIVE`  or  `INACTIVE`.                                                   |
+| status      | String                                                              | `ACTIVE` or `INACTIVE`.                                                     |
 | default     | Boolean                                                             | `true` for the first instance of this Rule, which gets created by default.  |
 
 #### Sign On Rule Requirement Object
@@ -733,7 +733,7 @@ The User Profile object determines which user profile attributes to require user
 | conditions  | Array                                                                         | UserType, User, Group and various Device conditions are supported for this rule type. |
 | action      | String                                                                        | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.            |
 | requirement | [User Profile Rule Requirement Object](#user-profile-rule-requirement-object) | Specifies profile attributes to prompt user for.                                      |
-| status      | String                                                                        | `ACTIVE`  or  `INACTIVE`.                                                             |
+| status      | String                                                                        | `ACTIVE` or `INACTIVE`.                                                               |
 | default     | Boolean                                                                       | `true` for the first instance of this Rule, which gets created by default.            |
 
 #### User Profile Rule Requirement Object
