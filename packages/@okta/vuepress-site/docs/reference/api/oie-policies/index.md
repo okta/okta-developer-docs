@@ -195,6 +195,8 @@ Okta Identity Engine introduces a set of new Policy and Rule objects that are di
 
 Default instances of each Policy type are created automatically when Okta Identity Engine is enabled for your org. Each of the default Policy objects also has a default Rule object that is created automatically.
 
+The `conditions` objects, which can be specified in Rule objects, are documented in the existing Policy API documentation at: <https://developer.okta.com/docs/reference/api/policy/#conditions>
+
 ### IdP Routing Policy Object
 
 The IdP Routing Policy object determines which IdP users are routed to. One IdP Routing Policy object is created by default. Additional IdP Routing Policy objects cannot be created. Currently, the only IdP you can configure for use with the Okta Identity Engine Pipeline is the Okta IdP, so that, although this object needs to exist, it cannot change the behavior of the pipeline.
