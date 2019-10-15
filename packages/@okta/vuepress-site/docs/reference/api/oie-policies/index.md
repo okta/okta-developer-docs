@@ -621,10 +621,10 @@ The Sign On Policy object determines which authentication factors to prompt user
 
 #### Sign On Rule Requirement Object
 
-| Property                  | Type   | Description                                                                                                                                         |
-|---------------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `verificationMethod.type` | String | `CHAIN` or `ANY_FACTOR` to determine whether users should be prompted for a sequence of credentials or allowed to choose one credential from a set. |
-| chains                    | Array  | Array specifying the chain of factor types to require. Not required if `verificationMethod.type` is `ANY_FACTOR`.|                                  |      
+| Property                  | Type   | Description                                                                                                                |
+|---------------------------|--------|----------------------------------------------------------------------------------------------------------------------------|
+| `verificationMethod.type` | String | Currently, the only allowed value is `CHAIN`, which specifies that users should be prompted for a sequence of credentials. |
+| chains                    | Array  | Array specifying the chain of factor types to require. Not required if `verificationMethod.type` is `ANY_FACTOR`.          |                                 |      
 
 ### Sign On Rule Object Example
 
