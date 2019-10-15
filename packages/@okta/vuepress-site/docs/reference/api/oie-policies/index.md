@@ -497,10 +497,10 @@ The Unknown User Policy determines whether a user who has not been found to matc
 
 #### Unknown User Rule Requirement Object
 
-| Property                                   | Type   | Description                                                                                                                                                            |
-|--------------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `noUserMatch.action`                       | String | `REGISTER` or `DENY` to determine whether unknown users should be allowed to register.                                                                                 |
-| `noUserMatch.registration.defaultUserType` | String | Valid ID of a User Type. Sets the User Type to enroll unknown users as, if you have allowed unknown users to register. Not required if `noUserMatch.action` is `DENY`. |
+| Property                                   | Type   | Description                                                                                                                                                                                          |
+|--------------------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `noUserMatch.action`                       | String | `REGISTER` or `DENY` to determine whether unknown users should be allowed to register.                                                                                                               |
+| `noUserMatch.registration.defaultUserType` | String | Valid ID of a User Type. Sets the User Type to enroll unknown users as, if you have allowed unknown users to register. `noUserMatch.registration` must be omitted if `noUserMatch.action` is `DENY`. |
 
 ### Unknown User Rule Object Example
 
