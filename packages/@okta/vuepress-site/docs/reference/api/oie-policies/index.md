@@ -180,7 +180,7 @@ See <https://developer.okta.com/docs/reference/api/policy/#policy-api-operations
 
 ## Okta Identity Engine Policy and Rule Objects
 
-Okta Identity Engine introduces a set of new Policy and Rule objects that are different from the existing Policy and API objects:
+Okta Identity Engine introduces a set of new Policy and Rule objects that are different from the existing Policy and Rule objects:
 
 * [IdP Routing Policy Object](#idp-routing-policy-object)
 * [IdP Routing Rule Object](#idp-routing-rule-object)
