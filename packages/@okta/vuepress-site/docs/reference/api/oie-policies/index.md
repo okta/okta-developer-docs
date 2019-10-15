@@ -734,10 +734,10 @@ The User Profile object determines which user profile attributes to require user
 
 #### User Profile Rule Requirement Object
 
-| Property                   | Type   | Description                                                                                                                                                                                                                                    |
-|----------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| preRegistrationInlineHooks | String | Optional. The valid ID of an Inline Hook. Sets a Registration Inline Hook to invoke.                                                                                                                                                           |
-| profileAttributes          | Array  | Array specifying the `label` and `name` of each User Profile Attribute that should be collected from the user. `label` is human-readable text that can be displayed to the user in a web form. `name` is the name of a User Profile Attribute. |
+| Property                   | Type  | Description                                                                                                                                                                                                                                    |
+|----------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| preRegistrationInlineHooks | Array | Optional. An array that can currently contain only one element. The element must be the unique ID of a Registration Inline Hook to invoke.                                                                                                     |
+| profileAttributes          | Array | Array specifying the `label` and `name` of each User Profile Attribute that should be collected from the user. `label` is human-readable text that can be displayed to the user in a web form. `name` is the name of a User Profile Attribute. |
 
 ### User Profile Rule Object Example
 
