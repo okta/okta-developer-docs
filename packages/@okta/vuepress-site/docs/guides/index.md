@@ -21,6 +21,7 @@ guides:
  - implement-implicit
  - implement-password
  - mfa
+ - oin-build-provisioning-integration
  - oin-build-sso-integration
  - protect-your-api
  - refresh-tokens
