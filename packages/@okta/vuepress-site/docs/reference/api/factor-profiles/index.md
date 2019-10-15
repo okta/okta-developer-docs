@@ -154,7 +154,7 @@ curl -v -X DELETE \
 
 #### Response Types
 
-HTTP 204:
+HTTP 200:
 *No Content*
 
 
@@ -346,17 +346,17 @@ The Adoption Feature is available for all Factor Profiles. It controls the setti
 
 ##### Adoption Factor Profile Feature Properties
 
-| Property                              | Type                                                           | Description                                                                                                 |
-| ------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Property                              | Type                                                            | Description                                                                                                 |
+| ------------------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `_links`                              | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                                              |
-| `cardinality.max`                     | Number                                                         | The maximum number of factor instances user is allowed to enroll in.                                        |
-| `cardinality.min`                     | Number                                                         | The minimum number of factor instances user must enroll in.                                                 |
-| `created`                             | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was created.                                                      |
-| `id`                                  | String                                                         | Identifier of the Factor Profile feature.                                                                   |
-| `lastUpdated`                         | String (ISO-8601)                                              | Timestamp when the Factor Profile feature was last modified.                                                |
-| `selfService.eligiblity`              | String                                                         | Indicates if factor may be adopted. Possible values: `ALLOWED`, `NOT_ALLOWED`                               |
-| `selfService.verificationMethod.type` | String                                                         | Indicates which factors may be used to verify an adoption operation. Possible values: `ANY_FACTOR`, `CHAIN` |
-| `type`                                | String (Enum)                                                  | Feature type.                                                                                               |
+| `cardinality.max`                     | Number                                                          | The maximum number of factor instances user is allowed to enroll in.                                        |
+| `cardinality.min`                     | Number                                                          | The minimum number of factor instances user must enroll in.                                                 |
+| `created`                             | String (ISO-8601)                                               | Timestamp when the Factor Profile feature was created.                                                      |
+| `id`                                  | String                                                          | Identifier of the Factor Profile feature.                                                                   |
+| `lastUpdated`                         | String (ISO-8601)                                               | Timestamp when the Factor Profile feature was last modified.                                                |
+| `selfService.eligibility`             | String                                                          | Indicates if factor may be adopted. Possible values: `ALLOWED`, `NOT_ALLOWED`                               |
+| `selfService.verificationMethod.type` | String                                                          | Indicates which factors may be used to verify an adoption operation. Possible values: `ANY_FACTOR`, `CHAIN` |
+| `type`                                | String (Enum)                                                   | Feature type.                                                                                               |
 
 
 ###### Chain verification
