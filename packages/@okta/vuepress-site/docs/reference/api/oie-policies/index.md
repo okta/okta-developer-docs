@@ -307,7 +307,7 @@ The IdP Routing Policy object determines which IdP users are routed to. One IdP 
 }
 ```
 
-## Identifier Match Policy Object
+### Identifier Match Policy Object
 
 The Identifier Match Policy object determines which user profile attributes are used to check for matches between the user entering the Identity Engine Pipeline and existing Okta User Profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
 
@@ -349,7 +349,7 @@ The Identifier Match Policy object determines which user profile attributes are 
     }
 }
 ```
-## Identifier Match Rule Object
+### Identifier Match Rule Object
 
 | Property    | Type                                                                                  | Description                                                                                                        |
 |-------------|---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
@@ -440,7 +440,7 @@ The Identifier Match Policy object determines which user profile attributes are 
 }
 ```
 
-## Unknown User Policy Object
+### Unknown User Policy Object
 
 The Unknown User Policy determines whether a user who has not been found to match with any existing Okta User Profiles is allowed to register and, if so, what User Type they should be assigned. One Unknown User Policy object is created by default. You cannot create additional Unknown User Policy objects.
 
@@ -483,7 +483,7 @@ The Unknown User Policy determines whether a user who has not been found to matc
 }
 ```
 
-## Unknown User Rule Object
+### Unknown User Rule Object
 
 | Property    | Type                                                                         | Description                                                                                        |
 |-------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -537,7 +537,7 @@ The Unknown User Policy determines whether a user who has not been found to matc
 }
 ```
 
-## Sign On Policy Object
+### Sign On Policy Object
 
 The Sign On Policy object determines which authentication factors to prompt users for, in order to authenticate them. One Sign On Policy object is created by default.
 
@@ -605,7 +605,7 @@ The Sign On Policy object determines which authentication factors to prompt user
 }
 ```
 
-## Sign On Rule Object
+### Sign On Rule Object
 
 | Property    | Type                                                                | Description                                                                 |
 |-------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------|
@@ -676,7 +676,7 @@ The Sign On Policy object determines which authentication factors to prompt user
 }
 ```
 
-## User Profile Policy Object
+### User Profile Policy Object
 
 The User Profile object determines which user profile attributes to require users to supply. One User Profile Policy object is created by default.
 
@@ -720,7 +720,7 @@ The User Profile object determines which user profile attributes to require user
 
 ```
 
-## User Profile Rule Object
+### User Profile Rule Object
 
 | Property    | Type                                                                          | Description                                                                          |
 |-------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
