@@ -74,7 +74,7 @@ curl -v -X GET \
     "default": true,
     "_links": {
         "self": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10xzYOyK9ux6v70g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -83,7 +83,7 @@ curl -v -X GET \
             }
         },
         "rules": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10xzYOyK9ux6v70g4/rules",
             "hints": {
                 "allow": [
                     "GET"
@@ -138,7 +138,7 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
     "default": true,
     "_links": {
         "self": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10xzYOyK9ux6v70g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -147,7 +147,7 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
             }
         },
         "rules": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10xzYOyK9ux6v70g4/rules",
             "hints": {
                 "allow": [
                     "GET"
@@ -186,7 +186,7 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
     "name": "Catch-all Rule",
     "id": "rul10y0LatXn0HP2p0g4",
     "type": "Okta:IdpRouting",
-    "priority": 2,
+    "priority": 0,
     "conditions": [],
     "action": "ALLOW",
     "requirement": {
@@ -197,7 +197,7 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
     "default": false,
     "_links": {
         "self": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -207,7 +207,7 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
             }
         },
         "deactivate": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4/lifecycle/deactivate",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10xzYOyK9ux6v70g4/rules/rul10y0LatXn0HP2p0g4/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -215,7 +215,7 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
             }
         },
         "policy": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10xzYOyK9ux6v70g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10xzYOyK9ux6v70g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -250,7 +250,7 @@ The Identifier Match Policy Object determines which user profile attributes are 
     "default": true,
     "_links": {
         "self": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10y1rmKOjickDM0g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10y1rmKOjickDM0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -259,7 +259,7 @@ The Identifier Match Policy Object determines which user profile attributes are 
             }
         },
         "rules": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10y1rmKOjickDM0g4/rules",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10y1rmKOjickDM0g4/rules",
             "hints": {
                 "allow": [
                     "GET"
@@ -297,7 +297,7 @@ The Identifier Match Policy Object determines which user profile attributes are 
     "name": "Catch-all Rule",
     "id": "rul10y292nt87pGec0g4",
     "type": "Okta:IdentifierMatch",
-    "priority": 1,
+    "priority": 0,
     "conditions": [
         {
             "key": "Okta:Identifier",
@@ -328,7 +328,7 @@ The Identifier Match Policy Object determines which user profile attributes are 
     "default": false,
     "_links": {
         "self": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10y1rmKOjickDM0g4/rules/rul10y292nt87pGec0g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10y1rmKOjickDM0g4/rules/rul10y292nt87pGec0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -338,7 +338,7 @@ The Identifier Match Policy Object determines which user profile attributes are 
             }
         },
         "deactivate": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10y1rmKOjickDM0g4/rules/rul10y292nt87pGec0g4/lifecycle/deactivate",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10y1rmKOjickDM0g4/rules/rul10y292nt87pGec0g4/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -346,7 +346,7 @@ The Identifier Match Policy Object determines which user profile attributes are 
             }
         },
         "policy": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10y1rmKOjickDM0g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10y1rmKOjickDM0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -381,7 +381,7 @@ The Unknown User Policy determines whether a user who has not been found to matc
     "default": true,
     "_links": {
         "self": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10y3icArzJtWvf0g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10y3icArzJtWvf0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -390,7 +390,7 @@ The Unknown User Policy determines whether a user who has not been found to matc
             }
         },
         "rules": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10y3icArzJtWvf0g4/rules",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10y3icArzJtWvf0g4/rules",
             "hints": {
                 "allow": [
                     "GET"
@@ -478,7 +478,7 @@ The Sign On Policy Object determines which authentication factors to prompt user
     "default": false,
     "_links": {
         "mappings": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst6v8jmmTIJdv6ms0g4/mappings",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst6v8jmmTIJdv6ms0g4/mappings",
             "hints": {
                 "allow": [
                     "GET"
@@ -486,7 +486,7 @@ The Sign On Policy Object determines which authentication factors to prompt user
             }
         },
         "self": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst6v8jmmTIJdv6ms0g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst6v8jmmTIJdv6ms0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -496,7 +496,7 @@ The Sign On Policy Object determines which authentication factors to prompt user
             }
         },
         "rules": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst6v8jmmTIJdv6ms0g4/rules",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst6v8jmmTIJdv6ms0g4/rules",
             "hints": {
                 "allow": [
                     "GET"
@@ -504,7 +504,7 @@ The Sign On Policy Object determines which authentication factors to prompt user
             }
         },
         "deactivate": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst6v8jmmTIJdv6ms0g4/lifecycle/deactivate",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst6v8jmmTIJdv6ms0g4/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -512,7 +512,7 @@ The Sign On Policy Object determines which authentication factors to prompt user
             }
         },
         "applications": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst6v8jmmTIJdv6ms0g4/app",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst6v8jmmTIJdv6ms0g4/app",
             "hints": {
                 "allow": [
                     "GET"
@@ -603,7 +603,7 @@ The User Profile Object determines which user profile attributes to require user
 | id       | String  | Unique identifier for this Policy (read-only).                                            |
 | name     | String  | Human-readable name for the Policy, configurable during creation or updating.             |
 | type     | String  | Type of the policy. For User Profile Policy objects, this needs to be `Okta:UserProfile`. |
-| status   | String  | `ACTIVE`  or  `INACTIVE`.                                                                 |
+| status   | String  | `ACTIVE` or `INACTIVE`.                                                                   |
 | default  | Boolean | `true` for the first instance of this policy, which gets created by default.              |
 
 ### User Profile Policy Object Example
@@ -617,7 +617,7 @@ The User Profile Object determines which user profile attributes to require user
     "default": true,
     "_links": {
         "self": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10y7ftlPBUWJzu0g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10y7ftlPBUWJzu0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -626,7 +626,7 @@ The User Profile Object determines which user profile attributes to require user
             }
         },
         "rules": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst10y7ftlPBUWJzu0g4/rules",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst10y7ftlPBUWJzu0g4/rules",
             "hints": {
                 "allow": [
                     "GET"
@@ -665,7 +665,7 @@ The User Profile Object determines which user profile attributes to require user
 {
 	"name": "New Rule",
     "type": "Okta:UserProfile",
-    "priority": 1,
+    "priority": 0,
     "action": "ALLOW",
     "conditions": [],
     "requirement": {
@@ -745,7 +745,7 @@ curl -v -X GET \
     "id": "rsm6v8k4qjUvQgPsa0g4",
     "_links": {
         "application": {
-            "href": "https://idx.okta1.com/api/v1/apps/0oat3dEB15WDr5SW30g3",
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oat3dEB15WDr5SW30g3",
             "hints": {
                 "allow": [
                     "GET",
@@ -755,7 +755,7 @@ curl -v -X GET \
             }
         },
         "self": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst6v8abMiZPFyVfY0g4/mappings/rsm6v8k4qjUvQgPsa0g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst6v8abMiZPFyVfY0g4/mappings/rsm6v8k4qjUvQgPsa0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -764,7 +764,7 @@ curl -v -X GET \
             }
         },
         "policy": {
-            "href": "https://idx.okta1.com/api/v1/policies/rst6v8abMiZPFyVfY0g4",
+            "href": "https://${yourOktaDomain}/api/v1/policies/rst6v8abMiZPFyVfY0g4",
             "hints": {
                 "allow": [
                     "GET",
