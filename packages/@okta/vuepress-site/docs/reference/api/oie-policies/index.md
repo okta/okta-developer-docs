@@ -359,7 +359,7 @@ The Identifier Match Policy object determines which user profile attributes are 
 | id          | String                                                                                | Unique identifier for this Rule (read-only).                                                                       |
 | type        | String                                                                                | Type of the policy. For Identifier Match Rule objects, this needs to be `Okta:IdentifierMatch`.                    |
 | priority    | Integer                                                                               | Used to determine which Rules take precedence.                                                                     |
-| conditions  | Array                                                                                 | Identifier and App conditions are supported for this Rule type.                                                    |
+| conditions  | Array                                                                                 | User Type and Group conditions are supported for this Rule type.                                                    |
 | action      | String                                                                                | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                                         |
 | requirement | [Identifier Match Rule Requirement Object](#identifier-match-rule-requirement-object) | Specifies the user profile attributes to match against, as well as the action to take in case of multiple matches. |
 | status      | String                                                                                | `ACTIVE`  or  `INACTIVE`.                                                                                          |
@@ -382,17 +382,19 @@ The Identifier Match Policy object determines which user profile attributes are 
     "priority": 0,
     "conditions": [
         {
-            "key": "Okta:Identifier",
-            "op": "STRING_ENDS_WITH",
-            "value": "idx.com"
-        },
-        {
-            "key": "Okta:AppInstance",
+            "key": "Okta:UserType",
             "op": "IN_LIST",
             "value": [
-            	"${appInstanceId}"
+            	"${userTypeId}"
         	]
-        }
+        },
+        {
+            "key": "Okta:Group",
+            "op": "INTERSECTS",
+            "value": [
+                "${groupId}"
+            ]
+        }	
     ],
     "action": "ALLOW",
     "requirement": {
