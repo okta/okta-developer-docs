@@ -10,7 +10,7 @@ Okta Identity Engine adds new Policy objects to the Okta `/policies` API, to con
 
 During the Limited EA phase, Okta Identity Engine is enabled or disabled for an org as a whole. If Okta Identity Engine is enabled for an org, these new Policies control the pipeline through which end users progress when accessing OpenID Connect apps. You cannot mix old Policy and Rule objects with new Okta Identity Engine objects; old Policy and Rule objects do not affect the new pipeline.
 
-API endpoints for listing, getting, creating, updating and deleting Policy and Rule objects function the same way in Okta Identity Engine as they do in the existing Okta `/policies` API; only the objects used are different, with Okta Identity Engine introducing a set of new Policy and Rule objects. See the [Okta Identity Engine Policy Objects](#okta-identity-enging-policy-objects) section of this document for descriptions of the objects.
+API endpoints for listing, getting, creating, updating and deleting Policy and Rule objects function the same way in Okta Identity Engine as they do in the existing Okta `/policies` API; only the objects used are different, with Okta Identity Engine introducing a set of new Policy and Rule objects. See the [Okta Identity Engine Policy and Rule Objects](#okta-identity-enging-policy-and-rule-objects) section of this document for descriptions of the objects.
 
 Each Policy object, as well as a Rule for it, needs to exist, in order for Okta Identity Engine to function. One of each is created by default when Okta Identity Engine is enabled for an org.
 
@@ -18,7 +18,7 @@ A `/mappings` endpoint is used to set which Policies apply to which Apps. See th
 
 ## Policies API Operations
 
-API endpoints for creating, getting, and updating Policy and Rule objects function the same way in Okta Identity Engine as they do in the existing Okta `/policies` API. The API endpoints support the following operations:
+API endpoints function the same way in Okta Identity Engine as they do in the existing Okta `/policies` API. The API endpoints support the following operations:
 
  * Get Policy
  * List Policies
@@ -98,7 +98,7 @@ curl -v -X GET \
 
 See <https://developer.okta.com/docs/reference/api/policy/#policy-api-operations> for request syntax for all other operations.
 
-## Okta Identity Engine Policy Objects
+## Okta Identity Engine Policy and Rule Objects
 
 Okta Identity Engine introduces a set of new Policy and Rule objects that are different from the existing Policy and API objects:
 
@@ -113,11 +113,11 @@ Okta Identity Engine introduces a set of new Policy and Rule objects that are di
 * [User Profile Policy Object](#user-profile-policy-object)
 * [User Profile Rule Object](#user-profile-rule-object)
 
-Default instances of each Policy type are created automatically when Okta Identity Engine is enabled for your org. Each of the default Policy objects also has a default Rule that is created automatically.
+Default instances of each Policy type are created automatically when Okta Identity Engine is enabled for your org. Each of the default Policy objects also has a default Rule object that is created automatically.
 
 ### IdP Routing Policy Object
 
-The IdP Routing Policy Object determines which IdP users are routed to. One IdP Routing Policy object is created by default. Additional IdP Routing Policy objects cannot be created. Currently, the only IdP you can configure for use with the Okta Identity Engine Pipeline is the Okta IdP, so that, although this object needs to exist, it cannot change the behavior of the pipeline.
+The IdP Routing Policy object determines which IdP users are routed to. One IdP Routing Policy object is created by default. Additional IdP Routing Policy objects cannot be created. Currently, the only IdP you can configure for use with the Okta Identity Engine Pipeline is the Okta IdP, so that, although this object needs to exist, it cannot change the behavior of the pipeline.
 
 | Property | Type    | Description                                                                             |
 |----------|---------|-----------------------------------------------------------------------------------------|
@@ -229,7 +229,7 @@ The IdP Routing Policy Object determines which IdP users are routed to. One IdP 
 
 ## Identifier Match Policy Object
 
-The Identifier Match Policy Object determines which user profile attributes are used to check for matches between the user entering the Identity Engine Pipeline and existing Okta User Profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
+The Identifier Match Policy object determines which user profile attributes are used to check for matches between the user entering the Identity Engine Pipeline and existing Okta User Profiles. One Identifier Match Policy object is created by default. You cannot create additional Identifier Match Policy objects.
 
 | Property | Type    | Description                                                                                  |
 |----------|---------|----------------------------------------------------------------------------------------------|
@@ -275,7 +275,7 @@ The Identifier Match Policy Object determines which user profile attributes are 
 |-------------|---------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
 | name        | String                                                                                | Human-readable name for the Rule, configurable during creation or updating.                                        |
 | id          | String                                                                                | Unique identifier for this Rule (read-only).                                                                       |
-| type        | String                                                                                | Type of the policy. For Identifier Match Rule Objects, this needs to be `Okta:IdentifierMatch`.                    |
+| type        | String                                                                                | Type of the policy. For Identifier Match Rule objects, this needs to be `Okta:IdentifierMatch`.                    |
 | priority    | Integer                                                                               | Used to determine which Rules take precedence.                                                                     |
 | conditions  | Array                                                                                 | Identifier and App conditions are supported for this Rule type.                                                    |
 | action      | String                                                                                | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                                         |
@@ -407,7 +407,7 @@ The Unknown User Policy determines whether a user who has not been found to matc
 |-------------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | name        | String                                                                       | Human-readable name for the Rule, configurable during creation or updating.                        |
 | id          | String                                                                       | Unique identifier for this Rule (read-only)                                                        |
-| type        | String                                                                       | Type of the Rule. For Unknown User Rule Objects, this needs to be `Okta:UnknownUser`.              |
+| type        | String                                                                       | Type of the Rule. For Unknown User Rule objects, this needs to be `Okta:UnknownUser`.              |
 | priority    | Integer                                                                      | Used to determine which Rules take precedence.                                                     |
 | conditions  | Array                                                                        | Identifier and App conditions are supported for this Rule type.                                    |
 | action      | String                                                                       | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.                         |
@@ -457,7 +457,7 @@ The Unknown User Policy determines whether a user who has not been found to matc
 
 ## Sign On Policy Object
 
-The Sign On Policy Object determines which authentication factors to prompt users for, in order to authenticate them. One Sign On Policy Object is created by default.
+The Sign On Policy object determines which authentication factors to prompt users for, in order to authenticate them. One Sign On Policy object is created by default.
 
 | Property | Type    | Description                                                                         |
 |----------|---------|-------------------------------------------------------------------------------------|
@@ -529,7 +529,7 @@ The Sign On Policy Object determines which authentication factors to prompt user
 |-------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------|
 | name        | String                                                              | Human-readable name for the Rule, configurable during creation or updating. |
 | id          | String                                                              | Unique identifier for this Rule (read-only).                                |
-| type        | String                                                              | Type of the Rule. For Sign On Rule Objects, this needs to be `Okta:SignOn`. |
+| type        | String                                                              | Type of the Rule. For Sign On Rule objects, this needs to be `Okta:SignOn`. |
 | priority    | Integer                                                             | Used to determine which Rules take precedence.                              |
 | conditions  | Array                                                               | User Type and Group conditions are supported for this Rule type.            |
 | action      | String                                                              | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.  |
@@ -596,7 +596,7 @@ The Sign On Policy Object determines which authentication factors to prompt user
 
 ## User Profile Policy Object
 
-The User Profile Object determines which user profile attributes to require users to supply. One User Profile Policy Object is created by default.
+The User Profile object determines which user profile attributes to require users to supply. One User Profile Policy object is created by default.
 
 | Property | Type    | Description                                                                               |
 |----------|---------|-------------------------------------------------------------------------------------------|
@@ -644,7 +644,7 @@ The User Profile Object determines which user profile attributes to require user
 |-------------|-------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | name        | String                                                                        | Human-readable name for the Rule, configurable during creation or updating.           |
 | id          | String                                                                        | Unique identifier for this Rule (read-only).                                          |
-| type        | String                                                                        | Type of the Rule. For Identifier Match Rule Objects, this needs to be `Okta:SignOn`.  |
+| type        | String                                                                        | Type of the Rule. For Identifier Match Rule objects, this needs to be `Okta:SignOn`.  |
 | priority    | Integer                                                                       | Used to determine which Rules take. precedence.                                       |
 | conditions  | Array                                                                         | UserType, User, Group and various Device conditions are supported for this rule type. |
 | action      | String                                                                        | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.            |
