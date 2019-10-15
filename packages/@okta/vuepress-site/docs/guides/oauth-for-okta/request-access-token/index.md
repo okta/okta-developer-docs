@@ -9,7 +9,7 @@ After you have the following, you can request an access token:
 
 > **Note:** Using a Service app? See <GuideLink link="../get-access-token-using-service-app">Get an access token using a Service app</GuideLink> for the steps.
 
-1. Request an access token by making a request to your Okta Org Authorization Server's `/authorize` endpoint. For testing purposes, we recommend that you use a private browser window and the Implicit grant flow. Using the Implicit grant flow streamlines authentication for testing by returning a token without introducing any additional steps. In a production environment, we recommend that you always use the Authorization Code grant flow.
+1. Request an access token by making a request to your Okta [Org Authorization Server's](/docs/concepts/auth-servers) `/authorize` endpoint. For testing purposes, we recommend that you use a private browser window and the Implicit grant flow. Using the Implicit grant flow streamlines authentication for testing by returning a token without introducing any additional steps. In a production environment, we recommend that you always use the Authorization Code grant flow.
 
     > **Note:** If this is your first time working with Okta's APIs, you should read [Get Started with the Okta REST APIs](https://developer.okta.com/code/rest/) first. See [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/) for more information on this grant type.
 
@@ -19,7 +19,7 @@ After you have the following, you can request an access token:
     https://{yourOktadomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.read&redirect_uri={yourConfiguredRedirectUri}&nonce=UBGW&state=1234
     ```
 
-    > **Note:** Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
+    > **Note:** Only the [Org Authorization Server](/docs/concepts/auth-servers) can mint access tokens that contain Okta API scopes.
 
     Note the parameters being passed:
 
