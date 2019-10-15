@@ -722,17 +722,17 @@ The User Profile object determines which user profile attributes to require user
 
 ## User Profile Rule Object
 
-| Property    | Type                                                                          | Description                                                                           |
-|-------------|-------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| name        | String                                                                        | Human-readable name for the Rule, configurable during creation or updating.           |
-| id          | String                                                                        | Unique identifier for this Rule (read-only).                                          |
-| type        | String                                                                        | Type of the Rule. For Identifier Match Rule objects, this needs to be `Okta:SignOn`.  |
-| priority    | Integer                                                                       | Used to determine which Rules take. precedence.                                       |
-| conditions  | Array                                                                         | UserType, User, Group and various Device conditions are supported for this rule type. |
-| action      | String                                                                        | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.            |
-| requirement | [User Profile Rule Requirement Object](#user-profile-rule-requirement-object) | Specifies profile attributes to prompt user for.                                      |
-| status      | String                                                                        | `ACTIVE` or `INACTIVE`.                                                               |
-| default     | Boolean                                                                       | `true` for the first instance of this Rule, which gets created by default.            |
+| Property    | Type                                                                          | Description                                                                          |
+|-------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| name        | String                                                                        | Human-readable name for the Rule, configurable during creation or updating.          |
+| id          | String                                                                        | Unique identifier for this Rule (read-only).                                         |
+| type        | String                                                                        | Type of the Rule. For Identifier Match Rule objects, this needs to be `Okta:SignOn`. |
+| priority    | Integer                                                                       | Used to determine which Rules take. precedence.                                      |
+| conditions  | Array                                                                         | UserType and Group conditions are supported for this rule type.                      |
+| action      | String                                                                        | Either `ALLOW` or `DENY`. Controls whether the user is allowed to proceed.           |
+| requirement | [User Profile Rule Requirement Object](#user-profile-rule-requirement-object) | Specifies profile attributes to prompt user for.                                     |
+| status      | String                                                                        | `ACTIVE` or `INACTIVE`.                                                              |
+| default     | Boolean                                                                       | `true` for the first instance of this Rule, which gets created by default.           |
 
 #### User Profile Rule Requirement Object
 
@@ -751,7 +751,22 @@ The User Profile object determines which user profile attributes to require user
     "type": "Okta:UserProfile",
     "priority": 0,
     "action": "ALLOW",
-    "conditions": [],
+    "conditions": [
+        {
+            "key": "Okta:UserType",
+            "op": "IN_LIST",
+            "value": [
+            	"${userTypeId}"
+        	]
+        },
+        {
+            "key": "Okta:Group",
+            "op": "INTERSECTS",
+            "value": [
+                "${groupId}"
+            ]
+        }	
+    ],
     "requirement": {
         "preRegistrationInlineHooks": [
             {
