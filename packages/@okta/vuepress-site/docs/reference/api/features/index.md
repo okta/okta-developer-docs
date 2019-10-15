@@ -4,8 +4,8 @@ category: management
 ---
 
 # Features API
-<ApiLifecycle access="ea" />
 
+<ApiLifecycle access="ea" />
 
 The Okta Features API provides operations to manage self-service Early Access (EA) and Beta features in your org.
 
@@ -561,12 +561,12 @@ The Feature model defines several properties:
 
 | Property      | Type                                                           | Description                                                           |
 | ------------- | -------------------------------------------------------------- | --------------------------------------------------------------------- |
-| `id`          | String                                                         | Unique identifier for this Feature. (Read-only)                       |
-| `type`        | String (Enum)                                                  | Current type of Feature. Possible value: `self-service`.              |
-| `status`      | String (Enum)                                                  | Current status of the Feature. Possible values: `ENABLED`, `DISABLED` |
-| `name`        | String                                                         | Name of the Feature                                                   |
 | `description` | String                                                         | Brief description of the Feature and what it provides                 |
+| `id`          | String                                                         | Unique identifier for this Feature. (Read-only)                       |
+| `name`        | String                                                         | Name of the Feature                                                   |
 | `stage`       | [Stage Object](#stage-object)                                  | Current [Stage](#stage-object) for this Feature                       |
+| `status`      | String (Enum)                                                  | Current status of the Feature. Possible values: `ENABLED`, `DISABLED` |
+| `type`        | String (Enum)                                                  | Current type of Feature. Possible value: `self-service`.              |
 | `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | [Link relations](#links-object) for the Feature's current `status`    |
 
 ### Feature Example
@@ -617,8 +617,8 @@ The Stage object has following properties:
 
 | Property | Type   | Description      |
 | -------- | ------ | ---------------- |
-| value    | String | `EA`, `BETA`     |
-| status   | String | `OPEN`, `CLOSED` |
+| `status`   | String | `OPEN`, `CLOSED` |
+| `value`    | String | `EA`, `BETA`     |
 
 If a Feature's stage `value` is `EA`, the `status` is `null` and not returned. If the value is `BETA` the status is `OPEN` or `CLOSED` depending on the `BETA` feature
 being manageable or not.
@@ -646,14 +646,14 @@ Here are some links that may be available on a Feature, as determined by your po
 
 | Link Relation Type | Description                                                                  |
 | ------------------ | ---------------------------------------------------------------------------- |
-| self               | A self-referential link to this Feature.                                     |
-| enable             | Lifecycle action to [enable the Feature](#update-feature).                   |
-| disable            | Lifecycle action to [disable the Feature](#update-feature).                  |
-| dependencies       | A link to this Feature's [dependencies](#get-dependencies).                  |
-| dependents         | A link to this Feature's [dependents](#get-dependents).                      |
-| helpDoc            | A link to this Feature's help documentation.                                 |
-| devDoc             | A link to this Feature's developer documentation.                            |
-| survey             | A link to this Feature's survey. Only available for enabled Beta Features.   |
+| `dependencies`       | A link to this Feature's [dependencies](#get-dependencies).                  |
+| `dependents`         | A link to this Feature's [dependents](#get-dependents).                      |
+| `devDoc`             | A link to this Feature's developer documentation.                            |
+| `disable`            | Lifecycle action to [disable the Feature](#update-feature).                  |
+| `enable`             | Lifecycle action to [enable the Feature](#update-feature).                   |
+| `helpDoc`            | A link to this Feature's help documentation.                                 |
+| `self`               | A self-referential link to this Feature.                                     |
+| `survey`             | A link to this Feature's survey. Only available for enabled Beta Features.   |
 
 
 #### Link Example
