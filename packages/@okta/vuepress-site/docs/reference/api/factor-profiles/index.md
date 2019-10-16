@@ -710,7 +710,7 @@ The Adoption Feature is available for all Factor Profiles. It controls the setti
 
 ### Enrollment Source Factor Profile Feature Object
 
-The enrollment source feature is available for the Email Factor Profile. It controls the settings used when enrolling an email factor.
+The Enrollment Source Feature is available for the Email Factor Profile. It controls the settings used when enrolling an Email Factor.
 
 #### Enrollment Source Factor Profile Feature Properties
 
@@ -759,7 +759,7 @@ The enrollment source feature is available for the Email Factor Profile. It cont
 
 ### Recovery Factor Profile Feature Object
 
-The recovery feature is available for all Factor Profiles. It controls the settings that govern how a user can recover their Factor if they lose access to it.
+The Recovery Feature is available for all Factor Profiles. It controls the settings that govern how a user can recover their Factor if they lose access to it.
 
 #### Recovery Factor Profile Feature Properties
 
@@ -849,7 +849,7 @@ The recovery feature is available for all Factor Profiles. It controls the setti
 
 ### Reuse Factor Profile Feature Object
 
-The reuse feature is available for the password Factor Profile. It defines the reuse contraints on new enrollments with the following attributes:
+The Reuse Feature is available for the Password Factor Profile. It defines the reuse constraints on new enrollments with the following attributes:
 
 #### Reuse Factor Profile Feature Properties
 
