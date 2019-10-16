@@ -315,15 +315,15 @@ Along with one of the [Factor Profile Feature Objects](#factor-profile-api-objec
 
 #### Request Body (String Validation)
 
-| Property                     | Type                               | Description                                               |
-| ---------------------------- | ---------------------------------- | --------------------------------------------------------- |
-| `complexity.minLength`       | Integer                            | Minimum length required.                                  |
-| `complexity.minLowerCase`    | Integer                            | Minimum number of lower case characters required.         |
-| `complexity.minNumbers`      | Integer                            | Minimum number of numerical characters required.          |
-| `complexity.minSymbols`      | Integer                            | Minimum number of symbols required.                       |
-| `complexity.minUpperCase`    | Integer                            | Minimum number of upper case characters required.         |
-| `exclude.attributeCriteria`  | Array (Attribute Criterion Object) | Attribute criteria settings (Required but empty allowed). todo |
-| `exclude.common.source.type` | String (Enum)                      | Source settings. Possible values: `okta`                  |
+| Property                     | Type                               | Description                                                                                                             |
+| ---------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `complexity.minLength`       | Integer                            | Minimum length required.                                                                                                |
+| `complexity.minLowerCase`    | Integer                            | Minimum number of lower case characters required.                                                                       |
+| `complexity.minNumbers`      | Integer                            | Minimum number of numerical characters required.                                                                        |
+| `complexity.minSymbols`      | Integer                            | Minimum number of symbols required.                                                                                     |
+| `complexity.minUpperCase`    | Integer                            | Minimum number of upper case characters required.                                                                       |
+| `exclude.attributeCriteria`  | Array (Attribute Criterion Object) | An object that contains a list of user profile properties that cannot be included in their password. See example below. |
+| `exclude.common.source.type` | String (Enum)                      | Source settings. Possible values: `okta`                                                                                |
 
 
 #### Request Body (Token Security)
