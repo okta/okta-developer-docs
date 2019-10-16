@@ -9,23 +9,13 @@ category: management
 
 The Okta Factor Profiles API enables an Administrator to configure which Factor Profiles are available to use for multi-factor authentication.
 
-/todo
-Factor Profiles are part of a Policy
-
-Factor Profile is a description of the Factor, except for the user-specific pieces (such as the email address)
-
-It has data about the profile
-
-It has rules about how you enroll, how you can recover it, how its validated,
-
-Factor Profile Feature is a collection of related properties that together define how the Factor behaves
-
-Recovery is a feature, Enrollment Source is a feature
-/todo
+A Factor Profile is a configuration of a Factor which can be used by a User, once enrolled in a profile, to perform actions such as authentication or credential recovery. A Factor may be used across multiple Factor Profiles with differing sets of configuration. For example, one may have two Password Factor based Factor Profiles such as "Recovery Password" and "Authentication Password" with differing security requirements, suited for their intended usage.
 
 As part of the Limited Early Access release, Factor Profiles can be created for two Factors: `okta_email` and `okta_password`
 
 > **Note:** In the Admin Dashboard a "Factor Profile" is referred to as an "Authenticator".
+
+## Factor Profile Operations
 
 The Factor Profiles API supports the following operations:
 
@@ -36,8 +26,6 @@ The Factor Profiles API supports the following operations:
 * Delete a Factor Profile
 * Get a Feature for a Factor Profile
 * Update a Feature for a Factor Profile
-
-## Factor Profile Operations
 
 ### Create a Factor Profile
 
@@ -82,7 +70,7 @@ curl -v -X POST \
 
 ##### Response
 
-todo
+todo.json
 
 ### Get a Factor Profile
 
@@ -114,7 +102,7 @@ curl -v -X GET \
 
 ##### Response
 
-todo
+todo.json
 
 ### List Factor Profiles by Factor Name
 
@@ -144,7 +132,7 @@ curl -v -X GET \
 ```
 ##### Response
 
-todo
+todo.json
 
 
 ### Update a Factor Profile
@@ -189,7 +177,7 @@ curl -v -X PUT \
 
 ##### Response
 
-todo
+todo.json
 
 
 ### Delete a Factor Profile
@@ -278,11 +266,8 @@ curl -v -X GET \
 
 #### Response Types
 
-HTTP 200:
-Along with one of the Factor Profile Feature Objects:
-
-todo
-
+HTTP 200
+Along with one of the [Factor Profile Feature Objects](#factor-profile-api-objects).
 
 
 ### Update a Factor Profile Feature
@@ -303,7 +288,7 @@ todo
 | ------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------- |
 | `cardinality.max`                     | Number | The maximum number of factor instances user is allowed to enroll in.                                        |
 | `cardinality.min`                     | Number | The minimum number of factor instances user must enroll in.                                                 |
-| `selfService.eligibility`             | String | Indicates if factor may be adopted. Possible values: `ALLOWED`, `NOT_ALLOWED`                               |
+| `selfService.eligibility`             | String | Indicates if factor may be enrolled. Possible values: `ALLOWED`, `NOT_ALLOWED`                               |
 | `selfService.verificationMethod.type` | String | Indicates which factors may be used to verify an adoption operation. Possible values: `ANY_FACTOR`, `CHAIN` |
 
 #### Request Body (Enrollment Source)
@@ -432,7 +417,7 @@ The Factor Profile model defines several attributes:
 
 ### Adoption Factor Profile Feature Object
 
-The Adoption Feature is available for all Factor Profiles. It controls the settings that determine when a Factor may be configured, or "adopted", for a user.
+The Adoption Feature is available for all Factor Profiles. It controls the settings that determine when a Factor may be enrolled, or "adopted", for a user.
 
 #### Adoption Factor Profile Feature Properties
 
@@ -481,6 +466,7 @@ The Adoption Feature is available for all Factor Profiles. It controls the setti
         }
     }
 ```
+
 #### Adoption Factor Profile Feature Example (with Chain)
 
 ```json
