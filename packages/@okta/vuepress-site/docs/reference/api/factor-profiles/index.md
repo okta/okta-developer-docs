@@ -467,7 +467,17 @@ curl -X PUT \
                 "type": "okta"
             }
         },
-        "attributeCriteria": []
+        "attributeCriteria": [
+            {
+                "name": "login"
+            },
+            {
+                "name": "firstName"
+            },
+            {
+                "name": "lastName"
+            }
+        ]
     }
 }`
 ```
@@ -849,7 +859,7 @@ The Recovery Feature is available for all Factor Profiles. It controls the setti
 
 ### Reuse Factor Profile Feature Object
 
-The Reuse Feature is available for the Password Factor Profile. It defines the reuse constraints on new enrollments with the following attributes:
+The Reuse Feature is available for the Password Factor Profile. It defines the reuse constraints on new enrollments.
 
 #### Reuse Factor Profile Feature Properties
 
@@ -896,20 +906,20 @@ The string validation feature is available for the password Factor Profile. It d
 
 #### String Validation Factor Profile Feature Properties
 
-| Property                     | Type                                                                                                               | Description                                                  |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
-| `_links`                     | Object ([Feature Links](#factor-profile-feature-links-object))                                                      | Link relations for this object                               |
-| `complexity.minLength`       | Integer                                                                                                            | Minimum length required.                                     |
-| `complexity.minLowerCase`    | Integer                                                                                                            | Minimum number of lower case characters required.            |
-| `complexity.minNumbers`      | Integer                                                                                                            | Minimum number of numerical characters required.             |
-| `complexity.minSymbols`      | Integer                                                                                                            | Minimum number of symbols required.                          |
-| `complexity.minUpperCase`    | Integer                                                                                                            | Minimum number of upper case characters required.            |
-| `created`                    | String (ISO-8601)                                                                                                  | Timestamp when the Factor Profile Feature was created.       |
-| `exclude.attributeCriteria`  | Array (Attribute Criterion Object) | Attribute criteria settings (Required but empty allowed).    |
-| `exclude.common.source.type` | String (Enum)                                                                                                      | Source settings. Possible values: `okta`                     |
-| `id`                         | String                                                                                                             | Identifier of the Factor Profile Feature.                    |
-| `lastUpdated`                | String (ISO-8601)                                                                                                  | Timestamp when the Factor Profile Feature was last modified. |
-| `type`                       | String (Enum)                                                                                                      | Feature type, which for this feature is `string_validation`                                               |
+| Property                     | Type                                                           | Description                                                                                          |
+| ---------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `_links`                     | Object ([Feature Links](#factor-profile-feature-links-object)) | Link relations for this object                                                                       |
+| `complexity.minLength`       | Integer                                                        | Minimum length required.                                                                             |
+| `complexity.minLowerCase`    | Integer                                                        | Minimum number of lower case characters required.                                                    |
+| `complexity.minNumbers`      | Integer                                                        | Minimum number of numerical characters required.                                                     |
+| `complexity.minSymbols`      | Integer                                                        | Minimum number of symbols required.                                                                  |
+| `complexity.minUpperCase`    | Integer                                                        | Minimum number of upper case characters required.                                                    |
+| `created`                    | String (ISO-8601)                                              | Timestamp when the Factor Profile Feature was created.                                               |
+| `exclude.attributeCriteria`  | Array (Attribute Criterion Object)                             | An object that contains a list of user profile properties that cannot be included in their password. |
+| `exclude.common.source.type` | String (Enum)                                                  | Source settings. Possible values: `okta`                                                             |
+| `id`                         | String                                                         | Identifier of the Factor Profile Feature.                                                            |
+| `lastUpdated`                | String (ISO-8601)                                              | Timestamp when the Factor Profile Feature was last modified.                                         |
+| `type`                       | String (Enum)                                                  | Feature type, which for this feature is `string_validation`                                          |
 
 #### String Validation Factor Profile Feature Example
 
