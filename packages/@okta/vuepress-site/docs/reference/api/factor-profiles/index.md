@@ -5,8 +5,6 @@ category: management
 
 # Factor Profiles API
 
-// THERE ARE TODOs
-
 The Okta Factor Profiles API enables an Administrator to configure which Factor Profiles are available to use for multi-factor authentication.
 
 A Factor Profile is a configuration of a Factor which can be used by a User, once enrolled in a profile, to perform actions such as authentication or credential recovery. A Factor may be used across multiple Factor Profiles with differing sets of configuration. For example, one may have two Password Factor based Factor Profiles such as "Recovery Password" and "Authentication Password" with differing security requirements, suited for their intended usage.
