@@ -65,12 +65,33 @@ curl -v -X POST \
   "name": "PIN code",
   "default": false,
   "settings": {}
-}' "https://{yourOktaDomain}/api/v1/org/factors/{factorName}/profiles"
+}' "https://{yourOktaDomain}/api/v1/org/factors/okta_password/profiles"
 ```
 
 ##### Response
 
-todo.json
+```json
+{
+    "id": "fprujkAbFkkulo9gj0g3",
+    "name": "PIN CODE",
+    "created": "2019-10-16T17:10:13.000Z",
+    "lastUpdated": "2019-10-16T17:10:13.000Z",
+    "settings": {},
+    "default": false,
+    "_links": {
+        "self": {
+            "href": "http://{yourOktaDomain}/api/v1/org/factors/okta_password/profiles/fprujkAbFkkulo9gj0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
 
 ### Get a Factor Profile
 
@@ -97,12 +118,33 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/org/factors/{factorName}/profiles/{profileId}"
+"https://{yourOktaDomain}/api/v1/org/factors/okta_password/profiles/fprujkAbFkkulo9gj0g3"
 ```
 
 ##### Response
 
-todo.json
+```json
+{
+    "id": "fprujkAbFkkulo9gj0g3",
+    "name": "PIN CODE",
+    "created": "2019-10-16T17:10:13.000Z",
+    "lastUpdated": "2019-10-16T17:10:13.000Z",
+    "settings": {},
+    "default": false,
+    "_links": {
+        "self": {
+            "href": "http://{yourOktaDomain}/api/v1/org/factors/okta_password/profiles/fprujkAbFkkulo9gj0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
 
 ### List Factor Profiles by Factor Name
 
@@ -128,11 +170,54 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/org/factors/{factorName}/profiles"
+"https://{yourOktaDomain}/api/v1/org/factors/okta_email/profiles"
 ```
 ##### Response
 
-todo.json
+```json
+[
+    {
+        "id": "fpruib7klOvW4pAuK0g3",
+        "name": "Email",
+        "created": "2019-10-08T18:19:04.000Z",
+        "lastUpdated": "2019-10-08T18:19:04.000Z",
+        "settings": {},
+        "default": true,
+        "_links": {
+            "self": {
+                "href": "http://{yourOktaDomain}/api/v1/org/factors/okta_email/profiles/fpruib7klOvW4pAuK0g3",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "id": "fprujptC366S5BAjQ0g3",
+        "name": "Secondary Email",
+        "created": "2019-10-16T17:20:05.000Z",
+        "lastUpdated": "2019-10-16T17:20:05.000Z",
+        "settings": {},
+        "default": false,
+        "_links": {
+            "self": {
+                "href": "http://{yourOktaDomain}/api/v1/org/factors/okta_email/profiles/fprujptC366S5BAjQ0g3",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT",
+                        "DELETE"
+                    ]
+                }
+            }
+        }
+    }
+]
+```
 
 
 ### Update a Factor Profile
@@ -172,12 +257,33 @@ curl -v -X PUT \
   "name": "PIN code",
   "default": false,
   "settings": {}
-}' "https://{yourOktaDomain}/api/v1/org/factors/{factorName}/profiles/{profileId}"
+}' "https://{yourOktaDomain}/api/v1/org/factors/{factorName}/profiles/fprujkAbFkkulo9gj0g3"
 ```
 
 ##### Response
 
-todo.json
+```json
+{
+    "id": "fprujkAbFkkulo9gj0g3",
+    "name": "PIN code",
+    "created": "2019-10-16T17:10:13.000Z",
+    "lastUpdated": "2019-10-16T17:23:34.000Z",
+    "settings": {},
+    "default": false,
+    "_links": {
+        "self": {
+            "href": "http://{yourOktaDomain}/api/v1/org/factors/okta_password/profiles/fprujkAbFkkulo9gj0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
 
 
 ### Delete a Factor Profile
@@ -341,23 +447,118 @@ Along with one of the [Factor Profile Feature Objects](#factor-profile-api-objec
 
 ##### Request
 
-todo.json
+```bash
+curl -X PUT \
+  http://{yourOktaDomain}/api/v1/org/factors/okta_password/profiles/fprujkAbFkkulo9gj0g3/features/fpfujnTHiZ8x6dM5s0g3 \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+  -d '{
+    "type": "string_validation",
+    "id": "fpfujnTHiZ8x6dM5s0g3",
+    "complexity": {
+        "minLength": 12,
+        "minLowerCase": 1,
+        "minUpperCase": 1,
+        "minNumbers": 1,
+        "minSymbols": 0
+    },
+    "exclude": {
+        "common": {
+            "source": {
+                "type": "okta"
+            }
+        },
+        "attributeCriteria": []
+    }
+}`
+```
 
 ##### Response
 
-todo.json
+```json
+{
+    "type": "string_validation",
+    "id": "fpfujnTHiZ8x6dM5s0g3",
+    "created": "2019-10-16T17:10:13.000Z",
+    "lastUpdated": "2019-10-16T17:26:23.000Z",
+    "complexity": {
+        "minLength": 12,
+        "minLowerCase": 1,
+        "minUpperCase": 1,
+        "minNumbers": 1,
+        "minSymbols": 0
+    },
+    "exclude": {
+        "common": {
+            "source": {
+                "type": "okta"
+            }
+        },
+        "attributeCriteria": []
+    },
+    "_links": {
+        "self": {
+            "href": "http://{yourOktaDomain}/api/v1/org/factors//profiles/fprujkAbFkkulo9gj0g3/features/fpfujnTHiZ8x6dM5s0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
 
 #### Usage Example (Reuse)
 
 
 ##### Request
 
-todo.json
-
+```bash
+curl -X PUT \
+  http://{yourOktaDomain}/api/v1/org/factors/okta_password/profiles/fprujkAbFkkulo9gj0g3/features/fpfujoVGkdWkDF8Qm0g3 \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+  -d '{
+    "type": "reuse",
+    "id": "fpfujoVGkdWkDF8Qm0g3",
+    "prevention": {
+        "numPrevious": 5,
+        "minimumAge": "P1D"
+    }
+}'
+```
 
 ##### Response
 
-todo.json
+```json
+{
+    "type": "reuse",
+    "id": "fpfujoVGkdWkDF8Qm0g3",
+    "created": "2019-10-16T17:10:13.000Z",
+    "lastUpdated": "2019-10-16T17:36:39.000Z",
+    "prevention": {
+        "numPrevious": 5,
+        "minimumAge": "P1D"
+    },
+    "_links": {
+        "self": {
+            "href": "http://{yourOktaDomain}}/api/v1/org/factors//profiles/fprujkAbFkkulo9gj0g3/features/fpfujoVGkdWkDF8Qm0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
 
 ## Factor Profile API Objects
 
