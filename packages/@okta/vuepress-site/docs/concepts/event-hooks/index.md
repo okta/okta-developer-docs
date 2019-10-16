@@ -7,8 +7,6 @@ meta:
 
 # Event Hooks
 
-<ApiLifecycle access="ea" />
-
 ## What Are Okta Event Hooks?
 
 Event Hooks are outbound calls from Okta, sent when specified events occur in your org. They take the form of HTTPS REST calls to a URL you specify, encapsulating information about the events in JSON objects in the request body. These calls from Okta are meant to be used as triggers for process flows within your own software systems.
@@ -100,7 +98,7 @@ The `debugData` section of the [LogEvent](/docs/reference/api/system-log/#exampl
 
 Note that this information is available in the event regardless of whether the delivery was successful or failed.
 
-Thus, in conjunction with the `event_hook.delivery` System Log event, you can debug an end-to-end flow.
+Thus, in conjunction with the [System Log event](/docs/reference/api/event-types/?q=event_hook.delivery) for event hook delivery failures, you can debug an end-to-end flow.
 
 ## Event Hook Setup
 
@@ -118,7 +116,7 @@ The following is an example of a JSON payload of a request from Okta to your ext
   "contentType": "application/json",
   "eventId": "b5a188b9-5ece-4636-b041-482ffda96311",
   "eventTime": "2019-03-27T16:59:53.032Z",
-  "source": "https://{yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
+  "source": "https://${yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
   "data": {
     "events": [
       {

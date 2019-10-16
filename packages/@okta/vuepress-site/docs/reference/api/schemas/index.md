@@ -16,12 +16,18 @@ Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 ## User Schema Operations
 
+Each of the operations described here affects the Schema associated with a single User Type (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). The `${typeId}` element in the URL specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.
+
+Each User Type has an associated Schema. In the future the linkage between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. The schema ID for the Schema associated with a [User Type](/docs/reference/api/user-types/#user-type-model) object can be obtained from its `schema` link. If the <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types) feature is enabled, the `schema` link is also included in individual [User](/docs/reference/api/users/#user-model) objects.
+
+The Request Examples below all use the `default` form, as all orgs include a default User Type.
+
 ### Get User Schema
 
 
-<ApiOperation method="get" url="/api/v1/meta/schemas/user/default" />
+<ApiOperation method="get" url="/api/v1/meta/schemas/user/${typeId}" />
 
-Fetches the default schema for a User
+Fetches the schema for a User Type
 
 ##### Request Parameters
 
@@ -41,7 +47,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/meta/schemas/user/default"
+"https://${yourOktaDomain}/api/v1/meta/schemas/user/default"
 ```
 
 ##### Response Example
@@ -51,7 +57,7 @@ curl -v -X GET \
 
 ```json
 {
-    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -148,7 +154,7 @@ curl -v -X GET \
 ### Add Property to User Profile Schema
 
 
-<ApiOperation method="post" url="/api/v1/meta/schemas/user/default" />
+<ApiOperation method="post" url="/api/v1/meta/schemas/user/${typeId}" />
 
 Adds one or more [custom user profile properties](#user-profile-schema-property-object) to the user schema
 
@@ -196,7 +202,7 @@ curl -v -X POST \
       "required": []
     }
   }
-}' "https://{yourOktaDomain}/api/v1/meta/schemas/user/default"
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/user/default"
 ```
 
 ##### Response Example
@@ -206,7 +212,7 @@ curl -v -X POST \
 
 ```json
 {
-    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -317,7 +323,7 @@ curl -v -X POST \
 ### Update User Profile Schema Property
 
 
-<ApiOperation method="post" url="/api/v1/meta/schemas/user/default" />
+<ApiOperation method="post" url="/api/v1/meta/schemas/user/${typeId}" />
 
 Updates one or more [custom user profile properties](#user-profile-schema-property-object) in the schema, a [permission](#schema-property-permission-object) for a [user profile base property](#user-profile-base-subschema), or the nullability of the `firstName` and `lastName` properties in the [user profile base schema](#user-profile-base-subschema).
 
@@ -385,7 +391,7 @@ curl -v -X POST \
       "required": []
     }
   }
-}' "https://{yourOktaDomain}/api/v1/meta/schemas/user/default"
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/user/default"
 ```
 
 ##### Response Example
@@ -395,7 +401,7 @@ curl -v -X POST \
 
 ```json
 {
-    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -506,10 +512,10 @@ curl -v -X POST \
 ### Remove Property from User Profile Schema
 
 
-<ApiOperation method="post" url="/api/v1/meta/schemas/user/default" />
+<ApiOperation method="post" url="/api/v1/meta/schemas/user/${typeId}" />
 
 Removes one or more [custom user profile properties](#user-profile-schema-property-object) from the user schema.
-A property cannot be removed if it is being referenced as a [matchAttribute](/docs/reference/api/idps/#subject-policy-object) in SAML2 IdPs.
+A property cannot be removed from the default schema if it is being referenced as a [matchAttribute](/docs/reference/api/idps/#subject-policy-object) in SAML2 IdPs. (Currently, all validation of SAML assertions is performed only against the default user type.)
 
 ##### Request Parameters
 
@@ -544,7 +550,7 @@ curl -v -X POST \
       "required": []
     }
   }
-}' "https://{yourOktaDomain}/api/v1/meta/schemas/user/default"
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/user/default"
 ```
 
 ##### Response Example
@@ -554,7 +560,7 @@ curl -v -X POST \
 
 ```json
 {
-    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -650,12 +656,14 @@ curl -v -X POST \
 
 ## App User Schema Operations
 
+The <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types) feature does not extend to applications: all users assigned to a given application use the same [App User Schema](#app-user-schema-model). Thus, unlike the User Schema operations, the App User Schema operations all specify `default` and do not accept a schema ID.
+
 ### Get App User Schema
 
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/apps/${instanceId}/default" />
 
-Fetches the default schema for an App User
+Fetches the schema for an App User
 
 ##### Request Parameters
 
@@ -678,7 +686,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
+"https://${yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
 ```
 
 ##### Response Example
@@ -686,7 +694,7 @@ curl -v -X GET \
 
 ```json
 {
-  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -779,7 +787,7 @@ curl -v -X POST \
       "required": []
     }
   }
-}' "https://{yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
 ```
 
 ##### Response Example
@@ -787,7 +795,7 @@ curl -v -X POST \
 
 ```json
 {
-  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -888,7 +896,7 @@ curl -v -X POST \
       "required": []
     }
   }
-}' "https://{yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
 ```
 
 ##### Response Example
@@ -896,7 +904,7 @@ curl -v -X POST \
 
 ```json
 {
-  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -956,7 +964,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/meta/schemas/apps/${instanceId}/default" />
 
-Removes one or more [custom app user profile properties](#app-user-profile-schema-property-object) from the user schema.
+Removes one or more [custom app user profile properties](#app-user-profile-schema-property-object) from the app user schema.
 
 ##### Request Parameters
 
@@ -992,7 +1000,7 @@ curl -v -X POST \
       "required": []
     }
   }
-}' "https://{yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
 ```
 
 ##### Response Example
@@ -1000,7 +1008,7 @@ curl -v -X POST \
 
 ```json
 {
-  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",
@@ -1055,7 +1063,7 @@ The [User Model](/docs/reference/api/users/#user-model) schema is defined using 
 
 ```json
 {
-    "id": "https://{yourOktaDomain}/meta/schemas/user/default",
+    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
     "$schema": "http://json-schema.org/draft-04/schema#",
     "name": "user",
     "title": "Default Okta User",
@@ -1251,7 +1259,7 @@ The base user profile is based on the [System for Cross-Domain Identity Manageme
 | preferredLanguage | user's preferred written or spoken languages                                                                                 | String   | TRUE     | FALSE  | FALSE    |           |           | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                       |
 | locale            | user's default location for purposes of localizing items such as currency, date time format, numerical representations, etc. | String   | TRUE     | FALSE  | FALSE    |           |           | See Note for more details.                                                                                        |
 | timezone          | user's time zone                                                                                                             | String   | TRUE     | FALSE  | FALSE    |           |           | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557)                                             |
-| userType          | used to identify the organization to user relationship such as "Employee" or "Contractor"                                          | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| userType          | used to describe the organization to user relationship such as "Employee" or "Contractor"                                          | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | employeeNumber    | organization or company assigned unique identifier for the user                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | costCenter        | name of a cost center assigned to user                                                                                             | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | organization      | name of user's organization                                                                                                  | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
@@ -1261,6 +1269,8 @@ The base user profile is based on the [System for Cross-Domain Identity Manageme
 | manager           | displayName of the user's manager                                                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 
 > **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code; e.g., 'en_US' specifies the language English and country US.
+
+> **Note:** The `userType` field is an arbitrary String value and is not related to the newer User Types feature (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)).
 
 ##### Login Pattern Validation
 
@@ -1408,7 +1418,7 @@ The [App User Model](/docs/reference/api/apps/#application-user-model) schema is
 
 ```json
 {
-  "id": "https://{yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
+  "id": "https://${yourOktaDomain}/meta/schemas/apps/0oa25gejWwdXNnFH90g4/default",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "name": "Example App",
   "title": "Example App User",

@@ -50,7 +50,7 @@ The following code samples can be added to your website to test your CORS config
 #### XMLHttpRequest
 
 ```javascript
-var baseUrl = 'https://{yourOktaDomain}';
+var baseUrl = 'https://${yourOktaDomain}';
 var xhr = new XMLHttpRequest();
 if ("withCredentials" in xhr) {
     xhr.onerror = function() {
@@ -70,7 +70,7 @@ if ("withCredentials" in xhr) {
 #### jQuery
 
 ```javascript
-var baseUrl = 'https://{yourOktaDomain}';
+var baseUrl = 'https://${yourOktaDomain}';
 $.ajax({
   url: baseUrl + '/api/v1/users/me',
   type: 'GET',
@@ -103,27 +103,27 @@ will see an error in your browser's developer tool or JavaScript console:
 #### Chrome
 
 ```
-XMLHttpRequest cannot load https://{yourOktaDomain}/api/v1/users/me. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https://your-website.com' is therefore not allowed access.
+XMLHttpRequest cannot load https://${yourOktaDomain}/api/v1/users/me. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https://your-website.com' is therefore not allowed access.
 ```
 
 #### Safari
 
 ```
-XMLHttpRequest cannot load https://{yourOktaDomain}/api/v1/users/me. Origin https://{yourOktaDomain} is not allowed by Access-Control-Allow-Origin.
+XMLHttpRequest cannot load https://${yourOktaDomain}/api/v1/users/me. Origin https://${yourOktaDomain} is not allowed by Access-Control-Allow-Origin.
 ```
 
 #### Firefox
 
 ```
-Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://{yourOktaDomain}/api/v1/users/me. This can be fixed by moving the resource to the same domain or enabling CORS.
+Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://${yourOktaDomain}/api/v1/users/me. This can be fixed by moving the resource to the same domain or enabling CORS.
 ```
 
 #### Internet Explorer
 
 ```
-SEC7118: XMLHttpRequest for https://{yourOktaDomain}/api/v1/users/me required Cross Origin Resource Sharing (CORS).
+SEC7118: XMLHttpRequest for https://${yourOktaDomain}/api/v1/users/me required Cross Origin Resource Sharing (CORS).
 
-SEC7120: Origin https://{yourOktaDomain} not found in Access-Control-Allow-Origin header.
+SEC7120: Origin https://${yourOktaDomain} not found in Access-Control-Allow-Origin header.
 
 SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 ```

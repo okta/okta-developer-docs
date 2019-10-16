@@ -34,7 +34,7 @@ If you are familiar with using HTML and want to change the page layout, colors, 
 ## Bypass the Custom Sign-In Page
 Use the `/login/default` backdoor sign-in URL to bypass the custom sign-in page. If, for example, something goes wrong with your customizations and your sign-in page won't load, add `/login/default` to the end of your Okta URL to bring up the default sign-in page and sign in:
 
-`https://{yourOktaDomain}/login/default`
+`https://${yourOktaDomain}/login/default`
 
 This URL only bypasses changes that you have made to the HTML in the HTML editor. It doesn't bypass changes that you made using the controls on the left side of the page.
 
