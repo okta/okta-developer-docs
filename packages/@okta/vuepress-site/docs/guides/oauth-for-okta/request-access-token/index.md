@@ -9,9 +9,9 @@ After you have the following, you can request an access token:
 
 > **Note:** Using a Service app? See <GuideLink link="../get-access-token-using-service-app">Get an access token using a Service app</GuideLink> for the steps.
 
-1. Request an access token by making a request to your Okta [Org Authorization Server's](/docs/concepts/auth-servers) `/authorize` endpoint. For testing purposes, we recommend that you use a private browser window and the Implicit grant flow. Using the Implicit grant flow streamlines authentication for testing by returning a token without introducing any additional steps. In a production environment, we recommend that you always use the Authorization Code grant flow.
+1. Request an access token by making a request to your Okta [Org Authorization Server's](/docs/concepts/auth-servers) `/authorize` endpoint. For testing purposes, we recommend that you use a private browser window and the Implicit grant flow. Using the Implicit grant flow streamlines authentication for testing by returning a token without introducing any additional steps. In a production environment, we recommend that you always use the Authorization Code grant flow. See [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/) for more information on this grant type.
 
-    > **Note:** If this is your first time working with Okta's APIs, you should read [Get Started with the Okta REST APIs](https://developer.okta.com/code/rest/) first. See [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/) for more information on this grant type.
+    > **Note:** If this is your first time working with Okta's APIs, read [Get Started with the Okta REST APIs](https://developer.okta.com/code/rest/) first. Additionally, for this guide use the steps in the <GuideLink link="../save-access-token"> Save the access token in Postman</GuideLink>  section to save and use the OAuth 2.0 access token rather than using the SSWS API Key.
 
 2. Paste your request URL into a private browser window. Your request URL should look something like this:
 
