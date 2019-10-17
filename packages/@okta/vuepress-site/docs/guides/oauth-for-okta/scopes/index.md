@@ -14,11 +14,11 @@ The following table shows the scopes that are currently available as a part of E
 | `okta.authorizationServers.read`| Allows the app to read authorization server information          | [Authorization Servers API](/docs/reference/api/authorization-servers/)|
 | `okta.clients.manage`    | Allows the app to manage all OAuth/OIDC clients and to create new clients| [Dynamic Client Registration API](/docs/reference/api/oauth-clients/)|
 | `okta.clients.read`      | Allows the app to read information for all OAuth/OIDC clients           | [Dynamic Client Registration API](/docs/reference/api/oauth-clients/)|
-| `okta.clients.register`  | Allows the app to create new OAuth/OIDC clients (but not read information about existing clients)| [Dynamic Client Registration API](/docs/reference/api/oauth-clients/)|
+| `okta.clients.register`  | Allows the app to register (create) new OAuth/OIDC clients (but not read information about existing clients)| [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#register-new-client) |
 | `okta.eventHooks.manage` | Allows the app to create and manage Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
 | `okta.eventHooks.read`   | Allows the app to read information about Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
-| `okta.factors.manage`    | Allows the app to manage all admin operations for org factors (for example, activate, deactive, read)| [Factors API](/docs/reference/api/factors/#factor-operations)|
-| `okta.factors.read`      | Allows the app to read org factors information                          | [Factors API](/docs/reference/api/factors/#factor-operations)|
+| `okta.factors.manage`    | Allows the app to manage all admin operations for org factors (for example, activate, deactive, read)| [Factors Administration Operations](/docs/reference/api/factor_admin/#factors-administration-operations)|
+| `okta.factors.read`      | Allows the app to read org factors information                          | [Factors Administration Operations](/docs/reference/api/factor_admin/#factors-administration-operations)|
 | `okta.groups.manage`     | Allows the app to manage groups in your Okta organization               | [Groups API](/docs/reference/api/groups/#getting-started-with-the-groups-api)|
 | `okta.groups.read`       | Allows the app to read information about groups and their members in your Okta organization| [Groups API](/docs/reference/api/groups/#getting-started-with-the-groups-api)|
 | `okta.idps.manage`       | Allows the app to create and manage Identity Providers in your Okta organization| [Identity Providers API](/docs/reference/api/idps/#getting-started)|
@@ -28,8 +28,8 @@ The following table shows the scopes that are currently available as a part of E
 | `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization| [System Log API](/docs/reference/api/system-log/)|
 | `okta.schemas.manage`    | Allows the app to create and manage Schemas in your Okta organization   | [Schemas API](/docs/reference/api/schemas/#getting-started)|
 | `okta.schemas.read`      | Allows the app to read information about Schemas in your Okta organization| [Schemas API](/docs/reference/api/schemas/#getting-started)|
-| `okta.users.manage`      | Allows the app to manage any user's profile and credential information and to create new users| [Users API](https://developer.okta.com/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations)|
-| `okta.users.read`        | Allows the app to read any user's profile and credential information      | [Users API](https://developer.okta.com/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations)|
+| `okta.users.manage`      | Allows the app to create new users and read all profile and credential information for users| [Users API](https://developer.okta.com/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations) The following operations are not OAuth-enabled: [User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations), [Clear User Sessions](/docs/reference/api/users/#clear-user-sessions)|
+| `okta.users.read`        | Allows the app to read any user's profile and credential information      | [Users API](https://developer.okta.com/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations) The following operations are not OAuth-enabled: [User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations), [Clear User Sessions](/docs/reference/api/users/#clear-user-sessions)|
 | `okta.users.manage.self` | Allows the app to manage the currently signed-in user's profile           |   |
 | `okta.users.read.self`   | Allows the app to read the currently signed-in user's profile and credential information|  |
 
