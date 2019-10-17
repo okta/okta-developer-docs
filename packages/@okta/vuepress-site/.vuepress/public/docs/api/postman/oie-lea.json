@@ -1,0 +1,3813 @@
+{
+	"id": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+	"name": "Identity Engine Limited EA - For Customers",
+	"description": "This Postman collection is intended for customers that is selected for using Identity Engine for Limited EA.\n\nIt helps admins set up factor profiles and features as well as policies and includes a description for each section to explain how to do so. Various variables such as `inlineHookId`, `groupId`, `defaultUserTypeId` and `appInstanceId` are placeholders for real values that admins must substitute.",
+	"auth": null,
+	"events": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a397f786-6104-4985-bc57-f5123ab96396",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "645cb30e-98ba-467e-9008-3be7ef353504",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variables": [],
+	"order": [],
+	"folders_order": [
+		"343e2df4-d444-43f0-9664-5dd892c2f691",
+		"2f1a5280-237c-4fb5-8787-cfcf1bae56b8"
+	],
+	"protocolProfileBehavior": {},
+	"folders": [
+		{
+			"id": "0390b2c3-d4c6-4666-b308-4d246f58c15a",
+			"name": "Adoption",
+			"description": "Adoption feature determines how a factor profile is being adopted.",
+			"auth": null,
+			"events": null,
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "aaf90adf-61c1-4191-9745-d3b52d1dbb75",
+			"order": [
+				"ae01dc43-d271-486a-a83a-f289e26a5459",
+				"e7c13178-3dd9-40b9-848f-f3b0d0d6479c",
+				"605c4e4d-4d6c-4f2e-ae1a-ed3641e723ea",
+				"7223f802-0115-4452-9619-1fd77dcb7132"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "7125dd6e-9275-4374-99de-9ce62c64df82",
+			"name": "Adoption",
+			"description": "Adoption feature determines how a factor profile is being adopted.",
+			"auth": null,
+			"events": null,
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "c10237a3-79a8-4e1e-aab6-19737e0e1c33",
+			"order": [
+				"d85509aa-bb45-439b-be3b-c9f12f00118d",
+				"ccc153a9-d6cf-4cdf-a15e-1b5dbd7825c0",
+				"e46d456f-9212-4d95-ab95-971d5f83a2a7",
+				"4d6445ac-780b-4e9a-af93-3c5ed0d6b5b9"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "ccbbe5a4-4534-472c-9409-22a50f81710e",
+			"name": "Email",
+			"description": "Requests related to Email Factor Profiles and Email Factor Profile Features.\n\nIn order to execute profile-specific requests in this section, the `emailFactorProfileId` variable must be set. It is automatically set as the first factor profile returned when you execute `List Email Factor Profiles` or when you execute `Create Email Factor Profile`.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bc87eb20-64a0-4f59-89da-ff47f7540c41",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "66cb2900-c2a0-4848-bb5d-298391770afb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "343e2df4-d444-43f0-9664-5dd892c2f691",
+			"order": [
+				"cbc1bc3d-f77d-46a8-9a15-fd2c8f83e773",
+				"4aeca539-cd76-4bbe-9c3c-a2f58ec3bdf1",
+				"81a9e81a-a2f4-4076-bce1-be713a1723b1",
+				"ef3bee68-4104-4f0d-bc3a-0e41bacb80a6",
+				"2c7fb124-5dae-4e00-9152-6f02de4417c2"
+			],
+			"folders_order": [
+				"c10237a3-79a8-4e1e-aab6-19737e0e1c33"
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "bc5837e0-2781-40a2-84ad-6cb3fbee4fda",
+			"name": "Enrollment Source",
+			"description": "Enrollment Source feature determines where the enrollment of a factor profile is sourced from.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a6a0a8f2-af82-4c81-9c6d-144ae37e0602",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fcc5bf39-b34e-4c39-867d-5c4e2ad6d7aa",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "c10237a3-79a8-4e1e-aab6-19737e0e1c33",
+			"order": [
+				"5b867eb8-35e9-4db3-8961-0bfa46908413",
+				"841203a6-7448-4036-b701-9eba610da021",
+				"ba190b7b-bec2-4e58-8137-9d144af01b00",
+				"f49395a9-1b99-44bd-bf64-9cb85d6f5fe9"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "343e2df4-d444-43f0-9664-5dd892c2f691",
+			"name": "Factor Profiles",
+			"description": "Requests related to Factor Profiles and Factor Profile Features.",
+			"auth": null,
+			"events": null,
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": null,
+			"order": [],
+			"folders_order": [
+				"ccbbe5a4-4534-472c-9409-22a50f81710e",
+				"57d2e18f-a8df-4f26-bbb3-d4606ba3d53c"
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "aaf90adf-61c1-4191-9745-d3b52d1dbb75",
+			"name": "Features",
+			"description": "Requests related to the Password Factor Profiles Features.\n\nIn order to execute feature-specific requests in this section, feature-specific variables must be set. They are automatically set when you execute `List Features`.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5f31dca2-b9ef-459f-ae8d-7a579550cce2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7bfeff71-de4a-4b10-860e-368034e9b925",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "57d2e18f-a8df-4f26-bbb3-d4606ba3d53c",
+			"order": [
+				"d610f970-7af0-4032-b05c-c53270b2cf67"
+			],
+			"folders_order": [
+				"0390b2c3-d4c6-4666-b308-4d246f58c15a",
+				"9466ec85-912a-498d-a6cf-101ead02c6db",
+				"368ad27b-1da9-45ea-b1e6-aef85cc9332c",
+				"4b43d244-a3b9-42c9-b737-060e8491ace4"
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "c10237a3-79a8-4e1e-aab6-19737e0e1c33",
+			"name": "Features",
+			"description": "Requests related to the Email Factor Profiles Features.\n\nIn order to execute feature-specific requests in this section, feature-specific variables must be set. They are automatically set when you execute `List Features`.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5f31dca2-b9ef-459f-ae8d-7a579550cce2",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7bfeff71-de4a-4b10-860e-368034e9b925",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "ccbbe5a4-4534-472c-9409-22a50f81710e",
+			"order": [
+				"dce6ed93-8d7b-4b92-9017-41313e55a179"
+			],
+			"folders_order": [
+				"7125dd6e-9275-4374-99de-9ce62c64df82",
+				"89eab1c5-e623-4602-aae1-38a81a791ed5",
+				"bc5837e0-2781-40a2-84ad-6cb3fbee4fda",
+				"44c7a94c-ff7f-4185-94c1-e764e1ba47cc"
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "2f90d512-d086-4690-871e-e0650ad1d2a5",
+			"name": "IdP Routing Policy",
+			"description": "Requests related to IdP Routing Policies and Rules.\n\nIn order to execute policy-specific requests in this section, the `idpRoutingPolicyId` variable must be set. It is automatically set as the first policy returned when you execute `List IdP Routing Policies`.\n\nIn order to execute policy rule-specific requests in this section, the `idpRoutingPolicyRuleId` variable must be set. It is automatically set as the first policy rule returned when you execute `List IdP Routing Rules in Policy` or when you execute `Create IdP Routing Rule in Policy`.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8bf43192-8dc6-47f8-bc7f-4c452cff9167",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6446643e-4607-40f5-9cfa-386a7d6a3e30",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "2f1a5280-237c-4fb5-8787-cfcf1bae56b8",
+			"order": [
+				"e1c74829-f805-4388-8957-3d112512a3a1",
+				"cb501ac9-4827-4a23-841d-7f2a0d277eb8",
+				"89c85342-d5a9-4cfc-af1e-1b55b8aa1bd2",
+				"aeb3dffa-5d04-4527-81a9-07b0922d2e60",
+				"18f44126-06d9-4e0c-9484-999b870ead9b",
+				"f1b3061c-6c75-46df-a39f-33d65d6c2d6f",
+				"0f39cd7a-cf1d-4ff7-b9cb-f1febc7932ca"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "26c4f038-f283-42c5-abf1-2e09b439310e",
+			"name": "Identifier Match Policy",
+			"description": "Requests related to Identifier Match Policies and Rules.\n\nIn order to execute policy-specific requests in this section, the `identifierMatchPolicyId` variable must be set. It is automatically set as the first policy returned when you execute `List Identifier Match Policies`.\n\nIn order to execute policy rule-specific requests in this section, the `identifierMatchPolicyRuleId` variable must be set. It is automatically set as the first policy rule returned when you execute `List Identifier Match Rules in Policy` or when you execute `Create Identifier Match Rule in Policy`.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "99b976ac-4b0f-46a5-ad58-f4ae8fbc4005",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "20d1748f-07be-4017-8957-319de82e7134",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "2f1a5280-237c-4fb5-8787-cfcf1bae56b8",
+			"order": [
+				"c3c9ed11-7e58-4de2-b4b3-70db7061a38a",
+				"e8ca224c-87f7-4752-9e86-cbc4f7c44da4",
+				"01b6ff7e-cff6-4f2e-82bf-8e986502fdc7",
+				"7d4ddb36-42cb-48ad-8f70-1793dced07b4",
+				"2dabd865-2603-4232-9ac9-18460b638e3c",
+				"b4eb6cb7-3cd2-46e8-8dd6-9e1961b33877",
+				"2b281b7a-6229-47ec-ba2c-3faad5be143d"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "57d2e18f-a8df-4f26-bbb3-d4606ba3d53c",
+			"name": "Password",
+			"description": "Requests related to Password Factor Profiles and Password Factor Profile Features.\n\nIn order to execute profile-specific requests in this section, the `passwordFactorProfileId` variable must be set. It is automatically set as the first factor profile returned when you execute `List Password Factor Profiles`.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bc87eb20-64a0-4f59-89da-ff47f7540c41",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "66cb2900-c2a0-4848-bb5d-298391770afb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "343e2df4-d444-43f0-9664-5dd892c2f691",
+			"order": [
+				"9e1a7729-0200-4bc1-9ba0-c4bd082a9913",
+				"12fc8124-4dd9-4932-87d6-811ffcee0b96",
+				"3b0ea66e-9932-4851-a0cf-b0825d227035"
+			],
+			"folders_order": [
+				"aaf90adf-61c1-4191-9745-d3b52d1dbb75"
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "2f1a5280-237c-4fb5-8787-cfcf1bae56b8",
+			"name": "Policies",
+			"description": "Requests related to Policies and Rules.",
+			"auth": null,
+			"events": null,
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": null,
+			"order": [],
+			"folders_order": [
+				"2f90d512-d086-4690-871e-e0650ad1d2a5",
+				"26c4f038-f283-42c5-abf1-2e09b439310e",
+				"e7871c26-72d0-4a25-b277-80d803a36cef",
+				"6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+				"cb4b80bf-714b-4be1-b2cc-b9090a5b5850"
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "89eab1c5-e623-4602-aae1-38a81a791ed5",
+			"name": "Recovery",
+			"description": "Recovery feature determines how a factor profile is being recovered.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f36a137d-a9c3-4cab-b40c-b5e025122141",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ecdda92f-4c67-4a54-ad0d-88b416b141b1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "c10237a3-79a8-4e1e-aab6-19737e0e1c33",
+			"order": [
+				"d300e761-d349-4276-9e57-3cb02dd6c851",
+				"f0014eaa-487c-49c7-8a26-e854207bab4c",
+				"ba3927d5-1c25-4305-8cec-abcbd2b33349",
+				"eaba7837-d199-43d1-9eec-7f4797186a2d"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "9466ec85-912a-498d-a6cf-101ead02c6db",
+			"name": "Recovery",
+			"description": "Recovery feature determines how a factor profile is being recovered.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f36a137d-a9c3-4cab-b40c-b5e025122141",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ecdda92f-4c67-4a54-ad0d-88b416b141b1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "aaf90adf-61c1-4191-9745-d3b52d1dbb75",
+			"order": [
+				"667cf1c4-14f6-49f4-8da5-4a5c5dfe6589",
+				"f9f79f51-dbfc-415e-881d-f172558c8f7f",
+				"5dd4104d-ef43-4c70-85c8-9f84ab98ee2e",
+				"50e2e0eb-26fd-4eee-a106-9819a20d386e"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "4b43d244-a3b9-42c9-b737-060e8491ace4",
+			"name": "Reuse",
+			"description": "Reuse feature determines the reusability aspects of a factor profile.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a6a0a8f2-af82-4c81-9c6d-144ae37e0602",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fcc5bf39-b34e-4c39-867d-5c4e2ad6d7aa",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "aaf90adf-61c1-4191-9745-d3b52d1dbb75",
+			"order": [
+				"53d57ab6-7a5b-4ae4-a2ea-1ee92855a825",
+				"a9701565-8f31-41c9-8798-f2823f3d1d55",
+				"acb8daef-e857-4874-8911-910045469043",
+				"d4f93dea-b968-4d06-8881-0b0f154af2bf"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"name": "Sign On Policy",
+			"description": "Requests related to Sign On Policies and Rules.\n\nIn order to execute policy-specific requests in this section, the `signOnPolicyId` variable must be set. It is automatically set as the first policy returned when you execute `List Sign On Policies` or when you execute `Create Sign On Policy`.\n\nIn order to execute policy mapping-specific requests in this section, the `signOnPolicyMappingId` variable must be set. It is automatically set as the first policy mapping returned when you execute `List Sign On Policy Mappings` or when you execute `Create Sign On Policy Mapping`.\n\nIn order to execute policy rule-specific requests in this section, the `signOnPolicyRuleId` variable must be set. It is automatically set as the first policy rule returned when you execute `List Sign On Rules in Policy` or when you execute `Create Sign On Rule in Policy`.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7afe0752-2da1-4bc5-84cd-1dd643b46084",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "23421a8e-e870-4ca7-965d-efffdf3d3370",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "2f1a5280-237c-4fb5-8787-cfcf1bae56b8",
+			"order": [
+				"f53f0576-4c31-4583-b058-466165015d9a",
+				"0434b807-12ea-4b10-8d0f-dea286f16392",
+				"27082847-b76b-4763-b6e3-fcc6a3d06688",
+				"be81fa14-d322-4331-83b6-4f8a89e94f01",
+				"93ba5d48-72bd-4a76-b381-289a3ffcbb12",
+				"85ab0a7e-50ba-4ae8-8a6a-175bd61572d4",
+				"8d4ecae4-42dc-4f1b-9c57-186b6e104901",
+				"0c9f9d9d-d734-4654-abd0-5cda0db05e7a",
+				"be9d133c-a8d8-4877-98ce-a330fafab52f",
+				"f80bc273-668b-42db-8962-58a71162a7a1",
+				"afa3fa62-1c84-45a2-ae9e-d9ddce54c07a",
+				"b0918405-2d21-4473-9065-d086bd852ab4",
+				"a70f0a55-7341-42c9-b169-879e2bb4013d",
+				"164b73a2-1555-4498-b711-331681ea67f6",
+				"fe39acc5-287d-454e-af24-59a77df2c527"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "368ad27b-1da9-45ea-b1e6-aef85cc9332c",
+			"name": "String Validation",
+			"description": "String Validation feature determines how a factor profile validates strings.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a6a0a8f2-af82-4c81-9c6d-144ae37e0602",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fcc5bf39-b34e-4c39-867d-5c4e2ad6d7aa",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "aaf90adf-61c1-4191-9745-d3b52d1dbb75",
+			"order": [
+				"da0541f9-c76d-4407-ba39-3ed028e886f9",
+				"ea769221-8634-48cb-90b3-48f2eb050877",
+				"1aec07fa-8e9d-419a-9d0b-fd7a638b5d94",
+				"3f511dca-c454-4d63-bc1f-16392c58b19a"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "44c7a94c-ff7f-4185-94c1-e764e1ba47cc",
+			"name": "Token Security",
+			"description": "Token Security feature determines token security related aspects of a factor profile.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a6a0a8f2-af82-4c81-9c6d-144ae37e0602",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fcc5bf39-b34e-4c39-867d-5c4e2ad6d7aa",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "c10237a3-79a8-4e1e-aab6-19737e0e1c33",
+			"order": [
+				"af37a320-3ffb-4e5a-a22e-f4feaa909fb6",
+				"14b7adf1-3685-468b-bd21-226617254e29",
+				"34d5f153-33b5-44af-890d-b3d7fa1616a6",
+				"ad6b200d-8839-4476-9a1b-c15157807d52"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "e7871c26-72d0-4a25-b277-80d803a36cef",
+			"name": "Unknown User Policy",
+			"description": "Requests related to Unknown User Policies and Rules.\n\nIn order to execute policy-specific requests in this section, the `unknownUserPolicyId` variable must be set. It is automatically set as the first policy returned when you execute `List Unknown User Policies`.\n\nIn order to execute policy rule-specific requests in this section, the `unknownUserPolicyRuleId` variable must be set. It is automatically set as the first policy rule returned when you execute `List Unknown User Rules in Policy` or when you execute `Create Unknown User Rule in Policy`.",
+			"auth": null,
+			"events": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "99b976ac-4b0f-46a5-ad58-f4ae8fbc4005",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "20d1748f-07be-4017-8957-319de82e7134",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "2f1a5280-237c-4fb5-8787-cfcf1bae56b8",
+			"order": [
+				"b585a6e4-ac6e-442c-b9dc-ca7d18ebac3d",
+				"553c089b-1295-4274-a93c-dd09a5c08bca",
+				"d0afe7ac-bd7b-4918-97b5-54784c19998d",
+				"0fa755d1-aa5a-463a-8fe5-349b0db5e4e6",
+				"be1af68b-8977-4d11-bf96-aede8b5198cc",
+				"443f798b-06ec-4233-872d-a25fd60de8e7",
+				"7fbad173-955b-429e-8647-8a3e2042fc1d",
+				"2af03dc7-6045-4fc2-b4ee-a39bae8528c6"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"id": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"name": "User Profile Policy",
+			"description": "Requests related to User Profile Policies and Rules.\n\nIn order to execute policy-specific requests in this section, the `userProfilePolicyId` variable must be set. It is automatically set as the first policy returned when you execute `List User Profile Policies` or when you execute `Create User Profile Policy`.\n\nIn order to execute policy mapping-specific requests in this section, the `userProfilePolicyMappingId` variable must be set. It is automatically set as the first policy mapping returned when you execute `List User Profile Policy Mappings` or when you execute `Create User Profile Policy Mapping`.\n\nIn order to execute policy rule-specific requests in this section, the `userProfilePolicyRuleId` variable must be set. It is automatically set as the first policy rule returned when you execute `List User Profile Rules in Policy` or when you execute `Create User Profile Rule in Policy`.",
+			"auth": null,
+			"events": null,
+			"collection": "f03153f4-3c96-40ff-b40c-b0456df37f15",
+			"folder": "2f1a5280-237c-4fb5-8787-cfcf1bae56b8",
+			"order": [
+				"fbd2ff42-6959-47dd-b96d-a8aeed1bf755",
+				"b71f6b32-e75a-43ed-b76a-ff3802b0126f",
+				"bf005dac-48f3-4830-a709-d04d3e700fcf",
+				"c69d8874-916d-4068-b6a7-d1579e6d6a67",
+				"a284edfc-11ef-4157-b93b-89ce4bfa978a",
+				"bff6847b-81f0-4c70-b074-801436c4034b",
+				"4f381dfd-a437-4c1f-afed-4e19f5b29ae9",
+				"90ed4f97-33e1-4ac0-801c-60b95a4133d8",
+				"a8746a71-1f71-4659-89a9-f933ef5fcc60",
+				"fdf6310a-1fd7-4ca4-9a86-7b8565ca2111",
+				"e81acb00-58df-4733-b0fa-f25a0702ddd3",
+				"bf740862-cd1e-4b32-b408-4178a35f1707",
+				"6d0e16f4-4af0-4654-b021-806b3ee174c9",
+				"3c4d8009-009e-46f3-aab9-22b7a66886e5"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"requests": [
+		{
+			"id": "01b6ff7e-cff6-4f2e-82bf-8e986502fdc7",
+			"name": "List Identifier Match Rules in Policy",
+			"url": "{{url}}/api/v1/policies/{{identifierMatchPolicyId}}/rules",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "SSWS {{apikey}}",
+					"type": "text"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5e5e5fd9-44e4-4be0-b59a-e2960e124059",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"identifierMatchPolicyRuleId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "26c4f038-f283-42c5-abf1-2e09b439310e",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "0434b807-12ea-4b10-8d0f-dea286f16392",
+			"name": "Get Sign On Policy",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "0c9f9d9d-d734-4654-abd0-5cda0db05e7a",
+			"name": "Create Sign On Policy Mapping",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}/mappings",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9dc1780f-a1d3-4cfb-bba3-fe6cc372820c",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"signOnPolicyMappingId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"rawModeData": "{\n\t\"resourceType\": \"APP\",\n\t\"resourceId\": \"{{appInstanceId}}\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "0f39cd7a-cf1d-4ff7-b9cb-f1febc7932ca",
+			"name": "Delete IdP Routing Rule In Policy",
+			"url": "{{url}}/api/v1/policies/{{idpRoutingPolicyId}}/rules/{{idpRoutingPolicyRuleId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "2f90d512-d086-4690-871e-e0650ad1d2a5",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "0fa755d1-aa5a-463a-8fe5-349b0db5e4e6",
+			"name": "Get Unknown User Rule in Policy",
+			"url": "{{url}}/api/v1/policies/{{unknownUserPolicyId}}/rules/{{unknownUserPolicyRuleId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "e7871c26-72d0-4a25-b277-80d803a36cef",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "12fc8124-4dd9-4932-87d6-811ffcee0b96",
+			"name": "Get Password Factor Profile",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "57d2e18f-a8df-4f26-bbb3-d4606ba3d53c",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "14b7adf1-3685-468b-bd21-226617254e29",
+			"name": "Create Token Security Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3894c0b3-c98b-402e-9b6a-639ce069cc2d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"emailFactorProfileTokenSecurityFeatureId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "44c7a94c-ff7f-4185-94c1-e764e1ba47cc",
+			"rawModeData": "{\n    \"type\": \"token_security\",\n    \"lifespan\": {\n        \"ttl\": {\n            \"period\": \"PT15M\"\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "164b73a2-1555-4498-b711-331681ea67f6",
+			"name": "Update Sign On Rule In Policy",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}/rules/{{signOnPolicyRuleId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"rawModeData": "{\n\t\"id\": \"{{signOnPolicyRuleId}}\",\n    \"name\": \"Sign On Policy Rule\",\n    \"type\": \"Okta:SignOn\",\n    \"priority\": 0,\n    \"conditions\": [\n        {\n            \"key\": \"Okta:UserType\",\n            \"op\": \"IN_LIST\",\n            \"value\": [\n                \"{{defaultUserTypeId}}\"\n            ]\n        },\n        {\n            \"key\": \"Okta:Group\",\n            \"op\": \"INTERSECTS\",\n            \"value\": [\n                \"{{groupId}}\"\n            ]\n        }\n    ],\n    \"action\": \"ALLOW\",\n    \"requirement\": {\n        \"verificationMethod\": {\n            \"type\": \"CHAIN\",\n            \"chains\": [\n                {\n                    \"criteria\": [\n                        {\n                            \"factorType\": \"password\"\n                        },\n                        {\n                            \"factorType\": \"email\"\n                        }\n                    ]\n                }\n            ]\n        }\n    },\n    \"status\": \"ACTIVE\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "18f44126-06d9-4e0c-9484-999b870ead9b",
+			"name": "Create IdP Routing Rule in Policy (Okta)",
+			"url": "{{url}}/api/v1/policies/{{idpRoutingPolicyId}}/rules",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "Authorization",
+					"value": "",
+					"enabled": false
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f89fe0f-eec4-44a1-af40-9e50591db27c",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"idpRoutingPolicyRuleId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "2f90d512-d086-4690-871e-e0650ad1d2a5",
+			"rawModeData": "{\n    \"name\": \"IdP Routing Policy Rule\",\n    \"type\": \"Okta:IdpRouting\",\n    \"priority\": 0,\n    \"action\": \"ALLOW\",\n    \"conditions\": [],\n    \"requirement\": {\n        \"type\": \"okta_idp\",\n        \"idpId\": \"OKTA\"\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "1aec07fa-8e9d-419a-9d0b-fd7a638b5d94",
+			"name": "Update String Validation Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileStringValidationFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "368ad27b-1da9-45ea-b1e6-aef85cc9332c",
+			"rawModeData": "{\n    \"type\": \"string_validation\",\n    \"complexity\": {\n        \"minLength\": 4,\n        \"minLowerCase\": 0,\n        \"minUpperCase\": 0,\n        \"minNumbers\": 0,\n        \"minSymbols\": 0\n    },\n    \"exclude\": {\n        \"common\": null,\n        \"attributeCriteria\": [\n            {\n                \"name\": \"login\"\n            },\n            {\n                \"name\": \"firstName\"\n            }\n        ]\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "27082847-b76b-4763-b6e3-fcc6a3d06688",
+			"name": "Create Sign On Policy",
+			"url": "{{url}}/api/v1/policies",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "SSWS {{apikey}}",
+					"type": "text"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"type": "text"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dc0dd0d9-72d2-43a2-a5b7-99a486059d26",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"signOnPolicyId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"rawModeData": "{\n\t\"name\": \"Sign On Policy\",\n\t\"type\": \"Okta:SignOn\",\n\t\"status\" : \"ACTIVE\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "2af03dc7-6045-4fc2-b4ee-a39bae8528c6",
+			"name": "Delete Unknown User Rule In Policy",
+			"url": "{{url}}/api/v1/policies/{{unknownUserPolicyId}}/rules/{{unknownUserPolicyRuleId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "e7871c26-72d0-4a25-b277-80d803a36cef",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "2b281b7a-6229-47ec-ba2c-3faad5be143d",
+			"name": "Delete Identifier Match Rule In Policy",
+			"url": "{{url}}/api/v1/policies/{{identifierMatchPolicyId}}/rules/{{identifierMatchPolicyRuleId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "26c4f038-f283-42c5-abf1-2e09b439310e",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "2c7fb124-5dae-4e00-9152-6f02de4417c2",
+			"name": "Delete Email Factor Profile",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "ccbbe5a4-4534-472c-9409-22a50f81710e",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "2dabd865-2603-4232-9ac9-18460b638e3c",
+			"name": "Create Identifier Match Rule In Policy (email, defaultUserType)",
+			"url": "{{url}}/api/v1/policies/{{identifierMatchPolicyId}}/rules",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91bff8bd-bf32-444b-9859-fe81f3600286",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"identifierMatchPolicyRuleId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "26c4f038-f283-42c5-abf1-2e09b439310e",
+			"rawModeData": "{\n    \"name\": \"Identifier Match Policy Rule\",\n    \"type\": \"Okta:IdentifierMatch\",\n    \"priority\": 0,\n    \"action\": \"ALLOW\",\n    \"conditions\": [\n        {\n            \"key\": \"Okta:Identifier\",\n            \"op\": \"STRING_ENDS_WITH\",\n            \"value\": \"idx.com\"\n        },\n        {\n            \"key\": \"Okta:AppInstance\",\n            \"op\": \"IN_LIST\",\n            \"value\": [\n            \t\"{{appInstanceId}}\"\n        \t]\n        }\n    ],\n    \"requirement\": {\n        \"identifyingAttributes\": [\n            {\n                \"userType\": \"{{defaultUserTypeId}}\",\n                \"attribute\": \"email\"\n            }\n        ],\n        \"onConflictingUser\": {\n            \"action\": \"DENY\"\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "34d5f153-33b5-44af-890d-b3d7fa1616a6",
+			"name": "Update Token Security Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileTokenSecurityFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "44c7a94c-ff7f-4185-94c1-e764e1ba47cc",
+			"rawModeData": "{\n    \"type\": \"token_security\",\n    \"lifespan\": {\n        \"ttl\": {\n            \"period\": \"PT15M\"\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "3b0ea66e-9932-4851-a0cf-b0825d227035",
+			"name": "Update Password Factor Profile",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "57d2e18f-a8df-4f26-bbb3-d4606ba3d53c",
+			"rawModeData": "{\n    \"name\": \"Password Factor Profile\",\n    \"settings\": {},\n    \"default\": true\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "3c4d8009-009e-46f3-aab9-22b7a66886e5",
+			"name": "Delete User Profile Rule In Policy",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}/rules/{{userProfilePolicyRuleId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "3f511dca-c454-4d63-bc1f-16392c58b19a",
+			"name": "Delete String Validation Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileStringValidationFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "368ad27b-1da9-45ea-b1e6-aef85cc9332c",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "443f798b-06ec-4233-872d-a25fd60de8e7",
+			"name": "Create Unknown User Rule In Policy (deny)",
+			"url": "{{url}}/api/v1/policies/{{unknownUserPolicyId}}/rules",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6c4ecab3-8fba-4121-925e-6dafe40febbc",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"unknownUserPolicyRuleId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "e7871c26-72d0-4a25-b277-80d803a36cef",
+			"rawModeData": "{\n    \"name\": \"Unknown User Policy Rule\",\n    \"type\": \"Okta:UnknownUser\",\n    \"priority\": 0,\n    \"action\": \"ALLOW\",\n    \"conditions\": [\n        {\n            \"key\": \"Okta:Identifier\",\n            \"op\": \"STRING_ENDS_WITH\",\n            \"value\": \"idx.com\"\n        },\n        {\n            \"key\": \"Okta:AppInstance\",\n            \"op\": \"IN_LIST\",\n            \"value\": [\n                \"{{appInstanceId}}\"\n            ]\n        }\n\t],\n    \"requirement\": {\n        \"noUserMatch\": {\n            \"action\": \"DENY\"\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "4aeca539-cd76-4bbe-9c3c-a2f58ec3bdf1",
+			"name": "Get Email Factor Profile",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "SSWS {{apikey}}",
+					"type": "text"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "ccbbe5a4-4534-472c-9409-22a50f81710e",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "4d6445ac-780b-4e9a-af93-3c5ed0d6b5b9",
+			"name": "Delete Adoption Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileAdoptionFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "7125dd6e-9275-4374-99de-9ce62c64df82",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "4f381dfd-a437-4c1f-afed-4e19f5b29ae9",
+			"name": "Get User Profile Policy Mapping",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}/mappings/{{userProfilePolicyMappingId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "50e2e0eb-26fd-4eee-a106-9819a20d386e",
+			"name": "Delete Recovery Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileRecoveryFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "9466ec85-912a-498d-a6cf-101ead02c6db",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "53d57ab6-7a5b-4ae4-a2ea-1ee92855a825",
+			"name": "Get Reuse Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileReuseFeatureId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "4b43d244-a3b9-42c9-b737-060e8491ace4",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "553c089b-1295-4274-a93c-dd09a5c08bca",
+			"name": "Get Unknown User Policy",
+			"url": "{{url}}/api/v1/policies/{{unknownUserPolicyId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "e7871c26-72d0-4a25-b277-80d803a36cef",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "5b867eb8-35e9-4db3-8961-0bfa46908413",
+			"name": "Get Enrollment Source Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileEnrollmentSourceFeatureId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "bc5837e0-2781-40a2-84ad-6cb3fbee4fda",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "5dd4104d-ef43-4c70-85c8-9f84ab98ee2e",
+			"name": "Update Recovery Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileRecoveryFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "9466ec85-912a-498d-a6cf-101ead02c6db",
+			"rawModeData": "{\n    \"type\": \"recovery\",\n    \"eligibility\": \"ALLOWED\",\n    \"verificationMethod\": {\n        \"type\": \"ANY_FACTOR\"\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "605c4e4d-4d6c-4f2e-ae1a-ed3641e723ea",
+			"name": "Update Adoption Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileAdoptionFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "0390b2c3-d4c6-4666-b308-4d246f58c15a",
+			"rawModeData": "{\n    \"type\": \"adoption\",\n    \"cardinality\": {\n        \"min\": 0,\n        \"max\": 1\n    },\n    \"selfService\": {\n        \"eligibility\": \"ALLOWED\",\n        \"verificationMethod\": {\n            \"type\": \"ANY_FACTOR\"\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "667cf1c4-14f6-49f4-8da5-4a5c5dfe6589",
+			"name": "Get Recovery Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileRecoveryFeatureId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "9466ec85-912a-498d-a6cf-101ead02c6db",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "6d0e16f4-4af0-4654-b021-806b3ee174c9",
+			"name": "Update User Profile Rule In Policy",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}/rules/{{userProfilePolicyRuleId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"rawModeData": "{\n\t\"id\": \"{{userProfilePolicyRuleId}}\",\n\t\"name\": \"User Profile Policy Rule\",\n    \"type\": \"Okta:UserProfile\",\n    \"priority\": 1,\n    \"action\": \"ALLOW\",\n    \"conditions\": [\n        {\n            \"key\": \"Okta:UserType\",\n            \"op\": \"IN_LIST\",\n            \"value\": [\n                \"{{defaultUserTypeId}}\"\n            ]\n        },\n        {\n            \"key\": \"Okta:Group\",\n            \"op\": \"INTERSECTS\",\n            \"value\": [\n                \"{{groupId}}\"\n            ]\n        }\n    ],\n    \"requirement\": {\n        \"preRegistrationInlineHooks\": [\n            {\n                \"inlineHookId\": \"{{inlineHookId}}\"\n            }\n        ],\n        \"profileAttributes\": [\n            {\n                \"label\": \"First Name\",\n                \"name\": \"firstName\",\n                \"required\": true\n            },\n            {\n                \"label\": \"Last Name\",\n                \"name\": \"lastName\",\n                \"required\": true\n            },\n            {\n                \"label\": \"Email\",\n                \"name\": \"email\",\n                \"required\": true\n            }\n        ]\n    },\n    \"status\": \"ACTIVE\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "7223f802-0115-4452-9619-1fd77dcb7132",
+			"name": "Delete Adoption Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileAdoptionFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "0390b2c3-d4c6-4666-b308-4d246f58c15a",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "7d4ddb36-42cb-48ad-8f70-1793dced07b4",
+			"name": "Get Identifier Match Rule in Policy",
+			"url": "{{url}}/api/v1/policies/{{identifierMatchPolicyId}}/rules/{{identifierMatchPolicyRuleId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "26c4f038-f283-42c5-abf1-2e09b439310e",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "7fbad173-955b-429e-8647-8a3e2042fc1d",
+			"name": "Update Unknown User Rule In Policy",
+			"url": "{{url}}/api/v1/policies/{{unknownUserPolicyId}}/rules/{{unknownUserPolicyRuleId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "e7871c26-72d0-4a25-b277-80d803a36cef",
+			"rawModeData": "{\n\t\"id\": \"{{unknownUserPolicyRuleId}}\",\n    \"name\": \"Unknown User Policy Rule\",\n    \"type\": \"Okta:UnknownUser\",\n    \"priority\": 0,\n    \"action\": \"ALLOW\",\n    \"conditions\": [],\n    \"requirement\": {\n        \"noUserMatch\": {\n            \"action\": \"DENY\"\n        }\n    },\n    \"status\": \"ACTIVE\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "81a9e81a-a2f4-4076-bce1-be713a1723b1",
+			"name": "Create Email Factor Profile",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"description": "",
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "321ad8ca-0890-408c-bcc0-bbe2b57f9c1e",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"emailFactorProfileId\", jsonData.id);",
+							"}",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "ccbbe5a4-4534-472c-9409-22a50f81710e",
+			"rawModeData": "{\n    \"name\": \"Email Factor Profile\",\n    \"settings\": {}\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "841203a6-7448-4036-b701-9eba610da021",
+			"name": "Create Enrollment Source Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3894c0b3-c98b-402e-9b6a-639ce069cc2d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"emailFactorProfileEnrollmentSourceFeatureId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "bc5837e0-2781-40a2-84ad-6cb3fbee4fda",
+			"rawModeData": "{\n    \"type\": \"enrollment_source\",\n    \"source\": {\n        \"simpleUserAttribute\": {\n            \"name\": \"email\"\n        }\n    },\n    \"verification\": {\n        \"automatic\": {\n            \"enabled\": true\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "85ab0a7e-50ba-4ae8-8a6a-175bd61572d4",
+			"name": "List Sign On Policy Mappings",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}/mappings",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e333cf91-e93c-4e47-8964-78260a35eeb7",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"signOnPolicyMappingId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"rawModeData": "{\n\t\"name\": \"Sign On Policy\",\n\t\"type\": \"Okta:SignOn\",\n\t\"status\" : \"ACTIVE\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "89c85342-d5a9-4cfc-af1e-1b55b8aa1bd2",
+			"name": "List IdP Routing Rules in Policy",
+			"url": "{{url}}/api/v1/policies/{{idpRoutingPolicyId}}/rules",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f5abd489-96a8-4d53-8597-1c2f407f048e",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"idpRoutingPolicyRuleId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "2f90d512-d086-4690-871e-e0650ad1d2a5",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "8d4ecae4-42dc-4f1b-9c57-186b6e104901",
+			"name": "Get Sign On Policy Mapping",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}/mappings/{{signOnPolicyMappingId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "90ed4f97-33e1-4ac0-801c-60b95a4133d8",
+			"name": "Create User Profile Policy Mapping",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}/mappings",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5f2405d2-c748-453d-8015-6c1255de4029",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"userProfilePolicyMappingId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"rawModeData": "{\n\t\"resourceType\": \"APP\",\n\t\"resourceId\": \"{{appInstanceId}}\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "93ba5d48-72bd-4a76-b381-289a3ffcbb12",
+			"name": "Delete Sign On Policy",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "9e1a7729-0200-4bc1-9ba0-c4bd082a9913",
+			"name": "List Password Factor Profiles",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "SSWS {{apikey}}",
+					"type": "text"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "66d5047e-a82e-4445-8a6e-380d37a3951b",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"var profiles = jsonData.filter(p => p.default === true);",
+							"postman.setEnvironmentVariable(\"passwordFactorProfileId\", jsonData[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "57d2e18f-a8df-4f26-bbb3-d4606ba3d53c",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "a284edfc-11ef-4157-b93b-89ce4bfa978a",
+			"name": "Delete User Profile Policy",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "a70f0a55-7341-42c9-b169-879e2bb4013d",
+			"name": "Create SIgn On Rule in Policy (password, then email)",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}/rules",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "Authorization",
+					"value": "",
+					"enabled": false
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1dd2cc4a-38e0-469e-a60d-5194a3bd7c78",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"signOnPolicyRuleId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"rawModeData": "{\n\t\"name\": \"Sign On Policy Rule\",\n    \"type\": \"Okta:SignOn\",\n    \"priority\": 0,\n    \"conditions\": [\n        {\n            \"key\": \"Okta:UserType\",\n            \"op\": \"IN_LIST\",\n            \"value\": [\n            \t\"{{defaultUserTypeId}}\"\n        \t]\n        },\n        {\n            \"key\": \"Okta:Group\",\n            \"op\": \"INTERSECTS\",\n            \"value\": [\n                \"{{groupId}}\"\n            ]\n        }\t\n\t],\n    \"action\": \"ALLOW\",\n    \"requirement\": {\n        \"verificationMethod\": {\n            \"type\": \"CHAIN\",\n            \"chains\": [\n                {\n                    \"criteria\": [\n                        {\n                            \"factorType\": \"password\"\n                        }\n                    ],\n                    \"next\": [\n                        {\n                            \"criteria\": [\n                                {\n                                    \"factorType\": \"email\"\n                                }\n                            ]\n                        }\n                    ]\n                }\n            ]\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "a8746a71-1f71-4659-89a9-f933ef5fcc60",
+			"name": "Delete User Profile Policy Mapping",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}/mappings/{{userProfilePolicyMappingId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "a9701565-8f31-41c9-8798-f2823f3d1d55",
+			"name": "Create Reuse Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3894c0b3-c98b-402e-9b6a-639ce069cc2d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"passwordFactorProfileReuseFeatureId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "4b43d244-a3b9-42c9-b737-060e8491ace4",
+			"rawModeData": "{\n    \"type\": \"reuse\",\n    \"prevention\": {\n        \"numPrevious\": 0,\n        \"minimumAge\": null\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "acb8daef-e857-4874-8911-910045469043",
+			"name": "Update Reuse Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileReuseFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "4b43d244-a3b9-42c9-b737-060e8491ace4",
+			"rawModeData": "{\n    \"type\": \"reuse\",\n    \"prevention\": {\n        \"numPrevious\": 0,\n        \"minimumAge\": null\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ad6b200d-8839-4476-9a1b-c15157807d52",
+			"name": "Delete Token Security Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileTokenSecurityFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "44c7a94c-ff7f-4185-94c1-e764e1ba47cc",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ae01dc43-d271-486a-a83a-f289e26a5459",
+			"name": "Get Adoption Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileAdoptionFeatureId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "0390b2c3-d4c6-4666-b308-4d246f58c15a",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "aeb3dffa-5d04-4527-81a9-07b0922d2e60",
+			"name": "Get IdP Routing Rules in Policy",
+			"url": "{{url}}/api/v1/policies/{{idpRoutingPolicyId}}/rules/{{idpRoutingPolicyRuleId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "2f90d512-d086-4690-871e-e0650ad1d2a5",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "af37a320-3ffb-4e5a-a22e-f4feaa909fb6",
+			"name": "Get Token Security Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileTokenSecurityFeatureId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "44c7a94c-ff7f-4185-94c1-e764e1ba47cc",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "afa3fa62-1c84-45a2-ae9e-d9ddce54c07a",
+			"name": "Get Sign On Rule in Policy",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}/rules/{{signOnPolicyRuleId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "b0918405-2d21-4473-9065-d086bd852ab4",
+			"name": "Create SIgn On Rule in Policy (password or email)",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}/rules",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "Authorization",
+					"value": "",
+					"enabled": false
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "994c8176-76d1-433a-b7f0-ad5fcdea610e",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"signOnPolicyRuleId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"rawModeData": "{\n    \"name\": \"Sign On Policy Rule\",\n    \"type\": \"Okta:SignOn\",\n    \"priority\": 0,\n    \"conditions\": [\n        {\n            \"key\": \"Okta:UserType\",\n            \"op\": \"IN_LIST\",\n            \"value\": [\n                \"{{defaultUserTypeId}}\"\n            ]\n        },\n        {\n            \"key\": \"Okta:Group\",\n            \"op\": \"INTERSECTS\",\n            \"value\": [\n                \"{{groupId}}\"\n            ]\n        }\n    ],\n    \"action\": \"ALLOW\",\n    \"requirement\": {\n        \"verificationMethod\": {\n            \"type\": \"CHAIN\",\n            \"chains\": [\n                {\n                    \"criteria\": [\n                        {\n                            \"factorType\": \"password\"\n                        },\n                        {\n                            \"factorType\": \"email\"\n                        }\n                    ]\n                }\n            ]\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "b4eb6cb7-3cd2-46e8-8dd6-9e1961b33877",
+			"name": "Update Identifier Match Rule In Policy",
+			"url": "{{url}}/api/v1/policies/{{identifierMatchPolicyId}}/rules/{{identifierMatchPolicyRuleId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "26c4f038-f283-42c5-abf1-2e09b439310e",
+			"rawModeData": "{\n\t\"id\": \"{{identifierMatchPolicyRuleId}}\",\n    \"name\": \"Identifier Match Policy Rule\",\n    \"type\": \"Okta:IdentifierMatch\",\n    \"priority\": 0,\n    \"action\": \"ALLOW\",\n    \"conditions\": [],\n    \"requirement\": {\n            \"identifyingAttributes\": [\n            \t{\n\t            \t\"userType\" : \"{{defaultUserTypeId}}\",\n\t            \t\"attribute\": \"email\"\n\t            }\n            ],\n            \"onConflictingUser\": {\n                \"action\": \"DENY\"\n            }\n    },\n    \"status\": \"ACTIVE\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "b585a6e4-ac6e-442c-b9dc-ca7d18ebac3d",
+			"name": "List Unknown User Policies",
+			"url": "{{url}}/api/v1/policies?type=Okta:UnknownUser",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "type",
+					"value": "Okta:UnknownUser",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "420ce70a-a539-4460-ae79-afa7d91fa52b",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"unknownUserPolicyId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "e7871c26-72d0-4a25-b277-80d803a36cef",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "b71f6b32-e75a-43ed-b76a-ff3802b0126f",
+			"name": "Get User Profile Policy",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ba190b7b-bec2-4e58-8137-9d144af01b00",
+			"name": "Update Enrollment Source Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileEnrollmentSourceFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "bc5837e0-2781-40a2-84ad-6cb3fbee4fda",
+			"rawModeData": "{\n    \"type\": \"enrollment_source\",\n    \"source\": {\n        \"simpleUserAttribute\": {\n            \"name\": \"email\"\n        }\n    },\n    \"verification\": {\n        \"automatic\": {\n            \"enabled\": true\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ba3927d5-1c25-4305-8cec-abcbd2b33349",
+			"name": "Update Recovery Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileRecoveryFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "89eab1c5-e623-4602-aae1-38a81a791ed5",
+			"rawModeData": "{\n    \"type\": \"recovery\",\n    \"eligibility\": \"ALLOWED\",\n    \"verificationMethod\": {\n        \"type\": \"ANY_FACTOR\"\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "be1af68b-8977-4d11-bf96-aede8b5198cc",
+			"name": "Create Unknown User Rule In Policy (register, defaultUserType)",
+			"url": "{{url}}/api/v1/policies/{{unknownUserPolicyId}}/rules",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ba3aa455-c9ef-480c-986f-16215738a3ea",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"unknownUserPolicyRuleId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "e7871c26-72d0-4a25-b277-80d803a36cef",
+			"rawModeData": "{\n    \"name\": \"Unknown User Policy Rule\",\n    \"type\": \"Okta:UnknownUser\",\n    \"priority\": 0,\n    \"action\": \"ALLOW\",\n    \"conditions\": [\n        {\n            \"key\": \"Okta:Identifier\",\n            \"op\": \"STRING_ENDS_WITH\",\n            \"value\": \"idx.com\"\n        },\n        {\n            \"key\": \"Okta:AppInstance\",\n            \"op\": \"IN_LIST\",\n            \"value\": [\n                \"{{appInstanceId}}\"\n            ]\n        }\n    ],\n    \"requirement\": {\n        \"noUserMatch\": {\n            \"action\": \"REGISTER\",\n            \"registration\": {\n                \"defaultUserType\": \"{{defaultUserTypeId}}\"\n            }\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "be81fa14-d322-4331-83b6-4f8a89e94f01",
+			"name": "Update Sign On Policy",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"rawModeData": "{\n\t\"id\": \"{{signOnPolicyId}}\",\n\t\"name\": \"Sign On Policy\",\n\t\"type\": \"Okta:SignOn\",\n\t\"status\" : \"ACTIVE\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "be9d133c-a8d8-4877-98ce-a330fafab52f",
+			"name": "Delete Sign On Policy Mapping",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}/mappings/{{signOnPolicyMappingId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "bf005dac-48f3-4830-a709-d04d3e700fcf",
+			"name": "Create User Profile Policy",
+			"url": "{{url}}/api/v1/policies",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b389bca0-938a-4463-8c72-8bd834eb9dbd",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"userProfilePolicyId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"rawModeData": "{\n\t\"name\": \"User Profile Policy\",\n\t\"type\": \"Okta:UserProfile\",\n\t\"status\" : \"ACTIVE\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "bf740862-cd1e-4b32-b408-4178a35f1707",
+			"name": "Create User Profile Rule in Policy",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}/rules",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"type": "text"
+				},
+				{
+					"key": "Authorization",
+					"value": "SSWS {{apikey}}",
+					"type": "text"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9c1e9bfc-7bee-4b92-b7af-a114a74cf883",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"userProfilePolicyRuleId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"rawModeData": "{\n    \"name\": \"User Profile Policy Rule\",\n    \"type\": \"Okta:UserProfile\",\n    \"priority\": 1,\n    \"action\": \"ALLOW\",\n    \"conditions\": [\n        {\n            \"key\": \"Okta:UserType\",\n            \"op\": \"IN_LIST\",\n            \"value\": [\n                \"{{defaultUserTypeId}}\"\n            ]\n        },\n        {\n            \"key\": \"Okta:Group\",\n            \"op\": \"INTERSECTS\",\n            \"value\": [\n                \"{{groupId}}\"\n            ]\n        }\n    ],\n    \"requirement\": {\n        \"preRegistrationInlineHooks\": [\n            {\n                \"inlineHookId\": \"{{inlineHookId}}\"\n            }\n        ],\n        \"profileAttributes\": [\n            {\n                \"label\": \"First Name\",\n                \"name\": \"firstName\",\n                \"required\": true\n            },\n            {\n                \"label\": \"Last Name\",\n                \"name\": \"lastName\",\n                \"required\": true\n            },\n            {\n                \"label\": \"Email\",\n                \"name\": \"email\",\n                \"required\": true\n            }\n        ]\n    }\n}",
+			"headers": "Content-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "bff6847b-81f0-4c70-b074-801436c4034b",
+			"name": "List User Profile Policy Mappings",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}/mappings",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b7821579-267f-423c-bee3-6a0d9f124e33",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"userProfilePolicyMappingId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "c3c9ed11-7e58-4de2-b4b3-70db7061a38a",
+			"name": "List Identifier Match Policies",
+			"url": "{{url}}/api/v1/policies?type=Okta:IdentifierMatch",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "type",
+					"value": "Okta:IdentifierMatch",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "09346944-0c01-4dc2-b2f3-35bad0c60544",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"identifierMatchPolicyId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "26c4f038-f283-42c5-abf1-2e09b439310e",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "c69d8874-916d-4068-b6a7-d1579e6d6a67",
+			"name": "Update User Profile Policy",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"rawModeData": "{\n\t\"id\": \"{{userProfilePolicyId}}\",\n\t\"name\": \"User Profile Policy\",\n\t\"type\": \"Okta:UserProfile\",\n\t\"status\" : \"ACTIVE\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "cb501ac9-4827-4a23-841d-7f2a0d277eb8",
+			"name": "Get IdP Routing Policy",
+			"url": "{{url}}/api/v1/policies/{{idpRoutingPolicyId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "2f90d512-d086-4690-871e-e0650ad1d2a5",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "cbc1bc3d-f77d-46a8-9a15-fd2c8f83e773",
+			"name": "List Email Factor Profiles",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "SSWS {{apikey}}",
+					"type": "text"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "66d5047e-a82e-4445-8a6e-380d37a3951b",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"var profiles = jsonData.filter(p => p.default === true);",
+							"postman.setEnvironmentVariable(\"emailFactorProfileId\", jsonData[0].id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "ccbbe5a4-4534-472c-9409-22a50f81710e",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ccc153a9-d6cf-4cdf-a15e-1b5dbd7825c0",
+			"name": "Create Adoption Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3894c0b3-c98b-402e-9b6a-639ce069cc2d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"emailFactorProfileAdoptionFeatureId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "7125dd6e-9275-4374-99de-9ce62c64df82",
+			"rawModeData": "{\n    \"type\": \"adoption\",\n    \"cardinality\": {\n        \"min\": 0,\n        \"max\": 1\n    },\n    \"selfService\": {\n        \"eligibility\": \"ALLOWED\",\n        \"verificationMethod\": {\n            \"type\": \"ANY_FACTOR\"\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d0afe7ac-bd7b-4918-97b5-54784c19998d",
+			"name": "List Unknown User Rules in Policy",
+			"url": "{{url}}/api/v1/policies/{{unknownUserPolicyId}}/rules",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "75e5d907-07a5-461d-8bf2-51f53a0b25b3",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"unknownUserPolicyRuleId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "e7871c26-72d0-4a25-b277-80d803a36cef",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d300e761-d349-4276-9e57-3cb02dd6c851",
+			"name": "Get Recovery Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileRecoveryFeatureId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "89eab1c5-e623-4602-aae1-38a81a791ed5",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d4f93dea-b968-4d06-8881-0b0f154af2bf",
+			"name": "Delete Reuse Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileReuseFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "4b43d244-a3b9-42c9-b737-060e8491ace4",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d610f970-7af0-4032-b05c-c53270b2cf67",
+			"name": "List Features",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cd9b3da6-534a-4674-9dd4-a2de4def0504",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"var features = jsonData.filter(f => f.type === \"adoption\");",
+							"postman.setEnvironmentVariable(\"passwordFactorProfileAdoptionFeatureId\", features.length > 0 ? features[0].id : null);",
+							"features = jsonData.filter(f => f.type === \"recovery\");",
+							"postman.setEnvironmentVariable(\"passwordFactorProfileRecoveryFeatureId\", features.length > 0 ? features[0].id : null);",
+							"features = jsonData.filter(f => f.type === \"string_validation\");",
+							"postman.setEnvironmentVariable(\"passwordFactorProfileStringValidationFeatureId\", features.length > 0 ? features[0].id : null);",
+							"features = jsonData.filter(f => f.type === \"reuse\");",
+							"postman.setEnvironmentVariable(\"passwordFactorProfileReuseFeatureId\", features.length > 0 ? features[0].id : null);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "aaf90adf-61c1-4191-9745-d3b52d1dbb75",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d85509aa-bb45-439b-be3b-c9f12f00118d",
+			"name": "Get Adoption Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileAdoptionFeatureId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "7125dd6e-9275-4374-99de-9ce62c64df82",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "da0541f9-c76d-4407-ba39-3ed028e886f9",
+			"name": "Get String Validation Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features/{{passwordFactorProfileStringValidationFeatureId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "368ad27b-1da9-45ea-b1e6-aef85cc9332c",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "dce6ed93-8d7b-4b92-9017-41313e55a179",
+			"name": "List Features",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cd9b3da6-534a-4674-9dd4-a2de4def0504",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"var features = jsonData.filter(f => f.type === \"adoption\");",
+							"postman.setEnvironmentVariable(\"emailFactorProfileAdoptionFeatureId\", features.length > 0 ? features[0].id : null);",
+							"features = jsonData.filter(f => f.type === \"recovery\");",
+							"postman.setEnvironmentVariable(\"emailFactorProfileRecoveryFeatureId\", features.length > 0 ? features[0].id : null);",
+							"features = jsonData.filter(f => f.type === \"enrollment_source\");",
+							"postman.setEnvironmentVariable(\"emailFactorProfileEnrollmentSourceFeatureId\", features.length > 0 ? features[0].id : null);",
+							"features = jsonData.filter(f => f.type === \"token_security\");",
+							"postman.setEnvironmentVariable(\"emailFactorProfileTokenSecurityFeatureId\", features.length > 0 ? features[0].id : null);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "c10237a3-79a8-4e1e-aab6-19737e0e1c33",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e1c74829-f805-4388-8957-3d112512a3a1",
+			"name": "List IdP Routing Policies",
+			"url": "{{url}}/api/v1/policies?type=Okta:IdpRouting",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "type",
+					"value": "Okta:IdpRouting",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ddfbad10-f3dd-4d72-b21f-a5d82ef0328a",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"idpRoutingPolicyId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "2f90d512-d086-4690-871e-e0650ad1d2a5",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e46d456f-9212-4d95-ab95-971d5f83a2a7",
+			"name": "Update Adoption Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileAdoptionFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "7125dd6e-9275-4374-99de-9ce62c64df82",
+			"rawModeData": "{\n    \"type\": \"adoption\",\n    \"cardinality\": {\n        \"min\": 0,\n        \"max\": 1\n    },\n    \"selfService\": {\n        \"eligibility\": \"ALLOWED\",\n        \"verificationMethod\": {\n            \"type\": \"ANY_FACTOR\"\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e7c13178-3dd9-40b9-848f-f3b0d0d6479c",
+			"name": "Create Adoption Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3894c0b3-c98b-402e-9b6a-639ce069cc2d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"passwordFactorProfileAdoptionFeatureId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "0390b2c3-d4c6-4666-b308-4d246f58c15a",
+			"rawModeData": "{\n    \"type\": \"adoption\",\n    \"cardinality\": {\n        \"min\": 0,\n        \"max\": 1\n    },\n    \"selfService\": {\n        \"eligibility\": \"ALLOWED\",\n        \"verificationMethod\": {\n            \"type\": \"ANY_FACTOR\"\n        }\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e81acb00-58df-4733-b0fa-f25a0702ddd3",
+			"name": "Get User Profile Rule in Policy",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}/rules/{{userProfilePolicyRuleId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e8ca224c-87f7-4752-9e86-cbc4f7c44da4",
+			"name": "Get Identifier Match Policy",
+			"url": "{{url}}/api/v1/policies/{{identifierMatchPolicyId}}",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "26c4f038-f283-42c5-abf1-2e09b439310e",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ea769221-8634-48cb-90b3-48f2eb050877",
+			"name": "Create String Validation Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3894c0b3-c98b-402e-9b6a-639ce069cc2d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"passwordFactorProfileStringValidationFeatureId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "368ad27b-1da9-45ea-b1e6-aef85cc9332c",
+			"rawModeData": "{\n    \"type\": \"string_validation\",\n    \"complexity\": {\n        \"minLength\": 4,\n        \"minLowerCase\": 0,\n        \"minUpperCase\": 0,\n        \"minNumbers\": 0,\n        \"minSymbols\": 0\n    },\n    \"exclude\": {\n        \"common\": null,\n        \"attributeCriteria\": [\n            {\n                \"name\": \"login\"\n            },\n            {\n                \"name\": \"firstName\"\n            }\n        ]\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "eaba7837-d199-43d1-9eec-7f4797186a2d",
+			"name": "Delete Recovery Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileRecoveryFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "89eab1c5-e623-4602-aae1-38a81a791ed5",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ef3bee68-4104-4f0d-bc3a-0e41bacb80a6",
+			"name": "Update Email Factor Profile",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"type": "text"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "ccbbe5a4-4534-472c-9409-22a50f81710e",
+			"rawModeData": "{\n    \"name\": \"Email Factor Profile\",\n    \"settings\": {}\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "f0014eaa-487c-49c7-8a26-e854207bab4c",
+			"name": "Create Recovery Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3894c0b3-c98b-402e-9b6a-639ce069cc2d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"emailFactorProfileRecoveryFeatureId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "89eab1c5-e623-4602-aae1-38a81a791ed5",
+			"rawModeData": "{\n    \"type\": \"recovery\",\n    \"eligibility\": \"ALLOWED\",\n    \"verificationMethod\": {\n        \"type\": \"ANY_FACTOR\"\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "f1b3061c-6c75-46df-a39f-33d65d6c2d6f",
+			"name": "Update IdP Routing Rule in Policy",
+			"url": "{{url}}/api/v1/policies/{{idpRoutingPolicyId}}/rules/{{idpRoutingPolicyRuleId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "Authorization",
+					"value": "",
+					"enabled": false
+				}
+			],
+			"auth": null,
+			"events": null,
+			"folder": "2f90d512-d086-4690-871e-e0650ad1d2a5",
+			"rawModeData": "{\n\t\"id\": \"{{idpRoutingPolicyRuleId}}\",\n    \"name\": \"IdP Routing Policy Rule\",\n    \"type\": \"Okta:IdpRouting\",\n    \"priority\": 0,\n    \"action\": \"ALLOW\",\n    \"conditions\": [],\n    \"requirement\": {\n        \"type\": \"okta_idp\",\n        \"idpId\": \"OKTA\"\n    },\n    \"status\": \"ACTIVE\"\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "f49395a9-1b99-44bd-bf64-9cb85d6f5fe9",
+			"name": "Delete Enrollment Source Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_email/profiles/{{emailFactorProfileId}}/features/{{emailFactorProfileEnrollmentSourceFeatureId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "bc5837e0-2781-40a2-84ad-6cb3fbee4fda",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "f53f0576-4c31-4583-b058-466165015d9a",
+			"name": "List Sign On Policies",
+			"url": "{{url}}/api/v1/policies?type=Okta:SignOn",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "type",
+					"value": "Okta:SignOn",
+					"equals": true,
+					"description": null,
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0fd4f139-db43-450d-b04b-589b983e629b",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"signOnPolicyId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "f80bc273-668b-42db-8962-58a71162a7a1",
+			"name": "List Sign On Rules in Policy",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}/rules",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91301db3-9a2a-4b18-98a2-4cc5ebd33a72",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"signOnPolicyRuleId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "f9f79f51-dbfc-415e-881d-f172558c8f7f",
+			"name": "Create Recovery Feature",
+			"url": "{{url}}/api/v1/org/factors/okta_password/profiles/{{passwordFactorProfileId}}/features",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				},
+				{
+					"key": "Content-Type",
+					"name": "Content-Type",
+					"type": "text",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3894c0b3-c98b-402e-9b6a-639ce069cc2d",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData.id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"passwordFactorProfileRecoveryFeatureId\", jsonData.id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "9466ec85-912a-498d-a6cf-101ead02c6db",
+			"rawModeData": "{\n    \"type\": \"recovery\",\n    \"eligibility\": \"ALLOWED\",\n    \"verificationMethod\": {\n        \"type\": \"ANY_FACTOR\"\n    }\n}",
+			"headers": "Authorization: SSWS {{apikey}}\nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "fbd2ff42-6959-47dd-b96d-a8aeed1bf755",
+			"name": "List User Profile Policies",
+			"url": "{{url}}/api/v1/policies?type=Okta:UserProfile",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "type",
+					"value": "Okta:UserProfile",
+					"equals": true,
+					"description": null,
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0fd4f139-db43-450d-b04b-589b983e629b",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"userProfilePolicyId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "fdf6310a-1fd7-4ca4-9a86-7b8565ca2111",
+			"name": "List User Profile Rules in Policy",
+			"url": "{{url}}/api/v1/policies/{{userProfilePolicyId}}/rules",
+			"description": null,
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f19b66a-51ed-45b7-9c48-4d21abb30e32",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"if (jsonData !== undefined && jsonData.length > 0  && jsonData[0].id !== undefined) {",
+							"    postman.setEnvironmentVariable(\"userProfilePolicyRuleId\", jsonData[0].id);",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": "cb4b80bf-714b-4be1-b2cc-b9090a5b5850",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "fe39acc5-287d-454e-af24-59a77df2c527",
+			"name": "Delete Sign On Rule In Policy",
+			"url": "{{url}}/api/v1/policies/{{signOnPolicyId}}/rules/{{signOnPolicyRuleId}}",
+			"description": null,
+			"data": [],
+			"dataOptions": null,
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"type": "text",
+					"value": "SSWS {{apikey}}"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "6f3c5e7d-8698-4a88-b18f-75c90c13e3ee",
+			"rawModeData": "",
+			"headers": "Authorization: SSWS {{apikey}}\n",
+			"pathVariables": {}
+		}
+	]
+}
