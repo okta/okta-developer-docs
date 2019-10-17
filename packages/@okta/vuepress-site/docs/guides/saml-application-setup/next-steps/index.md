@@ -6,4 +6,4 @@ You have now configured Okta with the details of your SAML Service Provider appl
 Read more:
 
 * [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/overview/)
-* [Upload your own certificates for Outbound SAML Apps](/docs/guides/byo-saml/overview/)
+* [Sign the Okta certificate with your own CA](/docs/guides/sign-your-own-saml-csr/overview/)

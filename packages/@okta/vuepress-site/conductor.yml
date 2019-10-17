@@ -494,7 +494,7 @@ redirects:
   - from: /docs/how-to/add-user-consent-to-flow/index.html
     to: /docs/guides/request-user-consent/
   - from: /docs/how-to/byo_saml/index.html
-    to: /docs/guides/byo-saml/
+    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/how-to/creating-token-with-groups-claim/index.html
     to: /docs/guides/create-token-with-groups-claim/
   - from: /docs/how-to/sharing-cert/index.html
@@ -656,7 +656,7 @@ redirects:
   - from: /docs/how-to/add-user-consent-to-flow
     to: /docs/guides/request-user-consent/
   - from: /docs/how-to/byo_saml
-    to: /docs/guides/byo-saml/
+    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/how-to/creating-token-with-groups-claim
     to: /docs/guides/create-token-with-groups-claim/
   - from: /docs/how-to/sharing-cert
@@ -1715,3 +1715,5 @@ redirects:
     to: /docs/release-notes/
   - from: /docs/change-log
     to: /docs/release-notes/
+  - from: /docs/guides/byo_saml
+    to: /docs/guides/sign-your-own-saml-csr/
