@@ -23,6 +23,7 @@ guides:
  - mfa
  - oin-build-provisioning-integration
  - oin-build-sso-integration
+ - oin-promote-integration
  - protect-your-api
  - refresh-tokens
  - request-user-consent
