@@ -63,7 +63,43 @@ These rate limits apply to all new Okta organizations. For orgs created before 2
 
 > **Note:** Public metadata endpoints for Org Authorization Server are: <br/> - `/oauth2/v1/keys` <br/> - `/.well-known/openid-configuration` <br/> Public metadata endpoints for Custom Authorization Servers are: <br/> - `/oauth2/{authorizationServerId}/v1/keys` <br/> - `/oauth2/{authorizationServerId}/.well-known/openid-configuration` <br/> - `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`.
 
+### DynamicScale Rate Limits
 
+If your needs exceed Okta's default rate limits for the base product subscriptions (e.g. One App, Enterprise or IT Products) you've already purchased, you can purchase a "DynamicScale" add-on service which will grant you higher rate limits for the endpoints listed below.  The DynamicScale rate limits will range from 3x to 1,000x, with the default rate limits based on the tier multiplier purchased.  Customers can purchase this add-on annually for a Production tenant or temporarily for testing in a Sandbox tenant.  The following list of endpoints are included in the DynamicScale add-on service:
+
+**Authentication endpoints:**
+
+* `/api/v1/authn`
+* `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
+* `/api/v1/sessions`
+
+**OAuth2 endpoints:**
+
+* `/oauth2/{authorizationServerId}/v1`
+* `/oauth2/v1 except /oauth2/v1/clients`
+
+**SAML endpoints:**
+
+* `/app/template_saml_2_0/{key}/sso/saml`
+* `/app/{app}/{key}/sso/saml`
+
+**GET Users/Groups/Apps:**
+
+* `/api/v1/apps/{id}`
+* `/api/v1/groups/{id}`
+* `/api/v1/users/{id}`
+* `/api/v1/users/{idOrLogin}`
+
+**Notes:**
+
+1. If Okta makes any change to the DynamicScale add-on's rate limits, such change will be communicated to customers via an updated version of this product documentation.
+2. Customers purchasing the DynamicScale add-on service will get best-effort additional protection beyond the multiplier they've purchased to handle any additional unforeseen spikes in Production:
+    1. This protection is not always guaranteed and should not be counted towards available rate limits
+    2. Additional protection availability is subject to infrastructure capacity available to your Org
+
+If your usage pattern exceeds the rate limits offered by DynamicScale add-on or the endpoint you're consuming isn't listed as part of the DynamicScale add-on then please contact your Okta Sales Representative regarding other options.
+
+For orgs that purchased the "High Capacity Rate Limit" SKU before 2019-10-24, the previous rate limits still apply.
 
 ### Okta API Endpoints and Per-User Limits
 API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password:
