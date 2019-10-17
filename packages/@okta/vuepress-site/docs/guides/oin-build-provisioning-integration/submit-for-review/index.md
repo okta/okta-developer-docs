@@ -2,8 +2,6 @@
 title: Submit your app to Okta for review and test
 ---
 
-## 4. Submit for Okta Review and Testing
-
 Once you have a functioning SCIM app integration in your developer org, there are a few steps to submit it for Okta review via the OIN Manager.
 
 Your submission provides Okta with all the metadata needed to create a customized app for publication in [the Okta Integration Network](https://www.okta.com/resources/find-your-apps/). Okta will review the submission, create the customized app, run it through our internal QA, and then make it available in your developer org for your own testing.

@@ -2,8 +2,6 @@
 title: Test your SCIM server
 ---
 
-## 3. Test your SCIM Server
-
 The easiest way for you to develop and verify your SCIM integration is to make use of an automated test suite that runs on Runscope.
 
 If you are already familiar with Runscope, then import the OKTA SCIM Spec Test JSON API test (for SCIM 1.1 or SCIM 2.0) and configure the `SCIM Base URL` variable to point at the base URL for your SCIM server, for example: `https://example.com/scim/v2`.

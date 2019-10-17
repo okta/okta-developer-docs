@@ -2,13 +2,11 @@
 title: Build a provisioning integration with Okta
 ---
 
-## 1. Build a provisioning integration with Okta
-
 Single sign-on is just one aspect of federation. First, an account for the user must be created to grant access to your application. In order to “automate” this process, your application should expose APIs to manage the account lifecycle such as user account creation, profile updates, authorization settings (such as groups or roles), account deactivation, etc.
 
 While many ISVs use proprietary APIs, Okta recommends that you implement your API using the [System for Cross-domain Identity Management](http://www.simplecloud.info) (SCIM) which supports all of the key features needed in provisioning.
 
-For details on how to integrate your application with SCIM, go to Okta’s [SCIM Provisioning Developer Program](docs/concepts/oin-scim) for additional guidance. Once you are ready you can submit your app by following the steps below.
+For details on how to integrate your application with SCIM, go to Okta’s [SCIM Provisioning Developer Program](/docs/concepts/oin-scim/) for additional guidance. Once you are ready you can submit your app by following the steps below.
 
 Publishing Your SCIM-Based Provisioning Integration
 In order to allow customers to use your SCIM provisioning integration with Okta, you’ll need to get your app published in the Okta Integration Network.

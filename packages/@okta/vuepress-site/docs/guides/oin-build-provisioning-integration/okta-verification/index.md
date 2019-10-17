@@ -2,8 +2,6 @@
 title: Become Okta Verfied in the OIN
 ---
 
-## 6. Become Okta-Verified in the OIN
-
 We require that one joint customer successfully validates the integration is working as expected from their perspective before we make it Okta-Verified in the OIN. The integration needs to be used and validated in production (not preview).
 
 Use this process to involve joint customers in testing a newly developed SCIM integration:
