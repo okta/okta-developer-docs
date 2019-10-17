@@ -16,6 +16,7 @@ module.exports = [
       { title: 'Okta-Hosted Flows', link: '/docs/concepts/okta-hosted-flows/'},
       { title: 'Okta Organizations', link: '/docs/concepts/okta-organizations/'},
       { title: 'SAML', link: '/docs/concepts/saml/'},
+      { title: 'SCIM', link: '/docs/concepts/oin-scim/'},
       { title: 'Social Login', link: '/docs/concepts/social-login/'}
     ]
   },

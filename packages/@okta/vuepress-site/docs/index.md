@@ -63,6 +63,8 @@ sections:
         link: /docs/concepts/authentication/
       - title: SAML
         link: /docs/concepts/saml/
+      - title: SCIM
+        link: /docs/concepts/oin-scim/
 
   - title: Guides
     link: /docs/guides/
