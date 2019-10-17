@@ -1351,10 +1351,9 @@ curl -v -X GET \
 
 #### List Users with Search
 
-
-> Listing users with search should not be used as a part of any critical flows, such as authentication, updates etc. to prevent potential data loss. `search` results may not reflect latest information, as this endpoint uses a search index which may not be up to date with recent updates to the object.
-
 Searches for users based on the properties specified in the search parameter
+
+> **Note:** Listing users with search should not be used as a part of any critical flows, such as authentication, updates etc. to prevent potential data loss. Search results may not reflect the latest information, as this endpoint uses a search index which may not be up-to-date with recent updates to the object.
 
 Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.
 
