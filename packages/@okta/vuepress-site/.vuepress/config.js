@@ -83,6 +83,7 @@ module.exports = {
       { text: 'Docs', link: '/docs/', active: true,
         children: [
           { text: 'Get Started', link: '/docs/' },
+          { text: 'Concepts', link: '/docs/concepts/' },
           { text: 'Guides', link: '/docs/guides/' },
           { text: 'Reference', link: '/docs/reference/' }
         ]
@@ -134,7 +135,9 @@ module.exports = {
 
     sidebars: {
       main: require('./nav/main'),
-      codePages: require('./nav/codePages')
+      codePages: require('./nav/codePages'),
+      reference: require('./nav/reference'),
+      concepts: require('./nav/concepts')
     },
 
     quickstarts: {
