@@ -1715,5 +1715,5 @@ redirects:
     to: /docs/release-notes/
   - from: /docs/change-log
     to: /docs/release-notes/
-  - from: /docs/guides/byo_saml
+  - from: /docs/guides/byo_saml/
     to: /docs/guides/sign-your-own-saml-csr/
