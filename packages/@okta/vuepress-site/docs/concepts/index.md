@@ -3,6 +3,9 @@ layout: Landing
 title: Concepts
 ---
 
+# Concepts
+Understand the basics of Okta's APIs and architecture.
+
 ## Featured Concepts
 
 <Cards>
