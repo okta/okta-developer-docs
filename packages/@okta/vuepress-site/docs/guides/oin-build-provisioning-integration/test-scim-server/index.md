@@ -6,8 +6,8 @@ The easiest way for you to develop and verify your SCIM integration is to make u
 
 If you are already familiar with Runscope, then import the OKTA SCIM Spec Test JSON API test (for SCIM 1.1 or SCIM 2.0) and configure the `SCIM Base URL` variable to point at the base URL for your SCIM server, for example: `https://example.com/scim/v2`.
 
-* [Okta SCIM 2.0 Spec Test JSON](SCIMFiles/Okta-SCIM-20-SPEC-Test.json)
-* [Okta SCIM 1.1 Spec Test JSON](SCIMFiles/Okta-SCIM-11-SPEC-Test.json)
+* [Okta SCIM 2.0 Spec Test JSON](/standards/SCIM/SCIMFiles/Okta-SCIM-20-SPEC-Test.json)
+* [Okta SCIM 1.1 Spec Test JSON](/standards/SCIM/SCIMFiles/Okta-SCIM-11-SPEC-Test.json)
 
 If you are not familiar with Runscope, follow the detailed instructions below to get started with using Runscope to test your SCIM server.
 
@@ -16,8 +16,8 @@ If you are not familiar with Runscope, follow the detailed instructions below to
 If you do not have a Runscope account already, we suggest starting with [Runscope's free trial plan for Okta](https://www.runscope.com/okta). Here is how to get started:
 
 1. Download the Okta SCIM Spec Test for your version of SCIM. You will use this file to import Okta's SCIM test suite into Runscope:
-    * [Okta SCIM 2.0 Spec Test JSON](SCIMFiles/Okta-SCIM-20-SPEC-Test.json)
-    * [Okta SCIM 1.1 Spec Test JSON](SCIMFiles/Okta-SCIM-11-SPEC-Test.json)
+    * [Okta SCIM 2.0 Spec Test JSON](/standards/SCIM/SCIMFiles/Okta-SCIM-20-SPEC-Test.json)
+    * [Okta SCIM 1.1 Spec Test JSON](/standards/SCIM/SCIMFiles/Okta-SCIM-11-SPEC-Test.json)
 2. [Sign up for Runscope](http://www.runscope.com/signup).
 3. You may see a tutorial after signing up for Runscope, if so, click "Skip Tutorial".
 4. You should now see a screen that says "API Tests".
@@ -45,7 +45,7 @@ configure the test for your SCIM integration. Here is how to do that:
     |:-------------------------------|:----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | SCIMBaseURL                    | `https://example.com/scim/v2` | For example, if your SCIM integration is hosted on <https://example.com> and uses a prefix of /scim/v2 then the "SCIM Base URL" for your integration would be: `https://example.com/scim/v2`. |
     | auth                           | Bearer abcxyz1234567890     | Basic/Oauth authorization values                                                                                                                                                          |
-6. Add the [Initial Script Spec](SCIMFiles/Initial_Script_Spec.txt). If you are developing your SCIM integration in a local development environment, we suggest using the excellent tool [ngrok](https://ngrok.com/) to expose your local development environment to Runscope.
+6. Add the [Initial Script Spec](/standards/SCIM/SCIMFiles/Initial_Script_Spec.txt). If you are developing your SCIM integration in a local development environment, we suggest using the excellent tool [ngrok](https://ngrok.com/) to expose your local development environment to Runscope.
 7. Click the "Save" button at the top of the test.
 
 ### Running Okta's SCIM tests against your SCIM server
@@ -95,6 +95,6 @@ Please request this in your email to <developers@okta.com>.
 3. Search for "SCIM". You'll see three different SCIM template applications for each SCIM version (1.1 and 2.0) based off of the various authentication methods you could choose to support (Header Auth, Basic Auth, or Bearer Token).
   ![Admin Button](/img/oin/scim-templates.png "Admin Button")
 
-Your QA team should test the use cases in this downloadable spreadsheet: [Okta SCIM Test Plan](SCIMFiles/okta-scim-test-plan.xls).
+Your QA team should test the use cases in this downloadable spreadsheet: [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan.xls).
 
 <NextSectionLink/>
