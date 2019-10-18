@@ -65,7 +65,7 @@ These rate limits apply to all new Okta organizations. For orgs created before 2
 
 ### DynamicScale Rate Limits
 
-If your needs exceed Okta's default rate limits for the base product subscriptions (e.g. One App, Enterprise or IT Products) you've already purchased, you can purchase a "DynamicScale" add-on service which will grant you higher rate limits for the endpoints listed below.  The DynamicScale rate limits will range from 3x to 1,000x, with the default rate limits based on the tier multiplier purchased.  Customers can purchase this add-on annually for a Production tenant or temporarily for testing in a Sandbox tenant.  The following list of endpoints are included in the DynamicScale add-on service:
+If your needs exceed Okta's default rate limits for the base product subscriptions (e.g. One App, Enterprise or IT Products) you've already purchased, you can purchase a "DynamicScale" add-on service which will grant you higher rate limits for the endpoints listed below. DynamicScale will increase your default rate limits by 3x to 1,000x, depending on the tier multiplier you purchase.  Customers can purchase this add-on annually for a Production tenant or temporarily for testing in a Sandbox tenant.  The following list of endpoints are included in the DynamicScale add-on service:
 
 **Authentication endpoints:**
 
@@ -87,7 +87,6 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 
 * `/api/v1/apps/{id}`
 * `/api/v1/groups/{id}`
-* `/api/v1/users/{id}`
 * `/api/v1/users/{idOrLogin}`
 
 **Notes:**
@@ -99,9 +98,10 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 
 If your usage pattern exceeds the rate limits offered by DynamicScale add-on or the endpoint you're consuming isn't listed as part of the DynamicScale add-on then please contact your Okta Sales Representative regarding other options.
 
-For orgs that purchased the "High Capacity Rate Limit" SKU before 2019-10-24, the previous rate limits still apply.
+For orgs that purchased the "High Capacity Rate Limit" SKU before 2019-10-24, the [previous rate limits](#high-capacity-rate-limits) still apply.
 
 ### Okta API Endpoints and Per-User Limits
+
 API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password:
 
 | Action and Okta API Endpoint                                      | Per User Limits (All Orgs) |
