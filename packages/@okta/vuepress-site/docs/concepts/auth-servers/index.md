@@ -22,13 +22,13 @@ Okta has two types of authorization servers: the Org Authorization Server and Cu
 
 ### Org Authorization Server
 
-Every Okta org comes with a built-in authorization server called the Org Authorization Server (Org AS). The base URL for the Org AS is `https://${yourOktaOrg}`.
+Every Okta org comes with a built-in authorization server called the Org Authorization Server. The base URL for the Org Authorization Server is `https://${yourOktaOrg}`.
 
-You use the Org AS to perform SSO with Okta or to get an access token for the Okta APIs. You can't customize this authorization server with regards to audience, claims, policies, or scopes. Additionally, the resulting access token's issuer is `https://${yourOktaOrg}`, which indicates that only Okta can consume or validate it. The access token can't be used or validated by your own applications.
+You use the Org Authorization Server to perform SSO with Okta or to get an access token for the Okta APIs. You can't customize this authorization server with regards to audience, claims, policies, or scopes. Additionally, the resulting access token's issuer is `https://${yourOktaOrg}`, which indicates that only Okta can consume or validate it. The access token can't be used or validated by your own applications.
 
 #### Org Authorization Server discovery endpoints
 
-The following discovery endpoints return OIDC or OAuth 2.0 metadata related to your Org AS. Clients can use this information to programmatically configure their interactions with Okta.
+The following discovery endpoints return OIDC or OAuth 2.0 metadata related to your Org Authorization Server. Clients can use this information to programmatically configure their interactions with Okta.
 
 **OpenID:** `https://${yourOktaOrg}/.well-known/openid-configuration`
 
@@ -70,22 +70,22 @@ The OpenID and OAuth discovery endpoints for the default Custom Authorization Se
 
 ## Which authorization server should you use
 
-If you are just looking to add SSO for your OIDC-based applications, you can use your Org AS. You should also use the Org AS if you want to use [OAuth2 bearer tokens with your Okta APIs](/docs/guides/oauth-for-okta/). Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
+If you are just looking to add SSO for your OIDC-based applications, you can use your Org Authorization Server. You should also use the Org Authorization Server if you want to use [OAuth2 bearer tokens with your Okta APIs](/docs/guides/oauth-for-okta/). Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
 
 If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional authorization servers with different scopes and claims, then you need to [create a Custom Authorization Server](/docs/guides/customize-authz-server/overview/).
 
-The following table describes which capabilities are supported by the Custom AS (includes the Default Custom AS) and which are supported by the Okta Org AS.
+The following table describes which capabilities are supported by the Custom Authorization Server (includes the Default Custom Authorization Server) and which are supported by the Okta Org Authorization Server.
 
-| Capabilities                               | Custom AS          | Org AS    |
-| :----------------------------------------- | :----------------- | :-------- |
-| SSO with OIDC                              | Yes                | Yes       |
-| Use Okta Developer SDKs & Widgets for SSO  | Yes                | Yes       |
-| Retrieve user profile in ID Token          | Yes                | Yes       |
-| Apply authorization policies to custom APIs| Yes                | No        |
-| Add custom scopes or claims to tokens      | Yes                | No        |
-| Integrate with an API Gateway              | Yes                | No        |
-| Machine-to-Machine or Microservices        | Yes                | No        |
-| Mint Access Tokens with Okta API Scopes    | No                 | Yes       |
+| Capabilities                               | Custom Authorization Server          | Org Authorization Server    |
+| :----------------------------------------- | :----------------------------------- | :-------------------------- |
+| SSO with OIDC                              | Yes                                  | Yes                         |
+| Use Okta Developer SDKs & Widgets for SSO  | Yes                                  | Yes                         |
+| Retrieve user profile in ID Token          | Yes                                  | Yes                         |
+| Apply authorization policies to custom APIs| Yes                                  | No                          |
+| Add custom scopes or claims to tokens      | Yes                                  | No                          |
+| Integrate with an API Gateway              | Yes                                  | No                          |
+| Machine-to-Machine or Microservices        | Yes                                  | No                          |
+| Mint Access Tokens with Okta API Scopes    | No                                   | Yes                         |
 
 ## Key rotation for Custom Authorization Servers
 
