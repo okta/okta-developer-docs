@@ -66,7 +66,7 @@ Okta offers a variety of functions to manipulate attributes or properties to gen
 | --------                 | -------------------------                                     | ----------- | -------                                                                                                       | ------         |
 | `String.append`          | (String str, String suffix)                                   | String      | `String.append("This is", " a test")`                                                                         | This is a test |
 | `String.join`            | (String separator, String... strings)                         | String      | `String.join(",", "This", "is", "a", "test")`                                                                 | This,is,a,test |
-|                          |                                                               |             | `String.join(", "This", "is", "a", "test")`                                                                   | Thisisatest    |
+|                          |                                                               |             | `String.join("", "This", "is", "a", "test")`                                                                   | Thisisatest    |
 | `String.len`             | (String input)                                                | Integer     | `String.len("This")`                                                                                          | 4              |
 | `String.removeSpaces`    | (String input)                                                | String      | `String.removeSpaces("This is a test")`                                                                       | Thisisatest    |
 | `String.replace`         | (String input, match, replacement)                            | String      | `String.replace("This is a test", "is", "at")`                                                                | That at a test |
@@ -166,10 +166,10 @@ For an example using group functions and for more information on using group fun
 
 ### Linked Object Function
 
-Use this function to retrieve properties about the user identified with the specified `primary` relationship. You can optionally specify an app.
+Use this function to retrieve the user identified with the specified `primary` relationship. You can then access properties of that user.
 
-* Function: `user.getLinkedObject().$attribute`
-    * Parameters: (String primaryName, String userAttribute)
+* Function: `user.getLinkedObject($primaryName)`
+    * Parameter: (String primaryName)
     * Return Type: User
     * Example: `user.getLinkedObject("manager").lastName`
     * Example Result: `Gates`
@@ -183,10 +183,10 @@ Use this function to retrieve properties about the user identified with the spec
 |                             |                                    |                  | `Time.now("EST", "YYYY-MM-dd HH:mm:ss")`                                                                           | 2015-07-31 13:36:48 (Specified time zone and format, military time)                                     |
 | `Time.fromWindowsToIso8601` | (String time)                      | String           | Windows timestamp time as a string (Windows/LDAP timestamp doc)                                                    | The passed-in time expressed in ISO 8601 format (specifically the RFC 3339 subset of the ISO standard). |
 | `Time.fromUnixToIso8601`    | (String time)                      | String           | Unix timestamp time as a string (Unix timestamp reference)                                                         | The passed-in time expressed in ISO 8601 format (specifically the RFC 3339 subset of the ISO standard). |
-| `Time.fromStringToIso8601`  | (String time, String format)       | String           | Timestamp time in a human-readable yet machine-parseable arbitrary format format (as defined by Joda time pattern) | The passed-in time expressed in ISO 8601 format (specifically the RFC 3339 subset of the ISO standard). |
+| `Time.fromStringToIso8601`  | (String time, String format)       | String           | Timestamp time in a human-readable yet machine-parseable arbitrary format format (as defined by [Joda time pattern](https://www.joda.org/joda-time/key_format.html)) | The passed-in time expressed in ISO 8601 format (specifically the RFC 3339 subset of the ISO standard). |
 | `Time.fromIso8601ToWindows` | (String time)                      | String           | ISO 8601 timestamp time as a string                                                                                | The passed-in time expressed in Windows timestamp format.                                               |
 | `Time.fromIso8601ToUnix`    | (String time)                      | String           | ISO 8601 timestamp time as a string                                                                                | The passed-in time expressed in Unix timestamp format.                                                  |
-| `Time.fromIso8601ToString`  | (String time, String format)       | String           | ISO 8601 timestamp time, to convert to format using the same Joda time format semantics as fromStringToIso8601     | The passed-in time expressed informat format.                                                           |
+| `Time.fromIso8601ToString`  | (String time, String format)       | String           | ISO 8601 timestamp time, to convert to format using the same [Joda time pattern](https://www.joda.org/joda-time/key_format.html) semantics as fromStringToIso8601     | The passed-in time expressed informat format.                                                           |
 
 >Note: Both input parameters are optional for the Time.now function. The time zone ID supports both new and old style formats, listed below. The third example for the Time.now function shows how to specify the military time format.
 

@@ -9,7 +9,7 @@ The Okta User API provides operations to manage users in your organization.
 
 ## Getting Started
 
-Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c4661c98df9054fdbf7c)
+Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ff2ad5a39f77ba4cfabf)
 
 
 
@@ -29,6 +29,7 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User with Password & Recovery Question](#create-user-with-password-recovery-question)
 - [Create User with Authentication Provider](#create-user-with-authentication-provider)
 - [Create User in Group](#create-user-in-group)
+- [Create User with Non-Default User Type](#create-user-with-non-default-user-type)
 
 ##### Request Parameters
 
@@ -52,7 +53,7 @@ All responses return the created [User](#user-model).  Activation of a user is a
 
 The user is emailed a one-time activation token if activated without a password.
 
->Note: If the user is assigned to an application that is configured for provisioning, the activation process triggers downstream provisioning to the application.  It is possible for a user to login before these applications have been successfully provisioned for the user.
+>**Note:** If the user is assigned to an application that is configured for provisioning, the activation process triggers downstream provisioning to the application.  It is possible for a user to login before these applications have been successfully provisioned for the user.
 
 | Security Q & A   | Password   | Activate Query Parameter   | User Status     | Login Credential         | Welcome Screen   |
 | :--------------: | :--------: | :------------------------: | :-------------: | :----------------------: | :--------------: |
@@ -123,6 +124,9 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -193,6 +197,9 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -260,6 +267,9 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -334,6 +344,9 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -408,6 +421,9 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -482,6 +498,9 @@ curl -v -X POST \
     "deactivate": {
       "href": "https://${yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/lifecycle/deactivate",
       "method": "POST"
+    },
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -546,10 +565,87 @@ curl -v -X POST \
   "_links": {
     "activate": {
       "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
 ```
+
+#### Create User with Non-Default User Type
+
+Creates a user with a specified User Type (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
+
+The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user currently cannot be assigned a different User Type.
+
+##### Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.brock@example.com",
+    "login": "isaac.brock@example.com",
+    "mobilePhone": "555-415-1337"
+  },
+  "type": {
+    "id": "otyfnjfba4ye7pgjB0g4"
+  }
+}' "https://${yourOktaDomain}/api/v1/users?activate=false"
+```
+
+##### Response Example
+
+```json
+{
+  "id": "00ub0oNGTSWTBKOLGLNR",
+  "status": "STAGED",
+  "created": "2013-07-02T21:36:25.344Z",
+  "activated": null,
+  "statusChanged": null,
+  "lastLogin": null,
+  "lastUpdated": "2013-07-02T21:36:25.344Z",
+  "passwordChanged": null,
+  "type": {
+    "id": "otyfnjfba4ye7pgjB0g4"
+  },
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.brock@example.com",
+    "login": "isaac.brock@example.com",
+    "mobilePhone": "555-415-1337"
+  },
+  "credentials": {
+    "provider": {
+      "type": "OKTA",
+      "name": "OKTA"
+    }
+  },
+  "_links": {
+    "schema": {
+      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
+    },
+    "activate": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+    },
+    "type": {
+      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
+    }
+  }
+}
+```
+
+>**Note:** The `type` property and the `schema` and `type` links will be present in all responses if the User Types feature is enabled, whether or not the user is created with a non-default User Type. See [User Model](#user-model).
 
 ### Get User
 
@@ -904,7 +1000,7 @@ A subset of users can be returned that match a supported filter expression or se
 ##### Request Parameters
 
 
-The first three parameters correspond to different types of lists:
+The last three parameters correspond to different types of lists:
 
 - [List All Users](#list-all-users) (no parameters)
 - [Find Users](#find-users) (`q`)
@@ -1255,10 +1351,11 @@ curl -v -X GET \
 
 #### List Users with Search
 
+Searches for users based on the properties specified in the search parameter
 
-> Listing users with search should not be used as a part of any critical flows, like authentication.
+> **Note:** Listing users with search should not be used as a part of any critical flows, such as authentication, to prevent potential data loss. Search results may not reflect the latest information, as this endpoint uses a search index which may not be up-to-date with recent updates to the object.
 
-Searches for users based on the properties specified in the search parameter (case insensitive)
+Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.
 
 This operation:
 
@@ -1266,21 +1363,21 @@ This operation:
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
 For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
 Examples use cURL-style escaping instead of URL encoding to make them easier to read.
-* Queries data from a replicated store, so changes aren't always immediately available in search results.
-Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data (data loss).
 Use an ID lookup for records that you update to ensure your results contain the latest data.
 * Searches many properties:
    - Any user profile property, including custom-defined properties
    - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged` and `lastUpdated`
+   - The <ApiLifecycle access="ea" /> [User Type](/docs/reference/api/user-types), accessed as `type.id`
 
 | Search Term Example                             | Description                                     |
 | :---------------------------------------------- | :---------------------------------------------- |
 | `status eq "STAGED"`                            | Users that have a `status` of `STAGED`          |
 | `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp   |
 | `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                     |
+| `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified User Type ID             |
 | `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
-| `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with "Sm          |
+| `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with `Sm`         |
 
 ##### Search Examples
 
@@ -1446,6 +1543,8 @@ in the request is deleted.
 | credentials   | Update credentials for user                                          | Body         | [Credentials Object](#credentials-object)   | FALSE    |
 
 `profile` and `credentials` can be updated independently or together with a single request.
+
+>**Note:** Currently, the User Type of a user cannot be changed. If the Request Parameters include the `type` element from the [User Model](#user-model), the value must match the existing type of the user. To change a User's type, the User object must be deleted and recreated with the desired Type.
 
 ##### Response Parameters
 
@@ -2222,7 +2321,7 @@ Generates a one-time token (OTT) that can be used to reset a user's password.  T
 
 This operation will transition the user to the status of `RECOVERY` and the user will not be able to login or initiate a forgot password flow until they complete the reset flow.
 
-**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
+>**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
 
 ##### Request Parameters
 
@@ -2486,7 +2585,7 @@ Content-Type: application/json
 
 Removes all active identity provider sessions. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.
 
->Note: This operation doesn't clear the sessions created for web sign in or native applications.
+>**Note:** This operation doesn't clear the sessions created for web sign in or native applications.
 
 #### Request Parameters
 
@@ -3445,6 +3544,9 @@ curl -v -X GET \
   "lastLogin": "2013-06-24T17:39:19.000Z",
   "lastUpdated": "2013-06-27T16:35:28.000Z",
   "passwordChanged": "2013-06-24T16:39:19.000Z",
+  "type": {
+    "id": "otyfnjfba4ye7pgjB0g4"
+   },
   "profile": {
     "login": "isaac.brock@example.com",
     "firstName": "Isaac",
@@ -3501,10 +3603,18 @@ curl -v -X GET \
     },
     "changePassword": {
       "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+    },
+    "schema": {
+      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
+    },
+    "type": {
+      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
     }
   }
 }
 ```
+
+>**Note:** The `type` element and the `schema` and `type` links are present only if the User Types feature is enabled. If enabled, they appear for all users, even those with the default User Type. See <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types).
 
 ### User Properties
 
@@ -3520,6 +3630,7 @@ The User model defines several read-only properties:
 | lastLogin               | timestamp of last login                                                 | Date                                                                                                               | TRUE       | FALSE    | TRUE     |
 | lastUpdated             | timestamp when user was last updated                                    | Date                                                                                                               | FALSE      | FALSE    | TRUE     |
 | passwordChanged         | timestamp when password last changed                                    | Date                                                                                                               | TRUE       | FALSE    | TRUE     |
+| type <ApiLifecycle access="ea" />  | user type that determines the schema for the user's profile  | Map (see below)                                                                                                    | FALSE      | FALSE    | TRUE     |
 | transitioningToStatus   | target status of an in-progress asynchronous status transition          | `PROVISIONED`, `ACTIVE`, or `DEPROVISIONED`                                                                        | TRUE       | FALSE    | TRUE     |
 | profile                 | user profile properties                                                 | [Profile Object](#profile-object)                                                                                  | FALSE      | FALSE    | FALSE    |
 | credentials             | user's primary authentication and recovery credentials                  | [Credentials Object](#credentials-object)                                                                          | FALSE      | FALSE    | FALSE    |
@@ -3530,6 +3641,8 @@ Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded
 
 * The `activated` timestamp will only be available for users activated after 06/30/2013.
 * The`statusChanged` and `lastLogin` timestamps will be missing for users created before 06/30/2013 and updated on next status change or login.
+
+The `type` property is a map that identifies the User Type of the user (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new User, but once the User is created the value is read-only.
 
 ### User Status
 
@@ -3607,7 +3720,7 @@ The default user profile is based on the [System for Cross-Domain Identity Manag
 | preferredLanguage   | user's preferred written or spoken languages                                                                                         | String     | TRUE            | FALSE    | FALSE      |             |             | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                      |
 | locale              | user's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.         | String     | TRUE            | FALSE    | FALSE      |             |             | See Note for more details.                                                                                       |
 | timezone            | user's time zone                                                                                                                     | String     | TRUE            | FALSE    | FALSE      |             |             | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557)                                            |
-| userType            | used to identify the organization to user relationship such as "Employee" or "Contractor                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| userType            | used to describe the organization to user relationship such as "Employee" or "Contractor"                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 | employeeNumber      | organization or company assigned unique identifier for the user                                                                      | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 | costCenter          | name of a cost center assigned to user                                                                                               | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 | organization        | name of user's organization                                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |

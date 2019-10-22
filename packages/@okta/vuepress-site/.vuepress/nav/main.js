@@ -46,6 +46,7 @@ module.exports = [
           { title: 'Dynamic Client Registration', link: '/docs/reference/api/oauth-clients/'},
           { title: 'Event Hooks', link: '/docs/reference/api/event-hooks/'},
           { title: 'Factors', link: '/docs/reference/api/factors/'},
+          { title: 'Features', link: '/docs/reference/api/features/'},
           { title: 'Groups', link: '/docs/reference/api/groups/'},
           { title: 'Identity Providers', link: '/docs/reference/api/idps/'},
           { title: 'Inline Hooks', link: '/docs/reference/api/inline-hooks/'},
@@ -56,6 +57,7 @@ module.exports = [
           { title: 'System Log', link: '/docs/reference/api/system-log/'},
           { title: 'Templates', link: '/docs/reference/api/templates/'},
           { title: 'Trusted Origins', link: '/docs/reference/api/trusted-origins/'},
+          { title: 'User Types', link: '/docs/reference/api/user-types/'},
           { title: 'Users', link: '/docs/reference/api/users/'},
           { title: 'Zones', link: '/docs/reference/api/zones/'}
         ]

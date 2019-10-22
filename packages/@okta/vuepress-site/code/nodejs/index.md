@@ -46,7 +46,7 @@ The Okta Node.js SDK can be used in your server-side code to create and update u
 	</a>
 </p>
 
-<a href='https://developer.okta.com/okta-sdk-nodejs/jsdocs/'>
+<a href='https://github.com/okta/okta-sdk-nodejs'>
 	<span class='fa fa-github'></span> <span>Node.js SDK Source</span>
 </a>
 
