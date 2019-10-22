@@ -29,7 +29,7 @@ You can anticipate hitting the rate limit by checking [Okta's rate limiting head
 
 Rate limits differ depending on the level of service you have purchased from Okta. See the [pricing page](https://developer.okta.com/pricing/) for more details.
 
-High capacity rate limits apply to a variety of endpoints across different APIs for customers that purchased this add-on. These rate limits can be found [below](#high-capacity-rate-limits).
+DynamicScale rate limits apply to a variety of endpoints across different APIs for customers that purchased this add-on. These rate limits can be found [below](#dynamicscale-rate-limits).
 
 > If you have a One App or Enterprise organization, the admin console will display a banner and you will receive an email notification when your org approaches its rate limit.
 
@@ -76,14 +76,14 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 **OAuth2 endpoints:**
 
 * `/oauth2/{authorizationServerId}/v1`
-* `/oauth2/v1 except /oauth2/v1/clients`
+* `/oauth2/v1` except `/oauth2/v1/clients`
 
 **SAML endpoints:**
 
 * `/app/template_saml_2_0/{key}/sso/saml`
 * `/app/{app}/{key}/sso/saml`
 
-**GET Users/Groups/Apps:**
+**Single User/Group/App operations (Get, Update and Delete):**
 
 * `/api/v1/apps/{id}`
 * `/api/v1/groups/{id}`
