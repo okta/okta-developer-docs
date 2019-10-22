@@ -1351,10 +1351,9 @@ curl -v -X GET \
 
 #### List Users with Search
 
-
-> Listing users with search should not be used as a part of any critical flows, such as authentication.
-
 Searches for users based on the properties specified in the search parameter
+
+> **Note:** Listing users with search should not be used as a part of any critical flows, such as authentication, to prevent potential data loss. Search results may not reflect the latest information, as this endpoint uses a search index which may not be up-to-date with recent updates to the object.
 
 Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.
 
@@ -1364,8 +1363,6 @@ This operation:
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
 For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
 Examples use cURL-style escaping instead of URL encoding to make them easier to read.
-* Queries data from a replicated store, so changes aren't always immediately available in search results.
-Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data (data loss).
 Use an ID lookup for records that you update to ensure your results contain the latest data.
 * Searches many properties:
    - Any user profile property, including custom-defined properties
