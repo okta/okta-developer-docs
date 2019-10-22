@@ -28,7 +28,7 @@ You use the Org AS to perform SSO with Okta or to get an access token for the Ok
 
 #### Org Authorization Server discovery endpoints
 
-The following discovery endpoints return OIDC or OAuth 2.0 metadata related to your Org AS. Clients can use this information to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
+The following discovery endpoints return OIDC or OAuth 2.0 metadata related to your Org AS. Clients can use this information to programmatically configure their interactions with Okta.
 
 **OpenID:** `https://${yourOktaOrg}/.well-known/openid-configuration`
 
