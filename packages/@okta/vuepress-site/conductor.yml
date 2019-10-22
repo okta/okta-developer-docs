@@ -1715,5 +1715,5 @@ redirects:
     to: /docs/release-notes/
   - from: /docs/change-log
     to: /docs/release-notes/
-  - from: /code/javascript/oauth-clients.html
+  - from: /code/javascript/oauth-clients
     to: /docs/
