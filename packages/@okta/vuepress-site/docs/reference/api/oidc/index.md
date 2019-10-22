@@ -500,9 +500,11 @@ Location: https://example.com/post_logout/redirect&state=${state}
 This redirects the browser to either the Okta sign-in page or the specified logout redirect URI.
 
 #### Error conditions
-If the Okta session has expired (or doesn't exist), a logout request simply redirects to the Okta sign-in page or the `post_logout_redirect_uri` (if specified).
+* If the Okta session has expired (or doesn't exist), a logout request simply redirects to the Okta sign-in page or the `post_logout_redirect_uri` (if specified).
 
-If the ID token passed via `id_token_hint` is invalid, the browser is redirected to an error page.
+* If the ID token passed via `id_token_hint` is invalid, the browser is redirected to an error page.
+
+* If the ID token is valid, but expired, and the subject matches the current Okta session, a logout request logs the user out and redirects the browser to the `post_logout_redirect_uri`. 
 
 ### /keys
 <ApiOperation method="get" url="${baseUrl}/v1/keys" />
