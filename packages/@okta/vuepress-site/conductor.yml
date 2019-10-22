@@ -41,7 +41,7 @@ redirects:
     to: /code/javascript/okta_auth_sdk_ref/index.html
   - from: /docs/guides/okta_sign-in_widget.html
     to: /code/javascript/okta_sign-in_widget/
-  - from: /code/javascript/okta_sign-in_widget_ref
+  - from: /code/javascript/okta_sign-in_widget_ref.html
     to: /code/javascript/okta_sign-in_widget/
   - from: /code/javascript/okta_sign-in_widget_ref/index.html
     to: /code/javascript/okta_sign-in_widget/
@@ -1717,3 +1717,5 @@ redirects:
     to: /docs/release-notes/
   - from: /docs/guides/byo_saml/index.html
     to: /docs/guides/sign-your-own-saml-csr/
+  - from: /code/javascript/oauth-clients.html
+    to: /docs/
