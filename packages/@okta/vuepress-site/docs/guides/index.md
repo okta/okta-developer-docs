@@ -5,7 +5,6 @@ guides:
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
- - byo-saml
  - create-an-api-token
  - create-token-with-groups-claim
  - custom-error-pages
@@ -35,6 +34,7 @@ guides:
  - sign-into-spa
  - sign-into-web-app
  - sign-users-out
+ - sign-your-own-saml-csr
  - unlock-mobile-app-with-biometrics
  - updating-saml-cert
  - validate-access-tokens
