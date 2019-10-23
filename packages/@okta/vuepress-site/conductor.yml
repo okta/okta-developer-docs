@@ -1717,6 +1717,5 @@ redirects:
     to: /docs/release-notes/
   - from: /docs/guides/byo_saml/index.html
     to: /docs/guides/sign-your-own-saml-csr/
-  - from: /code/javascript/oauth-clients.html
   - from: /code/javascript/oauth-clients
     to: /docs/
