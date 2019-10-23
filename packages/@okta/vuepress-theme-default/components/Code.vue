@@ -5,9 +5,9 @@
     <!-- End Sidebar -->
 
     <!-- Begin Content -->
-    <div class="PageContent-main language-content">
+    <div class="PageContent-main language-content NoPaddingTop">
       <EditLink />
-      <Breadcrumb></Breadcrumb>
+      <Breadcrumb wrapStyle="width: 80%"></Breadcrumb>
       <Content />
     </div>
     <!-- End Content -->
@@ -69,5 +69,10 @@ export default {
 </script>
 
 <style scoped>
+
+.breadcrumb-nav {
+  margin-top: 0px;
+  border-bottom: 0px;
+}
 
 </style>

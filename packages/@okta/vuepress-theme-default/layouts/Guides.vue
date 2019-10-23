@@ -1,7 +1,8 @@
 <template>
   <div class="Page okta-guides">
     <TopNavigation />
-    <section class="PageContent">
+    <Breadcrumb />
+    <section class="PageContent NoPaddingTop">
       <!-- START Page Content -->
       <div class="PageContent-main" id="guides-body">
         <GuideDetails

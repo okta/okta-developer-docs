@@ -7,6 +7,7 @@
 .Page {
 	background: get-color('gray-lightest');
 }
+
 .PageContent {
 	@extend %Wrap;
 	@include padding(0);
@@ -398,6 +399,15 @@
 			}
 			.api-label {
 				background: $cerulean-5;
+			}
+		}
+
+		.api-uri-patch {
+			strong {
+				color: $blue-violet;
+			}
+			.api-label {
+				background: $blue-violet;
 			}
 		}
 
@@ -807,6 +817,12 @@
 			}
 		}
 	}
+}
+
+// Temporary until new design is across all pages. Page content when
+// breadcrumb is present needs to remove padding-top from css.
+.PageContent.NoPaddingTop {
+	padding-top: 0px;
 }
 
 @include media('<doc-min-toc') {

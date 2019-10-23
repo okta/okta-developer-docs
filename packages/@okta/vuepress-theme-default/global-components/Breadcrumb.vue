@@ -1,6 +1,6 @@
 <template>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
+  <nav class="breadcrumb-nav" aria-label="breadcrumb">
+    <ol class="breadcrumb Wrap" :style="wrapStyle">
       <li class="breadcrumb-item" v-for="crumb in breadcrumb" :key="crumb.path"><router-link :to="crumb.path">{{crumb.title}}</router-link></li>
     </ol>
   </nav>
@@ -9,6 +9,12 @@
 <script>
   export default {
     name: "Breadcrumb",
+    props: {
+      wrapStyle: {
+        default: "",
+        type: String
+      }
+    },
     computed: {
       breadcrumb() {
 
@@ -22,6 +28,22 @@
           crumbs.push(
             {path: '/docs/', title: 'DOCS'},
             {path: '/docs/guides/', title: 'Guides' },
+          );
+          return crumbs;
+        }
+
+        if(this.$page.path.startsWith('/docs/reference/')) {
+          crumbs.push(
+            {path: '/docs/', title: 'Docs'},
+            {path: '/docs/reference/', title: 'Reference' },
+          );
+          return crumbs;
+        }
+
+        if(this.$page.path.startsWith('/docs/concepts/')) {
+          crumbs.push(
+            {path: '/docs/', title: 'Docs'},
+            {path: '/docs/concepts/', title: 'Concepts' },
           );
           return crumbs;
         }

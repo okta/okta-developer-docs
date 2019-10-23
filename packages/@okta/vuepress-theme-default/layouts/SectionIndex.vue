@@ -4,16 +4,13 @@
     <TopNavigation></TopNavigation>
     <!-- End Header -->
 
-
-    <!-- Begin Promo Banner -->
-
-    <!-- End Promo Banner -->
+    <Breadcrumb></Breadcrumb>
 
     <div class="page-content">
-      <section class="PageContent SectionIndex">
+      <section class="PageContent SectionIndex NoPaddingTop">
     <!-- Begin Page Content -->
         <div class="PageContent-main">
-          <Breadcrumb></Breadcrumb>
+          
           <h1>{{ $page.title }}</h1>
           <ul class="list--with-horizontal-icons">
             <li v-for="link in $page.frontmatter.top_links" :key="link.path">

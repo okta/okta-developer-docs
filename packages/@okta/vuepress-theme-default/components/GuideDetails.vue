@@ -1,6 +1,5 @@
 <template>
   <div class="guide-details">
-    <Breadcrumb/>
     <div class="guide-details-content">
       <GuidesNavigation
         :sectionName="sectionName"
