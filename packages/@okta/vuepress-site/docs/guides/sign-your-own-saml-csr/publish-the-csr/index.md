@@ -2,20 +2,21 @@
 title: Publish the CSR
 ---
 
+* Use the [Apps API](/docs/reference/api/apps/#publish-csr-for-application) to publish the certificate for Outbound SAML apps.
 
-- Use the [Apps API](/docs/reference/api/apps/#publish-csr-for-application) to publish the certificate for Outbound SAML apps.
-- Use the [IdPs API](/docs/reference/api/idps/#publish-signing-csr-for-idp) to publish the certificate for Inbound SAML apps.
+* Use the [IdPs API](/docs/reference/api/idps/#publish-signing-csr-for-idp) to publish the certificate for Inbound SAML apps.
 
 Base64 encoding and both PEM and CER certificate formats are supported.
 
-- For CER format, change the Content-Type statement to `Content-Type: application/x-x509-ca-cert`.
-- For Base64-encoded format, add the statement `Content-Transfer-Encoding: base64` after the Content-Type statement.
+* For CER format, change the Content-Type statement to `Content-Type: application/x-x509-ca-cert`.
+
+* For Base64-encoded format, add the statement `Content-Transfer-Encoding: base64` after the Content-Type statement.
 
 Collect the returned Key ID (`credentials.signing.kid`) to use in the next step.
 
 The following request publishes a CSR with a certificate in PEM format.
 
-```
+```json
 MIIFgDCCA2igAwIBAgICEAEwDQYJKoZIhvcNAQELBQAwXjELMAkGA1UEBhMCVVMx
 CzAJBgNVBAgMAkNBMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ0wCwYDVQQKDARP
 ...
@@ -46,7 +47,5 @@ Content-Type: application/json;charset=UTF-8
   "x5t#S256": "6ZA0gDvExTUMszE4Dvs72pEj396Q7vOHJkQQrdSddVE"
 }
 ```
-
-
 
 <NextSectionLink/>

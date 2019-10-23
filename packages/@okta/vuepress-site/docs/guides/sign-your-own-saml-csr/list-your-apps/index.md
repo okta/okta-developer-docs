@@ -2,8 +2,9 @@
 title: List your apps
 ---
 
-- For Outbound SAML, use the [Apps API](/docs/reference/api/apps/#list-applications) to return a list of all apps and collect the `id`, `name`, and `label` elements for each app to update.
-- For Inbound SAML, use the [IdPs API](/docs/reference/api/idps/#list-identity-providers-with-defaults) to return a list of all identity providers and collect the full response for each IdP to update.
+* For Outbound SAML, use the [Apps API](/docs/reference/api/apps/#list-applications) to return a list of all apps and collect the `id`, `name`, and `label` elements for each app to update.
+
+* For Inbound SAML, use the [IdPs API](/docs/reference/api/idps/#list-identity-providers-with-defaults) to return a list of all identity providers and collect the full response for each IdP to update.
 
 The following example shows a call for Outbound SAML apps.
 
@@ -12,7 +13,6 @@ Request: `GET /api/v1/apps`
 Truncated Response:
 
 ```json
-
 {
     "id": "00000id1U3iyFqLu0g4",
     "name": "appname",

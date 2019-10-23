@@ -4,12 +4,11 @@ title: Update the key credential
 
 Update the key credential for the app or IdP to specify the new signing Key ID.
 
-- For Outbound SAML, call the [Update Application API](/docs/reference/api/apps/#update-application). Pass the app ID you obtained in step 1 in the URL. In the body, include the app name and the app label that you obtained in step 1 and the Key ID that you obtained in step 4.
-- For Inbound SAML, call the [Update IdP API](/docs/reference/api/idps/#update-identity-provider). Pass the entire [identity provider](/docs/reference/api/idps/#update-identity-provider) that you obtained in step 1 and use the Key ID value obtained in step 4. Partial updates are not supported by the `Updated IdP API`.
+* For Outbound SAML, call the [Update Application API](/docs/reference/api/apps/#update-application). Pass the app ID that you obtained in <GuideLink link="../list-your-apps">step 1</GuideLink> in the URL. In the body, include the app name and the app label that you obtained in step 1 and the Key ID that you obtained in <GuideLink link="../sign-the-csr">step 4</GuideLink>.
+
+* For Inbound SAML, call the [Update IdP API](/docs/reference/api/idps/#update-identity-provider). Pass the entire [IdP](/docs/reference/api/idps/#update-identity-provider) that you obtained in <GuideLink link="../list-your-apps">step 1</GuideLink> and use the Key ID value that you obtained in <GuideLink link="../sign-the-csr">step 4</GuideLink>. Partial updates aren't supported by the `Updated IdP API`.
 
 The following request is for Outbound SAML.
-
-Request:
 
 ``` json
 PUT /api/v1/apps/00000id1U3iyFqLu0g4
@@ -29,8 +28,6 @@ Content-Type: application/json
 ```
 
 The following request is for Inbound SAML.
-
-Request:
 
 ``` json
 PUT /api/v1/idps/00000id1U3iyFqLu0g4
@@ -107,7 +104,6 @@ Content-Type: application/json
     "maxClockSkew": 120000
   }
 }
-
 ```
 
 <NextSectionLink/>
