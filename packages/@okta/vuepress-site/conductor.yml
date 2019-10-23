@@ -1715,9 +1715,25 @@ redirects:
     to: /docs/release-notes/
   - from: /docs/change-log
     to: /docs/release-notes/
+  - from: /code/javascript/oauth-clients
+    to: /docs/
   - from: /docs/guides/byo_saml/index.html
     to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/guides/byo-saml/index.html
     to: /docs/guides/sign-your-own-saml-csr/
-  - from: /code/javascript/oauth-clients
-    to: /docs/
+  - from: /docs/guides/byo-saml/overview/index.html
+    to: /docs/guides/sign-your-own-saml-csr/overview/
+  - from: /docs/guides/byo-saml/list-your-apps/index.html
+    to: /docs/guides/sign-your-own-saml-csr/list-your-apps/
+  - from: /docs/guides/byo-saml/generate-a-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/generate-a-csr/
+  - from: /docs/guides/byo-saml/sign-the-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/sign-the-csr/
+  - from: /docs/guides/byo-saml/publish-the-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/publish-the-csr/
+  - from: /docs/guides/byo-saml/update-the-key-credential/index.html
+    to: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/
+  - from: /docs/guides/byo-saml/clone-the-certificate/index.html
+    to: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
+  - from: /docs/guides/byo-saml/upload-the-certificate/index.html
+    to: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
