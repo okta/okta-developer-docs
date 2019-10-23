@@ -30,8 +30,8 @@ The following table shows the scopes that are currently available as a part of E
 | `okta.schemas.read`      | Allows the app to read information about Schemas in your Okta organization| [Schemas API](/docs/reference/api/schemas/#getting-started)|
 | `okta.users.manage`      | Allows the app to create new users and read all profile and credential information for users| [Users API](https://developer.okta.com/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations) <br> The following operations are not OAuth-enabled: [User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations), [Clear User Sessions](/docs/reference/api/users/#clear-user-sessions)|
 | `okta.users.read`        | Allows the app to read any user's profile and credential information      | [Users API](https://developer.okta.com/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations) <br> The following operations are not OAuth-enabled: [User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations), [Clear User Sessions](/docs/reference/api/users/#clear-user-sessions)|
-| `okta.users.manage.self` | Allows the app to manage the currently signed-in user's profile           |   |
-| `okta.users.read.self`   | Allows the app to read the currently signed-in user's profile and credential information|  |
+| `okta.users.manage.self` | Allows the app to manage the currently signed-in user's profile. Currently only supports user profile attribute updates. |   |
+| `okta.users.read.self`   | Allows the app to read the currently signed-in user's profile and credential information| [Users API](/docs/reference/api/users/#get-current-user) |
 
 ## Scope Naming
 
