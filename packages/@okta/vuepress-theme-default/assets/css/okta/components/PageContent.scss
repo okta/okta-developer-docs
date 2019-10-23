@@ -402,6 +402,15 @@
 			}
 		}
 
+		.api-uri-patch {
+			strong {
+				color: $blue-violet;
+			}
+			.api-label {
+				background: $blue-violet;
+			}
+		}
+
 		.api-uri-delete {
 			strong {
 				color: $valencia;
@@ -810,7 +819,7 @@
 	}
 }
 
-// Temporary until new design is across all pages. Page content when 
+// Temporary until new design is across all pages. Page content when
 // breadcrumb is present needs to remove padding-top from css.
 .PageContent.NoPaddingTop {
 	padding-top: 0px;
