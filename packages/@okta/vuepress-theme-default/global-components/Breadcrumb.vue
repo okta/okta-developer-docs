@@ -1,6 +1,6 @@
 <template>
   <nav class="breadcrumb-nav" aria-label="breadcrumb">
-    <ol class="breadcrumb Wrap">
+    <ol class="breadcrumb Wrap" :style="wrapStyle">
       <li class="breadcrumb-item" v-for="crumb in breadcrumb" :key="crumb.path"><router-link :to="crumb.path">{{crumb.title}}</router-link></li>
     </ol>
   </nav>
@@ -9,6 +9,12 @@
 <script>
   export default {
     name: "Breadcrumb",
+    props: {
+      wrapStyle: {
+        default: "",
+        type: String
+      }
+    },
     computed: {
       breadcrumb() {
 

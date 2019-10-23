@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <aside class="Sidebar" :class="{'Sidebar-active': sidebarActive}" v-if="oldNavigation">
+  <div :class="{'Sidebar': oldNavigation}" >
+    <aside :class="{'Sidebar-active': sidebarActive}" v-if="oldNavigation">
 
       <h2 class="Sidebar-location Sidebar-toggle h6">Navigation</h2>
       <div class="Sidebar-close Sidebar-toggle" v-on:click="sidebarActive = !sidebarActive"></div>
