@@ -1737,5 +1737,5 @@ redirects:
     to: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
   - from: /docs/guides/byo-saml/upload-the-certificate/index.html
     to: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
-  - from: /docs/api/resources/factor_admin/index.html
-    to: /docs/api/resources/factor-admin/
+  - from: /docs/reference/api/factor_admin/index.html
+    to: /docs/reference/api/factor-admin/
