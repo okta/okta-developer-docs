@@ -29,7 +29,7 @@ You can anticipate hitting the rate limit by checking [Okta's rate limiting head
 
 Rate limits differ depending on the level of service you have purchased from Okta. See the [pricing page](https://developer.okta.com/pricing/) for more details.
 
-High capacity rate limits apply to a variety of endpoints across different APIs for customers that purchased this add-on. These rate limits can be found [below](#high-capacity-rate-limits).
+DynamicScale rate limits apply to a variety of endpoints across different APIs for customers that purchased this add-on. These rate limits can be found [below](#dynamicscale-rate-limits).
 
 > If you have a One App or Enterprise organization, the admin console will display a banner and you will receive an email notification when your org approaches its rate limit.
 
@@ -37,35 +37,71 @@ High capacity rate limits apply to a variety of endpoints across different APIs 
 
 Note that limits for more specific endpoints override the limits for less specific endpoints. For example, the limit for getting an application by ID is higher than the more general limit for the `/api/v1/apps` endpoint.
 
-| Action and Okta API Endpoint                                                                                 | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity |
-| ------------------------------------------------------------------------------------------------------------ | ---------------- | ---------------- | ------- | ---------- | ------------------ |
-| **Authenticate different end users:**<br>`/api/v1/authn`                                                     | 100              | 300              | 300*    | 600*       | 500                |
-| **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only                                             | 100              | 300              | 300*    | 600*       | 500     |
-| **Create or list applications:**<br>`/api/v1/apps` except `/api/v1/apps/{id}`                                | 20               | 25               | 25      | 100        | 100                |
-| **Get, update, or delete an application by ID:**<br>`/api/v1/apps/{id}` only                                 | 100              | 300              | 300*    | 600*       | 500                |
-| **Create or list groups:**<br>`/api/v1/groups` except `/api/v1/groups/{id}`                                  | 100              | 300              | 300     | 600        | 500                |
-| **Get, update, or delete a group by ID:**<br>`/api/v1/groups/{id}` only                                      | 100              | 300              | 300*    | 600*       | 1000               |
-| **Create or list users:**<br>Only `GET` or `POST` to `/api/v1/users`                                         | 100              | 300              | 300     | 600        | 600                |
-| **Get a user by ID or login:**<br>Only `GET` to `/api/v1/users/{idOrLogin}`                                  | 100              | 300              | 300*    | 1000*      | 2000               |
-| **Update or delete a user by ID:**<br>Only `POST`, `PUT` or `DELETE` to `/api/v1/users/{id}`                 | 100              | 300              | 300*    | 600*       | 600                |
-| **Get System Log data:**<br>`/api/v1/logs`                                                                   | 20               | 25               | 25      | 50         | 120                |
-| **Get System Log data:**<br>`/api/v1/events`                                                                 | 20               | 25               | 25      | 50         | shared with `/api/v1`               |
-| **Get session information:**<br>`/api/v1/sessions`                                                           | 100              | 300              | 300*    | 600*       | 750                |
-| **Create an organization:**<br>`/api/v1/orgs`                                                                | N/A              | N/A              | N/A     | 50         | 50                 |
-| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/{authorizationServerId}/v1` except public metadata endpoints (see Note below)             | 300              | 600              | 600*    | 1200*      | 2000               |
-| **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints (see Note below)            | 300              | 600              | 600*    | 1200*      | 2000               |
-| **OAuth2 client configuration requests:**<br>`/oauth2/v1/clients`                                            | 25               | 50               | 50      | 100        | 100                |
-| **Get public metadata of Authorization Servers**:<br> Each metadata endpoint has its own limit and not shared with other endpoints (see Note below for list of endpoints)          | 600              | 1200             | 1200   | 3000      | 3000               |
-| **All other OAuth2 requests:**<br>`/oauth2`                                                                  | 100              | 300              | 300     | 600        | 600                |
-| **Most other API actions:**<br>`/api/v1`                                                                         | 100              | 300              | 300*    | 600*       | 1200               |
+| Action and Okta API Endpoint                                                                                                                                              | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
+| **Authenticate different end users:**<br>`/api/v1/authn`                                                                                                                  | 100              | 300              | 300     | 600        | 500                   |
+| **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only                                                                                        | 100              | 300              | 300     | 600        | 500                   |
+| **Create or list applications:**<br>`/api/v1/apps` except `/api/v1/apps/{id}`                                                                                             | 20               | 25               | 25      | 100        | 100                   |
+| **Get, update, or delete an application by ID:**<br>`/api/v1/apps/{id}` only                                                                                              | 100              | 300              | 300     | 600        | 500                   |
+| **Create or list groups:**<br>`/api/v1/groups` except `/api/v1/groups/{id}`                                                                                               | 100              | 300              | 300     | 600        | 500                   |
+| **Get, update, or delete a group by ID:**<br>`/api/v1/groups/{id}` only                                                                                                   | 100              | 300              | 300     | 600        | 1000                  |
+| **Create or list users:**<br>Only `GET` or `POST` to `/api/v1/users`                                                                                                      | 100              | 300              | 300     | 600        | 600                   |
+| **Get a user by ID or login:**<br>Only `GET` to `/api/v1/users/{idOrLogin}`                                                                                               | 100              | 300              | 300     | 1000       | 2000                  |
+| **Update or delete a user by ID:**<br>Only `POST`, `PUT` or `DELETE` to `/api/v1/users/{id}`                                                                              | 100              | 300              | 300     | 600        | 600                   |
+| **Get System Log data:**<br>`/api/v1/logs`                                                                                                                                | 20               | 25               | 25      | 50         | 120                   |
+| **Get System Log data:**<br>`/api/v1/events`                                                                                                                              | 20               | 25               | 25      | 50         | shared with `/api/v1` |
+| **Get session information:**<br>`/api/v1/sessions`                                                                                                                        | 100              | 300              | 300     | 600        | 750                   |
+| **Create an organization:**<br>`/api/v1/orgs`                                                                                                                             | N/A              | N/A              | N/A     | 50         | 50                    |
+| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/{authorizationServerId}/v1` except public metadata endpoints (see Note below)                           | 300              | 600              | 600     | 1200       | 2000                  |
+| **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints (see Note below)                          | 300              | 600              | 600     | 1200       | 2000                  |
+| **OAuth2 client configuration requests:**<br>`/oauth2/v1/clients`                                                                                                         | 25               | 50               | 50      | 100        | 100                   |
+| **Get public metadata of Authorization Servers**:<br> Each metadata endpoint has its own limit and not shared with other endpoints (see Note below for list of endpoints) | 600              | 1200             | 1200    | 3000       | 3000                  |
+| **All other OAuth2 requests:**<br>`/oauth2`                                                                                                                               | 100              | 300              | 300     | 600        | 600                   |
+| **Most other API actions:**<br>`/api/v1`                                                                                                                                  | 100              | 300              | 300     | 600        | 1200                  |
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
 
-*The limits for these endpoints can be increased by purchasing the [High-Capacity add-on](#high-capacity-rate-limits).
-
 > **Note:** Public metadata endpoints for Org Authorization Server are: <br/> - `/oauth2/v1/keys` <br/> - `/.well-known/openid-configuration` <br/> Public metadata endpoints for Custom Authorization Servers are: <br/> - `/oauth2/{authorizationServerId}/v1/keys` <br/> - `/oauth2/{authorizationServerId}/.well-known/openid-configuration` <br/> - `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`.
 
+### DynamicScale Rate Limits
+
+If your needs exceed Okta's default rate limits for the base product subscriptions (e.g. One App, Enterprise or IT Products) you've already purchased, you can purchase a "DynamicScale" add-on service which will grant you higher rate limits for the endpoints listed below. DynamicScale will increase your default rate limits by 3x to 1000x, depending on the tier multiplier you purchase. Customers can purchase this add-on annually for a Production tenant or temporarily for testing in a Sandbox tenant.  The following list of endpoints are included in the DynamicScale add-on service:
+
+**Authentication endpoints:**
+
+* `/api/v1/authn`
+* `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
+* `/api/v1/sessions`
+
+**OAuth2 endpoints:**
+
+* `/oauth2/{authorizationServerId}/v1`
+* `/oauth2/v1` except `/oauth2/v1/clients`
+
+**SAML endpoints:**
+
+* `/app/template_saml_2_0/{key}/sso/saml`
+* `/app/{app}/{key}/sso/saml`
+
+**Single User/Group/App operations (Get, Update and Delete):**
+
+* `/api/v1/apps/{id}`
+* `/api/v1/groups/{id}`
+* `/api/v1/users/{idOrLogin}`
+
+**Notes:**
+
+1. If Okta makes any change to the DynamicScale add-on's rate limits, such change will be communicated to customers via an updated version of this product documentation.
+2. Customers purchasing the DynamicScale add-on service will get best-effort additional protection beyond the multiplier they've purchased to handle any additional unforeseen spikes in Production:
+    1. This protection is not always guaranteed and should not be counted towards available rate limits
+    2. Additional protection availability is subject to infrastructure capacity available to your Org
+
+If your usage pattern exceeds the rate limits offered by DynamicScale add-on or the endpoint you're consuming isn't listed as part of the DynamicScale add-on then please contact your Okta Sales Representative regarding other options.
+
+For orgs that purchased the "High Capacity Rate Limit" SKU before 2019-10-24, the [previous rate limits](#high-capacity-rate-limits) still apply.
+
 ### Okta API Endpoints and Per-User Limits
+
 API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password:
 
 | Action and Okta API Endpoint                                      | Per User Limits (All Orgs) |
@@ -104,32 +140,6 @@ The following endpoints are used by the Okta home page for authentication and si
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
 
 *The limits for these endpoints can be increased by purchasing the [High-Capacity add-on](#high-capacity-rate-limits).
-
-### High Capacity Rate Limits
-
-If your needs exceed Okta's rate limits, you can purchase the "High Capacity Rate Limit" add-on. Customers who purchase the "High Capacity Rate Limit" add-on service may not use the service in excess of the "static" rate limit, as set forth in the table below.  If Okta makes any change to the rate limit, such change will be communicated to customers via an updated version of this product documentation.
-
-The following are the high capacity rate limits per minute that apply across the Okta API for these endpoints:
-
-| Endpoint                                                                   | One App   | Enterprise   |
-| -------------------------------------------------------------------------- | --------- | ------------ |
-| `/oauth2/{authorizationServerId}/v1`                                       | 3000      | 6000         |
-| `/oauth2/v1` except `/oauth2/v1/clients`                                   | 3000      | 6000         |
-| `/api/v1`                                                                  | 1500      | 3000         |
-| `/api/v1/sessions`                                                         | 1500      | 3000         |
-| `/app/template_saml_2_0/{key}/sso/saml`                                    | 1500      | 3000         |
-| `/app/{app}/{key}/sso/saml`                                                | 1500      | 3000         |
-| `/api/v1/groups/{id}`                                                      | 1500      | 3000         |
-| `/api/v1/users/{id}`                                                       | 1500      | 3000         |
-| `/api/v1/users/{idOrLogin}` (only `GET`)                                   | 1500      | 5000         |
-| `/api/v1/authn`                                                            | 1500      | 3000         |
-| `/api/plugin/{protocolVersion}/form-creds/{appUserIds}/{formSiteOption}`   | 1500      | 3000         |
-| `/api/v1/authn/factors/{factorIdOrFactorType}/verify`                      | 1500      | 3000         |
-| `/api/v1/apps/{id}`                                                        | 1500      | 3000         |
-| `/bc/image/fileStoreRecord`                                                | 1500      | 3000         |
-| `/bc/globalFileStoreRecord`                                                | 1500      | 3000         |
-
-If your usage needs exceed the rate limits applicable to the "High Capacity Rate Limit" add-on service, please contact your Okta Sales Representative regarding other options.
 
 ### End-User Rate Limit
 
@@ -356,6 +366,32 @@ If you have an application that requires sustained rate limits higher than the p
 
 These are the rate limits for orgs created before 2018-05-17.
 
+### High Capacity Rate Limits
+
+If your needs exceed Okta's rate limits, you can purchase the "High Capacity Rate Limit" add-on. Customers who purchase the "High Capacity Rate Limit" add-on service may not use the service in excess of the "static" rate limit, as set forth in the table below.  If Okta makes any change to the rate limit, such change will be communicated to customers via an updated version of this product documentation.
+
+The following are the high capacity rate limits per minute that apply across the Okta API for these endpoints:
+
+| Endpoint                                                                   | One App   | Enterprise   |
+| -------------------------------------------------------------------------- | --------- | ------------ |
+| `/oauth2/{authorizationServerId}/v1`                                       | 3000      | 6000         |
+| `/oauth2/v1` except `/oauth2/v1/clients`                                   | 3000      | 6000         |
+| `/api/v1`                                                                  | 1500      | 3000         |
+| `/api/v1/sessions`                                                         | 1500      | 3000         |
+| `/app/template_saml_2_0/{key}/sso/saml`                                    | 1500      | 3000         |
+| `/app/{app}/{key}/sso/saml`                                                | 1500      | 3000         |
+| `/api/v1/groups/{id}`                                                      | 1500      | 3000         |
+| `/api/v1/users/{id}`                                                       | 1500      | 3000         |
+| `/api/v1/users/{idOrLogin}` (only `GET`)                                   | 1500      | 5000         |
+| `/api/v1/authn`                                                            | 1500      | 3000         |
+| `/api/plugin/{protocolVersion}/form-creds/{appUserIds}/{formSiteOption}`   | 1500      | 3000         |
+| `/api/v1/authn/factors/{factorIdOrFactorType}/verify`                      | 1500      | 3000         |
+| `/api/v1/apps/{id}`                                                        | 1500      | 3000         |
+| `/bc/image/fileStoreRecord`                                                | 1500      | 3000         |
+| `/bc/globalFileStoreRecord`                                                | 1500      | 3000         |
+
+If your usage needs exceed the rate limits applicable to the "High Capacity Rate Limit" add-on service, please contact your Okta Sales Representative regarding other options.
+
 ### Org-Wide Rate Limits (Legacy Orgs)
 
 Extensions to the base URLs listed below are included in the specified limit, unless the URL is followed by "only." For example, `/api/v1/apps/{id}` has a per-minute rate limit of `500` as listed in the second line in the table. However, `/api/v1/apps/{id}/users` falls under the more general first line of the table. This pattern applies to all the URLs.
@@ -397,8 +433,6 @@ The following endpoints are used by the Okta home page for authentication and si
 | `/api/plugin/{protocolVersion}/sites`                                   | 150              |
 | `/bc/fileStoreRecord`                                                   | 500              |
 | `/bc/globalFileStoreRecord`                                             | 500              |
-
-
 
 
 ## Okta-Generated Email Message Rate Limits
