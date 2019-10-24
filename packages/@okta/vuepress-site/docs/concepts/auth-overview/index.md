@@ -99,7 +99,7 @@ The table below shows you which OAuth 2.0 flow to use for the type of applicatio
 | Type of Application     | OAuth 2.0 Flow                                      |
 | ----------------------- | --------------------------------------------------- |
 | Server-side (AKA Web)   | [Authorization Code Flow](/docs/guides/implement-auth-code/)                |
-| Single-Page Application | [Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/) or [Implicit Flow](/docs/guides/implement-implicit/) |
+| Single-Page Application | [Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/) or [Implicit Flow](/docs/guides/implement-implicit/) when the SPA that you are building runs in older browsers that don't support Web Crypto for PKCE. |
 | Native                  | [Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/) |
 | Trusted                 | [Resource Owner Password Flow](/docs/guides/implement-password/)            |
 | Service                 | [Client Credentials](/docs/guides/implement-client-creds/)                  |
@@ -118,7 +118,7 @@ Any OAuth flow can give you an access token, but not all support ID tokens.
 
 ### What kind of client are you building?
 
-Depending on what kind of client you are building, you will want to use a different OAuth 2.0 flow. The flowchart below can quickly help you decide which flow to use. Further explanation about each is included below.
+The type of OAuth 2.0 flow depends on what kind of client that you are building. The flowchart below can quickly help you decide which flow to use. Further explanation about each is included below.
 
 ![OAuth Flow Diagram width:](/img/oauth_grant_flowchart.png "OAuth Flow Diagram width:")
 
@@ -128,7 +128,7 @@ A client application is considered "public" when an end user could possibly view
 
 ###### Is your client a SPA or native?
 
-If your client application is a Single Page Application (SPA), you should use the [Implicit flow](#implicit-flow).
+If your client application is a Single-Page Application (SPA) running in a modern browser that supports Web Crypto for PKCE, you should use the [Authorization code with PKCE flow](#authorization-code-with-pkce-flow). If your client application is a SPA that runs in older browsers that don't support Web Crypto for PKCE, then you should use the [Implicit flow](#implicit-flow).
 
 If your client application is a native application, you should use the [Authorization code with PKCE flow](#authorization-code-with-pkce-flow).
 
@@ -212,9 +212,11 @@ For information on how to set up your application to use this flow, see [Impleme
 
 ### Implicit Flow
 
-The Implicit Flow is intended for applications where the confidentiality of the client secret cannot be guaranteed. In this flow, the client does not make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. For Single Page Applications (SPA) running in modern browsers we recommend using the [Authorization Code Flow with PKCE](#authorization-code-with-pkce-flow) instead for maximum security. If support for older browsers is required, the Implicit flow will provide a working solution. The client must be capable of interacting with the resource owner's user-agent and capable of receiving incoming requests (via redirection) from the authorization server.
+The Implicit flow is intended for applications where the confidentiality of the client secret can't be guaranteed. In this flow, the client doesn't make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. The client must be capable of interacting with the resource owner's user agent and capable of receiving incoming requests (through redirection) from the authorization server.
 
-> **Note:** Because it is intended for less-trusted clients, the Implicit Flow does not support refresh tokens.
+> **Note:** Because it is intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
+
+> **Important:** For Single-Page Applications (SPA) running in modern browsers that support Web Crypto for PKCE, we recommend using the [Authorization Code Flow with PKCE](#authorization-code-with-pkce-flow) instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a working solution.
 
 ![Implicit Flow width:](/img/oauth_implicit_flow.png "Implicit Flow width:")
 
@@ -293,11 +295,11 @@ At its core, an authorization server is simply an engine for minting OpenID Conn
 
 Okta provides two types of authorization servers:
 
-**Okta Authorization Server**
+### Okta Authorization Server
 
 Use the Okta Authorization Server to perform Single Sign-On with Okta or get an access token for Okta. The Okta Authorization Server can't be customized. Access tokens issued by the Okta Authorization Server can only be consumed and validated by Okta. The token audience is Okta-specific, so the token can't be used or validated by your own applications.
 
-**Custom Authorization Server**
+### Custom Authorization Server
 
 Use a Custom Authorization Server to secure your APIs. Custom Authorization Servers are hosted on Okta, and created and configured by an org administrator. An access token minted by a Custom Authorization Server is consumed by your APIs. Custom scopes can be configured to support authorization for your APIs.
 
@@ -307,5 +309,3 @@ Okta provides a pre-configured Custom Authorization with the name `default`. It 
 `https://${yourOktaDomain}/api/v1/authorizationServers/default`
 
 For Custom Authorization Servers that you create yourself, `${authServerId}` will be a random ID like `aus9o8wzkhckw9TLa0h7z`.
-
-
