@@ -135,41 +135,29 @@ function success(res) {
 If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom Authorization Server](/docs/guides/customize-authz-server/) in Okta. The Widget also needs to be configured to prompt the user to sign in, and then extract an ID token after a successful redirect:
 
 ```javascript
+
 var signIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
-  clientId: '${clientId}',
-  redirectUri: '${redirectUri configured in OIDC app}',
+  el: '#widget-container',
   authParams: {
-    issuer: 'default',
-    responseType: ['id_token','token'],
-    display: 'page'
+    issuer: 'https://${yourOktaDomain}/oauth2/default'
   }
 });
 
-if (!signIn.token.hasTokensInUrl()) {
-  signIn.renderEl({el: '#widget-container'},
-    function() {},
-    function(err) { console.err(err) });
-}
+signIn.showSignInToGetTokens({
+  clientId: '${clientId}',
 
-else {
-  signIn.token.parseTokensFromUrl(
-    function success(tokens) {
-      // Add the token to tokenManager to automatically renew the token when needed
-      tokens.forEach(token => {
-        if (token.idToken) {
-          signIn.tokenManager.add('id_token', token);
-        }
-        if (token.accessToken) {
-          signIn.tokenManager.add('access_token', token);
-        }
-      });
-    },
-    function error(err) {
-      console.log('handle error', err);
-    }
-  );
-}
+  // must be in the list of redirect URIs enabled for the OIDC app
+  redirectUri: '${redirectUri}',
+
+  // Return an access token from the authorization server
+  getAccessToken: true,
+
+  // Return an ID token from the authorization server
+  getIdToken: true,
+  scope: 'openid profile'
+});
+
 ```
 
 Here is an example of some front-end code that could use this token:
