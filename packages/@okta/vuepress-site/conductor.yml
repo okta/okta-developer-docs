@@ -94,9 +94,9 @@ redirects:
   - from: /docs/api/rest/events.html
     to: /docs/reference/api/events/index.html
   - from: /docs/api/resources/factor_admin.html
-    to: /docs/reference/api/factor_admin/index.html
+    to: /docs/reference/api/factor-admin/index.html
   - from: /docs/api/resources/factor_admin/index.html
-    to: /docs/reference/api/factor_admin/index.html
+    to: /docs/reference/api/factor-admin/index.html
   - from: /docs/api/rest/factors.html
     to: /docs/reference/api/factors/index.html
   - from: /docs/api/rest/groups.html
@@ -1548,7 +1548,7 @@ redirects:
   - from: /guides/validate-access-tokens/index.html
     to: /docs/guides/validate-access-tokens/
   - from: /docs/api/resources/factor_admin/index.html
-    to: /docs/reference/api/factor_admin/
+    to: /docs/reference/api/factor-admin/
   - from: /guides/validate-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide
@@ -1566,7 +1566,7 @@ redirects:
   - from: /docs/api/resources
     to: /docs/api/resources/
   - from: /docs/api/resources/factor_admin
-    to: /docs/api/resources/factor_admin/
+    to: /docs/api/resources/factor-admin/
   - from: /docs/reference/api
     to: /docs/reference/api/
   - from: /docs/reference/api-overview/getting_a_token
@@ -1737,3 +1737,5 @@ redirects:
     to: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
   - from: /docs/guides/byo-saml/upload-the-certificate/index.html
     to: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
+  - from: /docs/api/resources/factor_admin/
+    to: /docs/api/resources/factor-admin/
