@@ -1,7 +1,7 @@
 ---
-title: Event Hooks
+title: Event Hooks Management
 category: management
-excerpt: >-
+excerpt:
   The Event Hooks Management API provides a CRUD interface for registering
   event hook endpoints.
 ---
