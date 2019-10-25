@@ -23,7 +23,7 @@ There are three major kinds of authentication that you can perform with Okta:
 - The [OAuth 2.0](/docs/reference/api/oidc/) protocol controls authorization to access a protected resource, like your web app, native app, or API service.
 - The [OpenID Connect](/docs/reference/api/oidc/) protocol is built on the OAuth 2.0 protocol and helps authenticate users and convey information about them. It is also more opinionated than plain OAuth 2.0, for example in its scope definitions.
 
-If you would like to work with the Okta API and control user access to Okta, then you should use [the Authentication API](/docs/reference/api/authn/).
+If you would like to work with the Okta API and control user access to Okta, then you should use the [Authentication API](/docs/reference/api/authn/).
 
 If you are interested in controlling access to your own application, then use the OAuth 2.0 and OpenID Connect (OIDC) protocols. The OAuth 2.0 protocol enables you to delegate authorization, while the OIDC protocol enables you to retrieve and store authentication information about your end users. The Okta Authentication Guide is intended to help you figure out how to implement and use OAuth 2.0 and OIDC with Okta.
 
@@ -128,7 +128,7 @@ A client application is considered "public" when an end user could possibly view
 
 ###### Is your client a SPA or native?
 
-If your client application is a Single-Page Application (SPA) running in a modern browser that supports Web Crypto for PKCE, you should use the [Authorization Code with PKCE flow](#authorization-code-with-pkce-flow). If your client application is a SPA that runs in older browsers that don't support Web Crypto for PKCE, then you should use the [Implicit flow](#implicit-flow).
+If your client application is a Single-Page Application (SPA) running in a modern browser that supports Web Crypto for PKCE, you should use the [Authorization Code Flow with PKCE flow](#authorization-code-with-pkce-flow). If your client application is a SPA that runs in older browsers that don't support Web Crypto for PKCE, then you should use the [Implicit flow](#implicit-flow).
 
 If your client application is a native application, you should use the [Authorization code with PKCE flow](#authorization-code-with-pkce-flow).
 
@@ -212,7 +212,7 @@ For information on how to set up your application to use this flow, see [Impleme
 
 ### Implicit Flow
 
-The Implicit flow is intended for applications where the confidentiality of the client secret can't be guaranteed. In this flow, the client doesn't make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. The client must be capable of interacting with the resource owner's user agent and capable of receiving incoming requests (through redirection) from the authorization server.
+The Implicit flow is intended for applications where the confidentiality of the client secret can't be guaranteed. In this flow, the client doesn't make a request to the `/token` endpoint, but instead receives the access token directly from the `/authorize` endpoint. The client must be capable of interacting with the resource owner's user agent and also capable of receiving incoming requests (through redirection) from the authorization server.
 
 > **Note:** Because it is intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
 
