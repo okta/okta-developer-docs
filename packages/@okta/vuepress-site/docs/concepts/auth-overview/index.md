@@ -128,7 +128,7 @@ A client application is considered "public" when an end user could possibly view
 
 ###### Is your client a SPA or native?
 
-If your client application is a Single-Page Application (SPA) running in a modern browser that supports Web Crypto for PKCE, you should use the [Authorization code with PKCE flow](#authorization-code-with-pkce-flow). If your client application is a SPA that runs in older browsers that don't support Web Crypto for PKCE, then you should use the [Implicit flow](#implicit-flow).
+If your client application is a Single-Page Application (SPA) running in a modern browser that supports Web Crypto for PKCE, you should use the [Authorization Code with PKCE flow](#authorization-code-with-pkce-flow). If your client application is a SPA that runs in older browsers that don't support Web Crypto for PKCE, then you should use the [Implicit flow](#implicit-flow).
 
 If your client application is a native application, you should use the [Authorization code with PKCE flow](#authorization-code-with-pkce-flow).
 
