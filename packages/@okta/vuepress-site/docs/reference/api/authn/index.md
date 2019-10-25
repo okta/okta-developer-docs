@@ -1802,7 +1802,7 @@ This operation changes a user's password by providing the existing password and 
 
 | Parameter   | Description                                                      | Param Type | DataType  | Required |
 | ----------- | ---------------------------------------------------------------- | ---------- | --------- | -------- |
-| stateToken  | [state token](#state-token) for current transaction              | Body       | String    | TRUE     |
+| stateToken  | [state token](#state-token) for the current transaction              | Body       | String    | TRUE     |
 | oldPassword | User's current password that is expired or about to expire       | Body       | String    | TRUE     |
 | newPassword | New password for user                                            | Body       | String    | TRUE     |
 
@@ -1912,6 +1912,7 @@ Enrolls a user with a [factor](/docs/reference/api/factors/#supported-factors-fo
 * [Enroll YubiKey Factor](#enroll-yubikey-factor)
 * [Enroll Duo Factor](#enroll-duo-factor)
 * [Enroll U2F Factor](#enroll-u2f-factor)
+* [Enroll WebAuthn Factor](#enroll-webauthn-factor)
 * [Enroll Custom HOTP Factor](#enroll-custom-hotp-factor)
 
 > This operation is only available for users that have not previously enrolled a factor and have transitioned to the `MFA_ENROLL` [state](#transaction-state).
@@ -1921,7 +1922,7 @@ Enrolls a user with a [factor](/docs/reference/api/factors/#supported-factors-fo
 
 | Parameter   | Description                                                                   | Param Type  | DataType                                                      | Required |
 | ----------- | ----------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------- | -------- |
-| stateToken  | [state token](#state-token) for current transaction                           | Body        | String                                                        | TRUE     |
+| stateToken  | [state token](#state-token) for the current transaction                           | Body        | String                                                        | TRUE     |
 | factorType  | type of factor                                                                | Body        | [Factor Type](/docs/reference/api/factors/#factor-type)                            | TRUE     |
 | provider    | factor provider                                                               | Body        | [Provider Type](/docs/reference/api/factors/#provider-type)                        | TRUE     |
 | profile     | profile of a [supported factor](/docs/reference/api/factors/#supported-factors-for-providers)      | Body        | [Factor Profile Object](/docs/reference/api/factors/#factor-profile-object)        | TRUE     |
@@ -2928,6 +2929,130 @@ curl -v -X POST \
 }
 ```
 
+#### Enroll WebAuthn Factor
+
+
+Enrolls a user with a WebAuthn factor. The enrollment process starts with getting the WebAuthn credential creation options, which are used to help select an appropriate authenticator using the WebAuthn API.
+This authenticator then generates an enrollment attestation that may be used to register the authenticator for the user.
+
+##### Enroll WebAuthn Request Parameters
+
+| Parameter    | Description                                                  | Param Type | DataType | Required |
+| ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
+| stateToken   | [state token](#state-token) for the current transaction          | Body       | String   | TRUE     |
+
+
+##### Enroll WebAuthn Response Parameters
+
+In the [embedded resources](#embedded-resources) object, the `factor._embedded.activation` object contains properties used to guide the client in creating a new WebAuthn credential for use with Okta.
+
+For more information about these credential creation options, see the [WebAuthn spec for PublicKeyCredentialCreationOptions](https://www.w3.org/TR/webauthn/#dictionary-makecredentialoptions).
+
+> **Note:** Additionally, the activation object contains a `u2fParams` object with an `appid` property. This deprecated legacy property was used to support backwards compatibility with U2F and is no longer in use.
+
+##### Enroll WebAuthn Request Example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "factorType": "webauthn",
+  "provider": "FIDO",
+  "stateToken": "$(stateToken}"
+}' "https://${yourOktaDomain}/api/v1/authn/factors"
+```
+
+###### Enroll WebAuthn Response Example
+
+
+```json
+{
+  "stateToken": "00IzlXt68vyoh3r6rtv9JWXLwSuVkM6_AP65f-Actj",
+  "expiresAt": "2016-12-05T19:40:53.000Z",
+  "status": "MFA_ENROLL_ACTIVATE",
+  "_embedded": {
+    "user": {
+      "id": "00ukv3jVTgRjDctlX0g3",
+      "passwordChanged": "2015-10-28T23:27:57.000Z",
+      "profile": {
+        "login": "first.last@gmail.com",
+        "firstName": "First",
+        "lastName": "Last",
+        "locale": "en",
+        "timeZone": "America/Los_Angeles"
+      }
+    },
+    "factor": {
+      "id": "fwfb2yngen2hwcp5z0g4",
+      "factorType": "webauthn",
+      "provider": "FIDO",
+      "vendorName": "FIDO",
+      "_embedded": {
+        "activation": {
+          "attestation": "direct",
+          "authenticatorSelection": {
+            "userVerification": "preferred",
+            "requireResidentKey": false
+          },
+          "challenge": "cdsZ1V10E0BGE9GcG3IK",
+          "excludeCredentials": [],
+          "pubKeyCredParams": [
+            {
+              "type": "public-key",
+              "alg": -7
+            },
+            {
+              "type": "public-key",
+              "alg": -257
+            }
+          ],
+          "rp": {
+            "name":"Rain-Cloud59"
+          },
+          "u2fParams": {
+            "appid": "https://${yourOktaDomain}.com"
+          },
+          "user": {
+            "displayName": "First Last",
+            "name": "first.last@gmail.com",
+            "id": "00ukv3jVTgRjDctlX0g3"
+          }
+        }
+      }
+    }
+  },
+  "_links": {
+    "next": {
+      "name": "activate",
+      "href": "https://${yourOktaDomain}/api/v1/authn/factors/fwfb2yngen2hwcp5z0g4/lifecycle/activate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "cancel": {
+      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "prev": {
+      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+
 #### Enroll Custom HOTP Factor
 Enrollment via the Authentication API is currently not supported for Custom HOTP Factor.  Please refer to the Factors API documentation [here](/docs/reference/api/factors/#enroll-custom-hotp-factor) if you would like to enroll users for this type of factor.
 
@@ -2943,6 +3068,7 @@ The `sms`,`call` and `token:software:totp` [factor types](/docs/reference/api/fa
 * [Activate Call Factor](#activate-call-factor)
 * [Activate Push Factor](#activate-push-factor)
 * [Activate U2F Factor](#activate-u2f-factor)
+* [Activate WebAuthn Factor](#activate-webauthn-factor)
 
 #### Activate TOTP Factor
 
@@ -2951,21 +3077,21 @@ Activates a `token:software:totp` factor by verifying the OTP.
 
 > This API implements [the TOTP standard](https://tools.ietf.org/html/rfc6238), which is used by apps like Okta Verify and Google Authenticator.
 
-#### Request Parameters for Activate TOTP Factor
+##### Request Parameters for Activate TOTP Factor
 
 
 | Parameter    | Description                                          | Param Type | DataType | Required |
 | ------------ | ---------------------------------------------------- | ---------- | -------- | -------- |
 | factorId     | `id` of factor returned from enrollment              | URL        | String   | TRUE     |
-| stateToken   | [state token](#state-token)  for current transaction | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token)  for the current transaction | Body       | String   | TRUE     |
 | passCode     | OTP generated by device                              | Body       | String   | TRUE     |
 
-#### Response Parameters for Activate TOTP Factor
+##### Response Parameters for Activate TOTP Factor
 
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
 
-If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
+If the passcode is invalid, you receive a `403 Forbidden` status code with the following error:
 
 ```http
 HTTP/1.1 403 Forbidden
@@ -2984,7 +3110,7 @@ Content-Type: application/json
 }
 ```
 
-#### Activate TOTP Request Example
+##### Activate TOTP Request Example
 
 
 ```bash
@@ -2997,7 +3123,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/ostf1fmaMGJLMNGNLIVG/lifecycle/activate"
 ```
 
-#### Activate TOTP Response Example
+##### Activate TOTP Response Example
 
 
 ```json
@@ -3033,7 +3159,7 @@ Activates a `sms` factor by verifying the OTP.  The request and response is iden
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | factorId     | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-| stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | passCode     | OTP sent to mobile device                           | Body       | String   | TRUE     |
 
 ##### Activate SMS Factor Response Parameters
@@ -3041,7 +3167,7 @@ Activates a `sms` factor by verifying the OTP.  The request and response is iden
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
 
-If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
+If the passcode is invalid, you receive a `403 Forbidden` status code with the following error:
 
 ```http
 HTTP/1.1 403 Forbidden
@@ -3110,7 +3236,7 @@ Activates a `call` factor by verifying the OTP.  The request and response is ide
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | factorId     | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-| stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | passCode     | Passcode received via the voice call                | Body       | String   | TRUE     |
 
 ##### Activate Call Factor Response Parameters
@@ -3118,7 +3244,7 @@ Activates a `call` factor by verifying the OTP.  The request and response is ide
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
 
-If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
+If the passcode is invalid, you receive a `403 Forbidden` status code with the following error:
 
 ```http
 HTTP/1.1 403 Forbidden
@@ -3189,7 +3315,7 @@ Activations have a short lifetime (minutes) and will `TIMEOUT` if they are not c
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | factorId     | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-| stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 
 ##### Activate Push Factor Response Parameters
 
@@ -3643,7 +3769,7 @@ curl -v -X POST \
 
 Activation gets the registration information from the U2F token using the API and passes it to Okta.
 
-##### Get registration information from U2F token by calling the U2F Javascript call
+##### Get registration information from U2F token by calling the U2F Javascript library method
 
 
 ```html
@@ -3683,16 +3809,16 @@ Activate a `u2f` factor by verifying the registration data and client data.
 | Parameter         | Description                                                | Param Type | DataType | Required |
 | ----------------- | ---------------------------------------------------------- | ---------- | -------- | -------- |
 | factorId          | `id` of factor returned from enrollment                    | URL        | String   | TRUE     |
-| stateToken        | [state token](#state-token) for current transaction        | Body       | String   | TRUE     |
-| registrationData  | base64 encoded registration data from U2F javascript call  | Body       | String   | TRUE     |
-| clientData        | base64 encoded client data from U2F javascript call        | Body       | String   | TRUE     |
+| stateToken        | [state token](#state-token) for the current transaction        | Body       | String   | TRUE     |
+| registrationData  | base64-encoded registration data from U2F javascript call  | Body       | String   | TRUE     |
+| clientData        | base64-encoded client data from U2F javascript call        | Body       | String   | TRUE     |
 
 ##### Activate U2F Response Parameters
 
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
 
-If the registration nonce is invalid or if registration data is invalid, you will receive a `403 Forbidden` status code with the following error:
+If the registration nonce is invalid or if registration data is invalid, you receive a `403 Forbidden` status code with the following error:
 
 ```http
 HTTP/1.1 403 Forbidden
@@ -3750,17 +3876,123 @@ curl -v -X POST \
 }
 ```
 
+#### Activate WebAuthn Factor
+
+
+Activation gets the registration information from the WebAuthn assertion using the API and passes it to Okta.
+
+##### Get registration information from WebAuthn assertion by calling the WebAuthn Javascript library
+
+
+```html
+<!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
+<script>
+// Convert activation object's challenge and user id from string to binary
+activation.challenge = CryptoUtil.strToBin(activation.challenge);
+activation.user.id = CryptoUtil.strToBin(activation.user.id);
+
+// navigator.credentials is a global object on WebAuthn-supported clients, used to access WebAuthn API
+navigator.credentials.create({
+  publicKey: activation
+})
+  .then(function (newCredential) {
+    // Get attestation and clientData from callback result, convert from binary to string
+    var attestation = CryptoUtil.binToStr(newCredential.response.attestationObject);
+    var clientData = CryptoUtil.binToStr(newCredential.response.clientDataJSON);
+  })
+  .fail(function (error) {
+    // Error from WebAuthn platform
+  });
+</script>
+```
+
+Activate a `webauthn` factor by verifying the attestation and client data.
+
+##### Activate WebAuthn Request Parameters
+
+
+| Parameter         | Description                                                     | Param Type | DataType | Required |
+| ----------------- | --------------------------------------------------------------- | ---------- | -------- | -------- |
+| factorId          | `id` of factor returned from enrollment                         | URL        | String   | TRUE     |
+| stateToken        | [state token](#state-token) for the current transaction             | Body       | String   | TRUE     |
+| attestation       | base64-encoded attestation from the WebAuthn javascript call        | Body       | String   | TRUE     |
+| clientData        | base64-encoded client data from the WebAuthn javascript call        | Body       | String   | TRUE     |
+
+##### Activate WebAuthn Response Parameters
+
+
+[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
+
+If the attestation nonce is invalid, or if the attestation or client data are invalid, you receive a `403 Forbidden` status code with the following error:
+
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+  "errorCode": "E0000068",
+  "errorSummary": "Invalid Passcode/Answer",
+  "errorLink": "E0000068",
+  "errorId": "oaei_IfXcpnTHit_YDKGInpFw",
+  "errorCauses": [
+    {
+      "errorSummary": "Your passcode doesn't match our records. Please try again."
+    }
+  ]
+}
+```
+
+##### Activate WebAuthn Request Example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "attestation: "o2NmbXRmcGFja2VkZ2F0dFN0bXSiY2FsZyZjc2lnWEgwRgIhAMvf2+dzXlHZN1um38Y8aFzrKvX0k5dt/hnDu9lahbR4AiEAuwtMg3IoaElWMp00QrP/+3Po/6LwXfmYQVfsnsQ+da1oYXV0aERhdGFYxkgb9OHGifjS2dG03qLRqvXrDIRyfGAuc+GzF1z20/eVRV2wvl6tzgACNbzGCmSLCyXx8FUDAEIBvWNHOcE3QDUkDP/HB1kRbrIOoZ1dR874ZaGbMuvaSVHVWN2kfNiO4D+HlAzUEFaqlNi5FPqKw+mF8f0XwdpEBlClAQIDJiABIVgg0a6oo3W0JdYPu6+eBrbr0WyB3uJLI3ODVgDfQnpgafgiWCB4fFo/5iiVrFhB8pNH2tbBtKewyAHuDkRolcCnVaCcmQ==",
+  "clientData": "eyJjaGFsbGVuZ2UiOiJVSk5wYW9sVWt0dF9vcEZPNXJMYyIsIm9yaWdpbiI6Imh0dHBzOi8vcmFpbi5va3RhMS5jb20iLCJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIn0=",
+  "stateToken": "00eacMXqkf2pG8K3sBbWqTJNStZpEi9-1Bfwl_mfQT"
+}' "https://${yourOktaDomain}/api/v1/authn/factors/fwfb2yngen2hwcp5z0g4/lifecycle/activate"
+```
+
+##### Activate WebAuthn Response Example
+
+
+```json
+{
+  "expiresAt": "2015-11-03T10:15:57.000Z",
+  "status": "SUCCESS",
+  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
+  "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9pe",
+  "_embedded": {
+    "user": {
+      "id": "00ub0oNGTSWTBKOLGLNR",
+      "passwordChanged": "2015-09-08T20:14:45.000Z",
+      "profile": {
+        "login": "dade.murphy@example.com",
+        "firstName": "Dade",
+        "lastName": "Murphy",
+        "locale": "en_US",
+        "timeZone": "America/Los_Angeles"
+      }
+    }
+  }
+}
+```
+
 ### Verify Factor
 
 Verifies an enrolled factor for an authentication transaction with the `MFA_REQUIRED` or `MFA_CHALLENGE` [state](#transaction-state)
 
 * [Verify Security Question Factor](#verify-security-question-factor)
 * [Verify SMS Factor](#verify-sms-factor)
+* [Verify Call Factor](#verify-call-factor)
 * [Verify TOTP Factor](#verify-totp-factor)
 * [Verify Push Factor](#verify-push-factor)
 * [Verify Duo Factor](#verify-duo-factor)
 * [Verify U2F Factor](#verify-u2f-factor)
-* [Verify Call Factor](#verify-call-factor)
+* [Verify WebAuthn Factor](#verify-webauthn-factor)
 
 > If the sign-on (or app sign-on) [policy](#remember-device-policy-object) allows remembering the device, then the end user should be prompted to choose whether the current device should be remembered. This helps reduce the number of times the user is prompted for MFA on the current device. The user's choice should be passed to Okta using the request parameter `rememberDevice` to the verify endpoint. The default value of `rememberDevice` parameter is `false`.
 
@@ -3777,9 +4009,9 @@ Verifies an answer to a `question` factor.
 | Parameter      | Description                                         | Param Type | DataType | Required |
 | -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
 | factorId       | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-| stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| stateToken     | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | answer         | answer to security question                         | Body       | String   | TRUE     |
-| rememberDevice | user's decision to remember device                  | URL        | Boolean  | FALSE    |
+| rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
 
 ##### Response Parameters for Verify Security Question Factor
 
@@ -3851,18 +4083,18 @@ curl -v -X POST \
 | Parameter      | Description                                         | Param Type | DataType | Required |
 | -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
 | factorId       | `id` of factor                                      | URL        | String   | TRUE     |
-| stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| stateToken     | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
-| rememberDevice | user's decision to remember device                  | URL        | Boolean  | FALSE    |
+| rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
 
-> If you omit `passCode` in the request a new OTP will be sent to the device, otherwise the request will attempt to verify the `passCode`
+> **Note:** If you omit `passCode` in the request, a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`
 
 ##### Response Parameters for Verify SMS Factor
 
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
 
-If the `passCode` is invalid you will receive a `403 Forbidden` status code with the following error:
+If the `passCode` is invalid, you receive a `403 Forbidden` status code with the following error:
 
 ```json
 {
@@ -3880,7 +4112,7 @@ If the `passCode` is invalid you will receive a `403 Forbidden` status code with
 
 ##### Send SMS Challenge (OTP)
 
-Omit `passCode` in the request to sent an OTP to the device.
+Omit `passCode` in the request to send an OTP to the device.
 
 ###### Request Example for Send SMS Challenge (OTP)
 
@@ -4007,6 +4239,163 @@ curl -v -X POST \
 }
 ```
 
+#### Verify Call Factor
+
+
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+
+##### Request Parameters for Verify Call Factor
+
+
+| Parameter      | Description                                         | Param Type | DataType | Required |
+| -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
+| factorId       | `id` of factor                                      | URL        | String   | TRUE     |
+| stateToken     | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
+| passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
+| rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
+
+> **Note:** If you omit `passCode` in the request, a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`
+
+##### Response Parameters for Verify Call Factor
+
+
+[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
+
+If the `passCode` is invalid, you receive a `403 Forbidden` status code with the following error:
+
+```json
+{
+  "errorCode": "E0000068",
+  "errorSummary": "Invalid Passcode/Answer",
+  "errorLink": "E0000068",
+  "errorId": "oaei_IfXcpnTHit_YEKGInpFw",
+  "errorCauses": [
+    {
+      "errorSummary": "Your answer doesn't match our records. Please try again."
+    }
+  ]
+}
+```
+
+##### Send Voice Call Challenge (OTP)
+
+Omit `passCode` in the request to send an OTP to the device.
+
+###### Request Example for Send Voice Call Challenge (OTP)
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb"
+}' "https://${yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify"
+```
+
+###### Response Example for Send Voice Call Challenge (OTP)
+
+
+```json
+{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
+  "expiresAt": "2015-11-03T10:15:57.000Z",
+  "status": "MFA_CHALLENGE",
+  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
+  "_embedded": {
+    "user": {
+      "id": "00ub0oNGTSWTBKOLGLNR",
+      "passwordChanged": "2015-09-08T20:14:45.000Z",
+      "profile": {
+        "login": "dade.murphy@example.com",
+        "firstName": "Dade",
+        "lastName": "Murphy",
+        "locale": "en_US",
+        "timeZone": "America/Los_Angeles"
+      }
+    },
+    "factor": {
+      "id": "clf193zUBEROPBNZKPPE",
+      "factorType": "call",
+      "provider": "OKTA",
+      "profile": {
+        "phoneNumber": "+1 XXX-XXX-1337"
+      }
+    }
+  },
+  "_links": {
+    "next": {
+      "name": "verify",
+      "href": "https://${yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "cancel": {
+      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "prev": {
+      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+
+##### Verify Call Challenge (OTP)
+
+Specify `passCode` in the request to verify the factor.
+
+###### Request Example for Verify Call Challenge
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
+  "passCode": "65786"
+}' "https://${yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify"
+```
+
+###### Response Example for Verify Call Challenge
+
+
+```json
+{
+  "expiresAt": "2015-11-03T10:15:57.000Z",
+  "status": "SUCCESS",
+  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
+  "sessionToken": "00t6IUQiVbWpMLgtmwSjMFzqykb5QcaBNtveiWlGeM",
+  "_embedded": {
+    "user": {
+      "id": "00ub0oNGTSWTBKOLGLNR",
+      "passwordChanged": "2015-09-08T20:14:45.000Z",
+      "profile": {
+        "login": "dade.murphy@example.com",
+        "firstName": "Dade",
+        "lastName": "Murphy",
+        "locale": "en_US",
+        "timeZone": "America/Los_Angeles"
+      }
+    }
+  }
+}
+
+```
+
 #### Verify TOTP Factor
 
 
@@ -4014,7 +4403,7 @@ curl -v -X POST \
 
 Verifies an OTP for a `token:software:totp` or `token:hotp` factor.
 
-> This API implements [the TOTP standard](https://tools.ietf.org/html/rfc6238), which is used by apps like Okta Verify and Google Authenticator.
+> **Note:** This API implements [the TOTP standard](https://tools.ietf.org/html/rfc6238), which is used by apps like Okta Verify and Google Authenticator.
 
 ##### Request Parameters for Verify TOTP Factor
 
@@ -4022,16 +4411,16 @@ Verifies an OTP for a `token:software:totp` or `token:hotp` factor.
 | Parameter      | Description                                         | Param Type | DataType | Required |
 | -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
 | factorId       | `id` of factor                                      | URL        | String   | TRUE     |
-| stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| stateToken     | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
-| rememberDevice | user's decision to remember device                  | URL        | Boolean  | FALSE    |
+| rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
 
 ##### Response Parameters for Verify TOTP Factor
 
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
 
-If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
+If the passcode is invalid, you receive a `403 Forbidden` status code with the following error:
 
 ```json
 {
@@ -4090,7 +4479,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
 
-Sends an asynchronous push notification (challenge) to the device for the user to approve or reject.  The `factorResult` for the transaction will have a result of `WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`.
+Sends an asynchronous push notification (challenge) to the device for the user to approve or reject.  The `factorResult` for the transaction has a result of `WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`.
 
 ##### Request Parameters for Verify Push Factor
 
@@ -4098,18 +4487,18 @@ Sends an asynchronous push notification (challenge) to the device for the user t
 | Parameter      | Description                                          | Param Type | DataType | Required |
 | -------------- | ---------------------------------------------------  | ---------- | -------- | -------- |
 | factorId       | `id` of factor returned from enrollment              | URL        | String   | TRUE     |
-| stateToken     | [state token](#state-token) for current transaction  | Body       | String   | TRUE     |
-| rememberDevice | user's decision to remember device                   | URL        | Boolean  | FALSE    |
-| autoPush       | user's decision to send push to device automatically | URL        | Boolean  | FALSE    |
+| stateToken     | [state token](#state-token) for the current transaction  | Body       | String   | TRUE     |
+| rememberDevice | user's decision to remember the device                   | URL        | Boolean  | FALSE    |
+| autoPush       | user's decision to send a push to the device automatically | URL        | Boolean  | FALSE    |
 
 **Okta Verify Push Details Pertaining to Auto-Push**
 
-* You don't need to pass the `autoPush` flag to Okta unless you have a custom sign-in flow that does not use the Okta sign-in widget, but want Okta to keep track of this preference.  The custom sign-in flow must still handle the logic to actually send the Auto-Push, since this param only deals with the Auto-Push setting.
-* If you pass the `autoPush` query param when verifying an Okta Verify Push factor, Okta saves this value as the user's preference to have the push notification sent automatically if the verification is successful (the user presses "Approve" on their phone).
+* You don't need to pass the `autoPush` flag to Okta unless you have a custom sign-in flow that doesn't use the Okta Sign-In Widget, but want Okta to keep track of this preference.  The custom sign-in flow must still handle the logic to actually send the Auto-Push, since this param only deals with the Auto-Push setting.
+* If you pass the `autoPush` query param when verifying an Okta Verify Push factor, Okta saves this value as the user's preference to have the push notification sent automatically if the verification is successful (the user taps **Approve** on their phone).
 * If there is already a saved Auto-Push preference, the successful verify call overrides the current preference if it is different from the value of `autoPush`.
-* This saved Auto-Push preference is always returned in the `/api/v1/authn/` response's `autoPushEnabled` field if the user is enrolled for the Okta Verify Push factor [example here](#response-example-for-factor-challenge-for-step-up-authentication-with-okta-session).  If the user's Auto-Push preference has not explicitly been set before, `autoPushEnabled` has a value of false.
+* This saved Auto-Push preference is always returned in the `/api/v1/authn/` response's `autoPushEnabled` field if the user is enrolled for the Okta Verify Push factor [example here](#response-example-for-factor-challenge-for-step-up-authentication-with-okta-session).  If the user's Auto-Push preference hasn't explicitly been set before, `autoPushEnabled` has a value of false.
 * The Auto-Push preference is stored in a cookie value and users that clear their cookies remove that preference.
-* Please note, the `autoPush` flag will have no effect when trying to verify a factor other than Okta Verify Push (factorId prefix = "opf").
+* Please note, the `autoPush` flag has no effect when trying to verify a factor other than Okta Verify Push (factorId prefix = "opf").
 
 
 ##### Request Example for Verify Push Factor
@@ -4579,17 +4968,6 @@ spec](https://fidoalliance.org/specs/fido-u2f-v1.2-ps-20170411/fido-appid-and-fa
 enroll and verify U2F device with `appId`s in different DNS zone is not allowed. For
 example, if a user enrolled a U2F device via Okta Sign-in widget that is hosted at `https://login.company.com`, while the user can verify the U2F factor from `https://login.company.com`, the user would not be able to verify it from Okta portal `https://company.okta.com`, U2F device would return error code 4 - `DEVICE_INELIGIBLE`.
 
-##### Request Parameters for Verify U2F Factor
-
-
-| Parameter      | Description                                         | Param Type | DataType | Required |
-| -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-| factorId       | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-| stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-| clientData     | base64 encoded client data from the U2F token       | Body       | String   | TRUE     |
-| signatureData  | base64 encoded signature data from the U2F token    | Body       | String   | TRUE     |
-| rememberDevice | user's decision to remember device                  | URL        | Boolean  | FALSE    |
-
 ##### Start Verification to Get Challenge Nonce
 
 Verification of the U2F factor starts with getting the challenge nonce and U2F token details and then using the client-side
@@ -4716,7 +5094,18 @@ curl -v -X POST \
 </script>
 ```
 
-##### Post the Signed Assertion to Okta to Complete Verification
+##### Post the signed assertion to Okta to complete verification
+
+##### Request Parameters for Verify U2F Factor
+
+
+| Parameter      | Description                                         | Param Type | DataType | Required |
+| -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
+| factorId       | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| stateToken     | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
+| clientData     | base64-encoded client data from the U2F token       | Body       | String   | TRUE     |
+| signatureData  | base64-encoded signature data from the U2F token    | Body       | String   | TRUE     |
+| rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
 
 ##### Request Example for Signed Assertion
 
@@ -4756,49 +5145,151 @@ curl -v -X POST \
 }
 ```
 
-#### Verify Call Factor
+#### Verify WebAuthn Factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
 
-##### Request Parameters for Verify Call Factor
+Verifies a user with a WebAuthn factor. The verification process starts with getting the WebAuthn credential request options, which are used to help select an appropriate authenticator using the WebAuthn API.
+This authenticator then generates an assertion that may be used to verify the user.
+
+##### Start Verification to Get Challenge Nonce
+
+Verification of the WebAuthn factor starts with getting the WebAuthn credential request details (including the challenge nonce) then using the client-side
+JavaScript API to get the signed assertion from the WebAuthn authenticator.
+
+For more information about these credential request options, see the [WebAuthn spec for PublicKeyCredentialRequestOptions](https://www.w3.org/TR/webauthn/#dictionary-makecredentialoptions).
+
+##### Request Example for Verify WebAuthn Factor
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "stateToken": "${stateToken}"
+}' "https://${yourOktaDomain}/api/v1/authn/factors/${factorId}/verify"
+```
+
+##### Response Example for Verify WebAuthn Factor
+
+
+```json
+{
+   "stateToken":"00lbJNfhlFVRVAR37O3PRzNFkx-v5kgMYHJPTtMDS2",
+   "expiresAt":"2019-10-24T00:21:05.000Z",
+   "status":"MFA_CHALLENGE",
+   "factorResult":"CHALLENGE",
+   "challengeType":"FACTOR",
+   "_embedded":{
+      "user":{
+         "id":"00u21eb3qyRDNNIKTGCW",
+         "passwordChanged":"2015-10-28T23:27:57.000Z",
+         "profile":{
+            "login":"first.last@gmail.com",
+            "firstName":"First",
+            "lastName":"Last",
+            "locale":"en",
+            "timeZone":"America/Los_Angeles"
+         }
+      },
+      "factor":{
+         "id":"fwfb2yngen2hwcp5z0g4",
+         "factorType":"webauthn",
+         "provider":"FIDO",
+         "vendorName":"FIDO",
+         "profile":{
+            "credentialId":"Ab1jRznBN0A1JAz_xwdZEW6yDqGdXUfO-GWhmzLr2klR1VjdpHzYjuA_h5QM1BBWqpTYuRT6isPphfH9F8HaRAZQ",
+            "authenticatorName":"MacBook Touch ID"
+         },
+         "_embedded":{
+            "challenge":{
+               "challenge":"K0UNqWlz2TCCDd5qEkBf",
+               "extensions":{
+               }
+            }
+         }
+      },
+      "policy":{
+         "allowRememberDevice":false,
+         "rememberDeviceLifetimeInMinutes":0,
+         "rememberDeviceByDefault":false,
+         "factorsPolicyInfo":{
+
+         }
+      }
+   },
+   "_links":{
+      "next":{
+         "name":"verify",
+         "href":"https://${yourOktaDomain}/api/v1/authn/factors/fwfb2yngen2hwcp5z0g4/verify",
+         "hints":{
+            "allow":[
+               "POST"
+            ]
+         }
+      },
+      "prev":{
+         "href":"https://${yourOktaDomain}/api/v1/authn/previous",
+         "hints":{
+            "allow":[
+               "POST"
+            ]
+         }
+      },
+      "cancel":{
+         "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+         "hints":{
+            "allow":[
+               "POST"
+            ]
+         }
+      }
+   }
+}
+```
+
+##### Get the Signed Assertion from the WebAuthn Authenticator
+
+
+```html
+<!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
+<script>
+  // Convert activation object's challenge nonce from string to binary
+  factor._embedded.challenge.challenge = CryptoUtil.strToBin(factor._embedded.challenge.challenge); 
+
+  // Call the WebAuthn javascript API to get signed assertion from the WebAuthn authenticator
+  navigator.credentials.get({
+    publicKey: factor._embedded.challenge
+  })
+    .then(function (assertion) {
+      // Get the client data, authenticator data, and signature data from callback result, convert from binary to string
+      var clientData = CryptoUtil.binToStr(assertion.response.clientDataJSON);
+      var authenticatorData = CryptoUtil.binToStr(assertion.response.authenticatorData);
+      var signatureData = CryptoUtil.binToStr(assertion.response.signature);
+    })
+    .fail(function (error) {
+      // Error from WebAuthn platform
+    });
+</script>
+```
+
+##### Post the signed assertion to Okta to complete verification
+
+##### Request Parameters for Verify WebAuthn Factor
 
 
 | Parameter      | Description                                         | Param Type | DataType | Required |
 | -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-| factorId       | `id` of factor                                      | URL        | String   | TRUE     |
-| stateToken     | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
-| passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
-| rememberDevice | user's decision to remember device                  | URL        | Boolean  | FALSE    |
+| factorId       | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| stateToken     | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
+| clientData     | base64-encoded client data from the WebAuthn authenticator       | Body       | String   | TRUE     |
+| authenticatorData | base64-encoded authenticator data from the WebAuthn authenticator    | Body       | String   | TRUE     |
+| signatureData  | base64-encoded signature data from the WebAuthn authenticator    | Body       | String   | TRUE     |
+| rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
 
-> If you omit `passCode` in the request a new OTP will be sent to the device, otherwise the request will attempt to verify the `passCode`
-
-##### Response Parameters for Verify Call Factor
-
-
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
-
-If the `passCode` is invalid you will receive a `403 Forbidden` status code with the following error:
-
-```json
-{
-  "errorCode": "E0000068",
-  "errorSummary": "Invalid Passcode/Answer",
-  "errorLink": "E0000068",
-  "errorId": "oaei_IfXcpnTHit_YEKGInpFw",
-  "errorCauses": [
-    {
-      "errorSummary": "Your answer doesn't match our records. Please try again."
-    }
-  ]
-}
-```
-
-##### Send Voice Call Challenge (OTP)
-
-Omit `passCode` in the request to sent an OTP to the device.
-
-###### Request Example for Send Voice Call Challenge (OTP)
+##### Request Example for Signed Assertion
 
 
 ```bash
@@ -4806,111 +5297,35 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -d '{
-  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb"
-}' "https://${yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify"
+  "clientData": "eyJjaGFsbGVuZ2UiOiJoOVhzT2JrWmRnNU9vTTdyUS0zMSIsIm9yaWdpbiI6Imh0dHBzOi8vcmFpbi5va3RhMS5jb20iLCJ0eXBlIjoid2ViYXV0aG4uZ2V0In0=",
+  "authenticatorData": "SBv04caJ+NLZ0bTeotGq9esMhHJ8YC5z4bMXXPbT95UFXbDsOg==",
+  "signatureData": "MEQCICeN9Y3Jw9y1vS1ADghTW5gUKy1JFZpESHXyTRbfjXXrAiAtQLyEjXtkZnZCgnmZA1EjPiHjhvXzkWn83zHtVgGkPQ==",
+  "stateToken": "${stateToken}"
+}' "https://${yourOktaDomain}/api/v1/authn/factors/${factorId}/verify"
 ```
 
-###### Response Example for Send Voice Call Challenge (OTP)
+##### Response of WebAuthn Verification Example
 
 
 ```json
 {
-  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
-  "expiresAt": "2015-11-03T10:15:57.000Z",
-  "status": "MFA_CHALLENGE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
-  "_embedded": {
-    "user": {
-      "id": "00ub0oNGTSWTBKOLGLNR",
-      "passwordChanged": "2015-09-08T20:14:45.000Z",
-      "profile": {
-        "login": "dade.murphy@example.com",
-        "firstName": "Dade",
-        "lastName": "Murphy",
-        "locale": "en_US",
-        "timeZone": "America/Los_Angeles"
-      }
-    },
-    "factor": {
-      "id": "clf193zUBEROPBNZKPPE",
-      "factorType": "call",
-      "provider": "OKTA",
-      "profile": {
-        "phoneNumber": "+1 XXX-XXX-1337"
-      }
+    "expiresAt":"2016-07-13T14:14:44.000Z",
+    "status":"SUCCESS",
+    "sessionToken":"201111XUk7La2gw5r5PV1IhU4WSd0fV6mvNYdlJoeqjuyej7S83x3Hr",
+    "_embedded":{
+        "user":{
+            "id":"00ukv3jVTgRjDctlX0g3",
+            "passwordChanged":"2016-07-13T13:29:58.000Z",
+            "profile":{
+                "login":"first.last@example.com",
+                "firstName":"First",
+                "lastName":"Last",
+                "locale":"en_US",
+                "timeZone":"America/Los_Angeles"
+            }
+        }
     }
-  },
-  "_links": {
-    "next": {
-      "name": "verify",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify",
-      "hints": {
-        "allow": [
-          "POST"
-        ]
-      }
-    },
-    "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
-      "hints": {
-        "allow": [
-          "POST"
-        ]
-      }
-    },
-    "prev": {
-      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
-      "hints": {
-        "allow": [
-          "POST"
-        ]
-      }
-    }
-  }
 }
-```
-
-##### Verify Call Challenge (OTP)
-
-Specify `passCode` in the request to verify the factor.
-
-###### Request Example for Verify Call Challenge
-
-
-```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--d '{
-  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
-  "passCode": "65786"
-}' "https://${yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify"
-```
-
-###### Response Example for Verify Call Challenge
-
-
-```json
-{
-  "expiresAt": "2015-11-03T10:15:57.000Z",
-  "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
-  "sessionToken": "00t6IUQiVbWpMLgtmwSjMFzqykb5QcaBNtveiWlGeM",
-  "_embedded": {
-    "user": {
-      "id": "00ub0oNGTSWTBKOLGLNR",
-      "passwordChanged": "2015-09-08T20:14:45.000Z",
-      "profile": {
-        "login": "dade.murphy@example.com",
-        "firstName": "Dade",
-        "lastName": "Murphy",
-        "locale": "en_US",
-        "timeZone": "America/Los_Angeles"
-      }
-    }
-  }
-}
-
 ```
 
 ## Recovery Operations
@@ -4975,7 +5390,7 @@ Starts a new password recovery transaction for the email factor:
 * You must specify a user identifier (`username`) but no password in the request.
 * If the request is successful, Okta sends a recovery email asynchronously to the user's primary and secondary email address with a [recovery token](#recovery-token) so the user can complete the transaction.
 
-Primary authentication of a user's recovery credential (e.g `EMAIL` or `SMS`) has not completed when this request is sent; the user is pending validation.
+Primary authentication of a user's recovery credential (e.g `EMAIL` or `SMS`) hasn't completed when this request is sent; the user is pending validation.
 
 Okta provides security in the following ways:
 
@@ -5014,7 +5429,7 @@ curl -v -X POST \
 
 Starts a new password recovery transaction with a user identifier (`username`) and asynchronously sends a SMS OTP (challenge) to the user's mobile phone.  This operation will transition the recovery transaction to the `RECOVERY_CHALLENGE` state and wait for the user to [verify the OTP](#verify-sms-recovery-factor).
 
-> Primary authentication of a user's recovery credential (e.g email or SMS) has not yet completed.
+> Primary authentication of a user's recovery credential (e.g email or SMS) hasn't yet completed.
 > Okta will not publish additional metadata about the user until primary authentication has successfully completed.
 
 > SMS recovery factor must be enabled via the user's assigned password policy to use this operation.
@@ -5081,7 +5496,7 @@ Starts a new password recovery transaction with a user identifier (`username`) a
 
 Note:
 
-* Primary authentication of a user's recovery credential (e.g email or SMS or Voice Call) has not yet completed.
+* Primary authentication of a user's recovery credential (e.g email or SMS or Voice Call) hasn't yet completed.
 * Okta won't publish additional metadata about the user until primary authentication has successfully completed.
 * Voice Call recovery factor must be enabled via the user's assigned password policy to use this operation.
 
@@ -5268,7 +5683,7 @@ Since the recovery email is distributed out-of-band and may be viewed on a diffe
 
 Note:
 
-* Primary authentication of a user's recovery credential (e.g `EMAIL` or `SMS`) has not yet completed.
+* Primary authentication of a user's recovery credential (e.g `EMAIL` or `SMS`) hasn't yet completed.
 * Okta will not publish additional metadata about the user until primary authentication has successfully completed.
 
 ##### Request Example for Email Factor
@@ -5305,7 +5720,7 @@ Starts a new unlock recovery transaction with a user identifier (`username`) and
 
 Note:
 
-* Primary authentication of a user's recovery credential (e.g email or SMS) has not yet completed.
+* Primary authentication of a user's recovery credential (e.g email or SMS) hasn't yet completed.
 * Okta won't publish additional metadata about the user until primary authentication has successfully completed.
 * SMS recovery factor must be enabled via the user's assigned password policy to use this operation.
 
@@ -5450,7 +5865,7 @@ Verifies a SMS OTP (`passCode`) sent to the user's mobile phone for primary auth
 
 | Parameter    | Description                                                  | Param Type | DataType | Required |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
-| stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token) for the current recovery transaction | Body       | String   | TRUE     |
 | passCode     | OTP sent to device                                           | Body       | String   | TRUE     |
 
 ##### Response Parameters for Verify SMS Recovery Factor
@@ -5458,7 +5873,7 @@ Verifies a SMS OTP (`passCode`) sent to the user's mobile phone for primary auth
 
 [Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction.
 
-If the `passCode` is invalid you will receive a `403 Forbidden` status code with the following error:
+If the `passCode` is invalid, you receive a `403 Forbidden` status code with the following error:
 
 ```json
 {
@@ -5546,7 +5961,7 @@ Resends a SMS OTP (`passCode`) to the user's mobile phone
 
 | Parameter    | Description                                                  | Param Type | DataType | Required |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
-| stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token) for the current recovery transaction | Body       | String   | TRUE     |
 
 #### Response Parameters for Resend SMS Recovery Challenge
 
@@ -5620,7 +6035,7 @@ Verifies a Voice Call OTP (`passCode`) sent to the user's device for primary aut
 
 | Parameter    | Description                                                  | Param Type | DataType | Required |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
-| stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token) for the current recovery transaction | Body       | String   | TRUE     |
 | passCode     | Passcode received via the voice call                         | Body       | String   | TRUE     |
 
 ##### Response Parameters for Verify Call Recovery Factor
@@ -5628,7 +6043,7 @@ Verifies a Voice Call OTP (`passCode`) sent to the user's device for primary aut
 
 [Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction.
 
-If the `passCode` is invalid you will receive a `403 Forbidden` status code with the following error:
+If the `passCode` is invalid, you receive a `403 Forbidden` status code with the following error:
 
 ```json
 {
@@ -5716,7 +6131,7 @@ Resends a Voice Call with OTP (`passCode`) to the user's phone
 
 | Parameter    | Description                                                  | Param Type | DataType | Required |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
-| stateToken   | [state token](#state-token) for current recovery transaction | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token) for the current recovery transaction | Body       | String   | TRUE     |
 
 #### Response Parameters for Resend Call Recovery Challenge
 
@@ -5883,7 +6298,7 @@ Answers the user's recovery question to ensure only the end user redeemed the [r
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | answer       | answer to user's recovery question                  | Body       | String   | TRUE     |
 
 ##### Response Parameters for Answer Recovery Question
@@ -5993,7 +6408,7 @@ Resets a user's password to complete a recovery transaction with a `PASSWORD_RES
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| stateToken   | [state token](#state-token) for current transaction | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | newPassword  | User's new password                                 | Body       | String   | TRUE     |
 
 ##### Response Parameters for Reset Password
