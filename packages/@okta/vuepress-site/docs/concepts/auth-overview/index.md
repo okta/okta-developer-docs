@@ -128,9 +128,9 @@ A client application is considered "public" when an end user could possibly view
 
 ###### Is your client a SPA or native?
 
-If your client application is a Single-Page Application (SPA) running in a modern browser that supports Web Crypto for PKCE, you should use the [Authorization Code Flow with PKCE flow](#authorization-code-with-pkce-flow). If your client application is a SPA that runs in older browsers that don't support Web Crypto for PKCE, then you should use the [Implicit flow](#implicit-flow).
+If your client application is a Single-Page Application (SPA) running in a modern browser that supports Web Crypto for PKCE, you should use the [Authorization Code Flow with PKCE](#authorization-code-flow-with-pkce). If your client application is a SPA that runs in older browsers that don't support Web Crypto for PKCE, then you should use the [Implicit flow](#implicit-flow).
 
-If your client application is a native application, you should use the [Authorization code with PKCE flow](#authorization-code-with-pkce-flow).
+If your client application is a native application, you should use the [Authorization Code Flow with PKCE](#authorization-code-flow-with-pkce).
 
 ##### Does the client have an end user?
 
@@ -170,7 +170,7 @@ app -> client: Response
 
 For information on how to set up your application to use this flow, see [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/).
 
-### Authorization Code with PKCE Flow
+### Authorization Code Flow with PKCE 
 
 For web/native/mobile applications, the client secret cannot be stored in the application because it could easily be exposed. Additionally, mobile redirects use `app://` protocols, which are prone to interception. Basically, a rogue application could intercept the authorization code as it is being passed through the mobile/native operating system. Therefore native apps should make use of Proof Key for Code Exchange (PKCE), which acts like a secret but isn't hard-coded, to keep the Authorization Code flow secure.
 
@@ -216,7 +216,7 @@ The Implicit flow is intended for applications where the confidentiality of the 
 
 > **Note:** Because it is intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
 
-> **Important:** For Single-Page Applications (SPA) running in modern browsers that support Web Crypto for PKCE, we recommend using the [Authorization Code Flow with PKCE](#authorization-code-with-pkce-flow) instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a working solution.
+> **Important:** For Single-Page Applications (SPA) running in modern browsers that support Web Crypto for PKCE, we recommend using the [Authorization Code Flow with PKCE](#authorization-code-flow-with-pkce) instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a working solution.
 
 ![Implicit Flow width:](/img/oauth_implicit_flow.png "Implicit Flow width:")
 
