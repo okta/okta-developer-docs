@@ -51,7 +51,7 @@ Access Policies can now be defined based on an IP address range. <!-- OKTA-12128
 
 #### Bring Your Own SAML Certificates
 
-Okta Admins can now upload their own SAML certificates to sign the assertion for Outbound SAML apps. These certificates can also be used to sign the AuthNRequest, as well as to decrypt the assertion for Inbound SAML. For more information, see [Bring Your Own SAML App Certificate](/docs/guides/byo-saml/).<!-- OKTA-119158 -->
+Okta Admins can now upload their own SAML certificates to sign the assertion for Outbound SAML apps. These certificates can also be used to sign the AuthNRequest, as well as to decrypt the assertion for Inbound SAML. For more information, see [Sign the Okta Certificate with your own CA](/docs/guides/sign-your-own-saml-csr/).<!-- OKTA-119158 -->
 
 #### Universal Directory for User Locale
 
