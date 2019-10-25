@@ -120,7 +120,7 @@ Any OAuth flow can give you an access token, but not all support ID tokens.
 
 The type of OAuth 2.0 flow depends on what kind of client that you are building. The flowchart below can quickly help you decide which flow to use. Further explanation about each is included below.
 
-![OAuth Flow Diagram width:](/img/oauth_grant_flowchart.png "OAuth Flow Diagram width:")
+![OAuth Flow Diagram width:](/img/oauth_grant_flowchart.png "Flowchart/decision tree for choosing the correct OAuht 2.0 flow")
 
 ##### Is your client public?
 
@@ -144,7 +144,7 @@ If you own both the client application and the resource that it is accessing, th
 
 The Authorization Code flow is best used by server-side apps where the source code is not publicly exposed. The apps should be server-side because the request that exchanges the authorization code for a token requires a client secret, which will have to be stored in your client. The server-side app requires an end user, however, because it relies on interaction with the end user's web browser which will redirect the user and then receive the authorization code.
 
-![Auth Code Flow width:](/img/oauth_auth_code_flow.png "Auth Code Flow width:")
+![Auth Code Flow width:](/img/oauth_auth_code_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code Flow")
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -170,7 +170,7 @@ app -> client: Response
 
 For information on how to set up your application to use this flow, see [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/).
 
-### Authorization Code Flow with PKCE 
+### Authorization Code Flow with PKCE
 
 For web/native/mobile applications, the client secret cannot be stored in the application because it could easily be exposed. Additionally, mobile redirects use `app://` protocols, which are prone to interception. Basically, a rogue application could intercept the authorization code as it is being passed through the mobile/native operating system. Therefore native apps should make use of Proof Key for Code Exchange (PKCE), which acts like a secret but isn't hard-coded, to keep the Authorization Code flow secure.
 
@@ -182,7 +182,7 @@ When the authorization code is sent in the access token request, the code verifi
 
 A rogue app could only intercept the authorization code, but it would not have access to the code challenge or verifier, since they are both sent over HTTPS.
 
-![Auth Code Flow with PKCE width:](/img/oauth_auth_code_flow_pkce.png "Auth Code Flow with PKCE width:")
+![Auth Code Flow with PKCE width:](/img/oauth_auth_code_flow_pkce.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code Flow with PKCE")
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -218,7 +218,7 @@ The Implicit flow is intended for applications where the confidentiality of the 
 
 > **Important:** For Single-Page Applications (SPA) running in modern browsers that support Web Crypto for PKCE, we recommend using the [Authorization Code Flow with PKCE](#authorization-code-flow-with-pkce) instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a working solution.
 
-![Implicit Flow width:](/img/oauth_implicit_flow.png "Implicit Flow width:")
+![Implicit Flow width:](/img/oauth_implicit_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Implicit Flow")
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -243,7 +243,7 @@ For information on how to set up your application to use this flow, see [Impleme
 
 The Resource Owner Password Flow is intended for use cases where you control both the client application and the resource that it is interacting with. It requires that the client can store a client secret and can be trusted with the resource owner's credentials, and so is most commonly found in clients made for online services, like the Facebook client applications that interact with the Facebook service. It doesn't require redirects like the Authorization Code or Implicit flows, and involves a single authenticated call to the `/token` endpoint.
 
-![Resource Owner Password Flow width:](/img/oauth_password_flow.png "Resource Owner Password Flow width:")
+![Resource Owner Password Flow width:](/img/oauth_password_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Resource Owner Password Flow")
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -270,7 +270,7 @@ The Client Credentials flow is intended for server-side (AKA "confidential") cli
 
 > **Note:** The Client Credentials Flow does not support refresh tokens.
 
-![Resource Owner Password Flow width:](/img/oauth_client_creds_flow.png "Resource Owner Password Flow width:")
+![Client Credentials Flow width:](/img/oauth_client_creds_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Client Credentials Flow")
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
