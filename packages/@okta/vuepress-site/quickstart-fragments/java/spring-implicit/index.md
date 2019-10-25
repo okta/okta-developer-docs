@@ -15,13 +15,13 @@ For Apache Maven:
 <dependency>
     <groupId>com.okta.spring</groupId>
     <artifactId>okta-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
 For Gradle:
 ```groovy
-compile 'com.okta.spring:okta-spring-boot-starter:1.0.0'
+compile 'com.okta.spring:okta-spring-boot-starter:1.3.0'
 ```
 
 ### Configure your properties
