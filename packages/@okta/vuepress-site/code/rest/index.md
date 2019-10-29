@@ -72,7 +72,7 @@ Now that you have a working collection, you can use the following tips to work m
 
 ### Find IDs for Okta API Requests
 
-Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `{{userId}}`.
+Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `{userId}`.
 Replace URL and body variables with the IDs of the resources you wish to specify.
 
 To find an ID:

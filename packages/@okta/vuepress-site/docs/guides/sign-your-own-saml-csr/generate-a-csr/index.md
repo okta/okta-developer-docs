@@ -9,9 +9,10 @@ You can generate a CSR and receive the response in either JSON or [PKCS#10](http
 
 The following request generates a CSR in JSON format to use with Outbound SAML apps.
 
-- For Inbound SAML, change the POST statement to `POST /api/v1/idps/00000id1U3iyFqLu0g4/credentials/csrs/`.
-- For PKCS#10 format, change the Accept statement to `Accept: application/pkcs10`. <br />*Accept* specifies the response format; *Content-Type* specifies the request format.
+* For Inbound SAML, change the POST statement to `POST /api/v1/idps/00000id1U3iyFqLu0g4/credentials/csrs/`.
 
+* For PKCS#10 format, change the Accept statement to `Accept: application/pkcs10`.<br />
+**Accept** specifies the response format, and **Content-Type** specifies the request format.
 
 ```json
 POST /api/v1/apps/00000id1U3iyFqLu0g4/credentials/csrs/

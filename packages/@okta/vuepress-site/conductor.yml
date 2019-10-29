@@ -41,7 +41,7 @@ redirects:
     to: /code/javascript/okta_auth_sdk_ref/index.html
   - from: /docs/guides/okta_sign-in_widget.html
     to: /code/javascript/okta_sign-in_widget/
-  - from: /code/javascript/okta_sign-in_widget_ref
+  - from: /code/javascript/okta_sign-in_widget_ref.html
     to: /code/javascript/okta_sign-in_widget/
   - from: /code/javascript/okta_sign-in_widget_ref/index.html
     to: /code/javascript/okta_sign-in_widget/
@@ -94,9 +94,9 @@ redirects:
   - from: /docs/api/rest/events.html
     to: /docs/reference/api/events/index.html
   - from: /docs/api/resources/factor_admin.html
-    to: /docs/reference/api/factor_admin/index.html
+    to: /docs/reference/api/factor-admin/index.html
   - from: /docs/api/resources/factor_admin/index.html
-    to: /docs/reference/api/factor_admin/index.html
+    to: /docs/reference/api/factor-admin/index.html
   - from: /docs/api/rest/factors.html
     to: /docs/reference/api/factors/index.html
   - from: /docs/api/rest/groups.html
@@ -494,7 +494,7 @@ redirects:
   - from: /docs/how-to/add-user-consent-to-flow/index.html
     to: /docs/guides/request-user-consent/
   - from: /docs/how-to/byo_saml/index.html
-    to: /docs/guides/byo-saml/
+    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/how-to/creating-token-with-groups-claim/index.html
     to: /docs/guides/create-token-with-groups-claim/
   - from: /docs/how-to/sharing-cert/index.html
@@ -656,7 +656,7 @@ redirects:
   - from: /docs/how-to/add-user-consent-to-flow
     to: /docs/guides/request-user-consent/
   - from: /docs/how-to/byo_saml
-    to: /docs/guides/byo-saml/
+    to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/how-to/creating-token-with-groups-claim
     to: /docs/guides/create-token-with-groups-claim/
   - from: /docs/how-to/sharing-cert
@@ -1548,7 +1548,7 @@ redirects:
   - from: /guides/validate-access-tokens/index.html
     to: /docs/guides/validate-access-tokens/
   - from: /docs/api/resources/factor_admin/index.html
-    to: /docs/reference/api/factor_admin/
+    to: /docs/reference/api/factor-admin/
   - from: /guides/validate-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide
@@ -1566,7 +1566,7 @@ redirects:
   - from: /docs/api/resources
     to: /docs/api/resources/
   - from: /docs/api/resources/factor_admin
-    to: /docs/api/resources/factor_admin/
+    to: /docs/api/resources/factor-admin/
   - from: /docs/reference/api
     to: /docs/reference/api/
   - from: /docs/reference/api-overview/getting_a_token
@@ -1715,3 +1715,27 @@ redirects:
     to: /docs/release-notes/
   - from: /docs/change-log
     to: /docs/release-notes/
+  - from: /code/javascript/oauth-clients
+    to: /docs/
+  - from: /docs/guides/byo_saml/index.html
+    to: /docs/guides/sign-your-own-saml-csr/
+  - from: /docs/guides/byo-saml/index.html
+    to: /docs/guides/sign-your-own-saml-csr/
+  - from: /docs/guides/byo-saml/overview/index.html
+    to: /docs/guides/sign-your-own-saml-csr/overview/
+  - from: /docs/guides/byo-saml/list-your-apps/index.html
+    to: /docs/guides/sign-your-own-saml-csr/list-your-apps/
+  - from: /docs/guides/byo-saml/generate-a-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/generate-a-csr/
+  - from: /docs/guides/byo-saml/sign-the-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/sign-the-csr/
+  - from: /docs/guides/byo-saml/publish-the-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/publish-the-csr/
+  - from: /docs/guides/byo-saml/update-the-key-credential/index.html
+    to: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/
+  - from: /docs/guides/byo-saml/clone-the-certificate/index.html
+    to: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
+  - from: /docs/guides/byo-saml/upload-the-certificate/index.html
+    to: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
+  - from: /docs/reference/api/factor_admin/index.html
+    to: /docs/reference/api/factor-admin/

@@ -1,7 +1,7 @@
 ---
-title: Inline Hooks
+title: Inline Hooks Management
 category: management
-excerpt: >-
+excerpt:
   The Inline Hooks Management API provides a CRUD interface for registering
   Inline Hook endpoints.
 ---

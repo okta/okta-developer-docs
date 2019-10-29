@@ -53,6 +53,7 @@ languages:
 
 sections:
   - title: Concepts
+    link: /docs/concepts/
     description: Understand the basics of Okta's APIs and architecture.
     links:
       - title: Okta-hosted flows
@@ -61,10 +62,8 @@ sections:
         link: /docs/concepts/inline-hooks/
       - title: Authentication overview
         link: /docs/concepts/authentication/
-      - title: SAML
-        link: /docs/concepts/saml/
-      - title: SCIM
-        link: /docs/concepts/oin-scim/
+      - title: More...
+        link: /docs/concepts/
 
   - title: Guides
     link: /docs/guides/

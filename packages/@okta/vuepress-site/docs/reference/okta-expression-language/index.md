@@ -66,7 +66,7 @@ Okta offers a variety of functions to manipulate attributes or properties to gen
 | --------                 | -------------------------                                     | ----------- | -------                                                                                                       | ------         |
 | `String.append`          | (String str, String suffix)                                   | String      | `String.append("This is", " a test")`                                                                         | This is a test |
 | `String.join`            | (String separator, String... strings)                         | String      | `String.join(",", "This", "is", "a", "test")`                                                                 | This,is,a,test |
-|                          |                                                               |             | `String.join(", "This", "is", "a", "test")`                                                                   | Thisisatest    |
+|                          |                                                               |             | `String.join("", "This", "is", "a", "test")`                                                                   | Thisisatest    |
 | `String.len`             | (String input)                                                | Integer     | `String.len("This")`                                                                                          | 4              |
 | `String.removeSpaces`    | (String input)                                                | String      | `String.removeSpaces("This is a test")`                                                                       | Thisisatest    |
 | `String.replace`         | (String input, match, replacement)                            | String      | `String.replace("This is a test", "is", "at")`                                                                | That at a test |
@@ -166,10 +166,10 @@ For an example using group functions and for more information on using group fun
 
 ### Linked Object Function
 
-Use this function to retrieve properties about the user identified with the specified `primary` relationship. You can optionally specify an app.
+Use this function to retrieve the user identified with the specified `primary` relationship. You can then access properties of that user.
 
-* Function: `user.getLinkedObject().$attribute`
-    * Parameters: (String primaryName, String userAttribute)
+* Function: `user.getLinkedObject($primaryName)`
+    * Parameter: (String primaryName)
     * Return Type: User
     * Example: `user.getLinkedObject("manager").lastName`
     * Example Result: `Gates`
