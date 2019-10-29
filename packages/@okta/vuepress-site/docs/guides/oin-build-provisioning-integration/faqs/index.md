@@ -143,7 +143,7 @@ Yes, you can republish your app, but we recommend you don't do it frequently. Yo
 ## Appendix: Using the Example SCIM Server
 
 Okta provides an [example SCIM Server](https://github.com/oktadeveloper/okta-scim-beta) written in
-Python, with [documentation](/docs/sdk/opp/javadoc/overview-summary.html).
+Python.
 
 This example SCIM server demonstrates how to implement a basic SCIM
 server that can create, read, update, and deactivate Okta users.
