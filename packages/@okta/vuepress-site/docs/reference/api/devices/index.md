@@ -7,6 +7,8 @@ category: management
 
 <ApiLifecycle access="ea" />
 
+%todo%
+
 The Okta Device API provides centralized integration platform to store and manage device information. Okta administrators can use these APIs to manage workforce identity Device object information.
 
 The Device API supports the following **Device Operations**:
@@ -22,14 +24,17 @@ Explore the Device API: [![Run in Postman](https://run.pstmn.io/button.svg)](htt
 
 ## Device Operations
 
-The Device API has the following operations:
+The Device API has the following Device CRUD operations:
 
-* [Get a Device](#get-a-device-by-id)
-* [List Devices](#list-devices)
 * [Create Device](#create-device)
+* [Get a Device](#get-a-device-by-id) todo CRUD order (here and below)
+* [List Devices](#list-devices)
 * [Update Device (Complete)](#update-device-complete)
 * [Update Device (Partial)](#update-device-partial)
 * [Delete Device](#delete-device)
+
+The following Device lifecycle operations:
+
 * [Activate Device](#activate-device)
 * [Deactivate Device](#deactivate-device)
 * [Suspend Device](#suspend-device)
@@ -37,25 +42,125 @@ The Device API has the following operations:
 
 And the following operations for Users and Devices:
 
-* [List Users Linked to a Device](#list-users-linked-to-a-device)
-* [Get a User Linked to a Device](#get-a-user-linked-to-a-device)
 * [Create a Device and User Link](#create-a-device-and-user-link)
+* [Get a User Linked to a Device](#get-a-user-linked-to-a-device)
+* [List Users Linked to a Device](#list-users-linked-to-a-device)
 * [Delete a Device and User Link](#delete-a-device-and-user-link)
 * [Delete All User Links of a Device](#delete-all-user-links-of-a-device)
+
+### Create Device
+
+<ApiOperation method="post" url="/api/v1/devices" />
+
+Creates a Device object. Device will be in `CREATED` status as a result of a successful operation. Device profile values provided in this operation will be set on the device.
+
+* Device profile attributes `displayName` and `platform` are mandatory for a Device and can't be set it to null/empty.
+* Device profile attributes should follow formats specified in [device profile properties](#profile-object).
+
+##### Request Path Parameters
+
+None
+
+##### Request Query Parameters
+
+None
+
+#### Request Body
+
+All properties that are passed to create a new Device object are found within its `profile` object.
+
+| Property               | Type   | Description |
+| ---------------------- | ------ | ----------- |
+| `profile.displayName`  | String | todo        |
+| `profile.serialNumber` | String | todo        |
+| `profile.platform`     | String | todo        |
+| `profile.udid`         | String | todo        |
+
+#### Response Body
+
+Returns a [Device](#device-model) containing device profile and all the relevant links populated. Populated links indicate allowed actions on the device in the current status.
+
+#### Usage Example
+
+##### Request
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "profile": {
+        "displayName": "Bob macbook",
+        "serialNumber": "C02VW2LFHTCS",
+        "platform": "MACOS",
+        "udid" : "36A56856-17A3-5BCA-8F62-ECBZX14EEE2D"
+    }
+}' "https://{yourOktaDomain}/api/v1/devices"
+```
+
+##### Response
+
+```json
+{
+    "id": "guo4agyzy9UVM6Vmr0g4",
+    "status": "CREATED",
+    "created": "2019-10-07T19:10:40.000Z",
+    "lastUpdated": "2019-10-07T19:10:40.000Z",
+    "profile": {
+        "displayName": "Bob macbook",
+        "platform": "MACOS",
+        "manufacturer": null,
+        "model": null,
+        "osVersion": null,
+        "serialNumber": "C02VW2LFHTCS",
+        "imei": null,
+        "meid": null,
+        "udid": "36A56856-17A3-5BCA-8F62-ECBZX14EEE2D",
+        "sid": null
+    },
+    "_links": {
+        "activate": {
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4agyzy9UVM6Vmr0g4/lifecycle/activate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4agyzy9UVM6Vmr0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PATCH",
+                    "PUT"
+                ]
+            }
+        },
+        "users": {
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4agyzy9UVM6Vmr0g4/users",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+```
 
 ### Get a Device by ID
 
 <ApiOperation method="get" url="/api/v1/devices/${deviceId}" />
 
-Fetches a Device by its `id`. If you don't know the device `id`, you can [List Devices](#list-devices).
-
-Populated links indicate allowed actions on the device in the current status.
+Fetches a Device by its `id`. If you don't know the `id`, you can [List Devices](#list-devices).
 
 ##### Request Path Parameters
 
-| Parameter   | Type   | Description                                                             |
-| ----------- | ------ | ----------------------------------------------------------------------- |
-| `deviceId`  | String | The `id` of [Device](#device-model) object                              |
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `deviceId` | String | The `id` of [Device object](#device-model) object |
 
 ##### Request Query Parameters
 
@@ -154,17 +259,13 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/devices" />
 
-Fetches a list of all Devices that are not `DELETED` for your org. Response will be paginated with maximum size of 200.
+Fetches a list of all Devices that are not `DELETED` for your org. Responses will be paginated with maximum size of 200.
 
-A subset of Devices can be returned that match a supported search criteria using `search` query parameter.
+A subset of Devices can be returned that match a supported search criteria using the `search` query parameter.
 
 Searches for devices based on the properties specified in the `search` parameter conforming SCIM filter specifications (case insensitive). This data will be eventually consistent. Different results are returned depending on specified queries in the request. Empty list will be returned if no objects match `search` request.
 
-> **Note:** Listing devices with `search` should not be used as a part of any critical flows, like authentication, updates etc. to prevent potential data loss. `search` results may not reflect latest information, as this endpoint uses a search index which may not be up to date with recent updates to the object.
-
-Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data, resulting in data loss.
-
-Use an `id` lookup for records that you update to ensure your results contain the latest data.
+> **Note:** Listing devices with `search` should not be used as a part of any critical flows, like authentication, updates etc. to prevent potential data loss. `search` results may not reflect latest information, as this endpoint uses a search index which may not be up to date with recent updates to the object. <br> Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data, resulting in data loss. <br> Use an `id` lookup for records that you update to ensure your results contain the latest data.
 
 This operation:
 
@@ -173,9 +274,7 @@ This operation:
 For example, `search=profile.displayName eq "Bob"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`.
 Examples use cURL-style escaping instead of URL encoding to make them easier to read.
 
-* Searches many properties:
-   - Any device profile property
-   - The top-level properties `id`, `status` and `lastUpdated`
+Searches include all Device profile properties, as well as the Device's `id`, `status` and `lastUpdated` properties.
 
 | Search Term Example                             | Description                                      |
 | :---------------------------------------------- | :----------------------------------------------- |
@@ -195,11 +294,11 @@ None
 | Parameter   | Type   | Description                                                                                                               |
 | ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
 | `search`    | String | Searches for devices with a supported [filtering](/docs/reference/api-overview/#filtering) expression for most properties |
-| `limit`     | Number | Specifies the number of results returned (maximum 200)                                                                    |
+| `limit`     | Number | Specifies the number of results returned (maximum `200`)                                                                    |
 | `after`     | String | Specifies the pagination cursor for the next page of devices                                                              |
 
-  * If you don't specify a value for `limit`, the maximum (200) is used as a default.
-  * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
+* If you don't specify a value for `limit`, the maximum (200) is used as a default.
+* Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
 
 #### Request Body
 
@@ -392,100 +491,7 @@ curl -v -X GET \
 ]
 ```
 
-### Create Device
 
-<ApiOperation method="post" url="/api/v1/devices" />
-
-Creates a Device object. Device will be in `CREATED` status as a result of a successful operation. Device profile values provided in this operation will be set on the device.
-
-* Device profile attributes `displayName` and `platform` are mandatory for a Device and can't be set it to null/empty.
-* Device profile attributes should follow formats specified in [device profile properties](#profile-object).
-
-##### Request Path Parameters
-
-None
-
-##### Request Query Parameters
-
-None
-
-#### Request Body
-
-[Device Profile Object](#profile-object)
-
-#### Response Body
-
-Returns a [Device](#device-model) containing device profile and all the relevant links populated. Populated links indicate allowed actions on the device in the current status.
-
-#### Usage Example
-
-##### Request
-
-```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
--d '{
-    "profile": {
-        "displayName": "Bob macbook",
-        "serialNumber": "C02VW2LFHTCS",
-        "platform": "MACOS",
-        "udid" : "36A56856-17A3-5BCA-8F62-ECBZX14EEE2D"
-    }
-}' "https://{yourOktaDomain}/api/v1/devices"
-```
-
-##### Response
-
-```json
-{
-    "id": "guo4agyzy9UVM6Vmr0g4",
-    "status": "CREATED",
-    "created": "2019-10-07T19:10:40.000Z",
-    "lastUpdated": "2019-10-07T19:10:40.000Z",
-    "profile": {
-        "displayName": "Bob macbook",
-        "platform": "MACOS",
-        "manufacturer": null,
-        "model": null,
-        "osVersion": null,
-        "serialNumber": "C02VW2LFHTCS",
-        "imei": null,
-        "meid": null,
-        "udid": "36A56856-17A3-5BCA-8F62-ECBZX14EEE2D",
-        "sid": null
-    },
-    "_links": {
-        "activate": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4agyzy9UVM6Vmr0g4/lifecycle/activate",
-            "hints": {
-                "allow": [
-                    "POST"
-                ]
-            }
-        },
-        "self": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4agyzy9UVM6Vmr0g4",
-            "hints": {
-                "allow": [
-                    "GET",
-                    "PATCH",
-                    "PUT"
-                ]
-            }
-        },
-        "users": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4agyzy9UVM6Vmr0g4/users",
-            "hints": {
-                "allow": [
-                    "GET"
-                ]
-            }
-        }
-    }
-}
-```
 
 ### Update Device (Complete)
 
@@ -493,7 +499,7 @@ curl -v -X POST \
 
 Updates a Device profile using strict-update semantics.
 
-All profile properties must be specified when updating a Device's profile with a `PUT` method. Any `profile` property not specified in the request is deleted.
+> **Note** `PUT` can't be used for partial updates. Unspecified properties values will be deleted. Partial updates can be accomplish using a [PATCH request](#update-device-partial)
 
 `PUT` operation also could be used to make `status` change on the Device object. Such status change could be done using same payload along with strict-update semantics of device profile. `status` is not affected if not part of the PUT request. All the device `status` changes are governed, as per [Device Lifecycle Operations](#lifecycle-operations)
 
@@ -501,7 +507,6 @@ All profile properties must be specified when updating a Device's profile with a
 * Device status attribute `status` cannot be updated to empty.
 * Device profile attributes should follow formats specified in [Device Profile Properties](#profile-object).
 
-> **Note** `PUT` can't be used for partial updates. Unspecified attribute values will be deleted. Partial updates can be accomplish using a [PATCH request](#update-device-partial)
 
 ##### Request Path Parameters
 
@@ -511,11 +516,15 @@ All profile properties must be specified when updating a Device's profile with a
 
 ##### Request Query Parameters
 
-None.
+None
 
 #### Request Body
 
-Update [request](#update-request)
+The following properties can be updated using a PUT request. Remember that unspecified properties values will be deleted.
+
+| Property   | Type   | Description                                                             |
+| ----------- | ------ | ----------------------------------------------------------------------- |
+| `todo`  | String |                              |
 
 #### Response Body
 
@@ -525,7 +534,7 @@ Updated [Device](#device-model)
 
 ##### Request
 
->**Note** This request would update the `status` to `SUSPENDED`, along with changes in the device `profile` properties. If you wish to simply update device `profile`, do not include `status` in the request.
+This request would update the `status` to `SUSPENDED`, along with updates to the Device's profile properties.
 
 ```bash
 curl -v -X PUT \
@@ -606,13 +615,14 @@ curl -v -X PUT \
 
 <ApiOperation method="patch" url="/api/v1/devices/${deviceId}" />
 
-Updates a Device's profile with partial update semantics. Device profile properties that are to be updated should be provided as an array of [JSON patch request](https://tools.ietf.org/html/rfc6902#section-3).
-API supports `add`, `replace` and `remove` operations.
+Updates a Device's profile with partial update semantics. Device profile properties that are to be updated should be provided as a [JSON patch request](https://tools.ietf.org/html/rfc6902#section-3).
+
+This endpoint supports the `add`, `replace` and `remove` PATCH operations.
 
 * Device profile attributes `displayName` and `platform` are mandatory for a Device and can't be set it to null/empty.
 * Device profile attributes should follow formats specified in [device profile properties](#profile-object).
-* API does *not* allow updating `status`.
-* API supports patch on a single object instance.
+* Using the PATCH method on this endpoint does not allow updating `status`.
+* API supports PATCH on a single object instance.
 
 > **Note:** Use the `PATCH` method to make a partial device profile updates.
 
@@ -628,7 +638,11 @@ None
 
 #### Request Body
 
-Array of [JSON patch request](https://tools.ietf.org/html/rfc6902#section-3)
+A [JSON patch request](https://tools.ietf.org/html/rfc6902#section-3) can be sent for the following properties:
+
+| Property   | Type   | Description                                                             |
+| ----------- | ------ | ----------------------------------------------------------------------- |
+| `todo`  | String |                              |
 
 #### Response Body
 
@@ -712,8 +726,8 @@ curl -v -X PATCH \
 <ApiOperation method="delete" url="/api/v1/devices/${deviceId}" />
 
 Permanantly deletes a Device that is in `DEACTIVATED` status. Device could be transitioned to `DEACTIVATED` status using [deactivate](#deactivate-device) API.
-This deletion is destructive and would delete all the profile data related to
-the device. Once deleted, device data can't be recovered. Device that is not in `DEACTIVATED` status will raise an error if delete operation is attempted.
+
+This deletion is destructive and would delete all the profile data related to the device. Once deleted, device data can't be recovered. A Device that is not in `DEACTIVATED` status will raise an error if Delete operation is attempted.
 
 ##### Request Path Parameters
 
@@ -1832,21 +1846,6 @@ curl -v -X GET \
             }
         }
     }
-}
-```
-
-### Update request
-
-Request to the [update Device (Complete)](#update-device-complete) consists of payload with (or without) `status` and [device profile](#profile-object) `profile`.
-```json
-{
-  "status" : "SUSPENDED",
-  "profile": {
-      "displayName": "John Device",
-      "platform" : "MACOS",
-      "manufacturer": "Apple Inc",
-      "model": "Macbook Pro 15"
-  }
 }
 ```
 
