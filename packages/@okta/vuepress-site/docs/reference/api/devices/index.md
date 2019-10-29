@@ -7,14 +7,14 @@ category: management
 
 <ApiLifecycle access="ea" />
 
-The Okta Device API provides centralized integration platform to store and manage device information. Okta administrators can use these APIs to manage workfoce identity device object information.
+The Okta Device API provides centralized integration platform to store and manage device information. Okta administrators can use these APIs to manage workforce identity Device object information.
 
 The Device API supports the following **Device Operations**:
-* Get, Create, Update, Delete device objects.
-* Perform lifecycle transitions on the device objects.
+* Get, Create, Update, Delete Device objects.
+* Perform lifecycle transitions on the Device objects.
 * Link devices to the users and manage these links.
 
-> **Note** Important information on administrator operations is availale on this page: [Administer Devices Inventory](https://okta.com)
+> **Note** Important information on administrator operations is available on this page: [Administer Devices Inventory](https://okta.com)
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ Explore the Device API: [![Run in Postman](https://run.pstmn.io/button.svg)](htt
 
 ## Device Operations
 
-##### The Device API has the following operations:
+The Device API has the following operations:
 
 * [Get a Device](#get-a-device-by-id)
 * [List Devices](#list-devices)
@@ -30,15 +30,12 @@ Explore the Device API: [![Run in Postman](https://run.pstmn.io/button.svg)](htt
 * [Update Device (Complete)](#update-device-complete)
 * [Update Device (Partial)](#update-device-partial)
 * [Delete Device](#delete-device)
+* [Activate Device](#activate-device)
+* [Deactivate Device](#deactivate-device)
+* [Suspend Device](#suspend-device)
+* [Unsuspend Device](#unsuspend-device)
 
-##### Device lifecycle operation
-
-* [Activate](#activate-device)
-* [Deactivate](#deactivate-device)
-* [Suspend](#suspend-device)
-* [Unsuspend](#unsuspend-device)
-
-##### Device User link operations
+And the following operations for Users and Devices:
 
 * [List Users Linked to a Device](#list-users-linked-to-a-device)
 * [Get a User Linked to a Device](#get-a-user-linked-to-a-device)
@@ -64,19 +61,19 @@ Populated links indicate allowed actions on the device in the current status.
 
 None
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 The requested [Device](#device-model).
 
-##### Usage Example
+#### Usage Example
 
 This request fetches a Device object with an `id` value `ftrZooGoT8b41iWRiQs7`:
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X GET \
@@ -86,7 +83,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4"
 ```
 
-###### Response
+##### Response
 
 ```json
 {
@@ -157,16 +154,17 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/devices" />
 
-Fetches a list of all devices that are not `DELETED` for your org. Response will be paginated with maximum size of 200 devices.
+Fetches a list of all Devices that are not `DELETED` for your org. Response will be paginated with maximum size of 200.
 
-A subset of devices can be returned that match a supported search criteria using `search` query parameter.
+A subset of Devices can be returned that match a supported search criteria using `search` query parameter.
 
 Searches for devices based on the properties specified in the `search` parameter conforming SCIM filter specifications (case insensitive). This data will be eventually consistent. Different results are returned depending on specified queries in the request. Empty list will be returned if no objects match `search` request.
 
 > **Note:** Listing devices with `search` should not be used as a part of any critical flows, like authentication, updates etc. to prevent potential data loss. `search` results may not reflect latest information, as this endpoint uses a search index which may not be up to date with recent updates to the object.
 
-Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data (data loss).
-Use an ID lookup for records that you update to ensure your results contain the latest data.
+Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data, resulting in data loss.
+
+Use an `id` lookup for records that you update to ensure your results contain the latest data.
 
 This operation:
 
@@ -181,24 +179,12 @@ Examples use cURL-style escaping instead of URL encoding to make them easier to 
 
 | Search Term Example                             | Description                                      |
 | :---------------------------------------------- | :----------------------------------------------- |
-| `status eq "ACTIVE"`                            | devices that have a `status` of `ACTIVE`         |
-| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | devices last updated after a specific timestamp  |
-| `id eq "guo4a5u7JHHhjXrMK0g4"`                  | devices with a specified `id`                    |
-| `profile.displayName eq "Bob"`                  | devices that have a `displayName` of `Bob`       |
-| `profile.platform eq "WINDOWS"`                 | devices that have an `platform` of `WINDOWS`     |
-| `profile.sid sw "S-1" `                         | devices whose `sid` starts with `S-1`            |
-
-List devices with a platform of `MACOS`
-
-```
-search=profile.platform eq "MACOS"
-```
-
-List devices with displayName starting with of `Eng-dev` that were created before `01/01/2014` or have a status of `ACTIVE`.
-
-```
-search=profile.displayName sw "Eng-dev" and (created lt "2014-01-01T00:00:00.000Z" or status eq "ACTIVE")
-```
+| `status eq "ACTIVE"`                            | Devices that have a `status` of `ACTIVE`         |
+| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Devices last updated after a specific timestamp  |
+| `id eq "guo4a5u7JHHhjXrMK0g4"`                  | Devices with a specified `id`                    |
+| `profile.displayName eq "Bob"`                  | Devices that have a `displayName` of `Bob`       |
+| `profile.platform eq "WINDOWS"`                 | Devices that have an `platform` of `WINDOWS`     |
+| `profile.sid sw "S-1" `                         | Devices whose `sid` starts with `S-1`            |
 
 ##### Request Path Parameters
 
@@ -215,17 +201,17 @@ None
   * If you don't specify a value for `limit`, the maximum (200) is used as a default.
   * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 Array of [Device](#device-model) objects.
 
-##### Usage Example
+#### Usage Example (List all Devices)
 
-###### Request
+##### Request
 
 The following request returns a list of all available devices, without any query parameters. Returns a list of all devices that are not `DELETED`, up to the maximum (200). This data is always consistent with the latest states of the devices.
 
@@ -237,7 +223,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/devices"
 ```
 
-###### Response
+##### Response
 
 ```json
 HTTP/1.1 200 OK
@@ -341,7 +327,9 @@ Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=
 ]
 ```
 
-###### Request (`search`)
+#### Usage Example (Search)
+
+##### Request
 
 ```bash
 curl -v -X GET \
@@ -351,7 +339,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+\"Eng-dev\"+and+status+eq+\"ACTIVE\""
 ```
 
-###### Response
+##### Response
 
 ```json
 [
@@ -410,8 +398,8 @@ curl -v -X GET \
 
 Creates a Device object. Device will be in `CREATED` status as a result of a successful operation. Device profile values provided in this operation will be set on the device.
 
-* Device profile attributes `displayName` and `platform` are mandatory for a Device and can't be set it to null/empty. 
-* Device profile attibutes should follow formats specified in [device profile properties](#profile-object).
+* Device profile attributes `displayName` and `platform` are mandatory for a Device and can't be set it to null/empty.
+* Device profile attributes should follow formats specified in [device profile properties](#profile-object).
 
 ##### Request Path Parameters
 
@@ -421,17 +409,17 @@ None
 
 None
 
-##### Request Body
+#### Request Body
 
 [Device Profile Object](#profile-object)
 
-##### Response Body
+#### Response Body
 
 Returns a [Device](#device-model) containing device profile and all the relevant links populated. Populated links indicate allowed actions on the device in the current status.
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X POST \
@@ -448,7 +436,7 @@ curl -v -X POST \
 }' "https://{yourOktaDomain}/api/v1/devices"
 ```
 
-###### Response
+##### Response
 
 ```json
 {
@@ -505,40 +493,37 @@ curl -v -X POST \
 
 Updates a Device profile using strict-update semantics.
 
-All profile properties must be specified when updating a Device's profile with a `PUT` method. Any `profile` property not specified
-in the request is deleted. 
+All profile properties must be specified when updating a Device's profile with a `PUT` method. Any `profile` property not specified in the request is deleted.
 
-`PUT` operation also could be used to make `status` change on the device object. Such status change could be done using
-same payload along with strict-update semantics of device profile. `status` is not affected if not part of the PUT request. All the device `status` changes are goverened, as per
-[device lifecycle operations](#lifecycle-operations)
+`PUT` operation also could be used to make `status` change on the Device object. Such status change could be done using same payload along with strict-update semantics of device profile. `status` is not affected if not part of the PUT request. All the device `status` changes are governed, as per [Device Lifecycle Operations](#lifecycle-operations)
 
 * Device profile attributes `displayName` and `platform` are mandatory for a Device and can't be set to null/empty.
-* Device status attribute `status` can not be updated to empty.
-* Device profile attibutes should follow formats specified in [device profile properties](#profile-object).
+* Device status attribute `status` cannot be updated to empty.
+* Device profile attributes should follow formats specified in [Device Profile Properties](#profile-object).
 
->**Note** `PUT` can't be used for partial updates. Unspecified attribute values will be deleted.
+> **Note** `PUT` can't be used for partial updates. Unspecified attribute values will be deleted. Partial updates can be accomplish using a [PATCH request](#update-device-partial)
 
 ##### Request Path Parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
-| `deviceId`  | String | The `id` of [Device](#device-model) object                              |
+| `deviceId`  | String | The `id` of the [Device](#device-model) object                              |
 
 ##### Request Query Parameters
 
 None.
 
-##### Request Body
+#### Request Body
 
 Update [request](#update-request)
 
-##### Response Body
+#### Response Body
 
 Updated [Device](#device-model)
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 >**Note** This request would update the `status` to `SUSPENDED`, along with changes in the device `profile` properties. If you wish to simply update device `profile`, do not include `status` in the request.
 
@@ -558,7 +543,7 @@ curl -v -X PUT \
 }' "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4"
 ```
 
-###### Response
+##### Response
 
 ```json
 {
@@ -625,7 +610,7 @@ Updates a Device's profile with partial update semantics. Device profile propert
 API supports `add`, `replace` and `remove` operations.
 
 * Device profile attributes `displayName` and `platform` are mandatory for a Device and can't be set it to null/empty.
-* Device profile attibutes should follow formats specified in [device profile properties](#profile-object).
+* Device profile attributes should follow formats specified in [device profile properties](#profile-object).
 * API does *not* allow updating `status`.
 * API supports patch on a single object instance.
 
@@ -641,17 +626,17 @@ API supports `add`, `replace` and `remove` operations.
 
 None
 
-##### Request Body
+#### Request Body
 
 Array of [JSON patch request](https://tools.ietf.org/html/rfc6902#section-3)
 
-##### Response Body
+#### Response Body
 
 Updated [Device](#device-model)
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X PATCH \
@@ -671,7 +656,7 @@ curl -v -X PATCH \
 ]' "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4"
 ```
 
-###### Response
+##### Response
 
 ```json
 {
@@ -726,7 +711,7 @@ curl -v -X PATCH \
 
 <ApiOperation method="delete" url="/api/v1/devices/${deviceId}" />
 
-Permanantly deletes a Device that is in `DEACTIVATED` status. Device could be transitioned to `DEACTIVATED` status using [deactivate](#deactivate-device) API. 
+Permanantly deletes a Device that is in `DEACTIVATED` status. Device could be transitioned to `DEACTIVATED` status using [deactivate](#deactivate-device) API.
 This deletion is destructive and would delete all the profile data related to
 the device. Once deleted, device data can't be recovered. Device that is not in `DEACTIVATED` status will raise an error if delete operation is attempted.
 
@@ -740,19 +725,19 @@ the device. Once deleted, device data can't be recovered. Device that is not in 
 
 None
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 None
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X DELETE \
@@ -760,7 +745,7 @@ curl -v -X DELETE \
 
 ```
 
-###### Response
+##### Response
 
 ```http
 HTTP/1.1 204 OK
@@ -799,17 +784,17 @@ This operation could also be accomplished using [update device with PUT](#update
 
 None
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 None
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X POST \
@@ -819,7 +804,7 @@ curl -v -X POST \
 "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/activate"
 ```
 
-###### Response
+##### Response
 
 ```http
 HTTP/1.1 204 OK
@@ -836,7 +821,7 @@ Content-Type: application/json
 
 Deactivates a Device
 
-An `ACTIVE` or a `SUSPENDED` device could be `DEACTIVATED`. As a result of deactivation, device loses device user links. Device should be in `DEACTIVATED` status before it could be [deleted](#delete-device). 
+An `ACTIVE` or a `SUSPENDED` device could be `DEACTIVATED`. As a result of deactivation, device loses device user links. Device should be in `DEACTIVATED` status before it could be [deleted](#delete-device).
 
 Dectivated devices:
 
@@ -859,17 +844,17 @@ This operation could also be accomplished using [update device with PUT](#update
 
 None
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 None
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X POST \
@@ -879,7 +864,7 @@ curl -v -X POST \
 "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/deactivate"
 ```
 
-###### Response
+##### Response
 
 ```http
 HTTP/1.1 204 OK
@@ -915,17 +900,17 @@ This operation could also be accomplished using [update device with PUT](#update
 
 None
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 None
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X POST \
@@ -935,7 +920,7 @@ curl -v -X POST \
 "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/suspend"
 ```
 
-###### Response
+##### Response
 
 ```http
 HTTP/1.1 204 OK
@@ -964,19 +949,19 @@ This operation can only be performed on a Device that is in `SUSPENDED` status.
 
 None
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 None
 
 This operation could also be accomplished using [update device with PUT](#update-device-with-put)
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X POST \
@@ -986,7 +971,7 @@ curl -v -X POST \
 "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/unsuspend"
 ```
 
-###### Response
+##### Response
 
 ```http
 HTTP/1.1 204 OK
@@ -1012,7 +997,7 @@ Please refer [Device User operations](/docs/reference/api/users/#device-user-lin
 
 <ApiOperation method="get" url="/api/v1/devices/${deviceId}/users" />
 
-Gets a list of users linked to a Device. 
+Gets a list of users linked to a Device.
 
 ##### Request Path Parameters
 
@@ -1024,17 +1009,17 @@ Gets a list of users linked to a Device.
 
 None
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 Array of [User](/docs/reference/api/users/#user-model)
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X GET \
@@ -1044,7 +1029,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/users"
 ```
 
-###### Response
+##### Response
 
 ```json
 [
@@ -1202,7 +1187,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/devices/${deviceId}/users/${userId}" />
 
-Gets a user linked to a Device. 
+Gets a user linked to a Device.
 
 ##### Request Path Parameters
 
@@ -1215,15 +1200,15 @@ Gets a user linked to a Device.
 
 None
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 The linked [User](/docs/reference/api/users/#user-model)
 
-##### Usage Example
+#### Usage Example
 
 ##### Request
 
@@ -1332,17 +1317,17 @@ Creates a Device and User link. Device and User link creation is permitted if De
 
 None
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 The linked [User](/docs/reference/api/users/#user-model) to the Device.
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X PUT \
@@ -1352,7 +1337,7 @@ curl -v -X PUT \
 "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/users/00u22su1vjcpCaKhV0w4"
 ```
 
-###### Response
+##### Response
 
 ```json
  {
@@ -1451,17 +1436,17 @@ Deletes a Device and User link. Similar to [Delete a User and Device Link](/docs
 
 None
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 None
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X DELETE \
@@ -1471,7 +1456,7 @@ curl -v -X DELETE \
 "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/users/00u22su1vjcpCaKhV0w4"
 ```
 
-###### Response
+##### Response
 
 ```http
 HTTP/1.1 204 OK
@@ -1487,7 +1472,7 @@ Content-Type: application/json
 
 <ApiOperation method="delete" url="/api/v1/devices/${deviceId}/users" />
 
-Deletes all Device and User links for the given device. 
+Deletes all Device and User links for the given device.
 
 ##### Request Path Parameters
 
@@ -1499,17 +1484,17 @@ Deletes all Device and User links for the given device.
 
 None
 
-##### Request Body
+#### Request Body
 
 None
 
-##### Response Body
+#### Response Body
 
 None
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X DELETE \
@@ -1519,7 +1504,7 @@ curl -v -X DELETE \
 "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/users"
 ```
 
-###### Response
+##### Response
 
 ```http
 HTTP/1.1 204 OK
@@ -1536,7 +1521,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/device/default" />
 
-Fetches a Device schema from Okta service. API clients can use this schema to validate device object.
+Fetches a Device schema from Okta service. API clients can use this schema to validate Device object.
 
 ##### Request Path Parameters
 
@@ -1546,9 +1531,9 @@ None
 
 None
 
-##### Usage Example
+#### Usage Example
 
-###### Request
+##### Request
 
 ```bash
 curl -v -X GET \
@@ -1558,7 +1543,7 @@ curl -v -X GET \
 "https://{yourOktaDomain}/api/v1/meta/schemas/device/default"
 ```
 
-###### Response
+##### Response
 
 ```json
 {
@@ -1576,7 +1561,7 @@ curl -v -X GET \
 
          }
       },
-      "base":{ 
+      "base":{
          "id":"#base",
          "type":"object",
          "properties":{
