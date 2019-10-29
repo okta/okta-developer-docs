@@ -18,6 +18,6 @@ In order to allow customers to use your SCIM provisioning integration with Okta,
 4. Publish to Okta Integration Network (OIN) in Partner-Built EA
 5. Become Okta-Verified in the OIN
 
-Need help? View the [FAQs](faqs/), post a question on the Developer Forum or email us at developers@okta.com
+Need help? View the <GuideLink link="../faqs">FAQ section</GuideLink>, post a question on the Developer Forum or email us at developers@okta.com
 
 <NextSectionLink/>
