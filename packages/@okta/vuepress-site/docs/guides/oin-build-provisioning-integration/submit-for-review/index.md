@@ -31,7 +31,7 @@ Check your Profile Attributes as follows:
   * The "Description"
   * In the "Attributes" section, remove all attributes that are not supported by your application.
 
-  > **Note:** This is an important step! Your users will get confused if your application appears to support attributes that are not supported by your SCIM API.
+    This is an important step! Your users will get confused if your application appears to support attributes that are not supported by your SCIM API.
 
     You can delete an attribute by selecting it, then clicking the "Delete" button located in right hand attribute details pane. Before removing, check the mapping between Okta and Application and **remove the mappings** for the attribute(s) to be deleted.
 

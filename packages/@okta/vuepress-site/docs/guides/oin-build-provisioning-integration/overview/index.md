@@ -8,8 +8,7 @@ While many ISVs use proprietary APIs, Okta recommends that you implement your AP
 
 For details on how to integrate your application with SCIM, go to Okta’s [SCIM Provisioning Developer Program](/docs/concepts/oin-scim/) for additional guidance. Once you are ready you can submit your app by following the steps below.
 
-## Publishing Your SCIM-Based Provisioning Integration
-
+Publishing Your SCIM-Based Provisioning Integration
 In order to allow customers to use your SCIM provisioning integration with Okta, you’ll need to get your app published in the Okta Integration Network.
 
 1. Review Okta’s SCIM docs and prepare your app
