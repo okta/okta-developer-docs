@@ -725,7 +725,7 @@ curl -v -X PATCH \
 
 <ApiOperation method="delete" url="/api/v1/devices/${deviceId}" />
 
-Permanantly deletes a Device that is in `DEACTIVATED` status. Device could be transitioned to `DEACTIVATED` status using [deactivate](#deactivate-device) API.
+Permanantly deletes a Device that is in `DEACTIVATED` status. The Device can be transitioned to `DEACTIVATED` status using [deactivate](#deactivate-device) API.
 
 This deletion is destructive and would delete all the profile data related to the device. Once deleted, device data can't be recovered. A Device that is not in `DEACTIVATED` status will raise an error if Delete operation is attempted.
 
@@ -747,7 +747,7 @@ None
 
 None
 
-* Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
+
 
 #### Usage Example
 
@@ -756,7 +756,6 @@ None
 ```bash
 curl -v -X DELETE \
 -H "Authorization: SSWS ${api_token}" "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4"
-
 ```
 
 ##### Response
@@ -766,27 +765,36 @@ HTTP/1.1 204 OK
 Content-Type: application/json
 ```
 
+##### Error Response
+
+Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
+
 ## Lifecycle Operations
 
 Device Lifecycle operations are idempotent operations that make a Device lifecycle transition. These are synchronous calls.
-Device object follows a predefinied [lifecycle transtion status diagram](#device-status). The device's current status limits which status it could transition to.
-For example, device can be [Unsuspended](#unsuspend-device) only when it's in suspended status
+
+* [Activate Device](#activate-device)
+* [Deactivate Device](#deactivate-device)
+* [Suspend Device](#suspend-device)
+* [Unsuspend Device](#unsuspend-device)
+
+The Device object follows a predefined lifecycle transition flow. The Device's current `status` limits which status it could transition to.
+
+![Device lifecycle flow](/img/okta-device-status.png "Device lifecycle flow")
+
+For example, a Device's `status` can be set to `UNSUSPENDED` only when its status is `SUSPENDED`.
 
 ### Activate Device
 
 <ApiOperation method="post" url="/api/v1/devices/${deviceId}/lifecycle/activate" />
 
-Activates a Device
-
-This operation could be performed on the device with `CREATED`, `DEACTIVATED` status.
-Device in `ACTIVE` status could be used to create or delete a link between device and user.
+Sets a Device's `status` to `ACTIVE`.
 
 Activated devices:
 
-* Can be used to create and delete device user links.
-* Can only be [suspended](#suspend-device) or [deactivated](#deactivate-device).
+* Can be used to create and delete Device User links.
 
-This operation could also be accomplished using [update device with PUT](#update-device-with-put)
+This operation could also be accomplished using [update device with PUT](#update-device-with-put).
 
 ##### Request Path Parameters
 
@@ -833,18 +841,9 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/devices/${deviceId}/lifecycle/deactivate" />
 
-Deactivates a Device
+Sets a Device's `status` to `DEACTIVATED`. Deactivation will cause a Device to lose device user links. A Device should be in `DEACTIVATED` status before it can be [deleted](#delete-device).
 
-An `ACTIVE` or a `SUSPENDED` device could be `DEACTIVATED`. As a result of deactivation, device loses device user links. Device should be in `DEACTIVATED` status before it could be [deleted](#delete-device).
-
-Dectivated devices:
-
-* Lose existing device user links.
-* Can't be used to create device user links.
-* Can be [activated](#activate-device).
-* Can be [deleted](#delete-device).
-
-> Important: Deactivating a Device is a **destructive** operation.  Device loses all the device user links.  **This action cannot be recovered.**
+> Important: Deactivating a Device is a **destructive** operation.  The Device loses all the Device User links.  This action cannot be recovered.
 
 This operation could also be accomplished using [update device with PUT](#update-device-with-put)
 
@@ -1861,12 +1860,6 @@ The device model defines several read-only properties:
 | `lastUpdated`           | String                                    | Timestamp when device was last updated                                                               |
 | `profile`               | [Profile Object](#profile-object)         | Device profile properties                                                                            |
 | `_links`                | [Link](#devices-object-link-attributes)   | Allowed operations for the device                                                                    |
-
-### Device Status
-
-The following diagram shows the status model for a Device:
-
-![CREATED, ACTIVE, SUSPENDED or DEACTIVATED](/img/okta-device-status.png "CREATED, ACTIVE, SUSPENDED or DEACTIVATED")
 
 ### Profile Object
 
