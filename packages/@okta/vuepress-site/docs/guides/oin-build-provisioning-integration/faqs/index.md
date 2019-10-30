@@ -46,7 +46,7 @@ title: Frequently Asked Questions (Provisioning)
 
 Unfortunately, your app's SCIM server API must be fully SCIM compliant in order to integrate with Okta.
 Okta's SCIM client endpoints are hard coded into a template which adhere directly to [the SCIM spec](http://www.simplecloud.info/).
-Not all capabilities of the SCIM spec need to be supported (see [Required SCIM Server Capabilities](#required-scim-server-capabilities) in our SCIM Technical Reference) but the core schema and features do need to be supported.
+Not all capabilities of the SCIM spec need to be supported (see [Required SCIM Server Capabilities](/docs/concepts/oin-scim/#required-scim-server-capabilities/) in our SCIM Technical Reference) but the core schema and features do need to be supported.
 
 **SCIM is a new standard. How broadly is it being adopted by cloud app vendors and how confident can I be in the SCIM standard's long-term viability?**
 
@@ -54,8 +54,7 @@ Okta has seen significant SCIM momentum in the market amongst our network of app
 Hot new apps like [Slack](https://api.slack.com/scim)
 and [Lucidchart](https://www.lucidchart.com/techblog/2016/08/04/an-implementers-overview-managing-cloud-identity-with-scim/)
 are supporting SCIM as well established software companies
-like [Huddle](https://github.com/Huddle/huddle-apis/wiki/Integrating%20with%20SCIM)
-and [Citrix](https://developer.citrixonline.com/implementing-scim-apis).
+like [Huddle](https://github.com/Huddle/huddle-apis/wiki/Integrating%20with%20SCIM).
 Okta has doubled down on our investment in our SCIM server
 and launched our own SCIM provisioning developer program.
 The SCIM standards is strong and is run by Salesforce, Google, and Sailpoint (Okta is also a contributor).
@@ -130,7 +129,7 @@ Yes, you can republish your app, but we recommend you don't do it frequently. Yo
 
 [SCIM Overview](https://www.lucidchart.com/techblog/2016/08/04/an-implementers-overview-managing-cloud-identity-with-scim/)
 
-[Okta End-User Management](https://help.okta.com/en/prod/Content/Topics/Directory/Directory_People.htm)
+[Okta End-User Management](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_People)
 
 [Okta Provisioning Basics](https://help.okta.com/en/prod/Content/Topics/Apps/Provisioning_Deprovisioning_Overview.htm)
 
@@ -148,7 +147,7 @@ Python.
 This example SCIM server demonstrates how to implement a basic SCIM
 server that can create, read, update, and deactivate Okta users.
 
-You can find the sample code to handle HTTP requests to this sample application in [Required SCIM Server Capabilities](#required-scim-server-capabilities)
+You can find the sample code to handle HTTP requests to this sample application in [Required SCIM Server Capabilities](/docs/concepts/oin-scim/#required-scim-server-capabilities/)
 Use the instructions that follow to set up and run the example SCIM server.
 
 ### How to run
