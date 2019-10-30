@@ -16,5 +16,5 @@ Error messages returned by the `/types/user` [API](/docs/reference/api/user-type
 ### Bugs Fixed in 2019.10.2
 
 * A `SameSite=None` attribute sent by Okta caused a bug in cross-site handling of cookies in Chrome on iOS 12.* or earlier. (OKTA-254174)
-* In the `/features` [API](/docs/reference/api/features/), when using `mode=force` to enable a feature and its dependencies, email notification was not sent to admins for Beta dependencies that were enabled. (OKTA-249644)
+* In the `/features` [API](/docs/reference/api/features/), when using `mode=force` to enable a feature and its dependencies, email notifications were not sent to admins for Beta dependencies that were enabled. (OKTA-249644)
 * The length of EL expressions that you could specify for [OAuth 2.0 claim values](/docs/reference/api/authorization-servers/#claim-operations) was previously limited to a shorter length but has now been increased to 1024 characters. (OKTA-237675)
