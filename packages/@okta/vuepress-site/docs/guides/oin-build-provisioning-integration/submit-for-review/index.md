@@ -76,7 +76,7 @@ If you are already familiar with Runscope, then import the [OKTA SCIM 2.0 CRUD](
 
 * [Okta SCIM 2.0 CRUD Test JSON](/standards/SCIM/SCIMFiles/Okta-SCIM-CRUD-Test.json)
 
-If you are not familiar with Runscope, follow [the detailed instructions](#set-up-runscope) to get started with using Runscope to test your SCIM server.
+If you are not familiar with Runscope, follow <GuideLink link=“../test-scim-server#set-up-runscope”>the detailed instructions</GuideLink> to get started with using Runscope to test your SCIM server.
 
 #### Prepare the Customer-Facing Configuration Guide
 
