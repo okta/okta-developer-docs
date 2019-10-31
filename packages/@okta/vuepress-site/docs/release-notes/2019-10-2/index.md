@@ -6,8 +6,8 @@ title: Okta API Products Release Notes
 
 | Change                                                              | Expected in Preview Orgs |
 |---------------------------------------------------------------------|--------------------------|
-| [User Types Error Message Change](#user-types-error-message-change) | October 30, 2019         |
-| [Bugs Fixed in 2019.10.2](#bugs-fixed-in-2019-10-2)                 | October 30, 2019         |
+| [User Types Error Message Change](#user-types-error-message-change) | October 31, 2019         |
+| [Bugs Fixed in 2019.10.2](#bugs-fixed-in-2019-10-2)                 | October 31, 2019         |
 
 ### User Types Error Message Change
 
