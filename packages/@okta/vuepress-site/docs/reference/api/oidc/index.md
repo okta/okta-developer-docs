@@ -137,9 +137,7 @@ Use the `postMessage()` data model to help you when working with the `okta_post_
 | id_token            | An [ID token](#id-token). This is returned if the `response_type` included `id_token`.        | String   |
 | state               | The unmodified `state` value from the request.                                                | String   |
 
-`targetOrigin`:
-
-Specifies what the origin of `parentWindow` must be for the `postMessage()` event to be dispatched (this is enforced by the browser). The `okta-post-message` response mode always uses the origin from the `redirect_uri` specified by the client. This is crucial to prevent the sensitive token data from being exposed to a malicious site.
+> **Note:** The value of the `targetOrigin` parameter for `postMessage()` specifies what the origin of `parentWindow` must be for the event to be dispatched (this is enforced by the browser). The `okta-post-message` response mode always uses the origin from the `redirect_uri` specified by the client. This is crucial to prevent the sensitive token data from being exposed to a malicious site.
 
 #### Response properties
 Irrespective of the response type, the contents of the response are as described in the table.
