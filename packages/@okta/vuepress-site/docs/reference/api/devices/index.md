@@ -1795,9 +1795,25 @@ curl -v -X GET \
    }
 }
 ```
-## Model
 
-### Device Model
+## Devices API Objects
+
+### Device Object
+
+### Device Properties
+
+The device model defines several read-only properties:
+
+| Property                | Type                                      | Description                                                                                          |
+| :---------------------- | :---------------------------------------- | :----------------------------------------------------------------------------------------------------|
+| `_links`                | [Link](#devices-object-link-attributes)   | Allowed operations for the device                                                                    |
+| `created`               | String                                    | Timestamp when device was created                                                                    |
+| `id`                    | String                                    | Unique key for device                                                                                |
+| `lastUpdated`           | String                                    | Timestamp when device was last updated                                                               |
+| `profile`               | [Profile Object](#profile-object)         | Device profile properties                                                                            |
+| `status`                | String                                    | Current [status](#device-status) of device. One of `CREATED`, `ACTIVE`, `SUSPENDED` or `DEACTIVATED` |
+
+#### Device Example
 
 ```json
 {
@@ -1848,22 +1864,24 @@ curl -v -X GET \
 }
 ```
 
-### Device Properties
+### Device Profile Object
 
-The device model defines several read-only properties:
+#### Device Profile Properties
 
-| Property                | Type                                      | Description                                                                                          |
-| :---------------------- | :---------------------------------------- | :----------------------------------------------------------------------------------------------------|
-| `id`                    | String                                    | Unique key for device                                                                                |
-| `status`                | String                                    | Current [status](#device-status) of device. One of `CREATED`, `ACTIVE`, `SUSPENDED` or `DEACTIVATED` |
-| `created`               | String                                    | Timestamp when device was created                                                                    |
-| `lastUpdated`           | String                                    | Timestamp when device was last updated                                                               |
-| `profile`               | [Profile Object](#profile-object)         | Device profile properties                                                                            |
-| `_links`                | [Link](#devices-object-link-attributes)   | Allowed operations for the device                                                                    |
+| Property           | Type       | Description                                                                                   |
+| :----------------- | :--------- | :---------------------------------------------------------------------------------------------|
+| `displayName`      | String     | Display name of the device. (1-255 characters)                                                |
+| `imei`             | String     | (Optional) International Mobile Equipment Identity of the device. (15-17 numeric characters)  |
+| `manufacturer`     | String     | (Optional) Name of the manufacturer of the device. (0-127 characters)                         |
+| `meid`             | String     | (Optional) Mobile equipment identifier of the device. (14 characters)                         |
+| `model`            | String     | (Optional) Model of the device. (127 characters)                                              |
+| `osVersion`        | String     | (Optional) Version of the device OS. (127 characters)                                         |
+| `platform`         | String     | OS platform of the device. Possible values: `MACOS`, `WINDOWS`, `ANDROID`, `IOS`        |
+| `serialNumber`     | String     | (Optional) Serial number of the device. (127 characters)                                      |
+| `sid`              | String     | (Optional) Windows Security identifier of the device. (256 characters)                        |
+| `udid`             | String     | (Optional) macOS Unique Device identifier of the device. (47 characters)                            |
 
-### Profile Object
-
-Device profile properties.
+#### Device Profile Example
 
 ```json
 {
@@ -1882,60 +1900,13 @@ Device profile properties.
 }
 ```
 
-#### Device Profile Properties
-
-| Property           | Type       | Description                                                                                   |
-| :----------------- | :--------- | :---------------------------------------------------------------------------------------------|
-| `displayName`      | String     | Display name of the device. (1-255 characters)                                                |
-| `platform`         | String     | OS platform of the device. One of the values from `MACOS`, `WINDOWS`, `ANDROID`, `IOS`        |
-| `manufacturer`     | String     | (Optional) Name of the manufacturer of the device. (0-127 characters)                         |
-| `model`            | String     | (Optional) Model of the device. (127 characters)                                              |
-| `osVersion`        | String     | (Optional) Version of the device OS. (127 characters)                                         |
-| `serialNumber`     | String     | (Optional) Serial number of the device. (127 characters)                                      |
-| `imei`             | String     | (Optional) International Mobile Equipment Identity of the device. (15-17 numeric characters)  |
-| `meid`             | String     | (Optional) Mobile equipment identifier of the device. (14 characters)                         |
-| `udid`             | String     | (Optional) macOS Unique Device identifier of the device. (47 characters)                            |
-| `sid`              | String     | (Optional) Windows Security identifier of the device. (256 characters)                        |
-
 #### Device User Link
 
-A device could be linked to one or more User objects or vice versa. With such a link you can fetch devices linked to a given user or users linked to a given device. This provides visibility to administrator to manage potential impact of user actions on linked device/(s) and vice versa. Device - User link is not represented by an API object of it's own, rather visibility of such a link is made available via various APIs listed [here](#device-user-link-operations).
+A device could be linked to one or more User objects or vice versa. With such a link you can fetch devices linked to a given user or users linked to a given device. This provides visibility to administrator to manage potential impact of user actions on linked devices and vice versa. A Device User link is not represented by an API object of its own, rather visibility of such a link is made available via various APIs listed [here](#device-user-link-operations). todo
 
 #### Devices Object Link Attributes
 
-For a Device result, the `_links` contains a full set of operations available for that device. `hints` provides information on `allow`ed HTTP verbs for the `href`.
-
-For example: A device in `CREATED` status would have following `_links`.
-```json
-"_links": {
-        "activate": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/{{deviceId}}/lifecycle/activate",
-            "hints": {
-                "allow": [
-                    "POST"
-                ]
-            }
-        },
-        "self": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/{{deviceId}}",
-            "hints": {
-                "allow": [
-                    "GET",
-                    "PATCH",
-                    "PUT"
-                ]
-            }
-        },
-        "users": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/{{deviceId}}/users",
-            "hints": {
-                "allow": [
-                    "GET"
-                ]
-            }
-        }
-    }
-```
+For a Device result, the `_links` contains a full set of operations available for that device. `hints` provides information on allowed HTTP verbs for the `href`.
 
 Here are some links that may be available on a Device, as determined by status of a Device:
 
@@ -1946,3 +1917,36 @@ Here are some links that may be available on a Device, as determined by status o
 | `deactivate`             | Lifecycle action to [deactivate the device](#deactivate-device)                                                       |
 | `suspend`                | Lifecycle action to [suspend the device](#suspend-device)                                                             |
 | `unsuspend`              | Lifecycle action to [unsuspend the device](#unsuspend-device)                                                         |
+
+For example: A device in `CREATED` status would have the following `_links`.
+
+```json
+"_links": {
+        "activate": {
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PATCH",
+                    "PUT"
+                ]
+            }
+        },
+        "users": {
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+```
