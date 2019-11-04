@@ -8,6 +8,6 @@ Already part of the Okta Integration Network but looking for a more "go-to-marke
 
 Related articles:
 
-* [Provisioning](/guides/oin-build-provisioning-integration/)
+* [Provisioning](/guides/build-provisioning-integration/)
 
 <NextSectionLink/>
