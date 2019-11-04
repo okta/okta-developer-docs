@@ -55,7 +55,7 @@ module.exports = [
     }, 
     { 
         title: 'SCIM', 
-        link: '/docs/concepts/oin-scim/'
+        link: '/docs/concepts/scim/'
     }, 
     { 
         title: 'Social Login', 

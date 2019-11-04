@@ -46,7 +46,7 @@ title: Frequently Asked Questions (Provisioning)
 
 Unfortunately, your app's SCIM server API must be fully SCIM compliant in order to integrate with Okta.
 Okta's SCIM client endpoints are hard coded into a template which adhere directly to [the SCIM spec](http://www.simplecloud.info/).
-Not all capabilities of the SCIM spec need to be supported (see [Required SCIM Server Capabilities](/docs/concepts/oin-scim/#required-scim-server-capabilities/) in our SCIM Technical Reference) but the core schema and features do need to be supported.
+Not all capabilities of the SCIM spec need to be supported (see [Required SCIM Server Capabilities](/docs/concepts/scim/#required-scim-server-capabilities/) in our SCIM Technical Reference) but the core schema and features do need to be supported.
 
 **SCIM is a new standard. How broadly is it being adopted by cloud app vendors and how confident can I be in the SCIM standard's long-term viability?**
 
@@ -147,7 +147,7 @@ Python.
 This example SCIM server demonstrates how to implement a basic SCIM
 server that can create, read, update, and deactivate Okta users.
 
-You can find the sample code to handle HTTP requests to this sample application in [Required SCIM Server Capabilities](/docs/concepts/oin-scim/#required-scim-server-capabilities/)
+You can find the sample code to handle HTTP requests to this sample application in [Required SCIM Server Capabilities](/docs/concepts/scim/#required-scim-server-capabilities/)
 Use the instructions that follow to set up and run the example SCIM server.
 
 ### How to run

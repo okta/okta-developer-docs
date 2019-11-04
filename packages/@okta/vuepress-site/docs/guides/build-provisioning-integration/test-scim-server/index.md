@@ -60,7 +60,7 @@ server, it is time to run the test:
 5. If the test is still running, you will see live updates of the test in progress. Once the test is complete, you will see the results of your test.
 6. To see the details of tests, click on the little arrow next to each test to expand the details of a particular test case. Doing this will allow you to see the **Request** and **Response** for each HTTP request that was made.
 7. Since this test is running in your own Runscope instance, we encourage you to update the tests to better fit your own environment.
-8. See [Required SCIM Server Capabilities](/docs/concepts/oin-scim/#required-scim-server-capabilities/) for details about your SCIM server needs to implement to pass all of the tests.
+8. See [Required SCIM Server Capabilities](/docs/concepts/scim/#required-scim-server-capabilities/) for details about your SCIM server needs to implement to pass all of the tests.
 9. Keep running this test suite until all the tests pass. Here is an [example of a test suite where all tests pass](https://www.runscope.com/radar/qmovuxkrhtws/f95ac15f-3f22-46c3-8f1a-1001fbf8fb66/history/6a35fabf-5ce5-4e48-a13f-7292b1bd3cc5).
 
 ### Sharing test results from Runscope
