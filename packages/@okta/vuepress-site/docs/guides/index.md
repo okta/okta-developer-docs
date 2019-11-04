@@ -4,7 +4,9 @@ layout: Guides
 guides:
  - add-an-external-idp
  - build-custom-ui-mobile
+ - build-provisioning-integration
  - build-self-signed-jwt
+ - build-sso-integration
  - create-an-api-token
  - create-token-with-groups-claim
  - custom-error-pages

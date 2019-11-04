@@ -4,7 +4,7 @@ title: Overview
 
 Okta Admins can upload their own SAML certificates to sign the assertion for Outbound SAML apps and to sign the AuthN request and decrypt the assertion for Inbound SAML.
 
-> **Note:** Okta as a SAML Service Provider is referred to as Inbound SAML. Okta as a SAML Idenityt Provider (IdP) is referred to as Outbound SAML.
+> **Note:** Okta as a SAML Service Provider is referred to as Inbound SAML. Okta as a SAML Identity Provider (IdP) is referred to as Outbound SAML.
 
 ## Prerequisite
 
