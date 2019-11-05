@@ -140,12 +140,6 @@ Even in cases where the intent is to have all the users of a particular tenant b
 
 This is particularly important where the entire population is intended to be SAML-enabled in your application. Sometimes, there might be a mistake in the SAML configuration - or something changes in SAML IDP endpoints. In any case, you do not want to be completely locked out. Having a backdoor available for administrator(s) to use to access a locked system becomes extremely important. This is often accomplished by having a "secret" login URL that does not trigger a SAML redirection when accessed. Typically, the administrator will use a username/password to login in and make the necessary changes to fix the problem.
 
-## SAML for Mobile Native Apps
-
-Because SAML is an HTTP-based protocol, supporting SAML in a native mobile app may seem tricky. You can actually achieve this quite easily by including an embedded webview in your native app to support the HTTP redirects. When launching the webview, make sure you hit a URL on the SP side that will trigger a SAML redirect back to the IDP. From that point on, the webview will carry out the SP-initiated login flow as it would happen in a browser. When the SP finally receives the SAML response and authenticates the user successfully, your native app can leave the webview and proceed with the rest of the login bootstrap which typically involves generating some sort of a token (for example, OAuth) which is stored by the native app for subsequent access. This is a fairly common approach used by many ISVs to support SAML integration with enterprises.
-
-For more details, see the [technical overview for Okta Mobile Connect](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect).
-
 ## Testing SAML
 
 Use the [Okta SAML validation tool](http://saml.oktadev.com/) to speed up the process of developing a SAML SP.
