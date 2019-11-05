@@ -21,7 +21,7 @@ Admins can enable [Web Authentication as a factor](/docs/reference/api/authn/#en
 
 ### Features API is Generally Available in Preview
 
-The [Features API](/docs/reference/api/features/) provides operations to manage self-service features in your Production and Preview orgs and Beta features in your Preview org. <!-- OKTA-258109 -->
+The [Features API](/docs/reference/api/features/) provides operations to manage self-service Early Access features in your Production and Preview orgs and self-service Beta features in your Preview org. <!-- OKTA-258109 -->
 
 ### SAML Inline Hook is Generally Available in Preview
 
