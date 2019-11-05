@@ -80,7 +80,7 @@ Here is how to share a test result from Runscope with someone else:
 ## Testing your SCIM server with Okta
 
 Once you have a SCIM server that passes all of the Runscope tests,
-test your SCIM integration directly with Okta. To do so, you will first need to sign up for [an Okta developer account](https://developer.okta.com/signup/).
+test your SCIM integration directly with Okta. To do so, you will first need to sign up for [an Okta developer account](https://www.okta.com/integrate/signup/).
 
 Note: If you are using OAuth Authorization Code Grant flow as your authentication method
 or need to support the Profile Master action, Okta will need to custom-configure a template app for you.
