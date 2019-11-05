@@ -282,9 +282,9 @@ redirects:
   - from: /docs/guides/scim_developer_program.html
     to: /docs/reference/scim/index.html
   - from: /standards/SAML/index.html
-    to: https://www.okta.com/integrate/documentation/saml/
+    to: /docs/concepts/saml/
   - from: /docs/guides/saml_guidance
-    to: https://www.okta.com/integrate/documentation/saml/
+    to: /docs/concepts/saml/
   - from: /docs/getting_started/saml_guidance.html
     to: /standards/SAML/index.html
   - from: /docs/guides/saml_guidance.html
@@ -298,7 +298,7 @@ redirects:
   - from: /docs/examples/configuring_a_saml_application_in_okta.html
     to: /docs/guides/saml-application-setup/index.html
   - from: /standards/SCIM/index.html
-    to: https://www.okta.com/integrate/documentation/scim/
+    to: /docs/concepts/scim/
   - from: /docs/reference/api/resource-server-beta/index.html
     to: /docs/concepts/api-access-management/index.html
   - from: /docs/reference/api/resource-server-beta/required-config-changes-for-auth-server
@@ -322,9 +322,9 @@ redirects:
   - from: /use_cases/integrate_with_okta/promotion/index.html
     to: https://www.okta.com/integrate/documentation/promotion/
   - from: /use_cases/integrate_with_okta/provisioning/index.html
-    to: https://www.okta.com/integrate/documentation/provisioning/
+    to: /docs/guides/build-provisioning-integration/
   - from: /use_cases/integrate_with_okta/sso-with-saml/index.html
-    to: https://www.okta.com/integrate/documentation/single-sign-on/
+    to: /docs/guides/build-sso-integration/overview/
   - from: /use_cases/isv/embedded-occ/index.html
     to: https://www.okta.com/integrate/documentation/embedded-okta-cloud-connect/
   - from: /use_cases/isv/isv-syslog-references/index.html
@@ -368,7 +368,7 @@ redirects:
   - from: /docs/api/getting_started/design_principles.html
     to: /docs/reference/api-overview/
   - from: /standards/SAML/index
-    to: https://www.okta.com/integrate/documentation/saml/
+    to: /docs/concepts/saml/
   - from: /docs/reference/api/sessions.html
     to: /docs/reference/api/sessions/
   - from: /docs/guides/okta_mobile_connect
