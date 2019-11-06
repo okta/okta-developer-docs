@@ -291,6 +291,8 @@ For information on how to set up your application to use this flow, see [Impleme
 
 ## Authorization Servers
 
+For information on authorization servers, how they work, and how you can use them, see [Authorization Servers](/docs/concepts/auth-servers).
+
 At its core, an authorization server is simply an engine for minting OpenID Connect or OAuth 2.0 tokens. You can't mix tokens between different authorization servers. By design, authorization servers don't have trust relationships with each other.
 
 Okta provides two types of authorization servers:
