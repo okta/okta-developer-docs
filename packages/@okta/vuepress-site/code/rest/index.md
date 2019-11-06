@@ -23,6 +23,9 @@ You'll need a free Okta developer organization to get started. If you don't have
 ## Set Up Your Environment
 
 1. [Create an API token](/docs/guides/create-an-api-token/) for your org.
+
+  > <ApiLifecycle access="ea" /> Alternatively, you can [create an OAuth 2.0 access token](/docs/guides/oauth-for-okta/) for use with a number of Okta endpoints. This is an EA feature that allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+
 1. [Install the Postman app](https://www.getpostman.com/apps).
 1. Launch Postman and click the **Import** button. Select **Import From Link**, and paste this link into the textbox: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`
 ![Importing the Okta Example Environment](/img/import_enviro.png "Importing the Okta Example Environment")
