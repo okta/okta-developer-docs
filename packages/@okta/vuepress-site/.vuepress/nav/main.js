@@ -6,6 +6,7 @@ module.exports = [
     links: [
       { title: 'API Access Management', link: '/docs/concepts/api-access-management/'},
       { title: 'Authentication', link: '/docs/concepts/authentication/'},
+      { title: 'Authorization Servers', link: '/docs/concepts/auth-servers/'},
       { title: 'Event Hooks', link: '/docs/concepts/event-hooks/'},
       { title: 'Events API Migration', link: '/docs/concepts/events-api-migration/'},
       { title: 'External Identity Providers', link: '/docs/concepts/identity-providers/'},
