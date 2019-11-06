@@ -70,7 +70,7 @@ The OpenID and OAuth discovery endpoints for the default Custom Authorization Se
 
 ## Which authorization server should you use
 
-If you are just looking to add SSO for your OIDC-based applications, you can use your Org Authorization Server. You should also use the Org Authorization Server if you want to use [OAuth2 bearer tokens with your Okta APIs](/docs/guides/oauth-for-okta/). Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
+If you are just looking to add SSO for your OIDC-based applications, you can use your Org Authorization Server. You should also use the Org Authorization Server if you want to use [OAuth 2.0 bearer tokens with your Okta APIs](/docs/guides/oauth-for-okta/). Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
 
 If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional authorization servers with different scopes and claims, then you need to [create a Custom Authorization Server](/docs/guides/customize-authz-server/overview/).
 
