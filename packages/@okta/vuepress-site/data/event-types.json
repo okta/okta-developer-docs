@@ -1,6 +1,6 @@
 {
-  "release" : "2019.10.1",
-  "build" : "2019.10.1-begin-62-g772f5e857ef5",
+  "release" : "2019.11.1",
+  "build" : "2019.11.1-begin-44-gc282cc77c708",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -34,6 +34,9 @@
   }, {
     "id" : "devex",
     "name" : "DevEx"
+  }, {
+    "id" : "device-platform",
+    "name" : "Device Platform"
   }, {
     "id" : "directories",
     "name" : "Directories"
@@ -239,10 +242,6 @@
   }, {
     "id" : "hipchat-app",
     "description" : "Hipchat App.",
-    "tags" : [ ]
-  }, {
-    "id" : "huddle-app",
-    "description" : "Huddle App.",
     "tags" : [ ]
   }, {
     "id" : "jira-app",
@@ -1555,6 +1554,24 @@
       "description" : "Delegated authentication is enabled.",
       "tags" : [ "app" ],
       "mappings" : [ "application.configuration.enable_delauth_outbound" ]
+    }, {
+      "id" : "app.app_instance.provision_sync_job.completed",
+      "category" : "sync",
+      "description" : "Fired when a provision sync job has successfully completed. This can be used to confirm that a provision sync job has finished running and is no longer processing users. When fired, this event contains details about number of users processed in the job. Related events include app.app_instance.provision_sync_job.started and app.app_instance.provision_sync_job.failed.",
+      "tags" : [ "admin", "app", "user-provision" ],
+      "mappings" : [ ]
+    }, {
+      "id" : "app.app_instance.provision_sync_job.failed",
+      "category" : "sync",
+      "description" : "Fired when a provision sync job has failed. This can be used to identify when a provision sync job has failed. When fired, this event contains information about the reason the provision sync job failed. Related events include app.app_instance.provision_sync_job.started and app.app_instance.provision_sync_job.completed.",
+      "tags" : [ "admin", "app", "user-provision" ],
+      "mappings" : [ ]
+    }, {
+      "id" : "app.app_instance.provision_sync_job.started",
+      "category" : "sync",
+      "description" : "Fired when a provision sync job has successfully started. This can be used to confirm that a provision sync job has successfully started. Related events include app.app_instance.provision_sync_job.completed and app.app_instance.provision_sync_job.failed.",
+      "tags" : [ "admin", "app", "user-provision" ],
+      "mappings" : [ ]
     }, {
       "id" : "app.app_instance.sign_on_policy.access_denied",
       "category" : "authn",
@@ -6794,17 +6811,17 @@
       "tags" : [ "group-app-modification" ],
       "mappings" : [ "group.application_assignment.update" ]
     }, {
-      "id" : "huddle.company_id.validation.failure",
-      "category" : "oin-advanced-apps",
-      "description" : "Company Id not specified.",
-      "tags" : [ "huddle-app" ],
-      "mappings" : [ "application.integration.general_failure" ]
+      "id" : "group.lifecycle.create",
+      "category" : "ud-core",
+      "description" : "Okta group created.",
+      "tags" : [ "group" ],
+      "mappings" : [ ]
     }, {
-      "id" : "huddle.rate.limit.exceeded",
-      "category" : "oin-advanced-apps",
-      "description" : "You have exceeded rate limit for your client ID. Retrying after.",
-      "tags" : [ "huddle-app" ],
-      "mappings" : [ "application.integration.rate_limit_exceeded" ]
+      "id" : "group.lifecycle.delete",
+      "category" : "ud-core",
+      "description" : "Okta group deleted.",
+      "tags" : [ "group" ],
+      "mappings" : [ ]
     }, {
       "id" : "invalidate_app_list.app.created",
       "category" : "app-platform",
@@ -7682,6 +7699,12 @@
       "tags" : [ "app" ],
       "mappings" : [ "system.import.clear.unconfirmed.users.summary" ]
     }, {
+      "id" : "system.import.roadblock.updated",
+      "category" : "sync",
+      "description" : "Fired when an import roadblock has been updated.",
+      "tags" : [ "app", "system" ],
+      "mappings" : [ ]
+    }, {
       "id" : "system.ldapi.bind",
       "category" : "ud-core",
       "description" : "LDAP Interface Bind event.",
@@ -7986,6 +8009,54 @@
         "debugData" : "AppInstanceKeyManagementDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "app.app_instance.provision_sync_job.completed",
+      "category" : "sync",
+      "description" : "Fired when a provision sync job has successfully completed. This can be used to confirm that a provision sync job has finished running and is no longer processing users. When fired, this event contains details about number of users processed in the job. Related events include app.app_instance.provision_sync_job.started and app.app_instance.provision_sync_job.failed.",
+      "info" : {
+        "created" : "2019-08-01",
+        "release" : "2019.08.3"
+      },
+      "beta" : false,
+      "tags" : [ "admin", "app", "user-provision" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "app.app_instance.provision_sync_job.failed",
+      "category" : "sync",
+      "description" : "Fired when a provision sync job has failed. This can be used to identify when a provision sync job has failed. When fired, this event contains information about the reason the provision sync job failed. Related events include app.app_instance.provision_sync_job.started and app.app_instance.provision_sync_job.completed.",
+      "info" : {
+        "created" : "2019-08-01",
+        "release" : "2019.08.3"
+      },
+      "beta" : false,
+      "tags" : [ "admin", "app", "user-provision" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "app.app_instance.provision_sync_job.started",
+      "category" : "sync",
+      "description" : "Fired when a provision sync job has successfully started. This can be used to confirm that a provision sync job has successfully started. Related events include app.app_instance.provision_sync_job.completed and app.app_instance.provision_sync_job.failed.",
+      "info" : {
+        "created" : "2019-08-01",
+        "release" : "2019.08.3"
+      },
+      "beta" : false,
+      "tags" : [ "admin", "app", "user-provision" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
       }
     }, {
       "id" : "app.audit_report.download",
@@ -11325,7 +11396,7 @@
       },
       "beta" : false,
       "tags" : [ "app-api" ],
-      "mappings" : [ "app.api.error.generic", "app.bloomfire.api.error.generic", "app.coupa.api.error", "app.crashplanpro.api.rest.unexpected_response_status", "app.eqanalyzer.url.encoding", "app.exacttarget.api.error.init", "app.google.sso.failure.domain_not_found", "app.google.sso.failure.invalid_continue_url", "app.google.sso.failure.invalid_domain", "app.google.sso.failure.relay_state_not_found", "app.gotomeeting.user_management.config.failure.api_not_available", "app.gotomeeting.user_management.config.failure.api_url_is_malformed", "app.gotomeeting_rest.user_management.config.failure.api_not_available", "app.rightscale.api.error.idp", "app.scim.is.api.account.error", "app.sugarcrm.api.error.get.entry.list", "app.sugarcrm.api.error.hash.password", "app.sugarcrm.api.error.set.entry", "app.workday.api.error.bind", "huddle.company_id.validation.failure", "roambi.api.error.auth.empty.account.response", "roambi.api.error.auth.empty.code", "roambi.api.error.auth.unexpected.response" ],
+      "mappings" : [ "app.api.error.generic", "app.bloomfire.api.error.generic", "app.coupa.api.error", "app.crashplanpro.api.rest.unexpected_response_status", "app.eqanalyzer.url.encoding", "app.exacttarget.api.error.init", "app.google.sso.failure.domain_not_found", "app.google.sso.failure.invalid_continue_url", "app.google.sso.failure.invalid_domain", "app.google.sso.failure.relay_state_not_found", "app.gotomeeting.user_management.config.failure.api_not_available", "app.gotomeeting.user_management.config.failure.api_url_is_malformed", "app.gotomeeting_rest.user_management.config.failure.api_not_available", "app.rightscale.api.error.idp", "app.scim.is.api.account.error", "app.sugarcrm.api.error.get.entry.list", "app.sugarcrm.api.error.hash.password", "app.sugarcrm.api.error.set.entry", "app.workday.api.error.bind", "roambi.api.error.auth.empty.account.response", "roambi.api.error.auth.empty.code", "roambi.api.error.auth.unexpected.response" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -11341,7 +11412,7 @@
       },
       "beta" : false,
       "tags" : [ "app-api" ],
-      "mappings" : [ "app.api.error.rate.limit.exceeded", "app.boxnet.api.error.rate_limit_exceeded", "app.clarizen.api.error.rate_limit.exceeded", "app.dropbox.api.error.rateLimit.exceeded", "app.egnyte.rate.limiting.exceeded", "app.google.user_management.error.rateLimit", "app.hipchat.rateLimit.exceeded", "app.litmos.import.rate_limit_exceeded", "github.api.error.rate_limit.remaining", "github.api.error.rate_limit.reset_date", "huddle.rate.limit.exceeded" ],
+      "mappings" : [ "app.api.error.rate.limit.exceeded", "app.boxnet.api.error.rate_limit_exceeded", "app.clarizen.api.error.rate_limit.exceeded", "app.dropbox.api.error.rateLimit.exceeded", "app.egnyte.rate.limiting.exceeded", "app.google.user_management.error.rateLimit", "app.hipchat.rateLimit.exceeded", "app.litmos.import.rate_limit_exceeded", "github.api.error.rate_limit.remaining", "github.api.error.rate_limit.reset_date" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -12756,6 +12827,38 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "group.lifecycle.create",
+      "category" : "ud-core",
+      "description" : "Create Okta group. This can be used to make sure an Okta group is successfully created. Event fired when an Okta group is successfully created.",
+      "info" : {
+        "created" : "2019-10-31",
+        "release" : "2019.11.0"
+      },
+      "beta" : false,
+      "tags" : [ "group" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "group.lifecycle.delete",
+      "category" : "ud-core",
+      "description" : "Delete Okta group. This can be used to make sure an Okta group is successfully deleted. Event fired when an Okta group is successfully deleted.",
+      "info" : {
+        "created" : "2019-10-31",
+        "release" : "2019.11.0"
+      },
+      "beta" : false,
+      "tags" : [ "group" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "group.privilege.grant",
       "category" : "aelm",
       "description" : "Fired when a group within Okta has been granted admin privileges. The group granted privileges can be an Okta mastered group, and AD mastered group, or an LDAP mastered group. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been granted, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
@@ -13542,7 +13645,7 @@
     }, {
       "id" : "oauth2.tokens.transform.error.response",
       "category" : "federation",
-      "description" : "Fired when Okta's authorization server receives a response from an external service and the response format is valid, but the response contains an error. This can also be used to debug why command response erred. When fired, the event contains information about the error summary. Related events include: oauth2_tokens_transform_response.",
+      "description" : "This event no longer fires. It has been replaced with the inline_hook.response.processed event. Fired when Okta's authorization server received a response from an external service and the response format was valid, but the response contained an error. This could also be used to debug why command response erred. When fired, the event contained information about the error summary. Related events include: oauth2_tokens_transform_response.",
       "info" : {
         "created" : "2019-01-25",
         "release" : "2019.01.3"
@@ -13558,7 +13661,7 @@
     }, {
       "id" : "oauth2.tokens.transform.process",
       "category" : "federation",
-      "description" : "Fired when Okta's authorization server used the command response for token transform, and the token transform failed. This event fires only when the token transform has failed due to the command response from the external server, for example  that the response contained info to transform an access token and an access token was not requested in the request. This can also be used to debug why a token transformation failed. When fired, this event contains information about the entities involved in the inline hook request and response - including the relevant application, user, authorization server, and policy. This event also contains information about why the token transformation failed. Related events include: oauth2_tokens_transform_response.",
+      "description" : "This event no longer fires. It has been replaced with the inline_hook.response.processed event. Fired when Okta's authorization server used the command response for token transform, and the token transform failed. This event fired only when the token transform has failed due to the command response from the external server, for example that the response contained info to transform an access token and an access token was not requested in the request. This could also be used to debug why a token transformation failed. When fired, this event contained information about the entities involved in the inline hook request and response - including the relevant application, user, authorization server, and policy. This event also contained information about why the token transformation failed. Related events include: oauth2_tokens_transform_response.",
       "info" : {
         "created" : "2019-01-25",
         "release" : "2019.01.3"
@@ -13574,7 +13677,7 @@
     }, {
       "id" : "oauth2.tokens.transform.response",
       "category" : "federation",
-      "description" : "Fired when Okta's authorization server sends an inline hook to an external service. This event fires when the response is successful or when a response is not received. This can be used to audit the details of the entities involved in the inline hook request and response. When fired, this event contains information about the entities involved in the inline hook request and response - including the relevant application, user, authorization server, and policy.",
+      "description" : "This event no longer fires. It has been replaced with the inline_hook.executed event. Fired when Okta's authorization server sent an inline hook to an external service. This event fired when the response was successful or when a response was not received. This could be used to audit the details of the entities involved in the inline hook request and response. When fired, this event contained information about the entities involved in the inline hook request and response - including the relevant application, user, authorization server, and policy.",
       "info" : {
         "created" : "2019-01-25",
         "release" : "2019.01.3"
@@ -14086,7 +14189,7 @@
     }, {
       "id" : "saml.tokens.transform.process",
       "category" : "federation",
-      "description" : "Fired when Okta used the command response for token transform, and the token transform failed. This event fires only when the token transform has failed due to the command response from the external server, for example that the response tried to add a duplicate attribute to the assertion. This can also be used to debug why a token transformation failed. When fired, this event contains information about the entities involved in the inline hook request and response - including the relevant application and user. This event also contains information about why the token transformation failed. Related events include: saml_tokens_transform_response.",
+      "description" : "This event no longer fires. It has been replaced with the inline_hook.response.processed event. Fired when Okta used the command response for token transform, and the token transform failed. This event fired only when the token transform had failed due to the command response from the external server, for example that the response tried to add a duplicate attribute to the assertion. This could also be used to debug why a token transformation failed. When fired, this event contained information about the entities involved in the inline hook request and response - including the relevant application and user. This event also contained information about why the token transformation failed. Related events include: saml_tokens_transform_response.",
       "info" : {
         "created" : "2018-07-01",
         "release" : "2018.28"
@@ -14102,7 +14205,7 @@
     }, {
       "id" : "saml.tokens.transform.response",
       "category" : "federation",
-      "description" : "Fired when Okta sends an inline hook to an external service for modifying a SAML Assertion. This event fires when the response is successful or when a response is not received. This can be used to audit the details of the entities involved in the inline hook request and response. When fired, this event contains information about the entites involved in the inline hook request and response - including the relevant application and user.",
+      "description" : "This event no longer fires. It has been replaced with the inline_hook.executed event. Fired when Okta sends an inline hook to an external service for modifying a SAML Assertion. This event fired when the response was successful or when a response was not received. This could be used to audit the details of the entities involved in the inline hook request and response. When fired, this event contained information about the entites involved in the inline hook request and response - including the relevant application and user.",
       "info" : {
         "created" : "2018-07-01",
         "release" : "2018.28"
@@ -15652,6 +15755,22 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.import.roadblock.updated",
+      "category" : "sync",
+      "description" : "Fired when an import roadblock (aka, Import Safeguard) has been updated. This event can be used to identify when an admin updated the Max Import Unassignment roadblock setting, and what the setting was updated to. This event includes details on what the roadblock was updated to and who made the change.",
+      "info" : {
+        "created" : "2019-10-28",
+        "release" : "2019.11.0"
+      },
+      "beta" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "system.import.start",
       "category" : "sync",
       "description" : "import started.",
@@ -16475,7 +16594,7 @@
         "created" : "2018-12-07",
         "release" : "2019.01.1"
       },
-      "beta" : true,
+      "beta" : false,
       "tags" : [ "event-based-trigger-eligible", "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.account.report_suspicious_activity_by_enduser" ],
       "schema" : {
@@ -17449,6 +17568,8 @@
         "name" : "AdAgentDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17469,6 +17590,8 @@
         "name" : "AdAgentGenericDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17486,6 +17609,8 @@
         "name" : "AdInstanceDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17504,6 +17629,8 @@
         "name" : "AppExceptionsDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17522,6 +17649,8 @@
         "name" : "AppInstanceDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17543,6 +17672,8 @@
         "name" : "AppInstanceKeyManagementDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17566,6 +17697,8 @@
         "name" : "AppManagerDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17584,6 +17717,8 @@
         "name" : "AppManagerUserConfigDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17610,6 +17745,8 @@
         "name" : "CallDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17630,6 +17767,8 @@
         "name" : "CommandDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17654,6 +17793,8 @@
         "name" : "DelAuthDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17679,6 +17820,8 @@
         "name" : "DeviceTrustDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17706,6 +17849,8 @@
         "name" : "DirectoryDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17726,6 +17871,8 @@
         "name" : "EmailFactorChallengeDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17745,6 +17892,8 @@
         "name" : "EmailFactorDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17763,6 +17912,8 @@
         "name" : "FeatureToggleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17783,6 +17934,8 @@
         "name" : "GroupAppDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17801,6 +17954,8 @@
         "name" : "GroupRoleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17820,6 +17975,8 @@
         "name" : "GroupRuleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17838,6 +17995,8 @@
         "name" : "IOSCommandDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17863,6 +18022,8 @@
         "name" : "IdpAuthDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17902,6 +18063,8 @@
         "name" : "InlineHookDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17921,6 +18084,8 @@
         "name" : "IwaSsoDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17945,6 +18110,8 @@
         "name" : "LdapDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17965,6 +18132,8 @@
         "name" : "NetworkZoneDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17983,6 +18152,8 @@
         "name" : "OAuth2DebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18022,6 +18193,8 @@
         "name" : "OAuth2PlatformDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18043,6 +18216,8 @@
         "name" : "Office365DebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18104,6 +18279,8 @@
         "name" : "OktaELDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18130,6 +18307,8 @@
         "name" : "OrgLifecycleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18149,6 +18328,8 @@
         "name" : "OrgRateLimitDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18173,6 +18354,8 @@
         "name" : "PluginDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18194,6 +18377,8 @@
         "name" : "PolicyDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18212,6 +18397,8 @@
         "name" : "PolicyLifecycleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18233,6 +18420,8 @@
         "name" : "RadiusDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18257,6 +18446,8 @@
         "name" : "RichClientDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18278,6 +18469,8 @@
         "name" : "ScheduledActionDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18297,6 +18490,8 @@
         "name" : "SmsDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18319,6 +18514,8 @@
         "name" : "SuspiciousActivityDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18348,6 +18545,8 @@
         "name" : "SystemDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18365,6 +18564,8 @@
         "name" : "SystemImportDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18405,6 +18606,8 @@
         "name" : "TokenTransformDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18429,6 +18632,8 @@
         "name" : "UserAccessDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18453,6 +18658,8 @@
         "name" : "UserAuthenticationDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18474,6 +18681,8 @@
         "name" : "UserConfigDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18492,6 +18701,8 @@
         "name" : "UserDiffReportDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18510,6 +18721,8 @@
         "name" : "UserFactorDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18528,6 +18741,8 @@
         "name" : "UserLifecycleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18547,6 +18762,8 @@
         "name" : "UserProvisioningDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18567,6 +18784,8 @@
         "name" : "UserRoleDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18586,6 +18805,8 @@
         "name" : "UserSsoAuthenticationDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18609,6 +18830,8 @@
         "name" : "WebhooksDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18627,6 +18850,8 @@
         "name" : "YubikeyDebugData",
         "properties" : {
           "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "Map",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
