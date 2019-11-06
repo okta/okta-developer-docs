@@ -21,6 +21,8 @@ guides:
  - implement-password
  - mfa
  - oauth-for-okta
+ - build-provisioning-integration
+ - build-sso-integration
  - protect-your-api
  - refresh-tokens
  - request-user-consent

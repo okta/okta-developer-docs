@@ -6,6 +6,7 @@ module.exports = [
     links: [
       { title: 'API Access Management', link: '/docs/concepts/api-access-management/'},
       { title: 'Authentication', link: '/docs/concepts/authentication/'},
+      { title: 'Authorization Servers', link: '/docs/concepts/auth-servers/'},
       { title: 'Event Hooks', link: '/docs/concepts/event-hooks/'},
       { title: 'Events API Migration', link: '/docs/concepts/events-api-migration/'},
       { title: 'External Identity Providers', link: '/docs/concepts/identity-providers/'},
@@ -15,6 +16,8 @@ module.exports = [
       { title: 'OAuth 2.0 & OIDC', link: '/docs/concepts/auth-overview/'},
       { title: 'Okta-Hosted Flows', link: '/docs/concepts/okta-hosted-flows/'},
       { title: 'Okta Organizations', link: '/docs/concepts/okta-organizations/'},
+      { title: 'SAML', link: '/docs/concepts/saml/'},
+      { title: 'SCIM', link: '/docs/concepts/scim/'},
       { title: 'Social Login', link: '/docs/concepts/social-login/'}
     ]
   },
