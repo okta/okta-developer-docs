@@ -5020,7 +5020,7 @@ Property details
 
  * `id`, `created`, `lastUpdated`, `status`, `_links`, and `_embedded` are only available after an app is created.
  * `profile` is only available for OAuth 2.0 client apps. See [Profile Object](#profile-object).
- * When you specify a value for the `request_object_signing_alg` property, all request objects from the client must be rejected if not signed with the specified algorithm. The algorithm must be used both when the request object is passed by value (using the request parameter) and when it is passed by reference (using the `request_uri` parameter). If a value for `request_object_signing_alg` isn't specified, the default is any algorithm that is supported by both the client and the server.
+ * When you specify a value for the `request_object_signing_alg` property, all request objects from the client are rejected if not signed with the specified algorithm. The algorithm must be used when the request object is passed by value (using the request parameter). If a value for `request_object_signing_alg` isn't specified, the default is any algorithm that is supported by both the client and the server.
 
 ##### App Names & Settings
 

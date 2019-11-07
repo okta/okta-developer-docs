@@ -820,7 +820,7 @@ Property Details
   value that includes `authorization_code` implies a `response_types` value that includes `code`, as both values are defined as part of
   the OAuth 2.0 authorization code grant.
 
-* When you specify a value for the `request_object_signing_alg` property, all request objects from the client must be rejected if not signed with the specified algorithm. The algorithm must be used both when the request object is passed by value (using the request parameter) and when it is passed by reference (using the `request_uri` parameter). If a value for `request_object_signing_alg` isn't specified, the default is any algorithm that is supported by both the client and the server.
+* When you specify a value for the `request_object_signing_alg` property, all request objects from the client are rejected if not signed with the specified algorithm. The algorithm must be    used when the request object is passed by value (using the request parameter). If a value for `request_object_signing_alg` isn't specified, the default is any algorithm that is supported    by both the client and the server.
 
 ## JSON Web Key Set
 
