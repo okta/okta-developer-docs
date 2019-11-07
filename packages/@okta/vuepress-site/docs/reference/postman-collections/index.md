@@ -22,6 +22,7 @@ Import any Okta API collection for Postman from the following list:
 | Factors                             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9fdda657d134039fcaba)                   |
 | Features                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ab22761da96ff7a7ab0c)                   |
 | Groups                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/0bb414f9594ed93672a0)                   |
+| Group Rules                         | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8a618178a693bfd46f61)                   |
 | Identity Providers (IdP)            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00a7a643fc0ab3bb54c8)                   |
 | Inline Hooks                        | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b4cf1c4baa548b0ea031)                   |
 | Event Hooks                         | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b02d234a2af183981254)                   |

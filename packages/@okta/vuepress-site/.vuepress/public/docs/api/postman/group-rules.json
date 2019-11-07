@@ -1,0 +1,487 @@
+{
+	"info": {
+		"_postman_id": "9093d4e9-851a-41d1-b480-0c840b2f091a",
+		"name": "Group Rules (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List rules with after",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules?after={{cursorRuleId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules"
+					],
+					"query": [
+						{
+							"key": "after",
+							"value": "{{cursorRuleId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List rules with search",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules?search={{ruleNameKeyword}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "{{ruleNameKeyword}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List rules with expand and limit",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules?expand=groupIdToGroupNameMap&limit=25",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "groupIdToGroupNameMap"
+						},
+						{
+							"key": "limit",
+							"value": "25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get rule",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules?expand=groupIdToGroupNameMap&limit=25",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "groupIdToGroupNameMap"
+						},
+						{
+							"key": "limit",
+							"value": "25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create rule using Okta Expression Language",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": \"group_rule\",\n  \"name\": \"{{ruleName}}\",\n  \"conditions\": {\n    \"expression\": {\n      \"type\": \"urn:okta:expression:1.0\",\n      \"value\": \"user.lastName eq \\\"Thomas\\\"\"\n    }\n  },\n  \"actions\": {\n    \"assignUserToGroups\": {\n      \"groupIds\": [\n        \"{{groupId}}\"\n      ]\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create rule using basic condition",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": \"group_rule\",\n  \"name\": \"{{ruleName}}\",\n  \"conditions\": {\n    \"expression\": {\n      \"type\": \"urn:okta:expression:1.0\",\n      \"value\": \"user.firstName==\\\"Thomas\\\"\"\n    }\n  },\n  \"actions\": {\n    \"assignUserToGroups\": {\n      \"groupIds\": [\n        \"{{groupId}}\"\n      ]\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create rule and exclude users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": \"group_rule\",\n  \"name\": \"{{ruleName}}\",\n  \"conditions\": {\n    \"expression\": {\n      \"type\": \"urn:okta:expression:1.0\",\n      \"value\": \"user.lastName==\\\"Thomas\\\"\"\n    },\n    \"people\": {\n      \"users\": {\n        \"exclude\": [\n          \"{{excludedUserId}}\"\n        ]\n      }\n    }\n  },\n  \"actions\": {\n    \"assignUserToGroups\": {\n      \"groupIds\": [\n        \"{{groupId}}\"\n      ]\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update rule using basic condition",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": \"group_rule\",\n  \"name\": \"{{ruleName}}\",\n  \"conditions\": {\n    \"expression\": {\n      \"type\": \"urn:okta:expression:1.0\",\n      \"value\": \"user.lastName==\\\"Thomas\\\"\"\n    },\n    \"people\": {\n      \"users\": {\n        \"exclude\": [\n          \"{{excludedUserId}}\"\n        ]\n      }\n    }\n  },\n  \"actions\": {\n    \"assignUserToGroups\": {\n      \"groupIds\": [\n        \"{{existingGroupId}}\"\n      ]\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update rule using Okta Expression Language",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": \"group_rule\",\n  \"name\": \"{{ruleName}}\",\n  \"conditions\": {\n    \"expression\": {\n      \"type\": \"urn:okta:expression:1.0\",\n      \"value\": \"user.lastName eq \\\"Thomas\\\"\"\n    },\n    \"people\": {\n      \"users\": {\n        \"exclude\": [\n          \"{{excludedUserId}}\"\n        ]\n      }\n    }\n  },\n  \"actions\": {\n    \"assignUserToGroups\": {\n      \"groupIds\": [\n        \"{{existingGroupId}}\"\n      ]\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete rule and remove users from the group",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules/{{id}}?removeUsers=true",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules",
+						"{{id}}"
+					],
+					"query": [
+						{
+							"key": "removeUsers",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete rule",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules/{{id}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activate rule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules/{{id}}/lifecycle/activate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules",
+						"{{id}}",
+						"lifecycle",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate rule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/groups/rules/{{id}}/lifecycle/deactivate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"groups",
+						"rules",
+						"{{id}}",
+						"lifecycle",
+						"deactivate"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": []
+}
