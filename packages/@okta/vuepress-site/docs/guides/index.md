@@ -20,6 +20,7 @@ guides:
  - implement-implicit
  - implement-password
  - mfa
+ - oauth-for-okta
  - build-provisioning-integration
  - build-sso-integration
  - protect-your-api
