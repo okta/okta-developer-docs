@@ -5,8 +5,6 @@ excerpt: Customize SAML assertions returned by Okta.
 
 # SAML Assertion Inline Hook Reference
 
-<ApiLifecycle access="ea" />
-
 This page provides reference documentation for:
 
 - JSON objects contained in the outbound request from Okta to your external service

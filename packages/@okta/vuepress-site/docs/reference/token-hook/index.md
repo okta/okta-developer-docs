@@ -5,8 +5,6 @@ excerpt: Customize tokens returned by the Okta API Access Management process flo
 
 # Token Inline Hook Reference
 
-<ApiLifecycle access="ea" />
-
 This page provides reference documentation for:
 
 - JSON objects that are contained in the outbound request from Okta to your external service

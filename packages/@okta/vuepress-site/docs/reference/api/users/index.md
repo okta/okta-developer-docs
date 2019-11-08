@@ -1551,7 +1551,104 @@ in the request is deleted.
 
 Updated [User](#user-model)
 
-#### Update Profile
+#### Update Current User's Profile
+
+
+<ApiOperation method="post" url="/api/v1/users/me" /> <SupportsCors />
+
+Updates current user's profile with partial update semantics
+
+##### Request Parameters
+
+
+| Parameter     | Description                                                          | Param Type   | DataType                                    | Required |
+| :------------ | :------------------------------------------------------------------- | :----------- | :------------------------------------------ | :------- |
+| profile       | Updated profile for user                                             | Body         | [Profile Object](#profile-object)           | FALSE    |
+
+End user can only update `profile` with this request. To update credentials, use [Update Profile with ID](#update-profile-with-id).
+
+>**Note:** An end user can only update profile properties for which the user has write access. To update user permissions for a schema property,
+use [Update User Profile Schema Property](/docs/reference/api/schemas/#update-user-profile-schema-property)
+
+##### Response Parameters
+
+
+Updated [User](#user-model)
+
+##### Request Example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "profile": {
+    "firstName": "Isaac",
+    "email": "isaac.brock@update.example.com",
+    "mobilePhone": "555-415-1337"
+  }
+}' "https://${yourOktaDomain}/api/v1/users/me"
+```
+
+##### Response Example
+
+
+```json
+{
+  "id": "00ub0oNGTSWTBKOLGLNR",
+  "status": "ACTIVE",
+  "created": "2013-06-24T16:39:18.000Z",
+  "activated": "2013-06-24T16:39:19.000Z",
+  "statusChanged": "2013-06-24T16:39:19.000Z",
+  "lastLogin": "2013-06-24T17:39:19.000Z",
+  "lastUpdated": "2015-07-02T21:36:25.344Z",
+  "passwordChanged": "2013-07-02T21:36:25.344Z",
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.brock@update.example.com",
+    "login": "isaac.brock@example.com",
+    "mobilePhone": "555-415-1337"
+  },
+  "credentials": {
+    "password": {},
+    "recovery_question": {
+      "question": "Who's a major player in the cowboy scene?"
+    },
+    "provider": {
+      "type": "OKTA",
+      "name": "OKTA"
+    }
+  },
+  "_links": {
+    "resetPassword": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+    },
+    "resetFactors": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+    },
+    "expirePassword": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+    },
+    "forgotPassword": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+    },
+    "changeRecoveryQuestion": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+    },
+    "deactivate": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+    },
+    "changePassword": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+    }
+  }
+}
+```
+
+#### Update Profile with ID
 
 
 <ApiOperation method="post" url="/api/v1/users/${userId}" />
@@ -1588,9 +1685,7 @@ curl -v -X POST \
 -d '{
   "profile": {
     "firstName": "Isaac",
-    "lastName": "Brock",
     "email": "isaac.brock@update.example.com",
-    "login": "isaac.brock@example.com",
     "mobilePhone": "555-415-1337"
   }
 }' "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"

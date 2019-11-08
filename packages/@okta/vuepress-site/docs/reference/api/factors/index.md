@@ -468,6 +468,7 @@ Enrolls a user with a supported [factor](#list-factors-to-enroll)
 - [Enroll YubiKey Factor](#enroll-yubikey-factor)
 - [Enroll Okta Email Factor](#enroll-okta-email-factor)
 - [Enroll U2F Factor](#enroll-u2f-factor)
+- [Enroll WebAuthn Factor](#enroll-webauthn-factor)
 - [Enroll Custom HOTP Factor](#enroll-custom-hotp-factor)
 
 ##### Request Parameters
@@ -1545,6 +1546,99 @@ curl -v -X POST \
 }
 ```
 
+#### Enroll WebAuthn Factor
+
+Enrolls a user with a WebAuthn factor. The enrollment process starts with getting the WebAuthn credential creation options that are used to help select an appropriate authenticator using the WebAuthn API.
+This authenticator then generates an enrollment attestation, which may be used to register the authenticator for the user.
+
+##### Enroll WebAuthn Response Parameters
+
+In the [embedded resources](#embedded-resources) object, the `response._embedded.activation` object contains properties used to guide the client in creating a new WebAuthn credential for use with Okta.
+
+For more information about these credential creation options, see the [WebAuthn spec for PublicKeyCredentialCreationOptions](https://www.w3.org/TR/webauthn/#dictionary-makecredentialoptions).
+
+##### Enroll WebAuthn Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "factorType": "webauthn",
+  "provider": "FIDO"
+}' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
+```
+
+##### Enroll WebAuthn Response Example
+
+```json
+{
+  "id":"fwf2rovRxogXJ0nDy0g4",
+  "factorType":"webauthn",
+  "provider":"FIDO",
+  "vendorName":"FIDO",
+  "status":"PENDING_ACTIVATION",
+  "created":"2018-05-24T20:43:19.000Z",
+  "lastUpdated":"2018-05-24T20:43:19.000Z",
+  "_links":{
+    "activate":{
+      "href":"https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4/lifecycle/activate",
+      "hints":{
+        "allow":[
+          "POST"
+        ]
+      }
+    },
+    "self":{
+      "href":"https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4",
+      "hints":{
+        "allow":[
+          "GET"
+        ]
+      }
+    },
+    "user":{
+      "href":"https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL",
+      "hints":{
+        "allow":[
+          "GET"
+        ]
+      }
+    }
+  },
+  "_embedded":{
+    "activation": {
+      "attestation": "direct",
+      "authenticatorSelection": {
+        "userVerification": "preferred",
+        "requireResidentKey": false
+      },
+      "challenge": "cdsZ1V10E0BGE4GcG3IK",
+      "excludeCredentials": [],
+      "pubKeyCredParams": [
+        {
+          "type": "public-key",
+          "alg": -7
+        },
+        {
+          "type": "public-key",
+          "alg": -257
+        }
+      ],
+      "rp": {
+        "name":"Rain-Cloud59"
+      },
+      "user": {
+        "displayName": "First Last",
+        "name": "first.last@gmail.com",
+        "id": "00u15s1KDETTQMQYABRL"
+      }
+    }
+  }
+}
+```
+
 #### Enroll Custom HOTP Factor
 
 Enrolls a user for a Custom HMAC-based One-time Password (HOTP) factor. The enrollment process involves passing a factor profile Id and shared secret for a particular token.  
@@ -1561,7 +1655,7 @@ curl -v -X POST \
 -d '{
   "factorType": "token:hotp",
   "provider": "CUSTOM",
-  "factorProfileId": "fpr20l2mDyaUGWGCa0g4"
+  "factorProfileId": "fpr20l2mDyaUGWGCa0g4",
   "profile": {
       "sharedSecret": "484f97be3213b117e3a20438e291540a"
   }
@@ -1581,7 +1675,7 @@ curl -v -X POST \
     "lastUpdated": "2019-07-22T23:22:36.000Z",
     "_links": {
         "self": {
-            "href": "http://rain.okta1.com:1802/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4",
+            "href": "http://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -1590,7 +1684,7 @@ curl -v -X POST \
             }
         },
         "verify": {
-            "href": "http://rain.okta1.com:1802/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4/verify",
+            "href": "http://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4/verify",
             "hints": {
                 "allow": [
                     "POST"
@@ -1598,7 +1692,7 @@ curl -v -X POST \
             }
         },
         "user": {
-            "href": "http://rain.okta1.com:1802/api/v1/users/00utf43LCCmTJVcsK0g3",
+            "href": "http://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3",
             "hints": {
                 "allow": [
                     "GET"
@@ -1621,6 +1715,7 @@ The `sms` and `token:software:totp` [factor types](#factor-type) require activat
 - [Activate Push Factor](#activate-push-factor)
 - [Activate Email Factor](#activate-email-factor)
 - [Activate U2F Factor](#activate-u2f-factor)
+- [Activate WebAuthn Factor](#activate-webauthn-factor)
 
 #### Activate TOTP Factor
 
@@ -2067,7 +2162,7 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "passCode": "123456"
-}' "https://${yourOktaDomain}/api/v1/users/users/00u15s1KDETTQMQYABRL/factors/emfnf3gSScB8xXoXK0g3/lifecycle/activate"
+}' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/emfnf3gSScB8xXoXK0g3/lifecycle/activate"
 ```
 
 ##### Response Example (Activated)
@@ -2151,6 +2246,37 @@ Activate a U2F factor by verifying the registration data and client data.
 
 ##### Activate U2F Request Parameters
 
+| Parameter         | Description                                                | Param Type | DataType | Required |
+| ----------------- | ---------------------------------------------------------- | ---------- | -------- | -------- |
+| factorId          | `id` of factor returned from enrollment                    | URL        | String   | TRUE     |
+| registrationData  | base64-encoded registration data from U2F javascript call  | Body       | String   | TRUE     |
+| clientData        | base64-encoded client data from U2F javascript call        | Body       | String   | TRUE     |
+
+##### Activate U2F Response Parameters
+
+[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
+
+If the registration nonce is invalid or if registration data is invalid, you receive a `403 Forbidden` status code with the following error:
+
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+  "errorCode": "E0000068",
+  "errorSummary": "Invalid Passcode/Answer",
+  "errorLink": "E0000068",
+  "errorId": "oaei_IfXcpnTHit_YEKGInpFw",
+  "errorCauses": [
+    {
+      "errorSummary": "Your passcode doesn't match our records. Please try again."
+    }
+  ]
+}
+```
+
+##### Activate U2F Request Example
+
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -2159,10 +2285,10 @@ curl -v -X POST \
 -d '{
   "registrationData":"BQTEMUyOM8h1TiZG4DL-RdMr-tYgTYSf62Y52AmwEFTiSYWIRVO5L-MwWdRJOthmV3J3JrqpmGfmFb820-awx1YIQFlTvkMhxItHlpkzahEqicpw7SIH9yMfTn2kaDcC6JaLKPfV5ds0vzuxF1JJj3gCM01bRC-HWI4nCVgc-zaaoRgwggEcMIHDoAMCAQICCwD52fCSMoNczORdMAoGCCqGSM49BAMCMBUxEzARBgNVBAMTClUyRiBJc3N1ZXIwGhcLMDAwMTAxMDAwMFoXCzAwMDEwMTAwMDBaMBUxEzARBgNVBAMTClUyRiBEZXZpY2UwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQFKJupuUgPQcRHUphaW5JPfLvkkwlEwlHKk_ntSp7MS4aTHJyGnpziqncrjiTC_oUVtb-wN-y_t_IMIjueGkhxMAoGCCqGSM49BAMCA0gAMEUCIQDBo6aOLxanIUYnBX9iu3KMngPnobpi0EZSTkVtLC8_cwIgC1945RGqGBKfbyNtkhMifZK05n7fU-gW37Bdnci5D94wRQIhAJv3VvclbRkHAQhaUR8rr8qFTg9iF-GtHoXU95vWaQdyAiAbEr-440U4dQAZF-Sj8G2fxgh5DkgkkWpyUHZhz7N9ew",
   "clientData":"eyJ0eXAiOiJuYXZpZ2F0b3IuaWQuZmluaXNoRW5yb2xsbWVudCIsImNoYWxsZW5nZSI6IlhxR0h0RTBoUkxuVEoxYUF5U1oyIiwib3JpZ2luIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6MzAwMCIsImNpZF9wdWJrZXkiOiJ1bnVzZWQifQ"
-}' "https://${yourOktaDomain}/api/v1/users/users/00u15s1KDETTQMQYABRL/factors/fuf2rovRxogXJ0nDy0g4/lifecycle/activate"
+}' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fuf2rovRxogXJ0nDy0g4/lifecycle/activate"
 ```
 
-##### Activate U2F Response Parameters
+##### Activate U2F Response Example
 
 ```json
 {
@@ -2189,6 +2315,127 @@ curl -v -X POST \
     },
     "verify":{
       "href":"https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fuf2rovRxogXJ0nDy0g4/verify",
+      "hints":{
+        "allow":[
+          "POST"
+        ]
+      }
+    },
+    "user":{
+      "href":"https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL",
+      "hints":{
+        "allow":[
+          "GET"
+        ]
+      }
+    }
+  }
+}
+```
+
+#### Activate WebAuthn Factor
+
+Activation gets the registration information from the WebAuthn authenticator using the API and passes it to Okta.
+
+##### Get registration information from WebAuthn authenticator by calling the WebAuthn Javascript API
+
+```html
+<!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
+<script>
+// Convert activation object's challenge and user id from string to binary
+response._embedded.activation.challenge = CryptoUtil.strToBin(response._embedded.activation.challenge);
+response._embedded.activation.user.id = CryptoUtil.strToBin(response._embedded.activation.user.id);
+
+// navigator.credentials is a global object on WebAuthn-supported clients, used to access WebAuthn API
+navigator.credentials.create({
+  publicKey: response._embedded.activation
+})
+  .then(function (newCredential) {
+    // Get attestation and clientData from callback result, convert from binary to string
+    var attestation = CryptoUtil.binToStr(newCredential.response.attestationObject);
+    var clientData = CryptoUtil.binToStr(newCredential.response.clientDataJSON);
+  })
+  .fail(function (error) {
+    // Error from WebAuthn platform
+  });
+</script>
+```
+
+Activate a WebAuthn factor by verifying the attestation and client data.
+
+##### Activate WebAuthn Request Parameters
+
+
+| Parameter         | Description                                                     | Param Type | DataType | Required |
+| ----------------- | --------------------------------------------------------------- | ---------- | -------- | -------- |
+| factorId          | `id` of factor returned from enrollment                         | URL        | String   | TRUE     |
+| stateToken        | [state token](#state-token) for the current transaction             | Body       | String   | TRUE     |
+| attestation       | base64-encoded attestation from WebAuthn javascript call        | Body       | String   | TRUE     |
+| clientData        | base64-encoded client data from WebAuthn javascript call        | Body       | String   | TRUE     |
+
+
+[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
+
+If the attestation nonce is invalid, or if the attestation or client data are invalid, you receive a `403 Forbidden` status code with the following error:
+
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+  "errorCode": "E0000068",
+  "errorSummary": "Invalid Passcode/Answer",
+  "errorLink": "E0000068",
+  "errorId": "oaei_IfXcpnTHit_YDKGInpFw",
+  "errorCauses": [
+    {
+      "errorSummary": "Your passcode doesn't match our records. Please try again."
+    }
+  ]
+}
+```
+
+##### Activate WebAuthn Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "attestation: "o2NmbXRmcGFja2VkZ2F0dFN0bXSiY2FsZyZjc2lnWEgwRgIhAMvf2+dzXlHZN1um38Y8aFzrKvX0k5dt/hnDu9lahbR4AiEAuwtMg3IoaElWMp00QrP/+3Po/6LwXfmYQVfsnsQ+da1oYXV0aERhdGFYxkgb9OHGifjS2dG03qLRqvXrDIRyfGAuc+GzF1z20/eVRV2wvl6tzgACNbzGCmSLCyXx8FUDAEIBvWNHOcE3QDUkDP/HB1kRbrIOoZ1dR874ZaGbMuvaSVHVWN2kfNiO4D+HlAzUEFaqlNi5FPqKw+mF8f0XwdpEBlClAQIDJiABIVgg0a6oo3W0JdYPu6+eBrbr0WyB3uJLI3ODVgDfQnpgafgiWCB4fFo/5iiVrFhB8pNH2tbBtKewyAHuDkRolcCnVaCcmQ==",
+  "clientData": "eyJjaGFsbGVuZ2UiOiJVSk5wYW9sVWt0dF9vcEZPNXJMYyIsIm9yaWdpbiI6Imh0dHBzOi8vcmFpbi5va3RhMS5jb20iLCJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIn0=",
+  "stateToken": "00eacMXqkf2pG8K3sBbWqTJNStZpEi9-1Bfwl_mfQT"
+}' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4/lifecycle/activate"
+```
+
+##### Activate WebAuthn Response Example
+
+```json
+{
+  "id":"fwf2rovRxogXJ0nDy0g4",
+  "factorType":"webauthn",
+  "provider":"FIDO",
+  "vendorName":"FIDO",
+  "status":"ACTIVE",
+  "created":"2018-05-24T20:43:19.000Z",
+  "lastUpdated":"2018-05-24T21:43:32.000Z",
+  "profile":{
+    "credentialId":"l3Br0n-7H3g047NqESqJynFtIgf3Ix9OfaRoNwLoloso99Xl2zS_O7EXUkmPeAIzTVtEL4dYjicJWBz7NpqhGA",
+    "authenticatorName": "MacBook Touch ID"
+  },
+  "_links":{
+    "self":{
+      "href":"https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4",
+      "hints":{
+        "allow":[
+          "GET",
+          "DELETE"
+        ]
+      }
+    },
+    "verify":{
+      "href":"https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4/verify",
       "hints":{
         "allow":[
           "POST"
@@ -3028,12 +3275,12 @@ According to
 [FIDO
 spec](https://fidoalliance.org/specs/fido-u2f-v1.2-ps-20170411/fido-appid-and-facets-v1.2-ps-20170411.html#h2_the-appid-and-facetid-assertions), activating and verifying a U2F device with appIds in different DNS zone is not allowed. For example, if a user activated a U2F device via the Factors API from a server hosted at `https://foo.example.com`, the user can verify the U2F factor from `https://foo.example.com`, but will not be able to verify it from Okta portal `https://company.okta.com`.  Here, the U2F device would return error code 4 - `DEVICE_INELIGIBLE`.
 
-##### Start Verification to Get Challenge Nonce
+#### Start Verification to Get Challenge Nonce
 
 Verification of the U2F factor starts with getting the challenge nonce and U2F token details and then using the client-side
 JavaScript API to get the signed assertion from the U2F token.
 
-##### Request Example for Verify U2F Factor
+#### Request Example for Verify U2F Factor
 
 ```bash
 curl -v -X POST \
@@ -3043,7 +3290,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fuf2rovRxogXJ0nDy0g4/verify"
 ```
 
-##### Response Example for Verify U2F Factor
+#### Response Example for Verify U2F Factor
 
 ```json
 {
@@ -3080,7 +3327,7 @@ curl -v -X POST \
 }
 ```
 
-##### Get the Signed Assertion from the U2F Token by calling the U2F Javascript API
+#### Get the Signed Assertion from the U2F Token by calling the U2F Javascript API
 
 ```html
 <!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
@@ -3115,9 +3362,9 @@ curl -v -X POST \
 </script>
 ```
 
-##### Post the Signed Assertion to Okta to Complete Verification
+#### Post the signed assertion to Okta to complete verification
 
-##### Request Example for Signed Assertion
+#### Request Example for Signed Assertion
 
 ```bash
 curl -v -X POST \
@@ -3130,7 +3377,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fuf2rovRxogXJ0nDy0g4/verify"
 ```
 
-##### Response of U2F Verification Example
+#### Response of U2F Verification Example
 
 ```json
 {
@@ -3138,6 +3385,131 @@ curl -v -X POST \
   "profile":{
     "credentialId":"h1bFwJFU9wnelYkexJuQfoUHZ5lX3CgQMTZk4H3I8kM9Nn6XALiQ-BIab4P5EE0GQrA7VD-kAwgnG950aXkhBw",
     "version":"U2F_V2"
+  }
+}
+```
+
+### Verify WebAuthn Factor
+
+<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
+
+Verifies a user with a WebAuthn factor. The verification process starts with getting the WebAuthn credential request options that are used to help select an appropriate authenticator using the WebAuthn API.
+This authenticator then generates an assertion, which may be used to verify the user.
+
+#### Start Verification to Get Challenge Nonce
+
+Verification of the WebAuthn factor starts with getting the WebAuthn credential request details (including the challenge nonce) then using the client-side
+JavaScript API to get the signed assertion from the WebAuthn authenticator.
+
+For more information about these credential request options, see the [WebAuthn spec for PublicKeyCredentialRequestOptions](https://www.w3.org/TR/webauthn/#dictionary-makecredentialoptions).
+
+#### Request Example for Verify WebAuthn Factor
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4/verify"
+```
+
+#### Response Example for Verify WebAuthn Factor
+
+```json
+{
+  "factorResult":"CHALLENGE",
+  "profile":{
+    "credentialId":"l3Br0n-7H3g047NqESqJynFtIgf3Ix9OfaRoNwLoloso99Xl2zS_O7EXUkmPeAIzTVtEL4dYjicJWBz7NpqhGA",
+    "authenticatorName":"MacBook Touch ID"
+  },
+  "_links":{
+    "verify":{
+      "href":"https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4/verify",
+      "hints":{
+        "allow":[
+          "POST"
+        ]
+      }
+    },
+    "factor":{
+      "href":"https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4",
+      "hints":{
+        "allow":[
+          "GET",
+          "DELETE"
+        ]
+      }
+    }
+  },
+  "_embedded":{
+    "challenge":{
+      "challenge":"vQFwTt6zKzMV7HFPzjS2",
+       "extensions":{
+       }
+    }
+  }
+}
+```
+
+#### Get the Signed Assertion from the WebAuthn Authenticator by calling the WebAuthn Javascript API
+
+```html
+<!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
+<script>
+  // Convert activation object's challenge nonce from string to binary
+  response._embedded.challenge.challenge = CryptoUtil.strToBin(response._embedded.challenge.challenge); 
+
+  // Call the WebAuthn javascript API to get signed assertion from the WebAuthn authenticator
+  navigator.credentials.get({
+    publicKey: response._embedded.challenge
+  })
+    .then(function (assertion) {
+      // Get the client data, authenticator data, and signature data from callback result, convert from binary to string
+      var clientData = CryptoUtil.binToStr(assertion.response.clientDataJSON);
+      var authenticatorData = CryptoUtil.binToStr(assertion.response.authenticatorData);
+      var signatureData = CryptoUtil.binToStr(assertion.response.signature);
+    })
+    .fail(function (error) {
+      // Error from WebAuthn platform
+    });
+</script>
+```
+
+#### Post the signed assertion to Okta to complete verification
+
+#### Request Parameters for Verify WebAuthn Factor
+
+
+| Parameter      | Description                                         | Param Type | DataType | Required |
+| -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
+| userId         | `id` of a user                                      | URL        | String   | TRUE     |
+| factorId       | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| clientData     | base64-encoded client data from the WebAuthn authenticator       | Body       | String   | TRUE     |
+| authenticatorData | base64-encoded authenticator data from the WebAuthn authenticator    | Body       | String   | TRUE     |
+| signatureData  | base64-encoded signature data from the WebAuthn authenticator    | Body       | String   | TRUE     |
+
+#### Request Example for Signed Assertion
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "clientData":"eyJ0eXAiOiJuYXZpZ2F0b3IuaWQuZ2V0QXNzZXJ0aW9uIiwiY2hhbGxlbmdlIjoiS2NCLXRqUFU0NDY0ZThuVFBudXIiLCJvcmlnaW4iOiJodHRwczovL2xvY2FsaG9zdDozMDAwIiwiY2lkX3B1YmtleSI6InVudXNlZCJ9",
+  "authenticatorData": "SBv04caJ+NLZ0bTeotGq9esMhHJ8YC5z4bMXXPbT95UFXbDsOg==",
+  "signatureData":"AQAAACYwRgIhAKPktdpH0T5mlPSm_9uGW5w-VaUy-LhI9tIacexpgItkAiEAncRVZURVPOq7zDwIw-OM5LtSkdAxOkfv0ZDVUx3UFHc"
+}' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4/verify"
+```
+
+#### Response of WebAuthn Verification Example
+
+```json
+{
+  "factorResult":"SUCCESS",
+  "profile":{
+    "credentialId":"l3Br0n-7H3g047NqESqJynFtIgf3Ix9OfaRoNwLoloso99Xl2zS_O7EXUkmPeAIzTVtEL4dYjicJWBz7NpqhGA",
+    "authenticatorName":"MacBook Touch ID"
   }
 }
 ```
