@@ -70,9 +70,9 @@ See our updated wiki for full details on contributing to the developer documenta
 
 - [Home](https://github.com/okta/okta-developer-docs/wiki)
 - [Getting set up](https://github.com/okta/okta-developer-docs/wiki/Getting-set-up)
-- [Writing guides](https://github.com/okta/okta-developer-docs/wiki/Writing-guides)
 - [Contributing to the site](https://github.com/okta/okta-developer-docs/wiki/Contributing-to-the-Site)
 - [VuePress authoring guidelines](https://github.com/okta/okta-developer-docs/wiki/VuePress-Authoring-Guidelines)
 - [Style guide](https://github.com/okta/okta-developer-docs/wiki/Style-Guide)
 - [Deploying a doc release](https://github.com/okta/okta-developer-docs/wiki/Deploying-a-Doc-Release)
+- [Creating a Guide](https://github.com/okta/okta-developer-docs/wiki/Creating-a-Guide)
 - [Troubleshooting](https://github.com/okta/okta-developer-docs/wiki/Troubleshooting)
