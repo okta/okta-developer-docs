@@ -9,7 +9,7 @@ The Okta Groups API provides operations to manage Okta groups and their user mem
 
 ## Getting Started with the Groups API
 
-Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/0bb414f9594ed93672a0)
+Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cd531f4882f94ef66d1a)
 
 ## Group Operations
 
@@ -1093,11 +1093,12 @@ Creates a group rule to dynamically add users to the specified group if they mat
 
 | Parameter                           | Description                                                                                             | ParamType | DataType                          | Required | Default |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------- | --------- | --------------------------------- | -------- | ------- |
+| name                                | name of the group                                                                                       | Body      | String                            | TRUE     |         |
 | condition.expression.value          | Okta expression which would result in a boolean value                                                   | Body      | String                            | TRUE     |         |
 | condition.expression.type           | currently it is : urn:okta:expression:1.0                                                               | Body      | String                            | TRUE     |         |
 | condition.people.users.exclude      | userIds which would be excluded when rules are processed                                                | Body      | String                            | FALSE    |         |
 | condition.people.groups.exclude     | is currently not supported                                                                              | Body      | String                            | FALSE    |         |
-| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added.							        | Body      | String                            | TRUE     |         |
+| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added.                                                         | Body      | String                            | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1194,13 +1195,13 @@ Updates a group rule.
 
 | Parameter                           | Description                                                                                             | ParamType | DataType                          | Required | Default |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------- | --------- | --------------------------------- | -------- | ------- |
-| id                                  | id of the rule to be updated                                                                            | Body      | String                            | TRUE     |         |
-| status                              | valid statuses are ACTIVE, INACTIVE and INVALID                                                         | Body      | String                            | TRUE     |         |
+| id                                  | id of the rule to be updated                                                                            | URL       | String                            | TRUE     |         |
+| name                                | name of the group                                                                                       | Body      | String                            | TRUE     |         |
 | condition.expression.value          | okta expression which would result in a boolean value                                                   | Body      | String                            | TRUE     |         |
 | condition.expression.type           | currently it is : urn:okta:expression:1.0                                                               | Body      | String                            | TRUE     |         |
 | condition.people.users.exclude      | userIds which would be excluded when rules are processed                                                | Body      | String                            | FALSE    |         |
 | condition.people.groups.exclude     | is currently not supported                                                                              | Body      | String                            | FALSE    |         |
-| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added.							        | Body      | String                            | TRUE     |         |
+| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added.                                                         | Body      | String                            | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1300,6 +1301,8 @@ Lists all group rules for your organization.
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
 | limit          | Specifies the number of rule results in a page               | Query      | Number                            | FALSE    | 50      |
 | after          | Specifies the pagination cursor for the next page of rules   | Query      | String                            | FALSE    |         |
+| search         | Specifies the keyword of rules to search for                 | Query      | String                            | FALSE    |         |
+| expand         | If specified as groupIdToGroupNameMap, then show group names | Query      | String                            | FALSE    |         |
 
 ##### Response Parameters
 
@@ -1415,6 +1418,7 @@ Fetches a specific group rule by id from your organization
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
 | id             | id of a group rule                                           | URL        | String                            | TRUE     |         |
+| expand         | If specified as groupIdToGroupNameMap, then show group names | Query      | String                            | FALSE    |         |
 
 ##### Response Parameters
 
