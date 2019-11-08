@@ -24,7 +24,7 @@
 
     <aside class="landing-navigation" v-else>
       <ul class="landing">
-        <li v-for="link in navigation" :key="link.title" :class="{ active: isActive(link) || link.overview == true, subnav: link.links}">
+        <li v-for="link in navigation" :key="link.title" :class="{ overview: link.overview, active: isActive(link), subnav: link.links}">
           <a :href="link.link" v-on:click="expandSubNav">{{link.title}}</a>
           <ol v-if="link.links" v-show="link.links && showSublinks(link)" class="sections" :id=link.subLinksId>
             <li v-for="subLink in link.links" :key="subLink.title" :class="{section: true}">
@@ -40,6 +40,8 @@
 </template>
 
 <script>
+  import _ from 'lodash';
+
   export default {
     name: 'Sidebar',
     props: {
@@ -59,8 +61,14 @@
           return this.$site.themeConfig.sidebars.codePages
         }
 
-        if (this.$page.path == '/docs/concepts/') {
-          return this.$site.themeConfig.sidebars.concepts
+        if (this.$page.path.includes('/docs/concepts/')) {
+
+          return _.chain(this.$site.pages)
+          .filter(page => page.path.includes('/docs/concepts/'))
+          .sort()
+          .value();
+
+          // return this.$site.themeConfig.sidebars.concepts
         }
 
         return this.$site.themeConfig.sidebars.main
@@ -82,7 +90,7 @@
           return this.$page.path.includes(link.activeCheck)
         }
 
-        return this.$page.path.includes(link.link)
+        return this.$page.path == link.link
       },
 
       showSublinks(link) {

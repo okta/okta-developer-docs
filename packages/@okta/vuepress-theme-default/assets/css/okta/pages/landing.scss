@@ -48,13 +48,21 @@ $big-spacing: 3rem;
       width: $icon-size;
     }
 
-    &.active {
+    &:first-child:before {
+      content: ''
+    }
+
+    &.overview {
       font-weight: bold;
       $indent: 20px;
       border-bottom: 2px solid black;
       background-color: #e5edfb;
       margin-left: -($indent);
       padding-left: $indent;
+    }
+
+    &.active {
+      font-weight: bold;
     }
 
     &.subnav:before {

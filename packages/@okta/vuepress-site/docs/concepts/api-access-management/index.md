@@ -3,6 +3,7 @@ title: API Access Management
 meta:
   - name: description
     content: With API Access Management, you can secure all of your APIs. Read about its benefits and how to get started.
+layout: Landing
 ---
 
 # API Access Management with Okta
