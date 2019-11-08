@@ -759,7 +759,8 @@ Content-Type: application/json;charset=UTF-8
   "token_endpoint_auth_method": "client_secret_post",
   "initiate_login_uri": "https://www.example-application.com/oauth2/login",
   "tos_uri":"https://example-application.com/client/tos",
-  "policy_uri":"https://example-application.com/client/policy"
+  "policy_uri":"https://example-application.com/client/policy",
+  "request_object_signing_alg":"RS256"
 }
 ```
 
@@ -767,7 +768,7 @@ Content-Type: application/json;charset=UTF-8
 
 Client applications have the following properties:
 
-| Property                                | Description                                                                                                                  | DataType                                                                                       | Nullable   | Unique   | Readonly  |
+| Property                                | Description                                            | DataType                                                                                       | Nullable   | Unique   | Readonly  |
 | :------------------------------------   | :--------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- | :--------- | :------- | :-------- |
 | client_id                               | Unique key for the client application                                                                                        | String                                                                                         | FALSE      | TRUE     | TRUE      |
 | client_id_issued_at                     | Time at which the client_id was issued (measured in unix seconds)                                                            | Number                                                                                         | TRUE       | FALSE    | TRUE      |
@@ -775,17 +776,17 @@ Client applications have the following properties:
 | client_secret                           | OAuth 2.0 client secret string (used for confidential clients)                                                               | String                                                                                         | TRUE       | TRUE     | TRUE      |
 | client_secret_expires_at                | Time at which the client_secret will expire or 0 if it will not expire(measured in unix seconds)                             | Number                                                                                         | TRUE       | FALSE    | TRUE      |
 | logo_uri                                | (Not currently implemented in Okta) URL string that references a logo for the client consent dialogs (not sign-in dialogs)   | String                                                                                         | TRUE       | FALSE    | FALSE     |
-| application_type                        | The type of client application. Default value: `web`                                                                         | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE      |
-| redirect_uris                           | Array of redirection URI strings for use in redirect-based flows                                                             | Array                                                                                          | TRUE       | FALSE    | FALSE     |
-| post_logout_redirect_uris               | Array of redirection URI strings for use for relying party initiated logouts                                                 | Array                                                                                          | TRUE       | FALSE    | FALSE     |
-| response_types                          | Array of OAuth 2.0 response type strings. Default value: `code`                                                              | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | FALSE     |
-| grant_types                             | Array of OAuth 2.0 grant type strings. Default value: `authorization_code`                                                   | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`   | TRUE       | FALSE    | FALSE     |
-| token_endpoint_auth_method              | requested authentication method for the token endpoint. Default value: `client_secret_basic`                                 | `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`                    | TRUE       | FALSE    | FALSE     |
+| application_type                        | The type of client application. Default value: `web`    | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE      |
+| redirect_uris                           | Array of redirection URI strings for use in redirect-based flows                              | Array      | TRUE   | FALSE  | FALSE    |
+| post_logout_redirect_uris               | Array of redirection URI strings for use for relying party initiated logouts                  | Array      | TRUE   | FALSE  | FALSE    |
+| response_types                          | Array of OAuth 2.0 response type strings. Default value: `code`    | Array of `code`, `token`, `id_token`  | TRUE   | FALSE  | FALSE    |
+| grant_types                             | Array of OAuth 2.0 grant type strings. Default value: `authorization_code`                    | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`   | TRUE       | FALSE    | FALSE     |
+| token_endpoint_auth_method              | requested authentication method for the token endpoint. Default value: `client_secret_basic`  | `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`                    | TRUE       | FALSE    | FALSE     |
 | initiate_login_uri                      | URL that a third party can use to initiate a login by the client                                                             | String                                                                                         | TRUE       | FALSE    | FALSE     |
 | jwks                                    | A [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                   | [JSON Web Key Set](#json-web-key-set)                                                          | TRUE       | FALSE    | FALSE     |
+| request_object_signing_alg              | The type of JSON Web Key Set (JWKS) algorithm that must be used for signing request objects. | `HS256`, `HS384`, `HS512`, `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`  | TRUE      | FALSE     | FALSE      |
 | tos_uri <ApiLifecycle access="ea" />    | URL string of a web page providing the client's terms of service document                                                    | URL                                                                                            | TRUE       | FALSE    | FALSE     |
-| policy_uri <ApiLifecycle access="ea" /> | URL string of a web page providing the client's policy document                                                              | URL                                                                                            | TRUE       | FALSE    | FALSE     |
-
+| policy_uri <ApiLifecycle access="ea" /> | URL string of a web page providing the client's policy document                                                              | URL                                                                                           | TRUE       | FALSE    | FALSE     |
 
 Property Details
 
@@ -811,13 +812,15 @@ Property Details
 | `browser`         | `authorization_code`, `implicit`                                           |                                                |
 | `service`         | `client_credentials`                                                       | Works with OAuth 2.0 flow (not OpenID Connect) |
 
-    (*) `client_credentials` with a `web` application type allows you to use one `client_id` for an application that needs to make user-specific calls and back-end calls for data.
+* `client_credentials` with a `web` application type allows you to use one `client_id` for an application that needs to make user-specific calls and back-end calls   for data.
 
 * The `grant_types` and `response_types` values described above are partially orthogonal, as they refer to arguments passed to different
-    endpoints in the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749). However, they are related in that the `grant_types`
-    available to a client influence the `response_types` that the client is allowed to use, and vice versa. For instance, a `grant_types`
-    value that includes `authorization_code` implies a `response_types` value that includes `code`, as both values are defined as part of
-    the OAuth 2.0 authorization code grant.
+  endpoints in the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749). However, they are related in that the `grant_types`
+  available to a client influence the `response_types` that the client is allowed to use, and vice versa. For instance, a `grant_types`
+  value that includes `authorization_code` implies a `response_types` value that includes `code`, as both values are defined as part of
+  the OAuth 2.0 authorization code grant.
+
+* When you specify a value for the `request_object_signing_alg` property, all request objects from the client are rejected if not signed with the specified algorithm. The algorithm must be    used when the request object is passed by value (using the request parameter). If a value for `request_object_signing_alg` isn't specified, the default is any algorithm that is supported    by both the client and the server.
 
 ## JSON Web Key Set
 

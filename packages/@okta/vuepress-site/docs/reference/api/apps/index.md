@@ -4917,6 +4917,7 @@ HTTP/1.1 204 No Content
     }
   },
   "features": [],
+  "request_object_signing_alg":"RS256",
   "signOnMode": "SAML_2_0",
   "credentials": {
     "userNameTemplate": {
@@ -5011,6 +5012,7 @@ Applications have the following properties:
 | credentials        | credentials for the specified `signOnMode`     | [Application Credentials Object](#application-credentials-object)    | TRUE         | FALSE      | FALSE        |               |             |
 | settings           | settings for app                               | Object ([App Names & Settings](#app-names--settings))                | TRUE         | FALSE      | FALSE        |               |             |
 | profile            | Valid JSON schema for specifying properties    | [JSON](#profile-object)                                              | TRUE         | FALSE      | FALSE        |               |             |
+| request_object_signing_alg| The type of JSON Web Key Set (JWKS) algorithm that must be used for signing request objects. | `HS256`, `HS384`, `HS512`, `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`  | TRUE      | FALSE     | FALSE      |
 | _links             | discoverable resources related to the app      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)       | TRUE         | FALSE      | TRUE         |               |             |
 | _embedded          | embedded resources related to the app          | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)       | TRUE         | FALSE      | TRUE         |               |             |
 
@@ -5018,6 +5020,7 @@ Property details
 
  * `id`, `created`, `lastUpdated`, `status`, `_links`, and `_embedded` are only available after an app is created.
  * `profile` is only available for OAuth 2.0 client apps. See [Profile Object](#profile-object).
+ * When you specify a value for the `request_object_signing_alg` property, all request objects from the client are rejected if not signed with the specified algorithm. The algorithm must be used when the request object is passed by value (using the request parameter). If a value for `request_object_signing_alg` isn't specified, the default is any algorithm that is supported by both the client and the server.
 
 ##### App Names & Settings
 
