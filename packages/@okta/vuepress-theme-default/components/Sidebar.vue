@@ -24,13 +24,12 @@
 
     <aside class="landing-navigation" v-else>
       <ul class="landing">
-        <li v-for="link in navigation" :key="link.title" :class="{ overview: link.overview, active: isActive(link), subnav: link.links}">
-          <a :href="link.link" v-on:click="expandSubNav">{{link.title}}</a>
-          <ol v-if="link.links" v-show="link.links && showSublinks(link)" class="sections" :id=link.subLinksId>
-            <li v-for="subLink in link.links" :key="subLink.title" :class="{section: true}">
-              <div class="highlight">
-                <router-link :to="subLink.link">{{subLink.title}}</router-link>
-              </div>
+        <li :class="{overview: true}">Overview</li>
+        <li v-for="link in navigation" :key="link.title" :class="{subnav: showSublinks(link), open: $page.path.includes(link.path)}">
+          <a :href="link.path" :class="{active: isActive(link)}">{{link.title}}</a>
+          <ol v-if="subLinks(link) && $page.path.includes(link.path)"  class="sections">
+            <li v-for="subLink in subLinks(link)" :key="subLink.title">
+              <router-link :to="subLink.path" :class="{active: isActive(subLink)}">{{subLink.title}}</router-link>
             </li>
           </ol>
         </li>
@@ -62,13 +61,12 @@
         }
 
         if (this.$page.path.includes('/docs/concepts/')) {
-
+          const conceptsRegex = /(\/docs\/concepts\/)[A-Za-z-]*\/$/;
           return _.chain(this.$site.pages)
-          .filter(page => page.path.includes('/docs/concepts/'))
+          .filter(page => page.path.match(conceptsRegex))
+          .sortBy(page => page.title)
           .sort()
           .value();
-
-          // return this.$site.themeConfig.sidebars.concepts
         }
 
         return this.$site.themeConfig.sidebars.main
@@ -89,16 +87,40 @@
         if (this.$page.path.includes('/code/')) {
           return this.$page.path.includes(link.activeCheck)
         }
+        console.log(this.$page.path, link.path, this.$page.path == link.path)
+        return this.$page.path == link.path
+      },
 
-        return this.$page.path == link.link
+      subLinks: function(link) {
+        const allCatPages = _.chain(this.$site.pages)
+          .filter(page => page.path.includes(link.path))
+          .filter(page => page.path != link.path)
+          .sortBy(page => page.title)
+          .value();
+
+        if(allCatPages.length > 0) {
+          return allCatPages;
+        }
+        return false;
       },
 
       showSublinks(link) {
+        const allCatPages = _.chain(this.$site.pages)
+          .filter(page => page.path.includes(link.path))
+          .filter(page => page.path != link.path)
+          .sortBy(page => page.title)
+          .value();
+
+        if(allCatPages.length > 0) {
+          return allCatPages;
+        }
+
         if(link.subLinks) {
           return link.subLinks.find((subLink) => {
             return this.$page.regularPath.includes(subLink.link)
           })
         }
+
         return false
       },
 
@@ -110,14 +132,6 @@
         }
 
         event.preventDefault();
-        
-        if(sections.style.display == 'block') {
-          parent.classList.remove('open');
-          sections.style.display = 'none';
-        } else {        
-          parent.classList.add('open');
-          sections.style.display = 'block';
-        }
       }
     }
   }
