@@ -151,7 +151,7 @@
       },
 
       showSublinks(link) {
-        if(link.path.includes('release-notes')) {
+        if(link.path && link.path.includes('release-notes')) {
             return false;
           }
         const allCatPages = _.chain(this.$site.pages)
