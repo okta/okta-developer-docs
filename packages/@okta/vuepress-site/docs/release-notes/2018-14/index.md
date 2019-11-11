@@ -4,12 +4,12 @@ title: Okta API Products Release Notes
 
 ## 2018.14
 
-| Change | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
-| :---------- | :--------------------------------- | :----------------------------------------------------------- |
-| [Linked Objects API in Early Access (EA)](#linked-objects-api-in-early-access-ea) | April 4, 2018 | April 9, 2018 |
-| [Client SDKs Version 1.0](#client-sdks-version-10) | Available Now | Available Now |
-| [Bug Fixed for 2018.14](#bug-fixed-for-2018-14) | April 4, 2018 | April 9, 2018 |
-| [Previously Released Early Access Features](#previously-released-early-access-features) | Available now | Available now |
+| Change                                                                                  | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
+| --------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
+| [Linked Objects API in Early Access (EA)](#linked-objects-api-in-early-access-ea)       | April 4, 2018            | April 9, 2018                                |
+| [Client SDKs Version 1.0](#client-sdks-version-10)                                      | Available Now            | Available Now                                |
+| [Bug Fixed for 2018.14](#bug-fixed-for-2018-14)                                          | April 4, 2018            | April 9, 2018                                |
+| [Previously Released Early Access Features](#previously-released-early-access-features) | Available now            | Available now                                |
 
 ### Linked Objects API in Early Access (EA)
 

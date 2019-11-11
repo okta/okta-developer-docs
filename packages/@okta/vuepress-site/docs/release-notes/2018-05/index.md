@@ -6,15 +6,15 @@ title: Okta API Products Release Notes
 
 ### Feature Enhancements
 
-| Feature Enhancement                          | Expected in Preview Orgs | Expected in Production Orgs |
-|:---------------------------------------------------|:------------------------------------|:---------------------------------------|
-| [App User Schema API is Generally Available](#generally-available-app-user-schema-api)   | Available Now          | Available Now  |
-| [Special HTML Characters in `state` for `okta_post_message`](#special-html-characters-in-state-for-okta_post_message) | January 31, 2018        | February 7, 2018                |
-| [Custom Scopes in Metadata Endpoints](#custom-scopes-in-metadata-endpoints) | January 31, 2018        | February 7, 2018                |
-| [Improved Enforcement of Authorization Server Policies](#improved-enforcement-of-authorization-server-policies) | January 31, 2018        | February 7, 2018                |
-| [Functions for Including Groups in Tokens](#functions-for-including-groups-in-tokens) | January 31, 2018        | February 7, 2018        |
-| [New System Log Messages](#new-system-log-messages) | January 31, 2018        | February 7, 2018                |
-| [New Version of the Sign-In Widget](#new-version-of-the-sign-in-widget) | Available Now | Available Now |
+| Feature Enhancement                                                                                                   | Expected in Preview Orgs | Expected in Production Orgs |
+| --------------------------------------------------------------------------------------------------------------------- | ------------------------ | --------------------------- |
+| [App User Schema API is Generally Available](#generally-available-app-user-schema-api)                                | Available Now            | Available Now               |
+| [Special HTML Characters in `state` for `okta_post_message`](#special-html-characters-in-state-for-okta_post_message) | January 31, 2018         | February 7, 2018            |
+| [Custom Scopes in Metadata Endpoints](#custom-scopes-in-metadata-endpoints)                                           | January 31, 2018         | February 7, 2018            |
+| [Improved Enforcement of Authorization Server Policies](#improved-enforcement-of-authorization-server-policies)       | January 31, 2018         | February 7, 2018            |
+| [Functions for Including Groups in Tokens](#functions-for-including-groups-in-tokens)                                 | January 31, 2018         | February 7, 2018            |
+| [New System Log Messages](#new-system-log-messages)                                                                   | January 31, 2018         | February 7, 2018            |
+| [New Version of the Sign-In Widget](#new-version-of-the-sign-in-widget)                                               | Available Now            | Available Now               |
 
 #### Generally Available: App User Schema API
 Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->

@@ -4,11 +4,11 @@ title: Okta API Products Release Notes
 
 ## 2018.15
 
-| Change | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
-| :---------- | :--------------------------------- | :----------------------------------------------------------- |
-| [Enhanced Feature: API Support for Assigning App Instance to App Admins](#enhanced-feature-api-support-for-assigning-app-instance-to-app-admins) | April 11, 2018 | April 15, 2018 |
-| [Bug Fixed in 2018.15](#bug-fixed-in-2018-15) | April 11, 2018 | April 16, 2018 |
-| [Previously Released Early Access Features 2018.15 Update](#previously-released-early-access-features-2018-15-update) | Available now | Available now |
+| Change                                                                                                                                           | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ | -------------------------------------------- |
+| [Enhanced Feature: API Support for Assigning App Instance to App Admins](#enhanced-feature-api-support-for-assigning-app-instance-to-app-admins) | April 11, 2018           | April 15, 2018                               |
+| [Bug Fixed in 2018.15](#bug-fixed-in-2018-15)                                                                                                     | April 11, 2018           | April 16, 2018                               |
+| [Previously Released Early Access Features 2018.15 Update](#previously-released-early-access-features-2018-15-update)                            | Available now            | Available now                                |
 
 ### Enhanced Feature: API Support for Assigning App Instance to App Admins
 

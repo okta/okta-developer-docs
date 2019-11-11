@@ -4,10 +4,10 @@ title: Okta API Products Release Notes
 
 ## 2018.38
 
-| Change                                                                                                               | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
-| -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
-| [User Sessions Deleted after Password Reset](#user-sessions-deleted-after-password-reset)                            | September 19, 2018       | October 15, 2018                             |
-| [Bugs Fixed in 2018.38](#bugs-fixed-in-2018-38)                                                                       | September 19, 2018       | September 24, 2018                           |
+| Change                                                                                                                | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
+| --------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
+| [User Sessions Deleted after Password Reset](#user-sessions-deleted-after-password-reset)                             | September 19, 2018       | October 15, 2018                             |
+| [Bugs Fixed in 2018.38](#bugs-fixed-in-2018-38)                                                                        | September 19, 2018       | September 24, 2018                           |
 | [Previously Released Early Access Features 2018.38 Update](#previously-released-early-access-features-2018-38-update) | Available Now            | Available Now                                |
 
 ### User Sessions Deleted after Password Reset
@@ -22,11 +22,11 @@ We now delete all sessions for a user after a successful password reset as part 
 
 The following features have already been released as Early Access. To enable them, contact [Support](https://support.okta.com/help/open_case).
 
-| Early Access Features Available Now
-| :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
-| [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
-| [Custom Error Page](#custom-error-page-is-in-early-access)|
-| [Linked Objects API](#linked-objects-api-in-early-access-ea) |
-| [Token Management API](#token-management-api-is-in-early-access-ea) |
-| [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
+| Early Access Features Available Now                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------------------------------- |
+| [Custom URL Domains](#custom-url-domains-are-in-early-access)                                                                       |
+| [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)                                              |
+| [Custom Error Page](#custom-error-page-is-in-early-access)                                                                          |
+| [Linked Objects API](#linked-objects-api-in-early-access-ea)                                                                        |
+| [Token Management API](#token-management-api-is-in-early-access-ea)                                                                 |
+| [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea)  |

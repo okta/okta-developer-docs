@@ -6,11 +6,11 @@ title: Okta API Products Release Notes
 
 ### Feature Enhancements
 
-| Feature Enhancement        | Expected in Preview Orgs | Expected in Production Orgs |
-|:------------------------------------|:------------------------------------|:---------------------------------------|
-| [API Access Management is Generally Available in Preview](#api-access-management-is-generally-available-in-preview) | February 7, 2018               | starting March 12, 2018                  |
-| [New Administrator Role for API Access Management](#new-administrator-role-for-api-access-management) | February 7, 2018 | starting February 12, 2018 |
-| [New and Changed Messages for the System Log](#new-and-changed-messages-for-the-system-log) | February 7, 2018 | starting February 12, 2018 |
+| Feature Enhancement                                                                                                 | Expected in Preview Orgs | Expected in Production Orgs |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------ | --------------------------- |
+| [API Access Management is Generally Available in Preview](#api-access-management-is-generally-available-in-preview) | February 7, 2018         | starting March 12, 2018     |
+| [New Administrator Role for API Access Management](#new-administrator-role-for-api-access-management)               | February 7, 2018         | starting February 12, 2018  |
+| [New and Changed Messages for the System Log](#new-and-changed-messages-for-the-system-log)                         | February 7, 2018         | starting February 12, 2018  |
 
 #### API Access Management is Generally Available in Preview
 

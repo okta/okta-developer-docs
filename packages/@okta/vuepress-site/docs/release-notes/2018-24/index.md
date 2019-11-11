@@ -4,10 +4,10 @@ title: Okta API Products Release Notes
 
 ## 2018.24
 
-| Change                                                                                                               | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
-| -------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
-| [User Login Pattern Validation](#user-login-pattern-validation)                                                      | June 13, 2018            | June 18, 2018                                |
-| [Bugs Fixed in 2018.24](#bugs-fixed-in-2018-24)                                                                       | June 13, 2018            | June 18, 2018                                |
+| Change                                                                                                                | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
+| --------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
+| [User Login Pattern Validation](#user-login-pattern-validation)                                                       | June 13, 2018            | June 18, 2018                                |
+| [Bugs Fixed in 2018.24](#bugs-fixed-in-2018-24)                                                                        | June 13, 2018            | June 18, 2018                                |
 | [Previously Released Early Access Features 2018.24 Update](#previously-released-early-access-features-2018-24-update) | Available now            | Available now                                |
 
 ### User Login Pattern Validation
@@ -24,12 +24,12 @@ A user's `login` no longer needs to be in the form of an email address.  Instead
 
 The following features have already been released as Early Access. To enable them, contact [Support](https://support.okta.com/help/open_case).
 
-| Early Access Features Available Now
-| :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
-| [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
-| [Custom Error Page](#custom-error-page-is-in-early-access)|
-| [Linked Objects API](#linked-objects-api-in-early-access-ea) |
-| [Token Management API](#token-management-api-is-in-early-access-ea) |
-| [System Log API](#system-log-api-is-in-early-access-ea) |
-| [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
+| Early Access Features Available Now                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------------------------------- |
+| [Custom URL Domains](#custom-url-domains-are-in-early-access)                                                                       |
+| [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)                                              |
+| [Custom Error Page](#custom-error-page-is-in-early-access)                                                                          |
+| [Linked Objects API](#linked-objects-api-in-early-access-ea)                                                                        |
+| [Token Management API](#token-management-api-is-in-early-access-ea)                                                                 |
+| [System Log API](#system-log-api-is-in-early-access-ea)                                                                             |
+| [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea)  |

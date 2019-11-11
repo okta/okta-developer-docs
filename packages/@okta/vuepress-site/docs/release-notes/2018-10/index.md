@@ -4,14 +4,14 @@ title: Okta API Products Release Notes
 
 ## 2018.10
 
-| Change | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
-| :---------- | :--------------------------------- | :----------------------------------------------------------- |
-| [API Access Management is Generally Available (GA) in Production](#api-access-management-is-generally-available-ga-in-production) | Available now   | March 12, 2018  |
-| [System Log API Is in Early Access (EA)](#system-log-api-is-in-early-access-ea) | March 7, 2018 | March 12, 2018 |
-| [Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)](#password-imports-with-salted-sha-256-algorithm-is-in-early-access-ea) | March 7, 2018 | March 12, 2018 |
-| [New Parameter for Authentication with Okta Verify with Auto-Push](#new-parameter-for-authentication-with-okta-verify-with-auto-push)   | March 7, 2018 | March 12, 2018 |
-| [System Log Changes for 2018.10](#system-log-changes-for-2018-10) | March 7, 2018 | March 12, 2018 |
-| [Bugs Fixed for 2018.10](#bugs-fixed-for-2018-10) | March 7, 2018 | March 12, 2018 |
+| Change                                                                                                                                          | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
+| [API Access Management is Generally Available (GA) in Production](#api-access-management-is-generally-available-ga-in-production)               | Available now            | March 12, 2018                               |
+| [System Log API Is in Early Access (EA)](#system-log-api-is-in-early-access-ea)                                                                 | March 7, 2018            | March 12, 2018                               |
+| [Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)](#password-imports-with-salted-sha-256-algorithm-is-in-early-access-ea) | March 7, 2018            | March 12, 2018                               |
+| [New Parameter for Authentication with Okta Verify with Auto-Push](#new-parameter-for-authentication-with-okta-verify-with-auto-push)           | March 7, 2018            | March 12, 2018                               |
+| [System Log Changes for 2018.10](#system-log-changes-for-2018-10)                                                                               | March 7, 2018            | March 12, 2018                               |
+| [Bugs Fixed for 2018.10](#bugs-fixed-for-2018-10)                                                                                                | March 7, 2018            | March 12, 2018                               |
 
 ### API Access Management is Generally Available (GA) in Production
 

@@ -6,10 +6,10 @@ title: Okta API Products Release Notes
 
 ### Feature Enhancements
 
-| Feature Enhancement                          | Expected in Preview Orgs | Expected in Production Orgs |
-|:---------------------------------------------------|:------------------------------------|:---------------------------------------|
-| [App User Schema API is Generally Available](#generally-available-app-user-schema-api)   | January 10, 2018          | February 13, 2017  |
-| [SHA-256 Certificates for New SAML 2.0 Apps is Generally Available](#generally-available-sha-256-certificates-for-saml-20-apps) | Available  Now        | January 10, 2018                |
+| Feature Enhancement                                                                                                             | Expected in Preview Orgs | Expected in Production Orgs |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | --------------------------- |
+| [App User Schema API is Generally Available](#generally-available-app-user-schema-api)                                          | January 10, 2018         | February 13, 2017           |
+| [SHA-256 Certificates for New SAML 2.0 Apps is Generally Available](#generally-available-sha-256-certificates-for-saml-20-apps)   | Available  Now           | January 10, 2018            |
 
 #### Generally Available: App User Schema API
 Use the [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) to work with App User profiles, typically for apps that have features for provisioning users. <!--OKTA-154105-->

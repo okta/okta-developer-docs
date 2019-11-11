@@ -4,15 +4,15 @@ title: Okta API Products Release Notes
 
 ## 2018.11
 
-| Change | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
-| :---------- | :--------------------------------- | :----------------------------------------------------------- |
-| [API Support for IdP-initiated Authentication](#api-support-for-idp-initiated-authentication) | March 14 | March 19 |
-| [New Powershell Module for TLS 1.2 Compatibility](#new-powershell-module-for-tls-12-compatibility) | Available Now | Available Now |
-| [Rate Limit for System Log Increased](#rate-limit-for-system-log-increased) | Available Now | Available Now |
-| [New Version of Okta Sign-in Widget](#new-version-of-okta-sign-in-widget) | Available Now | Available Now |
-| [System Log API Is in Early Access (EA)](#system-log-api-is-in-early-access-ea) | Available Now | Available Now |
-| [Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)](#password-imports-with-salted-sha-256-algorithm-is-in-early-access-ea) | Available Now | Available Now |
-| [Bugs Fixed for 2018.11](#bugs-fixed-for-2018-11) | March 14, 2018 | March 19, 2018 |
+| Change                                                                                                                                          | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
+| [API Support for IdP-initiated Authentication](#api-support-for-idp-initiated-authentication)                                                   | March 14                 | March 19                                     |
+| [New Powershell Module for TLS 1.2 Compatibility](#new-powershell-module-for-tls-12-compatibility)                                              | Available Now            | Available Now                                |
+| [Rate Limit for System Log Increased](#rate-limit-for-system-log-increased)                                                                     | Available Now            | Available Now                                |
+| [New Version of Okta Sign-in Widget](#new-version-of-okta-sign-in-widget)                                                                       | Available Now            | Available Now                                |
+| [System Log API Is in Early Access (EA)](#system-log-api-is-in-early-access-ea)                                                                 | Available Now            | Available Now                                |
+| [Password Imports with Salted SHA-256 Algorithm is in Early Access (EA)](#password-imports-with-salted-sha-256-algorithm-is-in-early-access-ea) | Available Now            | Available Now                                |
+| [Bugs Fixed for 2018.11](#bugs-fixed-for-2018-11)                                                                                                | March 14, 2018           | March 19, 2018                               |
 
 ### API Support for IdP-initiated Authentication
 
