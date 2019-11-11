@@ -14,6 +14,6 @@ Access policies are containers for rules. Each access policy applies to a partic
 Polices are evaluated in priority order, as are the rules in a policy.
 The first policy and rule that matches the client request is applied and no further rule or policy processing occurs. If a client matches no policies, the authentication attempt fails and an error is returned.
 
-> **Note:** If you need to change the order of your policies, reorder the policies using drag-n-drop.
+> **Note:** If you need to change the order of your policies, reorder the policies using drag and drop.
 
 <NextSectionLink/>
