@@ -2,7 +2,7 @@
 title: Create Scopes
 ---
 
-Scopes specify what access privileges are being requested as part of the authorization. For example, the `email` scope requests access to the user's email address. There are certain reserved scopes that are created with any Okta authorization server that are listed [here](/docs/reference/api/oidc/#scopes).
+Scopes specify what access privileges are being requested as part of the authorization. For example, the `email` scope requests access to the user's email address. There are certain reserved scopes that are created with any Okta authorization server that are listed on the OpenID Connect & OAuth 2.0 [Scopes](/docs/reference/api/oidc/#scopes) section.
 
 If you need scopes in addition to the reserved scopes provided, you can create them. Custom scopes can have corresponding claims that tie them to some sort of user information.
 
@@ -13,12 +13,12 @@ If you need scopes in addition to the reserved scopes provided, you can create t
 
     > **Note:** The Display Name is what the user sees in the **Consent** dialog box.
 
-5. Select **Require user consent for this scope** for require user consent for your custom scope.
+5. Select **Require user consent for this scope** to require that a user grant consent for the scope.
 
     > **Note:** You can configure individual clients to ignore this setting and skip consent.
 
 6. Select **Set as a default scope** if you want to allow Okta to grant authorization requests to apps that don't specify scopes on an authorization request. If the client omits the scope parameter in an authorization request, Okta returns all default scopes in the access token that are permitted by the access policy rule.
-7. Select **Include in public metadata** if you want the scope to be publicly discoverable.
+7. Select **Include in public metadata** if you want the scope to be [publicly discoverable](/docs/reference/api/oidc/#well-known-oauth-authorization-server).
 8. Click **Create**.
 
 Scopes that you add are referenced by the <GuideLink link="../create-claims">**Claims** dialog box</GuideLink>.

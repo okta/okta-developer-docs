@@ -7,7 +7,7 @@ Rules define particular token lifetimes for a given combination of grant type, u
 1. In the Developer Console, navigate to **API > Authorization Servers**.
 2. Select the name of an authorization server, and then select **Access Policies**.
 3. Select the name of an access policy, and then select **Add Rule**.
-4. Enter a name for the rule, and then use the following fields to define the rule logic:
+4. Enter a **Name** for the rule, and then use the following fields to define the rule logic:
     * **IF Grant type is:** Select one or more OAuth 2.0 [grant types](/docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow).
     * **AND User is:** Select whether there's no user (client credentials flow), a user assigned to a client that's assigned to this rule's policy, or a user assigned to one or more groups that you specify or a list of users that you specify.
     * **AND Scopes requested:** Select the scopes (any scopes or a list that you specify) that the user can request as part of the rule conditions.

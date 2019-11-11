@@ -1,5 +1,5 @@
 ---
-title: Create an Authorization Server
+title: Create an authorization server
 ---
 
 > **Note:** If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account and you don't want to create any additional custom authorization servers, you can skip this step because you already have a custom authorization server created for you called "default". The `{authServerId}` for the default server is `default`.
