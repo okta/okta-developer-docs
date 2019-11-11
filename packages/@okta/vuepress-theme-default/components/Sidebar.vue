@@ -78,6 +78,29 @@
           .value();
         }
 
+        if (this.$page.path.includes('/docs/release-notes/')) {
+          const releaseNotesRegex = /(\/docs\/)[A-Za-z-]*\/$/;
+          return _.chain(this.$site.pages)
+          .filter(page => page.path.match(releaseNotesRegex))
+          .sortBy(page => page.title)
+          .map(page => {
+            if(page.path.includes('release-notes')) {
+              page.title = 'Release Notes';
+            }
+            if(page.path.includes('guides')) {
+              page.title = 'Guides';
+            }
+            if(page.path.includes('reference')) {
+              page.title = 'Reference';
+            }
+            return page;
+          })
+          .sortBy(page => page.title)
+          .value();
+
+          
+        }
+
         return this.$site.themeConfig.sidebars.main
       }
     },
@@ -102,13 +125,23 @@
       },
 
       subLinks: function(link) {
-        const allCatPages = _.chain(this.$site.pages)
+        let allCatPages = _.chain(this.$site.pages)
           .filter(page => page.path.includes(link.path))
           .filter(page => page.path != link.path)
           .sortBy(page => page.title)
           .value();
 
         if(allCatPages.length > 0) {
+          if(link.path.includes('release-notes')) {
+            allCatPages = _.chain(allCatPages)
+            .map(page => {
+              page.title = page.headers[0].title;
+              page.path = '/docs/release-notes/#_'+page.headers[0].title.replace(/\./g, '-');
+              return page;
+            })
+            .reverse()
+            .value();
+          }
           return allCatPages;
         }
         return false;
