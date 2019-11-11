@@ -11,7 +11,7 @@ Rules define particular token lifetimes for a given combination of grant type, u
     * **IF Grant type is:** Select one or more OAuth 2.0 [grant types](/docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow).
     * **AND User is:** Select whether there's no user (client credentials flow), a user assigned to a client that's assigned to this rule's policy, or a user assigned to one or more groups that you specify or a list of users that you specify.
     * **AND Scopes requested:** Select the scopes (any scopes or a list that you specify) that the user can request as part of the rule conditions.
-    * **THEN Use this inline hook:**  Select an [inline hook](/docs/concepts/inline-hooks/), if any, that you want to use to customize the token returned by Okta API Access Management.
+    * **THEN Use this inline hook:**  Select an [Inline Hook](/docs/concepts/inline-hooks/), if any, that you want to use to customize the token returned by Okta API Access Management.
     * **THEN Access token lifetime is:** Select the length of time before an access token expires.
     * **THEN Refresh token lifetime is:** Select the length of time before a refresh token expires.
 5. Click **Create Rule**.
