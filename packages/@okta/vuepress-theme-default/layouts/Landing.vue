@@ -1,5 +1,5 @@
 <template>
-  <div :class="pageClasses" class="Page okta-landing">
+  <div class="Page okta-landing">
     <TopNavigation />
     <Breadcrumb />
     <section class="PageContent NoPaddingTop">
@@ -8,19 +8,18 @@
         <div class="landing-wrap">
           <div class="landing-page-content" >
             <Sidebar :oldNavigation=false />
-            <div class="landing-content">
+            <div class="landing-content" :class="{'full-width': !showToc}">
               <Content />
             </div>
           </div>
         </div>
       </div>
-      
+      <!-- Begin Table Of Contents -->
+      <TableOfContents v-if="showToc" class="TableOfContents"></TableOfContents>
+      <!-- End Table Of Contents -->
       <!-- END Page Content -->
       
     </section>
-    <!-- Begin Table Of Contents -->
-      <TableOfContents v-if="showToc" class="TableOfContents"></TableOfContents>
-      <!-- End Table Of Contents -->
     
     <Footer/>
   </div>

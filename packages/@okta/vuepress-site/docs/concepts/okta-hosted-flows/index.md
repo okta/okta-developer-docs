@@ -1,5 +1,6 @@
 ---
 title: Okta-hosted Flows
+layout: Landing
 ---
 
 # Okta-hosted flows

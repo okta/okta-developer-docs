@@ -1,5 +1,6 @@
 ---
 title: Okta Organizations
+layout: Landing
 ---
 
 # Okta Organizations

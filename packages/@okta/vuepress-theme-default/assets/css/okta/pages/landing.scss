@@ -24,6 +24,10 @@ $big-spacing: 3rem;
   max-width: 750px;
 }
 
+.landing-content.full-width {
+  max-width: 100%;
+}
+
 .landing-navigation {
   padding-right: 2rem;
   width: 250px;
@@ -63,7 +67,7 @@ $big-spacing: 3rem;
       padding-left: $indent;
     }
 
-    &.active {
+    a.active {
       font-weight: bold;
     }
 

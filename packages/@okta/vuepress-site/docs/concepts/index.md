@@ -1,6 +1,7 @@
 ---
 layout: Landing
 title: Concepts
+showToc: false
 ---
 
 # Concepts

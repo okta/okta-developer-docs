@@ -3,6 +3,7 @@ title: Authorization Servers
 meta:
   - name: description
     content: An overview of what an authorization server is and the types of authorization servers available at Okta.
+layout: Landing
 ---
 ## What is an authorization server
 

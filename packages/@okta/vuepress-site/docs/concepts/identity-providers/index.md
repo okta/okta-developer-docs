@@ -1,5 +1,6 @@
 ---
 title: External Identity Providers
+layout: Landing
 ---
 # External Identity Providers
 As a developer building a custom application, you want to give your users the freedom to choose which Identity Provider that they use to sign in to your application. But first you should understand how various Identity Providers connect to Okta. 

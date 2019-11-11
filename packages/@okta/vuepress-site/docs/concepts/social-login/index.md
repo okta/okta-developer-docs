@@ -3,6 +3,7 @@ title: Social Login Overview
 meta:
   - name: description
     content: You can use external social sign-in providers for your Okta apps. Learn more about the accepted features and the social sign-in process. 
+layout: Landing
 ---
 
 # Social Login

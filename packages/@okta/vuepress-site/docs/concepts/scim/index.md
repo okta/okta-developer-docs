@@ -1,10 +1,10 @@
 ---
 title: Understanding SCIM
-layout: docs_page
 icon: /assets/img/icons/scim.svg
 meta:
   - name: description
     content: System for Cross-domain Identity Management. Understand the the value of provisioning accounts with SCIM and how to set them up in Okta.
+layout: Landing
 ---
 
 ## SCIM: Provisioning with Okta's Lifecycle Management

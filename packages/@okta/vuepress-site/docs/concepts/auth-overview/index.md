@@ -3,6 +3,7 @@ title: OAuth 2.0 Overview
 meta:
   - name: description
     content: An overview of OAuth 2.0 and OpenID Connect and their Okta implementations. This guide helps you determine what flow is best for the app you are building.
+layout: Landing
 ---
 
 # OAuth 2.0 Overview
