@@ -3,7 +3,8 @@ title: Okta API Products Release Notes | Okta Developer
 meta:
   - name: description
     content: List of changes to the Okta API and related API...
-component: ReleaseNotes
+showToc: false
+layout: Landing
 ---
 
 # Okta API Products Release Notes
