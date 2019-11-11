@@ -1,6 +1,7 @@
 ---
 title: Sessions
 category: management
+layout: Landing
 ---
 
 # Sessions API

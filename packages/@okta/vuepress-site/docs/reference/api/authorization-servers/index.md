@@ -1,6 +1,7 @@
 ---
 title: Authorization Servers
 category: management
+layout: Landing
 ---
 
 # Authorization Servers

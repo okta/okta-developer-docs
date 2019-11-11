@@ -1,6 +1,7 @@
 ---
 title: Templates
 category: management
+layout: Landing
 ---
 
 # Custom Templates API

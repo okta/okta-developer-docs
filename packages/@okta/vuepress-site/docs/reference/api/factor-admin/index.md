@@ -2,6 +2,7 @@
 title: Factors Administration
 beta: true
 category: management
+layout: Landing
 ---
 
 # Factors Administration API

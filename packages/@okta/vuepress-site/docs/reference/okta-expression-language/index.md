@@ -3,6 +3,7 @@ title: Expression Language Overview
 meta:
   - name: description
     content: Learn more about the features and syntax of the Okta Expression Language, which can be used throughout the administrator UI and API.
+layout: Landing
 ---
 
 # Overview

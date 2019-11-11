@@ -1,6 +1,7 @@
 ---
 title: Apps
 category: management
+layout: Landing
 ---
 
 # Apps API

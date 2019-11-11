@@ -1,6 +1,7 @@
 ---
 title: Identity Providers
 category: management
+layout: Landing
 ---
 
 # Identity Providers API

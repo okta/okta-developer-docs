@@ -1,6 +1,7 @@
 ---
 title: User Types
 category: management
+layout: Landing
 ---
 
 # User Types API

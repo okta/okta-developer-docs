@@ -1,6 +1,7 @@
 ---
 title: SAML Assertion Inline Hook Reference
 excerpt: Customize SAML assertions returned by Okta.
+layout: Landing
 ---
 
 # SAML Assertion Inline Hook Reference

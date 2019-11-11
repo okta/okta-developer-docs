@@ -1,6 +1,7 @@
 ---
 title: Import Inline Hook Reference
 excerpt: Add custom logic to the user import process.
+layout: Landing
 ---
 
 # Import Inline Hook Reference

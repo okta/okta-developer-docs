@@ -1,6 +1,7 @@
 ---
 title: Trusted Origins
 category: management
+layout: Landing
 ---
 
 # Trusted Origins API

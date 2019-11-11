@@ -3,6 +3,7 @@ title: Postman Collections
 meta:
   - name: description
     content: Find all of the Okta API collections which you can use with Postman.
+layout: Landing
 ---
 
 # Import a Postman Collection

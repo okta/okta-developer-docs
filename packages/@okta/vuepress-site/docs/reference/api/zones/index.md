@@ -1,6 +1,7 @@
 ---
 title: Zones
 category: management
+layout: Landing
 ---
 # Zones API
 

@@ -1,6 +1,7 @@
 ---
 title: Users
 category: management
+layout: Landing
 ---
 
 # Users API

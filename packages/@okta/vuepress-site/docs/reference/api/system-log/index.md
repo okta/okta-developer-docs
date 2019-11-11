@@ -1,6 +1,7 @@
 ---
 title: System Log
 category: management
+layout: Landing
 ---
 
 # System Log API

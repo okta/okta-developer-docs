@@ -2,6 +2,7 @@
 title: Schemas
 category: management
 excerpt: The Schemas API defines custom user profiles for Okta users and applications.
+layout: Landing
 ---
 
 # Schemas API

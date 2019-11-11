@@ -1,6 +1,7 @@
 ---
 title: Factors
 category: management
+layout: Landing
 ---
 
 # Factors API

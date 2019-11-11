@@ -5,6 +5,7 @@ excerpt: Control user access to your applications.
 meta:
   - name: description
     content: Find information about the OAuth 2.0 and OpenID Connect endpoints that Okta exposes on its authorization servers.
+layout: Landing
 ---
 
 # OpenID Connect & OAuth 2.0 API

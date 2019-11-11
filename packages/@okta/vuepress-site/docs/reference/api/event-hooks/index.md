@@ -4,6 +4,7 @@ category: management
 excerpt:
   The Event Hooks Management API provides a CRUD interface for registering
   event hook endpoints.
+layout: Landing
 ---
 
 # Event Hooks Management API

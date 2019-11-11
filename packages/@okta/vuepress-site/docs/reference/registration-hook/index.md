@@ -1,6 +1,7 @@
 ---
 title: Registration Inline Hook Reference
 excerpt: Customize handling of user registration requests in Self-Service Registration
+layout: Landing
 ---
 
 # Registration Inline Hook Reference

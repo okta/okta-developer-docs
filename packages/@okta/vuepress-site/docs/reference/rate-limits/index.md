@@ -3,6 +3,7 @@ title: Rate Limits
 excerpt: >-
   Understand rate limits at Okta and learn how to design for efficient use of
   resources
+layout: Landing
 ---
 
 # Rate Limits

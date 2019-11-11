@@ -1,6 +1,7 @@
 ---
 title: Groups
 category: management
+layout: Landing
 ---
 
 # Groups API

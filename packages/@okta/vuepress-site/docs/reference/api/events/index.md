@@ -2,6 +2,7 @@
 title: Events
 category: management
 deprecated: true
+layout: Landing
 ---
 
 # Events API

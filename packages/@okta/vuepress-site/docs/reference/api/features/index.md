@@ -1,6 +1,7 @@
 ---
 title: Features
 category: management
+layout: Landing
 ---
 
 # Features API

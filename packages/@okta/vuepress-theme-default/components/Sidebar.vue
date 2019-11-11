@@ -69,6 +69,15 @@
           .value();
         }
 
+        if (this.$page.path.includes('/docs/reference/')) {
+          const referenceRegex = /(\/docs\/reference\/)[A-Za-z-]*\/$/;
+          return _.chain(this.$site.pages)
+          .filter(page => page.path.match(referenceRegex))
+          .sortBy(page => page.title)
+          .sort()
+          .value();
+        }
+
         return this.$site.themeConfig.sidebars.main
       }
     },
@@ -84,10 +93,11 @@
         if (link.subLinks) {
           return false
         }
+        
         if (this.$page.path.includes('/code/')) {
           return this.$page.path.includes(link.activeCheck)
         }
-        console.log(this.$page.path, link.path, this.$page.path == link.path)
+        
         return this.$page.path == link.path
       },
 

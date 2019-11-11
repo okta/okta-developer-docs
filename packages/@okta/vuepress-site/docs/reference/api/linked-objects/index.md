@@ -4,6 +4,7 @@ category: management
 meta:
   - name: description
     content: Users have relationships to each other, such as managers and reporting employees. With the Linked Objects API, you can create up to 200 linked object definitions.
+layout: Landing
 ---
 
 # Linked Objects API

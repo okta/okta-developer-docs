@@ -3,6 +3,7 @@ title: Okta API Error Codes
 meta:
   - name: description
     content: Here you can find further information about the errors that the Okta API returns, sorted by error code and HTTP return code.
+layout: Landing
 ---
 
 # Okta Example Error Codes and Descriptions

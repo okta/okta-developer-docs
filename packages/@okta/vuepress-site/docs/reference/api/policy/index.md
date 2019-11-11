@@ -1,6 +1,7 @@
 ---
 title: Policy
 category: management
+layout: Landing
 ---
 
 # Policy API

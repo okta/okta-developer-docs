@@ -1,6 +1,7 @@
 ---
 title: Mappings
 category: management
+layout: Landing
 ---
 
 # Mappings API

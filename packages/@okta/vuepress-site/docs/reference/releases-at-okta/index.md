@@ -1,5 +1,6 @@
 ---
-title: Release Life Cycle
+title: Release Lifecycle
+layout: Landing
 ---
 
 # Release Life Cycle

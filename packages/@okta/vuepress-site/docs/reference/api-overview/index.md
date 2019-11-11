@@ -3,6 +3,7 @@ title: Okta API Design Principles
 meta:
   - name: description
     content: Learn how the Okta API works and learn about the compatibility rules and design principles.
+layout: Landing
 ---
 
 ### Versioning

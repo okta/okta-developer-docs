@@ -4,6 +4,7 @@ icon: /assets/img/icons/scim.svg
 meta:
   - name: description
     content: Your SCIM API must support specific SCIM API endpoints to work with Okta. Those endpoints and their explanations are detailed here.
+layout: Landing
 ---
 
 # SCIM Protocol

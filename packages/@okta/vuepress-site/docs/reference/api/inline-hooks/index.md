@@ -4,6 +4,7 @@ category: management
 excerpt:
   The Inline Hooks Management API provides a CRUD interface for registering
   Inline Hook endpoints.
+layout: Landing
 ---
 
 # Inline Hooks Management API

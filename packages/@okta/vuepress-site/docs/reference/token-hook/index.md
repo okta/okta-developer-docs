@@ -1,6 +1,7 @@
 ---
 title: Token Inline Hook Reference
 excerpt: Customize tokens returned by the Okta API Access Management process flow.
+layout: Landing
 ---
 
 # Token Inline Hook Reference

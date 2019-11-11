@@ -1,5 +1,6 @@
 ---
 title: Social IdP Settings
+layout: Landing
 ---
 
 # Social Identity Provider Settings

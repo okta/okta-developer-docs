@@ -4,6 +4,7 @@ category: management
 excerpt: >-
   Operations to register and manage client applications for use with Okta's
   OAuth 2.0 and OpenID Connect endpoints
+layout: Landing
 ---
 
 # Dynamic Client Registration API
