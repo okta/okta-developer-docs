@@ -24,7 +24,9 @@
 
     <aside class="landing-navigation" v-else>
       <ul class="landing">
-        <li :class="{overview: true}">Overview</li>
+        <li :class="{overview: true}">
+          <router-link :to="overview.path" :class="{active: isActive(overview)}">{{overview.title}}</router-link>
+        </li>
         <li v-for="link in navigation" :key="link.title" :class="{subnav: showSublinks(link), open: $page.path.includes(link.path)}">
           <a :href="link.path" :class="{active: isActive(link)}">{{link.title}}</a>
           <ol v-if="subLinks(link) && $page.path.includes(link.path)"  class="sections">
@@ -51,7 +53,11 @@
     },
     data () {
       return {
-        sidebarActive: false
+        sidebarActive: false,
+        overview: {
+          title: 'Overview',
+          path: '#'
+        }
       }
     },
     computed: {
@@ -61,6 +67,8 @@
         }
 
         if (this.$page.path.includes('/docs/concepts/')) {
+          this.overview.title = 'Concepts';
+          this.overview.path = '/docs/concepts/';
           const conceptsRegex = /(\/docs\/concepts\/)[A-Za-z-]*\/$/;
           return _.chain(this.$site.pages)
           .filter(page => page.path.match(conceptsRegex))
@@ -70,6 +78,8 @@
         }
 
         if (this.$page.path.includes('/docs/reference/')) {
+          this.overview.title = 'Reference';
+          this.overview.path = '/docs/reference/';
           const referenceRegex = /(\/docs\/reference\/)[A-Za-z-]*\/$/;
           return _.chain(this.$site.pages)
           .filter(page => page.path.match(referenceRegex))
@@ -79,25 +89,27 @@
         }
 
         if (this.$page.path.includes('/docs/release-notes/')) {
-          const releaseNotesRegex = /(\/docs\/)[A-Za-z-]*\/$/;
-          return _.chain(this.$site.pages)
-          .filter(page => page.path.match(releaseNotesRegex))
-          .sortBy(page => page.title)
-          .map(page => {
-            if(page.path.includes('release-notes')) {
-              page.title = 'Release Notes';
-            }
-            if(page.path.includes('guides')) {
-              page.title = 'Guides';
-            }
-            if(page.path.includes('reference')) {
-              page.title = 'Reference';
-            }
-            return page;
-          })
-          .sortBy(page => page.title)
-          .value();
-
+          this.overview.title = 'Release Notes';
+          this.overview.path = '/docs/release-notes/';
+          // const releaseNotesRegex = /(\/docs\/)[A-Za-z-]*\/$/;
+          // return _.chain(this.$site.pages)
+          // .filter(page => page.path.match(releaseNotesRegex))
+          // .sortBy(page => page.title)
+          // .map(page => {
+          //   if(page.path.includes('release-notes')) {
+          //     page.title = 'Release Notes';
+          //   }
+          //   if(page.path.includes('guides')) {
+          //     page.title = 'Guides';
+          //   }
+          //   if(page.path.includes('reference')) {
+          //     page.title = 'Reference';
+          //   }
+          //   return page;
+          // })
+          // .sortBy(page => page.title)
+          // .value();
+          return false;
           
         }
 
