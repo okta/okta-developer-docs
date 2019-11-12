@@ -137,7 +137,7 @@
       },
 
       subLinks: function(link) {
-        if(link.path.includes('release-notes')) {
+        if(link.path && link.path.includes('release-notes')) {
           return false;
         }
         let allCatPages = _.chain(this.$site.pages)
