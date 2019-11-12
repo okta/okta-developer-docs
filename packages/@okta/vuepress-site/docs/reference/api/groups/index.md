@@ -1098,7 +1098,7 @@ Creates a group rule to dynamically add users to the specified group if they mat
 | condition.expression.type           | currently it is : urn:okta:expression:1.0                                                               | Body      | String                            | TRUE     |         |
 | condition.people.users.exclude      | userIds which would be excluded when rules are processed                                                | Body      | String                            | FALSE    |         |
 | condition.people.groups.exclude     | is currently not supported                                                                              | Body      | String                            | FALSE    |         |
-| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added.                                                         | Body      | String                            | TRUE     |         |
+| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added.                                                        | Body      | String                            | TRUE     |         |
 
 ##### Response Parameters
 
