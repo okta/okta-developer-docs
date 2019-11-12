@@ -1898,7 +1898,7 @@ You can enroll, activate, manage, and verify factors inside the authentication c
 ### Enroll Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors" />
+<ApiOperation method="post" url="/api/v1/authn/factors" /> <SupportsCors />
 
 Enrolls a user with a [factor](/docs/reference/api/factors/#supported-factors-for-providers) assigned by their **MFA Policy**.
 
@@ -3061,7 +3061,7 @@ Enrollment via the Authentication API is currently not supported for Custom HOTP
 ### Activate Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/lifecycle/activate" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/lifecycle/activate" /> <SupportsCors />
 
 The `sms`,`call` and `token:software:totp` [factor types](/docs/reference/api/factors/#factor-type) require activation to complete the enrollment process.
 
@@ -4001,7 +4001,7 @@ Verifies an enrolled factor for an authentication transaction with the `MFA_REQU
 #### Verify Security Question Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 Verifies an answer to a `question` factor.
 
@@ -4077,7 +4077,7 @@ curl -v -X POST \
 #### Verify SMS Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 ##### Request Parameters for Verify SMS Factor
 
@@ -4244,7 +4244,7 @@ curl -v -X POST \
 #### Verify Call Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 ##### Request Parameters for Verify Call Factor
 
@@ -4401,7 +4401,7 @@ curl -v -X POST \
 #### Verify TOTP Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 Verifies an OTP for a `token:software:totp` or `token:hotp` factor.
 
@@ -4479,7 +4479,7 @@ curl -v -X POST \
 #### Verify Push Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 Sends an asynchronous push notification (challenge) to the device for the user to approve or reject.  The `factorResult` for the transaction has a result of `WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`.
 
@@ -4959,7 +4959,7 @@ curl -v -X POST \
 #### Verify U2F Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 Note:
 
@@ -5150,7 +5150,7 @@ curl -v -X POST \
 #### Verify WebAuthn Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 Verifies a user with a WebAuthn factor. The verification process starts with getting the WebAuthn credential request options, which are used to help select an appropriate authenticator using the WebAuthn API.
 This authenticator then generates an assertion that may be used to verify the user.
