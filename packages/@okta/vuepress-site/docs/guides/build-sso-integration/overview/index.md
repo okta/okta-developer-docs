@@ -12,6 +12,6 @@ Use the following instructions to support single sign-on for your app in the pub
 
 ### 1. Prepare Your Application
 
-Use Okta's [Single Sign-On with Okta](/docs/concepts/saml) guide for best practices on supporting SAML in your app which includes toolkits and testing tools.
+Use Okta's [Understanding SAML](/docs/concepts/saml) page for best practices on supporting SAML in your app which includes toolkits and testing tools.
 
 <NextSectionLink/>
