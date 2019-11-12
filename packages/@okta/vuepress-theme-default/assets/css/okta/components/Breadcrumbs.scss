@@ -4,6 +4,18 @@
 .breadcrumb-nav {
 	border-bottom: 2px solid #e5e9eb;
 
+	ol.breadcrumb li.show-contents {
+		visibility: hidden;
+		@extend %all-caps;
+		font-size: get-font-size('button');
+		color: $dark-cerulean;
+		cursor: pointer;
+	}
+
+	ol.breadcrumb li.show-contents:hover {
+		text-decoration: underline
+	}
+
 	@include media('>=1024px') {
 		margin-top: 95px;
 	}
@@ -12,6 +24,9 @@
 	}
 	@include media('<860px') {
 		margin-top: 5px;
+		ol.breadcrumb li.show-contents {
+			visibility: visible;
+		}
 	}
 	@include media('<=600px') {
 		margin-top: 75px;
@@ -42,6 +57,10 @@ ol.breadcrumb {
 			color: get-color('iron');
 			content: $chevron-small;
 			align-items: center;
+		}
+
+		&.show-contents::after {
+			content: '';
 		}
 
 		a {

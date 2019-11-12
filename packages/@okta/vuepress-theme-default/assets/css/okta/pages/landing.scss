@@ -5,6 +5,13 @@
 .landing-page-content {
   display: flex;
   padding-top: 20px;
+
+  @include media('<860px') {
+    .landing-navigation {
+      display: none;
+    }
+  }
+  
 }
 
 .landing-content { 
@@ -20,7 +27,12 @@
   padding-right: 2rem;
   width: 250px;
   flex: 0 0 auto;
-
+  
+	@include media('<860px') {
+	  &.main {
+      display: none;
+    }
+	}
   a {
     cursor: pointer
   }

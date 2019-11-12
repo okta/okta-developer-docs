@@ -2,19 +2,34 @@
   <nav class="breadcrumb-nav" aria-label="breadcrumb">
     <ol class="breadcrumb Wrap" :style="wrapStyle">
       <li class="breadcrumb-item" v-for="crumb in breadcrumb" :key="crumb.path"><router-link :to="crumb.path">{{crumb.title}}</router-link></li>
+      <li class="breadcrumb-item show-contents" v-on:click="showSidebar = !showSidebar">Show Contents</li>
     </ol>
+    <div v-if="showSidebar" style="padding: 10px 25px;">
+    <Sidebar :oldNavigation=false />
+    </div>
   </nav>
 </template>
 
 <script>
   export default {
     name: "Breadcrumb",
+    components: {
+      Sidebar: () => import('../components/Sidebar.vue')
+    },
+
     props: {
       wrapStyle: {
         default: "",
         type: String
       }
     },
+
+    data() {
+      return {
+        showSidebar: false
+      }
+    },
+
     computed: {
       breadcrumb() {
 
