@@ -10,4 +10,4 @@ title: Okta API Products Release Notes
 
 ### Bug Fixed in 2019.11.1
 
-In some cases, if an admin checked another user's Session info using the [Sessions API](/docs/reference/api/sessions/), they would get back the wrong `status` value.
+In some cases, if an admin checked another user's Session info using the [Sessions API](/docs/reference/api/sessions/), they would get back the wrong `status` value. (OKTA-245793)
