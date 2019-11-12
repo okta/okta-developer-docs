@@ -1297,12 +1297,12 @@ Lists all group rules for your organization.
 ##### Request Parameters
 
 
-| Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
-| -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
-| limit          | Specifies the number of rule results in a page               | Query      | Number                            | FALSE    | 50      |
-| after          | Specifies the pagination cursor for the next page of rules   | Query      | String                            | FALSE    |         |
-| search         | Specifies the keyword to search fules for                    | Query      | String                            | FALSE    |         |
-| expand         | If specified as groupIdToGroupNameMap, then show group names | Query      | String                            | FALSE    |         |
+| Parameter      | Description                                                    | ParamType  | DataType                          | Required | Default |
+| -------------- | -------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ------- |
+| limit          | Specifies the number of rule results in a page                 | Query      | Number                            | FALSE    | 50      |
+| after          | Specifies the pagination cursor for the next page of rules     | Query      | String                            | FALSE    |         |
+| search         | Specifies the keyword to search fules for                      | Query      | String                            | FALSE    |         |
+| expand         | If specified as `groupIdToGroupNameMap`, then show group names | Query      | String                            | FALSE    |         |
 
 ##### Response Parameters
 
@@ -1415,10 +1415,10 @@ Fetches a specific group rule by id from your organization
 ##### Request Parameters
 
 
-| Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
-| -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
-| id             | id of a group rule                                           | URL        | String                            | TRUE     |         |
-| expand         | If specified as groupIdToGroupNameMap, then show group names | Query      | String                            | FALSE    |         |
+| Parameter      | Description                                                    | ParamType  | DataType                          | Required | Default |
+| -------------- | -------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ------- |
+| id             | id of a group rule                                             | URL        | String                            | TRUE     |         |
+| expand         | If specified as `groupIdToGroupNameMap`, then show group names | Query      | String                            | FALSE    |         |
 
 ##### Response Parameters
 
