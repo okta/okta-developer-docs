@@ -9,7 +9,7 @@ The Okta Groups API provides operations to manage Okta groups and their user mem
 
 ## Getting Started with the Groups API
 
-Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cd531f4882f94ef66d1a)
+Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5dbb338ac908fb32035c)
 
 ## Group Operations
 
@@ -1201,7 +1201,7 @@ Updates a group rule.
 | condition.expression.type           | currently it is : urn:okta:expression:1.0                                                               | Body      | String                            | TRUE     |         |
 | condition.people.users.exclude      | userIds which would be excluded when rules are processed                                                | Body      | String                            | FALSE    |         |
 | condition.people.groups.exclude     | is currently not supported                                                                              | Body      | String                            | FALSE    |         |
-| actions.assignUserToGroups.groupIds | List of groupIds to which users would be added.                                                         | Body      | String                            | TRUE     |         |
+| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added.                                                        | Body      | String                            | TRUE     |         |
 
 ##### Response Parameters
 
@@ -1301,7 +1301,7 @@ Lists all group rules for your organization.
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
 | limit          | Specifies the number of rule results in a page               | Query      | Number                            | FALSE    | 50      |
 | after          | Specifies the pagination cursor for the next page of rules   | Query      | String                            | FALSE    |         |
-| search         | Specifies the keyword of rules to search for                 | Query      | String                            | FALSE    |         |
+| search         | Specifies the keyword to search fules for                    | Query      | String                            | FALSE    |         |
 | expand         | If specified as groupIdToGroupNameMap, then show group names | Query      | String                            | FALSE    |         |
 
 ##### Response Parameters
