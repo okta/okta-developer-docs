@@ -32,7 +32,7 @@ Changes, regardless of life cycle stage, are always reported in the [Okta API Pr
 
 ## Beta Release
 
-Features in Beta are managed and supported by the Product Team and have been internally validated for a set of use cases. Minimal documentation is supplied to customers for API-related Beta releases, and Beta documentation isn't available at developer.okta.com. API endpoint and configuration information is usually supplied.
+Features in Beta are managed and supported by the Product Team and have been internally validated for a set of use cases. Minimal documentation is supplied to customers for API-related Beta releases, and Beta documentation isn't available at [developer.okta.com](https://developer.okta.com/docs/). API endpoint and configuration information is usually supplied.
 
 > **Important:** Okta only enables Beta features in Preview org environments because features in Beta aren't supported by Okta Customer Support and may change at any time during the Beta release.
 
