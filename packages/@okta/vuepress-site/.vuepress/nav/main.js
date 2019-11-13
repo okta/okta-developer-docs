@@ -73,7 +73,7 @@ module.exports = [
       { title: 'Okta Expression Language', link: '/docs/reference/okta-expression-language/'},
       { title: 'Postman Collections', link: '/docs/reference/postman-collections/'},
       { title: 'Rate Limits', link: '/docs/reference/rate-limits/'},
-      { title: 'Release Lifecycle', link: '/docs/reference/releases-at-okta/'},
+      { title: 'Release Life Cycle', link: '/docs/reference/releases-at-okta/'},
       { title: 'SCIM Protocol', link: '/docs/reference/scim/'},
       { title: 'WebFinger', link: '/docs/reference/webfinger/'}
     ]
