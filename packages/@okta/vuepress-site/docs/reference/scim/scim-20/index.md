@@ -142,11 +142,11 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
-> **Note:** If the SCIM server returns an empty response body to the provisioning request, then Okta marks the operation as invalid, and the Okta administrator sees the following error:
+If the SCIM server returns an empty response body to the provisioning request, then Okta marks the operation as invalid, and the Okta administrator is shown an error in the Admin Console:
 
-![Provisioning operation not valid error](/img/scim11-user-not-created.png "Displays the provisioning operation not valid error message")
+> Automatic provisioning of user `userName` to app `AppName` failed: Error while creating user `userName`: Create new user returned empty user.
 
-> **Note:** If the user that Okta tries to create already exists in the Service Provider application, then the Service Provider must respond with an error schema to stop the provisioning job. The response looks like the following:
+If the user that Okta tries to create already exists in the Service Provider application, then the Service Provider needs to respond with an error schema to stop the provisioning job. The response looks like the following:
 
 ```http
 HTTP/1.1 409 Conflict
@@ -605,11 +605,9 @@ The other operations for updating the users present in the group are â€œreplaceâ
 
 <ApiOperation method="delete" url="/Groups/$[groupId}" />
 
-Okta administrators can remove pushed groups under the **Push Groups** tab of the SCIM application inside the Okta Admin Console.
+Okta administrators can remove pushed groups from the Okta Admin Console, under the **Push Groups** tab of the SCIM application.
 
-On the **Push Groups** tab, click **Active** then **Unlink pushed group**. In the dialog box that appears, Okta provides an option to delete the group on the SCIM server:
-
-![Unlink a pushed group in Okta Admin console](/img/scim11-unlink-group.png "Displays the Unlink Pushed Group dialog in the Okta Admin Console")
+On the **Push Groups** tab, click **Active** then **Unlink pushed group**. In the dialog box that appears, you can choose whether you want to **Delete the group in the target app** or **Leave the group in the target app** on the SCIM server.
 
 When the admin clicks **Unlink**, Okta sends a DELETE request:
 
