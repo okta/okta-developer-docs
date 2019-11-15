@@ -1897,7 +1897,7 @@ You can enroll, activate, manage, and verify factors inside the authentication c
 ### Enroll Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors" />
+<ApiOperation method="post" url="/api/v1/authn/factors" /> <SupportsCors />
 
 Enrolls a user with a [factor](/docs/reference/api/factors/#supported-factors-for-providers) assigned by their **MFA Policy**.
 
@@ -2986,7 +2986,7 @@ curl -v -X POST \
       }
     },
     "factor": {
-      "id": "fwfb2yngen2hwcp5z0g4",
+      "id": "fwfbaopNw5CCGJTu20g4",
       "factorType": "webauthn",
       "provider": "FIDO",
       "vendorName": "FIDO",
@@ -3027,7 +3027,7 @@ curl -v -X POST \
   "_links": {
     "next": {
       "name": "activate",
-      "href": "https://${yourOktaDomain}/api/v1/authn/factors/fwfb2yngen2hwcp5z0g4/lifecycle/activate",
+      "href": "https://${yourOktaDomain}/api/v1/authn/factors/fwfbaopNw5CCGJTu20g4/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -3060,7 +3060,7 @@ Enrollment via the Authentication API is currently not supported for Custom HOTP
 ### Activate Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/lifecycle/activate" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/lifecycle/activate" /> <SupportsCors />
 
 The `sms`,`call` and `token:software:totp` [factor types](/docs/reference/api/factors/#factor-type) require activation to complete the enrollment process.
 
@@ -3954,7 +3954,7 @@ curl -v -X POST \
   "attestation: "o2NmbXRmcGFja2VkZ2F0dFN0bXSiY2FsZyZjc2lnWEgwRgIhAMvf2+dzXlHZN1um38Y8aFzrKvX0k5dt/hnDu9lahbR4AiEAuwtMg3IoaElWMp00QrP/+3Po/6LwXfmYQVfsnsQ+da1oYXV0aERhdGFYxkgb9OHGifjS2dG03qLRqvXrDIRyfGAuc+GzF1z20/eVRV2wvl6tzgACNbzGCmSLCyXx8FUDAEIBvWNHOcE3QDUkDP/HB1kRbrIOoZ1dR874ZaGbMuvaSVHVWN2kfNiO4D+HlAzUEFaqlNi5FPqKw+mF8f0XwdpEBlClAQIDJiABIVgg0a6oo3W0JdYPu6+eBrbr0WyB3uJLI3ODVgDfQnpgafgiWCB4fFo/5iiVrFhB8pNH2tbBtKewyAHuDkRolcCnVaCcmQ==",
   "clientData": "eyJjaGFsbGVuZ2UiOiJVSk5wYW9sVWt0dF9vcEZPNXJMYyIsIm9yaWdpbiI6Imh0dHBzOi8vcmFpbi5va3RhMS5jb20iLCJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIn0=",
   "stateToken": "00eacMXqkf2pG8K3sBbWqTJNStZpEi9-1Bfwl_mfQT"
-}' "https://${yourOktaDomain}/api/v1/authn/factors/fwfb2yngen2hwcp5z0g4/lifecycle/activate"
+}' "https://${yourOktaDomain}/api/v1/authn/factors/fwfbaopNw5CCGJTu20g4/lifecycle/activate"
 ```
 
 ##### Activate WebAuthn Response Example
@@ -4000,7 +4000,7 @@ Verifies an enrolled factor for an authentication transaction with the `MFA_REQU
 #### Verify Security Question Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 Verifies an answer to a `question` factor.
 
@@ -4009,7 +4009,7 @@ Verifies an answer to a `question` factor.
 
 | Parameter      | Description                                         | Param Type | DataType | Required |
 | -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-| factorId       | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| factorId       | `id` of factor                                      | URL        | String   | TRUE     |
 | stateToken     | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | answer         | answer to security question                         | Body       | String   | TRUE     |
 | rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
@@ -4076,7 +4076,7 @@ curl -v -X POST \
 #### Verify SMS Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 ##### Request Parameters for Verify SMS Factor
 
@@ -4243,7 +4243,7 @@ curl -v -X POST \
 #### Verify Call Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 ##### Request Parameters for Verify Call Factor
 
@@ -4400,7 +4400,7 @@ curl -v -X POST \
 #### Verify TOTP Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 Verifies an OTP for a `token:software:totp` or `token:hotp` factor.
 
@@ -4478,7 +4478,7 @@ curl -v -X POST \
 #### Verify Push Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 Sends an asynchronous push notification (challenge) to the device for the user to approve or reject.  The `factorResult` for the transaction has a result of `WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`.
 
@@ -4487,7 +4487,7 @@ Sends an asynchronous push notification (challenge) to the device for the user t
 
 | Parameter      | Description                                          | Param Type | DataType | Required |
 | -------------- | ---------------------------------------------------  | ---------- | -------- | -------- |
-| factorId       | `id` of factor returned from enrollment              | URL        | String   | TRUE     |
+| factorId       | `id` of factor                                       | URL        | String   | TRUE     |
 | stateToken     | [state token](#state-token) for the current transaction  | Body       | String   | TRUE     |
 | rememberDevice | user's decision to remember the device                   | URL        | Boolean  | FALSE    |
 | autoPush       | user's decision to send a push to the device automatically | URL        | Boolean  | FALSE    |
@@ -4958,7 +4958,7 @@ curl -v -X POST \
 #### Verify U2F Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 Note:
 
@@ -5102,11 +5102,11 @@ curl -v -X POST \
 
 | Parameter      | Description                                         | Param Type | DataType | Required |
 | -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-| factorId       | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| factorId       | `id` of factor                                      | URL        | String   | TRUE     |
 | stateToken     | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | clientData     | base64-encoded client data from the U2F token       | Body       | String   | TRUE     |
 | signatureData  | base64-encoded signature data from the U2F token    | Body       | String   | TRUE     |
-| rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
+| rememberDevice | user's decision to remember the device              | URL        | Boolean  | FALSE    |
 
 ##### Request Example for Signed Assertion
 
@@ -5149,10 +5149,14 @@ curl -v -X POST \
 #### Verify WebAuthn Factor
 
 
-<ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" />
+<ApiOperation method="post" url="/api/v1/authn/factors/${factorIdOrFactorType}/verify" /> <SupportsCors />
 
 Verifies a user with a WebAuthn factor. The verification process starts with getting the WebAuthn credential request options, which are used to help select an appropriate authenticator using the WebAuthn API.
 This authenticator then generates an assertion that may be used to verify the user.
+
+> **Note:** a `factorId` or `factorType` may be specified for WebAuthn's verify endpoint, as the WebAuthn factor type supports multiple factor instances.
+  When a `factorId` is used, the verification procedure is no different from any other factors, with verification for a specific factor instance.
+  When "webauthn" (the `factorType` name for WebAuthn) is used, verification would be acceptable with any WebAuthn factor instance enrolled for the user.
 
 ##### Start Verification to Get Challenge Nonce
 
@@ -5170,10 +5174,10 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "stateToken": "${stateToken}"
-}' "https://${yourOktaDomain}/api/v1/authn/factors/${factorId}/verify"
+}' "https://${yourOktaDomain}/api/v1/authn/factors/${factorIdOrFactorType}/verify"
 ```
 
-##### Response Example for Verify WebAuthn Factor
+##### Response Example for Verify WebAuthn Factor by `factorId`
 
 
 ```json
@@ -5196,12 +5200,12 @@ curl -v -X POST \
          }
       },
       "factor":{
-         "id":"fwfb2yngen2hwcp5z0g4",
+         "id":"fwfbaopNw5CCGJTu20g4",
          "factorType":"webauthn",
          "provider":"FIDO",
          "vendorName":"FIDO",
          "profile":{
-            "credentialId":"Ab1jRznBN0A1JAz_xwdZEW6yDqGdXUfO-GWhmzLr2klR1VjdpHzYjuA_h5QM1BBWqpTYuRT6isPphfH9F8HaRAZQ",
+            "credentialId":"AZBXkiL5GrhfSvLeS4MHSvTVC_1ZLPcwI4SKKqKF1sd9TL_UFoQliUKu00to6slexSOZ9oh1h54BbTXPA343qHBF",
             "authenticatorName":"MacBook Touch ID"
          },
          "_embedded":{
@@ -5224,7 +5228,7 @@ curl -v -X POST \
    "_links":{
       "next":{
          "name":"verify",
-         "href":"https://${yourOktaDomain}/api/v1/authn/factors/fwfb2yngen2hwcp5z0g4/verify",
+         "href":"https://${yourOktaDomain}/api/v1/authn/factors/fwfbaopNw5CCGJTu20g4/verify",
          "hints":{
             "allow":[
                "POST"
@@ -5251,14 +5255,106 @@ curl -v -X POST \
 }
 ```
 
+##### Response Example for Verify WebAuthn Factor by `factorType`
+
+
+```json
+{
+  "stateToken":"00lbJNfhlFVRVAR37O3PRzNFkx-v5kgMYHJPTtMDS2",
+  "expiresAt":"2019-10-24T00:21:05.000Z",
+  "status":"MFA_CHALLENGE",
+  "factorResult":"CHALLENGE",
+  "challengeType":"FACTOR_TYPE",
+  "factorType":"webauthn",
+  "_embedded":{
+    "user":{
+      "id":"00u21eb3qyRDNNIKTGCW",
+      "passwordChanged":"2015-10-28T23:27:57.000Z",
+      "profile":{
+        "login":"first.last@gmail.com",
+        "firstName":"First",
+        "lastName":"Last",
+        "locale":"en",
+        "timeZone":"America/Los_Angeles"
+      }
+    },
+    "challenge":{
+      "challenge":"K0UNqWlz2TCCDd5qEkBf",
+      "extensions":{
+
+      }
+    },
+    "factors":[
+      {
+        "id":"fwfbaopNw5CCGJTu20g4",
+        "factorType":"webauthn",
+        "provider":"FIDO",
+        "vendorName":"FIDO",
+        "profile":{
+          "credentialId":"AZBXkiL5GrhfSvLeS4MHSvTVC_1ZLPcwI4SKKqKF1sd9TL_UFoQliUKu00to6slexSOZ9oh1h54BbTXPA343qHBF",
+          "authenticatorName":"MacBook Touch ID"
+        }
+      },
+      {
+        "id":"fwfbadoFkIGXCH8ky0g4",
+        "factorType":"webauthn",
+        "provider":"FIDO",
+        "vendorName":"FIDO",
+        "profile":{
+          "credentialId":"5V1tI15ifCWhZSLvv9szL4HjRk-vpBYYg86n4LZlVg5bAg2_UnP-vjc4ix60Uh9ehLluB7KsMzmEU7y_TuRaJA",
+          "authenticatorName":"Yubikey 5"
+        }
+      }
+    ],
+    "policy":{
+      "allowRememberDevice":false,
+      "rememberDeviceLifetimeInMinutes":0,
+      "rememberDeviceByDefault":false,
+      "factorsPolicyInfo":{
+
+      }
+    }
+  },
+  "_links":{
+    "next":{
+      "name":"verify",
+      "href":"https://${yourOktaDomain}/api/v1/authn/factors/webauthn/verify",
+      "hints":{
+        "allow":[
+          "POST"
+        ]
+      }
+    },
+    "prev":{
+      "href":"https://${yourOktaDomain}/api/v1/authn/previous",
+      "hints":{
+        "allow":[
+          "POST"
+        ]
+      }
+    },
+    "cancel":{
+      "href":"https://${yourOktaDomain}/api/v1/authn/cancel",
+      "hints":{
+        "allow":[
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
+
 ##### Get the Signed Assertion from the WebAuthn Authenticator
 
 
 ```html
 <!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
 <script>
-  // Convert activation object's challenge nonce from string to binary
-  factor._embedded.challenge.challenge = CryptoUtil.strToBin(factor._embedded.challenge.challenge); 
+  // For factorId verification, convert activation object's challenge nonce from string to binary
+  factor._embedded.challenge.challenge = CryptoUtil.strToBin(factor._embedded.challenge.challenge);
+
+  // For factorType verification, the challenge nonce would be stored in challenge.challenge instead
 
   // Call the WebAuthn javascript API to get signed assertion from the WebAuthn authenticator
   navigator.credentials.get({
@@ -5283,7 +5379,8 @@ curl -v -X POST \
 
 | Parameter      | Description                                         | Param Type | DataType | Required |
 | -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
-| factorId       | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| factorId       | `id` of factor                                      | URL        | String   | TRUE (`factorId` OR `factorType` required) |
+| factorType     | `factorType` of factor; for WebAuthn, it is `webauthn` | URL        | String   | TRUE (`factorId` OR `factorType` required) |
 | stateToken     | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | clientData     | base64-encoded client data from the WebAuthn authenticator       | Body       | String   | TRUE     |
 | authenticatorData | base64-encoded authenticator data from the WebAuthn authenticator    | Body       | String   | TRUE     |
@@ -5302,7 +5399,7 @@ curl -v -X POST \
   "authenticatorData": "SBv04caJ+NLZ0bTeotGq9esMhHJ8YC5z4bMXXPbT95UFXbDsOg==",
   "signatureData": "MEQCICeN9Y3Jw9y1vS1ADghTW5gUKy1JFZpESHXyTRbfjXXrAiAtQLyEjXtkZnZCgnmZA1EjPiHjhvXzkWn83zHtVgGkPQ==",
   "stateToken": "${stateToken}"
-}' "https://${yourOktaDomain}/api/v1/authn/factors/${factorId}/verify"
+}' "https://${yourOktaDomain}/api/v1/authn/factors/${factorIdOrFactorType}/verify"
 ```
 
 ##### Response of WebAuthn Verification Example

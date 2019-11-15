@@ -646,7 +646,7 @@ WWW-Authenticate: Bearer error="insufficient_scope", error_description="The acce
 
 > This endpoint is only available on Custom Authorization Servers, so there are no distinct [base URLs](#composing-your-base-url).
 
-Returns OAuth 2.0 metadata related to your Custom Authorization Server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
+Returns OAuth 2.0 metadata related to your Custom Authorization Server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes are returned only when they are [configured to be publicly discoverable](/docs/guides/customize-authz-server/create-scopes/). Custom claims are never returned.
 
 > This API doesn't require any authentication.
 
@@ -783,7 +783,7 @@ HTTP 404 Not Found
 
 > This endpoint's base URL varies depending on whether you are using a custom authorization server. The custom authorization server URL specifies an `authServerId`. For example, the custom Authorization Server automatically created for you by Okta has an `authServerId` value of `default`.
 
-Returns OpenID Connect metadata about your authorization server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
+Returns OpenID Connect metadata about your authorization server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes are returned only when they are [configured to be publicly discoverable](/docs/guides/customize-authz-server/create-scopes/). Custom claims are never returned.
 
 This API doesn't require any authentication.
 
