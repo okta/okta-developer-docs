@@ -57,11 +57,11 @@ Creates a Device object. Device will be in `CREATED` status as a result of a suc
 * Device profile attributes `displayName` and `platform` are mandatory for a Device and can't be set it to null/empty.
 * Device profile attributes should follow formats specified in [device profile properties](#profile-object).
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 None
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -158,13 +158,13 @@ curl -v -X POST \
 
 Fetches a Device by its `id`. If you don't know the `id`, you can [List Devices](#list-devices).
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
 | `deviceId` | String | The unique identifier for the [Device object](#device-model) |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -285,11 +285,11 @@ Searches include all Device profile properties, as well as the Device's `id`, `s
 | `profile.platform eq "WINDOWS"`                 | Devices that have an `platform` of `WINDOWS`     |
 | `profile.sid sw "S-1" `                         | Devices whose `sid` starts with `S-1`            |
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 None
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 | Parameter   | Type   | Description                                                                                                               |
 | ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
@@ -508,13 +508,13 @@ Updates a Device profile using strict-update semantics.
 * Device profile attributes should follow formats specified in [Device Profile Properties](#profile-object).
 
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The unique identifier for the [Device object](#device-model)                              |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -619,20 +619,18 @@ Updates a Device's profile with partial update semantics. Device profile propert
 
 This endpoint supports the `add`, `replace` and `remove` PATCH operations.
 
-* Device profile attributes `displayName` and `platform` are mandatory for a Device and can't be set it to null/empty.
+* Device profile attributes `displayName` and `platform` are mandatory for a Device and can't be set it to null/empty. todo should be in the Request body info
 * Device profile attributes should follow formats specified in [device profile properties](#profile-object).
 * Using the PATCH method on this endpoint does not allow updating `status`.
-* API supports PATCH on a single object instance.
+* API supports PATCH on a single object instance. todo Any reason to mention this?
 
-> **Note:** Use the `PATCH` method to make a partial device profile updates.
-
-##### Request Path Parameters
+#### Request Path Parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The unique identifier for the [Device object](#device-model)                              |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -725,17 +723,17 @@ curl -v -X PATCH \
 
 <ApiOperation method="delete" url="/api/v1/devices/${deviceId}" />
 
-Permanantly deletes a Device that is in `DEACTIVATED` status. The Device can be transitioned to `DEACTIVATED` status using [deactivate](#deactivate-device) API.
+Permanently deletes a Device that is in `DEACTIVATED` status. The Device can be transitioned to `DEACTIVATED` status using [deactivate](#deactivate-device) API.
 
 This deletion is destructive and would delete all the profile data related to the device. Once deleted, device data can't be recovered. A Device that is not in `DEACTIVATED` status will raise an error if Delete operation is attempted.
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The `id` of [Device](#device-model) object                              |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -745,9 +743,9 @@ None
 
 #### Response Body
 
-None
-
-
+```http
+HTTP/1.1 204 No Content
+```
 
 #### Usage Example
 
@@ -761,7 +759,7 @@ curl -v -X DELETE \
 ##### Response
 
 ```http
-HTTP/1.1 204 OK
+HTTP/1.1 204 OK todo this seems wrong. Shouldn't it be No Content ?
 Content-Type: application/json
 ```
 
@@ -790,19 +788,17 @@ For example, a Device's `status` can be set to `UNSUSPENDED` only when its statu
 
 Sets a Device's `status` to `ACTIVE`.
 
-Activated devices:
+Activated devices can be used to create and delete Device User links.
 
-* Can be used to create and delete Device User links.
+This operation could also be accomplished using [update device with PUT](#update-device-with-put). todo update link here and throughout
 
-This operation could also be accomplished using [update device with PUT](#update-device-with-put).
-
-##### Request Path Parameters
+#### Request Path Parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The `id` of [Device](#device-model) object                              |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -832,7 +828,8 @@ curl -v -X POST \
 HTTP/1.1 204 OK
 Content-Type: application/json
 ```
-###### Error Response
+
+#### Error Responses
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 * Passing an `id` that is not in the `CREATED` or `DEACTIVATED` status returns a `400 Bad Request` status code with error code `E0000001`.
@@ -841,19 +838,19 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/devices/${deviceId}/lifecycle/deactivate" />
 
-Sets a Device's `status` to `DEACTIVATED`. Deactivation will cause a Device to lose device user links. A Device should be in `DEACTIVATED` status before it can be [deleted](#delete-device).
+Sets a Device's `status` to `DEACTIVATED`. Deactivation will cause a Device to lose all Device User Links. A Device should be in `DEACTIVATED` status before it can be [deleted](#delete-device).
 
-> Important: Deactivating a Device is a **destructive** operation.  The Device loses all the Device User links.  This action cannot be recovered.
+> Important: Deactivating a Device is a **destructive** operation. This action cannot be recovered.
 
 This operation could also be accomplished using [update device with PUT](#update-device-with-put)
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The unique identifier for the [Device object](#device-model)                              |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -883,7 +880,8 @@ curl -v -X POST \
 HTTP/1.1 204 OK
 Content-Type: application/json
 ```
-###### Error Response
+
+#### Error Responses
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 * Passing an `id` that is not in the `ACTIVE` or `SUSPENEDED` status returns a `400 Bad Request` status code with error code `E0000001`.
@@ -892,9 +890,9 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/devices/${deviceId}/lifecycle/suspend" />
 
-Suspends a Device
+Sets a Device's `status` to `SUSPENDED`.
 
-A device in `ACTIVE` status could be `SUSPENDED`. This status is meant to be temporary and hence not destructive in nature.
+A device in `ACTIVE` status can transition to `SUSPENDED`. This status is meant to be temporary and hence not destructive in nature.
 
 Suspended devices:
 
@@ -949,9 +947,11 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/devices/${deviceId}/lifecycle/unsuspend" />
 
-Unsuspends a Device and returns it to the `ACTIVE` status.
+Unsuspends a Device and by returning its `status` value to `ACTIVE`.
 
 This operation can only be performed on a Device that is in `SUSPENDED` status.
+
+This operation could also be accomplished using [update device with PUT](#update-device-with-put).
 
 #### Request Path Parameters
 
@@ -970,8 +970,6 @@ None
 #### Response Body
 
 None
-
-This operation could also be accomplished using [update device with PUT](#update-device-with-put)
 
 #### Usage Example
 
@@ -996,16 +994,6 @@ Content-Type: application/json
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 * Passing an `id` that is not in the `SUSPENDED` status returns a `400 Bad Request` status code with error code `E0000001`.
-
-## Related Resources
-
-Learn more about Device and User link [here](#device-user-link).
-
-
-### Device User Link operations for a User
-
-Please refer [Device User operations](/docs/reference/api/users/#device-user-links) in Users API.
-
 
 ### List Users Linked to a Device
 
@@ -1193,7 +1181,7 @@ curl -v -X GET \
   }
 ]
 ```
-###### Error Response
+##### Error Response
 
 * Passing an invalid Device `id` returns a `404 Not Found` status code with error code `E0000007`.
 
@@ -1310,7 +1298,7 @@ curl -v -X GET \
     }
 }
 ```
-###### Error Response
+##### Error Response
 
 * Passing an invalid User or Device `id` returns a `404 Not Found` status code with error code `E0000007`.
 
@@ -1428,7 +1416,7 @@ curl -v -X PUT \
   }
 ```
 
-###### Error Response
+##### Error Response
 
 * Passing an invalid User or Device `id` returns a `404 Not Found` status code with error code `E0000007`.
 
@@ -1437,16 +1425,16 @@ curl -v -X PUT \
 
 <ApiOperation method="delete" url="/api/v1/devices/${deviceId}/users/${userId}" />
 
-Deletes a Device and User link. Similar to [Delete a User and Device Link](/docs/reference/api/users/#delete-a-user-and-device-link)
+Deletes a Device and User link. Similar to [Delete a User and Device Link](/docs/reference/api/users/#delete-a-user-and-device-link) todo is there a difference between a "Device and User link" and a "User and Device link"?
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The `id` of [Device](#device-model) object                              |
 | `userId`    | String | The `id` of [User](/docs/reference/api/users/#user-model) object        |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -1488,13 +1476,13 @@ Content-Type: application/json
 
 Deletes all Device and User links for the given device.
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The `id` of [Device](#device-model) object                              |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -1528,20 +1516,19 @@ Content-Type: application/json
 
 * Passing an invalid Device `id` returns a `404 Not Found` status code with error code `E0000007`.
 
-
-## Schema
+## Schema todo these all look like they should be part of the Schemas API
 
 ### Device Schema
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/device/default" />
 
-Fetches a Device schema from Okta service. API clients can use this schema to validate Device object.
+Fetches a Device schema from Okta service. API clients can use this schema to validate a Device object.
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 None
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -1801,7 +1788,7 @@ curl -v -X GET \
 
 ### Device Object
 
-### Device Properties
+#### Device Properties
 
 The device model defines several read-only properties:
 
@@ -1903,13 +1890,13 @@ The device model defines several read-only properties:
 
 #### Device User Link
 
-A device could be linked to one or more User objects or vice versa. With such a link you can fetch devices linked to a given user or users linked to a given device. This provides visibility to administrator to manage potential impact of user actions on linked devices and vice versa. A Device User link is not represented by an API object of its own, rather visibility of such a link is made available via various APIs listed [here](#device-user-link-operations). todo
+A Device could be linked to one or more User objects or vice versa. With such a link you can fetch Devices linked to a given User or Users linked to a given Device. This provides visibility for an administrator to manage the potential impact of user actions on linked Devices and vice versa. A Device User link is not represented by an API object of its own, rather visibility of such a link is made available via various APIs listed [here](#device-user-link-operations). todo
 
 #### Devices Object Link Attributes
 
 For a Device result, the `_links` contains a full set of operations available for that device. `hints` provides information on allowed HTTP verbs for the `href`.
 
-Here are some links that may be available on a Device, as determined by status of a Device:
+Here are some links that may be available on a Device, as determined by its status:
 
 | Link Relation Type       | Description                                                                                                           |
 | :----------------------- | :-------------------------------------------------------------------------------------------------------------------- |
@@ -1919,7 +1906,7 @@ Here are some links that may be available on a Device, as determined by status o
 | `suspend`                | Lifecycle action to [suspend the device](#suspend-device)                                                             |
 | `unsuspend`              | Lifecycle action to [unsuspend the device](#unsuspend-device)                                                         |
 
-For example: A device in `CREATED` status would have the following `_links`.
+For example, a device with a `CREATED` status would have the following `_links`:
 
 ```json
 "_links": {
