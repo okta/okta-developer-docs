@@ -82,6 +82,8 @@ Returns a [Device](#device-model) containing device profile and all the relevant
 
 #### Usage Example
 
+This request creates a Device object for a Macbook:
+
 ##### Request
 
 ```bash
@@ -160,7 +162,7 @@ Fetches a Device by its `id`. If you don't know the `id`, you can [List Devices]
 
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
-| `deviceId` | String | The `id` of [Device object](#device-model) object |
+| `deviceId` | String | The unique identifier for the [Device object](#device-model) |
 
 ##### Request Query Parameters
 
@@ -270,9 +272,7 @@ Searches for devices based on the properties specified in the `search` parameter
 This operation:
 
 * Supports pagination (to a maximum of 200 results).
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
-For example, `search=profile.displayName eq "Bob"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`.
-Examples use cURL-style escaping instead of URL encoding to make them easier to read.
+* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=profile.displayName eq "Bob"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`. Examples use cURL-style escaping instead of URL encoding to make them easier to read.
 
 Searches include all Device profile properties, as well as the Device's `id`, `status` and `lastUpdated` properties.
 
@@ -310,9 +310,9 @@ Array of [Device](#device-model) objects.
 
 #### Usage Example (List all Devices)
 
-##### Request
+The following request returns a list of all available devices, without any query parameters.
 
-The following request returns a list of all available devices, without any query parameters. Returns a list of all devices that are not `DELETED`, up to the maximum (200). This data is always consistent with the latest states of the devices.
+##### Request
 
 ```bash
 curl -v -X GET \
@@ -428,6 +428,8 @@ Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=
 
 #### Usage Example (Search)
 
+The following request returns a list of all available devices, with search parameters: Devices whose Profile `displayName` starts with `Eng-dev` and a `status` value of `ACTIVE`.
+
 ##### Request
 
 ```bash
@@ -491,8 +493,6 @@ curl -v -X GET \
 ]
 ```
 
-
-
 ### Update Device (Complete)
 
 <ApiOperation method="put" url="/api/v1/devices/${deviceId}" />
@@ -512,7 +512,7 @@ Updates a Device profile using strict-update semantics.
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
-| `deviceId`  | String | The `id` of the [Device](#device-model) object                              |
+| `deviceId`  | String | The unique identifier for the [Device object](#device-model)                              |
 
 ##### Request Query Parameters
 
@@ -630,7 +630,7 @@ This endpoint supports the `add`, `replace` and `remove` PATCH operations.
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
-| `deviceId`  | String | The `id` of [Device](#device-model) object                              |
+| `deviceId`  | String | The unique identifier for the [Device object](#device-model)                              |
 
 ##### Request Query Parameters
 
@@ -851,7 +851,7 @@ This operation could also be accomplished using [update device with PUT](#update
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
-| `deviceId`  | String | The `id` of [Device](#device-model) object                              |
+| `deviceId`  | String | The unique identifier for the [Device object](#device-model)                              |
 
 ##### Request Query Parameters
 
@@ -903,13 +903,13 @@ Suspended devices:
 
 This operation could also be accomplished using [update device with PUT](#update-device-with-put)
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
-| `deviceId`  | String | The `id` of [Device](#device-model) object                              |
+| `deviceId`  | String | The unique identifier for the [Device object](#device-model)                              |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -939,6 +939,7 @@ curl -v -X POST \
 HTTP/1.1 204 OK
 Content-Type: application/json
 ```
+
 ###### Error Response
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
@@ -952,13 +953,13 @@ Unsuspends a Device and returns it to the `ACTIVE` status.
 
 This operation can only be performed on a Device that is in `SUSPENDED` status.
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
-| `deviceId`  | String | The `id` of [Device](#device-model) object                              |
+| `deviceId`  | String | The unique identifier for the [Device object](#device-model)                              |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -1012,13 +1013,13 @@ Please refer [Device User operations](/docs/reference/api/users/#device-user-lin
 
 Gets a list of users linked to a Device.
 
-##### Request Path Parameters
+#### Request Path Parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
-| `deviceId`  | String | The `id` of [Device](#device-model) object                              |
+| `deviceId`  | String | The unique identifier for the [Device object](#device-model)                              |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -1202,14 +1203,14 @@ curl -v -X GET \
 
 Gets a user linked to a Device.
 
-##### Request Path Parameters
+#### Request Path Parameters
 
-| Parameter   | Type   | Description                                                             |
-| ----------- | ------ | ----------------------------------------------------------------------- |
-| `deviceId`  | String | The `id` of [Device](#device-model) object                              |
-| `userId`    | String | The `id` of [User](/docs/reference/api/users/#user-model) object        |
+| Parameter  | Type   | Description                                                                        |
+| ---------- | ------ | ---------------------------------------------------------------------------------- |
+| `deviceId` | String | The unique identifier for the [Device object](#device-model)                       |
+| `userId`   | String | The unique identifier for the [User](/docs/reference/api/users/#user-model) object |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
@@ -1319,14 +1320,14 @@ curl -v -X GET \
 
 Creates a Device and User link. Device and User link creation is permitted if Device is `ACTIVE` or `SUSPENDED` status and User is in `ACTIVE` status. If such a link already exists, then this API will do nothing.
 
-##### Request Path Parameters
+#### Request Path Parameters
 
-| Parameter   | Type   | Description                                                             |
-| ----------- | ------ | ----------------------------------------------------------------------- |
-| `deviceId`  | String | The `id` of [Device](#device-model) object                              |
-| `userId`    | String | The `id` of [User](/docs/reference/api/users/#user-model) object        |
+| Parameter  | Type   | Description                                                                        |
+| ---------- | ------ | ---------------------------------------------------------------------------------- |
+| `deviceId` | String | The unique identifier for the [Device object](#device-model)                       |
+| `userId`   | String | The unique identifier for the [User](/docs/reference/api/users/#user-model) object |
 
-##### Request Query Parameters
+#### Request Query Parameters
 
 None
 
