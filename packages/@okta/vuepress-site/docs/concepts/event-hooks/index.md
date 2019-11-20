@@ -41,11 +41,13 @@ The requests sent from Okta to your external service are HTTPS requests. POST re
 
 ### One-Time Verification Request
 
-After registering an Event Hook, but before you can use it, you need to have Okta make a one-time GET verification request to your endpoint, passing your service a verification value that your service needs to send back. This serves as a test confirming that you control the endpoint. See [Set Up Event Hooks](/docs/guides/set-up-event-hook/overview/) for more information on triggering that one-time verification step, in the context of the other steps required to register and verify a new Event Hook endpoint. 
+After registering an Event Hook, but before you can use it, you need to have Okta make a one-time GET verification request to your endpoint, passing your service a verification value that your service needs to send back. This serves as a test confirming that you control the endpoint.
 
 This one-time verification request is the only GET request Okta will send to your external service, while the ongoing requests to notify your service of event occurrences will be HTTPS POST requests. Your web service can use the GET versus POST distinction to implement logic to handle this special one-time request.
 
 The way your service needs to handle this one-time verification is as follows: The request from Okta will contain an HTTP header named `X-Okta-Verification-Challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`, i.e.: `{ "verification" : "value_from_header" }`. Note that the value comes to you in an HTTP header, but you need to send it back in a JSON object.
+
+See [Set Up Event Hooks](/docs/guides/set-up-event-hook/overview/) for more information on triggering that one-time verification step, in the context of the other steps required to register and verify a new Event Hook endpoint. 
 
 ### Ongoing Event Delivery
 
