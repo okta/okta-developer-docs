@@ -65,7 +65,9 @@ No guarantee of maximum delay between event occurrence and delivery is currently
 
 When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. Responses with a 4xx status code are not retried.
 
-> **Note:** You need to make sure that your external service sends a response to the request from Okta within the 3 second timeout limit.
+> **Note:** You need to make sure that your external service can send responses to requests from Okta within the 3 second timeout limit.
+
+See [Your Service's Responses to Event Delivery Requests](#your-service-s-responses-to-event-delivery-requests) below for more information on the HTTP responses you need to send.
 
 ### HTTP Headers
 
@@ -89,7 +91,7 @@ Your external service's responses to Okta's ongoing event delivery POST requests
 
 As a best practice, you should return the HTTP response immediately, rather than waiting for any of your own internal process flows triggered by the event to complete.
 
-> **Note:** If your service does not return the HTTP response within the timeout limit, Okta will consider the delivery to have failed.
+> **Note:** If your service does not return the HTTP response within the timeout limit, Okta will log the delivery attempt as a failure.
 
 ### Rate Limits
 
@@ -97,12 +99,11 @@ Event Hooks are limited to sending 100,000 events per 24-hour period.
 
 ### Debugging
 
-Events identified for delivery to your event hooks contain information about which event hooks were attempted for delivery.
-The `debugData` section of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) object contains the IDs of the event hooks that the particular event was delivered to.
+The Okta [System Log](/docs/reference/api/system-log/) is the best resource for helping you debug your Event Hooks. Any events delivered by Event Hooks are, by definition, also System Log Events, so you can compare events delivered to your external service with events logged in the System Log. A `debugData` property is included in System Log events to link the event to any Event Hook configured to deliver them. Another way that you can use the System Log is to check for Event Hook delivery failures that Okta has detected, which are themselves recorded as as events of type `event_hook.delivery` in the System Log.
 
-Note that this information is available in the event regardless of whether the delivery was successful or failed.
+When looking at an event in the System Log, the `debugData` property includes the specific ID of any Event Hooks configured to deliver that event. Note that the existence of an Event Hook ID in this property does not indicate that delivery was successful, only that it was configured to happen for the event.
 
-Thus, in conjunction with the [System Log event](/docs/reference/api/event-types/?q=event_hook.delivery) for event hook delivery failures, you can debug an end-to-end flow.
+Event Hook delivery attempts that have timed-out, or been detected as having failed for any other reason, are recorded in the System Log in the form of [Event Hook Delivery Events](/docs/reference/api/event-types/?q=event_hook.delivery). You can check these events for information on the failed delivery attempt.
 
 ## Event Hook Setup
 
