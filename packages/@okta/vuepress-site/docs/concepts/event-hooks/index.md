@@ -65,6 +65,8 @@ No guarantee of maximum delay between event occurrence and delivery is currently
 
 When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. Responses with a 4xx status code are not retried.
 
+> **Note:** You need to make sure that your external service sends a response to the request from Okta within the 3 second timeout limit.
+
 ### HTTP Headers
 
 The header of requests sent by Okta will look like this, provided you configure an authorization header, as recommended, and do not define additional custom headers:
