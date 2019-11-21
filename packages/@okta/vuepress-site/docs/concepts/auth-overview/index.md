@@ -120,7 +120,7 @@ Any OAuth flow can give you an access token, but not all support ID tokens.
 
 The type of OAuth 2.0 flow depends on what kind of client that you are building. The flowchart below can quickly help you decide which flow to use. Further explanation about each is included below.
 
-![OAuth Flow Diagram width:](/img/oauth_grant_flowchart.png "Flowchart/decision tree for choosing the correct OAuht 2.0 flow")
+![OAuth Flow Diagram width:](/img/oauth_grant_flowchart.png "Flowchart/decision tree for choosing the correct OAuth 2.0 flow")
 
 ##### Is your client public?
 

@@ -1,296 +1,1020 @@
 {
-	"id": "05649232-8eeb-7fe6-8764-be67a95429ea",
-	"name": "Groups (Okta API)",
-	"description": "The [Okta Groups API](/docs/api/resources/groups) provides operations to manage your organization groups and their user members.",
-	"order": [
-		"48b63c93-8599-21f3-31ca-db2ca595e596",
-		"a512fa07-866b-48c3-bac5-32aa746e2934",
-		"e9ffc469-47bf-4900-23ca-d3c11ef42496",
-		"b130d3d4-15aa-4f1b-9bab-ed00386a0e6d",
-		"adeeef71-f867-2821-8885-1230162f6733",
-		"5e79e781-d96b-edaa-d6dc-bbeaf5a8b1e2",
-		"b27cb089-81f8-d921-75ef-426ebfb6367a",
-		"61172828-4be6-8be0-6f21-eca905309bbc",
-		"2fd8abce-ec17-932c-7220-668f2f7a3d60",
-		"b2a4806e-a7f6-e16d-4fd9-87184aac443d",
-		"2b566256-b325-fb28-ba4a-c48eaf27d9e8",
-		"9572adaf-6162-4046-ff15-f5bed935ae78",
-		"825eeff3-8511-686f-b167-4274399472b4",
-		"384d0892-1a94-6e07-b6a0-377bb4ee5b5c"
-	],
-	"folders": [],
-	"timestamp": 0,
-	"owner": "64678",
-	"remoteLink": "https://www.getpostman.com/collections/888ea73ebb6a6c6e1ea2",
-	"public": false,
-	"requests": [
+	"info": {
+		"_postman_id": "96f074c0-2538-43b2-8350-3e361e81fad3",
+		"name": "Groups (Okta API)",
+		"description": "The [Okta Groups API](/docs/reference/api/groups/) provides operations to manage your organization groups and their user members.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"folder": null,
-			"id": "2b566256-b325-fb28-ba4a-c48eaf27d9e8",
-			"name": "List Group Members (Users)",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": null,
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "GET",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/groups/{{groupId}}/users",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea"
+			"name": "Group Operations",
+			"item": [
+				{
+					"name": "Add Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"profile\": {\n    \"name\": \"West Coast Users\",\n    \"description\": \"West Coast Users\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  Group",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Groups",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Groups",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups?q=ever",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "ever"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Groups with Type",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups?filter=type eq \"OKTA_GROUP\"",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "type eq \"OKTA_GROUP\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Groups with Profile Updated after Timestamp",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups?filter=lastUpdated gt \"2015-10-05T00:00:00.000Z\"",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "lastUpdated gt \"2015-10-05T00:00:00.000Z\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Groups with Membership  after Timestamp",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups?filter=lastMembershipUpdated gt \"2015-10-05T00:00:00.000Z\"",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "lastMembershipUpdated gt \"2015-10-05T00:00:00.000Z\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Groups Updated after Timestamp",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups?filter=lastUpdated gt \"2015-10-05T00:00:00.000Z\" or lastMembershipUpdated gt \"2015-10-05T00:00:00.000Z\"",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "lastUpdated gt \"2015-10-05T00:00:00.000Z\" or lastMembershipUpdated gt \"2015-10-05T00:00:00.000Z\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Group",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"profile\": {\n    \"name\": \"Squabble of Users\",\n    \"description\": \"Keep Calm and Single Sign On\"\n  }\n}  "
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Group",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": []
 		},
 		{
-			"folder": null,
-			"id": "2fd8abce-ec17-932c-7220-668f2f7a3d60",
-			"name": "Update Group",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "PUT",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/groups/{{groupId}}",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea",
-			"rawModeData": "{\n  \"profile\": {\n    \"name\": \"Squabble of Users\",\n    \"description\": \"Keep Calm and Single Sign On\"\n  }\n}  "
+			"name": "Group Member Operations",
+			"item": [
+				{
+					"name": "List Group Members (Users)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User to Group",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}/users/{{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove User from Group",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}/users/{{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}",
+								"users",
+								"{{userId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": []
 		},
 		{
-			"folder": null,
-			"id": "384d0892-1a94-6e07-b6a0-377bb4ee5b5c",
-			"name": "List Assigned Applications",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": null,
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "GET",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/groups/{{groupId}}/apps",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea"
+			"name": "Related Resources",
+			"item": [
+				{
+					"name": "List Assigned Applications",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/{{groupId}}/apps",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"{{groupId}}",
+								"apps"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": []
 		},
 		{
-			"folder": null,
-			"id": "48b63c93-8599-21f3-31ca-db2ca595e596",
-			"name": "Add Group",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": null,
-			"url": "{{url}}/api/v1/groups",
-			"preRequestScript": null,
-			"tests": null,
-			"currentHelper": null,
-			"helperAttributes": null,
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea",
-			"rawModeData": "{\n  \"profile\": {\n    \"name\": \"West Coast Users\",\n    \"description\": \"West Coast Users\"\n  }\n}"
-		},
-		{
-			"id": "5e79e781-d96b-edaa-d6dc-bbeaf5a8b1e2",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/groups?filter=lastUpdated gt \"2015-10-05T00:00:00.000Z\"",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1448741359443,
-			"name": "List Groups with Profile Updated after Timestamp",
-			"description": "",
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea",
-			"responses": []
-		},
-		{
-			"id": "61172828-4be6-8be0-6f21-eca905309bbc",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/groups?filter=lastUpdated gt \"2015-10-05T00:00:00.000Z\" or lastMembershipUpdated gt \"2015-10-05T00:00:00.000Z\"",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1448741383997,
-			"name": "List Groups Updated after Timestamp",
-			"description": "",
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea",
-			"responses": []
-		},
-		{
-			"folder": null,
-			"id": "825eeff3-8511-686f-b167-4274399472b4",
-			"name": "Remove User from Group",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "",
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "DELETE",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/groups/{{groupId}}/users/{{userId}}",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea"
-		},
-		{
-			"folder": null,
-			"id": "9572adaf-6162-4046-ff15-f5bed935ae78",
-			"name": "Add User to Group",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "",
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "PUT",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/groups/{{groupId}}/users/{{userId}}",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea"
-		},
-		{
-			"id": "a512fa07-866b-48c3-bac5-32aa746e2934",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/groups/{{groupId}}",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "GET",
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea",
-			"data": [],
-			"dataMode": "params",
-			"name": "Get  Group",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1448711266852,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {}
-		},
-		{
-			"id": "adeeef71-f867-2821-8885-1230162f6733",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/groups?filter=type eq \"OKTA_GROUP\"",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "GET",
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea",
-			"data": [],
-			"dataMode": "params",
-			"name": "List Groups with Type",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1448710695475,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {}
-		},
-		{
-			"folder": null,
-			"id": "b130d3d4-15aa-4f1b-9bab-ed00386a0e6d",
-			"name": "Search Groups",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "GET",
-			"pathVariables": null,
-			"url": "{{url}}/api/v1/groups?q=ever",
-			"preRequestScript": null,
-			"tests": null,
-			"currentHelper": null,
-			"helperAttributes": null,
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea",
-			"rawModeData": "{\n  \"profile\": {\n    \"name\": \"iPhone User\",\n    \"description\": \"Example group of iPhone Users\"\n  }\n}"
-		},
-		{
-			"id": "b27cb089-81f8-d921-75ef-426ebfb6367a",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/groups?filter=lastMembershipUpdated gt \"2015-10-05T00:00:00.000Z\"",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1448710961419,
-			"name": "List Groups with Membership  after Timestamp",
-			"description": "",
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea",
-			"responses": []
-		},
-		{
-			"folder": null,
-			"id": "b2a4806e-a7f6-e16d-4fd9-87184aac443d",
-			"name": "Remove Group",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "",
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "DELETE",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/groups/{{groupId}}",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea"
-		},
-		{
-			"folder": null,
-			"id": "e9ffc469-47bf-4900-23ca-d3c11ef42496",
-			"name": "List Groups",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "GET",
-			"pathVariables": null,
-			"url": "{{url}}/api/v1/groups",
-			"preRequestScript": null,
-			"tests": null,
-			"currentHelper": null,
-			"helperAttributes": null,
-			"collectionId": "05649232-8eeb-7fe6-8764-be67a95429ea",
-			"rawModeData": "{\n  \"profile\": {\n    \"name\": \"iPhone User\",\n    \"description\": \"Example group of iPhone Users\"\n  }\n}"
+			"name": "Group Rule Operations",
+			"item": [
+				{
+					"name": "List rules with after",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules?after={{cursorRuleId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules"
+							],
+							"query": [
+								{
+									"key": "after",
+									"value": "{{cursorRuleId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List rules with search",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules?search={{ruleNameKeyword}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "{{ruleNameKeyword}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List rules with expand and limit",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules?expand=groupIdToGroupNameMap&limit=25",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules"
+							],
+							"query": [
+								{
+									"key": "expand",
+									"value": "groupIdToGroupNameMap"
+								},
+								{
+									"key": "limit",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get rule",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules/{{id}}?expand=groupIdToGroupNameMap",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": "expand",
+									"value": "groupIdToGroupNameMap"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create rule using Okta Expression Language",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"group_rule\",\n  \"name\": \"{{ruleName}}\",\n  \"conditions\": {\n    \"expression\": {\n      \"type\": \"urn:okta:expression:1.0\",\n      \"value\": \"user.lastName eq \\\"Thomas\\\"\"\n    }\n  },\n  \"actions\": {\n    \"assignUserToGroups\": {\n      \"groupIds\": [\n        \"{{groupId}}\"\n      ]\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create rule using basic condition",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"group_rule\",\n  \"name\": \"{{ruleName}}\",\n  \"conditions\": {\n    \"expression\": {\n      \"type\": \"urn:okta:expression:1.0\",\n      \"value\": \"user.firstName==\\\"Thomas\\\"\"\n    }\n  },\n  \"actions\": {\n    \"assignUserToGroups\": {\n      \"groupIds\": [\n        \"{{groupId}}\"\n      ]\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create rule and exclude users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"group_rule\",\n  \"name\": \"{{ruleName}}\",\n  \"conditions\": {\n    \"expression\": {\n      \"type\": \"urn:okta:expression:1.0\",\n      \"value\": \"user.lastName==\\\"Thomas\\\"\"\n    },\n    \"people\": {\n      \"users\": {\n        \"exclude\": [\n          \"{{excludedUserId}}\"\n        ]\n      }\n    }\n  },\n  \"actions\": {\n    \"assignUserToGroups\": {\n      \"groupIds\": [\n        \"{{groupId}}\"\n      ]\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update rule using basic condition",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"group_rule\",\n  \"name\": \"{{ruleName}}\",\n  \"conditions\": {\n    \"expression\": {\n      \"type\": \"urn:okta:expression:1.0\",\n      \"value\": \"user.lastName==\\\"Thomas\\\"\"\n    },\n    \"people\": {\n      \"users\": {\n        \"exclude\": [\n          \"{{excludedUserId}}\"\n        ]\n      }\n    }\n  },\n  \"actions\": {\n    \"assignUserToGroups\": {\n      \"groupIds\": [\n        \"{{existingGroupId}}\"\n      ]\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update rule using Okta Expression Language",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"group_rule\",\n  \"name\": \"{{ruleName}}\",\n  \"conditions\": {\n    \"expression\": {\n      \"type\": \"urn:okta:expression:1.0\",\n      \"value\": \"user.lastName eq \\\"Thomas\\\"\"\n    },\n    \"people\": {\n      \"users\": {\n        \"exclude\": [\n          \"{{excludedUserId}}\"\n        ]\n      }\n    }\n  },\n  \"actions\": {\n    \"assignUserToGroups\": {\n      \"groupIds\": [\n        \"{{existingGroupId}}\"\n      ]\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete rule and remove users from the group",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules/{{id}}?removeUsers=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules",
+								"{{id}}"
+							],
+							"query": [
+								{
+									"key": "removeUsers",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete rule",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules/{{id}}/lifecycle/deactivate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules",
+								"{{id}}",
+								"lifecycle",
+								"deactivate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate rule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/groups/rules/{{id}}/lifecycle/activate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"groups",
+								"rules",
+								"{{id}}",
+								"lifecycle",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": []
 		}
-	]
+	],
+	"protocolProfileBehavior": []
 }
