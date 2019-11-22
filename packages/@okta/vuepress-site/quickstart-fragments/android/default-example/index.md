@@ -7,7 +7,7 @@ libraryName: Native Android
 This guide will walk you through integrating authentication into an Android app with Okta by performing these steps:
 
 1. Add an OpenID Connect Client in Okta
-2. Add Okta-AppAuth to your Android project
+2. Add okta-oidc-android to your Android project
 3. Implement Okta Sign-in
 4. Handle the Login State
 5. Using the AccessToken
@@ -36,48 +36,48 @@ After you have created the application there are two more values you will need t
 
 These values will be used in your Android application to setup the OpenID Connect flow with Okta.
 
-## Add Okta-AppAuth to your Android Project
-The simplest way to add authentication into an Android app is using the library [Okta AppAuth](https://bintray.com/okta/com.okta.android/okta-sdk-appauth-android), available through [JCenter](https://bintray.com/bintray/jcenter). To install it, simply add the following to your `build.grade`:
+## Add okta-oidc-android to your Android Project
 
-```
-compile 'com.okta.android:appauth-android:0.1.0'
+The simplest way to add authentication into an Android app is using the library [Okta OIDC](https://bintray.com/okta/com.okta.android/okta-oidc-android), available through [JCenter](https://bintray.com/bintray/jcenter). To install it, simply add the following to your `build.grade`:
+
+```gradle
+implementation 'com.okta.android:oidc-androidx:1.0.6'
 ```
 
 ### Configuration
 <DomainAdminWarning />
-Create a new `okta_app_auth_config.json` file in your application's `res/raw` directory with the following contents:
+Create a new `okta_oidc_config.json` file in your application's `res/raw` directory with the following contents:
+
 ```json
 {
-  "client_id": "{clientIdValue}",
-  "redirect_uri": "{redirectUriValue}",
+  "client_id": "{clientId}",
+  "redirect_uri": "{redirectUri}",
+  "end_session_redirect_uri": "{endSessionUri}",
   "scopes": [
     "openid",
     "profile",
     "offline_access"
   ],
-  "issuer_uri": "https://${yourOktaDomain}/oauth2/default"
+  "discovery_uri": "https://{yourOktaDomain}"
 }
 ```
+
 **Note**: *To receive a **refresh_token**, you must include the `offline_access` scope.*
 
 ### Update the URI Scheme
+
 In order to redirect back to your application from a web browser, you must specify a unique URI to your app. To do this, you must define a gradle manifest placeholder in your app's `build.gradle`:
 
-```
+```gradle
 android.defaultConfig.manifestPlaceholders = [
     "appAuthRedirectScheme": "com.okta.example"
 ]
 ```
 
-Make sure this is consistent with the redirect URI used in `okta_app_auth_config.json`. For example, if your **Login Redirect URI** is `com.okta.example:/callback`, the **AppAuth Redirect Scheme** will be `com.okta.example`.
-
-#### Chrome Custom Tabs `ERR_UNKNOWN_URL_SCHEME`
-
-There is a [known issue](https://github.com/okta/okta-sdk-appauth-android/issues/8) when redirecting back to a URI scheme from the browser via Chrome Custom Tabs. This is due to Chrome **not supporting** JavaScript initiated redirects back to native applications.
-
-More information on this topic is recorded in [this issue](https://github.com/okta/okta-sdk-appauth-android/issues/8).
+Make sure this is consistent with the redirect URI used in `okta_oidc_config.json`. For example, if your **Login Redirect URI** is `com.okta.example:/callback`, the **AppAuth Redirect Scheme** will be `com.okta.example`.
 
 ## Implement Okta Sign-In
+
 Users can sign in to your Android application a number of different ways.
 The easiest, and most secure way is to use the **default login page**. This page renders the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/), equipped to handle User Lifecycle operations, MFA, and more.
 
@@ -86,61 +86,54 @@ First initialize the Okta AppAuth SDK in the `Activity#onCreate` method of the A
 ```java
 // LoginActivity.java
 
-import com.okta.appauth.android.OktaAppAuth;
-import net.openid.appauth.AuthorizationException;
+public class LoginActivity extends AppCompatActivity {
 
-public class LoginActivity extends Activity {
-
-    private OktaAppAuth mOktaAuth;
+    private WebAuthClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        OIDCConfig config = new OIDCConfig.Builder()
+            .withJsonFile(this, R.raw.okta_oidc_config)
+            .create();
 
-        mOktaAuth = OktaAppAuth.getInstance(this);
+        client = new Okta.WebAuthBuilder()
+            .withConfig(mOidcConfig)
+            .withContext(this)
+            .create();
 
-        // Do any of your own setup of the Activity
-
-        mOktaAuth.init(
-            this,
-            new OktaAppAuth.OktaAuthListener() {
+        ResultCallback<AuthorizationStatus, AuthorizationException> callback =
+            new ResultCallback<AuthorizationStatus, AuthorizationException>() {
                 @Override
-                public void onSuccess() {
-                    // Handle a successful initialization (e.g. display login button)
+                public void onSuccess(@NonNull AuthorizationStatus status) {
                 }
 
                 @Override
-                public void onTokenFailure(@NonNull AuthorizationException ex) {
-                    // Handle a failed initialization
+                public void onCancel() {
                 }
-            }
-        );
+
+                @Override
+                public void onError(@Nullable String msg, AuthorizationException error) {
+                }
+        };
+        client.registerCallback(callback, this);
     }
 }
 ```
 
-Once the `OktaAppAuth` instance is initialized, you can start the authorization flow by simply calling `login` whenever you're ready:
+Once the `WebAuthClient` instance is initialized, you can start the authorization flow by simply calling `signIn` whenever you're ready:
 
 ```java
 // LoginActivity.java
 
-public void onSuccess() {
-    // Handle a successful initialization (e.g. display login button)
-
-    Intent completionIntent = new Intent(this, AuthorizedActivity.class);
-    Intent cancelIntent = new Intent(this, LoginActivity.class);
-    cancelIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
-    mOktaAuth.login(
-        this,
-        PendingIntent.getActivity(this, 0, completionIntent, 0),
-        PendingIntent.getActivity(this, 0, cancelIntent, 0)
-    );
+public void onClick(View v) {
+    client.signIn(this, null);
 }
 ```
 
 ## Handle the Login State
-In native applications, it is common for users to have a long-lived session. It is important for the app to manage the user's session by refreshing tokens when they expire, using the `refresh_token` or re-prompting the user to login. See [refreshing a token manually](https://github.com/okta/okta-sdk-appauth-android#refresh-a-token-manually) for more information.
+
+In native applications, it is common for users to have a long-lived session. It is important for the app to manage the user's session by refreshing tokens when they expire, using the `refresh_token` or re-prompting the user to login. See [refreshing a token manually](https://github.com/okta/okta-oidc-android/#Refresh-a-Token) for more information.
 
 When starting up the application, check for the existence of an `access_token` to see if the user has an existing session:
 
@@ -150,54 +143,40 @@ When starting up the application, check for the existence of an `access_token` t
 protected void onCreate(Bundle savedInstanceState) {
     ...
 
-    mOktaAuth = OktaAppAuth.getInstance(this);
+    SessionClient session = client.getSessionClient();
 
-    if (mOktaAuth.isUserLoggedIn()) {
+    if (session.isAuthenticated()) {
         Log.i(TAG, "User is already authenticated, proceeding to protected activity");
-        startActivity(new Intent(this, ProtectedActivity.class));
-        finish();
-        return;
     }
 }
 ```
 
 ## Using the Access Token
 
-Your Android application now has an access token in private Shared Preferences that was issued by your Okta Authorization server. You can use this token to authenticate requests for resources on your server or API. As a hypothetical example, let's say that you have an API that gives us messages for our user.  You could create a `callMessagesApi` function that makes an authenticated request to your server.
+Your Android application now has an access token that was issued by your Okta Authorization server. You can use this token to authenticate requests for resources on your server or API. Authorized request to your own server endpoints will need to add the Authorization header with the access token, prefixed by the standard OAuth 2.0 of Bearer. If you are using Android's standard HttpURLConnection you can set the headers like the following:
 
 ```java
-private void callMessagesApi() {
-    mOktaAuth.performAuthorizedRequest(new OktaAppAuth.BearerAuthRequest() {
-        @NonNull
-        @Override
-        public HttpURLConnection createRequest() throws Exception {
-            try {
-                final URL myUrl = new URL("http://localhost:{serverPort}/api/messages");
-                HttpURLConnection conn = (HttpURLConnection) myUrl.openConnection();
-                conn.setInstanceFollowRedirects(false); // recommended during authorized calls
-                return conn;
-            } catch (MalformedURLException e) {
-                Log.i(TAG, e.getLocalizedMessage());
-            }
-            return null;
-        }
+try {
+    Tokens token = client.getSessionClient.getTokens();
+    URL url = new URL("yourCustomUrl");
+    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+    conn.setRequestProperty("Authorization", "Bearer " + token.getAccessToken());
+} catch (AuthorizationException e) {
+    //handle error
+}
+```
 
-        @Override
-        public void onSuccess(@NonNull InputStream inputStream) {
-            // Handle successful response in the input stream
-        }
+If using `OkHttp`, you can set the headers in the `Request` like the following:
 
-        @Override
-        public void onTokenFailure(@NonNull AuthorizationException e) {
-            // Handle failure to acquire new tokens from Okta
-        }
-
-        @Override
-        public void onFailure(int i, Exception e) {
-            // Handle failure to make your authorized request or a response with a 4xx or
-            // 5xx HTTP status response code
-        }
-    });
+```java
+try {
+    Tokens token = client.getSessionClient.getTokens();
+    Request request = new Request.Builder()
+        .url("yourCustomUrl")
+        .addHeader("Authorization", "Bearer " + token.getAccessToken())
+        .build();
+} catch (AuthorizationException e) {
+    //handle error
 }
 ```
 
