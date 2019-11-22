@@ -122,7 +122,7 @@ The options above are geared towards cloud apps but we have a solution for on-pr
 
 Sometimes it isn't feasible for the cloud app to natively support a SCIM Server API. An alternative option is to build and host a SCIM facade middleware that translates between the Okta SCIM Client and the cloud app's proprietary API. The Okta integration would be to this SCIM facade.
 
->**Need help?** Post a question on the [Developer Forum][devforum] or email us at <developers@okta.com>.
+>**Need help?** Post a question on the [Developer Forum](https://devforum.okta.com/) or email us at <developers@okta.com>.
 
 ## SCIM-Based Provisioning Integration
 
@@ -258,7 +258,7 @@ Follow the steps below to test and submit your application for Okta review:
 4. [Publish to Okta Integration Network (OIN) in Partner-Built EA](#step-4-publish-to-okta-integration-network-oin-in-partner-built-ea)
 5. [Become Okta-Verified in the OIN](#step-5-become-okta-verified-in-the-oin)
 
-> Need help? Post a question on the [Developer Forum][devforum] or email us at <developers@okta.com>.
+> Need help? Post a question on the [Developer Forum](https://devforum.okta.com/) or email us at <developers@okta.com>.
 
 **Note:** The OIN is for making an integration publicly discoverable and accessible to all Okta customers. However, you can also just use the integration privately within a few named orgs, called the Private App Option. This could be the case if you are a system integrator, customer, or Okta PS integrating to a custom app. If this is the case, follow steps 1-3 and you will be able to indicate in step 3 that you don't want to publish in OIN. Okta will create the submitted integration per usual and assign it to Orgs that you specify as a private app. Note that you cannot use the SCIM template app used for prototyping, as it has limitations that prevent it from being used in production.
 
