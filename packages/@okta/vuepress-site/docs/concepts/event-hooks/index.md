@@ -99,11 +99,11 @@ Event Hooks are limited to sending 100,000 events per 24-hour period.
 
 ### Debugging
 
-The Okta [System Log](/docs/reference/api/system-log/) is the best resource for helping you debug your Event Hooks. Any events delivered by Event Hooks are, by definition, also System Log Events, so you can compare events delivered to your external service with events logged in the System Log. A `debugData` property is included in System Log events to link the event to any Event Hook configured to deliver them. Another way that you can use the System Log is to check for Event Hook delivery failures that Okta has detected, which are themselves recorded as as events of type `event_hook.delivery` in the System Log.
+The Okta [System Log](/docs/reference/api/system-log/) is the best resource for helping you debug your Event Hooks. Any events delivered by Event Hooks are, by definition, also System Log Events, so you can compare events delivered to your external service with events logged in the System Log. You can also check for Event Hook delivery failures that Okta has detected, which are themselves recorded in the System Log.
 
 When looking at an event in the System Log, the `debugData` property includes the specific ID of any Event Hooks configured to deliver that event. Note that the existence of an Event Hook ID in this property does not indicate that delivery was successful, only that it was configured to happen for the event.
 
-Event Hook delivery attempts that have timed-out, or been detected as having failed for any other reason, are recorded in the System Log in the form of [Event Hook Delivery Events](/docs/reference/api/event-types/?q=event_hook.delivery). You can check these events for information on the failed delivery attempt.
+Event Hook delivery attempts that have timed-out, or been detected as having failed for any other reason, are recorded in the System Log in the form of `event_hook.delivery` [events](/docs/reference/api/event-types/?q=event_hook.delivery). You can check these events for information on the failed delivery attempt.
 
 ## Event Hook Setup
 
