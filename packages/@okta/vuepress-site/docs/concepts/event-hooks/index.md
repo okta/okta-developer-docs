@@ -103,7 +103,7 @@ The Okta [System Log](/docs/reference/api/system-log/) is the best resource for 
 
 When looking at an event in the System Log, the `debugData` property includes the specific ID of any Event Hooks configured to deliver that event. Note that the existence of an Event Hook ID in this property does not indicate that delivery was successful, only that it was configured to happen for the event.
 
-Event Hook delivery attempts that have timed-out, or been detected as having failed for any other reason, are recorded in the System Log in the form of `event_hook.delivery` [events](/docs/reference/api/event-types/?q=event_hook.delivery). You can check these events for information on the failed delivery attempt.
+Event Hook delivery attempts that have timed-out, or been detected as having failed for any other reason, are recorded in the System Log in the form of `event_hook.delivery` [events](/docs/reference/api/event-types/?q=event_hook.delivery).
 
 ## Event Hook Setup
 
