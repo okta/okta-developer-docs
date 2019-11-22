@@ -1,0 +1,50 @@
+.is-button-cerise-outline {
+  border-color: cv('cerise');
+  background-color: transparent;
+  color: cv('gray', '000');
+
+  &:hover,
+  &.is-button-hover {
+    border-color: cv('cerise');
+    background-color: transparent;
+    color: cv('gray', '000');
+  }
+
+  &:focus,
+  &.is-button-focus {
+    border-color: cv('cerise');
+    background-color: transparent;
+    color: cv('gray', '000');
+  }
+
+  &:disabled {
+    border-color: fauxpacity(cv('cerise'));
+    background-color: transparent;
+    color: fauxpacity(cv('gray', '000'));
+  }
+}
+
+.is-button-cerise {
+  border-color: cv('cerise');
+  background-color: cv('cerise');
+  color: cv('gray', '000');
+
+  &:hover,
+  &.is-button-hover {
+    border-color: cv('cerise');
+    background-color: cv('cerise');
+    color: cv('gray', '000');
+  }
+
+  &:focus,
+  &.is-button-focus {
+    border-color: cv('cerise');
+    background-color: cv('cerise');
+  }
+
+  &:disabled {
+    border-color: fauxpacity(cv('cerise'));
+    background-color: cv('cerise');
+    color: fauxpacity(cv('cerise'));
+  }
+}

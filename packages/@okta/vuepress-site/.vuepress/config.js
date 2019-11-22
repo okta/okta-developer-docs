@@ -1,20 +1,16 @@
-const guidesInfo = require('./scripts/build-guides-info');
-
 module.exports = {
   dest: 'dist',
-  theme: "@okta/vuepress-theme-default",
+  theme: "@okta/vuepress-theme-prose",
   /**
    * Custom head elements here
    */
   head: [
-    ['script', { src: "https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js" }],
     ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/apple-touch-icon.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"32x32",  href: '/favicon/favicon-32x32.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"16x16",  href: '/favicon/favicon-16x16.png' }],
     ['link', { rel: 'manifest',  href: '/favicon/manifest.json' }],
     ['link', { rel: 'mask-icon',  href: '/favicon/safari-pinned-tab.svg' }],
     ['meta', { name: 'msapplication-config',  content: '/favicon/browserconfig.xml' }],
-    ['link', { rel: 'stylesheet', href: 'https://developer.okta.com/sites/all/themes/developer/css/master.css' }],
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
 
     /**
@@ -133,13 +129,6 @@ module.exports = {
       }
     ],
 
-    sidebars: {
-      main: require('./nav/main'),
-      codePages: require('./nav/codePages'),
-      reference: require('./nav/reference'),
-      concepts: require('./nav/concepts')
-    },
-
     quickstarts: {
       clients: [
         { name: 'okta-sign-in-page', label: 'Okta Sign-In Page', serverExampleType: 'auth-code', default: true },
@@ -201,18 +190,6 @@ module.exports = {
 
   },
 
-  plugins: [
-    '@okta/vuepress-plugin-active-header-links',
-    [
-      'vuepress-plugin-sitemap', {
-        hostname: 'https://developer.okta.com',
-        outFile: 'docs-sitemap.xml'
-      }
-    ]
-  ],
-
-  evergreen: false,
-
   markdown: {
     extendMarkdown: md => {
       md.use(require('markdown-it-attrs'))
@@ -225,21 +202,8 @@ module.exports = {
     }
   },
 
-  shouldPrefetch: () => false,
-
   extraWatchFiles: [
     '.vuepress/nav/*',
   ],
-  additionalPages: [
-    ...guidesInfo.additionalPagesForGuides(),
-  ],
-  extendPageData(page) {
-    if(page.path.startsWith(`/docs/guides/`)) {
-      page.frontmatter.layout = 'Guides';
-      const info = guidesInfo.guideInfo[page.path];
-      if(info) {
-        page.breadcrumb = info.breadcrumb;
-      }
-    }
-  },
+  
 }

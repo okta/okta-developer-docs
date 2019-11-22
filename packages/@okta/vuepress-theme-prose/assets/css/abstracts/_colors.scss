@@ -1,0 +1,60 @@
+$colors: (
+  'brand': (
+    'base': #20313b
+  ),
+  'cerise': (
+    'base': #E22866,
+  ),
+
+  // Copied from Odyssey
+  'success': (
+    'lightest': #e5fff6,
+    'base': #00d1b3,
+    'dark': #00a08e,
+  ),
+  'action': (
+    'lightest': #e5edfb,
+    'base': #1662dd,
+    'dark': #124a94,
+  ),
+  'yellow': (
+    'lightest': #fcf9e1,
+    'base': #ebd551,
+    'dark': #bc960f,
+  ),
+  'warning': (
+    'lightest': #feefe2,
+    'base': #f47c25,
+    'dark': #cb5500,
+  ),
+  'danger': (
+    'lightest': #fee6ea,
+    'base': #dd0744,
+    'dark': #b80047,
+  ),
+  'cyan': (
+    'lightest': #c6fafa,
+    'base': #007f9c,
+    'dark': #004d6b,
+  ),
+  'violet': (
+    'lightest': #f3eafe,
+    'base': #963fe6,
+    'dark': #5a13b4,
+  ),
+  'magenta': (
+    'base': #c72c86,
+  ),
+  'gray': (
+    '000': #fafafa,
+    '100': #e4e5e7,
+    '200': #cdd1d3,
+    '300': #b7bcc0,
+    '400': #a0a7ac,
+    '500': #899298,
+    '600': #737d85,
+    '700': #5c6971,
+    '800': #46545e,
+    '900': #2f3f4a,
+  ),
+);
