@@ -12,7 +12,7 @@ The System for Cross-domain Identity Management (SCIM) specification is a provis
 
 For more background on the SCIM protocol, how it works, and particular use cases, see our topic on [Understanding SCIM](/docs/concepts/scim/).
 
-For a developer’s guide to implementing the SCIM REST API with Okta and your application, the following links each contain all the information relevant to your specific SCIM:
+For a developer's guide to implementing the SCIM REST API with Okta and your application, the following links each contain all the information relevant to your specific SCIM:
 
 * [Okta and SCIM version 2.0](/docs/reference/scim/scim-20/)
 * [Okta and SCIM version 1.1](/docs/reference/scim/scim-11/)
@@ -36,5 +36,5 @@ In order to have a SCIM application work with Okta, the application must reside 
   * V1.1:
     * `/ServiceProviderConfigs`
 * V2.0 also :
-  * Supports using a JSON Patch operation [Section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2)
-  * Requires that the response must include the [errors in a JSON body](https://tools.ietf.org/html/rfc7644#section-3.12), using the error response schema `urn:ietf:params:scim:api:messages:2.0:Error`
+  * Supports using JSON PATCH operations [Section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2)
+  * Requires that the response include the [errors in a JSON body](https://tools.ietf.org/html/rfc7644#section-3.12), using the error response schema `urn:ietf:params:scim:api:messages:2.0:Error`
