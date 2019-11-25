@@ -116,7 +116,7 @@ Okta has seen broad adoption of the standard in the market amongst our network o
 
 ### Provisioning to On-Premise Apps
 
-The options above are geared towards cloud apps but we have a solution for on-premise applications as well. See [the product documentation](https://support.okta.com/help/Documentation/Knowledge_Article/46749316-On-Premises-Provisioning-Deployment-Guide) for details about Okta's agent-based provisioning solution.
+The options above are geared towards cloud apps but we have a solution for on-premise applications as well. See [the product documentation](https://support.okta.com/help/s/article/29448976-Configuring-On-Premises-Provisioning) for details about Okta's agent-based provisioning solution.
 
 ### SCIM Facade
 
