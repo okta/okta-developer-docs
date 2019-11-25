@@ -1,0 +1,57 @@
+footer {
+  background-color: cv('brand');
+  min-height: 40px;
+  padding: 4em 1.5em;
+  text-transform: uppercase;
+  width: $container-width;
+  margin: 0 auto;
+  flex-direction: column;
+
+  .footer--logo {
+    margin-bottom: 20px;
+    a {
+      color: cv('gray', '500');
+      letter-spacing: 0.1em;
+      text-decoration: none;
+    }
+    svg {
+      width: 6em;
+      fill: cv('gray', '000');
+    }
+
+  }
+
+  .footer--links {
+    ul {
+      li {
+        display: flex;
+        vertical-align: middle;
+        a {
+          color: cv('gray', '600');
+          text-decoration: none;
+          margin-top: -0.2em;
+
+          &:hover {
+            color: cv('gray', '300');
+          }
+        }
+
+        i {
+          svg {
+            width:1.2em;
+            fill: cv('gray', '000');
+            margin-right:0.4em;
+          }
+        }
+      }
+    }
+  }
+
+  
+
+  h4 {
+    font-size: 1.25em;
+    color: cv('gray', '100');
+    font-weight: 300;
+  }
+}

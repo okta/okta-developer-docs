@@ -1,13 +1,11 @@
 .top-bar {
   height: 4.7em;
-  background-color: cv('brand');
   display: flex;
   align-items: center;
   padding: 0 1.5em;
-
-  .container {
-    justify-content: space-between;
-  }
+  justify-content: space-between;
+  width: $container-width;
+  margin: 0 auto;
 
   &--logo {
     svg {
@@ -29,6 +27,7 @@
   } 
 
   &--primary-nav {
+    flex-grow: 1;
 
     ul {
       display: flex;
