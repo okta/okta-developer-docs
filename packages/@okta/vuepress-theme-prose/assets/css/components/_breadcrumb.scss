@@ -1,11 +1,9 @@
 .breadcrumb {
   padding: 1em 1.5em;
   box-shadow: 0 0.01em 0.5em cv('gray', '400');
+  background-color: cv('gray', '000');
 
   &--container {
-    max-width: 1340px;
-    margin: 0 auto;
-    padding: 0em 1.5em;
 
     ol {
       list-style: none;

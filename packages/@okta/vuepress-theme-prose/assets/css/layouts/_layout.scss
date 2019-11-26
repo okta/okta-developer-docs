@@ -6,3 +6,18 @@
   max-width: $container-width;
   margin: 0 auto;
 }
+
+[class$="--container"] {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0em 1.5em;
+}
+
+.fixed-header {
+  position: fixed;
+  width: 100%;
+}
+
+.page-body {
+  padding-top: 12em;
+}
