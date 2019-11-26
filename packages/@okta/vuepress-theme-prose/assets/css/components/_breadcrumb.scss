@@ -1,4 +1,40 @@
 .breadcrumb {
-  padding: 1em 0;
+  padding: 1em 1.5em;
   box-shadow: 0 0.01em 0.5em cv('gray', '400');
+
+  &--container {
+    max-width: 1340px;
+    margin: 0 auto;
+    padding: 0em 1.5em;
+
+    ol {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      padding: 0em; 
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+
+      li {
+        display: flex;
+        align-items: center;
+        margin: 0em 1em 0em 0em;
+
+        a {
+          text-decoration: none;
+          color: cv('gray', '400');
+          font-size: 0.8em;
+          padding-right: 0.4em;
+        }
+
+        svg {
+          fill: cv('gray', '200');
+          width: 0.5em;
+        }
+      }
+
+    }
+
+  }
+
 }

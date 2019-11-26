@@ -58,10 +58,24 @@
     </div> 
 
     <div class="breadcrumb">
-      <div class="container">
-        BREADCRUMBS
+      <div class="breadcrumb--container">
+        <ol>
+          <li>
+            <router-link to="/docs">Docs</router-link>
+            <svg viewBox="0 0 256 512">
+              <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>
+            </svg>
+          </li>
+          <li>
+            <router-link to="/docs/#">Section</router-link>
+            <svg viewBox="0 0 256 512">
+              <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>
+            </svg>
+          </li>
+        </ol>
       </div>
     </div>
+
     <div style="height:50px">This area is temporary</div>
 
     <div class="wrap">
@@ -80,7 +94,7 @@
           <ul>
             <li v-for="(link, linkIndex) in column.menu" :key="linkIndex">
               <i v-if="link.icon" v-html="link.icon"></i>
-              <router-link :to="link.link">{{link.text}}</router-link>
+              <router-link :to="link.link" v-html="link.text"></router-link>
             </li>
           </ul>
         </div>
