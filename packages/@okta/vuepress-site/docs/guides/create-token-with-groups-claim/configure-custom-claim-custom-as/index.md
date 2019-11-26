@@ -1,7 +1,7 @@
 ---
 title: Configure a groups custom claim in a Custom Authorization Server
 ---
-Add a groups custom claim for an ID token or access token in a Custom Authorization Server. The maximum number of groups specified must be less than 100. For the following example, add a custom claim for an access token.
+Add a groups custom claim for an ID token or access token in a Custom Authorization Server. The maximum number of groups specified must be less than 100. For the following example, we are adding a custom claim for an access token.
 
 1. In the Admin Console, from the **Security** menu, select **API**, and then select the authorization server that you want to configure.
 2. Navigate to the **Claims** tab and click **Add Claim**.

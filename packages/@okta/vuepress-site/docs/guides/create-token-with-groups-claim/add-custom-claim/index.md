@@ -52,7 +52,7 @@ curl -X GET
 &nonce=${myNonceValue}"
 ```
 
-> **Note:** The `response_type` for an access token looks like this: `&response_type=token`.
+> **Note:** The `response_type` for an access token looks like this: `&response_type=token`
 
 The decoded JWT looks something like this:
 

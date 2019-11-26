@@ -12,9 +12,12 @@ For this example, we're configuring just one group (the IT group) for simplicity
 The **Use group functions for static group whitelists** section goes into more detail on using group functions for static group whitelists. To continue with creating a groups claim with a static whitelist, <GuideLink link="../get-group-ids">skip to the next section</GuideLink>.
 
 ### Use group functions for static group whitelists
+
 This section discusses the `getFilteredGroups` group function and how it helps you use a static group whitelist.
 
-`getFilteredGroups` returns all groups that are contained in a specified list, the whitelist, of which the user is a member. The groups are returned in a format specified by the `group_expression` parameter. You must specify the maximum number of groups to return in the expression. The format of this EL function is `getFilteredGroups(whitelist, group_expression, limit)`.
+`getFilteredGroups` returns all groups that are contained in a specified list, the whitelist, of which the user is a member. The groups are returned in a format specified by the `group_expression` parameter. You must specify the maximum number of groups to return in the expression.
+
+The EL function format: `getFilteredGroups(whitelist, group_expression, limit)`
 
 You can use this function anywhere to get a list of groups of which the current user is a member, including both user groups and app groups that originate from sources outside Okta, such as from Active Directory and Workday. Additionally, you can use this combined, custom-formatted list for customizable claims into access and ID tokens that drive authorization flows.
 
@@ -33,7 +36,7 @@ The whitelist parameter must evaluate to a list of group ids that is returned fr
 **Parameter Examples**
 
 * whitelist
-  * Array: `{"00gn335BVurvavwEEL0g3", "00gnfg5BVurvavAAEL0g3"}`
+  * Array: <code class="OKTA-263808">{"00gn335BVurvavwEEL0g3", "00gnfg5BVurvavAAEL0g3"}</code> 
   * Array variable: `app.profile.groups.whitelist`
 * group_expression
   * Attribute name: `"group.id"`

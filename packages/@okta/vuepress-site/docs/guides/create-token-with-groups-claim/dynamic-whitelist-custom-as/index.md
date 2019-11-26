@@ -8,7 +8,7 @@ To use the Group functions to create an ID token or an access token using a dyna
 3. Enter a name for the claim. For this example, name it **dynamic_group**.
 4. In the **Include in token type** section, leave **Access Token** selected.
 5. Leave **Expression** as the **Value type**.
-6. Enter the following expression as the **Value**: `Groups.startsWith("OKTA", "IT", 10)`.
+6. Enter the following expression as the **Value**: `Groups.startsWith("OKTA", "IT", 10)`
 7. Click **Create**.
 8. Select the **Scopes** tab and click **Add Scope**.
 9. Add **groups** as the scope **Name** and **DisplayName**, and then select the **Metadata** check box.
