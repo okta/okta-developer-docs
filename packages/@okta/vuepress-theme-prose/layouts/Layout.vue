@@ -41,7 +41,7 @@
             <a href="#" class="button is-button-cerise-outline">Login</a>
             <a href="#" class="button is-button-cerise">Sign Up</a>
           </div>
-          
+
           <div class="top-bar--search-container">
             <svg viewBox="0 0 20 20">
               <path d="M12.906 14.32a8 8 0 111.414-1.414l5.337 5.337-1.414 1.414-5.337-5.337zM8 14A6 6 0 108 2a6 6 0 000 12z"/>
@@ -57,6 +57,11 @@
       </header>
     </div> 
 
+    <div class="breadcrumb">
+      <div class="container">
+        BREADCRUMBS
+      </div>
+    </div>
     <div style="height:50px">This area is temporary</div>
 
     <div class="wrap">
