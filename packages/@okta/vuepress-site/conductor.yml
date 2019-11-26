@@ -1739,31 +1739,31 @@ redirects:
     to: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
   - from: /docs/reference/api/factor_admin/index.html
     to: /docs/reference/api/factor-admin/
-  - from: /docs/guides/oin-build-provisioning-integration/
+  - from: /docs/guides/oin-build-provisioning-integration/index.html
     to: /docs/guides/build-provisioning-integration/
-  - from: /docs/guides/oin-build-provisioning-integration/faqs/
+  - from: /docs/guides/oin-build-provisioning-integration/faqs/index.html
     to: /docs/guides/build-provisioning-integration/faqs/
-  - from: /docs/guides/oin-build-provisioning-integration/okta-verification/
+  - from: /docs/guides/oin-build-provisioning-integration/okta-verification/index.html
     to: /docs/guides/build-provisioning-integration/okta-verification/
-  - from: /docs/guides/oin-build-provisioning-integration/overview/
+  - from: /docs/guides/oin-build-provisioning-integration/overview/index.html
     to: /docs/guides/build-provisioning-integration/overview/
-  - from: /docs/guides/oin-build-provisioning-integration/publish/
+  - from: /docs/guides/oin-build-provisioning-integration/publish/index.html
     to: /docs/guides/build-provisioning-integration/publish/
-  - from: /docs/guides/oin-build-provisioning-integration/review-scim-docs/
+  - from: /docs/guides/oin-build-provisioning-integration/review-scim-docs/index.html
     to: /docs/guides/build-provisioning-integration/review-scim-docs/
-  - from: /docs/guides/oin-build-provisioning-integration/SCIMFiles/
+  - from: /docs/guides/oin-build-provisioning-integration/SCIMFiles/index.html
     to: /docs/guides/build-provisioning-integration/SCIMFiles/
-  - from: /docs/guides/oin-build-provisioning-integration/submit-for-review/
+  - from: /docs/guides/oin-build-provisioning-integration/submit-for-review/index.html
     to: /docs/guides/build-provisioning-integration/submit-for-review/
-  - from: /docs/guides/oin-build-provisioning-integration/test-scim-server/
+  - from: /docs/guides/oin-build-provisioning-integration/test-scim-server/index.html
     to: /docs/guides/build-provisioning-integration/test-scim-server/
-  - from: /docs/guides/oin-build-sso-integration/
+  - from: /docs/guides/oin-build-sso-integration/index.html
     to: /docs/guides/build-sso-integration/
-  - from: /docs/guides/oin-build-sso-integration/get-help/
+  - from: /docs/guides/oin-build-sso-integration/get-help/index.html
     to: /docs/guides/build-sso-integration/get-help/
-  - from: /docs/guides/oin-build-sso-integration/integrate/
+  - from: /docs/guides/oin-build-sso-integration/integrate/index.html
     to: /docs/guides/build-sso-integration/integrate/
-  - from: /docs/guides/oin-build-sso-integration/overview/
+  - from: /docs/guides/oin-build-sso-integration/overview/index.html
     to: /docs/guides/build-sso-integration/overview/
-  - from: /docs/guides/oin-build-sso-integration/partner/
+  - from: /docs/guides/oin-build-sso-integration/partner/index.html
     to: /docs/guides/build-sso-integration/partner/
