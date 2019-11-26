@@ -1,14 +1,19 @@
 footer {
   background-color: cv('brand');
-  min-height: 40px;
+  display: flex;
   padding: 4em 1.5em;
   text-transform: uppercase;
-  width: $container-width;
+  max-width: $container-width;
   margin: 0 auto;
   flex-direction: column;
 
+  @include media('>tablet') {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   .footer--logo {
-    margin-bottom: 20px;
+    margin-bottom: 2em;
     a {
       color: cv('gray', '500');
       letter-spacing: 0.1em;
@@ -22,7 +27,11 @@ footer {
   }
 
   .footer--links {
+    margin-bottom: 2em;
+
     ul {
+      margin-left: 0;
+      padding-inline-start: 0;
       li {
         display: flex;
         vertical-align: middle;
