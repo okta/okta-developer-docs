@@ -5,6 +5,7 @@
   justify-content: space-between;
   max-width: $container-width;
   margin: 0 auto;
+  border-bottom: none;
 
   &--logo {
     flex-shrink: 0;
@@ -41,7 +42,32 @@
 
     ul {
       display: flex;
+
+      li {
+        margin-left: 1em;
+      }
+      
+      a {
+        color: cv('gray', '000');
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1em;
+        letter-spacing: 0.2em;
+        padding-bottom: 0.5em;
+
+        &.active {
+          border-bottom: 1px solid white;
+        }
+      }
+
+      
     }
+  }
+
+  &--search-container {
+    width: 1.5em;
+    margin-left: 1.2em;
+    fill: cv('gray', '000');
   }
   
 }

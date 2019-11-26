@@ -37,6 +37,17 @@
             </ul>
           </nav>
 
+          <div class="top-bar--button-container">
+            <a href="#" class="button is-button-cerise-outline">Login</a>
+            <a href="#" class="button is-button-cerise">Sign Up</a>
+          </div>
+          
+          <div class="top-bar--search-container">
+            <svg viewBox="0 0 20 20">
+              <path d="M12.906 14.32a8 8 0 111.414-1.414l5.337 5.337-1.414 1.414-5.337-5.337zM8 14A6 6 0 108 2a6 6 0 000 12z"/>
+            </svg>
+          </div>
+
           <div class="top-bar--nav-toggle">
             <svg viewBox="0 0 20 20" class="toggle">
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
@@ -44,13 +55,12 @@
           </div> 
           
       </header>
-
     </div> 
 
     <div style="height:50px">This area is temporary</div>
 
     <div class="wrap">
-    <footer>
+      <footer>
         <div class="footer--logo">
           <a href="https://www.okta.com/" rel="noopener noreferrer">
             <svg viewBox="0 0 431.9 151.4">
@@ -69,8 +79,7 @@
             </li>
           </ul>
         </div>
-
-    </footer>
+      </footer>
     </div>
   </div>
 </template>

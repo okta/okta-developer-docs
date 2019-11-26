@@ -2,8 +2,14 @@
   border-color: cv('cerise');
   background-color: transparent;
   color: cv('gray', '000');
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  padding: 1em 3em;
 
   &:hover,
+  &:visited,
   &.is-button-hover {
     border-color: cv('cerise');
     background-color: transparent;
@@ -28,8 +34,14 @@
   border-color: cv('cerise');
   background-color: cv('cerise');
   color: cv('gray', '000');
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  padding: 1em 3em;
 
   &:hover,
+  &:visited,
   &.is-button-hover {
     border-color: cv('cerise');
     background-color: cv('cerise');
