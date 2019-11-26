@@ -4,10 +4,12 @@
   align-items: center;
   padding: 0 1.5em;
   justify-content: space-between;
-  width: $container-width;
+  max-width: $container-width;
   margin: 0 auto;
 
   &--logo {
+    flex-shrink: 0;
+
     svg {
       fill: cv('gray', '000');
       width: 6em;
@@ -19,6 +21,7 @@
   &--nav-toggle {
     align-self: flex-end;
     display: initial;
+    flex-shrink: 0;
 
     .toggle {
       width:20px;
