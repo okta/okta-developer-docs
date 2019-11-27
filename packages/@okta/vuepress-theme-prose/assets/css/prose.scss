@@ -6,11 +6,13 @@
 @import 'abstracts/colors';
 @import 'abstracts/variables';
 
+// Layouts
+@import 'layouts/layout.scss';
+
 // Components
 @import 'components/breadcrumb';
 @import 'components/button';
+@import 'components/content';
 @import 'components/footer';
 @import 'components/top-bar';
 
-// Layouts
-@import 'layouts/layout.scss';

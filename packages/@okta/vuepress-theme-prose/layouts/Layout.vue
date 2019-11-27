@@ -8,7 +8,11 @@
     <div class="page-body">
       <div class="content">
         <div class="content--container">
-          <Content />
+          <div class="tree-nav">Tree Nav</div>
+          <div class="content-area">
+            <Content />
+          </div>
+          <div class="on-this-page">On This Page</div>
         </div>
       </div>
     </div>

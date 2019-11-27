@@ -1,0 +1,31 @@
+.content--container {
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 2em;
+
+  @include media('>tablet') {
+    flex-direction: row;
+  }
+
+  .tree-nav {
+    background-color: rgba(0,0,255,0.2);
+    flex: 1;
+  }
+
+  .content-area {
+    margin: 1em 0em;
+    background-color: rgba(0,255,0,0.2);
+    flex: 3.5;
+    flex-wrap: wrap;
+
+    @include media('>tablet') {
+      margin: 0em 1em;
+    }
+  
+  }
+
+  .on-this-page {
+    background-color: rgba(255,0,0,0.2);
+    flex: 1;
+  }
+}
