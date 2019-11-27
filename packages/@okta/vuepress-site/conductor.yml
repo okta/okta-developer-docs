@@ -1767,6 +1767,8 @@ redirects:
     to: /docs/guides/build-sso-integration/overview/
   - from: /docs/guides/oin-build-sso-integration/partner/index.html
     to: /docs/guides/build-sso-integration/partner/
+  - from: /docs/guides/oauth-for-okta/index.html
+    to: /docs/guides/implement-oauth-for-okta/
   - from: /docs/guides/oauth-for-okta/overview/index.html
     to: /docs/guides/implement-oauth-for-okta/overview/
   - from: /docs/guides/oauth-for-okta/create-oauth-app/index.html
