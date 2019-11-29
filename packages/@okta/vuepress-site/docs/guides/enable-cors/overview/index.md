@@ -39,7 +39,7 @@ You can also enable the **Redirect** setting, which allows for redirection to th
 Test your CORS configuration:
 
 1. Grant cross-origin access to `https://developer.okta.com`.
-2. Enter your Okta organization in the form below and click **Test**. Your Okta user profile displays below the form.
+2. In the same browser in which you have an active session in your Okta organization, enter your Okta subdomain in the form below and click **Test**. Your Okta user profile displays below the form.
 
 <CorsTest />
 
