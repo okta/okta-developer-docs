@@ -1,5 +1,6 @@
 @import "~@okta/odyssey/src/scss/odyssey.scss";
 @import "~include-media/dist/_include-media.scss";
+@import '~prismjs/themes/prism-solarizedlight.css';
 
 // Abstracts
 @import 'abstracts/breakpoints';
@@ -12,8 +13,11 @@
 // Components
 @import 'components/breadcrumb';
 @import 'components/button';
+@import 'components/code';
 @import 'components/content';
 @import 'components/footer';
 @import 'components/pageTitle';
 @import 'components/top-bar';
+@import 'components/table';
+
 
