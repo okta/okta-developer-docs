@@ -1,5 +1,5 @@
 ---
-title: Configure a groups custom claim in a Custom Authorization Server
+title: Use a static group whitelist with a Custom Authorization Server
 ---
 Add a groups custom claim for an ID token or access token in a Custom Authorization Server. The maximum number of groups specified must be less than 100. For the following example, we are adding a custom claim for an access token.
 

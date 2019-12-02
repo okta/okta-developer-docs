@@ -1,7 +1,7 @@
 ---
-title: Configure a groups custom claim in the Org Authorization Server
+title: Use a static group whiltelist with the Org Authorization Server
 ---
-For an Okta Org Authorization Server, you can only create an ID token with a groups claim, not an access token. For the steps to configure a groups claim for use with an access token, see the <GuideLink link="../configure-custom-claim-custom-as">Configure a groups custom claim in a Custom Authorization Server</GuideLink> section.
+For an Okta Org Authorization Server, you can only create an ID token with a groups claim, not an access token. For the steps to configure a groups claim for use with an access token, see the <GuideLink link="../use-static-group-whitelist-custom-as">Use a static group whitelist with a Custom Authorization Server</GuideLink> section.
 
 > **Note:** This step requires the Admin Console. If you are using the Developer Console, select the drop-down list in the upper-left corner and select **Classic UI** to switch.
 

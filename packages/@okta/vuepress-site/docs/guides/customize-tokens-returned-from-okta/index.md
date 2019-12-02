@@ -1,5 +1,5 @@
 ---
-title: Create a token containing a groups claim
+title: Customize tokens returned from Okta
 excerpt: Use the app profile to create an ID token or access token that contains a groups claim
 layout: Guides
 sections:
@@ -14,6 +14,6 @@ sections:
  - static-whitelist
  - get-group-ids
  - add-list-of-groups
- - configure-custom-claim-org-as
- - configure-custom-claim-custom-as
+ - use-static-group-whitelist-org-as
+ - use-static-group-whitelist-custom-as
 ---

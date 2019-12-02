@@ -1,5 +1,5 @@
 ---
-title: Create a groups claim with a static whitelist
+title: Add a groups claim with a static whitelist
 ---
 You can create a static whitelist when you need to set group whitelists on a per-application basis. For example, you have a large number of groups. Every time a group claim is created, you don't want to run through all of your groups if only 20 groups apply to your app.
 

@@ -1739,3 +1739,15 @@ redirects:
     to: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
   - from: /docs/reference/api/factor_admin/index.html
     to: /docs/reference/api/factor-admin/
+  - from: /docs/guides/create-token-with-groups-claim/create-groups-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/overview/
+  - from: /docs/guides/create-token-with-groups-claim/get-group-ids/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/get-group-ids/
+  - from: /docs/guides/create-token-with-groups-claim/add-list-of-groups/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/add-list-of-groups/
+  - from: /docs/guides/create-token-with-groups-claim/configure-custom-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
+  - from: /docs/guides/create-token-with-groups-claim/send-test-request/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
+  - from: /docs/guides/create-token-with-groups-claim/verify-jwt/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
