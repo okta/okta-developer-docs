@@ -180,9 +180,9 @@ module.exports = {
 
     editLink: {
       repo: 'okta/okta-developer-docs',
-      repoLabel: 'Edit Page',
+      repoLabel: 'Edit',
       editLinks: true,
-      editLinkText: "Edit Page",
+      editLinkText: "Edit",
       docsDir: "packages/@okta/vuepress-site"
     }
 

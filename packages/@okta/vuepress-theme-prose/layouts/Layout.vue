@@ -10,6 +10,7 @@
         <div class="content--container">
           <div class="tree-nav">Tree Nav</div>
           <div class="content-area">
+            <PageTitle />
             <Content />
           </div>
           <div class="on-this-page">On This Page</div>
@@ -26,6 +27,7 @@
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
+    PageTitle: () => import('../components/PageTitle.vue'),
     Breadcrumb: () => import('../components/Breadcrumb.vue'),
     Footer: () => import('../components/Footer.vue'),
   }
