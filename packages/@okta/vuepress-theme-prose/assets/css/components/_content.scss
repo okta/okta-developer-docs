@@ -14,13 +14,22 @@
 
   .content-area {
     margin: 1em 0em;
-    background-color: rgba(0,255,0,0.2);
+    // background-color: rgba(0,255,0,0.2);
     flex: 1;
     flex-wrap: wrap;
-    overflow-x: scroll;
 
     @include media('>tablet') {
       margin: 0em 1em;
+      max-width: 42.8rem;
+    }
+
+    div[class^='language-'],
+    table {
+      overflow-x: scroll;
+    }
+
+    h5 {
+      margin-top: 2rem;
     }
   
   }
