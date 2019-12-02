@@ -20,7 +20,7 @@ Every user has an Okta user profile. The Okta user profile is the central source
 
 | Syntax            | Definitions                                                                   | Examples                                                       |
 | --------          | ----------                                                                    | ------------                                                   |
-| `user.$attribute` | `user` reference to the Okta user<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.username<br>user.email |
+| `user.$attribute` | `user` reference to the Okta user<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
 
 ### Application User Profile
 In addition to an Okta user profile, all users have separate Application user profile for each of their applications. Application user profiles are used to store application specific information about users, such as application username or user role. To reference an App user profile attribute, just specify the application variable and the attribute variable in that application's App user profile. In specifying the application, you can either name the specific application you're referencing or use an implicit reference to an in-context application.

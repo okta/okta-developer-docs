@@ -18,9 +18,9 @@ guides:
  - implement-auth-code-pkce
  - implement-client-creds
  - implement-implicit
+ - implement-oauth-for-okta
  - implement-password
  - mfa
- - oauth-for-okta
  - build-provisioning-integration
  - build-sso-integration
  - protect-your-api

@@ -33,7 +33,7 @@ The [Token Inline Hook](/docs/reference/token-hook/) enables you to integrate yo
 
 ### OAuth for Okta is Early Access in Preview
 
-With OAuth for Okta, you are able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. For more details, see our [OAuth for Okta](/docs/guides/oauth-for-okta/) guide. <!-- OKTA-251943 -->
+With OAuth for Okta, you are able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. For more details, see our [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) guide. <!-- OKTA-251943 -->
 
 ### Concurrent requests to the same app now return exception
 
