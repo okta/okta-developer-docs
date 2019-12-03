@@ -9,7 +9,116 @@ The following pages walk you through creating a groups claim, assigning a group 
 
 For this example, we're configuring just one group (the IT group) for simplicity. This group has a group ID of: `00goeudyucv6CcaeV0h7` and the OIDC client used has a client ID of: `0oaoesxtxmPf08QHk0h7`.
 
-The **Use group functions for static group whitelists** section goes into more detail on using group functions for static group whitelists. To continue with creating a groups claim with a static whitelist, <GuideLink link="../get-group-ids">skip to the next section</GuideLink>.
+## Get the Group IDs
+Send a request to `https://${yourOktaDomain}/api/v1/groups` and collect the IDs for all of the groups that you want to whitelist.
+
+**Request Example**
+
+```bash
+curl -X GET \
+-H 'accept: application/json' \
+-H 'authorization: SSWS ${api_token}' \
+-H 'content-type: application/json' \
+"https://${yourOktaDomain}/api/v1/groups"
+```
+
+**Response Example**
+
+```json
+{
+        "id": "00goeudyucv6CcaeV0h7",
+        "created": "2019-11-12T19:56:23.000Z",
+        "lastUpdated": "2019-11-12T19:56:23.000Z",
+        "lastMembershipUpdated": "2019-11-12T22:59:13.000Z",
+        "objectClass": [
+            "okta:user_group"
+        ],
+        "type": "OKTA_GROUP",
+        "profile": {
+            "name": "IT",
+            "description": "Info Tech"
+        },
+        "_links": {
+            "logo": [
+                {
+                    "name": "medium",
+                    "href": "https://op1static.oktacdn.com/assets/img/logos/groups/okta-medium.d7fb831bc4e7e1a5d8bd35dfaf405d9e.png",
+                    "type": "image/png"
+                },
+                {
+                    "name": "large",
+                    "href": "https://op1static.oktacdn.com/assets/img/logos/groups/okta-large.511fcb0de9da185b52589cb14d581c2c.png",
+                    "type": "image/png"
+                }
+            ],
+            "users": {
+                "href": "https://${yourOktaDomain}/api/v1/groups/00goeudyucv6CcaeV0h7/users"
+            },
+            "apps": {
+                "href": "https://${yourOktaDomain}/api/v1/groups/00goeudyucv6CcaeV0h7/apps"
+            }
+        }
+    },
+```
+## Add a list of groups to the client app profile
+
+When you have a lot of groups to whitelist, you can put the group IDs in the client app's profile property. You can add application groups, user groups, or both to the group whitelist specified as an array of IDs. If you only have one or two groups to specify, simply add the group IDs to the first parameter of the `getFilteredGroups` function described in the <GuideLink link="../configure-custom-claim-org-as">next step</GuideLink>.
+
+The following example names the group whitelist `groupwhitelist`, but you can name it anything.
+
+> **Tip:** To build your request body, you can first perform a GET to the `/apps` endpoint (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`) using the `applicationId` for the app that you want to add the groups list to. Then, copy the response JSON that you receive to help build your request JSON for this example.
+
+The `profile` property that contains the whitelist is at the bottom of the request example.
+
+**Request Example**
+
+```json
+{
+    "name": "oidc_client",
+    "label": "OIDC APP Name",
+    "status": "ACTIVE",
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+        "oauthClient": {
+            "autoKeyRotation": true,
+            "client_id": "0oaoesxtxmPf08QHk0h7",
+            "token_endpoint_auth_method": "client_secret_basic"
+        }
+    },
+    "settings": {
+         "oauthClient": {
+            "client_uri": null,
+            "logo_uri": null,
+            "redirect_uris": [
+                "http://localhost:8080/authorization-code/callback"
+            ],
+            "response_types": [
+                "code",
+                "id_token",
+                "token"
+            ],
+            "grant_types": [
+                "authorization_code",
+                "client_credentials",
+                "implicit"
+            ],
+            "application_type": "web",
+             "consent_method": "REQUIRED",
+             "issuer_mode": "CUSTOM_URL"
+     }
+  },
+  "profile": {
+    "groupwhitelist": [
+        "00goeudyucv6CcaeV0h7"
+    ]
+   }
+}
+`https://${yourOktaDomain}/api/v1/apps/${applicationId}`
+```
+
+To use the group whitelist for every client that gets this claim in a token, put the attribute name of the whitelist in the first parameter of the `getFilteredGroups` function described in the <GuideLink link="../configure-custom-claim-org-as">next step</GuideLink>.
+
+> **Note:** The following **Use group functions for static group whitelists** section goes into more detail on using group functions with static group whitelists. To continue with creating a groups claim with a static whitelist, <GuideLink link="../get-group-ids">skip to the next section</GuideLink>.
 
 ### Use group functions for static group whitelists
 

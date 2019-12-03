@@ -1742,9 +1742,9 @@ redirects:
   - from: /docs/guides/create-token-with-groups-claim/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/overview/
   - from: /docs/guides/create-token-with-groups-claim/get-group-ids/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/get-group-ids/
+    to: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/
   - from: /docs/guides/create-token-with-groups-claim/add-list-of-groups/index.html
-    to: /docs/guides/customize-tokens-returned-from-okta/add-list-of-groups/
+    to: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/
   - from: /docs/guides/create-token-with-groups-claim/configure-custom-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
   - from: /docs/guides/create-token-with-groups-claim/send-test-request/index.html

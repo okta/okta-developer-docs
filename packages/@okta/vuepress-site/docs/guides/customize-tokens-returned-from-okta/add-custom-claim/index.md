@@ -13,7 +13,7 @@ To add a custom claim:
 
 3. Click **Add Claim**, and then configure the claim settings:
 
-    * Enter a **Name** for the claim. In this example, we use **TestClaim** for the ID token and **ATClaim** for the access token.
+    * Enter a **Name** for the claim. In this example, we use **IDTClaim** for the ID token and **ATClaim** for the access token.
     * **Include in token type**: If you are creating a claim for an ID token, select **ID Token** (for OpenID Connect). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
     If you are creating a claim for an access token, leave **Access Token** (for OAuth 2.0) selected.
     * **Value type**: Select whether you want to define the claim by a **Groups** filter or by an **Expression** written in Okta Expression Language. For this example, select **Expression**.
@@ -75,7 +75,7 @@ The decoded JWT looks something like this:
   "idp": "00oixa26ycdNcX0VT0h7",
   "nonce": "${myNonceValue}",
   "auth_time": 1573756969,
-  "TestClaim": "eng"
+  "IDTClaim": "eng"
 }
 ```
 

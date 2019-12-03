@@ -8,7 +8,7 @@ Additionally, you can create a dynamic or static whitelist when you need to set 
 There are several ways to add a groups claim with Okta:
 
 * <GuideLink link="../add-groups-claim-org-as">Add a groups claim for the Org Authorization Server</GuideLink>
-* <GuideLink link="../add-groups-claim-dynamic">Add a groups claim using a dynamic whitelist</GuideLink>
-* <GuideLink link="../static-whitelist">Add a groups claim using a static whitelist</GuideLink>
+* <GuideLink link="../add-groups-claim-dynamic">Add a groups claim with a dynamic whitelist</GuideLink>
+* <GuideLink link="../static-whitelist">Add a groups claim with a static whitelist</GuideLink>
 
 <NextSectionLink/>

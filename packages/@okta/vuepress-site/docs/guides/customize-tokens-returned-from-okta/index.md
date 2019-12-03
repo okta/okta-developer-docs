@@ -12,8 +12,6 @@ sections:
  - dynamic-whitelist-org-as
  - dynamic-whitelist-custom-as
  - static-whitelist
- - get-group-ids
- - add-list-of-groups
  - use-static-group-whitelist-org-as
  - use-static-group-whitelist-custom-as
 ---

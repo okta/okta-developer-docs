@@ -12,6 +12,8 @@ To test the full authentication flow that returns an ID token or an access token
 
 2. Use the authorization server's authorization endpoint:
 
+    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+
     * An Okta Org Authorization Server authorization endpoint looks like this:
 
         `https://${yourOktaDomain}/oauth2/v1/authorize`
@@ -35,6 +37,7 @@ To test the full authentication flow that returns an ID token or an access token
     * Your OIDC application's `client_id` and `redirect_uri`
     * A scope, which for the purposes of the examples is `openid`. When you are adding a groups claims, both the `openid` and the `groups` scopes are included.
     * The response type, which for an ID token is `id_token` and an access token is `token`
+    > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/auth-overview/#implicit-flow). For the [Authorization Code flow](/docs/concepts/auth-overview/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
     * Values for `state` and `nonce`, which can be anything
 
     > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize) page.
