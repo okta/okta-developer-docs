@@ -1,0 +1,66 @@
+.api-uri-template {
+  display:inline-block;
+  border-top:1px solid cv('gray', '300');
+  border-right:1px solid cv('gray', '300');
+  border-bottom:1px solid cv('gray', '300');
+  border-radius:.25em;
+  padding-right: 10px;
+  background: cv('gray', '000');
+  display: flex;
+  align-items: center;
+  font-weight: 100;
+
+  strong {
+    color: cv('success');
+  }
+  .api-label {
+    border-top-right-radius:0;
+    border-bottom-right-radius:0;
+    margin-right:5px
+  }
+}
+
+.api-uri-get {
+  strong {
+    color: cv('success');
+  }
+  .api-label {
+    background: cv('success');
+  }
+}
+
+.api-uri-post {
+  strong {
+    color: cv('yellow', 'dark');
+  }
+  .api-label {
+    background: cv('yellow', 'dark');
+  }
+}
+
+.api-uri-put {
+  strong {
+    color: cv('action', 'dark');
+  }
+  .api-label {
+    background: cv('action', 'dark');
+  }
+}
+
+.api-uri-patch {
+  strong {
+    color: cv('violet');
+  }
+  .api-label {
+    background: cv('violet');
+  }
+}
+
+.api-uri-delete {
+  strong {
+    color: cv('danger');
+  }
+  .api-label {
+    background: cv('danger');
+  }
+}
