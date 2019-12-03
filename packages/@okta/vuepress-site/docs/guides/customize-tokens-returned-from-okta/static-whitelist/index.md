@@ -116,9 +116,9 @@ The `profile` property that contains the whitelist is at the bottom of the reque
 `https://${yourOktaDomain}/api/v1/apps/${applicationId}`
 ```
 
-To use the group whitelist for every client that gets this claim in a token, put the attribute name of the whitelist in the first parameter of the `getFilteredGroups` function described in the <GuideLink link="../configure-custom-claim-org-as">next step</GuideLink>.
+To use the group whitelist for every client that gets this claim in a token, put the attribute name of the whitelist in the first parameter of the `getFilteredGroups` function described in the <GuideLink link="../use-static-group-whitelist-org-as">next step</GuideLink>.
 
-> **Note:** The following **Use group functions for static group whitelists** section goes into more detail on using group functions with static group whitelists. To continue with creating a groups claim with a static whitelist, <GuideLink link="../get-group-ids">skip to the next section</GuideLink>.
+> **Note:** The following **Use group functions for static group whitelists** section goes into more detail on using group functions with static group whitelists. To continue with creating a groups claim with a static whitelist, <GuideLink link="../use-static-group-whitelist-org-as">skip to the next section</GuideLink>.
 
 ### Use group functions for static group whitelists
 
