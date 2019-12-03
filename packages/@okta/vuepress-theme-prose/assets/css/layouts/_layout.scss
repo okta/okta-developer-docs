@@ -21,3 +21,8 @@
 .page-body {
   padding-top: 12em;
 }
+
+a[target='_blank']:not([href^='mailto:'])::after {
+  display: none;
+  background-image: none;
+}

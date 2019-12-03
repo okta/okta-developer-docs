@@ -1,14 +1,13 @@
 .api-uri-template {
-  display:inline-block;
   border-top:1px solid cv('gray', '300');
   border-right:1px solid cv('gray', '300');
   border-bottom:1px solid cv('gray', '300');
   border-radius:.25em;
-  padding-right: 10px;
   background: cv('gray', '000');
   display: flex;
   align-items: center;
-  font-weight: 100;
+  width: fit-content;
+
 
   strong {
     color: cv('success');
@@ -16,7 +15,11 @@
   .api-label {
     border-top-right-radius:0;
     border-bottom-right-radius:0;
-    margin-right:5px
+    margin-right: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .api-url {
+    padding-right: 0.5rem;
   }
 }
 
