@@ -1,0 +1,39 @@
+.api-label {
+  color: white;
+  font-weight: 500;
+  padding: 3px 10px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background: cv('success', 'dark');
+  display: inline-block;
+  i {
+    margin-right: 2px;
+  }
+}
+
+.api-label-small {
+  font-size:80%;
+}
+
+.api-label-margin-bottom {
+  margin-bottom: 10px;
+}
+
+.api-label-beta {
+  background: cv('yellow');
+  color: cv('gray', '900');
+}
+
+.api-label-ea {
+  background: cv('violet');
+}
+
+.api-label-deprecated {
+  background: cv('warning', 'dark');
+}
+
+.api-label-cors {
+  background: cv('gray', '300');
+}

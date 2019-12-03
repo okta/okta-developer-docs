@@ -10,6 +10,8 @@
 @import 'layouts/layout.scss';
 
 // Components
+@import 'components/apiLifecycle';
+@import 'components/apiOperation';
 @import 'components/breadcrumb';
 @import 'components/button';
 @import 'components/content';
