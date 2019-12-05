@@ -348,7 +348,9 @@ redirects:
   - from: /docs/reference/api/system_log.html
     to: /docs/reference/api/system-log/
   - from: /docs/how-to/creating-token-with-groups-claim.html
-    to: /docs/guides/create-token-with-groups-claim/
+    to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /docs/guides/create-token-with-groups-claim
+    to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/sdk/core/api.html
     to: /docs/
   - from: /3rd_party_notices/iOS_Verify.html
@@ -496,7 +498,7 @@ redirects:
   - from: /docs/how-to/byo_saml/index.html
     to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/how-to/creating-token-with-groups-claim/index.html
-    to: /docs/guides/create-token-with-groups-claim/
+    to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/how-to/sharing-cert/index.html
     to: /docs/guides/sharing-cert/
   - from: /docs/how-to/updating_saml_cert/index.html
@@ -658,7 +660,7 @@ redirects:
   - from: /docs/how-to/byo_saml
     to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/how-to/creating-token-with-groups-claim
-    to: /docs/guides/create-token-with-groups-claim/
+    to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/how-to/sharing-cert
     to: /docs/guides/sharing-cert/
   - from: /docs/how-to/updating_saml_cert
@@ -1797,3 +1799,15 @@ redirects:
     to: /docs/guides/implement-oauth-for-okta/save-access-token/
   - from: /docs/guides/oauth-for-okta/scopes/index.html
     to: /docs/guides/implement-oauth-for-okta/scopes/
+  - from: /docs/guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+  - from: /docs/guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+  - from: /docs/guides/create-token-with-groups-claim/-/create-groups-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/
+  - from: /docs/guides/create-token-with-groups-claim/-/get-group-ids/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+  - from: /docs/guides/create-token-with-groups-claim/-/send-test-request/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+  - from: /docs/guides/create-token-with-groups-claim/-/verify-jwt/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
