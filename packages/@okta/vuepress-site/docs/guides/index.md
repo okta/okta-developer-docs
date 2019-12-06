@@ -2,6 +2,8 @@
 title: Step-by step guides for the Okta platform
 layout: Guides
 guides:
+ - a-build-provisioning-integration
+ - a-oin-submit-app
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt

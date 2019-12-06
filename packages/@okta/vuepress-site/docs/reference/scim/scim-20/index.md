@@ -16,6 +16,12 @@ The SCIM Protocol is an application-level REST protocol for provisioning and man
 
 To better understand SCIM and the specific implementation of SCIM using Okta, see our [Understanding SCIM](/docs/concepts/scim/) guide or our blog post on [What is SCIM?](https://www.okta.com/blog/2017/01/what-is-scim/).
 
+>**Note:** Okta implements SCIM 2.0 as specified in the RFC documents from the Internet Engineering Task Force:
+>
+>- [Definitions, Overview, Concepts, and Requirements: RFC 7642](https://tools.ietf.org/html/rfc7642)
+>- [Core Schema: RFC 7643](https://tools.ietf.org/html/rfc7643)
+>- [Protocol: RFC 7644](https://tools.ietf.org/html/rfc7644)
+
 ## SCIM User operations
 
 ### Creating users
