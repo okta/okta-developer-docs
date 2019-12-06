@@ -5,7 +5,7 @@ The sections in this guide include information on building a URL to request a cl
 
 To test the full authentication flow that returns an ID token or an access token, build your request URL:
 
-1. Obtain the following values from your OpenID Connect (OIDC) application, both of which can be found on the application's **General** tab:
+1. Obtain the following values from your OpenID Connect application, both of which can be found on the application's **General** tab:
 
     * Client ID
     * Redirect URI
@@ -34,8 +34,8 @@ To test the full authentication flow that returns an ID token or an access token
 
 3. Add the following query parameters to the URL:
 
-    * Your OIDC application's `client_id` and `redirect_uri`
-    * A scope, which for the purposes of the examples is `openid`. When you are adding a groups claims, both the `openid` and the `groups` scopes are included.
+    * Your OpenID Connect application's `client_id` and `redirect_uri`
+    * A scope, which for the purposes of the examples is `openid`. When you are adding a Groups claims, both the `openid` and the `groups` scopes are included.
     * The response type, which for an ID token is `id_token` and an access token is `token`
     > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/auth-overview/#implicit-flow). For the [Authorization Code flow](/docs/concepts/auth-overview/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
     * Values for `state` and `nonce`, which can be anything
@@ -56,7 +56,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
 
-4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OIDC application, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OIDC app. An ID token, or an access token, and any state that you defined are included in the response. The following are response examples:
+4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OpenID Connect application, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. An ID token, or an access token, and any state that you defined are included in the response. The following are response examples:
 
     **ID token**
 

@@ -1,7 +1,7 @@
 ---
 title: Use a dynamic group whitelist with a Custom Authorization Server
 ---
-To use the Group functions to create an ID token or an access token using a dynamic group whitelist, create a groups claim and a groups scope in the Custom Authorization Server. For this example, we are adding a claim for use with an access token.
+To use the Group Functions to create an ID token or an access token using a dynamic group whitelist, create a Groups claim and a Groups scope in the Custom Authorization Server. For this example, we are adding a claim for use with an access token.
 
 1. In the Admin Console, from the **Security** menu, select **API**, and then select the authorization server that you want to configure.
 2. Navigate to the **Claims** tab and click **Add Claim**.
@@ -14,9 +14,9 @@ To use the Group functions to create an ID token or an access token using a dyna
 9. Add **groups** as the scope **Name** and **DisplayName**, and then select the **Metadata** check box.
 10. Click **Create**.
 
-> **Note:** The syntax for these three Group functions is different from `getFilteredGroups`.
+> **Note:** The syntax for these three Group Functions is different from `getFilteredGroups`.
 
-### Request an access token that contains the groups claim
+### Request an access token that contains the Groups claim
 
 To test the full authentication flow that returns an access token, build your request URL. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the claim</GuideLink>.
 

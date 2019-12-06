@@ -1,17 +1,17 @@
 ---
-title: Add a groups claim for the Org Authorization Server
+title: Add a Groups claim for the Org Authorization Server
 ---
-This section discusses the steps to create a groups claim for an OpenID Connect (OIDC) client application. This approach is recommended if you are using only  Okta-mastered groups. For an Okta Org Authorization Server, you can only create an ID token with a groups claim, not an access token. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+This section discusses the steps to create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-mastered Groups. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
 
-> **Note:** This step requires the Admin Console. If you are using the Developer Console, select the drop-down list in the upper-left corner of the page and select **Classic UI** to switch.
+> **Note:** This step requires the Admin Console. If you are using the Developer Console, click the drop-down list in the upper-left corner of the page and select **Classic UI** to switch.
 
-1. From the **Applications** menu, select **Applications**, and then select the OIDC client application that you want to configure.
+1. From the **Applications** menu, select **Applications**, and then select the OpenID Connect client application that you want to configure.
 2. Navigate to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 3. In the **Groups claim type** section, you can select either **Filter** or **Expression**. For this example, leave **Filter** selected.
-4. In the **Group claims filter** section, leave the default name `groups` (or add it if the box is empty), and then add the appropriate filter. For this example, select **Matches regex** and enter `.*` to return all of the user's groups. See [Okta Expression Language Group Functions](/docs/reference/okta-expression-language/#group-functions) for more information on expressions.
+4. In the **Group claims filter** section, leave the default name `groups` (or add it if the box is empty), and then add the appropriate filter. For this example, select **Matches regex** and enter `.*` to return all of the user's Groups. See [Okta Expression Language Group Functions](/docs/reference/okta-expression-language/#group-functions) for more information on expressions.
 5. Click **Save**.
 
-### Request an ID token that contains the groups claim
+### Request an ID token that contains the Groups claim
 
 To test the full authentication flow that returns an ID token, build your request URL. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the claim</GuideLink>.
 

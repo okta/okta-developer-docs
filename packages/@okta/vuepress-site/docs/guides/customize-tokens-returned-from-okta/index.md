@@ -1,6 +1,6 @@
 ---
 title: Customize tokens returned from Okta
-excerpt: Use the app profile to create an ID token or access token that contains a groups claim
+excerpt: Define custom claims and Groups claims for tokens returned from Okta.
 layout: Guides
 sections:
  - overview
