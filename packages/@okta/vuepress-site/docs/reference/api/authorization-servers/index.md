@@ -665,7 +665,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 
 | Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
 | :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
-| consent <ApiLifecycle access="ea" />     | Indicates whether a consent dialog is needed for the scope. Valid values: `REQUIRED`, `IMPLICIT`.       | Enum      | `IMPLICIT`     | True unless this EA feature isn't enabled |
+| consent <ApiLifecycle access="ea" />     | Indicates whether a consent dialog is needed for the scope. Valid values: `REQUIRED`, `IMPLICIT`.       | Enum      | `IMPLICIT`     | True for update if this EA feature is enabled |
 | default                                  | Whether test the scope is a default scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the scope                                                                                | String    |                | False                                      |
 | displayName <ApiLifecycle access="ea" /> | Name of the end user displayed in a consent dialog window                                                      | String    |                | False                                      |
