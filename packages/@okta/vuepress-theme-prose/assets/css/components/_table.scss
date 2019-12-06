@@ -6,11 +6,6 @@ table {
 
   }
 
-  a[target='_blank']:not([href^='mailto:'])::after {
-    display: none;
-    background-image: none;
-  }
-
   a {
     svg.icon.outbound {
       display: none;

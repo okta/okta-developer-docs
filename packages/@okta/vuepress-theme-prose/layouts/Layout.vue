@@ -8,7 +8,9 @@
     <div class="page-body">
       <div class="content">
         <div class="content--container">
-          <div class="tree-nav">Tree Nav</div>
+          <div class="tree-nav">
+            <Sidebar />
+          </div>
           <div class="content-area">
             <PageTitle />
             <Content />
@@ -27,6 +29,7 @@
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
+    Sidebar: () => import('../components/Sidebar.vue'),
     PageTitle: () => import('../components/PageTitle.vue'),
     Breadcrumb: () => import('../components/Breadcrumb.vue'),
     Footer: () => import('../components/Footer.vue'),

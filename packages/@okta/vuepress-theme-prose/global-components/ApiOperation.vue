@@ -10,9 +10,6 @@
   </p>
 </template>
 
-<style scoped lang="scss">
-</style>
-
 <script>
   export default {
     name: 'ApiOperation',
