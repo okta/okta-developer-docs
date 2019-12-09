@@ -5,13 +5,10 @@
        <span class="api-label">
         {{ method | uppercase }}
       </span>
-       <span v-html="formattedUrl"></span>
+       <span class="api-url" v-html="formattedUrl"></span>
      </span>
   </p>
 </template>
-
-<style scoped lang="scss">
-</style>
 
 <script>
   export default {

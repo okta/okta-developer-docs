@@ -8,25 +8,31 @@
   }
 
   .tree-nav {
-    background-color: rgba(0,0,255,0.2);
-    width: 18rem;
+    width: 16rem;
   }
 
   .content-area {
-    margin: 1em 0em;
-    background-color: rgba(0,255,0,0.2);
     flex: 1;
     flex-wrap: wrap;
-    overflow-x: scroll;
 
     @include media('>tablet') {
       margin: 0em 1em;
+      max-width: 46.8rem;
+    }
+
+    div[class^='language-'],
+    table {
+      overflow-x: scroll;
+    }
+
+    h5 {
+      margin-top: 2rem;
     }
   
   }
 
   .on-this-page {
     background-color: rgba(255,0,0,0.2);
-    width: 18rem;
+    width: 16rem;
   }
 }
