@@ -2,45 +2,47 @@
 title: Verification
 ---
 
-If you want to verify that you've successfully created a user grant, here are a few ways:
+There are several ways to verify that you've successfully created a user grant:
 
-* Check the ID token payload if you requested an ID token. The payload should contain the requested scopes.
+* Check the ID token payload if you requested an ID token. To check the ID token payload, you can copy the token value and paste it into any JWT decoder. The payload should look similar to this. Note that no scopes are returned in an ID token:
 
-    ```
+    ```JSON
     {
-      "ver": 1,
-      "jti": "AT.HVDRVIwbyq2jmP0SeNjyvMKq5zsMvUNJlzvXH5rfvOA",
-      "iss": "https://${yourOktaDomain}/oauth2/default",
-      "aud": "Test",
-      "iat": 1524520458,
-      "exp": 1524524058,
-      "cid": "xfnIflwIn2TkbpNBs6JQ",
-      "uid": "00u5t60iloOHN9pBi0h7",
-      "scp": [
-        "email",
-      ],
-      "sub": "saml.jackson@stark.com"
+        "sub": "00uixa271s6x7qt8I0h7",
+        "ver": 1,
+        "iss": "https://${yourOktaDomain}/oauth2/default",
+        "aud": "0oaosna3ilNxgPTmk0h7",
+        "iat": 1575931097,
+        "exp": 1575934697,
+        "jti": "ID.67UFdLqtzyqtWEcO4GJPVBE6MMe-guCdXwzuv11p-eE",
+        "amr": [
+            "mfa",
+            "pwd",
+            "kba"
+            ],
+        "idp": "00oixa26ycdNcX0VT0h7",
+        "nonce": "UBGW",
+        "phone_number": "7206685241",
+        "auth_time": 1575929999
     }
-    ```
 
-* Check the access token if you requested one. The payload should contain:
+* Check the access token if you requested one. To check the access token payload, you can copy the token value and paste it into any JWT decoder. The payload should look something like this:
 
-    ```
+    ```JSON
     {
-      "sub": "00u5t60iloOHN9pBi0h7",
-      "email": "saml.jackson@stark.com",
-      "ver": 1,
-      "iss": "https://${yourOktaDomain}/oauth2/${authenticationServerId}",
-      "aud": "xfnIflwIn2TkbpNBs6JQ",
-      "iat": 1524520458,
-      "exp": 1524524058,
-      "jti": "ID.lcnZvvp-5PQYlTNEfv3Adq6PotmYBcl1D1S-zErEhuk",
-      "amr": [
-        "pwd"
-      ],
-      "nonce": "nonce",
-      "auth_time": 1000,
-      "at_hash": "preview_at_hash"
+        "ver": 1,
+        "jti": "AT.xtjhr8FeMkyMfgLiFzVYOYPbgqWdd6ONULT3ffeK7d4",
+        "iss": "https://${yourOktaDomain}/oauth2/default",
+        "aud": "api://default",
+        "iat": 1575929637,
+        "exp": 1575933237,
+        "cid": "0oaosna3ilNxgPTmk0h7",
+        "uid": "00uixa271s6x7qt8I0h7",
+        "scp": [
+                "openid",
+                "phone"
+            ],
+        "sub": "joe.smith@okta.com"
     }
     ```
 
@@ -54,57 +56,57 @@ If you want to verify that you've successfully created a user grant, here are a 
     "https://${yourOktaDomain}/api/v1/users/${userId}/grants"
     ```
 
-    The response should contain the grant you created when you clicked **Allow** in the previous step.
+    The response should contain the `scopeId` for the grant that you created when you clicked **Allow** in the previous step.
 
     ```json
     [
         {
-            "id": "oag4xfx62r6S53kHr0h6",
-            "status": "ACTIVE",
-            "created": "2018-04-23T21:53:25.000Z",
-            "lastUpdated": "2018-04-23T21:53:25.000Z",
-            "issuerId": "auscl1o4tnf48w5Wt0h7",
-            "issuer": null,
-            "clientId": "xfnIflwIn2TkbpNBs6JQ",
-            "userId": "00u5t60iloOHN9pBi0h7",
-            "scopeId": "scpcl1o4toFjganq10h7",
-            "_links": {
-                "app": {
-                    "href": "https://${yourOktaDomain}/api/v1/apps/0oaaggpxeqxTDuP780h7",
-                    "title": "Acme OIDC Client"
-                },
-                "authorizationServer": {
-                    "href": "https://${yourOktaDomain}/api/v1/authorizationServers/auscl1o4tnf48w5Wt0h7",
-                    "title": "My Authorization Server"
-                },
-                "scope": {
-                    "href": "https://${yourOktaDomain}/api/v1/authorizationServers/auscl1o4tnf48w5Wt0h7/scopes/scpcl1o4toFjganq10h7",
-                    "title": "openid"
-                },
-                "self": {
-                    "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag4xfx62r6S53kHr0h6"
-                },
-                "revoke": {
-                    "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag4xfx62r6S53kHr0h6",
-                    "hints": {
-                        "allow": [
-                            "DELETE"
-                        ]
-                    }
-                },
-                "client": {
-                    "href": "https://${yourOktaDomain}/oauth2/v1/clients/xfnIflwIn2TkbpNBs6JQ",
-                    "title": "Acme OIDC Client"
-                },
-                "user": {
-                    "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
-                    "title": "Saml Jackson "
-                },
-                "issuer": {
-                    "href": "https://${yourOktaDomain}/api/v1/authorizationServers/auscl1o4tnf48w5Wt0h7",
-                    "title": "My Authentication Server"
+        "id": "oaggjy8vxJwKeiMx20h6",
+        "status": "ACTIVE",
+        "created": "2019-12-09T17:36:12.000Z",
+        "createdBy": {
+            "id": "00uixa271s6x7qt8I0h7",
+            "type": "User"
+        },
+        "lastUpdated": "2019-12-09T17:36:12.000Z",
+        "issuer": "https://${yourOktaDomain}/oauth2/default",
+        "clientId": "0oaosna3ilNxgPTmk0h7",
+        "userId": "00uixa271s6x7qt8I0h7",
+        "scopeId": "scpixa2zmc8Eumvjb0h7",
+        "source": "END_USER",
+        "_links": {
+            "app": {
+                "href": "https://${yourOktaDomain}/api/v1/apps/0oaosna3ilNxgPTmk0h7",
+                "title": "ConsentWebApp"
+            },
+            "authorizationServer": {
+                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default",
+                "title": "default"
+            },
+            "scope": {
+                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/default/scopes/scpixa2zmc8Eumvjb0h7",
+                "title": "phone"
+            },
+            "self": {
+                "href": "https://${yourOktaDomain}/api/v1/users/00uixa271s6x7qt8I0h7/grants/oaggjy8vxJwKeiMx20h6",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE"
+                    ]
                 }
-            }
+            },
+            "client": {
+                "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oaosna3ilNxgPTmk0h7",
+                "title": "ConsentWebApp"
+            },
+            "user": {
+                "href": "https://${yourOktaDomain}/api/v1/users/00uixa271s6x7qt8I0h7",
+                "title": "Joe Smith"
+                }
+             }
         }
     ]
     ```
+
+<NextSectionLink/>

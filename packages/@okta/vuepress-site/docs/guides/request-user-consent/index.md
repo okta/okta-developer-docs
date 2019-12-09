@@ -5,6 +5,8 @@ layout: Guides
 sections:
 - overview
 - require-consent
+- build-the-request
 - verification
+- revoke-consent
 - troubleshooting
 ---
