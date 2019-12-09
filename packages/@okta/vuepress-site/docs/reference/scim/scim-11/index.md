@@ -8,9 +8,9 @@ meta:
 
 # Okta and SCIM V1.1
 
-This reference focuses on how Okta API endpoints share information with System for Cross-domain Identity Management (SCIM) specific API calls. This document specifically covers Version 1.1 of the SCIM specification.
+This reference focuses on how Okta API endpoints share information with System for Cross-domain Identity Management (SCIM) specific API calls.
 
-For Version 2.0 of the SCIM specification, see our [SCIM 2.0 reference](/docs/reference/scim/scim-20/).
+This document specifically covers **Version 1.1** of the SCIM specification. For Version 2.0 of the SCIM specification, see our [SCIM 2.0 reference](/docs/reference/scim/scim-20/).
 
 The SCIM Protocol is an application-level REST protocol for provisioning and managing identity data on the web. The protocol supports creation, discovery, retrieval, and modification of core identity resources.
 
@@ -20,9 +20,11 @@ To better understand SCIM and the specific implementation of SCIM using Okta, se
 
 ### Creating users
 
-The User creation operation brings the user's application profile from Okta over to the Service Provider. A user's application profile represents the key-value pairs defined on the **Profile** tab when a user is added.
+The User creation operation brings the user's application profile from Okta over to the Service Provider. A user's application profile represents the key-value attributes defined on the **Profile** tab when a user is added.
 
-To enable user provisioning, an Okta administrator must configure the provisioning options under the Okta Admin Console. For more information on enabling the provisioning features of your SCIM application, see [Provisioning and Deprovisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Provisioning_Deprovisioning_Overview) under the **Accessing Provisioning Features** section.
+To enable user provisioning, an Okta administrator must configure the provisioning options in the Okta Admin Console. In the Okta Admin Console, select your SCIM application from your list of applications. Under the **Provisioning** tab, click **To App** and **Edit**. In the **Create User** option, click **Enable** and then **Save**.
+
+For more information on enabling the provisioning features of your SCIM application, see [Provisioning and Deprovisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Provisioning_Deprovisioning_Overview) under the **Accessing Provisioning Features** section.
 
 After saving the application configuration, Okta makes two requests:
 
@@ -42,8 +44,6 @@ Authorization: <Authorization credentials>
 
 > **Note:** The query parameters that Okta sends at this point are always constant.
 
-Next, the Okta administrator selects the option for **Create Users** on the **Provisioning >> To App** tab.
-
 After you complete this step, whenever a user is assigned to the application in Okta, the following operation requests are made against the SCIM server:
 
 * Determine if the user already exists
@@ -51,7 +51,7 @@ After you complete this step, whenever a user is assigned to the application in 
 
 #### Determine if the user already exists
 
-<ApiOperation method="get" url="/Users" />
+**GET** /Users
 
 Okta checks that the user exists on the SCIM server through a GET operation with the `filter=userName` parameter (or any other filter parameter that was configured with the SCIM application). This check is performed using the `eq` (equal) operator and is the only one necessary to successfully provision users with Okta.
 
@@ -85,7 +85,7 @@ Content-Type: application/json
 
 If the SCIM server does return a user, Okta automatically matches the result with the user in Okta, sending the user application profile to the SCIM server.
 
-<ApiOperation method="put" url="/Users/${userId}" />
+**PUT** /Users/*$userID*
 
 ```http
 PUT /scim/v1/Users/e155dc98-aeee-4f58-b683-12b93dbc86b3 HTTP/1.1
@@ -96,7 +96,7 @@ Authorization: <Authorization credentials>
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "e155dc98-aeee-4f58-b683-12b93dbc86b3",
     "userName": "test.user@okta.local",
-    "externalId": "00unrudb40SOK2eup0h7",
+    "externalId": "00b443dd40SOK2eup0h7",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -115,7 +115,7 @@ Authorization: <Authorization credentials>
 
 #### Create the user
 
-<ApiOperation method="post" url="/Users" />
+**POST** /Users
 
 If the user isn't found on the SCIM server, then Okta attempts to create it through a POST operation that contains the user application profile. The request looks like the following:
 
@@ -138,7 +138,7 @@ Authorization: <Authorization credentials>
     }],
     "displayName": "Test User",
     "locale": "en_US",
-    "externalId": "00unrudb40SOK2eup0h7",
+    "externalId": "00b443dd40SOK2eup0h7",
     "groups": [],
     "password": "1mz050nq",
     "active": true
@@ -156,7 +156,7 @@ Content-Type: application/json
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "e155dc98-aeee-4f58-b683-12b93dbc86b3",
     "userName": "test.user@okta.local",
-    "externalId": "00unrudb40SOK2eup0h7",
+    "externalId": "00b443dd40SOK2eup0h7",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -180,7 +180,7 @@ Content-Type: application/json
 
 If the SCIM server returns an empty response body to the provisioning request, then Okta marks the operation as invalid, and the Okta administrator is shown an error in the Admin Console:
 
-> Automatic provisioning of user `userName` to app `AppName` failed: Error while creating user `userName`: Create new user returned empty user.
+"Automatic provisioning of user `userName` to app `AppName` failed: Error while creating user `displayName`: Create new user returned empty user."
 
 If the user that Okta tries to create already exists in the Service Provider application, then the Service Provider needs to respond with an error schema to stop the provisioning job. The response looks like the following:
 
@@ -199,15 +199,15 @@ Content-Type: application/json
 
 ### Retrieving users
 
-<ApiOperation method="get" url="/Users" />
+**GET** /Users
 
-When importing users from the SCIM server, Okta accesses the `/Users` endpoint and processes them page by page, using `startIndex`, `count`, and `totalResults` as pagination references.
+When importing users from the SCIM server, Okta accesses the `/Users` endpoint and processes them page by page, using `startIndex`, `count`, and `totalResults` as pagination references. Similarly, when returning large lists of resources, your SCIM implementation must support pagination. Using a limit of `count` results and an offset of `startIndex` returns smaller groupings of resources in a request.
 
-Okta always uses `count=100` as the pagination reference and returns 100 elements. If the value of `totalResults` is higher than 100, then after Okta finishes retrieving the resources, the `startIndex` becomes `startIndex+100` and is passed as a query parameter along with `count` in a new request to the `/Users` endpoint. This pagination operation repeats until all pages are viewed. The number of pages is calculated using the formula:
+> **Note:** The `itemsPerPage`, `startIndex`, and `totalResults` values need to be exchanged as integers, not as strings.
 
-```matlab
-pages = ceil(totalResults / 100)
-```
+Okta uses `count=100` as the pagination reference to return up to 100 elements. If the value of `totalResults` is higher than 100, then after Okta finishes retrieving the first 100 resources, the `startIndex` becomes `startIndex+100` and is passed as a query parameter along with `count` in a new request to the `/Users` endpoint. This pagination operation repeats until all pages are viewed.
+
+The SCIM server must consistently return the same ordering of results for the requests, regardless of which values are provided for the `count` and `startIndex` pagination references. For more information on pagination, see [Section 3.2.2.3](http://www.simplecloud.info/specs/draft-scim-api-01.html#query-resources) of the V1.1 specification.
 
 A sample request from Okta to retrieve the users from the SCIM app:
 
@@ -219,11 +219,9 @@ Authorization: <Authorization credentials>
 
 The response to this request is a JSON listing of all the resources found in the SCIM app.
 
-> **Note:** The `itemsPerPage`, `startIndex`, and `totalResults` values need to be exchanged as integers, not as strings.
-
 ### Retrieving a specific user
 
-<ApiOperation method="get" url="/Users/${userId}" />
+**GET** /Users/*$userID*
 
 Okta can also run a GET operation to check if a specific user still exists on the SCIM server. The request looks like the following:
 
@@ -244,7 +242,7 @@ Content-Type: text/json;charset=UTF-8
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "48e0a2da-0999-4f2c-87f4-80432cfe6617",
     "userName": "test.user@okta.local",
-    "externalId": "00unrudb40SOK2eup0h7",
+    "externalId": "00b443dd40SOK2eup0h7",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -270,13 +268,13 @@ Content-Type: text/json;charset=UTF-8
 
 Updating a user refers to modifying an attribute in the Okta user profile that is mapped with an attribute in the SCIM application.
 
-To update a user, the functionality needs to be enabled in Okta. In the Okta Admin Console, select the SCIM application from your list of applications. Under the **Provisioning** tab, click **To App**. In the **Update User Attributes** option, click **Enable**.
+To update a user, the functionality needs to be enabled in Okta. In the Okta Admin Console, select the SCIM application from your list of applications. Under the **Provisioning** tab, click **To App**. In the **Update User Attributes** option, click **Enable** and then **Save**.
 
 #### Retrieve the user profile
 
-<ApiOperation method="get" url="/Users/${userId}" />
+**GET** /Users/*$userID*
 
-To update a user profile, Okta first makes a GET request to `/Users/${userId}` and retrieves the body of the user's SCIM profile:
+To update a user profile, Okta first makes a GET request to `/Users/${userID}` and retrieves the body of the user's SCIM profile:
 
 ```http
 GET /scim/v1/Users/48e0a2da-0999-4f2c-87f4-80432cfe6617 HTTP/1.1
@@ -295,7 +293,7 @@ Content-Type: text/json;charset=UTF-8
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "48e0a2da-0999-4f2c-87f4-80432cfe6617",
     "userName": "test.user@okta.local",
-    "externalId": "00unrudb40SOK2eup0h7",
+    "externalId": "00b443dd40SOK2eup0h7",
     "name": {
         "givenName": "Test",
         "familyName": "User"
@@ -319,9 +317,9 @@ Content-Type: text/json;charset=UTF-8
 
 #### Update the user profile
 
-<ApiOperation method="put" url="/Users/${userId}" />
+**PUT** /Users/*$userID*
 
-After the user's profile is retrieved from the SCIM server, Okta modifies the attributes that were changed and runs a PUT request with the new body to the `/Users/${userId}` endpoint:
+After the user's profile is retrieved from the SCIM server, Okta modifies the attributes that were changed and runs a PUT request with the new body to the `/Users/${userID}` endpoint:
 
 ```http
 PUT /scim/v1/Users/48e0a2da-0999-4f2c-87f4-80432cfe6617 HTTP/1.1
@@ -332,7 +330,7 @@ Authorization: <Authorization credentials>
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "48e0a2da-0999-4f2c-87f4-80432cfe6617",
     "userName": "test.user@okta.local",
-    "externalId": "00unrudb40SOK2eup0h7",
+    "externalId": "00b443dd40SOK2eup0h7",
     "name": {
         "givenName": "Test1",
         "familyName": "User"
@@ -365,7 +363,7 @@ Content-Type: text/json;charset=UTF-8
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "48e0a2da-0999-4f2c-87f4-80432cfe6617",
     "userName": "test.user@okta.local",
-    "externalId": "00unrudb40SOK2eup0h7",
+    "externalId": "00b443dd40SOK2eup0h7",
     "name": {
         "givenName": "Test1",
         "familyName": "User"
@@ -389,15 +387,19 @@ Content-Type: text/json;charset=UTF-8
 
 ### Updating a specific user (PATCH)
 
-<ApiOperation method="patch" url="/Users/${userId}" />
+**PATCH** /Users/*$userID*
 
-In some situations, you may want to send a PATCH operation to modify user attributes. For more information about modifying PATCH operations, see [RFC 7644, Section 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2). Okta can modify any mapped SCIM attributes through a PATCH operation.
+A user resource can be updated through a PATCH operation for the following actions:
 
-To update users, the functionality needs to be enabled in Okta. In the Okta Admin Console, select the SCIM application from your list of applications. Under the **Provisioning** tab, click **To App**. In the **Update User Attributes** option, click **Enable**.
+* Activating a user
+* Deactivating a user
+* Syncing the user password
 
-One important attribute modified through a PATCH operation is the `active` attribute. This attribute represents the user's current status.
+The `active` attribute in a user profile represents the user's current status.
 
-To deactivate users, the functionality needs to be enabled in Okta. In the Okta Admin Console, under the **Provisioning** tab, click **To App**. In the **Deactivate Users** option, click **Enable**.
+Other updates to attributes in a user profile should be handled through a PUT operation.
+
+To deactivate users, the functionality needs to be enabled in Okta. In the Okta Admin Console, under the **Provisioning** tab, click **To App** and **Edit**. In the **Deactivate Users** option, click **Enable** and then **Save**.
 
 When a user is deactivated, Okta sends this request:
 
@@ -424,7 +426,7 @@ Content-Type: text/json;charset=UTF-8
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "48e0a2da-0999-4f2c-87f4-80432cfe6617",
     "userName": "test.user@okta.local",
-    "externalId": "00unrudb40SOK2eup0h7",
+    "externalId": "00b443dd40SOK2eup0h7",
     "name": {
         "givenName": "Test1",
         "familyName": "User"
@@ -446,11 +448,13 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
-### Deleting specific users
+> **Note:** The SCIM server response to PATCH operation requests can also be a HTTP 204 response, with no body returned.
 
-<ApiOperation method="delete" url="/Users/${userId}" />
+### Deleting users
 
-Okta doesn't perform DELETE operations on specific users.
+**DELETE** /Users/*$userID*
+
+Okta doesn't perform DELETE operations on users.
 
 If a user is suspended, deactivated, or removed from the application in Okta, then Okta sends a PATCH request to set the `active` attribute to `false`.
 
@@ -458,9 +462,9 @@ If a user is suspended, deactivated, or removed from the application in Okta, th
 
 ### Creating groups
 
-<ApiOperation method="post" url="/Groups" />
+**POST** /Groups
 
-To create a group on the SCIM server, an Okta administrator must push the group using the Okta Admin Console. In the Okta Admin Console, select the SCIM application from your list of applications. On the **Push Groups** tab, click **Push Groups**. For more information, see the [Using Group Push topic](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Using_Group_Push) in the Okta Help Center.
+To create a group on the SCIM server, an Okta administrator must push the group using the Okta Admin Console. In the Okta Admin Console, select the SCIM application from your list of applications. On the **Push Groups** tab, click **Push Groups**. You can select which existing Okta group to push, either by specifying a name or a rule. For more information, see the [Using Group Push topic](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Using_Group_Push) in the Okta Help Center.
 
 After the group is selected, Okta makes a POST request to the Service Provider:
 
@@ -471,11 +475,11 @@ Authorization: <Authorization credentials>
 
 {
     "schemas": ["urn:scim:schemas:core:1.0"],
-    "displayName": "Test SCIM2"
+    "displayName": "Test SCIMv1"
 }
 ```
 
-When it receives this request, the SCIM server responds with the group details as it would for a GET operation to the `/Groups/${groupId}/`:
+When it receives this request, the SCIM server responds with the group details as it would for a GET operation to the `/Groups/${groupID}/`:
 
 ```http
 HTTP/1.1 201 Created
@@ -485,7 +489,7 @@ Content-Type: text/json;charset=UTF-8
 {
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "74094a55-c9ee-47ae-9fd4-9137deb43497",
-    "displayName": "Test SCIM2",
+    "displayName": "Test SCIMv1",
     "members": [],
     "meta": {
         "created": "2019-10-18T07:02:44+00:00",
@@ -511,17 +515,15 @@ The SCIM server isn't required to save and return the group description. However
 
 ### Retrieving groups
 
-<ApiOperation method="get" url="/Groups" />
+**GET** /Groups
 
-When importing groups from the SCIM server, Okta accesses the `/Groups` endpoint and processes them page by page, using the `startIndex`, `count`, and `totalResults` values for reference.
+When importing groups from the SCIM server, Okta accesses the `/Groups` endpoint and processes them page by page, using the `startIndex`, `count`, and `totalResults` values for reference. Similarly, when returning large lists of resources, your SCIM implementation must support pagination. Using a limit of `count` results and an offset of `startIndex` returns smaller groupings of resources in a request.
 
 > **Note:** The `itemsPerPage`, `startIndex`, and `totalResults` values need to be exchanged as integers, not as strings.
 
-Okta always uses `count=100` as the pagination reference and returns 100 elements. If the value of `totalResults` is higher than 100, then after Okta finishes retrieving the resources, the `startIndex` becomes `startIndex+100` and is passed as a query parameter along with `count` in a new request to the `/Groups` endpoint. This pagination operation repeats until all pages are viewed. The number of pages is calculated using the formula:
+Okta uses `count=100` as the pagination reference to return up to 100 elements. If the value of `totalResults` is higher than 100, then after Okta finishes retrieving the first 100 resources, the `startIndex` becomes `startIndex+100` and is passed as a query parameter along with `count` in a new request to the `/Groups` endpoint. This pagination operation repeats until all pages are viewed.
 
-```matlab
-pages = ceil(totalResults / 100)
-```
+The SCIM server must consistently return the same ordering of results for the requests, regardless of which values are provided for the `count` and `startIndex` pagination references.
 
 A sample request from Okta to retrieve the groups from the SCIM app:
 
@@ -535,9 +537,9 @@ The response to this request is a JSON listing of all the group resources found 
 
 ### Retrieving specific groups
 
-<ApiOperation method="get" url="/Groups/${groupId}" />
+**GET** /Groups/*$groupID*
 
-There are situations where Okta needs to run a GET operation on a specific `${groupId}`, for example to see if the group still exists on the SCIM server. The request looks like the following:
+There are situations where Okta needs to run a GET operation on a specific `${groupID}`, for example to see if the group still exists on the SCIM server. The request looks like the following:
 
 ```http
 GET /scim/v1/Groups/74094a55-c9ee-47ae-9fd4-9137deb43497 HTTP/1.1
@@ -555,7 +557,7 @@ Content-Type: text/json;charset=UTF-8
 {
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "74094a55-c9ee-47ae-9fd4-9137deb43497",
-    "displayName": "Test SCIM2",
+    "displayName": "Test SCIMv1",
     "members": [],
     "meta": {
         "created": "2019-10-18T07:02:44+00:00",
@@ -567,9 +569,9 @@ Content-Type: text/json;charset=UTF-8
 
 ### Updating a specific group name
 
-<ApiOperation method="patch" url="/Groups/${groupId}" />
+**PATCH** /Groups/*$groupID*
 
-Updates to group names for existing Okta groups are handled by a PATCH operation. The group must already be pushed out to the SCIM server
+Updates to existing group names for existing Okta groups are handled by a PATCH operation. The group must already be pushed out to the SCIM server.
 
 ```http
 PATCH /scim/v1/Groups/74094a55-c9ee-47ae-9fd4-9137deb43497 HTTP/1.1
@@ -579,9 +581,11 @@ Authorization: <Authorization credentials>
 {
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "74094a55-c9ee-47ae-9fd4-9137deb43497",
-    "displayName": "Test SCIM2"
+    "displayName": "Test SCIMv11"
 }
 ```
+
+The group name Update operation occurs each time there is a group membership Update operation.
 
 The SCIM server response is to return the updated group details:
 
@@ -593,7 +597,7 @@ Content-Type: text/json;charset=UTF-8
 {
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "74094a55-c9ee-47ae-9fd4-9137deb43497",
-    "displayName": "Test SCIM2",
+    "displayName": "Test SCIMv11",
     "members": [],
     "meta": {
         "created": "2019-10-18T07:02:44+00:00",
@@ -603,17 +607,19 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
+> **Note:** The SCIM server response to PATCH operation requests can also be a HTTP 204 response, with no body returned.
+
 ### Updating specific group membership
 
-<ApiOperation method="patch" url="/Groups/${groupId}" />
+**PATCH** /Groups/*$groupID*
 
-To add users to a specific pushed group on the SCIM server, Okta requires the following:
+To add or remove users inside a specific pushed group on the SCIM server, Okta requires the following:
 
 * The user must be a member of the group in Okta
 * The user has been added under the **Assignments** tab of the SCIM application inside the Okta Admin Console
 * The group is pushed under the **Push Groups** tab of the SCIM application inside the Okta Admin Console
 
-If these three requirements are met, Okta sends a PATCH request to add the specified users to the group on the SCIM server:
+If these three requirements are met, Okta sends a request to add the specified users to the group on the SCIM server. The operation can be sent as a PUT or a PATCH operation depending on the configuration of the SCIM application.
 
 ```http
 PATCH /scim/v1/Groups/74094a55-c9ee-47ae-9fd4-9137deb43497 HTTP/1.1
@@ -639,7 +645,7 @@ Content-Type: text/json;charset=UTF-8
 {
     "schemas": ["urn:scim:schemas:core:1.0"],
     "id": "74094a55-c9ee-47ae-9fd4-9137deb43497",
-    "displayName": "Test SCIM2",
+    "displayName": "Test SCIMv11",
     "members": [{
         "value": "48e0a2da-0999-4f2c-87f4-80432cfe6617",
         "display": "test.user@okta.local"
@@ -652,15 +658,59 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
-When a user is removed from the group, Okta sends the `members` array, specifying the `${userId}` along with an `operations` element that has the value `delete`.
+When a user is removed from the group, Okta sends the `members` array, specifying the `${userID}` along with an `operations` element that has the value `delete`.
+
+```http
+PATCH /scim/v1/Groups/74094a55-c9ee-47ae-9fd4-9137deb43497 HTTP/1.1
+User-Agent: Okta SCIM Client 1.0.0
+Authorization: <Authorization credentials>
+
+{
+    "schemas": [
+        "urn:scim:schemas:core:1.0"
+    ],
+    "members": [
+        {
+            "value": "b4327d81-fc79-47ad-a7ff-182d9e103291",
+            "display": "test.user2@okta.local",
+            "operation": "delete"
+        }
+    ]
+}
+```
+
+The SCIM server response is to return the updated group details:
+
+```http
+HTTP/1.1 200 OK
+Date: Fri, 18 Oct 2019 07:11:01 GMT
+Content-Type: text/json;charset=UTF-8
+
+{
+    "schemas": ["urn:scim:schemas:core:1.0"],
+    "id": "74094a55-c9ee-47ae-9fd4-9137deb43497",
+    "displayName": "Test SCIMv11",
+    "members": [{
+        "value": "48e0a2da-0999-4f2c-87f4-80432cfe6617",
+        "display": "test.user@okta.local"
+    }],
+    "meta": {
+        "created": "2019-10-18T07:02:44+00:00",
+        "lastModified": "2019-10-18T07:11:01+00:00",
+        "version": "cca3a6ab18596cc450377eddcc4b5a58"
+    }
+}
+```
+
+> **Note:** The SCIM server response to PATCH operation requests can also be a HTTP 204 response, with no body returned.
 
 ### Deleting a specific group
 
-<ApiOperation method="delete" url="/Groups/$[groupId}" />
+**DELETE** /Groups/*$groupID*
 
 Okta administrators can remove pushed groups from the Okta Admin Console, under the **Push Groups** tab of the SCIM application.
 
-On the **Push Groups** tab, click **Active** then **Unlink pushed group**. In the dialog box that appears, you can choose whether you want to **Delete the group in the target app** or **Leave the group in the target app** on the SCIM server.
+On the **Push Groups** tab, click **Active** then click **Unlink pushed group**. In the dialog box that appears, you can choose whether you want to **Delete the group in the target app** or **Leave the group in the target app** on the SCIM server.
 
 When the admin clicks **Unlink**, Okta sends a DELETE request:
 
@@ -680,7 +730,7 @@ Date: Fri, 18 Oct 2019 07:16:10 GMT
 ### Additional references
 
 * [What is SCIM?](https://www.okta.com/blog/2017/01/what-is-scim/)
-* [SCIM at Okta](/doc/concepts/scim/)
+* [SCIM Provisioning using Okta Lifecycle Management](/docs/concepts/scim/)
 * [Build a provisioning app using SCIM](/docs/guides/build-provisioning-integration/)
 * [SCIM 1.1 RFC: Core Schema](http://www.simplecloud.info/specs/draft-scim-core-schema-01.html)
-* [SCIM 1.1 RFC: Protocol](http://www.simplecloud.info/specs/draft-scim-api-01.html4)
+* [SCIM 1.1 RFC: Protocol](http://www.simplecloud.info/specs/draft-scim-api-01.html)

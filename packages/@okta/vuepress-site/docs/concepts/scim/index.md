@@ -116,13 +116,13 @@ Okta has seen broad adoption of the standard in the market amongst our network o
 
 ### Provisioning to On-Premise Apps
 
-The options above are geared towards cloud apps but we have a solution for on-premise applications as well. See [the product documentation](https://support.okta.com/help/Documentation/Knowledge_Article/46749316-On-Premises-Provisioning-Deployment-Guide) for details about Okta's agent-based provisioning solution.
+The options above are geared towards cloud apps but we have a solution for on-premise applications as well. See [the product documentation](https://support.okta.com/help/s/article/29448976-Configuring-On-Premises-Provisioning) for details about Okta's agent-based provisioning solution.
 
 ### SCIM Facade
 
 Sometimes it isn't feasible for the cloud app to natively support a SCIM Server API. An alternative option is to build and host a SCIM facade middleware that translates between the Okta SCIM Client and the cloud app's proprietary API. The Okta integration would be to this SCIM facade.
 
->**Need help?** Post a question on the [Developer Forum][devforum] or email us at <developers@okta.com>.
+>**Need help?** Post a question on the [Developer Forum](https://devforum.okta.com/) or email us at <developers@okta.com>.
 
 ## SCIM-Based Provisioning Integration
 
@@ -258,7 +258,7 @@ Follow the steps below to test and submit your application for Okta review:
 4. [Publish to Okta Integration Network (OIN) in Partner-Built EA](#step-4-publish-to-okta-integration-network-oin-in-partner-built-ea)
 5. [Become Okta-Verified in the OIN](#step-5-become-okta-verified-in-the-oin)
 
-> Need help? Post a question on the [Developer Forum][devforum] or email us at <developers@okta.com>.
+> Need help? Post a question on the [Developer Forum](https://devforum.okta.com/) or email us at <developers@okta.com>.
 
 **Note:** The OIN is for making an integration publicly discoverable and accessible to all Okta customers. However, you can also just use the integration privately within a few named orgs, called the Private App Option. This could be the case if you are a system integrator, customer, or Okta PS integrating to a custom app. If this is the case, follow steps 1-3 and you will be able to indicate in step 3 that you don't want to publish in OIN. Okta will create the submitted integration per usual and assign it to Orgs that you specify as a private app. Note that you cannot use the SCIM template app used for prototyping, as it has limitations that prevent it from being used in production.
 
@@ -562,44 +562,6 @@ Whether Partner-Built EA or Okta-Verified, when issues arise related to the SCIM
 ## Provisioning FAQs
 
 ### SCIM Technical Questions
-
-**What are the differences between SCIM 1.1 and 2.0?**
-
-* Namespaces:  Namespaces are different, therefore 2.0 is not backwards compatible with 1.1
-
-    | SCIM 1.1 | SCIM 2.0 |
-    | --- | --- |
-    | `urn:scim:schemas:core:1.0 urn:scim:schemas:extension:enterprise:1.0`  |  `urn:ietf:params:scim:schemas:core:2.0:User urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` |
-
-* Service Provider Configuration Endpoint: There's no `s` at the end of the SCIM 2.0 endpoint.
-
-    | SCIM 1.1 | SCIM 2.0 |
-    | --- | --- |
-    | `/ServiceProviderConfigs` | `/ServiceProviderConfig` |
-
-* Patch Protocol
-
-    | SCIM 1.1 | SCIM 2.0 |
-    | --- | --- |
-    | [Section 3.3.2](http://www.simplecloud.info/specs/draft-scim-api-01.html#edit-resource-with-patch) | [Section 3.5.2: Uses JSON Patch](https://tools.ietf.org/html/rfc7644#section-3.5.2) |
-
-* Error Response Schema
-
-    | SCIM 1.1 | SCIM 2.0 |
-    | --- | --- |
-    | [Section 3.9](http://www.simplecloud.info/specs/draft-scim-api-01.html#anchor6) | [Section 3.12](https://tools.ietf.org/html/rfc7644#section-3.12) |
-
-* Reference Type
-
-    | SCIM 1.1 | SCIM 2.0 |
-    | --- | --- |
-    | N/A | Supports reference type pointing to the full URL of another SCIM Resource |
-
-* Query by POST /search
-
-    | SCIM 1.1 | SCIM 2.0 |
-    | --- | --- |
-    | N/A | [Section 3.4.3](https://tools.ietf.org/html/rfc7644#section-3.4.3) |
 
 **Our API is similar to SCIM, but is not 100% compliant. Can we still integrate with Okta?**
 
