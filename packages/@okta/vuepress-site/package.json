@@ -24,7 +24,7 @@
   "devDependencies": {
     "@okta/vuepress-theme-default": "^0.1.0-alpha.1",
     "@okta/vuepress-theme-prose": "^0.1.0-alpha.1",
-    "vuepress": "1.1.0"
+    "vuepress": "1.2.0"
   },
   "dependencies": {
     "js-yaml": "^3.13.1",
