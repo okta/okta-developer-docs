@@ -40,7 +40,7 @@
         type: Boolean
       }
     },
-    data () {
+    data() {
       return {
         sidebarActive: false,
         overview: {
