@@ -3,6 +3,9 @@
   flex: 0 0 auto;
   border-right: 1px solid cv('gray', '400');
   color: cv('action');
+  position: sticky;
+  overflow-y: auto;
+  top: 200px;
 
   .router-link-active {
     font-weight: bold;
