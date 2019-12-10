@@ -4,15 +4,15 @@ title: Okta API Products Release Notes
 
 ## 2019.12.0
 
-| Change                                                                                                            | Expected in Preview Orgs |
-|-------------------------------------------------------------------------------------------------------------------|--------------------------|
-| [Features API is Generally Available in Production](#features-api-is-generally-available-in-production)           | December 11, 2019        |
-| [Token Inline Hook is Generally Available in Production](#token-inline-hook-is-generally-available-in-production) | December 11, 2019        |
-| [SAML Inline Hook is Generally Available in Production](#saml-inline-hook-is-generally-available-in-production)   | December 11, 2019        |
-| [Scope Object Properties Default Values](#scope-object-properties-default-values)                                 | December 11, 2019        |
-| [Okta-Hosted User Consent Dialog Change](#okta-hosted-user-consent-dialog-change)                                 | December 11, 2019        |
-| [OAuth for Okta Enabled for Additional Endpoint](#oauth-for-okta-enabled-for-additional-endpoint)                 | December 11, 2019        |
-| [Bug Fixed in 2019.12.0](#bug-fixed-in-2019-12-0)                                                                 | December 11, 2019        |
+| Change                                                                                                              | Expected in Preview Orgs |
+|---------------------------------------------------------------------------------------------------------------------|--------------------------|
+| [Features API is Generally Available in Production](#features-api-is-generally-available-in-production)             | December 11, 2019        |
+| [Token Inline Hook is Generally Available in Production](#token-inline-hook-is-generally-available-in-production)   | December 11, 2019        |
+| [SAML Inline Hook is Generally Available in Production](#saml-inline-hook-is-generally-available-in-production)     | December 11, 2019        |
+| [Scope Object Properties Default Values](#scope-object-properties-default-values)                                   | December 11, 2019        |
+| [Okta-Hosted User Consent Dialog Change](#okta-hosted-user-consent-dialog-change)                                   | December 11, 2019        |
+| [OAuth for Okta Enabled for Clear User Sessions Endpoint](#oauth-for-okta-enabled-for-clear-user-sessions-endpoint) | December 11, 2019        |
+| [Bug Fixed in 2019.12.0](#bug-fixed-in-2019-12-0)                                                                   | December 11, 2019        |
 
 ### Features API is Generally Available in Production
 
@@ -34,7 +34,7 @@ In Scope objects created using the [Authorization Server API](/docs/reference/ap
 
 In OAuth 2.0 or OpenID Connect [authentication flows](/docs/guides/request-user-consent/overview/), Okta-hosted user consent dialogs were updated to display neutral colors for some UI elements. <!-- OKTA-262803 -->
 
-### OAuth for Okta Enabled for Additional Endpoint
+### OAuth for Okta Enabled for Clear User Sessions Endpoint
 
 The [Clear User Sessions endpoint](/docs/reference/api/users/#clear-user-sessions) now has OAuth for Okta enabled.
 
