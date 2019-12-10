@@ -31,7 +31,7 @@ In Scope objects created using the [Authorization Server API](/docs/reference/ap
 
 ### Okta-Hosted User Consent Dialog Change
 
-In OAuth 2.0 or OpenID Connect [authentication flows](/docs/guides/request-user-consent/overview/), Okta-hosted user consent dialogs have been changed, so that the *Allow Access* button is now gray. <!-- OKTA-262803 -->
+In OAuth 2.0 or OpenID Connect [authentication flows](/docs/guides/request-user-consent/overview/), Okta-hosted user consent dialogs have been changed, so that the **Allow Access** button is now gray. <!-- OKTA-262803 -->
 
 ### Bug Fixed in 2019.12.0
 
