@@ -1,5 +1,4 @@
 <template>
-
   <aside class="landing-navigation">
     <ul class="landing">
       <li :class="{overview: true}">
@@ -49,10 +48,17 @@
         }
       }
     },
+    mounted() {
+      this.handleScroll();
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeDestroy() {
+      window.removeEventListener('scroll', this.handleScroll);
+    },
     computed: {
       navigation() {
         if (this.$page.path.includes('/code/')) {
-          return this.$site.themeConfig.sidebars.codePages
+          // return this.$site.themeConfig.sidebars.codePages
         }
         if (this.$page.path.includes('/docs/concepts/')) {
           this.overview.title = 'Concepts';
@@ -80,7 +86,7 @@
           return false;
           
         }
-        return this.$site.themeConfig.sidebars.main
+        
       }
     },
     filters: {
@@ -153,6 +159,13 @@
           return;
         }
         event.preventDefault();
+      },
+      handleScroll: function (event) {
+        let maxHeight = document.querySelector('.tree-nav').clientHeight - window.scrollY
+        if(maxHeight > window.innerHeight) {
+          maxHeight = window.innerHeight - document.querySelector('.fixed-header').clientHeight - 60;
+        }
+        document.querySelector('.landing-navigation').style.height = maxHeight + 'px';
       }
     }
   }

@@ -6,6 +6,7 @@ footer {
   max-width: $container-width;
   margin: 0 auto;
   flex-direction: column;
+  z-index: 10;
 
   @include media('>tablet') {
     flex-direction: row;
