@@ -1799,6 +1799,22 @@ redirects:
     to: /docs/guides/implement-oauth-for-okta/save-access-token/
   - from: /docs/guides/oauth-for-okta/scopes/index.html
     to: /docs/guides/implement-oauth-for-okta/scopes/
+  - from: /docs/guides/oauth-for-okta/-/overview/index.html
+    to: /docs/guides/implement-oauth-for-okta/overview/
+  - from: /docs/guides/oauth-for-okta/-/create-oauth-app/index.html
+    to: /docs/guides/implement-oauth-for-okta/create-oauth-app/
+  - from: /docs/guides/oauth-for-okta/-/use-client-credentials-grant-flow/index.html
+    to:  /docs/guides/implement-oauth-for-okta/use-client-credentials-grant-flow/
+  - from: /docs/guides/oauth-for-okta/-/define-allowed-scopes/index.html
+    to: /docs/guides/implement-oauth-for-okta/define-allowed-scopes/
+  - from: /docs/guides/oauth-for-okta/-/request-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta/request-access-token/
+  - from: /docs/guides/oauth-for-okta/-/get-access-token-using-service-app/index.html
+    to: /docs/guides/implement-oauth-for-okta/get-access-token-using-service-app/
+  - from: /docs/guides/oauth-for-okta/-/save-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta/save-access-token/
+  - from: /docs/guides/oauth-for-okta/-/scopes/index.html
+    to: /docs/guides/implement-oauth-for-okta/scopes/
   - from: /docs/guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
   - from: /docs/guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
