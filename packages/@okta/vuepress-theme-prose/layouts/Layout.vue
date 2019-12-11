@@ -15,7 +15,9 @@
             <PageTitle />
             <Content />
           </div>
-          <div class="on-this-page">On This Page</div>
+          <div class="on-this-page">
+            <OnThisPage />
+          </div>
         </div>
       </div>
     </div>
@@ -30,6 +32,7 @@ export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
     Sidebar: () => import('../components/Sidebar.vue'),
+    OnThisPage: () => import('../components/OnThisPage.vue'),
     PageTitle: () => import('../components/PageTitle.vue'),
     Breadcrumb: () => import('../components/Breadcrumb.vue'),
     Footer: () => import('../components/Footer.vue'),
