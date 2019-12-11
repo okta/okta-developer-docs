@@ -2,7 +2,7 @@
 title: Add multifactor authentication
 meta:
   - name: description
-    content: Use this guide to learn how to add multifactor authentication to your apps and how to deploy our built-in factors or integrate with existing tokens. 
+    content: Use this guide to learn how to add multifactor authentication to your apps and how to deploy our built-in factors or integrate with existing tokens.
 layout: Guides
 sections:
  - prerequisites
@@ -12,4 +12,5 @@ sections:
  - add-factor
  - enroll-factor
  - verify-factor
+ - next-steps
 ---
