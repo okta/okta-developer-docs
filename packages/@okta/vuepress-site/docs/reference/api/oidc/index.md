@@ -961,6 +961,38 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 * `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored.
 * For more information about `offline_access`, see the [OIDC spec](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess).
 
+### Scope properties
+
+| Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
+| :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
+| consent <ApiLifecycle access="ea" />     | Indicates whether a consent dialog is needed for the scope. Valid values: `REQUIRED`, `IMPLICIT`.       | Enum      | `IMPLICIT`     | True unless this EA feature isn't enabled |
+| default                                  | Whether the scope is a default scope                                                               | Boolean   |                | False                                      |
+| description                              | Description of the scope                                                                                | String    |                | False                                      |
+| displayName <ApiLifecycle access="ea" /> | Name of the end user displayed in a consent dialog window                                                      | String    |                | False                                      |
+| id                                       | ID of the scope                                                                                         | String    |                | False                                      |
+| metadataPublish                          | Whether the scope should be included in the metadata. Valid values: `NO_CLIENTS`, `ALL_CLIENTS`  | Enum      | `NO_CLIENTS`   | True except for create                     |
+| name                                     | Name of the scope                                                                                       | String    |                | True                                       |
+| system                                   | Whether Okta created the scope                                                                          | Boolean   |                | False                                      |
+
+* <ApiLifecycle access="ea" /> A consent dialog appears depending on the values of three elements:
+    * `prompt`, a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
+    * `consent_method`, a property on [apps](/docs/reference/api/apps/#settings-7)
+    * `consent`, a property on scopes as listed in the table above
+
+| `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
+| :------------------ | :--------------------------------- | :---------------------------- | :----------- |
+| `CONSENT`           | `TRUSTED` or `REQUIRED`            | `REQUIRED`                    | Prompted     |
+| `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
+| `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
+| `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
+<!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) as well. Add 'LOGIN' to the first three rows when supported --> |
+
+**Notes:**
+
+  * Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
+  * If you request a scope that requires consent while using the `client_credentials` flow, an error is returned. Because there is no user, no consent can be given.
+  * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are `REQUIRED`, then an error occurs.
+  * The scope name must only contain printable ASCII except for spaces, double quotes, and backslashes. It also must not start with `okta.` or `okta:` and must not be only `okta` or `*`.
 
 ## Tokens and claims
 This section contains some general information about claims, as well as detailed information about access and ID tokens.
