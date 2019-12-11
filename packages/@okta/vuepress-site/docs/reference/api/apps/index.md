@@ -1038,13 +1038,14 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
 | `CONSENT`           | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
 | `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
-| `NONE`              | `REQUIRED`                         | `REQUIRED`                    | Prompted     |
 | `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
-<!-- If you change this section, change it in authorization-servers.md as well. Add 'LOGIN' to the first three rows when supported --> |
+<!-- If you change this section, change it in authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
 
->Notes
+**Notes:**
+
   * Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
   * If you request a scope that requires consent while using the `client_credentials` flow, an error is returned. Because there is no user, no consent can be given.
+  * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
   * These properties can also be configured in the App Wizard, on the **General** tab in the administrator UI: `tos_uri`, `policy_uri`, `logo_uri`, and `consent_method`. They can't be set using [the Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
 
 ##### Request Example
