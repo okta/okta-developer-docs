@@ -7,7 +7,7 @@ by asking them to answer a challenge using their token.
 
 The process of attaching a factor to a user is similar for every type of factor that Okta supports. In this example, we cover only how to attach a Google Authenticator factor. At a high level, the process of attaching a factor involves adding a factor to the user account and then enrolling that factor. Once the factor is enrolled, you can <GuideLink link="../verify-factor">verify it</GuideLink> using the Factors API.
 
-Using the User ID that you created earlier, add a Google Authenticator factor to that user:
+Using the ID for the User that you created earlier, add a Google Authenticator factor for that User:
 
 1. In Postman, open the **Factors (Okta API)** collection, and then the **Factor Lifecycle Operations** collection.
 2. Select the **POST Enroll Google Authenticator Factor** request template. The request appears on the right.
