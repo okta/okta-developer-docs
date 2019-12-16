@@ -36,6 +36,9 @@ export default {
     PageTitle: () => import('../components/PageTitle.vue'),
     Breadcrumb: () => import('../components/Breadcrumb.vue'),
     Footer: () => import('../components/Footer.vue'),
+  },
+  data() {
+    return {}
   }
 }
 </script>

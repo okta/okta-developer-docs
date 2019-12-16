@@ -8,10 +8,6 @@ module.exports = (options, ctx) => ({
         moment.locale(lang)
         return moment(timestamp).format('LL')
       }
-    }],
-    ['@vuepress/active-header-links', {
-      sidebarLinkSelector: '.on-this-page',
-      headerAnchorSelector: '.header-anchor'
     }]
   ],
   extendPageData ($page) {
