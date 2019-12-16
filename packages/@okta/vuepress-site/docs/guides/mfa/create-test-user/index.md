@@ -5,7 +5,7 @@ title: Create a test user
 In this example, we want to create a new user account in Okta using a random user generator. Creating a user account allows you to add MFA to your application without needing to update your user schemas.
 
 1. Generate a random user by loading [Random User Generator](https://randomuser.me/) into your browser.
-2. Copy the following random user's data from the website:
+2. Copy the following:
 
     * First Name
     * Last Name
