@@ -3,7 +3,7 @@
     <RouterLink :to="link.path || '#' + link.slug" class="on-this-page-link" :class="{'router-link-active': isHashActive(link) || childActive}" >
       {{link.title}}
     </RouterLink>
-    <ul v-if="link.children && (childActive)">
+    <ul v-if="link.children">
       <OnThisPageItem v-for="(childLink, index) in link.children" :key="index" :link="childLink" :activeAnchor=activeAnchor />
     </ul>
   </li>
