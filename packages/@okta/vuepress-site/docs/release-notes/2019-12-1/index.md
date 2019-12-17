@@ -10,4 +10,4 @@ title: Okta API Products Release Notes
 
 ### Bug Fixed in 2019.12.1
 
-* Okta Verify Push could be enabled using the [Factors Administration API](docs/reference/api/factor-admin/) even when Okta Verify TOTP was inactive. (OKTA-262950)
+* Okta Verify Push could be enabled using the [Factors Administration API](/docs/reference/api/factor-admin/) even when Okta Verify TOTP was inactive. (OKTA-262950)
