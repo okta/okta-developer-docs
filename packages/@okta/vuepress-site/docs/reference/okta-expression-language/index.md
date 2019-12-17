@@ -20,7 +20,7 @@ Every user has an Okta user profile. The Okta user profile is the central source
 
 | Syntax            | Definitions                                                                   | Examples                                                       |
 | --------          | ----------                                                                    | ------------                                                   |
-| `user.$attribute` | `user` reference to the Okta user<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.username<br>user.email |
+| `user.$attribute` | `user` reference to the Okta user<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
 
 ### Application User Profile
 In addition to an Okta user profile, all users have separate Application user profile for each of their applications. Application user profiles are used to store application specific information about users, such as application username or user role. To reference an App user profile attribute, just specify the application variable and the attribute variable in that application's App user profile. In specifying the application, you can either name the specific application you're referencing or use an implicit reference to an in-context application.
@@ -162,7 +162,7 @@ Group functions return either an array of groups or **True** or **False**.
 
 **Note:** The **Groups.contains**, **Groups.startsWith**, and **Groups.endsWith** group functions are designed to work only with group claims. You can't use these functions with property mappings.
 
-For an example using group functions and for more information on using group functions for dynamic and static whitelists, see [Create an ID Token or Access Token Containing a Groups Claim](/docs/guides/create-token-with-groups-claim/).
+For an example using group functions and for more information on using group functions for dynamic and static whitelists, see [Create an ID Token or Access Token Containing a Groups Claim](/docs/guides/customize-tokens-returned-from-okta/).
 
 ### Linked Object Function
 

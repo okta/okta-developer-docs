@@ -38,5 +38,4 @@ If the code is still valid, and the code verifier matches, your application will
 }
 ```
 
-
-<NextSectionLink/>
+<NextSectionLink>Next Steps</NextSectionLink>

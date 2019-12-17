@@ -24,7 +24,7 @@ module.exports = [
   {
     title: "Guides",
     links: [
-      { title: 'Create tokens with group claims', link: '/docs/guides/create-token-with-groups-claim/'},
+      { title: 'Customize tokens returned from Okta', link: '/docs/guides/customize-tokens-returned-from-okta/'},
       { title: 'Protect your API endpoints', link: '/docs/guides/protect-your-api/'},
       { title: 'Request user consent during authentication', link: '/docs/guides/request-user-consent/'},
       { title: 'Sign users in to your web application', link: '/docs/guides/sign-into-web-app/'},

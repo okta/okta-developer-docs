@@ -31,4 +31,4 @@ http://localhost:8080/#access_token=eyJhb[...]erw&token_type=Bearer&expires_in=
 
 Your application must now extract the token(s) from the URI and store them.
 
-<NextSectionLink/>
+<NextSectionLink>Next Steps</NextSectionLink>

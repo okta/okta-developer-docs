@@ -1,6 +1,6 @@
 {
-  "release" : "2019.11.1",
-  "build" : "2019.11.1-begin-44-gc282cc77c708",
+  "release" : "2019.12.1",
+  "build" : "2019.12.1-begin-18-gef888f789ecb",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -5802,12 +5802,6 @@
       "description" : "Tasks removed.",
       "tags" : [ "admin", "admin-task" ],
       "mappings" : [ "system.org.task.remove" ]
-    }, {
-      "id" : "core.security.escalation",
-      "category" : "security",
-      "description" : "",
-      "tags" : [ "security" ],
-      "mappings" : [ ]
     }, {
       "id" : "core.user.account.report_suspicious_activity_by_enduser",
       "category" : "end-user-security",
@@ -17203,7 +17197,7 @@
         "release" : "2016.11"
       },
       "beta" : false,
-      "tags" : [ "mfa" ],
+      "tags" : [ "event-hook-eligible", "mfa" ],
       "mappings" : [ "core.user.factor.activate" ],
       "schema" : {
         "debugData" : null,
@@ -17219,7 +17213,7 @@
         "release" : "2016.11"
       },
       "beta" : false,
-      "tags" : [ "mfa" ],
+      "tags" : [ "event-hook-eligible", "mfa" ],
       "mappings" : [ "core.user.factor.deactivate" ],
       "schema" : {
         "debugData" : null,
@@ -17235,7 +17229,7 @@
         "release" : "2016.11"
       },
       "beta" : false,
-      "tags" : [ "mfa" ],
+      "tags" : [ "event-hook-eligible", "mfa" ],
       "mappings" : [ "core.user.factor.reset_all" ],
       "schema" : {
         "debugData" : null,
@@ -17569,7 +17563,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17591,7 +17585,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17610,7 +17604,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17630,7 +17624,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17650,7 +17644,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17673,7 +17667,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17698,7 +17692,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17718,7 +17712,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17746,7 +17740,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17768,7 +17762,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17794,7 +17788,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17821,7 +17815,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17850,7 +17844,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17872,7 +17866,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17893,7 +17887,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17913,7 +17907,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17935,7 +17929,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17955,7 +17949,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17976,7 +17970,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -17996,7 +17990,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18023,7 +18017,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18064,7 +18058,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18085,7 +18079,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18111,7 +18105,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18133,7 +18127,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18153,7 +18147,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18194,7 +18188,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18217,7 +18211,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18280,7 +18274,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18308,7 +18302,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18329,7 +18323,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18355,7 +18349,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18378,7 +18372,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18398,7 +18392,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18421,7 +18415,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18447,7 +18441,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18470,7 +18464,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18491,7 +18485,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18515,7 +18509,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18546,7 +18540,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18565,7 +18559,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18607,7 +18601,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18633,7 +18627,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18659,7 +18653,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18682,7 +18676,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18702,7 +18696,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18722,7 +18716,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18742,7 +18736,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18763,7 +18757,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18785,7 +18779,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18806,7 +18800,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18831,7 +18825,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",
@@ -18851,7 +18845,7 @@
         "properties" : {
           "webhooks" : "List",
           "threat_suspected" : "boolean",
-          "security_conditions" : "Map",
+          "security_conditions" : "List",
           "anonymizer_status" : "String",
           "proxy_type" : "String",
           "behaviors" : "Map",

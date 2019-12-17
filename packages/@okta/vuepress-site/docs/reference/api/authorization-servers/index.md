@@ -665,12 +665,12 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 
 | Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
 | :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
-| consent <ApiLifecycle access="ea" />     | Indicates whether a consent dialog is needed for the scope. Valid values: `REQUIRED`, `IMPLICIT`.       | Enum      | `IMPLICIT`     | True unless this EA feature isn't enabled |
-| default                                  | Whether test the scope is a default scope                                                               | Boolean   |                | False                                      |
+| consent <ApiLifecycle access="ea" />     | Indicates whether a consent dialog is needed for the scope. Valid values: `REQUIRED`, `IMPLICIT`.       | Enum      | `IMPLICIT`     | True for update if this EA feature is enabled |
+| default                                  | Whether the scope is a default scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the scope                                                                                | String    |                | False                                      |
 | displayName <ApiLifecycle access="ea" /> | Name of the end user displayed in a consent dialog window                                                      | String    |                | False                                      |
 | id                                       | ID of the scope                                                                                         | String    |                | False                                      |
-| metadataPublish                          | Whether or not the scope should be included in the metadata. Valid values: `NO_CLIENTS`, `ALL_CLIENTS`  | Enum      | `NO_CLIENTS`   | True except for create                     |
+| metadataPublish                          | Whether the scope should be included in the metadata. Valid values: `NO_CLIENTS`, `ALL_CLIENTS`  | Enum      | `NO_CLIENTS`   | True except for create                     |
 | name                                     | Name of the scope                                                                                       | String    |                | True                                       |
 | system                                   | Whether Okta created the scope                                                                          | Boolean   |                | False                                      |
 
@@ -684,12 +684,14 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 | `CONSENT`           | `TRUSTED` or `REQUIRED`            | `REQUIRED`                    | Prompted     |
 | `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
 | `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
-| `NONE`              | `REQUIRED`                         | `REQUIRED`                    | Prompted     |
 | `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
+<!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
 
 **Notes:**
+
   * Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
   * If you request a scope that requires consent while using the `client_credentials` flow, an error is returned. Because there is no user, no consent can be given.
+  * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
   * The scope name must only contain printable ASCII except for spaces, double quotes, and backslashes. It also must not start with `okta.` or `okta:` and must not be only `okta` or `*`.
 
 #### Get All Scopes
@@ -903,7 +905,7 @@ If `valueType` is `GROUPS`, then the groups returned are filtered according to t
 * `CONTAINS`: Group names contain `value` (not case sensitive). For example, if `value` is `group1`, then `MyGroup123` and `group1` are included.
 * `REGEX`: Group names match the regular expression in `value` (case sensitive). For example if `value` is `/^[a-z0-9_-]{3,16}$/`, then any group name that has at least 3 letters, no more than 16, and contains lower case letters, a hyphen, or numbers.
 
-If you have complex filters for groups, you can [create a groups whitelist](/docs/guides/create-token-with-groups-claim/create-groups-claim/) to put them all in a claim.
+If you have complex filters for groups, you can [create a groups whitelist](/docs/guides/customize-tokens-returned-from-okta/create-groups-claim/) to put them all in a claim.
 
 ##### Details for `alwaysIncludeInToken`
 
