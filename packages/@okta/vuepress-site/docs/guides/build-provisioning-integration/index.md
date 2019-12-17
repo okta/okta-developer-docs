@@ -1,15 +1,16 @@
 ---
-title: OIN - Build a provisioning integration
+title: OIN - Build a SCIM provisioning integration
 meta:
   - name: description
-    content: Use this guide to learn how to build out an application integration that handles user provisioning. 
+    content: Use this guide to learn how to build an application integration that uses SCIM to handle user provisioning. 
 layout: Guides
 sections:
-- overview
-- review-scim-docs
-- test-scim-server
-- submit-for-review
-- publish
-- okta-verification
-- faqs
+ - overview
+ - prepare-api
+ - test-scim-api
+ - prepare-app
+ - attribute-mapping
+ - test-scim-app
+ - prepare-guide
+ - test-qa
 ---
