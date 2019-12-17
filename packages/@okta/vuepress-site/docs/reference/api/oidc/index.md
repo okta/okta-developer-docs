@@ -688,7 +688,7 @@ curl -X GET \
     "issuer": "https://${yourOktaDomain}/oauth2/${authServerId}",
     "authorization_endpoint": "https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize",
     "token_endpoint": "https://${yourOktaDomain}/oauth2/${authServerId}/v1/token",
-    "registration_endpoint": "https://{baseUrl}/clients",
+    "registration_endpoint": "https://${yourOktaDomain}/oauth2/v1/clients",
     "jwks_uri": "https://${yourOktaDomain}/oauth2/${authServerId}/v1/keys",
     "response_types_supported": [
         "code",
@@ -709,33 +709,39 @@ curl -X GET \
         "authorization_code",
         "implicit",
         "refresh_token",
-        "password"
+        "password",
         "client_credentials"
     ],
     "subject_types_supported": [
         "public"
     ],
     "scopes_supported": [
-        "offline_access",
+        "openid",
+        "profile",
+        "email",
+        "address",
+        "phone",
+        "offline_access"
     ],
     "token_endpoint_auth_methods_supported": [
         "client_secret_basic",
         "client_secret_post",
         "client_secret_jwt",
+        "private_key_jwt",
         "none"
     ],
     "claims_supported": [
-       "ver",
-       "jti",
-       "iss",
-       "aud",
-       "iat",
-       "exp",
-       "cid",
-       "uid",
-       "scp",
-       "sub"
-  ],
+        "ver",
+        "jti",
+        "iss",
+        "aud",
+        "iat",
+        "exp",
+        "cid",
+        "uid",
+        "scp",
+        "sub"
+    ],
     "code_challenge_methods_supported": [
         "S256"
     ],
@@ -744,6 +750,7 @@ curl -X GET \
         "client_secret_basic",
         "client_secret_post",
         "client_secret_jwt",
+        "private_key_jwt",
         "none"
     ],
     "revocation_endpoint": "https://${yourOktaDomain}/oauth2/${authServerId}/v1/revoke",
@@ -751,6 +758,7 @@ curl -X GET \
         "client_secret_basic",
         "client_secret_post",
         "client_secret_jwt",
+        "private_key_jwt",
         "none"
     ],
     "end_session_endpoint": "https://${yourOktaDomain}/oauth2/${authServerId}/v1/logout",
@@ -758,7 +766,13 @@ curl -X GET \
     "request_object_signing_alg_values_supported": [
         "HS256",
         "HS384",
-        "HS512"
+        "HS512",
+        "RS256",
+        "RS384",
+        "RS512",
+        "ES256",
+        "ES384",
+        "ES512"
     ]
 }
 ```
