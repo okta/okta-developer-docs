@@ -83,11 +83,11 @@ Additionally, you can apply granular control over Account Linking and JIT by def
 You can also set up group sync to specify the groups that users should be added to and enable profile mastering so that a user's profile gets updated each time that the user signs in. This allows you to always have the most recent data about your users. 
 
 ## IdP Discovery
-If you have more than one Identity Provider configured in your org, you can define logic to determine which Identity Provider individual end users are routed to when they need to authenticate. This functionality, called IdP Discovery, or IdP Routing Rules, is configured by means of an IdP Discovery Policy object. For information, see [IdP Discovery Policy](https://developer.okta.com/docs/reference/api/policy/#idp-discovery-policy).
+If you have more than one Identity Provider configured in your org (which can mean just one external Identity Provider, since Okta itself can also serve as an Identity Provider), you can define logic to determine which Identity Provider individual end users are routed to when they authenticate. This is called IdP Discovery, or IdP Routing Rules, and is configured by means of the IdP Discovery Policy object. For information, see [IdP Discovery Policy](https://developer.okta.com/docs/reference/api/policy/#idp-discovery-policy).
 
-The Okta Sign-In Widget interacts with your IdP Discovery policy to re-direct end users to the IdP determined by your policy.
+The Okta Sign-In Widget (version 2.5.0 or above) interacts with an org's IdP Discovery policy to re-direct end users to the IdP determined by the policy. When multiple Identity Providers are possible, end users are prompted by the widget for username only in a first step, after which they are re-directed to the correct IdP for authentication.
 
-If you do not use the Okta Sign-In Widget, but instead interact directly with the `/authn` endpoint to log users in, you can integrate IdP Discovery into your flow by by including a call to the `/webfinger` endpoint, which which will return the name of the IdP that should be used for the end user who is being authenticated, based on the IdP Discovery Policy. For information, see [WebFinger](/docs/reference/webfinger/).
+If you do not use the Okta Sign-In Widget, but instead interact directly the [Okta Authentication API](/docs/reference/api/authn/) to implement sign-in yourself, you can integrate IdP Discovery into your flow by by including a call to Okta's `/webfinger` endpoint after you have collected the user name from the end user. The WebFinger endpoint returns the name of the IdP that should be used for the given end user, on the basis of the org's defined IdP Discovery Policy. For information, see [WebFinger](/docs/reference/webfinger/).
 
 ## See also
 See the following guides for information on how to set up various IdPs:
