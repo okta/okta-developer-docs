@@ -82,6 +82,16 @@ Additionally, you can apply granular control over Account Linking and JIT by def
 
 You can also set up group sync to specify the groups that users should be added to and enable profile mastering so that a user's profile gets updated each time that the user signs in. This allows you to always have the most recent data about your users. 
 
+## IdP Discovery
+If you have more than one Identity Provider configured in your org, you can define logic to determine which Identity Provider individual end users are routed to when they need to authenticate. This functionality, called IdP Discovery, or IdP Routing Rules, is configured by means of an IdP Discovery Policy object. For information, see [IdP Discovery Policy](https://developer.okta.com/docs/reference/api/policy/#idp-discovery-policy).
+
+The Okta Sign-In Widget interacts with the IdP Discovery policy to re-direct users to an IdP determined by your policy.
+
+If you do not use the Okta Sign-In Widget, but have instead created software that interacts directly with the `/authn` endpoint to log users in, you can integrate IdP Discovery into your flow by by including a call to the `/webfinger` endpoint, which returns the name of the IdP that should be used for the end user who is logging in based on the defined IdP Discovery Policy. For information, see [WebFinger](/docs/reference/webfinger/).
+
+
+
+
 ## See also
 See the following guides for information on how to set up various IdPs:
 
