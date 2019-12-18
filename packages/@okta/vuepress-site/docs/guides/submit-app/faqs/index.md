@@ -107,11 +107,11 @@ Okta is invested in SCIM provisioning and launched our own SCIM provisioning dev
 
 **How should I be managing authentication to my SCIM API?**
 
-Okta recommends using the OAuth 2.0 Authorization Code Grant Flow (aka "three-legged OAuth"). Okta doesn't support the Client Credentials or Resource Owner Password Credentials Authorization grant flows. The Authorization Code Grant Flow is more common in SaaS/cloud and is also more secure. In addition to OAuth, Okta also supports basic auth and header token auth options.
+Okta recommends using the OAuth 2.0 Authorization Code grant flow. Okta doesn't support the Client Credentials or Resource Owner Password Credentials Authorization grant flows. The Authorization Code grant flow is more common in SaaS/cloud and is also more secure. In addition to OAuth, Okta also supports basic auth and header token auth options.
 
 **I have a multi-tenant app how do I allow my customers to customize their specific tenant in Okta?**
 
-Use the three-legged OAuth (Authorization Grant flow), so that you know exactly which token/key the customer is using.
+Use the OAuth 2.0 Authorization Code grant flow, so that you know exactly which token/key the customer is using.
 
 Another option is when the customer configures your app in Okta, Okta can prompt them to add their unique subdomain for your app.
 
