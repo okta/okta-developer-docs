@@ -6,11 +6,11 @@ guides:
  - build-custom-ui-mobile
  - build-self-signed-jwt
  - create-an-api-token
- - create-token-with-groups-claim
  - custom-error-pages
  - custom-hosted-signin
  - custom-url-domain
  - customize-authz-server
+ - customize-tokens-returned-from-okta
  - enable-cors
  - find-your-app-credentials
  - find-your-domain
