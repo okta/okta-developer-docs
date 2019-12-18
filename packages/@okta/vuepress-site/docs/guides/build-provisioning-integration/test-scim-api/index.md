@@ -42,7 +42,7 @@ The test results can be viewed in detail, but the test can't be edited or be re-
 
 After importing the Okta SCIM test suite into Runscope, you need to configure the test for your SCIM integration:
 
-1. You should be looking at the **API Tests** screen in Runscope, if not, click the **Tests** tab at the top of Runscope's user interface.
+1. You should be looking at the **API Tests** screen in Runscope, if not, click the **Tests** tab at the top of the Runscope user interface.
 1. You should see a test named **Okta SCIM X.X Spec Test** (where X.X corresponds to the SCIM version of the JSON file you uploaded).
 1. Click **Edit** on the test panel.
 1. The **Okta SCIM X.X SPEC Test** screen appears. Under the **Environment** section of your test, there is a collapsed section labelled **Test Settings** . Click the small arrow to expand this section.

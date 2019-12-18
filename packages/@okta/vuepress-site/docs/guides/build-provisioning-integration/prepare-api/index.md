@@ -2,11 +2,11 @@
 title: Prepare your SCIM service
 ---
 
-The first part of preparing your SCIM app is constructing a SCIM-compliant API server that will host your integration.
+The first in delivering your SCIM integration is preparing a SCIM-compliant API server that will host your SCIM service.
 
 Okta supports lifecycle provisioning through version 2.0 and version 1.1 of the SCIM protocol.
 
-If you already have a server that supports the SCIM protocol, it is important that you review the Okta SCIM reference documentation to understand the specifics of how Okta implements the SCIM protocol:
+If your service already supports the SCIM protocol, it is important that you review the Okta SCIM reference documentation to understand the specifics of how Okta implements the SCIM protocol:
 
 - [SCIM Reference](/docs/reference/scim/)
 
@@ -30,7 +30,7 @@ Okta supports authentication against SCIM APIs using any one of the following me
 - [Basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
 - A custom HTTP header
 
-After a user successfully authorizes Okta using OAuth 2.0, the authorization server of your app will redirect the user back to Okta, with either an authorization code or an access token.
+If you are using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, the authorization server of your app will redirect the user back to Okta, with either an authorization code or an access token.
 
 Okta requires that all SCIM applications in the OIN catalog support all of the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
 
@@ -42,13 +42,15 @@ Okta requires that all SCIM applications in the OIN catalog support all of the f
 
 where the `{appName}` is an identifier provided to you after your integration is submitted and processed by Okta.
 
-Okta doesn't support OAuth 2.0 [Resource Owner Password Credentials grant flows](https://tools.ietf.org/html/rfc6749#section-1.3.3).
+Okta doesn't support OAuth 2.0 [Resource Owner Password Credentials grant flows](https://tools.ietf.org/html/rfc6749#section-1.3.3) for securing a SCIM API.
 
 ### Base URL
 
-You can choose any Base URL for your API endpoint. If you are implementing a new SCIM API, we suggest using `/scim/v2/` as your Base URL. For example: `https://example.com/scim/v2/`.
+You can choose any Base URL for your API endpoint. Note that a Base URL cannot contain the underscore character "_".
 
-If you have multiple Okta orgs, you can use the same SCIM server for all of them. To do so, implement a subdomain on the SCIM server for each org. For example, if you have three Okta orgs:
+If you are implementing a new SCIM API, we suggest using `/scim/v2/` as your Base URL. For example: `https://example.com/scim/v2/`.
+
+If you have multiple Okta orgs, you can use the same SCIM server for all of them. To do so, one way is to implement a 1:1 client to tenant subdomain on the SCIM server for each org. For example, if you have three Okta orgs:
 
 - company-a.okta.com
 - company-b.okta.com
@@ -64,7 +66,7 @@ On your SCIM server, you can read which subdomain the request is coming from and
 
 ### Basic User Schema
 
-Your SCIM implementation must be able to store the following four user attributes:
+Okta requires that your SCIM implementation be able to store the following four user attributes:
 
 - User ID: `userName`
 - First Name: `name.givenName`
@@ -83,8 +85,8 @@ In addition to the basic user schema attributes, your SCIM API must also specify
 
 [Section 3.1](https://tools.ietf.org/html/rfc7643#section-3.1) of the SCIM specification asserts that the `id` attribute is used to uniquely identify resources. In summary, this unique identifier:
 
-- Is assigned a value by the service provider for each SCIM resource
-- Is always issued by the service provider and not specified by the client
+- Is assigned a value by the service provider (your app) for each SCIM resource
+- Is always issued by the service provider (your app) and not specified by the client (Okta)
 - Must be included in every representation of the resource
 - Cannot be empty
 - Must be unique across the SCIM service provider's entire set of resources
@@ -93,13 +95,13 @@ In addition to the basic user schema attributes, your SCIM API must also specify
 - Must be case-sensitive and read-only
 - Cannot be hidden from the API request
 
+A best practice is to use a generated globally unique identifier (GUID) for this value.
+
 **Note:** The string "bulkId" is a reserved keyword and must not be used within any unique identifier value.
 
 ### Active resources
 
-Your SCIM API must also support an attribute that can mark a resource as "active" or "inactive."
-
-For example, include a Boolean `active` attribute with each user resource that can be set to `true` or `false` to denote a resource as "active" or "inactive".
+Okta user management requires that your SCIM API supports an `active` attribute with each user resource that can be set to `true` or `false` to denote a resource as "active" or "inactive".
 
 ## SCIM Facade
 
