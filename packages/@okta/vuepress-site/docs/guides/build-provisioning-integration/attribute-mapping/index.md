@@ -56,7 +56,7 @@ B. Deleting attributes from your attribute list
 
 1. In the Profile Editor, click **Add Attribute**.
   ![Profile Editor - Add Attribute](/img/oin/scim_check-attributes-10.png "Profile Editor - Add Attribute")
-  Enter the information for the new attribute that you’re adding and then click Save.
+  Enter the information for the new attribute that you’re adding and then click Save. For example:
   ![Profile Editor - Add Attribute Dialog](/img/oin/scim_check-attributes-11.png "Profile Editor - Add Attribute Dialog")
 
    >**Note:** The **Scope** property determines whether the attribute you are adding can be assigned at a Group level or just per user. If you would like your admins to be able to assign a value for this attribute at a Group level, do NOT check the **User personal** checkbox.
