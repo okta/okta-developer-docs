@@ -2,7 +2,7 @@
 title: Prepare your SCIM service
 ---
 
-The first in delivering your SCIM integration is preparing a SCIM-compliant API server that will host your SCIM service.
+The first step in delivering your SCIM integration is preparing a SCIM-compliant API server to host your SCIM service.
 
 Okta supports lifecycle provisioning through version 2.0 and version 1.1 of the SCIM protocol.
 
@@ -101,7 +101,7 @@ A best practice is to use a generated globally unique identifier (GUID) for this
 
 ### Active resources
 
-Okta user management requires that your SCIM API supports an `active` attribute with each user resource that can be set to `true` or `false` to denote a resource as "active" or "inactive".
+Okta user management requires that your SCIM API must support an `active` attribute with each user resource that can be set to `true` or `false` to denote a resource as "active" or "inactive".
 
 ## SCIM Facade
 
