@@ -88,7 +88,7 @@ There are multiple ways to architect this but ABAC proposes the following archit
 
 Using this, let's see how Leia's request to edit Han's playlist will be evaluated:
 
-Leia presses the "Edit Playlist" Button → Request is routed to PEP → PEP constructs an authorization request → PEP requests edi:playlist, edit:description scopes along with some identifying information like user id → PDP uses this information to lookup policy, user info, and returns allow or deny.
+Leia presses the "Edit Playlist" Button → Request is routed to PEP → PEP constructs an authorization request → PEP requests edit:playlist, edit:description scopes along with some identifying information like user id → PDP uses this information to lookup policy, user info, and returns allow or deny.
 
 While this is a simple example, from it we can extrapolate more complex requests and apply the same architecture for an entire system. For APIs, the PEP is usually the API Gateway. This gateway can then rely on an internal policy engine or potentially using information from a 3rd party identity provider to act as the PDP.
 
