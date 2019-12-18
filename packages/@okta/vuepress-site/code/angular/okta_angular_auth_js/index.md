@@ -31,7 +31,7 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 
 ## Create an Angular App
 
-To quickly create an Angular app, open a terminal and install the Angular CLI:
+To create an Angular app, open a terminal and install the Angular CLI:
 
 ```bash
 npm install -g @angular/cli
@@ -303,7 +303,7 @@ export class AppRoutingModule { }
 
 *Notice how the path [/protected](#protected) uses the `canActivate` parameter to gate access to the route.*
 
-Finally, update your `@NgModule` in `src/app/app.module.ts`:
+Update your `@NgModule` in `src/app/app.module.ts`:
 
 * Import OktaAuthGuard, OktaAuthService, and the newly created components
 * Add the components to the array of `declarations`
@@ -344,13 +344,14 @@ import { ProtectedComponent } from './protected.component';
 export class AppModule { }
 ```
 
-Finally, build and start the app. In the terminal:
+Build and start the app. In the terminal:
 
 ```bash
 npm start
 ```
 
-After a few moments, you should see a message:
+After the server is started, this message will appear in your terminal:
+
 `** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **`
 
 ## Conclusion
