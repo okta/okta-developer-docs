@@ -124,6 +124,10 @@ When you return an error object, it should have the following structure:
 
 Returning an error object causes Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string that you supplied in the `errorSummary` property of the `error` object that you returned.
 
+> **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`
+
+The error message is returned within the redirect uri in either the url query parameter or url fragment, depending on which was set during the initial authentication request.
+
 ## Sample JSON Payload of a Request
 
 ```json
@@ -660,3 +664,45 @@ You then need to associate the registered Inline Hook with a Custom Authorizatio
 
 > **Note:** Only one Inline Hook can be associated with each rule.
 
+## Troubleshooting
+
+This section covers what happens when a token inline hook flow fails either due to the external inline hook service returning an error object or not returning a successful response, or the inline hook patch fails.
+
+### When there is an error
+
+- When a token inline hook failure is related to an error that occurs when performing an inline hook PATCH command (for example, updating, adding, and deleting claims), the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+
+- When the external service returns an error object, the entire token inline hook flow fails with no token generated.
+
+- If the external service returns a response with any other HTTP status code besides `200`, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+
+- If there is a communication failure with the external service, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+
+### Who sees what
+
+When the external server returns the error object in the response, that response includes the `errorSummary` property with a human-readable summary of the error. In response, Okta returns an OAuth 2.0 error to the requester of the token. That error includes the following:
+
+- `error` property with the value set to `server_error`
+- `error_description` property with the value set to the string supplied for the `errorSummary` property returned in the response from the external service.
+
+> **Note:** See the [error](/docs/reference/token-hook/#error) section on this page for more information on what to include in the error object of your response.
+
+When the OAuth 2 requester receives the error, the developer can see that error if the client has debug information configured. What the end user sees depends on how errors are handled within the client.
+
+Administrators can see all errors that are related to inline hooks. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information.
+
+### Best practices
+
+The `commands` array should only contain commands that can be applied to the requested tokens. For example, if only an ID token is requested, the `commands` array shouldn't contain commands of the type `com.okta.access.patch`.
+
+The following actions result in the entire patch operation failing and errors logged in the token hooks events:
+
+- Using an invalid operation
+
+- Attempting to remove a system-specific claim
+
+- Attempting to update a claim that doesn't exist
+
+- Attempting to update an element within an array that doesn't exist or specifying an invalid index
+
+- Attempting to remove a claim that doesn't exist
