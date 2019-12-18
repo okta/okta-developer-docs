@@ -50,7 +50,7 @@ You can choose any Base URL for your API endpoint. Note that a Base URL cannot c
 
 If you are implementing a new SCIM API, we suggest using `/scim/v2/` as your Base URL. For example: `https://example.com/scim/v2/`.
 
-If you have multiple Okta orgs, you can use the same SCIM server for all of them. To do so, one way is to implement a 1:1 client to tenant subdomain on the SCIM server for each org. For example, if you have three Okta orgs:
+If you have multiple Okta orgs using your service, you can use the same SCIM server for all of them. To do so, one way is to implement a 1:1 client to tenant subdomain on the SCIM server for each org. For example, if you have three Okta orgs:
 
 - company-a.okta.com
 - company-b.okta.com
