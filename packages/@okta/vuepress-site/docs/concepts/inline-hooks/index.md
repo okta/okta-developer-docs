@@ -171,3 +171,4 @@ The [Okta System Log](/docs/reference/api/system-log/) captures events related t
 
 <https://developer.okta.com/docs/reference/api/event-types/?q=inline_hook>
 
+> **Note:** You can see errors from the error object in the external service response, errors when Okta can't apply an inline hook response, and errors related to communication with the external service, such as network related failures and responses with HTTP status codes other than `200`.
