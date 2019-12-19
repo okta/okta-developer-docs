@@ -2,14 +2,6 @@
 title: Frequently Asked Questions (Provisioning)
 ---
 
-<!-- IAN FOR MONDAY -- fix this page
-- [X] ~~*move over stuff from the concept topic to replace these slightly out of date questions*~~ [2019-12-16]
-- [X] ~~*get review comments from ed and adiya about this page*~~ [2019-12-16]
-- [X] ~~*go through the walkthrough for updated instructions for the rest of this guide*~~ [2019-12-17]
-- [ ] remove the dev doc references
-- [ ] remove all the appendix stuff
--->
-
 ## OIN Publishing Questions
 
 **I am an ISV and want to integrate with Okta for SAML and SCIM. Do I need to contact Okta first to start integrating my application?**
@@ -147,17 +139,3 @@ Therefore, data validation should be handled by your app's SCIM Server. In other
 
 The filtering capabilities in the SCIM protocol are pretty broad but the common filtering use case with Okta is quite narrow -- determine if a newly created Okta user already exists in your app based on a matching identifier . This means the eq (equals) operator is all you really need to support for now. We "might" eventually support other operators but don't right now.
 Note that Okta only supports filtering via the eq operator on the SCIM userName attribute on the SCIM Server side. However, Okta can use any AppUser attribute on the Okta side for passing into the eq operator. Typically this would also be `appuser.userName`, but `appuser.email` or `appuser.randomAttribute` can also work.
-
-## Helpful Resources
-
-[SCIM Overview](https://www.lucidchart.com/techblog/2016/08/04/an-implementers-overview-managing-cloud-identity-with-scim/)
-
-[Okta End-User Management](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_People)
-
-[Okta Provisioning Basics](https://help.okta.com/en/prod/Content/Topics/Apps/Provisioning_Deprovisioning_Overview.htm)
-
-[SCIM and Facebook](https://developers.facebook.com/docs/facebook-at-work/provisioning/scim-api)
-
-[OpenID Explained](http://openidexplained.com/)
-
-[SCIM and Onelogin](https://developers.onelogin.com/scim)
