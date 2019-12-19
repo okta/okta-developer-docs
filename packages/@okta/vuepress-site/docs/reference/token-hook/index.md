@@ -666,6 +666,8 @@ You then need to associate the registered Inline Hook with a Custom Authorizatio
 
 This section covers what happens when a token inline hook flow fails either due to the external inline hook service returning an error object or not returning a successful response, or the inline hook patch fails.
 
+> **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.
+
 - When there is a communication failure with the external service, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 
   **Who can see this error?** Administrators
@@ -676,7 +678,7 @@ This section covers what happens when a token inline hook flow fails either due 
 
 - When the external service returns an error object in the response, the entire token inline hook flow fails with no token generated.
 
-  **Who can see this error?** Administrators, developers, and end users. When the OAuth 2.0 requester receives the error, the developer can see that error if the client has the debug information. What the end user sees depends on how errors are handled within the client.
+  **Who can see this error?** Administrators, developers, and end users. When the OAuth 2.0 client receives the error, the client developer can see that error if the client has the debug information. What the end user sees depends on how errors are handled within the client.
 
   > **Note:** See the [error](/docs/reference/token-hook/#error) section on this page for more information on what to include in the error object of your response and what the OAuth 2.0 error includes that Okta returns to the requestor of the token.
 
@@ -686,9 +688,9 @@ This section covers what happens when a token inline hook flow fails either due 
 
   The following actions result in an error:
 
-  - Using an invalid operation
-
   - Using an invalid command. For example, if only an ID token is requested, the `commands` array shouldn't contain commands of the type `com.okta.access.patch`.
+
+  - Using an invalid operation
 
   - Attempting to remove a system-specific claim
 
@@ -697,5 +699,3 @@ This section covers what happens when a token inline hook flow fails either due 
   - Attempting to update an element within an array that doesn't exist or specifying an invalid index
 
   - Attempting to remove a claim that doesn't exist
-
-> **Note:** See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.
