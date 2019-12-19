@@ -126,8 +126,6 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
 
 > **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`
 
-The error message is returned within the redirect uri in either the url query parameter or url fragment, depending on which was set during the initial authentication request.
-
 ## Sample JSON Payload of a Request
 
 ```json
@@ -670,32 +668,31 @@ This section covers what happens when a token inline hook flow fails either due 
 
 ### When there is an error
 
-- When a token inline hook failure is related to an error that occurs when performing an inline hook PATCH command (for example, updating, adding, and deleting claims), the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+- When the external service returns an error object in the response, the entire token inline hook flow fails with no token generated.
 
-- When the external service returns an error object, the entire token inline hook flow fails with no token generated.
+  **Who can see this error?** Administrators, developers, and end users. When the OAuth 2.0 requester receives the error, the developer can see that error if the client has the debug information. What the end user sees depends on how errors are handled within the client.
 
-- If the external service returns a response with any other HTTP status code besides `200`, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+  > **Note:** See the [error](/docs/reference/token-hook/#error) section on this page for more information on what to include in the error object of your response and what the OAuth 2.0 error includes that Okta returns to the requestor of the token.
 
-- If there is a communication failure with the external service, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+- When a hook command (for example, updating, adding, and deleting claims) can't be performed, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 
-### Who sees what
+  **Who can see this error?** Administrators.
 
-When the external server returns the error object in the response, that response includes the `errorSummary` property with a human-readable summary of the error. In response, Okta returns an OAuth 2.0 error to the requester of the token. That error includes the following:
+- When the external service returns a response with any other HTTP status code besides `200`, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 
-- `error` property with the value set to `server_error`
-- `error_description` property with the value set to the string supplied for the `errorSummary` property returned in the response from the external service.
+  **Who can see this error?** Administrators.
 
-> **Note:** See the [error](/docs/reference/token-hook/#error) section on this page for more information on what to include in the error object of your response.
+- When there is a communication failure with the external service, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 
-When the OAuth 2 requester receives the error, the developer can see that error if the client has debug information configured. What the end user sees depends on how errors are handled within the client.
+  **Who can see this error?** Administrators.
 
-Administrators can see all errors that are related to inline hooks. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information.
+### Common Errors
 
-### Best practices
+> **Note:** See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.
 
 The `commands` array should only contain commands that can be applied to the requested tokens. For example, if only an ID token is requested, the `commands` array shouldn't contain commands of the type `com.okta.access.patch`.
 
-The following actions result in the entire patch operation failing and errors logged in the token hooks events:
+The following actions result in the inline hook operation being skipped. The token is generated without any modification from the inline hook, and errors are logged in the token hooks events:
 
 - Using an invalid operation
 
