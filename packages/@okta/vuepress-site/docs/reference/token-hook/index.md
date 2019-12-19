@@ -666,7 +666,13 @@ You then need to associate the registered Inline Hook with a Custom Authorizatio
 
 This section covers what happens when a token inline hook flow fails either due to the external inline hook service returning an error object or not returning a successful response, or the inline hook patch fails.
 
-### When there is an error
+- When there is a communication failure with the external service, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+
+  **Who can see this error?** Administrators
+
+- When the external service returns a response with any other HTTP status code besides `200`, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+
+  **Who can see this error?** Administrators
 
 - When the external service returns an error object in the response, the entire token inline hook flow fails with no token generated.
 
@@ -678,28 +684,18 @@ This section covers what happens when a token inline hook flow fails either due 
 
   **Who can see this error?** Administrators
 
-- When the external service returns a response with any other HTTP status code besides `200`, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+  The following actions result in an error:
 
-  **Who can see this error?** Administrators
+  - Using an invalid operation
 
-- When there is a communication failure with the external service, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+  - Using an invalid command. For example, if only an ID token is requested, the `commands` array shouldn't contain commands of the type `com.okta.access.patch`.
 
-  **Who can see this error?** Administrators
+  - Attempting to remove a system-specific claim
 
-### Common Errors
+  - Attempting to update a claim that doesn't exist
+
+  - Attempting to update an element within an array that doesn't exist or specifying an invalid index
+
+  - Attempting to remove a claim that doesn't exist
 
 > **Note:** See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.
-
-The `commands` array should only contain commands that can be applied to the requested tokens. For example, if only an ID token is requested, the `commands` array shouldn't contain commands of the type `com.okta.access.patch`.
-
-The following actions result in the inline hook operation being skipped. The token is generated without any modification from the inline hook, and errors are logged in the token hooks events:
-
-- Using an invalid operation
-
-- Attempting to remove a system-specific claim
-
-- Attempting to update a claim that doesn't exist
-
-- Attempting to update an element within an array that doesn't exist or specifying an invalid index
-
-- Attempting to remove a claim that doesn't exist
