@@ -676,15 +676,15 @@ This section covers what happens when a token inline hook flow fails either due 
 
 - When a hook command (for example, updating, adding, and deleting claims) can't be performed, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 
-  **Who can see this error?** Administrators.
+  **Who can see this error?** Administrators
 
 - When the external service returns a response with any other HTTP status code besides `200`, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 
-  **Who can see this error?** Administrators.
+  **Who can see this error?** Administrators
 
 - When there is a communication failure with the external service, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 
-  **Who can see this error?** Administrators.
+  **Who can see this error?** Administrators
 
 ### Common Errors
 
