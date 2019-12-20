@@ -63,15 +63,14 @@ The requests and responses vary depending on the application type, and whether a
 
 As part of the authentication call either the username and password or the token parameter must be provided.
 
-| Parameter   | Description                                                                                                            | Param Type | DataType                          | Required | MaxLength
-| ----------- | :--------------------------------------------------------------------------------------------------------------------- | :--------- | :-------------------------------- | :------- | :------- |
-| username    | User's non-qualified short-name (e.g. dade.murphy) or unique fully-qualified login (e.g dade.murphy@example.com) | Body       | String                            | FALSE    |          |
-| password    | User's password credential                                                                                       | Body       | String                            | FALSE    |          |
-| audience    | App ID of the target app the user is signing into                                                       | Body       | String                            | FALSE    |          |
-| relayState  | Optional state value that is persisted for the lifetime of the authentication transaction                              | Body       | String                            | FALSE    |  2048    |
-| options     | Opt-in features for the authentication transaction                                                                     | Body       | [Options Object](#options-object) | FALSE    |          |
-| context     | Provides additional context for the authentication transaction                                                         | Body       | [Context Object](#context-object) | FALSE    |          |
-| token       | Token received as part of activation user request                                                                      | Body       | String                            | FALSE    |          |
+| Parameter  | Description                                                                                                      | Param Type | DataType                          | Required | MaxLength |
+|------------|:-----------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------|:---------|:----------|
+| username   | User's non-qualified short-name (e.g. dade.murphy) or unique fully-qualified login (e.g dade.murphy@example.com) | Body       | String                            | FALSE    |           |
+| password   | User's password credential                                                                                       | Body       | String                            | FALSE    |           |
+| audience   | App ID of the target app the user is signing into                                                                | Body       | String                            | FALSE    |           |
+| options    | Opt-in features for the authentication transaction                                                               | Body       | [Options Object](#options-object) | FALSE    |           |
+| context    | Provides additional context for the authentication transaction                                                   | Body       | [Context Object](#context-object) | FALSE    |           |
+| token      | Token received as part of activation user request                                                                | Body       | String                            | FALSE    |           |
 
 ##### Options Object
 
@@ -148,7 +147,6 @@ curl -v -X POST \
 -d '{
   "username": "dade.murphy@example.com",
   "password": "correcthorsebatterystaple",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "options": {
     "multiOptionalFactorEnroll": false,
     "warnBeforePasswordExpired": false
@@ -165,7 +163,6 @@ Users with a valid password not assigned to a **Sign-On Policy** with additional
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9pe",
   "_embedded": {
     "user": {
@@ -256,7 +253,6 @@ User must [change their expired password](#change-password) to complete the auth
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "PASSWORD_EXPIRED",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -311,7 +307,6 @@ User is assigned to a **Sign-On Policy** that requires additional verification a
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_REQUIRED",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -444,7 +439,6 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-on and
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_ENROLL",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -576,7 +570,6 @@ curl -v -X POST \
 -d '{
   "username": "dade.murphy@example.com",
   "password": "correcthorsebatterystaple",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "options": {
     "multiOptionalFactorEnroll": false,
     "warnBeforePasswordExpired": false
@@ -594,7 +587,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9pe",
   "_embedded": {
     "user": {
@@ -910,7 +902,6 @@ curl -v -X POST \
 -d '{
   "username": "${username}",
   "password" : "${password}",
-  "relayState": "http://example.com"
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
@@ -921,7 +912,6 @@ curl -v -X POST \
 {
     "expiresAt": "2018-04-26T17:14:17.000Z",
     "status": "SUCCESS",
-    "relayState": "/my/uri",
     "sessionToken": "20111Il76Eaub0eKNkLGwMUDg5D7dBSN9d_FO-0o7eHKQMyqV7VoqzZ",
     "_embedded": {
         "user": {
@@ -958,7 +948,6 @@ curl -v -X POST \
 -d '{
   "username": "dade.murphy@example.com",
   "password": "correcthorsebatterystaple",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "options": {
     "multiOptionalFactorEnroll": false,
     "warnBeforePasswordExpired": true
@@ -974,7 +963,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "PASSWORD_WARN",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -1870,7 +1858,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9pe",
   "_embedded": {
     "user": {
@@ -1967,7 +1954,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00OhZsSfoCtbJTrU2XkwntfEl-jCj6ck6qcU_kA049",
   "_embedded": {
     "user": {
@@ -2016,7 +2002,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_ENROLL_ACTIVATE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -2133,7 +2118,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_ENROLL_ACTIVATE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -2248,7 +2232,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_ENROLL_ACTIVATE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -2345,7 +2328,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_ENROLL_ACTIVATE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorResult": "WAITING",
   "_embedded": {
     "user": {
@@ -2453,7 +2435,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_ENROLL_ACTIVATE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -2550,7 +2531,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00OhZsSfoCtbJTrU2XkwntfEl-jCj6ck6qcU_kA049",
   "_embedded": {
     "user": {
@@ -2600,7 +2580,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00OhZsSfoCtbJTrU2XkwntfEl-jCj6ck6qcU_kA049",
   "_embedded": {
     "user": {
@@ -2645,7 +2624,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00OhZsSfoCtbJTrU2XkwntfEl-jCj6ck6qcU_kA049",
   "_embedded": {
     "user": {
@@ -3131,7 +3109,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9pe",
   "_embedded": {
     "user": {
@@ -3207,7 +3184,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9pe",
   "_embedded": {
     "user": {
@@ -3284,7 +3260,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9pe",
   "_embedded": {
     "user": {
@@ -3345,7 +3320,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_ENROLL_ACTIVATE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorResult": "WAITING",
   "_embedded": {
     "user": {
@@ -3433,7 +3407,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9pe",
   "_embedded": {
     "user": {
@@ -3461,7 +3434,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_ENROLL_ACTIVATE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorResult": "TIMEOUT",
   "_embedded": {
     "user": {
@@ -3684,7 +3656,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_ENROLL_ACTIVATE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorResult": "WAITING",
   "_embedded": {
     "user": {
@@ -3859,7 +3830,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9pe",
   "_embedded": {
     "user": {
@@ -3964,7 +3934,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9pe",
   "_embedded": {
     "user": {
@@ -4055,7 +4024,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00ZD3Z7ixppspFljXV2t_Z6GfrYzqG7cDJ8reWo2hy",
   "_embedded": {
     "user": {
@@ -4135,7 +4103,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_CHALLENGE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -4222,7 +4189,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00t6IUQiVbWpMLgtmwSjMFzqykb5QcaBNtveiWlGeM",
   "_embedded": {
     "user": {
@@ -4302,7 +4268,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_CHALLENGE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -4378,7 +4343,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00t6IUQiVbWpMLgtmwSjMFzqykb5QcaBNtveiWlGeM",
   "_embedded": {
     "user": {
@@ -4457,7 +4421,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00t6IUQiVbWpMLgtmwSjMFzqykb5QcaBNtveiWlGeM",
   "_embedded": {
     "user": {
@@ -4524,7 +4487,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_CHALLENGE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorResult": "WAITING",
   "_embedded": {
     "user": {
@@ -4598,7 +4560,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9xx",
   "_embedded": {
     "user": {
@@ -4624,7 +4585,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_CHALLENGE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorResult": "REJECTED",
   "_embedded": {
     "user": {
@@ -4699,7 +4659,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_CHALLENGE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorResult": "TIMEOUT",
   "_embedded": {
     "user": {
@@ -5449,7 +5408,6 @@ Starts a new password recovery transaction for a given user and issues a [recove
 | ----------- | ----------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | --------- |
 | username    | User's non-qualified short-name (e.g. dade.murphy) or unique fully-qualified login (dade.murphy@example.com)      | Body       | String                            | TRUE     |           |
 | factorType  | Recovery factor to use for primary authentication                                                                 | Body       | `EMAIL` or `SMS` or `CALL`        | FALSE    |           |
-| relayState  | Optional state value that is persisted for the lifetime of the recovery transaction                               | Body       | String                            | FALSE    | 2048      |
 
 > A valid `factorType` is required for requests without an API token with administrator privileges. For more information, see [Forgot Password with Trusted Application](#forgot-password-with-trusted-application).
 
@@ -5506,7 +5464,6 @@ curl -v -X POST \
 -d '{
   "username": "dade.murphy@example.com",
   "factorType": "EMAIL",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5517,7 +5474,6 @@ curl -v -X POST \
 {
   "status": "RECOVERY_CHALLENGE",
   "factorResult": "WAITING",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorType": "EMAIL",
   "recoveryType": "PASSWORD"
 }
@@ -5542,7 +5498,6 @@ curl -v -X POST \
 -d '{
   "username": "dade.murphy@example.com",
   "factorType": "SMS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5554,7 +5509,6 @@ curl -v -X POST \
   "stateToken": "00xdqXOE5qDXX8-PBR1bYv8AESqIEinDy3yul01tyh",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "RECOVERY_CHALLENGE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorType": "SMS",
   "recoveryType": "PASSWORD",
   "_links": {
@@ -5607,7 +5561,6 @@ curl -v -X POST \
 -d '{
   "username": "dade.murphy@example.com",
   "factorType": "call",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5619,7 +5572,6 @@ curl -v -X POST \
   "stateToken": "00xdqXOE5qDXX8-PBR1bYv8AESqIEinDy3yul01tyh",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "RECOVERY_CHALLENGE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorType": "call",
   "recoveryType": "PASSWORD",
   "_links": {
@@ -5673,7 +5625,6 @@ curl -v -X POST \
 -H "X-Forwarded-For: 23.235.46.133" \
 -d '{
   "username": "dade.murphy@example.com",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5684,7 +5635,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "RECOVERY",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "recoveryToken": "VBQ0gwBp5LyJJFdbmWCM",
   "recoveryType": "PASSWORD",
   "_embedded": {
@@ -5742,7 +5692,6 @@ Starts a new unlock recovery transaction for a given user and issues a [recovery
 | ----------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ---------- |
 | username    | User's non-qualified short-name (dade.murphy) or unique fully-qualified login (dade.murphy@example.com)          | Body       | String                            | TRUE     |            |
 | factorType  | Recovery factor to use for primary authentication                                                                | Body       | `EMAIL` or `SMS`                  | FALSE    |            |
-| relayState  | Optional state value that is persisted for the lifetime of the recovery transaction                              | Body       | String                            | FALSE    | 2048       |
 
 > A valid `factorType` is required for requests without an API token with administrator privileges. (See [Unlock Account with Trusted Application](#unlock-account-with-trusted-application))
 
@@ -5794,7 +5743,6 @@ curl -v -X POST \
 -d '{
   "username": "dade.murphy@example.com",
   "factorType": "EMAIL",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
@@ -5805,7 +5753,6 @@ curl -v -X POST \
 {
   "status": "RECOVERY_CHALLENGE",
   "factorResult": "WAITING",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorType": "EMAIL",
   "recoveryType": "UNLOCK"
 }
@@ -5832,7 +5779,6 @@ curl -v -X POST \
 -d '{
   "username": "dade.murphy@example.com",
   "factorType": "SMS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
@@ -5844,7 +5790,6 @@ curl -v -X POST \
   "stateToken": "00xdqXOE5qDXX8-PBR1bYv8AESqIEinDy3yul01tyh",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "RECOVERY_CHALLENGE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "factorType": "SMS",
   "recoveryType": "UNLOCK",
   "_links": {
@@ -5900,7 +5845,6 @@ curl -v -X POST \
 -H "X-Forwarded-For: 23.235.46.133" \
 -d '{
   "username": "dade.murphy@example.com",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
@@ -5911,7 +5855,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "RECOVERY",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "recoveryToken": "VBQ0gwBp5LyJJFdbmWCM",
   "recoveryType": "UNLOCK",
   "_embedded": {
@@ -6345,7 +6288,6 @@ curl -v -X POST \
   "stateToken": "00lMJySRYNz3u_rKQrsLvLrzxiARgivP8FB_1gpmVb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "RECOVERY",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -6441,7 +6383,6 @@ curl -v -X POST \
   "stateToken": "00lMJySRYNz3u_rKQrsLvLrzxiARgivP8FB_1gpmVb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "PASSWORD_RESET",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -6569,7 +6510,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00t6IUQiVbWpMLgtmwSjMFzqykb5QcaBNtveiWlGeM",
   "_embedded": {
     "user": {
@@ -6628,7 +6568,6 @@ curl -v -X POST \
   "stateToken": "00lMJySRYNz3u_rKQrsLvLrzxiARgivP8FB_1gpmVb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_CHALLENGE",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -6722,7 +6661,6 @@ curl -v -X POST \
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "MFA_ENROLL",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "_embedded": {
     "user": {
       "id": "00ub0oNGTSWTBKOLGLNR",
@@ -6866,7 +6804,6 @@ curl -v -X POST \
 {
   "expiresAt": "2015-11-03T10:15:57.000Z",
   "status": "SUCCESS",
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to",
   "sessionToken": "00t6IUQiVbWpMLgtmwSjMFzqykb5QcaBNtveiWlGeM",
   "_embedded": {
     "user": {
@@ -6898,13 +6835,6 @@ Cancels the current transaction and revokes the [state token](#state-token).
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
 
-##### Response Parameters for Cancel Transaction
-
-
-| Parameter    | Description                                                                            | Param Type | DataType | Required |
-| ------------ | -------------------------------------------------------------------------------------- | ---------- | -------- | -------- |
-| relayState   | Optional state value that was persisted for the authentication or recovery transaction | Body       | String   | TRUE     |
-
 ##### Request Example for Cancel Transaction
 
 
@@ -6917,15 +6847,6 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/cancel"
 ```
 
-##### Response Example for Cancel Transaction
-
-
-```json
-{
-  "relayState": "/myapp/some/deep/link/i/want/to/return/to"
-}
-```
-
 ## Transaction Model
 
 The Authentication API is a *stateful* API that implements a finite state machine with [defined states](#transaction-state) and transitions.  Each initial authentication or recovery request is issued a unique [state token](#state-token) that must be passed with each subsequent request until the transaction is complete or canceled.
@@ -6934,19 +6855,16 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 
 ### Authentication Transaction Model
 
-| Property                          | Description                                                                                            | DataType                                                       | Nullable | Readonly | MaxLength |
-| -------------                     | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | -------- | -------- | --------- |
-| stateToken                        | ephemeral [token](#state-token) that encodes the current state of an authentication transaction        | String                                                         | TRUE     | TRUE     |           |
-| type <ApiLifecycle access="ea" /> | type of authentication transaction. Currently available during step-up authentication                  | [Authentication Type](#authentication-type)                    | TRUE     | TRUE     |           |
-| sessionToken                      | ephemeral [one-time token](#session-token) used to bootstrap an Okta session                           | String                                                         | TRUE     | TRUE     |           |
-| expiresAt                         | lifetime of the `stateToken` or `sessionToken` (See [Tokens](#tokens))                                 | Date                                                           | TRUE     | TRUE     |           |
-| status                            | current [state](#transaction-state) of the authentication transaction                                  | [Transaction State](#transaction-state)                        | FALSE    | TRUE     |           |
-| relayState                        | optional opaque value that is persisted for the lifetime of the authentication transaction             | String                                                         | TRUE     | TRUE     | 2048      |
-| factorResult                      | optional status of last verification attempt for a given factor                                        | [Factor Result](#factor-result)                                | TRUE     | TRUE     |           |
-| _embedded                         | [embedded resources](#embedded-resources) for the current `status`                                     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
-| _links                            | [link relations](#links-object) for the current `status`                                               | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
-
-> The `relayState` parameter is an opaque value for the transaction and processed as untrusted data which is just echoed in a response.  It is the client's responsibility to escape/encode this value before displaying in a UI such as a HTML document using [best practices](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet)
+| Property                          | Description                                                                                     | DataType                                                       | Nullable | Readonly | MaxLength |
+|-----------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------|----------|----------|-----------|
+| stateToken                        | ephemeral [token](#state-token) that encodes the current state of an authentication transaction | String                                                         | TRUE     | TRUE     |           |
+| type <ApiLifecycle access="ea" /> | type of authentication transaction. Currently available during step-up authentication           | [Authentication Type](#authentication-type)                    | TRUE     | TRUE     |           |
+| sessionToken                      | ephemeral [one-time token](#session-token) used to bootstrap an Okta session                    | String                                                         | TRUE     | TRUE     |           |
+| expiresAt                         | lifetime of the `stateToken` or `sessionToken` (See [Tokens](#tokens))                          | Date                                                           | TRUE     | TRUE     |           |
+| status                            | current [state](#transaction-state) of the authentication transaction                           | [Transaction State](#transaction-state)                        | FALSE    | TRUE     |           |
+| factorResult                      | optional status of last verification attempt for a given factor                                 | [Factor Result](#factor-result)                                | TRUE     | TRUE     |           |
+| _embedded                         | [embedded resources](#embedded-resources) for the current `status`                              | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
+| _links                            | [link relations](#links-object) for the current `status`                                        | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
 
 ### Recovery Transaction Model
 
@@ -6956,14 +6874,12 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 | recoveryToken | ephemeral [one-time token](#recovery-token) for recovery transaction to be distributed to the end user | String                                                         | TRUE     | TRUE     |           |
 | expiresAt     | lifetime of the `stateToken` or `recoveryToken` (See [Tokens](#tokens))                                | Date                                                           | TRUE     | TRUE     |           |
 | status        | current [state](#transaction-state) of the recovery transaction                                        | [Transaction State](#transaction-state)                        | FALSE    | TRUE     |           |
-| relayState    | optional opaque value that is persisted for the lifetime of the recovery transaction                   | String                                                         | TRUE     | TRUE     | 2048      |
 | factorType    | type of selected factor for the recovery transaction                                                   | `EMAIL` or `SMS`                                               | FALSE    | TRUE     |           |
 | recoveryType  | type of recovery operation                                                                             | `PASSWORD` or `UNLOCK`                                         | FALSE    | TRUE     |           |
 | factorResult  | optional status of last verification attempt for the `factorType`                                      | [Factor Result](#factor-result)                                | TRUE     | TRUE     |           |
 | _embedded     | [embedded resources](#embedded-resources) for the current `status`                                     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
 | _links        | [link relations](#links-object) for the current `status`                                               | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
 
-> The `relayState` parameter is an opaque value for the transaction and processed as untrusted data which is just echoed in a response.  It is the client's responsibility to escape/encode this value before displaying in a UI such as a HTML document using [best-practices](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet)
 
 ### Transaction State
 
