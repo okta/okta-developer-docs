@@ -26,9 +26,9 @@ This suite runs the following tests:
 
 To configure and run the SCIM CRUD tests:
 
-1. Download the Okta SCIM CRUD test file:
+1. Download the Okta SCIM CRUD test file.
     * If you are using SCIM 2.0 for your app: [Okta SCIM 2.0 CRUD test file](/standards/SCIM/SCIMFiles/Okta-SCIM-20-CRUD-Test.json)
-    * If you are using SCIM 1.1 for your app: [OKTA SCIM 1.1 CRUD test file](/standards/SCIM/SCIMFiles/Okta-SCIM-11-CRUD-Test.json)
+    * If you are using SCIM 1.1 for your app: [Okta SCIM 1.1 CRUD test file](/standards/SCIM/SCIMFiles/Okta-SCIM-11-CRUD-Test.json)
 1. In Runscope, click **Import Test**.
 1. Select **Runscope API Tests** as the import format.
 1. Click **Choose File** and select the Okta SCIM 2.0 CRUD JSON test file.
@@ -40,19 +40,19 @@ To configure and run the SCIM CRUD tests:
     * `oktaOrgUrl` - the base URL for your Okta org. Include the `https://` prefix.
     ![Dev Window](/img/oin/scim_crud-test-identifiers.png "Browser bar showing the oktaOrgUrl location")
     * `oktaToken` - the security token used to connect to your Okta app API. You can generate a token for your app inside your Okta org:
-        * Click **Security** > **API**
+        * Click **Security** > **API**.
         * Click on **Tokens** and **Create Token**.
         * Give the token a name click **Create Token**.
         * Copy the resulting token value over to this Runscope variable.
-    * `SCIMUrl` - the base URL of the SCIM implementation on your server. For example: `https://example.com/scim/v2`
+    * `SCIMUrl` - the Base URL of the SCIM implementation on your server. For example: `https://example.com/scim/v2`
     * `SCIMAuth` - the Basic or OAuth authorization token used to access your SCIM API.
 
     The final Runscope values should look similar to the following:
     ![Runscope Initial Variables](/img/oin/scim_crud-variables.png "Sample values for CRUD test variables")
 
 1. Click **Test Settings** and then click **Initial Script**.
-1. Copy the contents of the [OKTA CRUD Initial Script](/standards/SCIM/SCIMFiles/Initial_Script_CRUD.txt) test file and paste into this Runscope console.
-1. Click **Save & Run**
+1. Copy the contents of the [Okta CRUD Initial Script](/standards/SCIM/SCIMFiles/Initial_Script_CRUD.txt) text file and paste into this Runscope console.
+1. Click **Save & Run**.
 
 On the left side of your screen, the test appears in the **Recent Test Runs** section.
 

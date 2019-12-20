@@ -2,11 +2,11 @@
 title: Prepare a customer-facing configuration guide
 ---
 
-A configuration guide helps your customers understand what is needed to configure your app in Okta to handle their provisioning needs.
+A configuration guide helps your customers understand the steps needed to configure your app in Okta so that it can handle their provisioning needs.
 
 This guide is a requirement for the OIN submission process. The guide is provided to administrators through the Okta Admin Console.
 
-## SCIM Configuration Guide Instructions
+## Instructions
 
 1. Suggested formats:
     * Web page
@@ -15,12 +15,9 @@ This guide is a requirement for the OIN submission process. The guide is provide
 1. Provide Okta a link to the configuration guide as part of the submission to the OIN. Okta checks your document for general adherence to the configuration guide instructions.
 1. Until approved by Okta, your guide should include the following disclaimer:
   `This integration with Okta is currently under development and is not available to customers yet. Contact us at <email> to learn more.`
-1. After your app is approved for testing with customers, you can make the guide available to those customers. The webpage should include the following disclaimer:
-  `This integration with Okta is currently available only to a limited number of customers. Contact us at <email> to
-learn more.`
-1. After your app is categorized as Okta-Verified, make the link public or customer‐accessible, and no disclaimers are required.
+1. After your app is published as Okta-Verified, you can make the link public or customer‐accessible, and no disclaimers are required.
 
-For an example of a detailed configuration guide, see [G Suite Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_google-provisioning).
+For an example of a detailed configuration guide, see the [G Suite Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_google-provisioning) guide.
 
 All configuration guides must include the following sections:
 
@@ -57,11 +54,11 @@ Also include any restrictions. For example:
 
 ### Procedures
 
-This section contains the bulk of your guide. It should cover all the configuration steps needed to get your customers up and running with your SCIM provisioning app. Add text to explain a certain setting in detail if that setting is something specific to your application. Include any screenshots from your app that can assist the user during the setup process.
+This section should cover all the configuration steps needed to get your customers up and running with your SCIM provisioning app. Add text to explain a certain setting in detail if that setting is something specific to your application. Include any screenshots from your app that can assist the user during the setup process.
 
-Add any best practices for a step within the step, such as guidance on setting mappings for attributes, especially required attributes that do not have a default mapping. For example:
+Include any best practices for your procedure here, such as guidance on setting mappings for attributes, especially required attributes that do not have a default mapping. For example:
 
-* `The External ID is a required attribute, but it does not have a default mapping. This is because some customers prefer to set it to EmployeeNumber, and others like to set it to emailAddress. Assign the mapping to the correct value for your organization.`
+`The External ID is a required attribute, but it does not have a default mapping. This is because some customers prefer to set it to EmployeeNumber, and others like to set it to emailAddress. Assign the mapping to the correct value for your organization.`
 
 Note: The configuration guide is opened from the **Provisioning** tab. The **General** settings and **Sign On** settings have been already configured.
 
@@ -79,7 +76,7 @@ You only need to include this section if there are known issues or best practice
 
 ## Create a demo video
 
-This is an optional suggestion. A video can help visually oriented customers to learn about your application, or can help guide them if you have a complicated set of procedures needed to set up your configuration.
+This is an optional suggestion. A video can help visually oriented customers to learn about your application, or can help guide them if you have a complex set of procedures required to set up your configuration.
 
 You can either host the video on your website, or create a public YouTube video. Remember to include in the video any disclaimers about the availability of your app.
 

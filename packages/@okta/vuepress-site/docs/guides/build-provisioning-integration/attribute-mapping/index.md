@@ -4,13 +4,13 @@ title: Check the attributes and corresponding mappings
 
 When you add a SCIM template app to your development org, it comes with base attributes set by default. Your SCIM implementation's user schema might not support all of these attributes. It is important that you go through the steps below to ensure that the app you're submitting to Okta for review reflects the attributes you support.
 
->**Note:** The Okta App Analyst team will reject your app submission with a request to update your attributes if you don't update these attributes and mappings before you submit your app for review.
+>**Note:** The Okta App Analyst team will reject your app submission with a request to update your attributes if you don't confirm these attributes and mappings before you submit your app for review.
 
 ## Delete Attributes
 
 Before you can delete an attribute, you first need to remove the mapping for that attribute.
 
-A. Remove the mapping before deleting the attribute
+A. Remove the mapping
 
   1. From the Admin Console, open your SCIM app.
 
@@ -95,7 +95,7 @@ You only want to include the attributes that you support in your current user sc
 
 1. When assigning a user to the SCIM app you added in your dev org, ensure that all expected attributes are populated for that user.
 
-1. After the user is pushed to your SCIM app, check that all attributes are populated on your end.
+1. After the user is pushed to your SCIM app, check that all attributes are populated in your SCIM repository.
 
 1. If your app supports User Imports, try importing one user from your app. Check the imported user and ensure that the values for supported attributes are reflected in that imported user's account in Okta.
 
@@ -109,6 +109,5 @@ You only want to include the attributes that you support in your current user sc
         Your Profile Mapping template can always be updated in the future.
 
         As mentioned in the adding and deleting attributes sections, you can set whether the attribute you are adding is set per user, or for both per user and group. This is set using the Scope attribute. If you want the attribute you are adding to be set strictly  per user, you need to check the **User personal** checkbox for the Scope attribute. If you want to give admins the ability to set the attribute both per user or per group, leave this check box empty.
-    ![Scope Attribute](/img/oin/scim_check-attributes-20.png "User Scope Attribute check box")
 
 <NextSectionLink/>

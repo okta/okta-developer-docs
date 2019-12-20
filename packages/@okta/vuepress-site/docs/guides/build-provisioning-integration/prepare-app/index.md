@@ -4,9 +4,9 @@ title: Integrate your SCIM service with an Okta app
 
 After you have a SCIM implementation that passes all of the Runscope tests, you need to create your SCIM integration directly within Okta.
 
-Begin by signing up for [an Okta developer account](https://www.okta.com/integrate/signup/).
+Begin by signing up for an [Okta developer account](https://www.okta.com/integrate/signup/).
 
-1. After you request the developer account and have received the pointer to your developer org, open the link provided in the email.
+1. After you request the developer account and have received the initial email, open the link to your developer org.
 1. Navigate to the Developer Console in your Okta org by clicking **Admin**.
   ![Admin Button](/img/oin/scim_end-user-ui.png "Admin Button")
 1. Click **Developer Console** and then **Classic UI** to switch over to the Admin Console in your Okta org.
@@ -15,11 +15,11 @@ Begin by signing up for [an Okta developer account](https://www.okta.com/integra
   ![Open Applications](/img/oin/scim_open-apps.png "Open Applications")
 1. Click **Add Application**.
   ![Create New Application](/img/oin/scim_create-app.png "Create App button")
-1. Search for "SCIM 2.0" or "SCIM 1.1" (depending on which version of SCIM your server supports). You'll see three different SCIM template applications, one for each the three authentication methods that you can use to connect to your SCIM implementation (Basic Auth, Header Auth, or OAuth Bearer Token).
+1. Search for "SCIM 2.0" or "SCIM 1.1" (your choice depends on which version your SCIM server supports). You'll see three different SCIM template applications, one for each of the three authentication methods that you can use to connect to your SCIM implementation (Basic Auth, Header Auth, or OAuth Bearer Token).
   ![SCIM 2.0 Template Apps](/img/oin/scim_app-templates.png "List of SCIM template apps")
   Click **Add** on the template you want to use.
 1. In the **General Settings** screen, give your app a descriptive name, and specify whether you want the app to be hidden from general and mobile users. Additionally, you can decide if you want to have your users automatically be logged in when they reach the landing page in their web browser. Click **Next**.
-1. In the **Sign-On Options** screen, you select how your users sign in to your app. You can select either SAML or SWA. See the [Applications topic](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps) in the Okta product documentation if you need guidance on which single sign-on access method to choose. Click **Done** to create the app.
+1. In the **Sign-On Options** screen, you specify how your users sign in to your app. You can select either SAML or SWA. See the [Applications topic](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps) in the Okta product documentation if you need guidance on which single sign-on access method to choose. Click **Done** to create the app.
 1. After the app is created, click the **Provisioning** tab, and in the main panel, click **Configure API Integration**. Select the **Enable API Integration** check box.
   ![SCIM App Enable API](/img/oin/scim_app-enable-api.png "Enable the API integration for your app")
   Enter the base URL for your SCIM server.

@@ -8,17 +8,21 @@ title: Frequently Asked Questions (Provisioning)
 
 We work hard to make it easy for you to integrate with Okta. To that end, you don't have to contact Okta to integrate with Okta. Just start with the following SCIM or SAML documentation links, and you should be all set! Of course, if you do have questions, our developer support team <developers@okta.com> is here to help you.
 
-For SAML, follow [our guide](https://developer.okta.com/docs/guides/build-sso-integration/) to get started with the integration process using the [App Integration Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard).
-For SCIM, follow [our guide](https://developer.okta.com/docs/guides/build-provisioning-integration/) here to get started with the integration process using our SCIM templates.
+For SAML, follow [our guide](/docs/guides/build-sso-integration/) to get started with the integration process using the [App Integration Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard).
+
+For SCIM, follow [our guide](/docs/guides/build-provisioning-integration/) here to get started with the integration process using our SCIM templates.
+
 After your application is ready for Okta to review, submit it to us through the [OIN Manager](https://oinmanager.okta.com), where you can also track review status. Get stuck or have questions? Email <developers@okta.com>.
 
-**Where can I sign up to join the Okta Integration Network?**
+**Where do I start?**
 
 Sign up for an [OIN Developer account](https://developer.okta.com/signup/).
 
 **Are there any costs associated with joining the Okta Integration Network (OIN)?**
 
-No, integrating your application with the Okta Integration Network is completely free. Also, paid customers can utilize all application integrations in the OIN free of charge.
+No, integrating your application with the Okta Integration Network is completely free
+
+Paid customers can also utilize all application integrations in the OIN free of charge.
 
 **If I submit my app with a set of attributes, can I then add attributes during the testing phase of the app?**
 
@@ -56,15 +60,15 @@ Have you submitted an app but have not seen a change in review status in the OIN
 
 **I'm an ISV setting up a SAML 2.0 app using the App Wizard and we have different domains for each customer. How do you manage these types of situations?**
 
-Currently, the App Wizard does not support custom domains, but public-facing integrations can still have this functionality. Create an app integration as you normally would using the App Wizard. After you get to the step of submitting your app integration through the [OIN Manager](https://oinmanager.okta.com), you will be asked to fill out a form with all the relevant information.
+Currently, the App Wizard does not support custom domains, but public-facing integrations can still have this functionality. Create an app integration as you normally would for a single domain using the App Wizard. After you get to the step of submitting your app integration through the [OIN Manager](https://oinmanager.okta.com), you will be asked to fill out a form with all the relevant information.
 
 **My app currently supports WS-FED for single sign-on. Can I use the App Wizard?**
 
-The Okta App Wizard only supports SAML 2.0 for federated single sign-on. If your app supports WS-Fed, create a [WS-Fed Template App](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Configuring_WS_Federation). Afterwards, the template application you created can be used only within your account. In order to promote your template app to the Okta Integration Network, please email a screenshot of the configured app details to <developers@okta.com> with your app name in the subject line.
+The Okta App Wizard only supports SAML 2.0 for federated single sign-on. If your app supports WS-Fed, create a [WS-Fed Template App](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Configuring_WS_Federation). Afterwards, the template application you created can be used only within your account. In order to promote your template app to the Okta Integration Network, please email a screenshot with the details of the configured app to <developers@okta.com>, with your app name in the subject line.
 
-**I am creating a SWA app using the App Wizard but my application has fields on the login page in addition to the standard username and password (example: Customer / OrgID). Can an app with additional fields on the login be configured using the App Wizard?**
+**I am creating a SWA app using the App Wizard but my application has fields on the login page in addition to the standard username and password (for example: CustomerID, OrgID). Can an app with additional fields on the login be configured using the App Wizard?**
 
-Currently, the App Wizard does not support extra login fields. Create an app using the Plug-in (SWA) Template Application. In order to promote your Template App to the Okta Integration Network, please email a screenshot of the configured app details to <developers@okta.com> with your app name in the subject line.
+Currently, the App Wizard does not support extra login fields. Create an app using the Plug-in (SWA) Template Application. In order to promote your Template App to the Okta Integration Network, please email a screenshot with the details of the configured app to <developers@okta.com> with your app name in the subject line.
 
 **Does Okta support single logout or single sign-out (SAML protocol)?**
 
@@ -72,11 +76,11 @@ Yes. For more information, see the Advanced Settings section of the [Using the A
 
 **Is the IDP session time out a setting that an Okta administrator can change? And if so, can it be changed on a per application basis, or is it a global setting for all of the user's applications?**
 
-Yes, the session time out default is two hours but the Okta administrator can customize the default by hour or minute. This session time out is an IDP setting and therefore, it is global and applies to all applications in an Okta org. See the "Creating Sign-on Policies and Adding Rules" section in our [Security Policies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Policies) documentation.
+Yes, the session time out default is two hours, but the Okta administrator can customize the default. This session time out is an IdP setting and therefore it is global and applies to all applications in an Okta org. See the "Creating Sign-on Policies and Adding Rules" section in our [Security Policies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Policies) documentation.
 
 **My app is now in the OIN, what is the user experience for a joint customer administrator that wants to set up single sign-on and provisioning for my app in the Okta interface?**
 
-Okta creates unique SAML configuration documentation for each application in the OIN so each will be different. For a sample configuration, see our instructions for [How to Configure SAML 2.0 for Salesforce](http://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-in-Salesforce.html). Also, you can search online for videos demonstrating a step-by-step walk through of all the steps an IT administrator would take to configure single sign-on and provisioning for an app.
+Okta creates unique SAML configuration documentation for each application in the OIN, so each will be different. For a sample configuration, see our instructions for [How to Configure SAML 2.0 for Salesforce](http://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-in-Salesforce.html). Also, you can search online for videos demonstrating a step-by-step walk through of all the steps an IT administrator would take to configure single sign-on and provisioning for an app.
 
 **In general, how can I get familiar with the Okta product?**
 
@@ -89,12 +93,6 @@ To get started, check out the [Okta Help Center](https://help.okta.com/) or our 
 Unfortunately, your app's SCIM server API must be fully SCIM compliant in order to integrate with Okta.
 
 Okta SCIM client endpoints are hard coded into a template which adheres directly to [the SCIM spec](http://www.simplecloud.info/).
-
-**SCIM is a relatively new standard. How broadly is it being adopted by cloud app vendors and how confident can I be in the SCIM standard's long-term viability?**
-
-Okta has seen significant SCIM momentum in the market amongst our network of app developers over the past year. Hot apps like [Slack](https://api.slack.com/scim) and [Lucidchart](https://www.lucidchart.com/techblog/2016/08/04/an-implementers-overview-managing-cloud-identity-with-scim/) are supporting SCIM as well as established software companies like [Huddle](https://github.com/Huddle/huddle-apis/wiki/Integrating%20with%20SCIM) and [Citrix](https://developer.citrixonline.com/implementing-scim-apis).
-
-Okta is invested in SCIM provisioning and launched our own SCIM provisioning developer program. The SCIM standard is strong and is run by Salesforce, Google, and Sailpoint (Okta is also a contributor).
 
 **How should I be managing authentication to my SCIM API?**
 
@@ -126,16 +124,16 @@ Yes, you must return these fields in an array, which is specified in the SCIM sp
 
 **Why doesn't Okta support DELETE /Users?**
 
-Okta users are never deleted for compliance and audit purposes; they are deactivated instead. Because of this, Okta never makes an HTTP DELETE request to a user resource on your SCIM API. Instead, Okta makes an HTTP PATCH request to set the `active` setting to `false`. You'll need to support the concept of an "active" and "inactive" user in your app.
+Okta users are never deleted for compliance and audit purposes. Okta user profiles are marked as "deactivated". Because of this, Okta never makes an HTTP DELETE request to a user resource on your SCIM API. Instead, Okta makes an HTTP PATCH request to set the `active` setting to `false`. You'll need to support the concept of an "active" and "inactive" user in your app.
 
 **How does data validation work with SCIM provisioning? For example, if my app requires the phone number in a specific format, how do I ensure that Okta passes the attribute in that format? If a data validation error issue occurs how does error reporting work?**
 
 The SCIM spec specifies valid data formats for a given user profile attribute, however Okta does not rigorously validate that the customer has inputted values meeting those requirements to preserve flexibility.
 
-Therefore, data validation should be handled by your app's SCIM Server. In other words, when Okta provisions user profile to your app, it should check that the data is valid per their special requirements. Error messages sent in the response from your app will be surfaced to the Okta administrator through alerts and tasks in the Okta interface. You should also specify your data requirements in your config guide.
+Therefore, data validation should be handled by your app's SCIM Server. In other words, when Okta provisions user profile to your app, it should check that the data is valid according to their special requirements. Error messages sent in the response from your app are surfaced to the Okta administrator through alerts and tasks in the Okta interface. You should also specify your data requirements in your config guide.
 
 **How much filtering support is needed?**
 
-The filtering capabilities in the SCIM protocol are pretty broad but the common filtering use case with Okta is quite narrow: determine if a newly created Okta user already exists in your app based on a matching identifier. This means the `eq` (equals) operator is all you really need to support.
+The filtering capabilities in the SCIM protocol are pretty broad, but the common filtering use case with Okta is quite narrow. Okta determines if a newly created user already exists in your app based on a matching identifier. This means the `eq` (equals) operator is all you really need to support.
 
-Note that Okta only supports filtering through the `eq` operator on the SCIM `userName` attribute on the SCIM Server side. However, Okta can use any `AppUser` attribute on the Okta side for passing into the `eq` operator. Typically this is `appuser.userName`, but `appuser.email` or `appuser.randomAttribute` can also be used.
+Note that Okta only supports filtering through the `eq` operator on the SCIM `userName` attribute on the SCIM server side. However, Okta can use any `AppUser` attribute on the Okta side for passing into the `eq` operator. Typically this is `appuser.userName`, but `appuser.email` or `appuser.randomAttribute` can also be used.

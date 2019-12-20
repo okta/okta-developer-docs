@@ -6,15 +6,13 @@ After you have built a functioning app integration in either [SAML](/docs/guides
 
 Your submission must provide Okta with all the metadata needed to create a customized app for publication in the [Okta Integration Network](https://www.okta.com/integrations/).
 
-Okta analysts review the submission, create the customized app, run it through Okta internal quality assurance testing, and then publish it to the OIN.
-
 Complete the following steps before you submit your SCIM app:
 
-1. Check the [profile attributes and their mappings](/docs/guides/a-build-provisioning-integration/attribute-mapping/) for your app.
-1. [Test your Okta integration](/docs/guides/a-build-provisioning-integration/test-scim-app/) using the Okta SCIM CRUD test suite on Runscope.
-1. Prepare your [customer-facing configuration guide](/docs/guides/a-build-provisioning-integration/prepare-guide/).
+1. Check the [profile attributes and their mappings](/docs/guides/build-provisioning-integration/attribute-mapping/) for your app.
+1. [Test your Okta integration](/docs/guides/build-provisioning-integration/test-scim-app/) using the Okta SCIM CRUD test suite on Runscope.
+1. Prepare your [customer-facing configuration guide](/docs/guides/build-provisioning-integration/prepare-guide/).
 1. Optionally, create a demo video showing a working integration.
-1. Run through the [Okta SCIM test plan document](/standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx).
+1. Run through the [Okta SCIM test plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx) spreadsheet.
 
 Complete the following steps before you submit your SAML app:
 

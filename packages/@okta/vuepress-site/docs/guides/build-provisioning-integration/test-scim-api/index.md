@@ -8,7 +8,7 @@ The best way to develop and verify your SCIM integration is to use an automated 
 
 If you do not have a Runscope account, you can sign up with a [free trial to Runscope](https://www.runscope.com/okta) for Okta developers.
 
-If you are developing your SCIM integration in a local development environment and need to expose it to Runscope for testing, we suggest using the [ngrok](https://ngrok.com/) tool so you can route external address requests to your local web server.
+If you are developing your SCIM integration in a local environment and need to expose it to Runscope for testing, we suggest using the [ngrok](https://ngrok.com/) tool so you can route external address requests to your local web server.
 
 To get started using Runscope to test your SCIM API:
 
@@ -26,7 +26,7 @@ To get started using Runscope to test your SCIM API:
 1. Click **Import API Test**.
 1. After the import is finished, click **All Tests** on the left hand side of your screen.
 
-Now that you've imported the Okta SCIM test suite into Runscope, your next step will be to customize the test suite to target the SCIM integration that you are building.
+Now that you've imported the Okta SCIM test suite into Runscope, your next step is to customize the test suite to target your SCIM implementation.
 
 #### Sharing test results from Runscope
 
@@ -55,7 +55,7 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
     | auth                           | Bearer abcxyz1234567890     | Basic or OAuth authorization token                                                                                                                                                          |
     Click **Save**.
 
-1. Select the **Initial Script** tab. Copy the contents of this [Initial Script Spec](/standards/SCIM/SCIMFiles/Initial_Script_Spec.txt) file to your clipboard and then paste it into the script console on this tab. A `Script ON` label appears on your Test Settings page to indicate that the script is accepted and will be run before the first request in the test.
+1. Select the **Initial Script** tab. Copy the contents of this [Initial Script Spec](/standards/SCIM/SCIMFiles/Initial_Script_Spec.txt) text file to your clipboard and then paste it into the script console on this tab. A `Script ON` label appears on your Test Settings page to indicate that the script is accepted and will be run before the first request in the test.
 
 ### Running Okta SPEC tests against your SCIM server
 
