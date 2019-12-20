@@ -1,11 +1,10 @@
 {
-  "trigger_url": "https://api.runscope.com/radar/1d93f531-7fd3-4416-82aa-b22b731b3f9f/trigger", 
-  "name": "Okta SCIM CRUD Test", 
+  "trigger_url": "https://api.runscope.com/radar/f713a8ea-2d7e-4a26-b2c6-0322f47f1a73/trigger", 
+  "name": "Okta SCIM 2.0 CRUD Test", 
   "version": "1.0", 
-  "exported_at": 1542199107, 
+  "exported_at": 1478562039, 
   "steps": [
     {
-      "skipped": false, 
       "url": "{{oktaOrgUrl}}/api/v1/apps/{{oktaAppId}}", 
       "variables": [], 
       "step_type": "request", 
@@ -15,11 +14,9 @@
         "Content-Type": [
           "application/json"
         ], 
+        "Authorization": "SSWS {{oktaToken}}", 
         "Accept": [
           "application/json"
-        ], 
-        "Authorization": [
-          "SSWS {{oktaToken}}"
         ]
       }, 
       "assertions": [
@@ -35,7 +32,6 @@
     }, 
     {
       "body": "{\r\n  \"profile\": {\r\n    \"firstName\": \"{{okta_user_firstname}}\",\r\n    \"lastName\": \"{{okta_user_lastname}}\",\r\n    \"email\": \"{{okta_user_email}}\",\r\n    \"login\": \"{{okta_user_email}}\",\r\n    \"title\": \"{{okta_user_title}}\",\r\n    \"primaryPhone\": \"{{okta_user_primaryphone}}\"\r\n  },\r\n  \"credentials\": {\r\n    \"password\": {\"value\": \"Abcd1234\"},\r\n    \"recovery_question\": {\r\n      \"question\": \"Who's a major player in the cowboy scene?\",\r\n      \"answer\": \"okta\"\r\n    }\r\n  }\r\n}", 
-      "skipped": false, 
       "form": {}, 
       "url": "{{oktaOrgUrl}}/api/v1/users?activate=true", 
       "variables": [
@@ -45,7 +41,6 @@
           "name": "okta_add_userid"
         }
       ], 
-      "multipart_form": [], 
       "step_type": "request", 
       "auth": {}, 
       "note": "Add new random user to Okta", 
@@ -53,12 +48,10 @@
         "Content-Type": [
           "application/json"
         ], 
-        "Authorization": [
-          "SSWS {{oktaToken}}"
-        ], 
         "Accept": [
           "application/json"
-        ]
+        ], 
+        "Authorization": "SSWS {{oktaToken}}"
       }, 
       "assertions": [
         {
@@ -73,11 +66,9 @@
     }, 
     {
       "body": "{\r\n  \"id\": \"{{okta_add_userid}}\",\r\n  \"scope\": \"USER\",\r\n  \"credentials\": {\r\n    \"userName\": \"{{okta_user_email}}\"\r\n  },\r\n  \"profile\": {\r\n      \"familyName\": \"{{okta_user_lastname}}\",\r\n      \"givenName\": \"{{okta_user_firstname}}\",\r\n      \"emailType\": \"work\",\r\n      \"email\": \"{{okta_user_email}}\"\r\n  }\r\n}\r\n", 
-      "skipped": false, 
       "form": {}, 
       "url": "{{oktaOrgUrl}}/api/v1/apps/{{oktaAppId}}/users", 
       "variables": [], 
-      "multipart_form": [], 
       "step_type": "request", 
       "auth": {}, 
       "note": "Assign user to SCIM App", 
@@ -85,12 +76,10 @@
         "Content-Type": [
           "application/json"
         ], 
-        "Authorization": [
-          "SSWS {{oktaToken}}"
-        ], 
         "Accept": [
           "application/json"
-        ]
+        ], 
+        "Authorization": "SSWS {{oktaToken}}"
       }, 
       "assertions": [
         {
@@ -104,12 +93,10 @@
       "method": "POST"
     }, 
     {
-      "duration": 40, 
-      "skipped": false, 
+      "duration": 20, 
       "step_type": "pause"
     }, 
     {
-      "skipped": false, 
       "url": "{{SCIMUrl}}/Users?filter=userName eq \"{{okta_user_email}}\"", 
       "variables": [
         {
@@ -118,16 +105,13 @@
           "name": "scim_id"
         }
       ], 
-      "multipart_form": [], 
       "step_type": "request", 
       "auth": {}, 
       "note": "Verify if user is created in SCIM App", 
       "headers": {
+        "Authorization": "{{SCIMAuth}}", 
         "Accept": [
           "application/scim+json"
-        ], 
-        "Authorization": [
-          "{{SCIMAuth}}"
         ]
       }, 
       "assertions": [
@@ -167,11 +151,9 @@
     }, 
     {
       "body": "{\r\n  \"profile\": {\r\n    \"firstName\": \"{{okta_user_firstname_update}}\",\r\n    \"lastName\": \"{{okta_user_lastname}}\",\r\n    \"email\": \"{{okta_user_email}}\",\r\n    \"login\": \"{{okta_user_email}}\"\r\n  }\r\n}", 
-      "skipped": false, 
       "form": {}, 
       "url": "{{oktaOrgUrl}}/api/v1/users/{{okta_add_userid}}", 
       "variables": [], 
-      "multipart_form": [], 
       "step_type": "request", 
       "auth": {}, 
       "note": "Update user firstname", 
@@ -179,11 +161,9 @@
         "Content-Type": [
           "application/json"
         ], 
+        "Authorization": "SSWS {{oktaToken}}", 
         "Accept": [
           "application/json"
-        ], 
-        "Authorization": [
-          "SSWS {{oktaToken}}"
         ]
       }, 
       "assertions": [
@@ -198,24 +178,19 @@
       "method": "PUT"
     }, 
     {
-      "duration": 40, 
-      "skipped": false, 
+      "duration": 20, 
       "step_type": "pause"
     }, 
     {
-      "skipped": false, 
       "url": "{{SCIMUrl}}/Users/{{scim_id}}", 
       "variables": [], 
-      "multipart_form": [], 
       "step_type": "request", 
       "auth": {}, 
       "note": "Verify firstname update in SCIM App", 
       "headers": {
+        "Authorization": "{{SCIMAuth}}", 
         "Accept": [
           "application/scim+json"
-        ], 
-        "Authorization": [
-          "{{SCIMAuth}}"
         ]
       }, 
       "assertions": [
@@ -237,11 +212,9 @@
     }, 
     {
       "body": "", 
-      "skipped": false, 
       "form": {}, 
       "url": "{{oktaOrgUrl}}/api/v1/users/{{okta_add_userid}}/lifecycle/deactivate", 
       "variables": [], 
-      "multipart_form": [], 
       "step_type": "request", 
       "auth": {}, 
       "note": "Deactivate user in Okta", 
@@ -249,12 +222,10 @@
         "Content-Type": [
           "application/json"
         ], 
-        "Authorization": [
-          "SSWS {{oktaToken}}"
-        ], 
         "Accept": [
           "application/json"
-        ]
+        ], 
+        "Authorization": "SSWS {{oktaToken}}"
       }, 
       "assertions": [
         {
@@ -268,24 +239,19 @@
       "method": "POST"
     }, 
     {
-      "duration": 40, 
-      "skipped": false, 
+      "duration": 20, 
       "step_type": "pause"
     }, 
     {
-      "skipped": false, 
       "url": "{{SCIMUrl}}/Users/{{scim_id}}", 
       "variables": [], 
-      "multipart_form": [], 
       "step_type": "request", 
       "auth": {}, 
       "note": "Verify if user is deactivated in SCIM App", 
       "headers": {
+        "Authorization": "{{SCIMAuth}}", 
         "Accept": [
           "application/scim+json"
-        ], 
-        "Authorization": [
-          "{{SCIMAuth}}"
         ]
       }, 
       "assertions": [
@@ -307,23 +273,19 @@
     }, 
     {
       "body": "", 
-      "skipped": false, 
       "form": {}, 
       "url": "{{oktaOrgUrl}}/api/v1/users/{{okta_add_userid}}/lifecycle/activate", 
       "variables": [], 
-      "multipart_form": [], 
       "step_type": "request", 
       "auth": {}, 
-      "note": "reactivate user in okta", 
+      "note": "Reactivate user in okta", 
       "headers": {
         "Content-Type": [
           "application/json"
         ], 
+        "Authorization": "SSWS {{oktaToken}}", 
         "Accept": [
           "application/json"
-        ], 
-        "Authorization": [
-          "SSWS {{oktaToken}}"
         ]
       }, 
       "assertions": [
@@ -338,17 +300,10 @@
       "method": "POST"
     }, 
     {
-      "duration": 40, 
-      "skipped": false, 
-      "step_type": "pause"
-    }, 
-    {
       "body": "{\r\n  \"id\": \"{{okta_add_userid}}\",\r\n  \"scope\": \"USER\",\r\n  \"credentials\": {\r\n    \"userName\": \"{{okta_user_email}}\"\r\n  },\r\n  \"profile\": {\r\n      \"familyName\": \"{{okta_user_lastname}}\",\r\n      \"givenName\": \"{{okta_user_firstname_update}}\",\r\n      \"emailType\": \"work\",\r\n      \"email\": \"{{okta_user_email}}\"\r\n  }\r\n}\r\n", 
-      "skipped": false, 
       "form": {}, 
       "url": "{{oktaOrgUrl}}/api/v1/apps/{{oktaAppId}}/users", 
       "variables": [], 
-      "multipart_form": [], 
       "step_type": "request", 
       "auth": {}, 
       "note": "Assign user to SCIM App", 
@@ -356,11 +311,9 @@
         "Content-Type": [
           "application/json"
         ], 
+        "Authorization": "SSWS {{oktaToken}}", 
         "Accept": [
           "application/json"
-        ], 
-        "Authorization": [
-          "SSWS {{oktaToken}}"
         ]
       }, 
       "assertions": [
@@ -375,12 +328,10 @@
       "method": "POST"
     }, 
     {
-      "duration": 40, 
-      "skipped": false, 
+      "duration": 20, 
       "step_type": "pause"
     }, 
     {
-      "skipped": false, 
       "url": "{{SCIMUrl}}/Users/{{scim_id}}", 
       "variables": [
         {
@@ -389,17 +340,14 @@
           "name": null
         }
       ], 
-      "multipart_form": [], 
       "step_type": "request", 
       "auth": {}, 
       "note": "Verify if user is reactivated in SCIM App", 
       "headers": {
-        "Authorization": [
-          "{{SCIMAuth}}"
-        ], 
         "Accept": [
           "application/scim+json"
-        ]
+        ], 
+        "Authorization": "{{SCIMAuth}}"
       }, 
       "assertions": [
         {
@@ -419,7 +367,7 @@
       ], 
       "before_scripts": [], 
       "method": "GET"
-    }, 
+    },
     {
       "duration": 40, 
       "skipped": false, 
@@ -496,5 +444,5 @@
       "method": "GET"
     }
   ], 
-  "description": "Basic User Managment tests to see if your SCIM server will work with Okta"
+  "description": "Basic User Management tests to see if your SCIM server will work with Okta"
 }

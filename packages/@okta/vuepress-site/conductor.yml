@@ -1841,3 +1841,22 @@ redirects:
     to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
   - from: /guides/create-token-with-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /standards/SCIM/SCIMFiles/Okta-SCIM-1.1-CRUD-Test.json
+    to: /standards/SCIM/SCIMFiles/Okta-SCIM-11-CRUD-Test.json
+  - from: /standards/SCIM/SCIMFiles/Okta-SCIM-CRUD-Test.json
+    to: /standards/SCIM/SCIMFiles/Okta-SCIM-20-CRUD-Test.json
+  - from: /standards/SCIM/SCIMFiles/okta-scim-test-plan.xls
+    to: /standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx
+  - from: /docs/guides/build-provisioning-integration/faqs/index.html
+    to: /docs/guides/submit-app/faqs/
+  - from: /docs/guides/build-provisioning-integration/okta-verification/index.html
+    to: /docs/guides/submit-app/submit/
+  - from: /docs/guides/build-provisioning-integration/publish/index.html
+    to: /docs/guides/submit-app/submit/
+  - from: /docs/guides/build-provisioning-integration/review-scim-docs/index.html
+    to: /docs/guides/build-provisioning-integration/prepare-api/
+  - from: /docs/guides/build-provisioning-integration/submit-for-review/index.html
+    to: /docs/guides/submit-app/
+  - from: /docs/guides/build-provisioning-integration/test-scim-server/index.html
+    to: /docs/guides/build-provisioning-integration/test-scim-api/
+    

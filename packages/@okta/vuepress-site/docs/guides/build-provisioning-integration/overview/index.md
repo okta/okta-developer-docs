@@ -1,23 +1,15 @@
 ---
-title: Build a provisioning integration with Okta
+title: Build a SCIM provisioning integration
 ---
 
-Single sign-on is just one aspect of federation. First, an account for the user must be created to grant access to your application. In order to “automate” this process, your application should expose APIs to manage the account lifecycle such as user account creation, profile updates, authorization settings (such as groups or roles), account deactivation, etc.
+Whether you are an independent software vendor (ISV), an existing Okta customer, an IT systems administrator, or a developer new to Okta, you need to know how to set up and test your API service and application so that you can successfully deploy a provisioning integration using SCIM with Okta.
 
-While many ISVs use proprietary APIs, Okta recommends that you implement your API using the [System for Cross-domain Identity Management](http://www.simplecloud.info) (SCIM) which supports all of the key features needed in provisioning.
+After you have prepared and tested your integration, you can then [submit your app](/docs/guides/submit-app) to be published in the [Okta Integration Network catalog](https://www.okta.com/integrations/).
 
-For details on how to integrate your application with SCIM, go to Okta’s [SCIM Provisioning Developer Program](/docs/concepts/scim/) for additional guidance. Once you are ready you can submit your app by following the steps below.
+If you need more detail on the concepts behind lifecycle management with SCIM and Okta, see [Provisioning with Okta Lifecycle Management](/docs/concepts/scim/).
 
-## Publishing Your SCIM-Based Provisioning Integration
+While many ISVs have custom APIs for managing user accounts, Okta recommends that you use the [System for Cross-domain Identity Management](http://www.simplecloud.info) (SCIM) protocol, an industry standard that supports all of the needed features for lifecycle provisioning. For more technical details on how you can take advantage of the SCIM API with Okta, see our [SCIM Protocol reference](/docs/reference/scim/).
 
-In order to allow customers to use your SCIM provisioning integration with Okta, you’ll need to get your app published in the Okta Integration Network.
-
-1. Review Okta’s SCIM docs and prepare your app
-2. Test Your SCIM Server
-3. Submit for Okta review and testing
-4. Publish to Okta Integration Network (OIN) in Partner-Built EA
-5. Become Okta-Verified in the OIN
-
-Need help? View the <GuideLink link="../faqs">FAQ section</GuideLink>, post a question on the Developer Forum or email us at developers@okta.com
+If you need help, post your question on the [Okta Developer Forums](https://devforum.okta.com/), or email us at <developers@okta.com>
 
 <NextSectionLink/>

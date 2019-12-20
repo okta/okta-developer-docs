@@ -23,6 +23,7 @@ guides:
  - mfa
  - build-provisioning-integration
  - build-sso-integration
+ - submit-app
  - protect-your-api
  - refresh-tokens
  - request-user-consent
