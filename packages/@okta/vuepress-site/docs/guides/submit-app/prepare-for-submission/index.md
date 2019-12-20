@@ -13,7 +13,7 @@ Complete the following steps before you submit your SCIM app:
 1. Check the [profile attributes and their mappings](/docs/guides/a-build-provisioning-integration/attribute-mapping/) for your app.
 1. [Test your Okta integration](/docs/guides/a-build-provisioning-integration/test-scim-app/) using the Okta SCIM CRUD test suite on Runscope.
 1. Prepare your [customer-facing configuration guide](/docs/guides/a-build-provisioning-integration/prepare-guide/).
-1. Optionally, [create a demo video](/docs/guides/a-build-provisioning-integration/prepare-guide/#create-a-demo-video) showing a working integration.
+1. Optionally, create a demo video showing a working integration.
 1. Run through the [Okta SCIM test plan document](/standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx).
 
 Complete the following steps before you submit your SAML app:

@@ -8,7 +8,7 @@ After you have prepared and tested your integration, you can then [submit your a
 
 If you need more detail on the concepts behind lifecycle management with SCIM and Okta, see [Provisioning with Okta Lifecycle Management](/docs/concepts/scim/).
 
-While many ISVs have custom APIs for managing user accounts, Okta recommends that you use the [System for Cross-domain Identity Management](http://www.simplecloud.info) (SCIM) protocol, an industry standard that supports all of the needed features for lifecycle provisioning. For more technical details on how you can take advantage of the SCIM API with Okta, see our [SCIM Protocol](/docs/reference/scim/) reference topics.
+While many ISVs have custom APIs for managing user accounts, Okta recommends that you use the [System for Cross-domain Identity Management](http://www.simplecloud.info) (SCIM) protocol, an industry standard that supports all of the needed features for lifecycle provisioning. For more technical details on how you can take advantage of the SCIM API with Okta, see our [SCIM Protocol reference](/docs/reference/scim/).
 
 If you need help, post your question on the [Okta Developer Forums](https://devforum.okta.com/), or email us at <developers@okta.com>
 

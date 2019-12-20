@@ -14,15 +14,22 @@ If you haven't yet implemented SCIM, Okta recommends that you use Version 2.0 of
 
 At a minimum, Okta requires that your SCIM 2.0 API implements the following features.
 
+- [API Endpoints](#api-endpoints)
+- [Authentication](#authentication)
+- [Base URL](#base-url)
+- [Basic User Schema](#basic-user-schema)
+- [Unique ID](#unique-id)
+- [Active Resources](#active-resources)
+
 ### API Endpoints
 
-The API endpoint for your SCIM API **must** be secured using the [Transport Layer Security](https://tools.ietf.org/html/rfc5246) protocol. Connections through this secure layer are routed by using the `https://` prefix for your URL.
+The API endpoint for your SCIM API must be secured using the [Transport Layer Security](https://tools.ietf.org/html/rfc5246) protocol. Connections through this secure layer are routed by using the `https://` prefix for your URL.
 
 You must support the URL structure described in the ["SCIM Endpoints and HTTP Methods" section of RFC7644](https://tools.ietf.org/html/rfc7644#section-3.2).
 
 ### Authentication
 
-Your SCIM API **must** be secured against anonymous access.
+Your SCIM API must be secured against anonymous access.
 
 Okta supports authentication against SCIM APIs using any one of the following methods:
 
@@ -30,7 +37,7 @@ Okta supports authentication against SCIM APIs using any one of the following me
 - [Basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
 - A custom HTTP header
 
-If you are using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, the authorization server of your app will redirect the user back to Okta, with either an authorization code or an access token.
+If you are using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, your app's authorization server redirects the user back to Okta, with either an authorization code or an access token.
 
 Okta requires that all SCIM applications in the OIN catalog support all of the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
 
@@ -42,11 +49,9 @@ Okta requires that all SCIM applications in the OIN catalog support all of the f
 
 where the `{appName}` is an identifier provided to you after your integration is submitted and processed by Okta.
 
-Okta doesn't support OAuth 2.0 [Resource Owner Password Credentials grant flows](https://tools.ietf.org/html/rfc6749#section-1.3.3) for securing a SCIM API.
-
 ### Base URL
 
-You can choose any Base URL for your API endpoint. Note that a Base URL cannot contain the underscore character "_".
+You can choose any Base URL for your API endpoint. Note that a Base URL cannot contain the underscore character `_`.
 
 If you are implementing a new SCIM API, we suggest using `/scim/v2/` as your Base URL. For example: `https://example.com/scim/v2/`.
 
@@ -77,7 +82,7 @@ Okta requires that your SCIM implementation be able to store the following four 
 
 Note that Okta supports more than those four user attributes. However, these are the base attributes that you must support.  The full schema of user attributes supported by SCIM 2.0 is described in [section 4 of RFC 7643](https://tools.ietf.org/html/rfc7643#section-4).
 
-If your integration supports user attributes beyond those four base attributes, you can add support for additional attributes to your SCIM API. In some cases, you might need to configure Okta to map non-standard user attributes into the user profile for your application. See the **Add custom attributes to an Okta user profile** section in the [Work with Okta user profiles and attributes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor_Tasks) topic in the Okta product documentation.
+If your integration supports user attributes beyond those four base attributes, you can add support for additional attributes to your SCIM API. In some cases, you might need to configure Okta to map non-standard user attributes into the user profile for your application. See the "Add custom attributes to an Okta user profile" section in the [Work with Okta user profiles and attributes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor_Tasks) topic in the Okta product documentation.
 
 ### Unique ID
 
@@ -105,7 +110,7 @@ Okta user management requires that your SCIM API must support an `active` attrib
 
 ## SCIM Facade
 
-Sometimes it isn't feasible for your cloud-based application to natively support a SCIM API. An alternative option is to build and host your own SCIM facade middleware that translates between the Okta SCIM API connection and the cloud app's proprietary API. Then the Okta integration connection is made to this SCIM facade.
+Sometimes it isn't feasible for your cloud-based application to natively support a SCIM API. An alternative option is to build and host your own SCIM facade middleware that translates between the Okta SCIM API connection and the cloud app's proprietary API. The Okta integration connection is then made to this SCIM facade.
 
 ## Provisioning to On-Premise Applications
 

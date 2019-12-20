@@ -19,7 +19,7 @@ This suite runs the following tests:
 1. Deactivates the user in Okta.
 1. Verifies that the user was deactivated on your SCIM server.
 1. Reactivates the user in Okta.
-1. Re-assigns your app to the user in Okta.
+1. Reassigns your app to the user in Okta.
 1. Verifies the user was reactivated and assigned on your SCIM server.
 1. Removes your app from the user in Okta.
 1. Verifies that user is deactivated on your SCIM server.

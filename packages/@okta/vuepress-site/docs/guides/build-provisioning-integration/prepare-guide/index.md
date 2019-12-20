@@ -4,7 +4,7 @@ title: Prepare a customer-facing configuration guide
 
 A configuration guide helps your customers understand what is needed to configure your app in Okta to handle their provisioning needs.
 
-This guide is a necessary requirement for the OIN submission process. The guide is provided to administrators through the Okta Admin Console.
+This guide is a requirement for the OIN submission process. The guide is provided to administrators through the Okta Admin Console.
 
 ## SCIM Configuration Guide Instructions
 
@@ -18,7 +18,7 @@ This guide is a necessary requirement for the OIN submission process. The guide 
 1. After your app is approved for testing with customers, you can make the guide available to those customers. The webpage should include the following disclaimer:
   `This integration with Okta is currently available only to a limited number of customers. Contact us at <email> to
 learn more.`
-1. After your app is **Okta Verified**, make the link public or customer‐accessible, and no disclaimers are required.
+1. After your app is categorized as Okta-Verified, make the link public or customer‐accessible, and no disclaimers are required.
 
 For an example of a detailed configuration guide, see [G Suite Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_google-provisioning).
 
@@ -57,7 +57,7 @@ Also include any restrictions. For example:
 
 ### Procedures
 
-This section contains the bulk of your guide. It should cover all the configuration steps needed to get your customers up and running with your SCIM provisioning app. Add text to explain a certain setting in detail if that setting is something specific to your application. Include any screenshots from your app than can assist the user during setup process.
+This section contains the bulk of your guide. It should cover all the configuration steps needed to get your customers up and running with your SCIM provisioning app. Add text to explain a certain setting in detail if that setting is something specific to your application. Include any screenshots from your app that can assist the user during the setup process.
 
 Add any best practices for a step within the step, such as guidance on setting mappings for attributes, especially required attributes that do not have a default mapping. For example:
 
@@ -75,7 +75,7 @@ You can use schema discovery to add extra attributes to Okta user profiles. Expl
 
 This section is also optional.
 
-You only need to include this section if there are known issues or best practices that apply to the entire configuration. In general, best practices should be included with the step by step procedure instructions.
+You only need to include this section if there are known issues or best practices that apply to the entire configuration. In general, best practices should be included with the step-by-step procedure instructions.
 
 ## Create a demo video
 

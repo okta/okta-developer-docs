@@ -8,4 +8,4 @@ After your SCIM integration has passed all the Runscope tests and you have your 
 
 * [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx).
 
-When you are have completed all the testing, you can [submit your app to the OIN](/docs/guides/submit-app/).
+When you have completed all the testing, you can [submit your app to the OIN](/docs/guides/submit-app/).

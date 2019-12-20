@@ -67,6 +67,6 @@ Now that you have updated your SCIM test in Runscope with the details of your SC
 1. Click **View Progress** in the **Recent Test Runs** section.
 1. While the test is still running, it displays live updates of the test in progress. After the test is complete, the main panel displays the results of your test.
 1. To see the details of tests, click the name of each particular test case to expand the section. The details have information on the **Request**, **Response**, and **Connection** for each HTTP request of the test.
-1. Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment and complete the test run again. If you need more technical details, see the [SCIM Reference topics](/docs/reference/scim/), or the previous topic on how to [Prepare your SCIM service](../prepare-api/).
+1. Since this test is running in your own Runscope instance, you can modify the tests to better fit your own environment and complete the test run again. If you need more technical details, see the [SCIM Reference](/docs/reference/scim/), or the previous step on how to [Prepare your SCIM service](../prepare-api/).
 
 <NextSectionLink/>
