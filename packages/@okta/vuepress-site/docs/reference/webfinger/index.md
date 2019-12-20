@@ -7,7 +7,7 @@ meta:
 
 # WebFinger
 
-The purpose of the WebFinger interface is to allow a client application to determine the Identity Provider that a given username (or identifier) should be routed to based on your organization's Identity Provider Routing Rules (IdP Discovery Policy).
+The purpose of the WebFinger interface is to allow a client application to determine the Identity Provider that a given username (or identifier) should be routed to based on your organization's Identity Provider Routing Rules (IdP Discovery Policy). For an introduction to the topic, see [IdP IdP Discovery](/docs/concepts/identity-providers/#idp-discovery).
 
 The endpoint is: `https://${yourOktaDomain}/.well-known/webfinger`
 
