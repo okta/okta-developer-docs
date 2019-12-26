@@ -1,6 +1,6 @@
 const { extractHeaders } = require('@vuepress/shared-utils')
 
-module.exports = (options, ctx) => ({
+module.exports = ( options, ctx) => ({
   plugins: [
     ['@vuepress/last-updated', {
       transformer: (timestamp, lang) => {

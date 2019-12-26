@@ -42,7 +42,6 @@
       },
 
       setActiveHash: function (event) {
-        console.log('here');
         const sidebarLinks = [].slice.call(document.querySelectorAll('.on-this-page-link'));
         const anchors = [].slice.call(document.querySelectorAll('.header-anchor'))
           .filter(anchor => sidebarLinks.some(sidebarLink => sidebarLink.hash === anchor.hash));
@@ -57,8 +56,8 @@
           const nextAnchor = anchors[i + 1]
 
           const isActive = i === 0 && scrollTop === 0
-            || (scrollTop >= anchor.parentElement.offsetTop - document.querySelector('.fixed-header').clientHeight - 60
-              && (!nextAnchor || scrollTop < nextAnchor.parentElement.offsetTop - document.querySelector('.fixed-header').clientHeight - 60))
+            || (scrollTop >= anchor.parentElement.offsetTop - document.querySelector('.fixed-header').clientHeight - 45
+              && (!nextAnchor || scrollTop < nextAnchor.parentElement.offsetTop - document.querySelector('.fixed-header').clientHeight - 45))
           
           
           

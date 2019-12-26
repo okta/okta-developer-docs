@@ -13,6 +13,7 @@
           </div>
           <div class="content-area">
             <PageTitle />
+            <MobileOnThisPage />
             <Content />
           </div>
           <div class="on-this-page">
@@ -33,6 +34,7 @@ export default {
     TopBar: () => import('../components/TopBar.vue'),
     Sidebar: () => import('../components/Sidebar.vue'),
     OnThisPage: () => import('../components/OnThisPage.vue'),
+    MobileOnThisPage: () => import('../components/MobileOnThisPage.vue'),
     PageTitle: () => import('../components/PageTitle.vue'),
     Breadcrumb: () => import('../components/Breadcrumb.vue'),
     Footer: () => import('../components/Footer.vue'),
