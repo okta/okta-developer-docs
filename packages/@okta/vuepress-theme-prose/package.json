@@ -27,5 +27,7 @@
     "include-media": "^1.4.9",
     "moment": "^2.24.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@vuepress/plugin-active-header-links": "1.2.0"
+  }
 }
