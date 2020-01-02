@@ -5,7 +5,21 @@
   color: cv('action');
   position: sticky;
   overflow-y: auto;
-  top: 200px;
+  top: 155px;
+   
+  &.active {
+    
+    @include media('<tablet') {
+      position: sticky;
+      z-index: 100;
+      left: 0rem;
+      height: 555px;
+      padding-left: 0px;
+      width: 300px;
+      margin-right:5rem;
+    }
+
+  }
 
   .router-link-active {
     font-weight: bold;

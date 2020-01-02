@@ -1,6 +1,5 @@
 .content--container {
   display: flex;
-  flex-direction: column-reverse;
   padding-bottom: 2em;
 
   @include media('>tablet') {
@@ -8,16 +7,38 @@
   }
 
   .tree-nav {
-    width: 16rem;
+    width: 18%;
+
+    @include media('<tablet') {
+      width: 40rem;
+
+      .landing-navigation {
+        display: none;
+
+        &.active {
+          display: block;
+          height: 100vh;
+        }
+      }
+    }
+
   }
 
   .content-area {
     flex: 1;
     flex-wrap: wrap;
+    margin-top: 6rem;
+    width: 100%;
+
+    .mobile-on-this-page {
+      @include media('>=tablet') {
+        display: none;
+      }
+    }
 
     @include media('>tablet') {
-      margin: 0em 1em;
-      max-width: 46.8rem;
+      margin: 6rem 1rem 0rem;
+      width: 64%;
     }
 
     div[class^='language-'],
@@ -32,6 +53,10 @@
   }
 
   .on-this-page {
-    width: 16rem;
+    width: 18%;
+
+    @include media('<tablet') {
+      display: none;
+    }
   }
 }

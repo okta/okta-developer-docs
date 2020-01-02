@@ -1,5 +1,5 @@
 <template>
-  <aside class="landing-navigation">
+  <aside class="landing-navigation" :class="{active: sidebarActive}">
     <ul class="landing">
       <li :class="{overview: true}">
           <router-link :to="overview.path">{{overview.title}}</router-link>
@@ -51,6 +51,10 @@
     mounted() {
       this.handleScroll();
       window.addEventListener('scroll', this.handleScroll);
+      this.$parent.$on('toggle-tree-nav', event => {
+        this.sidebarActive = event.treeNavOpen;
+      });
+      
     },
     beforeDestroy() {
       window.removeEventListener('scroll', this.handleScroll);

@@ -33,6 +33,16 @@
 
     }
 
+    .crumb-show-contents {
+      font-size: 0.8em;
+      color: cv('action');
+      cursor: pointer;
+
+      @include media('>=tablet') {
+        display: none;
+      }
+    }
+
   }
 
 }

@@ -1,4 +1,5 @@
-import vSelect from 'vue-select';
+import VueSelect from 'vue-select';
+import VueNavigationBar from 'vue-navigation-bar';
 
 export default ({
   Vue,
@@ -6,5 +7,6 @@ export default ({
   router,
   siteData
 }) => {
-  Vue.component('v-select', vSelect);
+  Vue.component('v-select', VueSelect);
+  Vue.component('v-navigation-bar', VueNavigationBar);
 }
