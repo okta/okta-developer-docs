@@ -21,11 +21,11 @@
         <div class="top-bar--collapse--buttons">
           <a href="#" class="button is-button-cerise-outline">Login</a>
           <a href="#" class="button is-button-cerise">Sign Up</a>
-          <svg viewBox="0 0 20 20" class="search-icon">
+          <svg viewBox="0 0 20 20" class="search-icon" @click="showSearchBar = !showSearchBar">
             <path d="M12.906 14.32a8 8 0 111.414-1.414l5.337 5.337-1.414 1.414-5.337-5.337zM8 14A6 6 0 108 2a6 6 0 000 12z"/>
           </svg>
         </div>
-        <div class="top-bar--collapse--search">
+        <div class="top-bar--collapse--search" :class="{active: showSearchBar}">
           <form id="form_search" method="get" action="/search/" name="form_search">
             <input type="text" name="stq" autocomplete="off" id="st-search-input-auto" placeholder="Search" class="st-search-input"> 
             <input type="submit" name="submit" id="st-search-submit-go" value="GO">
@@ -54,13 +54,12 @@
   export default {
     data() {
       return {
-        topBarCollapsed: true
+        topBarCollapsed: true,
+        showSearchBar: false
       }
     }
   }
 </script>
 
-<style>
-  @import url('./../assets/navbar.min.css');
-</style>
+
 

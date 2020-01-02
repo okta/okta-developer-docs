@@ -21,6 +21,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.7em 1.5em;
+    flex-shrink: 0;
 
     @include media(">=tablet") {
       margin-right: 0rem;
@@ -78,6 +79,8 @@
       margin-right: 0rem;
       flex: 1;
       align-items: center;
+      flex-flow: row wrap;
+      min-width: 810px;
     }
 
 
@@ -89,15 +92,12 @@
       }
       padding-top: 1rem;
 
-      .button {
-        font-size: 1.3rem;
-      }
-
       .search-icon {
         display: none;
-        width: 3rem;
+        width: 2.5rem;
         padding-left: 1rem;
         fill: cv('gray', '000');
+        cursor: pointer;
 
         @include media(">=tablet") {
           display: block;
@@ -109,9 +109,16 @@
 
     &--search {
       padding-top: 1rem;
+      order: 3;
 
       @include media(">=tablet") {
         display: none;
+        width: 100%;
+
+        &.active {
+          display: block;
+
+        }
       }
 
       form {
@@ -270,13 +277,13 @@
           color: cv('gray', '000');
           text-decoration: none;
           text-transform: uppercase;
-          font-size: 1.6rem;
+          font-size: 1.3rem;
           letter-spacing: 0.1em;
           padding-bottom: 0.5em;
           font-weight: 400;
 
           @include media(">=tablet") {
-            font-size: 1.3rem;
+            font-size: 1rem;
             letter-spacing: auto;
           }
   
