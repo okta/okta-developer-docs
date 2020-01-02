@@ -1,0 +1,1 @@
+If you want to skip this guide and just download a working sample app, download our [ASP.NET Core example](https://github.com/okta/samples-aspnetcore/tree/master/ASP.NET%20Core%203.x/okta-hosted-login).

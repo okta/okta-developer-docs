@@ -14,6 +14,7 @@ else
 The Sign In link uses tag helpers to invoke a `SignIn` action on an `Account` controller. Create an `AccountController` class with this code:
 
 ```csharp
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Okta.AspNetCore;
