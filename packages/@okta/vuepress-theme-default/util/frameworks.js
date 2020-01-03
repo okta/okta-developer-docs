@@ -25,7 +25,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   dotnet: '.NET',
   netcore: '.NET Core',
   aspnet: 'ASP.NET',
-  aspnetcore: 'ASP.NET Core',
+  aspnetcore: 'ASP.NET Core 2.x',
+  aspnetcore3: 'ASP.NET Core 3.x',
   php: 'PHP',
   python: 'Python',
   rest: 'REST',
@@ -46,6 +47,7 @@ const COMMON_NAME_TO_ICON_NAME = {
   netcore: 'dotnet',
   aspnet: 'dotnet',
   aspnetcore: 'dotnet',
+  aspnetcore3: 'dotnet',
   springboot: 'spring',
   nodeexpress: 'nodejs'
 };
