@@ -7,6 +7,10 @@
     position: sticky;
     overflow-y: auto;
     top: 155px;
+
+    @include media('>=tablet') {
+      top: 200px;
+    }
   }
 
   a:visited {
