@@ -18,7 +18,6 @@
 
   &--header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     padding: 1.7em 1.5em;
     flex-shrink: 0;
@@ -86,11 +85,14 @@
 
 
     &--buttons {
+
+      padding-top: 1rem;
+      
       @include media(">=tablet") {
         order: 2;
         display: flex;
+        padding-top: 0rem;
       }
-      padding-top: 1rem;
 
       .search-icon {
         display: none;
@@ -123,7 +125,7 @@
 
       form {
         display: flex;
-        height: 4.5rem;
+        height: 3rem;
       }
       
       input.st-search-input {
@@ -170,9 +172,11 @@
         @include media(">=tablet") {
           flex-direction: row;
         }
+        > li {
+          margin-bottom: 1rem;
+        }
   
         li {
-          // margin-bottom: 1.2rem;
 
           a.router-link-active {
             text-decoration: none;
@@ -187,55 +191,48 @@
   
               ul.submenu {
                 display: none;
-                margin-top: 0rem;
+                margin-top: 1rem;
                 padding-top: 1rem;
-                margin-bottom: 1.5rem;
+                margin-bottom: 0rem;
                 box-shadow: cv('gray', '900') 0rem 0.1rem 0.2rem;
 
-                @include media('>=tablet') {
-                  margin-bottom: 0;
-                  margin-top:1rem;
-                }
-
                 &::before {
-                  top: -17px;
                   border-bottom: solid 22px white;
                   content: '';
                   display: block;
                   position: absolute;
                   top: -15px;
                   left: 10px;
-                  width: 0;
-                  height: 0;
                   border-bottom: solid 20px white;
                   border-left: solid 20px transparent;
                   border-right: solid 20px transparent;
                 }
 
-                li:last-child {
-                  margin: inherit;
-                }
               }
 
-            } 
-
-            &:hover {
               
-              ul.submenu,
-              ul.submenu:hover {
-                display: block;
-              }
-
 
             }
 
-          }           
+          } 
+
+          &:hover {
+            
+            ul.submenu,
+            ul.submenu:hover {
+              display: block;
+            }
+
+
+          }
+           
 
 
           ul {
-            margin-top: 1.5rem;
 
             @include media(">=tablet") {
+
+              margin-top: 1.5rem;
               flex-direction: column;
               position: absolute;
               background-color: white;
@@ -254,6 +251,7 @@
             li {
               display: flex;
               margin-left: 1.5rem;
+              margin-bottom: 0rem;
 
               a.router-link-active {
                 text-decoration: none;
@@ -285,13 +283,10 @@
                 }
               }
 
-              &:last-child {
-                margin-bottom: 0rem;
-              }
             }
           }
-        
         }
+        
         
         a {
           color: cv('gray', '000');

@@ -2,8 +2,9 @@
   display: flex;
   padding-bottom: 2em;
 
-  @include media('>tablet') {
+  @include media('>=tablet') {
     flex-direction: row;
+    margin-top: 4rem;
   }
 
   .tree-nav {
@@ -17,7 +18,6 @@
 
         &.active {
           display: block;
-          height: 100vh;
         }
       }
     }
@@ -27,7 +27,7 @@
   .content-area {
     flex: 1;
     flex-wrap: wrap;
-    margin-top: 6rem;
+    margin-top: 4rem;
     width: 100%;
 
     .mobile-on-this-page {
@@ -36,8 +36,8 @@
       }
     }
 
-    @include media('>tablet') {
-      margin: 6rem 1rem 0rem;
+    @include media('>=tablet') {
+      margin: 0rem 1rem;
       width: 64%;
     }
 
