@@ -145,11 +145,18 @@
 
     &--container {
       display: flex;
-      padding: 5rem 0;
+      justify-content: space-around;
+      flex-direction: column;
+      padding: 5rem 0 0;
+
+      @include media('>=tablet') {
+        flex-direction: row;
+      }
     }
 
     &--block {
       text-align: center;
+      padding-bottom: 6rem;
 
       h4 {
         color: cv('gray', '000');
@@ -160,10 +167,16 @@
         text-decoration: none;
         text-transform: uppercase;
         letter-spacing:0.1em;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
       p {
         max-width: 40ch;
+        margin-right: auto;
+        margin-left: auto;
       }
       
     }
