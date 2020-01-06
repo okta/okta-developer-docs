@@ -18,7 +18,8 @@ Update your `using` statements to import the following namespaces:
 ```csharp
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Okta.AspNetCore;
 ```
 
 Finally, give the user a **Sign Out** button or link. Open your `_Layout.cshtml` file and add the following code:
