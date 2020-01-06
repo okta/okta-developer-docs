@@ -2,7 +2,6 @@
 title: Add User Management to Your React Native App
 language: React Native
 integration: mobile
-component: Code
 ---
 
 # <i class='icon-48 docsPage code-react'></i> Add User Management to Your React Native App

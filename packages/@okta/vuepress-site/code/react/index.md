@@ -2,7 +2,6 @@
 title: Add User Management to Your React App
 language: React
 integration: front-end
-component: Code
 meta:
   - name: description
     content: Our guide helps you to add user authentication to your React app, integrate with react-router, and suggests related content.

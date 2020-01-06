@@ -192,7 +192,7 @@
               ul.submenu {
                 display: none;
                 margin-top: 1rem;
-                padding-top: 1rem;
+                padding-top: 0.5rem;
                 margin-bottom: 0rem;
                 box-shadow: cv('gray', '900') 0rem 0.1rem 0.2rem;
 
@@ -241,7 +241,7 @@
                 color: cv('cerise');
 
                 padding: 0rem 1.3rem;
-                margin: 1.3rem 0rem;
+                margin: 1.0rem 0rem;
                 
               }
             }
@@ -298,8 +298,7 @@
           font-weight: 400;
 
           @include media(">=tablet") {
-            font-size: 1rem;
-            letter-spacing: auto;
+            font-size: 0.88em;
           }
   
           &.router-link-active {

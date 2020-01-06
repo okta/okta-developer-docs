@@ -2,7 +2,6 @@
 title: Add User Management to Your Angular App
 language: Angular
 integration: front-end
-component: Code
 meta:
   - name: description
     content: Our Angular guide helps you to add user authentication to your Angular app and create a fully-branded experience with the Okta Angular SDK.

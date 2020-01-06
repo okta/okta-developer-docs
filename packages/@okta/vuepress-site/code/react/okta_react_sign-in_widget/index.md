@@ -2,7 +2,6 @@
 title: Okta Sign-In Widget and React
 language: React
 excerpt: Integrate Okta with a React app using the Sign-In Widget.
-component: Code
 ---
 
 # <i class='icon-48 docsPage code-react'></i> Overview

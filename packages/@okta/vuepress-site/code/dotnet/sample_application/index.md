@@ -5,7 +5,6 @@ excerpt: >-
   The Okta Music Store is a sample application written in .NET and is a
   demonstration of how to add Okta as an identity provider for an existing
   application.
-component: Code
 ---
 
 # <i class='icon-48 docsPage code-dotnet'></i> About

@@ -2,7 +2,6 @@
 title: Add User Management to Your Java App
 language: Java
 integration: back-end
-component: Code
 meta:
   - name: description
     content: Read our guide to add user authentication to your Java app, and see related guides to help complete your project. 

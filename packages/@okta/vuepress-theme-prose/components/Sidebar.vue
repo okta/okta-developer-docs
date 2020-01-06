@@ -1,7 +1,7 @@
 <template>
   <aside class="landing-navigation" :class="{active: sidebarActive}">
     <ul class="landing">
-      <li :class="{overview: true}">
+      <li :class="{overview: true}" v-if="!usingFile">
           <router-link :to="overview.path">{{overview.title}}</router-link>
         </li>
         <li v-for="link in navigation" :key="link.title" :class="{subnav: showSublinks(link), open: $page.path.includes(link.path)}">
@@ -14,11 +14,17 @@
               <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/>
             </svg>
 
-
-            <router-link :to="link.path">{{link.title}}</router-link>
+            <router-link v-if="link.path" :to="link.path">{{link.title}}</router-link>
+            <div v-else>{{link.title}}</div>
           </div>
           
-          <ol v-if="subLinks(link) && $page.path.includes(link.path)"  class="sections">
+          <ol v-if="usingFile"  class="sections">
+            <li v-for="subLink in link.subLinks" :key="subLink.title">
+              <router-link :to="subLink.path" :class="{'router-link-active': isActive(subLink)}">{{subLink.title}}</router-link>
+            </li>
+          </ol>
+
+          <ol v-if="subLinks(link) && $page.path.includes(link.path) && !usingFile"  class="sections">
             <li v-for="subLink in subLinks(link)" :key="subLink.title">
               <router-link :to="subLink.path" :class="{active: isActive(subLink)}">{{subLink.title}}</router-link>
             </li>
@@ -42,6 +48,7 @@
     data() {
       return {
         sidebarActive: false,
+        usingFile: false,
         overview: {
           title: 'Overview',
           path: '#'
@@ -62,7 +69,8 @@
     computed: {
       navigation() {
         if (this.$page.path.includes('/code/')) {
-          // return this.$site.themeConfig.sidebars.codePages
+          this.usingFile = true;
+          return this.$site.themeConfig.sidebars.codePages
         }
         if (this.$page.path.includes('/docs/concepts/')) {
           this.overview.title = 'Concepts';
@@ -113,6 +121,7 @@
         return this.$page.path == link.path
       },
       subLinks: function(link) {
+        
         if(link.path && link.path.includes('release-notes')) {
           return false;
         }

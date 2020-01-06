@@ -2,7 +2,6 @@
 title: Add User Management to Your JavaScript App
 language: JavaScript
 integration: front-end
-component: Code
 meta:
   - name: description
     content: Our guide explains how to add authentication to your JavaScript app and customize the sign-in experience.

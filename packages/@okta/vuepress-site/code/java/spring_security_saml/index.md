@@ -4,7 +4,6 @@ language: Java
 excerpt: >-
   Guidance on how to SAML-enable your application using open source Spring
   Security library.
-component: Code
 ---
 
 # <i class='icon-48 docsPage code-spring'></i> Overview

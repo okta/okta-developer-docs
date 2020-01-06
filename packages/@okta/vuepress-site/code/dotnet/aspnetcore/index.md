@@ -2,7 +2,6 @@
 title: Add User Management to Your ASP.NET Core App
 language: .NET
 integration: back-end
-component: Code
 meta:
   - name: description
     content: Our ASP.NET Core integration makes it easy to add sign in to your applications. Use our guide to add user authentication to your ASP.NET Core app.

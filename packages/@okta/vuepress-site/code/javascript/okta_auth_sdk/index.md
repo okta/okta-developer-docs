@@ -2,7 +2,6 @@
 title: Okta Auth SDK Guide
 language: JavaScript
 excerpt: A JavaScript wrapper for Okta's Authentication APIs.
-component: Code
 ---
 
 ## Okta Auth SDK Guide

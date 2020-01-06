@@ -105,8 +105,9 @@
 
 <style lang="scss">
   @import '../assets/css/okta';
-  @import '~prismjs/themes/prism-solarizedlight.css';
+
   @import '../assets/css/prose';
+
   .icon.outbound {
     display: none !important
   }

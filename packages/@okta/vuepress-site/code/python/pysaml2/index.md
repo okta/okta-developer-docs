@@ -4,7 +4,6 @@ language: Python
 excerpt: >-
   Guidance on how to SAML-enable your Python application using open source
   PySAML2.
-component: Code
 ---
 
 # Overview

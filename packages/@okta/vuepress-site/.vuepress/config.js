@@ -1,3 +1,5 @@
+const guidesInfo = require('./scripts/build-guides-info');
+
 module.exports = {
   dest: 'dist',
   theme: "@okta/vuepress-theme-prose",
@@ -10,6 +12,8 @@ module.exports = {
     ['link', { rel: 'icon', type:"image/png", sizes:"16x16",  href: '/favicon/favicon-16x16.png' }],
     ['link', { rel: 'manifest',  href: '/favicon/manifest.json' }],
     ['link', { rel: 'mask-icon',  href: '/favicon/safari-pinned-tab.svg' }],
+    ['link', { rel: 'preload', href: 'https://use.typekit.net/osg6paw.css', as: 'style', crossorigin: true}],
+    ['link', { rel: 'stylesheet', href: 'https://use.typekit.net/osg6paw.css', crossorigin: true}],
     ['meta', { name: 'msapplication-config',  content: '/favicon/browserconfig.xml' }],
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
 
@@ -17,15 +21,7 @@ module.exports = {
      * Header scripts for typekit, GA, GTM, and Heap Analytics (WIP)
      */
     ['script', {}, `
-      // TypeKit
-        (function(d) {
-          var config = {
-            kitId: 'jff5neq',
-            scriptTimeout: 3000,
-            async: true
-          },
-          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/bwf-loadingb/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-        })(document);
+      
 
       var isProduction = window.location.hostname === 'developer.okta.com';
       if (isProduction) {
@@ -127,6 +123,11 @@ module.exports = {
       }
     ],
 
+    sidebars: {
+      codePages: require('./nav/codePages'),
+      reference: require('./nav/reference')
+    },
+
     quickstarts: {
       clients: [
         { name: 'okta-sign-in-page', label: 'Okta Sign-In Page', serverExampleType: 'auth-code', default: true },
@@ -203,5 +204,17 @@ module.exports = {
   extraWatchFiles: [
     '.vuepress/nav/*',
   ],
+  additionalPages: [
+    ...guidesInfo.additionalPagesForGuides(),
+  ],
+  extendPageData(page) {
+    if(page.path.startsWith(`/docs/guides/`)) {
+      page.frontmatter.layout = 'Guides';
+      const info = guidesInfo.guideInfo[page.path];
+      if(info) {
+        page.breadcrumb = info.breadcrumb;
+      }
+    }
+  },
   
 }

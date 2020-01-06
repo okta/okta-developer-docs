@@ -2,7 +2,6 @@
 title: Okta Sign-In Widget and Angular
 language: Angular
 excerpt: Integrate Okta with an Angular application using the Sign-In Widget.
-component: Code
 ---
 
 # <i class='icon-48 docsPage code-angular'></i> Overview
