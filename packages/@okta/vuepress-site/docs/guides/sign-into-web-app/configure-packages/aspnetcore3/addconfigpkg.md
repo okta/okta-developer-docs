@@ -1,7 +1,6 @@
 All of our .NET SDKs are hosted on [NuGet](https://www.nuget.org/). Install the following dependencies in your project:
 
-* [Microsoft.AspNetCore.Authentication.Cookies](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Cookies/) 2.2.0 or higher 
-* [Okta.AspNetCore](https://www.nuget.org/packages/Okta.AspNetCore) 1.x series.
+* [Okta.AspNetCore](https://www.nuget.org/packages/Okta.AspNetCore) 3.0.0 or higher
 
 You can install them via the **NuGet Package Manager**:
 
