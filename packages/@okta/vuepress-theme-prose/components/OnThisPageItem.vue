@@ -44,7 +44,7 @@ export default {
     },
     clickLink: function(e) {
       if(e.target && e.target.parentNode && e.target.parentNode.hash) {
-        window.scrollTo(0, document.querySelector(e.target.parentNode.hash).offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
+        window.scrollTo(0, document.querySelector(e.target.parentNode.hash).offsetTop - document.querySelector('.fixed-header').clientHeight - 10);
         return;
       }
       console.error('No header found for this link');

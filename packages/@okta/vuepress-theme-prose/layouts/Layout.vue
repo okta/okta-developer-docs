@@ -41,6 +41,39 @@ export default {
   },
   data() {
     return {}
+  },
+  mounted() {
+
+    window.addEventListener('load', () => {
+        window.setTimeout(() => {
+          let anchor = window.location.href.split('#')[1];
+          if (anchor) {
+            let target = document.getElementById(anchor);
+            if (target) {
+              window.scrollTo(0, target.offsetTop - document.querySelector('.fixed-header').clientHeight - 10);
+            }
+          }
+
+          let links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href*="/quickstart/#"])');
+
+          Array.from(links).forEach((link) => {
+            link.addEventListener('click', function(event) {
+
+              if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+                let target = document.querySelector(this.hash);
+                if (target) {
+                  event.preventDefault();
+                  window.scrollTo(0, target.offsetTop - document.querySelector('.fixed-header').clientHeight - 10);
+                  location.hash = this.hash;
+                  return false;
+                }
+              }
+            })
+          })
+        }, 500);
+    });
+
   }
 }
 </script>

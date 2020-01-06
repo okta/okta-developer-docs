@@ -36,6 +36,19 @@
       }
     }
 
+    a.header-link svg {
+      width: 1rem;
+      display: none;
+    }
+
+    h2:hover a.header-link svg,
+    h3:hover a.header-link svg,
+    h4:hover a.header-link svg,
+    h5:hover a.header-link svg,
+    h6:hover a.header-link svg {
+      display: inline-block;
+    }
+
     @include media('>=tablet') {
       margin: 0rem 1rem;
       width: 64%;
