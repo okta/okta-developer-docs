@@ -46,7 +46,7 @@ Finally, give the user a **Sign Out** button or link. Open your `_Layout.cshtml`
     else
     {
         <ul>
-            <li>@Html.ActionLink("Sign in", "Login", "Account")</li>
+            <li>@Html.ActionLink("Sign in", "SignIn", "Account")</li>
         </ul>
     }
 </div>
