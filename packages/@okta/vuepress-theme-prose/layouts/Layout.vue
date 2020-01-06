@@ -5,7 +5,12 @@
       <Breadcrumb />
     </div>
 
-    <div class="page-body">
+    <div class="page-body" v-if="$page.frontmatter.component">
+      <div class="content">
+        <component :is="$page.frontmatter.component" />
+      </div>
+    </div>
+    <div class="page-body" v-else>
       <div class="content">
         <div class="content--container">
           <div class="tree-nav">
@@ -38,6 +43,7 @@ export default {
     PageTitle: () => import('../components/PageTitle.vue'),
     Breadcrumb: () => import('../components/Breadcrumb.vue'),
     Footer: () => import('../components/Footer.vue'),
+    Documentation: () => import('../components/Documentation.vue'),
   },
   data() {
     return {}

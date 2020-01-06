@@ -10,10 +10,11 @@
     computed: {
       options: function () {
         let optionsList = [];
-
-        this.$page.headers.forEach(function (header, index) {
-          optionsList.push({label: header.title, code: header.slug});
-        });
+        if( this.$page.headers ) {
+          this.$page.headers.forEach(function (header, index) {
+            optionsList.push({label: header.title, code: header.slug});
+          });
+        }
 
         return optionsList;
       }

@@ -7,6 +7,10 @@
   margin: 0 auto;
 }
 
+.page-content {
+  width: 100%;
+}
+
 [class$="--container"] {
   max-width: $container-width;
   margin: 0 auto;

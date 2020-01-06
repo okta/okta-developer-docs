@@ -1,5 +1,5 @@
 <template>
-  <div class="Column--4 Column--medium-6 Column--small-12">
+  <div class="get-started--link-group">
     <h2 v-if=section.link><a :href=section.link>{{section.title}}</a></h2>
     <h2 v-else>{{section.title}}</h2>
     <p>{{section.description}}</p>
