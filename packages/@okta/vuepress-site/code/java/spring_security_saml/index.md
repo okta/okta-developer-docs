@@ -1,12 +1,11 @@
 ---
 title: Spring Security SAML
 language: Java
+icon: code-spring
 excerpt: >-
   Guidance on how to SAML-enable your application using open source Spring
   Security library.
 ---
-
-# <i class='icon-48 docsPage code-spring'></i> Overview
 
 This guide describes how to use Spring Security SAML to add support for Okta (via SAML) to Java applications that use the Spring framework. In this guide, you learn how to install and configure an Okta SAML application.
 

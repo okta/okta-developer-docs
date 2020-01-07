@@ -2,14 +2,11 @@
 title: Add User Management to Your Node.js App
 language: Node.js
 integration: back-end
+icon: code-nodejs
 meta:
   - name: description
     content: Use our Node.js guide to add authentication to your app and our Node.js SDK to create and update users and groups.
 ---
-
-# <i class='icon-48 docsPage code-nodejs'></i> Add User Management to Your Node.js App 
-
-## Get Started with Node.js + Okta
 
 New to Okta? Our quickstart will walk you through adding user authentication to your Node.js app in minutes.
 

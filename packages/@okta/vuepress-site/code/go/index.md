@@ -2,12 +2,11 @@
 title: Add User Management to Your Go App
 language: Go
 integration: back-end
+icon: code-go
 meta:
   - name: description
     content: Learn about user management with Okta and update users, groups, and applications with the Okta Management SDK for Go. 
 ---
-
-# <i class='icon-48 docsPage code-go'></i> Add User Management to Your Go App
 
 ## Get Started with Go + Okta
 

@@ -3,7 +3,6 @@ layout: Landing
 title: Languages and SDKs
 ---
 
-# Languages & SDKs
 Code and resources for your platform.
 
 ## Mobile

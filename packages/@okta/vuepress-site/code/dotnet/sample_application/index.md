@@ -1,13 +1,12 @@
 ---
 title: Okta Music Store
 language: .NET
+icon: code-angular
 excerpt: >-
   The Okta Music Store is a sample application written in .NET and is a
   demonstration of how to add Okta as an identity provider for an existing
   application.
 ---
-
-# <i class='icon-48 docsPage code-dotnet'></i> About
 
 > <i class="fa fa-github"></i> [Visit the GitHub repository for the "Okta Music Store" .NET Sample Application.](https://github.com/okta/okta-music-store)
 

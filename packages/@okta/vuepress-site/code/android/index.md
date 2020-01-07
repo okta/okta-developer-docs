@@ -2,13 +2,12 @@
 title: Add User Management to Your Android App
 language: Android
 integration: mobile
+icon: code-android
 meta:
   - name: description
     content: Get a guide to adding user authentication to your Android app, and related guides to help complete your project.
 
 ---
-
-# <i class='icon-48 docsPage code-android'></i> Add User Management to Your Android App
 
 ## Get Started with Android + Okta
 

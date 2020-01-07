@@ -7,6 +7,9 @@
 @import 'abstracts/colors';
 @import 'abstracts/variables';
 
+// Base 
+@import 'base/typography';
+
 // Layouts
 @import 'layouts/layout.scss';
 
@@ -25,4 +28,5 @@
 @import 'components/onThisPage';
 @import 'components/card';
 @import 'components/docLanding';
+@import 'components/codePages';
 

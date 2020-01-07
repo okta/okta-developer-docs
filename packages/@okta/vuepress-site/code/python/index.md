@@ -2,14 +2,11 @@
 title: Add User Management to Your Python App
 language: Python
 integration: back-end
+icon: code-python
 meta:
   - name: description
     content: Our guide shows you how to add user management to your Python app with examples using Flask.
 ---
-
-# <i class='icon-48 docsPage code-python'></i> Add User Management to Your Python App
-
-## Get Started with Python + Okta
 
 <ul class='language-ctas'>
 	<li>

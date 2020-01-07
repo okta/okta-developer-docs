@@ -2,12 +2,11 @@
 title: Add User Management to Your ASP.NET App
 language: .NET
 integration: back-end
+icon: code-dotnet
 meta:
   - name: description
     content: Get started with ASP.NET and Okta by using our guide to help you add user authentication to your ASP.NET app.
 ---
-
-# <i class='icon-48 docsPage code-dotnet'></i> Add User Management to Your ASP.NET App
 
 <ul class='language-tabs'>
 	<li>

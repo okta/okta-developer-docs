@@ -1,10 +1,9 @@
 ---
 title: SimpleSAMPphp
 language: PHP
+icon: code-php
 excerpt: How to use SimpleSAMLphp to add support for Okta via SAML.
 ---
-
-# <i class='icon-48 docsPage code-php'></i> Overview
 
 This guide describes how to use
 [SimpleSAMLphp](https://simplesamlphp.org/)
