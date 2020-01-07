@@ -9,15 +9,15 @@ meta:
 ---
 
 <ul class='language-tabs'>
-	<li class="active">
-		<a href='/code/java/'>
+	<li>
+		<RouterLink to='/code/java/'>
 			<i class='icon code-java-32'></i><span>Java</span>
-		</a>
+		</RouterLink>
 	</li>
 	<li >
-		<a href='/code/java/spring/'>
+		<RouterLink to='/code/java/spring/'>
 			<i class='icon code-spring-32'></i><span>Spring</span>
-		</a>
+		</RouterLink>
 	</li>
 </ul>
 

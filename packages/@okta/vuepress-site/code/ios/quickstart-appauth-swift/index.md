@@ -1,10 +1,10 @@
 ---
 title: Okta + AppAuth Auth SDK
 language: iOS
+icon: code-ios
 excerpt: Integrate Okta with an iOS native application using OktaAuth.
 ---
 
-# <i class='icon-48 docsPage code-ios'></i> Overview
 This guide will walk you through integrating authentication and authorization into a Swift iOS native application with Okta.
 
 ## Prerequisites

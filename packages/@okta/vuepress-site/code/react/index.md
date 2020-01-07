@@ -2,14 +2,11 @@
 title: Add User Management to Your React App
 language: React
 integration: front-end
+icon: code-react
 meta:
   - name: description
     content: Our guide helps you to add user authentication to your React app, integrate with react-router, and suggests related content.
 ---
-
-# <i class='icon-48 docsPage code-react'></i> Add User Management to Your React App
-
-## Get Started with React + Okta
 
 New to Okta? Our quickstart will walk you through adding user authentication to your React app in minutes.
 

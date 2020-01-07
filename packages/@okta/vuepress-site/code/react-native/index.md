@@ -1,12 +1,9 @@
 ---
 title: Add User Management to Your React Native App
 language: React Native
+icon: code-react
 integration: mobile
 ---
-
-# <i class='icon-48 docsPage code-react'></i> Add User Management to Your React Native App
-
-## Get Started with React Native + Okta
 
 New to Okta? Our quickstart will walk you through adding user authentication to your React Native app in minutes.
 
