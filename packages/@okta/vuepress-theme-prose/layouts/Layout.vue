@@ -44,6 +44,7 @@ export default {
     Breadcrumb: () => import('../components/Breadcrumb.vue'),
     Footer: () => import('../components/Footer.vue'),
     Documentation: () => import('../components/Documentation.vue'),
+    Reference: () => import('../components/Reference.vue'),
   },
   data() {
     return {}
