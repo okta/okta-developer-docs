@@ -1001,7 +1001,6 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | policy_uri <ApiLifecycle access="ea" />     | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | consent_method <ApiLifecycle access="ea" /> | Indicates whether user consent is required or implicit. Valid values: `REQUIRED`, `TRUSTED`. Default value is `TRUSTED`                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
 
-
 ###### Credentials Settings Details
 
 * `issuer_mode` <ApiLifecycle access="ea" /> is visible if the Custom URL Domain feature is enabled. If the feature is enabled, you can set a custom domain URL in the settings for an OpenID Connect token in an app, and this property is returned in the appropriate responses. After the feature is enabled, the default value for new apps is `CUSTOM_URL`. For existing apps, the default remains `ORG_URL`. You can change the value using the API or administrator user interface. To enable the Custom URL Domain feature, contact [Support](https://support.okta.com/help/open_case).
@@ -1020,7 +1019,6 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | `native`          | `authorization_code`, `implicit`, `password`, `refresh_token` | Must have at least `authorization_code`                                           |
 | `browser`         | `authorization_code`, `implicit`                              |                                                                                   |
 | `service`         | `client_credentials`                                          | Works with OAuth 2.0 flow (not OpenID Connect)                                    |
-
 
 * The `grant_types` and `response_types` values described above are partially orthogonal, as they refer to arguments passed to different
     endpoints in the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749). However, they are related in that the `grant_types`
@@ -1076,7 +1074,7 @@ curl -v -X POST \
           "myapp://callback"
         ],
         "post_logout_redirect_uris": [
-      "https://example.com/oauth2/postLogoutRedirectUri"
+          "https://example.com/oauth2/postLogoutRedirectUri"
         ],
         "response_types": [
           "token",
