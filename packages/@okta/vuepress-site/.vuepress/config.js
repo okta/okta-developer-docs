@@ -203,7 +203,11 @@ module.exports = {
 
   plugins: {
     'sitemap': {
-      hostname: 'https://developer.okta.com'
+      hostname: 'https://developer.okta.com',
+      outFile: 'docs-sitemap.xml',
+      exclude: [
+        '/test_page/'
+      ]
     }
   },
 
