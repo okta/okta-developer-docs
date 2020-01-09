@@ -114,6 +114,7 @@ Authorization: <Authorization credentials>
     "locale": "en-US",
     "externalId": "00ujl29u0le5T6Aj10h7",
     "groups": [],
+    "password": "1mz050nq",
     "active": true
 }
 ```
