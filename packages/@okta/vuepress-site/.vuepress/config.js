@@ -201,12 +201,18 @@ module.exports = {
     }
   },
 
+  plugins: {
+    'sitemap': {
+      hostname: 'https://developer.okta.com'
+    }
+  },
+
   extraWatchFiles: [
     '.vuepress/nav/*',
   ],
-  additionalPages: [
-    ...guidesInfo.additionalPagesForGuides(),
-  ],
+  // additionalPages: [
+  //   ...guidesInfo.additionalPagesForGuides(),
+  // ],
   extendPageData(page) {
     if(page.path.startsWith(`/docs/guides/`)) {
       page.frontmatter.layout = 'Guides';
