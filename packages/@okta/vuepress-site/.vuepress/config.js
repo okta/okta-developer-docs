@@ -214,9 +214,9 @@ module.exports = {
   extraWatchFiles: [
     '.vuepress/nav/*',
   ],
-  // additionalPages: [
-  //   ...guidesInfo.additionalPagesForGuides(),
-  // ],
+  additionalPages: [
+    ...guidesInfo.additionalPagesForGuides(),
+  ],
   extendPageData(page) {
     if(page.path.startsWith(`/docs/guides/`)) {
       page.frontmatter.layout = 'Guides';
