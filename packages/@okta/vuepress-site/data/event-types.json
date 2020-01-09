@@ -1,6 +1,6 @@
 {
-  "release" : "2019.12.1",
-  "build" : "2019.12.1-begin-18-gef888f789ecb",
+  "release" : "2020.01.1",
+  "build" : "2020.01.1-begin-53-g3b4934a52923",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -91,6 +91,9 @@
   }, {
     "id" : "oin-apps",
     "name" : "OIN Apps"
+  }, {
+    "id" : "oin-devex",
+    "name" : "OIN DevEx"
   }, {
     "id" : "performance",
     "name" : "Performance"
@@ -3522,6 +3525,18 @@
       "description" : "Failed to reactivate user in NetSuite.",
       "tags" : [ "net-suite-app" ],
       "mappings" : [ "application.provision.user.reactivate" ]
+    }, {
+      "id" : "app.oauth2.admin.consent.grant_success",
+      "category" : "federation",
+      "description" : "Administrator consent granted for client.",
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
+      "mappings" : [ ]
+    }, {
+      "id" : "app.oauth2.admin.consent.revoke_success",
+      "category" : "federation",
+      "description" : "Administrator consent revoked for client.",
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
+      "mappings" : [ ]
     }, {
       "id" : "app.oauth2.as.authorize.code_success",
       "category" : "federation",
@@ -7693,11 +7708,71 @@
       "tags" : [ "app" ],
       "mappings" : [ "system.import.clear.unconfirmed.users.summary" ]
     }, {
+      "id" : "system.import.download.complete",
+      "category" : "sync",
+      "description" : "Fired at the completion of the download objects phase, when the objects (users, groups, devices) to be imported have been downloaded from the system of record. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the completion of the download objects phase, when the objects (users, groups, devices) to be imported have been downloaded from the system of record.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.download.complete" ]
+    }, {
+      "id" : "system.import.download.start",
+      "category" : "sync",
+      "description" : "Fired at the start of the download objects phase, when the objects (users, groups, devices) to be imported are being downloaded from the system of record. This can be used to determine when an import has started, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the start of the download objects phase, when the objects (users, groups, devices) to be imported are being downloaded from the system of record.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.download.start" ]
+    }, {
+      "id" : "system.import.implicit_deletion.complete",
+      "category" : "sync",
+      "description" : "Fired upon completion of the implicit deletion phase, when Okta checks for the deletion of users, groups, and custom objects. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired upon completion of the implicit deletion phase, when Okta checks for the deletion of users, groups, and custom objects.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.implicit_deletion.complete" ]
+    }, {
+      "id" : "system.import.implicit_deletion.start",
+      "category" : "sync",
+      "description" : "Fired at the start of the implicit deletion phase, when Okta checks for the deletion of users, groups, and custom objects. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the start of the implicit deletion phase, when Okta checks for the deletion of users, groups, and custom objects.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.implicit_deletion.start" ]
+    }, {
+      "id" : "system.import.membership_processing.complete",
+      "category" : "sync",
+      "description" : "Fired upon completion of the membership processing phase, when Okta checks which groups users being imported into Okta should be added to/removed from. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired upon completion of the membership processing phase, when Okta checks which groups users being imported into Okta should be added to/removed from.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.membership_processing.complete" ]
+    }, {
+      "id" : "system.import.membership_processing.start",
+      "category" : "sync",
+      "description" : "Fired at the start of the membership processing phase, when Okta checks which groups users being imported into Okta should be added to/removed from. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the start of the membership processing phase, when Okta checks which groups users being imported into Okta should be added to/removed from.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.membership_processing.start" ]
+    }, {
+      "id" : "system.import.object_creation.complete",
+      "category" : "sync",
+      "description" : "Fired upon completion of the object creation phase, when the first batch of objects is created/updated. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired upon completion of the object creation phase, when the first batch of objects is created/updated.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.object_creation.complete" ]
+    }, {
+      "id" : "system.import.object_creation.start",
+      "category" : "sync",
+      "description" : "Fired at the completion of the download objects phase, when the objects (users, groups, devices) to be imported have been downloaded from the system of record. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the completion of the download objects phase, when the objects (users, groups, devices) to be imported have been downloaded from the system of record.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.object_creation.start" ]
+    }, {
       "id" : "system.import.roadblock.updated",
       "category" : "sync",
       "description" : "Fired when an import roadblock has been updated.",
       "tags" : [ "app", "system" ],
       "mappings" : [ ]
+    }, {
+      "id" : "system.import.user_matching.complete",
+      "category" : "sync",
+      "description" : "Fired upon completion of the user matching phase, when Okta attempts to match imported users to existing Okta users. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired upon completion of the user matching phase, when Okta attempts to match imported users to existing Okta users.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.user_matching.complete" ]
+    }, {
+      "id" : "system.import.user_matching.start",
+      "category" : "sync",
+      "description" : "Fired at the start of the user matching phase, when Okta attempts to match imported users to existing Okta users. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the start of the user matching phase, when Okta attempts to match imported users to existing Okta users.",
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.user_matching.start" ]
     }, {
       "id" : "system.ldapi.bind",
       "category" : "ud-core",
@@ -8323,6 +8398,38 @@
         "debugData" : null,
         "actor" : null,
         "targets" : null
+      }
+    }, {
+      "id" : "app.oauth2.admin.consent.grant",
+      "category" : "federation",
+      "description" : "Administrator consent granted for scope. This event can be used to track when an administrator grants consent to a client to request a specific scope. This event is fired when an admin grants consent.",
+      "info" : {
+        "created" : "2019-11-26",
+        "release" : "2019.12.0"
+      },
+      "beta" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2ResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.admin.consent.revoke",
+      "category" : "federation",
+      "description" : "Administrator consent revoked for scope. This event can be used to track when an administrator revokes consent to a client to request a specific scope. This event is fired when an admin revokes consent.",
+      "info" : {
+        "created" : "2019-11-26",
+        "release" : "2019.12.0"
+      },
+      "beta" : false,
+      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OAuth2ResourceDetails" ]
       }
     }, {
       "id" : "app.oauth2.as.authorize",
@@ -11733,22 +11840,6 @@
         "targets" : null
       }
     }, {
-      "id" : "application.provision.group_membership.verify_exists",
-      "category" : "oin-advanced-apps",
-      "description" : "Verify group membership exists in a external application. Can be used when Okta failed to verify membership exists on a remote application. There is no actual implementations yet.",
-      "info" : {
-        "created" : "2017-09-14",
-        "release" : "2017.33"
-      },
-      "beta" : false,
-      "tags" : [ "app-api" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null
-      }
-    }, {
       "id" : "application.provision.group_push.activate_mapping",
       "category" : "sync",
       "description" : "Group push activated mappings.",
@@ -14373,6 +14464,22 @@
         "targets" : null
       }
     }, {
+      "id" : "security.internal.authentication",
+      "category" : "adaptive",
+      "description" : "",
+      "info" : {
+        "created" : null,
+        "release" : null
+      },
+      "beta" : false,
+      "tags" : [ "security" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "security.origin.auto_whitelisted",
       "category" : "cred-platform",
       "description" : "A new origin (redirectUrl) was automatically whitelisted. This can be used to monitor when trusted origins are dynamically added to your tenant by Okta. This is a temporary event, which will be used by the subset of tenants who get the dynamic whitelisting functionality prior to having the enforcement of Trusted Origins whitelists enabled.",
@@ -14391,10 +14498,10 @@
     }, {
       "id" : "security.password_spray.detected",
       "category" : "adaptive",
-      "description" : "An invalid Auth attempt was detected as being part of a password spray attack.",
+      "description" : "",
       "info" : {
-        "created" : "2018-09-27",
-        "release" : "2018.40"
+        "created" : null,
+        "release" : null
       },
       "beta" : false,
       "tags" : [ "password-spray" ],
@@ -15541,6 +15648,38 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.import.download.complete",
+      "category" : "sync",
+      "description" : "Fired at the completion of the download objects phase, when the objects (users, groups, devices) to be imported have been downloaded from the system of record. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the completion of the download objects phase, when the objects (users, groups, devices) to be imported have been downloaded from the system of record.",
+      "info" : {
+        "created" : "2020-01-01",
+        "release" : "2020.01.0"
+      },
+      "beta" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.download.complete" ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.download.start",
+      "category" : "sync",
+      "description" : "Fired at the start of the download objects phase, when the objects (users, groups, devices) to be imported are being downloaded from the system of record. This can be used to determine when an import has started, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the start of the download objects phase, when the objects (users, groups, devices) to be imported are being downloaded from the system of record.",
+      "info" : {
+        "created" : "2020-01-01",
+        "release" : "2020.01.0"
+      },
+      "beta" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.download.start" ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.import.full_import_required",
       "category" : "sync",
       "description" : "The next import for this application will run as a full import even if an incremental import is requested. Customers for whom full imports take a long time should monitor for this event to understand the reason why a full import is being performed.",
@@ -15653,6 +15792,38 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.import.implicit_deletion.complete",
+      "category" : "sync",
+      "description" : "Fired upon completion of the implicit deletion phase, when Okta checks for the deletion of users, groups, and custom objects. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired upon completion of the implicit deletion phase, when Okta checks for the deletion of users, groups, and custom objects.",
+      "info" : {
+        "created" : "2020-01-01",
+        "release" : "2020.01.0"
+      },
+      "beta" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.implicit_deletion.complete" ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.implicit_deletion.start",
+      "category" : "sync",
+      "description" : "Fired at the start of the implicit deletion phase, when Okta checks for the deletion of users, groups, and custom objects. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the start of the implicit deletion phase, when Okta checks for the deletion of users, groups, and custom objects.",
+      "info" : {
+        "created" : "2020-01-01",
+        "release" : "2020.01.0"
+      },
+      "beta" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.implicit_deletion.start" ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.import.import_profile",
       "category" : "sync",
       "description" : "Import user profile triggered by import process.",
@@ -15695,6 +15866,70 @@
       "beta" : true,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.generic.import.incremental_converted_to_full" ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.membership_processing.complete",
+      "category" : "sync",
+      "description" : "Fired upon completion of the membership processing phase, when Okta checks which groups users being imported into Okta should be added to/removed from. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired upon completion of the membership processing phase, when Okta checks which groups users being imported into Okta should be added to/removed from.",
+      "info" : {
+        "created" : "2020-01-01",
+        "release" : "2020.01.0"
+      },
+      "beta" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.membership_processing.complete" ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.membership_processing.start",
+      "category" : "sync",
+      "description" : "Fired at the start of the membership processing phase, when Okta checks which groups users being imported into Okta should be added to/removed from. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the start of the membership processing phase, when Okta checks which groups users being imported into Okta should be added to/removed from.",
+      "info" : {
+        "created" : "2020-01-01",
+        "release" : "2020.01.0"
+      },
+      "beta" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.membership_processing.start" ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.object_creation.complete",
+      "category" : "sync",
+      "description" : "Fired upon completion of the object creation phase, when the first batch of objects is created/updated. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired upon completion of the object creation phase, when the first batch of objects is created/updated.",
+      "info" : {
+        "created" : "2020-01-01",
+        "release" : "2020.01.0"
+      },
+      "beta" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.object_creation.complete" ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.object_creation.start",
+      "category" : "sync",
+      "description" : "Fired at the completion of the download objects phase, when the objects (users, groups, devices) to be imported have been downloaded from the system of record. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the completion of the download objects phase, when the objects (users, groups, devices) to be imported have been downloaded from the system of record.",
+      "info" : {
+        "created" : "2020-01-01",
+        "release" : "2020.01.0"
+      },
+      "beta" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.object_creation.start" ],
       "schema" : {
         "debugData" : "SystemImportDebugData",
         "actor" : null,
@@ -15935,6 +16170,38 @@
       "beta" : false,
       "tags" : [ "import", "system" ],
       "mappings" : [ "app.user_management.update_user_lifecycle_from_master_failed" ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.user_matching.complete",
+      "category" : "sync",
+      "description" : "Fired upon completion of the user matching phase, when Okta attempts to match imported users to existing Okta users. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired upon completion of the user matching phase, when Okta attempts to match imported users to existing Okta users.",
+      "info" : {
+        "created" : "2020-01-01",
+        "release" : "2020.01.0"
+      },
+      "beta" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.user_matching.complete" ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.user_matching.start",
+      "category" : "sync",
+      "description" : "Fired at the start of the user matching phase, when Okta attempts to match imported users to existing Okta users. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired at the start of the user matching phase, when Okta attempts to match imported users to existing Okta users.",
+      "info" : {
+        "created" : "2020-01-01",
+        "release" : "2020.01.0"
+      },
+      "beta" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ "system.import.user_matching.start" ],
       "schema" : {
         "debugData" : "SystemImportDebugData",
         "actor" : null,
