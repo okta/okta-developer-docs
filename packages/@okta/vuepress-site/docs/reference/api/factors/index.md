@@ -669,6 +669,15 @@ A `400 Bad Request` status code may be returned if you attempt to enroll with a 
 
 If the user wants to use a different phone number (instead of the existing phone number) then the enroll API call needs to supply `updatePhone` option with `true`.
 
+You can’t update the phone number when there is currently a phone that has been activated. If you need to re-enroll, you need to start from scratch by deleting the phone/sms factor.
+
+updatePhone can only be used before the factor is activated.
+1.Get the Factors list from the user using GET FACTORS --Extract the FactorID.
+2.Delete the Existing SMS FACTOR by using DELETE FACTOR - FactorId has to be mentioned in the URL
+3.Then use the {{url}}/api/v1/authn/factors?updatePhone=true
+
+Ref : https://devforum.okta.com/t/update-factor-updatephone-true-flag-does-not-work/1265
+
 ###### Request Example
 
 ```bash
