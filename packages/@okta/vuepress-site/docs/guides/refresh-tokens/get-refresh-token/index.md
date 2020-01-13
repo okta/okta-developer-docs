@@ -4,15 +4,7 @@ title: Get a Refresh Token
 
 To get a refresh token, you send a request to your Okta Authorization Server.
 
-### Get a Refresh Token with the Code Flow
-
-In the case of the Authorization Code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then send this code to the `/token` endpoint to get an access token and a refresh token. For more information about this endpoint, see [Obtain an Authorization Grant from a User](/docs/reference/api/oidc/#authorize). For more information about the Authorization Code flow, see [Implementing the Authorization Code Flow](/docs/guides/implement-auth-code/).
-
-### Get a Refresh Token with the Resource Owner Password Flow
-
-For the Resource Owner Password flow, you use the Authorization Server's `/token` endpoint directly. For more information about this endpoint, see [Request a Token](/docs/reference/api/oidc/#token). For more information about the Resource Owner Password flow, see [Implementing the Resource Owner Password Flow](/docs/guides/implement-password/).
-
-The following combinations of grant type and scope, when sent to `/token` endpoint, will return a refresh token:
+The only flows that support Refresh tokens are the resource owner password flow, and the authorization code flow. This means that the following combinations of grant type and scope, when sent to `/token` endpoint, will return a refresh token:
 
 | Grant Type           | Scope                       |
 | -----------          | -----                       |
@@ -22,7 +14,21 @@ The following combinations of grant type and scope, when sent to `/token` endpoi
 
 > **Note:** The authorization code flow is unique, in that the `offline_access` scope has to be requested as part of the code request to the `/authorize` endpoint, and not the request sent to the `/token` endpoint.
 
-This table only shows the minimum requirements. For example, with the `password` grant type you can also include an `openid` scope alongside the `offline_access` scope:
+### Get a Refresh Token with the Code Flow
+
+In the case of the Authorization Code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then send this code to the `/token` endpoint to get an access token and a refresh token.
+
+> **Note:**  Authorization code with PKCE requests will not return refresh tokens if they are sent from SPAs or other browser-based apps.
+
+For more information about this endpoint, see [Obtain an Authorization Grant from a User](/docs/reference/api/oidc/#authorize). For more information about the Authorization Code flow, see [Implementing the Authorization Code Flow](/docs/guides/implement-auth-code/).
+
+### Get a Refresh Token with the Resource Owner Password Flow
+
+For the Resource Owner Password flow, you use the Authorization Server's `/token` endpoint directly.
+
+For more information about this endpoint, see [Request a Token](/docs/reference/api/oidc/#token). For more information about the Resource Owner Password flow, see [Implementing the Resource Owner Password Flow](/docs/guides/implement-password/).
+
+For example, with the `password` grant type you can include an `openid` scope alongside the `offline_access` scope:
 
 ```
 POST https://${yourOktaDomain}/oauth2/default/v1/token
