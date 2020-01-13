@@ -12,8 +12,9 @@ For example, you use Okta as a user store for your apps, but you don't want your
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain.
 
 ### Caveats
+
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
-* The Okta browser plugin doesn't work when customizing the Okta URL domain.
+* If your organization has configured any SAML or WS-Fed integrated applications, review the SAML or WS-Fed SSO setup instructions. If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use thew custom URL in the metadata.
 
 ### Common questions
 **Can I add more than one domain?**
