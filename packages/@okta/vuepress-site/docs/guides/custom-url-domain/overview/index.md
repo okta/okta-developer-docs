@@ -14,7 +14,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 ### Caveats
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
-* If your organization has configured any SAML or WS-Fed integrated applications, review the SAML or WS-Fed SSO setup instructions. If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use thew custom URL in the metadata.
+* If your organization has configured any SAML or WS-Fed integrated applications, review the SAML or WS-Fed SSO setup instructions. If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
 ### Common questions
 **Can I add more than one domain?**
