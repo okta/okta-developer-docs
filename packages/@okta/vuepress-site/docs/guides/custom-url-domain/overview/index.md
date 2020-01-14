@@ -17,7 +17,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * If your organization has configured any SAML or WS-Fed integrated applications, review the SAML or WS-Fed SSO setup instructions. If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
-* When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. Users may have bookmarked the original URL. You must communicate the new custom URL domain to your users. One way to communicate the change, for example, is to [create a custom notification](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
+* When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change, for example, is to [create a custom notification](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
 
 ### Common questions
 
