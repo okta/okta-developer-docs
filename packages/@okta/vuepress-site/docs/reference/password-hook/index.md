@@ -27,7 +27,7 @@ For steps to enable this Inline Hook, see below, [Enabling a Password Inline Hoo
 
 The Password Inline Hook allows you to....
 
-Provide a link to a new section of the /users API reference page covering "Create user with Hook-based password migration".
+Link to the new section of the /users API reference page covering "Create user with Hook-based password migration".
 
 Your custom code can respond with a command to confirm that the password supplied is valid, or to indicate that it is not.
 
@@ -37,11 +37,11 @@ The outbound call from Okta to your external service includes the following obje
 
 ### data.credential
 
-This object contains ....
+This object contains the password that the end user supplied when logging in.
 
 ### data.action
 
-The default action that.....
+Lets your external service specify whether the supplied password is valid.
 
 There are two possible values:
 
