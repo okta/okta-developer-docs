@@ -1,6 +1,6 @@
 ---
 title: Password Inline Hook Reference
-excerpt: Verify a user-supplied password during user import
+excerpt: Verify a user-supplied password during migration of the user to Okta
 ---
 
 # Password Inline Hook Reference≠
@@ -45,7 +45,7 @@ Specifies the default? Will affect behaviour if external service returns empty r
 
 ## Objects in Response You Send
 
-The objects that you can return in the JSON payload of your response are an array of one or more `commands`, to be executed by Okta, or an `error` object, to indicate problems with the verification request. These objects are defined as follows:
+The objects that you can return in the JSON payload of your response are an array of one or more `commands`, to be executed by Okta. These object is defined as follows:
 
 ### commands
 
@@ -68,13 +68,15 @@ The following commands are supported for the Registration Inline Hook type:
 |------------------------|--------------------------------------------------|
 | com.okta.action.update | Indicate whether the supplied password is valid. |
 
-To indicate whether the supplied password is valid, supply a type property set to `com.okta.action.update`, together with a value property set to `{"credential": "VERIFIED"}` or `{"credential": "UNVERIFIED"}`. The default is to allow registration.
-
 #### value
 
 The `value` object is the parameter to pass to the command.
 
-For `com.okta.action.update` commands, `value` should be an object containing a `credential` property set to either `VERIFIED` or `UNVERIFIED`, for example:
+For `com.okta.action.update` commands, `value` should be an object containing a `credential` property set to either `VERIFIED` or `UNVERIFIED`.
+
+To indicate whether the supplied password is valid, supply a type property set to `com.okta.action.update`, together with a value property set to `{"credential": "VERIFIED"}`.
+
+For example:
 
 ```json
 {
@@ -96,15 +98,6 @@ The same result could also be accomplished by means of an empty response, as fol
 ```http
 Status code 204 NO CONTENT
 ```
-
-### error
-
-See [error](/docs/concepts/inline-hooks/) for general information on the structure to use for the `error` object.
-
-In the case of the Password Inline Hook, the `error` object provides....
-
-> **Note:** If you include an error object in your response, (will the action command be executed?).
-
 ## Sample JSON Payload of Request
 
 ```json
@@ -152,12 +145,13 @@ In the case of the Password Inline Hook, the `error` object provides....
   ]
 }
 ```
+
 ## Enabling a Password Inline Hook
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
-You then need to associate the registered Inline Hook with a created user profile......
+Then, when creating a new user using the `/users` API, you need to specify, in the `profile.credentials` section of the `user` object that the Password Inline Hook should be used to check the password when the user signs in to Okta for the first time.
 
-Numbered list of the steps.
+Numbered list of the steps to summarize.
 
 Your Password Inline Hook is now configured for the new user you have created.
