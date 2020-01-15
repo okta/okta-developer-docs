@@ -352,6 +352,77 @@ curl -v -X POST \
 }
 ```
 
+#### Create User with Hook-Based Password Migration
+
+
+Creates a user with a Password Inline Hook to handle verification of their password.
+
+The new user is able to login immediately after activation using their existing password. Okta calls the Password Inline Hook to check that the password the user supplied is correct. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
+
+> Important: Do not generate or send a one-time activation token when activating users with hook-based password migration.  Users should login with their imported password.
+
+##### Request Example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.brock@example.com",
+    "login": "isaac.brock@example.com",
+    "mobilePhone": "555-415-1337"
+  },
+  "credentials": {
+    "password" : {
+      "hook": {
+        "type": "default"
+      }
+    },
+    "recovery_question": {
+      "question": "What is the name of your first stuffed animal?",
+      "answer": "Oktapus"
+    }
+}' "https://${yourOktaDomain}/api/v1/users?activate=false"
+```
+```json
+{
+  "id": "00ub0oNGTSWTBKOLGLNR",
+  "status": "ACTIVE",
+  "created": "2013-07-02T21:36:25.344Z",
+  "activated": null,
+  "statusChanged": null,
+  "lastLogin": null,
+  "lastUpdated": "2013-07-02T21:36:25.344Z",
+  "passwordChanged": "2013-07-02T21:36:25.344Z",
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.brock@example.com",
+    "login": "isaac.brock@example.com",
+    "mobilePhone": "555-415-1337"
+  },
+  "credentials": {
+    "password": {},
+    "provider": {
+      "type": "IMPORT",
+      "name": "IMPORT"
+    }
+  },
+  "_links": {
+    "activate": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+    }
+  }
+}
+```
+
 #### Create User with Password & Recovery Question
 
 

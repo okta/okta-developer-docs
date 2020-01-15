@@ -25,11 +25,11 @@ For steps to enable this Inline Hook, see below, [Enabling a Password Inline Hoo
 
 ## About
 
-The Password Inline Hook allows you to....
+The Password Inline Hook supports migration of users from another data store in cases where we wish to allow the users to retain their current passwords.
 
-Link to the new section of the /users API reference page covering "Create user with Hook-based password migration".
+This Inline Hook is meant to be used in conjunction with the [Create User with Hook-Based Password Migration](/docs/reference/api/users#create-user-with-hook-based-password-migration) use case of the `/users` API.
 
-Your custom code can respond with a command to confirm that the password supplied is valid, or to indicate that it is not.
+Your custom code responds to the Inline Hook request from Okta with a command to confirm that the password supplied by the end user is valid or not.
 
 ## Objects in the Request from Okta
 
@@ -41,7 +41,7 @@ This object contains the password that the end user supplied when logging in.
 
 ### data.action
 
-Specifies the default? Will affect behaviour if external service returns empty response.
+Specifies the default? Will affect behavior if external service returns empty response.
 
 ## Objects in Response You Send
 
