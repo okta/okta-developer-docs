@@ -158,6 +158,6 @@ To activate the Inline Hook, you first need to register your external service en
 
 You then need to associate the registered Inline Hook with a created user profile......
 
-Steps....
+Numbered list of the steps.
 
-Your Password Inline Hook is now configured.
+Your Password Inline Hook is now configured for the new user you have created.
