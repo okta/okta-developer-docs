@@ -3,7 +3,7 @@ title: Password Inline Hook Reference
 excerpt: Verify a user-supplied password during user import
 ---
 
-# Password Inline Hook Reference
+# Password Inline Hook Reference≠
 
 <ApiLifecycle access="ea" />
 
