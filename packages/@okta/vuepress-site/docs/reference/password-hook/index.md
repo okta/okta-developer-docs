@@ -41,16 +41,7 @@ This object contains the password that the end user supplied when logging in.
 
 ### data.action
 
-Lets your external service specify whether the supplied password is valid.
-
-There are two possible values:
-
-- `UNVERIFIED` indicates that....
-- `VERIFIED` indicates tha....
-
-The action is `xxxx` by default..
-
-Using the `com.okta.action.update` [command](#supported-commands) in your response, you can set the action.
+Specifies the default? Will affect behaviour if external service returns empty response.
 
 ## Objects in Response You Send
 
@@ -147,6 +138,20 @@ In the case of the Password Inline Hook, the `error` object provides....
 }
 ```
 
+## Sample JSON Payload of Response
+
+```json
+{
+  "commands":[
+    {
+      "type":"com.okta.action.update",
+      "value":{
+        "credential":"VERIFIED"
+      }
+    }
+  ]
+}
+```
 ## Enabling a Password Inline Hook
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
