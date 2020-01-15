@@ -1,4 +1,5 @@
 const guidesInfo = require('./scripts/build-guides-info');
+const replacementVars = require('./scripts/build-replacement-vars');
 
 module.exports = {
   dest: 'dist',
@@ -196,8 +197,19 @@ module.exports = {
         hostname: 'https://developer.okta.com',
         outFile: 'docs-sitemap.xml'
       }
-    ]
+    ],
   ],
+
+  chainWebpack(config) { 
+    config.module
+      .rule('md')
+      .test(/\.md$/)
+      .use('string-replace-loaded')
+      .loader('string-replace-loader')
+      .options({ 
+        multiple: replacementVars 
+      })
+  },
 
   evergreen: false,
 
