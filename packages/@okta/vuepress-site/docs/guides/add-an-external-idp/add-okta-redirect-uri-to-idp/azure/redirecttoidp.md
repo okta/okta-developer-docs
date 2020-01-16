@@ -1,4 +1,4 @@
-1. Back in Azure, locate the client app that you created in the <GuideLink link="../create-an-app-at-idp">first section</GuideLink>.
+1. Back in Azure AD, locate the client app that you created in the <GuideLink link="../create-an-app-at-idp">first section</GuideLink>.
 
 2. On the app **Overview** page, click **Add a Redirect URI**.
 
