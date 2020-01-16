@@ -268,3 +268,17 @@ http://${yourOktaDomain}/apiEndpoint
 ```
 
 `https://${yourOktaDomain}/apiEndpoint`
+### Replacement Examples
+
+Simple replace: -=OKTA_REPLACE_WITH_TEST_JUNK=-
+
+Many per line: -=OKTA_REPLACE_WITH_TEST_JUNK=--=OKTA_REPLACE_WITH_TEST_JUNK=- -=OKTA_REPLACE_WITH_TEST_JUNK=-
+
+With symbols: --=OKTA_REPLACE_WITH_TEST_JUNK=-- 
+
+in code blocks: `-=OKTA_REPLACE_WITH_TEST_JUNK=-`
+```
+-=OKTA_REPLACE_WITH_TEST_JUNK=-
+```
+
+widget version: -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
