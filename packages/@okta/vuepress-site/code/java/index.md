@@ -1,14 +1,14 @@
 ---
-title: Add User Management to Your Java App
+title: Add User Authentication and Okta Resource Management to Your Java App
 language: Java
 integration: back-end
 component: Code
 meta:
   - name: description
-    content: Read our guide to add user authentication to your Java app, and see related guides to help complete your project. 
+    content: Read our guide to add user authentication to your Java app, and see related guides to help complete your project.
 ---
 
-# <i class='icon-48 docsPage code-java'></i> Add User Management to Your Java App
+# <i class='icon-48 docsPage code-java'></i> Add User Authentication and Okta Resource Management to Your Java App
 
 <ul class='language-tabs'>
 	<li class="active">
@@ -41,7 +41,7 @@ The Okta Java SDK can be used in your server-side code to create and update user
 
 <p class="language-reference">
 	<a href='https://developer.okta.com/okta-sdk-java/apidocs/' class="language-reference">
-		<span class='icon expression-16'></span> 
+		<span class='icon expression-16'></span>
 		<span>Okta Java SDK Reference</span>
 	</a>
 </p>
