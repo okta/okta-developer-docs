@@ -1,5 +1,5 @@
 ---
-title: Add User Management to Your Angular App
+title: Add User Authentication to Your Angular App
 language: Angular
 integration: front-end
 component: Code

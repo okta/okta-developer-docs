@@ -1,14 +1,14 @@
 ---
-title: Add User Management to Your Vue.js App
+title: Add User Authentication to Your Vue.js App
 language: Vue
 integration: front-end
 component: Code
 meta:
   - name: description
-    content: Add identity management to your Vue app by using our guide and the Okta Vue SDK.
+    content: Add user authentication to your Vue app by using our guide and the Okta Vue SDK.
 ---
 
-# <i class='icon-48 docsPage code-vue'></i> Add User Management to Your Vue.js App
+# <i class='icon-48 docsPage code-vue'></i> Add User Authentication to Your Vue.js App
 
 ## Get Started with Vue.js + Okta
 
@@ -37,7 +37,7 @@ The Okta Vue SDK is a wrapper around the Okta Auth SDK for communicating with OA
 
 
 <a href='https://www.npmjs.com/package/@okta/okta-vue' class="language-reference">
-	<span class='icon download-16'></span> 
+	<span class='icon download-16'></span>
 	<span>okta-vue on npm</span>
 </a>
 
