@@ -1,5 +1,6 @@
 const guidesInfo = require('./scripts/build-guides-info');
-const replacementVars = require('./scripts/build-replacement-vars');
+const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
+const convertReplacementStrings = require('./scripts/convert-replacement-strings');
 
 module.exports = {
   dest: 'dist',
@@ -207,7 +208,14 @@ module.exports = {
       .use('string-replace-loaded')
       .loader('string-replace-loader')
       .options({ 
-        multiple: replacementVars 
+        multiple: convertReplacementStrings({ 
+          /* KEYS HERE GET WRAPPED IN '-=OKTA_REPLACE_WITH_XXX=-'
+           *
+           * Changes WILL require restarting `yarn dev` :(
+           */
+          WIDGET_VERSION: findLatestWidgetVersion(3), // use major version
+          TEST_JUNK: 'this is a test replacement', // Leave for testing
+        })
       })
   },
 
