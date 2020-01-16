@@ -15,8 +15,9 @@ For use in the <GuideLink link="../configure-idp-in-okta">next section</GuideLin
 2. In the panel that appears, copy the **OpenID Connect metadata document URL** and then paste that URL into a browser window to obtain the following endpoints:
 
     * Issuer
-    * Authorization endpoint
-    * Token endpoint
-    * JWKS endpoint
+    * Authorization
+    * Token
+    * JWKS
+    >**Note:** The userinfo endpoint is optional.
 
 3. Paste the endpoints into a text editor for use in the next section.
