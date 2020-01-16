@@ -9,6 +9,7 @@ const FRAMEWORK_TO_COMMON_NAME = {
 };
 
 const COMMON_NAME_TO_FANCY_NAME = {
+  azure: 'Azure',
   javascript: 'JS',
   angular: 'Angular',
   react: 'React',
