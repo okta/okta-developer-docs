@@ -473,11 +473,14 @@ Enrolls a user with a supported [factor](#list-factors-to-enroll)
 
 ##### Request Parameters
 
-| Parameter    | Description                                   | Param Type  | DataType                | Required |
-| ------------ | --------------------------------------------- | ----------- | ----------------------- | -------- |
-| id           | `id` of user                                  | URL         | String                  | TRUE     |
-| templateId   | `id` of an SMS template (only for SMS factor) | Query       | String                  | FALSE    |
-| factor       | Factor                                        | Body        | [Factor](#factor-model) | TRUE     |
+| Parameter            | Description                                                                                            | Param Type | DataType                | Required |
+| -------------------- | ------------------------------------------------------------------------------------------------------ | ---------- | ----------------------- | -------- |
+| activate             | If set to `true` will automatically attempt to activate a Factor after enrolling it                    | Query      | Boolean                 | FALSE    |
+| factor               | Factor                                                                                                 | Body       | [Factor](#factor-model) | TRUE     |
+| id                   | `id` of user                                                                                           | URL        | String                  | TRUE     |
+| templateId           | `id` of an SMS template (only for SMS Factors)                                                         | Query      | String                  | FALSE    |
+| tokenLifetimeSeconds | The lifetime of the Email Factors OTP, with a value between `1` and `86400` (Default is `300`)         | Query      | Number                  | FALSE    |
+| updatePhone          | Indicates if you'd like to update the `phoneNumber` (only for SMS Factors that are pending activation) | Query      | Boolean                 | FALSE    |
 
 ##### Response Parameters
 
@@ -667,7 +670,13 @@ A `400 Bad Request` status code may be returned if you attempt to enroll with a 
 
 ##### Enroll Okta SMS Factor by Updating Phone Number
 
-If the user wants to use a different phone number (instead of the existing phone number) then the enroll API call needs to supply `updatePhone` option with `true`.
+If the user wants to use a different phone number (instead of the existing phone number) then the enroll API call needs to supply the `updatePhone` query parameter set to `true`.
+
+The phone number cannot be updated for an SMS factor that is already activated. If you'd like to update the phone number, you will need to reset the factor and re-enroll it:
+
+1. [List Enrolled Factors](#list-enrolled-factors) and extract the relevant `factorId`.
+2. [Reset the Factor](#reset-factor)
+3. Then [enroll the Factor](#enroll-okta-sms-factor) again. You will be able to pass the `updatePhone` parameter set to `true`, along with an updated `phoneNumber` value for as long as the Factor has a `status` value of `PENDING_ACTIVATION`.
 
 ###### Request Example
 
@@ -1641,9 +1650,9 @@ curl -v -X POST \
 
 #### Enroll Custom HOTP Factor
 
-Enrolls a user for a Custom HMAC-based One-time Password (HOTP) factor. The enrollment process involves passing a factor profile Id and shared secret for a particular token.  
+Enrolls a user for a Custom HMAC-based One-time Password (HOTP) factor. The enrollment process involves passing a factor profile Id and shared secret for a particular token.
 
-> **Note:** Currently only auto-activation is supported for Custom HOTP Factor. 
+> **Note:** Currently only auto-activation is supported for Custom HOTP Factor.
 
 ##### Enroll and Auto-Activate Custom HOTP Factor
 
@@ -3319,7 +3328,7 @@ curl -v -X POST \
 <!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
 <script>
   // Convert activation object's challenge nonce from string to binary
-  response._embedded.challenge.challenge = CryptoUtil.strToBin(response._embedded.challenge.challenge); 
+  response._embedded.challenge.challenge = CryptoUtil.strToBin(response._embedded.challenge.challenge);
 
   // Call the WebAuthn javascript API to get signed assertion from the WebAuthn authenticator
   navigator.credentials.get({

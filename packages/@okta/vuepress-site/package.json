@@ -28,6 +28,7 @@
   "dependencies": {
     "js-yaml": "^3.13.1",
     "markdown-it-attrs": "2.3.2",
+    "string-replace-loader": "^2.2.0",
     "vuepress-plugin-sitemap": "^2.1.2",
     "xml2js": "^0.4.19"
   },
