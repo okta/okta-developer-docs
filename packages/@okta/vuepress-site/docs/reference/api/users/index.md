@@ -354,9 +354,9 @@ curl -v -X POST \
 
 #### Create User with Hook-Based Password Migration
 
-Creates a user with a Password Inline Hook to handle verification of their password.
+Creates a user, specifying that a [Password Import Inline Hook](/docs/reference/password-hook/) should be triggered to handle verification of their password the first time they log in.
 
-The new user is able to login immediately after activation using their existing password. Okta calls the Password Inline Hook to check that the password the user supplied is correct. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
+In this use case, the user is able to log in to Okta using their existing password. Okta calls the Password Inline Hook to check that the password the user supplied is correct.
 
 ##### Request Example
 
