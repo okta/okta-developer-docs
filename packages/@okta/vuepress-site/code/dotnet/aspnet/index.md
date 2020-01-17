@@ -1,5 +1,5 @@
 ---
-title: Add User Management to Your ASP.NET App
+title: Add User Authentication and Okta Resource Management to Your ASP.NET App
 language: .NET
 integration: back-end
 component: Code
@@ -8,7 +8,7 @@ meta:
     content: Get started with ASP.NET and Okta by using our guide to help you add user authentication to your ASP.NET app.
 ---
 
-# <i class='icon-48 docsPage code-dotnet'></i> Add User Management to Your ASP.NET App
+# <i class='icon-48 docsPage code-dotnet'></i> Add User Authentication and Okta Resource Management to Your ASP.NET App
 
 <ul class='language-tabs'>
 	<li>
@@ -49,7 +49,7 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 Okta's integration with ASP.NET makes it easy to add sign-in to your ASP.NET MVC applications and Web APIs.
 
 <a href='https://www.nuget.org/packages/Okta.AspNet' class="language-reference">
-	<span class='icon download-16'></span> 
+	<span class='icon download-16'></span>
 	<span>ASP.NET integration on NuGet</span>
 </a>
 
