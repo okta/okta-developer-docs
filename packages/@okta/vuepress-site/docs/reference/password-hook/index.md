@@ -25,7 +25,7 @@ For steps to enable this Inline Hook, see below, [Enabling a Password Import Inl
 
 ## About
 
-The Password Import Inline Hook enables migration of users from another data store in a case where you wish the users to retain their current passwords. It is meant to be used in conjunction with the [Create User with Hook-Based Password Migration](/docs/reference/api/users#create-user-with-hook-based-password-migration) flow provided by the [Users](/docs/reference/api/users/) API.
+The Password Import Inline Hook enables migration of users from another data store in a case where you wish the users to retain their current passwords. It is meant to be used in conjunction with the [Create User with Hook-Based Password Migration](/docs/reference/api/users#create-user-with-hook-based-password-migration) flow provided by the Users API.
 
 The Password Import Inline Hook is triggered when the end user tries to log in to Okta for the first time. Okta sends the password that the user supplied. sends a response to Okta indicating whether the password supplied by the end user is valid or not.
 
@@ -62,9 +62,9 @@ For example commands, see the [value](#value) section below.
 
 The following command is supported for the Registration Inline Hook type:
 
-| Command                | Description                                      |
-|------------------------|--------------------------------------------------|
-| com.okta.action.update | Indicate whether the supplied password is valid. |
+| Command                | Description                                                                         |
+|------------------------|-------------------------------------------------------------------------------------|
+| com.okta.action.update | Indicates whether the user-supplied credentials should be accepted as valid or not. |
 
 #### value
 
@@ -151,5 +151,5 @@ To enable a Password Import Inline Hook, you first need to register your externa
 
 Then, when creating a new user using the `/users` API, you need to use the [Create User with Hook-Based Password Migration](/docs/reference/api/users/#create-user-with-hook-based-password-migration) use case. This involves specifying a `profile.credentials.password.hook` property in the request body.
 
-Finally, when the end user that you have added attempts to log in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not. If they are valid, Okta stores the password that was provided and can authenticate the user from then on on without the need for the Inline Hook.
+Finally, when the end user that you have added attempts to log in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not. If they are valid, Okta stores the password that was provided and can authenticate the user independently from then on.
 
