@@ -473,12 +473,14 @@ Enrolls a user with a supported [factor](#list-factors-to-enroll)
 
 ##### Request Parameters
 
-| Parameter   | Description                                                                                            | Param Type | DataType                | Required |
-| ----------- | ------------------------------------------------------------------------------------------------------ | ---------- | ----------------------- | -------- |
-| factor      | Factor                                                                                                 | Body       | [Factor](#factor-model) | TRUE     |
-| id          | `id` of user                                                                                           | URL        | String                  | TRUE     |
-| templateId  | `id` of an SMS template (only for SMS Factors)                                                          | Query      | String                  | FALSE    |
-| updatePhone | Indicates if you'd like to update the `phoneNumber` (only for SMS Factors that are pending activation) | Query      | Boolean                 | FALSE    |
+| Parameter            | Description                                                                                            | Param Type | DataType                | Required |
+| -------------------- | ------------------------------------------------------------------------------------------------------ | ---------- | ----------------------- | -------- |
+| activate             | If set to `true` will automatically attempt to activate a Factor after enrolling it                    | Query      | Boolean                 | FALSE    |
+| factor               | Factor                                                                                                 | Body       | [Factor](#factor-model) | TRUE     |
+| id                   | `id` of user                                                                                           | URL        | String                  | TRUE     |
+| templateId           | `id` of an SMS template (only for SMS Factors)                                                         | Query      | String                  | FALSE    |
+| tokenLifetimeSeconds | The lifetime of the Email Factors OTP, with a value between `1` and `86400` (Default is `300`)         | Query      | Number                  | FALSE    |
+| updatePhone          | Indicates if you'd like to update the `phoneNumber` (only for SMS Factors that are pending activation) | Query      | Boolean                 | FALSE    |
 
 ##### Response Parameters
 
