@@ -359,8 +359,6 @@ Creates a user with a Password Inline Hook to handle verification of their passw
 
 The new user is able to login immediately after activation using their existing password. Okta calls the Password Inline Hook to check that the password the user supplied is correct. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
 
-> Important: Do not generate or send a one-time activation token when activating users with hook-based password migration.  Users should login with their imported password.
-
 ##### Request Example
 
 ```bash
@@ -373,51 +371,46 @@ curl -v -X POST \
     "firstName": "Isaac",
     "lastName": "Brock",
     "email": "isaac.brock@example.com",
-    "login": "isaac.brock@example.com",
-    "mobilePhone": "555-415-1337"
+    "login": "isaac.brock@example.com"
   },
   "credentials": {
     "password" : {
       "hook": {
         "type": "default"
       }
-    },
-    "recovery_question": {
-      "question": "What is the name of your first stuffed animal?",
-      "answer": "Oktapus"
     }
-}' "https://${yourOktaDomain}/api/v1/users?activate=false"
+  }
+}' "https://${yourOktaDomain}/api/v1/users?activate=true"
 ```
+
+#### Response Example
+
 ```json
-{
-  "id": "00ub0oNGTSWTBKOLGLNR",
-  "status": "ACTIVE",
-  "created": "2013-07-02T21:36:25.344Z",
-  "activated": null,
-  "statusChanged": null,
-  "lastLogin": null,
-  "lastUpdated": "2013-07-02T21:36:25.344Z",
-  "passwordChanged": "2013-07-02T21:36:25.344Z",
-  "profile": {
-    "firstName": "Isaac",
-    "lastName": "Brock",
-    "email": "isaac.brock@example.com",
-    "login": "isaac.brock@example.com",
-    "mobilePhone": "555-415-1337"
-  },
-  "credentials": {
-    "password": {},
-    "provider": {
-      "type": "IMPORT",
-      "name": "IMPORT"
-    }
-  },
-  "_links": {
-    "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+
+  "eventId": "3o9jBzq1SmOGmmsDsqyyeQ",
+  "eventTime": "2020-01-17T21:23:56.000Z",
+  "eventType": "com.okta.user.credential.password.import",
+  "eventTypeVersion": "1.0",
+  "contentType": "application/json",
+  "cloudEventVersion": "0.1",
+  "source": "https://${yourOktaDomain}/api/v1/inlineHooks/cal2xd5phv9fsPLcF0g7",
+  "data": {
+    "context": {
+      "request": {
+        "id": "XiIl6wn7005Rr@fjYqeC7AAABxw",
+        "method": "POST",
+        "url": {
+          "value": "/api/v1/authn"
+        },
+        "ipAddress": "98.124.153.138"
+      },
+      "credential": {
+        "username": "isaac.brock@example.com",
+        "password": "Okta"
+      }
     },
-    "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+    "action": {
+      "credential": "UNVERIFIED"
     }
   }
 }
