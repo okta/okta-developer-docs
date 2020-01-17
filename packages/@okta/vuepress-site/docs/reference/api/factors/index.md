@@ -669,7 +669,7 @@ A `400 Bad Request` status code may be returned if you attempt to enroll with a 
 
 If the user wants to use a different phone number (instead of the existing phone number) then the enroll API call needs to supply `updatePhone` option with `true`.
 
-You can’t update the phone number when there is currently a phone that has been activated. If you need to re-enroll, you need to start from scratch by deleting the phone/sms factor.
+You can't update the phone number when there is currently a phone that has been activated. If you need to re-enroll, you need to start from scratch by deleting the phone/sms factor.
 
 updatePhone can only be used before the factor is activated.
 1.Get the Factors list from the user using GET FACTORS --Extract the FactorID.
@@ -1650,9 +1650,9 @@ curl -v -X POST \
 
 #### Enroll Custom HOTP Factor
 
-Enrolls a user for a Custom HMAC-based One-time Password (HOTP) factor. The enrollment process involves passing a factor profile Id and shared secret for a particular token.  
+Enrolls a user for a Custom HMAC-based One-time Password (HOTP) factor. The enrollment process involves passing a factor profile Id and shared secret for a particular token.
 
-> **Note:** Currently only auto-activation is supported for Custom HOTP Factor. 
+> **Note:** Currently only auto-activation is supported for Custom HOTP Factor.
 
 ##### Enroll and Auto-Activate Custom HOTP Factor
 
@@ -3328,7 +3328,7 @@ curl -v -X POST \
 <!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
 <script>
   // Convert activation object's challenge nonce from string to binary
-  response._embedded.challenge.challenge = CryptoUtil.strToBin(response._embedded.challenge.challenge); 
+  response._embedded.challenge.challenge = CryptoUtil.strToBin(response._embedded.challenge.challenge);
 
   // Call the WebAuthn javascript API to get signed assertion from the WebAuthn authenticator
   navigator.credentials.get({
