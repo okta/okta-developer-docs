@@ -44,9 +44,9 @@ The easiest way to get started with the [Okta Sign-In Widget](https://github.com
 To use our CDN, include the following links to your HTML:
 
 ```html
-<script src="https://global.oktacdn.com/okta-signin-widget/3.2.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+<script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
 
-<link href="https://global.oktacdn.com/okta-signin-widget/3.2.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
 > The `okta-sign-in.min.js` file will expose a global `OktaSignIn` object that can bootstrap the widget.

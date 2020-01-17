@@ -74,7 +74,7 @@ First, update `src/app/app.component.html` to provide the Login logic:
 
 
 <!-- Latest CDN production CSS -->
-<link href="https://global.oktacdn.com/okta-signin-widget/3.2.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 
 <button routerLink="/"> Home </button>
 <button *ngIf="!isAuthenticated" routerLink="/login"> Login </button>
