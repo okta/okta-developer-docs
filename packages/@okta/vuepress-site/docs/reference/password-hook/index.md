@@ -35,11 +35,11 @@ The outbound call from Okta to your external service includes the following obje
 
 ### data.credential
 
-This object contains the password that the end user supplied when logging in.
+This object contains `username` and `password` properties. These are user name and password that the end user supplied when attempting to log in to Okta.
 
 ### data.action
 
-Specifies the default? Will affect behavior if external service returns empty response.
+This specifies the default action Okta is set to take. Okta will take this action if your external service sends an empty HTTP 204 response. You can override the default action by returning a `command` object in your response, specifying the action to take.
 
 ## Objects in Response You Send
 
@@ -47,20 +47,20 @@ The objects that you can return in the JSON payload of your response are an arra
 
 ### commands
 
-The `commands` object lets you invoke commands to modify or add values to the attributes in the Okta user profile that will be created for this user, as well as to control whether or not the registration attempt is allowed to proceed.
+The `commands` object lets you specify whether Okta should accept the end user's password as verified or not.
 
-This object is an array, allowing you to send multiple commands in your response. Each array element requires a `type` property and a `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply parameters for that command.
+This object is an array. Each array element requires a `type` property and a `value` property. The `type` property is where you specify the command, and `value` is where you supply the parameter for the command
 
-| Property | Description                                           | Data Type       |
-|----------|-------------------------------------------------------|-----------------|
-| type     | One of the [supported commands](#supported-commands). | String          |
-| value    | Operand to pass to the command.                       | [value](#value) |
+| Property | Description                                | Data Type       |
+|----------|--------------------------------------------|-----------------|
+| type     | A [supported command](#supported-command). | String          |
+| value    | Operand to pass to the command.            | [value](#value) |
 
 For example commands, see the [value](#value) section below.
 
-#### Supported Commands
+#### Supported Command
 
-The following commands are supported for the Registration Inline Hook type:
+The following command is supported for the Registration Inline Hook type:
 
 | Command                | Description                                      |
 |------------------------|--------------------------------------------------|
@@ -89,28 +89,29 @@ For example:
 }
 ```
 
-The above example tells Okta that the password sent does not verify.
+The above example tells Okta that the password sent should not be accepted.
 
-The same result could also be accomplished by means of an empty response, as follows:
+If the default action sent by Okta in the `action.credential` property of the request was `UNVERIFIED`, then the same result of rejecting the password could also be accomplished by means of an empty response, as follows:
 
 ```http
 Status code 204 NO CONTENT
 ```
+
 ## Sample JSON Payload of Request
 
 ```json
 {
-  "eventId": "GOsk4z6tSSeZo6X08MvKaw",
-  "eventTime": "2019-08-27T18:07:24.000Z",
+  "eventId": "3o9jBzq1SmOGmmsDsqyyeQ",
+  "eventTime": "2020-01-17T21:23:56.000Z",
   "eventType": "com.okta.user.credential.password.import",
   "eventTypeVersion": "1.0",
   "contentType": "application/json",
   "cloudEventVersion": "0.1",
-  "source": "https://${yourOktaDomain}/api/v1/inlineHooks/${hookId}",
+  "source": "https://${yourOktaDomain}/api/v1/inlineHooks/cal2xd5phv9fsPLcF0g7",
   "data": {
     "context": {
       "request": {
-        "id": "XWVxW2zcaH5-Ii74OsI6CgAACJw",
+        "id": "XiIl6wn7005Rr@fjYqeC7AAABxw",
         "method": "POST",
         "url": {
           "value": "/api/v1/authn"
@@ -118,11 +119,11 @@ Status code 204 NO CONTENT
         "ipAddress": "98.124.153.138"
       },
       "credential": {
-        "username": "stuart.minion@okta.com",
-        "password": "ADRumble@6"
+        "username": "isaac.brock@example.com",
+        "password": "Okta"
       }
     },
-    "action":{
+    "action": {
       "credential": "UNVERIFIED"
     }
   }
