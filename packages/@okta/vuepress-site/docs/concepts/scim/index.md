@@ -114,7 +114,7 @@ After you have built and tested your SCIM application, read through our guide on
 If you want to read more about how to use the Okta Admin Console for provisioning in your app integration or have additional questions about SCIM, visit the following links:
 
 * [Okta Lifecycle Management User Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_prov_okta_lcm_user_provision)
-* [SCIM Technical FAQs](/docs/concepts/scim-new/faqs/)
+* [SCIM Technical FAQs](/docs/concepts/scim/faqs/)
 * [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/overview/)
 * The "SCIM Applications" section of [Using the App Integration Wizard](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm)
 * [Provisioning Concepts](https://support.okta.com/help/s/article/Provisioning-Concepts-and-Methods)
