@@ -473,11 +473,12 @@ Enrolls a user with a supported [factor](#list-factors-to-enroll)
 
 ##### Request Parameters
 
-| Parameter    | Description                                   | Param Type  | DataType                | Required |
-| ------------ | --------------------------------------------- | ----------- | ----------------------- | -------- |
-| id           | `id` of user                                  | URL         | String                  | TRUE     |
-| templateId   | `id` of an SMS template (only for SMS factor) | Query       | String                  | FALSE    |
-| factor       | Factor                                        | Body        | [Factor](#factor-model) | TRUE     |
+| Parameter   | Description                                                                                            | Param Type | DataType                | Required |
+| ----------- | ------------------------------------------------------------------------------------------------------ | ---------- | ----------------------- | -------- |
+| factor      | Factor                                                                                                 | Body       | [Factor](#factor-model) | TRUE     |
+| id          | `id` of user                                                                                           | URL        | String                  | TRUE     |
+| templateId  | `id` of an SMS template (only for SMS Factors)                                                          | Query      | String                  | FALSE    |
+| updatePhone | Indicates if you'd like to update the `phoneNumber` (only for SMS Factors that are pending activation) | Query      | Boolean                 | FALSE    |
 
 ##### Response Parameters
 
@@ -667,16 +668,13 @@ A `400 Bad Request` status code may be returned if you attempt to enroll with a 
 
 ##### Enroll Okta SMS Factor by Updating Phone Number
 
-If the user wants to use a different phone number (instead of the existing phone number) then the enroll API call needs to supply `updatePhone` option with `true`.
+If the user wants to use a different phone number (instead of the existing phone number) then the enroll API call needs to supply the `updatePhone` query parameter set to `true`.
 
-You can't update the phone number when there is currently a phone that has been activated. If you need to re-enroll, you need to start from scratch by deleting the phone/sms factor.
+The phone number cannot be updated for an SMS factor that is already activated. If you'd like to update the phone number, you will need to reset the factor and re-enroll it:
 
-updatePhone can only be used before the factor is activated.
-1.Get the Factors list from the user using GET FACTORS --Extract the FactorID.
-2.Delete the Existing SMS FACTOR by using DELETE FACTOR - FactorId has to be mentioned in the URL
-3.Then use the {{url}}/api/v1/authn/factors?updatePhone=true
-
-Ref : https://devforum.okta.com/t/update-factor-updatephone-true-flag-does-not-work/1265
+1. [List Enrolled Factors](#list-enrolled-factors) and extract the relevant `factorId`.
+2. [Reset the Factor](#reset-factor)
+3. Then [enroll the Factor](#enroll-okta-sms-factor) again. You will be able to pass the `updatePhone` parameter set to `true`, along with an updated `phoneNumber` value for as long as the Factor has a `status` value of `PENDING_ACTIVATION`.
 
 ###### Request Example
 
