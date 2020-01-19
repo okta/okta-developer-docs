@@ -4,7 +4,7 @@ const BasePage = require('./BasePage');
 
 const clientSelectorId = 'client-selector';
 const footerSelector = '.Footer';
-const formSearchId = 'form_search';
+const formSearchId = 'searchbox';
 const skipToServerSetupLinkText = 'Skip to server setup';
 
 const clientSetupLinkId = 'client_setup_link';
