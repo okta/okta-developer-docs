@@ -45,11 +45,11 @@ This specifies the default action Okta is set to take. Okta will take this actio
 
 ## Objects in Response You Send
 
-The objects that you can return in the JSON payload of your response are an array of one or more `commands`, to be executed by Okta. These object is defined as follows:
+The objects that you can return in the JSON payload of your response are an array of one or more `commands` objects, which specify commands to be executed by Okta. These object is defined as follows:
 
 ### commands
 
-The `commands` object lets you specify whether Okta should accept the end user's password as verified or not.
+For the Password Import Inline Hook, the `commands` object lets you specify whether Okta should accept the end user's login credentials as valid or not.
 
 This object is an array. Each array element requires a `type` property and a `value` property. The `type` property is where you specify the command, and `value` is where you supply the parameter for the command
 
@@ -57,6 +57,8 @@ This object is an array. Each array element requires a `type` property and a `va
 |----------|--------------------------------------------|-----------------|
 | type     | A [supported command](#supported-command). | String          |
 | value    | Operand to pass to the command.            | [value](#value) |
+
+For the Password Import Inline Hook, you will typically only return one `commands` object with one array element in it.
 
 For example commands, see the [value](#value) section below.
 
@@ -74,9 +76,9 @@ The `value` object is the parameter to pass to the command.
 
 For `com.okta.action.update` commands, `value` should be an object containing a `credential` property set to either `VERIFIED` or `UNVERIFIED`.
 
-To indicate whether the supplied password is valid, supply a type property set to `com.okta.action.update`, together with a value property set to `{"credential": "VERIFIED"}`.
+To indicate whether the supplied password is valid, supply a type property set to `com.okta.action.update`, together with a value property set to `{"credential": "VERIFIED"}` or `{"credential": "UNVERIFIED"}`.
 
-For example:
+For example, to indicate that the supplied credentials should not be accepted as valid, you would return the following:
 
 ```json
 {
@@ -90,8 +92,6 @@ For example:
    ]
 }
 ```
-
-The above example tells Okta that the password sent should not be accepted.
 
 If the default action sent by Okta in the `action.credential` property of the request was `UNVERIFIED`, then the same result of rejecting the password could also be accomplished by means of an empty response, as follows:
 
