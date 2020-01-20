@@ -147,9 +147,9 @@ If the default action sent by Okta in the `action.credential` property of the re
 
 ## Enabling a Password Import Inline Hook
 
-To enable a Password Import Inline Hook, you first need to register your external service endpoint with Okta and configure it as an Inline Hook of type `com.okta.user.credential.password.import`; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hook-setup). You can also use the Admin Console to register your external service endpoint and configure the hook by going to **Workflow > Inline Hooks**, clicking `Add Inline Hook`, and selecting **Password Import** as the type.
+To enable a Password Import Inline Hook, you first need to register your external service endpoint with Okta and configure it as an Inline Hook of type `com.okta.user.credential.password.import`; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hook-setup). You can also use the Admin Console to register your external service endpoint and configure the hook by going to **Workflow > Inline Hooks** and clicking `Add Inline Hook`.
 
-Then, when creating a new user using the `/users` API, you need to use the [Create User with Hook-Based Password Migration](/docs/reference/api/users/#create-user-with-hook-based-password-migration) use case. This involves specifying a `profile.credentials.password.hook` property in the request body.
+When creating a new user using the `/users` API, you need to use the [Create User with Hook-Based Password Migration](/docs/reference/api/users/#create-user-with-hook-based-password-migration) use case. This involves specifying a `profile.credentials.password.hook` property in the request body.
 
-Finally, when the end user that you have added attempts to log in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not. If they are valid, Okta stores the password that was provided and can authenticate the user independently from then on.
+When the end user that you have added attempts to log in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not. If the credentials are valid, Okta stores the password, and can authenticate the user independently from then on.
 
