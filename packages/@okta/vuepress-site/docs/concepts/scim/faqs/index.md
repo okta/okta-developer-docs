@@ -65,3 +65,23 @@ You should also specify your data requirements in the configuration document you
 The filtering capabilities in the SCIM protocol are pretty broad, but the common filtering use case with Okta is quite narrow. Okta determines if a newly created user already exists in your app based on a matching identifier. This means the `eq` (equals) operator is all you really need to support.
 
 On the SCIM server side, Okta only supports filtering through the `eq` operator on the SCIM `userName` attribute. However, Okta can use any `appuser` attribute on the Okta side for passing into the `eq` operator. Typically this is `appuser.userName`, but `appuser.email` or `appuser.randomAttribute` are also valid.
+
+**Q: How do I import users?**
+
+User import operations are initiated by Okta, either manually or on a schedule. To run an import for your SCIM users, go into the Okta Admin Console:
+
+* Select your SCIM application from your list of applications
+* Under the **Import** tab, click **To Okta** and **Import Now** to do a one-time import
+* Okta prompts you to review and confirm assignments for any users not automatically matched to existing Okta users.
+
+To set up a regular schedule for importing users, go into the Okta Admin Console:
+
+* Select your SCIM application from your list of applications
+* Under the **Provisioning** tab, click **To Okta** and **Edit** in the General section
+* In the **Full Import Schedule** drop down, you can choose from hourly, daily, or weekly imports
+
+For more details on the import functionality of Okta, see [Import users from an app](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Importing_People) in our Product Help documentation.
+
+**Q: How do I get a SCIM app to with Okta from inside my corporate firewall?**
+
+The Okta [SCIM provisioning guide](/docs/guides/build-provisioning-integration/) instructions target cloud-based applications, but Okta does have a solution for on-premise applications. For more details  about the Okta agent-based provisioning solution, see [Configuring On Premises Provisioning](https://support.okta.com/help/s/article/29448976-Configuring-On-Premises-Provisioning).
