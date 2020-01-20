@@ -415,6 +415,7 @@ Other updates to attributes in a user profile should be handled through a PUT op
 
 To deactivate users, the functionality needs to be enabled in Okta. In the Okta Admin Console:
 
+* Select your SCIM application from your list of applications
 * Under the **Provisioning** tab, click **To App** and **Edit**
 * In the **Deactivate Users** option, click **Enable** and then **Save**
 
