@@ -76,7 +76,9 @@ The `value` object is the parameter to pass to the command.
 
 For `com.okta.action.update` commands, `value` should be an object containing a `credential` property set to either `VERIFIED` or `UNVERIFIED`.
 
-To indicate whether the supplied password is valid, supply a type property set to `com.okta.action.update`, together with a value property set to `{"credential": "VERIFIED"}` or `{"credential": "UNVERIFIED"}`.
+To indicate that the user supplied credentials are valid, supply a type property set to `com.okta.action.update`, together with a value property set to `{"credential": "VERIFIED"}`.
+
+Converseley, that the user supplied credentials are not valid, supply a type property set to `com.okta.action.update`, together with a value property set to`{"credential": "UNVERIFIED"}`.
 
 For example, to indicate that the supplied credentials should not be accepted as valid, you would return the following:
 
@@ -93,7 +95,7 @@ For example, to indicate that the supplied credentials should not be accepted as
 }
 ```
 
-If the default action sent by Okta in the `action.credential` property of the request was `UNVERIFIED`, then the same result of rejecting the password could also be accomplished by means of an empty response, as follows:
+If the default action sent by Okta in the `action.credential` property of the request to your external service was `UNVERIFIED`, then the same result, of rejecting the user-supplied credentials, could also be accomplished by means of returning an empty response, as follows:
 
 ```http
 Status code 204 NO CONTENT
