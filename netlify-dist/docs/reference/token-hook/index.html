@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Token Inline Hook Reference | Okta Developer</title>
+    <meta name="description" content="Secure, scalable, and highly available authentication and user management for any app.">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js"></script>
+  <script src="https://static.cloud.coveo.com/searchui/v2.7219/js/CoveoJsSearch.Lazy.min.js" defer="true"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/manifest.json">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+  <link rel="stylesheet" href="https://developer.okta.com/sites/all/themes/developer/css/master.css">
+  <link rel="stylesheet" href="https://coveo-oktaweb.pantheonsite.io/sites/all/modules/okta_coveo_search_developer/css/okta_coveo_search_developer.css?q49ktf">
+  <meta http-equiv="XA-UA-Compatible" content="IE=edge">
+  <script>
+      // TypeKit
+        (function(d) {
+          var config = {
+            kitId: 'jff5neq',
+            scriptTimeout: 3000,
+            async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/bwf-loadingb/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+
+      var isProduction = window.location.hostname === 'developer.okta.com';
+      if (isProduction) {
+
+        // START Google Tag Manager
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KXMLV58');
+        // END Google Tag Manager
+
+      }
+    </script>
+    
+    <link rel="preload" href="/assets/css/0.styles.15a2bd63.css" as="style"><link rel="preload" href="/assets/js/app.1df7935f.js" as="script"><link rel="preload" href="/assets/js/11.71506886.js" as="script"><link rel="preload" href="/assets/js/2.8712a879.js" as="script"><link rel="preload" href="/assets/js/4.57ec015f.js" as="script"><link rel="preload" href="/assets/js/10.75e07b2c.js" as="script"><link rel="preload" href="/assets/js/34.6da36575.js" as="script"><link rel="preload" href="/assets/js/1213.f396ee58.js" as="script"><link rel="preload" href="/assets/js/5.93479991.js" as="script"><link rel="preload" href="/assets/js/1.952b7ece.js" as="script"><link rel="preload" href="/assets/js/31.3153d314.js" as="script">
+    <link rel="stylesheet" href="/assets/css/0.styles.15a2bd63.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="PageWrap Page"><div><header class="Header is-fixed"><div class="Wrap"><a href="https://developer.okta.com" class="Logo"><svg version="1.1" id="OktaLogo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 431.9 151.4" style="enable-background:new 0 0 431.9 151.4;" xml:space="preserve"><g><g><g><path d="M102.2,41.4c-21,0-38.1,17.1-38.1,38.1s17.1,38.1,38.1,38.1s38.1-17.1,38.1-38.1l0,0C140.3,58.5,123.2,41.4,102.2,41.4z M102.2,98.5c-10.5,0-19-8.5-19-19s8.5-19,19-19s19,8.5,19,19c0.1,10.5-8.4,19-18.9,19.1C102.3,98.6,102.2,98.6,102.2,98.5L102.2,98.5z"/><path d="M169.1,92.3c0-1.9,1.5-3.4,3.4-3.4c0.9,0,1.8,0.4,2.4,1c9.5,9.7,25.3,26.3,25.4,26.4c0.4,0.5,0.8,0.8,1.4,0.9l1.6,0.2h17.2c1.8,0,3.3-1.4,3.4-3.2c0-0.8-0.3-1.5-0.8-2.2l-28.6-29.2l-1.5-1.5c-3.2-3.9-2.9-5.4,0.8-9.3l22.6-25.1c1.1-1.4,0.8-3.5-0.6-4.6c-0.6-0.4-1.3-0.7-2-0.7h-17c-0.6,0.2-1.1,0.5-1.5,0.9L175,64.4c-1.3,1.4-3.4,1.5-4.8,0.2c-0.7-0.6-1.1-1.5-1.1-2.5V18.9c0-1.7-1.3-3-3-3c-0.1,0-0.2,0-0.3,0h-12.7c-2.2,0-3.3,1.5-3.3,2.8v95.8c0,2.2,1.8,2.8,3.3,2.8h12.7c1.7,0.1,3.2-1.2,3.3-2.9c0,0,0,0,0,0V92.3z"/><path d="M273,114l-1.4-12.8c-0.2-1.7-1.7-2.9-3.4-2.7c0,0,0,0-0.1,0l-2.9,0.2c-10.1,0-18.5-7.9-19-18c0-0.3,0-0.7,0-1V64.2c-0.1-2,1.5-3.6,3.5-3.7c0,0,0,0,0,0h17c1.7-0.1,3.1-1.5,3-3.2c0,0,0-0.1,0-0.1v-12c0-2.3-1.5-3.6-2.8-3.6h-17.1c-1.9,0.1-3.5-1.5-3.6-3.4c0,0,0,0,0,0V18.9c-0.1-1.7-1.5-3.1-3.2-3c0,0-0.1,0-0.1,0h-12.7c-1.6-0.1-3,1.1-3.1,2.7c0,0.1,0,0.1,0,0.2c0,0,0,61.7,0,62c0.5,21,17.9,37.6,38.9,37c1.4,0,2.9-0.2,4.3-0.3C272,117.2,273.2,115.7,273,114z"/></g><path d="M364.7,98c-10.8,0-12.4-3.8-12.4-18.3l0,0V44.8c0-1.8-1.4-3.2-3.2-3.2c0,0-0.1,0-0.1,0h-12.8c-1.8,0-3.2,1.4-3.3,3.2v1.6C314.6,36,291.3,42.5,281,60.8c-10.4,18.3-3.9,41.6,14.4,51.9c14,7.9,31.4,6.2,43.5-4.2c3.6,5.5,9.3,9.1,18.3,9.1c1.5,0,9.7,0.3,9.7-3.5v-13.6C367,99.2,366,98.1,364.7,98z M314.2,98.6c-10.5,0-19-8.5-19-19s8.5-19,19-19s19,8.5,19,19l0,0C333.2,90.1,324.7,98.6,314.2,98.6z"/></g><path d="M19.4,74c2.2-1.9,4.1-4.1,5.7-6.6c3.5-5.3,5.4-11.5,5.2-17.9V27c0-4.9,0.9-8.4,2.7-10.5c1.8-2.1,4.8-3,9.2-3h12.6c1.2,0,2.1-0.9,2.2-2.1l0,0V2.2C57,1,56,0,54.8,0c0,0,0,0,0,0H41.5c-7.8,0-12.9,2.1-18,7.6s-7.1,12.3-7.1,21.7v14.2c0,2.2-0.1,4-0.2,5.7v2.2c-0.5,3.2-1.8,6.2-3.6,8.9C9.4,64.7,5.1,70.9,0.9,74l0,0l-0.3,0.3l0,0l-0.2,0.3H0.2v0.3l0,0c-0.1,0.3-0.1,0.7,0,1l0,0v0.3h0.1l0.2,0.3l0,0l0.3,0.3l0,0c4.2,3.1,8.5,9.3,11.3,13.7c1.8,2.7,3.1,5.7,3.6,8.9v2.2c0.1,1.6,0.2,3.5,0.2,5.7v14.3c0,9.4,2.4,16.7,7.1,21.7s10.2,7.6,18,7.6h13.8c1.2,0,2.2-1,2.2-2.2V140l0,0c0-1.2-1-2.2-2.2-2.2H42.2c-4.4,0-7.5-1-9.2-3s-2.7-5.6-2.7-10.5v-22.4c0.2-6.4-1.7-12.6-5.2-17.9c-1.6-2.5-3.5-4.7-5.7-6.6l0,0c-0.9-0.7-1.1-2-0.4-2.9C19.2,74.3,19.3,74.2,19.4,74L19.4,74z"/><path d="M412.5,74c-2.2-1.9-4.1-4.1-5.7-6.6c-3.5-5.3-5.4-11.5-5.2-17.9V27c0-4.9-0.9-8.4-2.7-10.5s-4.8-3-9.2-3h-12.6c-1.2,0-2.2-1-2.2-2.2c0,0,0,0,0,0l0,0V2.2c0-1.2,1-2.2,2.2-2.2c0,0,0,0,0,0h13.4c7.8,0,12.9,2.1,18,7.6s7.1,12.3,7.1,21.7v14.2c0,2.2,0.1,4,0.2,5.7v2.2c0.5,3.2,1.8,6.2,3.6,8.9c2.8,4.5,7.1,10.7,11.3,13.7l0,0l0.3,0.3l0,0l0.2,0.3h0.1v0.3l0,0c0.1,0.3,0.1,0.7,0,1l0,0v0.3h-0.1l-0.2,0.3l0,0l-0.3,0.3l0,0c-4.2,3.1-8.5,9.3-11.3,13.7c-1.8,2.7-3.1,5.7-3.6,8.9v2.2c-0.1,1.6-0.2,3.5-0.2,5.7v14.3c0,9.4-2.4,16.7-7.1,21.7s-10.2,7.6-18,7.6h-13.4c-1.2,0-2.2-1-2.2-2.2c0,0,0,0,0,0V140l0,0c0-1.2,1-2.2,2.2-2.2l0,0h12.7c4.4,0,7.5-1,9.2-3s2.7-5.6,2.7-10.5v-22.4c-0.2-6.3,1.6-12.6,5.1-17.9c1.6-2.5,3.5-4.7,5.7-6.6l0,0c0.9-0.7,1.1-2,0.4-2.9C412.7,74.3,412.6,74.2,412.5,74L412.5,74z"/></g></svg></a> <nav class="Header-nav PrimaryNav"><ul class="menu"><li class="first expanded"><a href="/product/">Product</a> <ul class="menu"><li class="first"><a href="/product/">Overview</a> <!----></li><li><a href="/product/authentication/">Authentication</a> <!----></li><li><a href="/product/authorization/">Authorization</a> <!----></li><li><a href="/product/user-management/">User Management</a> <!----></li></ul></li><li><a href="/pricing/">Pricing</a> <!----></li><li><a href="/blog/">Blog</a> <!----></li><li class="expanded active"><a href="/docs/">Docs</a> <ul class="menu"><li class="first"><a href="/docs/">Get Started</a> <!----></li><li><a href="/docs/concepts/">Concepts</a> <!----></li><li><a href="/docs/guides/">Guides</a> <!----></li><li><a href="/docs/reference/">Reference</a> <!----></li></ul></li><li class="expanded"><a href="">Support</a> <ul class="menu"><li class="first"><a href="https://devforum.okta.com/">Okta Developer Forums</a> <!----></li><li><a href="mailto:developers@okta.com">developers@okta.com</a> <!----></li></ul></li></ul> <a href="#" class="PrimaryNav-toggle"><svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" class="MenuIcon"><path d="M1,16 L19,16" stroke="#FFFFFF" stroke-width="2" class="MenuIcon-line1"></path> <path d="M1,4 L19,4" stroke="#FFFFFF" stroke-width="2" class="MenuIcon-line2"></path> <path d="M1,10 L19,10" stroke="#FFFFFF" stroke-width="2" class="MenuIcon-line3"></path> <path d="M1,10 L19,10" stroke="#FFFFFF" stroke-width="2" class="MenuIcon-line4"></path></g></svg> <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="CloseIcon"><g id="ALl-Boards" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Desktop" transform="translate(-915.000000, -235.000000)" fill="#FFFFFF"><g id="Search-bar-Active" transform="translate(30.000000, 26.000000)"><polygon id="Icon/Cross" points="901 210.6 899.4 209 893 215.4 886.6 209 885 210.6 891.4 217 885 223.4 886.6 225 893 218.6 899.4 225 901 223.4 894.6 217"></polygon></g></g></g></svg></a> <div class="PrimaryNav-cta"><a target="_blank" rel="noopener noreferrer" href="https://login.okta.com/" class="Button--redOutline">Login</a> <a href="https://developer.okta.com/signup/" class="Button--red">Sign up</a></div> <a data-search-toggle class="SearchIcon"></a></nav></div></header> <div data-search-bar class="SearchBar"><div class="Wrap"><div data-pipeline="developer-okta-com" class="SearchBox" style="display: flex;"><div class="CoveoOmnibox"></div> <div class="CoveoSearchButton">Search</div> <div class="CoveoAnalytics"></div></div></div></div></div> <!----> <section class="PageContent DynamicSidebar has-tableOfContents"><div class="Sidebar" data-v-705933f8><aside data-v-705933f8><h2 class="Sidebar-location Sidebar-toggle h6" data-v-705933f8>Navigation</h2> <div class="Sidebar-close Sidebar-toggle" data-v-705933f8></div> <div data-v-705933f8><div class="Sidebar-group" data-v-705933f8><h3 class="Sidebar-title" data-v-705933f8>Concepts</h3> <ul class="Sidebar-nav" data-v-705933f8><li data-v-705933f8><a href="/docs/concepts/api-access-management/" data-v-705933f8>API Access Management</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/authentication/" data-v-705933f8>Authentication</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/auth-servers/" data-v-705933f8>Authorization Servers</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/event-hooks/" data-v-705933f8>Event Hooks</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/events-api-migration/" data-v-705933f8>Events API Migration</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/identity-providers/" data-v-705933f8>External Identity Providers</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/feature-lifecycle-management/" data-v-705933f8>Feature Lifecycle Management</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/inline-hooks/" data-v-705933f8>Inline Hooks</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/key-rotation/" data-v-705933f8>Key Rotation</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/auth-overview/" data-v-705933f8>OAuth 2.0 &amp; OIDC</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/okta-hosted-flows/" data-v-705933f8>Okta-Hosted Flows</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/okta-organizations/" data-v-705933f8>Okta Organizations</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/saml/" data-v-705933f8>SAML</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/scim/" data-v-705933f8>SCIM</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/social-login/" data-v-705933f8>Social Login</a> <!----></li></ul></div><div class="Sidebar-group" data-v-705933f8><h3 class="Sidebar-title" data-v-705933f8>Guides</h3> <ul class="Sidebar-nav" data-v-705933f8><li data-v-705933f8><a href="/docs/guides/customize-tokens-returned-from-okta/" data-v-705933f8>Customize tokens returned from Okta</a> <!----></li><li data-v-705933f8><a href="/docs/guides/protect-your-api/" data-v-705933f8>Protect your API endpoints</a> <!----></li><li data-v-705933f8><a href="/docs/guides/request-user-consent/" data-v-705933f8>Request user consent during authentication</a> <!----></li><li data-v-705933f8><a href="/docs/guides/sign-into-web-app/" data-v-705933f8>Sign users in to your web application</a> <!----></li><li data-v-705933f8><a href="/docs/guides/sign-into-spa/" data-v-705933f8>Sign users in to your SPA</a> <!----></li><li data-v-705933f8><a href="/docs/guides/sign-users-out/" data-v-705933f8>Sign users out</a> <!----></li><li data-v-705933f8><a href="/docs/guides/" data-v-705933f8>More...</a> <!----></li></ul></div><div class="Sidebar-group" data-v-705933f8><h3 class="Sidebar-title" data-v-705933f8>Reference</h3> <ul class="Sidebar-nav" data-v-705933f8><li data-v-705933f8><a href="/docs/reference/api-overview/" data-v-705933f8>API Overview</a> <!----></li><li data-v-705933f8><a href="/docs/reference/api/oidc/" data-v-705933f8>Sign in Your Users</a> <!----></li><li data-v-705933f8><a href="/docs/reference/api/roles/" data-v-705933f8>Manage Okta Resources</a> <!----></li><li data-v-705933f8><a href="/docs/reference/error-codes/" data-v-705933f8>Error Codes</a> <!----></li><li data-v-705933f8><a href="/docs/reference/import-hook/" data-v-705933f8>Import Hook</a> <!----></li><li data-v-705933f8><a href="/docs/reference/saml-hook/" data-v-705933f8>SAML Hook</a> <!----></li><li data-v-705933f8><a href="/docs/reference/registration-hook/" data-v-705933f8>Registration Hook</a> <!----></li><li class="is-active" data-v-705933f8><a href="/docs/reference/token-hook/" data-v-705933f8>Token Hook</a> <!----></li><li data-v-705933f8><a href="/docs/reference/okta-expression-language/" data-v-705933f8>Okta Expression Language</a> <!----></li><li data-v-705933f8><a href="/docs/reference/postman-collections/" data-v-705933f8>Postman Collections</a> <!----></li><li data-v-705933f8><a href="/docs/reference/rate-limits/" data-v-705933f8>Rate Limits</a> <!----></li><li data-v-705933f8><a href="/docs/reference/releases-at-okta/" data-v-705933f8>Release Life Cycle</a> <!----></li><li data-v-705933f8><a href="/docs/reference/scim/" data-v-705933f8>SCIM Protocol</a> <!----></li><li data-v-705933f8><a href="/docs/reference/webfinger/" data-v-705933f8>WebFinger</a> <!----></li></ul></div><div class="Sidebar-group" data-v-705933f8><h3 class="Sidebar-title" data-v-705933f8>Release Notes</h3> <ul class="Sidebar-nav" data-v-705933f8><li data-v-705933f8><a href="/docs/release-notes/" data-v-705933f8>Okta API Products Release Notes</a> <!----></li></ul></div></div></aside></div> <div class="PageContent-main"><a id="edit-link" href="https://github.com/okta/okta-developer-docs/edit/master/packages/@okta/vuepress-site/docs/reference/token-hook//index.md" target="_blank" rel="noopener noreferrer" data-proofer-ignore="">Edit Page</a> <div class="content__default"><h1>Token Inline Hook Reference</h1> <p>This page provides reference documentation for:</p> <ul><li><p>JSON objects that are contained in the outbound request from Okta to your external service</p></li> <li><p>JSON objects that you can include in your response</p></li></ul> <p>This information is specific to the Token Inline Hook, one type of Inline Hook supported by Okta.</p> <h2 id="see-also">See Also <a href="#see-also" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h2> <p>For a general introduction to Okta Inline Hooks, see <a href="/docs/concepts/inline-hooks/">Inline Hooks</a>.</p> <p>For information on the API for registering external service endpoints with Okta, see <a href="/docs/reference/api/inline-hooks/">Inline Hooks Management API</a>.</p> <p>For steps to enable this Inline Hook, see below, <a href="#enabling-a-token-inline-hook">Enabling a Token Inline Hook</a>.</p> <h2 id="about">About <a href="#about" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h2> <p>This type of Inline Hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) tokens are minted by your Okta Custom Authorization Server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token or to modify existing claims.</p> <p>This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.</p> <p>In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid.</p> <p>This Inline Hook works only when using an <a href="/docs/guides/customize-authz-server/create-authz-server/">Okta Custom Authorization Server</a>, not the built-in Okta Authorization Server.</p> <h2 id="objects-in-the-request-from-okta">Objects in the Request from Okta <a href="#objects-in-the-request-from-okta" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h2> <p>For the Token Inline Hook, the outbound call from Okta to your external service includes the following objects in its JSON payload:</p> <h3 id="data-identity">data.identity <a href="#data-identity" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h3> <p>Provides information on the properties of the ID token that Okta has generated, including the existing claims that it contains.</p> <table><thead><tr><th>Property</th> <th>Description</th> <th>Data Type</th></tr></thead> <tbody><tr><td>claims</td> <td>Claims included in the token.</td> <td><a href="#claims">claims</a> object</td></tr> <tr><td>lifetime</td> <td>Lifetime of the token.</td> <td><a href="#lifetime">lifetime</a> object</td></tr></tbody></table> <h3 id="data-access">data.access <a href="#data-access" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h3> <p>Provides information on the properties of the access token that Okta has generated, including the existing claims that it contains.</p> <table><thead><tr><th>Property</th> <th>Description</th> <th>Data Type</th></tr></thead> <tbody><tr><td>claims</td> <td>Claims included in the token.</td> <td><a href="#claims">claims</a> object</td></tr> <tr><td>lifetime</td> <td>Lifetime of the token.</td> <td><a href="#lifetime">lifetime</a> object</td></tr> <tr><td>scopes</td> <td>The scopes contained in the token.</td> <td><a href="#scopes">scopes</a> object</td></tr></tbody></table> <h4 id="claims">claims <a href="#claims" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h4> <p>Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's <a href="/docs/reference/api/oidc/#tokens-and-claims">OpenID Connect and OAuth 2.0 API reference</a>.</p> <h4 id="lifetime">lifetime <a href="#lifetime" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h4> <table><thead><tr><th>Property</th> <th>Description</th> <th>Data Type</th></tr></thead> <tbody><tr><td>expiration</td> <td>Time in seconds until the token expires.</td> <td>Number</td></tr></tbody></table> <h4 id="scopes">scopes <a href="#scopes" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h4> <p>The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's <a href="/docs/reference/api/oidc/#tokens-and-claims">OpenID Connect and OAuth 2.0 API reference</a>.</p> <h2 id="objects-in-the-response-that-you-send">Objects in the Response that You Send <a href="#objects-in-the-response-that-you-send" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h2> <p>For the Token Inline Hook, the <code>commands</code> and <code>error</code> objects that you can return in the JSON payload of your response are defined as follows:</p> <h3 id="commands">commands <a href="#commands" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h3> <p>The <code>commands</code> object is where you can provide commands to Okta. It is where you can tell Okta to add additional claims to the token.</p> <p>The <code>commands</code> object is an array, allowing you to send multiple commands. In each array element, there needs to be a <code>type</code> property and <code>value</code> property. The <code>type</code> property is where you specify which of the supported commands you want to execute, and <code>value</code> is where you supply an operand for that command.</p> <p>In the case of the Token hook type, the <code>value</code> property is itself a nested object in which you specify a particular operation, a path to act on, and a value.</p> <table><thead><tr><th>Property</th> <th>Description</th> <th>Data Type</th></tr></thead> <tbody><tr><td>type</td> <td>One of the <a href="#supported-commands">supported commands</a>.</td> <td>String</td></tr> <tr><td>value</td> <td>Operand to pass to the command. It specifies a particular op to perform.</td> <td><a href="#value">value</a></td></tr></tbody></table> <h4 id="supported-commands">Supported Commands <a href="#supported-commands" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h4> <p>The following commands are supported for the Token Inline Hook type:</p> <table><thead><tr><th>Command</th> <th>Description</th></tr></thead> <tbody><tr><td>com.okta.identity.patch</td> <td>Modify an ID token.</td></tr> <tr><td>com.okta.access.patch</td> <td>Modify an access token.</td></tr></tbody></table> <blockquote><p><strong>Note:</strong> The <code>commands</code> array should only contain commands that can be applied to the requested tokens. For example, if only an ID token is requested, the <code>commands</code> array shouldn't contain commands of the type <code>com.okta.access.patch</code>.</p></blockquote> <h4 id="value">value <a href="#value" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h4> <p>The <code>value</code> object is where you specify the specific operation to perform. It is an array, allowing you to request more than one operation.</p> <table><thead><tr><th>Property</th> <th>Description</th> <th>Data Type</th></tr></thead> <tbody><tr><td>op</td> <td>The name of one of the <a href="#list-of-supported-ops">supported ops</a>.</td> <td>String</td></tr> <tr><td>path</td> <td>Location within the token to apply the operation, specified as a slash-delimited path. When adding, replacing, or removing a claim, this always begins with <code>/claims/</code>  and is followed by the name of the new claim that you are adding. When replacing a token lifetime, the path should always be <code>/token/lifetime/expiration</code>.</td> <td>String</td></tr> <tr><td>value</td> <td>Value to set the claim to.</td> <td>Any JSON object</td></tr></tbody></table> <h4 id="list-of-supported-ops">List of Supported Ops <a href="#list-of-supported-ops" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h4> <table><thead><tr><th>Op</th> <th>Description</th></tr></thead> <tbody><tr><td>add</td> <td>Add a claim.</td></tr> <tr><td>replace</td> <td>Modify an existing claim and update the token lifetime.</td></tr> <tr><td>remove</td> <td>Remove an existing claim.</td></tr></tbody></table> <h3 id="error">error <a href="#error" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h3> <p>When you return an error object, it should have the following structure:</p> <table><thead><tr><th>Property</th> <th>Description</th> <th>Data Type</th></tr></thead> <tbody><tr><td>errorSummary</td> <td>Human-readable summary of the error.</td> <td>String</td></tr></tbody></table> <p>Returning an error object causes Okta to return an OAuth 2.0 error to the requester of the token, with the value of <code>error</code> set to <code>server_error</code>, and the value of <code>error_description</code> set to the string that you supplied in the <code>errorSummary</code> property of the <code>error</code> object that you returned.</p> <blockquote><p><strong>Note:</strong> If the error object doesn't include the <code>errorSummary</code> property defined, the following common default message is returned to the end user: <code>The callback service returned an error</code></p></blockquote> <h2 id="sample-json-payload-of-a-request">Sample JSON Payload of a Request <a href="#sample-json-payload-of-a-request" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h2> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;source&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://${yourOktaDomain}/oauth2/default/v1/authorize&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;eventId&quot;</span><span class="token operator">:</span> <span class="token string">&quot;3OWo4oo-QQ-rBWfRyTmQYw&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;eventTime&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2019-01-15T23:20:47.000Z&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;eventTypeVersion&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1.0&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;cloudEventVersion&quot;</span><span class="token operator">:</span> <span class="token string">&quot;0.1&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;contentType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;application/json&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;eventType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;com.okta.oauth2.tokens.transform&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;context&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;request&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;reqv66CbCaCStGEFc8AdfS0ng&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;method&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GET&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;url&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://${yourOktaDomain}/oauth2/default/v1/authorize?scope=openid+profile+email&amp;response_type=token+id_token&amp;redirect_uri=https%3A%2F%2Fhttpbin.org%2Fget&amp;state=foobareere&amp;nonce=asf&amp;client_id=customClientIdNative&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;ipAddress&quot;</span><span class="token operator">:</span> <span class="token string">&quot;127.0.0.1&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;protocol&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OAUTH2.0&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;request&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;scope&quot;</span><span class="token operator">:</span> <span class="token string">&quot;openid profile email&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;state&quot;</span><span class="token operator">:</span> <span class="token string">&quot;foobareere&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;redirect_uri&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://httpbin.org/get&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;response_mode&quot;</span><span class="token operator">:</span> <span class="token string">&quot;fragment&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;response_type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;token id_token&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;client_id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;customClientIdNative&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;issuer&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;uri&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://${yourOktaDomain}/oauth2/default&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;client&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;customClientIdNative&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Native client&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;PUBLIC&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;session&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;102Qoe7t5PcRnSxr8j3I8I6pA&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;userId&quot;</span><span class="token operator">:</span> <span class="token string">&quot;00uq8tMo3zV0OfJON0g3&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;login&quot;</span><span class="token operator">:</span> <span class="token string">&quot;administrator1@clouditude.net&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;createdAt&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2019-01-15T23:17:09.000Z&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;expiresAt&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2019-01-16T01:20:46.000Z&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ACTIVE&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;lastPasswordVerification&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2019-01-15T23:17:09.000Z&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;amr&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token string">&quot;PASSWORD&quot;</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;idp&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;00oq6kcVwvrDY2YsS0g3&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OKTA&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;mfaActive&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;user&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;00uq8tMo3zV0OfJON0g3&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;passwordChanged&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2018-09-11T23:19:12.000Z&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;profile&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;login&quot;</span><span class="token operator">:</span> <span class="token string">&quot;administrator1@clouditude.net&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;firstName&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Add-Min&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;lastName&quot;</span><span class="token operator">:</span> <span class="token string">&quot;O'Cloudy Tud&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;locale&quot;</span><span class="token operator">:</span> <span class="token string">&quot;en&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;timeZone&quot;</span><span class="token operator">:</span> <span class="token string">&quot;America/Los_Angeles&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;_links&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;groups&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;href&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://${yourOktaDomain}/00uq8tMo3zV0OfJON0g3/groups&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;factors&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;href&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://${yourOktaDomain}/api/v1/users/00uq8tMo3zV0OfJON0g3/factors&quot;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;policy&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;00pq8lGaLlI8APuqY0g3&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;rule&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;0prq8mLKuKAmavOvq0g3&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;identity&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;claims&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;sub&quot;</span><span class="token operator">:</span> <span class="token string">&quot;00uq8tMo3zV0OfJON0g3&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Add-Min O'Cloudy Tud&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;email&quot;</span><span class="token operator">:</span> <span class="token string">&quot;webmaster@clouditude.net&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;ver&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;iss&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://${yourOktaDomain}/oauth2/default&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;aud&quot;</span><span class="token operator">:</span> <span class="token string">&quot;customClientIdNative&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;jti&quot;</span><span class="token operator">:</span> <span class="token string">&quot;ID.YxF2whJfB3Eu4ktG_7aClqtCgjDq6ab_hgpiV7-ZZn0&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;amr&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token string">&quot;pwd&quot;</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;idp&quot;</span><span class="token operator">:</span> <span class="token string">&quot;00oq6kcVwvrDY2YsS0g3&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;nonce&quot;</span><span class="token operator">:</span> <span class="token string">&quot;asf&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;preferred_username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;administrator1@clouditude.net&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;auth_time&quot;</span><span class="token operator">:</span> <span class="token number">1547594229</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;token&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;lifetime&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;expiration&quot;</span><span class="token operator">:</span> <span class="token number">3600</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;access&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;claims&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;ver&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;jti&quot;</span><span class="token operator">:</span> <span class="token string">&quot;AT.W-rrB-z-kkZQmHW0e6VS3Or--QfEN_YvoWJa46A7HAA&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;iss&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://${yourOktaDomain}/oauth2/default&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;aud&quot;</span><span class="token operator">:</span> <span class="token string">&quot;api://default&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;cid&quot;</span><span class="token operator">:</span> <span class="token string">&quot;customClientIdNative&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;uid&quot;</span><span class="token operator">:</span> <span class="token string">&quot;00uq8tMo3zV0OfJON0g3&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;sub&quot;</span><span class="token operator">:</span> <span class="token string">&quot;administrator1@clouditude.net&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;firstName&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Add-Min&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;preferred_username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;administrator1@clouditude.net&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;token&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;lifetime&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;expiration&quot;</span><span class="token operator">:</span> <span class="token number">3600</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;scopes&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;openid&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;scpq7bW1cp6dcvrz80g3&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;action&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GRANT&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;profile&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;scpq7cWJ81CIP5Qkr0g3&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;action&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GRANT&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;email&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;scpq7dxsoz6LQlRj00g3&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;action&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GRANT&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="sample-json-payloads-of-responses">Sample JSON Payloads of Responses <a href="#sample-json-payloads-of-responses" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h2> <p>This section provides example JSON payloads for the supported operations.</p> <h3 id="sample-response-to-add-a-claim">Sample Response to Add a Claim <a href="#sample-response-to-add-a-claim" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h3> <p>Use the <code>add</code> operation to add new claims to a token. If you use the <code>add</code> operation and include an existing claim in your response with a different value, that value is replaced. Use the <code>replace</code> operation instead. See <a href="/docs/reference/token-hook/#sample-response-to-replace-an-existing-claim">Sample Response to Replace an Existing Claim</a> for more information. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;commands&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;com.okta.identity.patch&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;op&quot;</span><span class="token operator">:</span> <span class="token string">&quot;add&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/claims/extPatientId&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1234&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;com.okta.access.patch&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;op&quot;</span><span class="token operator">:</span> <span class="token string">&quot;add&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/claims/external_guid&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token string">&quot;F0384685-F87D-474B-848D-2058AC5655A7&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>You can also use the <code>add</code> operation to add new members to existing JSON objects and new elements to existing arrays. For example, you have a JSON object in a claim called <code>employee_profile</code>, and you want to add the <code>department_id</code> member to the claim.</p> <p>The existing target JSON object:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;employee_profile&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>  
+      <span class="token property">&quot;employee_id&quot;</span><span class="token operator">:</span><span class="token string">&quot;1234&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;Anna&quot;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Add <code>department_id</code> by specifying the claim in the path, followed by the name of the object member.</p> <blockquote><p><strong>Note:</strong> Attempting to add a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;commands&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+      <span class="token punctuation">{</span>  
+         <span class="token property">&quot;type&quot;</span><span class="token operator">:</span><span class="token string">&quot;com.okta.identity.patch&quot;</span><span class="token punctuation">,</span>
+         <span class="token property">&quot;value&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+            <span class="token punctuation">{</span>  
+               <span class="token property">&quot;op&quot;</span><span class="token operator">:</span><span class="token string">&quot;add&quot;</span><span class="token punctuation">,</span>
+               <span class="token property">&quot;path&quot;</span><span class="token operator">:</span><span class="token string">&quot;/claims/employee_profile/department_id&quot;</span><span class="token punctuation">,</span>
+               <span class="token property">&quot;value&quot;</span><span class="token operator">:</span><span class="token string">&quot;4947&quot;</span>
+            <span class="token punctuation">}</span>
+         <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>   
+</code></pre></div><p>The resulting JSON object:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;employee_profile&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>  
+      <span class="token property">&quot;employee_id&quot;</span><span class="token operator">:</span><span class="token string">&quot;1234&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;Anna&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;department_id&quot;</span><span class="token operator">:</span><span class="token string">&quot;4947&quot;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>You can also append an element to an array by specifying the name of the array, followed by the index where you want to insert the element in the path. For example, you have an array that contains the user's preferred airports, and you want to add a new airport to the array.</p> <p>The existing target JSON object:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;preferred_airports&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+      <span class="token string">&quot;sjc&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;sfo&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;oak&quot;</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;commands&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+      <span class="token punctuation">{</span>  
+         <span class="token property">&quot;type&quot;</span><span class="token operator">:</span><span class="token string">&quot;com.okta.identity.patch&quot;</span><span class="token punctuation">,</span>
+         <span class="token property">&quot;value&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+            <span class="token punctuation">{</span>  
+               <span class="token property">&quot;op&quot;</span><span class="token operator">:</span><span class="token string">&quot;add&quot;</span><span class="token punctuation">,</span>
+               <span class="token property">&quot;path&quot;</span><span class="token operator">:</span><span class="token string">&quot;/claims/preferred_airports/3&quot;</span><span class="token punctuation">,</span>
+               <span class="token property">&quot;value&quot;</span><span class="token operator">:</span><span class="token string">&quot;lax&quot;</span>
+            <span class="token punctuation">}</span>
+         <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>The resulting JSON object:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;preferred_airports&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+      <span class="token string">&quot;sjc&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;sfo&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;oak&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;lax&quot;</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>This <code>add</code> operation adds <code>lax</code> to the end of the array. Alternatively, you can just specify the array name followed by a hyphen <code>-</code> in the path to append an element at the end of the array.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;commands&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+      <span class="token punctuation">{</span>  
+         <span class="token property">&quot;type&quot;</span><span class="token operator">:</span><span class="token string">&quot;com.okta.identity.patch&quot;</span><span class="token punctuation">,</span>
+         <span class="token property">&quot;value&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+            <span class="token punctuation">{</span>  
+               <span class="token property">&quot;op&quot;</span><span class="token operator">:</span><span class="token string">&quot;add&quot;</span><span class="token punctuation">,</span>
+               <span class="token property">&quot;path&quot;</span><span class="token operator">:</span><span class="token string">&quot;/claims/preferred_airports/-&quot;</span><span class="token punctuation">,</span>
+               <span class="token property">&quot;value&quot;</span><span class="token operator">:</span><span class="token string">&quot;lax&quot;</span>
+            <span class="token punctuation">}</span>
+         <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p><strong>Note:</strong> Attempting to add an element within an array that doesn't exist or specifying an invalid index results in the entire PATCH failing and errors logged in the token hooks events.</p></blockquote> <h3 id="sample-response-to-replace-an-existing-claim">Sample Response to Replace an Existing Claim <a href="#sample-response-to-replace-an-existing-claim" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h3> <p>You can modify existing custom claims or OIDC standard profile claims, such as <code>birthdate</code> and <code>locale</code>. You can't, however, modify any system-specific claims, such as <code>iss</code> or <code>ver</code>, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.</p> <p>For the list of access token reserved claims that you can't modify, see <a href="/docs/reference/api/oidc/#access-token-scopes-and-claims">Access Tokens Scopes and Claims</a>. Note that although the <code>aud</code> and <code>sub</code> claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.</p> <p>See <a href="/docs/reference/api/oidc/#id-token-claims">ID Token Claims</a> for a list of ID token reserved claims that you can't modify.</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+   <span class="token property">&quot;commands&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span> 
+        <span class="token punctuation">{</span> 
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;com.okta.identity.patch&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span> 
+                 <span class="token punctuation">{</span> 
+                     <span class="token property">&quot;op&quot;</span><span class="token operator">:</span> <span class="token string">&quot;replace&quot;</span><span class="token punctuation">,</span>
+                     <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/claims/extPatientId&quot;</span><span class="token punctuation">,</span>
+                     <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1234&quot;</span>
+                  <span class="token punctuation">}</span>
+             <span class="token punctuation">]</span> 
+         <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+         <span class="token punctuation">{</span> 
+             <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;com.okta.access.patch&quot;</span><span class="token punctuation">,</span>
+             <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                  <span class="token punctuation">{</span> 
+                     <span class="token property">&quot;op&quot;</span><span class="token operator">:</span> <span class="token string">&quot;replace&quot;</span><span class="token punctuation">,</span>
+                     <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/claims/external_guid&quot;</span><span class="token punctuation">,</span>
+                     <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token string">&quot;F0384685-F87D-474B-848D-2058AC5655A7&quot;</span> 
+                   <span class="token punctuation">}</span>
+              <span class="token punctuation">]</span> 
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>You can also use the <code>replace</code> operation to modify members within JSON objects and elements within arrays. For example, you have a JSON object in a claim called <code>employee_profile</code>, and you want to update the email address of the employee.</p> <p>The existing target JSON object:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;employee_profile&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>  
+      <span class="token property">&quot;employee_id&quot;</span><span class="token operator">:</span><span class="token string">&quot;1234&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;Anna&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;email&quot;</span><span class="token operator">:</span><span class="token string">&quot;anna.v@company.com&quot;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Specify the claim in the path, followed by the name of the object member that you want to modify.</p> <blockquote><p><strong>Note:</strong> Attempting to modify a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;commands&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+      <span class="token punctuation">{</span>  
+         <span class="token property">&quot;type&quot;</span><span class="token operator">:</span><span class="token string">&quot;com.okta.identity.patch&quot;</span><span class="token punctuation">,</span>
+         <span class="token property">&quot;value&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+            <span class="token punctuation">{</span>  
+               <span class="token property">&quot;op&quot;</span><span class="token operator">:</span><span class="token string">&quot;replace&quot;</span><span class="token punctuation">,</span>
+               <span class="token property">&quot;path&quot;</span><span class="token operator">:</span><span class="token string">&quot;/claims/employee_profile/email&quot;</span><span class="token punctuation">,</span>
+               <span class="token property">&quot;value&quot;</span><span class="token operator">:</span><span class="token string">&quot;anna@company.com&quot;</span>
+            <span class="token punctuation">}</span>
+         <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>The resulting JSON object:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;employee_profile&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>  
+      <span class="token property">&quot;employee_id&quot;</span><span class="token operator">:</span><span class="token string">&quot;1234&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;Anna&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;email&quot;</span><span class="token operator">:</span><span class="token string">&quot;anna@company.com&quot;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Similarly, you can replace elements in an array by specifying the array name and the valid index of the element that you want to replace in the path.</p> <h3 id="sample-response-to-modify-token-lifetime">Sample Response to Modify Token Lifetime <a href="#sample-response-to-modify-token-lifetime" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h3> <p>You can modify how long the access and ID tokens are valid by specifying the <code>lifetime</code> in seconds. The <code>lifetime</code> value must be a minimum of five minutes (300 seconds) and a maximum of 24 hours (86,400 seconds).</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+   <span class="token property">&quot;commands&quot;</span><span class="token operator">:</span> 
+     <span class="token punctuation">[</span> 
+        <span class="token punctuation">{</span> 
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;com.okta.identity.patch&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span> 
+                 <span class="token punctuation">{</span> 
+                     <span class="token property">&quot;op&quot;</span><span class="token operator">:</span> <span class="token string">&quot;replace&quot;</span><span class="token punctuation">,</span>
+                     <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/token/lifetime/expiration&quot;</span><span class="token punctuation">,</span>
+                     <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token number">36000</span>
+                  <span class="token punctuation">}</span>
+             <span class="token punctuation">]</span> 
+         <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+         <span class="token punctuation">{</span> 
+             <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;com.okta.access.patch&quot;</span><span class="token punctuation">,</span>
+             <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                  <span class="token punctuation">{</span> 
+                     <span class="token property">&quot;op&quot;</span><span class="token operator">:</span> <span class="token string">&quot;replace&quot;</span><span class="token punctuation">,</span>
+                     <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/token/lifetime/expiration&quot;</span><span class="token punctuation">,</span>
+                     <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token number">36000</span> 
+                   <span class="token punctuation">}</span>
+              <span class="token punctuation">]</span> 
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="sample-response-to-remove-token-claims">Sample Response to Remove Token Claims <a href="#sample-response-to-remove-token-claims" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h3> <p>You can remove existing custom claims or OIDC standard profile claims, such as <code>birthdate</code> or <code>locale</code>. You can't, however, remove any system-specific claims, such as <code>iss</code> or <code>ver</code>, and you can't remove a claim that isn't currently part of the token in the request payload. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.</p> <p>For the list of access token reserved claims that you can't remove, see <a href="/docs/reference/api/oidc/#access-token-scopes-and-claims">Access Tokens Scopes and Claims</a>.</p> <p>See <a href="/docs/reference/api/oidc/#id-token-claims">ID Token Claims</a> for a list of ID token reserved claims that you can't remove.</p> <blockquote><p><strong>Note:</strong> The <code>value</code> property for the <code>remove</code> operation isn't required. If you provide it in the response, it should be set to <code>null</code>. Providing any other value fails the entire PATCH response.</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+   <span class="token property">&quot;commands&quot;</span><span class="token operator">:</span> 
+     <span class="token punctuation">[</span> 
+        <span class="token punctuation">{</span> 
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;com.okta.identity.patch&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span> 
+                 <span class="token punctuation">{</span> 
+                     <span class="token property">&quot;op&quot;</span><span class="token operator">:</span> <span class="token string">&quot;remove&quot;</span><span class="token punctuation">,</span>
+                     <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/claims/birthdate&quot;</span><span class="token punctuation">,</span>
+                     <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+                  <span class="token punctuation">}</span>
+             <span class="token punctuation">]</span> 
+         <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+         <span class="token punctuation">{</span> 
+             <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;com.okta.access.patch&quot;</span><span class="token punctuation">,</span>
+             <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                  <span class="token punctuation">{</span> 
+                     <span class="token property">&quot;op&quot;</span><span class="token operator">:</span> <span class="token string">&quot;remove&quot;</span><span class="token punctuation">,</span>
+                     <span class="token property">&quot;path&quot;</span><span class="token operator">:</span> <span class="token string">&quot;/claims/external_guid&quot;</span>
+                   <span class="token punctuation">}</span>
+              <span class="token punctuation">]</span> 
+          <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>You can also use the <code>remove</code> operation to remove members from existing JSON objects and elements from existing arrays. For example, you have an array that contains the user's preferred airports, and you want to remove an airport from the array.</p> <p>Existing target JSON object:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;preferred_airports&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+      <span class="token string">&quot;sjc&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;lax&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;sfo&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;oak&quot;</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>You can remove the element from the array by specifying the array name followed by the index of the element that you want to remove. You don't need to specify a value for the <code>remove</code> operation. But, you can specify <code>null</code> as the value if you want.</p> <blockquote><p><strong>Note:</strong> Attempting to remove an element within an array that doesn't exist or specifying an invalid value results in the entire PATCH failing and errors logged in the token hooks events.</p></blockquote> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;commands&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+      <span class="token punctuation">{</span>  
+         <span class="token property">&quot;type&quot;</span><span class="token operator">:</span><span class="token string">&quot;com.okta.identity.patch&quot;</span><span class="token punctuation">,</span>
+         <span class="token property">&quot;value&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+            <span class="token punctuation">{</span>  
+               <span class="token property">&quot;op&quot;</span><span class="token operator">:</span><span class="token string">&quot;remove&quot;</span><span class="token punctuation">,</span>
+               <span class="token property">&quot;path&quot;</span><span class="token operator">:</span><span class="token string">&quot;/claims/preferred_airports/1&quot;</span>
+            <span class="token punctuation">}</span>
+         <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span> 
+</code></pre></div><p>The resulting JSON object</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;preferred_airports&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+      <span class="token string">&quot;sjc&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;sfo&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;oak&quot;</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Similarly, you can remove a JSON object member by specifying the JSON object in the path, followed by the claim member that you would like to remove. For example, you have an <code>employee_profile</code> claim, and you want to remove <code>email</code> from it.</p> <blockquote><p><strong>Note:</strong> Attempting to remove a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.</p></blockquote> <p>The existing target JSON object:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;employee_profile&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>  
+      <span class="token property">&quot;employee_id&quot;</span><span class="token operator">:</span><span class="token string">&quot;1234&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;Anna&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;email&quot;</span><span class="token operator">:</span><span class="token string">&quot;anna.v@company.com&quot;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>PATCH command that removes the employee's email:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;commands&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+      <span class="token punctuation">{</span>  
+         <span class="token property">&quot;type&quot;</span><span class="token operator">:</span><span class="token string">&quot;com.okta.identity.patch&quot;</span><span class="token punctuation">,</span>
+         <span class="token property">&quot;value&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span>  
+            <span class="token punctuation">{</span>  
+               <span class="token property">&quot;op&quot;</span><span class="token operator">:</span><span class="token string">&quot;remove&quot;</span><span class="token punctuation">,</span>
+               <span class="token property">&quot;path&quot;</span><span class="token operator">:</span><span class="token string">&quot;/claims/employee_profile/email&quot;</span>
+            <span class="token punctuation">}</span>
+         <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>The resulting JSON object:</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>  
+   <span class="token property">&quot;employee_profile&quot;</span><span class="token operator">:</span><span class="token punctuation">{</span>  
+      <span class="token property">&quot;employee_id&quot;</span><span class="token operator">:</span><span class="token string">&quot;1234&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;name&quot;</span><span class="token operator">:</span><span class="token string">&quot;Anna&quot;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="enabling-a-token-inline-hook">Enabling a Token Inline Hook <a href="#enabling-a-token-inline-hook" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h2> <p>To activate the Inline Hook, you first need to register your external service endpoint with Okta using the <a href="/docs/reference/api/inline-hooks/">Inline Hooks Management API</a>.</p> <p>You then need to associate the registered Inline Hook with a Custom Authorization Server Policy Rule by completing the following steps:</p> <ol><li><p>Go to <strong>API &gt; Authorization Servers</strong>.</p></li> <li><p>Select a Custom Authorization Server from the list.</p></li> <li><p>Select <strong>Access Policies</strong> and select a policy to use with the hook. In most cases, just pick the Default Policy.</p></li> <li><p>One of the policy's rules needs to trigger the Inline Hook. Click the pencil icon for a rule to edit it. If you only have one rule, edit the Default Policy Rule.</p></li> <li><p>Click the <strong>Use this Inline Hook</strong> dropdown menu. Any Inline Hooks you have registered are listed. Select the hook you would like to use.</p></li> <li><p>Click <strong>Update Rule</strong>.</p></li></ol> <blockquote><p><strong>Note:</strong> Only one Inline Hook can be associated with each rule.</p></blockquote> <h2 id="troubleshooting">Troubleshooting <a href="#troubleshooting" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></h2> <p>This section covers what happens when a token inline hook flow fails either due to the external inline hook service returning an error object or not returning a successful response, or the inline hook patch fails.</p> <blockquote><p><strong>Note:</strong> Administrators can use the <a href="/docs/reference/api/system-log/">Okta System Log</a> to view errors. See the <a href="/docs/concepts/inline-hooks/#troubleshooting">Troubleshooting</a> section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.</p></blockquote> <ul><li><p>When there is a communication failure with the external service, the inline hook operation is skipped. The token is generated without any modification from the inline hook.</p> <p><strong>Who can see this error?</strong> Administrators</p></li> <li><p>When the external service returns a response with any other HTTP status code besides <code>200</code>, the inline hook operation is skipped. The token is generated without any modification from the inline hook.</p> <p><strong>Who can see this error?</strong> Administrators</p></li> <li><p>When the external service returns an error object in the response, the entire token inline hook flow fails with no token generated.</p> <p><strong>Who can see this error?</strong> Administrators, developers, and end users. When the OAuth 2.0 client receives the error, the client developer can see that error if the client has the debug information. What the end user sees depends on how errors are handled within the client.</p> <blockquote><p><strong>Note:</strong> See the <a href="/docs/reference/token-hook/#error">error</a> section on this page for more information on what to include in the error object of your response and what the OAuth 2.0 error includes that Okta returns to the requestor of the token.</p></blockquote></li> <li><p>When a hook command (for example, updating, adding, and deleting claims) can't be performed, the inline hook operation is skipped. The token is generated without any modification from the inline hook.</p> <p><strong>Who can see this error?</strong> Administrators</p> <p>The following actions result in an error:</p> <ul><li><p>Using an invalid command. For example, if only an ID token is requested, the <code>commands</code> array shouldn't contain commands of the type <code>com.okta.access.patch</code>.</p></li> <li><p>Using an invalid operation</p></li> <li><p>Attempting to remove a system-specific claim</p></li> <li><p>Attempting to update a claim that doesn't exist</p></li> <li><p>Attempting to update an element within an array that doesn't exist or specifying an invalid index</p></li> <li><p>Attempting to remove a claim that doesn't exist</p></li></ul></li></ul></div></div> <div class="TableOfContents TableOfContents" style="bottom:0px;top:100px;" data-v-4ef83c5f><div class="TableOfContents-item is-level1" data-v-4ef83c5f>
+    Token Inline Hook Reference
+  </div> <!----> <div data-v-4ef83c5f><div class="TableOfContents-indicator" style="height:30px;transform:translate(0px, 0px);" data-v-4ef83c5f></div> <a href="#see-also" class="TableOfContents-item sidebar-link is-level2" style="display:undefined;" data-v-4ef83c5f>
+      See Also
+    </a><a href="#about" class="TableOfContents-item sidebar-link is-level2" style="display:undefined;" data-v-4ef83c5f>
+      About
+    </a><a href="#objects-in-the-request-from-okta" class="TableOfContents-item sidebar-link is-level2" style="display:undefined;" data-v-4ef83c5f>
+      Objects in the Request from Okta
+    </a><a href="#data-identity" class="TableOfContents-item sidebar-link is-level3" style="display:undefined;" data-v-4ef83c5f>
+      data.identity
+    </a><a href="#data-access" class="TableOfContents-item sidebar-link is-level3" style="display:undefined;" data-v-4ef83c5f>
+      data.access
+    </a><a href="#claims" class="TableOfContents-item sidebar-link is-level4" style="display:undefined;" data-v-4ef83c5f>
+      claims
+    </a><a href="#lifetime" class="TableOfContents-item sidebar-link is-level4" style="display:undefined;" data-v-4ef83c5f>
+      lifetime
+    </a><a href="#scopes" class="TableOfContents-item sidebar-link is-level4" style="display:undefined;" data-v-4ef83c5f>
+      scopes
+    </a><a href="#objects-in-the-response-that-you-send" class="TableOfContents-item sidebar-link is-level2" style="display:undefined;" data-v-4ef83c5f>
+      Objects in the Response that You Send
+    </a><a href="#commands" class="TableOfContents-item sidebar-link is-level3" style="display:undefined;" data-v-4ef83c5f>
+      commands
+    </a><a href="#supported-commands" class="TableOfContents-item sidebar-link is-level4" style="display:undefined;" data-v-4ef83c5f>
+      Supported Commands
+    </a><a href="#value" class="TableOfContents-item sidebar-link is-level4" style="display:undefined;" data-v-4ef83c5f>
+      value
+    </a><a href="#list-of-supported-ops" class="TableOfContents-item sidebar-link is-level4" style="display:undefined;" data-v-4ef83c5f>
+      List of Supported Ops
+    </a><a href="#error" class="TableOfContents-item sidebar-link is-level3" style="display:undefined;" data-v-4ef83c5f>
+      error
+    </a><a href="#sample-json-payload-of-a-request" class="TableOfContents-item sidebar-link is-level2" style="display:undefined;" data-v-4ef83c5f>
+      Sample JSON Payload of a Request
+    </a><a href="#sample-json-payloads-of-responses" class="TableOfContents-item sidebar-link is-level2" style="display:undefined;" data-v-4ef83c5f>
+      Sample JSON Payloads of Responses
+    </a><a href="#sample-response-to-add-a-claim" class="TableOfContents-item sidebar-link is-level3" style="display:undefined;" data-v-4ef83c5f>
+      Sample Response to Add a Claim
+    </a><a href="#sample-response-to-replace-an-existing-claim" class="TableOfContents-item sidebar-link is-level3" style="display:undefined;" data-v-4ef83c5f>
+      Sample Response to Replace an Existing Claim
+    </a><a href="#sample-response-to-modify-token-lifetime" class="TableOfContents-item sidebar-link is-level3" style="display:undefined;" data-v-4ef83c5f>
+      Sample Response to Modify Token Lifetime
+    </a><a href="#sample-response-to-remove-token-claims" class="TableOfContents-item sidebar-link is-level3" style="display:undefined;" data-v-4ef83c5f>
+      Sample Response to Remove Token Claims
+    </a><a href="#enabling-a-token-inline-hook" class="TableOfContents-item sidebar-link is-level2" style="display:undefined;" data-v-4ef83c5f>
+      Enabling a Token Inline Hook
+    </a><a href="#troubleshooting" class="TableOfContents-item sidebar-link is-level2" style="display:undefined;" data-v-4ef83c5f>
+      Troubleshooting
+    </a> <div class="TableOfContents-footer" data-v-4ef83c5f><a href="#" data-v-4ef83c5f>Top of Page</a></div></div></div></section> <footer class="Footer"><div class="Wrap"><div class="Row"><div class="Column--3 Column--medium-6 Column--xSmall-12"><a href="https://www.okta.com/" target="_blank" rel="noopener noreferrer"><div class="Logo"><img src="https://developer.okta.com/sites/all/themes/developer/images/logo-footer.png" alt="Okta"></div> <p>Visit okta.com</p></a></div> <div class="Column--3 Column--medium-12 Column--xSmall-12"><h4>Social</h4> <ul class="Footer-links"><li class="first"><a href="http://github.com/oktadeveloper" target="_blank" class="Footer-links--github">GitHub</a> <!----></li><li><a href="http://twitter.com/OktaDev" target="_blank" class="Footer-links--twitter">Twitter</a> <!----></li><li><a href="https://devforum.okta.com/" target="_blank" class="Footer-links--forum">Forum</a> <!----></li><li><a href="http://feeds.feedburner.com/OktaBlog" target="_blank" class="Footer-links--rss">RSS Blog</a> <!----></li><li><a href="https://www.youtube.com/channel/UC5AMiWqFVFxF1q9Ya1FuZ_Q/featured" target="_blank" class="Footer-links--youtube">YouTube</a> <!----></li></ul></div><div class="Column--3 Column--medium-12 Column--xSmall-12"><h4>More Info</h4> <ul class="Footer-links"><li class="first"><a href="https://developer.okta.com/integrate-with-okta/">Integrate With Okta</a> <!----></li><li><a href="https://developer.okta.com/blog/">Blog</a> <!----></li><li><a href="https://developer.okta.com/docs/release-notes/">Release Notes</a> <!----></li><li><a href="https://developer.okta.com/3rd_party_notices/">3rd Party Notices</a> <!----></li><li><a href="https://toolkit.okta.com/">Community Toolkit</a> <!----></li></ul></div><div class="Column--3 Column--medium-12 Column--xSmall-12"><h4>Contact & Legal</h4> <ul class="Footer-links"><li class="first"><a href="https://developer.okta.com/contact/">Contact Our Team</a> <!----></li><li><a href="https://developer.okta.com/contact-sales-enterprise/">Contact Sales</a> <!----></li><li><a href="mailto:developers@okta.com">Contact Support</a> <!----></li><li><a href="https://developer.okta.com/terms/">Terms &amp; Conditions</a> <!----></li><li><a href="https://developer.okta.com/privacy/">Privacy Policy</a> <!----></li></ul></div></div></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.1df7935f.js" defer></script><script src="/assets/js/11.71506886.js" defer></script><script src="/assets/js/2.8712a879.js" defer></script><script src="/assets/js/4.57ec015f.js" defer></script><script src="/assets/js/10.75e07b2c.js" defer></script><script src="/assets/js/34.6da36575.js" defer></script><script src="/assets/js/1213.f396ee58.js" defer></script><script src="/assets/js/5.93479991.js" defer></script><script src="/assets/js/1.952b7ece.js" defer></script><script src="/assets/js/31.3153d314.js" defer></script>
+  </body>
+</html>

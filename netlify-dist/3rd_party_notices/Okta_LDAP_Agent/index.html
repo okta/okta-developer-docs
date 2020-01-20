@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Okta LDAP Agent product | Okta Developer</title>
+    <meta name="description" content="Secure, scalable, and highly available authentication and user management for any app.">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js"></script>
+  <script src="https://static.cloud.coveo.com/searchui/v2.7219/js/CoveoJsSearch.Lazy.min.js" defer="true"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/manifest.json">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
+  <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+  <link rel="stylesheet" href="https://developer.okta.com/sites/all/themes/developer/css/master.css">
+  <link rel="stylesheet" href="https://coveo-oktaweb.pantheonsite.io/sites/all/modules/okta_coveo_search_developer/css/okta_coveo_search_developer.css?q49ktf">
+  <meta http-equiv="XA-UA-Compatible" content="IE=edge">
+  <script>
+      // TypeKit
+        (function(d) {
+          var config = {
+            kitId: 'jff5neq',
+            scriptTimeout: 3000,
+            async: true
+          },
+          h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/bwf-loadingb/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+
+      var isProduction = window.location.hostname === 'developer.okta.com';
+      if (isProduction) {
+
+        // START Google Tag Manager
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KXMLV58');
+        // END Google Tag Manager
+
+      }
+    </script>
+    
+    <link rel="preload" href="/assets/css/0.styles.15a2bd63.css" as="style"><link rel="preload" href="/assets/js/app.1df7935f.js" as="script"><link rel="preload" href="/assets/js/11.71506886.js" as="script"><link rel="preload" href="/assets/js/2.8712a879.js" as="script"><link rel="preload" href="/assets/js/4.57ec015f.js" as="script"><link rel="preload" href="/assets/js/10.75e07b2c.js" as="script"><link rel="preload" href="/assets/js/34.6da36575.js" as="script"><link rel="preload" href="/assets/js/547.25f237ca.js" as="script"><link rel="preload" href="/assets/js/1.952b7ece.js" as="script"><link rel="preload" href="/assets/js/31.3153d314.js" as="script">
+    <link rel="stylesheet" href="/assets/css/0.styles.15a2bd63.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="PageWrap Page"><div><header class="Header is-fixed"><div class="Wrap"><a href="https://developer.okta.com" class="Logo"><svg version="1.1" id="OktaLogo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 431.9 151.4" style="enable-background:new 0 0 431.9 151.4;" xml:space="preserve"><g><g><g><path d="M102.2,41.4c-21,0-38.1,17.1-38.1,38.1s17.1,38.1,38.1,38.1s38.1-17.1,38.1-38.1l0,0C140.3,58.5,123.2,41.4,102.2,41.4z M102.2,98.5c-10.5,0-19-8.5-19-19s8.5-19,19-19s19,8.5,19,19c0.1,10.5-8.4,19-18.9,19.1C102.3,98.6,102.2,98.6,102.2,98.5L102.2,98.5z"/><path d="M169.1,92.3c0-1.9,1.5-3.4,3.4-3.4c0.9,0,1.8,0.4,2.4,1c9.5,9.7,25.3,26.3,25.4,26.4c0.4,0.5,0.8,0.8,1.4,0.9l1.6,0.2h17.2c1.8,0,3.3-1.4,3.4-3.2c0-0.8-0.3-1.5-0.8-2.2l-28.6-29.2l-1.5-1.5c-3.2-3.9-2.9-5.4,0.8-9.3l22.6-25.1c1.1-1.4,0.8-3.5-0.6-4.6c-0.6-0.4-1.3-0.7-2-0.7h-17c-0.6,0.2-1.1,0.5-1.5,0.9L175,64.4c-1.3,1.4-3.4,1.5-4.8,0.2c-0.7-0.6-1.1-1.5-1.1-2.5V18.9c0-1.7-1.3-3-3-3c-0.1,0-0.2,0-0.3,0h-12.7c-2.2,0-3.3,1.5-3.3,2.8v95.8c0,2.2,1.8,2.8,3.3,2.8h12.7c1.7,0.1,3.2-1.2,3.3-2.9c0,0,0,0,0,0V92.3z"/><path d="M273,114l-1.4-12.8c-0.2-1.7-1.7-2.9-3.4-2.7c0,0,0,0-0.1,0l-2.9,0.2c-10.1,0-18.5-7.9-19-18c0-0.3,0-0.7,0-1V64.2c-0.1-2,1.5-3.6,3.5-3.7c0,0,0,0,0,0h17c1.7-0.1,3.1-1.5,3-3.2c0,0,0-0.1,0-0.1v-12c0-2.3-1.5-3.6-2.8-3.6h-17.1c-1.9,0.1-3.5-1.5-3.6-3.4c0,0,0,0,0,0V18.9c-0.1-1.7-1.5-3.1-3.2-3c0,0-0.1,0-0.1,0h-12.7c-1.6-0.1-3,1.1-3.1,2.7c0,0.1,0,0.1,0,0.2c0,0,0,61.7,0,62c0.5,21,17.9,37.6,38.9,37c1.4,0,2.9-0.2,4.3-0.3C272,117.2,273.2,115.7,273,114z"/></g><path d="M364.7,98c-10.8,0-12.4-3.8-12.4-18.3l0,0V44.8c0-1.8-1.4-3.2-3.2-3.2c0,0-0.1,0-0.1,0h-12.8c-1.8,0-3.2,1.4-3.3,3.2v1.6C314.6,36,291.3,42.5,281,60.8c-10.4,18.3-3.9,41.6,14.4,51.9c14,7.9,31.4,6.2,43.5-4.2c3.6,5.5,9.3,9.1,18.3,9.1c1.5,0,9.7,0.3,9.7-3.5v-13.6C367,99.2,366,98.1,364.7,98z M314.2,98.6c-10.5,0-19-8.5-19-19s8.5-19,19-19s19,8.5,19,19l0,0C333.2,90.1,324.7,98.6,314.2,98.6z"/></g><path d="M19.4,74c2.2-1.9,4.1-4.1,5.7-6.6c3.5-5.3,5.4-11.5,5.2-17.9V27c0-4.9,0.9-8.4,2.7-10.5c1.8-2.1,4.8-3,9.2-3h12.6c1.2,0,2.1-0.9,2.2-2.1l0,0V2.2C57,1,56,0,54.8,0c0,0,0,0,0,0H41.5c-7.8,0-12.9,2.1-18,7.6s-7.1,12.3-7.1,21.7v14.2c0,2.2-0.1,4-0.2,5.7v2.2c-0.5,3.2-1.8,6.2-3.6,8.9C9.4,64.7,5.1,70.9,0.9,74l0,0l-0.3,0.3l0,0l-0.2,0.3H0.2v0.3l0,0c-0.1,0.3-0.1,0.7,0,1l0,0v0.3h0.1l0.2,0.3l0,0l0.3,0.3l0,0c4.2,3.1,8.5,9.3,11.3,13.7c1.8,2.7,3.1,5.7,3.6,8.9v2.2c0.1,1.6,0.2,3.5,0.2,5.7v14.3c0,9.4,2.4,16.7,7.1,21.7s10.2,7.6,18,7.6h13.8c1.2,0,2.2-1,2.2-2.2V140l0,0c0-1.2-1-2.2-2.2-2.2H42.2c-4.4,0-7.5-1-9.2-3s-2.7-5.6-2.7-10.5v-22.4c0.2-6.4-1.7-12.6-5.2-17.9c-1.6-2.5-3.5-4.7-5.7-6.6l0,0c-0.9-0.7-1.1-2-0.4-2.9C19.2,74.3,19.3,74.2,19.4,74L19.4,74z"/><path d="M412.5,74c-2.2-1.9-4.1-4.1-5.7-6.6c-3.5-5.3-5.4-11.5-5.2-17.9V27c0-4.9-0.9-8.4-2.7-10.5s-4.8-3-9.2-3h-12.6c-1.2,0-2.2-1-2.2-2.2c0,0,0,0,0,0l0,0V2.2c0-1.2,1-2.2,2.2-2.2c0,0,0,0,0,0h13.4c7.8,0,12.9,2.1,18,7.6s7.1,12.3,7.1,21.7v14.2c0,2.2,0.1,4,0.2,5.7v2.2c0.5,3.2,1.8,6.2,3.6,8.9c2.8,4.5,7.1,10.7,11.3,13.7l0,0l0.3,0.3l0,0l0.2,0.3h0.1v0.3l0,0c0.1,0.3,0.1,0.7,0,1l0,0v0.3h-0.1l-0.2,0.3l0,0l-0.3,0.3l0,0c-4.2,3.1-8.5,9.3-11.3,13.7c-1.8,2.7-3.1,5.7-3.6,8.9v2.2c-0.1,1.6-0.2,3.5-0.2,5.7v14.3c0,9.4-2.4,16.7-7.1,21.7s-10.2,7.6-18,7.6h-13.4c-1.2,0-2.2-1-2.2-2.2c0,0,0,0,0,0V140l0,0c0-1.2,1-2.2,2.2-2.2l0,0h12.7c4.4,0,7.5-1,9.2-3s2.7-5.6,2.7-10.5v-22.4c-0.2-6.3,1.6-12.6,5.1-17.9c1.6-2.5,3.5-4.7,5.7-6.6l0,0c0.9-0.7,1.1-2,0.4-2.9C412.7,74.3,412.6,74.2,412.5,74L412.5,74z"/></g></svg></a> <nav class="Header-nav PrimaryNav"><ul class="menu"><li class="first expanded"><a href="/product/">Product</a> <ul class="menu"><li class="first"><a href="/product/">Overview</a> <!----></li><li><a href="/product/authentication/">Authentication</a> <!----></li><li><a href="/product/authorization/">Authorization</a> <!----></li><li><a href="/product/user-management/">User Management</a> <!----></li></ul></li><li><a href="/pricing/">Pricing</a> <!----></li><li><a href="/blog/">Blog</a> <!----></li><li class="expanded active"><a href="/docs/">Docs</a> <ul class="menu"><li class="first"><a href="/docs/">Get Started</a> <!----></li><li><a href="/docs/concepts/">Concepts</a> <!----></li><li><a href="/docs/guides/">Guides</a> <!----></li><li><a href="/docs/reference/">Reference</a> <!----></li></ul></li><li class="expanded"><a href="">Support</a> <ul class="menu"><li class="first"><a href="https://devforum.okta.com/">Okta Developer Forums</a> <!----></li><li><a href="mailto:developers@okta.com">developers@okta.com</a> <!----></li></ul></li></ul> <a href="#" class="PrimaryNav-toggle"><svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" class="MenuIcon"><path d="M1,16 L19,16" stroke="#FFFFFF" stroke-width="2" class="MenuIcon-line1"></path> <path d="M1,4 L19,4" stroke="#FFFFFF" stroke-width="2" class="MenuIcon-line2"></path> <path d="M1,10 L19,10" stroke="#FFFFFF" stroke-width="2" class="MenuIcon-line3"></path> <path d="M1,10 L19,10" stroke="#FFFFFF" stroke-width="2" class="MenuIcon-line4"></path></g></svg> <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="CloseIcon"><g id="ALl-Boards" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Desktop" transform="translate(-915.000000, -235.000000)" fill="#FFFFFF"><g id="Search-bar-Active" transform="translate(30.000000, 26.000000)"><polygon id="Icon/Cross" points="901 210.6 899.4 209 893 215.4 886.6 209 885 210.6 891.4 217 885 223.4 886.6 225 893 218.6 899.4 225 901 223.4 894.6 217"></polygon></g></g></g></svg></a> <div class="PrimaryNav-cta"><a target="_blank" rel="noopener noreferrer" href="https://login.okta.com/" class="Button--redOutline">Login</a> <a href="https://developer.okta.com/signup/" class="Button--red">Sign up</a></div> <a data-search-toggle class="SearchIcon"></a></nav></div></header> <div data-search-bar class="SearchBar"><div class="Wrap"><div data-pipeline="developer-okta-com" class="SearchBox" style="display: flex;"><div class="CoveoOmnibox"></div> <div class="CoveoSearchButton">Search</div> <div class="CoveoAnalytics"></div></div></div></div></div> <!----> <section class="PageContent DynamicSidebar has-tableOfContents"><div class="Sidebar" data-v-705933f8><aside data-v-705933f8><h2 class="Sidebar-location Sidebar-toggle h6" data-v-705933f8>Navigation</h2> <div class="Sidebar-close Sidebar-toggle" data-v-705933f8></div> <div data-v-705933f8><div class="Sidebar-group" data-v-705933f8><h3 class="Sidebar-title" data-v-705933f8>Concepts</h3> <ul class="Sidebar-nav" data-v-705933f8><li data-v-705933f8><a href="/docs/concepts/api-access-management/" data-v-705933f8>API Access Management</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/authentication/" data-v-705933f8>Authentication</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/auth-servers/" data-v-705933f8>Authorization Servers</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/event-hooks/" data-v-705933f8>Event Hooks</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/events-api-migration/" data-v-705933f8>Events API Migration</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/identity-providers/" data-v-705933f8>External Identity Providers</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/feature-lifecycle-management/" data-v-705933f8>Feature Lifecycle Management</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/inline-hooks/" data-v-705933f8>Inline Hooks</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/key-rotation/" data-v-705933f8>Key Rotation</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/auth-overview/" data-v-705933f8>OAuth 2.0 &amp; OIDC</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/okta-hosted-flows/" data-v-705933f8>Okta-Hosted Flows</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/okta-organizations/" data-v-705933f8>Okta Organizations</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/saml/" data-v-705933f8>SAML</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/scim/" data-v-705933f8>SCIM</a> <!----></li><li data-v-705933f8><a href="/docs/concepts/social-login/" data-v-705933f8>Social Login</a> <!----></li></ul></div><div class="Sidebar-group" data-v-705933f8><h3 class="Sidebar-title" data-v-705933f8>Guides</h3> <ul class="Sidebar-nav" data-v-705933f8><li data-v-705933f8><a href="/docs/guides/customize-tokens-returned-from-okta/" data-v-705933f8>Customize tokens returned from Okta</a> <!----></li><li data-v-705933f8><a href="/docs/guides/protect-your-api/" data-v-705933f8>Protect your API endpoints</a> <!----></li><li data-v-705933f8><a href="/docs/guides/request-user-consent/" data-v-705933f8>Request user consent during authentication</a> <!----></li><li data-v-705933f8><a href="/docs/guides/sign-into-web-app/" data-v-705933f8>Sign users in to your web application</a> <!----></li><li data-v-705933f8><a href="/docs/guides/sign-into-spa/" data-v-705933f8>Sign users in to your SPA</a> <!----></li><li data-v-705933f8><a href="/docs/guides/sign-users-out/" data-v-705933f8>Sign users out</a> <!----></li><li data-v-705933f8><a href="/docs/guides/" data-v-705933f8>More...</a> <!----></li></ul></div><div class="Sidebar-group" data-v-705933f8><h3 class="Sidebar-title" data-v-705933f8>Reference</h3> <ul class="Sidebar-nav" data-v-705933f8><li data-v-705933f8><a href="/docs/reference/api-overview/" data-v-705933f8>API Overview</a> <!----></li><li data-v-705933f8><a href="/docs/reference/api/oidc/" data-v-705933f8>Sign in Your Users</a> <!----></li><li data-v-705933f8><a href="/docs/reference/api/roles/" data-v-705933f8>Manage Okta Resources</a> <!----></li><li data-v-705933f8><a href="/docs/reference/error-codes/" data-v-705933f8>Error Codes</a> <!----></li><li data-v-705933f8><a href="/docs/reference/import-hook/" data-v-705933f8>Import Hook</a> <!----></li><li data-v-705933f8><a href="/docs/reference/saml-hook/" data-v-705933f8>SAML Hook</a> <!----></li><li data-v-705933f8><a href="/docs/reference/registration-hook/" data-v-705933f8>Registration Hook</a> <!----></li><li data-v-705933f8><a href="/docs/reference/token-hook/" data-v-705933f8>Token Hook</a> <!----></li><li data-v-705933f8><a href="/docs/reference/okta-expression-language/" data-v-705933f8>Okta Expression Language</a> <!----></li><li data-v-705933f8><a href="/docs/reference/postman-collections/" data-v-705933f8>Postman Collections</a> <!----></li><li data-v-705933f8><a href="/docs/reference/rate-limits/" data-v-705933f8>Rate Limits</a> <!----></li><li data-v-705933f8><a href="/docs/reference/releases-at-okta/" data-v-705933f8>Release Life Cycle</a> <!----></li><li data-v-705933f8><a href="/docs/reference/scim/" data-v-705933f8>SCIM Protocol</a> <!----></li><li data-v-705933f8><a href="/docs/reference/webfinger/" data-v-705933f8>WebFinger</a> <!----></li></ul></div><div class="Sidebar-group" data-v-705933f8><h3 class="Sidebar-title" data-v-705933f8>Release Notes</h3> <ul class="Sidebar-nav" data-v-705933f8><li data-v-705933f8><a href="/docs/release-notes/" data-v-705933f8>Okta API Products Release Notes</a> <!----></li></ul></div></div></aside></div> <div class="PageContent-main"><a id="edit-link" href="https://github.com/okta/okta-developer-docs/edit/master/packages/@okta/vuepress-site/3rd_party_notices/Okta_LDAP_Agent//index.md" target="_blank" rel="noopener noreferrer" data-proofer-ignore="">Edit Page</a> <div class="content__default"><p>This document contains third party open source licenses and notices for
+the Okta LDAP Agent product. Certain licenses and notices may appear in
+other parts of the product in accordance with the applicable license
+requirements.</p> <p>The Okta product that this document references does not necessarily use
+all the open source software packages referred to below and may also
+only use portions of a given package.</p> <p>THIRD PARTY NOTICES</p> <p><em>.NET Logging Framework</em></p> <table><thead><tr><th>VERSION (IF ANY):</th> <th>15.2</th></tr></thead> <tbody><tr><td>BRIEF DESCRIPTION:</td> <td>The logging framework provides you with an easy means to log information to any destination. It comes complete with loggers that support writing to the system console, a file on disk, a TCP/IP socket, and more.</td></tr> <tr><td>LICENSE:</td> <td>BSD 3-Clause</td></tr></tbody></table> <p>Copyright (c) 2002, 2005 - Lorne Brinkman - All rights reserved.</p> <p>www.TheObjectGuy.com</p> <p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:</p> <ol><li><p>Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.</p></li> <li><p>Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.</p></li> <li><p>Neither the name &quot;Lorne Brinkman&quot;, &quot;The Object Guy&quot;, nor the name
+&quot;Bit Factory&quot; may be used to endorse or promote products derived from
+this software without specific prior written permission.</p></li></ol> <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS
+IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p> <p><em>Apache Commons Daemon</em></p> <table><thead><tr><th>VERSION (IF ANY):</th> <th>1.0.13</th></tr></thead> <tbody><tr><td>BRIEF DESCRIPTION:</td> <td>Apache Commons Daemon provides a portable means of starting and stopping a Java Virtual Machine (JVM) that is running server-side applications.</td></tr> <tr><td>LICENSE:</td> <td>Apache 2.0</td></tr></tbody></table> <p>Copyright (c) 1999-2016 The Apache Software Foundation.</p> <p>Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements. See the NOTICE file distributed with
+this work for additional information regarding copyright ownership. The
+ASF licenses this file to You under the Apache License, Version 2.0 (the
+&quot;License&quot;); you may not use this file except in compliance with the
+License. You may obtain a copy of the License at</p> <p>http://www.apache.org/licenses/LICENSE-2.0</p> <p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p> <p><em>See Open Source Licenses below for complete copy of the Apache 2.0
+license.</em></p> <p><em>ASP.NET Weblog Article, &quot;Encrypting Passwords in a .NET app.config
+File&quot;</em></p> <table><thead><tr><th>VERSION (IF ANY):</th> <th></th></tr></thead> <tbody><tr><td>BRIEF DESCRIPTION:</td> <td>ASP.NET Weblog Article by Jon Galloway - Encrypting Passwords in a .NET app.config File</td></tr> <tr><td>LICENSE:</td> <td>Ms-Pl</td></tr></tbody></table> <p>Microsoft Public License (Ms-PL)</p> <p>This license governs use of the accompanying software. If you use the
+software, you accept this license. If you do not accept the license, do
+not use the software.</p> <ol><li>Definitions</li></ol> <p>The terms &quot;reproduce,&quot; &quot;reproduction,&quot; &quot;derivative works,&quot; and
+&quot;distribution&quot; have the same meaning here as under U.S. copyright law.</p> <p>A &quot;contribution&quot; is the original software, or any additions or changes
+to the software.</p> <p>A &quot;contributor&quot; is any person that distributes its contribution under
+this license.</p> <p>&quot;Licensed patents&quot; are a contributor's patent claims that read directly
+on its contribution.</p> <ol start="2"><li>Grant of Rights</li></ol> <p>(A) Copyright Grant- Subject to the terms of this license, including the
+license conditions and limitations in section 3, each contributor grants
+you a non-exclusive, worldwide, royalty-free copyright license to
+reproduce its contribution, prepare derivative works of its
+contribution, and distribute its contribution or any derivative works
+that you create.</p> <p>(B) Patent Grant- Subject to the terms of this license, including the
+license conditions and limitations in section 3, each contributor grants
+you a non-exclusive, worldwide, royalty-free license under its licensed
+patents to make, have made, use, sell, offer for sale, import, and/or
+otherwise dispose of its contribution in the software or derivative
+works of the contribution in the software.</p> <ol start="3"><li>Conditions and Limitations</li></ol> <p>(A) No Trademark License- This license does not grant you rights to use
+any contributors' name, logo, or trademarks.</p> <p>(B) If you bring a patent claim against any contributor over patents
+that you claim are infringed by the software, your patent license from
+such contributor to the software ends automatically.</p> <p>(C) If you distribute any portion of the software, you must retain all
+copyright, patent, trademark, and attribution notices that are present
+in the software.</p> <p>(D) If you distribute any portion of the software in source code form,
+you may do so only under this license by including a complete copy of
+this license with your distribution. If you distribute any portion of
+the software in compiled or object code form, you may only do so under a
+license that complies with this license.</p> <p>(E) The software is licensed &quot;as-is.&quot; You bear the risk of using it. The
+contributors give no express warranties, guarantees or conditions. You
+may have additional consumer rights under your local laws which this
+license cannot change. To the extent permitted under your local laws,
+the contributors exclude the implied warranties of merchantability,
+fitness for a particular purpose and non-infringement.</p> <p><em>CodeProject Article, &quot;Allow write/modify access to
+CommonApplicationData&quot;</em></p> <table><thead><tr><th>VERSION (IF ANY):</th> <th></th></tr></thead> <tbody><tr><td>BRIEF DESCRIPTION:</td> <td></td></tr> <tr><td>LICENSE:</td> <td>CPOL</td></tr></tbody></table> <p>License</p> <p>This article, along with any associated source code and files, is
+licensed under The Code Project Open License (CPOL) OF ANY KIND, either
+express or implied. See the License for the specific language governing
+permissions and limitations under the License.</p> <p><em>See Open Source Licenses below for complete copy of the Code Project
+Open License (CPOL) 1.02 license.</em></p> <p><em>*Modifications by Okta, Inc.</em></p> <p><em>CodeProject Article, &quot;LSA Functions - Privileges and Impersonation&quot;</em></p> <table><thead><tr><th>VERSION (IF ANY):</th> <th></th></tr></thead> <tbody><tr><td>BRIEF DESCRIPTION:</td> <td></td></tr> <tr><td>LICENSE:</td> <td>CPOL</td></tr></tbody></table> <p>License</p> <p>This article, along with any associated source code and files, is
+licensed under The Code Project Open License (CPOL) OF ANY KIND, either
+express or implied. See the License for the specific language governing
+permissions and limitations under the License.</p> <p><em>See Open Source Licenses below for complete copy of the Code Project
+Open License (CPOL) 1.02 license.</em></p> <p><em>*Modifications by Okta, Inc.</em></p> <p><em>CommandLine Parser Library</em></p> <table><thead><tr><th>VERSION (IF ANY):</th> <th></th></tr></thead> <tbody><tr><td>BRIEF DESCRIPTION:</td> <td>The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks.</td></tr> <tr><td>LICENSE:</td> <td>MIT</td></tr></tbody></table> <p>Copyright (c) 2005 - 2012 Giacomo Stelluti Scala.</p> <p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&quot;Software&quot;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p> <p>The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.</p> <p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p> <p><em>Lightweight Directory Access Protocol</em></p> <table><thead><tr><th>VERSION (IF ANY):</th> <th>3</th></tr></thead> <tbody><tr><td>BRIEF DESCRIPTION:</td> <td></td></tr> <tr><td>LICENSE:</td> <td>Custom</td></tr></tbody></table> <p>Copyright (c) The Internet Society (1997). All Rights Reserved.</p> <p>This document and translations of it may be copied and furnished to
+others, and derivative works that comment on or otherwise explain it or
+assist in its implementation may be prepared, copied, published and
+distributed, in whole or in part, without restriction of any kind,
+provided that the above copyright notice and this paragraph are included
+on all such copies and derivative works. However, this document itself
+may not be modified in any way, such as by removing the copyright notice
+or references to the Internet Society or other Internet organizations,
+except as needed for the purpose of developing Internet standards in
+which case the procedures for copyrights defined in the Internet
+Standards process must be followed, or as required to translate it into
+languages other than English.</p> <p>The limited permissions granted above are perpetual and will not be
+revoked by the Internet Society or its successors or assigns.</p> <p>This document and the information contained herein is provided on an &quot;AS
+IS&quot; basis and THE INTERNET SOCIETY AND THE INTERNET ENGINEERING TASK
+FORCE DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT
+INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR
+FITNESS FOR A PARTICULAR PURPOSE.</p> <p><em>Json.NET</em></p> <table><thead><tr><th>VERSION (IF ANY):</th> <th></th></tr></thead> <tbody><tr><td>BRIEF DESCRIPTION:</td> <td>Json.NET is a popular high-performance JSON framework for .NET.</td></tr> <tr><td>LICENSE:</td> <td>MIT</td></tr></tbody></table> <p>Copyright (c) 2007 James Newton-King.</p> <p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&quot;Software&quot;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p> <p>The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.</p> <p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p> <p><em>Moq</em></p> <table><thead><tr><th>VERSION (IF ANY):</th> <th>3.1.416.3</th></tr></thead> <tbody><tr><td>BRIEF DESCRIPTION:</td> <td>Mocking library for .NET 3.5 and C# 3.0, heavily based on Linq.</td></tr> <tr><td>LICENSE:</td> <td>BSD 3-Clause</td></tr></tbody></table> <p>Copyright (c) 2007. Clarius Consulting, Manas Technology Solutions,
+InSTEDD http://www.moqthis.com/. All rights reserved.</p> <p>Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:</p> <ol><li><p>Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.</p></li> <li><p>Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.</p></li> <li><p>Neither the name of Clarius Consulting, Manas Technology Solutions or
+InSTEDD nor the names of its contributors may be used to endorse or
+promote products derived from this software without specific prior
+written permission.</p></li></ol> <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS
+IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p> <p><em>Ms-Pl</em></p> <table><thead><tr><th>VERSION (IF ANY):</th> <th></th></tr></thead> <tbody><tr><td>BRIEF DESCRIPTION:</td> <td>DotNetZip is a FAST, FREE class library and toolset for manipulating zip files. Use VB, C# or any .NET language to easily create, extract, or update zip files.</td></tr> <tr><td>LICENSE:</td> <td>Ms-Pl</td></tr></tbody></table> <p>Microsoft Public License (Ms-PL)</p> <p>This license governs use of the accompanying software. If you use the
+software, you accept this license. If you do not accept the license, do
+not use the software.</p> <ol><li>Definitions</li></ol> <p>The terms &quot;reproduce,&quot; &quot;reproduction,&quot; &quot;derivative works,&quot; and
+&quot;distribution&quot; have the same meaning here as under U.S. copyright law.</p> <p>A &quot;contribution&quot; is the original software, or any additions or changes
+to the software.</p> <p>A &quot;contributor&quot; is any person that distributes its contribution under
+this license.</p> <p>&quot;Licensed patents&quot; are a contributor's patent claims that read directly
+on its contribution.</p> <ol start="2"><li>Grant of Rights</li></ol> <p>(A) Copyright Grant- Subject to the terms of this license, including the
+license conditions and limitations in section 3, each contributor grants
+you a non-exclusive, worldwide, royalty-free copyright license to
+reproduce its contribution, prepare derivative works of its
+contribution, and distribute its contribution or any derivative works
+that you create.</p> <p>(B) Patent Grant- Subject to the terms of this license, including the
+license conditions and limitations in section 3, each contributor grants
+you a non-exclusive, worldwide, royalty-free license under its licensed
+patents to make, have made, use, sell, offer for sale, import, and/or
+otherwise dispose of its contribution in the software or derivative
+works of the contribution in the software.</p> <ol start="3"><li>Conditions and Limitations</li></ol> <p>(A) No Trademark License- This license does not grant you rights to use
+any contributors' name, logo, or trademarks.</p> <p>(B) If you bring a patent claim against any contributor over patents
+that you claim are infringed by the software, your patent license from
+such contributor to the software ends automatically.</p> <p>(C) If you distribute any portion of the software, you must retain all
+copyright, patent, trademark, and attribution notices that are present
+in the software.</p> <p>(D) If you distribute any portion of the software in source code form,
+you may do so only under this license by including a complete copy of
+this license with your distribution. If you distribute any portion of
+the software in compiled or object code form, you may only do so under a
+license that complies with this license.</p> <p>(E) The software is licensed &quot;as-is.&quot; You bear the risk of using it. The
+contributors give no express warranties, guarantees or conditions. You
+may have additional consumer rights under your local laws which this
+license cannot change. To the extent permitted under your local laws,
+the contributors exclude the implied warranties of merchantability,
+fitness for a particular purpose and non-infringement.</p> <p><em>SpringFramework Spring Beans</em></p> <table><thead><tr><th>VERSION (IF ANY):</th> <th></th></tr></thead> <tbody><tr><td>BRIEF DESCRIPTION:</td> <td>Core support for dependency injection, transaction management, web applications, data access, messaging, testing and more.</td></tr> <tr><td>LICENSE:</td> <td>Apache 2.0</td></tr></tbody></table> <p>Copyright (c) 2002-2014 the original author or authors.</p> <p>Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements. See the NOTICE file distributed with
+this work for additional information regarding copyright ownership. The
+ASF licenses this file to You under the Apache License, Version 2.0 (the
+&quot;License&quot;); you may not use this file except in compliance with the
+License. You may obtain a copy of the License at</p> <p>http://www.apache.org/licenses/LICENSE-2.0</p> <p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p> <p><em>See Open Source Licenses below for complete copy of the Apache 2.0
+license.</em></p> <p><em>*Modifications by Okta, Inc.</em></p> <p>OPEN SOURCE LICENSES</p> <p><em>APACHE LICENSE</em></p> <p>Version 2.0, January 2004</p> <p>http://www.apache.org/licenses/</p> <p>TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION</p> <ol><li>DEFINITIONS.</li></ol> <p>&quot;License&quot; shall mean the terms and conditions for use, reproduction, and
+distribution as defined by Sections 1 through 9 of this document.</p> <p>&quot;Licensor&quot; shall mean the copyright owner or entity authorized by the
+copyright owner that is granting the License.</p> <p>&quot;Legal Entity&quot; shall mean the union of the acting entity and all other
+entities that control, are controlled by, or are under common control
+with that entity. For the purposes of this definition, &quot;control&quot; means
+(i) the power, direct or indirect, to cause the direction or management
+of such entity, whether by contract or otherwise, or (ii) ownership of
+fifty percent (50%) or more of the outstanding shares, or (iii)
+beneficial ownership of such entity.</p> <p>&quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity exercising
+permissions granted by this License.</p> <p>&quot;Source&quot; form shall mean the preferred form for making modifications,
+including but not limited to software source code, documentation source,
+and configuration files.</p> <p>&quot;Object&quot; form shall mean any form resulting from mechanical
+transformation or translation of a Source form, including but not
+limited to compiled object code, generated documentation, and
+conversions to other media types.</p> <p>&quot;Work&quot; shall mean the work of authorship, whether in Source or Object
+form, made available under the License, as indicated by a copyright
+notice that is included in or attached to the work (an example is
+provided in the Appendix below).</p> <p>&quot;Derivative Works&quot; shall mean any work, whether in Source or Object
+form, that is based on (or derived from) the Work and for which the
+editorial revisions, annotations, elaborations, or other modifications
+represent, as a whole, an original work of authorship. For the purposes
+of this License, Derivative Works shall not include works that remain
+separable from, or merely link (or bind by name) to the interfaces of,
+the Work and Derivative Works thereof.</p> <p>&quot;Contribution&quot; shall mean any work of authorship, including the original
+version of the Work and any modifications or additions to that Work or
+Derivative Works thereof, that is intentionally submitted to Licensor
+for inclusion in the Work by the copyright owner or by an individual or
+Legal Entity authorized to submit on behalf of the copyright owner. For
+the purposes of this definition, &quot;submitted&quot; means any form of
+electronic, verbal, or written communication sent to the Licensor or its
+representatives, including but not limited to communication on
+electronic mailing lists, source code control systems, and issue
+tracking systems that are managed by, or on behalf of, the Licensor for
+the purpose of discussing and improving the Work, but excluding
+communication that is conspicuously marked or otherwise designated in
+writing by the copyright owner as &quot;Not a Contribution.&quot;</p> <p>&quot;Contributor&quot; shall mean Licensor and any individual or Legal Entity on
+behalf of whom a Contribution has been received by Licensor and
+subsequently incorporated within the Work.</p> <ol start="2"><li><p>GRANT OF COPYRIGHT LICENSE. Subject to the terms and conditions of
+this License, each Contributor hereby grants to You a perpetual,
+worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright
+license to reproduce, prepare Derivative Works of, publicly display,
+publicly perform, sublicense, and distribute the Work and such
+Derivative Works in Source or Object form.</p></li> <li><p>GRANT OF PATENT LICENSE. Subject to the terms and conditions of this
+License, each Contributor hereby grants to You a perpetual, worldwide,
+non-exclusive, no-charge, royalty-free, irrevocable (except as stated in
+this section) patent license to make, have made, use, offer to sell,
+sell, import, and otherwise transfer the Work, where such license
+applies only to those patent claims licensable by such Contributor that
+are necessarily infringed by their Contribution(s) alone or by
+combination of their Contribution(s) with the Work to which such
+Contribution(s) was submitted. If You institute patent litigation
+against any entity (including a cross-claim or counterclaim in a
+lawsuit) alleging that the Work or a Contribution incorporated within
+the Work constitutes direct or contributory patent infringement, then
+any patent licenses granted to You under this License for that Work
+shall terminate as of the date such litigation is filed.</p></li> <li><p>REDISTRIBUTION. You may reproduce and distribute copies of the Work
+or Derivative Works thereof in any medium, with or without
+modifications, and in Source or Object form, provided that You meet the
+following conditions:</p></li></ol> <p>a.  You must give any other recipients of the Work or Derivative Works a
+copy of this License; and</p> <p>b.  You must cause any modified files to carry prominent notices stating
+that You changed the files; and</p> <p>c.  You must retain, in the Source form of any Derivative Works that You
+distribute, all copyright, patent, trademark, and attribution
+notices from the Source form of the Work, excluding those notices
+that do not pertain to any part of the Derivative Works; and</p> <p>d.  If the Work includes a &quot;NOTICE&quot; text file as part of its
+distribution, then any Derivative Works that You distribute must
+include a readable copy of the attribution notices contained within
+such NOTICE file, excluding those notices that do not pertain to any
+part of the Derivative Works, in at least one of the following
+places: within a NOTICE text file distributed as part of the
+Derivative Works; within the Source form or documentation, if
+provided along with the Derivative Works; or, within a display
+generated by the Derivative Works, if and wherever such third-party
+notices normally appear. The contents of the NOTICE file are for
+informational purposes only and do not modify the License. You may
+add Your own attribution notices within Derivative Works that You
+distribute, alongside or as an addendum to the NOTICE text from the
+Work, provided that such additional attribution notices cannot be
+construed as modifying the License.</p> <p>You may add Your own copyright statement to Your modifications and may
+provide additional or different license terms and conditions for use,
+reproduction, or distribution of Your modifications, or for any such
+Derivative Works as a whole, provided Your use, reproduction, and
+distribution of the Work otherwise complies with the conditions stated
+in this License.</p> <ol start="5"><li><p>SUBMISSION OF CONTRIBUTIONS. Unless You explicitly state otherwise,
+any Contribution intentionally submitted for inclusion in the Work by
+You to the Licensor shall be under the terms and conditions of this
+License, without any additional terms or conditions. Notwithstanding the
+above, nothing herein shall supersede or modify the terms of any
+separate license agreement you may have executed with Licensor regarding
+such Contributions.</p></li> <li><p>TRADEMARKS. This License does not grant permission to use the trade
+names, trademarks, service marks, or product names of the Licensor,
+except as required for reasonable and customary use in describing the
+origin of the Work and reproducing the content of the NOTICE file.</p></li> <li><p>DISCLAIMER OF WARRANTY. Unless required by applicable law or agreed
+to in writing, Licensor provides the Work (and each Contributor provides
+its Contributions) on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS
+OF ANY KIND, either express or implied, including, without limitation,
+any warranties or conditions of TITLE, NON-INFRINGEMENT,
+MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely
+responsible for determining the appropriateness of using or
+redistributing the Work and assume any risks associated with Your
+exercise of permissions under this License.</p></li> <li><p>LIMITATION OF LIABILITY. In no event and under no legal theory,
+whether in tort (including negligence), contract, or otherwise, unless
+required by applicable law (such as deliberate and grossly negligent
+acts) or agreed to in writing, shall any Contributor be liable to You
+for damages, including any direct, indirect, special, incidental, or
+consequential damages of any character arising as a result of this
+License or out of the use or inability to use the Work (including but
+not limited to damages for loss of goodwill, work stoppage, computer
+failure or malfunction, or any and all other commercial damages or
+losses), even if such Contributor has been advised of the possibility of
+such damages.</p></li> <li><p>ACCEPTING WARRANTY OR ADDITIONAL LIABILITY. While redistributing the
+Work or Derivative Works thereof, You may choose to offer, and charge a
+fee for, acceptance of support, warranty, indemnity, or other liability
+obligations and/or rights consistent with this License. However, in
+accepting such obligations, You may act only on Your own behalf and on
+Your sole responsibility, not on behalf of any other Contributor, and
+only if You agree to indemnify, defend, and hold each Contributor
+harmless for any liability incurred by, or claims asserted against, such
+Contributor by reason of your accepting any such warranty or additional
+liability.</p></li></ol> <p>END OF TERMS AND CONDITIONS</p> <p>APPENDIX: HOW TO APPLY THE APACHE LICENSE TO YOUR WORK</p> <p>To apply the Apache License to your work, attach the following
+boilerplate notice, with the fields enclosed by brackets &quot;[]&quot; replaced
+with your own identifying information. (Don't include the brackets!) The
+text should be enclosed in the appropriate comment syntax for the file
+format. We also recommend that a file or class name and description of
+purpose be included on the same &quot;printed page&quot; as the copyright notice
+for easier identification within third-party archives.</p> <p>Copyright [yyyy] [name of copyright owner]</p> <p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</p> <p>you may not use this file except in compliance with the License.</p> <p>You may obtain a copy of the License at</p> <p>http://www.apache.org/licenses/LICENSE-2.0</p> <p>Unless required by applicable law or agreed to in writing, software</p> <p>distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</p> <p>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</p> <p>See the License for the specific language governing permissions and</p> <p>limitations under the License.</p> <p><em>CODE PROJECT OPEN LICENSE</em></p> <p>Preamble</p> <p>This License governs Your use of the Work. This License is intended to
+allow developers to use the Source Code and Executable Files provided as
+part of the Work in any application in any form.</p> <p>The main points subject to the terms of the License are:</p> <ul><li><p>Source Code and Executable Files can be used in commercial
+applications;</p></li> <li><p>Source Code and Executable Files can be redistributed; and</p></li> <li><p>Source Code can be modified to create derivative works.</p></li> <li><p>No claim of suitability, guarantee, or any warranty whatsoever
+is provided. The software is provided &quot;as-is&quot;.</p></li> <li><p>The Article(s) accompanying the Work may not be distributed or
+republished without the Author's consent</p></li></ul> <p>This License is entered between You, the individual or other entity
+reading or otherwise making use of the Work licensed pursuant to this
+License and the individual or other entity which offers the Work under
+the terms of this License (&quot;Author&quot;).</p> <p>License</p> <p>THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CODE
+PROJECT OPEN LICENSE (&quot;LICENSE&quot;). THE WORK IS PROTECTED BY COPYRIGHT
+AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS
+AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED.</p> <p>BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HEREIN, YOU ACCEPT AND
+AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE. THE AUTHOR GRANTS YOU
+THE RIGHTS CONTAINED HEREIN IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH
+TERMS AND CONDITIONS. IF YOU DO NOT AGREE TO ACCEPT AND BE BOUND BY THE
+TERMS OF THIS LICENSE, YOU CANNOT MAKE ANY USE OF THE WORK.</p> <ol><li><p>DEFINITIONS.</p> <ol><li><p>&quot;ARTICLES&quot; means, collectively, all articles written by Author
+which describes how the Source Code and Executable Files for the
+Work may be used by a user.</p></li> <li><p>&quot;AUTHOR&quot; means the individual or entity that offers the Work
+under the terms of this License.</p></li> <li><p>&quot;DERIVATIVE WORK&quot; means a work based upon the Work or upon the
+Work and other pre-existing works.</p></li> <li><p>&quot;EXECUTABLE FILES&quot; refer to the executables, binary files,
+configuration and any required data files included in the Work.</p></li> <li><p>&quot;PUBLISHER&quot; means the provider of the website, magazine, CD-ROM,
+DVD or other medium from or by which the Work is obtained
+by You.</p></li> <li><p>&quot;SOURCE CODE&quot; refers to the collection of source code and
+configuration files used to create the Executable Files.</p></li> <li><p>&quot;STANDARD VERSION&quot; refers to such a Work if it has not been
+modified, or has been modified in accordance with the consent of
+the Author, such consent being in the full discretion of
+the Author.</p></li> <li><p>&quot;WORK&quot; refers to the collection of files distributed by the
+Publisher, including the Source Code, Executable Files,
+binaries, data files, documentation, whitepapers and
+the Articles.</p></li> <li><p>&quot;YOU&quot; is you, an individual or entity wishing to use the Work
+and exercise your rights under this License.</p></li></ol></li> <li><p>FAIR USE/FAIR USE RIGHTS. Nothing in this License is intended to
+reduce, limit, or restrict any rights arising from fair use, fair
+dealing, first sale or other limitations on the exclusive rights of
+the copyright owner under copyright law or other applicable laws.</p></li> <li><p>LICENSE GRANT. Subject to the terms and conditions of this License,
+the Author hereby grants You a worldwide, royalty-free,
+non-exclusive, perpetual (for the duration of the
+applicable copyright) license to exercise the rights in the Work as
+stated below:</p> <ol><li><p>You may use the standard version of the Source Code or
+Executable Files in Your own applications.</p></li> <li><p>You may apply bug fixes, portability fixes and other
+modifications obtained from the Public Domain or from
+the Author. A Work modified in such a way shall still be
+considered the standard version and will be subject to
+this License.</p></li> <li><p>You may otherwise modify Your copy of this Work (excluding
+the Articles) in any way to create a Derivative Work, provided
+that You insert a prominent notice in each changed file stating
+how, when and where You changed that file.</p></li> <li><p>You may distribute the standard version of the Executable Files
+and Source Code or Derivative Work in aggregate with other
+(possibly commercial) programs as part of a larger
+(possibly commercial) software distribution.</p></li> <li><p>The Articles discussing the Work published in any form by the
+author may not be distributed or republished without the
+Author's consent. The author retains copyright to any
+such Articles. You may use the Executable Files and Source Code
+pursuant to this License but you may not repost or republish or
+otherwise distribute or make available the Articles, without the
+prior written consent of the Author.</p></li></ol></li></ol> <p>Any subroutines or modules supplied by You and linked into the Source
+Code or Executable Files of this Work shall not be considered part of
+this Work and will not be subject to the terms of this License.</p> <ol><li><p>PATENT LICENSE. Subject to the terms and conditions of this License,
+each Author hereby grants to You a perpetual, worldwide,
+non-exclusive, no-charge, royalty-free, irrevocable (except as
+stated in this section) patent license to make, have made, use,
+import, and otherwise transfer the Work.</p></li> <li><p>RESTRICTIONS. The license granted in Section 3 above is expressly
+made subject to and limited by the following restrictions:</p> <ol><li><p>You agree not to remove any of the original copyright, patent,
+trademark, and attribution notices and associated disclaimers
+that may appear in the Source Code or Executable Files.</p></li> <li><p>You agree not to advertise or in any way imply that this Work is
+a product of Your own.</p></li> <li><p>The name of the Author may not be used to endorse or promote
+products derived from the Work without the prior written consent
+of the Author.</p></li> <li><p>You agree not to sell, lease, or rent any part of the Work. This
+does not restrict you from including the Work or any part of the
+Work inside a larger software distribution that itself is
+being sold. The Work by itself, though, cannot be sold, leased
+or rented.</p></li> <li><p>You may distribute the Executable Files and Source Code only
+under the terms of this License, and You must include a copy of,
+or the Uniform Resource Identifier for, this License with every
+copy of the Executable Files or Source Code You distribute and
+ensure that anyone receiving such Executable Files and Source
+Code agrees that the terms of this License apply to such
+Executable Files and/or Source Code. You may not offer or impose
+any terms on the Work that alter or restrict the terms of this
+License or the recipients' exercise of the rights
+granted hereunder. You may not sublicense the Work. You must
+keep intact all notices that refer to this License and to the
+disclaimer of warranties. You may not distribute the Executable
+Files or Source Code with any technological measures that
+control access or use of the Work in a manner inconsistent with
+the terms of this License.</p></li> <li><p>You agree not to use the Work for illegal, immoral or improper
+purposes, or on pages containing illegal, immoral or
+improper material. The Work is subject to applicable
+export laws. You agree to comply with all such laws and
+regulations that may apply to the Work after Your receipt of
+the Work.</p></li></ol></li> <li><p>REPRESENTATIONS, WARRANTIES AND DISCLAIMER. THIS WORK IS PROVIDED
+&quot;AS IS&quot;, &quot;WHERE IS&quot; AND &quot;AS AVAILABLE&quot;, WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTIES OR CONDITIONS OR GUARANTEES. YOU, THE USER,
+ASSUME ALL RISK IN ITS USE, INCLUDING COPYRIGHT INFRINGEMENT, PATENT
+INFRINGEMENT, SUITABILITY, ETC. AUTHOR EXPRESSLY DISCLAIMS ALL
+EXPRESS, IMPLIED OR STATUTORY WARRANTIES OR CONDITIONS, INCLUDING
+WITHOUT LIMITATION, WARRANTIES OR CONDITIONS OF MERCHANTABILITY,
+MERCHANTABLE QUALITY OR FITNESS FOR A PARTICULAR PURPOSE, OR ANY
+WARRANTY OF TITLE OR NON-INFRINGEMENT, OR THAT THE WORK (OR ANY
+PORTION THEREOF) IS CORRECT, USEFUL, BUG-FREE OR FREE OF VIRUSES.
+YOU MUST PASS THIS DISCLAIMER ON WHENEVER YOU DISTRIBUTE THE WORK OR
+DERIVATIVE WORKS.</p></li> <li><p>INDEMNITY. You agree to defend, indemnify and hold harmless the
+Author and the Publisher from and against any claims, suits, losses,
+damages, liabilities, costs, and expenses (including reasonable
+legal or attorneys' fees) resulting from or relating to any use of
+the Work by You.</p></li> <li><p>LIMITATION ON LIABILITY. EXCEPT TO THE EXTENT REQUIRED BY APPLICABLE
+LAW, IN NO EVENT WILL THE AUTHOR OR THE PUBLISHER BE LIABLE TO YOU
+ON ANY LEGAL THEORY FOR ANY SPECIAL, INCIDENTAL, CONSEQUENTIAL,
+PUNITIVE OR EXEMPLARY DAMAGES ARISING OUT OF THIS LICENSE OR THE USE
+OF THE WORK OR OTHERWISE, EVEN IF THE AUTHOR OR THE PUBLISHER HAS
+BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p></li> <li><p>TERMINATION.</p> <ol><li><p>This License and the rights granted hereunder will terminate
+automatically upon any breach by You of any term of
+this License. Individuals or entities who have received
+Derivative Works from You under this License, however, will not
+have their licenses terminated provided such individuals or
+entities remain in full compliance with those licenses. Sections
+1, 2, 6, 7, 8, 9, 10 and 11 will survive any termination of
+this License.</p></li> <li><p>If You bring a copyright, trademark, patent or any other
+infringement claim against any contributor over infringements
+You claim are made by the Work, your License from such
+contributor to the Work ends automatically.</p></li> <li><p>Subject to the above terms and conditions, this License is
+perpetual (for the duration of the applicable copyright in
+the Work). Notwithstanding the above, the Author reserves the
+right to release the Work under different license terms or to
+stop distributing the Work at any time; provided, however that
+any such election will not serve to withdraw this License (or
+any other license that has been, or is required to be, granted
+under the terms of this License), and this License will continue
+in full force and effect unless terminated as stated above.</p></li></ol></li> <li><p>PUBLISHER. The parties hereby confirm that the Publisher shall not,
+under any circumstances, be responsible for and shall not have any
+liability in respect of the subject matter of this License. The
+Publisher makes no warranty whatsoever in connection with the Work
+and shall not be liable to You or any party on any legal theory for
+any damages whatsoever, including without limitation any general,
+special, incidental or consequential damages arising in connection
+to this license. The Publisher reserves the right to cease making
+the Work available to You at any time without notice</p></li> <li><p>MISCELLANEOUS</p> <ol><li><p>This License shall be governed by the laws of the location of
+the head office of the Author or if the Author is an individual,
+the laws of location of the principal place of residence of
+the Author.</p></li> <li><p>If any provision of this License is invalid or unenforceable
+under applicable law, it shall not affect the validity or
+enforceability of the remainder of the terms of this License,
+and without further action by the parties to this License, such
+provision shall be reformed to the minimum extent necessary to
+make such provision valid and enforceable.</p></li> <li><p>No term or provision of this License shall be deemed waived and
+no breach consented to unless such waiver or consent shall be in
+writing and signed by the party to be charged with such waiver
+or consent.</p></li> <li><p>This License constitutes the entire agreement between the
+parties with respect to the Work licensed herein. There are no
+understandings, agreements or representations with respect to
+the Work not specified herein. The Author shall not be bound by
+any additional provisions that may appear in any communication
+from You. This License may not be modified without the mutual
+written agreement of the Author and You.</p></li></ol></li></ol> <p>DISCLAIMER AND LIMITATION OF LIABILITY</p> <p><em>DISCLAIMER</em>. OKTA AND ITS SUPPLIERS HEREBY DISCLAIM ALL (AND HAVE NOT
+AUTHORIZED ANYONE TO MAKE ANY) WARRANTIES EXPRESS OR IMPLIED, INCLUDING,
+BUT NOT LIMITED TO, ANY WARRANTIES OF NON-INFRINGEMENT OF THIRD PARTY
+RIGHTS WITH RESPECT TO OPEN SOURCE SOFTWARE, TITLE, MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE. THE PARTIES ARE NOT RELYING AND HAVE
+NOT RELIED ON ANY REPRESENTATIONS OR WARRANTIES WHATSOEVER REGARDING
+OKTA AND OKTA MAKES NO WARRANTY REGARDING ANY THIRD PARTY SOFTWARE.</p> <p><em>LIMITATION OF LIABILITY</em>. OKTA AND ITS SUPPLIERS, SHALL NOT BE
+RESPONSIBLE OR LIABLE UNDER ANY CONTRACT, NEGLIGENCE, STRICT LIABILITY
+OR OTHER THEORY ARISING OUT OF OR RELATED TO OPEN SOURCE SOFWARE (A) FOR
+ERROR OR INTERRUPTION OF USE, LOSS OR INACCURACY OR CORRUPTION OF DATA,
+(B) FOR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES, RIGHTS, OR
+TECHNOLOGY, (C) FOR ANY LOST PROFITS OR REVENUES, OR FOR ANY INDIRECT,
+SPECIAL, INCIDENTAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, WHETHER OR NOT A
+OKTA HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p> <p>IN NO EVENT WILL OKTA NOR ITS SUPPLIER'S AGGREGATE AND CUMULATIVE
+LIABILITY FOR ANY CLAIMS ARISING OUT OF OR RELATED TO OPEN SOURCE
+SOFTWARE EXCEED ONE HUNDRED DOLLARS ($100).</p> <p>Any provisions provided by Okta which differ from those in any third
+party license are provided by Okta alone.</p> <p>GPL LICENSED SOFTWARE</p> <p>If applicable and to the extent any open source components are licensed
+under the GPL and/or LGPL, or other similar license that require the
+source code and/or modifications to source code to be made available (as
+noted above), a copy of the source code corresponding to the binaries
+for such open source components and modifications thereto, if any, may
+be obtained by downloading the source code or by sending a request, with
+your name and address to: Okta, Inc., 301 Brannan Street, Suite 100, San
+Francisco, CA 94107. All open source requests should clearly specify:
+OPEN SOURCE REQUEST, Attention General Counsel and the name of the
+requested component and Okta product. Okta will mail a copy of the
+source code to you on a CD or equivalent physical medium. This offer to
+obtain a copy of the source code is valid for three (3) years from the
+date you acquired this Okta product. Alternatively, the open source may
+accompany the Okta product.</p></div></div> <!----></section> <footer class="Footer"><div class="Wrap"><div class="Row"><div class="Column--3 Column--medium-6 Column--xSmall-12"><a href="https://www.okta.com/" target="_blank" rel="noopener noreferrer"><div class="Logo"><img src="https://developer.okta.com/sites/all/themes/developer/images/logo-footer.png" alt="Okta"></div> <p>Visit okta.com</p></a></div> <div class="Column--3 Column--medium-12 Column--xSmall-12"><h4>Social</h4> <ul class="Footer-links"><li class="first"><a href="http://github.com/oktadeveloper" target="_blank" class="Footer-links--github">GitHub</a> <!----></li><li><a href="http://twitter.com/OktaDev" target="_blank" class="Footer-links--twitter">Twitter</a> <!----></li><li><a href="https://devforum.okta.com/" target="_blank" class="Footer-links--forum">Forum</a> <!----></li><li><a href="http://feeds.feedburner.com/OktaBlog" target="_blank" class="Footer-links--rss">RSS Blog</a> <!----></li><li><a href="https://www.youtube.com/channel/UC5AMiWqFVFxF1q9Ya1FuZ_Q/featured" target="_blank" class="Footer-links--youtube">YouTube</a> <!----></li></ul></div><div class="Column--3 Column--medium-12 Column--xSmall-12"><h4>More Info</h4> <ul class="Footer-links"><li class="first"><a href="https://developer.okta.com/integrate-with-okta/">Integrate With Okta</a> <!----></li><li><a href="https://developer.okta.com/blog/">Blog</a> <!----></li><li><a href="https://developer.okta.com/docs/release-notes/">Release Notes</a> <!----></li><li><a href="https://developer.okta.com/3rd_party_notices/">3rd Party Notices</a> <!----></li><li><a href="https://toolkit.okta.com/">Community Toolkit</a> <!----></li></ul></div><div class="Column--3 Column--medium-12 Column--xSmall-12"><h4>Contact & Legal</h4> <ul class="Footer-links"><li class="first"><a href="https://developer.okta.com/contact/">Contact Our Team</a> <!----></li><li><a href="https://developer.okta.com/contact-sales-enterprise/">Contact Sales</a> <!----></li><li><a href="mailto:developers@okta.com">Contact Support</a> <!----></li><li><a href="https://developer.okta.com/terms/">Terms &amp; Conditions</a> <!----></li><li><a href="https://developer.okta.com/privacy/">Privacy Policy</a> <!----></li></ul></div></div></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.1df7935f.js" defer></script><script src="/assets/js/11.71506886.js" defer></script><script src="/assets/js/2.8712a879.js" defer></script><script src="/assets/js/4.57ec015f.js" defer></script><script src="/assets/js/10.75e07b2c.js" defer></script><script src="/assets/js/34.6da36575.js" defer></script><script src="/assets/js/547.25f237ca.js" defer></script><script src="/assets/js/1.952b7ece.js" defer></script><script src="/assets/js/31.3153d314.js" defer></script>
+  </body>
+</html>
