@@ -116,7 +116,7 @@ The `value` object is where you specify the specific operation to perform. It is
 
 #### Reserved claims for Token Hooks
 
-Okta defines a number of reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/guides/validate-id-tokens/overview/#id-tokens-vs-access-tokens) or modify a claim, avoid using the following reserved claims:
+Okta defines a number of reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, avoid using the following reserved claims:
 
 | Claim Name     | Token Type        |
 |----------------|-------------------|
