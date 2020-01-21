@@ -47,7 +47,7 @@ Okta requires that all SCIM applications in the OIN catalog support all of the f
 - `https://system-admin.trexcloud.com/admin/app/cpc/{appName}/oauth/callback`
 - `http://system-admin.okta1.com:1802/admin/app/cpc/{appName}/oauth/callback`
 
-where the `{appName}` is a unique identifier provided to you after your integration is submitted and processed by Okta.
+where the `{appName}` is a unique identifier provided to you after your integration is submitted and processed by Okta. If, for any reason, your unique `{appName}` identifier is not provided to you after the initial review, send an email to <developers@okta.com>.
 
 ### Base URL
 
@@ -67,7 +67,7 @@ You can pass a Base URL containing the name of the org:
 - `https://company-b.example.com/scim/v2`
 - `https://company-c.example.com/scim/v2`
 
-On your SCIM server, you can read which subdomain the request is coming from and route the request to the appropriate Okta org.
+On your SCIM server, you can read which subdomain the request is coming from and route the request to the appropriate tenant for the Okta org.
 
 ### Basic User Schema
 

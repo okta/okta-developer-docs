@@ -13,11 +13,13 @@ This guide is a requirement for the OIN submission process. The guide is provide
     * Google doc
     * Downloadable PDF
 1. Provide Okta a link to the configuration guide as part of the submission to the OIN. Okta checks your document for general adherence to the configuration guide instructions.
-1. Until approved by Okta, your guide should include the following disclaimer:
-  `This integration with Okta is currently under development and is not available to customers yet. Contact us at <email> to learn more.`
 1. After your app is published as Okta-Verified, you can make the link public or customer‐accessible, and no disclaimers are required.
 
-For an example of a detailed configuration guide, see the [G Suite Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_google-provisioning) guide.
+The following are examples of detailed configuration guides:
+
+* [Atlassian Cloud](https://confluence.atlassian.com/cloud/configure-user-provisioning-with-okta-957492956.html)
+* [Fuze](http://images.em.fuze.com/Web/ThinkingPhones/%7Be980dc53-8c7e-4758-b5e5-3fa20845c561%7D_Fuze_Admin_Guide_-_Okta_Provisioning_(1).pdf) (PDF link)
+* [Zscaler](https://help.zscaler.com/zia/saml-scim-configuration-guide-okta)
 
 All configuration guides must include the following sections:
 
@@ -61,12 +63,6 @@ Include any best practices for your procedure here, such as guidance on setting 
 `The External ID is a required attribute, but it does not have a default mapping. This is because some customers prefer to set it to EmployeeNumber, and others like to set it to emailAddress. Assign the mapping to the correct value for your organization.`
 
 Note: The configuration guide is opened from the **Provisioning** tab. The **General** settings and **Sign On** settings have been already configured.
-
-### Schema Discovery
-
-This section of the guide is optional.
-
-You can use schema discovery to add extra attributes to Okta user profiles. Explain what extra attributes are available and how to configure them with your application mappings.
 
 ### Troubleshooting and Tips
 
