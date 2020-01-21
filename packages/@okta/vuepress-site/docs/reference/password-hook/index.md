@@ -5,8 +5,6 @@ excerpt: Verify a user-supplied password during migration of the user to Okta
 
 # Password Import Inline Hook Reference
 
-<ApiLifecycle access="ea" />
-
 This page provides reference documentation for:
 
 - JSON objects contained in the outbound request from Okta to your external service
