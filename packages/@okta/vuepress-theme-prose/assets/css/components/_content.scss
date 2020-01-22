@@ -5,6 +5,12 @@
   @include media('>=tablet') {
     flex-direction: row;
     margin-top: 4rem;
+
+    .content__default {
+      p {
+        max-width: inherit;
+      }
+    }
   }
 
   .tree-nav {
