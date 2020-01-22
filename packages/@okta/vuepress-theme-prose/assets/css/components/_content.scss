@@ -63,6 +63,13 @@
     div[class^='language-'],
     table {
       overflow-x: scroll;
+
+      @include media('>=tablet') {
+        td img {
+          width:100%;
+          max-width: 100%;
+        }
+      }
     }
 
     h5 {
