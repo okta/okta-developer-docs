@@ -1797,7 +1797,7 @@ redirects:
     to: /docs/guides/implement-oauth-for-okta/get-access-token-using-service-app/
   - from: /docs/guides/oauth-for-okta/save-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta/save-access-token/
-  - from: /docs/guides/implement-oauth-for-okta/save-access-token/
+  - from: /docs/guides/implement-oauth-for-okta/save-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta/request-access-token/
   - from: /docs/guides/oauth-for-okta/save-access-token/index.html
     to: /docs/guides/implement-oauth-for-okta/request-access-token/
