@@ -26,6 +26,7 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User with Recovery Question](#create-user-with-recovery-question)
 - [Create User with Password](#create-user-with-password)
 - [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password)
+- [Create User with Password Import Inline Hook](#create-user-with-password-import-inline-hook)
 - [Create User with Password & Recovery Question](#create-user-with-password-recovery-question)
 - [Create User with Authentication Provider](#create-user-with-authentication-provider)
 - [Create User in Group](#create-user-in-group)
@@ -308,6 +309,79 @@ curl -v -X POST \
         "workFactor": 10,
         "salt": "rwh3vH166HCH/NT9XV5FYu",
         "value": "qaMqvAPULkbiQzkTCWo5XDcvzpk8Tna"
+      }
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/users?activate=false"
+```
+
+##### Response Example
+
+
+```json
+{
+  "id": "00ub0oNGTSWTBKOLGLNR",
+  "status": "ACTIVE",
+  "created": "2013-07-02T21:36:25.344Z",
+  "activated": null,
+  "statusChanged": null,
+  "lastLogin": null,
+  "lastUpdated": "2013-07-02T21:36:25.344Z",
+  "passwordChanged": "2013-07-02T21:36:25.344Z",
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.brock@example.com",
+    "login": "isaac.brock@example.com",
+    "mobilePhone": "555-415-1337"
+  },
+  "credentials": {
+    "password": {},
+    "provider": {
+      "type": "IMPORT",
+      "name": "IMPORT"
+    }
+  },
+  "_links": {
+    "activate": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+    },
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+    }
+  }
+}
+```
+
+#### Create User with Password Import Inline Hook
+
+
+Creates a user with a specified [password hook](#password-hook-object). See [Password Import Inline Hook](/docs/reference/password-hook/) for more details.
+The new user is able to login immediately after activation with the specified password.
+This flow is common when migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
+
+> Important: Do not generate or send a one-time activation token when activating users with an password hook.  Users should login with their existing password to be imported using the password import inline hook.
+
+##### Request Example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "profile": {
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.brock@example.com",
+    "login": "isaac.brock@example.com",
+    "mobilePhone": "555-415-1337"
+  },
+  "credentials": {
+    "password" : {
+      "hook": {
+        "type": "default"
       }
     }
   }
@@ -3878,11 +3952,13 @@ Specifies a password for a user
 | :--------- | :---------                                        | :--------- | :------- | :--------- | :---------------- | :---------- | :-------------- |
 | value      | String                                            | TRUE       | FALSE    | FALSE      | Password Policy   | 72          | Password Policy |
 | hash       | [Hashed Password Object](#hashed-password-object) | TRUE       | FALSE    | FALSE      | N/A               | N/A         |                 |
+| hook       | [Password Hook Object](#password-hook-object)     | TRUE       | FALSE    | FALSE      | N/A               | N/A         |                 |
 
 A password value is a **write-only** property.
 A password hash is a **write-only** property.
+A password hook is a **write-only** property.
 
-When a user has a valid password or imported hashed password, and a response object contains a password credential, then the Password Object is a bare object without the `value` property defined (e.g. `password: {}`) to indicate that a password value exists.
+When a user has a valid password or imported hashed password or password hook, and a response object contains a password credential, then the Password Object is a bare object without the `value` property defined (e.g. `password: {}`) to indicate that a password value exists.
 
 
 ##### Default Password Policy
@@ -3974,6 +4050,26 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
     "salt": "TXlTYWx0",
     "saltOrder": "PREFIX",
     "value": "jqACjUUFXM1XE6NiLALAbA=="
+  }
+}
+```
+
+##### Password Hook Object
+
+Specifies to use a password hook to import user into Okta. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user. When updating a user with a password hook the user must be in the `STAGED` status.
+
+> **Note:** Because the plain text password isn't specified when a password hook is specified, password policy isn't applied.
+
+| Property   | DataType | Description                                                                                                                                                                                | Required                                                                      | Min Value                      | Max Value                      |
+|:-----------|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------|:-------------------------------|:-------------------------------|
+| type  | String   | The type of password hook. Must be set to default.                                                                                            | TRUE                                                                          | N/A                            | N/A                            |
+
+###### Password Hook Object Example
+
+```bash
+"password" : {
+  "hook": {
+    "type": "default"
   }
 }
 ```
