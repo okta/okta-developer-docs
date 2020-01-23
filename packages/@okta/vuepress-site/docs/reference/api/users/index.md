@@ -352,69 +352,6 @@ curl -v -X POST \
 }
 ```
 
-#### Create User with Hook-Based Password Migration
-
-Creates a user, specifying that a [Password Import Inline Hook](/docs/reference/password-hook/) should be triggered to handle verification of their password the first time they log in.
-
-In this use case, the user is able to log in to Okta using their existing password. Okta calls the Password Inline Hook to check that the password the user supplied is correct.
-
-##### Request Example
-
-```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
--d '{
-  "profile": {
-    "firstName": "Isaac",
-    "lastName": "Brock",
-    "email": "isaac.brock@example.com",
-    "login": "isaac.brock@example.com"
-  },
-  "credentials": {
-    "password" : {
-      "hook": {
-        "type": "default"
-      }
-    }
-  }
-}' "https://${yourOktaDomain}/api/v1/users?activate=true"
-```
-
-#### Response Example
-
-```json
-
-  "eventId": "3o9jBzq1SmOGmmsDsqyyeQ",
-  "eventTime": "2020-01-17T21:23:56.000Z",
-  "eventType": "com.okta.user.credential.password.import",
-  "eventTypeVersion": "1.0",
-  "contentType": "application/json",
-  "cloudEventVersion": "0.1",
-  "source": "https://${yourOktaDomain}/api/v1/inlineHooks/cal2xd5phv9fsPLcF0g7",
-  "data": {
-    "context": {
-      "request": {
-        "id": "XiIl6wn7005Rr@fjYqeC7AAABxw",
-        "method": "POST",
-        "url": {
-          "value": "/api/v1/authn"
-        },
-        "ipAddress": "98.124.153.138"
-      },
-      "credential": {
-        "username": "isaac.brock@example.com",
-        "password": "Okta"
-      }
-    },
-    "action": {
-      "credential": "UNVERIFIED"
-    }
-  }
-}
-```
-
 #### Create User with Password & Recovery Question
 
 
