@@ -64,9 +64,9 @@ For example commands, see the [value](#value) section below.
 
 The following command is supported for the Registration Inline Hook type:
 
-| Command                | Description                                                                         |
-|------------------------|-------------------------------------------------------------------------------------|
-| com.okta.action.update | Indicates whether the user-supplied credentials should be accepted as valid or not. |
+| Command                | Description                                                            |
+|------------------------|------------------------------------------------------------------------|
+| com.okta.action.update | Indicates that an update action should occur for the supplied `value`. |
 
 #### value
 
