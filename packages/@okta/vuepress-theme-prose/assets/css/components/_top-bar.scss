@@ -77,7 +77,7 @@
       margin-left: 0rem;
       margin-right: 0rem;
       flex: 1;
-      align-items: center;
+      align-items: start;
       flex-flow: row wrap;
       min-width: 810px;
     }
@@ -91,7 +91,7 @@
       @include media(">=tablet") {
         order: 2;
         display: flex;
-        padding-top: 0rem;
+        padding-top: 0.5rem;
       }
 
       .search-icon {
