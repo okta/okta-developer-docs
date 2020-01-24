@@ -1,5 +1,7 @@
 table {
   display: block;
+  margin-top: $base-spacing;
+  margin-bottom: $base-spacing;
 
   th, td {
     padding: 0.3rem 0.5rem;

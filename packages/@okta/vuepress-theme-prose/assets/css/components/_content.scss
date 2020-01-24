@@ -10,6 +10,10 @@
       p, ol {
         max-width: inherit;
       }
+
+      h3, h4, h5, h6 {
+        margin-top: $base-spacing;
+      }
     }
   }
 
@@ -70,6 +74,8 @@
           max-width: 100%;
         }
       }
+      margin-top: $base-spacing;
+      margin-bottom: $base-spacing;
     }
 
     h5 {
