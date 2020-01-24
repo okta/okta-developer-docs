@@ -181,6 +181,9 @@
           a.router-link-active {
             text-decoration: none;
             border-bottom: none;
+            @include media(">=tablet") {
+              border-bottom: 1px solid white;
+            }
           }
 
           @include media(">=tablet") {
@@ -191,7 +194,7 @@
   
               ul.submenu {
                 display: none;
-                margin-top: 1rem;
+                margin-top: 2.2rem;
                 padding-top: 0.5rem;
                 margin-bottom: 0rem;
                 box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
@@ -202,11 +205,12 @@
                   content: '';
                   display: block;
                   position: absolute;
-                  top: -15px;
+                  top: -45px;
                   left: 10px;
                   border-bottom: solid 20px white;
                   border-left: solid 20px transparent;
                   border-right: solid 20px transparent;
+                  padding-top: 30px;
                 }
 
               }
@@ -242,7 +246,6 @@
                 color: cv('cerise');
                 width: 100%;
                 padding: 1.0rem 1.3rem;
-                // margin: 1.0rem 1.3rem;
                 transition: color .4s;
                 
               }
@@ -255,22 +258,12 @@
               margin-left: 1.5rem;
               margin-bottom: 0rem;
 
-              a.router-link-active {
-                text-decoration: none;
-                border-bottom: none;
-              }
-
               @include media(">=tablet") {
                 padding-left: 0rem;
                 padding-right: 0rem;
                 margin-left: 0rem;
                 margin-right: 0rem;
                 margin-bottom: 0rem;
-
-                a.router-link-active {
-                  text-decoration: none;
-                  border-bottom: none;
-                }
 
                 &:hover {
                   background-color: cv('cerise');
