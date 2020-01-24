@@ -28,6 +28,7 @@ For testing purposes, we recommend that you use the Implicit grant flow. Using t
     * **Client ID**: Use the `client_id` of your Okta OAuth application that you created in the <GuideLink link="../create-oauth-app">previous step</GuideLink>.
     * **Scope**: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the application's grants collection and the user must have the permission to perform those actions. See <GuideLink link="../scopes">Scopes & supported endpoints</GuideLink> for more information.
     * **State**: Use any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which helps prevent cross-site request forgery.
+    * **Client Authentication**: Leave the default of **Send as Basic Auth Header**.
 
 7. Click **Request Token**. You are prompted to sign in to your Okta org. After you are authenticated, the **Manage Access Tokens** window displays the access token, including the scopes requested. The token also automatically populates the **Available Token** drop-down list.
     > **Note:** The lifetime for this token is fixed at one hour.
