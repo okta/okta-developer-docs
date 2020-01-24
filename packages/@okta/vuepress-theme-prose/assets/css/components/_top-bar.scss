@@ -194,7 +194,8 @@
                 margin-top: 1rem;
                 padding-top: 0.5rem;
                 margin-bottom: 0rem;
-                box-shadow: cv('gray', '900') 0rem 0.1rem 0.2rem;
+                box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
+                border-radius: 3px;
 
                 &::before {
                   border-bottom: solid 22px white;
@@ -239,9 +240,10 @@
 
               a {
                 color: cv('cerise');
-
-                padding: 0rem 1.3rem;
-                margin: 1.0rem 0rem;
+                width: 100%;
+                padding: 1.0rem 1.3rem;
+                // margin: 1.0rem 1.3rem;
+                transition: color .4s;
                 
               }
             }
