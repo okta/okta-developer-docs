@@ -356,11 +356,12 @@ curl -v -X POST \
 #### Create User with Password Import Inline Hook
 
 
-Creates a user with a specified [Password Hook](#password-hook-object) object specifying that a Password Inline Hook should be used to handle password verification. The Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to log in. Okta calls the Password Inline Hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password Import Inline Hook](/docs/reference/password-hook/) for more details.
-The new user is able to login immediately after activation with the valid password.
-This flow is common when migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
+Creates a user with a [Password Hook](#password-hook-object) object specifying that a Password Inline Hook should be used to handle password verification. The Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to log in. Okta calls the Password Inline Hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password Import Inline Hook](/docs/reference/password-hook/) for more details.
 
-> Important: Do not generate or send a one-time activation token when activating users with an password hook.  Users should login with their existing password to be imported using the password import inline hook.
+The new user is able to login immediately after activation with the valid password.
+This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
+
+> Important: Do not generate or send a one-time activation token when activating users with an Password Inline Hook.  Users should log in with their existing password to be imported using the Password Import Inline Hook.
 
 ##### Request Example
 
@@ -3958,7 +3959,7 @@ A password value is a **write-only** property.
 A password hash is a **write-only** property.
 A password hook is a **write-only** property.
 
-When a user has a valid password or imported hashed password or password hook, and a response object contains a password credential, then the Password Object is a bare object without the `value` property defined (e.g. `password: {}`) to indicate that a password value exists.
+When a user has a valid password, or imported hashed password, or password hook, and a response object contains a password credential, then the Password Object is a bare object without the `value` property defined (for example, `password: {}`), to indicate that a password value exists.
 
 
 ##### Default Password Policy
@@ -4056,7 +4057,9 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 
 ##### Password Hook Object
 
-Specifies that a [Password Import Inline Hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user. When updating a user with a password hook the user must be in the `STAGED` status.
+Specifies that a [Password Import Inline Hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
+
+When updating a user with a password hook the user must be in the `STAGED` status.
 
 > **Note:** Because the plain text password isn't specified when a password hook is specified, password policy isn't applied.
 
