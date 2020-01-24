@@ -44,6 +44,11 @@
           crumbs.pop();
         }
 
+        // Custom Options
+        if(crumbs[0].title == 'Code') {
+          crumbs[0].title = 'Languages & SDKs';
+        }
+
         return crumbs;
       }
     },
