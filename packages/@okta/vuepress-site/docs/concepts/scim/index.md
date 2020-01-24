@@ -43,7 +43,7 @@ Provisioning consists of a set of actions between a service provider - like Okta
 
 By implementing support for the SCIM standard, an application in the Okta Integration Network can be notified when a user is created, updated, or removed from their application in Okta.
 
-The provisioning actions performed by an integration are described using the database operation acronym "CRUD": Create, Read, Update, and Delete:
+The provisioning actions performed by an integration are described using the database operation acronym "CRUD": Create, Read, Update, and Delete. The four CRUD operations are the building blocks that combine to solve your end-to-end use cases:
 
 ### Create
 
@@ -64,8 +64,6 @@ User attributes can be mapped from your source into Okta and conversely, an attr
 For audit purposes, Okta users are never deleted; instead, they are deprovisioned by setting an `active` attribute to "false". Then, if an existing user needs to be re-provisioned at a later date (for example, returning from parental leave or if a contractor is re-hired), then the attribute can be switched back to "true".
 
 Deprovisioning a user removes their access to the downstream application. Your application can specify different results for deprovisioning a user, such as changing user access permissions, removing a user license, or completely disabling the user account.
-
-These four CRUD operations are the building blocks that combine to solve your end-to-end use cases.
 
 ### Syncing Passwords
 
