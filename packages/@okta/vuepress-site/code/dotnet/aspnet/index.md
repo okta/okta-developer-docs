@@ -10,14 +10,14 @@ meta:
 
 <ul class='language-tabs'>
 	<li>
-		<a href='/code/dotnet/aspnetcore/'>
+		<RouterLink to='/code/dotnet/aspnetcore/'>
 			<i class='icon code-dotnet-32'></i><span>ASP.NET Core</span>
-		</a>
+		</RouterLink>
 	</li>
-	<li class="active">
-		<a href='/code/dotnet/aspnet/'>
+	<li>
+		<RouterLink to='/code/dotnet/aspnet/'>
 			<i class='icon code-dotnet-32'></i><span>ASP.NET</span>
-		</a>
+		</RouterLink>
 	</li>
 </ul>
 
