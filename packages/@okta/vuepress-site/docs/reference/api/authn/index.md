@@ -552,7 +552,7 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header
+* The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request Example for Trusted Application
 
@@ -608,10 +608,9 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header
+* The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request Example for Activation Token
-
 
 ```bash
 curl -v -X POST \
@@ -626,7 +625,6 @@ curl -v -X POST \
 ```
 
 ##### Response Example for Activation Token (Success - User with Password, no MFA)
-
 
 ```json
 {
@@ -873,18 +871,16 @@ Content-Type: application/json
 
 Include the `X-Device-Fingerprint` header to supply a device fingerprint. The device fingerprint is used in the following ways:
 
-* If the new or unknown-device email notification is enabled, an email is sent to the user if the device fingerprint sent in the header is not associated with previous successful logins.
-For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?)
-* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent 
-in the header is not associated with previous successful logins. For more information about this feature, see [EA documentation](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm?)
+* If the new or unknown-device email notification is enabled, an email is sent to the user if the device fingerprint sent in the header is not associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
+* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the header is not associated with previous successful logins. For more information about this feature, see [EA documentation](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm?).
 
 Specifying your own device fingerprint is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid API token.
 You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
 **Notes:**
 
-* Device fingerprint is different from the device token. The time and device based MFA in Okta SignOn policy rules depends on the device token only and not on the device fingerprint. To read more about the device token, see [Context Object](#context-object). The time and device based MFA would work only if you send the device token passed in the [client request context](/docs/reference/api-overview/#client-request-context)
-* To use device fingerprinting for the new or unknown-device email notification feature, include the `User-Agent` header in the request. For more information, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?)
+* Device fingerprint is different from the device token. The time and device based MFA in Okta SignOn policy rules depends on the device token only and not on the device fingerprint. To read more about the device token, see [Context Object](#context-object). The time and device based MFA would work only if you send the device token passed in the [client request context](/docs/reference/api-overview/#client-request-context).
+* To use device fingerprinting for the new or unknown-device email notification feature, include the `User-Agent` header in the request. For more information, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
 
 ##### Request Example for Device Fingerprinting
 
@@ -1020,7 +1016,7 @@ curl -v -X POST \
 
 
 
-### SP-initiated Step-up Authentication
+### SP-initiated Step-Up Authentication
 
 
 <ApiLifecycle access="ea" />
@@ -1028,19 +1024,18 @@ curl -v -X POST \
 **Notes:**
 
 * This endpoint is currently supported only for SAML-based apps.
-* You must first enable custom login page for the application before using this API.
+* You must first enable the custom sign-in page for the application before using this API.
 
-Every step-up transaction starts with user accessing an application.
-If step-up authentication is required, Okta redirects the user to the custom login page with state token as a request parameter.
+Every step-up transaction starts with the user accessing an application. If step-up authentication is required, Okta redirects the user to the custom sign-in page with state token as a request parameter.
 
 For example, if the custom sign-in page is set as **https://login.example.com**, then Okta will redirect to **https://login.example.com?stateToken=**00BClWr4T-mnIqPV8dHkOQlwEIXxB4LLSfBVt7BxsM. To determine the next step, check the [state of the transaction](#get-transaction-state).
 
-* [Step-up Authentication without Okta session](#step-up-authentication-without-okta-session)
-* [Step-up Authentication with Okta session](#step-up-authentication-with-okta-session)
+* [Step-Up Authentication without Okta session](#step-up-authentication-without-okta-session)
+* [Step-Up Authentication with Okta session](#step-up-authentication-with-okta-session)
 
-#### Step-up Authentication Without Okta Session
+#### Step-Up Authentication without Okta session
 
-##### Request Example for Step-up Authentication Without Okta Session (Get Transaction State)
+##### Request example for Step-Up Authentication without Okta session (Get Transaction State)
 
 
 ```bash
@@ -1052,7 +1047,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response Example for Step-up Authentication Without Okta Session
+##### Response example for Step-Up Authentication without Okta session
 
 
 ```json
@@ -1097,7 +1092,7 @@ curl -v -X POST \
 }
 ```
 
-##### Request Example  for Step-up Authentication Without Okta Session (Perform Primary Authentication)
+##### Request Example for Step-Up Authentication without Okta session (Perform Primary Authentication)
 
 Primary authentication has to be completed by using the value of **stateToken** request parameter passed to custom sign-in page.
 
@@ -1114,7 +1109,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response Example for Step-up Authentication Without Okta Session When MFA Isn't Required
+##### Response example for Step-Up Authentication without Okta session when MFA isn't required
 
 > **Note:** Sign in to the app by following the next link relation.
 
@@ -1171,9 +1166,9 @@ curl -v -X POST \
 }
 ```
 
-#### Step-up authentication with Okta Session
+#### Step-Up Authentication with Okta session
 
-##### Request Example to Get Transaction State for Step-up authentication with Okta Session
+##### Request example to get Transaction State for Step-Up Authentication with Okta session
 
 
 ```bash
@@ -1185,10 +1180,10 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response Example for Factor Enroll for Step-up authentication with Okta Session
+##### Response example for Factor Enroll for Step-Up Authentication with Okta session
 
 
-User is assigned to an MFA Policy that requires enrollment during sign-on and must [select a factor to enroll](#enroll-factor) to complete the authentication transaction.
+The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a factor to enroll](#enroll-factor) to complete the authentication transaction.
 
 ```json
 {
@@ -1262,7 +1257,7 @@ User is assigned to an MFA Policy that requires enrollment during sign-on and mu
 ```
 
 
-##### Response Example for Factor Challenge for Step-up authentication with Okta Session
+##### Response example for Factor Challenge for Step-Up Authentication with Okta session
 
 
 User is assigned to a Sign-On Policy or App Sign-On Policy that requires additional verification and must [select and verify](#verify-factor) a previously enrolled [factor](#factor-object) by `id` to complete the authentication transaction.
@@ -1383,7 +1378,7 @@ User is assigned to a Sign-On Policy or App Sign-On Policy that requires additio
 }
 ```
 
-##### Response Example After Authentication and MFA are Complete for Step-up authentication with Okta Session
+##### Response example after authentication and MFA are complete for Step-Up Authentication with Okta session
 
 > **Note:** Sign in to the app by following the next link relation.
 
@@ -1440,7 +1435,7 @@ User is assigned to a Sign-On Policy or App Sign-On Policy that requires additio
 }
 ```
 
-### IDP-initiated Step-up Authentication
+### IDP-initiated Step-Up Authentication
 
 
 <ApiOperation method="post" url="/api/v1/authn" />
@@ -1456,7 +1451,7 @@ Authenticates a user for signing in to the specified application
 
 > **Note:** Okta Sign-on Policy and the related App Sign-on Policy are evaluated after successful primary authentication.
 
-##### Request Example for IDP initiated Step-up Authentication
+##### Request example for IDP-initiated Step-Up Authentication
 
 
 ```bash
@@ -1534,7 +1529,7 @@ curl -v -X POST \
 
 ##### Response Example for Factor Enroll
 
-User is assigned to an MFA Policy that requires enrollment during sign-in process and must [select a factor to enroll](#enroll-factor) to complete the authentication transaction.
+The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a factor to enroll](#enroll-factor) to complete the authentication transaction.
 
 ```json
 {
@@ -1763,7 +1758,7 @@ Content-Type: application/json
     "errorId": "oaelApNWe8WR4uiK7EROTqp-Q",
     "errorCauses": [
         {
-            "errorSummary": "Sign-in not allowed for app '0oapt2yIp38ySYiMP0g3'."
+            "errorSummary": "Sign in not allowed for app '0oapt2yIp38ySYiMP0g3'."
         }
     ]
 }
@@ -1774,7 +1769,7 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/authn/credentials/change_password" />
 
-This operation changes a user's password by providing the existing password and the new password for authentication transactions with either the `PASSWORD_EXPIRED` or `PASSWORD_WARN` state.
+Changes a user's password by providing the existing password and the new password for authentication transactions with either the `PASSWORD_EXPIRED` or `PASSWORD_WARN` state
 
 * A user *must* change their expired password for an authentication transaction with `PASSWORD_EXPIRED` status to successfully complete the transaction.
 * A user *may* opt-out of changing their password (skip) when the transaction has a `PASSWORD_WARN` status.
@@ -2625,7 +2620,7 @@ curl -v -X POST \
 
 #### Enroll Duo Factor
 
-The enrollment process starts with an enrollment request to Okta, then continues with the Duo widget that is embedded in the page. The page needs to create an iframe with the name `duo_iframe` (described [in Duo documentation](https://duo.com/docs/duoweb#3.-show-the-iframe)) to host the widget. The script address is received in the response object in \_embedded.factor.\_embedded.\_links.script object. The information to initialize the Duo object is taken from \_embedded.factor.\_embedded.activation object as it is shown in the [full example](#full-page-example-for-duo-enrollment). In order to maintain the link between Duo and Okta the stateToken must be passed back when Duo calls the callback. This is done by populating the hidden element in the "duo_form" as it is described [here](https://duo.com/docs/duoweb/#passing-additional-post-arguments-with-the-signed-response). After Duo enrollment and verification is done, the Duo script makes a call back to Okta. To complete the authentication process, make a call using [the poll link](#activation-poll-request-example) to get session token and verify successful state.
+The enrollment process starts with an enrollment request to Okta, then continues with the Duo widget that is embedded in the page. The page needs to create an iframe with the name `duo_iframe` (described in the [Duo documentation](https://duo.com/docs/duoweb#3.-show-the-iframe)) to host the widget. The script address is received in the response object in \_embedded.factor.\_embedded.\_links.script object. The information to initialize the Duo object is taken from \_embedded.factor.\_embedded.activation object as it is shown in the [full example](#full-page-example-for-duo-enrollment). To maintain the link between Duo and Okta, the stateToken must be passed back when Duo calls the callback. This is done by populating the hidden element in the "duo_form" as it is described [here](https://duo.com/docs/duoweb/#passing-additional-post-arguments-with-the-signed-response). After Duo enrollment and verification is done, the Duo script makes a call back to Okta. To complete the authentication process, make a call using [the poll link](#activation-poll-request-example) to get session token and verify successful state.
 
 ##### Request Example for Enroll Duo Factor
 
@@ -2799,9 +2794,7 @@ curl -v -X POST \
 
 Enrolls a user with a U2F factor. The enrollment process starts with getting an `appId` and `nonce` from Okta and using those to get registration information from the U2F key using the U2F javascript API.
 
-> **Note:** The `appId` property in Okta U2F enroll/verify API response is the [origin](https://www.ietf.org/rfc/rfc6454.txt) of
-the web page that triggers the API request (assuming the origin has been configured to be trusted by Okta). According to
-[FIDO spec](https://fidoalliance.org/specs/fido-u2f-v1.2-ps-20170411/fido-appid-and-facets-v1.2-ps-20170411.html#h2_the-appid-and-facetid-assertions), enroll and verify U2F device with `appId`s in different DNS zone is not allowed. For example, if a user enrolled a U2F device via Okta Sign-in widget that is hosted at `https://login.company.com`, while the user can verify the U2F factor from `https://login.company.com`, the user would not be able to verify it from Okta portal `https://company.okta.com`, U2F device would return error code 4 - `DEVICE_INELIGIBLE`.
+> **Note:** The `appId` property in Okta U2F enroll/verify API response is the [origin](https://www.ietf.org/rfc/rfc6454.txt) of the web page that triggers the API request (assuming that the origin has been configured to be trusted by Okta). According to the [FIDO spec](https://fidoalliance.org/specs/fido-u2f-v1.2-ps-20170411/fido-appid-and-facets-v1.2-ps-20170411.html#h2_the-appid-and-facetid-assertions), enrolling and verifying a U2F device with `appId`s in different DNS zones is not allowed. For example, if a user enrolled a U2F device via the Okta Sign-In Widget that is hosted at `https://login.company.com`, while the user can verify the U2F factor from `https://login.company.com`, the user would not be able to verify it from Okta portal `https://company.okta.com`. The U2F device would return error code 4 - `DEVICE_INELIGIBLE`.
 
 ##### Enroll U2F Request Example
 
@@ -2884,7 +2877,7 @@ curl -v -X POST \
 
 #### Enroll WebAuthn Factor
 
-> **Note:** The WebAuthN factor is available for those using the [Okta-hosted custom sign-in page](/docs/guides/custom-hosted-signin/). If you are using a self-hosted, customized sign-in-widget, you must first upgrade to widget version 3.4.0 and enable the [configuration option](https://github.com/okta/okta-signin-widget#configuration).
+> **Note:** The WebAuthN factor is available for those using the [Okta-hosted Custom Sign-In Page](/docs/guides/custom-hosted-signin/). If you are using a self-hosted, customized sign-in widget, you must first upgrade to widget version 3.4.0 and enable the [configuration option](https://github.com/okta/okta-signin-widget#configuration).
 
 Enrolls a user with a WebAuthn factor. The enrollment process starts with getting the WebAuthn credential creation options, which are used to help select an appropriate authenticator using the WebAuthn API.
 This authenticator then generates an enrollment attestation that may be used to register the authenticator for the user.
@@ -3582,7 +3575,7 @@ curl -v -X POST \
 
 ##### Send Activation Links
 
-Sends an activation email or SMS when when the user is unable to scan the QR code provided as part of an Okta Verify transaction.
+Sends an activation email or SMS when the user is unable to scan the QR code provided as part of an Okta Verify transaction.
 If for any reason the user can't scan the QR code, they can use the link provided in email or SMS to complete the transaction.
 
 > **Note:** The user must click the link from the same device as the one where the Okta Verify app is installed.
@@ -4015,7 +4008,7 @@ curl -v -X POST \
 | passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
 | rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
 
-> **Note:** If you omit `passCode` in the request, a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`
+> **Note:** If you omit `passCode` in the request, a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`.
 
 ##### Response Parameters for Verify SMS Factor
 
@@ -4179,7 +4172,7 @@ curl -v -X POST \
 | passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
 | rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
 
-> **Note:** If you omit `passCode` in the request, a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`
+> **Note:** If you omit `passCode` in the request, a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`.
 
 ##### Response Parameters for Verify Call Factor
 
@@ -5637,7 +5630,7 @@ Starts a new unlock recovery transaction for a given user and issues a [recovery
 | username    | User's non-qualified short-name (for example: dade.murphy) or unique fully-qualified sign-in name (for example: dade.murphy@example.com)          | Body       | String                            | TRUE     |            |
 | factorType  | Recovery factor to use for primary authentication                                                                | Body       | `EMAIL` or `SMS`                  | FALSE    |            |
 
-> **Note:** A valid `factorType` is required for requests without an API token with administrator privileges. (See [Unlock Account with Trusted Application](#unlock-account-with-trusted-application))
+> **Note:** A valid `factorType` is required for requests without an API token with administrator privileges. (See [Unlock Account with Trusted Application](#unlock-account-with-trusted-application)).
 
 ##### Response Parameter Public Application for Unlock Account
 
@@ -6002,7 +5995,7 @@ curl -v -X POST \
 }
 ```
 
-> The `factorType` and `recoveryType` properties vary depending on recovery transaction.
+> **Note:** The `factorType` and `recoveryType` properties vary depending on recovery transaction.
 
 #### Verify Call Recovery Factor
 
@@ -7045,7 +7038,7 @@ A subset of policy settings of the Sign-On Policy or App Sign-On Policy publishe
 ```
 
 * `rememberDeviceByDefault` is true if the user has chosen to remember the current device.
-* The value of `rememberDeviceLifetimeInMinutes` depends on the factor lifetime value configured in the Sign-On Policy rule
+* The value of `rememberDeviceLifetimeInMinutes` depends on the factor lifetime value configured in the Sign-On Policy rule.
 
 ##### When policy is not based on time or device
 ```json
