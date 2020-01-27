@@ -94,21 +94,21 @@ module.exports = {
       {
         heading: 'More Info',
         menu: [
-          { text: 'Integrate With Okta', link: '/integrate-with-okta/' },
-          { text: 'Blog', link: '/blog/' },
-          { text: 'Release Notes', link: '/docs/release-notes/' },
-          { text: '3rd Party Notices', link: '/3rd_party_notices/' },
+          { text: 'Integrate With Okta', link: 'https://developer.okta.com/integrate-with-okta/' },
+          { text: 'Blog', link: 'https://developer.okta.com/blog/' },
+          { text: 'Release Notes', link: 'https://developer.okta.com/docs/release-notes/' },
+          { text: '3rd Party Notices', link: 'https://developer.okta.com/3rd_party_notices/' },
           { text: 'Community Toolkit', link: 'https://toolkit.okta.com/' },
         ]
       },
       {
         heading: 'Contact & Legal',
         menu: [
-          { text: 'Contact Our Team', link: '/contact/' },
-          { text: 'Contact Sales', link: '/contact-sales-enterprise/' },
+          { text: 'Contact Our Team', link: 'https://developer.okta.com/contact/' },
+          { text: 'Contact Sales', link: 'https://developer.okta.com/contact-sales-enterprise/' },
           { text: 'Contact Support', link: 'mailto:developers@okta.com' },
-          { text: 'Terms &amp; Conditions', link: '/terms/' },
-          { text: 'Privacy Policy', link: '/privacy/' },
+          { text: 'Terms &amp; Conditions', link: 'https://developer.okta.com/terms/' },
+          { text: 'Privacy Policy', link: 'https://developer.okta.com/privacy/' },
         ]
       }
     ],
