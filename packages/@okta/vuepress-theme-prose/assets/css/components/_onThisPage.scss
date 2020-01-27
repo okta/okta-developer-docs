@@ -69,3 +69,31 @@
   }
   
 }
+
+.mobile-on-this-page {
+  margin-bottom: $base-spacing;
+
+  .vs__selected-options {
+    padding: 0.5rem;
+  }
+  .vs__actions {
+    padding-right:1rem;
+  }
+  .vs__dropdown-menu {
+    
+    .vs__dropdown-option {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid cv('gray', '100');
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &--highlight {
+        background: inherit;
+        color: inherit;
+        border: 1px solid cv('action');
+      }
+    }
+  }
+}
