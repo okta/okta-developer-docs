@@ -1506,10 +1506,11 @@ The following conditions may be applied to the rules associated with Password Po
 
 ## IdP Discovery Policy
 
-
 The IdP Discovery Policy determines where to route users when they are attempting to log in to your org. Users can be routed to a variety of identity providers (`SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`) based on multiple conditions listed below.
 
-> **Note:** All Okta orgs with `IDP_DISCOVERY` enabled contain one and only one IdP Discovery Policy with an immutable default rule routing to your org's login page.
+For an introduction to the topic, see [IdP Discovery](/docs/concepts/identity-providers/#idp-discovery).
+
+All Okta orgs contain one and only one IdP Discovery Policy, with an immutable default rule routing to your org's login page.
 
 ### Policy Conditions
 The following conditions may be applied to IdP Discovery Policy

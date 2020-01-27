@@ -1,5 +1,5 @@
 ---
-title: Add User Management to Your React Native App
+title: Add User Authentication to Your React Native App
 language: React Native
 icon: code-react
 integration: mobile

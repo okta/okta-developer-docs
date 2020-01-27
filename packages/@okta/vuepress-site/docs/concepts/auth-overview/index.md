@@ -120,7 +120,7 @@ Any OAuth flow can give you an access token, but not all support ID tokens.
 
 The type of OAuth 2.0 flow depends on what kind of client that you are building. The flowchart below can quickly help you decide which flow to use. Further explanation about each is included below.
 
-![OAuth Flow Diagram width:](/img/oauth_grant_flowchart.png "Flowchart/decision tree for choosing the correct OAuht 2.0 flow")
+![OAuth Flow Diagram width:](/img/oauth_grant_flowchart.png "Flowchart/decision tree for choosing the correct OAuth 2.0 flow")
 
 ##### Is your client public?
 
@@ -175,6 +175,8 @@ For information on how to set up your application to use this flow, see [Impleme
 For web/native/mobile applications, the client secret cannot be stored in the application because it could easily be exposed. Additionally, mobile redirects use `app://` protocols, which are prone to interception. Basically, a rogue application could intercept the authorization code as it is being passed through the mobile/native operating system. Therefore native apps should make use of Proof Key for Code Exchange (PKCE), which acts like a secret but isn't hard-coded, to keep the Authorization Code flow secure.
 
 PKCE is an extension to the regular Authorization Code flow, so the flow is very similar, except that PKCE elements are included at various steps in the flow.
+
+> **Note:** The Authorization Code Flow with PKCE doesn't support refresh tokens for SPAs and other browser-based apps.
 
 The PKCE-enhanced Authorization Code flow requires your application to generate a cryptographically random key called a "code verifier". A "code challenge" is then created from the verifier, and this challenge is passed along with the request for the authorization code.
 

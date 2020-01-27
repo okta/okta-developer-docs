@@ -348,7 +348,9 @@ redirects:
   - from: /docs/reference/api/system_log.html
     to: /docs/reference/api/system-log/
   - from: /docs/how-to/creating-token-with-groups-claim.html
-    to: /docs/guides/create-token-with-groups-claim/
+    to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /docs/guides/create-token-with-groups-claim
+    to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/sdk/core/api.html
     to: /docs/
   - from: /3rd_party_notices/iOS_Verify.html
@@ -496,7 +498,7 @@ redirects:
   - from: /docs/how-to/byo_saml/index.html
     to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/how-to/creating-token-with-groups-claim/index.html
-    to: /docs/guides/create-token-with-groups-claim/
+    to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/how-to/sharing-cert/index.html
     to: /docs/guides/sharing-cert/
   - from: /docs/how-to/updating_saml_cert/index.html
@@ -658,7 +660,7 @@ redirects:
   - from: /docs/how-to/byo_saml
     to: /docs/guides/sign-your-own-saml-csr/
   - from: /docs/how-to/creating-token-with-groups-claim
-    to: /docs/guides/create-token-with-groups-claim/
+    to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/how-to/sharing-cert
     to: /docs/guides/sharing-cert/
   - from: /docs/how-to/updating_saml_cert
@@ -1739,3 +1741,128 @@ redirects:
     to: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
   - from: /docs/reference/api/factor_admin/index.html
     to: /docs/reference/api/factor-admin/
+  - from: /docs/guides/create-token-with-groups-claim/create-groups-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/overview/
+  - from: /docs/guides/create-token-with-groups-claim/get-group-ids/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/
+  - from: /docs/guides/create-token-with-groups-claim/add-list-of-groups/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/
+  - from: /docs/guides/create-token-with-groups-claim/configure-custom-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
+  - from: /docs/guides/create-token-with-groups-claim/send-test-request/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
+  - from: /docs/guides/create-token-with-groups-claim/verify-jwt/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/
+  - from: /docs/guides/oin-build-provisioning-integration/index.html
+    to: /docs/guides/build-provisioning-integration/
+  - from: /docs/guides/oin-build-provisioning-integration/faqs/index.html
+    to: /docs/guides/build-provisioning-integration/faqs/
+  - from: /docs/guides/oin-build-provisioning-integration/okta-verification/index.html
+    to: /docs/guides/build-provisioning-integration/okta-verification/
+  - from: /docs/guides/oin-build-provisioning-integration/overview/index.html
+    to: /docs/guides/build-provisioning-integration/overview/
+  - from: /docs/guides/oin-build-provisioning-integration/publish/index.html
+    to: /docs/guides/build-provisioning-integration/publish/
+  - from: /docs/guides/oin-build-provisioning-integration/review-scim-docs/index.html
+    to: /docs/guides/build-provisioning-integration/review-scim-docs/
+  - from: /docs/guides/oin-build-provisioning-integration/SCIMFiles/index.html
+    to: /docs/guides/build-provisioning-integration/SCIMFiles/
+  - from: /docs/guides/oin-build-provisioning-integration/submit-for-review/index.html
+    to: /docs/guides/build-provisioning-integration/submit-for-review/
+  - from: /docs/guides/oin-build-provisioning-integration/test-scim-server/index.html
+    to: /docs/guides/build-provisioning-integration/test-scim-server/
+  - from: /docs/guides/oin-build-sso-integration/index.html
+    to: /docs/guides/build-sso-integration/
+  - from: /docs/guides/oin-build-sso-integration/get-help/index.html
+    to: /docs/guides/build-sso-integration/get-help/
+  - from: /docs/guides/oin-build-sso-integration/integrate/index.html
+    to: /docs/guides/build-sso-integration/integrate/
+  - from: /docs/guides/oin-build-sso-integration/overview/index.html
+    to: /docs/guides/build-sso-integration/overview/
+  - from: /docs/guides/oin-build-sso-integration/partner/index.html
+    to: /docs/guides/build-sso-integration/partner/
+  - from: /docs/guides/oauth-for-okta/index.html
+    to: /docs/guides/implement-oauth-for-okta/
+  - from: /docs/guides/oauth-for-okta/overview/index.html
+    to: /docs/guides/implement-oauth-for-okta/overview/
+  - from: /docs/guides/oauth-for-okta/create-oauth-app/index.html
+    to: /docs/guides/implement-oauth-for-okta/create-oauth-app/
+  - from: /docs/guides/oauth-for-okta/use-client-credentials-grant-flow/index.html
+    to: /docs/guides/implement-oauth-for-okta/use-client-credentials-grant-flow/
+  - from: /docs/guides/oauth-for-okta/define-allowed-scopes/index.html
+    to: /docs/guides/implement-oauth-for-okta/define-allowed-scopes/
+  - from: /docs/guides/oauth-for-okta/request-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta/request-access-token/
+  - from: /docs/guides/oauth-for-okta/get-access-token-using-service-app/index.html
+    to: /docs/guides/implement-oauth-for-okta/get-access-token-using-service-app/
+  - from: /docs/guides/oauth-for-okta/save-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta/save-access-token/
+  - from: /docs/guides/implement-oauth-for-okta/save-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta/request-access-token/
+  - from: /docs/guides/oauth-for-okta/save-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta/request-access-token/
+  - from: /docs/guides/oauth-for-okta/scopes/index.html
+    to: /docs/guides/implement-oauth-for-okta/scopes/
+  - from: /docs/guides/oauth-for-okta/-/overview/index.html
+    to: /docs/guides/implement-oauth-for-okta/overview/
+  - from: /docs/guides/oauth-for-okta/-/create-oauth-app/index.html
+    to: /docs/guides/implement-oauth-for-okta/create-oauth-app/
+  - from: /docs/guides/oauth-for-okta/-/use-client-credentials-grant-flow/index.html
+    to:  /docs/guides/implement-oauth-for-okta/use-client-credentials-grant-flow/
+  - from: /docs/guides/oauth-for-okta/-/define-allowed-scopes/index.html
+    to: /docs/guides/implement-oauth-for-okta/define-allowed-scopes/
+  - from: /docs/guides/oauth-for-okta/-/request-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta/request-access-token/
+  - from: /docs/guides/oauth-for-okta/-/get-access-token-using-service-app/index.html
+    to: /docs/guides/implement-oauth-for-okta/get-access-token-using-service-app/
+  - from: /docs/guides/oauth-for-okta/-/save-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta/save-access-token/
+  - from: /docs/guides/oauth-for-okta/-/save-access-token/index.html
+    to: /docs/guides/implement-oauth-for-okta/request-access-token/
+  - from: /docs/guides/oauth-for-okta/-/scopes/index.html
+    to: /docs/guides/implement-oauth-for-okta/scopes/
+  - from: /docs/guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+  - from: /docs/guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+  - from: /docs/guides/create-token-with-groups-claim/-/create-groups-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/
+  - from: /docs/guides/create-token-with-groups-claim/-/get-group-ids/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+  - from: /docs/guides/create-token-with-groups-claim/-/send-test-request/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+  - from: /docs/guides/create-token-with-groups-claim/-/verify-jwt/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+  - from: /guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+  - from: /guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+  - from: /guides/create-token-with-groups-claim/-/create-groups-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/
+  - from: /guides/create-token-with-groups-claim/-/get-group-ids/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/
+  - from: /guides/create-token-with-groups-claim/-/send-test-request/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+  - from: /guides/create-token-with-groups-claim/-/verify-jwt/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
+  - from: /guides/create-token-with-groups-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /standards/SCIM/SCIMFiles/Okta-SCIM-1.1-CRUD-Test.json
+    to: /standards/SCIM/SCIMFiles/Okta-SCIM-11-CRUD-Test.json
+  - from: /standards/SCIM/SCIMFiles/Okta-SCIM-CRUD-Test.json
+    to: /standards/SCIM/SCIMFiles/Okta-SCIM-20-CRUD-Test.json
+  - from: /standards/SCIM/SCIMFiles/okta-scim-test-plan.xls
+    to: /standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx
+  - from: /docs/guides/build-provisioning-integration/faqs/index.html
+    to: /docs/guides/submit-app/faqs/
+  - from: /docs/guides/build-provisioning-integration/okta-verification/index.html
+    to: /docs/guides/submit-app/submit/
+  - from: /docs/guides/build-provisioning-integration/publish/index.html
+    to: /docs/guides/submit-app/submit/
+  - from: /docs/guides/build-provisioning-integration/review-scim-docs/index.html
+    to: /docs/guides/build-provisioning-integration/prepare-api/
+  - from: /docs/guides/build-provisioning-integration/submit-for-review/index.html
+    to: /docs/guides/submit-app/
+  - from: /docs/guides/build-provisioning-integration/test-scim-server/index.html
+    to: /docs/guides/build-provisioning-integration/test-scim-api/
+    

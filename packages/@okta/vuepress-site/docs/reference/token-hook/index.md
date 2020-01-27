@@ -114,6 +114,69 @@ The `value` object is where you specify the specific operation to perform. It is
 | replace | Modify an existing claim and update the token lifetime. |
 | remove  | Remove an existing claim. |
 
+#### Reserved claims for Token Hooks
+
+Okta defines a number of reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, avoid using the following reserved claims:
+
+| Claim Name     | Token Type        |
+|----------------|-------------------|
+| acr            | Access Token      |
+| amr            | Access Token      |
+| as_uri         | Access Token      |
+| cid            | Access Token      |
+| rpt            | Access Token      |
+| rsi            | Access Token      |
+| uid            | Access Token      |
+| username       | Access Token      |
+| active         | ID Token          |
+| aid            | ID Token          |
+| app_id         | ID Token          |
+| app_type       | ID Token          |
+| at_hash        | ID Token          |
+| auth_time      | ID Token          |
+| client_id      | ID Token          |
+| client_ip      | ID Token          |
+| client_req_id  | ID Token          |
+| client_type    |ID Token           |
+| client_user_agent |ID Token        |
+| cnf            | ID Token          |
+| c_hash         | ID Token          |
+| device_compliance |ID Token        |
+| device_id      | ID Token          |
+| device_known   | ID Token          |
+| device_managed | ID Token          |
+| device_name    |  ID Token         |
+| device_trust   | ID Token          |
+| did            | ID Token          |
+| dst            | ID Token          |
+| group          | ID Token          |
+| groups         |  ID Token         |
+| hotk           | ID Token          |
+| idp            |  ID Token         |
+| idp_iss        | ID Token          |
+| mac_key        | ID Token          |
+| may_act        | ID Token          |
+| nonce          | ID Token          |
+| oid            | ID Token          |
+| okta_emailVerified | ID Token      |
+| okta_lastUpdated | ID Token        |
+| orig           | ID Token          |
+| permissions    | ID Token          |
+| purpose        | ID Token          |
+| pwd_exp_days   |ID Token           |
+| pwd_exp_time   | ID Token          |
+| rid            | ID Token          |
+| role           | ID Token          |
+| scope          | ID Token          |
+| scopes         | ID Token          |
+| sid            | ID Token          |
+| term           | ID Token          |
+| user_ip        |  ID Token         |
+| iss            | Access Token & ID Token |
+| jti            | Access Token & ID Token |
+| token_type     | Access Token & ID Token |
+| ver            | Access Token & ID Token |
+
 ### error
 
 When you return an error object, it should have the following structure:
@@ -123,6 +186,8 @@ When you return an error object, it should have the following structure:
 | errorSummary | Human-readable summary of the error. | String    |
 
 Returning an error object causes Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string that you supplied in the `errorSummary` property of the `error` object that you returned.
+
+> **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`
 
 ## Sample JSON Payload of a Request
 
@@ -660,3 +725,40 @@ You then need to associate the registered Inline Hook with a Custom Authorizatio
 
 > **Note:** Only one Inline Hook can be associated with each rule.
 
+## Troubleshooting
+
+This section covers what happens when a token inline hook flow fails either due to the external inline hook service returning an error object or not returning a successful response, or the inline hook patch fails.
+
+> **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.
+
+- When there is a communication failure with the external service, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+
+  **Who can see this error?** Administrators
+
+- When the external service returns a response with any other HTTP status code besides `200`, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+
+  **Who can see this error?** Administrators
+
+- When the external service returns an error object in the response, the entire token inline hook flow fails with no token generated.
+
+  **Who can see this error?** Administrators, developers, and end users. When the OAuth 2.0 client receives the error, the client developer can see that error if the client has the debug information. What the end user sees depends on how errors are handled within the client.
+
+  > **Note:** See the [error](/docs/reference/token-hook/#error) section on this page for more information on what to include in the error object of your response and what the OAuth 2.0 error includes that Okta returns to the requestor of the token.
+
+- When a hook command (for example, updating, adding, and deleting claims) can't be performed, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+
+  **Who can see this error?** Administrators
+
+  The following actions result in an error:
+
+  - Using an invalid command. For example, if only an ID token is requested, the `commands` array shouldn't contain commands of the type `com.okta.access.patch`.
+
+  - Using an invalid operation
+
+  - Attempting to remove a system-specific claim
+
+  - Attempting to update a claim that doesn't exist
+
+  - Attempting to update an element within an array that doesn't exist or specifying an invalid index
+
+  - Attempting to remove a claim that doesn't exist

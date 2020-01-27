@@ -1,5 +1,5 @@
 ---
-title: Add User Management to Your JavaScript App
+title: Add User Authentication to Your JavaScript App
 language: JavaScript
 integration: front-end
 icon: code-javascript

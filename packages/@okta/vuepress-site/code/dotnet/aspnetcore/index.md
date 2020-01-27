@@ -1,5 +1,5 @@
 ---
-title: Add User Management to Your ASP.NET Core App
+title: Add User Authentication and Okta Resource Management to Your ASP.NET Core App
 language: .NET
 integration: back-end
 icon: code-dotnet
@@ -8,6 +8,11 @@ meta:
     content: Our ASP.NET Core integration makes it easy to add sign in to your applications. Use our guide to add user authentication to your ASP.NET Core app.
 ---
 
+<<<<<<< HEAD
+=======
+# <i class='icon-48 docsPage code-dotnet'></i> Add User Authentication and Okta Resource Management to Your ASP.NET Core App
+
+>>>>>>> staging
 <ul class='language-tabs'>
 	<li>
 		<RouterLink to='/code/dotnet/aspnetcore/'>
@@ -48,7 +53,7 @@ Okta's integration with ASP.NET Core makes it easy to add sign-in to your ASP.NE
 
 
 <a href='https://www.nuget.org/packages/Okta.AspNetCore' class="language-reference">
-	<span class='icon download-16'></span> 
+	<span class='icon download-16'></span>
 	<span>ASP.NET Core integration on NuGet</span>
 </a>
 

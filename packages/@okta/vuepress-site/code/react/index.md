@@ -1,5 +1,5 @@
 ---
-title: Add User Management to Your React App
+title: Add User Authentication to Your React App
 language: React
 integration: front-end
 icon: code-react

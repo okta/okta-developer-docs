@@ -41,11 +41,13 @@ The requests sent from Okta to your external service are HTTPS requests. POST re
 
 ### One-Time Verification Request
 
-After registering an Event Hook, but before you can use it, you need to have Okta make a one-time GET verification request to your endpoint, passing your service a verification value that your service needs to send back. This serves as a test confirming that you control the endpoint. See [Verifying an Event Hook](#verifying-an-event-hook) below for more information on triggering that one-time verification step.
+After registering an Event Hook, but before you can use it, you need to have Okta make a one-time GET verification request to your endpoint, passing your service a verification value that your service needs to send back. This serves as a test confirming that you control the endpoint.
 
 This one-time verification request is the only GET request Okta will send to your external service, while the ongoing requests to notify your service of event occurrences will be HTTPS POST requests. Your web service can use the GET versus POST distinction to implement logic to handle this special one-time request.
 
 The way your service needs to handle this one-time verification is as follows: The request from Okta will contain an HTTP header named `X-Okta-Verification-Challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`, i.e.: `{ "verification" : "value_from_header" }`. Note that the value comes to you in an HTTP header, but you need to send it back in a JSON object.
+
+See [Set Up Event Hooks](/docs/guides/set-up-event-hook/overview/) for more information on triggering that one-time verification step, in the context of the other steps required to register and verify a new Event Hook endpoint. 
 
 ### Ongoing Event Delivery
 
@@ -62,6 +64,10 @@ No guarantee of maximum delay between event occurrence and delivery is currently
 ### Timeout and Retry
 
 When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. Responses with a 4xx status code are not retried.
+
+> **Note:** You need to make sure that your external service can send responses to requests from Okta within the 3 second timeout limit.
+
+See [Your Service's Responses to Event Delivery Requests](#your-service-s-responses-to-event-delivery-requests) below for more information on the HTTP responses you need to send.
 
 ### HTTP Headers
 
@@ -85,7 +91,7 @@ Your external service's responses to Okta's ongoing event delivery POST requests
 
 As a best practice, you should return the HTTP response immediately, rather than waiting for any of your own internal process flows triggered by the event to complete.
 
-> **Note:** If your service does not return the HTTP response within the timeout limit, Okta will consider the delivery to have failed.
+> **Note:** If your service does not return the HTTP response within the timeout limit, Okta will log the delivery attempt as a failure.
 
 ### Rate Limits
 
@@ -93,16 +99,15 @@ Event Hooks are limited to sending 100,000 events per 24-hour period.
 
 ### Debugging
 
-Events identified for delivery to your event hooks contain information about which event hooks were attempted for delivery.
-The `debugData` section of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) object contains the IDs of the event hooks that the particular event was delivered to.
+The Okta [System Log](/docs/reference/api/system-log/) is the best resource for helping you debug your Event Hooks. Any events delivered by Event Hooks are, by definition, also System Log Events, so you can compare events delivered to your external service with events logged in the System Log. You can also check for Event Hook delivery failures that Okta has detected, which are themselves recorded in the System Log.
 
-Note that this information is available in the event regardless of whether the delivery was successful or failed.
+When looking at an event in the System Log, the `debugData` property includes the specific ID of any Event Hooks configured to deliver it. Note that the existence of an Event Hook ID in this property does not indicate that delivery was successful, only that it was configured to happen for the event.
 
-Thus, in conjunction with the [System Log event](/docs/reference/api/event-types/?q=event_hook.delivery) for event hook delivery failures, you can debug an end-to-end flow.
+Event Hook delivery attempts that have timed-out, or been detected as having failed for any other reason, are recorded in the System Log in the form of `event_hook.delivery` [events](/docs/reference/api/event-types/?q=event_hook.delivery).
 
 ## Event Hook Setup
 
-For the steps to register and verify a new Event Hook endpoint, see [Set Up Event Hooks](https://developer.okta.com/docs/guides/set-up-event-hook/overview/).
+For the steps to register and verify a new Event Hook endpoint, see [Set Up Event Hooks](/docs/guides/set-up-event-hook/overview/).
 
 ## Sample Event Delivery Payload
 

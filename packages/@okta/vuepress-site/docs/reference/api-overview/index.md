@@ -138,7 +138,7 @@ The API key (API token) isn't interchangeable with an Okta [session token](/docs
 
 
 <ApiLifecycle access="ea" />
-You can now interact with Okta APIs using scoped OAuth 2.0 access tokens for a number of Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. For more information, see [OAuth 2.0 for Okta APIs](/docs/guides/oauth-for-okta/).
+You can now interact with Okta APIs using scoped OAuth 2.0 access tokens for a number of Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. For more information, see [OAuth 2.0 for Okta APIs](/docs/guides/implement-oauth-for-okta/).
 
 ## Pagination
 

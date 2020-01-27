@@ -103,6 +103,6 @@ If you want to do more with the user, you can use the [Okta .NET SDK] to get or 
 
 [config reference]:https://github.com/okta/okta-aspnet/blob/master/docs/aspnetcore-webapi.md#configuration-reference
 [example-repo]: https://github.com/okta/samples-aspnetcore/
-[Microsoft.AspNetCore.All]: https://www.nuget.org/packages/Microsoft.AspNetCore.All 
+[Microsoft.AspNetCore.All]: https://www.nuget.org/packages/Microsoft.AspNetCore.All
 [Okta.AspNetCore]: https://www.nuget.org/packages/Okta.AspNetCore
 [Okta .NET SDK]: https://github.com/okta/okta-sdk-dotnet

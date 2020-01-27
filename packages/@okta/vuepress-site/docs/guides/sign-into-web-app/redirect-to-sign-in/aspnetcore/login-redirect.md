@@ -7,11 +7,11 @@ To create a Sign In link, open your `_Layout.cshtml` file and add the following 
 }
 else
 {
-    <a asp-controller="Account" asp-action="Login">Sign In</a>
+    <a asp-controller="Account" asp-action="SignIn">Sign In</a>
 }
 ```
 
-The Sign In link uses tag helpers to invoke a `Login` action on an `Account` controller. Create an `AccountController` class with this code:
+The Sign In link uses tag helpers to invoke a `SignIn` action on an `Account` controller. Create an `AccountController` class with this code:
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -20,7 +20,7 @@ using Okta.AspNetCore;
 
 public class AccountController : Controller
 {
-    public IActionResult Login()
+    public IActionResult SignIn()
     {
         if (!HttpContext.User.Identity.IsAuthenticated)
         {

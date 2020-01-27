@@ -36,12 +36,12 @@ Finally, give the user a **Sign Out** button or link. Open your `_Layout.cshtml`
                 </a>
             </li>
         </ul>
-        <form asp-controller="Account" asp-action="SignOut" method="post" id="logout_form"></form>
+        <form asp-controller="Account" asp-action="SignOutAsync" method="post" id="logout_form"></form>
     }
     else
     {
         <ul>
-            <li><a asp-controller="Account" asp-action="Login">Sign in</a></li>
+            <li><a asp-controller="Account" asp-action="SignIn">Sign in</a></li>
         </ul>
     }
 </div>

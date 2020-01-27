@@ -1,5 +1,5 @@
 ---
-title: Add User Management to Your PHP App
+title: Add User Authentication and Okta Resource Management to Your PHP App
 language: PHP
 integration: back-end
 icon: code-php
@@ -37,7 +37,7 @@ The Okta PHP SDK can be used in your server-side code to create and update users
 
 <p class="language-reference">
 	<a href='https://developer.okta.com/okta-sdk-php/' class="language-reference">
-		<span class='icon expression-16'></span> 
+		<span class='icon expression-16'></span>
 		<span>PHP SDK Reference</span>
 	</a>
 </p>
@@ -50,7 +50,7 @@ The Okta PHP SDK can be used in your server-side code to create and update users
 
 <ul class="language-libraries">
 	<li>
-		<i class='fa fa-github'></i> 
+		<i class='fa fa-github'></i>
 		<a href="https://github.com/okta/okta-jwt-verifier-php">
 			<span>Okta JWT Verifier for PHP</span>
 		</a>
