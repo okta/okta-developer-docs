@@ -15,7 +15,7 @@
       <ul>
         <li v-for="(link, linkIndex) in column.menu" :key="linkIndex">
           <i v-if="link.icon" v-html="link.icon"></i>
-          <router-link :to="link.link" v-html="link.text"></router-link>
+          <a :href="link.link" v-html="link.text"></a>
         </li>
       </ul>
     </div>
