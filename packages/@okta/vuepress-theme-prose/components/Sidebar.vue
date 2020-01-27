@@ -161,7 +161,6 @@
         }
         if(link.subLinks) {
           return link.subLinks.find((subLink) => {
-            console.log(subLink.path);
             return this.$page.regularPath.includes(subLink.link) || this.$page.regularPath.includes(subLink.activeCheck)
           })
         }
