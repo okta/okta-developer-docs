@@ -57,11 +57,12 @@ export default {
           if (anchor) {
             let target = document.getElementById(anchor);
             if (target) {
-              window.scrollTo(0, target.offsetTop - document.querySelector('.fixed-header').clientHeight - 10);
+              window.scrollTo(0, target.offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
             }
           }
 
-          let links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href*="/quickstart/#"])');
+          // let links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href*="/quickstart/#"])');
+          let links = document.querySelectorAll('.header-anchor.header-link');
 
           Array.from(links).forEach((link) => {
             link.addEventListener('click', function(event) {
@@ -71,7 +72,7 @@ export default {
                 let target = document.querySelector(this.hash);
                 if (target) {
                   event.preventDefault();
-                  window.scrollTo(0, target.offsetTop - document.querySelector('.fixed-header').clientHeight - 10);
+                  window.scrollTo(0, target.offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
                   location.hash = this.hash;
                   return false;
                 }

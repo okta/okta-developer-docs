@@ -56,8 +56,8 @@
           const nextAnchor = anchors[i + 1]
 
           const isActive = i === 0 && scrollTop === 0
-            || (scrollTop >= anchor.parentElement.offsetTop - document.querySelector('.fixed-header').clientHeight - 10
-              && (!nextAnchor || scrollTop < nextAnchor.parentElement.offsetTop - document.querySelector('.fixed-header').clientHeight - 10))
+            || (scrollTop >= anchor.parentElement.offsetTop - document.querySelector('.fixed-header').clientHeight - 45
+              && (!nextAnchor || scrollTop < nextAnchor.parentElement.offsetTop - document.querySelector('.fixed-header').clientHeight - 45))
           
           
           

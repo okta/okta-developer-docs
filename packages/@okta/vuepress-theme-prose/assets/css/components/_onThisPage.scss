@@ -18,18 +18,20 @@
   }
 
   .title {
-    font-size: 1.25em;
+    font-size: 1rem;
     margin-left: 0.8rem;
     margin-bottom: 1rem;
+    color: cv('gray', '900');
+    font-weight: 600;
   }
 
   .links {
-    border-left: 0.1rem solid cv('gray', '200');
-    padding: 0rem 0rem 2rem 1rem;
+    border-left: 1px solid cv('gray', '200');
+    padding-left: 1rem;
   }
 
   a.router-link-active {
-    border-left: 0.1rem solid cv('action', 'dark');
+    border-left: 1px solid cv('action', 'base');
     font-weight: 600;
   }
 
@@ -62,6 +64,7 @@
 
       a {
         text-decoration: none;
+        display: block;
       }
     
     }

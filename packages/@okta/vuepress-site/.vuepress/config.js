@@ -180,7 +180,6 @@ module.exports = {
   },
 
   plugins: [
-    '@okta/vuepress-plugin-active-header-links',
     [
       'vuepress-plugin-sitemap', {
         hostname: 'https://developer.okta.com',
