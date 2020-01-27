@@ -2,7 +2,7 @@
   display: flex;
   padding-bottom: 2em;
 
-  
+
 
   @include media('>=tablet') {
     flex-direction: row;
@@ -41,6 +41,10 @@
     flex-wrap: wrap;
     margin-top: 4rem;
     width: 100%;
+
+    a {
+      text-decoration: underline;
+    }
 
     .mobile-on-this-page {
       @include media('>=tablet') {
