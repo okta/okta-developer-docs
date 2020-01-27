@@ -8,7 +8,7 @@
   top: 155px;
    
   @include media('>=tablet') {
-    top: 200px;
+    top: 150px;
   }
 
   &.active {

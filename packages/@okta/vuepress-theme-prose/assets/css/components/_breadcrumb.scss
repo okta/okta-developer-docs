@@ -1,7 +1,7 @@
 .breadcrumb {
   padding: 1em 1.5em;
-  box-shadow: 0 0.01em 0.5em cv('gray', '400');
   background-color: cv('gray', '000');
+  border-bottom: 2px solid cv('gray', '200');
 
   &--container {
 
@@ -20,7 +20,7 @@
 
         a {
           text-decoration: none;
-          color: cv('gray', '400');
+          color: cv('gray', '800');
           font-size: 0.8em;
           padding-right: 0.4em;
         }

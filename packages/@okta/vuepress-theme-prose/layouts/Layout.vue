@@ -2,16 +2,14 @@
   <div>
     <div class="fixed-header">
       <TopBar />
-      <Breadcrumb />
     </div>
 
-    <div class="page-body" v-if="$page.frontmatter.component">
-      <div class="content">
+    <div class="page-body">
+      <Breadcrumb />
+      <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
-    </div>
-    <div class="page-body" v-else>
-      <div class="content">
+      <div class="content" v-else>
         <div class="content--container">
           <div class="tree-nav">
             <Sidebar />

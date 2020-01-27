@@ -1,5 +1,5 @@
 <template>
-<div class="breadcrumb">
+<div class="breadcrumb" v-if="showBreadcrumb">
   <div class="breadcrumb--container">
     <ol>
       <li v-for="(crumb, index) in crumbs" :key="index">
@@ -28,6 +28,13 @@
           return 'Hide Contents';
         }
         return 'Show Contents';
+      },
+      showBreadcrumb() {
+        if(this.$page.frontmatter.showBreadcrumb == false ) {
+          return false;
+        }
+
+        return true;
       },
       crumbs() {
         let crumbs = [];
