@@ -8,11 +8,6 @@ meta:
     content: Learn about user authentication with Okta and update users, groups, and applications with the Okta Management SDK for Go.
 ---
 
-<<<<<<< HEAD
-=======
-# <i class='icon-48 docsPage code-go'></i> Add User Authentication and Okta Resource Management to Your Go App
-
->>>>>>> staging
 ## Get Started with Go + Okta
 
 New to Okta? Our Go resources will help you add user authentication to your Go app.

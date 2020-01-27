@@ -8,11 +8,6 @@ meta:
     content: Get started with ASP.NET and Okta by using our guide to help you add user authentication to your ASP.NET app.
 ---
 
-<<<<<<< HEAD
-=======
-# <i class='icon-48 docsPage code-dotnet'></i> Add User Authentication and Okta Resource Management to Your ASP.NET App
-
->>>>>>> staging
 <ul class='language-tabs'>
 	<li>
 		<RouterLink to='/code/dotnet/aspnetcore/'>

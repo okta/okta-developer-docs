@@ -179,8 +179,6 @@ module.exports = {
 
   },
 
-<<<<<<< HEAD
-=======
   plugins: [
     '@okta/vuepress-plugin-active-header-links',
     [
@@ -215,7 +213,6 @@ module.exports = {
 
   evergreen: false,
 
->>>>>>> staging
   markdown: {
     extendMarkdown: md => {
       md.use(require('markdown-it-attrs'))

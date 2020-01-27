@@ -8,11 +8,6 @@ meta:
     content: Our ASP.NET Core integration makes it easy to add sign in to your applications. Use our guide to add user authentication to your ASP.NET Core app.
 ---
 
-<<<<<<< HEAD
-=======
-# <i class='icon-48 docsPage code-dotnet'></i> Add User Authentication and Okta Resource Management to Your ASP.NET Core App
-
->>>>>>> staging
 <ul class='language-tabs'>
 	<li>
 		<RouterLink to='/code/dotnet/aspnetcore/'>
