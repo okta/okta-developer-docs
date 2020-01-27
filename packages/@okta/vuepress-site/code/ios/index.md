@@ -8,11 +8,6 @@ meta:
     content: Our iOS developer docs help you add user authentication, integrate sign-in flows with an SDK on CocoaPods, and validate Okta OAuth 2.0 tokens.
 ---
 
-<<<<<<< HEAD
-=======
-# <i class='icon-48 docsPage code-ios'></i> Add User Authentication to Your iOS App
-
->>>>>>> staging
 ## Get Started with iOS + Okta
 
 New to Okta? Our quickstart will walk you through adding user authentication to your iOS app in minutes.

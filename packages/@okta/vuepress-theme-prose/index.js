@@ -1,29 +1,23 @@
 const { extractHeaders } = require('@vuepress/shared-utils')
 
-module.exports = ( options, ctx) => ({
-  plugins: [
-    ['@vuepress/last-updated', {
-      transformer: (timestamp, lang) => {
-        const moment = require('moment')
-        moment.locale(lang)
-        return moment(timestamp).format('LL')
-      }
-    }]
-  ],
-  extendPageData ($page) {
-    let fullHeaders = [];
+module.exports = ( options, ctx) => {
+  const { themeConfig, siteConfig } = ctx
 
-    let headers = extractHeaders(
-      $page._strippedContent,
-      ['h2', 'h3', 'h4'],
-      ctx.markdown
-    )
-
-    
-
-    $page.fullHeaders = resolveHeaders($page);
+  return {
+    plugins: [
+      ['@vuepress/last-updated', {
+        transformer: (timestamp, lang) => {
+          const moment = require('moment')
+          moment.locale(lang)
+          return moment(timestamp).format('LL')
+        }
+      }]
+    ],
+    extendPageData ($page) {
+      $page.fullHeaders = resolveHeaders($page);
+    }
   }
-});
+}
 
 function resolveHeaders (page) {
   const headers = groupHeaders(page.headers || [])

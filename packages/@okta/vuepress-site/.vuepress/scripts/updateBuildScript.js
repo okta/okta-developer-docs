@@ -5,7 +5,7 @@ const webpack = require('webpack')
 const readline = require('readline')
 const { Worker } = require('worker_threads')
 const threads = 8
-const verbose = false
+const verbose = true
 
 const { chalk, fs, path, logger, env, performance } = require('@vuepress/shared-utils')
 const createClientConfig = require('../webpack/createClientConfig')
