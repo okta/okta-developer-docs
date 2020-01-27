@@ -4,7 +4,7 @@ const EventEmitter = require('events').EventEmitter
 const webpack = require('webpack')
 const readline = require('readline')
 const { Worker } = require('worker_threads')
-const threads = 16
+const threads = 12
 const verbose = false
 
 const { chalk, fs, path, logger, env, performance } = require('@vuepress/shared-utils')
