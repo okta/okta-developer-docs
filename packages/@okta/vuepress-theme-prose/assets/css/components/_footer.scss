@@ -2,7 +2,6 @@ footer {
   background-color: cv('brand');
   display: flex;
   padding: 4em 1.5em;
-  text-transform: uppercase;
   max-width: $container-width;
   margin: 0 auto;
   flex-direction: column;
@@ -19,6 +18,7 @@ footer {
       color: cv('gray', '500');
       letter-spacing: 0.1em;
       text-decoration: none;
+      text-transform: uppercase;
     }
     svg {
       width: 6em;
@@ -33,13 +33,21 @@ footer {
     ul {
       margin-left: 0;
       padding-inline-start: 0;
+      text-transform: uppercase;
       li {
         display: flex;
         vertical-align: middle;
+        @include media('>=tablet') {
+          margin-bottom: 10px;
+        }
         a {
-          color: cv('gray', '600');
+          color: cv('gray', '500');
           text-decoration: none;
           margin-top: -0.2em;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          transition: color .4s;
+          font-size: 14px;
 
           &:hover {
             color: cv('gray', '300');
