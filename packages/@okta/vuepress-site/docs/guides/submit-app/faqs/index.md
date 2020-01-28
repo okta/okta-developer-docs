@@ -6,7 +6,7 @@ title: Frequently Asked Questions (Provisioning)
 
 **Q: My customer is asking for Active Directory (AD) integration. If I integrate with Okta, can I connect to my customer's on-premise directory?**
 
-Yes. One of the key benefits of developing a pre-built integration with Okta is that you can leverage our existing Active Directory support. By integrating with Okta (for Single Sign-On or provisioning), you effectively have the ability to integrate with your customer's on-premise AD or LDAP infrastructure for authentication (sign in to your cloud app with their corporate password), authorization (use details like AD groups to drive access rights), and provisioning policies.
+Yes. One of the key benefits of developing a pre-built integration with Okta is that you can leverage our existing Active Directory support. By integrating with Okta (for Single Sign-On or provisioning), you effectively have the ability to integrate with your customer's on-premise AD or LDAP infrastructure for authentication. Your end users can sign in to your cloud app using their corporate password. You also be able to do things like use AD groups to drive access rights for authentication and provisioning policies.
 
 **Q: Is the IdP session time out a setting that an Okta administrator can change? And if so, can it be changed on a per application basis, or is it a global setting for all of the user's applications?**
 
