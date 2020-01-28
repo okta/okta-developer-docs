@@ -14,24 +14,24 @@ The API is targeted for developers who want to build their own end-to-end login 
 * **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another factor such as a temporary one-time password or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, as well as MFA challenges based on your **Okta Sign-On Policy**.
 * **Recovery** allows users to securely reset their password if they've forgotten it, or unlock their account if it has been locked out due to excessive failed login attempts. This functionality is subject to the security policy set by the administrator.
 
-## Application Types
+## Application types
 
 The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the **Okta Sign-On Policy**, **MFA Enrollment Policy**, or **Password Policy**.
 
 > **Note:** Policy evaluation is conditional on the [client request context](/docs/reference/api-overview/#client-request-context) such as IP address.
 
-### Public Application
+### Public application
 
 A public application is an application that anonymously starts an authentication or recovery transaction without an API token, such as the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/).  Public applications are aggressively rate-limited to prevent abuse and require primary authentication to be successfully completed before releasing any metadata about a user.
 
-### Trusted Application
+### Trusted application
 
 Trusted applications are backend applications that act as authentication broker or login portal for your Okta organization and may start an authentication or recovery transaction with an administrator API token.  Trusted apps may implement their own recovery flows and primary authentication process and may receive additional metadata about the user before primary authentication has successfully completed.
 
 > **Note:** Trusted web applications may need to override the [client request context](/docs/reference/api-overview/#client-request-context) to forward the originating client context for the user.
 
 
-## Getting Started with Authentication
+## Getting started with authentication
 
 1. Make sure that you need the API. Check out the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) which is built on the Authentication API. The Sign-In Widget is easier to use and supports basic use cases.
 2. For more advanced use cases, learn [the Okta API basics](/code/rest/).
@@ -39,9 +39,9 @@ Trusted applications are backend applications that act as authentication broker 
 
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f9684487e584101f25a3)
 
-## Authentication Operations
+## Authentication operations
 
-### Primary Authentication
+### Primary authentication
 
 
 <ApiOperation method="post" url="/api/v1/authn" />
@@ -58,7 +58,7 @@ The requests and responses vary depending on the application type, and whether a
 
 > **Note:** You must first enable MFA factors and assign a valid **Sign-On Policy** to a user to enroll and/or verify a MFA factor during authentication.
 
-#### Request Parameters for Primary Authentication
+#### Request parameters for primary authentication
 
 
 As part of the authentication call either the username and password or the token parameter must be provided.
@@ -72,7 +72,7 @@ As part of the authentication call either the username and password or the token
 | context    | Provides additional context for the authentication transaction                                                   | Body       | [Context Object](#context-object) | FALSE    |           |
 | token      | Token received as part of activation user request                                                                | Body       | String                            | FALSE    |           |
 
-##### Options Object
+##### Options object
 
 The authentication transaction [state machine](#transaction-state) can be modified via the following opt-in features:
 
@@ -81,7 +81,7 @@ The authentication transaction [state machine](#transaction-state) can be modifi
 | multiOptionalFactorEnroll  | Transitions transaction back to `MFA_ENROLL` state after successful factor enrollment when additional optional factors are available for enrollment        | Boolean  | TRUE     | FALSE  | FALSE    |
 | warnBeforePasswordExpired  | Transitions transaction to `PASSWORD_WARN` state before `SUCCESS` if the user's password is about to expire and within their password policy warn period   | Boolean  | TRUE     | FALSE  | FALSE    |
 
-##### Context Object
+##### Context object
 
 The context object allows [trusted web applications](#trusted-application) such as an external portal to pass additional context for the authentication or recovery transaction.
 
@@ -95,7 +95,7 @@ The context object allows [trusted web applications](#trusted-application) such 
 
 It is recommended that you generate a UUID or GUID for each client and persist the `deviceToken` as a persistent cookie or HTML5 localStorage item scoped to your web application's origin.
 
-#### Response Parameters
+#### Response parameters
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
@@ -132,11 +132,11 @@ X-Rate-Limit-Reset: 1447534590
 }
 ```
 
-#### Primary Authentication with Public Application
+#### Primary authentication with public application
 
 Authenticates a user with username/password credentials via a [public application](#public-application)
 
-##### Request Example for Primary Authentication with Public Application
+##### Request example for primary authentication with public application
 
 
 ```bash
@@ -153,7 +153,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response Example for Primary Authentication with Public Application (Success)
+##### Response example for primary authentication with public application (success)
 
 
 Users with a valid password not assigned to a **Sign-On Policy** with additional verification requirements will successfully complete the authentication transaction.
@@ -179,7 +179,7 @@ Users with a valid password not assigned to a **Sign-On Policy** with additional
 }
 ```
 
-##### Response Example for Primary Authentication with Public Application (Invalid Credentials)
+##### Response example for primary authentication with public application (invalid credentials)
 
 
 `401 Unauthorized` status code is returned for requests with invalid credentials or when access is denied based on sign-on policy.
@@ -197,11 +197,11 @@ Content-Type: application/json
 }
 ```
 
-##### Response Example for Primary Authentication with Public Application (Locked Out)
+##### Response example for primary authentication with public application (locked out)
 
 Primary authentication requests for a user with `LOCKED_OUT` status is conditional on the user's password policy.  Password policies define whether to hide or show  lockout failures which disclose a valid user identifier to the caller.
 
-##### Response Example for Primary Authentication with Public Application and Hide Lockout Failures (Default)
+##### Response example for primary authentication with public application and hide lockout failures (Default)
 
 If the user's password policy is configured to **hide lockout failures**, a `401 Unauthorized` error is returned preventing information disclosure of a valid user identifier.
 
@@ -218,7 +218,7 @@ Content-Type: application/json
 }
 ```
 
-##### Response Example for Primary Authentication with Public Application and Show Lockout Failures
+##### Response example for primary authentication with public application and show lockout failures
 
 If the user's password policy is configure to **show lockout failures**, the authentication transaction completes with `LOCKED_OUT` status.
 
@@ -239,7 +239,7 @@ If the user's password policy is configure to **show lockout failures**, the aut
 }
 ```
 
-##### Response Example for Primary Authentication with Public Application and Expired Password
+##### Response example for primary authentication with public application and expired password
 
 User must [change their expired password](#change-password) to complete the authentication transaction.
 
@@ -294,7 +294,7 @@ User must [change their expired password](#change-password) to complete the auth
 }
 ```
 
-##### Response Example for Primary Authentication with Public Application (Factor Challenge)
+##### Response example for primary authentication with public application (factor challenge)
 
 
 User is assigned to a **Sign-On Policy** that requires additional verification and must [select and verify](#verify-factor) a previously enrolled [factor](#factor-object) by `id` to complete the authentication transaction.
@@ -426,7 +426,7 @@ User is assigned to a **Sign-On Policy** that requires additional verification a
 }
 ```
 
-##### Response Example for Primary Authentication with Public Application (Factor Enroll)
+##### Response example for primary authentication with public application (factor enroll)
 
 
 User is assigned to a **MFA Policy** that requires enrollment during sign-on and must [select a factor to enroll](#enroll-factor) to complete the authentication transaction.
@@ -545,7 +545,7 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-on and
 }
 ```
 
-#### Primary Authentication with Trusted Application
+#### Primary authentication with trusted application
 
 Authenticates a user via a [trusted application](#trusted-application) or proxy that overrides [client request context](/docs/reference/api-overview/#client-request-context)
 
@@ -554,7 +554,7 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
-##### Request Example for Trusted Application
+##### Request example for trusted application
 
 
 ```bash
@@ -577,7 +577,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response Example for Trusted Application
+##### Response example for trusted application
 
 
 ```json
@@ -601,7 +601,7 @@ curl -v -X POST \
 }
 ```
 
-#### Primary Authentication with Activation Token
+#### Primary authentication with activation token
 
 Authenticates a user via a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/reference/api-overview/#client-request-context)
 
@@ -610,7 +610,7 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
-##### Request Example for Activation Token
+##### Request example for activation token
 
 ```bash
 curl -v -X POST \
@@ -624,7 +624,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response Example for Activation Token (Success - User with Password, no MFA)
+##### Response example for activation token (success - user with password, no MFA)
 
 ```json
 {
@@ -647,7 +647,7 @@ curl -v -X POST \
 }
 ```
 
-##### Response Example for Activation Token (Success - User with Password and Configured MFA)
+##### Response example for activation token (success - user with password and configured MFA)
 
 
 ```json
@@ -793,7 +793,7 @@ curl -v -X POST \
 }
 ```
 
-##### Response Example for Activation Token (Success - User Without Password)
+##### Response example for activation token (success - user without password)
 
 
 In the case where the user was created without credentials the response will trigger the workflow to [set the user's password](#change-password). After the password is configured, depending on the MFA setting, the workflow continues with MFA enrollment or a successful authentication completes.
@@ -851,7 +851,7 @@ In the case where the user was created without credentials the response will tri
 }
 ```
 
-##### Response Example for Activation Token (Failure - Invalid or Expired Token)
+##### Response example for activation token (failure - invalid or expired token)
 
 
 ```http
@@ -867,7 +867,7 @@ Content-Type: application/json
 }
 ```
 
-#### Primary Authentication with Device Fingerprinting
+#### Primary authentication with device fingerprinting
 
 Include the `X-Device-Fingerprint` header to supply a device fingerprint. The device fingerprint is used in the following ways:
 
@@ -882,7 +882,7 @@ You should send the device fingerprint only if the trusted app has a computed fi
 * Device fingerprint is different from the device token. The time and device based MFA in Okta SignOn policy rules depends on the device token only and not on the device fingerprint. To read more about the device token, see [Context Object](#context-object). The time and device based MFA would work only if you send the device token passed in the [client request context](/docs/reference/api-overview/#client-request-context).
 * To use device fingerprinting for the new or unknown-device email notification feature, include the `User-Agent` header in the request. For more information, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
 
-##### Request Example for Device Fingerprinting
+##### Request example for device fingerprinting
 
 
 ```bash
@@ -900,7 +900,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response Example for Device Fingerprinting
+##### Response example for device fingerprinting
 
 
 ```json
@@ -924,7 +924,7 @@ curl -v -X POST \
 }
 ```
 
-#### Primary Authentication with Password Expiration Warning
+#### Primary authentication with password expiration warning
 
 Authenticates a user with a password that is about to expire.  The user should [change their password](#change-password) to complete the authentication transaction but can choose to skip it.
 
@@ -933,7 +933,7 @@ Authenticates a user with a password that is about to expire.  The user should [
 * The `warnBeforePasswordExpired` option must be explicitly specified as `true` to allow the authentication transaction to transition to `PASSWORD_WARN` status.
 * Non-expired passwords successfully complete the authentication transaction if this option is omitted or is specified as `false`.
 
-##### Request Example for Password Expiration Warning
+##### Request example for password expiration warning
 
 
 ```bash
@@ -950,7 +950,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response Example for Password Expiration Warning
+##### Response example for password expiration warning
 
 
 ```json
@@ -1016,7 +1016,7 @@ curl -v -X POST \
 
 
 
-### SP-initiated Step-Up Authentication
+### SP-initiated step-up authentication
 
 
 <ApiLifecycle access="ea" />
@@ -1030,12 +1030,12 @@ Every step-up transaction starts with the user accessing an application. If step
 
 For example, if the custom sign-in page is set as **https://login.example.com**, then Okta will redirect to **https://login.example.com?stateToken=**00BClWr4T-mnIqPV8dHkOQlwEIXxB4LLSfBVt7BxsM. To determine the next step, check the [state of the transaction](#get-transaction-state).
 
-* [Step-Up Authentication without Okta session](#step-up-authentication-without-okta-session)
-* [Step-Up Authentication with Okta session](#step-up-authentication-with-okta-session)
+* [Step-up authentication without Okta session](#step-up-authentication-without-okta-session)
+* [Step-up authentication with Okta session](#step-up-authentication-with-okta-session)
 
-#### Step-Up Authentication without Okta session
+#### Step-up authentication without Okta session
 
-##### Request example for Step-Up Authentication without Okta session (Get Transaction State)
+##### Request example for step-up suthentication without Okta session (get transaction state)
 
 
 ```bash
@@ -1047,7 +1047,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response example for Step-Up Authentication without Okta session
+##### Response example for step-up authentication without Okta session
 
 
 ```json
@@ -1092,7 +1092,7 @@ curl -v -X POST \
 }
 ```
 
-##### Request Example for Step-Up Authentication without Okta session (Perform Primary Authentication)
+##### Request example for step-up authentication without Okta session (perform primary authentication)
 
 Primary authentication has to be completed by using the value of **stateToken** request parameter passed to custom sign-in page.
 
@@ -1109,7 +1109,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response example for Step-Up Authentication without Okta session when MFA isn't required
+##### Response example for step-up authentication without Okta session when MFA isn't required
 
 > **Note:** Sign in to the app by following the next link relation.
 
@@ -1166,9 +1166,9 @@ curl -v -X POST \
 }
 ```
 
-#### Step-Up Authentication with Okta session
+#### Step-up authentication with Okta session
 
-##### Request example to get Transaction State for Step-Up Authentication with Okta session
+##### Request example to get transaction state for step-up authentication with Okta session
 
 
 ```bash
@@ -1180,7 +1180,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response example for Factor Enroll for Step-Up Authentication with Okta session
+##### Response example for factor enroll for step-up authentication with Okta session
 
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a factor to enroll](#enroll-factor) to complete the authentication transaction.
@@ -1257,7 +1257,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
 ```
 
 
-##### Response example for Factor Challenge for Step-Up Authentication with Okta session
+##### Response example for factor challenge for step-up authentication with Okta session
 
 
 User is assigned to a Sign-On Policy or App Sign-On Policy that requires additional verification and must [select and verify](#verify-factor) a previously enrolled [factor](#factor-object) by `id` to complete the authentication transaction.
@@ -1378,7 +1378,7 @@ User is assigned to a Sign-On Policy or App Sign-On Policy that requires additio
 }
 ```
 
-##### Response example after authentication and MFA are complete for Step-Up Authentication with Okta session
+##### Response example after authentication and MFA are complete for step-up authentication with Okta session
 
 > **Note:** Sign in to the app by following the next link relation.
 
@@ -1435,7 +1435,7 @@ User is assigned to a Sign-On Policy or App Sign-On Policy that requires additio
 }
 ```
 
-### IDP-initiated Step-Up Authentication
+### IDP-initiated step-up authentication
 
 
 <ApiOperation method="post" url="/api/v1/authn" />
@@ -1451,7 +1451,7 @@ Authenticates a user for signing in to the specified application
 
 > **Note:** Okta Sign-on Policy and the related App Sign-on Policy are evaluated after successful primary authentication.
 
-##### Request example for IDP-initiated Step-Up Authentication
+##### Request example for IDP-initiated step-up authentication
 
 
 ```bash
@@ -1469,7 +1469,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response Example When MFA Isn't Required
+##### Response example when MFA isn't required
 
 
 ```json
@@ -1527,7 +1527,7 @@ curl -v -X POST \
 
 > **Note:** Sign in to the app by following the `next` link relation.
 
-##### Response Example for Factor Enroll
+##### Response example for factor enroll
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a factor to enroll](#enroll-factor) to complete the authentication transaction.
 
@@ -1602,7 +1602,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
 }
 ```
 
-##### Response Example for Factor Challenge
+##### Response example for factor challenge
 
 
 User is assigned to a Sign-on Policy or App Sign-on Policy that requires additional verification and must [select and verify](#verify-factor) a previously enrolled [factor](#factor-object) by `id` to complete the authentication transaction.
@@ -1724,7 +1724,7 @@ User is assigned to a Sign-on Policy or App Sign-on Policy that requires additio
 ```
 
 
-##### Response Example for Invalid or Unknown Application
+##### Response example for invalid or unknown application
 
 
 ```http
@@ -1744,7 +1744,7 @@ Content-Type: application/json
 }
 ```
 
-##### Response Example for Unsupported Application
+##### Response example for unsupported application
 
 
 ```http
@@ -1764,7 +1764,7 @@ Content-Type: application/json
 }
 ```
 
-### Change Password
+### Change password
 
 
 <ApiOperation method="post" url="/api/v1/authn/credentials/change_password" />
@@ -1774,7 +1774,7 @@ Changes a user's password by providing the existing password and the new passwor
 * A user *must* change their expired password for an authentication transaction with `PASSWORD_EXPIRED` status to successfully complete the transaction.
 * A user *may* opt-out of changing their password (skip) when the transaction has a `PASSWORD_WARN` status.
 
-#### Request Parameters for Change Password
+#### Request parameters for change password
 
 
 | Parameter   | Description                                                      | Param Type | DataType  | Required |
@@ -1783,7 +1783,7 @@ Changes a user's password by providing the existing password and the new passwor
 | oldPassword | User's current password that is expired or about to expire       | Body       | String    | TRUE     |
 | newPassword | New password for user                                            | Body       | String    | TRUE     |
 
-#### Response Parameters for Change Password
+#### Response parameters for change password
 
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
@@ -1826,7 +1826,7 @@ Content-Type: application/json
 }
 ```
 
-##### Request Example for Change Password
+##### Request example for change password
 
 
 ```bash
@@ -1840,7 +1840,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/credentials/change_password"
 ```
 
-##### Response Example for Change Password
+##### Response example for change password
 
 
 ```json
@@ -1864,36 +1864,36 @@ curl -v -X POST \
 }
 ```
 
-## Multifactor Authentication Operations
+## Multifactor Authentication operations
 
 You can enroll, activate, manage, and verify factors inside the authentication context with `/api/v1/authn/factors`.
 
 > **Note:** You can enroll, manage, and verify factors outside the authentication context with [`/api/v1/users/:uid/factors/`](/docs/reference/api/factors/#factor-verification-operations).
 
-### Enroll Factor
+### Enroll factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors" /> <SupportsCors />
 
 Enrolls a user with a [factor](/docs/reference/api/factors/#supported-factors-for-providers) assigned by their **MFA Policy**
 
-* [Enroll Okta Security Question Factor](#enroll-okta-security-question-factor)
-* [Enroll Okta SMS Factor](#enroll-okta-sms-factor)
+* [Enroll Okta Security Question factor](#enroll-okta-security-question-factor)
+* [Enroll Okta SMS factor](#enroll-okta-sms-factor)
 * [Enroll Okta Call Factor](#enroll-okta-call-factor)
-* [Enroll Okta Verify TOTP Factor](#enroll-okta-verify-totp-factor)
-* [Enroll Okta Verify Push Factor](#enroll-okta-verify-push-factor)
-* [Enroll Google Authenticator Factor](#enroll-google-authenticator-factor)
-* [Enroll RSA SecurID Factor](#enroll-rsa-securid-factor)
-* [Enroll Symantec VIP Factor](#enroll-symantec-vip-factor)
-* [Enroll YubiKey Factor](#enroll-yubikey-factor)
-* [Enroll Duo Factor](#enroll-duo-factor)
-* [Enroll U2F Factor](#enroll-u2f-factor)
-* [Enroll WebAuthn Factor](#enroll-webauthn-factor)
-* [Enroll Custom HOTP Factor](#enroll-custom-hotp-factor)
+* [Enroll Okta Verify TOTP factor](#enroll-okta-verify-totp-factor)
+* [Enroll Okta Verify Push factor](#enroll-okta-verify-push-factor)
+* [Enroll Google Authenticator factor](#enroll-google-authenticator-factor)
+* [Enroll RSA SecurID factor](#enroll-rsa-securid-factor)
+* [Enroll Symantec VIP factor](#enroll-symantec-vip-factor)
+* [Enroll YubiKey factor](#enroll-yubikey-factor)
+* [Enroll Duo factor](#enroll-duo-factor)
+* [Enroll U2F factor](#enroll-u2f-factor)
+* [Enroll WebAuthn factor](#enroll-webauthn-factor)
+* [Enroll Custom HOTP factor](#enroll-custom-hotp-factor)
 
 > **Note:** This operation is only available for users that have not previously enrolled a factor and have transitioned to the `MFA_ENROLL` [state](#transaction-state).
 
-#### Request Parameters for Enroll Factor
+#### Request parameters for enroll factor
 
 
 | Parameter   | Description                                                                   | Param Type  | DataType                                                      | Required |
@@ -1903,20 +1903,20 @@ Enrolls a user with a [factor](/docs/reference/api/factors/#supported-factors-fo
 | provider    | factor provider                                                               | Body        | [Provider Type](/docs/reference/api/factors/#provider-type)                        | TRUE     |
 | profile     | profile of a [supported factor](/docs/reference/api/factors/#supported-factors-for-providers)      | Body        | [Factor Profile Object](/docs/reference/api/factors/#factor-profile-object)        | TRUE     |
 
-#### Response Parameters for Enroll Factor
+#### Response parameters for enroll factor
 
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
 > **Note:** Some [factor types](/docs/reference/api/factors/#factor-type) require [activation](#activate-factor) to complete the enrollment process. The [authentication transaction](#transaction-state) transitions to `MFA_ENROLL_ACTIVATE` if a factor requires activation.
 
-#### Enroll Okta Security Question Factor
+#### Enroll Okta Security Question factor
 
 Enrolls a user with the Okta `question` factor and [question profile](/docs/reference/api/factors/#question-profile)
 
 > **Note:** The Security Question factor doesn't require activation and is `ACTIVE` after enrollment.
 
-##### Request Example for Enroll Okta Security Question Factor
+##### Request example for enroll Okta Security Question factor
 
 
 ```bash
@@ -1935,7 +1935,7 @@ curl -v -X POST \
 ```
 
 
-##### Response Example for Enroll Okta Security Question Factor
+##### Response example for enroll Okta Security Question factor
 
 
 ```json
@@ -1960,11 +1960,11 @@ curl -v -X POST \
 ```
 
 
-#### Enroll Okta SMS Factor
+#### Enroll Okta SMS factor
 
 Enrolls a user with the Okta `sms` factor and an [SMS profile](/docs/reference/api/factors/#sms-profile). A text message with an OTP is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `next` link relation to complete the enrollment process.
 
-##### Request Example for Enroll Okta SMS Factor
+##### Request example for enroll Okta SMS factor
 
 
 ```bash
@@ -1981,7 +1981,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
-##### Response Example for Enroll Okta SMS Factor
+##### Response example for enroll Okta SMS factor
 
 
 ```json
@@ -2051,11 +2051,11 @@ curl -v -X POST \
 }
 ```
 
-##### Resend SMS as Part of Enrollment
+##### Resend SMS as part of enrollment
 
 Use the `resend` link to send another OTP if the user doesn't receive the original activation SMS OTP.
 
-###### Request Example for Resend SMS
+###### Request example for resend SMS
 
 
 ```bash
@@ -2072,11 +2072,11 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/mbl198rKSEWOSKRIVIFT/lifecycle/resend"
 ```
 
-#### Enroll Okta Call Factor
+#### Enroll Okta Call factor
 
 Enrolls a user with the Okta `call` factor and a [Call profile](/docs/reference/api/factors/#call-profile). A voice call with an OTP is sent to the device during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
 
-##### Request Example for Enroll Okta Call Factor
+##### Request example for enroll Okta Call factor
 
 
 ```bash
@@ -2093,7 +2093,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
-##### Response Example for Enroll Okta Call Factor
+##### Response example for enroll Okta Call factor
 
 
 ```json
@@ -2163,11 +2163,11 @@ curl -v -X POST \
 }
 ```
 
-##### Resend Voice Call as Part of Enrollment
+##### Resend voice call as part of enrollment
 
 Use the `resend` link to send another OTP if the user doesn't receive the original activation Voice Call OTP.
 
-###### Request Example for Resend Voice Call
+###### Request example for resend voice call
 
 
 ```bash
@@ -2185,13 +2185,13 @@ curl -v -X POST \
 ```
 
 
-#### Enroll Okta Verify TOTP Factor
+#### Enroll Okta Verify TOTP factor
 
 Enrolls a user with the Okta `token:software:totp` factor.  The factor must be [activated](#activate-totp-factor) after enrollment by following the `next` link relation to complete the enrollment process.
 
 > **Note:** This API implements [the TOTP standard](https://tools.ietf.org/html/rfc6238), which is used by apps like Okta Verify and Google Authenticator.
 
-##### Request Example for Enroll Okta Verify TOTP Factor
+##### Request example for enroll Okta Verify TOTP factor
 
 
 ```bash
@@ -2205,7 +2205,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
-##### Response Example for Enroll Okta Verify TOTP Factor
+##### Response example for enroll Okta Verify TOTP factor
 
 
 ```json
@@ -2278,7 +2278,7 @@ curl -v -X POST \
 }
 ```
 
-#### Enroll Okta Verify Push Factor
+#### Enroll Okta Verify Push factor
 
 Enrolls a user with the Okta verify `push` factor. The factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent via email or sms.
 
@@ -2286,7 +2286,7 @@ Use the published activation links to embed the QR code or distribute an activat
 
 > **Note:** This API implements [the TOTP standard](https://tools.ietf.org/html/rfc6238), which is used by apps like Okta Verify and Google Authenticator.
 
-##### Request Example for Enroll Okta Verify Push Factor
+##### Request example for enroll Okta Verify Push factor
 
 
 ```bash
@@ -2300,7 +2300,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
-##### Response Example for Enroll Okta Verify Push Factor
+##### Response example for enroll Okta Verify Push factor
 
 
 ```json
@@ -2388,11 +2388,11 @@ curl -v -X POST \
 }
 ```
 
-#### Enroll Google Authenticator Factor
+#### Enroll Google Authenticator factor
 
 Enrolls a user with the Google `token:software:totp` factor. The factor must be [activated](#activate-totp-factor) after enrollment by following the `next` link relation to complete the enrollment process.
 
-##### Request Example for Enroll Google Authenticator Factor
+##### Request example for enroll Google Authenticator factor
 
 
 ```bash
@@ -2406,7 +2406,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
-##### Response Example for Enroll Google Authenticator Factor
+##### Response example for enroll Google Authenticator factor
 
 
 ```json
@@ -2479,11 +2479,11 @@ curl -v -X POST \
 }
 ```
 
-#### Enroll RSA SecurID Factor
+#### Enroll RSA SecurID factor
 
 Enrolls a user with an RSA SecurID factor and a [token profile](/docs/reference/api/factors/#token-profile). RSA tokens must be verified with the [current pin+passcode](/docs/reference/api/factors/#factor-verification-object) as part of the enrollment request.
 
-##### Request Example for Enroll RSA SecurID Factor
+##### Request example for enroll RSA SecurID factor
 
 
 ```bash
@@ -2502,7 +2502,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example for Enroll RSA SecurID Factor
+##### Response example for enroll RSA SecurID factor
 
 
 ```json
@@ -2526,11 +2526,11 @@ curl -v -X POST \
 }
 ```
 
-#### Enroll Symantec VIP Factor
+#### Enroll Symantec VIP factor
 
 Enrolls a user with a Symantec VIP factor and a [token profile](/docs/reference/api/factors/#token-profile). Symantec tokens must be verified with the [current and next passcodes](/docs/reference/api/factors/#factor-verification-object) as part of the enrollment request.
 
-##### Request Example for Enroll Symantec VIP Factor
+##### Request example for enroll Symantec VIP factor
 
 
 ```bash
@@ -2550,7 +2550,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example for Enroll Symantec VIP Factor
+##### Response example for enroll Symantec VIP factor
 
 
 ```json
@@ -2574,11 +2574,11 @@ curl -v -X POST \
 }
 ```
 
-#### Enroll YubiKey Factor
+#### Enroll YubiKey factor
 
 Enrolls a user with a Yubico factor (YubiKey). YubiKeys must be verified with the [current passcode](/docs/reference/api/factors/#factor-verification-object) as part of the enrollment request.
 
-##### Request Example for Enroll YubiKey Factor
+##### Request example for enroll YubiKey factor
 
 
 ```bash
@@ -2593,7 +2593,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example for Enroll YubiKey Factor
+##### Response example for enroll YubiKey factor
 
 
 ```json
@@ -2618,11 +2618,11 @@ curl -v -X POST \
 ```
 
 
-#### Enroll Duo Factor
+#### Enroll Duo factor
 
 The enrollment process starts with an enrollment request to Okta, then continues with the Duo widget that is embedded in the page. The page needs to create an iframe with the name `duo_iframe` (described in the [Duo documentation](https://duo.com/docs/duoweb#3.-show-the-iframe)) to host the widget. The script address is received in the response object in \_embedded.factor.\_embedded.\_links.script object. The information to initialize the Duo object is taken from \_embedded.factor.\_embedded.activation object as it is shown in the [full example](#full-page-example-for-duo-enrollment). To maintain the link between Duo and Okta, the stateToken must be passed back when Duo calls the callback. This is done by populating the hidden element in the "duo_form" as it is described [here](https://duo.com/docs/duoweb/#passing-additional-post-arguments-with-the-signed-response). After Duo enrollment and verification is done, the Duo script makes a call back to Okta. To complete the authentication process, make a call using [the poll link](#activation-poll-request-example) to get session token and verify successful state.
 
-##### Request Example for Enroll Duo Factor
+##### Request example for enroll Duo factor
 
 
 ```bash
@@ -2636,7 +2636,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
-##### Response Example for Enroll Duo Factor
+##### Response example for enroll Duo factor
 
 
 ```json
@@ -2718,7 +2718,7 @@ curl -v -X POST \
 }
 ```
 
-#### Full Page Example for Duo enrollment
+#### Full page example for Duo enrollment
 
 In this example we put all of the elements together in the html page.
 
@@ -2753,7 +2753,7 @@ In this example we put all of the elements together in the html page.
 </html>
 ```
 
-##### Activation Poll Request Example
+##### Activation poll request example
 
 Verifies successful authentication and obtains a session token
 
@@ -2766,7 +2766,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/${factorId}/lifecycle/activate/poll"
 ```
 
-##### Activation Poll Response Example
+##### Activation poll response example
 
 
 ```json
@@ -2790,13 +2790,13 @@ curl -v -X POST \
 }
 ```
 
-#### Enroll U2F Factor
+#### Enroll U2F factor
 
 Enrolls a user with a U2F factor. The enrollment process starts with getting an `appId` and `nonce` from Okta and using those to get registration information from the U2F key using the U2F javascript API.
 
 > **Note:** The `appId` property in Okta U2F enroll/verify API response is the [origin](https://www.ietf.org/rfc/rfc6454.txt) of the web page that triggers the API request (assuming that the origin has been configured to be trusted by Okta). According to the [FIDO spec](https://fidoalliance.org/specs/fido-u2f-v1.2-ps-20170411/fido-appid-and-facets-v1.2-ps-20170411.html#h2_the-appid-and-facetid-assertions), enrolling and verifying a U2F device with `appId`s in different DNS zones is not allowed. For example, if a user enrolled a U2F device via the Okta Sign-In Widget that is hosted at `https://login.company.com`, while the user can verify the U2F factor from `https://login.company.com`, the user would not be able to verify it from Okta portal `https://company.okta.com`. The U2F device would return error code 4 - `DEVICE_INELIGIBLE`.
 
-##### Enroll U2F Request Example
+##### Enroll U2F request example
 
 
 ```bash
@@ -2810,7 +2810,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
-##### Enroll U2F Response Example
+##### Enroll U2F response example
 
 
 ```json
@@ -2875,21 +2875,21 @@ curl -v -X POST \
 }
 ```
 
-#### Enroll WebAuthn Factor
+#### Enroll WebAuthn factor
 
 > **Note:** The WebAuthN factor is available for those using the [Okta-hosted Custom Sign-In Page](/docs/guides/custom-hosted-signin/). If you are using a self-hosted, customized sign-in widget, you must first upgrade to widget version 3.4.0 and enable the [configuration option](https://github.com/okta/okta-signin-widget#configuration).
 
 Enrolls a user with a WebAuthn factor. The enrollment process starts with getting the WebAuthn credential creation options, which are used to help select an appropriate authenticator using the WebAuthn API.
 This authenticator then generates an enrollment attestation that may be used to register the authenticator for the user.
 
-##### Enroll WebAuthn Request Parameters
+##### Enroll WebAuthn request parameters
 
 | Parameter    | Description                                                  | Param Type | DataType | Required |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
 | stateToken   | [state token](#state-token) for the current transaction          | Body       | String   | TRUE     |
 
 
-##### Enroll WebAuthn Response Parameters
+##### Enroll WebAuthn response parameters
 
 In the [embedded resources](#embedded-resources) object, the `factor._embedded.activation` object contains properties used to guide the client in creating a new WebAuthn credential for use with Okta.
 
@@ -2897,7 +2897,7 @@ For more information about these credential creation options, see the [WebAuthn 
 
 > **Note:** Additionally, the activation object contains a `u2fParams` object with an `appid` property. This deprecated legacy property was used to support backwards compatibility with U2F and is no longer in use.
 
-##### Enroll WebAuthn Request Example
+##### Enroll WebAuthn request example
 
 
 ```bash
@@ -2911,7 +2911,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
-###### Enroll WebAuthn Response Example
+###### Enroll WebAuthn response example
 
 
 ```json
@@ -3000,30 +3000,30 @@ curl -v -X POST \
 }
 ```
 
-#### Enroll Custom HOTP Factor
+#### Enroll Custom HOTP factor
 
-Enrollment via the Authentication API is currently not supported for Custom HOTP Factor. Please refer to the Factors API documentation [here](/docs/reference/api/factors/#enroll-custom-hotp-factor) if you would like to enroll users for this type of factor.
+Enrollment via the Authentication API is currently not supported for Custom HOTP factor. Please refer to the [Factors API documentation](/docs/reference/api/factors/#enroll-custom-hotp-factor) if you would like to enroll users for this type of factor.
 
-### Activate Factor
+### Activate factor
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/lifecycle/activate" /> <SupportsCors />
 
 The `sms`,`call`, and `token:software:totp` [factor types](/docs/reference/api/factors/#factor-type) require activation to complete the enrollment process.
 
-* [Activate TOTP Factor](#activate-totp-factor)
-* [Activate SMS Factor](#activate-sms-factor)
-* [Activate Call Factor](#activate-call-factor)
-* [Activate Push Factor](#activate-push-factor)
-* [Activate U2F Factor](#activate-u2f-factor)
-* [Activate WebAuthn Factor](#activate-webauthn-factor)
+* [Activate TOTP factor](#activate-totp-factor)
+* [Activate SMS factor](#activate-sms-factor)
+* [Activate Call factor](#activate-call-factor)
+* [Activate Push factor](#activate-push-factor)
+* [Activate U2F factor](#activate-u2f-factor)
+* [Activate WebAuthn factor](#activate-webauthn-factor)
 
-#### Activate TOTP Factor
+#### Activate TOTP factor
 
 Activates a `token:software:totp` factor by verifying the OTP
 
 > **Note:** This API implements [the TOTP standard](https://tools.ietf.org/html/rfc6238), which is used by apps like Okta Verify and Google Authenticator.
 
-##### Request Parameters for Activate TOTP Factor
+##### Request parameters for activate TOTP factor
 
 
 | Parameter    | Description                                          | Param Type | DataType | Required |
@@ -3032,7 +3032,7 @@ Activates a `token:software:totp` factor by verifying the OTP
 | stateToken   | [state token](#state-token)  for the current transaction | Body       | String   | TRUE     |
 | passCode     | OTP generated by device                              | Body       | String   | TRUE     |
 
-##### Response Parameters for Activate TOTP Factor
+##### Response parameters for activate TOTP factor
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
@@ -3055,7 +3055,7 @@ Content-Type: application/json
 }
 ```
 
-##### Activate TOTP Request Example
+##### Activate TOTP request example
 
 
 ```bash
@@ -3068,7 +3068,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/ostf1fmaMGJLMNGNLIVG/lifecycle/activate"
 ```
 
-##### Activate TOTP Response Example
+##### Activate TOTP response example
 
 
 ```json
@@ -3092,11 +3092,11 @@ curl -v -X POST \
 }
 ```
 
-#### Activate SMS Factor
+#### Activate SMS factor
 
 Activates an `sms` factor by verifying the OTP. The request and response is identical to [activating a TOTP factor](#activate-totp-factor)
 
-##### Activate SMS Factor Request Parameters
+##### Activate SMS factor request parameters
 
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
@@ -3105,7 +3105,7 @@ Activates an `sms` factor by verifying the OTP. The request and response is iden
 | stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | passCode     | OTP sent to mobile device                           | Body       | String   | TRUE     |
 
-##### Activate SMS Factor Response Parameters
+##### Activate SMS factor response parameters
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
@@ -3128,7 +3128,7 @@ Content-Type: application/json
 }
 ```
 
-##### Activate SMS Factor Request Example
+##### Activate SMS factor request example
 
 
 ```bash
@@ -3141,7 +3141,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/sms1o51EADOTFXHHBXBP/lifecycle/activate"
 ```
 
-##### Activate SMS Factor Response Example
+##### Activate SMS factor response example
 
 
 ```json
@@ -3166,11 +3166,11 @@ curl -v -X POST \
 
 ```
 
-#### Activate Call Factor
+#### Activate Call factor
 
 Activates a `call` factor by verifying the OTP. The request and response is identical to [activating a TOTP factor](#activate-totp-factor)
 
-##### Activate Call Factor Request Parameters
+##### Activate Call factor request parameters
 
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
@@ -3179,7 +3179,7 @@ Activates a `call` factor by verifying the OTP. The request and response is iden
 | stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | passCode     | Passcode received via the voice call                | Body       | String   | TRUE     |
 
-##### Activate Call Factor Response Parameters
+##### Activate Call factor response parameters
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
@@ -3202,7 +3202,7 @@ Content-Type: application/json
 }
 ```
 
-##### Activate Call Factor Request Example
+##### Activate Call factor request example
 
 
 ```bash
@@ -3215,7 +3215,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/clf1o51EADOTFXHHBXBP/lifecycle/activate"
 ```
 
-##### Activate Call Factor Response Example
+##### Activate Call factor response example
 
 
 ```json
@@ -3240,13 +3240,13 @@ curl -v -X POST \
 
 ```
 
-#### Activate Push Factor
+#### Activate Push factor
 
 Activation of `push` factors are asynchronous and must be polled for completion when the `factorResult` returns a `WAITING` status.
 
 Activations have a short lifetime (minutes) and `TIMEOUT` if they are not completed before the `expireAt` timestamp. Use the published `activate` link to restart the activation process if the activation is expired.
 
-##### Activate Push Factor Request Parameters
+##### Activate Push factor request parameters
 
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
@@ -3254,11 +3254,11 @@ Activations have a short lifetime (minutes) and `TIMEOUT` if they are not comple
 | factorId     | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
 | stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 
-##### Activate Push Factor Response Parameters
+##### Activate Push factor response parameters
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
-##### Activate Push Factor Request Example
+##### Activate Push factor request example
 
 
 ```bash
@@ -3270,7 +3270,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate"
 ```
 
-##### Activate Push Factor Response Example (Waiting)
+##### Activate Push factor response example (waiting)
 
 
 > **Note:** Follow the the published `next` link to keep polling for activation completion.
@@ -3360,7 +3360,7 @@ curl -v -X POST \
 }
 ```
 
-##### Activate Push Factor Response Example (Success)
+##### Activate Push factor response example (success)
 
 
 ```json
@@ -3384,7 +3384,7 @@ curl -v -X POST \
 }
 ```
 
-##### Activate Push Factor Response Example (Timeout)
+##### Activate Push factor response example (timeout)
 
 > **Note:** Follow the the published `activate` link to restart the activation process.
 
@@ -3477,11 +3477,11 @@ curl -v -X POST \
 }
 ```
 
-##### Poll for Push Factor Activation
+##### Poll for Push factor activation
 
 After the push notification is sent to the user's device, we need to know when the user completes the activation. This is done by polling the "poll" link.
 
-###### Poll for Push Request Example
+###### Poll for Push request example
 
 
 ```bash
@@ -3493,7 +3493,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/poll"
 ```
 
-###### Poll for Push Response Example
+###### Poll for Push response example
 
 
 ```json
@@ -3573,14 +3573,14 @@ curl -v -X POST \
 }
 ```
 
-##### Send Activation Links
+##### Send activation links
 
 Sends an activation email or SMS when the user is unable to scan the QR code provided as part of an Okta Verify transaction.
 If for any reason the user can't scan the QR code, they can use the link provided in email or SMS to complete the transaction.
 
 > **Note:** The user must click the link from the same device as the one where the Okta Verify app is installed.
 
-###### Send Activation Links Request Example (Email)
+###### Send activation links request example (email)
 
 
 ```bash
@@ -3592,7 +3592,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/email"
 ```
 
-###### Send Activation Links Request Example (SMS)
+###### Send activation links request example (SMS)
 
 
 ```bash
@@ -3607,7 +3607,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/lifecycle/activate/sms"
 ```
 
-###### Send Activation Links Response Example
+###### Send activation links response example
 
 
 ```json
@@ -3695,7 +3695,7 @@ curl -v -X POST \
 }
 ```
 
-#### Activate U2F Factor
+#### Activate U2F factor
 
 Activation gets the registration information from the U2F token using the API and passes it to Okta.
 
@@ -3733,7 +3733,7 @@ Activation gets the registration information from the U2F token using the API an
 
 Activate a `u2f` factor by verifying the registration data and client data.
 
-##### Activate U2F Request Parameters
+##### Activate U2F request parameters
 
 
 | Parameter         | Description                                                | Param Type | DataType | Required |
@@ -3743,7 +3743,7 @@ Activate a `u2f` factor by verifying the registration data and client data.
 | registrationData  | base64-encoded registration data from U2F javascript call  | Body       | String   | TRUE     |
 | clientData        | base64-encoded client data from U2F javascript call        | Body       | String   | TRUE     |
 
-##### Activate U2F Response Parameters
+##### Activate U2F response parameters
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
@@ -3766,7 +3766,7 @@ Content-Type: application/json
 }
 ```
 
-##### Activate U2F Request Example
+##### Activate U2F request example
 
 
 ```bash
@@ -3780,7 +3780,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/fuf1o51EADOTFXHHBXBP/lifecycle/activate"
 ```
 
-##### Activate U2F Response Example
+##### Activate U2F response example
 
 
 ```json
@@ -3804,7 +3804,7 @@ curl -v -X POST \
 }
 ```
 
-#### Activate WebAuthn Factor
+#### Activate WebAuthn factor
 
 Activation gets the registration information from the WebAuthn assertion using the API and passes it to Okta.
 
@@ -3835,7 +3835,7 @@ navigator.credentials.create({
 
 Activate a `webauthn` factor by verifying the attestation and client data.
 
-##### Activate WebAuthn Request Parameters
+##### Activate WebAuthn request parameters
 
 
 | Parameter         | Description                                                     | Param Type | DataType | Required |
@@ -3845,7 +3845,7 @@ Activate a `webauthn` factor by verifying the attestation and client data.
 | attestation       | base64-encoded attestation from the WebAuthn javascript call        | Body       | String   | TRUE     |
 | clientData        | base64-encoded client data from the WebAuthn javascript call        | Body       | String   | TRUE     |
 
-##### Activate WebAuthn Response Parameters
+##### Activate WebAuthn response parameters
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
@@ -3868,7 +3868,7 @@ Content-Type: application/json
 }
 ```
 
-##### Activate WebAuthn Request Example
+##### Activate WebAuthn request example
 
 
 ```bash
@@ -3882,7 +3882,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/fwfbaopNw5CCGJTu20g4/lifecycle/activate"
 ```
 
-##### Activate WebAuthn Response Example
+##### Activate WebAuthn response example
 
 
 ```json
@@ -3906,7 +3906,7 @@ curl -v -X POST \
 }
 ```
 
-### Verify Factor
+### Verify factor
 
 Verifies an enrolled factor for an authentication transaction with the `MFA_REQUIRED` or `MFA_CHALLENGE` [state](#transaction-state)
 
@@ -3921,14 +3921,14 @@ Verifies an enrolled factor for an authentication transaction with the `MFA_REQU
 
 > **Note:** If the sign-on (or app sign-on) [policy](#remember-device-policy-object) allows remembering the device, then the end user should be prompted to choose whether the current device should be remembered. This helps reduce the number of times the user is prompted for MFA on the current device. The user's choice should be passed to Okta using the request parameter `rememberDevice` to the verify endpoint. The default value of `rememberDevice` parameter is `false`.
 
-#### Verify Security Question Factor
+#### Verify Security Question factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 Verifies an answer to a `question` factor
 
-##### Request Parameters for Verify Security Question Factor
+##### Request parameters for verify Security Question factor
 
 | Parameter      | Description                                         | Param Type | DataType | Required |
 | -------------- | --------------------------------------------------- | ---------- | -------- | -------- |
@@ -3937,7 +3937,7 @@ Verifies an answer to a `question` factor
 | answer         | answer to security question                         | Body       | String   | TRUE     |
 | rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
 
-##### Response Parameters for Verify Security Question Factor
+##### Response parameters for verify Security Question factor
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
@@ -3957,7 +3957,7 @@ If the `answer` is invalid you receive a `403 Forbidden` status code with the fo
 }
 ```
 
-##### Request Example for Verify Security Question Factor
+##### Request example for verify Security Question factor
 
 
 ```bash
@@ -3970,7 +3970,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/ufs1pe3ISGKGPYKXRBKK/verify"
 ```
 
-##### Response Example for Verify Security Question Factor
+##### Response example for verify Security Question factor
 
 
 ```json
@@ -3994,11 +3994,11 @@ curl -v -X POST \
 }
 ```
 
-#### Verify SMS Factor
+#### Verify SMS factor
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
-##### Request Parameters for Verify SMS Factor
+##### Request parameters for verify SMS factor
 
 
 | Parameter      | Description                                         | Param Type | DataType | Required |
@@ -4010,7 +4010,7 @@ curl -v -X POST \
 
 > **Note:** If you omit `passCode` in the request, a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`.
 
-##### Response Parameters for Verify SMS Factor
+##### Response parameters for verify SMS factor
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
@@ -4030,11 +4030,11 @@ If the `passCode` is invalid, you receive a `403 Forbidden` status code with the
 }
 ```
 
-##### Send SMS Challenge (OTP)
+##### Send SMS challenge (OTP)
 
 Omit `passCode` in the request to send an OTP to the device.
 
-###### Request Example for Send SMS Challenge (OTP)
+###### Request example for send SMS challenge (OTP)
 
 
 ```bash
@@ -4046,7 +4046,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/sms193zUBEROPBNZKPPE/verify"
 ```
 
-###### Response Example for Send SMS Challenge (OTP)
+###### Response example for send SMS challenge (OTP)
 
 
 ```json
@@ -4116,11 +4116,11 @@ curl -v -X POST \
 }
 ```
 
-##### Verify SMS Challenge (OTP)
+##### Verify SMS challenge (OTP)
 
 Specify `passCode` in the request to verify the factor.
 
-###### Request Example for Verify SMS Challenge (OTP)
+###### Request example for verify SMS challenge (OTP)
 
 
 ```bash
@@ -4133,7 +4133,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/sms193zUBEROPBNZKPPE/verify"
 ```
 
-###### Response Example for Verify SMS Challenge (OTP)
+###### Response example for verify SMS challenge (OTP)
 
 
 ```json
@@ -4157,12 +4157,12 @@ curl -v -X POST \
 }
 ```
 
-#### Verify Call Factor
+#### Verify Call factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
-##### Request Parameters for Verify Call Factor
+##### Request parameters for verify Call factor
 
 
 | Parameter      | Description                                         | Param Type | DataType | Required |
@@ -4174,7 +4174,7 @@ curl -v -X POST \
 
 > **Note:** If you omit `passCode` in the request, a new OTP is sent to the device, otherwise the request attempts to verify the `passCode`.
 
-##### Response Parameters for Verify Call Factor
+##### Response parameters for verify Call factor
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
@@ -4194,11 +4194,11 @@ If the `passCode` is invalid, you receive a `403 Forbidden` status code with the
 }
 ```
 
-##### Send Voice Call Challenge (OTP)
+##### Send Voice Call challenge (OTP)
 
 Omit `passCode` in the request to send an OTP to the device.
 
-###### Request Example for Send Voice Call Challenge (OTP)
+###### Request example for send Voice Call challenge (OTP)
 
 
 ```bash
@@ -4210,7 +4210,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify"
 ```
 
-###### Response Example for Send Voice Call Challenge (OTP)
+###### Response example for send Voice Call challenge (OTP)
 
 
 ```json
@@ -4269,11 +4269,11 @@ curl -v -X POST \
 }
 ```
 
-##### Verify Call Challenge (OTP)
+##### Verify Call challenge (OTP)
 
 Specify `passCode` in the request to verify the factor.
 
-###### Request Example for Verify Call Challenge
+###### Request example for verify Call challenge
 
 
 ```bash
@@ -4286,7 +4286,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify"
 ```
 
-###### Response Example for Verify Call Challenge
+###### Response example for verify Call challenge
 
 
 ```json
@@ -4311,7 +4311,7 @@ curl -v -X POST \
 
 ```
 
-#### Verify TOTP Factor
+#### Verify TOTP factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
@@ -4320,7 +4320,7 @@ Verifies an OTP for a `token:software:totp` or `token:hotp` factor
 
 > **Note:** This API implements [the TOTP standard](https://tools.ietf.org/html/rfc6238), which is used by apps like Okta Verify and Google Authenticator.
 
-##### Request Parameters for Verify TOTP Factor
+##### Request parameters for verify TOTP factor
 
 
 | Parameter      | Description                                         | Param Type | DataType | Required |
@@ -4330,7 +4330,7 @@ Verifies an OTP for a `token:software:totp` or `token:hotp` factor
 | passCode       | OTP sent to device                                  | Body       | String   | FALSE    |
 | rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
 
-##### Response Parameters for Verify TOTP Factor
+##### Response parameters for verify TOTP factor
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
 
@@ -4350,7 +4350,7 @@ If the passcode is invalid, you receive a `403 Forbidden` status code with the f
 }
 ```
 
-###### Request Example for Verify TOTP Factor
+###### Request example for verify TOTP factor
 
 
 ```bash
@@ -4363,7 +4363,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/ostfm3hPNYSOIOIVTQWY/verify"
 ```
 
-###### Response Example for Verify TOTP Factor
+###### Response example for verify TOTP factor
 
 
 ```json
@@ -4387,14 +4387,14 @@ curl -v -X POST \
 }
 ```
 
-#### Verify Push Factor
+#### Verify Push factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
 
 Sends an asynchronous push notification (challenge) to the device for the user to approve or reject. The `factorResult` for the transaction has a result of `WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`.
 
-##### Request Parameters for Verify Push Factor
+##### Request parameters for verify Push factor
 
 
 | Parameter      | Description                                          | Param Type | DataType | Required |
@@ -4404,7 +4404,7 @@ Sends an asynchronous push notification (challenge) to the device for the user t
 | rememberDevice | user's decision to remember the device                   | URL        | Boolean  | FALSE    |
 | autoPush       | user's decision to send a push to the device automatically | URL        | Boolean  | FALSE    |
 
-**Okta Verify Push Details Pertaining to Auto-Push**
+**Okta Verify Push details pertaining to auto-push**
 
 * You don't need to pass the `autoPush` flag to Okta unless you have a custom sign-in flow that doesn't use the Okta Sign-In Widget, but want Okta to keep track of this preference.  The custom sign-in flow must still handle the logic to actually send the Auto-Push, since this param only deals with the Auto-Push setting.
 * If you pass the `autoPush` query param when verifying an Okta Verify Push factor, Okta saves this value as the user's preference to have the push notification sent automatically if the verification is successful (the user taps **Approve** on their phone).
@@ -4414,7 +4414,7 @@ Sends an asynchronous push notification (challenge) to the device for the user t
 * Please note, the `autoPush` flag has no effect when trying to verify a factor other than Okta Verify Push (factorId prefix = "opf").
 
 
-##### Request Example for Verify Push Factor
+##### Request example for verify Push factor
 
 
 ```bash
@@ -4426,7 +4426,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/ufs1pe3ISGKGPYKXRBKK/verify"
 ```
 
-##### Response Example (Waiting)
+##### Response example (waiting)
 
 > **Note:** Keep polling authentication transactions with `WAITING` result until the challenge completes or expires.
 
@@ -4501,7 +4501,7 @@ curl -v -X POST \
 }
 ```
 
-##### Response Example (Approved)
+##### Response example (approved)
 
 
 ```json
@@ -4525,7 +4525,7 @@ curl -v -X POST \
 }
 ```
 
-##### Response Example (Rejected)
+##### Response example (rejected)
 
 
 ```json
@@ -4599,7 +4599,7 @@ curl -v -X POST \
 }
 ```
 
-##### Response Example (Timeout)
+##### Response example (timeout)
 
 
 ```json
@@ -4673,11 +4673,11 @@ curl -v -X POST \
 }
 ```
 
-##### Resend Push Notification
+##### Resend push notification
 
 Use the `resend` link to send another push notification if the user didn't receive the previous one due to timeout or error.
 
-###### Request Example for Resend Push Notification
+###### Request example for resend push notification
 
 
 ```bash
@@ -4689,11 +4689,11 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend"
 ```
 
-#### Verify Duo Factor
+#### Verify Duo factor
 
 Verification of the Duo factor is implemented as an integration with Duo widget. The process is very similar to the [enrollment](#full-page-example-for-duo-enrollment) where the widget is embedded in an iframe - "duo_iframe". Verification starts with request to the Okta API, then continues with a Duo widget that handles the actual verification. We need to pass the state token as hidden object in "duo_form". The authentication completes with call to [poll link](#verification-poll-request-example) to verify the state and obtain session token.
 
-##### Request Example for Verify Duo Factor
+##### Request example for verify Duo factor
 
 
 ```bash
@@ -4705,7 +4705,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/${factorId}/verify"
 ```
 
-##### Response Example for Verify Duo Factor
+##### Response example for verify Duo factor
 
 
 ```json
@@ -4825,7 +4825,7 @@ curl -v -X POST \
 
 ```
 
-##### Verification Poll Request Example
+##### Verification poll request example
 
 
 ```bash
@@ -4837,7 +4837,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/${factorId}/verify"
 ```
 
-##### Verification Poll Response Example
+##### Verification poll response example
 
 
 ```json
@@ -4861,7 +4861,7 @@ curl -v -X POST \
 }
 ```
 
-#### Verify U2F Factor
+#### Verify U2F fFactor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorId}/verify" /> <SupportsCors />
@@ -4870,12 +4870,12 @@ curl -v -X POST \
 the web page that triggers the API request (assuming the origin has been configured to be trusted by Okta). According to
 [FIDO spec](https://fidoalliance.org/specs/fido-u2f-v1.2-ps-20170411/fido-appid-and-facets-v1.2-ps-20170411.html#h2_the-appid-and-facetid-assertions), enroll and verify U2F device with `appId`s in different DNS zone is not allowed. For example, if a user enrolled a U2F device via Okta Sign-in widget that is hosted at `https://login.company.com`, while the user can verify the U2F factor from `https://login.company.com`, the user would not be able to verify it from Okta portal `https://company.okta.com`, U2F device would return error code 4 - `DEVICE_INELIGIBLE`.
 
-##### Start Verification to Get Challenge Nonce
+##### Start verification to get challenge nonce
 
 Verification of the U2F factor starts with getting the challenge nonce and U2F token details and then using the client-side
 JavaScript API to get the signed assertion from the U2F token.
 
-##### Request Example for Verify U2F Factor
+##### Request example for verify U2F factor
 
 
 ```bash
@@ -4887,7 +4887,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/${factorId}/verify"
 ```
 
-##### Response Example for Verify U2F Factor
+##### Response example for verify U2F factor
 
 
 ```json
@@ -4960,7 +4960,7 @@ curl -v -X POST \
 }
 ```
 
-##### Get the Signed Assertion from the U2F Token
+##### Get the signed assertion from the U2F token
 
 
 ```html
@@ -4998,7 +4998,7 @@ curl -v -X POST \
 
 ##### Post the signed assertion to Okta to complete verification
 
-##### Request Parameters for Verify U2F Factor
+##### Request parameters for verify U2F factor
 
 
 | Parameter      | Description                                         | Param Type | DataType | Required |
@@ -5009,7 +5009,7 @@ curl -v -X POST \
 | signatureData  | base64-encoded signature data from the U2F token    | Body       | String   | TRUE     |
 | rememberDevice | user's decision to remember the device              | URL        | Boolean  | FALSE    |
 
-##### Request Example for Signed Assertion
+##### Request example for signed assertion
 
 
 ```bash
@@ -5023,7 +5023,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/${factorId}/verify"
 ```
 
-##### Response of U2F Verification Example
+##### Response of U2F verification example
 
 
 ```json
@@ -5047,7 +5047,7 @@ curl -v -X POST \
 }
 ```
 
-#### Verify WebAuthn Factor
+#### Verify WebAuthn factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/factors/${factorIdOrFactorType}/verify" /> <SupportsCors />
@@ -5057,13 +5057,13 @@ This authenticator then generates an assertion that may be used to verify the us
 
 > **Note:** a `factorId` or `factorType` may be specified for WebAuthn's verify endpoint, as the WebAuthn factor type supports multiple factor instances. When a `factorId` is used, the verification procedure is no different from any other factors, with verification for a specific factor instance. When "webauthn" (the `factorType` name for WebAuthn) is used, verification would be acceptable with any WebAuthn factor instance enrolled for the user.
 
-##### Start Verification to Get Challenge Nonce
+##### Start verification to get challenge nonce
 
 Verification of the WebAuthn factor starts with getting the WebAuthn credential request details (including the challenge nonce) then using the client-side JavaScript API to get the signed assertion from the WebAuthn authenticator.
 
 For more information about these credential request options, see the [WebAuthn spec for PublicKeyCredentialRequestOptions](https://www.w3.org/TR/webauthn/#dictionary-makecredentialoptions).
 
-##### Request Example for Verify WebAuthn Factor
+##### Request example for verify WebAuthn factor
 
 
 ```bash
@@ -5075,7 +5075,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/${factorIdOrFactorType}/verify"
 ```
 
-##### Response Example for Verify WebAuthn Factor by `factorId`
+##### Response example for verify WebAuthn factor by `factorId`
 
 
 ```json
@@ -5153,7 +5153,7 @@ curl -v -X POST \
 }
 ```
 
-##### Response Example for Verify WebAuthn Factor by `factorType`
+##### Response example for verify WebAuthn factor by `factorType`
 
 
 ```json
@@ -5243,7 +5243,7 @@ curl -v -X POST \
 }
 ```
 
-##### Get the Signed Assertion from the WebAuthn Authenticator
+##### Get the signed assertion from the WebAuthn authenticator
 
 
 ```html
@@ -5272,7 +5272,7 @@ curl -v -X POST \
 
 ##### Post the signed assertion to Okta to complete verification
 
-##### Request Parameters for Verify WebAuthn Factor
+##### Request parameters for verify WebAuthn factor
 
 
 | Parameter      | Description                                         | Param Type | DataType | Required |
@@ -5285,7 +5285,7 @@ curl -v -X POST \
 | signatureData  | base64-encoded signature data from the WebAuthn authenticator    | Body       | String   | TRUE     |
 | rememberDevice | user's decision to remember the device                  | URL        | Boolean  | FALSE    |
 
-##### Request Example for Signed Assertion
+##### Request example for signed assertion
 
 
 ```bash
@@ -5300,7 +5300,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/${factorIdOrFactorType}/verify"
 ```
 
-##### Response of WebAuthn Verification Example
+##### Response of WebAuthn verification example
 
 
 ```json
@@ -5324,9 +5324,9 @@ curl -v -X POST \
 }
 ```
 
-## Recovery Operations
+## Recovery operations
 
-### Forgot Password
+### Forgot password
 
 
 <ApiOperation method="post" url="/api/v1/authn/recovery/password" />
@@ -5340,7 +5340,7 @@ Starts a new password recovery transaction for a given user and issues a [recove
 
 > **Note:** Self-service password reset (forgot password) must be permitted via the user's assigned password policy to use this operation.
 
-##### Request Parameters for Forgot Password
+##### Request parameters for forgot password
 
 
 | Parameter   | Description                                                                                                       | Param Type | DataType                          | Required | MaxLength |
@@ -5352,13 +5352,13 @@ Starts a new password recovery transaction for a given user and issues a [recove
 
 The response is different, depending on whether the request is for a public application or a trusted application.
 
-##### Response Parameters for Public Application for Forgot Password
+##### Response parameters for public application for forgot password
 
 The [Recovery Transaction Object](#recovery-transaction-model) with `RECOVERY_CHALLENGE` status for the new recovery transaction
 
 You will always receive a [Recovery Transaction](#recovery-transaction-model) response even if the requested `username` is not a valid identifier to prevent information disclosure.
 
-##### Response Parameters for Trusted Application for Forgot Password
+##### Response parameters for trusted application for forgot password
 
 The [Recovery Transaction Object](#recovery-transaction-model) with an issued `recoveryToken` that can be distributed to the end user
 
@@ -5377,7 +5377,7 @@ Content-Type: application/json
 }
 ```
 
-#### Forgot Password with Email Factor
+#### Forgot password with Email factor
 
 Starts a new password recovery transaction for the email factor:
 
@@ -5392,7 +5392,7 @@ Okta provides security in the following ways:
 * Okta doesn't publish additional metadata about the user until primary authentication has successfully completed.
 See the Response Example in this section for details.
 
-##### Request Example for Forgot Password with Email Factor
+##### Request example for forgot password with Email factor
 
 
 ```bash
@@ -5405,7 +5405,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
-##### Response Example for Forgot Password with Email Factor
+##### Response example for forgot password with Email factor
 
 
 ```json
@@ -5417,7 +5417,7 @@ curl -v -X POST \
 }
 ```
 
-#### Forgot Password with SMS Factor
+#### Forgot password with SMS factor
 
 Starts a new password recovery transaction with a user identifier (`username`) and asynchronously sends a SMS OTP (challenge) to the user's mobile phone. This operation will transition the recovery transaction to the `RECOVERY_CHALLENGE` state and wait for the user to [verify the OTP](#verify-sms-recovery-factor).
 
@@ -5425,7 +5425,7 @@ Starts a new password recovery transaction with a user identifier (`username`) a
 
 > **Note:** SMS recovery factor must be enabled via the user's assigned password policy to use this operation.
 
-##### Request Example for Forgot Password with SMS Factor
+##### Request example for forgot password with SMS factor
 
 
 ```bash
@@ -5438,7 +5438,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
-##### Response Example for Forgot Password with SMS Factor
+##### Response example for forgot password with SMS factor
 
 
 ```json
@@ -5479,7 +5479,7 @@ curl -v -X POST \
 }
 ```
 
-#### Forgot Password with Call Factor
+#### Forgot password with Call factor
 
 Starts a new password recovery transaction with a user identifier (`username`) and asynchronously sends a Voice Call with OTP (challenge) to the user's phone. This operation transitions the recovery transaction to the `RECOVERY_CHALLENGE` state and wait for user to [verify the OTP](#verify-call-recovery-factor).
 
@@ -5489,7 +5489,7 @@ Starts a new password recovery transaction with a user identifier (`username`) a
 * Okta won't publish additional metadata about the user until primary authentication has successfully completed.
 * Voice Call recovery factor must be enabled via the user's assigned password policy to use this operation.
 
-##### Request Example for Forgot Password with Call Factor
+##### Request example for forgot password with Call factor
 
 ```bash
 curl -v -X POST \
@@ -5501,7 +5501,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
-##### Response Example for Forgot Password with Call Factor
+##### Response example for forgot password with Call factor
 
 
 ```json
@@ -5542,7 +5542,7 @@ curl -v -X POST \
 }
 ```
 
-#### Forgot Password with Trusted Application
+#### Forgot password with trusted application
 
 Allows a [trusted application](#trusted-application) such as an external portal to implement its own primary authentication process and directly obtain a [recovery token](#recovery-token) for a user given just the user's identifier
 
@@ -5550,7 +5550,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 > **Note:** The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
-##### Request Example for Forgot Password with Trusted Application
+##### Request example for forgot password with trusted application
 
 
 ```bash
@@ -5565,7 +5565,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
-##### Response Example for Forgot Password with Trusted Application
+##### Response example for forgot password with tusted application
 
 
 ```json
@@ -5609,7 +5609,7 @@ curl -v -X POST \
 }
 ```
 
-### Unlock Account
+### Unlock account
 
 
 <ApiOperation method="post" url="/api/v1/authn/recovery/unlock" />
@@ -5622,7 +5622,7 @@ Starts a new unlock recovery transaction for a given user and issues a [recovery
 
 > **Note:** Self-service unlock must be permitted via the user's assigned password policy to use this operation.
 
-##### Request Parameters for Unlock Account
+##### Request parameters for unlock account
 
 
 | Parameter   | Description                                                                                                      | Param Type | DataType                          | Required | Max Length |
@@ -5632,13 +5632,13 @@ Starts a new unlock recovery transaction for a given user and issues a [recovery
 
 > **Note:** A valid `factorType` is required for requests without an API token with administrator privileges. (See [Unlock Account with Trusted Application](#unlock-account-with-trusted-application)).
 
-##### Response Parameter Public Application for Unlock Account
+##### Response parameter public application for unlock account
 
 [Recovery Transaction Object](#recovery-transaction-model) with `RECOVERY_CHALLENGE` status for the new recovery transaction
 
 You always receive a [Recovery Transaction](#recovery-transaction-model) response, even if the requested `username` isn't a valid identifier to prevent information disclosure.
 
-##### Response Parameter Trusted Application for Unlock Account
+##### Response parameter trusted application for unlock account
 
 [Recovery Transaction Object](#recovery-transaction-model) with an issued `recoveryToken` that can be distributed to the end user
 
@@ -5657,7 +5657,7 @@ Content-Type: application/json
 }
 ```
 
-#### Unlock Account with Email Factor
+#### Unlock account with Email factor
 
 Starts a new unlock recovery transaction with a user identifier (`username`) and asynchronously sends a recovery email to the user's primary and secondary email address with a [recovery token](#recovery-token) that can be used to complete the transaction
 
@@ -5668,7 +5668,7 @@ Since the recovery email is distributed out-of-band and may be viewed on a diffe
 * Primary authentication of a user's recovery credential (e.g `EMAIL` or `SMS`) hasn't yet completed.
 * Okta will not publish additional metadata about the user until primary authentication has successfully completed.
 
-##### Request Example for Email Factor
+##### Request example for Email factor
 
 
 ```bash
@@ -5681,7 +5681,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
-##### Response Example for Email Factor
+##### Response example for Email factor
 
 
 ```json
@@ -5694,7 +5694,7 @@ curl -v -X POST \
 ```
 
 
-#### Unlock Account with SMS Factor
+#### Unlock account with SMS factor
 
 Starts a new unlock recovery transaction with a user identifier (`username`) and asynchronously sends an SMS OTP (challenge) to the user's mobile phone. This operation transitions the recovery transaction to the `RECOVERY_CHALLENGE` state and waits for the user to [verify the OTP](#verify-sms-recovery-factor).
 
@@ -5704,7 +5704,7 @@ Starts a new unlock recovery transaction with a user identifier (`username`) and
 * Okta won't publish additional metadata about the user until primary authentication has successfully completed.
 * SMS recovery factor must be enabled via the user's assigned password policy to use this operation.
 
-##### Request Example for Unlock Account with SMS Factor
+##### Request example for unlock account with SMS factor
 
 
 ```bash
@@ -5717,7 +5717,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
-##### Response Example for Unlock Account with SMS Factor
+##### Response example for unlock account with SMS factor
 
 
 ```json
@@ -5758,7 +5758,7 @@ curl -v -X POST \
 }
 ```
 
-#### Unlock Account with Trusted Application
+#### Unlock account with trusted application
 
 Allows a [trusted application](#trusted-application) such as an external portal to implement its own primary authentication process and directly obtain a [recovery token](#recovery-token) for a user given just the user's identifier
 
@@ -5768,7 +5768,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 * The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
-##### Request Example for Unlock Account with SMS Factor (Trusted Application)
+##### Request example for unlock account with SMS factor (trusted application)
 
 
 ```bash
@@ -5783,7 +5783,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
-##### Response Example for Unlock Account with SMS Factor (Trusted Application)
+##### Response example for unlock account with SMS factor (trusted application)
 
 
 ```json
@@ -5827,16 +5827,16 @@ curl -v -X POST \
 }
 ```
 
-### Verify Recovery Factor
+### Verify recovery factor
 
-#### Verify SMS Recovery Factor
+#### Verify SMS recovery factor
 
 
 <ApiOperation method="post" url="/api/v1/authn/recovery/factors/sms/verify" />
 
 Verifies a SMS OTP (`passCode`) sent to the user's mobile phone for primary authentication for a recovery transaction with `RECOVERY_CHALLENGE` status
 
-##### Request Parameters for Verify SMS Recovery Factor
+##### Request parameters for verify SMS recovery factor
 
 
 | Parameter    | Description                                                  | Param Type | DataType | Required |
@@ -5844,7 +5844,7 @@ Verifies a SMS OTP (`passCode`) sent to the user's mobile phone for primary auth
 | stateToken   | [state token](#state-token) for the current recovery transaction | Body       | String   | TRUE     |
 | passCode     | OTP sent to device                                           | Body       | String   | TRUE     |
 
-##### Response Parameters for Verify SMS Recovery Factor
+##### Response parameters for verify SMS recovery factor
 
 [Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
 
@@ -5864,7 +5864,7 @@ If the `passCode` is invalid, you receive a `403 Forbidden` status code with the
 }
 ```
 
-##### Request Example for Verify SMS Recovery Factor
+##### Request example for verify SMS recovery factor
 
 
 ```bash
@@ -5877,7 +5877,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/sms/verify"
 ```
 
-##### Response Example for Verify SMS Recovery Factor
+##### Response example for verify SMS recovery factor
 
 
 ```json
@@ -5924,25 +5924,25 @@ curl -v -X POST \
 }
 ```
 
-###### Resend SMS Recovery Challenge
+###### Resend SMS recovery challenge
 
 
 <ApiOperation method="post" url="/api/v1/authn/recovery/factors/sms/resend" />
 
 Resends a SMS OTP (`passCode`) to the user's mobile phone
 
-#### Request Parameters for Resend SMS Recovery Challenge
+#### Request parameters for resend SMS recovery challenge
 
 
 | Parameter    | Description                                                  | Param Type | DataType | Required |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
 | stateToken   | [state token](#state-token) for the current recovery transaction | Body       | String   | TRUE     |
 
-#### Response Parameters for Resend SMS Recovery Challenge
+#### Response parameters for resend SMS recovery challenge
 
 [Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
 
-#### Request Example for Resend SMS Recovery Challenge
+#### Request example for resend SMS recovery challenge
 
 
 ```bash
@@ -5954,7 +5954,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/factors/sms/resend"
 ```
 
-#### Response Example for Resend SMS Recovery Challenge
+#### Response example for resend SMS recovery challenge
 
 
 ```json
@@ -5997,13 +5997,13 @@ curl -v -X POST \
 
 > **Note:** The `factorType` and `recoveryType` properties vary depending on recovery transaction.
 
-#### Verify Call Recovery Factor
+#### Verify Call recovery factor
 
 <ApiOperation method="post" url="/api/v1/authn/recovery/factors/call/verify" />
 
 Verifies a Voice Call OTP (`passCode`) sent to the user's device for primary authentication for a recovery transaction with `RECOVERY_CHALLENGE` status
 
-##### Request Parameters for Verify Call Recovery Factor
+##### Request parameters for verify Call recovery factor
 
 
 | Parameter    | Description                                                  | Param Type | DataType | Required |
@@ -6011,7 +6011,7 @@ Verifies a Voice Call OTP (`passCode`) sent to the user's device for primary aut
 | stateToken   | [state token](#state-token) for the current recovery transaction | Body       | String   | TRUE     |
 | passCode     | Passcode received via the voice call                         | Body       | String   | TRUE     |
 
-##### Response Parameters for Verify Call Recovery Factor
+##### Response parameters for verify Call recovery factor
 
 [Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
 
@@ -6031,7 +6031,7 @@ If the `passCode` is invalid, you receive a `403 Forbidden` status code with the
 }
 ```
 
-##### Request Example for Verify Call Recovery Factor
+##### Request example for verify Call recovery factor
 
 
 ```bash
@@ -6044,7 +6044,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/CALL/verify"
 ```
 
-##### Response Example for Verify Call Recovery Factor
+##### Response example for verify Call recovery factor
 
 
 ```json
@@ -6091,25 +6091,25 @@ curl -v -X POST \
  }
 ```
 
-###### Resend Call Recovery Challenge
+###### Resend Call recovery challenge
 
 
 <ApiOperation method="post" url="/api/v1/authn/recovery/factors/call/resend" />
 
 Resends a Voice Call with OTP (`passCode`) to the user's phone
 
-#### Request Parameters for Resend Call Recovery Challenge
+#### Request parameters for resend Call recovery challenge
 
 
 | Parameter    | Description                                                  | Param Type | DataType | Required |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- |
 | stateToken   | [state token](#state-token) for the current recovery transaction | Body       | String   | TRUE     |
 
-#### Response Parameters for Resend Call Recovery Challenge
+#### Response parameters for resend Call recovery challenge
 
 [Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
 
-#### Request Example for Resend Call Recovery Challenge
+#### Request example for resend Call recovery challenge
 
 
 ```bash
@@ -6121,7 +6121,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/factors/CALL/resend"
 ```
 
-#### Response Example for Resend Call Recovery Challenge
+#### Response example for resend Call recovery challenge
 
 
 ```json
@@ -6164,20 +6164,20 @@ curl -v -X POST \
 
 The `factorType` and `recoveryType` properties vary depending on the recovery transaction.
 
-### Verify Recovery Token
+### Verify recovery token
 
 <ApiOperation method="post" url="/api/v1/authn/recovery/token" />
 
 Validates a [recovery token](#recovery-token) that was distributed to the end user to continue the recovery transaction
 
-##### Request Parameters for Verify Recovery Token
+##### Request parameters for verify recovery token
 
 
 | Parameter     | Description                                                                                                    | Param Type | DataType | Required |
 | ------------- | ----------------------------------------------------------------------------------------------------------     | ---------- | -------- | -------- |
 | recoveryToken | [Recovery token](#recovery-token) that was distributed to the end user via out-of-band mechanism such as email | Body       | String   | TRUE     |
 
-##### Response Parameters for Verify Recovery Token
+##### Response parameters for verify recovery token
 
 [Recovery Transaction Object](#recovery-transaction-model) with a `RECOVERY` status and an issued `stateToken` that must be used to complete the recovery transaction
 
@@ -6196,7 +6196,7 @@ Content-Type: application/json
 }
 ```
 
-##### Request Example for Verify Recovery Token
+##### Request example for verify recovery token
 
 
 ```bash
@@ -6208,7 +6208,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/token"
 ```
 
-##### Response Example for Verify Recovery Token
+##### Response example for verify recovery token
 
 
 ```json
@@ -6254,14 +6254,14 @@ curl -v -X POST \
 }
 ```
 
-### Answer Recovery Question
+### Answer recovery question
 
 
 <ApiOperation method="post" url="/api/v1/authn/recovery/answer" />
 
 Answers the user's recovery question to ensure only the end user redeemed the [recovery token](#recovery-token) for recovery transaction with a `RECOVERY` [status](#transaction-state)
 
-##### Request Parameters for Answer Recovery Question
+##### Request parameters for answer recovery question
 
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
@@ -6269,7 +6269,7 @@ Answers the user's recovery question to ensure only the end user redeemed the [r
 | stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | answer       | answer to user's recovery question                  | Body       | String   | TRUE     |
 
-##### Response Parameters for Answer Recovery Question
+##### Response parameters for answer recovery question
 
 [Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
 
@@ -6288,7 +6288,7 @@ Content-Type: application/json
 }
 ```
 
-##### Request Example for Answer Recovery Question
+##### Request example for answer recovery question
 
 
 ```bash
@@ -6302,7 +6302,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/answer"
 ```
 
-##### Response Example for Answer Recovery Question
+##### Response example for answer recovery question
 
 
 ```json
@@ -6362,14 +6362,14 @@ curl -v -X POST \
 }
 ```
 
-### Reset Password
+### Reset password
 
 
 <ApiOperation method="post" url="/api/v1/authn/credentials/reset_password" />
 
 Resets a user's password to complete a recovery transaction with a `PASSWORD_RESET` [state](#transaction-state)
 
-##### Request Parameters for Reset Password
+##### Request parameters for reset password
 
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
@@ -6377,7 +6377,7 @@ Resets a user's password to complete a recovery transaction with a `PASSWORD_RES
 | stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | newPassword  | User's new password                                 | Body       | String   | TRUE     |
 
-##### Response Parameters for Reset Password
+##### Response parameters for reset password
 
 [Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
 
@@ -6415,7 +6415,7 @@ Content-Type: application/json
 }
 ```
 
-##### Request Example for Reset Password
+##### Request example for reset password
 
 
 ```bash
@@ -6429,7 +6429,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/credentials/reset_password"
 ```
 
-##### Response Example for Reset Password
+##### Response example for reset password
 
 
 ```json
@@ -6453,26 +6453,26 @@ curl -v -X POST \
 }
 ```
 
-## State Management Operations
+## State management operations
 
-### Get Transaction State
+### Get transaction state
 
 <ApiOperation method="post" url="/api/v1/authn" />
 
 Retrieves the current [transaction state](#transaction-state) for a [state token](#state-token)
 
-##### Request Parameters for Get Transaction State
+##### Request parameters for get transaction state
 
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
 
-##### Response Parameters for Get Transaction State
+##### Response parameters for get transaction state
 
 [Transaction Object](#transaction-model) with the current [state](#transaction-state) for the authentication or recovery transaction
 
-##### Request Example for Get Transaction State
+##### Request example for get transaction state
 
 
 ```bash
@@ -6484,7 +6484,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-##### Response Example for Get Transaction State
+##### Response example for get transaction state
 
 
 ```json
@@ -6543,25 +6543,25 @@ curl -v -X POST \
 }
 ```
 
-### Previous Transaction State
+### Previous transaction state
 
 
 <ApiOperation method="post" url="/api/v1/authn/previous" />
 
 Moves the current [transaction state](#transaction-state) back to the previous state. For example, when changing state from the start of primary authentication to MFA_ENROLL > ENROLL_ACTIVATE > OTP, the user's phone might stop working. Since the user can't see the QR code, the transaction must return to MFA_ENROLL.
 
-##### Request Parameters for Previous Transaction State
+##### Request parameters for previous transaction state
 
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
 
-##### Response Parameters for Previous Transaction State
+##### Response parameters for previous transaction state
 
 [Transaction Object](#transaction-model) with the current [state](#transaction-state) for the authentication or recovery transaction
 
-##### Request Example for Previous Transaction State
+##### Request example for previous transaction state
 
 
 ```bash
@@ -6573,7 +6573,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/previous"
 ```
 
-##### Response Example for Previous Transaction State
+##### Response example for previous transaction state
 
 
 ```json
@@ -6677,7 +6677,7 @@ curl -v -X POST \
 }
 ```
 
-### Skip Transaction State
+### Skip transaction state
 
 
 <ApiOperation method="post" url="/api/v1/authn/skip" />
@@ -6692,18 +6692,18 @@ to skip the other factors.
 
 > **Note:** This operation is only available for `MFA_ENROLL` or `PASSWORD_WARN` states when published as a link.
 
-##### Request Parameters for Skip Transaction State
+##### Request parameters for skip transaction state
 
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
 
-##### Response Parameters for Skip Transaction State
+##### Response parameters for skip transaction state
 
 [Transaction Object](#transaction-model) with the current [state](#transaction-state) for the authentication or recovery transaction
 
-##### Request Example for Skip Transaction State
+##### Request example for skip transaction state
 
 
 ```bash
@@ -6715,7 +6715,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/skip"
 ```
 
-##### Response Example for Skip Transaction State
+##### Response example for skip transaction state
 
 
 ```json
@@ -6739,21 +6739,21 @@ curl -v -X POST \
 }
 ```
 
-### Cancel Transaction
+### Cancel transaction
 
 
 <ApiOperation method="post" url="/api/v1/authn/cancel" />
 
 Cancels the current transaction and revokes the [state token](#state-token)
 
-##### Request Parameters for Cancel Transaction
+##### Request parameters for cancel transaction
 
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | stateToken   | [state token](#state-token) for a transaction       | Body       | String   | TRUE     |
 
-##### Request Example for Cancel Transaction
+##### Request example for cancel transaction
 
 
 ```bash
@@ -6765,13 +6765,13 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/cancel"
 ```
 
-## Transaction Model
+## Transaction model
 
 The Authentication API is a *stateful* API that implements a finite state machine with [defined states](#transaction-state) and transitions. Each initial authentication or recovery request is issued a unique [state token](#state-token) that must be passed with each subsequent request until the transaction is complete or canceled.
 
 The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) format to publish `next` and `prev` links for the current transaction state which should be used to transition the state machine.
 
-### Authentication Transaction Model
+### Authentication transaction model
 
 | Property                          | Description                                                                                     | DataType                                                       | Nullable | Readonly | MaxLength |
 |-----------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------|----------|----------|-----------|
@@ -6784,7 +6784,7 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 | _embedded                         | [embedded resources](#embedded-resources) for the current `status`                              | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
 | _links                            | [link relations](#links-object) for the current `status`                                        | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
 
-### Recovery Transaction Model
+### Recovery transaction model
 
 | Property      | Description                                                                                            | DataType                                                       | Nullable | Readonly | MaxLength |
 | ------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | -------- | -------- | --------- |
@@ -6799,7 +6799,7 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 | _links        | [link relations](#links-object) for the current `status`                                               | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | TRUE     |           |
 
 
-### Transaction State
+### Transaction state
 
 ![Transaction State Model Diagram](/img/auth-state-model1.png "The diagram displays the authentication and recovery transaction states.")
 
@@ -6866,7 +6866,8 @@ You advance the authentication or recovery transaction to the next state by post
 }
 ```
 
-### Authentication Type
+### Authentication type
+
 <ApiLifecycle access="ea" />
 
 Represents the type of authentication. Currently available only during [SP-initiated step-up authentication](#sp-initiated-step-up-authentication) and [IDP-initiated step-up authentication](#idp-initiated-step-up-authentication).
@@ -6875,7 +6876,7 @@ Represents the type of authentication. Currently available only during [SP-initi
 
 Authentication API operations return different token types depending on the [state](#transaction-state) of the authentication or recovery transaction.
 
-#### State Token
+#### State token
 
 Ephemeral token that encodes the current state of an authentication or recovery transaction.
 
@@ -6917,7 +6918,7 @@ Content-Type: application/json
 }
 ```
 
-#### Recovery Token
+#### Recovery token
 
 One-time token issued as `recoveryToken` response parameter when a recovery transaction transitions to the `RECOVERY` status.
 
@@ -6929,14 +6930,14 @@ The `recoveryToken` is sent via an out-of-band channel to the end user's verifie
 
 > **Note:** Directly obtaining a `recoveryToken` is a highly privileged operation and should be restricted to trusted web applications.  Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
-#### Session Token
+#### Session token
 
 One-time token issued as `sessionToken` response parameter when an authentication transaction completes with the `SUCCESS` status.
 
 * The token can be exchanged for a session with the [Session API](/docs/reference/api/sessions/#create-session-with-session-token) or converted to a [session cookie](/docs/guides/session-cookie/).
 * The lifetime of the `sessionToken` is 5 minutes.
 
-### Factor Result
+### Factor result
 
 The `MFA_CHALLENGE` or `RECOVERY_CHALLENGE` state can return an additional property **factorResult** that provides additional context for the last factor verification attempt.
 
@@ -6951,7 +6952,7 @@ The following table shows the possible values for this property:
 | `PASSCODE_REPLAYED`    | Factor was previously verified within the same time window.  User must wait another time window and retry with a new verification.  |
 | `ERROR`                | Unexpected server error occurred verifying factor.                                                                                  |
 
-### Links Object
+### Links object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current [transaction state](#transaction-state) using the [JSON](https://tools.ietf.org/html/rfc7159) specification. These links are used to transition the [state machine](#transaction-state) of the authentication or recovery transaction.
 
@@ -6965,9 +6966,9 @@ The Links Object is read-only.
 | skip               | Skips over the current transaction state to the next valid [state](#transaction-state)                                                                                  |
 | resend             | Resends a challenge or OTP to a device                                                                                                                                   |
 
-## Embedded Resources
+## Embedded resources
 
-### User Object
+### User object
 
 A subset of [user properties](/docs/reference/api/users/#user-model) published in an authentication or recovery transaction after the user successfully completes primary authentication.
 
@@ -6995,7 +6996,7 @@ A subset of [user properties](/docs/reference/api/users/#user-model) published i
 }
 ```
 
-#### User Profile Object
+#### User profile object
 
 Subset of [profile properties](/docs/reference/api/users/#profile-object) for a user
 
@@ -7007,7 +7008,7 @@ Subset of [profile properties](/docs/reference/api/users/#profile-object) for a 
 | locale    | User's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.       | String    | TRUE     | FALSE  | TRUE     | [RFC 5646](https://tools.ietf.org/html/rfc5646)                       |
 | timeZone  | User's time zone                                                                                                                   | String    | TRUE     | FALSE  | TRUE     | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557) |
 
-#### Remember Device Policy Object
+#### Remember device policy object
 
 A subset of policy settings of the Sign-On Policy or App Sign-On Policy published during `MFA_REQUIRED`, `MFA_CHALLENGE` states
 
@@ -7041,6 +7042,7 @@ A subset of policy settings of the Sign-On Policy or App Sign-On Policy publishe
 * The value of `rememberDeviceLifetimeInMinutes` depends on the factor lifetime value configured in the Sign-On Policy rule.
 
 ##### When policy is not based on time or device
+
 ```json
 {
    "allowRememberDevice":false,
@@ -7049,7 +7051,7 @@ A subset of policy settings of the Sign-On Policy or App Sign-On Policy publishe
 }
 ```
 
-#### Recovery Question Object
+#### Recovery question object
 
 User's recovery question used for verification of a recovery transaction
 
@@ -7057,12 +7059,11 @@ User's recovery question used for verification of a recovery transaction
 | ----------------- | ------------------------------ | -------- | -------- | ------ | -------- |
 | question          | User's recovery question       | String   | FALSE    | TRUE   | TRUE     |
 
-### Target Object
+### Target object
 
 <ApiLifecycle access="ea" />
 
-Represents the target resource that user tried accessing. Typically this is the app that user is trying to sign in.
-Currently this is available only during [SP-initiated step-up authentication](#sp-initiated-step-up-authentication) and [IDP-initiated step-up authentication](#idp-initiated-step-up-authentication).
+Represents the target resource that the user tried accessing. Typically this is the app that the user is trying to sign in to. Currently this is available only during [SP-initiated step-up authentication](#sp-initiated-step-up-authentication) and [IDP-initiated step-up authentication](#idp-initiated-step-up-authentication).
 
 | Property  | Description                                                                                                                  | DataType                                                       | Nullable | Unique | Readonly |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------                                                      | -------- | ------ | -------- |
@@ -7071,7 +7072,7 @@ Currently this is available only during [SP-initiated step-up authentication](#s
 | label     | Label of the target resource                                                                                                 | String                                                         | FALSE    | FALSE  | TRUE     |
 | _links    | Discoverable resources for the target                                                                                        | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 
-### Authentication Object
+### Authentication object
 
 <ApiLifecycle access="ea" />
 
@@ -7093,7 +7094,7 @@ Represents the authentication details that the target resource is using. Current
 }
 ```
 
-#### Issuer Object
+#### Issuer object
 
 The issuer that generates the assertion after the authentication finishes
 
@@ -7103,7 +7104,7 @@ The issuer that generates the assertion after the authentication finishes
 | name      | Name of the issuer                                                                                                          | String    | FALSE    | FALSE  | TRUE     |
 | uri       | URI of the issuer                                                                                                           | String    | FALSE    | FALSE  | TRUE     |
 
-### Password Policy Object
+### Password policy object
 
 A subset of policy settings for the user's assigned password policy published during `PASSWORD_WARN`, `PASSWORD_EXPIRED`, or `PASSWORD_RESET` states
 
@@ -7132,30 +7133,30 @@ A subset of policy settings for the user's assigned password policy published du
 }
 ```
 
-#### Password Expiration Object
+#### Password expiration object
 
 Specifies the password age requirements of the assigned password policy
 
 | Property           | Description                               | DataType | Nullable | Unique | Readonly |
 | ------------------ | ----------------------------------------- | -------- | -------- | ------ | -------- |
-| passwordExpireDays | number of days before password is expired | Number   | FALSE    | FALSE  | TRUE     |
+| passwordExpireDays | number of days before the password is expired | Number   | FALSE    | FALSE  | TRUE     |
 
-#### Password Complexity Object
+#### Password complexity object
 
 Specifies the password complexity requirements of the assigned password policy
 
 | Property        | Description                                                | DataType | Nullable | Unique | Readonly |
 | ------------    | ----------------------------------------------------       | -------- | -------- | ------ | -------- |
-| minLength       | Minimum number of characters for password                  | Number   | FALSE    | FALSE  | TRUE     |
-| minLowerCase    | Minimum number of lower case characters for password       | Number   | FALSE    | FALSE  | TRUE     |
-| minUpperCase    | Minimum number of upper case characters for password       | Number   | FALSE    | FALSE  | TRUE     |
-| minNumber       | Minimum number of numeric characters for password          | Number   | FALSE    | FALSE  | TRUE     |
-| minSymbol       | Minimum number of symbol characters for password           | Number   | FALSE    | FALSE  | TRUE     |
+| minLength       | Minimum number of characters for the password                  | Number   | FALSE    | FALSE  | TRUE     |
+| minLowerCase    | Minimum number of lowercase characters for the password       | Number   | FALSE    | FALSE  | TRUE     |
+| minUpperCase    | Minimum number of uppercase characters for the password       | Number   | FALSE    | FALSE  | TRUE     |
+| minNumber       | Minimum number of numeric characters for the password          | Number   | FALSE    | FALSE  | TRUE     |
+| minSymbol       | Minimum number of symbol characters for the password           | Number   | FALSE    | FALSE  | TRUE     |
 | excludeUsername | Prevents username or domain from appearing in the password | Boolean  | FALSE    | FALSE  | TRUE     |
 
-> **Note:** Duplicate the minimum Active Directory requirements in these settings for AD-mastered users. No enforcement is triggered by Okta settings for AD-mastered users.
+> **Note:** Duplicate the minimum Active Directory (AD) requirements in these settings for AD-mastered users. No enforcement is triggered by Okta settings for AD-mastered users.
 
-#### Password Age Object
+#### Password age object
 
 Specifies the password requirements related to password age and history
 
@@ -7164,7 +7165,7 @@ Specifies the password requirements related to password age and history
 | minAgeMinutes    | Minimum number of minutes required since the last password change        | Number   | FALSE    | FALSE  | TRUE     |
 | historyCount     | Number of previous passwords that the current password can't match       | Number   | FALSE    | FALSE  | TRUE     |
 
-### Factor Object
+### Factor object
 
 A subset of [factor properties](/docs/reference/api/factors/#factor-model) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
 
@@ -7173,7 +7174,7 @@ A subset of [factor properties](/docs/reference/api/factors/#factor-model) publi
 | id             | unique key for factor                                                                          | String                                                         | TRUE     | TRUE   | TRUE     |
 | factorType     | type of factor                                                                                 | [Factor Type](/docs/reference/api/factors/#factor-type)                             | FALSE    | TRUE   | TRUE     |
 | provider       | factor provider                                                                                | [Provider Type](/docs/reference/api/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
-| vendorName     | factor Vendor Name (Same as provider but for On Prem MFA it depends on Administrator Settings) | [Provider Type](/docs/reference/api/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
+| vendorName     | factor Vendor Name (Same as provider but for On-Prem MFA it depends on Administrator Settings) | [Provider Type](/docs/reference/api/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
 | profile        | profile of a [supported factor](/docs/reference/api/factors/#supported-factors-for-providers)                       | [Factor Profile Object](/docs/reference/api/factors/#factor-profile-object)         | TRUE     | FALSE  | TRUE     |
 | _embedded      | [embedded resources](#factor-embedded-resources) related to the factor                         | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 | _links         | [discoverable resources](#factor-links-object) for the factor                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
@@ -7199,18 +7200,18 @@ A subset of [factor properties](/docs/reference/api/factors/#factor-model) publi
 }
 ```
 
-#### Factor Embedded Resources
+#### Factor embedded resources
 
-##### TOTP Factor Activation Object
+##### TOTP factor activation object
 
-TOTP factors, when activated, have an embedded verification object which describes the [TOTP](http://tools.ietf.org/html/rfc6238) algorithm parameters.
+TOTP factors, when activated, have an embedded verification object that describes the [TOTP](http://tools.ietf.org/html/rfc6238) algorithm parameters.
 
 | Property       | Description                                       | DataType                                                       | Nullable | Unique | Readonly |
 | -------------- | ------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- |
 | timeStep       | Time-step size for TOTP                           | String                                                         | FALSE    | FALSE  | TRUE     |
 | sharedSecret   | Unique secret key for prover                      | String                                                         | FALSE    | FALSE  | TRUE     |
 | encoding       | Encoding of `sharedSecret`                        | `base32` or `base64`                                           | FALSE    | FALSE  | TRUE     |
-| keyLength      | Number of digits in an TOTP value                 | Number                                                         | FALSE    | FALSE  | TRUE     |
+| keyLength      | Number of digits in a TOTP value                 | Number                                                         | FALSE    | FALSE  | TRUE     |
 | _links         | Discoverable resources related to the activation  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 
 > **Note:** This object implements [the TOTP standard](https://tools.ietf.org/html/rfc6238), which is used by apps like Okta Verify and Google Authenticator.
@@ -7226,7 +7227,7 @@ TOTP factors, when activated, have an embedded verification object which describ
 }
 ```
 
-###### TOTP Activation Links Object
+###### TOTP activation links object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the TOTP activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
@@ -7234,7 +7235,7 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | ------------------ | ------------------------------------------------------------------------ |
 | qrcode             | QR code that encodes the TOTP parameters that can be used for enrollment |
 
-##### Phone Object
+##### Phone object
 
 Describes previously enrolled phone numbers for the `sms` factor
 
@@ -7254,15 +7255,15 @@ Describes previously enrolled phone numbers for the `sms` factor
 }
 ```
 
-###### Phone Profile Object
+###### Phone profile object
 
 | Property      | Description          | DataType  | Nullable | Unique | Readonly |
 | ------------- | -------------------- | --------- | -------- | ------ | -------- |
 | phoneNumber   | Masked phone number  | String    | FALSE    | FALSE  | TRUE     |
 
-##### Push Factor Activation Object
+##### Push factor activation object
 
-Push factors must complete activation on the device by scanning the QR code or visiting activation link sent via email or sms.
+Push factors must complete activation on the device by scanning the QR code or visiting the activation link sent via email or SMS.
 
 | Property       | Description                                       | DataType                                                       | Nullable | Unique | Readonly |
 | -------------- | ------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- |
@@ -7303,7 +7304,7 @@ Push factors must complete activation on the device by scanning the QR code or v
 }
 ```
 
-###### Push Factor Activation Links Object
+###### Push factor activation links object
 
 Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the push factor activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
@@ -7312,7 +7313,7 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988))
 | qrcode             | QR code that encodes the push activation code needed for enrollment on the device        |
 | send               | Sends an activation link via `email` or `sms` for users who can't scan the QR code       |
 
-##### Factor Links Object
+##### Factor links object
 
 Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
