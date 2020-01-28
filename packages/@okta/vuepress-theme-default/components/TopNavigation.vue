@@ -4,7 +4,7 @@
       :class="{
           'Header': true,
           'is-fixed': true,
-          'search-activexx' : search_active,
+          'search-active' : search_active,
           'is-active' : nav_expanded
         }">
 
@@ -15,7 +15,7 @@
           v-html="logo_svg">
         </a>
 
-        <nav class="Header-nav PrimaryNav" :class="{'is-activexxx' : nav_expanded}">
+        <nav class="Header-nav PrimaryNav" :class="{'is-active' : nav_expanded}">
           <ul
             :class=""
             class="menu"
@@ -59,7 +59,7 @@
             class="SearchIcon"
             data-search-toggle
             ></a>
-          
+
         </nav>
 
       </div>
@@ -141,9 +141,9 @@ export default {
 
   mounted() {
     let coveoScript = document.createElement('script')
-    coveoScript.setAttribute('src', 'https://okta.com.test/sites/all/modules/okta_coveo_search_developer/js/okta_coveo_search_developer.js')
+    coveoScript.setAttribute('src', 'https://www.atko.biz/sites/all/modules/okta_coveo_search_developer/js/okta_coveo_search_developer.js')
     document.head.appendChild(coveoScript)
-    
+
 
     window.addEventListener("load", function(event) {
       window.document.dispatchEvent(new Event("developerLoaded", {
