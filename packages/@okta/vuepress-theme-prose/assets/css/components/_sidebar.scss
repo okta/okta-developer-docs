@@ -9,6 +9,7 @@
    
   @include media('>=tablet') {
     top: 150px;
+    padding-left: 22px;
   }
 
   &.active {
