@@ -6,7 +6,7 @@ title: Frequently Asked Questions (Provisioning)
 
 **Q: My customer is asking for Active Directory (AD) integration. If I integrate with Okta, can I connect to my customer's on-premise directory?**
 
-Yes. One of the key benefits of developing a pre-built integration with Okta is that you can leverage our existing Active Directory support. By integrating with Okta (for Single Sign-On or provisioning), you effectively have the ability to integrate with your customer's on-premise AD or LDAP infrastructure for authentication. Your end users can sign in to your cloud app using their corporate password. You also be able to do things like use AD groups to drive access rights for authentication and provisioning policies.
+Yes. One of the key benefits of developing a pre-built integration with Okta is that you can leverage our existing Active Directory support. By integrating with Okta (for Single Sign-On (SSO) or provisioning), you effectively have the ability to integrate with your customer's on-premise AD or LDAP infrastructure for authentication. Your end users can sign in to your cloud app using their corporate password. You also be able to do things like use AD groups to drive access rights for authentication and provisioning policies.
 
 **Q: Is the IdP session time out a setting that an Okta administrator can change? And if so, can it be changed on a per application basis, or is it a global setting for all of the user's applications?**
 
@@ -34,7 +34,7 @@ The Okta App Wizard only supports SAML 2.0 for federated Single Sign-On. If your
 
 **Q: What is Secure Web Authentication (SWA)? Is it different than using SAML?**
 
-SWA was developed by Okta to provide Single Sign-On (SSO) for apps that don't support federated sign-in methods. Users can still sign in directly through the application and then enter their credentials for these apps on their Okta homepage. These credentials are stored so that users can access their apps with SSO. When users first sign in to a SWA app from their homepage, they see a pop-up message asking if they were able to sign in successfully.
+SWA was developed by Okta to provide Single Sign-On for apps that don't support federated sign-in methods. Users can still sign in directly through the application and then enter their credentials for these apps on their Okta homepage. These credentials are stored so that users can access their apps with SSO. When users first sign in to a SWA app from their homepage, they see a pop-up message asking if they were able to sign in successfully.
 
 **Q: I am creating a SWA app using the App Wizard but my application has fields on the sign-in page in addition to the standard username and password (for example: CustomerID, OrgID). Can an app with additional fields on the sign-in page be configured using the App Wizard?**
 
