@@ -10,4 +10,4 @@ title: Okta API Products Release Notes
 
 ### Bug Fixed in 2020.01.2
 
-* Passing an incorrect `userId` to the [List User Roles API](https://developer.okta.com/docs/reference/api/roles/#list-roles-assigned-to-user) would not result in an error. (OKTA-243094)
+* Passing an incorrect `userId` to the [List User Roles API](/docs/reference/api/roles/#list-roles-assigned-to-user) would not result in an error. (OKTA-243094)
