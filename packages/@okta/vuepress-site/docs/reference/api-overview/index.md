@@ -207,6 +207,8 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 
 Note: Some resources don't support all the listed operators.
 
+Note: the `ne` (not equal) attribute is not supported, but the same result can be obtained by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
+
 > All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`
 
 #### Attribute Operators
