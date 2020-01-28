@@ -2187,9 +2187,9 @@ curl -v -X POST \
 #### Enroll Okta Email Factor
 
 
-Enrolls a user with the Okta `email` factor using the users primary email address.  An email message with an OTP is sent to the user during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
+Enrolls a user with the Okta `email` Factor using the user's primary email address.  An email message with an OTP is sent to the user during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
 
-##### Request Example for Enroll Okta Email Factor
+##### Request example for enroll Okta Email Factor
 
 
 ```bash
@@ -2203,7 +2203,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
-##### Response Example for Enroll Okta Email Factor
+##### Response example for enroll Okta Email Factor
 
 
 ```json
@@ -2223,8 +2223,8 @@ curl -v -X POST \
         "timeZone": "America/Los_Angeles"
       }
     },
-    "factor": {
-      "id": "emfultss7bA0V6Z7C0g3",
+    "factor": {
+      "id": "emfultss7bA0V6Z7C0g3",
       "factorType": "email",
       "provider": "OKTA",
       "vendorName": "OKTA",
@@ -2275,12 +2275,12 @@ curl -v -X POST \
 
 ```
 
-##### Resend Email as Part of Enrollment
+##### Resend email as part of enrollment
 
 
 Use the `resend` link to send another OTP if user doesn't receive the original activation email OTP.
 
-###### Request Example for Resend Email
+###### Request example for resend email
 
 
 ```bash
@@ -3352,19 +3352,19 @@ curl -v -X POST \
 
 #### Activate Email Factor
 
-Activates an `email` factor by verifying the OTP.  The request and response are identical to [activating a TOTP factor](#activate-totp-factor)
+Activates an `email` Factor by verifying the OTP.  The request and response are identical to [activating a TOTP Factor](#activate-totp-factor)
 
-##### Activate Email Factor Request Parameters
+##### Activate Email Factor request parameters
 
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | factorId     | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
-| stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 | passCode     | Passcode received via the email message              | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
 
 
-##### Activate Email Factor Response Parameters
+##### Activate Email Factor response parameters
 
 
 [Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
@@ -3388,7 +3388,7 @@ Content-Type: application/json
 }
 ```
 
-##### Activate Email Factor Request Example
+##### Activate Email Factor request example
 
 
 ```bash
@@ -3401,7 +3401,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/emf1o51EADOTFXHHBXBP/lifecycle/activate"
 ```
 
-##### Activate Email Factor Response Example
+##### Activate Email Factor response example
 
 
 ```json
