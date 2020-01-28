@@ -11,7 +11,7 @@ This page provides reference documentation for:
 
 - JSON objects you can include in your response
 
-This information is specific to the password import inline Hook, one type of Inline Hook supported by Okta.
+This information is specific to the Password Import Inline Hook, one type of Inline Hook supported by Okta.
 
 ## See Also
 
