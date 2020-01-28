@@ -226,6 +226,157 @@ curl -v -X POST \
 }
 ```
 
+#### Add SAML 2.0 Authentication Application
+
+Adds a SAML 2.0 application instance
+
+##### Settings
+
+
+| Parameter | Description                                     | DataType | Nullable | Unique | Validation                                |
+| --------- | ----------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
+| url       | The URL of the sign-in page for this app          | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |                                           |
+| attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |                                           |
+
+##### Request Example
+
+
+```bash
+curl -X POST \
+  -H 'Accept: application/json' \
+  -H 'Authorization: SSWS ${api_token}' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "cornerstone",
+  "label": "Example SAML 2.0 App",
+  "signOnMode": "SAML_2_0",
+  "settings": {
+    "app": {
+      "orgName": "${yourOktaDomain}",
+      "url": "https://example.com/login.html"
+    },
+     "signOn": {
+     	    "destinationOverride": "http://www.yourDestinationOverride.com",
+            "attributeStatements": [
+                    {
+                        "type": "EXPRESSION",
+                        "name": "firstName",
+                        "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+                        "values": [
+                            "ValueFromAPI"
+                        ]
+                    }
+                ]
+    }
+  }
+}' "http://${yourOktaDomain}/api/v1/apps"
+```
+
+##### Response Example
+
+
+```json
+{
+  "id": "0oaugbelRxD4cY31S0g3",
+  "name": "cornerstone",
+  "label": "Example SAML 2.0 App",
+  "status": "ACTIVE",
+  "lastUpdated": "2020-01-28T18:59:30.000Z",
+  "created": "2020-01-28T18:59:30.000Z",
+  "accessibility": {
+    "selfService": false,
+    "errorRedirectUrl": null,
+    "loginRedirectUrl": null
+  },
+  "visibility": {
+    "autoSubmitToolbar": false,
+    "hide": {
+      "iOS": false,
+      "web": false
+    },
+    "appLinks": {
+      "login": true
+    }
+  },
+  "features": [],
+  "signOnMode": "SAML_2_0",
+  "credentials": {
+    "userNameTemplate": {
+      "template": "${source.login}",
+      "type": "BUILT_IN"
+    },
+    "signing": {}
+  },
+  "settings": {
+    "app": {
+      "acsURL": null,
+      "orgName": "${yourOktaDomain}"
+    },
+    "notifications": {
+      "vpn": {
+        "network": {
+          "connection": "DISABLED"
+        },
+        "message": null,
+        "helpUrl": null
+      }
+    },
+    "signOn": {
+      "defaultRelayState": null,
+      "ssoAcsUrlOverride": null,
+      "audienceOverride": null,
+      "recipientOverride": null,
+      "destinationOverride": "http://www.yourDestinationOverride.com",
+      "attributeStatements": [
+        {
+          "type": "EXPRESSION",
+          "name": "firstName",
+          "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
+          "values": [
+            "ValueFromAPI"
+          ]
+        }
+      ]
+    }
+  },
+  "_links": {
+    "help": {
+      "href": "http://${yourOktaDomain}/app/cornerstone/0oaugbelRxD4cY31S0g3/setup/help/SAML_2_0/external-doc",
+      "type": "text/html"
+    },
+    "metadata": {
+      "href": "http://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/sso/saml/metadata",
+      "type": "application/xml"
+    },
+    "appLinks": [
+      {
+        "name": "login",
+        "href": "http://${yourOktaDomain}/home/cornerstone/0oaugbelRxD4cY31S0g3/165",
+        "type": "text/html"
+      }
+    ],
+    "groups": {
+      "href": "http://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/groups"
+    },
+    "logo": [
+      {
+        "name": "medium",
+        "href": "http://${yourOktaDomain}/assets/img/logos/cornerstone.a63cddeecf3acc5aae6d4592dcfe8125.png",
+        "type": "image/png"
+      }
+    ],
+    "users": {
+      "href": "http://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/users"
+    },
+    "deactivate": {
+      "href": "http://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/lifecycle/deactivate"
+    }
+  }
+}
+```
+
+
 #### Add Plugin SWA Application
 
 Adds a SWA application that requires a browser plugin
