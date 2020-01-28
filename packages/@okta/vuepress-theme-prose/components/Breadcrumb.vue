@@ -38,23 +38,28 @@
       },
       crumbs() {
         let crumbs = [];
-        const pathParts = this.$page.path.split('/');
+        crumbs.push({'link': '/docs/', 'title': 'Docs'});
         
-        pathParts.forEach(pathPart => {
-          if(pathPart != "") {
-            crumbs.push({'link': '/'+pathPart+'/', 'title': pathPart.charAt(0).toUpperCase() + pathPart.slice(1)})
-          }
-        });
-
-        // We don't want current page in breadcrumb (unless its the only one), so lets get rid of the last crumb
-        if(crumbs.length > 1) {
-          crumbs.pop();
+        if(this.$page.path.startsWith('/code/')) {
+          crumbs.push({'link': '/docs/code/', 'title': 'Languages & SDKs'});
         }
 
-        // Custom Options
-        if(crumbs[0].title == 'Code') {
-          crumbs[0].title = 'Languages & SDKs';
+        if(this.$page.path.startsWith('/docs/reference/')) {
+          crumbs.push({'link': '/docs/reference/', 'title': 'Reference'});
         }
+
+        if(this.$page.path.startsWith('/docs/concepts/')) {
+          crumbs.push({'link': '/docs/concepts/', 'title': 'Concepts'});
+        }
+
+        if(this.$page.path.startsWith('/docs/guides/')) {
+          crumbs.push({'link': '/docs/guides/', 'title': 'Guides'});
+        }
+
+        if(this.$page.path.startsWith('/docs/release-notes/')) {
+          crumbs.push({'link': '/docs/release-notes/', 'title': 'Release Notes'});
+        }
+
 
         return crumbs;
       }
