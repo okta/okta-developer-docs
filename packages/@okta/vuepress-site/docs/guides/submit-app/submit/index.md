@@ -2,9 +2,9 @@
 title: Submit your app
 ---
 
-Okta has updated the process by which ISVs publish integrations onto the OIN.
+Okta has updated the process by which ISVs publish integrations in the OIN.
 
-In order for an app to be published in the OIN, you'll need to provide the following:
+You'll need to provide the following:
 
 * Development support contact information
 * Escalation contact information
@@ -33,6 +33,6 @@ Once Okta completes all internal QA testing and confirms that any requested chan
 
 Have you submitted an app but haven't seen a change in the review status in the [OIN Manager](https://oinmanager.okta.com)? Send an email to <developers@okta.com>.
 
-If you have already submitted an integration to the OIN, but need to make changes, submit your application with the changes through the OIN Manager, as if your application were not listed in the OIN. When your submission is reviewed by Okta, we compare your submission against the existing customer-facing version, and update it accordingly. If there are special instructions you'd like to provide to us, add them in the Additional Instructions text box on the submission form, and we will contact you directly with any questions. Your app goes through the Okta QA process every time you add additional attributes.
+If you have already submitted an integration to the OIN, but need to make changes, submit your application with the changes through the OIN Manager as if your application isn't listed in the OIN. When your submission is reviewed by Okta, we compare your submission against the existing customer-facing version and update it accordingly. If there are special instructions you'd like to provide to us, add them in the **Additional Instructions** text box on the submission form, and we will contact you directly with any questions. Your app goes through the Okta QA process every time you add additional attributes.
 
 <NextSectionLink/>

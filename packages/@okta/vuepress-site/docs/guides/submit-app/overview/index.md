@@ -6,7 +6,7 @@ This guide outlines the process by which independent software vendors (ISVs), Ok
 
 For details on how to build a SCIM provisioning integration, see our [SCIM Provisioning Guide](/docs/guides/build-provisioning-integration/).
 
-For details on how to build a SAML single sign-on integration, see our [SAML Guide](/docs/guides/build-sso-integration/).
+For details on how to build a SAML Single Sign-On integration, see our [SAML Guide](/docs/guides/build-sso-integration/).
 
 Our goal is to help you identity-enable your application using industry standards. The guidance offered here for SAML and SCIM allows you to integrate with customers using other identity solutions.
 
