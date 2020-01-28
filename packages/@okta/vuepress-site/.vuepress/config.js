@@ -10,7 +10,7 @@ module.exports = {
    */
   head: [
     ['script', { src: "https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js" }],
-    ['script', { src: "https://static.cloud.coveo.com/searchui/v2.7219/js/CoveoJsSearch.Lazy.min.js", defer: true}],
+    ['script', { src: "https://www.atko.biz/sites/all/modules/okta_coveo_search_developer/js/lib/CoveoJsSearch.Lazy.min.js", defer: true}],
     ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/apple-touch-icon.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"32x32",  href: '/favicon/favicon-32x32.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"16x16",  href: '/favicon/favicon-16x16.png' }],
@@ -18,7 +18,7 @@ module.exports = {
     ['link', { rel: 'mask-icon',  href: '/favicon/safari-pinned-tab.svg' }],
     ['meta', { name: 'msapplication-config',  content: '/favicon/browserconfig.xml' }],
     ['link', { rel: 'stylesheet', href: 'https://developer.okta.com/sites/all/themes/developer/css/master.css' }],
-    ['link', { rel: 'stylesheet', href: 'https://coveo-oktaweb.pantheonsite.io/sites/all/modules/okta_coveo_search_developer/css/okta_coveo_search_developer.css?q49ktf' }],
+    ['link', { rel: 'stylesheet', href: 'https://www.atko.biz/sites/all/modules/okta_coveo_search_developer/css/okta_coveo_search_developer.css?q49ktf' }],
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
 
     /**
@@ -203,14 +203,14 @@ module.exports = {
     ],
   ],
 
-  chainWebpack(config) { 
+  chainWebpack(config) {
     config.module
       .rule('md')
       .test(/\.md$/)
       .use('string-replace-loaded')
       .loader('string-replace-loader')
-      .options({ 
-        multiple: convertReplacementStrings({ 
+      .options({
+        multiple: convertReplacementStrings({
           /* KEYS HERE GET WRAPPED IN '-=OKTA_REPLACE_WITH_XXX=-'
            *
            * Changes WILL require restarting `yarn dev` :(
