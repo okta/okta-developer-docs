@@ -1,0 +1,49 @@
+// scss-lint:disable Indentation, TrailingSemicolon
+
+@import
+
+
+  'okta/base',
+  
+  'okta/components/Button.scss',
+  'okta/components/FrameworkIconBlock',
+
+
+  'okta/global/fontawesome',
+  'okta/global/fontello',
+
+  'okta/pages/quickstarts',
+  'okta/pages/guides',
+
+  'okta/icons/all.scss'
+;
+
+// scss-lint:enable Indentation, TrailingSemicolon
+
+.guide-featured footer {
+  padding: 1.5rem;
+  padding-top: 0.75rem;
+  background-color: transparent;
+  margin: 0;
+}
+
+.guide-content {
+
+  p {
+    max-width: none;
+  }
+
+  .stack-selector nav.tabs ul {
+    background: #fafafa;
+    display: flex;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(15ch,1fr));
+    position: relative;
+    padding: 0;
+    top: -1px;
+    list-style-type: none;
+    border-bottom: 1px solid #b7bcc0;
+    max-width: none;
+  }
+}

@@ -1,0 +1,100 @@
+.content--container {
+  display: flex;
+  padding-bottom: 2em;
+
+
+
+  @include media('>=tablet') {
+    flex-direction: row;
+    margin-top: 4rem;
+
+    .content__default {
+      p, ol {
+        max-width: inherit;
+      }
+
+      h3, h4, h5, h6 {
+        margin-top: $base-spacing;
+      }
+    }
+  }
+
+  .tree-nav {
+    width: 18%;
+
+    @include media('<tablet') {
+      width: 40rem;
+
+      .landing-navigation {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+
+  }
+
+  .content-area {
+    flex: 1;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+    width: 100%;
+
+    a {
+      text-decoration: underline;
+    }
+
+    .mobile-on-this-page {
+      @include media('>=tablet') {
+        display: none;
+      }
+    }
+
+    a.header-link svg {
+      width: 1rem;
+      display: none;
+    }
+
+    h2:hover a.header-link svg,
+    h3:hover a.header-link svg,
+    h4:hover a.header-link svg,
+    h5:hover a.header-link svg,
+    h6:hover a.header-link svg {
+      display: inline-block;
+    }
+
+    @include media('>=tablet') {
+      margin: 0rem 1rem;
+      width: 64%;
+    }
+
+    div[class^='language-'],
+    table {
+      overflow-x: scroll;
+
+      @include media('>=tablet') {
+        td img {
+          width:100%;
+          max-width: 100%;
+        }
+      }
+      margin-top: $base-spacing;
+      margin-bottom: $base-spacing;
+    }
+
+    h5 {
+      margin-top: 2rem;
+    }
+  
+  }
+
+  .on-this-page {
+    width: 18%;
+
+    @include media('<tablet') {
+      display: none;
+    }
+  }
+}

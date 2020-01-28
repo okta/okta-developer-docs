@@ -1,0 +1,75 @@
+footer {
+  background-color: cv('brand');
+  display: flex;
+  padding: 4em 1.5em;
+  max-width: $container-width;
+  margin: 0 auto;
+  flex-direction: column;
+  z-index: 10;
+
+  @include media('>=tablet') {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .footer--logo {
+    margin-bottom: 2em;
+    a {
+      color: cv('gray', '500');
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    svg {
+      width: 6em;
+      fill: cv('gray', '000');
+    }
+
+  }
+
+  .footer--links {
+    margin-bottom: 2em;
+
+    ul {
+      margin-left: 0;
+      padding-inline-start: 0;
+      text-transform: uppercase;
+      li {
+        display: flex;
+        vertical-align: middle;
+        @include media('>=tablet') {
+          margin-bottom: 10px;
+        }
+        a {
+          color: cv('gray', '500');
+          text-decoration: none;
+          margin-top: -0.2em;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          transition: color .4s;
+          font-size: 14px;
+
+          &:hover {
+            color: cv('gray', '300');
+          }
+        }
+
+        i {
+          svg {
+            width:1.2em;
+            fill: cv('gray', '000');
+            margin-right:0.4em;
+          }
+        }
+      }
+    }
+  }
+
+  
+
+  h4 {
+    font-size: 1.25em;
+    color: cv('gray', '100');
+    font-weight: 300;
+  }
+}

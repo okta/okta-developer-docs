@@ -2,24 +2,22 @@
 title: Add User Authentication and Okta Resource Management to Your ASP.NET Core App
 language: .NET
 integration: back-end
-component: Code
+icon: code-dotnet
 meta:
   - name: description
     content: Our ASP.NET Core integration makes it easy to add sign in to your applications. Use our guide to add user authentication to your ASP.NET Core app.
 ---
 
-# <i class='icon-48 docsPage code-dotnet'></i> Add User Authentication and Okta Resource Management to Your ASP.NET Core App
-
 <ul class='language-tabs'>
-	<li class="active">
-		<a href='/code/dotnet/aspnetcore/'>
+	<li>
+		<RouterLink to='/code/dotnet/aspnetcore/'>
 			<i class='icon code-dotnet-32'></i><span>ASP.NET Core</span>
-		</a>
+		</RouterLink>
 	</li>
-	<li class="">
-		<a href='/code/dotnet/aspnet/'>
+	<li>
+		<RouterLink to='/code/dotnet/aspnet/'>
 			<i class='icon code-dotnet-32'></i><span>ASP.NET</span>
-		</a>
+		</RouterLink>
 	</li>
 </ul>
 
@@ -61,14 +59,7 @@ Okta's integration with ASP.NET Core makes it easy to add sign-in to your ASP.NE
 
 ## Other .NET Libraries
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-sdk-dotnet">
-			 <span>Okta management SDK for .NET</span>
-		</a>
-	</li>
-</ul>
+<Card href="" :showHeaderIcon=false cardTitle="Okta management SDK for .NET" :showFooter=false>Enable your ASP.NET application to work with Okta via OAuth 2.0/OIDC</Card>
 
 ## Recommended Guides
 

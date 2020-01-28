@@ -2,24 +2,22 @@
 title: Add User Authentication and Okta Resource Management to Your Java App
 language: Java
 integration: back-end
-component: Code
+icon: code-java
 meta:
   - name: description
     content: Read our guide to add user authentication to your Java app, and see related guides to help complete your project.
 ---
 
-# <i class='icon-48 docsPage code-java'></i> Add User Authentication and Okta Resource Management to Your Java App
-
 <ul class='language-tabs'>
-	<li class="active">
-		<a href='/code/java/'>
+	<li>
+		<RouterLink to='/code/java/'>
 			<i class='icon code-java-32'></i><span>Java</span>
-		</a>
+		</RouterLink>
 	</li>
 	<li >
-		<a href='/code/java/spring/'>
+		<RouterLink to='/code/java/spring/'>
 			<i class='icon code-spring-32'></i><span>Spring</span>
-		</a>
+		</RouterLink>
 	</li>
 </ul>
 

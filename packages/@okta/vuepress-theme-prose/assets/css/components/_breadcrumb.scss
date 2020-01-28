@@ -1,0 +1,48 @@
+.breadcrumb {
+  padding: 1em 1.5em;
+  background-color: cv('gray', '000');
+  border-bottom: 2px solid cv('gray', '200');
+
+  &--container {
+
+    ol {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      padding: 0em; 
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+
+      li {
+        display: flex;
+        align-items: center;
+        margin: 0em 1em 0em 0em;
+
+        a {
+          text-decoration: none;
+          color: cv('gray', '800');
+          font-size: 0.8em;
+          padding-right: 0.4em;
+        }
+
+        svg {
+          fill: cv('gray', '200');
+          width: 0.5em;
+        }
+      }
+
+    }
+
+    .crumb-show-contents {
+      font-size: 0.8em;
+      color: cv('action');
+      cursor: pointer;
+
+      @include media('>=tablet') {
+        display: none;
+      }
+    }
+
+  }
+
+}
