@@ -24,11 +24,11 @@ To better understand SCIM and the specific implementation of SCIM using Okta, se
 
 The User creation operation brings the user's application profile from Okta over to the Service Provider. A user's application profile represents the key-value attributes defined on the **Profile** tab when a user is added.
 
-To enable user provisioning, an Okta administrator must configure the provisioning options in the Okta Admin Console. In the Okta Admin Console:
+To enable user provisioning, you must configure the provisioning options in the Okta Admin Console. In the Okta Admin Console:
 
-* Select your SCIM application from your list of applications
-* Under the **Provisioning** tab, click **To App** and **Edit**
-* In the **Create User** option, click **Enable** and then **Save**
+1. Select your SCIM application from your list of applications.
+1. Under the **Provisioning** tab, click **To App** and **Edit**.
+1. In the **Create User** option, click **Enable** and then **Save**.
 
 For more information on enabling the provisioning features of your SCIM application, see [Provisioning and Deprovisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Provisioning_Deprovisioning_Overview) under the **Accessing Provisioning Features** section.
 
@@ -184,7 +184,7 @@ Content-Type: application/json
 }
 ```
 
-If the SCIM server returns an empty response body to the provisioning request, then Okta marks the operation as invalid, and the Okta administrator is shown an error in the Admin Console:
+If the SCIM server returns an empty response body to the provisioning request, then Okta marks the operation as invalid, and the Okta Admin Console displays an error:
 
 "Automatic provisioning of user `userName` to app `AppName` failed: Error while creating user `displayName`: Create new user returned empty user."
 
@@ -276,11 +276,11 @@ Content-Type: text/json;charset=UTF-8
 
 Updating a user refers to modifying an attribute in the Okta user profile that is mapped with an attribute in the SCIM application.
 
-To update a user, the functionality needs to be enabled in Okta. In the Okta Admin Console:
+To update a user, you need to enable the functionality in the Okta Admin Console:
 
-* Select the SCIM application from your list of applications
-* Under the **Provisioning** tab, click **To App**
-* In the **Update User Attributes** option, click **Enable** and then **Save**
+1. Select the SCIM application from your list of applications.
+1. Under the **Provisioning** tab, click **To App**.
+1. In the **Update User Attributes** option, click **Enable** and then **Save**.
 
 #### Retrieve the user profile
 
@@ -413,11 +413,11 @@ The `active` attribute in a user profile represents the user's current status.
 
 Other updates to attributes in a user profile should be handled through a PUT operation.
 
-To deactivate users, the functionality needs to be enabled in Okta. In the Okta Admin Console:
+To deactivate users, you need to enable the functionality in the Okta Admin Console:
 
-* Select your SCIM application from your list of applications
-* Under the **Provisioning** tab, click **To App** and **Edit**
-* In the **Deactivate Users** option, click **Enable** and then **Save**
+1. Select your SCIM application from your list of applications.
+1. Under the **Provisioning** tab, click **To App** and **Edit**.
+1. In the **Deactivate Users** option, click **Enable** and then **Save**.
 
 When a user is deactivated, Okta sends this request:
 
@@ -484,7 +484,12 @@ If a user is suspended, deactivated, or removed from the application in Okta, th
 
 **POST** /Groups
 
-To create a group on the SCIM server, an Okta administrator must push the group using the Okta Admin Console. In the Okta Admin Console, select the SCIM application from your list of applications. On the **Push Groups** tab, click **Push Groups**. You can select which existing Okta group to push, either by specifying a name or a rule. For more information, see the [Using Group Push topic](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Using_Group_Push) in the Okta Help Center.
+To create a group on the SCIM server, you need to push the group using the Okta Admin Console:
+
+1. Select the SCIM application from your list of applications.
+1. On the **Push Groups** tab, click **Push Groups**.
+
+You can select which existing Okta group to push, either by specifying a name or a rule. For more information, see the [Using Group Push topic](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Using_Group_Push) in the Okta Help Center.
 
 After the group is selected, Okta makes a POST request to the Service Provider:
 

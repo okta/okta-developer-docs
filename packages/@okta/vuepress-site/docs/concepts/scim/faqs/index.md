@@ -9,7 +9,7 @@ meta:
 
 ## SCIM Technical Questions
 
-**Q: Our API is similar to SCIM, but is not 100% compliant. Can we still integrate with Okta?**
+**Q: Our API is similar to SCIM, but isn't 100% compliant. Can we still integrate with Okta?**
 
 Guidance on what endpoints need to be implemented can be found in our [SCIM Reference](/docs/reference/scim/) documentation for either SCIM [V2.0](/docs/reference/scim/scim-20/) or [V1.1](/docs/reference/scim/scim-11/) deployments.
 
@@ -40,23 +40,23 @@ Yes, you must return these fields in an array structure. This is a multi-valued 
 
 The returned array must have a `primary=true` attribute for the value that Okta takes as the primary value for the user profile.
 
-**Q: When would I need to implement the type sub-attribute for emails, phone numbers, or addresses?**
+**Q: When would I need to implement the `type` sub-attribute for emails, phone numbers, or addresses?**
 
-By default, Okta does not use the `type` sub-attribute, other than to read the type attribute of your primary value attribute. However, if your SCIM integration does need to distinguish between various canonical entries for an attribute (for example, differentiating between a home and work email address), then you can use the `type` sub-attribute in the returned array.
+By default, Okta doesn't use the `type` sub-attribute, other than to read the type attribute of your primary value attribute. However, if your SCIM integration does need to distinguish between various canonical entries for an attribute (for example, differentiating between a home and work email address), then you can use the `type` sub-attribute in the returned array.
 
-If your integration does not need to distinguish between canonical entries, you can just delete the `emailType` (or `addressType` or `primaryPhoneType`) attribute and mapping from your profile schema.
+If your integration doesn't need to distinguish between canonical entries, you can just delete the `emailType` (or `addressType` or `primaryPhoneType`) attribute and mapping from your profile schema.
 
 * See [Section 2.4 of RFC 7643](https://tools.ietf.org/html/rfc7643#section-2.4) for more details on returning multi-valued attributes.
-* You should not return the same value and type combination more than once per attribute, as this complicates processing by the client.
+* You shouldn't return the same value and type combination more than once per attribute, as this complicates processing by the client.
 * In the schema definition, you can define a list of recommended canonical values for an attribute (see [RFC 7643 Section 7](https://tools.ietf.org/html/rfc7643#section-7)).
 
 **Q: Why doesn't Okta support DELETE /Users?**
 
-Okta users are not deleted for compliance and audit purposes; Okta user profiles are marked as "deactivated". Because of this, Okta never makes a DELETE request to a user resource on your SCIM API. Instead, Okta sends a request to set the `active` value to `false`. You'll need to support the concept of an "active" and "inactive" user within your app.
+Okta users aren't deleted for compliance and audit purposes; Okta user profiles are marked as "deactivated". Because of this, Okta never makes a DELETE request to a user resource on your SCIM API. Instead, Okta sends a request to set the `active` value to `false`. You'll need to support the concept of an "active" and "inactive" user within your app.
 
 **Q: How does data validation work with SCIM provisioning? For example, if my app requires the phone number in a specific format, how do I ensure that Okta passes the attribute in that format? If a data validation error issue occurs, how does error reporting work?**
 
-The SCIM spec specifies valid data formats for a given user profile attribute, however Okta does not rigorously validate that the customer has submitted values meeting those requirements to preserve flexibility.
+The SCIM spec specifies valid data formats for a given user profile attribute, however Okta doesn't rigorously validate that the customer has submitted values meeting those requirements to preserve flexibility.
 
 Therefore, data validation should be handled by your app's SCIM server. When Okta provisions a user profile to your server, your app should check that the data is valid according to any special requirements. Error messages sent in response from your app are surfaced to the Okta administrator through alerts and tasks in the Okta interface.
 
@@ -70,18 +70,18 @@ The filtering capabilities in the SCIM protocol are pretty broad, but the common
 
 User import operations are initiated by Okta, either manually or on a schedule. To run an import for your SCIM users, go into the Okta Admin Console:
 
-* Select your SCIM application from your list of applications
-* Under the **Import** tab, click **To Okta** and **Import Now** to do a one-time import
-* Okta prompts you to review and confirm assignments for any users not automatically matched to existing Okta users.
+1. Select your SCIM application from your list of applications.
+1. Under the **Import** tab, click **To Okta** and **Import Now** to do a one-time import.
+1. Okta prompts you to review and confirm assignments for any users that aren't automatically matched to existing Okta users.
 
 To set up a regular schedule for importing users, go into the Okta Admin Console:
 
-* Select your SCIM application from your list of applications
-* Under the **Provisioning** tab, click **To Okta** and **Edit** in the General section
-* In the **Full Import Schedule** drop down, you can choose from hourly, daily, or weekly imports
+1. Select your SCIM application from your list of applications.
+1. Under the **Provisioning** tab, click **To Okta** and **Edit** in the General section.
+1. In the **Full Import Schedule** drop down, you can choose from hourly, daily, or weekly imports.
 
 For more details on the import functionality of Okta, see [Import users from an app](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Importing_People) in our Product Help documentation.
 
-**Q: How do I get a SCIM app to with Okta from inside my corporate firewall?**
+**Q: How do I get a SCIM app to integrate with Okta from inside my corporate firewall?**
 
 The Okta [SCIM provisioning guide](/docs/guides/build-provisioning-integration/) instructions target cloud-based applications, but Okta does have a solution for on-premise applications. For more details  about the Okta agent-based provisioning solution, see [Configuring On Premises Provisioning](https://support.okta.com/help/s/article/29448976-Configuring-On-Premises-Provisioning).

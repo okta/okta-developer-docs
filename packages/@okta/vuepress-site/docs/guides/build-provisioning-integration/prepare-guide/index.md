@@ -58,9 +58,9 @@ Also include any restrictions. For example:
 
 This section should cover all the configuration steps needed to get your customers up and running with your SCIM provisioning app. Add text to explain a certain setting in detail if that setting is something specific to your application. Include any screenshots from your app that can assist the user during the setup process.
 
-Include any best practices for your procedure here, such as guidance on setting mappings for attributes, especially required attributes that do not have a default mapping. For example:
+Include any best practices for your procedure here, such as guidance on setting mappings for attributes, especially required attributes that don't have a default mapping. For example:
 
-`The External ID is a required attribute, but it does not have a default mapping. This is because some customers prefer to set it to EmployeeNumber, and others like to set it to emailAddress. Assign the mapping to the correct value for your organization.`
+`The External ID is a required attribute, but it doesn't have a default mapping. This is because some customers prefer to set it to EmployeeNumber, and others like to set it to emailAddress. Assign the mapping to the correct value for your organization.`
 
 Note: The configuration guide is opened from the **Provisioning** tab. The **General** settings and **Sign On** settings have been already configured.
 
