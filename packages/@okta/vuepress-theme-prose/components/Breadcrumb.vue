@@ -41,7 +41,7 @@
         crumbs.push({'link': '/docs/', 'title': 'Docs'});
         
         if(this.$page.path.startsWith('/code/')) {
-          crumbs.push({'link': '/docs/code/', 'title': 'Languages & SDKs'});
+          crumbs.push({'link': '/code/', 'title': 'Languages & SDKs'});
         }
 
         if(this.$page.path.startsWith('/docs/reference/')) {
