@@ -105,21 +105,6 @@ export default {
     }
   },
 
-  methods: {
-    handleSearchSubmit(event) {
-
-      event.preventDefault()
-      event.stopPropagation()
-
-      let search_phrase = document.getElementById('st-search-input-auto').value
-
-      if (search_phrase.length > 3) {
-        window.location.href = this.search_url + '#stq=' + search_phrase
-      }
-
-    }
-  },
-
   created() {
 
     if(this.$themeConfig.home_url) {
@@ -141,7 +126,7 @@ export default {
 
   mounted() {
     let coveoScript = document.createElement('script')
-    coveoScript.setAttribute('src', 'https://www.atko.biz/sites/all/modules/okta_coveo_search_developer/js/okta_coveo_search_developer.js')
+    coveoScript.setAttribute('src', 'https://www.okta.com/sites/all/modules/okta_coveo_search_developer/js/okta_coveo_search_developer.js?20200128')
     document.head.appendChild(coveoScript)
 
 
