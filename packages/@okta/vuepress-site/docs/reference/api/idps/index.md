@@ -254,7 +254,7 @@ Adds a new `SAML2` type IdP to your organization
 Notes:
 
 * You must first add the IdP's signature certificate to the IdP key store before you can add a SAML 2.0 IdP with a `kid` credential reference.
-* Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use [SAML Deep Links](#redirecting-with-saml-deep-links). Using `fromURI` is not tested and not supported. For more information about using deep links for SP-initiated sign on, see [Understanding SP-Initiated Login Flow](https://developer.okta.com/docs/concepts/saml/#understanding-sp-initiated-login-flow).
+* Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use [SAML Deep Links](#redirecting-with-saml-deep-links). Using `fromURI` is not tested and not supported. For more information about using deep links for SP-initiated sign on, see [Understanding SP-Initiated Login Flow](/docs/concepts/saml/#understanding-sp-initiated-login-flow).
 
 ##### Request Example
 
