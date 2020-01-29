@@ -8,14 +8,13 @@
     flex-direction: row;
     margin-top: 4rem;
 
-    .content__default {
-      p, ol {
-        max-width: inherit;
-      }
+    
+    p, ol, ul {
+      max-width: inherit;
+    }
 
-      h3, h4, h5, h6 {
-        margin-top: $base-spacing;
-      }
+    h3, h4, h5, h6 {
+      margin-top: $base-spacing;
     }
   }
 
