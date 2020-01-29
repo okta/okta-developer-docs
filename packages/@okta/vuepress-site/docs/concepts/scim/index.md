@@ -4,132 +4,122 @@ layout: docs_page
 icon: /assets/img/icons/scim.svg
 meta:
   - name: description
-    content: System for Cross-domain Identity Management. Understand the the value of provisioning accounts with SCIM and how to set them up in Okta.
+    content: System for Cross-domain Identity Management. Understand the the value of provisioning accounts with SCIM and how to set up SCIM in Okta.
 ---
 
-## SCIM: Provisioning with Okta Lifecycle Management
+This topic covers the concepts and use cases for SCIM and Okta.
 
-Developers at software vendors (ISVs), Okta customers, and IT system-integrators (SI) want to facilitate fast, enterprise-wide deployment of their app by integrating with Okta for user provisioning primarily via the SCIM standard.
+If you are ready to start creating a SCIM app, see our [Guide to Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/), and our technical references on how the [SCIM protocol is implemented with Okta](https://developer.okta.com/docs/reference/scim/).
 
-This article describes:
+## What is SCIM for?
 
-* The provisioning actions and use cases that your integration should consider supporting.
-* The technical options for how to build the integration (focusing on SCIM).
-* The process for building, submitting for Okta Review, and publishing in the OIN (if you want the app available for all Okta customers).
+SCIM, or the [System for Cross-domain Identity Management](http://www.simplecloud.info/) specification, is an open standard designed to manage user identity information. SCIM provides a defined schema for representing users and groups, and a RESTful API to run CRUD operations on those user and group resources.
 
-## Understanding Provisioning Use Cases
+The goal of SCIM is to securely automate the exchange of user identity data between your company's cloud applications and any service providers, such as enterprise SaaS applications.
 
-### The Value of Provisioning
+Managing user lifecycles in your organization is a fundamental business problem. Hiring new employees is just the first step - you also need to provision the apps that they need for their job, enforce the corporate security policies, and update their user accounts as they advance through their time with your company. At the end of their employment period, you need to make sure that all access is quickly and thoroughly revoked across all applications. Handling all of this can be time consuming and error prone if done manually.
 
-With the proliferation of cloud apps, today’s IT organizations are faced with the prospect of managing user accounts in an ever-expanding number of administrator consoles for each app. This is not a problem if an enterprise has one or two cloud apps, but as the number grows, the situation quickly becomes unmanageable. Cloud app vendors hoping to sell into enterprises need to have an answer to this concern.
+![SCIM Lifecycle](/img/oin/scim_lifecycle.png "User lifecycle diagram: 1 - new employee 2 - provision apps 3 - enforce security 4 - update user information 5 - offboard")
 
-Thousands of Okta customers have chosen our Lifecycle Management product as the platform solution to address this challenge of managing the lifecycle of user accounts in their cloud apps, and a key feature of this product is integrations for automated provisioning to those apps. Lifecycle Management (Provisioning) automates many of the traditionally manual tasks required to on-board and off-board employees. New employees are automatically provisioned with user accounts in their apps, profile updates like department changes populate automatically, and inactive employees are automatically deactivated from their apps. By making these actions less time-consuming and error-prone, companies can cut costs, allow new employees to be immediately productive, and reduce the threat of data leakage.
+As your company grows, the number of user accounts and provisioned software applications increases exponentially. Requests to add and remove users, reset passwords, change permissions, and add new types of accounts all take up valuable IT department time.
 
-### Provisioning Actions
+With the SCIM protocol, user data is stored in a consistent way and can be shared with different apps. Since data is transferred automatically, complex exchanges are simplified and the risk of error is reduced.
 
-Provisioning consists of a set of actions between Okta and the cloud app. These actions are building blocks that combine to solve end-to-end use cases. As the developer, you'll need to define the use cases that your target customer wants and the corresponding actions to build into your integration.
+Adopting SCIM for domain management improves overall security for your company. Employees no longer need to sign in to each of their accounts. As teams develop new workflows and adopt new apps, your company can ensure security policy compliance across all accounts.
 
-The set of actions that an integration can do under the Provisioning umbrella are easily described with the acronym CRUD: the common database operations of Create, Read, Update, and Delete. CRUD actions relate to Provisioning in the following ways:
+## How does Okta help?
 
-#### Create Users
+[Okta Lifecycle Management](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_prov_con_okta_prov) is a platform solution to provision and manage user accounts in cloud-based applications. Okta serves as a universal directory for identity-related information, giving the following benefits:
 
-Create new users in the downstream application based on values derived from the Okta user profile and Okta group assignment.
+* IT departments can manage the user provisioning lifecycle through a single system.
+* New employees are automatically provisioned with a user account for their apps.
+* Employee accounts can be created either directly from Okta accounts, or shared from external systems like HR applications or Active Directory.
+* Any profile updates - like department changes - populate automatically.
+* Inactive employees are automatically deactivated from their apps.
 
-#### Read (Import) Users and Groups
+## How does SCIM work?
 
-Import users & groups from the downstream application in order to match them to existing Okta users, or to create new Okta users from the imported application.
-
-#### Update Users
-
-For an application user that is affiliated with an Okta user, update the downstream user's attributes when the Okta user is updated. Or, update the Okta user attributes if the application functions as the [master](#profile-mastering-users) for the full Okta user profile or specific attributes.
-
-#### Deprovision (Deactivate) Users
-
-Deprovisioning the application user removes access to the downstream application. This can take many forms, such as user disabled, user access permissions changed, or user license pulled. Each application may choose different methods for deactivating a user's access.
-
-For audit purposes, Okta users are never deleted; they are deactivated instead. Because of this, Okta doesn't make delete requests to the user APIs in downstream applications.
-
-#### Sync Password
-
-Okta sets the user's password to either match the Okta password or to be a randomly generated password. Learn more about the overall use case in [Using Sync Password: Active Directory Environments](https://help.okta.com/en/prod/Content/Topics/Security/Security_Using_Sync_Password.htm).
-
-#### Profile Mastering Users
-
-Mastering is a more sophisticated version of read (import) Users. Mastering defines the flow and maintenance of user-object attributes and their lifecycle state. When a profile is mastered from a given resource (application or directory), the Okta user profile's attributes and lifecycle state are derived exclusively from that resource. In other words, an Okta user mastered by Active Directory (or HR system) has an Okta profile.
-
-However, the profile isn't editable in Okta by the user or Okta admin, and derives its information exclusively from Active Directory. If the lifecycle state of the user in Active Directory moves to Disabled, the linked Okta user also switches to the corresponding lifecycle state of Deactivated on the next the read (import).
-
-### Provisioning Use Cases
-
-Provisioning actions can be combined to solve for end-to-end use cases.
-
-#### Directory-as-Master (Downstream Provisioning)
-
-<!-- Images for v2: https://oktawiki.atlassian.net/wiki/pages/viewpage.action?pageId=181895852 -->
-
-In many enterprises, Active Directory (or LDAP) is the system of record for employee identities.
-Okta has developed a powerful, lightweight agent to sync with Active Directory to populate employee and group information.
-Within Okta, IT admins can leverage features such as [Universal Directory](https://help.okta.com/en/prod/Content/Topics/Directory/About_Universal_Directory.htm) and [group membership rules](https://help.okta.com/en/prod/Content/Topics/Directory/About_Universal_Directory.htm) to map that information when provisioning accounts and permissions in downstream apps.
-
-Subsequently, any updates to an employee's profile, such as a change in department, in either Active Directory or Okta flow into the downstream app. Similarly, removing or deactivating an employee from Active Directory triggers deactivation in the downstream app as well.
-
-Okta supports these common Provisioning use cases:
-
-* Provision downstream apps automatically when new employee joins the company
-* Update downstream app automatically when employee profile attributes change
-* Remove employee access to downstream app automatically on termination or leave
-* Link existing downstream app users with Okta users using one-time app import
-
-#### App-as-Master
-
-While most apps fit the category of a downstream app in the directory-as-master use case, some apps can be the master. This is the App-as-Master use case.
-
-The app-as-master use case typically applies to apps that can be used as the system of record for all employee profile information. An HR app like Workday or Successfactors Employee Central is the most common example. In this scenario, the HR app, not Active Directory, feeds employee profile details downstream into directories like AD and Okta, and apps like Box.
-
->**Note:** Integrations for the "App-as-Master" use case are significantly more complex than the Directory-as-Master use case and take more time to build and support. This is because these integrations sync a larger number of attributes and lifecycle states, and more directly impact the Okta user profile and downstream apps.
-
-#### Advanced App-as-Master Use Cases
-
-There are several advanced App-as-Master use cases that aren't currently supported by the SCIM-Based Provisioning option, but may be added in the future. Until then, consider out-of-band processes that work around these use cases.
-
-* Attribute-level mastering: The app wants to be the master for some employee attributes like phone number, while letting Okta or another app master other attributes. We call this attribute-level mastering.
-
-* Pre-hire interval: In an HR-as-Master use case, there is sometimes a desire to import the new employee into Okta from the HR app a few days prior to the hire/start date. This gives IT time to set up the employee's apps in advance. A pre-hire interval configuration would specify how many days before the employee's hire date Okta should import the employee.
-
-* Real-time sync/termination: In an HR-as-Master use case, a change in employee status within the HR system may need to be immediately reflected in Okta. Involuntary terminations is one scenario where an employee's access to sensitive apps and content via Okta needs to be cut off within minutes.
-
-* Incremental/delta import: Importing a large number of user profiles from an app into Okta can take minutes, even hours. This can become a major performance and timing issue if frequent updates are needed. Currently, the SCIM-Based Provisioning option doesn't support the ability to import only those user profiles that have changed since the last import. In the future, we may support this via filtering on `meta.lastModified`. ([More information](#filtering-on-metalastmodified))
-
-## SCIM-Based Provisioning Integration
-
-### Overview
+Provisioning consists of a set of actions between a service provider - like Okta - and the cloud-based integration (the SCIM client). Using REST style architecture and JSON objects, the SCIM protocol communicates data about users or groups.  As an app developer, you define the use cases needed and then build the corresponding SCIM actions into your integration.
 
 By implementing support for the SCIM standard, an application in the Okta Integration Network can be notified when a user is created, updated, or removed from their application in Okta.
 
-If you haven't heard of SCIM before, here is a good summary from the [Wikipedia article on SCIM](https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management):
+The provisioning actions performed by an integration are described using the database operation acronym "CRUD": Create, Read, Update, and Delete. The four CRUD operations are the building blocks that combine to solve your end-to-end use cases:
 
-"System for Cross-domain Identity Management (SCIM) is an open standard for automating the exchange of user identity information between identity domains, or IT systems."
+### Create
 
-### Understanding User Provisioning in Okta
+This SCIM operation creates new users in your downstream application based on the values in the Okta user profile and group assignments.
 
-Okta is a universal directory that stores identity-related information.  Users can be created in Okta directly
-as local users or imported from external systems like Active Directory or a [Human Resource Management Software](https://en.wikipedia.org/wiki/Category:Human_resource_management_software) system.
+### Read
 
-An Okta user schema contains many different user attributes, but always contains a user name, first name, last name, and email address. This schema can be extended.
+Information about user and group resources can be queried from your application to match them against existing Okta resources, or to import them into Okta if the resources don't already exist.
 
-Okta user attributes can be mapped from a source into Okta and can be mapped from Okta to a target.
+### Update
 
-Below are the main operations in a SCIM user provisioning lifecycle:
+If a resource in your application needs to be updated based on data changed in Okta, this operation updates existing user or group attributes. Alternatively, if your application functions as the source of truth for specific attributes of a user identity, this action updates the Okta user profile.
 
-1. Create a user account.
-2. Read a list of accounts, with support for searching for a preexisting account.
-3. Update an account (user profile changes, entitlement changes, etc).
-4. Deactivate an account.
+User attributes can be mapped from your source into Okta and conversely, an attribute can be mapped from Okta to a target attribute in your app.
 
-In Okta, an application instance is a connector that provides Single Sign-On and provisioning functionality with the target application.
+### Delete (Deprovision)
 
-## Publishing Your SCIM-Based Provisioning Integration
+For audit purposes, Okta users are never deleted. Instead, they are deprovisioned by setting an `active` attribute to "false". Then, if an existing user needs to be re-provisioned at a later date (for example, returning from parental leave or if a contractor is re-hired), then the attribute can be switched back to "true".
 
-In order to allow customers to use your SCIM provisioning integration with Okta, you'll need to get your app published in [the Okta Integration Network](https://www.okta.com/resources/find-your-apps/).
+Deprovisioning a user removes their access to the downstream application. Your application can specify different results for deprovisioning a user, such as changing user access permissions, removing a user license, or completely disabling the user account.
 
-**Note:** The OIN is for making an integration publicly discoverable and accessible to all Okta customers. However, you can also just use the integration privately within a few named orgs, called the Private App Option. This could be the case if you are a system integrator, customer, or Okta PS integrating to a custom app. If this is the case, you will be able to indicate in that you don't want to publish in OIN. Okta will create the submitted integration per usual and assign it to Orgs that you specify as a private app. Note that you cannot use the SCIM template app used for prototyping, as it has limitations that prevent it from being used in production.
+### Syncing Passwords
+
+Outside of the base CRUD operations, Okta supports additional provisioning features like syncing passwords.
+
+Password synchronization helps you coordinate Okta-mastered users to ensure that a user’s Active Directory (AD) password and their Okta password always match. With password synchronization, your users have a single password to access applications and devices.
+
+This option sets the user's password for your integration to match the Okta password or to be assigned a randomly generated password. For more information about this functionality and how to configure it in the Okta product, see [Synchronize passwords from Okta to Active Directory](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Using_Sync_Password).
+
+### Profile Attribute Mappings
+
+Another provisioning feature supported by Okta is the mapping of user profile attributes.
+
+After provisioning is enabled, you can set a profile master to be the "source" app from which users are imported or the target app to which attributes are sent.
+
+Okta uses a Profile Editor to map user attributes from the source of truth to the Okta user profile.
+
+## Lifecycle Management Using Profile Mastering
+
+Profile mastering defines the flow and maintenance of user attributes. When a profile is mastered using a source outside of Okta (for example, an HR application, Active Directory, or LDAP), then the Okta user's attributes and lifecycle state are derived exclusively from that resource. The SCIM protocol is used to handle the secure exchange of user identity data between the profile master and Okta. In this scenario, the profile isn't editable in Okta by the user or an Okta admin.
+
+For example, if the lifecycle state of the user is changed to "Disabled" in Active Directory, then on the next SCIM read operation, the linked Okta user profile is switched and given the corresponding lifecycle state of `active=false`.
+
+For more information about profile mastering and how to configure it in the Okta Admin Console, see:
+
+* [Profile mastering](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Masters)
+* [Provisioning and Deprovisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Provisioning_Deprovisioning_Overview)
+
+## Provisioning Use Cases
+
+Provisioning actions can be combined to solve for end-to-end use cases. Okta supports these common Provisioning use cases:
+
+* Provision downstream apps automatically when a new employee joins the company.
+* Update your downstream app automatically when employee profile attributes change.
+* Remove an employee's access to downstream apps automatically on termination or leave.
+* Link existing downstream app users with Okta users using a one-time import.
+
+## Publishing SCIM-based Provisioning Integrations
+
+For your customers to use your SCIM provisioning integration with Okta, you need to publish it through the [Okta Integration Network](https://www.okta.com/integrations/).
+
+After you have built and tested your SCIM application, read through our guide on [Publishing an app integration with the OIN](/docs/guides/submit-app/overview/).
+
+## Additional background
+
+If you want to read more about how to use the Okta Admin Console for provisioning in your app integration or have additional questions about SCIM, visit the following links:
+
+* [Okta Lifecycle Management User Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_prov_okta_lcm_user_provision)
+* [SCIM Technical FAQs](/docs/concepts/scim/faqs/)
+* [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/overview/)
+* The "SCIM Applications" section of [Using the App Integration Wizard](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm)
+* [Provisioning Concepts](https://support.okta.com/help/s/article/Provisioning-Concepts-and-Methods)
+* [Configuring On-Premises Provisioning](https://support.okta.com/help/s/article/29448976-Configuring-On-Premises-Provisioning)
+* IETF [Overview and Specification of the SCIM Protocol](http://www.simplecloud.info/)
+
+For setting up Active Directory or LDAP for profile mastering:
+
+* [Install and configure the Okta Active Directory agent](https://help.okta.com/en/prod/Content/Topics/Directory/ad-agent-install.htm)
+* [Manage LDAP provisioning, import, and integration settings](https://help.okta.com/en/prod/Content/Topics/Directory/ldap-agent-configure.htm)
