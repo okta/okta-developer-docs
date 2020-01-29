@@ -59,7 +59,7 @@ B. Delete attributes from your attribute list
   Enter the information for the new attribute that you’re adding and then click Save. For example:
   ![Profile Editor - Add Attribute Dialog](/img/oin/scim_check-attributes-11.png "Profile Editor - Add Attribute Dialog")
 
-   >**Note:** The Scope property determines whether the attribute you are adding can be assigned at a group level or just per user. If you would like your admins to be able to assign a value for this attribute at a group level, do not check the **User personal** checkbox.
+   >**Note:** The Scope property determines whether the attribute you are adding can be assigned at a group level or just per user. If you would like your admins to be able to assign a value for this attribute at a group level, don't check the **User personal** checkbox.
 
 1. After adding an attribute, you can add a mapping for that new attribute.
 
