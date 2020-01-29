@@ -4,7 +4,7 @@ title: Prepare your app for submission
 
 After you have built a functioning app integration in either [SAML](/docs/guides/build-sso-integration/) or [SCIM](/docs/guides/build-provisioning-integration/), a few steps are required to submit it for Okta review.
 
-Your submission must provide Okta with all the metadata needed to create a customized app for publication in the [Okta Integration Network](https://www.okta.com/integrations/).
+Your submission must provide Okta with all the metadata needed to create a customized app for publication in the OIN.
 
 Complete the following steps before you submit your SCIM app:
 
