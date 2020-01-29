@@ -24,6 +24,10 @@ $big-spacing: 3rem;
 .guides-overview {
   display: flex;
 
+  a {
+    text-decoration: none;
+  }
+
   .overview-content {
     width: 100%;
   }
@@ -36,6 +40,8 @@ $big-spacing: 3rem;
 .guide-content { 
   width: 100%;
   max-width: 890px;
+
+  
 }
 
 .guide-featured {
