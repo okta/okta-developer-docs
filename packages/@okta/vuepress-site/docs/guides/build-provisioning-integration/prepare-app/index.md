@@ -4,7 +4,7 @@ title: Integrate your SCIM service with an Okta app
 
 After you have a SCIM implementation that passes all of the Runscope tests, you need to create your SCIM integration directly within Okta.
 
-Begin by signing up for an [Okta developer account](https://developer.okta.com/signup).
+Begin by signing up for an [Okta developer account](https://developer.okta.com/signup/).
 
 1. After you request the developer account and have received the initial email, open the link to your developer org.
 1. Navigate to the Developer Console in your Okta org by clicking **Admin**.

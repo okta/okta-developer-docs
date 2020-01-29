@@ -7,7 +7,7 @@ title: Integrate Your App
 > If you are using the developer dashboard you will first need to switch to the Classic UI.
 > If you see a **Developer** prompt in the top left, click it and select **Classic UI** to switch to the Classic UI.
 
-* Sign up for an Okta [developer account](https://developer.okta.com/signup).
+* Sign up for an Okta [developer account](https://developer.okta.com/signup/).
 * In your Okta account (make sure you are signed in as an admin), use the [App Wizard](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm) to build a Single Sign-on integration with Okta.
 * When you are ready, navigate to the Feedback tab of the App Wizard:
     ![Feedback tab of SAML App Wizard](/img/oin/saml-step3.png "Feedback page for App wizard")
