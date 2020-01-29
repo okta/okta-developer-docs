@@ -9,6 +9,5 @@ sections:
  - define-allowed-scopes
  - request-access-token
  - get-access-token-using-service-app
- - save-access-token
  - scopes
 ---

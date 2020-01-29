@@ -198,7 +198,11 @@ module.exports = {
     [
       'vuepress-plugin-sitemap', {
         hostname: 'https://developer.okta.com',
-        outFile: 'docs-sitemap.xml'
+        outFile: 'docs-sitemap.xml',
+        exclude:
+          [
+            '/test_page'
+          ]
       }
     ],
   ],

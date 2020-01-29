@@ -114,6 +114,69 @@ The `value` object is where you specify the specific operation to perform. It is
 | replace | Modify an existing claim and update the token lifetime. |
 | remove  | Remove an existing claim. |
 
+#### Reserved claims for Token Hooks
+
+Okta defines a number of reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, avoid using the following reserved claims:
+
+| Claim Name     | Token Type        |
+|----------------|-------------------|
+| acr            | Access Token      |
+| amr            | Access Token      |
+| as_uri         | Access Token      |
+| cid            | Access Token      |
+| rpt            | Access Token      |
+| rsi            | Access Token      |
+| uid            | Access Token      |
+| username       | Access Token      |
+| active         | ID Token          |
+| aid            | ID Token          |
+| app_id         | ID Token          |
+| app_type       | ID Token          |
+| at_hash        | ID Token          |
+| auth_time      | ID Token          |
+| client_id      | ID Token          |
+| client_ip      | ID Token          |
+| client_req_id  | ID Token          |
+| client_type    |ID Token           |
+| client_user_agent |ID Token        |
+| cnf            | ID Token          |
+| c_hash         | ID Token          |
+| device_compliance |ID Token        |
+| device_id      | ID Token          |
+| device_known   | ID Token          |
+| device_managed | ID Token          |
+| device_name    |  ID Token         |
+| device_trust   | ID Token          |
+| did            | ID Token          |
+| dst            | ID Token          |
+| group          | ID Token          |
+| groups         |  ID Token         |
+| hotk           | ID Token          |
+| idp            |  ID Token         |
+| idp_iss        | ID Token          |
+| mac_key        | ID Token          |
+| may_act        | ID Token          |
+| nonce          | ID Token          |
+| oid            | ID Token          |
+| okta_emailVerified | ID Token      |
+| okta_lastUpdated | ID Token        |
+| orig           | ID Token          |
+| permissions    | ID Token          |
+| purpose        | ID Token          |
+| pwd_exp_days   |ID Token           |
+| pwd_exp_time   | ID Token          |
+| rid            | ID Token          |
+| role           | ID Token          |
+| scope          | ID Token          |
+| scopes         | ID Token          |
+| sid            | ID Token          |
+| term           | ID Token          |
+| user_ip        |  ID Token         |
+| iss            | Access Token & ID Token |
+| jti            | Access Token & ID Token |
+| token_type     | Access Token & ID Token |
+| ver            | Access Token & ID Token |
+
 ### error
 
 When you return an error object, it should have the following structure:
