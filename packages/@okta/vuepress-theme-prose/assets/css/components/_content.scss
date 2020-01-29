@@ -46,6 +46,12 @@
       text-decoration: underline;
     }
 
+    .language-tabs a,
+    .language-ctas a,
+    a.card {
+      text-decoration: none;
+    }
+
     .mobile-on-this-page {
       @include media('>=tablet') {
         display: none;
