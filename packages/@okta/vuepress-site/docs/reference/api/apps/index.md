@@ -235,9 +235,9 @@ Adds a SAML 2.0 application instance
 
 | Parameter | Description                                     | DataType | Nullable | Unique | Validation                                |
 | --------- | ----------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
-| url       | The URL of the sign-in page for this app          | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
-| destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |                                           |
 | attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |                                           |
+| destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |                                           |
+| url       | The URL of the sign-in page for this app          | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 
 ##### Request Example
 
