@@ -2,7 +2,10 @@
   <aside class="on-this-page-navigation">
     <div class="title">On This Page</div>
     <div>
-      <ul class="links">
+      <ul class="links" v-if="items">
+        <OnThisPageItem v-for="(link, index) in items" :link="link" :key="index" :activeAnchor=activeAnchor />
+        </ul>
+      <ul class="links" v-else>
         <OnThisPageItem v-for="(link, index) in $page.fullHeaders[0].children" :link="link" :key="index" :activeAnchor=activeAnchor />
       </ul>
     </div>
@@ -15,6 +18,7 @@
     components: {
       OnThisPageItem: () => import('../components/OnThisPageItem.vue'),
     },
+    props: ['items'],
     data() {
       return {
         activeAnchor: null
