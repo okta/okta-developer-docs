@@ -6,10 +6,6 @@ body {
     background: get-color('white');
     position: relative;
 
-  @include media('<medium') {
-    padding-top: 70px;
-  }
-
   @include media('<=600px') {
     padding-top: 0;
   }
