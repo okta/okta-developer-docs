@@ -1,7 +1,7 @@
 .breadcrumb {
-  padding: 1em 1.5em;
+  padding: 0.6rem 1.5rem;
   background-color: cv('gray', '000');
-  border-bottom: 2px solid cv('gray', '200');
+  border-bottom: $border-default;
 
   &--container {
 
@@ -10,8 +10,6 @@
       display: flex;
       align-items: center;
       padding: 0em; 
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
 
       li {
         display: flex;
@@ -22,12 +20,13 @@
           text-decoration: none;
           color: cv('gray', '800');
           font-size: 0.8em;
-          padding-right: 0.4em;
+          padding-right: 1em;
         }
 
         svg {
-          fill: cv('gray', '200');
+          fill: cv('gray', '400');
           width: 0.5em;
+
         }
       }
 
