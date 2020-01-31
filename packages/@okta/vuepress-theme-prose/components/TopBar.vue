@@ -37,7 +37,7 @@
         <div class="top-bar--collapse--links">
           <ul class="menu">
             <li v-for="(link, index) in $themeConfig.primary_nav" :key="index" :class="{'hasSubMenu': link.children}">
-              <a :href="link.link" v-html="link.text" :class="{'active': link.link.includes($page.path)}" ></a>
+              <a :href="link.link" v-html="link.text" :class="{'active': $page.path.includes(link.link)}" ></a>
               <ul v-if="link.children" class="submenu">
                 <li v-for="(childLink, childIndex) in link.children" :key="childIndex">
                   <a :href="childLink.link" v-html="childLink.text"></a>
