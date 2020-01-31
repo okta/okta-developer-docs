@@ -398,7 +398,7 @@ This example displays `replace` and `add` operations with the URI formatted clai
         },
         {
           "op": "add",
-          "path": "/claims/http:~1~1schemas.xmlsoap.org~1ws~12005~105~1identity~1claims~1foo",
+          "path": "/claims/http:~1~1schemas.xmlsoap.org~1ws~12005~105~1identity~1claims~1bar",
           "value": {
             "attributes": {
               "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
