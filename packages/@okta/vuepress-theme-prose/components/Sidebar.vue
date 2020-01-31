@@ -132,16 +132,6 @@
           .sortBy(page => page.title)
           .value();
         if(allCatPages.length > 0) {
-          // if(link.path.includes('release-notes')) {
-          //   allCatPages = _.chain(allCatPages)
-          //   .map(page => {
-          //     page.title = page.headers[0].title;
-          //     page.path = '/docs/release-notes/#_'+page.headers[0].title.replace(/\./g, '-');
-          //     return page;
-          //   })
-          //   .reverse()
-          //   .value();
-          // }
           return allCatPages;
         }
         return false;
