@@ -151,7 +151,11 @@ You specify the location within the assertion at which to apply your operation u
 
 When performing an `add` op to add a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding.
 
-When modifying an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, e.g., `/claims/array/attributeValues/1/value`.
+When modifying an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, for example, `/claims/array/attributeValues/1/value`.
+
+### URI claims
+
+Okta supports URI claims with SAML assertion hooks. When you need to replace or add a URI claim, you must encode the claim name within the command per the [JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901) specification. Specifically, this replaces `~` with `~0` and  `/` with `~1`.
 
 ## Sample Listing of JSON Payload of Request
 
@@ -361,6 +365,53 @@ When modifying an existing assertions statement, the path could begin with `/sub
           "op": "replace",
           "path": "/authentication/sessionIndex",
           "value": "definitelyARealSession"
+        }
+      ]
+    }
+  ]
+}
+```
+
+## URL format response example
+
+This example displays a `replace` and an `add` op with the URI formatted claim encoded.
+
+```JSON
+{
+  "commands": [
+    {
+      "type": "com.okta.assertion.patch",
+      "value": [
+        {
+          "op": "replace",
+          "path": "/claims/http:~1~1schemas.xmlsoap.org~1ws~12005~105~1identity~1claims~1foo/attributeValues/0/value",
+          "value": "replacementValue"
+        },
+        {
+          "op": "replace",
+          "path": "/claims/http:~1~1schemas.xmlsoap.org~1ws~12005~105~1identity~1claims~1foo/attributes",
+          "value": {
+            "attributes": {
+              "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+            }
+          }
+        },
+        {
+          "op": "add",
+          "path": "/claims/http:~1~1schemas.xmlsoap.org~1ws~12005~105~1identity~1claims~1foo",
+          "value": {
+            "attributes": {
+              "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+            },
+            "attributeValues": [
+              {
+                "attributes": {
+                  "xsi:type": "xs:string"
+                },
+                "value": "bearer"
+              }
+            ]
+          }
         }
       ]
     }
