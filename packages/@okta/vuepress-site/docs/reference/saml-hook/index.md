@@ -372,9 +372,9 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
 }
 ```
 
-## URL format response example
+## URI format response example
 
-This example displays a `replace` and an `add` op with the URI formatted claim encoded.
+This example displays `replace` and an `add` operations with the URI formatted claim encoded.
 
 ```JSON
 {
