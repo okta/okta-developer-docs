@@ -20,7 +20,10 @@
 
   .tree-nav {
     width: 18%;
-
+    @include media('>=tablet') {
+      min-width: 230px;
+    }
+    
     @include media('<tablet') {
       width: 40rem;
 
@@ -40,6 +43,11 @@
     flex-wrap: wrap;
     margin-top: 4rem;
     width: 100%;
+
+    @include media('>=tablet') {
+      margin: 0rem $big-spacing;
+      width: 64%;
+    }
 
     a {
       text-decoration: underline;
@@ -70,11 +78,6 @@
       display: inline-block;
     }
 
-    @include media('>=tablet') {
-      margin: 0rem 1rem;
-      width: 64%;
-    }
-
     div[class^='language-'],
     table {
       overflow-x: scroll;
@@ -97,7 +100,9 @@
 
   .on-this-page {
     width: 18%;
-
+    @include media('>=tablet') {
+      min-width: 230px;
+    }
     @include media('<tablet') {
       display: none;
     }
