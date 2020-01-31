@@ -104,16 +104,16 @@
 </script>
 
 <style lang="scss">
+  @import '../assets/css/prose';
   @import '../assets/css/okta';
 
-  @import '../assets/css/prose';
 
   .icon.outbound {
     display: none !important
   }
+  a.guide-featured,
+  a.next-section.Button--red {
+    text-decoration: none !important;  //Not sure why this has to be important, but it has to be there for this to work.
+  }
 </style>
 
-<style>
-
-  
-</style>
