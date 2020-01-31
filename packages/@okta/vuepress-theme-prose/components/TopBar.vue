@@ -37,13 +37,11 @@
         <div class="top-bar--collapse--links">
           <ul class="menu">
             <li v-for="(link, index) in $themeConfig.primary_nav" :key="index" :class="{'hasSubMenu': link.children}">
-              <a :href="link.link" v-html="link.text" v-if="link.link.includes('http')"></a>
-              <router-link :to="link.link" v-html="link.text" :class="{'active': link.link.includes($page.path)}" v-else></router-link>
+              <a :href="link.link" v-html="link.text" :class="{'active': link.link.includes($page.path)}" ></a>
               <ul v-if="link.children" class="submenu">
                 <li v-for="(childLink, childIndex) in link.children" :key="childIndex">
-                  <a :href="childLink.link" v-html="childLink.text" v-if="childLink.link.includes('http')"></a>
-                  <router-link :to="childLink.link" v-html="childLink.text" v-else></router-link>
-                </li>
+                  <a :href="childLink.link" v-html="childLink.text"></a>
+                  </li>
               </ul>
             </li>
           </ul>

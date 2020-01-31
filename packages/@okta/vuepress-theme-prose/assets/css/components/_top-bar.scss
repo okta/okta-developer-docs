@@ -100,7 +100,8 @@
         padding-left: 1rem;
         fill: cv('gray', '000');
         cursor: pointer;
-
+        height: 40px;
+        
         @include media(">=tablet") {
           display: block;
           
