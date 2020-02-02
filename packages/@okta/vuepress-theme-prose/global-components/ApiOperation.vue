@@ -25,7 +25,9 @@
     },
     computed: {
       formattedUrl: function() {
-        return this.url.replace(/\${([^ ]*)}/gm, (match, prop) => '<strong>${'+prop+'}</strong>');
+        let url = this.url;
+        url = url.replace(/\//g, "/&#8203;");
+        return url.replace(/\${([^ ]*)}/gm, (match, prop) => '<strong>${'+prop+'}</strong>');
       }
     },
     filters: {
@@ -34,6 +36,7 @@
       },
 
       formatUrl: function (value) {
+        value = value.replace(/\//g, "/&#8203;");
         return value.replace(/\${([^ ]*)}/gm, (match, prop) => `<strong>"${prop}"</strong>`);
       }
     }

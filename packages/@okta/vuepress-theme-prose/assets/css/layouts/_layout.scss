@@ -25,6 +25,10 @@ body {
   padding: 0em 1.5em;
   display: flex;
   justify-content: space-between;
+
+  @include media(">=tablet") {
+    display: -webkit-box;
+  }
 }
 
 .fixed-header {

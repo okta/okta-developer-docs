@@ -1,10 +1,10 @@
 <template>
-  <div class="page-title">
+  <div class="page-title" v-if="$page.frontmatter.icon">
     <h1 class="page-title--title">
       <i class='icon-48' :class="$page.frontmatter.icon" v-if="$page.frontmatter.icon"></i>
       {{$page.title}}
     </h1>
-    <div class="page-title--updated">
+    <!-- <div class="page-title--updated">
       <span class="updated-at">
         Last updated <span v-text=$page.lastUpdated></span> &mdash; 
         <a
@@ -16,7 +16,7 @@
           data-proofer-ignore
         >{{ editLinkText }}</a>
       </span>
-    </div>
+    </div> -->
   </div>
 </template>
 
