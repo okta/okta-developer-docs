@@ -21,19 +21,14 @@
         <div class="top-bar--collapse--buttons">
           <a href="#" class="button is-button-cerise-outline">Login</a>
           <a href="#" class="button is-button-cerise">Sign Up</a>
-          <svg v-if="!showSearchBar" viewBox="0 0 20 20" class="search-icon" @click="showSearchBar = !showSearchBar">
+          <svg v-if="!showSearchBar" viewBox="0 0 20 20" class="search-icon" v-on:click="toggleSearch()">
             <path d="M12.906 14.32a8 8 0 111.414-1.414l5.337 5.337-1.414 1.414-5.337-5.337zM8 14A6 6 0 108 2a6 6 0 000 12z"/>
           </svg>
-          <svg v-if="showSearchBar" viewBox="0 0 352 512" class="search-icon" @click="showSearchBar = !showSearchBar">
+          <svg v-if="showSearchBar" viewBox="0 0 352 512" class="search-icon" v-on:click="toggleSearch()">
             <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/>
           </svg>
         </div>
-        <div class="top-bar--collapse--search" :class="{active: showSearchBar}">
-          <form id="form_search" method="get" action="/search/" name="form_search">
-            <input type="text" name="stq" autocomplete="off" id="st-search-input-auto" placeholder="Search" class="st-search-input"> 
-            <input type="submit" name="submit" id="st-search-submit-go" value="GO">
-          </form>
-        </div>
+        
         <div class="top-bar--collapse--links">
           <ul class="menu">
             <li v-for="(link, index) in $themeConfig.primary_nav" :key="index" :class="{'hasSubMenu': link.children}">
@@ -59,6 +54,15 @@
       return {
         topBarCollapsed: true,
         showSearchBar: false
+      }
+    },
+
+    // define methods under the `methods` object
+    methods: {
+      // Toggle Search Bar & Icon + Emit event to Search.vue
+      toggleSearch: function () {
+        this.showSearchBar = !this.showSearchBar
+        this.$root.$emit('showSearchBar', this.showSearchBar);
       }
     }
   }
