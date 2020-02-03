@@ -9,7 +9,12 @@
                 <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/>
             </svg>
 
-            <router-link :to="link.link" @click="setData">{{link.title}}</router-link>
+            <div v-if="link.path">
+                <router-link :to="link.path" @click="setData" :class="{'router-link-active': imActive, 'router-link-exact-active': imActive}">{{link.title}}</router-link>
+            </div>
+            <div v-else>
+                <div class="is-link" @click="iHaveChildrenActive = !iHaveChildrenActive">{{link.title}}</div>
+            </div>
         </div>
 
         <ul v-if="link.subLinks" class="sections" v-show="iHaveChildrenActive || imActive">
@@ -36,18 +41,34 @@ export default {
     },
     watch: {
         '$route': function() {
-            this.$nextTick(() => {
-                this.setData();
-            });
+            this.setData();
         }
     },
     methods: {
         setData: function() {
-            this.imActive = this.$page.regularPath == this.link.link;
-            this.iHaveChildrenActive = !!this.$children.find((child) => {
-                return child.imActive
+            this.imActive = false;
+            if(this.link.path) {
+                this.imActive = this.$page.regularPath == this.link.path;
+            }
+            if(this.link.activeCheck) {
+                this.imActive = this.$page.regularPath.includes(this.link.activeCheck);
+            }
+            this.$nextTick(() => {
+                this.iHaveChildrenActive = (this.$children || [] ).some((child) => {
+                    return child.imActive
+                });
             });
+        },
+        setSubnavOpen: function (link) {
+        if(this.subnavOpen == null || this.subnavOpen != link) {
+          this.subnavOpen = link
+          return
         }
+        if(this.subnavOpen == link) {
+          this.subnavOpen = null
+          return
+        }
+      }
     }
 }
 </script>

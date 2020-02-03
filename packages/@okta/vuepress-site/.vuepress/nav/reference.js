@@ -1,44 +1,45 @@
 // the navigation that is shown across the reference pages
 
 module.exports = [
-    { title: 'API Overview', link: '/docs/reference/api-overview/' },
-    { title: 'Sign in Your Users', link: '/docs/reference/api/oidc/', subLinksId: 'Sidebar_References', subLinks: [
-      { title: 'OpenID Connect & OAuth 2.0 API', link: '/docs/reference/api/oidc/'},
-      { title: 'Authentication', link: '/docs/reference/api/authn/'}
+    { title: 'References' },
+    { title: 'API Overview', path: '/docs/reference/api-overview/' },
+    { title: 'Sign in Your Users', subLinks: [
+      { title: 'OpenID Connect & OAuth 2.0 API', path: '/docs/reference/api/oidc/'},
+      { title: 'Authentication', path: '/docs/reference/api/authn/'}
     ]
     },
-    { title: 'Manage Okta Resources', link: '/docs/reference/api/roles/',  subLinksId: 'Sidebar_Resources',  subLinks: [
-        { title: 'Administrator Roles', link: '/docs/reference/api/roles/'},
-        { title: 'Apps', link: '/docs/reference/api/apps/'},
-        { title: 'Authorization Servers', link: '/docs/reference/api/authorization-servers/'},
-        { title: 'Dynamic Client Registration', link: '/docs/reference/api/oauth-clients/'},
-        { title: 'Event Hooks', link: '/docs/reference/api/event-hooks/'},
-        { title: 'Factors', link: '/docs/reference/api/factors/'},
-        { title: 'Features', link: '/docs/reference/api/features/'},
-        { title: 'Groups', link: '/docs/reference/api/groups/'},
-        { title: 'Identity Providers', link: '/docs/reference/api/idps/'},
-        { title: 'Inline Hooks', link: '/docs/reference/api/inline-hooks/'},
-        { title: 'Linked Objects', link: '/docs/reference/api/linked-objects/'},
-        { title: 'Policy', link: '/docs/reference/api/policy/'},
-        { title: 'Schemas', link: '/docs/reference/api/schemas/'},
-        { title: 'Sessions', link: '/docs/reference/api/sessions/'},
-        { title: 'System Log', link: '/docs/reference/api/system-log/'},
-        { title: 'Templates', link: '/docs/reference/api/templates/'},
-        { title: 'Trusted Origins', link: '/docs/reference/api/trusted-origins/'},
-        { title: 'User Types', link: '/docs/reference/api/user-types/'},
-        { title: 'Users', link: '/docs/reference/api/users/'},
-        { title: 'Zones', link: '/docs/reference/api/zones/'}
+    { title: 'Manage Okta Resources', subLinks: [
+        { title: 'Administrator Roles', path: '/docs/reference/api/roles/'},
+        { title: 'Apps', path: '/docs/reference/api/apps/'},
+        { title: 'Authorization Servers', path: '/docs/reference/api/authorization-servers/'},
+        { title: 'Dynamic Client Registration', path: '/docs/reference/api/oauth-clients/'},
+        { title: 'Event Hooks', path: '/docs/reference/api/event-hooks/'},
+        { title: 'Factors', path: '/docs/reference/api/factors/'},
+        { title: 'Features', path: '/docs/reference/api/features/'},
+        { title: 'Groups', path: '/docs/reference/api/groups/'},
+        { title: 'Identity Providers', path: '/docs/reference/api/idps/'},
+        { title: 'Inline Hooks', path: '/docs/reference/api/inline-hooks/'},
+        { title: 'Linked Objects', path: '/docs/reference/api/linked-objects/'},
+        { title: 'Policy', path: '/docs/reference/api/policy/'},
+        { title: 'Schemas', path: '/docs/reference/api/schemas/'},
+        { title: 'Sessions', path: '/docs/reference/api/sessions/'},
+        { title: 'System Log', path: '/docs/reference/api/system-log/'},
+        { title: 'Templates', path: '/docs/reference/api/templates/'},
+        { title: 'Trusted Origins', path: '/docs/reference/api/trusted-origins/'},
+        { title: 'User Types', path: '/docs/reference/api/user-types/'},
+        { title: 'Users', path: '/docs/reference/api/users/'},
+        { title: 'Zones', path: '/docs/reference/api/zones/'}
       ]
     },
-    { title: 'Error Codes', link: '/docs/reference/error-codes/'},
-    { title: 'Import Hook', link: '/docs/reference/import-hook/'},
-    { title: 'SAML Hook', link: '/docs/reference/saml-hook/'},
-    { title: 'Registration Hook', link: '/docs/reference/registration-hook/'},
-    { title: 'Token Hook', link: '/docs/reference/token-hook/'},
-    { title: 'Okta Expression Language', link: '/docs/reference/okta-expression-language/'},
-    { title: 'Postman Collections', link: '/docs/reference/postman-collections/'},
-    { title: 'Rate Limits', link: '/docs/reference/rate-limits/'},
-    { title: 'Release Life Cycle', link: '/docs/reference/releases-at-okta/'},
-    { title: 'SCIM Protocol', link: '/docs/reference/scim/'},
-    { title: 'WebFinger', link: '/docs/reference/webfinger/'}
+    { title: 'Error Codes', path: '/docs/reference/error-codes/'},
+    { title: 'Import Hook', path: '/docs/reference/import-hook/'},
+    { title: 'SAML Hook', path: '/docs/reference/saml-hook/'},
+    { title: 'Registration Hook', path: '/docs/reference/registration-hook/'},
+    { title: 'Token Hook', path: '/docs/reference/token-hook/'},
+    { title: 'Okta Expression Language', path: '/docs/reference/okta-expression-language/'},
+    { title: 'Postman Collections', path: '/docs/reference/postman-collections/'},
+    { title: 'Rate Limits', path: '/docs/reference/rate-limits/'},
+    { title: 'Release Life Cycle', path: '/docs/reference/releases-at-okta/'},
+    { title: 'SCIM Protocol', path: '/docs/reference/scim/'},
+    { title: 'WebFinger', path: '/docs/reference/webfinger/'}
   ]
