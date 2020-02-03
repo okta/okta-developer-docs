@@ -213,7 +213,9 @@ curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 
 <ApiOperation method="POST" url="/api/v1/meta/types/user/{typeId}" />
 
-Updates an existing User Type. A PUT is a full replace operation; a POST is a partial update. Only the `displayName` and `description` elements can be changed. The schema associated with this type is not editable with this API. If you want to edit the schema, use the [schema update API](/docs/reference/api/schemas/#add-property-to-user-profile-schema).
+Updates an existing User Type. A PUT is a full replace operation; a POST is a partial update. Only the `displayName` and `description` elements can be changed; the `name` of an existing User Type cannot be changed.
+
+The schema associated with this type is not editable with this API. If you want to edit the schema, use the [schema update API](/docs/reference/api/schemas/#add-property-to-user-profile-schema).
 
 ##### Request Parameters
 
