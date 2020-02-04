@@ -14,7 +14,7 @@ module.exports = {
     ['link', { rel: 'icon', type:"image/png", sizes:"16x16",  href: '/favicon/favicon-16x16.png' }],
     ['link', { rel: 'manifest',  href: '/favicon/manifest.json' }],
     ['link', { rel: 'mask-icon',  href: '/favicon/safari-pinned-tab.svg' }],
-    ['script', { src: "https://developer.okta.com/sites/all/modules/okta_coveo_search_developer/js/lib/CoveoJsSearch.Lazy.min.js?20200128", defer: true}],
+    ['script', { src: "https://developer.okta.com/sites/all/modules/okta_coveo_search_developer/js/lib/CoveoJsSearch.Lazy.min.js?20200228", defer: true}],
     ['link', { rel: 'preload', href: 'https://use.typekit.net/osg6paw.css', as: 'style', crossorigin: true}],
     ['link', { rel: 'stylesheet', href: 'https://use.typekit.net/osg6paw.css', crossorigin: true}],
     ['link', { rel: 'stylesheet', href: 'https://developer.okta.com/sites/all/themes/developer/css/master.css' }],
