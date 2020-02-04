@@ -1374,6 +1374,7 @@ Use an ID lookup for records that you update to ensure your results contain the 
    - `sortBy` can be any single property, for example `sortBy=profile.lastName`
    - `sortOrder` is optional and defaults to ascending
    - `sortOrder` is ignored if `sortBy` is not present
+   - Users with the same value for the `sortBy` property will be ordered by `id`
    
 > **Note:** Searches that include a `sortBy` parameter may be slower.  As with other queries, even with pagination the results are limited to the 50000 users who come first according to the sort order.
 
