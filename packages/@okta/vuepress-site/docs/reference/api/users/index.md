@@ -1361,7 +1361,7 @@ Property names in the search parameter are case sensitive, whereas operators (`e
 
 This operation:
 
-* Supports pagination (to a maximum of 50000 results; see note below).
+* Supports [pagination](/docs/reference/api-overview/#pagination).
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
 For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
 Examples use cURL-style escaping instead of URL encoding to make them easier to read.
@@ -1375,8 +1375,6 @@ Use an ID lookup for records that you update to ensure your results contain the 
    - `sortOrder` is optional and defaults to ascending
    - `sortOrder` is ignored if `sortBy` is not present
    - Users with the same value for the `sortBy` property will be ordered by `id`
-   
-> **Note:** Searches that include a `sortBy` parameter may be slower.  As with other queries, even with pagination the results are limited to the 50000 users who come first according to the sort order.
 
 | Search Term Example                             | Description                                     |
 | :---------------------------------------------- | :---------------------------------------------- |
