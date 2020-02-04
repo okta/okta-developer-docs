@@ -29,7 +29,7 @@
     mounted() {
       // Mount Coveo after page load
       let coveoScript = document.createElement('script')
-      coveoScript.setAttribute('src', 'https://developer.okta.com/sites/all/modules/okta_coveo_search_developer/js/okta_coveo_search_developer.js?20200128')
+      coveoScript.setAttribute('src', 'https://developer.okta.com/sites/all/modules/okta_coveo_search_developer/js/okta_coveo_search_developer.js?20200204')
       document.head.appendChild(coveoScript)
       window.addEventListener("load", function(event) {
         window.document.dispatchEvent(new Event("developerLoaded", {
