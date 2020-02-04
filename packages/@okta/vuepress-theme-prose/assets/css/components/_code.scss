@@ -5,7 +5,7 @@
   margin-bottom: $base-spacing;
 }
 
-:not(pre)>code {
+:not([class*=language-])>code {
   border-radius: 2px;
   border: 1px solid cv('gray', '200');
   white-space: normal;
