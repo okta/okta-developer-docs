@@ -21,7 +21,7 @@
   .tree-nav {
     width: 18%;
     @include media('>=tablet') {
-      min-width: 230px;
+      width: 18rem;
     }
     
     @include media('<tablet') {
@@ -101,7 +101,7 @@
   .on-this-page {
     width: 18%;
     @include media('>=tablet') {
-      min-width: 230px;
+      width: 18rem;
     }
     @include media('<tablet') {
       display: none;
