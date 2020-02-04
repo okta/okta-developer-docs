@@ -16,6 +16,15 @@ Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/bu
 
 ## Role Assignment Operations
 
+### Grant Third-Party admin status
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="post" url="/api/v1/users/${userId}/roles?disableNotifications=true" />
+
+You can grant third-party admin status when you are adding a new admin using the API. You can do this by using an optional query parameter on the Administrator Roles API called `disableNotifications`.
+
+When this setting is enabled, the admins will not receive any of the default Okta administrator emails. These admins will also not have access to contact Okta Support and open support cases on behalf of your org.
+
 ### List Roles
 
 #### List Roles Assigned to User
