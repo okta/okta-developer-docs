@@ -34,7 +34,7 @@ The [User Types API](/docs/reference/api/user-types/) is in General Availability
 
 ### SAML Assertion Inline Hook Now Supports URI Formatting in Claims
 
-Okta now supports URI claims with the [SAML Assertion Inline Hook](/docs/reference/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. This replaces `~` with `~0` and `/` with `~1`. <!--OKTA-266619-->
+Okta now supports URI claims with the [SAML Assertion Inline Hook](/docs/reference/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
 
 ### Support Added in Get User API for Sort Parameters
 
