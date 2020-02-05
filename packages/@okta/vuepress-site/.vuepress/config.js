@@ -17,7 +17,6 @@ module.exports = {
     ['script', { src: "https://developer.okta.com/sites/all/modules/okta_coveo_search_developer/js/lib/CoveoJsSearch.Lazy.min.js?20200228", defer: true}],
     ['link', { rel: 'preload', href: 'https://use.typekit.net/osg6paw.css', as: 'style', crossorigin: true}],
     ['link', { rel: 'stylesheet', href: 'https://use.typekit.net/osg6paw.css', crossorigin: true}],
-    ['link', { rel: 'stylesheet', href: 'https://developer.okta.com/sites/all/themes/developer/css/master.css' }],
     ['link', { rel: 'stylesheet', href: 'https://developer.okta.com/sites/all/modules/okta_coveo_search_developer/css/okta_coveo_search_developer.css?20200128' }],
     ['meta', { name: 'msapplication-config',  content: '/favicon/browserconfig.xml' }],
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
