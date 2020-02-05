@@ -47,11 +47,11 @@ Okta requires that all SCIM applications in the OIN catalog support all of the f
 - `https://system-admin.trexcloud.com/admin/app/cpc/{appName}/oauth/callback`
 - `http://system-admin.okta1.com:1802/admin/app/cpc/{appName}/oauth/callback`
 
-where the `{appName}` is a unique identifier provided to you after your integration is submitted and processed by Okta.
+where the `{appName}` is a unique identifier provided to you after your integration is submitted and processed by Okta. If, for any reason, your unique `{appName}` identifier isn't provided to you after the initial review, send an email to <developers@okta.com>.
 
 ### Base URL
 
-You can choose any Base URL for your API endpoint. Note that a Base URL cannot contain the underscore `_` character.
+You can choose any Base URL for your API endpoint. Note that a Base URL can't contain the underscore `_` character.
 
 If you are implementing a new SCIM API, we suggest using `/scim/v2/` as your Base URL. For example: `https://example.com/scim/v2/`.
 
@@ -67,7 +67,7 @@ You can pass a Base URL containing the name of the org:
 - `https://company-b.example.com/scim/v2`
 - `https://company-c.example.com/scim/v2`
 
-On your SCIM server, you can read which subdomain the request is coming from and route the request to the appropriate Okta org.
+On your SCIM server, you can read which subdomain the request is coming from and route the request to the appropriate tenant for the Okta org.
 
 ### Basic User Schema
 
@@ -78,7 +78,7 @@ Okta requires that your SCIM implementation be able to store the following four 
 - Last Name: `name.familyName`
 - Email: `emails`
 
->**Note:** Keep your User ID value distinct from the user's email address. Many systems use an email address as a user identifier, but this is not recommended, as email addresses often change. Using a distinct User ID to identify user resources prevents future issues.
+>**Note:** Keep your User ID value distinct from the user's email address. Many systems use an email address as a user identifier, but this isn't recommended, as email addresses often change. Using a distinct User ID to identify user resources prevents future issues.
 
 Note that Okta supports more than those four user attributes. However, these are the base attributes that you must support.  The full schema of user attributes supported by SCIM 2.0 is described in [section 4 of RFC 7643](https://tools.ietf.org/html/rfc7643#section-4).
 

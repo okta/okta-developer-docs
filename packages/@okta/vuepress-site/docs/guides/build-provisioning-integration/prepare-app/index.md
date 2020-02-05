@@ -4,7 +4,7 @@ title: Integrate your SCIM service with an Okta app
 
 After you have a SCIM implementation that passes all of the Runscope tests, you need to create your SCIM integration directly within Okta.
 
-Begin by signing up for an [Okta developer account](https://www.okta.com/integrate/signup/).
+Begin by signing up for an [Okta developer account](https://developer.okta.com/signup/).
 
 1. After you request the developer account and have received the initial email, open the link to your developer org.
 1. Navigate to the Developer Console in your Okta org by clicking **Admin**.
@@ -35,7 +35,7 @@ Begin by signing up for an [Okta developer account](https://www.okta.com/integra
 <!-- Saving these instructions for when we switch over to the Okta App Integration Wizard
 1. Click **Add Application** to open the OIN App Catalog.
 1. Click **Create New App** to start the Application Integration Wizard.
-Select the type of app you want to create, choosing either **SWA** or **SAML 2.0**. To decide which option is right for you, see the [Overview of Managing Apps and SSO](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Overview_of_Managing_Apps_and_SSO) topic in the Okta product documentation. Adding SCIM provisioning to an app that uses the OpenID Connect (OIDC) sign-on mode is not supported.
+Select the type of app you want to create, choosing either **SWA** or **SAML 2.0**. To decide which option is right for you, see the [Overview of Managing Apps and SSO](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Overview_of_Managing_Apps_and_SSO) topic in the Okta product documentation. Adding SCIM provisioning to an app that uses the OpenID Connect (OIDC) sign-on mode isn't supported.
 
     >**Note:** A detailed description of creating SWA and SAML applications is available in the [Using the App Integration Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard) topic in the Okta product documentation.
 
