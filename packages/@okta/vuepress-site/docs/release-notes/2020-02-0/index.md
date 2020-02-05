@@ -16,7 +16,7 @@ title: Okta API Products Release Notes
 | [Rate Limits for OAuth 2.0 Endpoints in Production](#rate-limits-for-oauth-2-0-endpoints-in-production)                                                                                       | n/a                      |
 | [Bugs Fixed in 2020.02.0](#bugs-fixed-in-2020-02-0)                                                                                                               | February 5, 2020         |
 
-### Password Import Inline Hooks is General Availability in Preview and Production
+### Password Import Inline Hook is General Availability in Preview and Production
 
 The [Password Import Inline Hook](/docs/reference/password-hook/) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
 
