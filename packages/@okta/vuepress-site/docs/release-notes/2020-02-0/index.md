@@ -13,7 +13,7 @@ title: Okta API Products Release Notes
 | [SAML Assertion Inline Hook Now Supports URI Formatting in Claims](#saml-assertion-inline-hook-now-supports-uri-formatting-in-claims)                             | February 5, 2020         |
 | [Support Added in Get User API for Sort Parameters](#support-added-in-get-user-api-for-sort-parameters)                                                           | February 5, 2020         |
 | [Apps API Support for Custom SAML Attribute Statements](#apps-api-support-for-custom-saml-attribute-statements)                                                   | February 5, 2020         |
-| [Rate Limits for OAuth 2.0 endpoints](#rate-limits-for-oauth-2-0-endpoints)                                                                                       | n/a                      |
+| [Rate Limits for OAuth 2.0 Endpoints in Production](#rate-limits-for-oauth-2-0-endpoints-in-production)                                                                                       | n/a                      |
 | [Bugs Fixed in 2020.02.0](#bugs-fixed-in-2020-02-0)                                                                                                               | February 5, 2020         |
 
 ### Password Import Inline Hooks is General Availability in Preview and Production
@@ -44,7 +44,7 @@ The [Get User API](/docs/reference/api/users/#get-user) now supports `sortBy` an
 
 The [Apps API](/docs/reference/api/apps/) now supports specifying SAML attribute statements for SAML 2.0 apps. <!--OKTA-275379-->
 
-### Rate Limits for OAuth 2.0 endpoints
+### Rate Limits for OAuth 2.0 Endpoints in Production
 
 [Rate limiting](/docs/reference/rate-limits/#okta-api-endpoints-and-per-minute-limits) has been modified for OAuth 2.0 endpoints in Production orgs so that requests that use an invalid client ID don't consume the rate limit. A System Log warning has also been introduced for high rate limit consumption by requests that use a valid client ID. <!--OKTA-27534-->
 
