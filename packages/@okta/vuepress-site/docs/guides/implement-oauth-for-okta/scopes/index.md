@@ -32,6 +32,8 @@ The following table shows the scopes that are currently available as a part of E
 | `okta.users.read`        | Allows the app to read any user's profile and credential information      | [Users API](/docs/reference/api/users/#user-operations), [User Lifecycle Operations](/docs/reference/api/users/#lifecycle-operations), [User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations) |
 | `okta.users.manage.self` | Allows the app to manage the currently signed-in user's profile. Currently only supports user profile attribute updates. |   |
 | `okta.users.read.self`   | Allows the app to read the currently signed-in user's profile and credential information| [Users API](/docs/reference/api/users/#get-current-user) |
+| `okta.policies.manage`    | Allows the app to manage Policies in your Okta organization   | [Policy API](/docs/reference/api/policy/#policy-api-operations)|
+| `okta.policies.read`      | Allows the app to read information about Policies in your Okta organization| [Policy API](/docs/reference/api/policy/#policy-api-operations)|
 
 ## Scope Naming
 
