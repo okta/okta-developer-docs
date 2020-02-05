@@ -6,17 +6,17 @@ title: Okta API Products Release Notes
 
 | Change                                                                                                                                                | Expected in Preview Orgs |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| [Password Import Inline Hooks is General Access in Preview and Production](#password-import-inline-hooks-is-general-access-in-preview-and-production) | February 5, 2020         |
+| [Password Import Inline Hooks is General Availability in Preview and Production](#password-import-inline-hooks-is-general-availability-in-preview-and-production) | February 5, 2020         |
 | [OAuth for Okta Enabled for User Consent Grant Operations](#oauth-for-okta-enabled-for-user-consent-grant-operations)                                 | February 5, 2020         |
 | [OAuth for Okta Enabled for Policy API](#oauth-for-okta-enabled-for-policy-api)                                                                       | February 5, 2020         |
-| [User Types API in General Access in Preview](#user-types-api-in-general-access-in-preview)                                                           | February 5, 2020         |
+| [User Types API in General Availability in Preview](#user-types-api-in-general-availability-in-preview)                                                           | February 5, 2020         |
 | [SAML Assertion Inline Hook Now Supports URI Formatting in Claims](#saml-assertion-inline-hook-now-supports-uri-formatting-in-claims)                 | February 5, 2020         |
 | [Support Added in Get User API for Sort Parameters](#support-added-in-get-user-api-for-sort-parameters)                                               | February 5, 2020         |
 | [Apps API Support for Custom SAML Attribute Statements](#apps-api-support-for-custom-saml-attribute-statements)                                       | February 5, 2020         |
 | [Rate Limits for /oauth2 endpoints](#rate-limits-for-oauth2-endpoints)                                                                                | n/a                      |
 | [Bugs Fixed in 2020.02.0](#bugs-fixed-in-2020-02-0)                                                                                                   | February 5, 2020         |
 
-### Password Import Inline Hooks is General Access in Preview and Production
+### Password Import Inline Hooks is General Availability in Preview and Production
 
 The [Password Import Inline Hook](/docs/reference/password-hook/) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
 
@@ -28,9 +28,9 @@ The [Password Import Inline Hook](/docs/reference/password-hook/) lets you inter
 
 The [Policy API](/docs/reference/api/policy/) now has OAuth for Okta enabled. <!--OKTA-272595-->
 
-### User Types API in General Access in Preview
+### User Types API in General Availability in Preview
 
-The [User Types API](/docs/reference/api/user-types/) is in General Access (GA) in Preview. <!--OKTA-275379-->
+The [User Types API](/docs/reference/api/user-types/) is in General Availability (GA) in Preview. <!--OKTA-275379-->
 
 ### SAML Assertion Inline Hook Now Supports URI Formatting in Claims
 
