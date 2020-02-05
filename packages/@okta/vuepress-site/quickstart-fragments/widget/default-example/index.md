@@ -76,7 +76,7 @@ Then copy this widget configuration into your front-end application:
     baseUrl: 'https://{yourOktaDomain}',
     clientId: '{yourClientId}',
     authParams: {
-      issuer: 'default',
+      issuer: 'https://${yourOktaDomain}/oauth2/default',
       responseType: ['token', 'id_token'],
       display: 'page'
     }
@@ -98,9 +98,6 @@ Then copy this widget configuration into your front-end application:
         oktaSignIn.authClient.tokenManager.get('idToken').then(function (idToken) {
           console.log('Hello, ' + idToken.claims.email);
         });
-
-        // Remove the tokens from the window location hash
-        window.location.hash = '';
       },
       function error(err) {
         // handle errors as needed
@@ -166,7 +163,7 @@ If you want to use Auth Code Flow with PKCE, that's possible too.
         });
 
         // Say hello to the person who just signed in
-        oktaSignIn.authClient.tokenManager.get('idToken').then(idToken => {
+        oktaSignIn.authClient.tokenManager.get('idToken').then(function (idToken) {
           console.log(`Hello, ${idToken.claims.name} (${idToken.claims.email})`);
         });
       }).catch(error => console.error(error));
