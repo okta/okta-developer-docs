@@ -22,11 +22,11 @@ The [Password Import Inline Hook](/docs/reference/password-hook/) lets you inter
 
 ### OAuth for Okta Enabled for User Consent Grant Operations
 
-[User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations) now have OAuth for Okta enabled. <!--OKTA-254864-->
+[User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations) now have [OAuth for Okta](/docs/guides/implement-oauth-for-okta/overview/) enabled. <!--OKTA-254864-->
 
 ### OAuth for Okta Enabled for Policy API
 
-The [Policy API](/docs/reference/api/policy/) now has OAuth for Okta enabled. <!--OKTA-272595-->
+The [Policy API](/docs/reference/api/policy/) now has [OAuth for Okta](/docs/guides/implement-oauth-for-okta/overview/) enabled. <!--OKTA-272595-->
 
 ### User Types API in General Availability in Preview
 
@@ -34,7 +34,7 @@ The [User Types API](/docs/reference/api/user-types/) is in General Availability
 
 ### SAML Assertion Inline Hook Now Supports URI Formatting in Claims
 
-Okta now supports URI claims with the [SAML Assertion Inline Hook](/docs/reference/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901) specification. This replaces `~` with `~0` and `/` with `~1`. <!--OKTA-266619-->
+Okta now supports URI claims with the [SAML Assertion Inline Hook](/docs/reference/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. This replaces `~` with `~0` and `/` with `~1`. <!--OKTA-266619-->
 
 ### Support Added in Get User API for Sort Parameters
 
@@ -46,7 +46,7 @@ The [Apps API](/docs/reference/api/apps/) now supports specifying SAML attribute
 
 ### Rate Limits for OAuth 2.0 endpoints
 
-[Rate limiting](/docs/reference/rate-limits/) has been modified for OAuth 2.0 endpoints in Production orgs so that requests that use an invalid client ID don't consume the rate limit. A System Log warning has also been introduced for high rate limit consumption by requests that use a valid client ID. <!--OKTA-27534-->
+[Rate limiting](/docs/reference/rate-limits/#okta-api-endpoints-and-per-minute-limits) has been modified for OAuth 2.0 endpoints in Production orgs so that requests that use an invalid client ID don't consume the rate limit. A System Log warning has also been introduced for high rate limit consumption by requests that use a valid client ID. <!--OKTA-27534-->
 
 ### Bugs Fixed in 2020.02.0
 
