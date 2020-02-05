@@ -3015,6 +3015,8 @@ HTTP/1.1 200 OK
 
 Adds a new X.509 certificate credential to the IdP key store
 
+> **Note:** Okta currently supports only RSA-based certificates.
+
 ##### Request Parameters
 
 
