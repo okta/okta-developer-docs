@@ -6,7 +6,7 @@ title: Okta API Products Release Notes
 
 | Change                                                                                                                                                            | Expected in Preview Orgs |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| [Password Import Inline Hooks in General Availability in Preview and Production](#password-import-inline-hooks-in-general-availability-in-preview-and-production) | February 5, 2020         |
+| [Password Import Inline Hook in General Availability in Preview and Production](#password-import-inline-hook-in-general-availability-in-preview-and-production) | February 5, 2020         |
 | [OAuth for Okta Enabled for User Consent Grant Operations](#oauth-for-okta-enabled-for-user-consent-grant-operations)                                             | February 5, 2020         |
 | [OAuth for Okta Enabled for Policy API](#oauth-for-okta-enabled-for-policy-api)                                                                                   | February 5, 2020         |
 | [User Types API in General Availability in Preview](#user-types-api-in-general-availability-in-preview)                                                           | February 5, 2020         |
