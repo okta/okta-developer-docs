@@ -1000,7 +1000,7 @@ A subset of users can be returned that match a supported filter expression or se
 ##### Request Parameters
 
 
-The last three parameters correspond to different types of lists:
+The first three parameters in the table below correspond to different types of lists:
 
 - [List All Users](#list-all-users) (no parameters)
 - [Find Users](#find-users) (`q`)
@@ -1014,6 +1014,8 @@ The last three parameters correspond to different types of lists:
 | search      | Searches for users with a supported [filtering](/docs/reference/api-overview/#filtering) expression for most properties          | Query        | String     | FALSE    |
 | limit       | Specifies the number of results returned (maximum 200)                                                                                         | Query        | Number     | FALSE    |
 | after       | Specifies the pagination cursor for the next page of users                                                                                     | Query        | String     | FALSE    |
+| sortBy      | Specifies field to sort by (for search queries only)                                                                                           | Search query | String     | FALSE    |
+| sortOrder   | Specifies sort order asc or desc (for search queries only)                                                                                     | Search query | String     | FALSE    |
 
   * If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
   * An HTTP 500 status code usually indicates that you have exceeded the request timeout.  Retry your request with a smaller limit and paginate the results. For more information, see [Pagination](/docs/reference/api-overview/#pagination).
@@ -1359,7 +1361,7 @@ Property names in the search parameter are case sensitive, whereas operators (`e
 
 This operation:
 
-* Supports pagination (to a maximum of 50000 results; see note below).
+* Supports [pagination](/docs/reference/api-overview/#pagination).
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
 For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
 Examples use cURL-style escaping instead of URL encoding to make them easier to read.
@@ -1368,6 +1370,11 @@ Use an ID lookup for records that you update to ensure your results contain the 
    - Any user profile property, including custom-defined properties
    - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged` and `lastUpdated`
    - The <ApiLifecycle access="ea" /> [User Type](/docs/reference/api/user-types), accessed as `type.id`
+* Accepts `sortBy` and `sortOrder` parameters.
+   - `sortBy` can be any single property, for example `sortBy=profile.lastName`
+   - `sortOrder` is optional and defaults to ascending
+   - `sortOrder` is ignored if `sortBy` is not present
+   - Users with the same value for the `sortBy` property will be ordered by `id`
 
 | Search Term Example                             | Description                                     |
 | :---------------------------------------------- | :---------------------------------------------- |
