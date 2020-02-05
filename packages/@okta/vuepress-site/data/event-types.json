@@ -14464,22 +14464,6 @@
         "targets" : null
       }
     }, {
-      "id" : "security.internal.authentication",
-      "category" : "adaptive",
-      "description" : "",
-      "info" : {
-        "created" : null,
-        "release" : null
-      },
-      "beta" : false,
-      "tags" : [ "security" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null
-      }
-    }, {
       "id" : "security.origin.auto_whitelisted",
       "category" : "cred-platform",
       "description" : "A new origin (redirectUrl) was automatically whitelisted. This can be used to monitor when trusted origins are dynamically added to your tenant by Okta. This is a temporary event, which will be used by the subset of tenants who get the dynamic whitelisting functionality prior to having the enforcement of Trusted Origins whitelists enabled.",
@@ -14490,22 +14474,6 @@
       "beta" : true,
       "tags" : [ "unconfigured-origin-usage" ],
       "mappings" : [ "security.origin.auto_whitelisted" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null
-      }
-    }, {
-      "id" : "security.password_spray.detected",
-      "category" : "adaptive",
-      "description" : "",
-      "info" : {
-        "created" : null,
-        "release" : null
-      },
-      "beta" : false,
-      "tags" : [ "password-spray" ],
-      "mappings" : [ ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
