@@ -26,11 +26,11 @@ The [Password Import Inline Hook](/docs/reference/password-hook/) lets you inter
 
 ### OAuth for Okta Enabled for Policy API
 
-The [Policy API](/docs/reference/api/policy/) now has OAuth for Okta enabled.
+The [Policy API](/docs/reference/api/policy/) now has OAuth for Okta enabled. <!--OKTA-272595-->
 
 ### User Types API in General Access in Preview
 
-The [User Types API](/docs/reference/api/user-types/) is in General Access (GA) in Preview.
+The [User Types API](/docs/reference/api/user-types/) is in General Access (GA) in Preview. <!--OKTA-275379-->
 
 ### SAML Assertion Inline Hook Now Supports URI Formatting in Claims
 
@@ -46,7 +46,7 @@ The [Apps API](/docs/reference/api/apps/) now supports specifying SAML attribute
 
 ### Rate Limits for /oauth2 endpoints
 
-[Rate limiting](/docs/reference/rate-limits/) has been modified for `/oauth2` endpoints in Production orgs so that requests that use an invalid client ID don't consume the rate limit. A System Log warning has also been introduced for high rate limit consumption by requests that use a valid client ID.
+[Rate limiting](/docs/reference/rate-limits/) has been modified for `/oauth2` endpoints in Production orgs so that requests that use an invalid client ID don't consume the rate limit. A System Log warning has also been introduced for high rate limit consumption by requests that use a valid client ID. <!--OKTA-27534-->
 
 ### Bugs Fixed in 2020.02.0
 
