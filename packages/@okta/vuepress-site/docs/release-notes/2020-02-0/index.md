@@ -11,7 +11,7 @@ title: Okta API Products Release Notes
 | [OAuth for Okta Enabled for Policy API](#oauth-for-okta-enabled-for-policy-api)                                                                                   | February 5, 2020         |
 | [User Types API in General Availability in Preview](#user-types-api-in-general-availability-in-preview)                                                           | February 5, 2020         |
 | [SAML Assertion Inline Hook Now Supports URI Formatting in Claims](#saml-assertion-inline-hook-now-supports-uri-formatting-in-claims)                             | February 5, 2020         |
-| [Support Added in Get User API for Sort Parameters](#support-added-in-get-user-api-for-sort-parameters)                                                           | February 5, 2020         |
+| [Support Added in List Users API for Sort Parameters](#support-added-in-list-users-api-for-sort-parameters)                                                           | February 5, 2020         |
 | [Apps API Support for Custom SAML Attribute Statements](#apps-api-support-for-custom-saml-attribute-statements)                                                   | February 5, 2020         |
 | [Rate Limits for OAuth 2.0 Endpoints in Production](#rate-limits-for-oauth-2-0-endpoints-in-production)                                                                                       | n/a                      |
 | [Bugs Fixed in 2020.02.0](#bugs-fixed-in-2020-02-0)                                                                                                               | February 5, 2020         |
@@ -36,9 +36,9 @@ The [User Types API](/docs/reference/api/user-types/) is in General Availability
 
 Okta now supports URI claims with the [SAML Assertion Inline Hook](/docs/reference/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
 
-### Support Added in Get User API for Sort Parameters
+### Support Added in List Users API for Sort Parameters
 
-The [Get User API](/docs/reference/api/users/#get-user) now supports `sortBy` and `sortOrder` parameters on `search` queries. <!--OKTA-270214-->
+The [List Users API](/docs/reference/api/users/#list-users) now supports `sortBy` and `sortOrder` parameters on `search` queries. <!--OKTA-270214-->
 
 ### Apps API Support for Custom SAML Attribute Statements
 
