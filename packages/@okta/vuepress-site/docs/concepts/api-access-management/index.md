@@ -141,7 +141,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 ##### Securing applications
 
 * Access tokens and refresh tokens are sensitive and should be protected as such. They should never be stored in client-side or frontend code.
-* A client (application) should never inspect the contents of an access token. For example, do not customize the client's UI based on scopes in the access token.
+* A client (application) should never inspect the contents of an access token. For example, do not customize the client's UI based on scopes in the access token. The access token isn't meant for the client to read, it's meant for the client to use. However, there is still a large amount of metadata that may be attached to a token, such as its current validity, approved scopes, and information about the context in which the token was issued. Use the [token introspect endpoint](/docs/reference/api/oidc/#introspect) to access this data.
 * Access tokens should be used exclusively via an HTTP Authorization header instead of encoded into a payload or URL that may be logged or cached.
 * A client secret is a password and should be treated and protected as such. Therefore, it shouldn't be embedded in mobile applications, frontend JavaScript applications, or any other scenario where an attacker could access it.
 * Avoid using the resource owner password grant type (`password`) except in legacy application or transitional scenarios. The authorization code, implicit, or hybrid grant types are recommended for most scenarios.
