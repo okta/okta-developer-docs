@@ -1508,7 +1508,7 @@ Fetches an application from your Okta organization by `id`
 
 ##### Response parameters
 
-Fetched [Application](#application-model)
+Fetched [application](#application-model)
 
 ##### Request example
 
@@ -2298,7 +2298,7 @@ Updates an application in your organization
 
 ##### Response parameters
 
-Updated [Application](#application-model)
+Updated [application](#application-model)
 
 #### Set SWA user-editable username & password
 
@@ -4114,12 +4114,12 @@ Generates a new X.509 certificate for an application key credential
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [Application](#application-model)                                 | URL        | String                                        | TRUE     |         |
-| validityYears | expiry of the [Application Key Credential](#application-key-credential-model)   | Query      | Number                                        | TRUE     |         |
+| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
+| validityYears | expiry of the [application key credential](#application-key-credential-model)   | Query      | Number                                        | TRUE     |         |
 
 ##### Response parameters
 
-Returns the generated [Application Key Credential](#application-key-credential-model)
+Returns the generated [application key credential](#application-key-credential-model)
 
 ##### Request example
 
@@ -4193,7 +4193,7 @@ For step-by-step instructions to clone a credential, see [Share application key 
 
 ##### Response parameters
 
-Returns the cloned [Application Key Credential](#application-key-credential-model)
+Returns the cloned [application key credential](#application-key-credential-model)
 
 ##### Request example
 
@@ -4257,11 +4257,11 @@ Enumerates key credentials for an application
 
 | Parameter     | Description                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [Application](#application-model) | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of [application](#application-model) | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Array of [Application Key Credential](#application-key-credential-model)
+Array of [application key credential](#application-key-credential-model)
 
 ##### Request example
 
@@ -4316,12 +4316,12 @@ Gets a specific [Application Key Credential](#application-key-credential-model) 
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [Application](#application-model)                                 | URL        | String                                        | TRUE     |         |
-| kid           | unique key of [Application Key Credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
+| kid           | unique key of [application key credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-[Application Key Credential](#application-key-credential-model).
+[Application key credential](#application-key-credential-model).
 
 ##### Request example
 
@@ -4361,8 +4361,8 @@ Previews SAML metadata based on a specific key credential for an application
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [Application](#application-model)                                 | URL        | String                                        | TRUE     |         |
-| kid           | unique key of [Application Key Credential](#application-key-credential-model)   | Query      | String                                        | TRUE     |         |
+| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
+| kid           | unique key of [application key credential](#application-key-credential-model)   | Query      | String                                        | TRUE     |         |
 
 ##### Response parameters
 
@@ -4427,7 +4427,7 @@ Generates a new key pair and returns the Certificate Signing Request for it
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [Application](#application-model)                                 | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
 | metadata      | Metadata for the CSR                                                            | Body       | [CSR Metadata](#csr-metadata-object)          | TRUE     |         |
 
 ##### Response parameters
@@ -4637,7 +4637,7 @@ Revokes a CSR and deletes the key pair from the application
 
 | Parameter     | Description                                       | Param Type | DataType | Required | Default |
 | ---------     | -----------------------------------------------   | ---------- | -------- | -------- | ------- |
-| applicationId | `id` of an [Application](#application-model)              | URL        | String   | TRUE     |         |
+| applicationId | `id` of an [application](#application-model)              | URL        | String   | TRUE     |         |
 | csrid         | unique key of [CSR model](#application-csr-model) | URL        | String   | TRUE     |         |
 
 ##### Response parameters
@@ -4670,7 +4670,7 @@ Enumerates CSRs for an application
 
 | Parameter     | Description                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [Application](#application-model) | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of [application](#application-model) | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
@@ -4753,7 +4753,7 @@ Gets a specific [CSR Model](#application-csr-model) by `csrid`
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [Application](#application-model)                                 | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
 | csrid         | unique key of [CSR Model](#application-csr-model)                               | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
