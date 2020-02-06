@@ -84,7 +84,7 @@ Then copy this widget configuration into your front-end application:
     oktaSignIn.authClient.token.parseFromUrl().then(function success(tokens) {
         // Save the tokens for later use, e.g. if the page gets refreshed:
         // Add the token to tokenManager to automatically renew the token when needed
-        tokens.forEach(token => {
+        tokens.forEach(function(token) {
           if (token.idToken) {
             oktaSignIn.authClient.tokenManager.add('idToken', token);
           }
@@ -151,8 +151,8 @@ If you want to use Auth Code Flow with PKCE, that's possible too.
       console.log('Welcome back, ' + res.login);
       oktaSignIn.authClient.token.getWithoutPrompt({
         scopes: ['openid', 'email', 'profile'],
-      }).then((tokens) => {
-        tokens.forEach(token => {
+      }).then(function(tokens) {
+        tokens.forEach(function(token) {
           if (token.idToken) {
             oktaSignIn.authClient.tokenManager.add('idToken', token);
           }
@@ -165,7 +165,9 @@ If you want to use Auth Code Flow with PKCE, that's possible too.
         oktaSignIn.authClient.tokenManager.get('idToken').then(function (idToken) {
           console.log(`Hello, ${idToken.claims.name} (${idToken.claims.email})`);
         });
-      }).catch(error => console.error(error));
+      }).catch(function(error) {
+        console.error(error)
+      });
       return;
     }
     // No session, show the login form
