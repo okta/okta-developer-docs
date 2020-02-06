@@ -211,10 +211,10 @@ curl -v -X POST \
 
 Creates a user without a [recovery question & answer](#recovery-question-object)
 
-The new user is able to login immediately after activation with the assigned password.
+The new user is able to sign in immediately after activation with the assigned password.
 This flow is common when developing a custom user registration experience.
 
-> Important: Do not generate or send a one-time activation token when activating users with an assigned password.  Users should login with their assigned password.
+> Important: Do not generate or send a one-time activation token when activating users with an assigned password.  Users should sign in with their assigned password.
 
 ##### Request Example
 
@@ -281,8 +281,8 @@ curl -v -X POST \
 
 Creates a user with a specified [hashed password](#hashed-password-object).
 
-The new user is able to login immediately after activation with the specified password.
-This flow is common when migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
+The new user is able to sign in immediately after activation with the specified password.
+This flow is common when migrating users from another data store in cases where we want to allow the users to retain their current passwords.
 
 > Important: Do not generate or send a one-time activation token when activating users with an imported password.  Users should login with their imported password.
 
@@ -356,12 +356,13 @@ curl -v -X POST \
 #### Create User with Password Import Inline Hook
 
 
-Creates a user with a [Password Hook](#password-hook-object) object specifying that a Password Inline Hook should be used to handle password verification. The Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to log in. Okta calls the Password Inline Hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password Import Inline Hook](/docs/reference/password-hook/) for more details.
+Creates a user with a [Password Hook](#password-hook-object) object specifying that a Password Inline Hook should be used to handle password verification.
 
-The new user is able to login immediately after activation with the valid password.
-This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
+The Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the Password Inline Hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password Import Inline Hook](/docs/reference/password-hook/) for more details.
 
-> Important: Do not generate or send a one-time activation token when activating users with an Password Inline Hook.  Users should log in with their existing password to be imported using the Password Import Inline Hook.
+The new user is able to sign in immediately after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
+
+> Important: Do not generate or send a one-time activation token when activating users with an Password Inline Hook.  Users should sign in with their existing password to be imported using the Password Import Inline Hook.
 
 ##### Request Example
 
