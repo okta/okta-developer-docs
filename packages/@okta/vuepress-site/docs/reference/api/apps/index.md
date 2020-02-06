@@ -225,7 +225,7 @@ curl -v -X POST \
 }
 ```
 
-#### Add SAML 2.0 Authentication Application
+#### Add SAML 2.0 Authentication application
 
 Adds a SAML 2.0 application instance
 
@@ -238,7 +238,7 @@ Adds a SAML 2.0 application instance
 | destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |                                           |
 | url       | The URL of the sign-in page for this app          | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -272,7 +272,7 @@ curl -X POST \
 }' "http://${yourOktaDomain}/api/v1/apps"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
