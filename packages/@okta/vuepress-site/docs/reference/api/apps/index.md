@@ -34,7 +34,7 @@ All responses return the created [application](#application-model).
 
 #### Add Bookmark application
 
-Adds an new Bookmark application to your organization
+Adds a new Bookmark application to your organization
 
 ##### Settings
 
@@ -130,7 +130,7 @@ curl -v -X POST \
 
 #### Add Basic Authentication application
 
-Adds an new application that uses HTTP Basic Authentication Scheme and requires a browser plugin
+Adds a new application that uses HTTP Basic Authentication Scheme and requires a browser plugin
 
 ##### Settings
 
@@ -1136,7 +1136,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | consent_method <ApiLifecycle access="ea" /> | Indicates whether user consent is required or implicit. Valid values: `REQUIRED`, `TRUSTED`. Default value is `TRUSTED`                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
 | grant_types                                 | Array of OAuth 2.0 grant type strings                                                                                                                                                                                      | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`   | FALSE      | FALSE    | TRUE       |
 | initiate_login_uri                          | URL string that a third party can use to initiate a sign in by the client                                                                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
-| issuer_mode <ApiLifecycle access="ea" />    | Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client. See [Credentials settings details](#credentials-settings-details). | `CUSTOM_URL` or `ORG_URL`                                                                      | TRUE       | FALSE    | TRUE       |
+| issuer_mode <ApiLifecycle access="ea" />    | Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client. See [Details](#details). | `CUSTOM_URL` or `ORG_URL`                                                                      | TRUE       | FALSE    | TRUE       |
 | logo_uri                                    | URL string that references a logo for the client. This value is automatically copied from any logo you provide in the App Wizard for **Application logo**, but can be changed to a different URI for consent.               | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | policy_uri <ApiLifecycle access="ea" />     | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | post_logout_redirect_uris                               | Array of redirection URI strings for relying party-initiated logouts                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | FALSE       |
@@ -1144,7 +1144,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | response_types                              | Array of OAuth 2.0 response type strings                                                                                                                                                                                   | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | TRUE       |
 | tos_uri <ApiLifecycle access="ea" />        | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 
-###### Credentials settings details
+###### Details
 
 * `issuer_mode` <ApiLifecycle access="ea" /> is visible if the Custom URL Domain feature is enabled. If the feature is enabled, you can set a custom domain URL in the settings for an OpenID Connect token in an app, and this property is returned in the appropriate responses. After the feature is enabled, the default value for new apps is `CUSTOM_URL`. For existing apps, the default remains `ORG_URL`. You can change the value using the API or administrator user interface. To enable the Custom URL Domain feature, contact [Support](https://support.okta.com/help/open_case).
 * At least one redirect URI and response type is required for all client types, with exceptions: if the client uses the
@@ -2300,7 +2300,7 @@ Updates an application in your organization
 
 Updated [application](#application-model)
 
-#### Set SWA user-editable username & password
+#### Set SWA user-editable username and password
 
 Configures the `EDIT_USERNAME_AND_PASSWORD` scheme for a SWA application with a username template
 
@@ -3405,7 +3405,7 @@ Assigns a user without a [profile](#application-user-profile-object) to an appli
 
 > **Note:** Only the user's ID is required for the request body of applications with [SignOn Modes](#signon-modes) or [Authentication Schemes](#authentication-schemes) that don't require or support credentials.
 
-> **Note:** If your SSO application requires a profile but doesn't have provisioning enabled, you should add a profile to the request and use the [Assign user to application for SSO & provisioning](#assign-user-to-application-for-sso--provisioning) operation.
+> **Note:** If your SSO application requires a profile but doesn't have provisioning enabled, you should add a profile to the request and use the [Assign user to application for SSO and provisioning](#assign-user-to-application-for-sso-and-provisioning) operation.
 
 ##### Response parameters
 
@@ -3459,7 +3459,7 @@ curl -v -X POST \
 }
 ```
 
-### Assign user to application for SSO & provisioning
+### Assign user to application for SSO and provisioning
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/users" />
 
@@ -5170,10 +5170,10 @@ Applications have the following properties:
 | id                 | unique key for app                             | String                                                               | FALSE        | TRUE       | TRUE         |               |             |
 | label              | unique user-defined display name for app       | String                                                               | FALSE        | TRUE       | FALSE        | 1             | 100         |
 | lastUpdated        | timestamp when app was last updated            | Date                                                                 | FALSE        | FALSE      | TRUE         |               |             |
-| name               | unique key for app definition                  | String ([App Names & Settings](#app-names--settings))                | FALSE        | TRUE       | TRUE         | 1             | 255         |
+| name               | unique key for app definition                  | String ([App Names and Settings](#app-names-and-settings))                | FALSE        | TRUE       | TRUE         | 1             | 255         |
 | profile            | Valid JSON schema for specifying properties    | [JSON](#profile-object)                                              | TRUE         | FALSE      | FALSE        |               |             |
 | request_object_signing_alg| The type of JSON Web Key Set (JWKS) algorithm that must be used for signing request objects | `HS256`, `HS384`, `HS512`, `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`  | TRUE      | FALSE     | FALSE      |
-| settings           | settings for app                               | Object ([App Names & Settings](#app-names--settings))                | TRUE         | FALSE      | FALSE        |               |             |
+| settings           | settings for app                               | Object ([App Names and Settings](#app-names-and-settings))                | TRUE         | FALSE      | FALSE        |               |             |
 | signOnMode         | authentication mode of app                     | [SignOn Mode](#signon-modes)                                         | FALSE        | FALSE      | FALSE        |               |             |
 | status             | status of app                                  | `ACTIVE` or `INACTIVE`                                               | FALSE        | FALSE      | TRUE         |               |             |
 | visibility         | visibility settings for app                    | [Visibility Object](#visibility-object)                              | TRUE         | FALSE      | FALSE        |               |             |
@@ -5184,7 +5184,7 @@ Property details
  * `profile` is only available for OAuth 2.0 client apps. See [Profile Object](#profile-object).
  * When you specify a value for the `request_object_signing_alg` property, all request objects from the client are rejected if not signed with the specified algorithm. The algorithm must be used when the request object is passed by value (using the request parameter). If a value for `request_object_signing_alg` isn't specified, the default is any algorithm that is supported by both the client and the server.
 
-##### App names & settings
+##### App names and settings
 
 The Okta Integration Network (OIN) defines the catalog of applications that can be added to your Okta organization. Each application has a unique name (key) and schema that defines the required and optional settings for the application. When adding an application, you must specify the unique app name in the request as well as any required settings.
 
