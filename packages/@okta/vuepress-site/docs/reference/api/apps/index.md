@@ -4800,13 +4800,13 @@ curl -v -X GET \
 }
 ```
 
-## Application OAuth 2.0 Scope Consent Grant Operations
+## Application OAuth 2.0 scope consent grant operations
 
 <ApiLifecycle access="ea" />
 
 A scope consent grant represents an application's permission to request to include a specific Okta scope in OAuth 2.0 Bearer tokens. If the application does not have this grant, token requests that contain this Okta scope are denied.
 
-### Grant Consent to Scope for Application
+### Grant consent to scope for application
 
 <ApiLifecycle access="ea" />
 
@@ -4814,7 +4814,7 @@ A scope consent grant represents an application's permission to request to inclu
 
 Grants consent for the application to request an OAuth 2.0 Okta scope
 
-#### Request Parameters
+#### Request parameters
 
 | Parameter       | Description                                                                                              | Param Type   | DataType   | Required   | Default |
 | :-------------- | :------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
@@ -4823,7 +4823,7 @@ Grants consent for the application to request an OAuth 2.0 Okta scope
 | scopeId         | The [name of the Okta scope](/docs/guides/implement-oauth-for-okta/scopes/) for which consent is granted | Body         | String     | TRUE       |         |
 
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -v -X POST \
@@ -4836,7 +4836,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants"
 ```
 
-#### Response Example
+#### Response example
 
 ```json
 {
@@ -4880,7 +4880,7 @@ curl -v -X POST \
 ```
 
 
-### List Scope Consent Grants for Application
+### List scope consent grants for application
 
 <ApiLifecycle access="ea" />
 
@@ -4888,7 +4888,7 @@ curl -v -X POST \
 
 Lists all scope consent grants for the application
 
-#### Request Parameters
+#### Request parameters
 
 | Parameter       | Description                                                                                    | Param Type   | DataType   | Required   | Default |
 | :-------------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
@@ -4896,7 +4896,7 @@ Lists all scope consent grants for the application
 | expand          | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
 
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -v -X GET \
@@ -4906,7 +4906,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants"
 ```
 
-#### Response Example
+#### Response example
 
 ```json
 [
@@ -4980,7 +4980,7 @@ curl -v -X GET \
 
 ```
 
-### Get Scope Consent Grant for Application
+### Get scope consent grant for application
 
 <ApiLifecycle access="ea" />
 
@@ -4988,16 +4988,16 @@ curl -v -X GET \
 
 Fetches a single scope consent grant for the application
 
-#### Request Parameters
+#### Request parameters
 
 | Parameter       | Description                                                                                    | Param Type   | DataType   | Required   | Default |
 | :-------------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
 | applicationId   | ID of the application                                                                          | URL          | String     | TRUE       |         |
-| grantId         | ID of the scope consent grant                                                                  | URL          | String     | TRUE       |         |
 | expand          | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
+| grantId         | ID of the scope consent grant                                                                  | URL          | String     | TRUE       |         |
 
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -v -X GET \
@@ -5007,7 +5007,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/${grantId}"
 ```
 
-#### Response Example
+#### Response example
 
 ```json
 {
@@ -5051,7 +5051,7 @@ curl -v -X GET \
 
 ```
 
-### Revoke Scope Consent Grant for Application
+### Revoke scope consent grant for application
 
 <ApiLifecycle access="ea" />
 
@@ -5059,7 +5059,7 @@ curl -v -X GET \
 
 Revokes permission for the application to request the given scope
 
-#### Request Parameters
+#### Request parameters
 
 | Parameter       | Description                                                                                    | Param Type   | DataType   | Required   | Default |
 | :-------------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
@@ -5067,7 +5067,7 @@ Revokes permission for the application to request the given scope
 | grantId         | ID of the scope consent grant                                                                  | URL          | String     | TRUE       |         |
 
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -v -X DELETE \
@@ -5077,7 +5077,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/${grantId}"
 ```
 
-#### Response Example
+#### Response example
 
 ```bash
 HTTP/1.1 204 No Content
