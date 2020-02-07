@@ -1,7 +1,7 @@
 <template>
   <div :class="pageClasses">
     <!-- Begin Header -->
-    <TopNavigation></TopNavigation>
+    <TopNavigation />
     <!-- End Header -->
 
 

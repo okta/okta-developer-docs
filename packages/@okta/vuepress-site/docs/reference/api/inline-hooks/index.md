@@ -738,10 +738,10 @@ To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, a
 
 When registering an Inline Hook, you need to specify what type it is. The following types are currently supported:
 
-| Type Value                         | Name                                                                                    |
-|------------------------------------|-----------------------------------------------------------------------------------------|
-| `com.okta.oauth2.tokens.transform` | [Token Inline Hook](/docs/reference/token-hook/)                      |
-| `com.okta.import.transform`        | [Import Inline Hook](/docs/reference/import-hook/)                   |
-| `com.okta.saml.tokens.transform`   | [SAML Assertion Inline Hook](/docs/reference/saml-hook/)               |
+| Type Value                         | Name                                                           |
+|------------------------------------|----------------------------------------------------------------|
+| `com.okta.oauth2.tokens.transform` | [Token Inline Hook](/docs/reference/token-hook/)               |
+| `com.okta.import.transform`        | [User Import Inline Hook](/docs/reference/import-hook/)        |
+| `com.okta.saml.tokens.transform`   | [SAML Assertion Inline Hook](/docs/reference/saml-hook/)       |
 | `com.okta.user.pre-registration`   | [Registration Inline Hook](/docs/reference/registration-hook/) |
-
+| `com.okta.user.credential.password.import` | [Password Import Inline Hook](/docs/reference/password-hook/)         |
