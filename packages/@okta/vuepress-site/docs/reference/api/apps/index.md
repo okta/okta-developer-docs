@@ -4812,15 +4812,15 @@ A scope consent grant represents an application's permission to request to inclu
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/grants" />
 
-Grants consent for the application to request an OAuth 2.0 Okta scope.
+Grants consent for the application to request an OAuth 2.0 Okta scope
 
 #### Request Parameters
 
-| Parameter       | Description                                                                                    | Param Type   | DataType   | Required   | Default |
-| :-------------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
-| applicationId   | ID of the application                                                                          | URL          | String     | TRUE       |         |
-| issuer          | The issuer of your Org Authorization Server, your Org URL                                      | Body         | String     | TRUE       |         |
-| scopeId         | The name of the Okta scope for which consent is granted                                        | Body         | String     | TRUE       |         |
+| Parameter       | Description                                                                                              | Param Type   | DataType   | Required   | Default |
+| :-------------- | :------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
+| applicationId   | ID of the application                                                                                    | URL          | String     | TRUE       |         |
+| issuer          | The issuer of your Org Authorization Server, your Org URL                                                | Body         | String     | TRUE       |         |
+| scopeId         | The [name of the Okta scope](/docs/guides/implement-oauth-for-okta/scopes/) for which consent is granted | Body         | String     | TRUE       |         |
 
 
 #### Request Example
