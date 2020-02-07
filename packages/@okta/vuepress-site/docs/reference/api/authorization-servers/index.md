@@ -7,15 +7,15 @@ category: management
 
 Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including access tokens and ID tokens. The Okta Management API gives you the ability to configure and manage Authorization Servers and the security policies that are attached to them. The following configuration operations can be found on this page:
 
-* [Authorization Server Operations](#authorization-server-operations)
-* [Policy Operations](#policy-operations)
-* [Scope Operations](#scope-operations)
-* [Claim Operations](#claim-operations)
-* [Key Store Operations](#key-store-operations)
+* [Authorization Server operations](#authorization-server-operations)
+* [Policy operations](#policy-operations)
+* [Scope operations](#scope-operations)
+* [Claim operations](#claim-operations)
+* [Key Store operations](#key-store-operations)
 
 This page also has information about the [OAuth 2.0 Objects](#oauth-20-objects) related to these operations.
 
-### Authorization Server Operations
+### Authorization Server operations
 
 Use the following operations to manage Custom Authorization Servers:
 
@@ -37,6 +37,7 @@ It allows you to specify `default` instead of the `authServerId` in requests to 
 * `https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}` for other Custom Authorization Servers
 
 #### Authorization Server Object
+
 When you use these API endpoints to create or modify an Authorization Server resource, the response looks like:
 
 ```json
@@ -134,10 +135,11 @@ When you use these API endpoints to create or modify an Authorization Server res
 }
 ```
 
-##### Authorization Server Properties
+##### Authorization Server properties
 
 | Property                                | Description                                                                                                                                                         | Type                                                                      | Required for create or update |
 | :------------                           | :---------------------------------------------------------------------------------------------------------------------                                              | :------------------------------------------------------------------------ | :---------------------------- |
+| _links                                  | List of discoverable resources related to a Custom Authorization Server                                                                                             | Links                                                                     | False                         |
 | audiences                               | The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.                                                                   | Array                                                                     | True                          |
 | credentials                             | Keys and settings used to sign tokens.                                                                                                                              | [Credentials Object](#credentials-object)                                 | False                         |
 | description                             | The description of a Custom Authorization Server                                                                                                                    | String                                                                    | True                          |
@@ -145,9 +147,8 @@ When you use these API endpoints to create or modify an Authorization Server res
 | issuerMode <ApiLifecycle access="ea" /> | Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL. | String                                                                    | False                         |
 | name                                    | The name of a Custom Authorization Server                                                                                                                           | String                                                                    | True                          |
 | status                                  | Indicates whether a Custom Authorization Server is `ACTIVE` or `INACTIVE`.                                                                                          | Enum                                                                      | False                         |
-| _links                                  | List of discoverable resources related to a Custom Authorization Server                                                                                             | Links                                                                     | False                         |
 
-##### Property Details
+##### Property details
 
 `issuerMode` is visible if you have the Custom URL Domain feature enabled. If the feature is enabled, you can set a custom domain URL in a Custom Authorization Server, and this property is returned in the appropriate responses. To enable the Custom URL Domain feature, contact [Support](https://support.okta.com/help/open_case).
 
@@ -163,11 +164,11 @@ After you enable the Custom URL Domain feature, all new Custom Authorization Ser
 
 Creates a new [Custom Authorization Server](#authorization-server-object)
 
-##### Request Parameters
+##### Request parameters
 
-[Authorization Server Properties](#authorization-server-properties)
+[Authorization Server properties](#authorization-server-properties)
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -183,25 +184,21 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authorizationServers"
 ```
 
-##### Response Example
+##### Response example
 
-
-The [Custom Authorization Server](#authorization-server-object) you just created.
+The [Custom Authorization Server](#authorization-server-object) that you just created
 
 #### List Authorization Servers
-
 
 <ApiOperation method="GET" url="/api/v1/authorizationServers" />
 
 Lists all Custom Authorization Servers in this Okta organization
 
-##### Request Parameters
-
+##### Request parameters
 
 None
 
-##### Request Example
-
+##### Request example
 
 ```bash
 curl -v -X GET \
@@ -211,26 +208,24 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers"
 ```
 
-##### Response Example
+##### Response example
 
-
-The [Custom Authorization Servers](#authorization-server-object) in this Okta organization.
+The [Custom Authorization Servers](#authorization-server-object) in this Okta organization
 
 #### Get Authorization Server
 
-
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}" />
 
-Returns the [Custom Authorization Server](#authorization-server-object) identified by `authServerId`.
+Returns the [Custom Authorization Server](#authorization-server-object) identified by `authServerId`
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                                                                     | Type     | Required |
 | :---------------------- | :-------------------------------------------------------------------------      | :------- | :------- |
 | authServerId            | Custom Authorization Server ID. You can find the ID in the Okta user interface. | String   | True     |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -241,21 +236,20 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers/aus5m9r1o4AsDJLe50g4"
 ```
 
-##### Response Example
+##### Response example
 
 
 The [Custom Authorization Server](#authorization-server-object) you requested by '{authServerId}`.
 
 #### Update Authorization Server
 
-
 <ApiOperation method="put" url="/api/v1/authorizationServers/${authServerId}" />
 
-Updates Authorization Server identified by `authServerId`.
+Updates Authorization Server identified by `authServerId`
 
->NOTE: Switching between rotation modes won't change the active signing key.
+> **Note:** Switching between rotation modes won't change the active signing key.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter     | Description                                                                                                            | Type                                                                                                      | Required |
@@ -265,7 +259,7 @@ Updates Authorization Server identified by `authServerId`.
 | description   | The description of the Authorization Server                                                                            | String                                                                                                    | FALSE    |
 | name          | The name of the Authorization Server                                                                                   | String                                                                                                    | TRUE     |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -282,26 +276,24 @@ curl -X PUT \
 }' "https://${yourOktaDomain}/api/v1/authorizationServers/aus1rqsshhhRoat780g7"
 ```
 
-##### Response Example
+##### Response example
 
-
-The [Custom Authorization Server](#authorization-server-object) you updated
+The [Custom Authorization Server](#authorization-server-object) that you updated
 
 #### Delete Authorization Server
 
-
 <ApiOperation method="delete" url="/api/v1/authorizationServers/${authServerId}" />
 
-Deletes the Custom Authorization Server identified by `authServerId`.
+Deletes the Custom Authorization Server identified by `authServerId`
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                                       | Type     | Required |
 | :---------------------- | :---------------------------------------------    | :------- | :------- |
 | authServerId            | The ID of a Custom Authorization Server to delete | String   | TRUE     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -312,7 +304,7 @@ curl -X DELETE \
 "https://${yourOktaDomain}/api/v1/authorizationServers/aus1rqsshhhRoat780g7"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
@@ -321,19 +313,18 @@ HTTP 204: No Content
 
 #### Activate Authorization Server
 
-
 <ApiOperation method="post" url="/api/v1/authorizationServers/${authServerId}/lifecycle/activate" />
 
-Make a Custom Authorization Server for use by clients
+Makes a Custom Authorization Server for use by clients
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                                         | Type     | Required |
 | :---------------------- | :-----------------------------------------------    | :------- | :------- |
 | authServerId            | The ID of a Custom Authorization Server to activate | String   | TRUE     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -344,7 +335,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/authorizationServers/aus1sb3dl8L5WoTOO0g7/lifecycle/activate"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
@@ -356,16 +347,16 @@ HTTP 204: No Content
 
 <ApiOperation method="post" url="/api/v1/authorizationServers/${authServerId}/lifecycle/deactivate" />
 
-Make a Custom Authorization Server unavailable to clients. An inactive Custom Authorization Server can be returned to `ACTIVE` status by activating it again.
+Makes a Custom Authorization Server unavailable to clients. An inactive Custom Authorization Server can be returned to `ACTIVE` status by activating it again.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                                           | Type     | Required |
 | :---------------------- | :-------------------------------------------------    | :------- | :------- |
 | authServerId            | The ID of a Custom Authorization Server to deactivate | String   | TRUE     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -376,21 +367,21 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/authorizationServers/aus1sb3dl8L5WoTOO0g7/lifecycle/deactivate"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
 HTTP 204: No Content
 ```
 
-### Policy Operations
+### Policy operations
 
 * [Policy Object](#policy-object)
-* [Get All Policies](#get-all-policies)
-* [Get a Policy](#get-a-policy)
-* [Create a Policy](#create-a-policy)
-* [Update a Policy](#update-a-policy)
-* [Delete a Policy](#delete-a-policy)
+* [Get all policies](#get-all-policies)
+* [Get a policy](#get-a-policy)
+* [Create a policy](#create-a-policy)
+* [Update a policy](#update-a-policy)
+* [Delete a policy](#delete-a-policy)
 
 #### Policy Object
 When you use these API endpoints to create or modify a Policy resource, the response looks like:
@@ -444,35 +435,35 @@ When you use these API endpoints to create or modify a Policy resource, the resp
   }
 ```
 
-#### Policy Properties
+#### Policy properties
 
 | Property      | Description                                                                                                                | Type                                    | Required for create or update |
 | :------------ | :------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------- | :---------------------------- |
+| _links        | List of discoverable resources related to the policy                                                                       | Links                                   | System                        |
+| conditions    | Specifies the clients that the policy applies to                                                                  | [Condition Object](#condition-object)   | False                         |
 | created       | Timestamp when the policy was created                                                                                      | DateTime                                | System                        |
-| conditions    | Specifies the clients that the policy applies to.                                                                  | [Condition Object](#condition-object)   | False                         |
 | description   | Description of the policy                                                                                                  | String                                  | True                          |
 | id            | ID of the policy                                                                                                           | String                                  | True except for create        |
 | lastUpdated   | Timestamp when the policy was last updated                                                                                 | DateTime                                | System                        |
 | name          | Name of the policy                                                                                                         | String                                  | True                          |
 | priority      | Specifies the order in which this policy is evaluated in relation to the other policies in a Custom Authorization Server   | Integer                                 | True                          |
 | status        | Specifies whether requests have access to this policy. Valid values: `ACTIVE` or `INACTIVE`                                | Enum                                    | True                          |
-| system        | Specifies whether Okta created this policy (`true`) or not (`false`).                                                      | Boolean                                 | True                          |
+| system        | Specifies whether Okta created this policy (`true`) or not (`false`)                                                      | Boolean                                 | True                          |
 | type          | Indicates that the policy is an authorization server policy (`OAUTH_AUTHORIZATION_POLICY`)                                 | String                                  | False                         |
-| _links        | List of discoverable resources related to the policy                                                                       | Links                                   | System                        |
 
-#### Get All Policies
+#### Get all policies
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/policies" />
 
 Returns all the policies for the specified Custom Authorization Server
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter               | Description                         | Type     | Required |
 | :---------------------- | :------------------------------     | :------- | :------- |
 | authServerId            | ID of a Custom Authorization Server | String   | True     |
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X GET \
@@ -482,17 +473,17 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies"
 ```
 
-##### Response Example
+##### Response example
 
 Returns the [policies](#policy-object) defined in the specified Custom Authorization Server
 
-#### Get a Policy
+#### Get a policy
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/policies/${policyId}" />
 
 Returns a policy by ID defined in the specified Custom Authorization Server
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                         | Type     | Required |
@@ -500,7 +491,7 @@ Returns a policy by ID defined in the specified Custom Authorization Server
 | authServerId            | ID of a Custom Authorization Server | String   | True     |
 | policyId                | ID of a policy                      | String   | True     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -511,23 +502,23 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4"
 ```
 
-##### Response Example
+##### Response example
 
 
-Returns the [policy](#policy-object) you requested
+Returns the [policy](#policy-object) that you requested
 
-#### Create a Policy
+#### Create a policy
 
 <ApiOperation method="post" url="/api/v1/authorizationServers/${authServerId}/policies" />
 
 Create a policy for a Custom Authorization Server
 
-##### Request Parameters
+##### Request parameters
 
 
 [Policy Object](#policy-object)
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -551,18 +542,18 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies"
 ```
 
-##### Response Example
+##### Response example
 
 
-Returns the [policy](#policy-object) you created
+Returns the [policy](#policy-object) that you created
 
-#### Update a Policy
+#### Update a policy
 
 <ApiOperation method="put" url="/api/v1/authorizationServers/${authServerId}/policies/${policyId}" />
 
 Change the configuration of a policy specified by the `policyId`
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                         | Type     | Required |
@@ -571,7 +562,7 @@ Change the configuration of a policy specified by the `policyId`
 | policyId                | ID of a policy                      | String   | True     |
 
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -597,19 +588,19 @@ curl -v -X PUT \
 }' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4"
 ```
 
-##### Response Example
+##### Response example
 
 
-Returns the [policy](#policy-object) you updated
+Returns the [policy](#policy-object) that you updated
 
-#### Delete a Policy
+#### Delete a policy
 
 <ApiOperation method="DELETE" url="/api/v1/authorizationServers/${authServerId}/policies/${policyId}" />
 
 Delete a policy specified by the `policyId`
 
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                         | Type     | Required |
@@ -617,7 +608,7 @@ Delete a policy specified by the `policyId`
 | authServerId            | ID of a Custom Authorization Server | String   | True     |
 | policyId                | ID of a policy                      | String   | True     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -628,22 +619,23 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
 Status 204: No content
 ```
 
-### Scope Operations
+### Scope operations
 
-* [Get All Scopes](#get-all-scopes)
-* [Get a Scope](#get-a-scope)
-* [Create a Scope](#create-a-scope)
-* [Update a Scope](#update-a-scope)
-* [Delete a Scope](#delete-a-scope)
+* [Get all scopes](#get-all-scopes)
+* [Get a scope](#get-a-scope)
+* [Create a scope](#create-a-scope)
+* [Update a scope](#update-a-scope)
+* [Delete a scope](#delete-a-scope)
 
 #### Scope Object
+
 When you use these API endpoints to create or modify a Scope resource, the response looks like:
 
 ```json
@@ -661,11 +653,11 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 ]
 ```
 
-#### Scope Properties
+#### Scope properties
 
 | Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
 | :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
-| consent <ApiLifecycle access="ea" />     | Indicates whether a consent dialog is needed for the scope. Valid values: `REQUIRED`, `IMPLICIT`.       | Enum      | `IMPLICIT`     | True for update if this EA feature is enabled |
+| consent <ApiLifecycle access="ea" />     | Indicates whether a consent dialog is needed for the scope. Valid values: `REQUIRED`, `IMPLICIT`       | Enum      | `IMPLICIT`     | True for update if this EA feature is enabled |
 | default                                  | Whether the scope is a default scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the scope                                                                                | String    |                | False                                      |
 | displayName <ApiLifecycle access="ea" /> | Name of the end user displayed in a consent dialog window                                                      | String    |                | False                                      |
@@ -675,9 +667,9 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 | system                                   | Whether Okta created the scope                                                                          | Boolean   |                | False                                      |
 
 * <ApiLifecycle access="ea" /> A consent dialog appears depending on the values of three elements:
-    * `prompt`, a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
-    * `consent_method`, a property on [apps](/docs/reference/api/apps/#settings-7)
-    * `consent`, a property on scopes as listed in the table above
+    * `prompt` - a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
+    * `consent_method` - a property on [apps](/docs/reference/api/apps/#settings-7)
+    * `consent` - a property on scopes as listed in the table above
 
 | `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
 | :------------------ | :--------------------------------- | :---------------------------- | :----------- |
@@ -694,19 +686,19 @@ When you use these API endpoints to create or modify a Scope resource, the respo
   * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
   * The scope name must only contain printable ASCII except for spaces, double quotes, and backslashes. It also must not start with `okta.` or `okta:` and must not be only `okta` or `*`.
 
-#### Get All Scopes
+#### Get all scopes
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/scopes" />
 
 Get the scopes defined for a specified Custom Authorization Server
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter               | Description                         | Type     | Required |
 | :---------------------- | :------------------------------     | :------- | :------- |
 | authServerId            | ID of a Custom Authorization Server | String   | True     |
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X GET \
@@ -716,19 +708,19 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes"
 ```
 
-##### Response Example
+##### Response example
 
 
 Returns the [scopes](#scope-object) defined in the specified Custom Authorization Server
 
 
-#### Get a Scope
+#### Get a scope
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/scopes/${scopeId}" />
 
-Get a scope specified by the `scopeId`
+Gets a scope specified by the `scopeId`
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                         | Type     | Required |
@@ -736,7 +728,7 @@ Get a scope specified by the `scopeId`
 | authServerId            | ID of a Custom Authorization Server | String   | True     |
 | scopeId                 | ID of a scope                       | String   | True     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -747,25 +739,25 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes/scpanemfdtktNn7w10h7"
 ```
 
-##### Response Example
+##### Response example
 
 
-Returns the [scope](#scope-object) you requested
+Returns the [scope](#scope-object) that you requested
 
-#### Create a Scope
+#### Create a scope
 
 <ApiOperation method="post" url="/api/v1/authorizationServers/${authServerId}/scopes" />
 
 Create a scope for a Custom Authorization Server
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                         | Type     | Required |
 | :---------------------- | :------------------------------     | :------- | :------- |
 | authServerId            | ID of a Custom Authorization Server | String   | True     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -780,18 +772,18 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes"
 ```
 
-##### Response Example
+##### Response example
 
 
-Returns the [scope](#scope-object) you created
+Returns the [scope](#scope-object) that you created
 
-#### Update a Scope
+#### Update a scope
 
 <ApiOperation method="put" url="/api/v1/authorizationServers/${authServerId}/scopes/${scopeId}" />
 
 Change the configuration of a scope specified by the `scopeId`
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                         | Type     | Required |
@@ -800,7 +792,7 @@ Change the configuration of a scope specified by the `scopeId`
 | scopeId                 | ID of a scope                       | String   | True     |
 
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -816,19 +808,19 @@ curl -v -X PUT \
 }' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes/scpanemfdtktNn7w10h7"
 ```
 
-##### Response Example
+##### Response example
 
 
-Returns the [scope](#scope-object) you updated
+Returns the [scope](#scope-object) that you updated
 
-#### Delete a Scope
+#### Delete a scope
 
 <ApiOperation method="DELETE" url="/api/v1/authorizationServers/${authServerId}/scopes/${scopeId}" />
 
-Delete a scope specified by the `scopeId`
+Deletes a scope specified by the `scopeId`
 
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                         | Type     | Required |
@@ -836,7 +828,7 @@ Delete a scope specified by the `scopeId`
 | authServerId            | ID of a Custom Authorization Server | String   | True     |
 | scopeId                 | ID of a scope                       | String   | True     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -847,20 +839,20 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/scopes/00p5m9xrrBffPd9ah0g4"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
 HTTP 204: No Content
 ```
 
-### Claim Operations
+### Claim operations
 
-* [Get All Claims](#get-all-claims)
-* [Get a Claim](#get-a-claim)
-* [Create a Claim](#create-a-claim)
-* [Update a Claim](#update-a-claim)
-* [Delete a Claim](#delete-a-claim)
+* [Get all claims](#get-all-claims)
+* [Get a claim](#get-a-claim)
+* [Create a claim](#create-a-claim)
+* [Update a claim](#update-a-claim)
+* [Delete a claim](#delete-a-claim)
 
 #### Claim Object
 When you use these API endpoints to create or modify a Claim resource, the response looks like:
@@ -881,7 +873,7 @@ When you use these API endpoints to create or modify a Claim resource, the respo
 }
 ```
 
-#### Claim Properties
+#### Claim properties
 
 | Property               | Description                                                                                                                                                                                                                                        | Type                                                   | Required for create or update            |
 | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------- | :--------------------------------------- |
@@ -912,20 +904,20 @@ If you have complex filters for groups, you can [create a groups whitelist](/doc
 * Always `TRUE` for access token claims.
 * If `FALSE` for an ID token claim, the claim won't be included in the ID token if ID token is requested with the access token or `authorization_code`, instead the client has to use the access token to get the claims from the [userinfo endpoint](/docs/reference/api/oidc/#userinfo).
 
-#### Get All Claims
+#### Get all claims
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/claims" />
 
-Get the claims defined for a specified a Custom Authorization Server
+Gets the claims defined for a specified Custom Authorization Server
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                         | Type     | Required |
 | :---------------------- | :------------------------------     | :------- | :------- |
 | authServerId            | ID of a Custom Authorization Server | String   | True     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -936,19 +928,19 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims"
 ```
 
-##### Response Example
+##### Response example
 
 
 Returns the [claims](#claim-object) defined in the specified Custom Authorization Server
 
 
-#### Get a Claim
+#### Get a claim
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/claims/${claimId}" />
 
 Returns the claim specified by the `claimId`
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                         | Type     | Required |
@@ -956,7 +948,7 @@ Returns the claim specified by the `claimId`
 | authServerId            | ID of a Custom Authorization Server | String   | True     |
 | claimId                 | ID of a claim                       | String   | True     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -967,25 +959,25 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims/scpanemfdtktNn7w10h7"
 ```
 
-##### Response Example
+##### Response example
 
 
-Returns the [claim](#claim-object) you requested
+Returns the [claim](#claim-object) that you requested
 
-#### Create a Claim
+#### Create a claim
 
 <ApiOperation method="post" url="/api/v1/authorizationServers/${authServerId}/claims" />
 
 Creates a claim for a Custom Authorization Server
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description                         | Type     | Required |
 | :---------------------- | :------------------------------     | :------- | :------- |
 | authServerId            | ID of a Custom Authorization Server | String   | True     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -1007,24 +999,24 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims"
 ```
 
-##### Response Example
+##### Response example
 
-Returns the [claim](#claim-object) you created
+Returns the [claim](#claim-object) that you created
 
-#### Update a Claim
+#### Update a claim
 
 <ApiOperation method="put" url="/api/v1/authorizationServers/${authServerId}/claims/${claimId}" />
 
-Change the configuration of a claim specified by the `claimId`
+Changes the configuration of a claim specified by the `claimId`
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter               | Description                     | Type     | Required |
 | :---------------------- | :------------------------------ | :------- | :------- |
 | authServerId            | ID of an Authorization server   | String   | True     |
 | claimId                 | ID of a claim                   | String   | True     |
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X PUT \
@@ -1047,24 +1039,24 @@ curl -v -X PUT \
 }' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims/oclain6za1HQ0noop0h7"
 ```
 
-##### Response Example
+##### Response example
 
 Returns the [claim](#claim-object) you updated
 
-#### Delete a Claim
+#### Delete a claim
 
 <ApiOperation method="DELETE" url="/api/v1/authorizationServers/${authServerId}/claims/${claimId}" />
 
-Delete a claim specified by the `claimId`
+Deletes a claim specified by the `claimId`
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter               | Description                     | Type     | Required |
 | :---------------------- | :------------------------------ | :------- | :------- |
 | authServerId            | ID of an Authorization server   | String   | True     |
 | claimId                 | ID of a claim                   | String   | True     |
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X DELETE \
@@ -1073,19 +1065,20 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/claims/oclain6za1HQ0noop0h7"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
 HTTP 204: No Content
 ```
 
-### Key Store Operations
+### Key Store operations
 
-* [Get Authorization Server Keys](#get-authorization-server-keys)
-* [Rotate Authorization Server Keys](#rotate-authorization-server-keys)
+* [Get Authorization Server keys](#get-authorization-server-keys)
+* [Rotate Authorization Server keys](#rotate-authorization-server-keys)
 
 #### Credentials Object
+
 When you use these API endpoints to create or modify a Credentials resource, the response looks like:
 
 ```json
@@ -1101,17 +1094,19 @@ When you use these API endpoints to create or modify a Credentials resource, the
     }
 }
 ```
-##### Credentials Properties
+
+##### Credentials properties
 
 | Property        | Description                                            | DataType     | Required     | Updatable  |
 | :-------------- | :----------------------------------------------------- | :----------- | :----------- | :--------- |
-| kid             | The ID of the JSON Web Key used for signing tokens issued by the authorization server.  | String       | FALSE        | FALSE      |
-| lastRotated     | The timestamp when the authorization server started to use the `kid` for signing tokens.| String       | FALSE        | FALSE      |
-| nextRotation    | The timestamp when the authorization server changes the key for signing tokens. Only returned when `rotationMode` is `AUTO`.   | String       | FALSE        | FALSE      |
+| kid             | The ID of the JSON Web Key used for signing tokens issued by the authorization server  | String       | FALSE        | FALSE      |
+| lastRotated     | The timestamp when the authorization server started to use the `kid` for signing tokens| String       | FALSE        | FALSE      |
+| nextRotation    | The timestamp when the authorization server changes the key for signing tokens. Only returned when `rotationMode` is `AUTO`   | String       | FALSE        | FALSE      |
 | rotationMode    | The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`.| Enum     | FALSE        | TRUE       |
 | use             | How the key is used. Valid value: `sig`            |            |            |         |
 
 #### Certificate JSON Web Key Object
+
 This object defines a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517) for an application's signature or encryption credential.
 
 When you use these API endpoints to create or modify a Certificate JSON Web Key resource, the response looks like:
@@ -1142,32 +1137,32 @@ When you use these API endpoints to create or modify a Certificate JSON Web Key 
 }
 ```
 
-##### Key Properties
+##### Key properties
 
 | Property    | Description                                                                              | Type   |
 | :---------- | :--------------------------------------------------------------------------------------- | :----- |
 | alg         | The algorithm used with the key. Valid value: `RS256`                                    | String |
-| e           | RSA key value (exponent) for key blinding.                                               | String |
-| kid         | The certificate's key ID.                                                                | String |
+| e           | RSA key value (exponent) for key blinding                                               | String |
+| kid         | The certificate's key ID                                                                | String |
 | kty         | Cryptographic algorithm family for the certificate's key pair. Valid value: `RSA`        | String |
-| n           | RSA modulus value.                                                                       | String |
+| n           | RSA modulus value                                                                       | String |
 | status      | `ACTIVE`, `NEXT`, or `EXPIRED`                                                           | Enum   |
 | use         | How the key is used. Valid value: `sig`                                                  | String |
 
-#### Get Authorization Server Keys
+#### Get Authorization Server keys
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/credentials/keys" />
 
-Returns the current, future, and expired [keys](#certificate-json-web-key-object) used by the Custom Authorization Server.
+Returns the current, future, and expired [keys](#certificate-json-web-key-object) used by the Custom Authorization Server
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter               | Description   | Type   | Required |
 | :---------------------- | :------------ | :----- | :------- |
 | authServerId            | description   | type   | True     |
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -1177,7 +1172,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/keys"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -1252,21 +1247,21 @@ curl -v -X GET \
 * The listed `NEXT` key is the next key that the Authorization Server will use to sign tokens when keys are rotated. The NEXT key might not be listed if it has not been generated yet.
 * The listed `EXPIRED` key is the previous key that the Authorization Server used to sign tokens. The EXPIRED key might not be listed if no key has expired or the expired key has been deleted.
 
-#### Rotate Authorization Server Keys
+#### Rotate Authorization Server keys
 
 <ApiOperation method="post" url="/api/v1/authorizationServers/${authServerId}/credentials/lifecycle/keyRotate" />
 
 Rotates the current [keys](#certificate-json-web-key-object) for a Custom Authorization Server. If you rotate keys, the `ACTIVE` key becomes the `EXPIRED` key, the `NEXT` key becomes the `ACTIVE` key, and the Custom Authorization Server immediately begins using the new active key to sign tokens.
 
->NOTE: Okta rotates your keys automatically in `AUTO` mode. You can rotate keys yourself in either mode. If keys are rotated manually, any intermediate cache should be invalidated and keys should be fetched again using the [keys](#get-authorization-server-keys) endpoint.
+> **Note:** Okta rotates your keys automatically in `AUTO` mode. You can rotate keys yourself in either mode. If keys are rotated manually, any intermediate cache should be invalidated and keys should be fetched again using the [keys](#get-authorization-server-keys) endpoint.
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter   | Description                                                    | Type     | Required |
 | :---------- | :--------------------------------------------------------      | :------- | :------- |
 | use         | Purpose of the certificate. The only supported value is `sig`. | String   | True     |
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -1278,7 +1273,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/credentials/lifecycle/keyRotate"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 [
@@ -1348,7 +1343,7 @@ curl -v -X POST \
 ]
 ```
 
-#### Response Example (Error)
+#### Response example (error)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -1447,16 +1442,17 @@ Content-Type: application/json;charset=UTF-8
   }
 }
 ```
-#### Rule Properties
+
+#### Rule properties
 
 | Property     | Description                                                                                  | Type                                    | Required for create   | Required for update |
 | :----------- | :------------------------------------------------------------------------------------------- | :-------------------------------------- | :-------------------- | :------------------ |
+| actions      | An object that contains the `tokens` array, which shows lifetime durations for the tokens    | Object                                  | System generated      | System generated    |
 | conditions   | Specifies the people, groups, grant types and scopes the rule will be applied to             | [Condition Object](#condition-object)   | False                 | False               |
 | id           | ID of the rule                                                                               | String                                  | False                 | True                |
 | name         | Name of the rule                                                                             | String                                  | True                  | True                |
 | status       | Specifies whether requests have access to this claim. Valid values: `ACTIVE` or `INACTIVE`   | Enum                                    | True                  | True                |
 | system       | Specifies whether the rule was created by Okta or not                                        | Boolean                                 | True                  | True                |
-| actions      | An object that contains the `tokens` array, which shows lifetime durations for the tokens    | Object                                  | System generated      | System generated    |
 
 Token limits:
 
@@ -1501,16 +1497,16 @@ Example from a Policy Object
 }
 ```
 
-#### Condition Properties
+#### Condition properties
 
 | Property     | Description                                                                                                                                                                            | Type                            | Required for create or update |
 | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ | :---------------------------- |
-| clients      | For policies, specifies which clients are included or excluded in the policy.                                                                                                          | `include` and `exclude` lists   | True                          |
+| clients      | For policies, specifies which clients are included or excluded in the policy                                                                                                          | `include` and `exclude` lists   | True                          |
 | grant_type   | Can be one of the following: `authorization_code`, `password`, `refresh_token`, or `client_credentials`. Determines the mechanism Okta uses to authorize the creation of the tokens.   | Enum                            | True                          |
-| people       | For rules, specifies which users and groups are included or excluded in the rule.                                                                                                      | `include` and `exclude` lists   | True                          |
-| scopes       | Array of scopes this condition includes or excludes.                                                                                                                                   | `include` and `exclude` lists   | True                          |
+| people       | For rules, specifies which users and groups are included or excluded in the rule                                                                                                      | `include` and `exclude` lists   | True                          |
+| scopes       | Array of scopes this condition includes or excludes                                                                                                                                   | `include` and `exclude` lists   | True                          |
 
-## Client Resource Operations
+## Client Resource operations
 
 <ApiLifecycle access="ea" />
 
@@ -1522,13 +1518,13 @@ Example from a Policy Object
 
 Lists all client resources for which the specified Authorization Server has tokens
 
-#### Request Parameters
+#### Request parameters
 
 | Parameter                | Description                      | Parameter Type   | DataType   | Required |
 | :----------------------- | :------------------------------- | :--------------- | :--------- | :------- |
 | authorizationServerId    | ID of the Authorization Server   | URL              | String     | TRUE     |
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -v -X GET \
@@ -1538,7 +1534,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```json
@@ -1557,36 +1553,35 @@ curl -v -X GET \
 ]
 ```
 
-## OAuth 2.0 Token Management Operations
+## OAuth 2.0 token management operations
 
-* [List Refresh Tokens](#list-refresh-tokens)
-* [Get Refresh Token](#get-refresh-token)
-* [Revoke All Refresh Tokens](#revoke-all-refresh-tokens)
-* [Revoke Refresh Token](#revoke-refresh-token)
+* [List refresh tokens](#list-refresh-tokens)
+* [Get refresh token](#get-refresh-token)
+* [Revoke all refresh tokens](#revoke-all-refresh-tokens)
+* [Revoke refresh token](#revoke-refresh-token)
 
-These endpoints allow you to manage tokens issued by an Authorization Server for a particular Client. For example, you could revoke every active refresh token for a specific Client. You can also [revoke specific tokens](/docs/guides/revoke-tokens/) or [manage tokens at the User level](/docs/reference/api/users/#user-oauth-2-0-token-management-operations).
+These endpoints allow you to manage tokens issued by an Authorization Server for a particular client. For example, you could revoke every active refresh token for a specific client. You can also [revoke specific tokens](/docs/guides/revoke-tokens/) or [manage tokens at the User level](/docs/reference/api/users/#user-oauth-2-0-token-management-operations).
 
-Read [Validate Access Tokens](/docs/guides/validate-access-tokens/) and [Validate ID Tokens](/docs/guides/validate-id-tokens/) to understand more about how OAuth 2.0 tokens work.
+Read [Validate access tokens](/docs/guides/validate-access-tokens/) and [Validate ID tokens](/docs/guides/validate-id-tokens/) to understand more about how OAuth 2.0 tokens work.
 
-### List Refresh Tokens
-
+### List refresh tokens
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/clients/${clientId}/tokens" />
 
-Lists all refresh tokens issued by an Authorization Server for a specific Client.
+Lists all refresh tokens issued by an Authorization Server for a specific client
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter               | Description                                                                                    | Param Type   | DataType   | Required   | Default |
 | :---------------------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
+| after                   | Specifies the pagination cursor for the next page of tokens                                    | Query        | String     | FALSE      |         |
 | authorizationServerId   | ID of the Authorization Server                                                                 | URL          | String     | TRUE       |         |
 | clientId                | ID of the client                                                                               | URL          | String     | TRUE       |         |
 | expand                  | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
 | limit                   | The maximum number of tokens to return (maximum 200)                                           | Query        | Number     | FALSE      | 20      |
-| after                   | Specifies the pagination cursor for the next page of tokens                                    | Query        | String     | FALSE      |         |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -1596,7 +1591,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/clients/0oabskvc6442nkvQO0h7/tokens"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```json
@@ -1648,24 +1643,24 @@ curl -v -X GET \
 ```
 
 
-### Get Refresh Token
+### Get refresh token
 
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/clients/${clientId}/tokens/${tokenId}" />
 
-Gets a refresh token issued by an Authorization Server for the specified Client.
+Gets a refresh token issued by an Authorization Server for the specified client
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter               | Description                                                                                    | Param Type   | DataType   | Required   | Default |
 | :---------------------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
 | authorizationServerId   | ID of the Authorization Server                                                                 | URL          | String     | TRUE       |         |
 | clientId                | ID of the client                                                                               | URL          | String     | TRUE       |         |
-| tokenId                 | ID of the token                                                                                | URL          | String     | TRUE       |         |
 | expand                  | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
+| tokenId                 | ID of the token                                                                                | URL          | String     | TRUE       |         |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -1675,7 +1670,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3?expand=scope"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```json
@@ -1751,16 +1746,16 @@ curl -v -X GET \
 }
 ```
 
-### Revoke All Refresh Tokens
+### Revoke all refresh tokens
 
 
 <ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/authorizationServers/${authorizationServerId}/clients/${clientId}/tokens" />
 
-Revokes all refresh tokens issued by an Authorization Server for the specified Client. Any access tokens issued with these refresh tokens will also be revoked, but access tokens issued without a refresh token will not be affected.
+Revokes all refresh tokens issued by an Authorization Server for the specified client. Any access tokens issued with these refresh tokens will also be revoked, but access tokens issued without a refresh token will not be affected.
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter               | Description                                | Parameter Type   | DataType   | Required |
@@ -1768,7 +1763,7 @@ Revokes all refresh tokens issued by an Authorization Server for the specified C
 | authorizationServerId   | ID of the Authorization Server             | URL              | String     | TRUE     |
 | clientId                | ID of the client                           | URL              | String     | TRUE     |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -1779,14 +1774,14 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```bash
 HTTP/1.1 204 No Content
 ```
 
-### Revoke Refresh Token
+### Revoke refresh token
 
 
 <ApiLifecycle access="ea" />
@@ -1795,7 +1790,7 @@ HTTP/1.1 204 No Content
 
 Revokes the specified refresh token. If an access token was issued with this refresh token, it will also be revoked.
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter               | Description                                | Parameter Type   | DataType   | Required |
@@ -1804,7 +1799,7 @@ Revokes the specified refresh token. If an access token was issued with this ref
 | clientId                | ID of the client                           | URL              | String     | TRUE     |
 | tokenId                 | ID of the token                            | URL              | String     | TRUE     |
 
-#### Request Example
+#### Request example
 
 
 ```bash
@@ -1815,7 +1810,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/authorizationServers/default/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
 ```
 
-#### Response Example
+#### Response example
 
 
 ```bash
