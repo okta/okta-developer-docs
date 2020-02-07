@@ -1463,7 +1463,9 @@ Token limits:
 ### Condition Object
 
 Example from a Rule Object
+
 ```json
+{
   "conditions": {
     "people": {
       "users": {
@@ -1476,12 +1478,15 @@ Example from a Rule Object
         ],
         "exclude": []
       }
+    },
     "scopes": {
       "include": [{
         "name": "*",
         "access": "ALLOW"
       }]
+    }
   }
+}
 ```
 
 Example from a Policy Object
