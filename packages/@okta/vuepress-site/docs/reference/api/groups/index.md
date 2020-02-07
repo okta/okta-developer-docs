@@ -1507,7 +1507,7 @@ curl -v -X DELETE \
 
 
 ```http
-HTTP/1.1 202 No Content
+HTTP/1.1 202 Accepted
 ```
 
 ### Activate a group Rule
@@ -1544,7 +1544,7 @@ curl -v -X POST \
 
 
 ```http
-HTTP/1.1 200 No Content
+HTTP/1.1 204 No Content
 ```
 
 ### Deactivate a group Rule
@@ -1581,7 +1581,7 @@ curl -v -X POST \
 
 
 ```http
-HTTP/1.1 200 No Content
+HTTP/1.1 204 No Content
 ```
 
 ## Related Resources
