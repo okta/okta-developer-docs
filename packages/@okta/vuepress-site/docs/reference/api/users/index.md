@@ -235,7 +235,7 @@ curl -v -X POST \
   "credentials": {
     "password" : { "value": "tlpWENT2m" }
   }
-}' "https://${yourOktaDomain}/api/v1/users?activate=false"
+}' "https://${yourOktaDomain}/api/v1/users?activate=true"
 ```
 
 ##### Response Example
