@@ -45,10 +45,3 @@
     },
   }
 </script>
-
-<style scoped>
-  /* Override default styles since fixed-header is position: fixed */
-  .SearchBar {
-    z-index: -1;
-  }
-</style>v

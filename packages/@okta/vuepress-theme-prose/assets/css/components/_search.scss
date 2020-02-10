@@ -1,0 +1,20 @@
+.SearchBox .CoveoOmnibox {
+    border-color: #b7bcc0;
+    height: 45px;
+    width: 85%;
+    max-width: 710px;
+}
+
+.SearchBar {
+    z-index: -1;
+}
+
+.Wrap {
+    padding: 0 30px;
+    box-sizing: content-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+    position: relative;
+    width: calc(100% - 60px);
+}
