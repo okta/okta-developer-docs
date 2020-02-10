@@ -15,7 +15,9 @@
     }
   }
 
-  
+  .toggle-wrap {
+    display: flex;
+  }
 
   &--header {
     display: flex;
@@ -26,6 +28,20 @@
     @include media(">=tablet") {
       margin-right: 0rem;
       margin-left: 0rem;
+    }
+
+    .search-icon {
+      display: block;
+      width: 2.5rem;
+      padding-left: 1rem;
+      fill: cv('gray', '000');
+      cursor: pointer;
+      height: 40px;
+      
+      @include media(">=tablet") {
+        display: block;
+        
+      }
     }
 
     &--logo {
@@ -96,19 +112,6 @@
         padding-top: 0.5rem;
       }
 
-      .search-icon {
-        display: none;
-        width: 2.5rem;
-        padding-left: 1rem;
-        fill: cv('gray', '000');
-        cursor: pointer;
-        height: 40px;
-        
-        @include media(">=tablet") {
-          display: block;
-          
-        }
-      }
 
     }
 
