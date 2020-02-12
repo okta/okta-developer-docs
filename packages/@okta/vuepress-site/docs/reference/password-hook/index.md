@@ -76,7 +76,7 @@ For `com.okta.action.update` commands, `value` should be an object containing a 
 
 * To indicate that the supplied credentials are valid, supply a type property set to `com.okta.action.update`, together with a value property set to `{"credential": "VERIFIED"}`.
 
-* Converseley, to incdicate that the supplied credentials are not valid, supply a type property set to `com.okta.action.update` together with a value property set to`{"credential": "UNVERIFIED"}`.
+* To indicate that the supplied credentials are not valid, supply a type property set to `com.okta.action.update` together with a value property set to`{"credential": "UNVERIFIED"}`.
 
 For example, to indicate that the supplied credentials should not be accepted as valid, you would return the following:
 
