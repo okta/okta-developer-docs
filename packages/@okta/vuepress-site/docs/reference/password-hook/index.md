@@ -74,7 +74,7 @@ The `value` object is the parameter to pass to the command.
 
 For `com.okta.action.update` commands, `value` should be an object containing a `credential` property set to either `VERIFIED` or `UNVERIFIED`:
 
-* To indicate that the supplied credentials are valid, supply a type property set to `com.okta.action.update`, together with a value property set to `{"credential": "VERIFIED"}`.
+* To indicate that the supplied credentials are valid, supply a type property set to `com.okta.action.update` together with a value property set to `{"credential": "VERIFIED"}`.
 
 * To indicate that the supplied credentials are not valid, supply a type property set to `com.okta.action.update` together with a value property set to`{"credential": "UNVERIFIED"}`.
 
