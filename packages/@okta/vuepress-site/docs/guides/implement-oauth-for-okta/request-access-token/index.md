@@ -23,7 +23,7 @@ For testing purposes, we recommend that you use the Implicit grant flow. Using t
 6. Define the following for the token request:
 
     * **Callback URL**: Define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the <GuideLink link="../create-an-OAuth-2.0-app-in-okta">Create an OAuth 2.0 app in Okta</GuideLink> section.
-    * **Auth URL**: Enter the authorization endpoint for your Org Authorization Server. For example: `https://{yourOktadomain}/oauth2/v1/authorize?none=WBYA`
+    * **Auth URL**: Enter the authorization endpoint for your Org Authorization Server. For example: `https://{yourOktadomain}/oauth2/v1/authorize?nonce=WBYA`
         > **Note:** There isn't an entry in the dialog box for a `nonce` parameter. But, you can append it to the Auth URL here. Use any value for `nonce`. This is a string that is included in the returned ID token. It associates a client session with an ID token and mitigates replay attacks. In this example, we aren't requesting the `id_token` response type, so an ID token isn't returned.
     * **Client ID**: Use the `client_id` of your Okta OAuth application that you created in the <GuideLink link="../create-oauth-app">previous step</GuideLink>.
     * **Scope**: Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already exist in the application's grants collection and the user must have the permission to perform those actions. See <GuideLink link="../scopes">Scopes & supported endpoints</GuideLink> for more information.
