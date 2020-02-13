@@ -4800,6 +4800,289 @@ curl -v -X GET \
 }
 ```
 
+## Application OAuth 2.0 scope consent grant operations
+
+<ApiLifecycle access="ea" />
+
+A scope consent grant represents an application's permission to request to include a specific Okta scope in OAuth 2.0 Bearer tokens. If the application does not have this grant, token requests that contain this Okta scope are denied.
+
+### Grant consent to scope for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/grants" />
+
+Grants consent for the application to request an OAuth 2.0 Okta scope
+
+#### Request parameters
+
+| Parameter       | Description                                                                                              | Param Type   | DataType   | Required   | Default |
+| :-------------- | :------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
+| applicationId   | ID of the application                                                                                    | URL          | String     | TRUE       |         |
+| issuer          | The issuer of your Org Authorization Server, your Org URL                                                | Body         | String     | TRUE       |         |
+| scopeId         | The [name of the Okta scope](/docs/guides/implement-oauth-for-okta/scopes/) for which consent is granted | Body         | String     | TRUE       |         |
+
+
+#### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "issuer": "${yourOktaDomain}",
+    "scopeId": "okta.users.manage"
+}' "https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants"
+```
+
+#### Response example
+
+```json
+{
+   "id":"oaghm3sh9ukdkvDmO0h6",
+   "status":"ACTIVE",
+   "created":"2020-02-03T21:57:49.000Z",
+   "createdBy":{
+      "id":"00u6eltha0nrSc47i0h7",
+      "type":"User"
+    },
+   "lastUpdated":"2020-02-03T21:57:49.000Z",
+   "issuer":"${yourOktaDomain}",
+   "clientId":"${clientId}",
+   "scopeId":"okta.apps.manage",
+   "source":"ADMIN",
+   "_embedded":{
+      "scope":{
+         "id":"okta.apps.manage"
+      }
+   },
+   "_links":{
+      "app":{
+         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
+         "title":"Application Name"
+      },
+      "self":{
+         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+         "hints":{
+            "allow":[
+               "GET",
+               "DELETE"
+            ]
+         }
+      },
+      "client":{
+         "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+         "title":"Application Name"
+      }
+   }
+}
+```
+
+
+### List scope consent grants for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/grants" />
+
+Lists all scope consent grants for the application
+
+#### Request parameters
+
+| Parameter       | Description                                                                                    | Param Type   | DataType   | Required   | Default |
+| :-------------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
+| applicationId   | ID of the application                                                                          | URL          | String     | TRUE       |         |
+| expand          | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
+
+
+#### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants"
+```
+
+#### Response example
+
+```json
+[
+   {
+      "id":"oag91n9ruw3dsaXzP0h6",
+      "status":"ACTIVE",
+      "created":"2019-02-21T16:54:00.000Z",
+      "createdBy":{
+         "id":"00u6eltha0nrSc47i0h7",
+         "type":"User"
+      },
+      "lastUpdated":"2019-02-21T16:54:00.000Z",
+      "issuer":"${yourOktaDomain}",
+      "clientId":"${clientId}",
+      "scopeId":"okta.users.read",
+      "source":"ADMIN",
+      "_links":{
+         "app":{
+            "href":"${yourOktaDomain}/api/v1/apps/${applicationId}",
+            "title":"Application Name"
+         },
+         "self":{
+            "href":"${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oag91n9ruw3dsaXzP0h6",
+            "hints":{
+               "allow":[
+                  "GET",
+                  "DELETE"
+               ]
+            }
+         },
+         "client":{
+            "href":"${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+            "title":"Application Name"
+         }
+      }
+   },
+   {
+      "id":"oaghm3sh9ukdkvDmO0h6",
+      "status":"ACTIVE",
+      "created":"2020-02-03T21:57:49.000Z",
+      "createdBy":{
+         "id":"00u6eltha0nrSc47i0h7",
+         "type":"User"
+      },
+      "lastUpdated":"2020-02-03T21:57:49.000Z",
+      "issuer":"${yourOktaDomain}",
+      "clientId":"${clientId}",
+      "scopeId":"okta.apps.manage",
+      "source":"ADMIN",
+      "_links":{
+         "app":{
+            "href":"${yourOktaDomain}/api/v1/apps/${applicationId}",
+            "title":"Application Name"
+         },
+         "self":{
+            "href":"${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+            "hints":{
+               "allow":[
+                  "GET",
+                  "DELETE"
+               ]
+            }
+         },
+         "client":{
+            "href":"${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+            "title":"Application Name"
+         }
+      }
+   }
+]
+
+```
+
+### Get scope consent grant for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/grants/${grantId}" />
+
+Fetches a single scope consent grant for the application
+
+#### Request parameters
+
+| Parameter       | Description                                                                                    | Param Type   | DataType   | Required   | Default |
+| :-------------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
+| applicationId   | ID of the application                                                                          | URL          | String     | TRUE       |         |
+| expand          | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
+| grantId         | ID of the scope consent grant                                                                  | URL          | String     | TRUE       |         |
+
+
+#### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/${grantId}"
+```
+
+#### Response example
+
+```json
+{
+   "id":"oaghm3sh9ukdkvDmO0h6",
+   "status":"ACTIVE",
+   "created":"2020-02-03T21:57:49.000Z",
+   "createdBy":{
+      "id":"00u6eltha0nrSc47i0h7",
+      "type":"User"
+    },
+   "lastUpdated":"2020-02-03T21:57:49.000Z",
+   "issuer":"${yourOktaDomain}",
+   "clientId":"${clientId}",
+   "scopeId":"okta.apps.manage",
+   "source":"ADMIN",
+   "_embedded":{
+      "scope":{
+         "id":"okta.apps.manage"
+      }
+   },
+   "_links":{
+      "app":{
+         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
+         "title":"Application Name"
+      },
+      "self":{
+         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+         "hints":{
+            "allow":[
+               "GET",
+               "DELETE"
+            ]
+         }
+      },
+      "client":{
+         "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+         "title":"Application Name"
+      }
+   }
+}
+
+```
+
+### Revoke scope consent grant for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/grants/${grantId}" />
+
+Revokes permission for the application to request the given scope
+
+#### Request parameters
+
+| Parameter       | Description                                                                                    | Param Type   | DataType   | Required   | Default |
+| :-------------- | :--------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
+| applicationId   | ID of the application                                                                          | URL          | String     | TRUE       |         |
+| grantId         | ID of the scope consent grant                                                                  | URL          | String     | TRUE       |         |
+
+
+#### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/${grantId}"
+```
+
+#### Response example
+
+```bash
+HTTP/1.1 204 No Content
+```
+
 ## Application OAuth 2.0 token operations
 
 <ApiLifecycle access="ea" />
