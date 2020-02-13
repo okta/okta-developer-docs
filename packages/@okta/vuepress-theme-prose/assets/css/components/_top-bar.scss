@@ -62,7 +62,8 @@
       width: 2em;
       cursor: pointer;
       margin-left: 1rem;
-
+      display: flex;
+      
       @include media(">=tablet") {
         display: none;
 
@@ -75,7 +76,7 @@
       }
       svg.toggle-close {
         fill: cv('gray', '200');
-        width: 1.4em;
+        width: 1.6em;
       }
     }
   }
