@@ -2,7 +2,6 @@
   <div>
     <div class="fixed-header">
       <TopBar />
-      <Search />
     </div>
 
     <div class="page-body">
@@ -36,7 +35,6 @@
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
-    Search: () => import('../components/Search.vue'),
     Sidebar: () => import('../components/Sidebar.vue'),
     OnThisPage: () => import('../components/OnThisPage.vue'),
     MobileOnThisPage: () => import('../components/MobileOnThisPage.vue'),

@@ -15,8 +15,26 @@
     }
   }
 
+  .search-icon {
+    display: block;
+    width: 2.5rem;
+    padding-left: 1rem;
+    fill: cv('gray', '000');
+    cursor: pointer;
+    height: 40px;
+    
+    @include media(">=tablet") {
+      display: block;
+      
+    }
+  }
+
   .toggle-wrap {
     display: flex;
+    align-items: center;
+    @include media(">=tablet") {
+      display: none;
+    }
   }
 
   &--header {
@@ -30,19 +48,6 @@
       margin-left: 0rem;
     }
 
-    .search-icon {
-      display: block;
-      width: 2.5rem;
-      padding-left: 1rem;
-      fill: cv('gray', '000');
-      cursor: pointer;
-      height: 40px;
-      
-      @include media(">=tablet") {
-        display: block;
-        
-      }
-    }
 
     &--logo {
       flex-shrink: 0;
@@ -56,9 +61,11 @@
     &--toggle {
       width: 2em;
       cursor: pointer;
+      margin-left: 1rem;
 
       @include media(">=tablet") {
         display: none;
+
       }
 
 
@@ -88,6 +95,12 @@
       }
     }
 
+    .search-icon {
+      display: none;
+      @include media(">=tablet") {
+        display: block;
+      }
+    }
     @include media(">=tablet") {
       display: flex;
       background: cv('brand');
@@ -98,6 +111,8 @@
       flex-flow: row wrap;
       min-width: 810px;
       overflow: hidden;
+
+      
     }
 
 
