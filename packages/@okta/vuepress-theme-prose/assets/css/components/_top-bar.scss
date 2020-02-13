@@ -4,6 +4,21 @@
   padding: 0rem;
   z-index: 20;
   border-bottom: none;
+
+  &--search {
+    &--mobile {
+      @include media(">=tablet") {
+        display: none;
+      }
+    }
+
+    &--standard {
+      display: none;
+      @include media(">=tablet") {
+        display: flex;
+      }
+    }
+  }
   
   &--container {
     display: block;
@@ -63,7 +78,7 @@
       cursor: pointer;
       margin-left: 1rem;
       display: flex;
-      
+
       @include media(">=tablet") {
         display: none;
 

@@ -1,5 +1,6 @@
 <template>
   <nav class="top-bar">
+
     <div class="top-bar--container">
       <div class="top-bar--header container">
         <a href="#" class="top-bar--header--logo">
@@ -8,10 +9,10 @@
           </svg>
         </a>
         <div class="toggle-wrap">
-          <svg v-if="!showSearchBar" viewBox="0 0 20 20" class="search-icon" v-on:click="toggleSearch()">
+          <svg v-if="!showSearchBar && topBarCollapsed" viewBox="0 0 20 20" class="search-icon" v-on:click="toggleSearch()">
               <path d="M12.906 14.32a8 8 0 111.414-1.414l5.337 5.337-1.414 1.414-5.337-5.337zM8 14A6 6 0 108 2a6 6 0 000 12z"/>
             </svg>
-          <svg v-if="showSearchBar" viewBox="0 0 352 512" class="search-icon" v-on:click="toggleSearch()">
+          <svg v-if="showSearchBar && topBarCollapsed" viewBox="0 0 352 512" class="search-icon" v-on:click="toggleSearch()">
             <path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/>
           </svg>
 
@@ -25,9 +26,9 @@
           </div>
         </div>
       </div>
-
-      <Search v-show="showSearchBar"/>
       
+        
+
       <div class="top-bar--collapse container" :class="{'active': !topBarCollapsed}">
         <div class="top-bar--collapse--buttons">
           <a href="#" class="button is-button-cerise-outline">Login</a>
@@ -54,8 +55,13 @@
         </div>
 
       </div>
+
+      
     </div>
 
+    <div class="top-bar--search" v-show="showSearchBar && topBarCollapsed">
+      <Search />
+    </div>
   </nav>
 </template>
 
@@ -70,13 +76,20 @@
         showSearchBar: false
       }
     },
-
+    mounted() {
+      window.addEventListener('resize', this.handleResize)
+    },
     // define methods under the `methods` object
     methods: {
       // Toggle Search Bar & Icon + Emit event to Search.vue
       toggleSearch: function () {
         this.showSearchBar = !this.showSearchBar
         this.$root.$emit('showSearchBar', this.showSearchBar);
+      },
+      handleResize: function () {
+        if(window.innerWidth >= 768) {
+          this.topBarCollapsed = true;
+        }
       }
     }
   }
