@@ -25,7 +25,7 @@ For steps to enable this Inline Hook, see below, [Enabling a Password Import Inl
 
 The Password Import Inline Hook enables migration of users from another data store in a case where you wish the users to retain their current passwords. It is meant to be used in conjunction with the [Create User with Password Import Inline Hook](/docs/reference/api/users#create-user-with-password-import-inline-hook) flow that is provided by the Users API.
 
-The Password Import Inline Hook is triggered when the end user tries to log in to Okta for the first time. Okta sends your external service the password that the user supplied. Your external service then needs to send a response to Okta indicating whether the password supplied by the end user is valid or not.
+The Password Import Inline Hook is triggered when the end user tries to sign in to Okta for the first time. Okta sends your external service the password that the user supplied. Your external service then needs to send a response to Okta indicating whether the password supplied by the end user is valid or not.
 
 If the password is valid, Okta can authenticate the user independently from then on.
 
@@ -35,7 +35,7 @@ The outbound call from Okta to your external service includes the following obje
 
 ### data.credential
 
-This object contains `username` and `password` properties. These are user name and password that the end user supplied when attempting to log in to Okta.
+This object contains `username` and `password` properties. These are user name and password that the end user supplied when attempting to sign in to Okta.
 
 ### data.action
 
@@ -72,11 +72,11 @@ The following command is supported for the Registration Inline Hook type:
 
 The `value` object is the parameter to pass to the command.
 
-For `com.okta.action.update` commands, `value` should be an object containing a `credential` property set to either `VERIFIED` or `UNVERIFIED`.
+For `com.okta.action.update` commands, `value` should be an object that contains a `credential` property set to either `VERIFIED` or `UNVERIFIED`:
 
-To indicate that the supplied credentials are valid, supply a type property set to `com.okta.action.update`, together with a value property set to `{"credential": "VERIFIED"}`.
+* To indicate that the supplied credentials are valid, supply a type property set to `com.okta.action.update` together with a value property set to `{"credential": "VERIFIED"}`.
 
-Converseley, that the supplied credentials are not valid, supply a type property set to `com.okta.action.update`, together with a value property set to`{"credential": "UNVERIFIED"}`.
+* To indicate that the supplied credentials are not valid, supply a type property set to `com.okta.action.update` together with a value property set to`{"credential": "UNVERIFIED"}`.
 
 For example, to indicate that the supplied credentials should not be accepted as valid, you would return the following:
 
@@ -84,7 +84,7 @@ For example, to indicate that the supplied credentials should not be accepted as
 {
    "commands":[
       {
-         "type":"ccom.okta.action.update",
+         "type":"com.okta.action.update",
          "value":{
             "credential":"UNVERIFIED",  
          }
@@ -147,7 +147,7 @@ If the default action sent by Okta in the `action.credential` property of the re
 
 To enable a Password Import Inline Hook, you first need to register your external service endpoint with Okta and configure it as an Inline Hook of type `com.okta.user.credential.password.import`. See [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hook-setup). You can also use the Admin Console to register your external service endpoint and configure the hook by going to **Workflow > Inline Hooks** and clicking **Add Inline Hook**.
 
-When creating a new user with the `/users` API, you need to use the [Create User with Password Import Inline Hook](/docs/reference/api/users#create-user-with-password-import-inline-hook) use case. This involves specifying a `profile.credentials.password.hook` property in the request body.
+When creating a new user with the `/users` API, you need to use the [Create User with Password Import Inline Hook](/docs/reference/api/users#create-user-with-password-import-inline-hook) use case. This involves specifying a `credentials.password.hook` property in the request body.
 
-When the end user that you have added attempts to log in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not. If the credentials are valid, Okta can authenticate the user independently from then on.
+When the end user that you have added attempts to sign in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not. If the credentials are valid, Okta can authenticate the user independently from then on.
 
