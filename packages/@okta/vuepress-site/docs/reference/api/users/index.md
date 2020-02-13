@@ -387,7 +387,7 @@ curl -v -X POST \
       }
     }
   }
-}' "https://${yourOktaDomain}/api/v1/users?activate=true&email=false"
+}' "https://${yourOktaDomain}/api/v1/users?activate=true"
 ```
 
 ##### Response Example
