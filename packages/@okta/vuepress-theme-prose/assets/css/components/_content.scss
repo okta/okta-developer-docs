@@ -3,6 +3,11 @@
   padding-bottom: 2em;
 
 
+  a[href*="app.getpostman.com"] {
+    display: block;
+    margin-top: 0.5rem;
+  }
+
 
   @include media('>=tablet') {
     flex-direction: row;

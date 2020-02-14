@@ -24,16 +24,20 @@
 .api-label-beta {
   background: cv('yellow');
   color: cv('gray', '900');
+  margin-bottom: $base-spacing;
 }
 
 .api-label-ea {
   background: cv('violet');
+  margin-bottom: $base-spacing;
 }
 
 .api-label-deprecated {
   background: cv('warning', 'dark');
+  margin-bottom: $base-spacing;
 }
 
 .api-label-cors {
   background: cv('gray', '300');
+  margin-bottom: $base-spacing;
 }
