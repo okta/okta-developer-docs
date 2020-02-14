@@ -418,9 +418,6 @@ curl -v -X POST \
     }
   },
   "_links": {
-    "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
-    },
     "self": {
       "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
