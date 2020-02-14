@@ -3,6 +3,22 @@
   background-color: cv('brand');
   padding: 0rem;
   z-index: 20;
+  border-bottom: none;
+
+  &--search {
+    &--mobile {
+      @include media(">=tablet") {
+        display: none;
+      }
+    }
+
+    &--standard {
+      display: none;
+      @include media(">=tablet") {
+        display: flex;
+      }
+    }
+  }
   
   &--container {
     display: block;
@@ -14,7 +30,27 @@
     }
   }
 
-  
+  .search-icon {
+    display: block;
+    width: 2.5rem;
+    padding-left: 1rem;
+    fill: cv('gray', '000');
+    cursor: pointer;
+    height: 40px;
+    
+    @include media(">=tablet") {
+      display: block;
+      
+    }
+  }
+
+  .toggle-wrap {
+    display: flex;
+    align-items: center;
+    @include media(">=tablet") {
+      display: none;
+    }
+  }
 
   &--header {
     display: flex;
@@ -26,6 +62,7 @@
       margin-right: 0rem;
       margin-left: 0rem;
     }
+
 
     &--logo {
       flex-shrink: 0;
@@ -39,9 +76,12 @@
     &--toggle {
       width: 2em;
       cursor: pointer;
+      margin-left: 1rem;
+      display: flex;
 
       @include media(">=tablet") {
         display: none;
+
       }
 
 
@@ -51,7 +91,7 @@
       }
       svg.toggle-close {
         fill: cv('gray', '200');
-        width: 1.4em;
+        width: 1.6em;
       }
     }
   }
@@ -71,6 +111,12 @@
       }
     }
 
+    .search-icon {
+      display: none;
+      @include media(">=tablet") {
+        display: block;
+      }
+    }
     @include media(">=tablet") {
       display: flex;
       background: cv('brand');
@@ -81,6 +127,8 @@
       flex-flow: row wrap;
       min-width: 810px;
       overflow: hidden;
+
+      
     }
 
 
@@ -95,19 +143,6 @@
         padding-top: 0.5rem;
       }
 
-      .search-icon {
-        display: none;
-        width: 2.5rem;
-        padding-left: 1rem;
-        fill: cv('gray', '000');
-        cursor: pointer;
-        height: 40px;
-        
-        @include media(">=tablet") {
-          display: block;
-          
-        }
-      }
 
     }
 

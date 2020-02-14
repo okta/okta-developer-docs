@@ -6,6 +6,13 @@ body {
   font-feature-settings: "lnum","pnum";
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
 .wrap {
   background-color: cv('brand');
 }
