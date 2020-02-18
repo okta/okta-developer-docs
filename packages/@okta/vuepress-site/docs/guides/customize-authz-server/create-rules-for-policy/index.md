@@ -37,6 +37,6 @@ You can also use rules to restrict grant types, users, or scopes. For example, y
 
 Any request that is sent with a different scope won't match any rules and will consequently fail.
 
-At this point you can keep reading to find out how to create custom scopes and claims or proceed immediately to [Testing your Authorization Server](../-/test-authz-server/).
+At this point you can keep reading to find out how to create custom scopes and claims or proceed immediately to [Testing your Authorization Server](/docs/guides/customize-authz-server/test-authz-server/).
 
 <NextSectionLink/>
