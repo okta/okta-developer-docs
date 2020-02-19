@@ -1,5 +1,5 @@
 .on-this-page {
-  
+
   &-navigation {
     padding-right: 1rem;
     flex: 0 0 auto;
@@ -26,12 +26,12 @@
   }
 
   .links {
-    border-left: 1px solid cv('gray', '200');
+    border-left: 3px solid cv('gray', '200');
     padding-left: 1rem;
   }
 
   a.router-link-active {
-    border-left: 1px solid cv('action', 'base');
+    border-left: 3px solid cv('action', 'base');
     font-weight: 600;
   }
 
@@ -44,17 +44,17 @@
       margin-bottom: 1rem;
 
       a.router-link-active {
-        margin-left: -1rem;
-        padding-left: 0.9rem;
+        margin-left: -1.2rem;
+        padding-left: 1.1rem;
       }
 
       ul {
         margin-top: 1rem;
-         
+
         li {
 
           a.router-link-active {
-            margin-left: -2.5rem;
+            margin-left: -2.7rem;
             padding-left: 2.5rem;
           }
 
@@ -66,11 +66,11 @@
         text-decoration: none;
         display: block;
       }
-    
+
     }
-  
+
   }
-  
+
 }
 
 .mobile-on-this-page {
@@ -83,7 +83,7 @@
     padding-right:1rem;
   }
   .vs__dropdown-menu {
-    
+
     .vs__dropdown-option {
       padding: 0.7rem 1rem;
       border-bottom: 1px solid cv('gray', '100');
