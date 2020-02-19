@@ -4,9 +4,9 @@ title: Okta API Products Release Notes
 
 ## 2020.02.1
 
-| Change                                             | Expected in Preview Orgs |
-|----------------------------------------------------|--------------------------|
-| [Bugs Fixed in 2020.02.1](#bug-fixed-in-2020-02-1) | February 19, 2020        |
+| Change                                              | Expected in Preview Orgs |
+|-----------------------------------------------------|--------------------------|
+| [Bugs Fixed in 2020.02.1](#bugs-fixed-in-2020-02-1) | February 19, 2020        |
 
 ### Bugs Fixed in 2020.02.1
 
