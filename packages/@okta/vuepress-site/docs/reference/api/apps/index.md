@@ -2092,7 +2092,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=group.id+eq+\"00gckgEHZXOUDGDJLYLG\""
+"https://${yourOktaDomain}/api/v1/apps?filter=group.id+eq+"00gckgEHZXOUDGDJLYLG""
 ```
 
 ##### Response example
