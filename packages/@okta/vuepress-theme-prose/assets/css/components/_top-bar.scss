@@ -238,6 +238,7 @@
                 margin-bottom: 0rem;
                 box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
                 border-radius: 3px;
+                z-index: 100;
 
                 &::before {
                   border-bottom: solid 22px white;
