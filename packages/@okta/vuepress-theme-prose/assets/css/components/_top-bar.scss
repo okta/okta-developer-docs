@@ -19,7 +19,7 @@
       }
     }
   }
-  
+
   &--container {
     display: block;
     padding: 0rem;
@@ -37,10 +37,10 @@
     fill: cv('gray', '000');
     cursor: pointer;
     height: 40px;
-    
+
     @include media(">=tablet") {
       display: block;
-      
+
     }
   }
 
@@ -78,6 +78,7 @@
       cursor: pointer;
       margin-left: 1rem;
       display: flex;
+      height: 40px;
 
       @include media(">=tablet") {
         display: none;
@@ -128,7 +129,7 @@
       min-width: 810px;
       overflow: hidden;
 
-      
+
     }
 
 
@@ -136,7 +137,7 @@
     &--buttons {
 
       padding-top: 1rem;
-      
+
       @include media(">=tablet") {
         order: 2;
         display: flex;
@@ -164,7 +165,7 @@
         display: flex;
         height: 3rem;
       }
-      
+
       input.st-search-input {
           font-size: 16px;
           background: cv('gray', '200');
@@ -212,7 +213,7 @@
         > li {
           margin-bottom: 1rem;
         }
-  
+
         li {
 
           a.router-link-active,
@@ -229,7 +230,7 @@
 
 
             &.hasSubMenu {
-  
+
               ul.submenu {
                 display: none;
                 margin-top: 2.2rem;
@@ -253,14 +254,14 @@
 
               }
 
-              
+
 
             }
 
-          } 
+          }
 
           &:hover {
-            
+
             ul.submenu,
             ul.submenu:hover {
               display: block;
@@ -268,7 +269,7 @@
 
 
           }
-           
+
 
 
           ul {
@@ -285,11 +286,11 @@
                 width: 100%;
                 padding: 1.0rem 1.3rem;
                 transition: color .4s;
-                
+
               }
             }
 
-            
+
 
             li {
               display: flex;
@@ -311,7 +312,7 @@
                     color: cv('gray', '000');
                     text-decoration: underline;
 
-                    
+
                   }
                 }
               }
@@ -319,8 +320,8 @@
             }
           }
         }
-        
-        
+
+
         a {
           color: cv('gray', '000');
           text-decoration: none;
@@ -333,7 +334,7 @@
           @include media(">=tablet") {
             font-size: 0.88em;
           }
-  
+
           &.router-link-active {
             border-bottom: 1px solid white;
           }
