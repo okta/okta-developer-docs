@@ -26,6 +26,11 @@
 
 .language-ctas {
   display: flex;
+  flex-wrap: wrap;
+
+  @include media(">=tablet") {
+    flex-wrap: nowrap;
+  }
 
   li {
     margin-right: 2rem;

@@ -13,7 +13,7 @@
     flex-direction: row;
     margin-top: 4rem;
 
-    
+
     p, ol, ul {
       max-width: inherit;
     }
@@ -28,9 +28,13 @@
     @include media('>=tablet') {
       width: 18rem;
     }
-    
+
     @include media('<tablet') {
-      width: 40rem;
+      width: 0rem;
+
+      &.active {
+        width:40rem;
+      }
 
       .landing-navigation {
         display: none;
@@ -100,7 +104,7 @@
     h5 {
       margin-top: 2rem;
     }
-  
+
   }
 
   .on-this-page {

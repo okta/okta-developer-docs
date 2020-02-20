@@ -11,7 +11,7 @@
       </div>
       <div class="content" v-else>
         <div class="content--container">
-          <div class="tree-nav">
+          <div class="tree-nav" :class="{active: treeNavActive}">
             <Sidebar />
           </div>
           <div class="content-area">
@@ -46,10 +46,14 @@ export default {
     Quickstart: () => import('../components/Quickstart.vue'),
   },
   data() {
-    return {}
+    return {
+      treeNavActive: false
+    }
   },
   mounted() {
-
+    this.$on('toggle-tree-nav', event => {
+      this.treeNavActive = event.treeNavOpen;
+    });
     window.addEventListener('load', () => {
         window.setTimeout(() => {
           let anchor = window.location.href.split('#')[1];
