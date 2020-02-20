@@ -45,7 +45,6 @@ To use our CDN, include the following links to your HTML:
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
-
 <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
@@ -73,35 +72,31 @@ Then copy this widget configuration into your front-end application:
 ```html
 <script type="text/javascript">
   var oktaSignIn = new OktaSignIn({
-    baseUrl: "https://${yourOktaDomain}",
-    clientId: "{clientId}",
+    baseUrl: 'https://{yourOktaDomain}',
+    clientId: '{yourClientId}',
     authParams: {
-      issuer: "https://${yourOktaDomain}/oauth2/default",
+      issuer: 'https://${yourOktaDomain}/oauth2/default',
       responseType: ['token', 'id_token'],
       display: 'page'
     }
   });
-  if (oktaSignIn.token.hasTokensInUrl()) {
-    oktaSignIn.token.parseTokensFromUrl(
-      function success(tokens) {
+  if (oktaSignIn.hasTokensInUrl()) {
+    oktaSignIn.authClient.token.parseFromUrl().then(function success(tokens) {
         // Save the tokens for later use, e.g. if the page gets refreshed:
         // Add the token to tokenManager to automatically renew the token when needed
-        tokens.forEach(token => {
+        tokens.forEach(function(token) {
           if (token.idToken) {
-
-            signIn.tokenManager.add('idToken', token);
+            oktaSignIn.authClient.tokenManager.add('idToken', token);
           }
           if (token.accessToken) {
-            signIn.tokenManager.add('accessToken', token);
+            oktaSignIn.authClient.tokenManager.add('accessToken', token);
           }
         });
 
         // Say hello to the person who just signed in:
-        var idToken = signIn.tokenManager.get('idToken');
-        console.log('Hello, ' + idToken.claims.email);
-
-        // Remove the tokens from the window location hash
-        window.location.hash='';
+        oktaSignIn.authClient.tokenManager.get('idToken').then(function (idToken) {
+          console.log('Hello, ' + idToken.claims.email);
+        });
       },
       function error(err) {
         // handle errors as needed
@@ -109,7 +104,7 @@ Then copy this widget configuration into your front-end application:
       }
     );
   } else {
-    oktaSignIn.session.get(function (res) {
+    oktaSignIn.authClient.session.get().then(function (res) {
       // Session exists, show logged in state.
       if (res.status === 'ACTIVE') {
         console.log('Welcome back, ' + res.login);
@@ -117,7 +112,7 @@ Then copy this widget configuration into your front-end application:
       }
       // No session, show the login form
       oktaSignIn.renderEl(
-        { el: '#okta-login-container' },
+        {el: '#okta-login-container'},
         function success(res) {
           // Nothing to do in this case, the widget will automatically redirect
           // the user to Okta for authentication, then back to this page if successful
@@ -134,8 +129,65 @@ Then copy this widget configuration into your front-end application:
 
 With the above code in your front-end application, you should see the Sign In Widget when you load your application.  At this point you should be able to login, and be redirected back to your application with an access token and ID Token.  You should have the JavaScript console open in your browser while doing this, it will allow you to see the success messages from the examples and any errors that may arise. Once this is working you can move on to the next section, where we will make use of the access token to make an authenticated request against your server.
 
+### Configure the Sign-In Widget with PKCE
 
-### Use the Access Token to Authenticate Requests.
+If you want to use Auth Code Flow with PKCE, that's possible too.
+
+```html
+<script type="text/javascript">
+  var oktaSignIn = new OktaSignIn({
+    baseUrl: 'https://{yourOktaDomain}',
+    redirectUri: window.location.origin,
+    clientId: '{yourClientId}',
+    authParams: {
+      pkce: true,
+      responseType: ['token', 'id_token']
+    }
+  });
+
+  oktaSignIn.authClient.session.get().then(function (res) {
+    // Session exists, show logged in state.
+    if (res.status === 'ACTIVE') {
+      console.log('Welcome back, ' + res.login);
+      oktaSignIn.authClient.token.getWithoutPrompt({
+        scopes: ['openid', 'email', 'profile'],
+      }).then(function(tokens) {
+        tokens.forEach(function(token) {
+          if (token.idToken) {
+            oktaSignIn.authClient.tokenManager.add('idToken', token);
+          }
+          if (token.accessToken) {
+            oktaSignIn.authClient.tokenManager.add('accessToken', token);
+          }
+        });
+
+        // Say hello to the person who just signed in
+        oktaSignIn.authClient.tokenManager.get('idToken').then(function (idToken) {
+          console.log(`Hello, ${idToken.claims.name} (${idToken.claims.email})`);
+        });
+      }).catch(function(error) {
+        console.error(error)
+      });
+      return;
+    }
+    // No session, show the login form
+    oktaSignIn.renderEl(
+      {el: '#okta-login-container'},
+      function success(res) {
+        // Nothing to do in this case, the widget will automatically redirect
+        // the user to Okta for authentication, then back to this page if successful
+      },
+      function error(err) {
+        // handle errors as needed
+        console.error(err);
+      }
+    );
+  });
+
+</script>
+```
+
+### Use the Access Token to Authenticate Requests
 
 Your application now has an access token in local storage that was issued by your Okta Authorization server. You can use this token to authenticate requests for resources on your server or API. As a hypothetical example, let's say that you have an API that gives us messages for our user.  You could create a `callMessagesApi` function that gets the access token from local storage, and use it to make an authenticated request to your server.
 
