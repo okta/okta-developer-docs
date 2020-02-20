@@ -1,11 +1,9 @@
 ---
 title: Okta Sign-In Widget Guide
 language: JavaScript
+icon: code-javascript
 excerpt: A drop-in widget with custom UI capabilities to power sign-in with Okta.
-component: Code
 ---
-
-# <i class='icon-48 docsPage code-javascript'></i> Okta Sign-In Widget Guide
 
 The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable login experience which can be used to authenticate users on any website.
 

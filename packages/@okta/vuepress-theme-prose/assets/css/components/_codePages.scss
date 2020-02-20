@@ -1,0 +1,47 @@
+.language-tabs {
+  display: flex;
+  list-style: none!important;
+  margin: 0;
+  padding: 20px;
+  background-color: cv('brand');
+  border-radius: 5px;
+
+  a {
+    color: cv('gray', '000');
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 1rem;
+
+    &.router-link-exact-active,
+    &:hover {
+      border-bottom: 1px solid cv('gray', '000');
+    }
+
+    i {
+      margin-right:0.5rem;
+    }
+  }
+}
+
+.language-ctas {
+  display: flex;
+
+  li {
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+
+    a {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  }
+}
+
+.language-reference {
+  display: flex;
+
+  .icon {
+    width: 16px;
+  }
+}

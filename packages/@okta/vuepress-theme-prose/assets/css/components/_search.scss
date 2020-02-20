@@ -1,0 +1,24 @@
+.SearchBox .CoveoOmnibox {
+    border-color: #b7bcc0;
+    height: 45px;
+    width: 85%;
+    max-width: 710px;
+}
+
+.SearchBar {
+    top: 0px;
+    left: 0;
+    
+    @include media('>tablet') {
+        top: 95px;
+    }
+
+    @media (max-width: 859px) {
+        top: 0px;
+    }
+
+    .Wrap {
+        width: 100%;
+    }
+}
+

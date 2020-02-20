@@ -1,0 +1,52 @@
+.breadcrumb {
+  padding: 0.6rem 1.5rem;
+  background-color: cv('gray', '000');
+  border-bottom: $border-default;
+
+  &--container {
+    padding: 0px;
+
+    @include media(">=tablet") {
+      padding: 0rem 1.5rem;
+    }
+
+    ol {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      padding: 0em;
+
+      li {
+        display: flex;
+        align-items: center;
+        margin: 0em 1em 0em 0em;
+
+        a {
+          text-decoration: none;
+          color: cv('gray', '800');
+          font-size: 0.8em;
+          padding-right: 1em;
+        }
+
+        svg {
+          fill: cv('gray', '400');
+          width: 0.5em;
+
+        }
+      }
+
+    }
+
+    .crumb-show-contents {
+      font-size: 0.8em;
+      color: cv('action');
+      cursor: pointer;
+
+      @include media('>=tablet') {
+        display: none;
+      }
+    }
+
+  }
+
+}

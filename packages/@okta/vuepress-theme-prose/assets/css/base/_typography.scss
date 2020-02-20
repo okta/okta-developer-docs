@@ -1,0 +1,21 @@
+a {
+  text-decoration: none;
+}
+
+h2 {
+  margin-top: 2rem;
+}
+
+.is-link {
+  cursor: pointer;
+}
+
+blockquote {
+  border-left: 3px solid cv('violet', 'base');
+  border-right: 1px solid cv('gray', '300');
+  border-top: 1px solid cv('gray', '300');
+  border-bottom: 1px solid cv('gray', '300');
+  border-radius: 4px;
+  padding: 1.5rem 1.5rem 1.5rem calc(1.5rem + 3px);
+}
+

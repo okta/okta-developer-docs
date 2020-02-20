@@ -1,11 +1,9 @@
 ---
 title: Okta Auth SDK Guide
 language: JavaScript
+icon: code-javascript
 excerpt: A JavaScript wrapper for Okta's Authentication APIs.
-component: Code
 ---
-
-## Okta Auth SDK Guide
 
 The Okta Auth SDK builds on top of our [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/) to enable you to create a fully branded sign-in experience using JavaScript.
 

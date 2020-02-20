@@ -25,6 +25,8 @@ There are currently 2 parts to the site, the content and the theming/plugins.
 
 We recommend using one of the package manager options for installation as specified in the installation sites.
 
+If you want to run `yarn build`, you must have a node version of 13+
+
 Before getting started, open a terminal window and make sure these commands work:
 
 ```sh

@@ -7,6 +7,8 @@ meta:
  - name: description
    content: Secure, scalable, and highly available authentication and user management for any app.
 
+showBreadcrumb: false
+
 languages:
  - title: Languages & SDKs
    description: Code and resources for your platform.

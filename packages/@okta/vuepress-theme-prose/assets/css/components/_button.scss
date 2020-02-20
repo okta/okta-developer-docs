@@ -1,0 +1,62 @@
+.is-button-cerise-outline {
+  border-color: cv('cerise');
+  background-color: transparent;
+  color: cv('gray', '000');
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  padding: 1em 3em;
+
+  &:hover,
+  &:visited,
+  &.is-button-hover {
+    border-color: cv('cerise');
+    background-color: transparent;
+    color: cv('gray', '000');
+  }
+
+  &:focus,
+  &.is-button-focus {
+    border-color: cv('cerise');
+    background-color: transparent;
+    color: cv('gray', '000');
+  }
+
+  &:disabled {
+    border-color: fauxpacity(cv('cerise'));
+    background-color: transparent;
+    color: fauxpacity(cv('gray', '000'));
+  }
+}
+
+.is-button-cerise {
+  border-color: cv('cerise');
+  background-color: cv('cerise');
+  color: cv('gray', '000');
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  padding: 1em 3em;
+
+  &:hover,
+  &:visited,
+  &.is-button-hover {
+    border-color: cv('cerise');
+    background-color: cv('cerise');
+    color: cv('gray', '000');
+  }
+
+  &:focus,
+  &.is-button-focus {
+    border-color: cv('cerise');
+    background-color: cv('cerise');
+  }
+
+  &:disabled {
+    border-color: fauxpacity(cv('cerise'));
+    background-color: cv('cerise');
+    color: fauxpacity(cv('cerise'));
+  }
+}

@@ -1,5 +1,4 @@
-import pageComponents from '@internal/page-components'
-import Guides from '@okta/vuepress-theme-default/layouts/Guides.vue';
+import Guides from '@okta/vuepress-theme-prose/layouts/Guides.vue';
 
 export default ({ router, Vue }) => {
   router.addRoutes([

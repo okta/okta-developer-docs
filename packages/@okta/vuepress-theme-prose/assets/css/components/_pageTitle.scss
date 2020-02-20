@@ -1,0 +1,36 @@
+.page-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+
+  &--section {
+    font-size: 1.3em;
+    line-height: 2em;
+    padding: 0em;
+    margin: 0em;
+  }
+
+  &--title {
+    font-size: 2.3em;
+    line-height: 1.6em;
+    padding: 0em;
+    margin: -0.2em 0em 0em 0em;
+
+  }
+
+  &--updated {
+    color: $text-sub;
+    font-size: 1em;
+    line-height: 1.2em;
+    padding: 0em;
+    margin: 0em;
+
+    .updated-at {
+
+      a::after {
+        display: none;
+      }
+
+    }
+  }
+}
