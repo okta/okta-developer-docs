@@ -4,12 +4,17 @@
   border-bottom: $border-default;
 
   &--container {
+    padding: 0px;
+
+    @include media(">=tablet") {
+      padding: 0rem 1.5rem;
+    }
 
     ol {
       list-style: none;
       display: flex;
       align-items: center;
-      padding: 0em; 
+      padding: 0em;
 
       li {
         display: flex;
