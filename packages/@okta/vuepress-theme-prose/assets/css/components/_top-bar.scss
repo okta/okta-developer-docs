@@ -244,7 +244,7 @@
                   content: '';
                   display: block;
                   position: absolute;
-                  top: -35px;
+                  top: -40px;
                   left: 10px;
                   border-bottom: solid 20px white;
                   border-left: solid 20px transparent;
@@ -310,7 +310,11 @@
 
                   a {
                     color: cv('gray', '000');
-                    text-decoration: underline;
+                    text-decoration: none;
+
+
+
+
 
 
                   }
