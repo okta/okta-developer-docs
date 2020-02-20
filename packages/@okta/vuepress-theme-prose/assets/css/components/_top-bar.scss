@@ -78,6 +78,7 @@
       cursor: pointer;
       margin-left: 1rem;
       display: flex;
+      height: 40px;
 
       @include media(">=tablet") {
         display: none;
@@ -310,6 +311,10 @@
                   a {
                     color: cv('gray', '000');
                     text-decoration: none;
+
+
+
+
 
 
                   }
