@@ -28,13 +28,24 @@
   display: flex;
   flex-wrap: wrap;
 
-  @include media(">=tablet") {
+  @include media(">1273px") {
     flex-wrap: nowrap;
+  }
+
+  a.Button--blue, a.Button--red {
+    height: initial;
+    line-height: initial;
+    padding: 1rem;
+    text-align: center;
   }
 
   li {
     margin-right: 2rem;
     margin-bottom: 1rem;
+
+  &:last-child {
+    margin-right:0rem;
+  }
 
     a {
       text-transform: uppercase;
