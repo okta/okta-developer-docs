@@ -2,13 +2,11 @@
 title: Get Started with the Okta REST APIs
 language: rest
 integration: back-end
-component: Code
+icon: code-rest
 meta:
   - name: description
     content: Find documentation to get started with Okta REST APIs and learn how to import a collection and send requests in Postman.
 ---
-
-# <i class='icon-48 docsPage code-rest'></i> Get Started with the Okta REST APIs
 
 A great way to learn an API is to issue requests and inspect the responses. You can easily use our Postman collections to do just that.
 

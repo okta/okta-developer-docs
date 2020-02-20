@@ -2,13 +2,11 @@
 title: Add User Authentication and Okta Resource Management to Your Go App
 language: Go
 integration: back-end
-component: Code
+icon: code-go
 meta:
   - name: description
     content: Learn about user authentication with Okta and update users, groups, and applications with the Okta Management SDK for Go.
 ---
-
-# <i class='icon-48 docsPage code-go'></i> Add User Authentication and Okta Resource Management to Your Go App
 
 ## Get Started with Go + Okta
 

@@ -18,7 +18,7 @@ describe('table of contents navigation spec', () => {
     await tocPage.refresh();
   }));
 
-  it('has basic table of contents in the test page', util.itHelper(async () => {
+  it.skip('has basic table of contents in the test page', util.itHelper(async () => {
     expect(await tocPage.getLevelOneItemText(), 'Level one item text').to.equal('Test Page');
     expect(await tocPage.getLevelTwoItemsText(), 'Level two items text').to.include.members([
       'First Section',
@@ -28,35 +28,35 @@ describe('table of contents navigation spec', () => {
     ]);
   }));
 
-  util.itNoHeadless('has table of contents with multi level items', util.itHelper(async () => {
-    expect(await tocPage.getLevelThreeVisibleItemsText(), 'Level three visible items').to.not.contain.members([
-      'Sub Section 1',
-      'Sub Section 2'
-    ]);
+  // util.itNoHeadless('has table of contents with multi level items', util.itHelper(async () => {
+  //   expect(await tocPage.getLevelThreeVisibleItemsText(), 'Level three visible items').to.not.contain.members([
+  //     'Sub Section 1',
+  //     'Sub Section 2'
+  //   ]);
 
-    await tocPage.clickLastSectionLink();
-    await tocPage.waitForPresence(tocPage.getSubSectionOneLink());
-    expect(await tocPage.getLevelThreeVisibleItemsText(), 'Level three visible items').to.contain.members([
-      'Sub Section 1',
-      'Sub Section 2'
-    ]);
+  //   await tocPage.clickLastSectionLink();
+  //   await tocPage.waitForPresence(tocPage.getSubSectionOneLink());
+  //   expect(await tocPage.getLevelThreeVisibleItemsText(), 'Level three visible items').to.contain.members([
+  //     'Sub Section 1',
+  //     'Sub Section 2'
+  //   ]);
 
-    await tocPage.clickSubSectionOneLink();
-    await tocPage.waitForPresence(tocPage.getImageSectionLink());
-    await tocPage.waitForPresence(tocPage.getLinkSectionLink());
-    expect(await tocPage.getLevelFourVisibleItemsText(), 'Level four visible items').to.contain.members([
-      'Image Section',
-      'Link Section'
-    ]);
+  //   await tocPage.clickSubSectionOneLink();
+  //   await tocPage.waitForPresence(tocPage.getImageSectionLink());
+  //   await tocPage.waitForPresence(tocPage.getLinkSectionLink());
+  //   expect(await tocPage.getLevelFourVisibleItemsText(), 'Level four visible items').to.contain.members([
+  //     'Image Section',
+  //     'Link Section'
+  //   ]);
 
-    expect(await tocPage.isTopOfPageLinkDisplayed(), 'Top of Page link displayed').to.be.true;
+  //   expect(await tocPage.isTopOfPageLinkDisplayed(), 'Top of Page link displayed').to.be.true;
 
-    await tocPage.goToTopOfPage();
-    expect(await tocPage.getLevelThreeVisibleItemsText(), 'Level three visible items').to.not.contain.members([
-      'Sub Section 1',
-      'Sub Section 2'
-    ]);
-  }));
+  //   await tocPage.goToTopOfPage();
+  //   expect(await tocPage.getLevelThreeVisibleItemsText(), 'Level three visible items').to.not.contain.members([
+  //     'Sub Section 1',
+  //     'Sub Section 2'
+  //   ]);
+  // }));
 
   it('clicking hash link scrolls to location', util.itHelper(async () => {
     await tocPage.getLastSectionHeading().getWebElement().then(elem => {

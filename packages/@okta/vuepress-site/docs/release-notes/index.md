@@ -3,10 +3,7 @@ title: Okta API Products Release Notes | Okta Developer
 meta:
   - name: description
     content: List of changes to the Okta API and related API...
-component: ReleaseNotes
 ---
-
-# Okta API Products Release Notes
 
 These release notes list customer-visible changes to API Products by release number. We release first to preview orgs and then production orgs.
 

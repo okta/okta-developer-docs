@@ -2,24 +2,22 @@
 title: Add User Management to Your Spring App
 language: Java
 integration: back-end
-component: Code
+icon: code-spring
 meta:
   - name: description
     content: Our guide details how to add user authentication to your Java Spring app.
 ---
 
-# <i class='icon-48 docsPage code-spring'></i> Add User Management to Your Spring App
-
 <ul class='language-tabs'>
 	<li>
-		<a href='/code/java/'>
+		<RouterLink to='/code/java/'>
 			<i class='icon code-java-32'></i><span>Java</span>
-		</a>
+		</RouterLink>
 	</li>
-	<li class="active">
-		<a href='/code/java/spring/'>
+	<li >
+		<RouterLink to='/code/java/spring/'>
 			<i class='icon code-spring-32'></i><span>Spring</span>
-		</a>
+		</RouterLink>
 	</li>
 </ul>
 

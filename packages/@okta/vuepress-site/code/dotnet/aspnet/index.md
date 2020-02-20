@@ -2,24 +2,22 @@
 title: Add User Authentication and Okta Resource Management to Your ASP.NET App
 language: .NET
 integration: back-end
-component: Code
+icon: code-dotnet
 meta:
   - name: description
     content: Get started with ASP.NET and Okta by using our guide to help you add user authentication to your ASP.NET app.
 ---
 
-# <i class='icon-48 docsPage code-dotnet'></i> Add User Authentication and Okta Resource Management to Your ASP.NET App
-
 <ul class='language-tabs'>
 	<li>
-		<a href='/code/dotnet/aspnetcore/'>
+		<RouterLink to='/code/dotnet/aspnetcore/'>
 			<i class='icon code-dotnet-32'></i><span>ASP.NET Core</span>
-		</a>
+		</RouterLink>
 	</li>
-	<li class="active">
-		<a href='/code/dotnet/aspnet/'>
+	<li>
+		<RouterLink to='/code/dotnet/aspnet/'>
 			<i class='icon code-dotnet-32'></i><span>ASP.NET</span>
-		</a>
+		</RouterLink>
 	</li>
 </ul>
 
