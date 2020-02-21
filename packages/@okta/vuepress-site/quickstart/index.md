@@ -21,7 +21,7 @@ First things first &ndash; you need an **Okta Developer Edition Account**. Don't
 
 ::: slot client
 ## Client Setup
-Now, let's add authentication to your client. (Already done? <a href="#server_setup">Skip to server setup</a>)
+
 
 :::
 

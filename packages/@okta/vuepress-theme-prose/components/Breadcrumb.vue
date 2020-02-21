@@ -48,9 +48,13 @@
       crumbs() {
         let crumbs = [];
         crumbs.push({'link': '/docs/', 'title': 'Docs'});
-        
+
         if(this.$page.path.startsWith('/code/')) {
           crumbs.push({'link': '/code/', 'title': 'Languages & SDKs'});
+        }
+
+        if(this.$page.path.startsWith('/quickstart/')) {
+          crumbs.push({'link': '/quickstart/', 'title': 'Quickstart'});
         }
 
         if(this.$page.path.startsWith('/docs/reference/')) {

@@ -13,7 +13,7 @@
     flex-direction: row;
     margin-top: 4rem;
 
-    
+
     p, ol, ul {
       max-width: inherit;
     }
@@ -28,7 +28,7 @@
     @include media('>=tablet') {
       width: 18rem;
     }
-    
+
     @include media('<tablet') {
       width: 40rem;
 
@@ -48,10 +48,12 @@
     flex-wrap: wrap;
     margin-top: 4rem;
     width: 100%;
+    max-width: 100%;
 
     @include media('>=tablet') {
       margin: 0rem $big-spacing;
       width: 64%;
+      max-width: 64%;
     }
 
     a {
@@ -100,7 +102,7 @@
     h5 {
       margin-top: 2rem;
     }
-  
+
   }
 
   .on-this-page {
