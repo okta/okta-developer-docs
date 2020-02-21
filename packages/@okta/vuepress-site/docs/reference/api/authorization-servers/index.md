@@ -196,7 +196,17 @@ Lists all Custom Authorization Servers in this Okta organization
 
 ##### Request parameters
 
-None
+
+Parameter | Description                                                                                 | Param Type | DataType | Required | Default
+--------- | ------------------------------------------------------------------------------------------  | ---------- | -------- | -------- | -------
+q         | Searches the `name` and `audiences` of Authorization Servers for matching values            | Query      | String   | FALSE    |
+limit     | Specifies the number of Authorizaton Server results on a page                               | Query      | Number   | FALSE    | 200
+after     | Specifies the pagination cursor for the next page of Authorization Servers                  | Query      | String   | FALSE    |
+
+Parameter Details
+
+* The `after` cursor should be treated as an opaque value and obtained through the next link relationship. See [Pagination](/docs/reference/api-overview/#pagination).
+* `limit` can be no larger than 200.
 
 ##### Request example
 
@@ -252,12 +262,12 @@ Updates Authorization Server identified by `authServerId`
 ##### Request parameters
 
 
-| Parameter     | Description                                                                                                            | Type                                                                                                      | Required |
-| :------------ | :----------------------------------------------------------------------------------------------------------------      | :-------------------------------------------------------------------------------------------------------- | :------- |
-| audiences     | The list of audiences this Custom Authorization Server can issue tokens to, currently Okta only supports one audience. | Array                                                                                                     | TRUE     |
-| credentials   | The credentials signing object with the `rotationMode` of the Authorization Server                                     | [Authorization server credentials object](#credentials-object)                                            | FALSE    |
-| description   | The description of the Authorization Server                                                                            | String                                                                                                    | FALSE    |
-| name          | The name of the Authorization Server                                                                                   | String                                                                                                    | TRUE     |
+| Parameter     | Description                                                                                                                  | Type                                                                                                      | Required |
+| :------------ | :----------------------------------------------------------------------------------------------------------------            | :-------------------------------------------------------------------------------------------------------- | :------- |
+| audiences     | The list of audiences that this Custom Authorization Server can issue tokens to. Currently, Okta supports only one audience. | Array                                                                                                     | TRUE     |
+| credentials   | The credentials signing object with the `rotationMode` of the Authorization Server                                           | [Authorization server credentials object](#credentials-object)                                            | FALSE    |
+| description   | The description of the Authorization Server                                                                                  | String                                                                                                    | FALSE    |
+| name          | The name of the Authorization Server                                                                                         | String                                                                                                    | TRUE     |
 
 #### Request example
 
