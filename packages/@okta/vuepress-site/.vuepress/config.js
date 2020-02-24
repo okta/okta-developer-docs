@@ -27,7 +27,6 @@ module.exports = {
      * Header scripts for typekit, GA, GTM (WIP)
      */
     ['script', {}, `
-      
 
       var isProduction = window.location.hostname === 'developer.okta.com';
       if (isProduction) {
@@ -253,5 +252,5 @@ module.exports = {
       }
     }
   },
-  
+
 }
