@@ -11,7 +11,7 @@ In the **Endpoints** section:
 
 Add the following endpoint URLs for the Okta Identity Provider that you are configuring. In the Okta org that represents the Identity Provider, you can find the endpoints in the well-known configuration document (for example, `https://{theOktaIdPOrg}/.well-known/openid-configuration`.
 
-* **Issuer** - The identifier of the Okta Identity Provider. For example, the Okta org where you created the Identity Provider app: `https://{theOktaIdPOrg}/`
+* **Issuer** - The identifier of the Okta Identity Provider. For example, the Okta org where you created the Identity Provider app: `https://{theOktaIdPOrg}`
 * **Authorization endpoint** - The URL of the Okta Identity Provider's OAuth 2.0 authorization endpoint. For example: `https://{theOktaIdPOrg}/oauth2/v1/authorize`
 * **Token endpoint** - The URL of the Okta Identity Provider's token endpoint for obtaining access and ID tokens. For example: `https://{theOktaIdPOrg}/oauth2/v1/token`
 * **JWKS endpoint** - The URL of the Okta Identity Provider's JSON Web Key Set document. This document contains signing keys that are used to validate the signatures from the provider. For example: `https://{theOktaIdPOrg}/oauth2/v1/keys`
