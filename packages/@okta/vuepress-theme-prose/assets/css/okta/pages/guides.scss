@@ -196,15 +196,6 @@ $big-spacing: 3rem;
   border-radius: 3px;
   overflow: hidden;
 
-  /* reduce icons to 24px */
-  .icon[class*='-32'] {
-    &:before,
-    &:after {
-      font-size: 24px;
-      line-height: 24px;
-    }
-  }
-
   nav.tabs ul {
     background: $gray-000;
     display: flex; /*fallback*/
@@ -232,6 +223,17 @@ $big-spacing: 3rem;
         &:hover {
           background: transparent;
           border-bottom-color: $action-base;
+        }
+      }
+
+      /* scale icons to 24px */
+      .icon {
+        width: 24px;
+        height: 24px;
+        &:before,
+        &:after {
+          font-size: 24px;
+          line-height: 24px;
         }
       }
 
@@ -263,6 +265,8 @@ $big-spacing: 3rem;
 
         .framework {
           padding-left: 10px;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
     }
