@@ -25,8 +25,8 @@ The following table shows the scopes that are currently available as a part of E
 | `okta.idps.read`         | Allows the app to read information about Identity Providers in your Okta organization| [Identity Providers API](/docs/reference/api/idps/#getting-started)|
 | `okta.inlineHooks.manage`| Allows the app to create and manage Inline Hooks in your Okta organization.| [Inline Hooks API](/docs/reference/api/inline-hooks/)|
 | `okta.inlineHooks.read` | Allows the app to read information about Inline Hooks in your Okta organization.| [Inline Hooks API](/docs/reference/api/inline-hooks/)|
-| `okta.linkedObjects.manage`| Allows the app to manage linked object definitions in your Okta organization.| [Linked Objects API](/docs/reference/api/linked-objects/)|
-| `okta.linkedObjects.read` | Allows the app to read linked object definitions in your Okta organization.| [Linked Objects API](/docs/reference/api/linked-objects/)|
+| `okta.linkedObjects.manage`| Allows the app to manage Linked Object definitions in your Okta organization.| [Linked Objects API](/docs/reference/api/linked-objects/)|
+| `okta.linkedObjects.read` | Allows the app to read Linked Object definitions in your Okta organization.| [Linked Objects API](/docs/reference/api/linked-objects/)|
 | `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization| [System Log API](/docs/reference/api/system-log/)|
 | `okta.schemas.manage`    | Allows the app to create and manage Schemas in your Okta organization   | [Schemas API](/docs/reference/api/schemas/#getting-started)|
 | `okta.schemas.read`      | Allows the app to read information about Schemas in your Okta organization| [Schemas API](/docs/reference/api/schemas/#getting-started)|
