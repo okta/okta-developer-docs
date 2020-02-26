@@ -361,6 +361,10 @@ HTTP/1.1 204 No Content
 
 Role targets are a way of defining permissions for admin roles into a smaller subset of Groups or Apps within your org. Targets limit an admin's permissions to a targeted area of the org. You can define admin roles to target Groups, Applications, and Application Instances.
 
+* **Group targets:** Grant an admin permission to manage only a specified group. For example, an admin role may be assigned to manage only the IT group.
+* **App targets:** Grant an admin permission to manage all instances of specified apps. Target Apps are Okta catalog Apps. For example, there can be multiple configurations of an Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook app as a target, that grants the admin permission to manage all instances of those apps and create new instances of them.
+* **App Instance targets:** Grant an admin permission to manage an instance of one App or instances of multiple Apps. App Instances are specific Apps that admins have created in their org. For example, there may be a Salesforce app configured differently for each sales region of a company. When you grant an App Instance target, an admin may be assigned to manage only two instances of the configured Salesforce apps and perhaps assigned to manage an instance of another configured app, such as Workday.
+
 ### Group administrator role Group targets
 
 Assigns a Group admin role to a specific Group that grants the admin permission to manage only that Group. For example, an admin role may be assigned to manage only the IT group. The permissions for specifically what an admin can do within that Group depends on the admin role that they are assigned to. See [Administrators](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Administrators).
@@ -606,9 +610,9 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
-#### Remove Group target from Group administrator role
+#### Remove a Group target from a Group administrator role
 
-##### Remove Group target from Group administrator role given to a User
+##### Remove a Group target from a Group administrator role given to a User
 
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/roles/${roleId}/targets/groups/${groupId}" />
@@ -695,7 +699,7 @@ HTTP/1.1 204 No Content
 
 ### App administrator role App targets
 
-Assign an admin role to a subset of Apps that grants the admin permission to manage all instances of those Apps. Targeted Apps are Okta catalog Apps, and you can assign these Apps to an admin role regardless of whether a specific instance of the App has been created. For example, there can be multiple configurations of one Okta catalog App, such as Salesforce or Facebook. An admin may be assigned to manage all configured Salesforce Apps and one configuration of a Facebook App.
+Assign an admin role to a subset of Apps to grant the admin permission to manage all instances of those Apps. Targeted Apps are Okta catalog Apps, and you can assign App targets for these Apps to an admin role regardless of whether a specific instance of the App has been created. For example, there can be multiple configurations of one Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook app as a target, that grants the admin permission to manage all instances of Salesforce or Facebook apps and create new instances of them.
 
 #### List App targets for an App administrator role
 
@@ -1004,7 +1008,7 @@ HTTP/1.1 204 No Content
 
 #### Add an App Instance target to an App administrator role
 
-Assign an admin role to a specific App Instance that grants the admin permission to manage an instance of one App or instances of multiple Apps. App Instance targets are specific Apps that admins have created for their org. For example, an admin may be assigned to manage only one instance of a Salesforce app and only one instance of a Facebook app.
+Assign an admin role to a specific App Instance to grant the admin permission to manage an instance of one App or instances of multiple Apps. App Instances are specific Apps that admins have created in their org. For example, there may be a Salesforce app configured differently for each sales region of a company. When you grant an App Instance target, an admin may be assigned to manage only two instances of the configured Salesforce apps and perhaps assigned to manage an instance of another configured app, such as Workday.
 
 > **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all instances of a Salesforce app and then also specific configurations of the Salesforce app.
 
