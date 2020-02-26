@@ -1,8 +1,5 @@
 <template>
   <div class="content--container">
-    <div class="tree-nav">
-      <Sidebar />
-    </div>
     <div class="content-area">
       <PageTitle />
 
@@ -12,6 +9,7 @@
         <Content slot-key="account" />
 
         <Content slot-key="client" />
+        <p>Now, let's add authentication to your client. (Already done? <a href="#server_setup" @click.prevent="scrollToServer()">Skip to server setup</a>)</p>
         <div class="code-selector" id="client-selector">
           <h3>Client</h3>
           <ul>
@@ -52,12 +50,12 @@
 
         <Content :pageKey="activeServerComponent" id="server_content" class="example-content-well"></Content>
       </div>
-      
+
     </div>
     <div class="on-this-page">
       <OnThisPage :items="otpItems"/>
     </div>
-    
+
   </div>
 </template>
 
@@ -221,11 +219,11 @@
         this.activeTab = 'account'
       },
       scrollToServer: function () {
-        this.scrollTo('#server_setup')
+        this.scrollTo('#server-setup')
         this.activeTab = 'server'
       },
       scrollToClient: function () {
-        this.scrollTo('#client_setup')
+        this.scrollTo('#client-setup')
         this.activeTab = 'client'
       },
       scrollTo: function (element) {

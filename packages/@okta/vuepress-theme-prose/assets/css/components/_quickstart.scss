@@ -1,7 +1,26 @@
 .quickstart--content {
+
+  .Button--red {
+    text-decoration: none;
+    border: none;
+  }
+
   .code-selector {
+
+    margin-top: $base-spacing;
+
     a {
       text-decoration: none;
+      color: cv('gray', '000');
+    }
+
+    h3 {
+      margin-top: 0rem;
+      margin-bottom: 1.5rem;
+    }
+
+    li {
+      margin-bottom: $base-spacing;
     }
   }
 }
