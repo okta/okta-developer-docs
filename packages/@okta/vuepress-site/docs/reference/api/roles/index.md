@@ -359,7 +359,7 @@ HTTP/1.1 204 No Content
 
 ## Role target operations
 
-Role targets are a way of defining permissions for admin roles into a smaller subset of groups or apps within your org. Targets limit an admin's permissions to a targeted area of the org. You can define admin roles to target groups, applications, and application instances.
+Role targets are a way of defining permissions for admin roles into a smaller subset of Groups or Apps within your org. Targets limit an admin's permissions to a targeted area of the org. You can define admin roles to target Groups, Applications, and Application Instances.
 
 ### Group administrator role Group targets
 
