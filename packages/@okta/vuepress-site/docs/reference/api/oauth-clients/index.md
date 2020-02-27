@@ -816,6 +816,6 @@ A [JSON Web Key (JWK)](https://tools.ietf.org/html/rfc7517) is a JSON representa
 | e          | The key exponent of a RSA key                         | String         | TRUE, unless the kty is `RSA`          | FALSE                  | FALSE      |
 | kid        | The unique identifier of the key                      | String         | TRUE, if only one key in the JWKS      | TRUE, within the JWKS  | FALSE      |
 | kty        | The type of public key this is                        | `RSA` or `EC`  | FALSE                                  | FALSE                  | FALSE      |
-| n          | The modulus of a RSA key                              | String         | TRUE, unless the kty is `RSA`          | FALSE                  | FALSE      |
+| n          | The modulus of the RSA key                              | String         | TRUE, unless the kty is `RSA`          | FALSE                  | FALSE      |
 | x          | The public x coordinate for the elliptic curve point  | String         | TRUE, unless the kty is `EC`           | FALSE                  | FALSE      |
 | y          | The public y coordinate for the elliptic curve point  | String         | TRUE, unless the kty is `EC`           | FALSE                  | FALSE      |
