@@ -762,7 +762,7 @@ Client Applications have the following properties:
 | redirect_uris                           | Array of redirection URI strings for use in redirect-based flows                              | Array      | TRUE   | FALSE  | FALSE    |
 | request_object_signing_alg              | The type of JSON Web Key Set (JWKS) algorithm that must be used for signing request objects. | `HS256`, `HS384`, `HS512`, `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`  | TRUE      | FALSE     | FALSE      |
 | response_types                          | Array of OAuth 2.0 response type strings. Default value: `code`    | Array of `code`, `token`, `id_token`  | TRUE   | FALSE  | FALSE    |
-| token_endpoint_auth_method              | requested authentication method for the token endpoint. Default value: `client_secret_basic`  | `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`                    | TRUE       | FALSE    | FALSE     |
+| token_endpoint_auth_method              | Requested authentication method for the token endpoint. Default value: `client_secret_basic`  | `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`                    | TRUE       | FALSE    | FALSE     |
 | tos_uri <ApiLifecycle access="ea" />    | URL string of a web page providing the client's terms of service document                                                    | URL                                                                                            | TRUE       | FALSE    | FALSE     |
 
 Property details
@@ -805,7 +805,7 @@ The `jwks` object has precisely one attribute: `keys`, which is an array of JSON
 | ---------- | :----------------------------- | :-------- | :------ | :--------- |
 | keys       | An array of JSON Web Keys      | TRUE      | FALSE   | FALSE      |
 
-> **Note:** For an example request using a JWKS, see the **Create a Service App with a JWKS** example in the [Register new client](/docs/reference/api/oauth-clients/#register-new-client) section.
+> **Note:** For an example request using a JWKS, see the Create a Service App with a JWKS example in the [Register new client](/docs/reference/api/oauth-clients/#register-new-client) section.
 
 ## JSON Web Key
 
@@ -816,6 +816,6 @@ A [JSON Web Key (JWK)](https://tools.ietf.org/html/rfc7517) is a JSON representa
 | e          | The key exponent of a RSA key                         | String         | TRUE, unless the kty is `RSA`          | FALSE                  | FALSE      |
 | kid        | The unique identifier of the key                      | String         | TRUE, if only one key in the JWKS      | TRUE, within the JWKS  | FALSE      |
 | kty        | The type of public key this is                        | `RSA` or `EC`  | FALSE                                  | FALSE                  | FALSE      |
-| n          | The modulus of a RSA key                              | String         | TRUE, unless the kty is `RSA`          | FALSE                  | FALSE      |
+| n          | The modulus of the RSA key                              | String         | TRUE, unless the kty is `RSA`          | FALSE                  | FALSE      |
 | x          | The public x coordinate for the elliptic curve point  | String         | TRUE, unless the kty is `EC`           | FALSE                  | FALSE      |
 | y          | The public y coordinate for the elliptic curve point  | String         | TRUE, unless the kty is `EC`           | FALSE                  | FALSE      |
