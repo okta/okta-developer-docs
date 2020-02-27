@@ -23,7 +23,7 @@ parentPort.once('message', async (payload) => {
     clientManifest: JSON.parse(payload.clientManifest),
     runInNewContext: false,
     inject: false,
-    shouldPrefetch: siteConfig.shouldPrefetch || (() => true),
+    shouldPrefetch: siteConfig.shouldPrefetch || (() => false),
     template: await fs.readFile(ssrTemplate, 'utf-8')
   })
 
