@@ -11,7 +11,7 @@ excerpt: >-
 The Dynamic Client Registration API provides operations to register and manage client Applications for use with Okta's
 OAuth 2.0 and OpenID Connect endpoints. This API largely follows the contract defined in [RFC7591: OAuth 2.0 Dynamic Client Registration Protocol](https://tools.ietf.org/html/rfc7591) and [OpenID Connect Dynamic Client Registration 1.0](https://openid.net/specs/openid-connect-registration-1_0.html).
 
-Note that clients managed through this API are modeled as Applications in Okta and appear in the Applications section of the Admin Console. Changes made through the API appear in the UI and vice versa. Tokens issued by these clients follow the rules for access tokens and ID tokens.
+> **Note:** Clients managed through this API are modeled as Applications in Okta and appear in the Applications section of the Admin Console. Changes made through the API appear in the UI and vice versa. Tokens issued by these clients follow the rules for access tokens and ID tokens.
 
 ## Get started
 
