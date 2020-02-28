@@ -5,6 +5,7 @@ const convertReplacementStrings = require('./scripts/convert-replacement-strings
 module.exports = {
   dest: 'dist',
   theme: "@okta/vuepress-theme-prose",
+  shouldPrefetch: () => false,
   /**
    * Custom head elements here
    */
