@@ -299,7 +299,7 @@ The following samples are valid conditional expressions. The actions in these ca
 | IF (Implicit) | Condition                                      | Assign to this Group Name if Condition is TRUE |
 | ---           | ---                                            | ---                                            |
 | IF            | String.stringContains(user.firstName, "dummy") | dummyUsers                                     |
-| IF            | user.city == "San Francisco                    | sfo                                            |
+| IF            | user.city == "San Francisco"                   | sfo                                            |
 | IF            | user.salary >= 1000000                         | expensiveEmployee                              |
 | IF            | !user.isContractor                             | fullTimeEmployees                              |
 | IF            | user.salary > 1000000 AND !user.isContractor   | expensiveFullTimeEmployees                     |
