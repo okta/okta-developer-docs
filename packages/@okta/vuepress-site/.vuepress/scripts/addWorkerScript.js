@@ -23,7 +23,7 @@ parentPort.once('message', async (payload) => {
     clientManifest: JSON.parse(payload.clientManifest),
     runInNewContext: false,
     inject: false,
-    shouldPrefetch: siteConfig.shouldPrefetch || (() => false),
+    shouldPrefetch: siteConfig.shouldPrefetch || (() => false), // changed to false to prevent prefetch. site config was not overwriting this option
     template: await fs.readFile(ssrTemplate, 'utf-8')
   })
 
