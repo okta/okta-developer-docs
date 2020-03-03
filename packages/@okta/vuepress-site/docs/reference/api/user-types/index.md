@@ -213,7 +213,9 @@ curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 
 <ApiOperation method="POST" url="/api/v1/meta/types/user/{typeId}" />
 
-Updates an existing User Type. A PUT is a full replace operation; a POST is a partial update. The schema associated with this type is not editable with this API. If you want to edit the schema, use the [schema update API](/docs/reference/api/schemas/#add-property-to-user-profile-schema).
+Updates an existing User Type. A PUT is a full replace operation; a POST is a partial update. Only the `displayName` and `description` elements can be changed; the `name` of an existing User Type cannot be changed.
+
+The schema associated with this type is not editable with this API. If you want to edit the schema, use the [schema update API](/docs/reference/api/schemas/#add-property-to-user-profile-schema).
 
 ##### Request Parameters
 
@@ -351,7 +353,7 @@ The User Type model defines several properties:
 | ------------- | ------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- |
 | id            | Unique key for the User Type                      | String                                                         | FALSE    | TRUE   | TRUE     |
 | displayName   | The display name for the type                     | String                                                         | FALSE    | FALSE  | FALSE    |
-| name          | The name for the type                             | String                                                         | FALSE    | TRUE   | FALSE    |
+| name          | The name for the type                             | String                                                         | FALSE    | TRUE   | TRUE     |
 | description   | A human-readable description of the type          | String                                                         | FALSE    | FALSE  | FALSE    |
 | createdBy     | The user id of the creator of this type           | String                                                         | FALSE    | FALSE  | TRUE     |
 | lastUpdatedBy | The user id of the last user to edit this type    | String                                                         | FALSE    | FALSE  | TRUE     |

@@ -2,13 +2,11 @@
 title: Add User Authentication to Your Angular App
 language: Angular
 integration: front-end
-component: Code
+icon: code-angular
 meta:
   - name: description
     content: Our Angular guide helps you to add user authentication to your Angular app and create a fully-branded experience with the Okta Angular SDK.
 ---
-
-# <i class='icon-48 docsPage code-angular'></i> Add User Management to Your Angular App
 
 ## Get Started with Angular + Okta
 

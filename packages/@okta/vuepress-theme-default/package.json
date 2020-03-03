@@ -29,8 +29,7 @@
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
     "node-sass": "^4.9.4",
-    "sass-loader": "^7.1.0",
-    "vuepress": "1.1.0"
+    "sass-loader": "^7.1.0"
   },
   "devDependencies": {
     "stylelint": "^9.10.1",

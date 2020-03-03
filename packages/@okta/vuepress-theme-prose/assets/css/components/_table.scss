@@ -1,0 +1,39 @@
+table {
+  display: block;
+  margin-top: $base-spacing;
+  margin-bottom: $base-spacing;
+
+  th, td {
+    padding: 0.3rem 0.5rem;
+
+  }
+
+  a {
+    svg.icon.outbound {
+      display: none;
+    }
+  }
+
+  
+
+  thead {
+
+    tr {
+      border-bottom: 0.2em solid cv('gray', '600');
+
+      th {
+        font-weight: 600;
+        text-align: left;
+      }
+    
+    }
+
+  }
+
+  tbody {
+
+    tr {
+      border-bottom: 0.05em solid cv('gray', '500');
+    }
+  }
+}

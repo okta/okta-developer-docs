@@ -4,7 +4,7 @@ layout: docs_page
 icon: /assets/img/icons/scim.svg
 meta:
   - name: description
-    content: Answers to your question on how to SCIM works with Okta.
+    content: Answers to your questions about how SCIM works with Okta.
 ---
 
 ## SCIM Technical Questions
@@ -81,6 +81,12 @@ To set up a regular schedule for importing users, go into the Okta Admin Console
 1. In the **Full Import Schedule** drop down, you can choose from hourly, daily, or weekly imports.
 
 For more details on the import functionality of Okta, see [Import users from an app](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Importing_People) in our Product Help documentation.
+
+**Q: How do I get my SCIM app to use `PUT` requests instead of `PATCH` when updating users and groups?**
+
+SCIM integrations that are created using the template apps from the OIN catalog have `PATCH` enabled by default. However, if your SCIM server doesn't support `PATCH`, you can send an email to <developers@okta.com> and request to change your integration to use `PUT` for updates.
+
+SCIM integrations that are created using the Application Integration Wizard use `PUT` by default. They can't be reconfigured to use `PATCH` for updates.
 
 **Q: How do I get a SCIM app to integrate with Okta from inside my corporate firewall?**
 
