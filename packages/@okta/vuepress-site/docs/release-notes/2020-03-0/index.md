@@ -11,7 +11,6 @@ title: Okta API Products Release Notes
 | [OAuth for Okta is Generally Available in Preview](#oauth-for-okta-is-generally-available-in-preview)| March 4, 2020 |
 | [Pagination is available for the List Authorization Servers operation](#pagination-is-available-for-the-list-authorization-servers-operation)| March 4, 2020 |
 | [Sign-in attempt behavior evaulation is now logged when there is no client information](#sign-in-attempt-behavior-evaluation-is-now-logged-when-there-is-no-client-information)| March 4, 2020 |
-| [Cookies are now used as proof of a known device](#cookies-are-now-used-as-proof-of-a-known-device)| March 4, 2020 |
 | [OAuth for Okta enabled for Schemas and Linked Objects APIs](#oauth-for-okta-enabled-for-schemas-and-linked-objects-apis)| March 4, 2020 |
 | [Bug fixed in 2020.03.0](#bug-fixed-in-2020-03-0) | March 4, 2020        |
 
@@ -36,10 +35,6 @@ Pagination is now available for the [List Authorization Servers operation](/docs
 ### Sign-in attempt behavior evaluation is now logged when there is no client information
 
 Sign-in attempt behavior evaluation is logged in the `debugContext` object of the `user.session.start` and `policy.evaluate.sign_on` events, even when client information is missing for all behaviors. <!-- OKTA-280132 -->
-
-### Cookies are now used as proof of a known device
-
-New device behavior allows cookies to be used as proof of a known device, even if the device fingerprint is missing. <!-- OKTA-280626 -->
 
 ### OAuth for Okta enabled for Schemas and Linked Objects APIs
 
