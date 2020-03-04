@@ -539,7 +539,7 @@ Content-Type: text/json;charset=UTF-8
 
 **PATCH** /Groups/*$groupID*
 
-Updates to existing group names for existing Okta groups are handled by a PATCH operation. The group must already be pushed out to the SCIM server.
+Updates to existing group names for existing Okta groups are handled by a PATCH operation. The group must already be pushed out to the SCIM server and Group Push Enhancements feature must be enabled in the Okta org together together with `Rename groups` option under Push Groups tab.
 
 ```http
 PATCH /scim/v2/Groups/abf4dd94-a4c0-4f67-89c9-76b03340cb9b HTTP/1.1
