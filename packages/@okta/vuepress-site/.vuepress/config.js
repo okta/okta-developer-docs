@@ -5,6 +5,7 @@ const convertReplacementStrings = require('./scripts/convert-replacement-strings
 module.exports = {
   dest: 'dist',
   theme: "@okta/vuepress-theme-prose",
+  shouldPrefetch: () => false,
   /**
    * Custom head elements here
    */
@@ -27,7 +28,6 @@ module.exports = {
      * Header scripts for typekit, GA, GTM (WIP)
      */
     ['script', {}, `
-      
 
       var isProduction = window.location.hostname === 'developer.okta.com';
       if (isProduction) {
@@ -253,5 +253,5 @@ module.exports = {
       }
     }
   },
-  
+
 }

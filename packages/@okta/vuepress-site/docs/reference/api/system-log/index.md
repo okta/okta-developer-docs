@@ -698,7 +698,7 @@ LogEvent objects can be filtered by [`published`](#attributes) attribute value w
 
 Note that `since` and `after` are mutually exclusive and cannot be specified simultaneously.
 
-The `after` parameter is system generated for use in ["next" links](#next-link-response-header). Users should not attemp to craft requests using this value and rely on the system generated links instead.
+The `after` parameter is system generated for use in ["next" links](#next-link-response-header). Users should not attempt to craft requests using this value and rely on the system generated links instead.
 
 ##### Response
 
