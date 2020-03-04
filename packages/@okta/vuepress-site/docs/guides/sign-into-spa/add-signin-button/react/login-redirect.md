@@ -1,6 +1,8 @@
-The `authState` object provides information on the state of the current user's authentication.  
+Implementing a login button requires that you know IF you should show the button as well as how to implement the button.
 
-The `authService` object provides methods to read more details about, or to modify, the current authentication.
+The `okta-react` SDK provides you with:
+- an [authState](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authstate) object that provides information on the state of the current user's authentication
+- an [authService](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authservice) object that provides methods to read more details about, or to modify, the current authentication
 
 Function-based components can use the `useOktaAuth` [React hook](https://reactjs.org/docs/hooks-intro.html) to access the `authService` or the `authState` objects.
 

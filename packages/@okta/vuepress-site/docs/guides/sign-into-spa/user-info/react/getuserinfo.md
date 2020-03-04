@@ -1,6 +1,6 @@
-Your code can get the user's profile using the [getUser()](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authgetuser) method on the [AuthService](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authservice) object.  You should wait until the `authState.isAuthenticated` flag is true.
+Your code can get the user's profile using the [getUser()](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authservicegetuser) method on the [AuthService](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authservice) object.  You should wait until the `authState.isAuthenticated` flag is true.
 
-For function-based components, `authState` and `authService` are returned by the [useOktaAuth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#useokaauth) hook.
+For function-based components, `authState` and `authService` are returned by the [useOktaAuth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#useoktaauth) hook.
 
 For class-based components, `authState` and `authService` are passed as props to your component via the [withOktaAuth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#withoktaauth) higher-order component.
 
