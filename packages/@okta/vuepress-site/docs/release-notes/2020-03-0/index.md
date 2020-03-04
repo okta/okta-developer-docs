@@ -26,7 +26,7 @@ The [Third-Party admin role](https://help.okta.com/en/prod/Content/Topics/Securi
 
 ### OAuth for Okta is Generally Available in Preview
 
-[OAuth for Okta](/docs/guides/implement-oauth-for-okta/overview/) is now Generally Available in Preview. <!-- OKTA-276783 -->
+[OAuth for Okta](/docs/guides/implement-oauth-for-okta/overview/) is now Generally Available in Preview. At this time, OAuth for Okta works only with the APIs listed in the [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/) section. We are actively working towards supporting additional APIs. Our goal is to cover all Okta public API endpoints.<!-- OKTA-276783 -->
 
 ### Pagination is available for the List Authorization Servers operation
 
@@ -38,9 +38,9 @@ Sign-in attempt behavior evaluation is logged in the `debugContext` object of th
 
 ### OAuth for Okta enabled for Schemas and Linked Objects APIs
 
-The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See [Scopes and Supported Endpoints](/docs/guides/implement-oauth-for-okta/scopes/). <!-- OKTA-278008 OKTA-277204-->
+The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/). <!-- OKTA-278008 OKTA-277204-->
 
 ### Bug fixed in 2020.03.0
 
-* Users could acquire logs before the Logs retention period using specific `after` parameters. (OKTA-277912)
+Users could acquire logs before the Logs retention period using specific `after` parameters. (OKTA-277912)
 <!-- * App admins had the ability to modify attributes and mappings on apps that they were not assigned to. (OKTA-267829) -->
