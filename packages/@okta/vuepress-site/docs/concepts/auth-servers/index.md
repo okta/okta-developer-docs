@@ -89,7 +89,7 @@ The following table describes which capabilities are supported by the Custom Aut
 
 ## Key rotation
 
-Key rotation is when an encryption key is retired and replaced by generating a new cryptographic key. Rotating keys on a regular basis helps meet industry standards and cryptographic best practices.
+Key rotation is when a signing key is retired and replaced by generating a new cryptographic key. Rotating keys on a regular basis is an industry standard and follows cryptographic best practices.
 
 > **Note:** The current Okta key rotation schedule is four times a year, but can change without notice.
 
@@ -111,7 +111,7 @@ If you are using the Org Authorization Server, configure and perform key rollove
 
 > **Caution:** Keys used to sign tokens automatically rotate and should always be resolved dynamically against the published JWKS. Your app might fail if you hardcode public keys in your applications. Be sure to include key rollover in your implementation.
 
-### Key rotation for Org Authorization Servers
+### Key rotation for the Org Authorization Server
 
 * For security purposes, Okta automatically rotates keys used to sign the ID token.
 
