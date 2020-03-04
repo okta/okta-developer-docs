@@ -2,15 +2,11 @@
 title: Add User Authentication to Your JavaScript App
 language: JavaScript
 integration: front-end
-component: Code
+icon: code-javascript
 meta:
   - name: description
     content: Our guide explains how to add authentication to your JavaScript app and customize the sign-in experience.
 ---
-
-# <i class='icon-48 docsPage code-javascript'></i> Add User Authentication to Your JavaScript App
-
-## Get Started with JavaScript + Okta
 
 New to Okta? Our quickstart will walk you through adding user authentication to your JavaScript app in minutes.
 

@@ -7,7 +7,7 @@ meta:
 
 # WebFinger
 
-The purpose of the WebFinger interface is to allow a client application to determine the Identity Provider that a given username (or identifier) should be routed to based on your organization's Identity Provider Routing Rules (IdP Discovery Policy). For an introduction to the topic, see [IdP IdP Discovery](/docs/concepts/identity-providers/#idp-discovery).
+The purpose of the WebFinger interface is to allow a client application to determine the Identity Provider that a given username (or identifier) should be routed to based on your organization's Identity Provider Routing Rules (IdP Discovery Policy). For an introduction to the topic, see [IdP Discovery](/docs/concepts/identity-providers/#idp-discovery).
 
 The endpoint is: `https://${yourOktaDomain}/.well-known/webfinger`
 
@@ -36,7 +36,7 @@ The table below summarizes the supported query parameters:
 
 ```bash
 curl -v -X GET \
--H "Accept: application/json" \
+-H "Accept: application/jrd+json" \
 -H "Content-Type: application/json" \
 "https://${yourOktaDomain}/.well-known/webfinger?resource=okta:acct:joe.stormtrooper%40example.com"
 ```
@@ -71,7 +71,7 @@ In this example, there is a rule configured that has a user identifier condition
 
 ```bash
 curl -v -X GET \
--H "Accept: application/json" \
+-H "Accept: application/jrd+json" \
 -H "Content-Type: application/json" \
 "https://${yourOktaDomain}/.well-known/webfinger?resource=okta:acct:joe.stormtrooper%example.com&rel=http%3A%2F%2Fopenid.net%2Fspecs%2Fconnect%2F1.0%2Fissuer"
 ```

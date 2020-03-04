@@ -1,5 +1,5 @@
 ---
-layout: SectionIndex
+component: Reference
 title: API Reference
 top_links:
   - name: API Concepts

@@ -1,13 +1,11 @@
 ---
 title: SAML-enable your Python application
 language: Python
+icon: code-python
 excerpt: >-
   Guidance on how to SAML-enable your Python application using open source
   PySAML2.
-component: Code
 ---
-
-# Overview
 
 This guide describes how to use [PySAML2](https://github.com/rohe/pysaml2) to add support
 for Okta (via SAML) to applications written in Python. Please note that while the example in this guide uses

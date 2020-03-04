@@ -37,7 +37,7 @@ The underlying foundation for the Sign-In Widget and Auth SDK is a comprehensive
 
 ## Building Apps That Support Single Sign-On
 
-For IT developers or ISVs who want to use Okta as an identity provider, Okta provides several options for secure SSO. SAML has been widely used as the single sign-on protocol by many ISVs and is supported by many identity management solutions. Okta provides comprehensive guidance for developers to implement a proper [SAML service provider](https://www.okta.com/integrate/documentation/saml/). For IT developers building internal apps that would like to support SSO, SAML is also a good option.
+For IT developers or ISVs who want to use Okta as an identity provider, Okta provides several options for secure SSO. SAML has been widely used as the single sign-on protocol by many ISVs and is supported by many identity management solutions. Okta provides comprehensive guidance for developers to implement a proper [SAML service provider](/docs/concepts/saml/). For IT developers building internal apps that would like to support SSO, SAML is also a good option.
 
 OpenID Connect is the emerging technology that provides an alternative implementation of SSO. Okta is a [Certified OpenID Connect provider](http://openid.net/certification/). Building on top of the OAuth 2.0 framework, OpenID Connect is a modern implementation to support authentication and SSO. If you are an Okta customer, our [OpenID Connect API](/docs/reference/api/oidc/) is a great way to support SSO and is a simpler alternative to SAML.
 

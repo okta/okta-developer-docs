@@ -1,0 +1,24 @@
+.category--links {
+
+  li {
+    margin-bottom: 1rem;
+    
+    a {
+      font-size: 1.1em;
+    }
+
+    span.description {
+      color: cv('gray', '700');
+    }
+
+  }
+
+  &.list--multicolumn {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      flex: 0 1 50%;
+    }
+  }
+}

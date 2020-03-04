@@ -1,6 +1,6 @@
 {
-  "release" : "2020.01.1",
-  "build" : "2020.01.1-begin-53-g3b4934a52923",
+  "release" : "2020.02.1",
+  "build" : "2020.02.1-begin-74-g7d52b476028b",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -7368,7 +7368,7 @@
     }, {
       "id" : "platform.inline_hook.response.processed.success",
       "category" : "extensibility",
-      "description" : "Sucessfully processed inline hook response.",
+      "description" : "Successfully processed inline hook response.",
       "tags" : [ "inline-hook" ],
       "mappings" : [ "inline_hook.response.processed" ]
     }, {
@@ -8126,22 +8126,6 @@
         "debugData" : null,
         "actor" : null,
         "targets" : null
-      }
-    }, {
-      "id" : "app.audit_report.download",
-      "category" : "extensibility",
-      "description" : "Application access report downloaded.",
-      "info" : {
-        "created" : "2017-12-18",
-        "release" : "2017.52"
-      },
-      "beta" : false,
-      "tags" : [ "app" ],
-      "mappings" : [ "app.audit_report.download" ],
-      "schema" : {
-        "debugData" : "UserDiffReportDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "app.audit_report.download.local.active",
@@ -13216,22 +13200,6 @@
         "targets" : null
       }
     }, {
-      "id" : "inline_hook.verified",
-      "category" : "extensibility",
-      "description" : "Triggered when attempting to verify an inline hook. Used to notify admins about the outcome of inline hook endpoint URL verification. Note that the event is fired even when the verification is unsuccessful.",
-      "info" : {
-        "created" : "2019-01-14",
-        "release" : "2019.01.2"
-      },
-      "beta" : false,
-      "tags" : [ "inline-hook" ],
-      "mappings" : [ "platform.inline_hook.verified.failure", "platform.inline_hook.verified.success" ],
-      "schema" : {
-        "debugData" : "InlineHookDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
       "id" : "master_application.user_membership.add",
       "category" : "sync",
       "description" : "User provisioned to app.",
@@ -16306,7 +16274,7 @@
     }, {
       "id" : "system.iwa_agentless.redirect",
       "category" : "directories",
-      "description" : "Fired when an Agentless DSSO authentication is redirected to an onprem IWA authentication or the default login page. This can be used to identify when an agentless authentication request resulted in a redirect to an onprem IWA or default login page. This can also be used to identify the potential cause of the redirect. When fired, this event contains information about the potential cause of the redirect.",
+      "description" : "Fired when an Agentless DSSO authentication request is redirected to an onprem IWA authentication or the default login page. This can be used to identify when an agentless authentication request resulted in a redirect to an onprem IWA or default login page. This can also be used to identify the potential cause of the redirect. When fired, this event identifies the cause of the redirection. When a custom error page is defined, a redirect event is not always generated when a redirection occurs.",
       "info" : {
         "created" : "2019-05-27",
         "release" : "2019.05.4"
@@ -16974,6 +16942,22 @@
         "debugData" : null,
         "actor" : null,
         "targets" : null
+      }
+    }, {
+      "id" : "user.account.update_user_type",
+      "category" : "ud-core",
+      "description" : "Fires when a user changes from one type to another. Can be used to audit when a user gets converted from a contractor to a full-time employee, for example. Data includes the old and new type ids. There may be an accompanying update_profile event if values were changed.",
+      "info" : {
+        "created" : "2020-01-24",
+        "release" : "2020.02.0"
+      },
+      "beta" : false,
+      "tags" : [ "account", "user", "user-config" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "UserTypeDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "user.account.use_token",
@@ -18809,6 +18793,7 @@
           "updated_objects" : "Integer",
           "unchanged_objects" : "Integer",
           "total_time" : "String",
+          "roadblocked_instances" : "Map",
           "total_org_app_assignments" : "Long",
           "total_objects" : "Integer",
           "threshold" : "String",
@@ -19053,6 +19038,27 @@
           "issuer" : "String",
           "initiation_type" : "String",
           "fed_broker_mode" : "Boolean"
+        }
+      },
+      "UserTypeDebugData" : {
+        "name" : "UserTypeDebugData",
+        "properties" : {
+          "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
+          "behaviors" : "Map",
+          "risk" : "Map",
+          "url" : "String",
+          "request_uri" : "String",
+          "request_id" : "String",
+          "redirect_uri" : "String",
+          "original_principal" : "Resource",
+          "device_fingerprint" : "String",
+          "authn_request_id" : "String",
+          "new_type_id" : "String",
+          "old_type_id" : "String"
         }
       },
       "WebhooksDebugData" : {

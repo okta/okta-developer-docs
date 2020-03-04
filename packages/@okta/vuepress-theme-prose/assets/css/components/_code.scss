@@ -1,0 +1,18 @@
+:not(pre)>code[class*=language-], pre[class*=language-] {
+  padding: 0.5rem;
+  background: #f4f4f4;
+  margin-top: $base-spacing;
+  margin-bottom: $base-spacing;
+}
+
+:not([class*=language-])>code {
+  border-radius: 2px;
+  border: 1px solid cv('gray', '200');
+  white-space: normal;
+  padding: 0.1rem 0.4rem;
+  line-height: 1.428571429;
+  background: cv('gray', '100');
+  color: #333;
+  font-size: 80%;
+  font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+}
