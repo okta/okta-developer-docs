@@ -1,8 +1,8 @@
-The `authState` object provides information on the state of the current user's authentiation.  
+The `authState` object provides information on the state of the current user's authentication.  
 
-The `authService` object provides methods to read more details about or to modify the current authentication.
+The `authService` object provides methods to read more details about, or to modify, the current authentication.
 
-Function-based components can use the `useOktaAuth` [React hook](https://reactjs.org/docs/hooks-intro.html) to access either or both of the `authService` or the `authState` objects.
+Function-based components can use the `useOktaAuth` [React hook](https://reactjs.org/docs/hooks-intro.html) to access the `authService` or the `authState` objects.
 
 Class-based components can use the `withOktaAuth` [higher-order component](https://reactjs.org/docs/higher-order-components.html) to receive the `authService` and `authState` objects as props.
 
@@ -35,7 +35,7 @@ const Home = () => {
 export default Home;
 ```
 
-Class-based component: 
+Class-based component example: 
 
 ```javascript
 import { withOktaAuth } from '@okta/okta-react';
