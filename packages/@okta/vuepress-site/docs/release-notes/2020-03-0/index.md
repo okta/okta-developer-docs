@@ -43,4 +43,4 @@ The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See 
 ### Bug fixed in 2020.03.0
 
 * Users could acquire logs before the Logs retention period using specific `after` parameters. (OKTA-277912)
-<!-- * App admins were able to modify all profiles in the Profile Editor even when the admin was limited to only administer certain apps. (OKTA-267829) -->
+<!-- * App admins had the ability to modify attributes and mappings on apps that they were not assigned to. (OKTA-267829) -->
