@@ -114,7 +114,7 @@ function success(res) {
 
 ##### Sign In to Okta and SSO Directly to an App
 
-If you'd like to sign the user directly in to an application within Okta, you just redirect to the specific URL for that application. To find that URL, go to that application's page in your Okta org and find [the embed link](https://support.okta.com/help/Documentation/Knowledge_Article/The-Applications-Page-1093995619#Show).
+If you'd like to sign the user directly in to an application within Okta, you just redirect to the specific URL for that application. To find that URL, go to that application's page in your Okta org and find [the embed link](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-apps-page-show-application-embed-links).
 
 #### Sign In to Okta with a Custom Dashboard
 

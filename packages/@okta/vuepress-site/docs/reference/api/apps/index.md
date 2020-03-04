@@ -3403,7 +3403,7 @@ Assigns a user without a [profile](#application-user-profile-object) to an appli
 | applicationId | `id` of an [app](#application-model)                                   | URL        | String                                      | TRUE     |         |
 | appuser       | User's [credentials](#application-user-credentials-object) for the app | Body       | [Application User](#application-user-model) | TRUE     |         |
 
-> **Note:** Only the user's ID is required for the request body of applications with [SignOn Modes](#signon-modes) or [Authentication Schemes](#authentication-schemes) that don't require or support credentials.
+> **Note:** Only the user's ID is required for the request body of applications with [SignOn Modes](#sign-on-modes) or [Authentication Schemes](#authentication-schemes) that don't require or support credentials.
 
 > **Note:** If your SSO application requires a profile but doesn't have provisioning enabled, you should add a profile to the request and use the [Assign user to application for SSO and provisioning](#assign-user-to-application-for-sso-and-provisioning) operation.
 
@@ -3472,7 +3472,7 @@ Assigns a user to an application with [credentials](#application-user-credential
 | applicationId | `id` of an [app](#application-model)                                                                                   | URL        | String                                      | TRUE     |         |
 | appuser       | user's [credentials](#application-user-credentials-object) and [profile](#application-user-profile-object) for the app | Body       | [Application User](#application-user-model) | FALSE    |         |
 
-> **Note:** The [Application User](#application-user-model) must specify the user's `id` and should omit [credentials](#application-user-credentials-object) for applications with [SignOn Modes](#signon-modes) or [Authentication Schemes](#authentication-schemes) that don't require or support credentials.
+> **Note:** The [Application User](#application-user-model) must specify the user's `id` and should omit [credentials](#application-user-credentials-object) for applications with [SignOn Modes](#sign-on-modes) or [Authentication Schemes](#authentication-schemes) that don't require or support credentials.
 
 > **Important:** You can only specify profile properties that aren't defined by profile mappings when Universal Directory is enabled.
 
@@ -5457,7 +5457,7 @@ Applications have the following properties:
 | profile            | Valid JSON schema for specifying properties    | [JSON](#profile-object)                                              | TRUE         | FALSE      | FALSE        |               |             |
 | request_object_signing_alg| The type of JSON Web Key Set (JWKS) algorithm that must be used for signing request objects | `HS256`, `HS384`, `HS512`, `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`  | TRUE      | FALSE     | FALSE      |
 | settings           | settings for app                               | Object ([App Names and Settings](#app-names-and-settings))                | TRUE         | FALSE      | FALSE        |               |             |
-| signOnMode         | authentication mode of app                     | [SignOn Mode](#signon-modes)                                         | FALSE        | FALSE      | FALSE        |               |             |
+| signOnMode         | authentication mode of app                     | [SignOn Mode](#sign-on-modes)                                         | FALSE        | FALSE      | FALSE        |               |             |
 | status             | status of app                                  | `ACTIVE` or `INACTIVE`                                               | FALSE        | FALSE      | TRUE         |               |             |
 | visibility         | visibility settings for app                    | [Visibility Object](#visibility-object)                              | TRUE         | FALSE      | FALSE        |               |             |
 
