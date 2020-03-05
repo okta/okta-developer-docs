@@ -2,11 +2,11 @@
 title: OIN - Build a Single Sign-On (SSO) integration
 meta:
   - name: description
-    content: Use this guide to learn how to build out an application integration using federated Single Sign-On. 
+    content: Use this guide to learn how to build federated Single Sign-On into your Okta integration. 
 layout: Guides
 sections:
- - overview
- - integrate
- - get-help
- - partner
+ - before-you-begin
+ - create-your-app
+ - test-your-app
+ - submit-your-app
 ---
