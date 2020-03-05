@@ -16,7 +16,7 @@ title: Okta API Products Release Notes
 
 ### Email as a factor and supported optional enrollment is Generally Available in Preview
 
-The Okta [email factor](/docs/reference/api/authn/#enroll-factor) for MFA is now Generally Available in Preview. When the email factor is enabled, end users receive a code in an email message to use when they sign in. <!-- OKTA-278974 -->
+The Okta [email factor](/docs/reference/api/authn/#enroll-okta-email-factor) for MFA is now Generally Available in Preview. When the email factor is enabled, end users receive a code in an email message to use when they sign in. <!-- OKTA-278974 -->
 
 The email factor configuration also supports optional enrollment, which is now Generally Available for all orgs that already have the factor enabled as part of Early Access. <!-- OKTA-274318 -->
 
