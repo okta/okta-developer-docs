@@ -4432,7 +4432,7 @@ Generates a new key pair and returns the Certificate Signing Request for it
 
 ##### Response parameters
 
-Returns CSR in PKCS#10 format if the `Accept` media type is [application/pkcs10](https://tools.ietf.org/html/rfc5967) or a [CSR object](#application-csr-model) if the `Accept` media type is `application/json`
+Returns CSR in PKCS#10 format if the `Accept` media type is [application/pkcs10](https://tools.ietf.org/html/rfc5967) or a [CSR object](#application-csr-object) if the `Accept` media type is `application/json`
 
 ##### Request example
 
@@ -4458,7 +4458,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/"
 ```
 
-Generates a new key pair and returns the [CSR object](#application-csr-model)
+Generates a new key pair and returns the [CSR object](#application-csr-object)
 
 ```bash
 curl -v -X POST \
@@ -4493,7 +4493,7 @@ Content-Transfer-Encoding: base64
 MIIC4DCCAcgCAQAwcTELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xEzARBgNVBAoMCk9rdGEsIEluYy4xDDAKBgNVBAsMA0RldjESMBAGA1UEAwwJU1AgSXNzdWVyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6m8jHVCr9/tKvvbFN59T4raoCs/78KRm4fSefHQOv1TKLXo4wTLbsqYWRWc5u0sd5orUMQgPQOyj3i6qh13mALY4BzrT057EG1BUNjGg29QgYlnOk2iX890e5BIDMQQEIKFrvOi2V8cLUkLvE2ydRn0VO1Q1frbUkYeStJYC5Api2JQsYRwa+1ZeDH1ITnIzUaugWhW2WB2lSnwZkenne5KtffxMPYVu+IhNRHoKaRA6Z51YNhMJIx17JM2hs/H4Ka3drk6kzDf7ofk/yBpb9yBWyU7CTSQhdoHidxqFprMDaT66W928t3AeOENHBuwn8c2K9WeGG+bELNyQRJVmawIDAQABoCowKAYJKoZIhvcNAQkOMRswGTAXBgNVHREEEDAOggxkZXYub2t0YS5jb20wDQYJKoZIhvcNAQELBQADggEBAA2hsVJRVM+A83X9MekjTnIbt19UNT8wX7wlE9jUKirWsxceLiZBpVGn9qfKhhVIpvdaIRSeoFYS2Kg/m1G6bCvjmZLcrQ5FcEBjZH2NKfNppGVnfC2ugtUkBtCB+UUzOhKhRKJtGugenKbP33zRWWIqnd2waF6Cy8TIuqQVPbwEDN9bCbAs7ND6CFYNguY7KYjWzQOeAR716eqpEEXuPYAS4nx/ty4ylonR8cv+gpq51rvq80A4k/36aoeM0Y6I4w64vhTfuvWW2UYFUD+/+y2FA2CSP4JfctySrf1s525v6fzTFZ3qZbB5OZQtP2b8xYWktMzywsxGKDoVDB4wkH4=
 ```
 
-Returns a [CSR object](#application-csr-model)
+Returns a [CSR object](#application-csr-object)
 
 ```http
 HTTP/1.1 201 Created
@@ -4541,7 +4541,7 @@ Updates the CSR with a signed X.509 certificate and adds it into the application
 | ------------- | ------------------------------------------------------------------------------- | ---------- | ---------------------------------------------            | -------- | ------- |
 | applicationId | Unique key of the [application](#application-properties)                        | URL        | String                                                   | TRUE     |         |
 | certificate   | The signed X.509 certificate                                                    | Body       | X.509 certififcate in `DER``, `PEM` or `CER` format | TRUE     |         |
-| csrid         | Unique key of an [application CSR](#application-csr-model)                         | URL        | String                                                   | TRUE     |         |
+| csrid         | Unique key of an [application CSR](#application-csr-object)                         | URL        | String                                                   | TRUE     |         |
 
 For `DER` and `CER` formated certificate, the client can either post in binary or in base64 encoded. If the post is base64 encoded, the `Content-Transfer-Encoding` header should be set to `base64`.
 
@@ -4638,7 +4638,7 @@ Revokes a CSR and deletes the key pair from the application
 | Parameter     | Description                                       | Param Type | DataType | Required | Default |
 | ---------     | -----------------------------------------------   | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [application](#application-model)              | URL        | String   | TRUE     |         |
-| csrId         | unique key of a [CSR object](#application-csr-model) | URL        | String   | TRUE     |         |
+| csrId         | unique key of a [CSR object](#application-csr-object) | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
@@ -4674,7 +4674,7 @@ Enumerates CSRs for an application
 
 ##### Response parameters
 
-Array of [CSR objects](#application-csr-model)
+Array of [CSR objects](#application-csr-object)
 
 ##### Request example
 
@@ -4747,14 +4747,14 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrId}" />
 
-Gets a specific [CSR object](#application-csr-model) by `csrid`
+Gets a specific [CSR object](#application-csr-object) by `csrid`
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | applicationId | unique key of an [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
-| csrId         | unique key of a [CSR object](#application-csr-model)                               | URL        | String                                        | TRUE     |         |
+| csrId         | unique key of a [CSR object](#application-csr-object)                               | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
