@@ -40,10 +40,7 @@ A cross-site scripting attack (XSS) is an attack that executes code in a web pag
 
 There are [tons of resources online](https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29) that cover this topic in great detail, so I'll only provide a basic example here. Earlier in this chapter the string `<img src onerror='alert("haxor")'>` was posted as a Reddit comment. If this string isn't correctly escaped it would have resulted in an annoying popup, shown in <a href="#fig_sanitizing_alert" class="figref"></a>.
 
-<figure id="fig_sanitizing_alert">
-  <img /assets/img/books/alert.png" alt="" style="width:80%;"/>
-  <figcaption>A JavaScript alert popup</figcaption>
-</figure>
+![A JavaScript alert popup](/img/books/api-security/sanitizing/images/alert.png "A JavaScript alert popup")
 
 You may see `alert()` used throughout examples when describing these attacks. The idea is if you can cause an alert to happen in the browser, you can execute other code that does something more malicious like sends your information (cookie, session ID, or other personal info) to a remote site.
 
