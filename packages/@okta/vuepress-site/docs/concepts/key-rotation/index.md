@@ -25,6 +25,8 @@ If you are using the Org Authorization Server, configure and perform key rollove
 
 > **Caution:** Keys used to sign tokens automatically rotate and should always be resolved dynamically against the published JWKS. Your app might fail if you hardcode public keys in your applications. Be sure to include key rollover in your implementation.
 
+> **Note:** When using a Custom Authorization Server, you may work with a client that can't call the `/keys` endpoint to dynamically fetch the JWKS. You can pin that specific client to a specific key by [generating a key credential](/docs/reference/api/apps/#generate-new-application-key-credential) and [updating the application](/docs/reference/api/apps/#update-key-credential-for-application) to use it for signing. This overrides the Custom AS rollover/pinning behavior for that client. Should you need to turn off automatic key rotation for the entire Custom Authorization Server, you can do that by switching the **Signing Key Rotation** value to **Manual** in the Admin Console.
+
 ## Key rotation for the Org Authorization Server
 
 * For security purposes, Okta automatically rotates keys used to sign the ID token.
@@ -33,4 +35,4 @@ If you are using the Org Authorization Server, configure and perform key rollove
 
 * You can't manually rotate the Org Authorization Server's signing keys.
 
-> **Note:** If your application can't retrieve keys dynamically, you can disable the automatic key rotation in the Admin Console, [generate a key credential](/docs/reference/api/apps/#generate-new-application-key-credential), and [update the application](/docs/reference/api/apps/#update-key-credential-for-application) to use it for signing.
+> **Note:** If your application can't retrieve keys dynamically, you can pin that specific client to a specific key by [generating a key credential](/docs/reference/api/apps/#generate-new-application-key-credential) and [updating the application](/docs/reference/api/apps/#update-key-credential-for-application) to use it for signing.
