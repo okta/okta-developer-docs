@@ -7,9 +7,9 @@ After you have a SCIM implementation that passes all of the Runscope tests, you 
 Begin by signing up for an [Okta developer account](https://developer.okta.com/signup/).
 
 1. After you request the developer account and have received the initial email, open the link to your developer org.
-1. Navigate to the Developer Console in your Okta org by clicking **Admin**.
+1. Navigate to the Admin Console in your Okta org by clicking **Admin**.
   ![Admin Button](/img/oin/scim_end-user-ui.png "Admin Button")
-1. Click **Developer Console** and then **Classic UI** to switch over to the Admin Console in your Okta org.
+1. If you are in the Developer Console, click **Developer Console** and then **Classic UI** to switch over to the Admin Console in your Okta org.
   ![Switch to Admin Console](/img/oin/scim_switch-ui.png "Switch to Admin UI")
 1. Click **Applications** > **Applications**.
   ![Open Applications](/img/oin/scim_open-apps.png "Open Applications")
