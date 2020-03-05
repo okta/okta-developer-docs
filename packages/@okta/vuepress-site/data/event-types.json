@@ -1,6 +1,6 @@
 {
-  "release" : "2020.02.1",
-  "build" : "2020.02.1-begin-74-g7d52b476028b",
+  "release" : "2020.03.1",
+  "build" : "2020.03.1-begin-63-gedcb1f661676",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -629,6 +629,10 @@
   }, {
     "id" : "group",
     "description" : "Group.",
+    "tags" : [ ]
+  }, {
+    "id" : "end-user-visible",
+    "description" : "",
     "tags" : [ ]
   }, {
     "id" : "concurrency-limit",
@@ -7701,6 +7705,12 @@
       "description" : "An email was sent to a user for verification.",
       "tags" : [ "email" ],
       "mappings" : [ "system.email.send_factor_verify_message" ]
+    }, {
+      "id" : "system.email.template.update",
+      "category" : "idx",
+      "description" : "Custom email template updated.",
+      "tags" : [ "admin" ],
+      "mappings" : [ "system.email.template.update" ]
     }, {
       "id" : "system.import.clear.unconfirmed.users.summary",
       "category" : "sync",
@@ -15424,6 +15434,22 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.email.template.update",
+      "category" : "idx",
+      "description" : "Fired when a custom email template has been updated. Can be used to identify when an admin user has updated a custom email template. This event can be used to understand which email template has been updated, but this event does not provide information about the type of update made to a template.",
+      "info" : {
+        "created" : "2020-02-28",
+        "release" : "2020.03.0"
+      },
+      "beta" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ "system.email.template.update" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "system.feature.disable",
       "category" : "aelm",
       "description" : "Fired when self service features are requested to be disabled by admins. This can be used to understand who disabled the features and whether there are any limitations concerning the features. When fired, this event contains information about the requested features, they're names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.enable'.",
@@ -16888,7 +16914,7 @@
         "release" : "2016.15"
       },
       "beta" : false,
-      "tags" : [ "account", "event-hook-eligible", "user" ],
+      "tags" : [ "account", "end-user-visible", "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.config.password_update.failure", "core.user.config.password_update.success" ],
       "schema" : {
         "debugData" : null,
@@ -16904,7 +16930,7 @@
         "release" : "2018.05"
       },
       "beta" : false,
-      "tags" : [ "account", "user", "user-config" ],
+      "tags" : [ "account", "end-user-visible", "user", "user-config" ],
       "mappings" : [ "core.user.config.update_primary_email" ],
       "schema" : {
         "debugData" : null,
@@ -16936,7 +16962,7 @@
         "release" : "2018.25"
       },
       "beta" : false,
-      "tags" : [ "account", "user", "user-config" ],
+      "tags" : [ "account", "end-user-visible", "user", "user-config" ],
       "mappings" : [ "core.user.config.update_secondary_email" ],
       "schema" : {
         "debugData" : null,
@@ -17416,7 +17442,7 @@
         "release" : "2016.11"
       },
       "beta" : false,
-      "tags" : [ "event-hook-eligible", "mfa" ],
+      "tags" : [ "end-user-visible", "event-hook-eligible", "mfa" ],
       "mappings" : [ "core.user.factor.activate" ],
       "schema" : {
         "debugData" : null,
@@ -17432,7 +17458,7 @@
         "release" : "2016.11"
       },
       "beta" : false,
-      "tags" : [ "event-hook-eligible", "mfa" ],
+      "tags" : [ "end-user-visible", "event-hook-eligible", "mfa" ],
       "mappings" : [ "core.user.factor.deactivate" ],
       "schema" : {
         "debugData" : null,
@@ -17656,7 +17682,7 @@
         "release" : "2016.02"
       },
       "beta" : false,
-      "tags" : [ "event-hook-eligible", "session", "user" ],
+      "tags" : [ "end-user-visible", "event-hook-eligible", "session", "user" ],
       "mappings" : [ "core.user_auth.invalid_certificate", "core.user_auth.login_denied", "core.user_auth.login_failed", "core.user_auth.login_failed.policy_denied", "core.user_auth.login_success", "core.user_auth.session_created_using_api_token", "core.user_auth.session_created_using_token" ],
       "schema" : {
         "debugData" : "UserAuthenticationDebugData",
