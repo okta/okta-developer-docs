@@ -4114,7 +4114,7 @@ Generates a new X.509 certificate for an application key credential
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of an [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
 | validityYears | expiry of the [application key credential](#application-key-credential-model)   | Query      | Number                                        | TRUE     |         |
 
 ##### Response parameters
@@ -4187,7 +4187,7 @@ For step-by-step instructions to clone a credential, see [Share application key 
 
 | Parameter           | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | -------------       | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| kid                 | Unique key of [Application Key Credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
+| kid                 | Unique key of an [Application Key Credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
 | sourceApplicationId | Unique key of the source [application](#application-properties)                 | URL        | String                                        | TRUE     |         |
 | targetAid           | Unique key of the target [application](#application-properties)                 | Query      | String                                        | TRUE     |         |
 
@@ -4257,7 +4257,7 @@ Enumerates key credentials for an application
 
 | Parameter     | Description                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model) | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of an [application](#application-model) | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
@@ -4316,8 +4316,8 @@ Gets a specific [Application Key Credential](#application-key-credential-model) 
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
-| kid           | unique key of [application key credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of an [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
+| kid           | unique key of an [application key credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
@@ -4361,8 +4361,8 @@ Previews SAML metadata based on a specific key credential for an application
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
-| kid           | unique key of [application key credential](#application-key-credential-model)   | Query      | String                                        | TRUE     |         |
+| applicationId | unique key of an [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
+| kid           | unique key of an [application key credential](#application-key-credential-model)   | Query      | String                                        | TRUE     |         |
 
 ##### Response parameters
 
@@ -4427,12 +4427,12 @@ Generates a new key pair and returns the Certificate Signing Request for it
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of an [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
 | metadata      | Metadata for the CSR                                                            | Body       | [CSR Metadata](#csr-metadata-object)          | TRUE     |         |
 
 ##### Response parameters
 
-Returns CSR in PKCS#10 format if the ``Accept`` media type is [application/pkcs10](https://tools.ietf.org/html/rfc5967) or a [CSR model](#application-csr-model) if the ``Accept`` media type is ``application/json``
+Returns CSR in PKCS#10 format if the `Accept` media type is [application/pkcs10](https://tools.ietf.org/html/rfc5967) or a [CSR object](#application-csr-model) if the `Accept` media type is `application/json`
 
 ##### Request example
 
@@ -4458,7 +4458,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/"
 ```
 
-Generates a new key pair and returns the [CSR model](#application-csr-model)
+Generates a new key pair and returns the [CSR object](#application-csr-model)
 
 ```bash
 curl -v -X POST \
@@ -4493,7 +4493,7 @@ Content-Transfer-Encoding: base64
 MIIC4DCCAcgCAQAwcTELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xEzARBgNVBAoMCk9rdGEsIEluYy4xDDAKBgNVBAsMA0RldjESMBAGA1UEAwwJU1AgSXNzdWVyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6m8jHVCr9/tKvvbFN59T4raoCs/78KRm4fSefHQOv1TKLXo4wTLbsqYWRWc5u0sd5orUMQgPQOyj3i6qh13mALY4BzrT057EG1BUNjGg29QgYlnOk2iX890e5BIDMQQEIKFrvOi2V8cLUkLvE2ydRn0VO1Q1frbUkYeStJYC5Api2JQsYRwa+1ZeDH1ITnIzUaugWhW2WB2lSnwZkenne5KtffxMPYVu+IhNRHoKaRA6Z51YNhMJIx17JM2hs/H4Ka3drk6kzDf7ofk/yBpb9yBWyU7CTSQhdoHidxqFprMDaT66W928t3AeOENHBuwn8c2K9WeGG+bELNyQRJVmawIDAQABoCowKAYJKoZIhvcNAQkOMRswGTAXBgNVHREEEDAOggxkZXYub2t0YS5jb20wDQYJKoZIhvcNAQELBQADggEBAA2hsVJRVM+A83X9MekjTnIbt19UNT8wX7wlE9jUKirWsxceLiZBpVGn9qfKhhVIpvdaIRSeoFYS2Kg/m1G6bCvjmZLcrQ5FcEBjZH2NKfNppGVnfC2ugtUkBtCB+UUzOhKhRKJtGugenKbP33zRWWIqnd2waF6Cy8TIuqQVPbwEDN9bCbAs7ND6CFYNguY7KYjWzQOeAR716eqpEEXuPYAS4nx/ty4ylonR8cv+gpq51rvq80A4k/36aoeM0Y6I4w64vhTfuvWW2UYFUD+/+y2FA2CSP4JfctySrf1s525v6fzTFZ3qZbB5OZQtP2b8xYWktMzywsxGKDoVDB4wkH4=
 ```
 
-Returns a [CSR Model](#application-csr-model)
+Returns a [CSR object](#application-csr-model)
 
 ```http
 HTTP/1.1 201 Created
@@ -4529,7 +4529,7 @@ Content-Type: application/json
 
 ### Publish CSR for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrModelId}/lifecycle/publish" />
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrId}/lifecycle/publish" />
 
 Updates the CSR with a signed X.509 certificate and adds it into the application key credentials
 
@@ -4540,10 +4540,10 @@ Updates the CSR with a signed X.509 certificate and adds it into the application
 | Parameter     | Description                                                                     | Param Type | DataType                                                 | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | ---------------------------------------------            | -------- | ------- |
 | applicationId | Unique key of the [application](#application-properties)                        | URL        | String                                                   | TRUE     |         |
-| certificate   | The signed X.509 certificate                                                    | Body       | X.509 certififcate in ``DER``, ``PEM`` or ``CER`` format | TRUE     |         |
-| csrid         | Unique key of [Application CSR](#application-csr-model)                         | URL        | String                                                   | TRUE     |         |
+| certificate   | The signed X.509 certificate                                                    | Body       | X.509 certififcate in `DER``, `PEM` or `CER` format | TRUE     |         |
+| csrid         | Unique key of an [application CSR](#application-csr-model)                         | URL        | String                                                   | TRUE     |         |
 
-For ``DER`` and ``CER`` formated certificate, the client can either post in binary or in base64 encoded. If the post is base64 encoded, the ``Content-Transfer-Encoding`` header should be set to ``base64``.
+For `DER` and `CER` formated certificate, the client can either post in binary or in base64 encoded. If the post is base64 encoded, the `Content-Transfer-Encoding` header should be set to `base64`.
 
 ##### Response parameters
 
@@ -4551,7 +4551,7 @@ Returns the new [Application Key Credential](#application-key-credential-model)
 
 ##### Request example
 
-Publishes with an X.509 certificate in base64 encoded ``DER``
+Publishes with an X.509 certificate in base64 encoded `DER``
 
 ```bash
 curl -v -X POST \
@@ -4563,7 +4563,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/apps/0oa1ysid1U3iyFqLu0g4/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish"
 ```
 
-Publishes with an X.509 certificate in ``PEM`` format
+Publishes with an X.509 certificate in `PEM` format
 
 ```bash
 curl -v -X POST \
@@ -4574,7 +4574,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/apps/0oa1ysid1U3iyFqLu0g4/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish"
 ```
 
-Publishes with an X.509 certificate in binary ``CER`` format
+Publishes with an X.509 certificate in binary `CER` format
 
 ```bash
 curl -v -X POST \
@@ -4629,7 +4629,7 @@ Content-Type: application/json
 
 ### Revoke CSR from application
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrModelId}" />
+<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrId}" />
 
 Revokes a CSR and deletes the key pair from the application
 
@@ -4638,7 +4638,7 @@ Revokes a CSR and deletes the key pair from the application
 | Parameter     | Description                                       | Param Type | DataType | Required | Default |
 | ---------     | -----------------------------------------------   | ---------- | -------- | -------- | ------- |
 | applicationId | `id` of an [application](#application-model)              | URL        | String   | TRUE     |         |
-| csrid         | unique key of [CSR model](#application-csr-model) | URL        | String   | TRUE     |         |
+| csrId         | unique key of a [CSR object](#application-csr-model) | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
@@ -4670,11 +4670,11 @@ Enumerates CSRs for an application
 
 | Parameter     | Description                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model) | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of an [application](#application-model) | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Array of [CSR Models](#application-csr-model)
+Array of [CSR objects](#application-csr-model)
 
 ##### Request example
 
@@ -4745,20 +4745,20 @@ curl -v -X GET \
 
 ### Get CSR for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrModelId}" />
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrId}" />
 
-Gets a specific [CSR Model](#application-csr-model) by `csrid`
+Gets a specific [CSR object](#application-csr-model) by `csrid`
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
-| csrid         | unique key of [CSR Model](#application-csr-model)                               | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of an [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
+| csrId         | unique key of a [CSR object](#application-csr-model)                               | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Returns a base64 encoded CSR in DER format if the `Accept` media type is `application/pkcs10` or a CSR model if the `Accept` media type is `application/json`
+Returns a base64 encoded CSR in DER format if the `Accept` media type is `application/pkcs10` or a CSR object if the `Accept` media type is `application/json`
 
 ##### Request example
 
@@ -5921,7 +5921,7 @@ All application user assignments have the following properties:
 | created          | timestamp when app user was created                          | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
 | credentials      | credentials for assigned app                                 | [Application User Credentials Object](#application-user-credentials-object) | TRUE     | FALSE  | FALSE    |           |           |            |
 | externalId       | id of user in target app *(must be imported or provisioned)* | String                                                                      | TRUE     | TRUE   | TRUE     |           | 512       |            |
-| id               | unique key of [User](/docs/reference/api/users/)              | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
+| id               | unique key of a [User](/docs/reference/api/users/)              | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | lastSync         | timestamp when last sync operation was executed              | Date                                                                        | TRUE     | FALSE  | TRUE     |           |           |            |
 | lastUpdated      | timestamp when app user was last updated                     | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
 | passwordChanged  | timestamp when app password last changed                     | Date                                                                        | TRUE     | FALSE  | TRUE     |           |           |            |
@@ -6154,9 +6154,9 @@ The metadata for a CSR
 | dnsNames         | DNS names of the subject              | Array                                               | TRUE     | FALSE  | FALSE    |           |           |            |
 
 
-### Application CSR Model
+### Application CSR Object
 
-The application CSR model defines a certificate signing request for a signature or encryption credential for an application.
+The application CSR object defines a certificate signing request for a signature or encryption credential for an application.
 
 #### Example
 
