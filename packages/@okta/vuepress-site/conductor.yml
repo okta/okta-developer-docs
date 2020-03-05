@@ -1865,4 +1865,11 @@ redirects:
     to: /docs/guides/submit-app/
   - from: /docs/guides/build-provisioning-integration/test-scim-server/index.html
     to: /docs/guides/build-provisioning-integration/test-scim-api/
-    
+  - from: /docs/guides/build-sso-integration/overview/index.html
+    to: /docs/guides/build-sso-integration/before-you-begin/
+  - from: /docs/guides/build-sso-integration/integrate/index.html
+    to: /docs/guides/build-sso-integration/create-your-app/
+  - from: /docs/guides/build-sso-integration/get-help/index.html
+    to: /docs/guides/build-sso-integration/before-you-begin/
+  - from: /docs/guides/build-sso-integration/partner/index.html
+    to: /docs/guides/build-sso-integration/submit-your-app/

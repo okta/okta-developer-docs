@@ -7,7 +7,7 @@ meta:
     content: Secure Authentication Markup Language is a standards-based protocol for exchanging digital authentication signatures. Learn how SAML operates and how to set up SAML applications in Okta.
 ---
 
-# SAML
+## SAML
 
 Traditionally, enterprise applications are deployed and run within the company network. To obtain information about users such as user profile and group information, many of these applications are built to integrate with corporate directories such as Microsoft Active Directory. More importantly, a user's credentials are typically stored and validated using the directory. For example, if you use SharePoint and Exchange that are running on premises, your login credentials are your Active Directory credentials.
 
@@ -29,7 +29,7 @@ A more elegant way to solve this problem is to allow JuiceCo and every other sup
 
 This type of use case is what led to the birth of federated protocols such as [Security Assertion Markup Languange (SAML)](http://en.wikipedia.org/wiki/Security_Assertion_Markup_Language).
 
-See [Security Assertion Markup Language (SAML) V2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) for a in-depth overview.
+See the [Security Assertion Markup Language (SAML) V2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) for a more in-depth overview.
 
 ## Planning for SAML
 
@@ -63,7 +63,7 @@ A couple of key things to note:
 
 5. The SAML authentication flow is asynchronous. The Service Provider does not know if the Identity Provider will ever complete the entire flow. Because of this, the Service Provider does not maintain any state of any authentication requests generated. When the Service Provider receives a response from an Identity Provider, the response must contain all the necessary information.
 
-## Planning Checklist
+## Planning checklist
 
 While the SAML protocol is a standard, there are different ways to implement it depending on the nature of your application. The following is a checklist that will guide you through some of key considerations.
 
@@ -79,7 +79,7 @@ While the SAML protocol is a standard, there are different ways to implement it 
 
   6. Implementing a "backdoor"
 
-### Understanding the Role of a Service Provider
+### Understanding the role of a Service Provider
 
 A SAML IDP generates a SAML response based on configuration that is mutually agreed upon by the IDP and the SP. Upon receiving the SAML assertion, the SP needs to validate that the assertion comes from a valid IDP and then parse the necessary information from the assertion: the username, attributes, etc.
 
@@ -91,7 +91,7 @@ In order to do this, the SP requires at least the following:
 
 The easiest way to implement SAML is to leverage an OpenSource SAML toolkit. We have included a list at the end of this article of recommended toolkits for several languages. These toolkits provide the logic needed to digest the information in an incoming SAML Response. In addition, if the SP needs to support the SP-initiated Login flow, the toolkits also provide the logic needed to generate an appropriate SAML Authentication Request.
 
-### Single IDP vs Multiple IDPs
+### Single IDP vs multiple IDPs
 
 If you are building an internal app and you want to SAML-enable it in order to integrate with your corporate SAML identity provider, then you are looking at supporting only a single IDP. In this case, your app only needs to deal with a single set of IDP metadata (cert, endpoints, etc).
 
@@ -101,11 +101,11 @@ If you are an ISV building an enterprise SaaS product, or if you are building an
 
 ![Many IDPs](/img/saml_guidance_many_idp.png "Many IDPs")
 
-A key consideration involves the ACSurl endpoint on the SP side where SAML responses are posted. It is possible to expose a single endpoint even when dealing with multiple IDPs. For a single-instance multi-tenant application where the tenancy is not defined in the URL (such as via a subdomain), this might be a simpler way to implement. However, you must then rely on additional information in the SAML response to determine which IDP is trying to authenticate (for example, using the IssuerID). If your application is architected in a multi-tenant fashion with domain information in the URL (for example, *https://domain1.myISV.com* or *https://www.myISV.com/domain1*), then having an ACSurl endpoint for each subdomain might be a good option since the URL itself identifies the domain.
+A key consideration involves the ACSurl endpoint on the SP side where SAML responses are posted. It is possible to expose a single endpoint even when dealing with multiple IDPs. For a single-instance multi-tenant application where the tenancy is not defined in the URL (such as via a subdomain), this might be a simpler way to implement. However, you must then rely on additional information in the SAML response to determine which IDP is trying to authenticate (for example, using the IssuerID). If your application is architected in a multi-tenant fashion with domain information in the URL (for example, <https://domain1.myISV.com> or <https://www.myISV.com/domain1>), then having an ACSurl endpoint for each subdomain might be a good option since the URL itself identifies the domain.
 
 ![SPs with Subdomains](/img/saml_guidance_many_idp_subdomain.png "SPs with Subdomains")
 
-### Understanding SP-initiated Login Flow
+### Understanding SP-initiated login flow
 
 As discussed earlier, an IDP-initiated login flow starts from the IDP. Since it begins on the IDP side, there is no additional context about what the user is trying to access on the SP side other than the fact that the user is trying to get authenticated and access the SP. Typically, once the user is authenticated, the browser will be taken to a generic landing page in the SP.
 
@@ -139,29 +139,6 @@ Even in cases where the intent is to have all the users of a particular tenant b
 ### Implementing a "backdoor"
 
 This is particularly important where the entire population is intended to be SAML-enabled in your application. Sometimes, there might be a mistake in the SAML configuration - or something changes in SAML IDP endpoints. In any case, you do not want to be completely locked out. Having a backdoor available for administrator(s) to use to access a locked system becomes extremely important. This is often accomplished by having a "secret" login URL that does not trigger a SAML redirection when accessed. Typically, the administrator will use a username/password to login in and make the necessary changes to fix the problem.
-
-## Testing SAML
-
-Use the [Okta SAML validation tool](http://saml.oktadev.com/) to speed up the process of developing a SAML SP.
-
-This tool makes it easy for you to send SAML Requests to your SAML SP. It allows you to quickly change the contents of the SAML requests and simplifies the process of debugging SAML issues by automatically decoding SAML payloads and displaying server headers for you.
-
-You can also install the [SAML Tracer extension to Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) for testing, or similar tools for other browsers.
-
-## SAML Toolkits
-
-OpenSource toolkits that implement the SAML 2.0 specification for the WebSSO Profile for Service Providers in different programming languages
-can help you build your applications and integrations:
-
-- [.NET Framework](https://en.wikipedia.org/wiki/.NET_Framework_version_history) 4.5 or above: [Kentor Authentication Services](https://github.com/KentorIT/authservices#kentor-authentication-services)
-- .NET Framework 4 or below: [ComponentSpace SAML 2.0](http://www.componentspace.com/SAMLv20.aspx) - Paid software, licenses start at $299
-- Java: [OpenSAML](https://wiki.shibboleth.net/confluence/display/OpenSAML/Home)
-- Java/Spring: [Spring Security SAML](/code/java/spring_security_saml)
-- PHP: [SimpleSAMLphp](/code/php/simplesamlphp)
-- Python: [PySAML2](/code/python/pysaml2)
-- Ruby: [Ruby-SAML](https://rubygems.org/gems/ruby-saml)
-
-> Note: Okta doesn't own or maintain these toolkits, though we do provide documentation to help you use them with Okta.
 
 ## Reference
 
