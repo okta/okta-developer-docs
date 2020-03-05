@@ -1334,7 +1334,7 @@ The Role model defines several **read-only** properties:
 | label            | Display name of Role                                    | String                                                                                                                                     | FALSE      | FALSE    | TRUE      |
 | lastUpdated      | Timestamp when app user was last updated                | Date                                                                                                                                       | FALSE      | FALSE    | TRUE      |
 | status           | Status of role assignment                               | `ACTIVE`                                                                                                                                   | FALSE      | FALSE    | TRUE      |
-| type             | Type of Role                                            | See the [Role types](/docs/reference/api/roles/#role-types) table for a complete list. | FALSE      | FALSE    | TRUE      |
+| type             | Type of Role                                            | See the [Role types](#role-types) table for a complete list. | FALSE      | FALSE    | TRUE      |
 
 #### Role types
 
