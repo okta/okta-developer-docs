@@ -22,6 +22,6 @@ Before you create a new OIDC integration in Okta:
       * Sending an ID token directly to the app. This is a simpler flow. Okta creates an ID token and posts it directly to the first redirect URI registered for the client application. This flow is the same as with sign-in requests for SAML apps. You can configure which OpenID Connect scopes are granted. The `form_post` response mode is used for this flow. There is no state parameter included in the request, since it is a one-way request and not round-trip.
 -->
 
-After you have this data, you can use the Okta Admin Console and the Application Integration Wizard to create your OIDC integration in your Okta development org.
+After you have this data, you can use the Okta Admin Console and the Application Integration Wizard to create your OIDC integration inside the Okta org associated with your developer account.
 
-If you get stuck or have questions at any point during the app creation process, send an email to <developers@okta.com>, or post your questions on the [Okta developer forum](https://devforum.okta.com/search?q=oidc) or on [stackoverflow](https://stackoverflow.com/search?q=oidc+okta).
+If you get stuck or have questions at any point during the app creation process, send an email to <developers@okta.com>, or post your questions on the [Okta developer forum](https://devforum.okta.com/search?q=oidc) or on [Stack Overflow](https://stackoverflow.com/search?q=oidc+okta).

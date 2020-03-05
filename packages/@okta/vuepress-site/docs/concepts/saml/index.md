@@ -29,7 +29,7 @@ A more elegant way to solve this problem is to allow JuiceCo and every other sup
 
 This type of use case is what led to the birth of federated protocols such as [Security Assertion Markup Languange (SAML)](http://en.wikipedia.org/wiki/Security_Assertion_Markup_Language).
 
-See [Security Assertion Markup Language (SAML) V2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) for a in-depth overview.
+See the [Security Assertion Markup Language (SAML) V2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) for a more in-depth overview.
 
 ## Planning for SAML
 
@@ -101,7 +101,7 @@ If you are an ISV building an enterprise SaaS product, or if you are building an
 
 ![Many IDPs](/img/saml_guidance_many_idp.png "Many IDPs")
 
-A key consideration involves the ACSurl endpoint on the SP side where SAML responses are posted. It is possible to expose a single endpoint even when dealing with multiple IDPs. For a single-instance multi-tenant application where the tenancy is not defined in the URL (such as via a subdomain), this might be a simpler way to implement. However, you must then rely on additional information in the SAML response to determine which IDP is trying to authenticate (for example, using the IssuerID). If your application is architected in a multi-tenant fashion with domain information in the URL (for example, *<https://domain1.myISV.com>* or *<https://www.myISV.com/domain1>*), then having an ACSurl endpoint for each subdomain might be a good option since the URL itself identifies the domain.
+A key consideration involves the ACSurl endpoint on the SP side where SAML responses are posted. It is possible to expose a single endpoint even when dealing with multiple IDPs. For a single-instance multi-tenant application where the tenancy is not defined in the URL (such as via a subdomain), this might be a simpler way to implement. However, you must then rely on additional information in the SAML response to determine which IDP is trying to authenticate (for example, using the IssuerID). If your application is architected in a multi-tenant fashion with domain information in the URL (for example, <https://domain1.myISV.com> or <https://www.myISV.com/domain1>), then having an ACSurl endpoint for each subdomain might be a good option since the URL itself identifies the domain.
 
 ![SPs with Subdomains](/img/saml_guidance_many_idp_subdomain.png "SPs with Subdomains")
 

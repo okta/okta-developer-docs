@@ -34,7 +34,7 @@ If you run into issues with your sign-in process, you can try the following to t
 
 * In the Admin Console of your Okta development org, navigate to **Reports** > **System Log** and examine any failure messages reported.
 * Open the developer console of your web browser and examine any status messages related to your authentication request. The console errors have status codes in the 4XX range. Investigate and resolve any error messages from your request.
-* Send an email to <developers@okta.com>, or post your questions on the [Okta developer forum](https://devforum.okta.com/search?q=oidc) or on [stackoverflow](https://stackoverflow.com/search?q=oidc+okta).
+* Send an email to <developers@okta.com>, or post your questions on the [Okta developer forum](https://devforum.okta.com/search?q=oidc) or on [Stack Overflow](https://stackoverflow.com/search?q=oidc+okta).
 
 #### Prepare to submit
 

@@ -1,6 +1,6 @@
 ### Create an OIDC integration
 
-If you don't have an Okta developer account, begin by signing up for one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
+If you don't have an Okta developer account, begin by signing up for one at <https://developer.okta.com/signup/>.
 
 1. After you request the developer account and have received the initialization email, click the link to go to your developer org. Sign in as a user with administrative privileges.
 1. Navigate to the Admin Console in your Okta org by clicking **Admin**.
@@ -82,8 +82,8 @@ If you want to prompt your user to approve the app's access to specified resourc
 
 ### Set the Groups claims filter
 
-Beyond the default set of claims that are contained in ID tokens and access tokens, you can define your own Groups claims. The Group claim filter contains a list of the user's groups for the ID token. The first field identifies the claim name to use in the token. The second field sets a filter for the list of groups. For more detail on adding a Groups claim, see our guide on [customizing return tokens](/docs/guides/customize-tokens-returned-from-okta/create-groups-claim/).
+Beyond the default set of claims that are contained in ID tokens and access tokens, you can define your own Groups claims. The Group claim filter contains a list of the user's groups for the ID token. The first field identifies the claim name to use in the token. The second field sets a filter for the list of groups. For more detail on adding a Groups claim with tokens, see [Add a Groups claim](/docs/guides/customize-tokens-returned-from-okta/create-groups-claim/).
 
 To specify the Groups claim filter, go to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 
->**Note:** If the value you specify in Groups claim filter matches more than 100 groups, an error occurs when the API tries to create ID tokens.
+>**Note:** If the value you specify in the Groups claim filter matches more than 100 groups, an error occurs when the API tries to create ID tokens.

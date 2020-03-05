@@ -1,6 +1,6 @@
 ### Create a SAML integration
 
-If you don't have an Okta developer account, begin by signing up for one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
+If you don't have an Okta developer account, begin by signing up for one at <https://developer.okta.com/signup/>.
 
 1. After you request the developer account and have received the initialization email, click the link to go to your developer org. Sign in as a user with administrative privileges.
 1. Navigate to the Admin Console in your Okta org by clicking **Admin**.
