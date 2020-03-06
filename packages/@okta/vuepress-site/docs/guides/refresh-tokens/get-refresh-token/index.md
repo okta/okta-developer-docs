@@ -12,11 +12,11 @@ The only flows that support refresh tokens are the resource owner password flow 
 | `refresh_token`      | `offline_access`            |
 | `password`           | `offline_access`            |
 
-> **Note:** The authorization code flow is unique, in that the `offline_access` scope must be requested as part of the code request to the `/authorize` endpoint and not the request sent to the `/token` endpoint.
+> **Note:** The authorization code flow is unique in that the `offline_access` scope must be requested as part of the code request to the `/authorize` endpoint and not the request sent to the `/token` endpoint.
 
 ### Get a refresh token with the code flow
 
-In the case of the authorization code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then send this code to the `/token` endpoint to get an access token and a refresh token.
+In the case of the authorization code flow, you use the authorization server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then send this code to the `/token` endpoint to get an access token and a refresh token.
 
 > **Note:**  Authorization code with PKCE requests don't return refresh tokens if they are sent from SPAs or other browser-based apps. Instead, you can [silently refresh tokens](#get-a-new-access-token-id-token-silently-for-your-spa) by making a call to the `/authorize` endpoint.
 
