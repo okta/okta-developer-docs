@@ -16,9 +16,6 @@ It's unlikely that the server's certificate is signed directly by a root certifi
 
 For each intermediate certificate, the client completes the same process: it verifies the issuer's name matches the certificate owner's name, and uses the signature and public key to verify that the certificate is properly signed.
 
-<figure id="fig_tls_certificate_chain">
-  <img /assets/img/books/certificate-chain.png" alt=""/>
-  <figcaption>Illustrating the chain of trust from a root CA through an intermediate certificate</figcaption>
-</figure>
+![Illustrating the chain of trust from a root CA through an intermediate certificate](/img/books/api-security/tls/images/certificate-chain.png "Illustrating the chain of trust from a root CA through an intermediate certificate")
 
 Eventually, in a successful transaction, the client will come to a self-signed root certificate that the client implicitly trusts. At this point, the client has built a cryptographic chain of trust to the server, and the SSL/TLS handshake can proceed.
