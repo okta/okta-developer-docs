@@ -1,10 +1,10 @@
 ---
-title: Use a Refresh Token
+title: Use a refresh token
 ---
 
 To refresh your access token as well as an ID token, you send a token request with a `grant_type` of `refresh_token`. Be sure to include the `openid` scope when you want to refresh the ID token.
 
-```
+```BASH
 http --form POST https://${yourOktaDomain}/oauth2/default/v1/token \
   accept:application/json \
   authorization:'Basic MG9hYmg3M...' \
@@ -18,7 +18,7 @@ http --form POST https://${yourOktaDomain}/oauth2/default/v1/token \
 
 If the refresh token is valid, then you get back a new access/refresh token combination:
 
-```
+```JSON
 {
     "access_token": "eyJhbGciOiJ[...]K1Sun9bA",
     "token_type": "Bearer",
