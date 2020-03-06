@@ -8,10 +8,7 @@ title: A Brief History of Secure Data Transport - Transport Layer Security
 
 Today we take for granted our ability to send data over the internet securely. When we purchase an item from Amazon or complete our taxes online, we place our trust in the infrastructure of the internet to securely share our data with only the systems and parties we intend.
 
-<figure id="fig_tls_siggaba">
-  <img /assets/img/books/SIGABA-labelled-2.jpg" alt=""/>
-  <figcaption style="font-size: 0.8em;">The SIGABA, a cipher machine used by the US during World War II</figcaption>
-</figure>
+![The SIGABA, a cipher machine used by the US during World War II](/img/books/api-security/tls/images/SIGABA-labelled-2.jpg "The SIGABA, a cipher machine used by the US during World War II")
 
 Historically, secure information exchange wasn't simple. Ciphers and cryptography were used in ancient times to encode sensitive messages. These schemes generally had to two main weaknesses: they relied on a shared code book or cipher to encode/decode the messages, and third parties could decode them through pattern analysis.
 

@@ -23,10 +23,7 @@ If this were rendered as is, in an HTML page, it would pop up an annoying messag
 
 which will make the comment appear as visible text instead of HTML, as shown in <a href="#fig_sanitizing_reddit" class="figref"></a>.
 
-<figure id="fig_sanitizing_reddit">
-  <img /assets/img/books/reddit.png" alt=""/>
-  <figcaption>Reddit properly escapes user input</figcaption>
-</figure>
+![Reddit properly escapes user input](/img/books/api-security/sanitizing/images/reddit.png "Reddit properly escapes user input")
 
 In this example the trust boundary is obvious as any user input should not be trusted.
 
