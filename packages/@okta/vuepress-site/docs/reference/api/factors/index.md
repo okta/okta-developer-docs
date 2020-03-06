@@ -7,7 +7,7 @@ category: management
 
 The Okta Factors API provides operations to enroll, manage, and verify factors for multi-factor authentication (MFA).  Manage both administration and end-user accounts, or verify an individual factor at any time.
 
-## Getting Started with the Factors API
+## Get started with the Factors API
 
 Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9fdda657d134039fcaba)
 
