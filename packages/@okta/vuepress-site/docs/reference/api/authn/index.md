@@ -31,7 +31,7 @@ Trusted applications are backend applications that act as authentication broker 
 > **Note:** Trusted web applications may need to override the [client request context](/docs/reference/api-overview/#client-request-context) to forward the originating client context for the user.
 
 
-## Getting started with authentication
+## Get started with authentication
 
 1. Make sure that you need the API. Check out the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) which is built on the Authentication API. The Sign-In Widget is easier to use and supports basic use cases.
 2. For more advanced use cases, learn [the Okta API basics](/code/rest/).

@@ -25,12 +25,12 @@ Adds a new application to your Okta organization
 | Parameter | Description                                                                            | Param Type | DataType                          | Required | Default |
 | --------- | -------------------------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ------- |
 | activate  | Executes [activation lifecycle](#activate-application) operation when creating the app | Query      | Boolean                           | FALSE    | TRUE    |
-| app       | App-specific name, signOnMode and settings                                             | Body       | [Application](#application-model) | TRUE     |         |
+| app       | App-specific name, signOnMode and settings                                             | Body       | [Application](#application-object) | TRUE     |         |
 
 ##### Response parameters
 
 
-All responses return the created [application](#application-model).
+All responses return the created [Application](#application-object).
 
 #### Add Bookmark application
 
@@ -726,7 +726,7 @@ Adds a SWA application. This application is only available to the org that creat
 
 ##### Request example
 
-> **Note:** An [application](#application-model)'s `signOnMode` must be set to `AUTO_LOGIN`, the `name` field must be left blank, and the `label` field must be defined.
+> **Note:** An [Application](#application-object)'s `signOnMode` must be set to `AUTO_LOGIN`, the `name` field must be left blank, and the `label` field must be defined.
 
 ```bash
 curl -v -X POST \
@@ -914,7 +914,7 @@ The following values are support for creating custom SAML 2.0 Apps. Check [Attri
 
 ##### Request example
 
-> **Note:** An [application](#application-model)'s `signOnMode` must be set to `SAML_2_0`, the `name` field must be left blank, and the `label` field must be defined.
+> **Note:** An [Application](#application-object)'s `signOnMode` must be set to `SAML_2_0`, the `name` field must be left blank, and the `label` field must be defined.
 
 ```bash
 curl -v -X POST \
@@ -1188,7 +1188,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 ##### Request example
 
-> **Note:** An [application](#application-model)'s `signOnMode` must be set to `OPENID_CONNECT`, the `name` field must be `oidc_client`, and the `label` field must be defined.
+> **Note:** An [Application](#application-object)'s `signOnMode` must be set to `OPENID_CONNECT`, the `name` field must be `oidc_client`, and the `label` field must be defined.
 
 ```bash
 curl -v -X POST \
@@ -1508,7 +1508,7 @@ Fetches an application from your Okta organization by `id`
 
 ##### Response parameters
 
-Fetched [application](#application-model)
+Fetched [Application](#application-object)
 
 ##### Request example
 
@@ -1637,7 +1637,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | Parameter | Description                                                                                                      | Param Type | DataType | Required | Default |
 | --------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
 | after     | Specifies the pagination cursor for the next page of apps                                                        | Query      | String   | FALSE    |         |
-| expand    | Traverses the `users` link relationship and optionally embeds the [Application User](#application-user-model) resource   | Query      | String   | FALSE    |         |
+| expand    | Traverses the `users` link relationship and optionally embeds the [Application User](#application-user-object) resource   | Query      | String   | FALSE    |         |
 | filter    | Filters apps by `status`, `user.id`, `group.id` or `credentials.signing.kid` expression                          | Query      | String   | FALSE    |         |
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
 | q         | Searches the `name` or `displayName` property of applications                                                    | Query      | String   | FALSE    |         |
@@ -1665,14 +1665,14 @@ The following link expansions are supported to embed additional resources into t
 
 | Expansion    | Description                                                                                                     |
 | ------------ | --------------------------------------------------------------------------------------------------------------- |
-| `user/:uid`  | Embeds the [Application User](#application-user-model) for an assigned user such as `user/00ucw2RPGIUNTDQOYPOF` |
+| `user/:uid`  | Embeds the [Application User](#application-user-object) for an assigned user such as `user/00ucw2RPGIUNTDQOYPOF` |
 
 > **Note:** The `user/:uid` expansion can currently only be used in conjunction with the `user.id eq ":uid"` filter. See [List applications assigned to a user](#list-applications-assigned-to-a-user).
 
 
 ##### Response parameters
 
-Array of [Applications](#application-model)
+Array of [Applications](#application-object)
 
 #### List applications with defaults
 
@@ -1853,7 +1853,7 @@ curl -v -X GET \
 
 #### List applications assigned to a user
 
-Enumerates all applications assigned to a user and optionally embeds their [Application User](#application-user-model) in a single response
+Enumerates all applications assigned to a user and optionally embeds their [Application User](#application-user-object) in a single response
 
 ##### Request example
 
@@ -1865,7 +1865,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/apps?filter=user.id+eq+\"00ucw2RPGIUNTDQOYPOF\"&expand=user/00ucw2RPGIUNTDQOYPOF"
 ```
 
-> **Note:** The `expand=user/:uid` query parameter optionally returns the user's [Application User](#application-user-model) information in the response body's `_embedded` property.
+> **Note:** The `expand=user/:uid` query parameter optionally returns the user's [Application User](#application-user-object) information in the response body's `_embedded` property.
 
 ##### Response example
 
@@ -2291,14 +2291,14 @@ Updates an application in your organization
 
 | Parameter     | Description              | Param Type | DataType                          | Required | Default |
 | ---------     | -------------------      | ---------- | --------------------------------- | -------- | ------- |
-| app           | Updated app              | Body       | [Application](#application-model) | FALSE    |         |
+| app           | Updated app              | Body       | [Application](#application-object) | FALSE    |         |
 | applicationId | `id` of an app to update | URL        | String                            | TRUE     |         |
 
 > **Note:** All properties must be specified when updating an app. **Delta updates are not supported.**
 
 ##### Response parameters
 
-Updated [application](#application-model)
+Updated [Application](#application-object)
 
 #### Set SWA user-editable username and password
 
@@ -2878,18 +2878,18 @@ curl -v -X PUT \
 
 #### Update key credential for application
 
-Updates the [application key credential](#application-key-credential-model) by `kid`
+Updates the [Application Key Credential](#application-key-credential-model) by `kid`
 
 ##### Request Parameters
 
 | Parameter     | Description                                                             | Param Type | DataType                                      | Required | Default |
 | ------------- | ----------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| app           | app with new key credential kid                                         | Body       | [Application](#application-model)             | FALSE    |         |
-| applicationId | `id` of an [app](#application-model)                                    | URL        | String                                        | TRUE     |         |
+| app           | app with new key credential kid                                         | Body       | [Application](#application-object)             | FALSE    |         |
+| applicationId | `id` of an [app](#application-object)                                    | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-[Application](#application-model) with updated `kid`
+[Application](#application-object) with updated `kid`
 
 ##### Request example
 
@@ -3032,7 +3032,7 @@ curl -v -X PUT \
 
 ##### Response example
 
-[Application](#application-model) with updated [Accessibility Object](#accessibility-object)
+[Application](#application-object) with updated [Accessibility Object](#accessibility-object)
 
 ##### Response example (self-service application assignment not available)
 
@@ -3400,8 +3400,8 @@ Assigns a user without a [profile](#application-user-profile-object) to an appli
 
 | Parameter     | Description                                                            | Param Type | DataType                                    | Required | Default |
 | ---------     | ---------------------------------------------------------------------- | ---------- | ------------------------------------------- | -------- | ------- |
-| applicationId | `id` of an [app](#application-model)                                   | URL        | String                                      | TRUE     |         |
-| appuser       | User's [credentials](#application-user-credentials-object) for the app | Body       | [Application User](#application-user-model) | TRUE     |         |
+| applicationId | `id` of an [app](#application-object)                                   | URL        | String                                      | TRUE     |         |
+| appuser       | User's [credentials](#application-user-credentials-object) for the app | Body       | [Application User](#application-user-object) | TRUE     |         |
 
 > **Note:** Only the user's ID is required for the request body of applications with [SignOn Modes](#sign-on-modes) or [Authentication Schemes](#authentication-schemes) that don't require or support credentials.
 
@@ -3409,7 +3409,7 @@ Assigns a user without a [profile](#application-user-profile-object) to an appli
 
 ##### Response parameters
 
-[Application User](#application-user-model)
+[Application User](#application-user-object)
 
 ##### Request example
 
@@ -3469,16 +3469,16 @@ Assigns a user to an application with [credentials](#application-user-credential
 
 | Parameter     | Description                                                                                                            | Param Type | DataType                                    | Required | Default |
 | ---------     | ---------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------------- | -------- | ------- |
-| applicationId | `id` of an [app](#application-model)                                                                                   | URL        | String                                      | TRUE     |         |
-| appuser       | user's [credentials](#application-user-credentials-object) and [profile](#application-user-profile-object) for the app | Body       | [Application User](#application-user-model) | FALSE    |         |
+| applicationId | `id` of an [app](#application-object)                                                                                   | URL        | String                                      | TRUE     |         |
+| appuser       | user's [credentials](#application-user-credentials-object) and [profile](#application-user-profile-object) for the app | Body       | [Application User](#application-user-object) | FALSE    |         |
 
-> **Note:** The [Application User](#application-user-model) must specify the user's `id` and should omit [credentials](#application-user-credentials-object) for applications with [SignOn Modes](#sign-on-modes) or [Authentication Schemes](#authentication-schemes) that don't require or support credentials.
+> **Note:** The [Application User](#application-user-object) must specify the user's `id` and should omit [credentials](#application-user-credentials-object) for applications with [SignOn Modes](#sign-on-modes) or [Authentication Schemes](#authentication-schemes) that don't require or support credentials.
 
 > **Important:** You can only specify profile properties that aren't defined by profile mappings when Universal Directory is enabled.
 
 ##### Response parameters
 
-[Application User](#application-user-model) with user profile mappings applied
+[Application User](#application-user-object) with user profile mappings applied
 
 Your request is rejected with a `403 Forbidden` status for applications with the `PUSH_NEW_USERS` or `PUSH_PROFILE_UPDATES` features enabled if the request specifies a value for an attribute that is defined by an application user profile mapping (Universal Directory) and the value for the attribute doesn't match the output of the mapping.
 
@@ -3567,12 +3567,12 @@ Fetches a specific user assignment for an application by `id`
 
 | Parameter     | Description                                              | Param Type | DataType | Required | Default |
 | ---------     | -----------------------------------------------          | ---------- | -------- | -------- | ------- |
-| applicationId | `id` of an [app](#application-model)                     | URL        | String   | TRUE     |         |
+| applicationId | `id` of an [app](#application-object)                     | URL        | String   | TRUE     |         |
 | uid           | unique key of assigned [User](/docs/reference/api/users/) | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
-[Application User](#application-user-model)
+[Application User](#application-user-object)
 
 ##### Request example
 
@@ -3628,14 +3628,14 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/users" />
 
-Enumerates all assigned [application users](#application-user-model) for an application
+Enumerates all assigned [Application users](#application-user-object) for an application
 
 ##### Request parameters
 
 | Parameter     | Description                                                                | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------------------------           | ---------- | -------- | -------- | ------- |
 | after         | Specifies the pagination cursor for the next page of assignments           | Query      | String   | FALSE    |         |
-| applicationId | `id` of an [app](#application-model)                                        | URL        | String   | TRUE     |         |
+| applicationId | `id` of an [app](#application-object)                                        | URL        | String   | TRUE     |         |
 | limit         | Specifies the number of results per page (maximum 500)                      | Query      | Number   | FALSE    | 50      |
 | q             | Returns a filtered list of app users. The value of `q` is matched against an application user profile's `userName`, `firstName`, `lastName`, and `email`. **Note:** This operation only supports `startsWith` that matches what the string starts with to the query. | Query      | String   | FALSE    |         |
 
@@ -3644,7 +3644,7 @@ If there are multiple pages of results, the Link header contains a `next` link t
 
 ##### Response parameters
 
-Array of [Application Users](#application-user-model)
+Array of [Application Users](#application-user-object)
 
 ##### Request example
 
@@ -3741,13 +3741,13 @@ Updates a user's [credentials](#application-user-credentials-object) for an assi
 
 | Parameter     | Description                                                        | Param Type | DataType                                    | Required | Default |
 | ---------     | ------------------------------------------------------------------ | ---------- | ------------------------------------------- | -------- | ------- |
-| applicationId | `id` of an [app](#application-model)                               | URL        | String                                      | TRUE     |         |
-| appuser       | user's [credentials](#application-user-credentials-object) for app | Body       | [Application User](#application-user-model) | TRUE     |         |
+| applicationId | `id` of an [app](#application-object)                               | URL        | String                                      | TRUE     |         |
+| appuser       | user's [credentials](#application-user-credentials-object) for app | Body       | [Application User](#application-user-object) | TRUE     |         |
 | uid           | unique key of a valid [User](/docs/reference/api/users/)            | URL        | String                                      | TRUE     |         |
 
 ##### Response Parameters
 
-[Application User](#application-user-model)
+[Application User](#application-user-object)
 
 Your request is rejected with a `400 Bad Request` status if you attempt to assign a username or password to an application with an incompatible [Authentication scheme](#authentication-schemes).
 
@@ -3822,13 +3822,13 @@ Updates a user's profile for an application
 
 | Parameter     | Description                                             | Param Type | DataType                                    | Required | Default |
 | ---------     | -----------------------------------------------         | ---------- | ------------------------------------------- | -------- | ------- |
-| applicationId | `id` of an [app](#application-model)                    | URL        | String                                      | TRUE     |         |
+| applicationId | `id` of an [app](#application-object)                    | URL        | String                                      | TRUE     |         |
 | uid           | unique key of a valid [User](/docs/reference/api/users/) | URL        | String                                      | TRUE     |         |
-| appuser       | credentials for app                                     | Body       | [Application User](#application-user-model) | FALSE    |         |
+| appuser       | credentials for app                                     | Body       | [Application User](#application-user-object) | FALSE    |         |
 
 ##### Response parameters
 
-[Application User](#application-user-model) with user profile mappings applied
+[Application User](#application-user-object) with user profile mappings applied
 
 Your request is rejected with a `403 Forbidden` status for applications with the `PUSH_NEW_USERS` or `PUSH_PROFILE_UPDATES` features enabled if the request specifies a value for an attribute that is defined by an application user profile mapping (Universal Directory) and the value for the attribute doesn't match the output of the mapping.
 
@@ -3916,7 +3916,7 @@ For directories like Active Directory and LDAP, they act as the owner of the use
 
 | Parameter     | Description                                                                           | Param Type | DataType | Required | Default |
 | ------------- | ------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| applicationId | `id` of an [app](#application-model)                                                  | URL        | String   | TRUE     |         |
+| applicationId | `id` of an [app](#application-object)                                                  | URL        | String   | TRUE     |         |
 | sendEmail     | Sends a deactivation email to the administrator if `true`.  Default value is `false` | Query      | Boolean  | FALSE    | FALSE   |
 | uid           | unique key of assigned [User](/docs/reference/api/users/)                              | URL        | String   | TRUE     |         |
 
@@ -3952,13 +3952,13 @@ Assigns a group to an application
 
 | Parameter     | Description                                     | Param Type | DataType                                      | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| appgroup      | App group                                       | Body       | [Application Group](#application-group-model) | FALSE    |         |
-| applicationId | `id` of an [app](#application-model)            | URL        | String                                        | TRUE     |         |
+| appgroup      | App group                                       | Body       | [Application Group](#application-group-object) | FALSE    |         |
+| applicationId | `id` of an [app](#application-object)            | URL        | String                                        | TRUE     |         |
 | groupId       | unique key of a valid [Group](/docs/reference/api/groups/)           | URL        | String                | TRUE     |         |
 
 ##### Response parameters
 
-All responses return the assigned [Application Group](#application-group-model).
+All responses return the assigned [Application Group](#application-group-object).
 
 ##### Request example
 
@@ -3991,12 +3991,12 @@ Fetches an application group assignment
 
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
-| applicationId | `id` of an [app](#application-model)            | URL        | String   | TRUE     |         |
+| applicationId | `id` of an [app](#application-object)            | URL        | String   | TRUE     |         |
 | groupId       | unique key of an assigned [Group](/docs/reference/api/groups/)       | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
-Fetched [Application Group](#application-group-model)
+Fetched [Application Group](#application-group-object)
 
 ##### Request example
 
@@ -4030,7 +4030,7 @@ Enumerates group assignments for an application
 | Parameter     | Description                                                      | Param Type | DataType | Required | Default |
 | ---------     | ---------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
 | after         | Specifies the pagination cursor for the next page of assignments | Query      | String   | FALSE    |         |
-| applicationId | `id` of an [app](#application-model)                             | URL        | String   | TRUE     |         |
+| applicationId | `id` of an [app](#application-object)                             | URL        | String   | TRUE     |         |
 | limit         | Specifies the number of results per page (maximum 200)           | Query      | Number   | FALSE    | 20      |
 
 The results are [paginated][pagination] according to the `limit` parameter.
@@ -4038,7 +4038,7 @@ If there are multiple pages of results, the Link header contains a `next` link t
 
 ##### Response parameters
 
-Array of [Application Groups](#application-group-model)
+Array of [Application Groups](#application-group-object)
 
 ##### Request example
 
@@ -4077,7 +4077,7 @@ Removes a group assignment from an application
 
 | Parameter     | Description                                     | Param Type | DataType | Required | Default |
 | ---------     | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
-| applicationId | `id` of an [app](#application-model)            | URL        | String   | TRUE     |         |
+| applicationId | `id` of an [app](#application-object)            | URL        | String   | TRUE     |         |
 | groupId       | unique key of an assigned [Group](/docs/reference/api/groups/)       | URL        | String   | TRUE     |         |
 
 ##### Response parameters
@@ -4108,18 +4108,18 @@ curl -v -X DELETE \
 
 Generates a new X.509 certificate for an application key credential
 
-> **Note:** To update application with the newly generated key credential, see [Update key credential](#update-key-credential-for-application).
+> **Note:** To update application with the newly generated key credential, see [Update Key Credential](#update-key-credential-for-application).
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
-| validityYears | expiry of the [application key credential](#application-key-credential-model)   | Query      | Number                                        | TRUE     |         |
+| applicationId | unique key of an [Application](#application-object)                                 | URL        | String                                        | TRUE     |         |
+| validityYears | expiry of the [Application Key Credential](#application-key-credential-model)   | Query      | Number                                        | TRUE     |         |
 
 ##### Response parameters
 
-Returns the generated [application key credential](#application-key-credential-model)
+Returns the generated [Application Key Credential](#application-key-credential-model)
 
 ##### Request example
 
@@ -4187,13 +4187,13 @@ For step-by-step instructions to clone a credential, see [Share application key 
 
 | Parameter           | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | -------------       | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| kid                 | Unique key of [Application Key Credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
-| sourceApplicationId | Unique key of the source [application](#application-properties)                 | URL        | String                                        | TRUE     |         |
-| targetAid           | Unique key of the target [application](#application-properties)                 | Query      | String                                        | TRUE     |         |
+| kid                 | Unique key of an [Application Key Credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
+| sourceApplicationId | Unique key of the source [Application](#application-properties)                 | URL        | String                                        | TRUE     |         |
+| targetAid           | Unique key of the target [Application](#application-properties)                 | Query      | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Returns the cloned [application key credential](#application-key-credential-model)
+Returns the cloned [Application Key Credential](#application-key-credential-model)
 
 ##### Request example
 
@@ -4257,11 +4257,11 @@ Enumerates key credentials for an application
 
 | Parameter     | Description                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model) | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of an [Application](#application-object) | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Array of [application key credential](#application-key-credential-model)
+Array of [Application Key Credential](#application-key-credential-model)
 
 ##### Request example
 
@@ -4316,12 +4316,12 @@ Gets a specific [Application Key Credential](#application-key-credential-model) 
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
-| kid           | unique key of [application key credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of an [Application](#application-object)                                 | URL        | String                                        | TRUE     |         |
+| kid           | unique key of an [Application Key Credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-[Application key credential](#application-key-credential-model).
+[Application Key Credential](#application-key-credential-model).
 
 ##### Request example
 
@@ -4361,8 +4361,8 @@ Previews SAML metadata based on a specific key credential for an application
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
-| kid           | unique key of [application key credential](#application-key-credential-model)   | Query      | String                                        | TRUE     |         |
+| applicationId | unique key of an [Application](#application-object)                                 | URL        | String                                        | TRUE     |         |
+| kid           | unique key of an [Application Key Credential](#application-key-credential-model)   | Query      | String                                        | TRUE     |         |
 
 ##### Response parameters
 
@@ -4427,12 +4427,12 @@ Generates a new key pair and returns the Certificate Signing Request for it
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of an [Application](#application-object)                                 | URL        | String                                        | TRUE     |         |
 | metadata      | Metadata for the CSR                                                            | Body       | [CSR Metadata](#csr-metadata-object)          | TRUE     |         |
 
 ##### Response parameters
 
-Returns CSR in PKCS#10 format if the ``Accept`` media type is [application/pkcs10](https://tools.ietf.org/html/rfc5967) or a [CSR model](#application-csr-model) if the ``Accept`` media type is ``application/json``
+Returns CSR in PKCS#10 format if the `Accept` media type is [application/pkcs10](https://tools.ietf.org/html/rfc5967) or a [CSR object](#application-csr-object) if the `Accept` media type is `application/json`
 
 ##### Request example
 
@@ -4458,7 +4458,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/"
 ```
 
-Generates a new key pair and returns the [CSR model](#application-csr-model)
+Generates a new key pair and returns the [CSR object](#application-csr-object)
 
 ```bash
 curl -v -X POST \
@@ -4493,7 +4493,7 @@ Content-Transfer-Encoding: base64
 MIIC4DCCAcgCAQAwcTELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xEzARBgNVBAoMCk9rdGEsIEluYy4xDDAKBgNVBAsMA0RldjESMBAGA1UEAwwJU1AgSXNzdWVyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6m8jHVCr9/tKvvbFN59T4raoCs/78KRm4fSefHQOv1TKLXo4wTLbsqYWRWc5u0sd5orUMQgPQOyj3i6qh13mALY4BzrT057EG1BUNjGg29QgYlnOk2iX890e5BIDMQQEIKFrvOi2V8cLUkLvE2ydRn0VO1Q1frbUkYeStJYC5Api2JQsYRwa+1ZeDH1ITnIzUaugWhW2WB2lSnwZkenne5KtffxMPYVu+IhNRHoKaRA6Z51YNhMJIx17JM2hs/H4Ka3drk6kzDf7ofk/yBpb9yBWyU7CTSQhdoHidxqFprMDaT66W928t3AeOENHBuwn8c2K9WeGG+bELNyQRJVmawIDAQABoCowKAYJKoZIhvcNAQkOMRswGTAXBgNVHREEEDAOggxkZXYub2t0YS5jb20wDQYJKoZIhvcNAQELBQADggEBAA2hsVJRVM+A83X9MekjTnIbt19UNT8wX7wlE9jUKirWsxceLiZBpVGn9qfKhhVIpvdaIRSeoFYS2Kg/m1G6bCvjmZLcrQ5FcEBjZH2NKfNppGVnfC2ugtUkBtCB+UUzOhKhRKJtGugenKbP33zRWWIqnd2waF6Cy8TIuqQVPbwEDN9bCbAs7ND6CFYNguY7KYjWzQOeAR716eqpEEXuPYAS4nx/ty4ylonR8cv+gpq51rvq80A4k/36aoeM0Y6I4w64vhTfuvWW2UYFUD+/+y2FA2CSP4JfctySrf1s525v6fzTFZ3qZbB5OZQtP2b8xYWktMzywsxGKDoVDB4wkH4=
 ```
 
-Returns a [CSR Model](#application-csr-model)
+Returns a [CSR object](#application-csr-object)
 
 ```http
 HTTP/1.1 201 Created
@@ -4529,7 +4529,7 @@ Content-Type: application/json
 
 ### Publish CSR for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrModelId}/lifecycle/publish" />
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrId}/lifecycle/publish" />
 
 Updates the CSR with a signed X.509 certificate and adds it into the application key credentials
 
@@ -4539,11 +4539,11 @@ Updates the CSR with a signed X.509 certificate and adds it into the application
 
 | Parameter     | Description                                                                     | Param Type | DataType                                                 | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | ---------------------------------------------            | -------- | ------- |
-| applicationId | Unique key of the [application](#application-properties)                        | URL        | String                                                   | TRUE     |         |
-| certificate   | The signed X.509 certificate                                                    | Body       | X.509 certififcate in ``DER``, ``PEM`` or ``CER`` format | TRUE     |         |
-| csrid         | Unique key of [Application CSR](#application-csr-model)                         | URL        | String                                                   | TRUE     |         |
+| applicationId | Unique key of the [Application](#application-properties)                        | URL        | String                                                   | TRUE     |         |
+| certificate   | The signed X.509 certificate                                                    | Body       | X.509 certififcate in `DER``, `PEM` or `CER` format | TRUE     |         |
+| csrid         | Unique key of an [Application CSR](#application-csr-object)                         | URL        | String                                                   | TRUE     |         |
 
-For ``DER`` and ``CER`` formated certificate, the client can either post in binary or in base64 encoded. If the post is base64 encoded, the ``Content-Transfer-Encoding`` header should be set to ``base64``.
+For `DER` and `CER` formated certificate, the client can either post in binary or in base64 encoded. If the post is base64 encoded, the `Content-Transfer-Encoding` header should be set to `base64`.
 
 ##### Response parameters
 
@@ -4551,7 +4551,7 @@ Returns the new [Application Key Credential](#application-key-credential-model)
 
 ##### Request example
 
-Publishes with an X.509 certificate in base64 encoded ``DER``
+Publishes with an X.509 certificate in base64 encoded `DER``
 
 ```bash
 curl -v -X POST \
@@ -4563,7 +4563,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/apps/0oa1ysid1U3iyFqLu0g4/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish"
 ```
 
-Publishes with an X.509 certificate in ``PEM`` format
+Publishes with an X.509 certificate in `PEM` format
 
 ```bash
 curl -v -X POST \
@@ -4574,7 +4574,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/apps/0oa1ysid1U3iyFqLu0g4/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish"
 ```
 
-Publishes with an X.509 certificate in binary ``CER`` format
+Publishes with an X.509 certificate in binary `CER` format
 
 ```bash
 curl -v -X POST \
@@ -4629,7 +4629,7 @@ Content-Type: application/json
 
 ### Revoke CSR from application
 
-<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrModelId}" />
+<ApiOperation method="delete" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrId}" />
 
 Revokes a CSR and deletes the key pair from the application
 
@@ -4637,8 +4637,8 @@ Revokes a CSR and deletes the key pair from the application
 
 | Parameter     | Description                                       | Param Type | DataType | Required | Default |
 | ---------     | -----------------------------------------------   | ---------- | -------- | -------- | ------- |
-| applicationId | `id` of an [application](#application-model)              | URL        | String   | TRUE     |         |
-| csrid         | unique key of [CSR model](#application-csr-model) | URL        | String   | TRUE     |         |
+| applicationId | `id` of an [Application](#application-object)              | URL        | String   | TRUE     |         |
+| csrId         | unique key of a [CSR object](#application-csr-object) | URL        | String   | TRUE     |         |
 
 ##### Response parameters
 
@@ -4670,11 +4670,11 @@ Enumerates CSRs for an application
 
 | Parameter     | Description                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ----------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model) | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of an [Application](#application-object) | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Array of [CSR Models](#application-csr-model)
+Array of [CSR objects](#application-csr-object)
 
 ##### Request example
 
@@ -4745,20 +4745,20 @@ curl -v -X GET \
 
 ### Get CSR for application
 
-<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrModelId}" />
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/csrs/${csrId}" />
 
-Gets a specific [CSR Model](#application-csr-model) by `csrid`
+Gets a specific [CSR object](#application-csr-object) by `csrid`
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| applicationId | unique key of [application](#application-model)                                 | URL        | String                                        | TRUE     |         |
-| csrid         | unique key of [CSR Model](#application-csr-model)                               | URL        | String                                        | TRUE     |         |
+| applicationId | unique key of an [Application](#application-object)                                 | URL        | String                                        | TRUE     |         |
+| csrId         | unique key of a [CSR object](#application-csr-object)                               | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Returns a base64 encoded CSR in DER format if the `Accept` media type is `application/pkcs10` or a CSR model if the `Accept` media type is `application/json`
+Returns a base64 encoded CSR in DER format if the `Accept` media type is `application/pkcs10` or a CSR object if the `Accept` media type is `application/json`
 
 ##### Request example
 
@@ -5330,11 +5330,11 @@ HTTP/1.1 204 No Content
 
 ## Models
 
-* [Application Model](#application-model)
-* [Application User Model](#application-user-model)
-* [Appliction Group Model](#application-group-model)
+* [Application object](#application-object)
+* [Application User object](#application-user-object)
+* [Appliction Group object](#application-group-object)
 
-### Application Model
+### Application object
 
 #### Example
 
@@ -5530,7 +5530,7 @@ The list of possible modes an app may support are:
 
 This setting modifies the same settings as the **Sign On** tab when editing an application in your Okta Administration app.
 
-### Accessibility Object
+### Accessibility object
 
 Specifies access settings for the application
 
@@ -5551,7 +5551,7 @@ Specifies access settings for the application
 }
 ```
 
-### Visibility Object
+### Visibility object
 
 Specifies visibility settings for the application
 
@@ -5576,18 +5576,18 @@ Specifies visibility settings for the application
 }
 ```
 
-#### Hide Object
+#### Hide object
 
 | Property  | Description                                        | DataType | Nullable | Default | MinLength | MaxLength | Validation |
 | --------- | -------------------------------------------------- | -------- | -------- | ------- | --------- | --------- | ---------- |
 | iOS       | Okta Mobile for iOS or Android (pre-dates Android) | Boolean  | FALSE    | FALSE   |           |           |            |
 | web       | Okta Web Browser Home Page                         | Boolean  | FALSE    | FALSE   |           |           |            |
 
-#### AppLinks Object
+#### AppLinks object
 
 Each application defines one or more appLinks that can be published. You can disable AppLinks by setting the link value to `false`.
 
-### Application Credentials Object
+### Application Credentials object
 
 Specifies credentials and scheme for the application's `signOnMode`
 
@@ -5633,7 +5633,7 @@ Applications that are configured with `BASIC_AUTH`, `BROWSER_PLUGIN`, or `SECURE
 
 > **Note:** `BOOKMARK`, `SAML_2_0`, and `WS_FEDERATION` signOnModes don't support an authentication scheme as they use a federated SSO protocol. You should omit the `scheme` property for apps with these signOnModes.
 
-#### Username Template Object
+#### Username Template object
 
 Specifies the template used to generate a user's username when the application is assigned via a group or directly to a user
 
@@ -5654,7 +5654,7 @@ Specifies the template used to generate a user's username when the application i
 }
 ```
 
-#### Signing Credential Object
+#### Signing Credential object
 
 Determines the [key](#application-key-credential-model) used for signing assertions for the `signOnMode`
 
@@ -5672,7 +5672,7 @@ Determines the [key](#application-key-credential-model) used for signing asserti
 }
 ```
 
-#### OAuth Credential Object
+#### OAuth Credential object
 
 Determines how to authenticate the OAuth 2.0 client
 
@@ -5720,7 +5720,7 @@ The following expressions are built-in and may be used with the `BUILT_IN` templ
 | Okta username                   | `${source.login}`                              |
 | Okta username prefix            | `${fn:substringBefore(source.login, "@")}`     |
 
-### Password Object
+### Password object
 
 Specifies a password for a user. A password value is a **write-only** property.  When a user has a valid password and a response object contains a password credential, then the Password Object is a bare object without the `value`  property defined (for example: `password: {}`) to indicate that a password value exists.
 
@@ -5728,7 +5728,7 @@ Specifies a password for a user. A password value is a **write-only** property. 
 | --------- | ----------- | -------- | -------- | ------- | --------- | --------- | ---------- |
 | value     |             | String   | TRUE     |         |           |           |            |
 
-### Application Links Object
+### Application Links object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.  The Links Object is **read-only**.
 
@@ -5742,7 +5742,7 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | self               | The actual application                                                                     |
 | users              | [User](#application-user-operations) assignments for application                           |
 
-### Notifications Object
+### Notifications object
 
 Specifies notifications settings for the application. The VPN notification feature allows admins to communicate a requirement for signing into VPN-required apps.
 
@@ -5764,7 +5764,7 @@ Specifies notifications settings for the application. The VPN notification featu
  }
 ```
 
-#### VPN Notification Object
+#### VPN Notification object
 
 Specifies properties for a VPN notification
 
@@ -5774,7 +5774,7 @@ Specifies properties for a VPN notification
 | message   | An optional message to your end users                                                     | String                            | TRUE     |         |           |            |            |
 | network   | The network connections for the VPN                                                       | [Network Object](#network-object) | FALSE    |         |           |            |            |
 
-#### Network Object
+#### Network object
 
 | Property   | Description                                           | DataType                                               | Nullable | Default     | MinLength | MaxLength  | Validation |
 | ---------- | ----------------------------------------------------- | ------------------------------------------------------ | -------- | ----------- | --------- | ---------- | ---------- |
@@ -5787,7 +5787,7 @@ There are four choices for the `connection` property.
  - `ON_NETWORK` - Displays VPN connection information only when a browser's client IP matches the configured Pubic Gateway IPs. The notification appears before the end user can access the app.
  - `OFF_NETWORK` - Displays VPN connection information only when the browser's client IP doesn't match the configured Pubic Gateway IPs. The notification appears before the end user can access the app.
 
-### Attribute Statements Object
+### Attribute Statements object
 
 Specifies (optional) attribute statements for a SAML application
 
@@ -5798,7 +5798,7 @@ Specifies (optional) attribute statements for a SAML application
 | type       | The type of attribute statements object                                                      | `GENERIC`   | FALSE    |
 | values     | The value of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)    | String      | FALSE    |
 
-#### Group Attribute Statements Object
+#### Group Attribute Statements object
 
 Group Attribute Statements can be used in place of Attribute Statements if your Org supports a large number of groups and you want to filter them into a single SAML assertion.
 
@@ -5854,7 +5854,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
 }
 ```
 
-### Profile Object
+### Profile object
 
 Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define a whitelist of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
@@ -5865,9 +5865,9 @@ Profile Requirements
 
 > **Note:** Profile Object is only available to OAuth 2.0 client applications.
 
-### Application User Model
+### Application User object
 
-The application user model defines a user's app-specific profile and credentials for an application.
+The Application User object defines a user's app-specific profile and credentials for an application.
 
 #### Example
 
@@ -5921,7 +5921,7 @@ All application user assignments have the following properties:
 | created          | timestamp when app user was created                          | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
 | credentials      | credentials for assigned app                                 | [Application User Credentials Object](#application-user-credentials-object) | TRUE     | FALSE  | FALSE    |           |           |            |
 | externalId       | id of user in target app *(must be imported or provisioned)* | String                                                                      | TRUE     | TRUE   | TRUE     |           | 512       |            |
-| id               | unique key of [User](/docs/reference/api/users/)              | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
+| id               | unique key of a [User](/docs/reference/api/users/)              | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | lastSync         | timestamp when last sync operation was executed              | Date                                                                        | TRUE     | FALSE  | TRUE     |           |           |            |
 | lastUpdated      | timestamp when app user was last updated                     | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
 | passwordChanged  | timestamp when app password last changed                     | Date                                                                        | TRUE     | FALSE  | TRUE     |           |           |            |
@@ -5970,7 +5970,7 @@ When the `PUSH_PROFILE_UPDATES` feature is enabled, updates to an upstream profi
 
 > **Note:** User provisioning currently must be configured via the administrator UI and is only available with specific editions.
 
-#### Application User Credentials Object
+#### Application User Credentials object
 
 Specifies a user's credentials for the application. The [Authentication Scheme](#authentication-schemes) of the application determines whether a username or password can be assigned to a user.
 
@@ -6006,7 +6006,7 @@ If you attempt to assign a username or password to an application with an incomp
 }
 ```
 
-#### Application User Profile Object
+#### Application User Profile object
 
 Application User profiles are app-specific, but may be customized by the Profile Editor in the administrator UI. SSO apps typically don't support a user profile while apps with [user provisioning features](#features) have app-specific profiles with optional and/or required properties. Any profile properties visible in the administrator UI for an application assignment can also be assigned via the API. Some properties are reference properties and imported from the target application and only allow specific values to be configured.
 
@@ -6020,7 +6020,7 @@ Application User profiles are app-specific, but may be customized by the Profile
 
 ![App Assignment UI](/img/okta-admin-ui-app-assignment.png "App Assignment UI")
 
-##### Example Profile Object
+##### Example Profile object
 
 ```json
 {
@@ -6107,7 +6107,7 @@ The application key credential model defines a [JSON Web Key](https://tools.ietf
 | x5c              | X.509 certificate chain                                      | Array                                                                       | TRUE     | TRUE   | TRUE     |           |           |            |
 | x5t#S256         | X.509 certificate SHA-256 thumbprint                         | String                                                                      | TRUE     | TRUE   | TRUE     |           |           |            |
 
-### CSR Metadata Object
+### CSR Metadata object
 
 The metadata for a CSR
 
@@ -6136,7 +6136,7 @@ The metadata for a CSR
 | subject          | Subject of the CSR                                           | [Subject Object](#subject-object)                                           | FALSE    | FALSE  | FALSE    |           |           |            |
 | subjectAltNames  | Subject Alternative Name of the CSR                          | [Subject Alternative Name Object](#subject-alternative-name-object)         | TRUE     | FALSE  | FALSE    |           |           |            |
 
-##### Subject Object
+##### Subject object
 
 | Property               | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ----------------       | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
@@ -6147,16 +6147,16 @@ The metadata for a CSR
 | organizationalUnitName | small organization (e.g, department or division) name        | String                                                                      | TRUE     | FALSE  | FALSE    |           |           |            |
 | stateOrProvinceName    | state or province name                                       | String                                                                      | TRUE     | FALSE  | FALSE    |           |           |            |
 
-##### Subject Alternative Name Object
+##### Subject Alternative Name object
 
 | Property         | Description                           | DataType                                            | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------- | --------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | dnsNames         | DNS names of the subject              | Array                                               | TRUE     | FALSE  | FALSE    |           |           |            |
 
 
-### Application CSR Model
+### Application CSR object
 
-The application CSR model defines a certificate signing request for a signature or encryption credential for an application.
+The application CSR object defines a certificate signing request for a signature or encryption credential for an application.
 
 #### Example
 
@@ -6198,4 +6198,4 @@ The application CSR model defines a certificate signing request for a signature 
 | id               | unique identifier for the CSR                                | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | kty              | cryptographic algorithm family for the CSR's keypair         | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 
-[pagination]: /docs/reference/api-overview/#pagination
+[pagination](/docs/reference/api-overview/#pagination)
