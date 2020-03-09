@@ -1873,3 +1873,19 @@ redirects:
     to: /docs/guides/build-sso-integration/before-you-begin/
   - from: /docs/guides/build-sso-integration/partner/index.html
     to: /docs/guides/build-sso-integration/submit-your-app/
+  - from: /docs/guides/build-sso-integration/before-you-begin/oidc/index.html
+    to: /docs/guides/build-sso-integration/before-you-begin/openidconnect/
+  - from: /docs/guides/build-sso-integration/before-you-begin/saml/index.html
+    to: /docs/guides/build-sso-integration/before-you-begin/saml2/
+  - from: /docs/guides/build-sso-integration/create-your-app/oidc/index.html
+    to: /docs/guides/build-sso-integration/create-your-app/openidconnect/
+  - from: /docs/guides/build-sso-integration/create-your-app/saml/index.html
+    to: /docs/guides/build-sso-integration/create-your-app/saml2/
+  - from: /docs/guides/build-sso-integration/submit-your-app/oidc/index.html
+    to: /docs/guides/build-sso-integration/submit-your-app/openidconnect/
+  - from: /docs/guides/build-sso-integration/submit-your-app/saml/index.html
+    to: /docs/guides/build-sso-integration/submit-your-app/saml2/
+  - from: /docs/guides/build-sso-integration/test-your-app/oidc/index.html
+    to: /docs/guides/build-sso-integration/test-your-app/openidconnect/
+  - from: /docs/guides/build-sso-integration/test-your-app/saml/index.html
+    to: /docs/guides/build-sso-integration/test-your-app/saml2/
