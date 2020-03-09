@@ -14,12 +14,39 @@ Open your Okta Developer Console:
 
 4. Click **Save**.
 
+Function-based component example:
 ```javascript
-import React, { Component } from 'react';
-import { withAuth } from '@okta/okta-react';
+import React from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 
 const issuer = 'https://${yourOktaDomain}/oauth2/default';
 const redirectUri = `${window.location.origin}/logged_out`;
+
+// Basic component with logout button
+const Logout = () => { 
+  const { authState, authService } = useOktaAuth();
+
+  const logout = async () => {
+    // Read idToken before local session is cleared
+    const idToken = authState.idToken;
+    await authService.logout('/');
+
+    // Clear remote session
+    window.location.href = `${issuer}/v1/logout?id_token_hint=${idToken}&post_logout_redirect_uri=${redirectUri}`;
+  };
+
+  return (
+    <a onClick={logout}>Logout</a>
+  );
+};
+
+export default Logout;
+```
+
+Class-based component example:
+```javascript
+import React, { Component } from 'react';
+import { withOktaAuth } from '@okta/okta-react';
 
 // Basic component with logout button
 class Logout extends Component {
@@ -30,10 +57,10 @@ class Logout extends Component {
 
   async logout() {
     // Read idToken before local session is cleared
-    const idToken = await this.props.auth.getIdToken();
+    const idToken = this.props.authState.idToken;
 
     // Clear local session
-    await this.props.auth.logout('/');
+    await this.props.authService.logout('/');
 
     // Clear remote session
     window.location.href = `${issuer}/v1/logout?id_token_hint=${idToken}&post_logout_redirect_uri=${redirectUri}`;
@@ -41,13 +68,14 @@ class Logout extends Component {
 
   render() {
     return (
-      <a onClick={this.login}>Logout</a>
+      <a onClick={this.logout}>Logout</a>
     );
   }
 });
 
-// withAuth() makes Okta "Auth" object available as "this.props.auth"
-Logout = withAuth(Logout);
-
-
+// withOktaAuth() makes the Okta 
+// - "authService" object available as "this.props.authService"
+// - "authState" object available as "this.props.authState"
+Logout = withOktaAuth(Logout);
+export default Logout;
 ```
