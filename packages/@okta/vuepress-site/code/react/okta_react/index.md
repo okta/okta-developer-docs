@@ -93,6 +93,8 @@ const LoginForm = ({ baseUrl }) => {
           id="username" type="text"
           value={username}
           onChange={handleUsernameChange} />
+      </label>
+      <label>
         Password:
         <input
           id="password" type="password"
@@ -164,6 +166,8 @@ export default withOktaAuth(class LoginForm extends Component {
             id="username" type="text"
             value={this.state.username}
             onChange={this.handleUsernameChange} />
+        </label>
+        <label>
           Password:
           <input
             id="password" type="password"
