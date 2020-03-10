@@ -4845,7 +4845,7 @@ Federation trust credentials for verifying assertions from the IdP and signing r
 
 | Property   | Description                                                                        | DataType                                                                   | Nullable | Readonly |
 | ---------- | ---------------------------------------------------------------------------------- | --------------------                                                       | -------- | -------- |
-| trust      | object containing information for verifying assertions from the IdP                | [SAML 2.0 Trust Credentials object](#saml-20-trust-credentials-object)     | FALSE    | FALSE    |
+| trust      | Object containing information for verifying assertions from the IdP                | [SAML 2.0 Trust Credentials object](#saml-20-trust-credentials-object)     | FALSE    | FALSE    |
 | signing    | Key used for signing requests to the IdP                                           | [SAML 2.0 Signing Credentials object](#saml-20-signing-credentials-object) | TRUE     | FALSE    |
 
 ###### SAML 2.0 Trust Credentials object
@@ -5658,7 +5658,7 @@ Webhook authorization settings for an IdP provisioning or account link transacti
 | ---------- | --------------------------------- | ----------------------------------------------------------- | ----------- | ------------- |
 | basic      | HTTP Basic Authorization Scheme   | [Basic Authorization Scheme](#basic-authorization-scheme)   | FALSE       | FALSE         |
 | bearer     | HTTP Bearer Authorization Scheme  | [Bearer Authorization Scheme](#bearer-authorization-scheme) | FALSE       | FALSE         |
-| custom     | Custom key/value HTTP headers     | object                                                      | FALSE       | FALSE         |
+| custom     | Custom key/value HTTP headers     | Object                                                      | FALSE       | FALSE         |
 
 Property Details
 

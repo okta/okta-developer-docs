@@ -1462,7 +1462,7 @@ Content-Type: application/json;charset=UTF-8
 
 | Property     | Description                                                                                  | Type                                    | Required for create   | Required for update |
 | :----------- | :------------------------------------------------------------------------------------------- | :-------------------------------------- | :-------------------- | :------------------ |
-| actions      | An object that contains the `tokens` array, which shows lifetime durations for the tokens    | object                                  | System generated      | System generated    |
+| actions      | An object that contains the `tokens` array, which shows lifetime durations for the tokens    | Object                                  | System generated      | System generated    |
 | conditions   | Specifies the people, groups, grant types and scopes the rule will be applied to             | [Condition object](#condition-object)   | False                 | False               |
 | id           | ID of the rule                                                                               | String                                  | False                 | True                |
 | name         | Name of the rule                                                                             | String                                  | True                  | True                |
