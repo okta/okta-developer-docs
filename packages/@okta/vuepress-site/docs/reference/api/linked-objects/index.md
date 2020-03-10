@@ -21,7 +21,7 @@ For each relationship:
 
 For details, see the [Linked Object object](#linked-object-object).
 
-The Expression Language function for [linked objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
+The Expression Language function for [Linked Objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
 
 ## Example Usage
 
