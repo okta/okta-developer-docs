@@ -1,8 +1,31 @@
-Call the `logout` method on the [Auth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authlogouturi) object. The [withAuth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#withauth) [higher-order component](https://reactjs.org/docs/higher-order-components.html) makes this object easily available within your components.
+Call the `logout` method on the [authService](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authservicelogouturi) object. The [useOktaAuth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#useoktaauth) [React Hook](https://reactjs.org/docs/hooks-intro.html) or [withOktaAuth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#withoktaauth) [higher-order component](https://reactjs.org/docs/higher-order-components.html) makes this object easily available within your components.
+
+Function-based component example:
+```javascript
+import React from 'react';
+import { useOktaAuth } from '@okta/okta-react';
+
+// Basic component with logout button
+const Logout = () => { 
+  const { authService } = useOktaAuth();
+
+  const logout = async () => {
+    authService.logout('/');
+  };
+
+  return (
+    <a onClick={logout}>Logout</a>
+  );
+};
+
+export default Logout;
+```
+
+Class-based component example:
 
 ```javascript
 import React, { Component } from 'react';
-import { withAuth } from '@okta/okta-react';
+import { withOktaAuth } from '@okta/okta-react';
 
 // Basic component with logout button
 class Logout extends Component {
@@ -12,18 +35,18 @@ class Logout extends Component {
   }
 
   async logout() {
-    this.props.auth.logout('/');
+    this.props.authService.logout('/');
   }
 
   render() {
     return (
-      <a onClick={this.login}>Logout</a>
+      <a onClick={this.logout}>Logout</a>
     );
   }
 });
 
-// withAuth() makes Okta "Auth" object available as "this.props.auth"
-Logout = withAuth(Logout);
-
-
+// withOktaAuth() makes Okta "authService" object available 
+// as "this.props.authService"
+Logout = withOktaAuth(Logout);
+export default Logout;
 ```
