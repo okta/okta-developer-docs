@@ -43,7 +43,7 @@ This specifies the default action Okta is set to take. Okta will take this actio
 
 ## Objects in Response You Send
 
-The objects that you can return in the JSON payload of your response are an array of one or more `commands` objects, which specify commands to be executed by Okta. These object is defined as follows:
+The objects that you can return in the JSON payload of your response are an array of one or more `commands` objects, which specify commands to be executed by Okta. This object is defined as follows:
 
 ### commands
 
