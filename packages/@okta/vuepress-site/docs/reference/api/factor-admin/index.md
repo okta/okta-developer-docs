@@ -13,7 +13,7 @@ After activating a factor with this API, it cannot be used until you enable a po
 <ApiLifecycle access="beta" /> This API is a beta feature.
 
 
-## Factor Model
+## Factor object
 
 | Attribute     | Description                                                     | DataType                                                                       | MinLength | MaxLength | Nullable | Unique | Readonly |
 | ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------- | --------- | -------- | ------ | -------- |
@@ -58,7 +58,7 @@ The following providers are supported:
 | `SYMANTEC` | Symantec VIP Integration      |
 | `GOOGLE`   | Google Integration            |
 
-### Links Object
+### Links object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.  This object is used for dynamic discovery of related resources and lifecycle operations.
 
@@ -68,7 +68,7 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | activate           | Permits use of this factor for MFA |
 | deactivate         | Denies use of this factor for MFA  |
 
-> The Links Object is **read-only**
+> The Links object is **read-only**
 
 ## Factors Administration Operations
 
@@ -89,7 +89,7 @@ Optionally, you can add a filter, based on the status. If desired, add the text 
 #### Response Parameters
 
 
-[Factor](#factor-model)
+[Factor](#factor-object)
 
 #### Request Example
 

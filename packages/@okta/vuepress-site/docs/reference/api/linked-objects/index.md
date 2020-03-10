@@ -19,7 +19,7 @@ For each relationship:
 * A user can be the `primary` in one relationship and the `associated` in another.
 * A user can be both the `primary` and `associated` in the same relationship.
 
-For details, see the [Linked Object Model](#linked-object-model).
+For details, see the [Linked Object object](#linked-object-object).
 
 The Expression Language function for [linked objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
 
@@ -80,12 +80,12 @@ Adds a linked object definition to the user profile schema. The `name` field fou
 
 | Parameter      | Description                                | Param Type        | DataType                              | Required      |
 | :------------- | :--------------                            | :---------------- | :-----------                          | :------------ |
-| linkedObject   | The linked object definition being created | Body              | [Linked Object](#linked-object-model) | TRUE          |
+| linkedObject   | The linked object definition being created | Body              | [Linked Object](#linked-object-object) | TRUE          |
 
 ##### Response Parameters
 
 
-[Linked Object Model](#linked-object-model)
+[Linked Object object](#linked-object-object)
 
 ##### Request Example
 
@@ -155,7 +155,7 @@ You can specify either the `primary` name or the `associated` name.
 ##### Response Parameters
 
 
-[Linked Object Model](#linked-object-model)
+[Linked Object object](#linked-object-object)
 
 ##### Request Example
 
@@ -211,7 +211,7 @@ None
 ##### Response Parameters
 
 
-Array of [Linked Object Model](#linked-object-model)
+Array of [Linked Object object](#linked-object-object)
 
 ##### Request Example
 
@@ -498,9 +498,9 @@ curl -v -X GET \
 HTTP/1.1 204 No Content
 ```
 
-## Linked Object Model
+## Linked Object object
 
-The following model contains example values for each attribute.
+The following object contains example values for each attribute.
 
 ```bash
 {

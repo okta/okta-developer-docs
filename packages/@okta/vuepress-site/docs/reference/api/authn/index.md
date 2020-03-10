@@ -66,8 +66,8 @@ As part of the authentication call either the username and password or the token
 | Parameter  | Description                                                                                                      | Param Type | DataType                          | Required | MaxLength |
 |------------|:-----------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------|:---------|:----------|
 | audience   | App ID of the target app the user is signing into                                                                | Body       | String                            | FALSE    |           |
-| context    | Provides additional context for the authentication transaction                                                   | Body       | [Context Object](#context-object) | FALSE    |           |
-| options    | Opt-in features for the authentication transaction                                                               | Body       | [Options Object](#options-object) | FALSE    |           |
+| context    | Provides additional context for the authentication transaction                                                   | Body       | [Context object](#context-object) | FALSE    |           |
+| options    | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |           |
 | password   | User's password credential                                                                                       | Body       | String                            | FALSE    |           |
 | token      | Token received as part of activation user request                                                                | Body       | String                            | FALSE    |           |
 | username   | User's non-qualified short-name (for example: dade.murphy) or unique fully-qualified sign in name (for example: dade.murphy@example.com) | Body       | String                            | FALSE    |           |
@@ -97,7 +97,7 @@ It is recommended that you generate a UUID or GUID for each client and persist t
 
 #### Response parameters
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 `401 Unauthorized` status code is returned for requests with invalid credentials, locked out accounts or access denied by sign-on policy.
 
@@ -879,7 +879,7 @@ You should send the device fingerprint only if the trusted app has a computed fi
 
 **Notes:**
 
-* Device fingerprint is different from the device token. The time and device based MFA in Okta SignOn policy rules depends on the device token only and not on the device fingerprint. To read more about the device token, see [Context Object](#context-object). The time and device based MFA would work only if you send the device token passed in the [client request context](/docs/reference/api-overview/#client-request-context).
+* Device fingerprint is different from the device token. The time and device based MFA in Okta SignOn policy rules depends on the device token only and not on the device fingerprint. To read more about the device token, see [Context object](#context-object). The time and device based MFA would work only if you send the device token passed in the [client request context](/docs/reference/api-overview/#client-request-context).
 * To use device fingerprinting for the new or unknown-device email notification feature, include the `User-Agent` header in the request. For more information, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
 
 ##### Request example for device fingerprinting
@@ -1785,7 +1785,7 @@ Changes a user's password by providing the existing password and the new passwor
 #### Response parameters for change password
 
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 If the `oldPassword` is invalid you receive a `403 Forbidden` status code with the following error:
 
@@ -1899,14 +1899,14 @@ Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-fo
 | Parameter   | Description                                                                   | Param Type  | DataType                                                      | Required |
 | ----------- | ----------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------- | -------- |
 | factorType  | type of Factor                                                                | Body        | [Factor Type](/docs/reference/api/factors/#factor-type)                            | TRUE     |
-| profile     | profile of a [supported Factor](/docs/reference/api/factors/#supported-factors-for-providers)      | Body        | [Factor Profile Object](/docs/reference/api/factors/#factor-profile-object)        | TRUE     |
+| profile     | profile of a [supported Factor](/docs/reference/api/factors/#supported-factors-for-providers)      | Body        | [Factor Profile object](/docs/reference/api/factors/#factor-profile-object)        | TRUE     |
 | provider    | Factor provider                                                               | Body        | [Provider Type](/docs/reference/api/factors/#provider-type)                        | TRUE     |
 | stateToken  | [state token](#state-token) for the current transaction                           | Body        | String                                                        | TRUE     |
 
 #### Response parameters for enroll Factor
 
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 > **Note:** Some [Factor types](/docs/reference/api/factors/#factor-type) require [activation](#activate-factor) to complete the enrollment process. The [authentication transaction](#transaction-state) transitions to `MFA_ENROLL_ACTIVATE` if a Factor requires activation.
 
@@ -3144,7 +3144,7 @@ Activates a `token:software:totp` Factor by verifying the OTP
 
 ##### Response parameters for activate TOTP Factor
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 If the passcode is invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -3217,7 +3217,7 @@ Activates an `sms` Factor by verifying the OTP. The request and response is iden
 
 ##### Activate SMS Factor response parameters
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 If the passcode is invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -3291,7 +3291,7 @@ Activates a `call` Factor by verifying the OTP. The request and response is iden
 
 ##### Activate Call Factor response parameters
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 If the passcode is invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -3367,7 +3367,7 @@ Activates an `email` Factor by verifying the OTP.  The request and response are 
 ##### Activate Email Factor response parameters
 
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction.
 
 If the passcode is invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -3442,7 +3442,7 @@ Activations have a short lifetime (minutes) and `TIMEOUT` if they are not comple
 
 ##### Activate Push Factor response parameters
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 ##### Activate Push Factor request example
 
@@ -3931,7 +3931,7 @@ Activate a `u2f` Factor by verifying the registration data and client data.
 
 ##### Activate U2F response parameters
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 If the registration nonce is invalid or if registration data is invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -4033,7 +4033,7 @@ Activate a `webauthn` Factor by verifying the attestation and client data.
 
 ##### Activate WebAuthn response parameters
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 If the attestation nonce is invalid, or if the attestation or client data are invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -4125,7 +4125,7 @@ Verifies an answer to a `question` Factor
 
 ##### Response parameters for verify Security Question Factor
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 If the `answer` is invalid you receive a `403 Forbidden` status code with the following error:
 
@@ -4198,7 +4198,7 @@ curl -v -X POST \
 
 ##### Response parameters for verify SMS Factor
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 If the `passCode` is invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -4362,7 +4362,7 @@ curl -v -X POST \
 
 ##### Response parameters for verify Call Factor
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 If the `passCode` is invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -4518,7 +4518,7 @@ Verifies an OTP for a `token:software:totp` or `token:hotp` Factor
 
 ##### Response parameters for verify TOTP Factor
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
 If the passcode is invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -5540,13 +5540,13 @@ The response is different, depending on whether the request is for a public appl
 
 ##### Response parameters for public application for forgot password
 
-The [Recovery Transaction Object](#recovery-transaction-model) with `RECOVERY_CHALLENGE` status for the new recovery transaction
+The [Recovery Transaction object](#recovery-transaction-object) with `RECOVERY_CHALLENGE` status for the new recovery transaction
 
-You will always receive a [Recovery Transaction](#recovery-transaction-model) response even if the requested `username` is not a valid identifier to prevent information disclosure.
+You will always receive a [Recovery Transaction](#recovery-transaction-object) response even if the requested `username` is not a valid identifier to prevent information disclosure.
 
 ##### Response parameters for trusted application for forgot password
 
-The [Recovery Transaction Object](#recovery-transaction-model) with an issued `recoveryToken` that can be distributed to the end user
+The [Recovery Transaction object](#recovery-transaction-object) with an issued `recoveryToken` that can be distributed to the end user
 
 You will receive a `403 Forbidden` status code if the `username` requested is not valid.
 
@@ -5820,13 +5820,13 @@ Starts a new unlock recovery transaction for a given user and issues a [recovery
 
 ##### Response parameter public application for unlock account
 
-[Recovery Transaction Object](#recovery-transaction-model) with `RECOVERY_CHALLENGE` status for the new recovery transaction
+[Recovery Transaction object](#recovery-transaction-object) with `RECOVERY_CHALLENGE` status for the new recovery transaction
 
-You always receive a [Recovery Transaction](#recovery-transaction-model) response, even if the requested `username` isn't a valid identifier to prevent information disclosure.
+You always receive a [Recovery Transaction](#recovery-transaction-object) response, even if the requested `username` isn't a valid identifier to prevent information disclosure.
 
 ##### Response parameter trusted application for unlock account
 
-[Recovery Transaction Object](#recovery-transaction-model) with an issued `recoveryToken` that can be distributed to the end user
+[Recovery Transaction object](#recovery-transaction-object) with an issued `recoveryToken` that can be distributed to the end user
 
 You receive a `403 Forbidden` status code if the `username` requested is not valid.
 
@@ -6032,7 +6032,7 @@ Verifies a SMS OTP (`passCode`) sent to the user's mobile phone for primary auth
 
 ##### Response parameters for verify SMS recovery Factor
 
-[Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
+[Recovery Transaction object](#recovery-transaction-object) with the current [state](#transaction-state) for the recovery transaction
 
 If the `passCode` is invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -6126,7 +6126,7 @@ Resends a SMS OTP (`passCode`) to the user's mobile phone
 
 #### Response parameters for resend SMS recovery challenge
 
-[Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
+[Recovery Transaction object](#recovery-transaction-object) with the current [state](#transaction-state) for the recovery transaction
 
 #### Request example for resend SMS recovery challenge
 
@@ -6199,7 +6199,7 @@ Verifies a Voice Call OTP (`passCode`) sent to the user's device for primary aut
 
 ##### Response parameters for verify Call recovery Factor
 
-[Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
+[Recovery Transaction object](#recovery-transaction-object) with the current [state](#transaction-state) for the recovery transaction
 
 If the `passCode` is invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -6293,7 +6293,7 @@ Resends a Voice Call with OTP (`passCode`) to the user's phone
 
 #### Response parameters for resend Call recovery challenge
 
-[Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
+[Recovery Transaction object](#recovery-transaction-object) with the current [state](#transaction-state) for the recovery transaction
 
 #### Request example for resend Call recovery challenge
 
@@ -6365,7 +6365,7 @@ Validates a [recovery token](#recovery-token) that was distributed to the end us
 
 ##### Response parameters for verify recovery token
 
-[Recovery Transaction Object](#recovery-transaction-model) with a `RECOVERY` status and an issued `stateToken` that must be used to complete the recovery transaction
+[Recovery Transaction object](#recovery-transaction-object) with a `RECOVERY` status and an issued `stateToken` that must be used to complete the recovery transaction
 
 You receive a `401 Unauthorized` status code if you attempt to use an expired or invalid [recovery token](#recovery-token).
 
@@ -6457,7 +6457,7 @@ Answers the user's recovery question to ensure only the end user redeemed the [r
 
 ##### Response parameters for answer recovery question
 
-[Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
+[Recovery Transaction object](#recovery-transaction-object) with the current [state](#transaction-state) for the recovery transaction
 
 You receive a `403 Forbidden` status code if the `answer` to the user's [recovery question](#recovery-question-object) is invalid.
 
@@ -6565,7 +6565,7 @@ Resets a user's password to complete a recovery transaction with a `PASSWORD_RES
 
 ##### Response parameters for reset password
 
-[Recovery Transaction Object](#recovery-transaction-model) with the current [state](#transaction-state) for the recovery transaction
+[Recovery Transaction object](#recovery-transaction-object) with the current [state](#transaction-state) for the recovery transaction
 
 You receive a `403 Forbidden` status code if the `answer` to the user's [recovery question](#recovery-question-object) is invalid.
 
@@ -6656,7 +6656,7 @@ Retrieves the current [transaction state](#transaction-state) for a [state token
 
 ##### Response parameters for get transaction state
 
-[Transaction Object](#transaction-model) with the current [state](#transaction-state) for the authentication or recovery transaction
+[Transaction object](#transaction-object) with the current [state](#transaction-state) for the authentication or recovery transaction
 
 ##### Request example for get transaction state
 
@@ -6745,7 +6745,7 @@ Moves the current [transaction state](#transaction-state) back to the previous s
 
 ##### Response parameters for previous transaction state
 
-[Transaction Object](#transaction-model) with the current [state](#transaction-state) for the authentication or recovery transaction
+[Transaction object](#transaction-object) with the current [state](#transaction-state) for the authentication or recovery transaction
 
 ##### Request example for previous transaction state
 
@@ -6887,7 +6887,7 @@ to skip the other factors.
 
 ##### Response parameters for skip transaction state
 
-[Transaction Object](#transaction-model) with the current [state](#transaction-state) for the authentication or recovery transaction
+[Transaction object](#transaction-object) with the current [state](#transaction-state) for the authentication or recovery transaction
 
 ##### Request example for skip transaction state
 
@@ -6951,13 +6951,13 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/cancel"
 ```
 
-## Transaction model
+## Transaction object
 
 The Authentication API is a *stateful* API that implements a finite state machine with [defined states](#transaction-state) and transitions. Each initial authentication or recovery request is issued a unique [state token](#state-token) that must be passed with each subsequent request until the transaction is complete or canceled.
 
 The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) format to publish `next` and `prev` links for the current transaction state which should be used to transition the state machine.
 
-### Authentication transaction model
+### Authentication transaction object
 
 | Property                          | Description                                                                                     | DataType                                                       | Nullable | Readonly | MaxLength |
 |-----------------------------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------|----------|----------|-----------|
@@ -6970,7 +6970,7 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 | status                            | current [state](#transaction-state) of the authentication transaction                           | [Transaction State](#transaction-state)                        | FALSE    | TRUE     |           |
 | type <ApiLifecycle access="ea" /> | type of authentication transaction. Currently available during step-up authentication           | [Authentication Type](#authentication-type)                    | TRUE     | TRUE     |           |
 
-### Recovery transaction model
+### Recovery transaction object
 
 | Property      | Description                                                                                            | DataType                                                       | Nullable | Readonly | MaxLength |
 | ------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | -------- | -------- | --------- |
@@ -6987,7 +6987,7 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 
 ### Transaction state
 
-![Transaction State Model Diagram](/img/auth-state-model1.png "The diagram displays the authentication and recovery transaction states.")
+![Transaction State Diagram](/img/auth-state-model1.png "The diagram displays the authentication and recovery transaction states.")
 
 An authentication or recovery transaction has one of the following states:
 
@@ -7010,7 +7010,7 @@ You advance the authentication or recovery transaction to the next state by post
 
 [Enrolling a Factor](#enroll-factor) and [verifying a Factor](#verify-factor) do not have `next` link relationships as the end user must make a selection of which Factor to enroll or verify.
 
-> **Note:** Never assume a specific state transition or URL when navigating the [state model](#transaction-state). Always inspect the response for `status` and dynamically follow the [published link relations](#links-object).
+> **Note:** Never assume a specific state transition or URL when navigating the [state object](#transaction-state). Always inspect the response for `status` and dynamically follow the [published link relations](#links-object).
 
 ```json
 {
@@ -7142,7 +7142,7 @@ The following table shows the possible values for this property:
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current [transaction state](#transaction-state) using the [JSON](https://tools.ietf.org/html/rfc7159) specification. These links are used to transition the [state machine](#transaction-state) of the authentication or recovery transaction.
 
-The Links Object is read-only.
+The Links object is read-only.
 
 | Link Relation Type | Description                                                                                                                                                              |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -7156,14 +7156,14 @@ The Links Object is read-only.
 
 ### User object
 
-A subset of [user properties](/docs/reference/api/users/#user-model) published in an authentication or recovery transaction after the user successfully completes primary authentication.
+A subset of [user properties](/docs/reference/api/users/#user-object) published in an authentication or recovery transaction after the user successfully completes primary authentication.
 
 | Property          | Description                                       | DataType                                              | Nullable | Unique | Readonly |
 | ----------------- | ------------------------------------------------- | ----------------------------------------------------- | -------- | ------ | -------- |
 | id                | Unique key for user                               | String                                                | FALSE    | TRUE   | TRUE     |
 | passwordChanged   | Timestamp when user's password last changed       | Date                                                  | TRUE     | FALSE  | TRUE     |
-| profile           | User's profile                                    | [User Profile Object](#user-profile-object)           | FALSE    | FALSE  | TRUE     |
-| recovery_question | User's recovery question                          | [Recovery Question Object](#recovery-question-object) | TRUE     | FALSE  | TRUE     |
+| profile           | User's profile                                    | [User Profile object](#user-profile-object)           | FALSE    | FALSE  | TRUE     |
+| recovery_question | User's recovery question                          | [Recovery Question object](#recovery-question-object) | TRUE     | FALSE  | TRUE     |
 
 ```json
 {
@@ -7266,7 +7266,7 @@ Represents the authentication details that the target resource is using. Current
 
 | Property  | Description                                                                                                                  | DataType                         | Nullable | Unique | Readonly |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------                        | -------- | ------ | -------- |
-| issuer    | The issuer of the assertion                                                                                                 | [Issuer Object](#issuer-object)  | FALSE    | FALSE  | TRUE     |
+| issuer    | The issuer of the assertion                                                                                                 | [Issuer object](#issuer-object)  | FALSE    | FALSE  | TRUE     |
 | protocol  | The protocol of authentication                                                                                              | `SAML2.0`, `SAML1.1` or `WS-FED` | FALSE    | TRUE   | TRUE     |
 
 ```json
@@ -7296,8 +7296,8 @@ A subset of policy settings for the user's assigned password policy published du
 
 | Property   | Description                  | DataType                                                  | Nullable | Unique | Readonly |
 | ---------- | ---------------------------- | --------------------------------------------------------- | -------- | ------ | -------- |
-| complexity | Password complexity settings | [Password Complexity Object](#password-complexity-object) | FALSE    | FALSE  | TRUE     |
-| expiration | Password expiration settings | [Password Expiration Object](#password-expiration-object) | TRUE     | FALSE  | TRUE     |
+| complexity | Password complexity settings | [Password Complexity object](#password-complexity-object) | FALSE    | FALSE  | TRUE     |
+| expiration | Password expiration settings | [Password Expiration object](#password-expiration-object) | TRUE     | FALSE  | TRUE     |
 
 ```json
 {
@@ -7352,7 +7352,7 @@ Specifies the password requirements related to password age and history
 
 ### Factor object
 
-A subset of [Factor properties](/docs/reference/api/factors/#factor-model) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
+A subset of [Factor properties](/docs/reference/api/factors/#factor-object) published in an authentication transaction during `MFA_ENROLL`, `MFA_REQUIRED`, or `MFA_CHALLENGE` states
 
 | Property       | Description                                                                                    | DataType                                                       | Nullable | Unique | Readonly |
 | -------------- | ----------------------------------------------------------------------------------------       | -------------------------------------------------------------- | -------- | ------ | -------  |
@@ -7360,7 +7360,7 @@ A subset of [Factor properties](/docs/reference/api/factors/#factor-model) publi
 | _links         | [discoverable resources](#factor-links-object) for the Factor                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
 | factorType     | type of Factor                                                                                 | [Factor Type](/docs/reference/api/factors/#factor-type)                             | FALSE    | TRUE   | TRUE     |
 | id             | unique key for Factor                                                                          | String                                                         | TRUE     | TRUE   | TRUE     |
-| profile        | profile of a [supported Factor](/docs/reference/api/factors/#supported-factors-for-providers)                       | [Factor Profile Object](/docs/reference/api/factors/#factor-profile-object)         | TRUE     | FALSE  | TRUE     |
+| profile        | profile of a [supported Factor](/docs/reference/api/factors/#supported-factors-for-providers)                       | [Factor Profile object](/docs/reference/api/factors/#factor-profile-object)         | TRUE     | FALSE  | TRUE     |
 | provider       | Factor provider                                                                                | [Provider Type](/docs/reference/api/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
 | vendorName     | Factor Vendor Name (Same as provider but for On-Prem MFA it depends on Administrator Settings) | [Provider Type](/docs/reference/api/factors/#provider-type)                         | FALSE    | TRUE   | TRUE     |
 
@@ -7427,7 +7427,7 @@ Describes previously enrolled phone numbers for the `sms` Factor
 | Property      | Description          | DataType                                      | Nullable | Unique | Readonly |
 | ------------- | -------------------- | --------------------------------------------- | -------- | ------ | -------- |
 | id            | Unique key for phone | String                                        | FALSE    | TRUE   | TRUE     |
-| profile       | Profile of phone     | [Phone Profile Object](#phone-profile-object) | FALSE    | FALSE  | TRUE     |
+| profile       | Profile of phone     | [Phone Profile object](#phone-profile-object) | FALSE    | FALSE  | TRUE     |
 | status        | Status of phone      | `ACTIVE` or `INACTIVE`                        | FALSE    | FALSE  | TRUE     |
 
 ```json
@@ -7502,7 +7502,7 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the Factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
-The Factor Links Object is read-only.
+The Factor Links object is read-only.
 
 | Link Relation Type | Description                                                 |
 | ------------------ | ----------------------------------------------------------- |

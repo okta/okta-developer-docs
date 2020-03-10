@@ -55,7 +55,7 @@ Creates a new session for a user with a valid session token. Use this API if, fo
 ##### Response Parameters
 
 
-The response will contain the new [Session](#session-model) for the user if the `sessionToken` was valid.
+The response will contain the new [Session](#session-object) for the user if the `sessionToken` was valid.
 
 If an invalid `sessionToken` is provided, a `401 Unauthorized` status code will be returned.
 
@@ -146,7 +146,7 @@ curl -v -X GET \
 ##### Response Example
 
 
-If the session is valid, a [Session Object](#session-model) is returned.
+If the session is valid, a [Session object](#session-object) is returned.
 
 If the session is invalid, a `404 Not Found` response will be returned.
 
@@ -220,7 +220,7 @@ Extends the lifetime of a user's session.
 ##### Response Parameters
 
 
-The response will contain the extended [Session](#session-model) with an updated `expiresAt` timestamp for the user if the `id` was valid.
+The response will contain the extended [Session](#session-object) with an updated `expiresAt` timestamp for the user if the `id` was valid.
 
 If the session is invalid, a `404 Not Found` response will be returned.
 
@@ -305,7 +305,7 @@ Refresh an existing session using the `id` for that session. (This is equivalent
 ##### Response Parameters
 
 
-The response will contain the refreshed [Session](#session-model) with an updated `expiresAt` timestamp for the user if the `id` was valid.
+The response will contain the refreshed [Session](#session-object) with an updated `expiresAt` timestamp for the user if the `id` was valid.
 
 If the session is invalid, a `404 Not Found` response will be returned.
 
@@ -434,7 +434,7 @@ curl -v -X GET \
 ##### Response Example
 
 
-If the session is valid, a [Session Object](#session-model) is returned.
+If the session is valid, a [Session object](#session-object) is returned.
 
 If the session is invalid, a `404 Not Found` response will be returned.
 
@@ -510,7 +510,7 @@ curl -v -X POST \
 ##### Response Example
 
 
-If the session is valid, a [Session Object](#session-model) is returned.
+If the session is valid, a [Session object](#session-object) is returned.
 
 If the session is invalid, a `404 Not Found` response will be returned.
 
@@ -617,7 +617,7 @@ If the session is invalid, a `404 Not Found` response will be returned.
 HTTP/1.1 204 No Content
 ```
 
-## Session Model
+## Session object
 
 ### Example
 
@@ -684,8 +684,8 @@ Sessions have the following properties:
 | status                                    | current [status](#session-status) of the session                                              | `ACTIVE`, `MFA_REQUIRED`, or `MFA_ENROLL` | FALSE    | TRUE   | TRUE     |
 | lastPasswordVerification                  | timestamp when user last performed primary or step-up authentication with password            | Date                                      | TRUE     | TRUE   | TRUE     |
 | lastFactorVerification                    | timestamp when user last performed multi-factor authentication                                | Date                                      | TRUE     | TRUE   | TRUE     |
-| amr                                       | authentication method reference                                                               | [AMR Object](#amr-object)                 | FALSE    | FALSE  | TRUE     |
-| idp                                       | identity provider used to authenticate the user                                               | [IDP Object](#idp-object)                 | FALSE    | FALSE  | TRUE     |
+| amr                                       | authentication method reference                                                               | [AMR object](#amr-object)                 | FALSE    | FALSE  | TRUE     |
+| idp                                       | identity provider used to authenticate the user                                               | [IDP object](#idp-object)                 | FALSE    | FALSE  | TRUE     |
 | mfaActive                                 | indicates whether the user has [enrolled an MFA factor](/docs/reference/api/factors/#list-enrolled-factors)        | Boolean                                   | FALSE    | FALSE  | TRUE     |
 
 > The `mfaActive` parameter is a <ApiLifecycle access="deprecated" /> feature. Use the `lastFactorVerification` attribute in conjunction with `amr` to understand if the user has performed MFA for the current session. Use the [Factors API](/docs/reference/api/factors/#list-enrolled-factors) to query the factor enrollment status for a given user.
@@ -711,7 +711,7 @@ The following values are defined for the status of a session:
 - `MFA_REQUIRED`: the session is established but requires second factor verification
 - `MFA_ENROLL`: the session is established but the user needs to enroll in a second factor
 
-### AMR Object
+### AMR object
 
 The [authentication methods reference](https://tools.ietf.org/html/draft-ietf-oauth-amr-values-01) ("AMR") specifies which authentication methods were used to establish the session. The value is a JSON array with one or more of the following values:
 
@@ -729,7 +729,7 @@ The [authentication methods reference](https://tools.ietf.org/html/draft-ietf-oa
 | `mfa`    | Multiple-factor authentication                         | This value is present whenever any MFA factor verification is performed.                               |
 | `mca`    | Multiple-channel authentication                        | Authentication requires communication over more than one channel, such as Internet and mobile network. |
 
-### IDP Object
+### IDP object
 
 Specifies the identity provider used to authentication the user.
 

@@ -18,7 +18,7 @@ Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 Each of the operations described here affects the Schema associated with a single User Type (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). The `${typeId}` element in the URL specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.
 
-Each User Type has an associated Schema. In the future the linkage between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. The schema ID for the Schema associated with a [User Type](/docs/reference/api/user-types/#user-type-model) object can be obtained from its `schema` link. If the <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types) feature is enabled, the `schema` link is also included in individual [User](/docs/reference/api/users/#user-model) objects.
+Each User Type has an associated Schema. In the future the linkage between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. The schema ID for the Schema associated with a [User Type](/docs/reference/api/user-types/#user-type-object) object can be obtained from its `schema` link. If the <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types) feature is enabled, the `schema` link is also included in individual [User](/docs/reference/api/users/#user-object) objects.
 
 The Request Examples below all use the `default` form, as all orgs include a default User Type.
 
@@ -37,7 +37,7 @@ N/A
 ##### Response Parameters
 
 
-[User Schema](#user-schema-model)
+[User Schema](#user-schema-object)
 
 ##### Request Example
 
@@ -168,7 +168,7 @@ Adds one or more [custom user profile properties](#user-profile-schema-property-
 ##### Response Parameters
 
 
-[User Schema](#user-schema-model)
+[User Schema](#user-schema-object)
 
 ##### Request Example
 
@@ -337,7 +337,7 @@ Updates one or more [custom user profile properties](#user-profile-schema-proper
 ##### Response Parameters
 
 
-[User Schema](#user-schema-model)
+[User Schema](#user-schema-object)
 
 ##### Request Example
 
@@ -529,7 +529,7 @@ A property cannot be removed from the default schema if it is being referenced a
 ##### Response Parameters
 
 
-[User Schema](#user-schema-model)
+[User Schema](#user-schema-object)
 
 ##### Request Example
 
@@ -656,7 +656,7 @@ curl -v -X POST \
 
 ## App User Schema Operations
 
-The <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types) feature does not extend to applications: all users assigned to a given application use the same [App User Schema](#app-user-schema-model). Thus, unlike the User Schema operations, the App User Schema operations all specify `default` and do not accept a schema ID.
+The <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types) feature does not extend to applications: all users assigned to a given application use the same [App User Schema](#app-user-schema-object). Thus, unlike the User Schema operations, the App User Schema operations all specify `default` and do not accept a schema ID.
 
 ### Get App User Schema
 
@@ -676,7 +676,7 @@ Fetches the schema for an App User
 ##### Response Parameters
 
 
-[App User Schema](#app-user-schema-model)
+[App User Schema](#app-user-schema-object)
 
 ##### Request Example
 
@@ -759,7 +759,7 @@ Adds one or more [custom app user profile properties](#app-user-profile-schema-p
 ##### Response Parameters
 
 
-[App User Schema](#app-user-schema-model)
+[App User Schema](#app-user-schema-object)
 
 ##### Request Example
 
@@ -868,7 +868,7 @@ Updates one or more [custom app user profile properties](#app-user-profile-schem
 ##### Response Parameters
 
 
-[App User Schema](#app-user-schema-model)
+[App User Schema](#app-user-schema-object)
 
 ##### Request Example
 
@@ -979,7 +979,7 @@ Removes one or more [custom app user profile properties](#app-user-profile-schem
 ##### Response Parameters
 
 
-[App User Schema](#app-user-schema-model)
+[App User Schema](#app-user-schema-object)
 
 ##### Request Example
 
@@ -1053,9 +1053,9 @@ curl -v -X POST \
 }
 ```
 
-## User Schema Model
+## User Schema object
 
-The [User Model](/docs/reference/api/users/#user-model) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+The [User object](/docs/reference/api/users/#user-object) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
 > The schema currently only defines the [profile object](/docs/reference/api/users/#profile-object).
 
@@ -1185,7 +1185,7 @@ The user schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/dra
 | lastUpdated | timestamp when schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339) | FALSE    | FALSE  | TRUE     |             |
 | definitions | user profile subschemas                                                                  | [User Profile Subschemas](#user-profile-subschemas)    | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | type of [root schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                  | FALSE    | FALSE  | TRUE     |             |
-| properties  | user model properties                                                                    | [User Model](/docs/reference/api/users/#user-model) property set     | FALSE    | FALSE  | TRUE     |             |
+| properties  | user object properties                                                                    | [User object](/docs/reference/api/users/#user-object) property set     | FALSE    | FALSE  | TRUE     |             |
 
 ### User Profile Subschemas
 
@@ -1309,7 +1309,7 @@ All custom profile properties are defined in a profile sub-schema with the resol
 }
 ```
 
-#### User Profile Schema Property Object
+#### User Profile Schema Property object
 
 User profile schema properties have the following standard [JSON Schema Draft 6](https://tools.ietf.org/html/draft-wright-json-schema-validation-01) properties:
 
@@ -1398,7 +1398,7 @@ Specific property types support a **subset** of [JSON Schema validations](https:
 | `array`       | [JSON Array](https://tools.ietf.org/html/rfc7159#section-5)                                                                         |                             |
 
 
-#### Schema Property Permission Object
+#### Schema Property Permission object
 
 A given schema property can be assigned a permission for a principal that restricts access to the property.
 
@@ -1408,9 +1408,9 @@ A given schema property can be assigned a permission for a principal that restri
 | action    | determines whether the principal can view or modify the property | `HIDE`, `READ_ONLY`, `READ_WRITE`                                  | FALSE    | FALSE  | FALSE    |
 
 
-## App User Schema Model
+## App User Schema object
 
-The [App User Model](/docs/reference/api/apps/#application-user-model) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+The [App User object](/docs/reference/api/apps/#application-user-object) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
 > The schema currently only defines the [profile object](/docs/reference/api/apps/#application-user-profile-object).
 
@@ -1487,7 +1487,7 @@ The app user schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html
 | lastUpdated | timestamp when schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)            | FALSE    | FALSE  | TRUE     |             |
 | definitions | app user profile subschemas                                                              | [App User Profile Subschemas](#app-user-profile-subschemas)       | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | type of [root schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                             | FALSE    | FALSE  | TRUE     |             |
-| properties  | user model properties                                                                    | [App User Model](/docs/reference/api/apps/#application-user-model) property set | FALSE    | FALSE  | TRUE     |             |
+| properties  | user object properties                                                                    | [App User object](/docs/reference/api/apps/#application-user-object) property set | FALSE    | FALSE  | TRUE     |             |
 
 ### App User Profile Subschemas
 
@@ -1563,7 +1563,7 @@ All custom profile properties are defined in a profile sub-schema with the resol
 }
 ```
 
-#### App User Profile Schema Property Object
+#### App User Profile Schema Property object
 
 App user profile schema properties have the following standard [JSON Schema Draft 6](https://tools.ietf.org/html/draft-wright-json-schema-validation-01) properties:
 

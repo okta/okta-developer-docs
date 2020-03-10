@@ -236,7 +236,7 @@ The Okta API had incorporated [JSON Hypertext Application Language](http://tools
 
 ## Resources
 
-A Resource Object represents a resource.
+A Resource object represents a resource.
 
 - `"_links"` contains links to other resources.
 
@@ -246,7 +246,7 @@ All other properties represent the current state of the resource.
 
 ## Links
 
-Object whose property names are link relation types (as defined by [RFC5988](http://tools.ietf.org/html/rfc5988)) and values are either a Link Object or an array of Link Objects.
+Object whose property names are link relation types (as defined by [RFC5988](http://tools.ietf.org/html/rfc5988)) and values are either a Link object or an array of Link objects.
 
 - A target URI
 - The name of the link relation (`rel`)

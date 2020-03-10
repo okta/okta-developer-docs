@@ -240,7 +240,7 @@ curl -v -X GET \
 | Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
 | id         | The ID of the Inline Hook you want to update.                                   | Path         | String                                      | TRUE     |
-| inlineHook | An `inlineHook` object representing the updated properties you wish to apply.   | Body         | [Inline Hook Object](#inline-hook-object)   | TRUE     |
+| inlineHook | An `inlineHook` object representing the updated properties you wish to apply.   | Body         | [Inline Hook object](#inline-hook-object)   | TRUE     |
 
 The submitted Inline Hook properties will replace the existing properties after passing validation. Note that some properties are immutable and cannot be updated. Refer to the description of each property in the [Inline Hook object](#inline-hook-object) table for information.
 
@@ -663,7 +663,7 @@ curl -v -X POST \
 }
 ```
 
-### Inline Hook Object
+### Inline Hook object
 
 | Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
 | -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
@@ -707,7 +707,7 @@ curl -v -X POST \
 }
 ```
 
-### Channel Object
+### Channel object
 
 | Property | Description                                                                     | DataType                                | Nullable | Unique | Validation                                        |
 |----------|---------------------------------------------------------------------------------|-----------------------------------------|----------|--------|---------------------------------------------------|
@@ -716,15 +716,15 @@ curl -v -X POST \
 | config   | Properties of the communications channel used to contact your external service. | [Channel Config object](#config-object) | FALSE    | FALSE  | Validation is determined by the specific channel. |
 
 
-### Config Object
+### Config object
 
 | Property   | Description                                                                                                | DataType                                | Required | Unique | ReadOnly | Validation                                                                                                             |
 |------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------|----------|--------|----------|------------------------------------------------------------------------------------------------------------------------|
 | uri        | External service endpoint to call to execute the Inline Hook handler.                                      | String                                  | TRUE     | FALSE  | TRUE     | Must begin with `https://`. Maximum length 1024 characters. No white space allowed. The URI must be reachable by Okta. |
-| headers    | Optional list of key/value pairs for headers that should be sent with the request to the external service. | JSON Object                             | FALSE    | FALSE  | FALSE    | Some reserved headers, such as `Accept`, are disallowed.                                                               |
+| headers    | Optional list of key/value pairs for headers that should be sent with the request to the external service. | JSON object                             | FALSE    | FALSE  | FALSE    | Some reserved headers, such as `Accept`, are disallowed.                                                               |
 | authScheme | The authentication scheme to use for this request                                                          | [AuthScheme object](#authscheme-object) | FALSE    | FALSE  | FALSE    | Valid `authscheme` object.|                                                                                            |
 
-### AuthScheme Object
+### AuthScheme object
 
 | Property | Description                                                                    | DataType   | Required   | ReadOnly |
 | -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |

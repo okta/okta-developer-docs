@@ -110,7 +110,7 @@ return the same results. Since `filter` and `startDate` are [mutually exclusive]
 ##### Response Parameters
 
 
-Array of [Events](#event-model)
+Array of [Events](#event-object)
 
 ##### Request Example
 
@@ -240,9 +240,9 @@ Link: <https://${yourOktaDomain}/api/v1/events?after=tevZxTo4IyHR9yUHIFdU0-f0w13
 ]
 ```
 
-## Event Model
+## Event object
 
-Every organization has a system log that maintains a history of actions performed by users.  The Event model describes a single action that was performed by a set of actors for a set of targets.
+Every organization has a system log that maintains a history of actions performed by users.  The Event object describes a single action that was performed by a set of actors for a set of targets.
 
 ### Example
 
@@ -288,7 +288,7 @@ Every organization has a system log that maintains a history of actions performe
 
 ### Attributes
 
-The Event model is read only, with a fixed set of attributes:
+The Event object is read only, with a fixed set of attributes:
 
 | Property    | Description                                                             | DataType                                                         | Nullable   | Unique   | Readonly   | MinLength   | MaxLength |
 | :---------- | :---------------------------------------------------------------------- | :--------------------------------------------------------------- | :--------- | :------- | :--------- | :---------- | :-------- |
@@ -296,9 +296,9 @@ The Event model is read only, with a fixed set of attributes:
 | published   | Timestamp when event was published                                      | Date                                                             | FALSE      | TRUE     | TRUE       | 1           | 255       |
 | requestId   | Identifies the request                                                  | String                                                           | TRUE       | FALSE    | TRUE       | 1           | 50        |
 | sessionId   | Session in which the event occurred                                     | String                                                           | TRUE       | FALSE    | TRUE       |             |           |
-| action      | Identifies the action that the event describes                          | [Action Object](#action-object)                                  | FALSE      | FALSE    | TRUE       |             |           |
-| actors      | Describes zero or more entities that performed the action               | Array of [Actor Object](#actor-object)                           | FALSE      | FALSE    | TRUE       |             |           |
-| targets     | Describes zero or more entities that the action was performed against   | Array of [Target Object](#target-object)                         | TRUE       | FALSE    | TRUE       |             |           |
+| action      | Identifies the action that the event describes                          | [Action object](#action-object)                                  | FALSE      | FALSE    | TRUE       |             |           |
+| actors      | Describes zero or more entities that performed the action               | Array of [Actor object](#actor-object)                           | FALSE      | FALSE    | TRUE       |             |           |
+| targets     | Describes zero or more entities that the action was performed against   | Array of [Target object](#target-object)                         | TRUE       | FALSE    | TRUE       |             |           |
 | _links      | discoverable resources related to the event                             | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)   | TRUE       | FALSE    | TRUE       |             |           |
 | _embedded   | embedded resources related to the event                                 | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)   | TRUE       | FALSE    | TRUE       |             |           |
 
@@ -307,7 +307,7 @@ Property Details
 * The actor and/or target of an event is dependent on the action performed. Not all events have an actor or target.
 * The `sessionId` can identify multiple requests.  A single `requestId` can identify multiple events.  Use the `sessionId` to link events and requests that occurred in the same session.
 
-### Action Object
+### Action object
 
 Describes an activity performed by a user, app, client, or other entity (actor) on a target:
 
@@ -544,7 +544,7 @@ The action `objectType` identifies the unique action performed.
 | core.user.admin_privilege.granted |
 | core.user.admin_privilege.revoked |
 
-### Actor Object
+### Actor object
 
 Describes the user, app, client, or other entity (actor) who performed an action on a target:
 
@@ -557,7 +557,7 @@ Describes the user, app, client, or other entity (actor) who performed an action
 
 The schema of an actor is dependent on the actor's `objectType`.
 
-### Target Object
+### Target object
 
 The entity upon which an actor performs an action. Targets may be anything, even a login token:
 
@@ -573,13 +573,13 @@ The schema of a target is dependent on the actor's `objectType`
 
 #### User ObjectType
 
-A denormalized reference to a [User](/docs/reference/api/users/#user-model):
+A denormalized reference to a [User](/docs/reference/api/users/#user-object):
 
 | Property      | Description                                               | DataType   | Nullable |
 | :------------ | :-------------------------------------------------------- | :--------- | :------- |
-| id            | Unique key for [user](/docs/reference/api/users/#user-model)                   | String     | FALSE    |
+| id            | Unique key for [user](/docs/reference/api/users/#user-object)                   | String     | FALSE    |
 | displayName   | [User's](/docs/reference/api/users/#profile-object) first and last name        | String     | TRUE     |
-| login         | Unique login for [user](/docs/reference/api/users/#user-model)                 | String     | TRUE     |
+| login         | Unique login for [user](/docs/reference/api/users/#user-object)                 | String     | TRUE     |
 | objectType    | Type of object                                            | `User`     | FALSE    |
 
 ``` json
@@ -599,8 +599,8 @@ Describes an application:
 
 | Property      | Description                                          | DataType        | Nullable |
 | :------------ | :--------------------------------------------------- | :-------------- | :------- |
-| id            | Unique key for [app](/docs/reference/api/apps/#application-model)         | String          | FALSE    |
-| displayName   | [App's](/docs/reference/api/apps/#application-model) label                | String          | TRUE     |
+| id            | Unique key for [app](/docs/reference/api/apps/#application-object)         | String          | FALSE    |
+| displayName   | [App's](/docs/reference/api/apps/#application-object) label                | String          | TRUE     |
 | objectType    | Type of object                                       | `AppInstance`   | FALSE    |
 
 ``` json

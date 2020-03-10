@@ -1122,7 +1122,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | Parameter                    | Description                                  | DataType   | Default               |
 | :--------------------------- | :------------------------------------------- | :--------- | :-------------------- |
 | autoKeyRotation              | Requested key rotation mode                                                                                                                         | Boolean    | `true`                |
-| client_id                    | Unique identifier for the client application. **Note:** When not specified, `client_id` and application `id` are the same. You can specify a `client_id`, if necessary. See the [OAuth Credential Object](#oauth-credential-object) section for more details.   | String     |                       |
+| client_id                    | Unique identifier for the client application. **Note:** When not specified, `client_id` and application `id` are the same. You can specify a `client_id`, if necessary. See the [OAuth Credential object](#oauth-credential-object) section for more details.   | String     |                       |
 | client_secret                | OAuth 2.0 client secret string (used for confidential clients)                                                                                      | String     |                       |
 | token_endpoint_auth_method   | Requested authentication method for the token endpoint. Valid values: `none`, `client_secret_post`, `client_secret_basic`, `client_secret_jwt`, or `private_key_jwt`   | String     | `client_secret_basic` |
 
@@ -2878,7 +2878,7 @@ curl -v -X PUT \
 
 #### Update key credential for application
 
-Updates the [Application Key Credential](#application-key-credential-model) by `kid`
+Updates the [Application Key Credential](#application-key-credential-object) by `kid`
 
 ##### Request Parameters
 
@@ -3032,7 +3032,7 @@ curl -v -X PUT \
 
 ##### Response example
 
-[Application](#application-object) with updated [Accessibility Object](#accessibility-object)
+[Application](#application-object) with updated [Accessibility object](#accessibility-object)
 
 ##### Response example (self-service application assignment not available)
 
@@ -4115,11 +4115,11 @@ Generates a new X.509 certificate for an application key credential
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | applicationId | unique key of an [Application](#application-object)                                 | URL        | String                                        | TRUE     |         |
-| validityYears | expiry of the [Application Key Credential](#application-key-credential-model)   | Query      | Number                                        | TRUE     |         |
+| validityYears | expiry of the [Application Key Credential](#application-key-credential-object)   | Query      | Number                                        | TRUE     |         |
 
 ##### Response parameters
 
-Returns the generated [Application Key Credential](#application-key-credential-model)
+Returns the generated [Application Key Credential](#application-key-credential-object)
 
 ##### Request example
 
@@ -4187,13 +4187,13 @@ For step-by-step instructions to clone a credential, see [Share application key 
 
 | Parameter           | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | -------------       | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
-| kid                 | Unique key of an [Application Key Credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
+| kid                 | Unique key of an [Application Key Credential](#application-key-credential-object)   | URL        | String                                        | TRUE     |         |
 | sourceApplicationId | Unique key of the source [Application](#application-properties)                 | URL        | String                                        | TRUE     |         |
 | targetAid           | Unique key of the target [Application](#application-properties)                 | Query      | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-Returns the cloned [Application Key Credential](#application-key-credential-model)
+Returns the cloned [Application Key Credential](#application-key-credential-object)
 
 ##### Request example
 
@@ -4261,7 +4261,7 @@ Enumerates key credentials for an application
 
 ##### Response parameters
 
-Array of [Application Key Credential](#application-key-credential-model)
+Array of [Application Key Credential](#application-key-credential-object)
 
 ##### Request example
 
@@ -4310,18 +4310,18 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/keys/${kid}" />
 
-Gets a specific [Application Key Credential](#application-key-credential-model) by `kid`
+Gets a specific [Application Key Credential](#application-key-credential-object) by `kid`
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | applicationId | unique key of an [Application](#application-object)                                 | URL        | String                                        | TRUE     |         |
-| kid           | unique key of an [Application Key Credential](#application-key-credential-model)   | URL        | String                                        | TRUE     |         |
+| kid           | unique key of an [Application Key Credential](#application-key-credential-object)   | URL        | String                                        | TRUE     |         |
 
 ##### Response parameters
 
-[Application Key Credential](#application-key-credential-model).
+[Application Key Credential](#application-key-credential-object).
 
 ##### Request example
 
@@ -4362,7 +4362,7 @@ Previews SAML metadata based on a specific key credential for an application
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
 | applicationId | unique key of an [Application](#application-object)                                 | URL        | String                                        | TRUE     |         |
-| kid           | unique key of an [Application Key Credential](#application-key-credential-model)   | Query      | String                                        | TRUE     |         |
+| kid           | unique key of an [Application Key Credential](#application-key-credential-object)   | Query      | String                                        | TRUE     |         |
 
 ##### Response parameters
 
@@ -4547,7 +4547,7 @@ For `DER` and `CER` formated certificate, the client can either post in binary o
 
 ##### Response parameters
 
-Returns the new [Application Key Credential](#application-key-credential-model)
+Returns the new [Application Key Credential](#application-key-credential-object)
 
 ##### Request example
 
@@ -5446,9 +5446,9 @@ Applications have the following properties:
 | :----------------- | :--------------------------------------------- | :------------------------------------------------------------------- | :----------- | :--------- | :----------- | :------------ | :---------- |
 | _embedded          | embedded resources related to the app          | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)       | TRUE         | FALSE      | TRUE         |               |             |
 | _links             | discoverable resources related to the app      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)       | TRUE         | FALSE      | TRUE         |               |             |
-| accessibility      | access settings for app                        | [Accessibility Object](#accessibility-object)                        | TRUE         | FALSE      | FALSE        |               |             |
+| accessibility      | access settings for app                        | [Accessibility object](#accessibility-object)                        | TRUE         | FALSE      | FALSE        |               |             |
 | created            | timestamp when app was created                 | Date                                                                 | FALSE        | FALSE      | TRUE         |               |             |
-| credentials        | credentials for the specified `signOnMode`     | [Application Credentials Object](#application-credentials-object)    | TRUE         | FALSE      | FALSE        |               |             |
+| credentials        | credentials for the specified `signOnMode`     | [Application Credentials object](#application-credentials-object)    | TRUE         | FALSE      | FALSE        |               |             |
 | features           | enabled app features                           | [Features](#features)                                                | TRUE         | FALSE      | FALSE        |               |             |
 | id                 | unique key for app                             | String                                                               | FALSE        | TRUE       | TRUE         |               |             |
 | label              | unique user-defined display name for app       | String                                                               | FALSE        | TRUE       | FALSE        | 1             | 100         |
@@ -5456,15 +5456,15 @@ Applications have the following properties:
 | name               | unique key for app definition                  | String ([App Names and Settings](#app-names-and-settings))                | FALSE        | TRUE       | TRUE         | 1             | 255         |
 | profile            | Valid JSON schema for specifying properties    | [JSON](#profile-object)                                              | TRUE         | FALSE      | FALSE        |               |             |
 | request_object_signing_alg| The type of JSON Web Key Set (JWKS) algorithm that must be used for signing request objects | `HS256`, `HS384`, `HS512`, `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`  | TRUE      | FALSE     | FALSE      |
-| settings           | settings for app                               | Object ([App Names and Settings](#app-names-and-settings))                | TRUE         | FALSE      | FALSE        |               |             |
+| settings           | settings for app                               | object ([App Names and Settings](#app-names-and-settings))                | TRUE         | FALSE      | FALSE        |               |             |
 | signOnMode         | authentication mode of app                     | [SignOn Mode](#sign-on-modes)                                         | FALSE        | FALSE      | FALSE        |               |             |
 | status             | status of app                                  | `ACTIVE` or `INACTIVE`                                               | FALSE        | FALSE      | TRUE         |               |             |
-| visibility         | visibility settings for app                    | [Visibility Object](#visibility-object)                              | TRUE         | FALSE      | FALSE        |               |             |
+| visibility         | visibility settings for app                    | [Visibility object](#visibility-object)                              | TRUE         | FALSE      | FALSE        |               |             |
 
 Property details
 
  * `id`, `created`, `lastUpdated`, `status`, `_links`, and `_embedded` are only available after an app is created.
- * `profile` is only available for OAuth 2.0 client apps. See [Profile Object](#profile-object).
+ * `profile` is only available for OAuth 2.0 client apps. See [Profile object](#profile-object).
  * When you specify a value for the `request_object_signing_alg` property, all request objects from the client are rejected if not signed with the specified algorithm. The algorithm must be used when the request object is passed by value (using the request parameter). If a value for `request_object_signing_alg` isn't specified, the default is any algorithm that is supported by both the client and the server.
 
 ##### App names and settings
@@ -5557,9 +5557,9 @@ Specifies visibility settings for the application
 
 | Property          | Description                                        | DataType                            | Nullable | Default | MinLength | MaxLength | Validation |
 | ----------------- | -------------------------------------------------- | ----------------------------------- | -------- | ------- | --------- | --------- | ---------- |
-| appLinks          | Displays specific appLinks for the app             | [AppLinks Object](#applinks-object) | FALSE    |         |           |           |            |
+| appLinks          | Displays specific appLinks for the app             | [AppLinks object](#applinks-object) | FALSE    |         |           |           |            |
 | autoSubmitToolbar | Automatically sign in when user lands on the sign-in page | Boolean                             | FALSE    | FALSE   |           |           |            |
-| hide              | Hides this app for specific end-user apps          | [Hide Object](#hide-object)         | FALSE    | FALSE   |           |           |            |
+| hide              | Hides this app for specific end-user apps          | [Hide object](#hide-object)         | FALSE    | FALSE   |           |           |            |
 
 ```json
 {
@@ -5591,16 +5591,16 @@ Each application defines one or more appLinks that can be published. You can dis
 
 Specifies credentials and scheme for the application's `signOnMode`
 
-> **Note:** To update the app, you can provide just the [Signing Credential Object](#signing-credential-object) instead of the entire Application Credential Object.
+> **Note:** To update the app, you can provide just the [Signing Credential object](#signing-credential-object) instead of the entire Application Credential object.
 
 | Property         | Description                                                                                                    | DataType                                                  | Nullable | Default         | MinLength | MaxLength | Validation |
 | ---------------- | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | -------- | --------------- | --------- | --------- | ---------- |
-| oauthClient      | Credential for OAuth 2.0 client                                                                                | [OAuth Credential Object](#oauth-credential-object)       | FALSE    |                 |           |           |            |
-| password         | Shared password for app                                                                                        | [Password Object](#password-object)                       | TRUE     |                 |           |           |            |
+| oauthClient      | Credential for OAuth 2.0 client                                                                                | [OAuth Credential object](#oauth-credential-object)       | FALSE    |                 |           |           |            |
+| password         | Shared password for app                                                                                        | [Password object](#password-object)                       | TRUE     |                 |           |           |            |
 | scheme           | Determines how credentials are managed for the `signOnMode`                                                    | [Authentication Scheme](#authentication-schemes)          | TRUE     |                 |           |           |            |
-| signing          | Signing credential for the `signOnMode`                                                                        | [Signing Credential Object](#signing-credential-object)   | FALSE    |                 |           |           |            |
+| signing          | Signing credential for the `signOnMode`                                                                        | [Signing Credential object](#signing-credential-object)   | FALSE    |                 |           |           |            |
 | userName         | Shared username for app                                                                                        | String                                                    | TRUE     |                 | 1         | 100       |            |
-| userNameTemplate | Template used to generate a user's username when the application is assigned via a group or directly to a user | [UserName Template Object](#username-template-object)     | TRUE     | *Okta UserName* |           |           |            |
+| userNameTemplate | Template used to generate a user's username when the application is assigned via a group or directly to a user | [UserName Template object](#username-template-object)     | TRUE     | *Okta UserName* |           |           |            |
 
 ```json
 {
@@ -5656,7 +5656,7 @@ Specifies the template used to generate a user's username when the application i
 
 #### Signing Credential object
 
-Determines the [key](#application-key-credential-model) used for signing assertions for the `signOnMode`
+Determines the [key](#application-key-credential-object) used for signing assertions for the `signOnMode`
 
 | Property   | Description                                                                                 | DataType | Nullable |
 | ---------- | ------------------------------------------------------------------------------------------- | -------- | ---      |
@@ -5722,7 +5722,7 @@ The following expressions are built-in and may be used with the `BUILT_IN` templ
 
 ### Password object
 
-Specifies a password for a user. A password value is a **write-only** property.  When a user has a valid password and a response object contains a password credential, then the Password Object is a bare object without the `value`  property defined (for example: `password: {}`) to indicate that a password value exists.
+Specifies a password for a user. A password value is a **write-only** property.  When a user has a valid password and a response object contains a password credential, then the Password object is a bare object without the `value`  property defined (for example: `password: {}`) to indicate that a password value exists.
 
 | Property  | Description | DataType | Nullable | Default | MinLength | MaxLength | Validation |
 | --------- | ----------- | -------- | -------- | ------- | --------- | --------- | ---------- |
@@ -5730,7 +5730,7 @@ Specifies a password for a user. A password value is a **write-only** property. 
 
 ### Application Links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.  The Links Object is **read-only**.
+Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.  The Links object is **read-only**.
 
 | Link Relation Type | Description                                                                                |
 | ------------------ | ------------------------------------------------------------------------------------------ |
@@ -5748,7 +5748,7 @@ Specifies notifications settings for the application. The VPN notification featu
 
 | Property          | Description                                        | DataType                                             | Nullable | Default | MinLength | MaxLength | Validation |
 | ----------------- | -------------------------------------------------- | ---------------------------------------------------- | -------- | ------- | --------- | --------- | ---------- |
-| vpn               | VPN notification settings                          | [VPN Notification Object](#vpn-notification-object)  | FALSE    |         |           |           |            |
+| vpn               | VPN notification settings                          | [VPN Notification object](#vpn-notification-object)  | FALSE    |         |           |           |            |
 
 ```json
 {
@@ -5772,7 +5772,7 @@ Specifies properties for a VPN notification
 | --------- | ------------------------------------------------------------------------------------------ | --------------------------------  | -------- | ------- | --------- | ---------- | ---------- |
 | helpurl   | An optional URL to help page URL to assist your end users in signing into your company VPN | String                            | TRUE     |         |           |            |            |
 | message   | An optional message to your end users                                                     | String                            | TRUE     |         |           |            |            |
-| network   | The network connections for the VPN                                                       | [Network Object](#network-object) | FALSE    |         |           |            |            |
+| network   | The network connections for the VPN                                                       | [Network object](#network-object) | FALSE    |         |           |            |            |
 
 #### Network object
 
@@ -5863,7 +5863,7 @@ Profile Requirements
 * The `profile` property isn't encrypted, so don't store sensitive data in it.
 * The `profile` property doesn't limit the level of nesting in the JSON schema you created, but there is a practical size limit. We recommend a JSON schema size of 1 MB or less for best performance.
 
-> **Note:** Profile Object is only available to OAuth 2.0 client applications.
+> **Note:** Profile object is only available to OAuth 2.0 client applications.
 
 ### Application User object
 
@@ -5919,13 +5919,13 @@ All application user assignments have the following properties:
 | _embedded        | embedded resources related to the app user                   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE     | FALSE  | TRUE     |           |           |            |
 | _links           | discoverable resources related to the app user               | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE     | FALSE  | TRUE     |           |           |            |
 | created          | timestamp when app user was created                          | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
-| credentials      | credentials for assigned app                                 | [Application User Credentials Object](#application-user-credentials-object) | TRUE     | FALSE  | FALSE    |           |           |            |
+| credentials      | credentials for assigned app                                 | [Application User Credentials object](#application-user-credentials-object) | TRUE     | FALSE  | FALSE    |           |           |            |
 | externalId       | id of user in target app *(must be imported or provisioned)* | String                                                                      | TRUE     | TRUE   | TRUE     |           | 512       |            |
 | id               | unique key of a [User](/docs/reference/api/users/)              | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | lastSync         | timestamp when last sync operation was executed              | Date                                                                        | TRUE     | FALSE  | TRUE     |           |           |            |
 | lastUpdated      | timestamp when app user was last updated                     | Date                                                                        | FALSE    | FALSE  | TRUE     |           |           |            |
 | passwordChanged  | timestamp when app password last changed                     | Date                                                                        | TRUE     | FALSE  | TRUE     |           |           |            |
-| profile          | app-specific profile for the user                            | [Application User Profile Object](#application-user-profile-object)         | FALSE    | FALSE  | TRUE     |           |           |            |
+| profile          | app-specific profile for the user                            | [Application User Profile object](#application-user-profile-object)         | FALSE    | FALSE  | TRUE     |           |           |            |
 | scope            | toggles the assignment between user or group scope           | `USER` or `GROUP`                                                           | FALSE    | FALSE  | FALSE    |           |           |            |
 | status           | status of app user                                           | `STAGED`, `PROVISIONED`, `ACTIVE`, `INACTIVE`, or `DEPROVISIONED`           | FALSE    | FALSE  | TRUE     |           |           |            |
 | statusChanged    | timestamp when status was last changed                       | Date                                                                        | TRUE     | FALSE  | TRUE     |           |           |            |
@@ -5976,7 +5976,7 @@ Specifies a user's credentials for the application. The [Authentication Scheme](
 
 | Property  | Description      | DataType                            | Nullable | Default | MinLength | MaxLength | Validation |
 | --------- | ---------------- | ----------------------------------- | -------- | ------- | --------- | --------- | ---------- |
-| password  | password for app | [Password Object](#password-object) | TRUE     |         |           |           |            |
+| password  | password for app | [Password object](#password-object) | TRUE     |         |           |           |            |
 | userName  | username for app | String                              | TRUE     |         | 1         | 100       |            |
 
 ```json
@@ -6039,7 +6039,7 @@ Application User profiles are app-specific, but may be customized by the Profile
 }
 ```
 
-### Application Group Model
+### Application Group object
 
 #### Example
 
@@ -6069,9 +6069,9 @@ All application groups have the following properties:
 | priority     | priority of group assignment                    | Number                                                         | TRUE     | FALSE  | FALSE    | 0         | 100       |            |
 | profile      | Valid JSON schema for specifying properties     | [JSON](#profile-object)                                        | TRUE     | FALSE  | FALSE    |           |           |            |
 
-### Application Key Credential Model
+### Application Key Credential object
 
-The application key credential model defines a [JSON Web Key](https://tools.ietf.org/html/rfc7517) for a signature or encryption credential for an application.
+The application key credential object defines a [JSON Web Key](https://tools.ietf.org/html/rfc7517) for a signature or encryption credential for an application.
 
 > **Note:** Currently only the X.509 JWK format is supported for applications with the `SAML_2_0` sign-on mode.
 
@@ -6133,8 +6133,8 @@ The metadata for a CSR
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| subject          | Subject of the CSR                                           | [Subject Object](#subject-object)                                           | FALSE    | FALSE  | FALSE    |           |           |            |
-| subjectAltNames  | Subject Alternative Name of the CSR                          | [Subject Alternative Name Object](#subject-alternative-name-object)         | TRUE     | FALSE  | FALSE    |           |           |            |
+| subject          | Subject of the CSR                                           | [Subject object](#subject-object)                                           | FALSE    | FALSE  | FALSE    |           |           |            |
+| subjectAltNames  | Subject Alternative Name of the CSR                          | [Subject Alternative Name object](#subject-alternative-name-object)         | TRUE     | FALSE  | FALSE    |           |           |            |
 
 ##### Subject object
 

@@ -136,7 +136,7 @@ Gets a trusted origin by ID
 #### Response Parameters
 
 
-[Trusted Origin Object](#trusted-origin-model)
+[Trusted Origin object](#trusted-origin-object)
 
 #### Request Example
 
@@ -211,7 +211,7 @@ A subset of trusted origins can be returned that match a supported filter expres
 ##### Response Parameters
 
 
-Array of [Trusted Origins](#trusted-origin-model)
+Array of [Trusted Origins](#trusted-origin-object)
 
 #### List All Trusted Origins
 
@@ -462,7 +462,7 @@ Updates an existing trusted origin
 #### Response Parameters
 
 
-[Trusted Origin Object](#trusted-origin-model)
+[Trusted Origin object](#trusted-origin-object)
 
 #### Request Example
 
@@ -571,7 +571,7 @@ Activates an existing trusted origin
 #### Response Parameters
 
 
-[Trusted Origin Object](#trusted-origin-model)
+[Trusted Origin object](#trusted-origin-object)
 
 #### Request Example
 
@@ -640,7 +640,7 @@ Deactivates an existing trusted origin
 #### Response Parameters
 
 
-[Trusted Origin Object](#trusted-origin-model)
+[Trusted Origin object](#trusted-origin-object)
 
 #### Request Example
 
@@ -709,7 +709,7 @@ Deletes an existing trusted origin
 #### Response Parameters
 
 
-[Trusted Origin Object](#trusted-origin-model)
+[Trusted Origin object](#trusted-origin-object)
 
 #### Request Example
 
@@ -728,7 +728,7 @@ Returns an empty object.
 
 Passing an invalid trusted origin ID returns a `404 Not Found` status code with error code `E0000007`.
 
-## Trusted Origin Model
+## Trusted Origin object
 
 
 ### Trusted Origin Properties
@@ -742,7 +742,7 @@ A trusted origin defines several attributes:
 | origin         | Unique origin URL for this trusted origin                    | String                                    | Yes             | 255 (chars)     |
 | scopes         | Array of scope types for which this trusted origin is used   | Array of [Scope Objects](#scope-object)   | Yes             | 2 (scope types) |
 
-#### Scope Object
+#### Scope object
 
 Each scope object specifies the type of scope for which its trusted origin is used
 
@@ -750,14 +750,14 @@ Each scope object specifies the type of scope for which its trusted origin is us
 | :---------- | :------------------------------------------------------------- | :-------------------------------- | :------- |
 | type        | Type of the scope: either "CORS" or "REDIRECT                  | String                            | Yes      |
 
-#### Scope Object Example (CORS)
+#### Scope object Example (CORS)
 ```json
 {
     "type": "CORS"
 }
 ```
 
-#### Scope Object Example (REDIRECT)
+#### Scope object Example (REDIRECT)
 ```json
 {
     "type": "REDIRECT"
