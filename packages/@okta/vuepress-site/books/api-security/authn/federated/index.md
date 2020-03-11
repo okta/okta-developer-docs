@@ -10,11 +10,8 @@ Federated identity is a way to use an account from one website to create an acco
 
 There are two main players in a federated identity system: an Identity Provider (IdP) and a Service Provider (SP). Often, the service provider is the application that you need to log in to, and the IdP is the provider of the users that can log in.
 
-<figure id="fig_authn_federated_identity">
-  <img /assets/img/books/federated-identity.png" alt="" style="width: 75%"/>
-  <figcaption>Federated Identity</figcaption>
-</figure>
 
+![Federated Identity](/img/books/api-security/authn/images/federated-identity.png "Federated Identity")
 
 ### OAuth 2.0 {#authn-oauth-2}
 
@@ -24,10 +21,7 @@ OAuth 2.0 is a delegated authorization framework which is ideal for APIs. It ena
 
 OAuth is like a hotel key card, but for apps. If you have a hotel key card, you can get access to your room, the business center, and potentially the gym. How do you get a hotel key card? You have to do an authentication process at the front desk to get it. After authenticating and obtaining the keycard, you can only access the places and things the hotel has authorized you to use.
 
-<figure id="fig_authn_hotel_key_card">
-  <img /assets/img/books/hotel-key-card.jpg" alt=""/>
-  <figcaption>OAuth is like a hotel key card, but for apps!</figcaption>
-</figure>
+![OAuth is like a hotel key card, but for apps!](/img/books/api-security/authn/images/hotel-key-card.jpg "OAuth is like a hotel key card, but for apps!")
 
 To break it down simply, OAuth is where:
 
@@ -41,10 +35,7 @@ Client applications can be public or confidential. There is a significant distin
 
 Public clients are browsers, mobile apps, and IoT devices. The code on these devices can be extracted, decompiled, and reviewed. Therefore, we can't store any sensitive information in the application itself and expect it to be protected. Do not embed a password or secret information - including URLs - of any form in these types of applications!
 
-<figure id="fig_authn_client_types">
-  <img /assets/img/books/client-types.png" alt="" />
-  <figcaption>Public vs confidential clients</figcaption>
-</figure>
+![Public vs confidential clients](/img/books/api-security/authn/images/client-types.png "Public vs confidential clients")
 
 The core OAuth specification describes two types of tokens: an access token and a refresh token. The client uses the access token to access an API (aka Resource Server). They're meant to be short-lived and work over a span of minutes or hours, not days or months. Due to this, the core OAuth specification doesn't have an approach to revoking access tokens but in many cases you will need to as a token could have been compromised or a subscription has expired. To address that [RFC 7009](https://oauth.net/2/token-revocation/) describes an additional endpoint to revoke a token. To be specific, this revokes it with the Authorization Server, not the Resource Server (API). Unless the Resource Server checks with the Authorization Server, it will not know the token has been revoked. This happens in the real world where you could still use your driver license to board a flight, even if it has been revoked.
 
@@ -78,10 +69,7 @@ To address the differences between web apps, mobile clients, IoT devices, and ev
 
 7. **Authorization Code Flow + PKCE** - the recommended flow for native apps on mobile devices. In this flow, the native app sends a PKCE code challenge along with the authentication request. This is described further in what's commonly known as the "[AppAuth spec](https://oauth.net/2/native-apps/)".
 
-<figure id="fig_authn_framework">
-  <img /assets/img/books/framework.png" alt="" />
-  <figcaption>Authorization Framework: Return of complexity through extensions</figcaption>
-</figure>
+![Authorization Framework: Return of complexity through extensions](/img/books/api-security/authn/images/framework.png "Authorization Framework: Return of complexity through extensions")
 
 There's a huge number of additions that happened to OAuth in the last several years. These add complexity back on top of OAuth to complete a variety of enterprise scenarios. In <a href="#fig_authn_framework" class="figref"></a>, you can see how JSON and OAuth are the foundation. JWT, JWK, JWE, and JWS can be used as interoperable tokens that can be signed and encrypted.
 
@@ -89,10 +77,7 @@ There's a huge number of additions that happened to OAuth in the last several ye
 
 OAuth 2.0 is not an authentication protocol. It explicitly says so in [its documentation](https://oauth.net/articles/authentication/).
 
-<figure id="fig_authn_oauth_not_authn">
-  <img /assets/img/books/oauth-not-authn.png" alt="" />
-  <figcaption>OAuth is not an authentication protocol (oauth.net)</figcaption>
-</figure>
+![OAuth is not an authentication protocol (oauth.net)](/img/books/api-security/authn/images/oauth-not-authn.png "OAuth is not an authentication protocol (oauth.net)")
 
 While it's easy to lose that distinction, note that everything so far has been about delegated authorization. OAuth 2.0 alone says absolutely nothing about the user such as how they authenticate or what information we have about them. We simply have a token to access a resource.
 Pseudo-Authentication with OAuth 2.0
@@ -120,10 +105,7 @@ Generally, an OpenID Connect flow involves the following steps:
 
 In terms of implementation, an ID token is a JSON Web Token (JWT) which adheres to the specification and is small enough to pass between devices
 
-<figure id="fig_authn_oidc">
-  <img /assets/img/books/openid-connect.png" alt="" />
-  <figcaption>OpenID Connect Flow</figcaption>
-</figure>
+![OpenID Connect Flow](/img/books/api-security/authn/images/openid-connect.png "OpenID Connect Flow")
 
 The Authorization Code Flow can also be used with Native apps. In this scenario, the native app sends a PKCE code challenge along with the authentication request. PKCE (pronounced "pixy") stands for Proof Key for Code Exchange and is defined by [RFC 7636](https://oauth.net/2/pkce/).
 

@@ -1865,4 +1865,27 @@ redirects:
     to: /docs/guides/submit-app/
   - from: /docs/guides/build-provisioning-integration/test-scim-server/index.html
     to: /docs/guides/build-provisioning-integration/test-scim-api/
-    
+  - from: /docs/guides/build-sso-integration/overview/index.html
+    to: /docs/guides/build-sso-integration/before-you-begin/
+  - from: /docs/guides/build-sso-integration/integrate/index.html
+    to: /docs/guides/build-sso-integration/create-your-app/
+  - from: /docs/guides/build-sso-integration/get-help/index.html
+    to: /docs/guides/build-sso-integration/before-you-begin/
+  - from: /docs/guides/build-sso-integration/partner/index.html
+    to: /docs/guides/build-sso-integration/submit-your-app/
+  - from: /docs/guides/build-sso-integration/oidc/before-you-begin/index.html
+    to: /docs/guides/build-sso-integration/openidconnect/before-you-begin/
+  - from: /docs/guides/build-sso-integration/saml/before-you-begin/index.html
+    to: /docs/guides/build-sso-integration/saml2/before-you-begin/
+  - from: /docs/guides/build-sso-integration/oidc/create-your-app/index.html
+    to: /docs/guides/build-sso-integration/openidconnect/create-your-app/
+  - from: /docs/guides/build-sso-integration/saml/create-your-app/index.html
+    to: /docs/guides/build-sso-integration/saml2/create-your-app/
+  - from: /docs/guides/build-sso-integration/oidc/submit-your-app/index.html
+    to: /docs/guides/build-sso-integration/openidconnect/submit-your-app/
+  - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
+    to: /docs/guides/build-sso-integration/saml2/submit-your-app/
+  - from: /docs/guides/build-sso-integration/oidc/test-your-app/index.html
+    to: /docs/guides/build-sso-integration/openidconnect/test-your-app/
+  - from: /docs/guides/build-sso-integration/saml/test-your-app/index.html
+    to: /docs/guides/build-sso-integration/saml2/test-your-app/

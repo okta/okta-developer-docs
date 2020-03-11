@@ -31,13 +31,13 @@ Trusted applications are backend applications that act as authentication broker 
 > **Note:** Trusted web applications may need to override the [client request context](/docs/reference/api-overview/#client-request-context) to forward the originating client context for the user.
 
 
-## Getting started with authentication
+## Get started with authentication
 
 1. Make sure that you need the API. Check out the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) which is built on the Authentication API. The Sign-In Widget is easier to use and supports basic use cases.
 2. For more advanced use cases, learn [the Okta API basics](/code/rest/).
 3. Explore the Authentication API:
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f9684487e584101f25a3)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f4f9ca4145db4d80270)
 
 ## Authentication operations
 
@@ -1879,6 +1879,7 @@ Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-fo
 * [Enroll Okta Security Question Factor](#enroll-okta-security-question-factor)
 * [Enroll Okta SMS Factor](#enroll-okta-sms-factor)
 * [Enroll Okta Call Factor](#enroll-okta-call-factor)
+* [Enroll Okta Email Factor](#enroll-okta-email-factor)
 * [Enroll Okta Verify TOTP Factor](#enroll-okta-verify-totp-factor)
 * [Enroll Okta Verify Push Factor](#enroll-okta-verify-push-factor)
 * [Enroll Google Authenticator Factor](#enroll-google-authenticator-factor)
@@ -2183,6 +2184,115 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn/factors/clf198rKSEWOSKRIVIFT/lifecycle/resend"
 ```
 
+#### Enroll Okta Email Factor
+
+
+Enrolls a user with the Okta `email` Factor using the user's primary email address.  An email message with an OTP is sent to the user during enrollment and must be [activated](#activate-call-factor) by following the `next` link relation to complete the enrollment process.
+
+##### Request example for enroll Okta Email Factor
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
+  "factorType": "email",
+  "provider": "OKTA",
+}' "https://${yourOktaDomain}/api/v1/authn/factors"
+```
+
+##### Response example for enroll Okta Email Factor
+
+
+```json
+{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
+  "expiresAt": "2015-11-03T10:15:57.000Z",
+  "status": "MFA_ENROLL_ACTIVATE",
+  "_embedded": {
+    "user": {
+      "id": "00ub0oNGTSWTBKOLGLNR",
+      "passwordChanged": "2015-09-08T20:14:45.000Z",
+      "profile": {
+        "login": "dade.murphy@example.com",
+        "firstName": "Dade",
+        "lastName": "Murphy",
+        "locale": "en_US",
+        "timeZone": "America/Los_Angeles"
+      }
+    },
+    "factor": {
+      "id": "emfultss7bA0V6Z7C0g3",
+      "factorType": "email",
+      "provider": "OKTA",
+      "vendorName": "OKTA",
+      "profile": {
+        "email": "d...y@example.com"
+      }
+    }
+  },
+  "_links": {
+    "next": {
+      "name": "activate",
+      "href": "https://${yourOktaDomain}/api/v1/authn/factors/emfultss7bA0V6Z7C0g3/lifecycle/activate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "cancel": {
+      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "prev": {
+      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "resend": [
+      {
+        "name": "email",
+        "href": "https://${yourOktaDomain}/api/v1/authn/factors/emfultss7bA0V6Z7C0g3/lifecycle/resend",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    ]
+  }
+}
+
+```
+
+##### Resend email as part of enrollment
+
+
+Use the `resend` link to send another OTP if user doesn't receive the original activation email OTP.
+
+###### Request example for resend email
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
+  "factorType": "email",
+  "provider": "OKTA",
+}' "https://${yourOktaDomain}/api/v1/authn/factors/clf198rKSEWOSKRIVIFT/lifecycle/resend"
+```
 
 #### Enroll Okta Verify TOTP Factor
 
@@ -3012,6 +3122,7 @@ The `sms`,`call`, and `token:software:totp` [Factor types](/docs/reference/api/f
 * [Activate TOTP Factor](#activate-totp-factor)
 * [Activate SMS Factor](#activate-sms-factor)
 * [Activate Call Factor](#activate-call-factor)
+* [Activate Email Factor](#activate-email-factor)
 * [Activate Push Factor](#activate-push-factor)
 * [Activate U2F Factor](#activate-u2f-factor)
 * [Activate WebAuthn Factor](#activate-webauthn-factor)
@@ -3215,6 +3326,82 @@ curl -v -X POST \
 ```
 
 ##### Activate Call Factor response example
+
+
+```json
+{
+  "expiresAt": "2015-11-03T10:15:57.000Z",
+  "status": "SUCCESS",
+  "sessionToken": "00Fpzf4en68pCXTsMjcX8JPMctzN2Wiw4LDOBL_9pe",
+  "_embedded": {
+    "user": {
+      "id": "00ub0oNGTSWTBKOLGLNR",
+      "passwordChanged": "2015-09-08T20:14:45.000Z",
+      "profile": {
+        "login": "dade.murphy@example.com",
+        "firstName": "Dade",
+        "lastName": "Murphy",
+        "locale": "en_US",
+        "timeZone": "America/Los_Angeles"
+      }
+    }
+  }
+}
+
+```
+
+#### Activate Email Factor
+
+Activates an `email` Factor by verifying the OTP.  The request and response are identical to [activating a TOTP Factor](#activate-totp-factor)
+
+##### Activate Email Factor request parameters
+
+
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| factorId     | `id` of factor returned from enrollment             | URL        | String   | TRUE     |
+| passCode     | Passcode received via the email message              | Body       | String   | TRUE     |
+| stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
+
+
+##### Activate Email Factor response parameters
+
+
+[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
+
+If the passcode is invalid, you receive a `403 Forbidden` status code with the following error:
+
+```http
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+  "errorCode": "E0000068",
+  "errorSummary": "Invalid Passcode/Answer",
+  "errorLink": "E0000068",
+  "errorId": "oaei_IfXcpnTHit_YEKGInpFw",
+  "errorCauses": [
+    {
+      "errorSummary": "Your passcode doesn't match our records. Please try again."
+    }
+  ]
+}
+```
+
+##### Activate Email Factor request example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
+  "passCode": "12345"
+}' "https://${yourOktaDomain}/api/v1/authn/factors/emf1o51EADOTFXHHBXBP/lifecycle/activate"
+```
+
+##### Activate Email Factor response example
 
 
 ```json

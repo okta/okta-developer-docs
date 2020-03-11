@@ -15,6 +15,10 @@ OpenID Connect extends OAuth 2.0. The OAuth 2.0 protocol provides API security v
 
 This page contains detailed information about the OAuth 2.0 and OpenID Connect endpoints that Okta exposes on its authorization servers. For higher-level information about how to use these endpoints, see [OAuth 2.0 and OpenID Connect](/docs/concepts/auth-overview/).
 
+## Get started
+
+Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fd92d7c1ab0fbfdecab2)
+
 ## Endpoints
 
 | Endpoint                                                                          | Use                                                                                     |
@@ -540,7 +544,7 @@ This redirects the browser to either the Okta sign-in page or the specified logo
 
 * If the ID token passed via `id_token_hint` is invalid, the browser is redirected to an error page.
 
-* If the ID token is valid, but expired, and the subject matches the current Okta session, a logout request logs the user out and redirects the browser to the `post_logout_redirect_uri`. 
+* If the ID token is valid, but expired, and the subject matches the current Okta session, a logout request logs the user out and redirects the browser to the `post_logout_redirect_uri`.
 
 ### /keys
 
@@ -1397,7 +1401,7 @@ Provide the `client_id` in a JWT that you sign with the `client_secret` using an
 
 ### JWT with private key
 
-This method is similar to JWT with shared key, but uses a public/private key pair for more security. The main benefit of this method is you can generate the private key on your own servers and never have it leave there for any reason, since you only need to provide the public key to Okta. This is better than `client_secret_jwt` since Okta must know what the `client_secret` string is beforehand, so there are more places that it could in theory be compromised. 
+This method is similar to JWT with shared key, but uses a public/private key pair for more security. The main benefit of this method is you can generate the private key on your own servers and never have it leave there for any reason, since you only need to provide the public key to Okta. This is better than `client_secret_jwt` since Okta must know what the `client_secret` string is beforehand, so there are more places that it could in theory be compromised.
 
 If you configured your client to use the `private_key_jwt` client authentication method:
 
@@ -1422,7 +1426,7 @@ grant_type=authorization_code&
 
 ### None
 
-Specify `none` when the client is a public client and doesn't have a client secret. Only the `client_id` is sent in the request body. 
+Specify `none` when the client is a public client and doesn't have a client secret. Only the `client_id` is sent in the request body.
 
 ### Token claims for client authentication with client secret or private key JWT
 

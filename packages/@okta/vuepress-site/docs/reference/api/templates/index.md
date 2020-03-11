@@ -11,7 +11,7 @@ The Okta Templates API provides operations to manage custom templates.
 
 SMS templates customize the SMS message sent to users. One default SMS template is provided. All custom templates must have the variable `${code}` as part of the text. The `${code}` variable is replaced with the actual SMS code when the message is sent. Optionally, you can also use the variable `${org.name}`. If a template contains `${org.name}`, it is replaced with organization name before the SMS message is sent.
 
-## Getting Started with Custom Templates
+## Get started with Custom Templates
 
 Explore the Custom Templates API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d71f7946d8d56ccdaa06)
 

@@ -1334,7 +1334,7 @@ The Role model defines several **read-only** properties:
 | label            | Display name of Role                                    | String                                                                                                                                     | FALSE      | FALSE    | TRUE      |
 | lastUpdated      | Timestamp when app user was last updated                | Date                                                                                                                                       | FALSE      | FALSE    | TRUE      |
 | status           | Status of role assignment                               | `ACTIVE`                                                                                                                                   | FALSE      | FALSE    | TRUE      |
-| type             | Type of Role                                            | `SUPER_ADMIN`, `ORG_ADMIN`, `APP_ADMIN`, `USER_ADMIN`, `HELP_DESK_ADMIN`, `READ_ONLY_ADMIN`, `MOBILE_ADMIN`, `API_ACCESS_MANAGEMENT_ADMIN`, `REPORT_ADMIN` | FALSE      | FALSE    | TRUE      |
+| type             | Type of Role                                            | See the [Role types](#role-types) table for a complete list. | FALSE      | FALSE    | TRUE      |
 
 #### Role types
 
@@ -1346,6 +1346,7 @@ Refer to the [product documentation](https://help.okta.com/en/prod/Content/Topic
 | :---------------------------- | :---------------------------------- | :------------------------------------ |
 | `API_ACCESS_MANAGEMENT_ADMIN` | API Access Management Administrator |                                       |
 | `APP_ADMIN`                   | Application Administrator           | Apps                                  |
+| `GROUP_MEMBERSHIP_ADMIN` <ApiLifecycle access="ea" /> | Group Membership Administrator | [Groups](/docs/reference/api/groups/)|
 | `HELP_DESK_ADMIN`             | Help Desk Administrator             | [Groups](/docs/reference/api/groups/) |
 | `MOBILE_ADMIN`                | Mobile Administrator                |                                       |
 | `ORG_ADMIN`                   | Organizational Administrator        |                                       |

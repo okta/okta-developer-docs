@@ -73,7 +73,7 @@ For example, a shopping site might have one set of claims for customers while th
 
 Custom claims also help you by reducing the number of lookup calls required to retrieve user information from the Identity Provider (IdP). This benefit depends, of course, on the level of security your apps require.
 
-## Getting started with API Access Management
+## Get started with API Access Management
 
 * [Learn more](/docs/concepts/auth-overview/) about Okta and OAuth 2.0.
 * [Set up a custom authorization server](/docs/guides/customize-authz-server/) and use the power of Okta's API Access Management.
