@@ -750,14 +750,14 @@ Each scope object specifies the type of scope for which its trusted origin is us
 | :---------- | :------------------------------------------------------------- | :-------------------------------- | :------- |
 | type        | Type of the scope: either "CORS" or "REDIRECT                  | String                            | Yes      |
 
-#### Scope object Example (CORS)
+#### Scope object example (CORS)
 ```json
 {
     "type": "CORS"
 }
 ```
 
-#### Scope object Example (REDIRECT)
+#### Scope object example (Redirect)
 ```json
 {
     "type": "REDIRECT"
