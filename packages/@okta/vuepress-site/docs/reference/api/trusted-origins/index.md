@@ -757,7 +757,7 @@ Each scope object specifies the type of scope for which its trusted origin is us
 }
 ```
 
-#### Scope object Example (REDIRECT)
+#### Scope object example (Redirect)
 ```json
 {
     "type": "REDIRECT"
