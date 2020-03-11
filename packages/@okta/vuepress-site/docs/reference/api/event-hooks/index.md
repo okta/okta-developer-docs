@@ -609,7 +609,7 @@ curl -v -X DELETE \
 |------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------|----------|--------|----------|------------------------------------------------------------------------------------------------------------------------|
 | uri        | External service endpoint to call to execute the event hook handler.                                       | String                                  | TRUE     | FALSE  | TRUE     | Must begin with `https://`. Maximum length 1024 characters. No white space allowed. The URI must be reachable by Okta. |
 | headers    | Optional list of key/value pairs for headers that should be sent with the request to the external service. | JSON object                             | FALSE    | FALSE  | FALSE    | Some reserved headers, such as `Accept`, are disallowed.                                                               |
-| authScheme | The authentication scheme to use for this request                                                          | [AuthScheme object](#authscheme-object) | FALSE    | FALSE  | FALSE    | Valid `authscheme` object.                                                                                             |
+| authScheme | The authentication scheme to use for this request                                                          | [AuthScheme object](#authscheme-object) | FALSE    | FALSE  | FALSE    | Valid `authscheme` object                                                                                             |
 
 ### AuthScheme object
 

@@ -5658,7 +5658,7 @@ Webhook authorization settings for an IdP provisioning or account link transacti
 | ---------- | --------------------------------- | ----------------------------------------------------------- | ----------- | ------------- |
 | basic      | HTTP Basic Authorization Scheme   | [Basic Authorization Scheme](#basic-authorization-scheme)   | FALSE       | FALSE         |
 | bearer     | HTTP Bearer Authorization Scheme  | [Bearer Authorization Scheme](#bearer-authorization-scheme) | FALSE       | FALSE         |
-| custom     | Custom key/value HTTP headers     | object                                                      | FALSE       | FALSE         |
+| custom     | Custom key/value HTTP headers     | Object                                                      | FALSE       | FALSE         |
 
 Property Details
 

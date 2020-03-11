@@ -2289,7 +2289,7 @@ Updates an application in your organization
 
 ##### Request parameters
 
-| Parameter     | Description              | Param Type | DataType                          | Required | Default |
+| Parameter     | Description              | Param Type |                           | Required | Default |
 | ---------     | -------------------      | ---------- | --------------------------------- | -------- | ------- |
 | app           | Updated app              | Body       | [Application](#application-object) | FALSE    |         |
 | applicationId | `id` of an app to update | URL        | String                            | TRUE     |         |
@@ -5456,7 +5456,7 @@ Applications have the following properties:
 | name               | unique key for app definition                  | String ([App Names and Settings](#app-names-and-settings))                | FALSE        | TRUE       | TRUE         | 1             | 255         |
 | profile            | Valid JSON schema for specifying properties    | [JSON](#profile-object)                                              | TRUE         | FALSE      | FALSE        |               |             |
 | request_object_signing_alg| The type of JSON Web Key Set (JWKS) algorithm that must be used for signing request objects | `HS256`, `HS384`, `HS512`, `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`  | TRUE      | FALSE     | FALSE      |
-| settings           | settings for app                               | object ([App Names and Settings](#app-names-and-settings))                | TRUE         | FALSE      | FALSE        |               |             |
+| settings           | settings for app                               | Object ([App Names and Settings](#app-names-and-settings))                | TRUE         | FALSE      | FALSE        |               |             |
 | signOnMode         | authentication mode of app                     | [SignOn Mode](#sign-on-modes)                                         | FALSE        | FALSE      | FALSE        |               |             |
 | status             | status of app                                  | `ACTIVE` or `INACTIVE`                                               | FALSE        | FALSE      | TRUE         |               |             |
 | visibility         | visibility settings for app                    | [Visibility object](#visibility-object)                              | TRUE         | FALSE      | FALSE        |               |             |
