@@ -12,7 +12,7 @@ title: Okta API Products Release Notes
 | [Pagination is available for the List Authorization Servers operation](#pagination-is-available-for-the-list-authorization-servers-operation)| March 4, 2020 |
 | [Sign-in attempt behavior evaulation is now logged when there is no client information](#sign-in-attempt-behavior-evaluation-is-now-logged-when-there-is-no-client-information)| March 4, 2020 |
 | [OAuth for Okta enabled for Schemas and Linked Objects APIs](#oauth-for-okta-enabled-for-schemas-and-linked-objects-apis)| March 4, 2020 |
-| [Bug fixed in 2020.03.0](#bug-fixed-in-2020-03-0) | March 4, 2020        |
+| [Bugs fixed in 2020.03.0](#bugs-fixed-in-2020-03-0) | March 4, 2020        |
 
 ### Email as a factor and supported optional enrollment is Generally Available in Preview
 
@@ -40,6 +40,7 @@ Sign-in attempt behavior evaluation is logged in the `debugContext` object of th
 
 The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/). <!-- OKTA-278008 OKTA-277204-->
 
-### Bug fixed in 2020.03.0
+### Bugs fixed in 2020.03.0
 
-Users could acquire logs before the Logs retention period using specific `after` parameters. (OKTA-277912)
+* Users could acquire logs before the Logs retention period using specific `after` parameters. (OKTA-277912)
+* App admins were able to modify all profiles in the Profile Editor even when the admin was limited to only administer certain apps. (OKTA-267829)
