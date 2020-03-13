@@ -244,8 +244,8 @@ curl -v -X GET \
 
 | Parameter  | Description                                                                   | Param Type | DataType                                  | Required |
 |------------|-------------------------------------------------------------------------------|------------|-------------------------------------------|----------|
-| eventHook | An `eventHook` object that represents the updated properties you want to apply | Body       | [Event Hook Object](#event-hook-object) | TRUE     |
-| id         | The ID of the event hook you want to update                                 | Path       | String                                    | TRUE     |
+| eventHook | An `eventHook` object that represents the updated properties that you want to apply | Body       | [Event Hook Object](#event-hook-object) | TRUE     |
+| id         | The ID of the event hook that you want to update                                 | Path       | String                                    | TRUE     |
 
 The submitted event hook properties replace the existing properties after passing validation. Note that some properties are immutable and cannot be updated. Refer to the description of each property in the [Event Hook object](#event-hook-object) table for information.
 
