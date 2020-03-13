@@ -81,27 +81,11 @@ Okta supports the standard `User-Agent` HTTP header to identify the user's brows
 
 > **Note:** If your application is acting as a gateway or proxy, you should forward the `User-Agent` of the originating client with your API requests.
 
-### Format a User-Agent string
+### Format a User-Agent string for native mobile apps
 
-Use the following examples to make sure that the User-Agent string that your app constructs is in the correct format. This ensures that Okta can parse the OS and Browser fields:
+Make sure that the User-Agent string that your app constructs is in the correct format. This ensures that Okta can parse the OS and Browser fields.
 
-Examples of User-Agent strings that can be correctly parsed by Okta:
-
-`Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/13.3.1 Mobile/9B179 Safari/7534.48.3 OktaMobile/6.3.0`
-
-`Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; Zoom 3.6.0)`
-
-`Mozilla/5.0 (Linux; Android 10; SM-G9600 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/80.0.3987.119 Mobile Safari/537.36 OktaMobile/4.5.1`
-
-Examples of User-Agent strings that can't be correctly parsed by Okta:
-
-`iPhone/iPhone10,4/13.3.1/2020.2.6480/Owners iPhone`
-
-`LGE/LG-Q710AL/8.1.0/2020.2.5794/22025912-357a-40ef-bfd9-62df3b8d08fe`
-
-`motorola/moto e5 plus/8.0.0/2020.2.5794/2b57f5c4-0b17-4b14-b933-2ec5c125b124`
-
-#### Different formatting approaches
+Examples of User-Agent strings that can be correctly parsed by Okta contians browser information, system information, platform, platform details, and any extensions.
 
 We recommend that you use a template like the following to format the User-Agent string:
 
@@ -109,25 +93,17 @@ We recommend that you use a template like the following to format the User-Agent
 
 Alternatively, you can make sure that the following string values are present in the User-Agent string so that the OS and browser are detected:
 
+**Any Device Operating System**
+
+If you have a browser string such as `chrome` or `safari`, add that to the User-Agent string.
+
 **iOS**
 
-- The presence of the words `apple` or `ios` and at least one of these values: `iphone`, `ipad`, `ipod`, `ipad`
-
-  **Example:** `iPhone/ios/iPhone10,4/13.3.1/2020.2.6480/Owners iPhone`
-
-- If you have a browser string such as `chrome` or `safari`, add that to the User-Agent string:
-
-  **Example:** `iPhone/ios/safari/iPhone10,4/13.3.1/2020.2.6480/Owners iPhone`
+Include the words `apple` or `ios` and at least one of these values: `iphone`, `ipad`, `ipod`, `ipad`.
 
 **Android**
 
-- The presence of the words `android` or `samsung` infers that Android is the OS.
-
-  **Example:** `motorola/android/moto e5 plus/8.0.0/2020.2.5794/2b57f5c4-0b17-4b14-b933-2ec5c125b124`
-
-- If you have a browser string such as `chrome`, add that to the User-Agent string:
-
-  **Example:** `motorola/android/chrome/moto e5 plus/8.0.0/2020.2.5794/2b57f5c4-0b17-4b14-b933-2ec5c125b124`
+Include the words `android` or `samsung`, which infers that Android is the operating system.
 
 > **Note:** Case doesn't matter since Okta converts the string to lowercase before matching.
 
