@@ -83,9 +83,7 @@ Okta supports the standard `User-Agent` HTTP header to identify the user's brows
 
 ### Format a User-Agent string for native mobile apps
 
-Make sure that the User-Agent string that your app constructs is in the correct format. This ensures that Okta can parse the OS and Browser fields.
-
-Examples of User-Agent strings that can be correctly parsed by Okta contain browser information, system information, platform, platform details, and any extensions.
+Make sure that the User-Agent string that your app constructs is in the correct format. This ensures that Okta can parse the OS and Browser fields. Good User-Agent strings that can be correctly parsed by Okta contain browser information, system information, platform, platform details, and any extensions.
 
 We recommend that you use a template like the following to format the User-Agent string:
 
