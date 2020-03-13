@@ -6,7 +6,7 @@ As an app developer, you want to give your users the ability to sign in directly
 
 Okta supports two protocols for handling federated Single Sign-On:
 
-* [Open ID Connect (OIDC)](https://openid.net/connect/)
+* [OpenID Connect (OIDC)](https://openid.net/connect/)
 * [Security Assertion Markup Language (SAML)](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language).
 
 Your choice of protocol depends mainly on your use case, but OIDC is generally recommended for new integrations.
