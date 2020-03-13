@@ -871,16 +871,28 @@ Content-Type: application/json
 
 Include the `X-Device-Fingerprint` header to supply a device fingerprint. The device fingerprint is used in the following ways:
 
-* If the new or unknown-device email notification is enabled, an email is sent to the user if the device fingerprint sent in the header is not associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
-* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the header is not associated with previous successful logins. For more information about this feature, see [EA documentation](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm?).
+* If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the header is not associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
+* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the header is not associated with a previously successful user sign in. For more information about this feature, see [EA documentation](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm?).
 
-Specifying your own device fingerprint is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid API token.
-You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
+Specifying your own device fingerprint is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
-**Notes:**
+> **Notes:** <br> Device fingerprint is different from the device token. The time and device based MFA in the Okta Sign-On policy rules depends on the device token only and not on the device fingerprint. To read more about the device token, see [Context Object](#context-object). The time and device based MFA would work only if you pass the device token in the [client request context](/docs/reference/api-overview/#client-request-context).<br><br> To use device fingerprinting for the new or unknown device email notification feature, include the `User-Agent` header in the request. For more information, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
 
-* Device fingerprint is different from the device token. The time and device based MFA in Okta SignOn policy rules depends on the device token only and not on the device fingerprint. To read more about the device token, see [Context Object](#context-object). The time and device based MFA would work only if you send the device token passed in the [client request context](/docs/reference/api-overview/#client-request-context).
-* To use device fingerprinting for the new or unknown-device email notification feature, include the `User-Agent` header in the request. For more information, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
+##### Device Fingerprint Best Practices
+
+Use the following recommendations as guidelines for generating and storing a device fingerprint for the `X-Device-Fingerprint` header
+for web apps and native apps.
+
+**Web Apps**<br>
+Okta recommends using a secure, HTTP-only cookie with a random/unique value on the customer's domain as the default implementation. See [Cookie flags that matter](https://odino.org/security-hardening-http-cookies/#cookie-flags-that-matter) for more best practices on hardening HTTP cookies.
+
+**Native Apps**<br>
+Ask the device operating system for a unique device ID. See [Apple's information on DeviceCheck](https://developer.apple.com/documentation/devicecheck) for an example.
+
+* Okta strongly encourages you to use the [AppAuth pattern](https://tools.ietf.org/html/rfc8252) (system browser) for Native App sign-in flows. When you use the AppAuth pattern, you can then leverage Okta's device token implementation without any custom code. This allows an untrusted application to still provide a proof-of-device attestation and leverage Okta's device behavior and per-device MFA policies. Also, it allows the App to support new factors and functionality without having to change code.
+* If you choose to build your own sign-in UX for a Native App, you must configure the App to use a trusted backend to pass a device token.
+
+> **Note:** Any change to the implementation will not match the Okta history of device fingerprints. All devices will look like **new** devices.
 
 ##### Request example for device fingerprinting
 
