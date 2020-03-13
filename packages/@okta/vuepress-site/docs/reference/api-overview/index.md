@@ -83,27 +83,26 @@ Okta supports the standard `User-Agent` HTTP header to identify the user's brows
 
 ### Format a User-Agent string for native mobile apps
 
-Make sure that the User-Agent string that your app constructs is in the correct format. This ensures that Okta can parse the OS and Browser fields. Good User-Agent strings that can be correctly parsed by Okta contain browser information, system information, platform, platform details, and any extensions.
+Make sure that the User-Agent string that your app constructs is in the correct format. This ensures that Okta can parse the `OS` and `Browser` fields. Good User-Agent strings that can be correctly parsed by Okta contain browser information, system information, platform, platform details, and any extensions.
 
 We recommend that you use a template like the following to format the User-Agent string:
 
 `User-Agent: Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>`
 
-Alternatively, you can make sure that the following string values are present in the User-Agent string so that the OS and browser are detected:
+Alternatively, you can make sure that the following string values are present in the User-Agent string so that the OS and Browser are detected.
 
-**Any Device Operating System**
+> **Note:** Case doesn't matter since Okta converts the string to lowercase before matching.
+
+#### Pass a hint about the browser
 
 If you have a browser string such as `chrome` or `safari`, add that to the User-Agent string.
 
-**iOS**
+#### Pass operating system information
 
-Include the words `apple` or `ios` and at least one of these values: `iphone`, `ipad`, `ipod`, `ipad`.
+- **iOS:** Include the words `apple` or `ios` and at least one of these values: `iphone`, `ipad`, `ipod`, `ipad`.
+- **Android:** Include the words `android` or `samsung`, which infers that Android is the operating system.
 
-**Android**
-
-Include the words `android` or `samsung`, which infers that Android is the operating system.
-
-> **Note:** Case doesn't matter since Okta converts the string to lowercase before matching.
+> **Note:** Okta recommends testing to make sure that Okta can parse both the `OS` and `Browser` fields from the User-Agent header that is passed by your native mobile app. See the [System Log](/docs/reference/api/system-log/#useragent-object).
 
 ## IP Address
 
