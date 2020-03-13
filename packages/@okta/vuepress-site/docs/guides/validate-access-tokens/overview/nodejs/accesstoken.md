@@ -11,9 +11,9 @@ For any access token to be valid, the following are asserted:
 
 - Signature is valid (the token was signed by a private key which has a corresponding public key in the JWKS response from the authorization server).
 - Access token is not expired (requires local system time to be in sync with Okta, checks the exp claim of the access token).
-- The aud claim matches any expected aud claim passed to verifyAccessToken().
-- The iss claim matches the issuer the verifier is constructed with.
-- Any custom claim assertions that you add
+- The `aud` claim matches any expected `aud` claim passed to verifyAccessToken().
+- The `iss` claim matches the issuer the verifier is constructed with.
+- Any custom claim assertions that you add are confirmed
 
 With a verifier, you can now verify access tokens:
 
@@ -27,7 +27,7 @@ oktaJwtVerifier.verifyAccessToken(accessTokenString, expectedAud)
   // a validation failed, inspect the error
 });
 ```
-The expected audience passed to verifyAccessToken() is required, and can be either a string (direct match) or an array of strings (the actual aud claim in the token must match one of the strings):
+The expected audience passed to verifyAccessToken() is required, and can be either a string (direct match) or an array of strings (the actual `aud` claim in the token must match one of the strings):
 
 ```javascript
 // Passing a string for expectedAud
