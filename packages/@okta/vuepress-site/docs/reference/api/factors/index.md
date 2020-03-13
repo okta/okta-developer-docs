@@ -3633,12 +3633,12 @@ The following factor types are supported:
 | Factor Type           | Description                                                                                                         |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `call`                | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent via Voice Call to a registered phone number     |
-| `custom`              | A custom [HOTP](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm) factor                        |
 | `email`               | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent via email                                       |
 | `push`                | Out-of-band verification via push notification to a device and transaction verification with digital signature      |
 | `question`            | Additional knowledge based security question                                                                        |
 | `sms`                 | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent via SMS to a registered phone number            |
 | `token:hardware`      | Hardware one-time password [OTP](http://en.wikipedia.org/wiki/One-time_password) device                             |
+| `token:hotp`          | A custom [HOTP](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm) factor                        |
 | `token:software:totp` | Software [Time-based One-time Password (TOTP)](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) |
 | `token`               | Software or hardware [One-time Password (OTP)](http://en.wikipedia.org/wiki/One-time_password) device               |
 | `u2f`                 | Hardware [U2F](https://en.wikipedia.org/wiki/Universal_2nd_Factor) device                                           |
