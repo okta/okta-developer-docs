@@ -1272,9 +1272,9 @@ Rotates the current [keys](#certificate-json-web-key-object) for a Custom Author
 
 ##### Request parameters
 
-| Parameter   | Description                                                    | Type     | Required |
-| :---------- | :--------------------------------------------------------      | :------- | :------- |
-| use         | Purpose of the certificate. The only supported value is `sig`. | String   | True     |
+| Parameter   | Description                                                    | Param Type | DataType | Required |
+| :---------  | :--------------------------------------------------------      | :--------- | :------- | :------- |
+| use         | Purpose of the certificate. The only supported value is `sig`. | Body       | String   | True     |
 
 ##### Request example
 
