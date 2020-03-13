@@ -5,19 +5,20 @@
     </div>
 
     <div class="page-body">
-      <Breadcrumb />
+      <Breadcrumb/>
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
       <div class="content" v-else>
         <div class="content--container">
           <div class="tree-nav">
-            <Sidebar />
+            <Sidebar :sidebarActive="treeNavOpen"/>
           </div>
           <div class="content-area">
             <PageTitle />
             <MobileOnThisPage />
-            <Content />
+            <Content v-if="contentKey" :pageKey="contentKey"/>
+            <Content v-else/>
           </div>
           <div class="on-this-page">
             <OnThisPage />
@@ -32,6 +33,8 @@
 </template>
 
 <script>
+import GuidePages from '../mixins/guidePages';
+
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
@@ -43,13 +46,17 @@ export default {
     Footer: () => import('../components/Footer.vue'),
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
+    GuidesOverview: () => import('../components/GuidesOverview.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
   },
+  mixins: [GuidePages],
   data() {
-    return {}
+    return {
+      contentKey: '',
+      treeNavOpen: false
+    }
   },
   mounted() {
-
     window.addEventListener('load', () => {
         window.setTimeout(() => {
           let anchor = window.location.href.split('#')[1];
@@ -81,6 +88,10 @@ export default {
         }, 500);
     });
 
+    let that = this;
+    this.$on('toggle-tree-nav', event => {
+      that.treeNavOpen = event.treeNavOpen;
+    });
   }
 }
 </script>

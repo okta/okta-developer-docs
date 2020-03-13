@@ -1,6 +1,6 @@
 ---
 title: Step-by step guides for the Okta platform
-layout: Guides
+component: GuidesOverview
 guides:
  - add-an-external-idp
  - build-custom-ui-mobile

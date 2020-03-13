@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="guide.makeLink(guide.mainFramework)" class="guide-featured">
+  <router-link :to="guide.makeLink(guide.mainFramework)" class="guides--featured">
     <header>
       <section>
         <h1 class="title">
