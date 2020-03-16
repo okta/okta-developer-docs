@@ -2847,7 +2847,7 @@ curl -v -X POST \
 
 ```json
 {
-  "resetPasswordUrl": "https://${yourOktaDomain}/reset_password/XE6wE17zmphl3KqAPFxO"
+  "resetPasswordUrl": "https://${yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
 }
 ```
 
