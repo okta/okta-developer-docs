@@ -888,8 +888,8 @@ Okta recommends using a secure, HTTP-only cookie with a random/unique value on t
 **Native Apps**<br>
 Ask the device operating system for a unique device ID. See [Apple's information on DeviceCheck](https://developer.apple.com/documentation/devicecheck) for an example.
 
-* Okta strongly encourages you to use the [AppAuth pattern](https://tools.ietf.org/html/rfc8252) (system browser) for Native App sign-in flows. When you use the AppAuth pattern, you can then leverage Okta's device token implementation without any custom code. This allows an untrusted application to still provide a proof-of-device attestation and leverage Okta's device behavior and per-device MFA policies. Also, it allows the App to support new factors and functionality without having to change code.
-* If you choose to build your own sign-in UX for a Native App, you must configure the App to use a trusted backend to pass a device token.
+* Okta strongly encourages you to use the [AppAuth pattern](https://appauth.io/) (system browser) for native application sign-in flows. When you use the AppAuth pattern, you can then leverage Okta's device token implementation without any custom code. This allows an untrusted application to still provide a proof-of-device attestation and leverage Okta's device behavior and per-device MFA policies. Also, it allows the App to support new factors and functionality without having to change code.
+* If you choose to build your own sign-in UI for a native application, the native application must use a [trusted backend](/docs/reference/api/authn/#primary-authentication-with-trusted-application) to pass the device fingerprint to Okta.
 
 ##### Request example for device fingerprinting
 
