@@ -1,29 +1,3 @@
-const fs = require('fs');
-const { extractHeaders } = require('@vuepress/shared-utils')
-const createMarkdown = require('@vuepress/markdown')
-
-const removeFrontMatterFrom = text => text.replace(/^---(.|\n|\r)*---$/mg, '');
-const getMarkdownContentFor = path => removeFrontMatterFrom(fs.readFileSync(path, { encoding: 'utf8' }));
-const getHeadersFor = folderPath => extractHeaders(getMarkdownContentFor(`${folderPath}/index.md`), ['h2', 'h3'], createMarkdown({}));
-
-const PATH_LIKE = '(?:([^\/]*)\/?)';
-const GUIDE_FRAGMENTS = '/docs/guides/';
-const DEFAULT_FRAMEWORK = '-'; 
-const DEFAULT_SECTION = '';
-const GUIDE_ROOT = 'docs/guides';
-const guideFromPath = path => {
-  let guideName;
-  let framework;
-  let sectionName;
-  [, guideName, sectionName ] = path.match(`${GUIDE_FRAGMENTS}${PATH_LIKE}${PATH_LIKE}$`) || [];
-  if( !sectionName ) { 
-    [, guideName, framework, sectionName ] = path.match(`${GUIDE_FRAGMENTS}${PATH_LIKE}${PATH_LIKE}${PATH_LIKE}`) || [];
-  }
-  framework = framework === DEFAULT_FRAMEWORK ? '' : framework; // Drop useless default
-  sectionName = sectionName || DEFAULT_SECTION; // default is useable here
-  return { guideName, framework, sectionName };
-};
-
 module.exports = ( options, ctx) => {
   const { themeConfig, siteConfig } = ctx
   return {
@@ -43,21 +17,7 @@ module.exports = ( options, ctx) => {
 }
 
 function resolveHeaders (page) {
-  let toGroup = page.headers;
-  if(!toGroup) {
-    let extracted = []
-    if(page._content && page._content.trim() != ''){
-      extracted = extractHeaders(page._content, ['h2', 'h3'], createMarkdown({}));
-    } else if (page.path.includes(GUIDE_FRAGMENTS)) {
-      const meta = guideFromPath(page.path);
-      const folderPath = `${page._context.sourceDir}/${GUIDE_ROOT}/${meta.guideName}/${meta.sectionName}`
-      // console.debug(`Extracting headers for: ${folderPath}`);
-      extracted = getHeadersFor(folderPath);
-    }
-    page.headers = extracted;
-    toGroup = extracted || []
-  }
-  const headers = groupHeaders(toGroup)
+  const headers = groupHeaders(page.headers || [])
   return [{
     type: 'group',
     collapsable: false,

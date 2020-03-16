@@ -17,8 +17,7 @@
           <div class="content-area">
             <PageTitle />
             <MobileOnThisPage />
-            <Content v-if="contentKey" :pageKey="contentKey"/>
-            <Content v-else/>
+            <Content/>
           </div>
           <div class="on-this-page">
             <OnThisPage />
@@ -33,7 +32,6 @@
 </template>
 
 <script>
-import GuidePages from '../mixins/guidePages';
 
 export default {
   components: {
@@ -49,10 +47,8 @@ export default {
     GuidesOverview: () => import('../components/GuidesOverview.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
   },
-  mixins: [GuidePages],
   data() {
     return {
-      contentKey: '',
       treeNavOpen: false
     }
   },

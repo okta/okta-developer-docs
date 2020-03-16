@@ -245,5 +245,5 @@ module.exports = {
   
   additionalPages: [
     ...guidesInfo.additionalPagesForGuides(),
-  ]
+  ],
 }

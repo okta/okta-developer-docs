@@ -8,7 +8,7 @@
 
 <script>
 import _ from "lodash";
-import { getGuidesInfo, findOnAncestor } from "../util/guides";
+import { getGuidesInfo, guideFromPath } from "../util/guides";
 
 export default {
   name: "Sidebar",
@@ -88,7 +88,7 @@ export default {
       const pages = this.$site.pages;
       const guides = getGuidesInfo({ pages });
       let navs = _.map(this.$site.themeConfig.sidebars.guides, _.clone);
-      const framework = findOnAncestor({ find: "framework", node: this });
+      const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
         nav.subLinks = [];
         const guide = guides.byName[nav.guideName];

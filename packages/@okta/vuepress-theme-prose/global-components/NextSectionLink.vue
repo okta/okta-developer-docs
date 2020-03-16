@@ -10,9 +10,9 @@
     name: 'NextSectionLink',
     props: ['name'],
     computed: { 
-      guideName() { return guideFromPath(this.$route.toPath()).guideName; },
-      sectionName() { return guideFromPath( this.$route.toPath() ).sectionName; },
-      framework() { return guideFromPath( this.$route.toPath() ).framework; },
+      guideName() { return guideFromPath( this.$route.path ).guideName; },
+      sectionName() { return guideFromPath( this.$route.path ).sectionName; },
+      framework() { return guideFromPath( this.$route.path ).framework; },
       guide() { return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName]; },
       section() { return this.guide.sectionByName[this.sectionName]; },
       nextSection() { 
