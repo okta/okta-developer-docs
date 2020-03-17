@@ -90,15 +90,26 @@ export default {
       let navs = _.map(this.$site.themeConfig.sidebars.guides, _.clone);
       const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
-        nav.subLinks = [];
-        const guide = guides.byName[nav.guideName];
-        if (guide && guide.sections) {
-          guide.sections.forEach(section => {
-            nav.subLinks.push({
-              title: section.title,
-              path: section.makeLink(guide.frameworks.includes(framework) ? framework : guide.mainFramework)
-            });
-          });
+        let queue = new Array();
+        queue.push(nav);
+        let current = queue.pop();
+        while(current){
+          if( current && current.subLinks ){
+            queue.push(...current.subLinks)
+          } else if( current && current.guideName ) {
+            // add sections
+            current.subLinks = [];
+            const guide = guides.byName[current.guideName];
+            if (guide && guide.sections) {
+              guide.sections.forEach(section => {
+                current.subLinks.push({
+                  title: section.title,
+                  path: section.makeLink(guide.frameworks.includes(framework) ? framework : guide.mainFramework)
+                });
+              });
+            }
+          }
+          current = queue.pop();
         }
       });
       return navs;

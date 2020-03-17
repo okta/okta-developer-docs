@@ -1,6 +1,6 @@
 <template>
   <div class="next-section">
-    <router-link :to="target" class="button is-button-cerise is-button-small"><span><slot>Next: {{nextSection.title}}</slot></span></router-link>
+    <router-link :to="target" class="button is-button-cerise is-button-small"><span><slot>Next: {{title}}</slot></span></router-link>
   </div>
 </template>
 
@@ -21,6 +21,12 @@
         }
         const thisIndex = this.guide.order.indexOf(this.sectionName);
         return this.guide.sections[thisIndex + 1];
+      },
+      title() {
+        if(!this.nextSection) {
+          return '';
+        }
+        return this.nextSection.title;
       },
       pathForNext() { 
         return this.nextSection ? this.nextSection.makeLink(this.framework) : '';
