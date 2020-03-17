@@ -95,8 +95,6 @@ Okta recommends making test [authentication requests](/docs/reference/api/authn/
 
 If the `OS` and/or `Browser` fields come back as `Unknown` in the System Log, make sure that certain string values are present in the `User-Agent` string so that the OS and Browser are detected. For some Chrome examples, see [User-Agent strings](https://developer.chrome.com/multidevice/user-agent).
 
-> **Note:** Case doesn't matter since Okta converts the string to lowercase before matching.
-
 **Pass a hint about the browser**
 
 Add browser information such as `chrome` or `safari` to the `User-Agent` string.
@@ -105,7 +103,7 @@ Add browser information such as `chrome` or `safari` to the `User-Agent` string.
 
 - **iOS:** Include the words `apple` or `ios` and at least one of these values: `iphone`, `ipad`, `ipod`, `ipad`.
 
-- **Android:** Include the words `android` or `samsung`, which infers that Android is the operating system.
+- **Android:** Include the word `android`, which infers that Android is the operating system.
 
 ## IP Address
 
