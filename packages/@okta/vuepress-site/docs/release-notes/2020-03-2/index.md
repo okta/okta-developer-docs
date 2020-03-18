@@ -16,4 +16,4 @@ title: Okta API Products Release Notes
 
 * Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](/docs/reference/api/trusted-origins/) defined for the org. (OKTA-283549)
 
-* When a Workflow was called, all headers that weren't white listed had text prepended in the response, which resulted in redirects not working due to the modification of the header name. (OKTA-282294)
+* When a Workflow was called, all headers that weren't white listed had text prepended in the response, which broke redirects. (OKTA-282294)
