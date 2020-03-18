@@ -15,8 +15,8 @@ Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
  - **[List Operations](#factor-operations)** - List factors and security questions.
  - **[Lifecycle Operations](#factor-lifecycle-operations)** - Enroll, activate, and reset factors.
- - **[Challenge and Verify Operations](#factors-that-perform-challenge-and-verify-operations)** - Challenge and Verify a factor
- - **[Verification Only Operations](#factor-that-perform-only-verification-operations)** - Verify a factor
+ - **[Challenge and Verify Operations](#factors-that-require-a-challenge-and-verify-operation)** - Challenge and Verify a factor
+ - **[Verification Only Operations](#factors-that-require-only-a-verification-operation)** - Verify a factor
 
 ### Get Factor
 
@@ -28,8 +28,8 @@ Fetches a factor for the specified user
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |
 | factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
 
 #### Response Parameters
 
