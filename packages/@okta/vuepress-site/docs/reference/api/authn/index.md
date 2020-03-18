@@ -876,7 +876,7 @@ Include the `X-Device-Fingerprint` header to supply a device fingerprint. The `X
 
 Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
-> **Note:** The `X-Device-Fingerprint` header is different from the device token. The time and device based MFA in the Okta Sign-On policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. To read more about the device token, see [Context Object](#context-object). The time and device based MFA would work only if you pass the device token in the [client request context](/docs/reference/api-overview/#client-request-context).
+> **Note:** The `X-Device-Fingerprint` header is different from the device token. Device-based MFA in the Okta Sign-On policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. To read more about the device token, see [Context Object](#context-object). Device-based MFA would work only if you pass the device token in the [client request context](/docs/reference/api-overview/#client-request-context).
 
 ##### Device Fingerprint Best Practices
 
