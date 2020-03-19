@@ -77,9 +77,35 @@ Okta will derive client request context directly from the HTTP request headers a
 
 ## User Agent
 
-Okta supports the standard `User-Agent` HTTP header to identify the user's browser or application. Always send a `User-Agent` string to uniquely identify your client application and version such as `Oktaprise/1.1`.
+Okta supports the standard `User-Agent` HTTP header to identify the user's browser or application. Always send a `User-Agent` string to uniquely identify your client application and version, for example: `Oktaprise/1.1`.
 
-> If your application is acting as a gateway or proxy, you should forward the `User-Agent` of the originating client with your API requests.
+> **Note:** If your application is acting as a gateway or proxy, you should forward the `User-Agent` of the originating client with your API requests.
+
+### Format a User-Agent string
+
+Make sure that the User-Agent string that your app constructs is in the correct format. This ensures that Okta can parse the `OS` and `Browser` fields. Good `User-Agent` strings that can be correctly parsed by Okta contain browser and system information, platform details, and any extensions.
+
+#### Use a template to format the string
+
+We recommend that you use a template like the following to format the `User-Agent` string:
+
+`User-Agent: Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>`
+
+Okta recommends making test [authentication requests](/docs/reference/api/authn/#primary-authentication) and then checking for the related entries in the [System Log](/docs/reference/api/system-log/#useragent-object). Testing helps you make sure that Okta can parse both the `OS` and `Browser` fields from the `User-Agent` header that is passed by your application.
+
+If the `OS` and/or `Browser` fields come back as `Unknown` in the System Log, make sure that certain string values (see below) are present in the `User-Agent` string so that the OS and Browser are detected:
+
+> **Note:** For some Chrome examples, see [User-Agent strings](https://developer.chrome.com/multidevice/user-agent).
+
+**Pass a hint about the browser**
+
+Add browser information such as `chrome` or `safari` to the `User-Agent` string.
+
+**Pass operating system information**
+
+- **iOS:** Include the words `apple` or `ios` and at least one of these values: `iphone`, `ipad`, `ipod`, `ipad`.
+
+- **Android:** Include the word `android`, which infers that Android is the operating system.
 
 ## IP Address
 
