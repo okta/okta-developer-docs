@@ -49,7 +49,7 @@ When you use these API endpoints to create or modify an Authorization Server res
   "id": "ausain6z9zIedDCxB0h7",
   "name": "Sample Authorization Server",
   "description": "Authorization Server Description",
-  "audiences": "https://api.resource.com",
+  "audiences": ["https://api.resource.com"],
   "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
   "issuerMode": "ORG_URL",
   "status": "ACTIVE",
