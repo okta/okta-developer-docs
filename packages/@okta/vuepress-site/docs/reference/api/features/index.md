@@ -615,10 +615,10 @@ The Stage object has following properties:
 
 | Property | Type   | Description      |
 | -------- | ------ | ---------------- |
-| `status`   | String | `OPEN`, `CLOSED` |
+| `state`   | String | `OPEN`, `CLOSED` |
 | `value`    | String | `EA`, `BETA`     |
 
-If a Feature's stage `value` is `EA`, the `status` is `null` and not returned. If the value is `BETA` the status is `OPEN` or `CLOSED` depending on the `BETA` feature
+If a Feature's stage `value` is `EA`, the `state` is `null` and not returned. If the value is `BETA` the state is `OPEN` or `CLOSED` depending on the `BETA` feature
 being manageable or not.
 
 > **Note:** If a Feature's stage is Open Beta, it can be updated in Preview cells only. If a Feature's stage is Closed Beta, it can only be disabled in Preview cells.
