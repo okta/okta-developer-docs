@@ -82,6 +82,9 @@ Then copy this widget configuration into your front-end application:
   });
   if (oktaSignIn.hasTokensInUrl()) {
     oktaSignIn.authClient.token.parseFromUrl().then(function success(tokens) {
+        // tokens is or is not an array based on the scopes involved
+        tokens = Array.isArray(tokens) ? tokens : [tokens];
+
         // Save the tokens for later use, e.g. if the page gets refreshed:
         // Add the token to tokenManager to automatically renew the token when needed
         tokens.forEach(function(token) {
@@ -131,7 +134,7 @@ With the above code in your front-end application, you should see the Sign In Wi
 
 ### Configure the Sign-In Widget with PKCE
 
-If you want to use Auth Code Flow with PKCE, that's possible too.
+If you want to use Auth Code Flow with PKCE, that's possible too.  Add `pkce: true` to `authParams`:
 
 ```html
 <script type="text/javascript">
@@ -140,8 +143,7 @@ If you want to use Auth Code Flow with PKCE, that's possible too.
     redirectUri: window.location.origin,
     clientId: '{yourClientId}',
     authParams: {
-      pkce: true,
-      responseType: ['token', 'id_token']
+      pkce: true
     }
   });
 
@@ -152,6 +154,11 @@ If you want to use Auth Code Flow with PKCE, that's possible too.
       oktaSignIn.authClient.token.getWithoutPrompt({
         scopes: ['openid', 'email', 'profile'],
       }).then(function(tokens) {
+        // tokens is or is not an array based on the scopes involved
+        tokens = Array.isArray(tokens) ? tokens : [tokens];
+
+        // Save the tokens for later use, e.g. if the page gets refreshed:
+        // Add the token to tokenManager to automatically renew the token when needed
         tokens.forEach(function(token) {
           if (token.idToken) {
             oktaSignIn.authClient.tokenManager.add('idToken', token);
