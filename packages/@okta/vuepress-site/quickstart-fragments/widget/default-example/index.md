@@ -85,7 +85,7 @@ Then copy this widget configuration into your front-end application:
         // tokens is or is not an array based on the scopes involved
         tokens = Array.isArray(tokens) ? tokens : [tokens];
 
-        // Save the tokens for later use, e.g. if the page gets refreshed:
+        // Save the tokens for later use, for example if the page gets refreshed:
         // Add the token to tokenManager to automatically renew the token when needed
         tokens.forEach(function(token) {
           if (token.idToken) {
@@ -157,7 +157,7 @@ If you want to use Auth Code Flow with PKCE, that's possible too.  Add `pkce: tr
         // tokens is or is not an array based on the scopes involved
         tokens = Array.isArray(tokens) ? tokens : [tokens];
 
-        // Save the tokens for later use, e.g. if the page gets refreshed:
+        // Save the tokens for later use, for example if the page gets refreshed:
         // Add the token to tokenManager to automatically renew the token when needed
         tokens.forEach(function(token) {
           if (token.idToken) {
