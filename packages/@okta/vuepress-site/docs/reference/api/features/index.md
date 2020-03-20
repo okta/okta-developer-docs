@@ -629,7 +629,7 @@ being manageable or not.
 {
   "stage": {
     "value": "BETA",
-    "status": "OPEN"
+    "state": "OPEN"
   }
 }
 ```
