@@ -18,7 +18,7 @@ Complete the following steps before you submit your SAML app:
 
 1. [Prepare your application](/docs/guides/build-sso-integration/saml2/before-you-begin/).
 1. [Test your app](/docs/concepts/saml/#testing-saml).
-1. [Integrate your app](/docs/guides/build-sso-integration/integrate/).
+1. [Integrate your app](/docs/guides/build-sso-integration/saml2/submit-your-app/).
 
 After performing these steps, you are ready to go to the OIN Manager to submit your app and start tracking the review status.
 
