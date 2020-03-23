@@ -2,7 +2,7 @@
 title: Prepare your app for submission
 ---
 
-After you have built a functioning app integration in either [SAML](/docs/guides/build-sso-integration/) or [SCIM](/docs/guides/build-provisioning-integration/), a few steps are required to submit it for Okta review.
+After you have built a functioning app integration in either [SAML](/docs/guides/build-sso-integration/saml2/before-you-begin/) or [SCIM](/docs/guides/build-provisioning-integration/), a few steps are required to submit it for Okta review.
 
 Your submission must provide Okta with all the metadata needed to create a customized app for publication in the OIN.
 
@@ -16,7 +16,7 @@ Complete the following steps before you submit your SCIM app:
 
 Complete the following steps before you submit your SAML app:
 
-1. [Prepare your application](/docs/guides/build-sso-integration/overview/).
+1. [Prepare your application](/docs/guides/build-sso-integration/saml2/before-you-begin/).
 1. [Test your app](/docs/concepts/saml/#testing-saml).
 1. [Integrate your app](/docs/guides/build-sso-integration/integrate/).
 
