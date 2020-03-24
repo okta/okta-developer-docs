@@ -4692,6 +4692,86 @@ curl -v -X POST \
 }
 ```
 
+##### Response example (waiting for 3-number verification challenge response)
+
+> **Note:** If Okta detects an unusual sign-in attempt, the end user will receive a 3-number verification challenge and the correct answer of the challenge will be provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property will only be included in the response if the end user is on the 3-number verification challenge view in the Okta Verify mobile app. Look at [Sign in to your org with Okta Verify](https://help.okta.com/en/prod/okta_help_CSH.htm#csh-ov-signin) for more details about this challenge flow.
+
+```json
+{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
+  "expiresAt": "2015-11-03T10:15:57.000Z",
+  "status": "MFA_CHALLENGE",
+  "factorResult": "WAITING",
+  "_embedded": {
+    "user": {
+      "id": "00ub0oNGTSWTBKOLGLNR",
+      "passwordChanged": "2015-09-08T20:14:45.000Z",
+      "profile": {
+        "login": "dade.murphy@example.com",
+        "firstName": "Dade",
+        "lastName": "Murphy",
+        "locale": "en_US",
+        "timeZone": "America/Los_Angeles"
+      }
+    },
+    "factors": {
+      "id": "opfh52xcuft3J4uZc0g3",
+      "factorType": "push",
+      "provider": "OKTA",
+      "profile": {
+        "deviceType": "SmartPhone_IPhone",
+        "name": "Gibson",
+        "platform": "IOS",
+        "version": "9.0"
+      },
+      "_embedded": {
+        "challenge": {
+          "correctAnswer": 92
+        }
+      }
+    }
+  },
+  "_links": {
+    "next": {
+      "name": "poll",
+      "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "cancel": {
+      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "prev": {
+      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "resend": [
+      {
+        "name": "push",
+        "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
 ##### Response example (approved)
 
 
