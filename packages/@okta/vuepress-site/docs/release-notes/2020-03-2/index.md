@@ -18,4 +18,4 @@ title: Okta API Products Release Notes
 
 * When a Workflow was called, all headers that weren't white listed had text prepended in the response, which broke redirects. (OKTA-282294)
 
-* In some cases, the end user wasn't correctly prompted for consent during an OAuth 2 `/authorize` request. (OKTA-270039)
+* In some cases, the end user wasn't correctly prompted for consent during an OAuth 2.0 `/authorize` request. (OKTA-270039)
