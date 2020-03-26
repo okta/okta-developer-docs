@@ -5,42 +5,39 @@ integration: back-end
 icon: code-rest
 meta:
   - name: description
-    content: Find documentation to get started with Okta REST APIs and learn how to import a collection and send requests in Postman.
+    content: Get started with Okta REST APIs and learn how to import a collection and send requests in Postman.
 ---
 
-A great way to learn an API is to issue requests and inspect the responses. You can easily use our Postman collections to do just that.
+A great way to learn an API is to issue requests and inspect the responses. You can easily use our Postman collections to do just that. To use these collections, you need to set up your local environment and import a collection. Then, you can send a test request and verify the results.
 
-![Postman and an Okta Collection](/img/okta_postman_logo.png "Postman and an Okta Collection")
+## Sign up for Okta
 
-To use these collections, you'll need to set up your local environment and import the collections. Then, you can send a test request and verify the results.
+You need a free Okta developer edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). When you create a new Okta org, the org is assigned a base URL such as `dev-12345.okta.com`. This is your unique subdomain in Okta.
 
-## Sign Up for Okta
-
-You'll need a free Okta developer organization to get started. If you don't have one already, [sign up](https://developer.okta.com/signup/) to create one. When you create a new Okta organization, it will be assigned a base URL like `dev-12345.okta.com`. This is your unique subdomain in Okta.
-
-## Set Up Your Environment
+## Set up your environment
 
 1. [Create an API token](/docs/guides/create-an-api-token/) for your org.
 
-  > **Note:** Alternatively, you can [create an OAuth 2.0 access token](/docs/guides/implement-oauth-for-okta/) for use with a number of Okta endpoints. This is an EA feature that allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+> **Note:** Alternatively, you can [create an OAuth 2.0 access token](/docs/guides/implement-oauth-for-okta/) for use with a number of Okta endpoints. This is a feature that allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
 1. [Install the Postman app](https://www.getpostman.com/apps).
-1. Launch Postman and click the **Import** button. Select **Import From Link**, and paste this link into the textbox: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`
-![Importing the Okta Example Environment](/img/import_enviro.png "Importing the Okta Example Environment")
+1. Launch Postman and select **Import** from the **File** menu.
+1. Click **Import From Link** and then paste this link into the box that appears: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`
+1. Click **Import**.
+1. After you import the environment, make sure that the `example.oktapreview.com` environment is selected in the upper-right corner of the page.
 
-1. Once it's imported, make sure the `example.oktapreview.com` environment is selected.
-![Postman app with collections](/img/postman_example_start.png "Postman app with collections")
+![Postman app with collections](/img/postman_example_start.png "Points to the box in the upper-right corner that contains environments for use with Postman")
 
-1. Click the eye icon next to `example.oktapreview.com` and select **Edit** to replace or add these values:
-    * Rename your environment to something you'll recognize. For example, `My Org`.
-    * `url`: Replace the example value with your org's full URL: . For example, `https://${yourOktaDomain}`. (Make sure you don't include `-admin` in the subdomain!)
-    * `apikey`: Enter the API token you created earlier, for example `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
+1. Click the gear icon to the right of `example.oktapreview.com` and select your org to replace or add these values:
+    * Rename your environment to something you recognize, for example: `My Org`.
+    * `url`: Replace the example value with your org's full URL: For example, `https://myorg.oktapreview.com`. Make sure that you don't include `-admin` in the subdomain.
+    * `apikey`: Enter the API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
-1. Click **Update** to save your changes.
+1. Click **Update** to save your changes and then close the **Manage Environments** window.
 
 <DomainAdminWarning />
 
-## Import a Collection
+## Import a collection
 
 Import the collection for the Users API:
 
@@ -92,3 +89,9 @@ To retain the headers:
 1. Launch Postman and click the wrench icon.
 1. Select **Settings**.
 1. In the **Headers** column, enable **Retain headers when clicking on links**.
+
+## Next Steps
+
+Now that you have imported a collection and successfully tested a request and received a response, you can use Postman to learn more about the Okta APIs.
+
+Access an Okta API, download the collection for that API, and try the request examples that come with the collection to help you more fully understand how the API works.
