@@ -374,7 +374,7 @@ Use `me` instead of `id` to specify the current session user.
 | Parameter        | Description                                                                                                       | DataType          | Required      |
 | :--------------- | :-----------------                                                                                                | :---------------- | :------------ |
 | id               | ID of the user for whom you want to get the `primary` user ID. Can be `me` to represent the current session user. | String            | TRUE          |
-| primary.name     | Name of the `primary` relationship being assigned                                                                 | String            | TRUE          |
+| primary.name     | Name of the `primary` relationship being queried                                                                  | String            | TRUE          |
 
 ##### Response Parameters
 
