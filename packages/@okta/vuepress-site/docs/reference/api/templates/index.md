@@ -371,7 +371,7 @@ All templates have the following properties:
 | template               | Text of the template, including any [macros](#sms-template-macros). | String (See note below)                                        | FALSE    | 1         | 161       |
 | created                | Timestamp when template was created                                 | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
 | lastUpdated            | Timestamp when template was last updated                            | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
-| translations           | A list of [translations](#translation-attributes)                    | Object                                                          | N/A      | N/A       | N/A       |
+| translations           | A key-value map of [translations](#translation-attributes)                    | Translations Object                                                          | N/A      | N/A       | N/A       |
 
 > **Note:** The final length of your SMS message cannot exceed 160 characters. If the verification code portion of the message falls outside of the 160-character limit, your message will not be sent.
 
