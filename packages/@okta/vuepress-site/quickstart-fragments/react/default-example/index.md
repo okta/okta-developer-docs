@@ -50,6 +50,8 @@ You will need to use the [Okta React SDK](https://github.com/okta/okta-oidc-js/t
 npm install @okta/okta-react --save
 ```
 
+Our samples here use function-based components and [React Hooks](https://reactjs.org/docs/hooks-intro.html), but see the README for the [Okta React SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react) for examples that work with class-based components as well.
+
 ### Configuration
 
 You will need the values from the OIDC client that you created in the previous step to instantiate the middleware. You will also need to know your Okta org URL, which you can see on the home page of the Okta Developer console. Your Okta org URL + `oauth2/default` will be the `issuer` param.
@@ -57,84 +59,70 @@ You will need the values from the OIDC client that you created in the previous s
 In your application's `App.js` file, import the following objects and pass in your configuration:
 <DomainAdminWarning />
 
-```typescript
-import { Security, ImplicitCallback } from '@okta/okta-react';
+```js
+import { Security, LoginCallback } from '@okta/okta-react';
 
 const config = {
   issuer: 'https://${yourOktaDomain}/oauth2/default',
   redirectUri: window.location.origin + '/implicit/callback',
   clientId: '{clientId}',
   pkce: true
-}
+};
 ```
 
 ## Attach Components to the Secure Router
 
-You'll need to provide these routes in your sample application, so that we can sign the user in and handle the callback from Okta. We will show you how to set these up below using [React Router DOM](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom):
+You'll need to provide these routes in your sample application, so that we can sign the user in and handle the callback from Okta. We will show you how to set these up below using [React Router DOM](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom).  
+
 
 * `/`: A default home page to handle basic control of the app.
 * `/implicit/callback`: This is where auth is handled for you after redirection.
 
 ### Provide the Login and Logout Buttons
 
-In the relevant location in your application, you will want to provide `Login` and `Logout` buttons for the user. You can show/hide the correct button by using the `auth.isAuthenticated()` method. For example:
+In the relevant location in your application, you will want to provide `Login` and `Logout` buttons for the user. You can show/hide the correct button by using the `authState.isAuthenticated` property, after the `authState.isPending` property updates. For example:
 
-```typescript
+```jsx
 // src/Home.js
 
-import React, { Component } from 'react';
-import { withAuth } from '@okta/okta-react';
+import React from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 
-export default withAuth(class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { authenticated: null };
-    this.checkAuthentication = this.checkAuthentication.bind(this);
-    this.checkAuthentication();
-    this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
-  }
+const Home = () => { 
+  const { authState, authService } = useOktaAuth();
 
-  async checkAuthentication() {
-    const authenticated = await this.props.auth.isAuthenticated();
-    if (authenticated !== this.state.authenticated) {
-      this.setState({ authenticated });
-    }
-  }
-
-  componentDidUpdate() {
-    this.checkAuthentication();
-  }
-
-  async login() {
+  const login = async () => { 
     // Redirect to '/' after login
-    this.props.auth.login('/');
+    authService.login('/');
   }
 
-  async logout() {
+  const logout = async () => { 
     // Redirect to '/' after logout
-    this.props.auth.logout('/');
+    authService.logout('/');
   }
 
-  render() {
-    if (this.state.authenticated === null) return null;
-    return this.state.authenticated ?
-      <button onClick={this.logout}>Logout</button> :
-      <button onClick={this.login}>Login</button>;
+  if (authState.isPending) { 
+    return <div>Loading...</div>;
   }
-});
+
+  return authState.isAuthenticated ?
+    <button onClick={logout}>Logout</button> :
+    <button onClick={login}>Login</button>;
+};
+
+export default Home;
 ```
 
 ### Update your `App.js`
 
 Finally, passing in your configuration into `Security`, and connect your application's paths:
 
-```typescript
+```jsx
 // src/App.js
 
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Security, ImplicitCallback } from '@okta/okta-react';
+import { Security, LoginCallback } from '@okta/okta-react';
 import Home from './Home';
 
 const config = {
@@ -142,20 +130,18 @@ const config = {
   redirectUri: window.location.origin + '/implicit/callback',
   clientId: '{clientId}',
   pkce: true
-}
+};
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Security {...config}>
-          <Route path='/' exact={true} component={Home}/>
-          <Route path='/implicit/callback' component={ImplicitCallback}/>
-        </Security>
-      </Router>
-    );
-  }
-}
+const App = () => { 
+  return (
+    <Router>
+      <Security {...config}>
+        <Route path='/' exact={true} component={Home}/>
+        <Route path='/implicit/callback' component={LoginCallback}/>
+      </Security>
+    </Router>
+  );
+};
 
 export default App;
 ```
@@ -166,41 +152,43 @@ Your React application now has an access token in local storage that was issued 
 
 Please continue down to the next section, Server Setup, to learn about access token validation on the server.  Here is what the React component could look like for this hypothetical example:
 
-```typescript
+```jsx
 import fetch from 'isomorphic-fetch';
-import React, { Component } from 'react';
-import { withAuth } from '@okta/okta-react';
+import React, { useEffect, useState } from 'react';
+import { useOktaAuth } from '@okta/okta-react';
 
-export default withAuth(class MessageList extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      messages: null
+const MessageList = () => { 
+  const { authState } = useOktaAuth();
+  const [messages, setMessages] = useState(null);
+
+  // fetch messages
+  useEffect(() => {
+    if (authState.isAuthenticated) {
+      const { accessToken } = authState;
+      try {
+        const response = await fetch('http://localhost:{serverPort}/api/messages', {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          }
+        });
+        const data = await response.json();
+        setMessages(data.messages);
+      } catch (err) { 
+        // handle error as needed
+      }
     }
+  }, [authState]);
+
+  if (!messages) { 
+    return <div>Loading...</div>;
   }
 
-  async componentDidMount() {
-    try {
-      const response = await fetch('http://localhost:{serverPort}/api/messages', {
-        headers: {
-          Authorization: 'Bearer ' + await this.props.auth.getAccessToken()
-        }
-      });
-      const data = await response.json();
-      this.setState({ messages: data.messages });
-    } catch (err) {
-      // handle error as needed
-    }
-  }
-
-  render() {
-    if (!this.state.messages) return <div>Loading..</div>;
-    const items = this.state.messages.map(message =>
-      <li key={message}>{message}</li>
-    );
-    return <ul>{items}</ul>;
-  }
-}));
+  const items = messages.map(message =>
+    <li key={message}>{message}</li>
+  );
+  return <ul>{items}</ul>;
+};
+export default MessageList;
 ```
 
 [React Sample Applications for Okta]: https://github.com/okta/samples-js-react

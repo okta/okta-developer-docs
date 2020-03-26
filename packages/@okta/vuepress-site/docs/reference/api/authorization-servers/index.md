@@ -49,7 +49,7 @@ When you use these API endpoints to create or modify an Authorization Server res
   "id": "ausain6z9zIedDCxB0h7",
   "name": "Sample Authorization Server",
   "description": "Authorization Server Description",
-  "audiences": "https://api.resource.com",
+  "audiences": ["https://api.resource.com"],
   "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
   "issuerMode": "ORG_URL",
   "status": "ACTIVE",
@@ -1272,9 +1272,9 @@ Rotates the current [keys](#certificate-json-web-key-object) for a Custom Author
 
 ##### Request parameters
 
-| Parameter   | Description                                                    | Type     | Required |
-| :---------- | :--------------------------------------------------------      | :------- | :------- |
-| use         | Purpose of the certificate. The only supported value is `sig`. | String   | True     |
+| Parameter   | Description                                                    | Param Type | DataType | Required |
+| :---------  | :--------------------------------------------------------      | :--------- | :------- | :------- |
+| use         | Purpose of the certificate. The only supported value is `sig`. | Body       | String   | True     |
 
 ##### Request example
 

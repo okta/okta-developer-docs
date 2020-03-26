@@ -3,7 +3,7 @@ title: Overview
 ---
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. This allows you to create a seamless and white-labeled experience for your users so that all URLs look like your application.
 
-Okta organizations host pages on subdomains such as `example.okta.com`. Using this feature aliases your Okta organization's domain name to another subdomain that you own, like `login.example.com`. 
+Okta organizations host pages on subdomains such as `example.okta.com`. Using this feature aliases your Okta organization's domain name to another subdomain that you own, like `login.example.com`.
 
 For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias `login.example.com` to `example.okta.com`.
 
@@ -12,6 +12,8 @@ For example, you use Okta as a user store for your apps, but you don't want your
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain.
 
 ### Caveats
+
+* Your custom domain must be a [subdomain](https://en.wikipedia.org/wiki/Subdomain).
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 

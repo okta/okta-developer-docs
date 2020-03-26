@@ -869,21 +869,26 @@ Content-Type: application/json
 
 #### Primary authentication with device fingerprinting
 
-Include the `X-Device-Fingerprint` header to supply a device fingerprint. The device fingerprint is used in the following ways:
+Include the `X-Device-Fingerprint` header to supply a device fingerprint. The `X-Device-Fingerprint` header is used in the following ways:
 
-* If the new or unknown-device email notification is enabled, an email is sent to the user if the device fingerprint sent in the header is not associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
-* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the header is not associated with previous successful logins. For more information about this feature, see [EA documentation](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm?).
+* If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
+* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see [EA documentation](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm?).
 
-Specifying your own device fingerprint is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid API token.
-You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
+Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
-**Notes:**
+> **Note:** The `X-Device-Fingerprint` header is different from the device token. Device-based MFA in the Okta Sign-On policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. To read more about the device token, see [Context Object](#context-object). Device-based MFA would work only if you pass the device token in the [client request context](/docs/reference/api-overview/#client-request-context).
 
-* Device fingerprint is different from the device token. The time and device based MFA in Okta SignOn policy rules depends on the device token only and not on the device fingerprint. To read more about the device token, see [Context object](#context-object). The time and device based MFA would work only if you send the device token passed in the [client request context](/docs/reference/api-overview/#client-request-context).
-* To use device fingerprinting for the new or unknown-device email notification feature, include the `User-Agent` header in the request. For more information, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
+##### Device Fingerprint Best Practices
+
+Use the following recommendations as guidelines for generating and storing a device fingerprint in the `X-Device-Fingerprint` header for both web and native applications.
+
+**Web Apps**<br>
+Okta recommends using a secure, HTTP-only cookie with a random/unique value on the customer's domain as the default implementation. See [Cookie flags that matter](https://odino.org/security-hardening-http-cookies/#cookie-flags-that-matter) for more best practices on hardening HTTP cookies.
+
+**Native Apps**<br>
+Ask the device operating system for a unique device ID. See [Apple's information on DeviceCheck](https://developer.apple.com/documentation/devicecheck) for an example.
 
 ##### Request example for device fingerprinting
-
 
 ```bash
 curl -v -X POST \
@@ -4643,6 +4648,86 @@ curl -v -X POST \
         "name": "Gibson",
         "platform": "IOS",
         "version": "9.0"
+      }
+    }
+  },
+  "_links": {
+    "next": {
+      "name": "poll",
+      "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "cancel": {
+      "href": "https://${yourOktaDomain}/api/v1/authn/cancel",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "prev": {
+      "href": "https://${yourOktaDomain}/api/v1/authn/previous",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "resend": [
+      {
+        "name": "push",
+        "href": "https://${yourOktaDomain}/api/v1/authn/factors/opfh52xcuft3J4uZc0g3/verify/resend",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+##### Response example (waiting for 3-number verification challenge response)
+
+> **Note:** If Okta detects an unusual sign-in attempt, the end user will receive a 3-number verification challenge and the correct answer of the challenge will be provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property will only be included in the response if the end user is on the 3-number verification challenge view in the Okta Verify mobile app. Look at [Sign in to your org with Okta Verify](https://help.okta.com/en/prod/okta_help_CSH.htm#csh-ov-signin) for more details about this challenge flow.
+
+```json
+{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
+  "expiresAt": "2015-11-03T10:15:57.000Z",
+  "status": "MFA_CHALLENGE",
+  "factorResult": "WAITING",
+  "_embedded": {
+    "user": {
+      "id": "00ub0oNGTSWTBKOLGLNR",
+      "passwordChanged": "2015-09-08T20:14:45.000Z",
+      "profile": {
+        "login": "dade.murphy@example.com",
+        "firstName": "Dade",
+        "lastName": "Murphy",
+        "locale": "en_US",
+        "timeZone": "America/Los_Angeles"
+      }
+    },
+    "factors": {
+      "id": "opfh52xcuft3J4uZc0g3",
+      "factorType": "push",
+      "provider": "OKTA",
+      "profile": {
+        "deviceType": "SmartPhone_IPhone",
+        "name": "Gibson",
+        "platform": "IOS",
+        "version": "9.0"
+      },
+      "_embedded": {
+        "challenge": {
+          "correctAnswer": 92
+        }
       }
     }
   },

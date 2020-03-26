@@ -51,6 +51,7 @@ const COMMON_NAME_TO_ICON_NAME = {
   aspnetcore3: 'code-dotnet-32',
   ios: 'code-ios-32',
   netcore: 'code-dotnet-32',
+  nodejs: 'code-nodejs-32',
   nodeexpress: 'code-nodejs-32',
   openidconnect: 'openid-16',
   react: 'code-react-32',
