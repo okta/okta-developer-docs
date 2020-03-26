@@ -1,9 +1,6 @@
 .guides {
-  
     &--features {
         display: flex;
-        width: 64%;
-        max-width: 64%;
     }
 
     &--featured {
@@ -30,15 +27,16 @@
     }
   
     /* reduce icons to 24px */
-    .icon[class*='-32'] {
-      &:before {
-        font-size: 24px;
-      }
+    .icon {
+      width: 24px;
+      height: 24px;
+      &:before,
       &:after {
         font-size: 24px;
+        line-height: 24px;
       }
     }
-  
+
     header {
       display: flex;
       position: relative;

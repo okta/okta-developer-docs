@@ -44,7 +44,6 @@ export default {
     Footer: () => import('../components/Footer.vue'),
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
-    GuidesOverview: () => import('../components/GuidesOverview.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
   },
   data() {

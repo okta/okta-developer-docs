@@ -22,7 +22,7 @@
   import { getGuidesInfo } from '../util/guides';
 
   export default {
-    name: 'FeaturedGuide',
+    name: 'FeaturedGuideItem',
     props: ['guideName'],
     computed: { 
       guide() { 

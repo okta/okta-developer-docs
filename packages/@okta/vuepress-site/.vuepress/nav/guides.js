@@ -1,6 +1,7 @@
 // the navigation that is shown across the guides pages
 
 module.exports = [
+    { title: 'Guides', path: '/docs/guides/' },
     { title: 'Add an external Identity Provider', guideName: 'add-an-external-idp' },
     { title: 'Build a custom sign-in UI in your mobile app', guideName: 'build-custom-ui-mobile' },
     { title: 'Build a JWT for Client Authentication', guideName: 'build-self-signed-jwt' },
