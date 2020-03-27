@@ -44,6 +44,22 @@ module.exports = [
       },
       { title: 'Manage Okta Resources', link: '/docs/reference/api/roles/',  subLinksId: 'Sidebar_Resources',  subLinks: [
           { title: 'Administrator Roles', link: '/docs/reference/api/roles/'},
+          { title: 'Advanced Server Access', link: '/docs/reference/api/asa/', subLinksId: 'Sidebar_Resources', subLinks: [
+            { title: 'Attributes', link: '/docs/reference/api/asa/attributes/'},
+            { title: 'Groups', link: '/docs/reference/api/asa/groups/'},
+            { title: 'Projects', link: '/docs/reference/api/asa/projects', subLinksId: 'Sidebar_Resources', subLinks: [
+                { title: 'Client Configuration Options', link: '/docs/reference/api/asa/projects/client_config_options/'},
+                { title: 'Cloud Accounts', link: '/docs/reference/api/asa/projects/cloud_accounts/'},
+                { title: 'Project Groups', link: '/docs/reference/api/asa/projects/groups/'},
+                { title: 'Server Enrollment Tokens', link: '/docs/reference/api/asa/projects/server_tokens/'},
+                { title: 'Project Server Users', link: '/docs/reference/api/asa/projects/server_users/'},
+                { title: 'Servers', link: '/docs/reference/api/asa/projects/servers/'},
+              ]
+            },
+            { title: 'Users', link: '/docs/reference/api/asa/users/'},
+            { title: 'ASA Object Models', link: '/docs/reference/api/asa/models/'},
+            ]
+          },
           { title: 'Apps', link: '/docs/reference/api/apps/'},
           { title: 'Authorization Servers', link: '/docs/reference/api/authorization-servers/'},
           { title: 'Dynamic Client Registration', link: '/docs/reference/api/oauth-clients/'},

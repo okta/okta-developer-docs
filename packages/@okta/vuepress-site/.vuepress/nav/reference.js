@@ -11,6 +11,22 @@ module.exports = [
     { title: 'Manage Okta Resources', subLinks: [
         { title: 'Administrator Roles', path: '/docs/reference/api/roles/'},
         { title: 'Apps', path: '/docs/reference/api/apps/'},
+        { title: 'Advanced Server Access', subLinks: [
+          { title: 'Attributes', path: '/docs/reference/api/asa/attributes/'},
+          { title: 'Groups', path: '/docs/reference/api/asa/groups/'},
+          { title: 'Projects', path: '/docs/reference/api/asa/projects/', subLinks: [
+              { title: 'Client Configuration Options', path: '/docs/reference/api/asa/projects/client_config_options/'},
+              { title: 'Cloud Accounts', path: '/docs/reference/api/asa/projects/cloud_accounts/'},
+              { title: 'Project Groups', path: '/docs/reference/api/asa/projects/groups/'},
+              { title: 'Server Enrollment Tokens', path: '/docs/reference/api/asa/projects/server_tokens/'},
+              { title: 'Project Server Users', path: '/docs/reference/api/asa/projects/server_users/'},
+              { title: 'Servers', path: '/docs/reference/api/asa/projects/servers/'},
+            ]
+          },
+          { title: 'Users', path: '/docs/reference/api/asa/users/'},
+          { title: 'ASA Object Models', path: '/docs/reference/api/asa/models/'},
+          ]
+        },
         { title: 'Authorization Servers', path: '/docs/reference/api/authorization-servers/'},
         { title: 'Dynamic Client Registration', path: '/docs/reference/api/oauth-clients/'},
         { title: 'Event Hooks', path: '/docs/reference/api/event-hooks/'},
