@@ -1,15 +1,16 @@
 ---
 title: Implement a Password Import Inline Hook
-excerpt: Migrate users to Okta, handling password import with a hook.
+excerpt: Code the external service.
 layout: Guides
 sections:
  - overview
- - set-hook-as-password-import-method
- - user-sign-in-experience
- - request-from-okta
- - expected-response
- - implement-an-external-service
- - coding-the-service
+ - dependencies
+ - web-server
+ - parse-request
+ - check-authorization-header
+ - get-submitted-credentials
+ - check-against-user-store
+ - send-response
  - next-steps
-
 ---
+
