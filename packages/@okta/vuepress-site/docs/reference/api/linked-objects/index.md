@@ -54,7 +54,7 @@ To represent a relationship, create a linked object definition that specifies a 
 
 ## Links Between User Types
 
-If you have created multiple User Types (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)), they all share the same linked object definitions. For example, if you have separate User Types for Employees and Contractors, a link could designate an Employee as the Manager for a Contractor, with the Contractor being a Subordinate of that Employee.
+If you have created multiple User Types (see [User Types](/docs/reference/api/user-types)), they all share the same linked object definitions. For example, if you have separate User Types for Employees and Contractors, a link could designate an Employee as the Manager for a Contractor, with the Contractor being a Subordinate of that Employee.
 
 ## Getting Started
 

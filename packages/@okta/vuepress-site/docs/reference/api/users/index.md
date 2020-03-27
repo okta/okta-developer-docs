@@ -648,9 +648,9 @@ curl -v -X POST \
 
 #### Create User with Non-Default User Type
 
-Creates a user with a specified User Type (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
+Creates a user with a specified User Type (see [User Types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
 
-The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user currently cannot be assigned a different User Type.
+The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user currently can only be assigned a different User Type by an administrator via a full replace update.
 
 ##### Request Example
 
@@ -718,7 +718,7 @@ curl -v -X POST \
 }
 ```
 
->**Note:** The `type` property and the `schema` and `type` links will be present in all responses if the User Types feature is enabled, whether or not the user is created with a non-default User Type. See [User object](#user-object).
+>**Note:** The `type` property and the `schema` and `type` links will be present in all responses, whether or not the user is created with a non-default User Type. See [User object](#user-object).
 
 ### Get User
 
@@ -1442,7 +1442,7 @@ Use an ID lookup for records that you update to ensure your results contain the 
 * Searches many properties:
    - Any user profile property, including custom-defined properties
    - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged` and `lastUpdated`
-   - The <ApiLifecycle access="ea" /> [User Type](/docs/reference/api/user-types), accessed as `type.id`
+   - The [User Type](/docs/reference/api/user-types), accessed as `type.id`
 * Accepts `sortBy` and `sortOrder` parameters.
    - `sortBy` can be any single property, for example `sortBy=profile.lastName`
    - `sortOrder` is optional and defaults to ascending
@@ -1624,7 +1624,7 @@ in the request is deleted.
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
->**Note:** Currently, the User Type of a user cannot be changed. If the Request Parameters include the `type` element from the [User object](#user-object), the value must match the existing type of the user. To change a User's type, the User object must be deleted and recreated with the desired Type.
+>**Note:** Currently, the User Type of a user can only be changed via a full replace. If the Request Parameters include the `type` element from the [User object](#user-object), on a partial update the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type. 
 
 ##### Response Parameters
 
@@ -2398,8 +2398,6 @@ curl -v -X POST \
 HTTP/1.1 200 OK
 Content-Type: application/json
 ```
-
-> Deleting users is an <ApiLifecycle access="ea" /> feature.
 
 ### Delete User
 
@@ -3789,7 +3787,7 @@ curl -v -X GET \
 }
 ```
 
->**Note:** The `type` element and the `schema` and `type` links are present only if the User Types feature is enabled. If enabled, they appear for all users, even those with the default User Type. See <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types).
+>**Note:** The `type` element and the `schema` and `type` links are present for all users, even those with the default User Type. See [User Types](/docs/reference/api/user-types).
 
 ### User Properties
 
@@ -3805,7 +3803,7 @@ The User object defines several read-only properties:
 | lastLogin               | timestamp of last login                                                 | Date                                                                                                               | TRUE       | FALSE    | TRUE     |
 | lastUpdated             | timestamp when user was last updated                                    | Date                                                                                                               | FALSE      | FALSE    | TRUE     |
 | passwordChanged         | timestamp when password last changed                                    | Date                                                                                                               | TRUE       | FALSE    | TRUE     |
-| type <ApiLifecycle access="ea" />  | user type that determines the schema for the user's profile  | Map (see below)                                                                                                    | FALSE      | FALSE    | TRUE     |
+| type                    | user type that determines the schema for the user's profile  | Map (see below)                                                                                                    | FALSE      | FALSE    | TRUE     |
 | transitioningToStatus   | target status of an in-progress asynchronous status transition          | `PROVISIONED`, `ACTIVE`, or `DEPROVISIONED`                                                                        | TRUE       | FALSE    | TRUE     |
 | profile                 | user profile properties                                                 | [Profile object](#profile-object)                                                                                  | FALSE      | FALSE    | FALSE    |
 | credentials             | user's primary authentication and recovery credentials                  | [Credentials object](#credentials-object)                                                                          | FALSE      | FALSE    | FALSE    |
@@ -3817,7 +3815,7 @@ Metadata properties such as `id`, `status`, timestamps, `_links`, and `_embedded
 * The `activated` timestamp will only be available for users activated after 06/30/2013.
 * The`statusChanged` and `lastLogin` timestamps will be missing for users created before 06/30/2013 and updated on next status change or login.
 
-The `type` property is a map that identifies the User Type of the user (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new User, but once the User is created the value is read-only.
+The `type` property is a map that identifies the User Type of the user (see [User Types](/docs/reference/api/user-types)). Currently it contains a single element, `id`, as shown in the Example. It can be specified when creating a new User, and may be updated by an administrator on a full replace of an existing user (but not a partial update).
 
 ### User Status
 

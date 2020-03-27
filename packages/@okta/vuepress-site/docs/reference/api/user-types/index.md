@@ -4,7 +4,6 @@ category: management
 ---
 
 # User Types API
-<ApiLifecycle access="ea" />
 
 The User Types API provides operations to manage User Types. To manage the schemas associated with the User Types, refer to the [User Schema API reference](/docs/reference/api/schemas/#user-schema-operations).
 
