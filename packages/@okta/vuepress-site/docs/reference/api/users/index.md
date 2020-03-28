@@ -650,7 +650,7 @@ curl -v -X POST \
 
 Creates a user with a specified User Type (see [User Types](/docs/reference/api/user-types)). The type specification may be included with any of the above Create User operations; this example demonstrates creating a user without credentials.
 
-The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user currently can only be assigned a different User Type by an administrator via a full replace update.
+The User Type determines which [Schema](/docs/reference/api/schemas) applies to that user. After a user has been created, the user can be assigned a different User Type only by an administrator via a full replace update.
 
 ##### Request Example
 
@@ -717,8 +717,6 @@ curl -v -X POST \
   }
 }
 ```
-
->**Note:** The `type` property and the `schema` and `type` links will be present in all responses, whether or not the user is created with a non-default User Type. See [User object](#user-object).
 
 ### Get User
 
@@ -3786,8 +3784,6 @@ curl -v -X GET \
   }
 }
 ```
-
->**Note:** The `type` element and the `schema` and `type` links are present for all users, even those with the default User Type. See [User Types](/docs/reference/api/user-types).
 
 ### User Properties
 
