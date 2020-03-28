@@ -1622,7 +1622,7 @@ in the request is deleted.
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
->**Note:** Currently, the User Type of a user can only be changed via a full replace. If the Request Parameters include the `type` element from the [User object](#user-object), on a partial update the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type. 
+>**Note:** Currently, the User Type of a user can only be changed via a full replace. If the Request Parameters of a partial update include the `type` element from the [User object](#user-object), the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type. 
 
 ##### Response Parameters
 
