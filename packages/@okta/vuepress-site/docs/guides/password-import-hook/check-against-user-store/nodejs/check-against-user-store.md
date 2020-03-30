@@ -1,4 +1,4 @@
-The file `users.js` contains the following code, setting up the sample username and password pairs in an array, doing the validation against the array contents.
+The file `users.js` contains the following code, which sets up the array `users`. The `validate` function checks username and password pairs that are passed to it by looking them up in the array.
 
 ```javascript
 const users = [

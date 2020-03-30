@@ -1,4 +1,4 @@
-Here we some basic checks that the values we actually supplied in the request body, and then we put them into an object called `credentials`.
+Here some basic checks are done to confirm that the properties exist and are strings. Then, their values are populated into an object called `credentials`, to be available later to check against our user store.
 
 ```javascript
 const passwordImportValidation = [

@@ -2,9 +2,13 @@
 title: Overview
 ---
 
-This guide is about coding an external service to interact with Okta's Password Import Inline Hook. An external is the customer-provided piece of software that Okta calls when the Inline Hook fires. In the case of the Password Import Inline Hook, the payload of the call from Okta contains login credentials supplied by end users trying to sign in to Okta, whose Okta user profiles specify that their password should be imported by means of the Inline Hook.
+This guide is about coding an external service to receive, and respond to, calls from the Password Import Inline Hook. An external service is the customer-provided piece of software that Okta calls when the Inline Hook fires.
 
-The sample code in the following sections of this guide is meant as a demonstration of parsing the request from Okta, looking up the end user's credentials in an existing external user store, and responding to Okta with a command to indicate whether the credentials supplied were valid or not.
+* See [Password Import Inline Hook](docs/reference/password-hook/) for a complete description of this Inline Hook type.
+
+* See [Inline Hooks](/docs/concepts/inline-hooks/) for a general conceptual overview of how Okta Inline Hooks work. 
+
+The sample code presented this guide is meant as a demonstration of parsing the request from Okta, looking up the end user credentials in an existing user store, and responding to Okta with a command indicating whether the supplied credentials are valid or not.
 
 <NextSectionLink/>
 
