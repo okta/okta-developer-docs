@@ -28,12 +28,12 @@ Adds a new group with `OKTA_GROUP` type to your organization.
 
 | Parameter | Description                               | ParamType | DataType                          | Required | Default |
 | --------- | ----------------------------------------- | --------- | --------------------------------- | -------- | ---     |
-| profile   | `okta:user_group` profile for a new group | Body      | [Profile-Object](#profile-object) | TRUE     |         |
+| profile   | `okta:user_group` profile for a new group | Body      | [Profile-object](#profile-object) | TRUE     |         |
 
 ##### Response Parameters
 
 
-The created [Group](#group-model).
+The created [Group](#group-object).
 
 ##### Request Example
 
@@ -108,7 +108,7 @@ Fetches a specific group by `id` from your organization
 ##### Response Parameters
 
 
-Fetched [Group](#group-model)
+Fetched [Group](#group-object)
 
 ##### Request Example
 
@@ -232,7 +232,7 @@ Okta groups with profile or memberships updated after 11/11/2015
 ##### Response Parameters
 
 
-Array of [Groups](#group-model)
+Array of [Groups](#group-object)
 
 #### List Groups with Defaults
 
@@ -778,14 +778,14 @@ Updates the profile for a group with `OKTA_GROUP` type from your organization.
 | Parameter | Description                   | ParamType | DataType                          | Required | Default |
 | --------- | ----------------------------- | --------- | --------------------------------- | -------- | ------- |
 | id        | id of the group to update     | URL       | String                            | TRUE     |         |
-| profile   | Updated profile for the group | Body      | [Profile Object](#profile-object) | TRUE     |         |
+| profile   | Updated profile for the group | Body      | [Profile object](#profile-object) | TRUE     |         |
 
 > All profile properties must be specified when updating a groups's profile, **partial updates are not supported!**
 
 ##### Response Parameters
 
 
-Updated [Group](#group-model)
+Updated [Group](#group-object)
 
 ##### Request Example
 
@@ -891,7 +891,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/users" />
 
-Enumerates all [users](/docs/reference/api/users/#user-model) that are a member of a group.
+Enumerates all [users](/docs/reference/api/users/#user-object) that are a member of a group.
 
 ##### Request Parameters
 
@@ -911,7 +911,7 @@ The default user limit is set to a very high number due to historical reasons wh
 ##### Response Parameters
 
 
-Array of [Users](/docs/reference/api/users/#user-model)
+Array of [Users](/docs/reference/api/users/#user-object)
 
 ##### Request Example
 
@@ -1000,7 +1000,7 @@ Link: <https://${yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/users?after=
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Adds a [user](/docs/reference/api/users/#user-model) to a group with `OKTA_GROUP` type.
+Adds a [user](/docs/reference/api/users/#user-object) to a group with `OKTA_GROUP` type.
 
 > Only memberships for groups with `OKTA_GROUP` type can be modified.<br>
 > Application imports are responsible for managing group memberships for groups with `APP_GROUP` type such as Active Directory groups.
@@ -1041,7 +1041,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Removes a [user](/docs/reference/api/users/#user-model) from a group with `OKTA_GROUP` type.
+Removes a [user](/docs/reference/api/users/#user-object) from a group with `OKTA_GROUP` type.
 
 > Only memberships for groups with `OKTA_GROUP` type can be modified.<br>
 > Application imports are responsible for managing group memberships for groups with `APP_GROUP` type such as Active Directory groups.
@@ -1103,7 +1103,7 @@ Creates a group rule to dynamically add users to the specified group if they mat
 ##### Response Parameters
 
 
-Created [Rule](#rule-model)
+Created [Rule](#rule-object)
 
 ##### Request Example
 
@@ -1206,7 +1206,7 @@ Updates a group rule.
 ##### Response Parameters
 
 
-Updated [Rule](#rule-model)
+Updated [Rule](#rule-object)
 
 ##### Request Example
 
@@ -1307,7 +1307,7 @@ Lists all group rules for your organization.
 ##### Response Parameters
 
 
-Array of [Rules](#rule-model)
+Array of [Rules](#rule-object)
 
 ##### Request Example
 
@@ -1423,7 +1423,7 @@ Fetches a specific group rule by id from your organization
 ##### Response Parameters
 
 
-Specified [Rule](#rule-model)
+Specified [Rule](#rule-object)
 
 ##### Request Example
 
@@ -1591,7 +1591,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/apps" />
 
-Enumerates all [applications](/docs/reference/api/apps/#application-model) that are assigned to a group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations)
+Enumerates all [applications](/docs/reference/api/apps/#application-object) that are assigned to a group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations)
 
 ##### Request Parameters
 
@@ -1607,7 +1607,7 @@ Enumerates all [applications](/docs/reference/api/apps/#application-model) that 
 ##### Response Parameters
 
 
-Array of [Applications](/docs/reference/api/apps/#application-model)
+Array of [Applications](/docs/reference/api/apps/#application-object)
 
 ##### Request Example
 
@@ -1742,7 +1742,7 @@ Link: <https://${yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/apps?after=0
 ]
 ```
 
-## Group Model
+## Group object
 
 ### Example
 
@@ -1795,7 +1795,7 @@ All groups have the following properties:
 | lastMembershipUpdated | timestamp when group's memberships were last updated         | Date                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
 | objectClass           | determines the group's `profile`                             | Array of String                                                | TRUE     | FALSE  | TRUE     | 1         |           |            |
 | type                  | determines how a group's profile and memberships are managed | [Group Type](#group-type)                                      | FALSE    | FALSE  | TRUE     |           |           |            |
-| profile               | the group's profile properties                               | [Profile Object](#profile-object)                              | FALSE    | FALSE  | FALSE    |           |           |            |
+| profile               | the group's profile properties                               | [Profile object](#profile-object)                              | FALSE    | FALSE  | FALSE    |           |           |            |
 | _links                | [discoverable resources](#links-object) related to the group | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
 | _embedded             | embedded resources related to the group                      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
 
@@ -1814,7 +1814,7 @@ Okta supports several types of groups that constrain how the group's profile and
 
 > Active Directory and LDAP groups will also have `APP_GROUP` type
 
-### Profile Object
+### Profile object
 
 Specifies required and optional properties for a group.  The `objectClass` of group determines what additional properties are available.
 
@@ -1834,7 +1834,7 @@ Profile for any group that is **not** imported from Active Directory
 }
 ```
 
-## Rule Model
+## Rule object
 
 ### Example
 
@@ -1898,7 +1898,7 @@ Profile for a group that is imported from Active Directory
 }
 ```
 
-### Links Object
+### Links object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the group using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.  This object is used for dynamic discovery of related resources and lifecycle operations.
 
@@ -1907,6 +1907,6 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | self               | The primary URL for the group                                                                                                                                   |
 | logo               | Provides links to logo images for the group if available                                                                                                        |
 | users              | Provides [group member operations](#group-member-operations) for the group                                                                                      |
-| apps               | Lists all [applications](/docs/reference/api/apps/#application-model) that are assigned to the group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations)          |
+| apps               | Lists all [applications](/docs/reference/api/apps/#application-object) that are assigned to the group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations)          |
 
-> The Links Object is read only.
+> The Links object is read only.

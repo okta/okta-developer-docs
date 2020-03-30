@@ -7,7 +7,7 @@ Use the configuration wizard to walk through the steps to customize your Okta UR
 2. In the **Custom URL Domain** box, click **Edit**.
 3. Click **Get Started** to start the configuration wizard.
     * The **Continue** button appears if the configuration is incomplete.
-    * The **Update Certification** button appears if a custom URL domain is already configured for your org. To delete the current configuration, click **Restore to default**. 
+    * The **Update Certification** button appears if a custom URL domain is already configured for your org. To delete the current configuration, click **Restore to default**.
 
 ### Add your subdomain information
 On the Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
@@ -17,7 +17,7 @@ You need to add a DNS TXT record to your domain to verify ownership of your doma
 
 1. On the **DNS Records** page of the configuration wizard, copy the values of the **Host** and **Data** columns into a text file.
 2. Sign in to your Domain Name registrar and locate the option to modify your DNS records.
-3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field. 
+3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field.
 > Important: Depending on your registrar, you may only need to enter `_oktaverification` rather than `_oktaverification.login.example.com`. If your registrar doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
 4. Paste the value that you copied from the **Data** column into the appropriate field, for example, the **Record** or **Value** field.
 5. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer), and then return to Okta and click **Verify** to prove to Okta that you have rights to use the domain name.
@@ -27,7 +27,7 @@ You need to add a DNS TXT record to your domain to verify ownership of your doma
     Uploading your TLS certificate is the next step in the configuration wizard.
 
 ### Add the certificate details
-Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to enter your TLS certificate, private key, and, if applicable, a certificate chain. 
+Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to enter your TLS certificate, private key, and, if applicable, a certificate chain.
 
 1. On the **Certification** page of the configuration wizard, paste your PEM-encoded public certificate for your subdomain in the **Certificate** field. Be sure to include the `----BEGIN CERTIFICATE----` and the `----END CERTIFICATE----` lines.
 2. Paste your PEM-encoded private key for your subdomain in the **Private Key** field. Be sure to include the `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----` lines.
@@ -39,7 +39,7 @@ Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to 
 
 ### Create a CNAME record for your subdomain
 Before Okta can serve traffic over your domain, you need to add an alias from your custom domain to the Okta subdomain of your Okta organization. You do this by creating or modifying a CNAME record for your custom domain name.
-    
+
 1. Return to your Domain Name registrar and locate the option to modify your DNS records.
 1. Create a new CNAME record and paste the value from the **Host** column into the appropriate field at the registrar, for example, the **Name** or **Host** field.
 
@@ -53,7 +53,7 @@ After the CNAME record is saved and confirmed by your registrar, you are done se
 ### Confirm that it works
 Use the link that appears in the **Confirmation** section of the CNAME step to confirm that Okta is serving traffic over HTTPS (TLS) for your custom domain.
 
-1. Click the link, for example, `https://login.example.com`. The Okta Sign-In page should appear. 
+1. Click the link, for example, `https://login.example.com`. The Okta Sign-In page should appear.
 2. Back at the CNAME step, click **Finish**.
 
 It may take up to 48 hours for these changes to propagate. Warning notices may appear on your custom URL domain until propagation is finished. If your changes don't appear within 48 hours, return to the configuration wizard and confirm your settings.

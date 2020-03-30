@@ -551,18 +551,18 @@ This API has the following objects:
   * [Links](#links-object)
 * [Stage](#stage-object)
 
-### Feature Object
+### Feature object
 
 #### Feature Properties
 
-The Feature model defines several properties:
+The Feature object defines several properties:
 
 | Property      | Type                                                           | Description                                                           |
 | ------------- | -------------------------------------------------------------- | --------------------------------------------------------------------- |
 | `description` | String                                                         | Brief description of the Feature and what it provides                 |
 | `id`          | String                                                         | Unique identifier for this Feature. (Read-only)                       |
 | `name`        | String                                                         | Name of the Feature                                                   |
-| `stage`       | [Stage Object](#stage-object)                                  | Current [Stage](#stage-object) for this Feature                       |
+| `stage`       | [Stage object](#stage-object)                                  | Current [Stage](#stage-object) for this Feature                       |
 | `status`      | String (Enum)                                                  | Current status of the Feature. Possible values: `ENABLED`, `DISABLED` |
 | `type`        | String (Enum)                                                  | Current type of Feature. Possible value: `self-service`.              |
 | `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | [Link relations](#links-object) for the Feature's current `status`    |
@@ -605,7 +605,7 @@ The Feature model defines several properties:
 ```
 
 
-### Stage Object
+### Stage object
 
 Specifies the [release cycle stage](/docs/reference/releases-at-okta/) of a Feature.
 
@@ -615,10 +615,10 @@ The Stage object has following properties:
 
 | Property | Type   | Description      |
 | -------- | ------ | ---------------- |
-| `status`   | String | `OPEN`, `CLOSED` |
+| `state`   | String | `OPEN`, `CLOSED` |
 | `value`    | String | `EA`, `BETA`     |
 
-If a Feature's stage `value` is `EA`, the `status` is `null` and not returned. If the value is `BETA` the status is `OPEN` or `CLOSED` depending on the `BETA` feature
+If a Feature's stage `value` is `EA`, the `state` is `null` and not returned. If the value is `BETA` the state is `OPEN` or `CLOSED` depending on the `BETA` feature
 being manageable or not.
 
 > **Note:** If a Feature's stage is Open Beta, it can be updated in Preview cells only. If a Feature's stage is Closed Beta, it can only be disabled in Preview cells.
@@ -629,12 +629,12 @@ being manageable or not.
 {
   "stage": {
     "value": "BETA",
-    "status": "OPEN"
+    "state": "OPEN"
   }
 }
 ```
 
-### Links Object
+### Links object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a Feature.  The Links object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only and returned within a Feature object.
 
