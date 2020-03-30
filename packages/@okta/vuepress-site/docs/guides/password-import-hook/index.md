@@ -1,6 +1,6 @@
 ---
 title: Implement a Password Import Inline Hook
-excerpt: Code the external service.
+excerpt: Code the external service for a Password Inline Hook
 layout: Guides
 sections:
  - overview
