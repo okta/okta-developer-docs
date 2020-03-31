@@ -19,9 +19,9 @@ For each relationship:
 * A user can be the `primary` in one relationship and the `associated` in another.
 * A user can be both the `primary` and `associated` in the same relationship.
 
-For details, see the [Linked Object Model](#linked-object-model).
+For details, see the [Linked Object object](#linked-object-object).
 
-The Expression Language function for [linked objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
+The Expression Language function for [Linked Objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
 
 ## Example Usage
 
@@ -80,12 +80,12 @@ Adds a linked object definition to the user profile schema. The `name` field fou
 
 | Parameter      | Description                                | Param Type        | DataType                              | Required      |
 | :------------- | :--------------                            | :---------------- | :-----------                          | :------------ |
-| linkedObject   | The linked object definition being created | Body              | [Linked Object](#linked-object-model) | TRUE          |
+| linkedObject   | The linked object definition being created | Body              | [Linked Object](#linked-object-object) | TRUE          |
 
 ##### Response Parameters
 
 
-[Linked Object Model](#linked-object-model)
+[Linked Object object](#linked-object-object)
 
 ##### Request Example
 
@@ -155,7 +155,7 @@ You can specify either the `primary` name or the `associated` name.
 ##### Response Parameters
 
 
-[Linked Object Model](#linked-object-model)
+[Linked Object object](#linked-object-object)
 
 ##### Request Example
 
@@ -211,7 +211,7 @@ None
 ##### Response Parameters
 
 
-Array of [Linked Object Model](#linked-object-model)
+Array of [Linked Object object](#linked-object-object)
 
 ##### Request Example
 
@@ -364,7 +364,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/users/${id}/linkedObjects/${primary.name}" />
 
-For the user specified by ID, returns the `self` link for the `primary` user in the relationship specified by the primary.name. If the user specified is not the `associated` user in any relationship, an empty array is returned.
+For the user specified by ID, returns the `self` link for the `primary` user in the relationship specified by `primary.name`. If the user specified is not the `associated` user in any relationship, an empty array is returned.
 
 Use `me` instead of `id` to specify the current session user.
 
@@ -374,6 +374,7 @@ Use `me` instead of `id` to specify the current session user.
 | Parameter        | Description                                                                                                       | DataType          | Required      |
 | :--------------- | :-----------------                                                                                                | :---------------- | :------------ |
 | id               | ID of the user for whom you want to get the `primary` user ID. Can be `me` to represent the current session user. | String            | TRUE          |
+| primary.name     | Name of the `primary` relationship being queried                                                                  | String            | TRUE          |
 
 ##### Response Parameters
 
@@ -498,9 +499,9 @@ curl -v -X GET \
 HTTP/1.1 204 No Content
 ```
 
-## Linked Object Model
+## Linked Object object
 
-The following model contains example values for each attribute.
+The following object contains example values for each attribute.
 
 ```bash
 {

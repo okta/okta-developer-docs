@@ -29,12 +29,12 @@ Adds a new custom SMS template to your organization.
 
 | Parameter                                 | Description                               | ParamType                           | DataType                          | Required |
 | ---------                                 | ----------------------------------------- | ---------                           | --------------------------------- | -------- |
-| Definition of the new custom SMS template | Body                                      | [SMS Template](#sms-template-model) | TRUE                              |          |
+| Definition of the new custom SMS template | Body                                      | [SMS Template](#sms-template-object) | TRUE                              |          |
 
 ##### Response Parameters
 
 
-The created [SMS Template](#sms-template-model).
+The created [SMS Template](#sms-template-object).
 
 ##### Request Example
 
@@ -93,7 +93,7 @@ Fetches a specific template by `id`
 ##### Response Parameters
 
 
-Fetched [SMS Template](#sms-template-model)
+Fetched [SMS Template](#sms-template-object)
 
 ##### Request Example
 
@@ -144,7 +144,7 @@ Enumerates custom SMS templates in your organization. Optionally, a subset of te
 ##### Response Parameters
 
 
-Array of [SMS Templates](#sms-template-model) of matching type.
+Array of [SMS Templates](#sms-template-object) of matching type.
 
 ##### Request Example
 
@@ -193,14 +193,14 @@ Updates the SMS template.
 | Parameter                                   | Description                                 | ParamType                           | DataType                            | Required |
 | ---------                                   | ------------------------------------------- | ---------                           | ----------------------------------- | -------- |
 | smsTemplateId                               | `id` of the SMS template to update          | URL                                 | String                              | TRUE     |
-| Full description of the custom SMS template | Body                                        | [SMS Template](#sms-template-model) | TRUE                                |          |
+| Full description of the custom SMS template | Body                                        | [SMS Template](#sms-template-object) | TRUE                                |          |
 
 > All profile properties must be specified when updating an SMS custom template. Partial updates are described [here](#partial-sms-template-update).
 
 ##### Response Parameters
 
 
-Updated [SMS Template](#sms-template-model)
+Updated [SMS Template](#sms-template-object)
 
 ##### Request Example
 
@@ -256,14 +256,14 @@ Updates only some of the SMS template properties:
 | Parameter                         | Description                                 | ParamType                           | DataType                            | Required |
 | ---------                         | ------------------------------------------- | ---------                           | ----------------------------------- | -------- |
 | smsTemplateId                     | `id` of the SMS template to update          | URL                                 | String                              | TRUE     |
-| Attributes that we want to change | Body                                        | [SMS Template](#sms-template-model) | TRUE                                |          |
+| Attributes that we want to change | Body                                        | [SMS Template](#sms-template-object) | TRUE                                |          |
 
 > Full SMS template update is described [here](#update-sms-template).
 
 ##### Response Parameters
 
 
-Updated [SMS Template](#sms-template-model)
+Updated [SMS Template](#sms-template-object)
 
 ##### Request Example
 
@@ -340,7 +340,7 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-## SMS Template Model
+## SMS Template object
 
 ### Example
 ```json
@@ -371,13 +371,13 @@ All templates have the following properties:
 | template               | Text of the template, including any [macros](#sms-template-macros). | String (See note below)                                        | FALSE    | 1         | 161       |
 | created                | Timestamp when template was created                                 | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
 | lastUpdated            | Timestamp when template was last updated                            | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
-| translations           | Array of [translations](#translation-attributes)                    | Array                                                          | N/A      | N/A       | N/A       |
+| translations           | A key-value map of [translations](#translation-attributes)                    | Translations Object                                                          | N/A      | N/A       | N/A       |
 
 > **Note:** The final length of your SMS message cannot exceed 160 characters. If the verification code portion of the message falls outside of the 160-character limit, your message will not be sent.
 
 #### Translation Attributes
 
-Template translations are optionally provided when you want to localize the SMS messages. Translations are provided as key:value pairs: the language and translated template text.
+Template translations are optionally provided when you want to localize the SMS messages. Translations are provided as an object containing `key:value` pairs: the language and translated template text.
 
 ```json
 "translations": {

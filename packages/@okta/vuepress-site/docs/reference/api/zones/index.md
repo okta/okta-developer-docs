@@ -8,7 +8,7 @@ category: management
 
 The Okta Zones API provides operations to manage zones in your organization. Zones may be used to guide policy decisions.
 
-## Zone Model
+## Zone object
 
 ### Base Network Zone Properties
 
@@ -31,7 +31,7 @@ The follow attributes are defined by IP Zone objects:
 | gateways       | IP addresses (range or CIDR form) of this zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
 | proxies        | IP addresses (range or CIDR form) allowed to forward request from gateway addresses above. These proxies are automatically trusted by Threat Insights. These proxies are used to identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
 
-#### Address Object
+#### Address object
 
 Each Address object specifies a set of IP addresses, expressed using either range or CIDR form.
 
@@ -40,7 +40,7 @@ Each Address object specifies a set of IP addresses, expressed using either rang
 | type        | Format of the value: either CIDR or RANGE                 | String      | Yes       |
 | value       | Value in CIDR/range form depending on the type specified   | String      | Yes       |
 
-#### Address Object Example (CIDR)
+#### Address object example (CIDR)
 ```json
 {
     "type": "CIDR",
@@ -48,7 +48,7 @@ Each Address object specifies a set of IP addresses, expressed using either rang
   }
 ```
 
-#### Address Object Example (range)
+#### Address object example (range)
 ```json
 {
     "type": "RANGE",
@@ -100,7 +100,7 @@ The follow attributes are defined by Dynamic Zone objects:
 | locations        | The geolocations of this zone   | Array of [Location Objects](#location-object)   | No              | 75 (entries) |
 | asns        | Format of each array value: a String representation of an ASN numeric value   | Array of Strings   | No              | 75 (entries) |
 
-#### Location Object
+#### Location object
 
 Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code, and an optional [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) region code
 
@@ -109,7 +109,7 @@ Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
 | country        | Format of the value: length 2 ISO-3166-1 country code                | String      | Yes       |
 | region       | Format of the value: `countryCode`-`regionCode`, or `null` if empty  | String      | No       |
 
-#### Location Object Example (With Region)
+#### Location object example (With Region)
 ```json
 {
     "country": "AF",
@@ -117,7 +117,7 @@ Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
   }
 ```
 
-#### Location Object Example (Without Region)
+#### Location object example (Without Region)
 ```json
 {
     "country": "AF",
@@ -300,7 +300,7 @@ Gets a Network Zone by id
 
 #### Request Parameters
 
-The zone ID described in the [Zone Object](#zone-model) is required.
+The zone ID described in the [Zone object](#zone-object) is required.
 
 #### Request Example
 
@@ -366,7 +366,7 @@ A subset of zones can be returned that match a supported filter expression or qu
 ##### Response Parameters
 
 
-Array of [Zones](#zone-model)
+Array of [Zones](#zone-object)
 
 #### List All Zones
 
@@ -655,7 +655,7 @@ Updates an existing Network Zone
 
 #### Request Parameters
 
-A valid [Zone Object](#zone-model) with the id of the network zone to update is required.
+A valid [Zone object](#zone-object) with the id of the network zone to update is required.
 
 The updated Network Zone type must be the same as the existing type.
 

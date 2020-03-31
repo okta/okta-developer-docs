@@ -26,7 +26,7 @@ None
 
 ##### Response parameters
 
-An array of fetched [User Types](#user-type-model)
+An array of fetched [User Types](#user-type-object)
 
 ##### Request example
 
@@ -107,7 +107,7 @@ None
 
 ##### Response parameters
 
-The fetched [User Type](#user-type-model)
+The fetched [User Type](#user-type-object)
 
 ##### Request Example
 
@@ -159,11 +159,11 @@ Okta periodically updates the default schema template used for new orgs, and new
 
 ##### Request Parameters
 
-The [User Type](#user-type-model) you wish to create
+The [User Type](#user-type-object) you wish to create
 
 ##### Response parameters
 
-The created [User Type](#user-type-model)
+The created [User Type](#user-type-object)
 
 ##### Request Example
 
@@ -219,11 +219,11 @@ The schema associated with this type is not editable with this API. If you want 
 
 ##### Request Parameters
 
-The [User Type](#user-type-model) you wish to update
+The [User Type](#user-type-object) you wish to update
 
 ##### Response parameters
 
-The updated [User types](#user-type-model)
+The updated [User types](#user-type-object)
 
 ##### Request Example
 
@@ -309,7 +309,7 @@ HTTP/1.1 204 No Content
 
 ## Specify the User Type of a new user
 
-The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is `id`. The type specification is also added to the [User Model](/docs/reference/api/users/#user-model), but after user creation the type is read-only.
+The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is `id`. The type specification is also added to the [User object](/docs/reference/api/users/#user-object), but after user creation the type is read-only.
 
 ##### Example
 
@@ -319,7 +319,7 @@ The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-t
   }
 ```
 
-## User Type Model
+## User Type object
 
 ### Example User Type
 
@@ -347,7 +347,7 @@ The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-t
 
 ### User Type Properties
 
-The User Type model defines several properties:
+The User Type object defines several properties:
 
 | Property      | Description                                       | DataType                                                       | Nullable | Unique | Readonly |
 | ------------- | ------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- |

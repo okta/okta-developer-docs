@@ -44,7 +44,7 @@ Lists all Roles assigned to a User
 ##### Response parameters
 
 
-Array of [Role](#role-model)
+Array of [Role](#role-object)
 
 ##### Request example
 
@@ -138,7 +138,7 @@ Lists all Roles assigned to a Group
 ##### Response parameters
 
 
-Array of [Role](#role-model)
+Array of [Role](#role-object)
 
 ##### Request example
 
@@ -193,7 +193,7 @@ Assigns a Role to a User
 ##### Response parameters
 
 
-Assigned [Role](#role-model)
+Assigned [Role](#role-object)
 
 ##### Request example
 
@@ -240,7 +240,7 @@ Assigns a Role to a Group
 ##### Response parameters
 
 
-Assigned [Role](#role-model)
+Assigned [Role](#role-object)
 
 ##### Request example
 
@@ -1278,7 +1278,7 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-## Role model
+## Role object
 
 ### Examples
 
@@ -1322,7 +1322,7 @@ HTTP/1.1 204 No Content
 
 ### Role properties
 
-The Role model defines several **read-only** properties:
+The Role object defines several **read-only** properties:
 
 | Property         | Description                                             | DataType                                                                                                                                   | Nullable   | Unique   | Read Only |
 | :--------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------                              | :--------- | :------- | :-------- |

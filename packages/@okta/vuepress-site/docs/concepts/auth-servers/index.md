@@ -10,9 +10,9 @@ At its core, an authorization server is simply an engine for minting OpenID Conn
 
 ## What you can use an authorization server for
 
-You can use an authorization server to perform Single Sign-On (SSO) with Okta for your OpenID Connect (OIDC) apps, and to secure your own APIs and provide user authorization to access your web services.
+You can use an authorization server to perform Single Sign-On (SSO) with Okta for your OpenID Connect apps, and to secure your own APIs and provide user authorization to access your web services.
 
-OIDC is used to authenticate users with a web app. The app uses the ID token that is returned from the authorization server to know if a user is authenticated and to obtain profile information about the user, such as their username or locale. OAuth 2.0 is used to authorize user access to an API. An app uses an access token to validate a user's identity. When using OIDC or OAuth, the authorization server authenticates a user and issues an ID token and/or an access token.
+OpenID Connect is used to authenticate users with a web app. The app uses the ID token that is returned from the authorization server to know if a user is authenticated and to obtain profile information about the user, such as their username or locale. OAuth 2.0 is used to authorize user access to an API. An access token is used by the resource server to validate a user's level of authorization/access. When using OpenID Connect or OAuth, the authorization server authenticates a user and issues an ID token and/or an access token.
 
 > **Note:** You can't mix tokens between different authorization servers. By design, authorization servers don't have trust relationships with each other.
 
@@ -28,7 +28,7 @@ You use the Org Authorization Server to perform SSO with Okta or to get an acces
 
 #### Org Authorization Server discovery endpoints
 
-The following discovery endpoints return OIDC or OAuth 2.0 metadata related to your Org Authorization Server. Clients can use this information to programmatically configure their interactions with Okta.
+The following discovery endpoints return OpenID Connect or OAuth 2.0 metadata related to your Org Authorization Server. Clients can use this information to programmatically configure their interactions with Okta.
 
 **OpenID:** `https://${yourOktaOrg}/.well-known/openid-configuration`
 
@@ -54,7 +54,7 @@ For Custom Authorization Servers that you create yourself, the `${authServerId}`
 
 #### Custom Authorization Server discovery endpoints
 
-The following endpoints return OIDC or OAuth 2.0 metadata related to a Custom Authorization Server. Clients can use this information to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
+The following endpoints return OpenID Connect or OAuth 2.0 metadata related to a Custom Authorization Server. Clients can use this information to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
 
 The OpenID and OAuth discovery endpoints for a Custom Authorization Server are:
 
@@ -70,7 +70,7 @@ The OpenID and OAuth discovery endpoints for the default Custom Authorization Se
 
 ## Which authorization server should you use
 
-If you are just looking to add SSO for your OIDC-based applications, you can use your Org Authorization Server. You should also use the Org Authorization Server if you want to use [OAuth 2.0 bearer tokens with your Okta APIs](/docs/guides/implement-oauth-for-okta/). Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
+If you are just looking to add SSO for your OpenID Connect-based applications, you can use your Org Authorization Server. You should also use the Org Authorization Server if you want to use [OAuth 2.0 bearer tokens with your Okta APIs](/docs/guides/implement-oauth-for-okta/). Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
 
 If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional authorization servers with different scopes and claims, then you need to [create a Custom Authorization Server](/docs/guides/customize-authz-server/overview/).
 
@@ -78,7 +78,7 @@ The following table describes which capabilities are supported by the Custom Aut
 
 | Capabilities                               | Custom Authorization Server          | Org Authorization Server    |
 | :----------------------------------------- | :----------------------------------- | :-------------------------- |
-| SSO with OIDC                              | Yes                                  | Yes                         |
+| SSO with OpenID Connect                    | Yes                                  | Yes                         |
 | Use Okta Developer SDKs & Widgets for SSO  | Yes                                  | Yes                         |
 | Retrieve user profile in ID Token          | Yes                                  | Yes                         |
 | Apply authorization policies to custom APIs| Yes                                  | No                          |

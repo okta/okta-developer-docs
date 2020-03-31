@@ -1,6 +1,6 @@
 #### Setup instructions
 
-* **Is your Service Provider configured as a “Big Bang”?** -  If yes, what is the backdoor URL for admins to sign in if SAML is misconfigured? If the SP is a "Big Bang", Okta suggests that you have a backdoor URL or some other recovery mechanism available.
+* **Is your Service Provider configured as a “Big Bang”?** - If yes, what is the backdoor URL for admins to sign in if SAML is misconfigured? If the SP is a "Big Bang", Okta suggests that you have a backdoor URL or some other recovery mechanism available.
 
 * **Is SAML support available in the SP for all tenants by default or is it available only for specific SKUs?** - If you select only certain SKUs, provide details on which products provide SAML support.
 
