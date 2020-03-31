@@ -40,7 +40,7 @@ It allows you to specify `default` instead of the `authServerId` in requests to 
 * `https://${yourOktaDomain}/api/v1/authorizationServers/default` vs
 * `https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}` for other Custom Authorization Servers
 
-#### Authorization Server Object
+#### Authorization Server object
 
 When you use these API endpoints to create or modify an Authorization Server resource, the response looks like:
 
@@ -145,7 +145,7 @@ When you use these API endpoints to create or modify an Authorization Server res
 | :------------                           | :---------------------------------------------------------------------------------------------------------------------                                              | :------------------------------------------------------------------------ | :---------------------------- |
 | _links                                  | List of discoverable resources related to a Custom Authorization Server                                                                                             | Links                                                                     | False                         |
 | audiences                               | The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.                                                                   | Array                                                                     | True                          |
-| credentials                             | Keys and settings used to sign tokens.                                                                                                                              | [Credentials Object](#credentials-object)                                 | False                         |
+| credentials                             | Keys and settings used to sign tokens.                                                                                                                              | [Credentials object](#credentials-object)                                 | False                         |
 | description                             | The description of a Custom Authorization Server                                                                                                                    | String                                                                    | True                          |
 | issuer                                  | The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.                                                                | String                                                                    | False                         |
 | issuerMode <ApiLifecycle access="ea" /> | Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL. | String                                                                    | False                         |
@@ -390,14 +390,14 @@ HTTP 204: No Content
 
 ### Policy operations
 
-* [Policy Object](#policy-object)
+* [Policy object](#policy-object)
 * [Get all Policies](#get-all-policies)
 * [Get a Policy](#get-a-policy)
 * [Create a Policy](#create-a-policy)
 * [Update a Policy](#update-a-policy)
 * [Delete a Policy](#delete-a-policy)
 
-#### Policy Object
+#### Policy object
 
 When you use these API endpoints to create or modify a Policy resource, the response looks like:
 
@@ -455,7 +455,7 @@ When you use these API endpoints to create or modify a Policy resource, the resp
 | Property      | Description                                                                                                                | Type                                    | Required for create or update |
 | :------------ | :------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------- | :---------------------------- |
 | _links        | List of discoverable resources related to the Policy                                                                       | Links                                   | System                        |
-| conditions    | Specifies the clients that the Policy applies to                                                                  | [Condition Object](#condition-object)   | False                         |
+| conditions    | Specifies the clients that the Policy applies to                                                                  | [Condition object](#condition-object)   | False                         |
 | created       | Timestamp when the Policy was created                                                                                      | DateTime                                | System                        |
 | description   | Description of the Policy                                                                                                  | String                                  | True                          |
 | id            | ID of the Policy                                                                                                           | String                                  | True except for create        |
@@ -531,7 +531,7 @@ Create a Policy for a Custom Authorization Server
 ##### Request parameters
 
 
-[Policy Object](#policy-object)
+[Policy object](#policy-object)
 
 ##### Request example
 
@@ -649,7 +649,7 @@ Status 204: No content
 * [Update a Scope](#update-a-scope)
 * [Delete a Scope](#delete-a-scope)
 
-#### Scope Object
+#### Scope object
 
 When you use these API endpoints to create or modify a Scope resource, the response looks like:
 
@@ -869,7 +869,7 @@ HTTP 204: No Content
 * [Update a Claim](#update-a-claim)
 * [Delete a Claim](#delete-a-claim)
 
-#### Claim Object
+#### Claim object
 When you use these API endpoints to create or modify a Claim resource, the response looks like:
 
 ```json
@@ -894,7 +894,7 @@ When you use these API endpoints to create or modify a Claim resource, the respo
 | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------- | :--------------------------------------- |
 | alwaysIncludeInToken   | Specifies whether to include Claims in token. [Details](#details-for-alwaysincludeintoken)                                                                                                                                                         | Boolean                                                | False                                    |
 | claimType              | Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`)                                                                                                                                                           | Enum                                                   | True                                     |
-| conditions             | Specifies the scopes for this Claim                                                                                                                                                                                                                | [Condition Object](#condition-object)                  | False                                    |
+| conditions             | Specifies the scopes for this Claim                                                                                                                                                                                                                | [Condition object](#condition-object)                  | False                                    |
 | group_filter_type        | Specifies the type of group filter if `valueType` is `GROUPS`. [Details](#details-for-groupfiltertype)                                                                                                                                             | Enum                                                   | False                                    |
 | id                     | ID of the Claim                                                                                                                                                                                                                                    | String                                                 | True except for create or get all Claims |
 | name                   | Name of the Claim                                                                                                                                                                                                                                  | String                                                 | True                                     |
@@ -1092,7 +1092,7 @@ HTTP 204: No Content
 * [Get Authorization Server keys](#get-authorization-server-keys)
 * [Rotate Authorization Server keys](#rotate-authorization-server-keys)
 
-#### Credentials Object
+#### Credentials object
 
 When you use these API endpoints to create or modify a Credentials resource, the response looks like:
 
@@ -1120,7 +1120,7 @@ When you use these API endpoints to create or modify a Credentials resource, the
 | rotationMode    | The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`.| Enum     | FALSE        | TRUE       |
 | use             | How the Key is used. Valid value: `sig`            |            |            |         |
 
-#### Certificate JSON Web Key Object
+#### Certificate JSON Web Key object
 
 This object defines a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517) for an application's signature or encryption credential.
 
@@ -1380,10 +1380,10 @@ Content-Type: application/json;charset=UTF-8
 
 ## Shared Objects
 
-* [Rule Object](#rule-object)
-* [Condition Object](#condition-object)
+* [Rule object](#rule-object)
+* [Condition object](#condition-object)
 
-### Rule Object
+### Rule object
 
 ```json
 {
@@ -1463,7 +1463,7 @@ Content-Type: application/json;charset=UTF-8
 | Property     | Description                                                                                  | Type                                    | Required for create   | Required for update |
 | :----------- | :------------------------------------------------------------------------------------------- | :-------------------------------------- | :-------------------- | :------------------ |
 | actions      | An object that contains the `tokens` array, which shows lifetime durations for the tokens    | Object                                  | System generated      | System generated    |
-| conditions   | Specifies the people, groups, grant types and scopes the rule will be applied to             | [Condition Object](#condition-object)   | False                 | False               |
+| conditions   | Specifies the people, groups, grant types and scopes the rule will be applied to             | [Condition object](#condition-object)   | False                 | False               |
 | id           | ID of the rule                                                                               | String                                  | False                 | True                |
 | name         | Name of the rule                                                                             | String                                  | True                  | True                |
 | status       | Specifies whether requests have access to this Claim. Valid values: `ACTIVE` or `INACTIVE`   | Enum                                    | True                  | True                |
@@ -1475,9 +1475,9 @@ Token limits:
 * refreshTokenLifetimeMinutes: minimum access token lifetime
 * refreshTokenWindowMinutes: minimum 10 minutes, maximum of five years
 
-### Condition Object
+### Condition object
 
-Example from a Rule Object
+Example from a Rule object
 
 ```json
 {
@@ -1504,7 +1504,7 @@ Example from a Rule Object
 }
 ```
 
-Example from a Policy Object
+Example from a Policy object
 ```json
 {
   "conditions": {

@@ -13,7 +13,7 @@ Often the terms "event" and "log event" are used interchangeably. In the context
 
 Notes on the System Log API:
 
-* It contains much more [structured data](#logevent-object) than the [Events API](/docs/reference/api/events/#event-model).
+* It contains much more [structured data](#logevent-object) than the [Events API](/docs/reference/api/events/#event-object).
 * It supports additional [SCIM filters](#request-parameters) and the `q` query parameter, because of the presence of more structured data than the [Events API](/docs/reference/api/events/#request-parameters).
 * Its primary supported use cases are:
   * Event data export into a security information and event management system (SIEM).
@@ -32,15 +32,15 @@ The System Log API has one endpoint:
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/54def5ab52f04b7e4011)
 
-This collection resource is backed by a [LogEvent object](#logevent-object) model and associated [event types](#event-types).
+This collection resource is backed by a [LogEvent object](#logevent-object) and associated [event types](#event-types).
 
 See [Examples](#examples) for ways you can use the System Log API. For common use cases see [Useful System Log Queries](https://support.okta.com/help/Documentation/Knowledge_Article/Useful-System-Log-Queries).
 
-## LogEvent Object
+## LogEvent object
 
 Each LogEvent object describes a single logged action or "event" performed by a set of actors for a set of targets.
 
-### Example LogEvent Object
+### Example LogEvent object
 ```json
 {
   "version": "0",
@@ -85,7 +85,7 @@ Each LogEvent object describes a single logged action or "event" performed by a 
 }
 ```
 
-### LogEvent Object Annotated Example
+### LogEvent object Annotated Example
 
 ```html
 {
@@ -211,21 +211,21 @@ LogEvent objects are read-only. The following properties are available:
 | severity              | Indicates how severe the event is: `DEBUG`, `INFO`, `WARN`, `ERROR`                    | String                                                          | FALSE    | FALSE  | TRUE     | 1         | 255       |
 | legacyEventType       | Associated Events API [Action `objectType`](/docs/reference/api/events/#action-objecttypes) attribute value | String                                     | TRUE     | FALSE  | TRUE     | 1         | 255       |
 | displayMessage        | The display message for an event                                                       | String                                                          | TRUE     | FALSE  | TRUE     | 1         | 255       |
-| actor                 | Describes the entity that performed an action                                          | [Actor Object](#actor-object)                                   | TRUE     | FALSE  | TRUE     |           |           |
-| client                | The client that requested an action                                                    | [Client Object](#client-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
-| request               | The request that initiated an action                                                   | [Request Object](#request-object)                               | TRUE     | FALSE  | TRUE     |           |           |
-| outcome               | The outcome of an action                                                               | [Outcome Object](#outcome-object)                               | TRUE     | FALSE  | TRUE     |           |           |
-| target                | Zero or more targets of an action                                                      | Array of [Target Object](#target-object)                        | TRUE     | FALSE  | TRUE     |           |           |
-| transaction           | The transaction details of an action                                                   | [Transaction Object](#transaction-object)                       | TRUE     | FALSE  | TRUE     |           |           |
-| debugContext          | The debug request data of an action                                                    | [DebugContext Object](#debugcontext-object)                     | TRUE     | FALSE  | TRUE     |           |           |
-| authenticationContext | The authentication data of an action                                                   | [AuthenticationContext Object](#authenticationcontext-object)   | TRUE     | FALSE  | TRUE     |           |           |
-| securityContext       | The security data of an action                                                         | [SecurityContext Object](#securitycontext-object)               | TRUE     | FALSE  | TRUE     |           |           |
+| actor                 | Describes the entity that performed an action                                          | [Actor object](#actor-object)                                   | TRUE     | FALSE  | TRUE     |           |           |
+| client                | The client that requested an action                                                    | [Client object](#client-object)                                 | TRUE     | FALSE  | TRUE     |           |           |
+| request               | The request that initiated an action                                                   | [Request object](#request-object)                               | TRUE     | FALSE  | TRUE     |           |           |
+| outcome               | The outcome of an action                                                               | [Outcome object](#outcome-object)                               | TRUE     | FALSE  | TRUE     |           |           |
+| target                | Zero or more targets of an action                                                      | Array of [Target object](#target-object)                        | TRUE     | FALSE  | TRUE     |           |           |
+| transaction           | The transaction details of an action                                                   | [Transaction object](#transaction-object)                       | TRUE     | FALSE  | TRUE     |           |           |
+| debugContext          | The debug request data of an action                                                    | [DebugContext object](#debugcontext-object)                     | TRUE     | FALSE  | TRUE     |           |           |
+| authenticationContext | The authentication data of an action                                                   | [AuthenticationContext object](#authenticationcontext-object)   | TRUE     | FALSE  | TRUE     |           |           |
+| securityContext       | The security data of an action                                                         | [SecurityContext object](#securitycontext-object)               | TRUE     | FALSE  | TRUE     |           |           |
 
 > The actor and/or target of an event is dependent on the action performed. All events have actors but not all have targets.
 
 > See [Event Correlation](#event-correlation) for more on `authenticationContext.externalSessionId` and `transaction.id`.
 
-### Actor Object
+### Actor object
 
 Describes the user, app, client, or other entity (actor) who performed an action on a target
 
@@ -237,7 +237,7 @@ Describes the user, app, client, or other entity (actor) who performed an action
 | displayName | Display name of actor                          | String              | TRUE     |
 | detail      | Details about actor                            | Map[String->Object] | TRUE     |
 
-### Target Object
+### Target object
 
 The entity upon which an actor performs an action. Targets may be anything: an app user, a login token or anything else.
 
@@ -259,24 +259,24 @@ The entity upon which an actor performs an action. Targets may be anything: an a
 }
 ```
 
-### Client Object
+### Client object
 
 When an event is triggered by an HTTP request, the `client` object describes the [client](https://en.wikipedia.org/wiki/Category:Hypertext_Transfer_Protocol_clients) that issues that HTTP request. For instance, the web browser is the client when a user accesses Okta. When this request is received and processed, a login event is fired. When the event is not sourced to an HTTP request, such as in the case of an automatic update, the Client Object field is blank.
 
 | Property            | Description                                                                                                                                                                                           | DataType                                                  | Nullable |
 | ----------          | ------------------------------------------------------------------------------------------------------------------                                                                                    | ---------------                                           | -------- |
 | id                  | For OAuth requests this is the id of the OAuth [client](https://tools.ietf.org/html/rfc6749#section-1.1) making the request. For SSWS token requests, this is the id of the agent making the request. | String                                                    | TRUE     |
-| userAgent           | The [user agent](https://en.wikipedia.org/wiki/User_agent) used by an actor to perform an action                                                                                                      | [UserAgent Object](#useragent-object)                     | TRUE     |
-| geographicalContext | The physical location where the client made its request from                                                                                                                                          | [GeographicalContext Object](#geographicalcontext-object) | TRUE     |
+| userAgent           | The [user agent](https://en.wikipedia.org/wiki/User_agent) used by an actor to perform an action                                                                                                      | [UserAgent object](#useragent-object)                     | TRUE     |
+| geographicalContext | The physical location where the client made its request from                                                                                                                                          | [GeographicalContext object](#geographicalcontext-object) | TRUE     |
 | zone                | The `name` of the [Zone](/docs/reference/api/zones/#ZoneModel) that the client's location is mapped to                                                                                                | String                                                    | TRUE     |
 | ipAddress           | Ip address that the client made its request from                                                                                                                                                      | String                                                    | TRUE     |
 | device              | Type of device that the client operated from (e.g. Computer)                                                                                                                                          | String                                                    | TRUE     |
 
-### UserAgent Object
+### UserAgent object
 
 "A user agent is software (a software agent) that is acting on behalf of a user." ([Wikipedia](https://en.wikipedia.org/wiki/User_agent))
 
-In the Okta event data model, the UserAgent object provides specifications about the client software that makes event-triggering HTTP requests. User agent identification is often useful for identifying interoperability problems between servers and clients, and also for browser and operating system usage analytics.
+In the Okta event data object, the UserAgent object provides specifications about the client software that makes event-triggering HTTP requests. User agent identification is often useful for identifying interoperability problems between servers and clients, and also for browser and operating system usage analytics.
 
 | Property     | Description                                                                                                                                                                                                                                        | DataType       | Nullable |
 | ------------ | -------------------------------------------------------------------------------------------------                                                                                                                                                  | -------------- | -------- |
@@ -284,7 +284,7 @@ In the Okta event data model, the UserAgent object provides specifications about
 | OS           | The [Operating System](https://en.wikipedia.org/wiki/Operating_system) the client runs on (e.g. Windows 10)                                                                                                                                        | String         | TRUE     |
 | RawUserAgent | A raw string representation of the user agent, formatted according to [section 5.5.3 of HTTP/1.1 Semantics and Content](https://tools.ietf.org/html/rfc7231#section-5.5.3). Both the `browser` and the `OS` fields can be derived from this field. | String         | TRUE     |
 
-### Request Object
+### Request object
 
 The request object describes details related to the HTTP request that triggers this event, if available. When the event is not sourced to an http request, such as in the case of an automatic update on the Okta servers, the Request object will still exist, but the `ipChain` field will be empty.
 
@@ -292,19 +292,19 @@ The request object describes details related to the HTTP request that triggers t
 | ------------   | -------------------------------------------------------------------------------------------------                                                                                                                | --------------                          | --------   |
 | ipChain        | If the incoming request passes through any proxies, the IP addresses of those proxies will be stored here in the format (clientIp, proxy1, proxy2, ...). This field is useful when working with trusted proxies. | Array of [IpAddress](#ipaddress-object) | TRUE       |
 
-### GeographicalContext Object
+### GeographicalContext object
 
 Geographical Context describes a set of geographic coordinates. In addition to containing latitude and longitude data, this object also contains address data of postal code-level granularity. Within the [Client](#client-object) object, the geographical context refers to the physical location of the client when it sends the request that triggers this event. All [Transaction](#transaction-object) events with `type` equal to `WEB` will have a geographical context set. [Transaction](#transaction-object) events with `type` equal to `JOB` will have no geographical context set. The geographical context data could be missing if the geographical data for a request could not be resolved.  
 
 | Property    | Description                                                                                                          | DataType                                  | Nullable |
 | ----------- | ----------------------------------------------------------------------------------                                   | -------------------------------------     | -------- |
-| geolocation | Contains the geolocation coordinates (latitude, longitude)                                                           | [Geolocation Object](#geolocation-object) | TRUE     |
+| geolocation | Contains the geolocation coordinates (latitude, longitude)                                                           | [Geolocation object](#geolocation-object) | TRUE     |
 | city        | The city encompassing the area containing the geolocation coordinates, if available (e.g. Seattle, San Francisco)    | String                                    | TRUE     |
 | state       | Full name of the state/province encompassing the area containing the geolocation coordinates (e.g. Montana, Incheon) | String                                    | TRUE     |
 | country     | Full name of the country encompassing the area containing the geolocation coordinates (e.g. France, Uganda)          | String                                    | TRUE     |
 | postalCode  | Postal code of the area encompassing the geolocation coordinates                                                     | String                                    | TRUE     |
 
-### Geolocation Object
+### Geolocation object
 
 Latitude and longitude of the geolocation where an action was performed, formatted according to the [ISO-6709](https://en.wikipedia.org/wiki/ISO_6709) standard.
 
@@ -313,7 +313,7 @@ Latitude and longitude of the geolocation where an action was performed, formatt
 | lat        | Latitude. Uses 2 digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Latitude)   | Double          | FALSE    |
 | lon        | Longitude. Uses 3 digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Longitude) | Double          | FALSE    |
 
-### Outcome Object
+### Outcome object
 
 Describes the result of an action and the reason for that result.
 
@@ -322,13 +322,13 @@ Describes the result of an action and the reason for that result.
 | result     | Result of the action: `SUCCESS`, `FAILURE`, `SKIPPED`, `ALLOW`, `DENY`, `CHALLENGE`, `UNKNOWN`       | String          | FALSE    |         |           |           |
 | reason     | Reason for the result, for example `INVALID_CREDENTIALS`               | String          | TRUE     |         | 1         | 255       |
 
-### Transaction Object
+### Transaction object
 
-The `transaction` field contains a Transaction Object.
+The `transaction` field contains a Transaction object.
 
-A Transaction Object comprises contextual information associated with its respective event. This information is useful for understanding sequences of correlated events (see [Event Correlation](#event-correlation) for more on this).
+A Transaction object comprises contextual information associated with its respective event. This information is useful for understanding sequences of correlated events (see [Event Correlation](#event-correlation) for more on this).
 
-For example, a Transaction Object such as:
+For example, a Transaction object such as:
 ```json
 {
     "id": "Wn4f-0RQ8D8lTSLkAmkKdQAADqo",
@@ -345,7 +345,7 @@ indicates that a `WEB` request with `id` `Wn4f-0RQ8D8lTSLkAmkKdQAADqo` created t
 | type       | Describes the kind of transaction. `WEB` indicates a web request. `JOB` indicates an asynchronous task. | String               | TRUE     |
 | detail     | Details for this transaction.                                                                           | Map[String → Object] | TRUE     |
 
-### DebugContext Object
+### DebugContext object
 
 For some kinds of events (e.g. OMM provisioning, login, second factor SMS, etc.), the fields provided in other response objects will not be sufficient to adequately describe the operations the event has performed. In such cases, the `debugContext` object provides a way to store additional information.
 
@@ -372,7 +372,7 @@ If for some reason the information needed to implement a feature is not provided
 | ---------- | ------------------------------------------------------------------------------- | ---------------     | -------- |
 | debugData  | Dynamic field containing miscellaneous information dependent on the event type. | Map[String->Object] | TRUE     |
 
-### AuthenticationContext Object
+### AuthenticationContext object
 
 All authentication relies on validating one or more credentials that proves the authenticity of the actor's identity. Credentials are sometimes provided by the actor, as is the case with passwords, and at other times provided by a third party, and validated by the authentication provider.
 
@@ -399,7 +399,7 @@ Among other operations, this response object can be used to scan for suspicious 
 | authenticationStep     | The zero-based step number in the authentication pipeline. Currently unused and always set to `0`.                                                                                                                                  | Integer                         | TRUE     |           |           |
 | credentialProvider     | A credential provider is a software service that manages identities and their associated credentials. When authentication occurs via credentials provided by a credential provider, that credential provider will be recorded here. | String                          | TRUE     |           |           |
 | credentialType         | The underlying technology/scheme used in the credential                                                                                                                                                                             | String                          | TRUE     |           |           |
-| issuer                 | The specific software entity that created and issued the credential.                                                                                                                                                                | [Issuer Object](#issuer-object) | TRUE     |           |           |
+| issuer                 | The specific software entity that created and issued the credential.                                                                                                                                                                | [Issuer object](#issuer-object) | TRUE     |           |           |
 | externalSessionId      | A proxy for the actor's [session ID](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)                                                                                                                                | String                          | TRUE     | 1         | 255       |
 | interface              | The third party user interface that the actor authenticates through, if any.                                                                                                                                                        | String                          | TRUE     | 1         | 255       |
 
@@ -413,7 +413,7 @@ Some of the fields listed above have a finite set of possible values.
 | credentialProvider     | `OKTA_CREDENTIAL_PROVIDER`, `RSA`, `SYMANTEC`, `GOOGLE`, `DUO`, `YUBIKEY`                                                                               |
 | credentialType         | `OTP`, `SMS`, `PASSWORD`, `ASSERTION`, `IWA`, `EMAIL`, `OAUTH2`, `JWT`, `CERTIFICATE`, `PRE_SHARED_SYMMETRIC_KEY`, `OKTA_CLIENT_SESSION`, `DEVICE_UDID` |
 
-### Issuer Object
+### Issuer object
 
 Describes the `issuer` of the authorization server when the authentication is performed via OAuth. This is the location where well-known resources regarding details of the authorization servers are published.
 
@@ -422,7 +422,7 @@ Describes the `issuer` of the authorization server when the authentication is pe
 | id         | Varies depending on the type of authentication. If authentication is SAML 2.0, `id` is the issuer in the SAML assertion. For social login, `id` is the issuer of the token. | String          | TRUE     |
 | type       | Information regarding `issuer` and source of the SAML assertion or token.                                                                                                   | String          | TRUE     |
 
-### SecurityContext Object
+### SecurityContext object
 
 The `securityContext` object provides security information directly related to the evaluation of the event's IP reputation. IP reputation is a trustworthiness rating that evaluates how likely a sender is to be malicious based on the sender's IP address. As the name implies, the `securityContext` object is useful for security applications-flagging and inspecting suspicious events.
 
@@ -434,14 +434,14 @@ The `securityContext` object provides security information directly related to t
 | domain   | The [domain name](https://en.wikipedia.org/wiki/Domain_name) associated with the IP address of the inbound event request                                           | String   | TRUE     |
 | isProxy  | Specifies whether an event's request is from a known proxy                                                                                                         | Bool     | TRUE     |
 
-### IpAddress Object
+### IpAddress object
 
 Describes an IP address used in a request.
 
 | Property                                                                                                     | Description                              | DataType                                                      | Nullable |
 | :----------------------------------------------------------------------------------------------------------- | :--------------------------------------- | :------------------------------------------------------------ | :------- |
 | ip                                                                                                           | IP address                               | String                                                        | TRUE     |
-| geographicalContext                                                                                          | Geographical context of the IP address   | [GeographicalContext Object](#geographicalcontext-object)     | TRUE     |
+| geographicalContext                                                                                          | Geographical context of the IP address   | [GeographicalContext object](#geographicalcontext-object)     | TRUE     |
 | version                                                                                                      | IP address version                       | V4 or V6                                                      | TRUE     |
 | source                                                                                                       | Details regarding the source             | String                                                        | TRUE     |
 
