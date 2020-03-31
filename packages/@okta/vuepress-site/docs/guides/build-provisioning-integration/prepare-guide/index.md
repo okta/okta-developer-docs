@@ -23,11 +23,6 @@ The following are examples of detailed configuration guides:
 
 All configuration guides must include the following sections:
 
-* [Prerequisites](#prerequisites)
-* [Features](#features)
-* [Procedures](#procedures)
-* [Schema Discovery](#schema-discovery)
-* [Troubleshooting and Tips](#troubleshooting-and-tips)
 
 ### Prerequisites
 

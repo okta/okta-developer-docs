@@ -1,37 +1,37 @@
 #### Setup instructions
 
-**Is your Service Provider configured as a “Big Bang”?** &#8212; If yes, what is the backdoor URL for admins to sign in if SAML is misconfigured? If the SP is a "Big Bang", Okta suggests that you have a backdoor URL or some other recovery mechanism available.
+* **Is your Service Provider configured as a “Big Bang”?** -  If yes, what is the backdoor URL for admins to sign in if SAML is misconfigured? If the SP is a "Big Bang", Okta suggests that you have a backdoor URL or some other recovery mechanism available.
 
-**Is SAML support available in the SP for all tenants by default or is it available only for specific SKUs?** &#8212; If you select only certain SKUs, provide details on which products provide SAML support.
+* **Is SAML support available in the SP for all tenants by default or is it available only for specific SKUs?** - If you select only certain SKUs, provide details on which products provide SAML support.
 
-**Is the single sign on URL the same for all tenants and environments?** &#8212; If **No**, enter which part of the single sign on URL is customizable. For example, the `subdomain` in `https://subdomain.example.com/saml2/`
+* **Is the single sign on URL the same for all tenants and environments?** - If **No**, enter which part of the single sign on URL is customizable. For example, the `subdomain` in `https://subdomain.example.com/saml2/`
 
-**Is the audience URI the same for all tenants and environments?** &#8212; If **No**, enter which part of the audience URI is customizable. For example, the `subdomain` in `https://subdomain.example.com/saml2/`
+* **Is the audience URI the same for all tenants and environments?** - If **No**, enter which part of the audience URI is customizable. For example, the `subdomain` in `https://subdomain.example.com/saml2/`
 
-**What signature algorithm is supported?** &#8212; An app in the OIN should support only the SHA256 algorithm.
+* **What signature algorithm is supported?** - An app in the OIN should support only the SHA256 algorithm.
 
-**Link to configuration guide** &#8212; Your configuration guide (in either HTML or PDF format) should have step by step instructions on how to set up SSO between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
+* **Link to configuration guide** - Your configuration guide (in either HTML or PDF format) should have step by step instructions on how to set up SSO between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
 
 #### Supported Features
 
-**Do you support SAML just-in-time provisioning?** &#8212; With Just-in-Time provisioning, you can use a SAML assertion to create regular and portal users on the fly the first time they try to log in. This eliminates the need to create user accounts in advance.
+* **Do you support SAML just-in-time provisioning?** - With Just-in-Time provisioning, you can use a SAML assertion to create regular and portal users on the fly the first time they try to log in. This eliminates the need to create user accounts in advance.
 
-**Do you support receiving SAML user/group attribute statements?** &#8212; If **Yes**, the `key:value` pairs for the attribute statements should be specified in the test app.
+* **Do you support receiving SAML user/group attribute statements?** - If **Yes**, the `key:value` pairs for the attribute statements should be specified in the test app.
 
-**What type(s) of sign-in flows do you support?** &#8212; Choose from IdP or SP initiated, or both.
+* **What type(s) of sign-in flows do you support?** - Choose from IdP or SP initiated, or both.
 
-**Force authentication?** &#8212; Select **Yes** if your app forces users to authenticate again, even if they have an existing session. If you select **Yes**, include how customers configure force authentication on your end? Provide the steps for Okta to test this forced authentication.
+* **Force authentication?** - Select **Yes** if your app forces users to authenticate again, even if they have an existing session. If you select **Yes**, include how customers configure force authentication on your end? Provide the steps for Okta to test this forced authentication.
 
-**Do you support SP-initiated Single-Logout?** &#8212; If **Yes**, are you going to use the same single-logout certificate for all tenants? Single Logout URL and SP Issuer should be specified in the test app. Note that Okta only supports signed logout requests.
+* **Do you support SP-initiated Single-Logout?** - If **Yes**, are you going to use the same single-logout certificate for all tenants? Single Logout URL and SP Issuer should be specified in the test app. Note that Okta only supports signed logout requests.
   
-* You will need to provide the certificate to the Okta App Analyst.
+  * You will need to provide the certificate to the Okta App Analyst.
 
-**Optional: Default Relay State** &#8212; The default relay state is the page your users will land on after they successfully sign on. If you have this configured, enter a specific application resource for an IDP initiated Single Sign-On scenario.
+* **Optional: Default Relay State** - The default relay state is the page your users will land on after they successfully sign on. If you have this configured, enter a specific application resource for an IDP initiated Single Sign-On scenario.
 
 #### Review info
 
-**How far along is your SAML integration?** &#8212; If your app is still **In development**, the Okta app analysts will need to know the estimated public availability for your app.
+* **How far along is your SAML integration?** - If your app is still **In development**, the Okta app analysts will need to know the estimated public availability for your app.
 
-**Optional: link to demo video** &#8212; If you have prepared a video that explains how to configure access to your SAML app, enter the URL here. A short demo video showing your working test app helps expedite the review process. Please show the IdP and SP-initiated sign-in flows and sign-out (if applicable).
+* **Optional: link to demo video** - If you have prepared a video that explains how to configure access to your SAML app, enter the URL here. A short demo video showing your working test app helps expedite the review process. Please show the IdP and SP-initiated sign-in flows and sign-out (if applicable).
 
-**Optional: link to the test results of a SAML validation tool** &#8212; Use the tool at <http://saml.oktadev.com> to validate your SAML Service Provider implementation. The results help expedite the review process.
+* **Optional: link to the test results of a SAML validation tool** - Use the tool at <http://saml.oktadev.com> to validate your SAML Service Provider implementation. The results help expedite the review process.
