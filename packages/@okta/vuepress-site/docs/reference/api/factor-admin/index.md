@@ -12,8 +12,7 @@ After activating a factor with this API, you can't use it until you enable a pol
 
 <ApiLifecycle access="beta" /> This API is a beta feature.
 
-
-## Factor model
+## Factor object
 
 | Attribute     | Description                                                     | DataType                                                                       | MinLength | MaxLength | Nullable | Unique | Readonly |
 | ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------- | --------- | -------- | ------ | -------- |
@@ -68,6 +67,7 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988))
 | deactivate         | Denies use of this factor for MFA  |
 | self               | The actual factor                  |
 
+
 > **Note:** The Links Object is **read-only**.
 
 ## Factors Administration operations
@@ -86,7 +86,7 @@ Optionally, you can add a filter based on the status. If desired, add the text `
 
 #### Response parameters
 
-[Factor](#factor-model)
+[Factor](#factor-object)
 
 #### Request example
 

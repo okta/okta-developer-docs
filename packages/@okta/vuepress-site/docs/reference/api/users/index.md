@@ -39,15 +39,15 @@ Creates a new user in your Okta organization with or without credentials
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------      | :----------- | :------------------------------------------- | :--------- | :------ |
 | activate      | Executes [activation lifecycle](#activate-user) operation when creating the user                                                                                           | Query        | Boolean                                      | FALSE      | TRUE    |
 | provider      | Indicates whether to create a user with a specified authentication provider                                                                                                | Query        | Boolean                                      | FALSE      | FALSE   |
-| profile       | Profile properties for user                                                                                                                                                | Body         | [Profile Object](#profile-object)            | TRUE       |         |
-| credentials   | Credentials for user                                                                                                                                                       | Body         | [Credentials Object](#credentials-object)    | FALSE      |         |
+| profile       | Profile properties for user                                                                                                                                                | Body         | [Profile object](#profile-object)            | TRUE       |         |
+| credentials   | Credentials for user                                                                                                                                                       | Body         | [Credentials object](#credentials-object)    | FALSE      |         |
 | groupIds      | Ids of groups that user will be immediately added to at time of creation                                                                                                   | Body         | Array of Group Ids                           | FALSE      |         |
 | nextLogin     | With `activate=true`, if `nextLogin=changePassword`, a user is created, activated, and the password is set to `EXPIRED`, so user must change it the next time they log in. | Query        | String                                       | FALSE      | FALSE   |
 
 ##### Response Parameters
 
 
-All responses return the created [User](#user-model).  Activation of a user is an asynchronous operation.  The system performs group reconciliation during activation and assigns the user to all applications via direct or indirect relationships (group memberships).
+All responses return the created [User](#user-object).  Activation of a user is an asynchronous operation.  The system performs group reconciliation during activation and assigns the user to all applications via direct or indirect relationships (group memberships).
 
 * The user's `transitioningToStatus` property is `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.
 * The user's `status` is `ACTIVE` when the activation process is complete.
@@ -718,7 +718,7 @@ curl -v -X POST \
 }
 ```
 
->**Note:** The `type` property and the `schema` and `type` links will be present in all responses if the User Types feature is enabled, whether or not the user is created with a non-default User Type. See [User Model](#user-model).
+>**Note:** The `type` property and the `schema` and `type` links will be present in all responses if the User Types feature is enabled, whether or not the user is created with a non-default User Type. See [User object](#user-object).
 
 ### Get User
 
@@ -748,7 +748,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 ##### Response Parameters
 
 
-Fetched [User](#user-model)
+Fetched [User](#user-object)
 
 An invalid `id` returns a `404 Not Found` status code.
 
@@ -1097,7 +1097,7 @@ The first three parameters in the table below correspond to different types of l
 ##### Response Parameters
 
 
-Array of [User](#user-model)
+Array of [User](#user-object)
 
 #### List All Users
 
@@ -1619,17 +1619,17 @@ in the request is deleted.
 | :------------ | :------------------------------------------------------------------- | :----------- | :------------------------------------------ | :------- |
 | userId        | ID of user to update                                                 | URL          | String                                      | TRUE     |
 | strict        | If true, validates against minimum age and history password policy   | Query        | String                                      | FALSE    |
-| profile       | Updated profile for user                                             | Body         | [Profile Object](#profile-object)           | FALSE    |
-| credentials   | Update credentials for user                                          | Body         | [Credentials Object](#credentials-object)   | FALSE    |
+| profile       | Updated profile for user                                             | Body         | [Profile object](#profile-object)           | FALSE    |
+| credentials   | Update credentials for user                                          | Body         | [Credentials object](#credentials-object)   | FALSE    |
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
->**Note:** Currently, the User Type of a user cannot be changed. If the Request Parameters include the `type` element from the [User Model](#user-model), the value must match the existing type of the user. To change a User's type, the User object must be deleted and recreated with the desired Type.
+>**Note:** Currently, the User Type of a user cannot be changed. If the Request Parameters include the `type` element from the [User object](#user-object), the value must match the existing type of the user. To change a User's type, the User object must be deleted and recreated with the desired Type.
 
 ##### Response Parameters
 
 
-Updated [User](#user-model)
+Updated [User](#user-object)
 
 #### Update Current User's Profile
 
@@ -1643,7 +1643,7 @@ Updates current user's profile with partial update semantics
 
 | Parameter     | Description                                                          | Param Type   | DataType                                    | Required |
 | :------------ | :------------------------------------------------------------------- | :----------- | :------------------------------------------ | :------- |
-| profile       | Updated profile for user                                             | Body         | [Profile Object](#profile-object)           | FALSE    |
+| profile       | Updated profile for user                                             | Body         | [Profile object](#profile-object)           | FALSE    |
 
 End user can only update `profile` with this request. To update credentials, use [Update Profile with ID](#update-profile-with-id).
 
@@ -1653,7 +1653,7 @@ use [Update User Profile Schema Property](/docs/reference/api/schemas/#update-us
 ##### Response Parameters
 
 
-Updated [User](#user-model)
+Updated [User](#user-object)
 
 ##### Request Example
 
@@ -1744,15 +1744,15 @@ Updates a user's profile or credentials with partial update semantics
 | :------------ | :------------------------------------------------------------------- | :----------- | :------------------------------------------ | :------- |
 | userId        | ID of user to update                                                 | URL          | String                                      | TRUE     |
 | strict        | If true, validates against minimum age and history password policy   | Query        | String                                      | FALSE    |
-| profile       | Updated profile for user                                             | Body         | [Profile Object](#profile-object)           | FALSE    |
-| credentials   | Update credentials for user                                          | Body         | [Credentials Object](#credentials-object)   | FALSE    |
+| profile       | Updated profile for user                                             | Body         | [Profile object](#profile-object)           | FALSE    |
+| credentials   | Update credentials for user                                          | Body         | [Credentials object](#credentials-object)   | FALSE    |
 
 `profile` and `credentials` can be updated independently or with a single request.
 
 ##### Response Parameters
 
 
-Updated [User](#user-model)
+Updated [User](#user-object)
 
 ##### Request Example
 
@@ -2546,7 +2546,7 @@ curl -v -X POST \
 ##### Request Example (Convert a User to a Federated User)
 
 
-To convert a user to a federated user, pass `FEDERATION` as the `provider` in the [Provider Object](#provider-object). The `sendEmail`
+To convert a user to a federated user, pass `FEDERATION` as the `provider` in the [Provider object](#provider-object). The `sendEmail`
 parameter must be false or omitted for this type of conversion.
 
 ```bash
@@ -2865,8 +2865,8 @@ This operation can only be performed on users with an `ACTIVE` status and a vali
 | Parameter         | Description                                      | Param Type | DataType                                              | Required |
 | ----------------- | ------------------------------------------------ | ---------- | ----------------------------------------------------- | -------- |
 | id                | `id` of user                                     | URL        | String                                                | TRUE     |
-| password          | New password for user                            | Body       | [Password Object](#password-object)                   | TRUE     |
-| recovery_question | Answer to user's current recovery question       | Body       | [Recovery Question Object](#recovery-question-object) | TRUE     |
+| password          | New password for user                            | Body       | [Password object](#password-object)                   | TRUE     |
+| recovery_question | Answer to user's current recovery question       | Body       | [Recovery Question object](#recovery-question-object) | TRUE     |
 
 ##### Response Parameters
 
@@ -2921,8 +2921,8 @@ This operation can only be performed on users in `STAGED`, `ACTIVE`, `PASSWORD_E
 | ------------ | ------------------------------------------------------- | ---------- | ------------------------------------ | -------- |
 | id           | `id` of user                                            | URL        | String                               | TRUE     |
 | strict       | If true, validates against password minimum age policy  | Query      | String                               | FALSE    |
-| oldPassword  | Current password for user                               | Body       | [Password Object](#password-object)  | TRUE     |
-| newPassword  | New password for user                                   | Body       | [Password Object](#password-object)  | TRUE     |
+| oldPassword  | Current password for user                               | Body       | [Password object](#password-object)  | TRUE     |
+| newPassword  | New password for user                                   | Body       | [Password object](#password-object)  | TRUE     |
 
 ##### Response Parameters
 
@@ -2976,8 +2976,8 @@ This operation can only be performed on users in **STAGED**, **ACTIVE** or **REC
 | Parameter         | Description                             | Param Type | DataType                                              | Required |
 | ----------------- | --------------------------------------- | ---------- | ----------------------------------------------------- | -------- |
 | id                | `id` of user                            | URL        | String                                                | TRUE     |
-| password          | Current password for user               | Body       | [Password Object](#password-object)                   | TRUE     |
-| recovery_question | New recovery question & answer for user | Body       | [Recovery Question Object](#recovery-question-object) | TRUE     |
+| password          | Current password for user               | Body       | [Password object](#password-object)                   | TRUE     |
+| recovery_question | New recovery question & answer for user | Body       | [Recovery Question object](#recovery-question-object) | TRUE     |
 
 ##### Response Parameters
 
@@ -3705,7 +3705,7 @@ curl -v -X GET \
 ```
 
 
-## User Model
+## User object
 
 ### Example
 
@@ -3793,7 +3793,7 @@ curl -v -X GET \
 
 ### User Properties
 
-The User model defines several read-only properties:
+The User object defines several read-only properties:
 
 | Property                | Description                                                             | DataType                                                                                                           | Nullable   | Unique   | Readonly |
 | :---------------------- | :---------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------- | :--------- | :------- | :------- |
@@ -3807,8 +3807,8 @@ The User model defines several read-only properties:
 | passwordChanged         | timestamp when password last changed                                    | Date                                                                                                               | TRUE       | FALSE    | TRUE     |
 | type <ApiLifecycle access="ea" />  | user type that determines the schema for the user's profile  | Map (see below)                                                                                                    | FALSE      | FALSE    | TRUE     |
 | transitioningToStatus   | target status of an in-progress asynchronous status transition          | `PROVISIONED`, `ACTIVE`, or `DEPROVISIONED`                                                                        | TRUE       | FALSE    | TRUE     |
-| profile                 | user profile properties                                                 | [Profile Object](#profile-object)                                                                                  | FALSE      | FALSE    | FALSE    |
-| credentials             | user's primary authentication and recovery credentials                  | [Credentials Object](#credentials-object)                                                                          | FALSE      | FALSE    | FALSE    |
+| profile                 | user profile properties                                                 | [Profile object](#profile-object)                                                                                  | FALSE      | FALSE    | FALSE    |
+| credentials             | user's primary authentication and recovery credentials                  | [Credentials object](#credentials-object)                                                                          | FALSE      | FALSE    | FALSE    |
 | _links                  | [link relations](#links-object) for the user's current `status`   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | TRUE       | FALSE    | TRUE     |
 | _embedded               | embedded resources related to the user                                  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                     | TRUE       | FALSE    | TRUE     |
 
@@ -3821,7 +3821,7 @@ The `type` property is a map that identifies the User Type of the user (see <Api
 
 ### User Status
 
-The following diagram shows the state model for a user:
+The following diagram shows the state object for a user:
 
 ![STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED](/img/okta-user-status.png "STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED")
 
@@ -3832,7 +3832,7 @@ Okta doesn't asynchronously sweep through users and update their password expiry
 Instead, Okta evaluates password policy at login time, notices the password has expired, and moves the user to the expired state.
 When running reports, remember that the data is valid as of the last login or lifecycle event for that user.
 
-### Profile Object
+### Profile object
 
 Specifies [standard](#default-profile-properties) and [custom](#custom-profile-properties) profile properties for a user.
 
@@ -3924,15 +3924,15 @@ User profiles may be extended with custom properties but the property must first
 
 Custom attributes may contain HTML tags. It is the client's responsibility to escape or encode this data before displaying it. Use [best-practices](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) to prevent cross-site scripting.
 
-### Credentials Object
+### Credentials object
 
 Specifies primary authentication and recovery credentials for a user.  Credential types and requirements vary depending on the provider and security policy of the organization.
 
 | Property            | DataType                                                 | Nullable   | Unique   | Readonly |
 | :------------------ | :------------------------------------------------------- | :--------- | :------- | :------- |
-| password            | [Password Object](#password-object)                      | TRUE       | FALSE    | FALSE    |
-| recovery_question   | [Recovery Question Object](#recovery-question-object)    | TRUE       | FALSE    | FALSE    |
-| provider            | [Provider Object](#provider-object)                      | FALSE      | FALSE    | TRUE     |
+| password            | [Password object](#password-object)                      | TRUE       | FALSE    | FALSE    |
+| recovery_question   | [Recovery Question object](#recovery-question-object)    | TRUE       | FALSE    | FALSE    |
+| provider            | [Provider object](#provider-object)                      | FALSE      | FALSE    | TRUE     |
 
 ```json
 {
@@ -3950,21 +3950,21 @@ Specifies primary authentication and recovery credentials for a user.  Credentia
 }
 ```
 
-#### Password Object
+#### Password object
 
 Specifies a password for a user
 
 | Property   | DataType                                          | Nullable   | Unique   | Readonly   | MinLength         | MaxLength   | Validation      |
 | :--------- | :---------                                        | :--------- | :------- | :--------- | :---------------- | :---------- | :-------------- |
 | value      | String                                            | TRUE       | FALSE    | FALSE      | Password Policy   | 72          | Password Policy |
-| hash       | [Hashed Password Object](#hashed-password-object) | TRUE       | FALSE    | FALSE      | N/A               | N/A         |                 |
-| hook       | [Password Hook Object](#password-hook-object)     | TRUE       | FALSE    | FALSE      | N/A               | N/A         |                 |
+| hash       | [Hashed Password object](#hashed-password-object) | TRUE       | FALSE    | FALSE      | N/A               | N/A         |                 |
+| hook       | [Password Hook object](#password-hook-object)     | TRUE       | FALSE    | FALSE      | N/A               | N/A         |                 |
 
 A password value is a **write-only** property.
 A password hash is a **write-only** property.
 A password hook is a **write-only** property.
 
-When a user has a valid password, or imported hashed password, or password hook, and a response object contains a password credential, then the Password Object is a bare object without the `value` property defined (for example, `password: {}`), to indicate that a password value exists.
+When a user has a valid password, or imported hashed password, or password hook, and a response object contains a password credential, then the Password object is a bare object without the `value` property defined (for example, `password: {}`), to indicate that a password value exists.
 
 
 ##### Default Password Policy
@@ -3981,9 +3981,9 @@ The password specified in the value property must meet the default password poli
 
 > Password policy requirements can be modified in the administrator UI *(Security -> Policies)*
 
-##### Hashed Password Object
+##### Hashed Password object
 
-Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, and MD5 hashing functions for password import. A hashed password may be specified in a Password Object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
+Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, and MD5 hashing functions for password import. A hashed password may be specified in a Password object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
 
 > **Note:** Because the plain text password isn't specified when a hashed password is provided, password policy isn't applied.
 
@@ -3995,7 +3995,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 | workFactor | Integer  | Governs the strength of the hash and the time required to compute it. Only relevant for BCRYPT algorithm.                                                                                 | Only for BCRYPT algorithm                                                     | 1                              | 20                             |
 | saltOrder  | String   | Specifies whether salt was pre- or postfixed to the password before hashing. Only relevant for SHA-512, SHA-256, SHA-1, MD5 algorithms. Must be set to PREFIX or POSTFIX.                  | Only for Salted SHA-512, Salted SHA-256, Salted SHA-1, Salted MD5 algorithms. | N/A                            | N/A                            |
 
-###### BCRYPT Hashed Password Object Example
+###### BCRYPT Hashed Password object example
 
 ```bash
 "password" : {
@@ -4008,7 +4008,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 }
 ```
 
-###### SHA-512 Hashed Password Object Example
+###### SHA-512 Hashed Password object example
 
 ```bash
 "password" : {
@@ -4021,7 +4021,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 }
 ```
 
-###### SHA-256 Hashed Password Object Example
+###### SHA-256 Hashed Password object example
 
 ```bash
 "password" : {
@@ -4034,7 +4034,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 }
 ```
 
-###### SHA-1 Hashed Password Object Example
+###### SHA-1 Hashed Password object example
 
 ```bash
 "password" : {
@@ -4047,7 +4047,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 }
 ```
 
-###### MD5 Hashed Password Object Example
+###### MD5 Hashed Password object example
 
 ```bash
 "password" : {
@@ -4060,7 +4060,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 }
 ```
 
-##### Password Hook Object
+##### Password Hook object
 
 Specifies that a [Password Import Inline Hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
 
@@ -4072,7 +4072,7 @@ When updating a user with a password hook the user must be in the `STAGED` statu
 |:-----------|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------|:-------------------------------|:-------------------------------|
 | type  | String   | The type of Password Inline Hook. Currently, must be set to default.                                                                                            | TRUE                                                                          | N/A                            | N/A                            |
 
-###### Password Hook Object Example
+###### Password Hook object example
 
 ```bash
 "password" : {
@@ -4082,7 +4082,7 @@ When updating a user with a password hook the user must be in the `STAGED` statu
 }
 ```
 
-#### Recovery Question Object
+#### Recovery Question object
 
 Specifies a secret question and answer that is validated (case insensitive) when a user forgets their password or unlocks their account.  The answer property is **write-only**.
 
@@ -4091,7 +4091,7 @@ Specifies a secret question and answer that is validated (case insensitive) when
 | question  | String   | TRUE     | FALSE  | FALSE    | 1         | 100       |
 | answer    | String   | TRUE     | FALSE  | FALSE    | 1         | 100       |
 
-#### Provider Object
+#### Provider object
 
 Specifies the authentication provider that validates the user's password credential. The user's current provider is managed by the Delegated Authentication settings for your organization. The provider object is **read-only**.
 
@@ -4106,7 +4106,7 @@ Specifies the authentication provider that validates the user's password credent
 
 >`IMPORT` specifies a hashed password that was imported from an external source.
 
-### Links Object
+### Links object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a user.  The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations.  The Links object is read-only.
 
@@ -4131,7 +4131,7 @@ Here are some links that may be available on a User, as determined by your polic
 | changePassword           | [Changes a user's password](#change-password) validating the user's current password                                  |
 | changeRecoveryQuestion   | [Changes a user's recovery credential](#change-recovery-question) by validating the user's current password           |
 
-### User-Consent Grant Object
+### User-Consent Grant object
 
 <ApiLifecycle access="ea" />
 
@@ -4203,7 +4203,7 @@ Here are some links that may be available on a User, as determined by your polic
 | _links        | Discoverable resources related to the grant                                                                                      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  |
 | _embedded     | If `expand`=`scope` is included in the request, information about the scope specified by `scopeId` is included in the response.  | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  |
 
-### Client Grant Object
+### Client Grant object
 
 <ApiLifecycle access="ea" />
 

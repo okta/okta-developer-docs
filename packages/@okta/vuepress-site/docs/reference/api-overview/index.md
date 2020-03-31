@@ -32,11 +32,11 @@ All URLs listed in the documentation should be preceded with your organization's
 
 The `apiversion` is currently v1.
 
-> All API requests must use HTTPS scheme
+> **Note:** All API requests must use HTTPS scheme
 
-## Media Types
+## Media types
 
-> JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, make sure to properly escape all values before use in a browser or any HTML context.
+> **Note:** JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, make sure to properly escape all values before use in a browser or any HTML context.
 
 The API currently only supports JSON as an exchange format. Be sure to set both the Content-Type and Accept headers for every request as `application/json`.
 
@@ -44,10 +44,10 @@ All Date objects are returned in [ISO 8601 format](https://tools.ietf.org/html/r
 
     YYYY-MM-DDTHH:mm:ss.SSSZ
 
-## Character Sets
+## Character sets
 Okta supports a subset of the `UTF-8` specification. Specifically, any character that can be encoded in three bytes or less is supported. BMP characters and supplementary characters that *must* be encoded using four bytes are not supported at this time.
 
-## HTTP Verbs
+## HTTP verbs
 
 Where possible, the Okta API strives to use appropriate HTTP verbs for each
 action.
@@ -69,9 +69,9 @@ Used for replacing resources or collections. For PUT requests with no `body` par
 
 Used for deleting resources.
 
-> Any PUT or POST request with no Content-Length header nor a body will return a 411 error. To get around this, include a `Content-Length: 0` header
+> **Note:** Any PUT or POST request with no Content-Length header nor a body will return a 411 error. To get around this, include a `Content-Length: 0` header
 
-## Client Request Context
+## Client request context
 
 Okta will derive client request context directly from the HTTP request headers and client TCP socket. Request context is used to evaluate policies such as **Okta Sign-On Policy** and provide client information for [troubleshooting and auditing](/docs/reference/api/events/#client-objecttype) purposes.
 
@@ -107,11 +107,11 @@ Add browser information such as `chrome` or `safari` to the `User-Agent` string.
 
 - **Android:** Include the word `android`, which infers that Android is the operating system.
 
-## IP Address
+## IP address
 
 The **public IP address** of your application will be automatically used as the client IP address for your request. Okta supports the standard `X-Forwarded-For` HTTP header to forward the originating client's IP address if your application is behind a proxy server or acting as a login portal or gateway.
 
-> The **public IP address** of your trusted web application must be whitelisted in your [org's network security settings](https://help.okta.com/en/prod/Content/Topics/Security/Security_Network.htm) as a trusted gateway in order to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Note:** The **public IP address** of your trusted web application must be whitelisted in your [org's network security settings](https://help.okta.com/en/prod/Content/Topics/Security/Security_Network.htm) as a trusted gateway in order to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ## Accept Language
 
@@ -123,7 +123,7 @@ The `X-Device-Fingerprint` HTTP header supplies the device fingerprint used in a
 
 ## Errors
 
-> JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, make sure to properly escape all values before use in a browser or any HTML context.
+> **Note:** JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, make sure to properly escape all values before use in a browser or any HTML context.
 
 All requests on success will return a 200 status if there is content to return or a 204 status if there is no content to return.
 
@@ -150,7 +150,7 @@ All requests that result in an error will return the appropriate 4xx or 5xx erro
 
 See [Error Codes](/docs/reference/error-codes/) for a list of API error codes.
 
-> Only the `errorCode` property is supported for runtime error flow control. The `errorSummary` property is only intended for troubleshooting and may change over time.
+> **Note:** Only the `errorCode` property is supported for runtime error flow control. The `errorSummary` property is only intended for troubleshooting and may change over time.
 
 ## Authentication
 
@@ -158,7 +158,7 @@ The Okta API currently requires the custom HTTP authentication scheme `SSWS` for
 
     Authorization: SSWS 00QCjAl4MlV-WPXM...0HmjFx-vbGua
 
-> See [Obtaining a token](/docs/guides/create-an-api-token/) for instructions on how to get an API key for your organization.
+> **Note:** See [Obtaining a token](/docs/guides/create-an-api-token/) for instructions on how to get an API key for your organization.
 
 The API key (API token) isn't interchangeable with an Okta [session token](/docs/reference/api/authn/#session-token), access tokens or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/reference/api/oidc/).
 
@@ -178,7 +178,7 @@ Note that for technical reasons not all APIs respect pagination or the `before` 
 | `after`  | This is the cursor that points to the end of the page of data that has been returned.   |
 | `limit`  | This is the number of individual objects that are returned in each page.                |
 
-## Link Header
+## Link header
 
 Pagination links are included in the [Link header](http://tools.ietf.org/html/rfc5988) of responses. It is **important** to follow these Link header values instead of constructing your own URLs as query parameters or  cursor formats may change without notice.
 
@@ -192,8 +192,8 @@ The possible `rel` values are:
 
 | Link Relation Type | Description                                              |
 | ------------------ | ------------                                             |
-| `self`             | Specifies the URL of the current page of results         |
 | `next`             | Specifies the URL of the immediate next page of results. |
+| `self`             | Specifies the URL of the current page of results         |
 
 When you first make an API call and get a cursor-paged list of objects, the end of the list will be the point at which you do not receive another `next` link value with the response. This holds true for all but two cases:
 
@@ -215,7 +215,7 @@ The attribute names are case-sensitive while attribute operators are case-insens
 
 The filter and search parameters **must** contain at least one valid Boolean expression. Each expression **must** contain an attribute name followed by an attribute operator and optional value. Multiple expressions **may** be combined using the two logical operators. Furthermore expressions can be grouped together using "()".
 
-> Each resource in the Okta API defines what attributes and operators are supported for expression. *Please refer to resource-specific documentation for details.*
+> **Note:** Each resource in the Okta API defines what attributes and operators are supported for expression. *Please refer to resource-specific documentation for details.*
 
 ## Operators
 
@@ -224,30 +224,30 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 | Operator | Description           | Behavior                                                                                                                                                                                                                                                                      |
 | -------- | -----------           | --------                                                                                                                                                                                                                                                                      |
 | eq       | equal                 | The attribute and operator values must be identical for a match.                                                                                                                                                                                                              |
-| sw       | starts with           | The entire operator value must be a substring of the attribute value, starting at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.                                                                                         |
-| pr       | present (has value)   | If the attribute has a non-empty value, or if it contains a non-empty node for complex attributes there is a match.                                                                                                                                                           |
-| gt       | greater than          | If the attribute value is greater than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.                 |
 | ge       | greater than or equal | If the attribute value is greater than or equal to the operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison. |
-| lt       | less than             | If the attribute value is less than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.                    |
+| gt       | greater than          | If the attribute value is greater than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.                 |
 | le       | less than or equal    | If the attribute value is less than or equal to the operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.    |
+| lt       | less than             | If the attribute value is less than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.                    |
+| pr       | present (has value)   | If the attribute has a non-empty value, or if it contains a non-empty node for complex attributes there is a match.                                                                                                                                                           |
+| sw       | starts with           | The entire operator value must be a substring of the attribute value, starting at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.                                                                                         |
 
-Note: Some resources don't support all the listed operators.
+> **Note:** Some resources don't support all the listed operators.
 
 Note: the `ne` (not equal) attribute is not supported, but the same result can be obtained by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
 
-> All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`
+> **Note:** All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`
 
-### Attribute Operators
+### Attribute operators
 
 | Operator | Description | Behavior                                                         |
 | -------- | ----------- | --------                                                         |
 | and      | Logical AND | The filter is only a match if both expressions evaluate to true. |
 | or       | Logical OR  | The filter is a match if either expression evaluates to true.    |
 
-### Logical Operators
+### Logical operators
 
-| Operator | Description         | Behavior                                                                                                                                                           |
-| -------- | -----------         | --------                                                                                                                                                           |
+| Operator | Description         | Behavior                                |
+| -------- | -----------         | --------                                                                                   |
 | ()       | Precedence grouping | Boolean expressions may be grouped using parentheses to change the standard order of operations; i.e., evaluate OR logical operators before logical AND operators. |
 
 Filters must be evaluated using standard order of operations. Attribute operators have the highest precedence, followed by the grouping operator (i.e, parentheses), followed by the logical `AND` operator, followed by the logical `OR` operator.
@@ -258,28 +258,18 @@ Resources in the Okta API use hypermedia for "discoverability". Hypermedia enabl
 
 The Okta API had incorporated [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia "discoverability". HAL provides a set of conventions for expressing hyperlinks in JSON responses representing two simple concepts: Resources and Links.
 
-> The HAL-specific media type `application/hal+json` is currently not supported as a formal media type for content negotiation. Use the standard `application/json` media type. As we get more experience with the media format we may add support for the media type.
-
-## Resources
-
-A Resource Object represents a resource.
-
-- `"_links"` contains links to other resources.
-
-- `"_embedded"` contains embedded resources.
-
-All other properties represent the current state of the resource.
+> **Note:** The HAL-specific media type `application/hal+json` is currently not supported as a formal media type for content negotiation. Use the standard `application/json` media type. As we get more experience with the media format we may add support for the media type.
 
 ## Links
 
-Object whose property names are link relation types (as defined by [RFC5988](http://tools.ietf.org/html/rfc5988)) and values are either a Link Object or an array of Link Objects.
+Object whose property names are link relation types (as defined by [RFC5988](http://tools.ietf.org/html/rfc5988)) and values are either a Link object or an array of Link objects.
 
 - A target URI
 - The name of the link relation (`rel`)
 - Other optional properties to help with deprecation, object state or lifecycle management, content negotiation, etc.
 - Links are implicitly of media type `application/json`. Other media types are only returned in cases where the link is not an API endpoint.
 
-> A resource may have multiple links that share the same link relation, as shown below for the "logo" link.
+> **Note:** A resource may have multiple links that share the same link relation, as shown below for the "logo" link.
 
 ``` json
 {
@@ -302,13 +292,13 @@ Object whose property names are link relation types (as defined by [RFC5988](htt
 }
 ```
 
-## Links in Collections
+## Links in collections
 
 Note that HAL links returned in a collection of resources may not reflect the total set of operations that are possible on that resource. For example, in a user collection links indicating that a given user can be "unlocked" may not be returned and, if returned, may not reflect the correct user state.
 
 Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state.
 
-## Request Debugging
+## Request debugging
 
 The request ID will always be present in every API response and can be used for debugging. This value can be used to correlate events from the [Events API](/docs/reference/api/events/) as well as the System Log events.
 
@@ -330,10 +320,10 @@ In Okta, CORS allows JavaScript hosted on your websites to make an XHR to the Ok
 
 > **Caution:** Only grant access to specific origins (websites) that you control and trust to access the Okta API.
 
-## API Support
+## API support
 
 The Okta API supports CORS on an API by API basis. If you're building an application that needs CORS, please check that the specific operation supports CORS for your use case. APIs that support CORS are marked with the following icon: <SupportsCors />.
 
-## Additional Help
+## Additional help
 
 In addition to all the information in this portal, you can view developer videos in our [YouTube channel](https://www.youtube.com/channel/UC5AMiWqFVFxF1q9Ya1FuZ_Q).
