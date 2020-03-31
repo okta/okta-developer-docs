@@ -6,6 +6,7 @@ After you have the following, you can get an access token and make a request to 
 * An Okta OpenID Connect or OAuth 2.0 Service app
 * One or more grants associated with that app
 * Users with appropriate permissions associated with the app
+* Users with appropriate administrator permissions in Okta
 
 > **Note:** Using a Service app? See <GuideLink link="../get-access-token-using-service-app">Get an access token using a Service app</GuideLink> for the steps.
 
