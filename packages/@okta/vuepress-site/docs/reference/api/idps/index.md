@@ -5877,17 +5877,17 @@ The IdP key credential object defines a [JSON Web Key](https://tools.ietf.org/ht
 
 IdP credential keys have the following properties:
 
-| Property        | Description                                                                      | DataType                                                          | Nullable     | Unique      | Readonly      |
-| --------------- | -------------------------------------------------------------------------        | ----------------------------------------------------------------- | ------------ | ----------- | ------------- |
-| kid             | unique identifier for the key                                                    | String                                                            | FALSE        | TRUE        | TRUE          |
-| created         | timestamp when key was added to the key store                                    | Date                                                              | FALSE        | FALSE       | TRUE          |
-| lastUpdated     | timestamp when key was last updated                                              | Date                                                              | FALSE        | FALSE       | TRUE          |
-| x5c             | base64-encoded X.509 certificate chain with DER encoding                         | Array                                                             | FALSE        | TRUE        | FALSE         |
-| x5t#S256        | base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate | String                                                            | FALSE        | TRUE        | TRUE          |
-| kty             | identifies the cryptographic algorithm family used with the key                  | `RSA`                                                             | FALSE        | FALSE       | TRUE          |
-| use             | intended use of the public key                                                   | `sig`                                                             | FALSE        | FALSE       | TRUE          |
-| e               | the exponent value for the RSA public key                                        | String                                                            | FALSE        | TRUE        | TRUE          |
-| n               | the modulus value for the RSA public key                                         | String                                                            | FALSE        | TRUE        | TRUE          |
+| Property    | Description                                                                              | DataType | Nullable | Unique | Readonly |
+| ----------- | ---------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- |
+| kid         | unique identifier for the key                                                            | String   | FALSE    | TRUE   | TRUE     |
+| created     | timestamp when key was added to the key store                                            | Date     | FALSE    | FALSE  | TRUE     |
+| lastUpdated | timestamp when key was last updated                                                      | Date     | FALSE    | FALSE  | TRUE     |
+| x5c         | base64-encoded X.509 certificate chain with DER encoding                                 | Array    | FALSE    | TRUE   | FALSE    |
+| x5t#S256    | base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate         | String   | FALSE    | TRUE   | TRUE     |
+| kty         | identifies the cryptographic algorithm family used with the key (Supported value: `RSA`) | String   | FALSE    | FALSE  | TRUE     |
+| use         | intended use of the public key (Supported value: `sig`)                                  | String   | FALSE    | FALSE  | TRUE     |
+| e           | the exponent value for the RSA public key                                                | String   | FALSE    | TRUE   | TRUE     |
+| n           | the modulus value for the RSA public key                                                 | String   | FALSE    | TRUE   | TRUE     |
 
 > Note that IdP signing keys are read-only
 
