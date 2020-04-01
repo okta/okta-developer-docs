@@ -14,3 +14,5 @@ app.post('/passwordimport', passwordImportValidation, (req, res) => {
 
   const credentials = req.body.data.context.credential;
 ```
+
+>**Note:** The method definition begun in this code snippet is incomplete, and is completed in the <GuideLink link="../send-response/">Send response</GuideLink> section.
