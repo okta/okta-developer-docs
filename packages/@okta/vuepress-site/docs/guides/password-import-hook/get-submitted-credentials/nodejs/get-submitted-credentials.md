@@ -1,4 +1,4 @@
-Here some basic checks are done to confirm that the properties exist and are strings. Then, their values are populated into an object called `credentials`, to be available later to check against our user store.
+Here, some basic checks are done to confirm that the properties exist and that they are strings. Then, their values are populated into an object called `credentials`, to be available later to be checked against our user store.
 
 ```javascript
 const passwordImportValidation = [
@@ -15,4 +15,4 @@ app.post('/passwordimport', passwordImportValidation, (req, res) => {
   const credentials = req.body.data.context.credential;
 ```
 
->**Note:** The method definition begun in this code snippet is incomplete, and is completed in the <GuideLink link="../send-response/">Send response</GuideLink> section.
+>**Note:** The method definition begun in this code snippet is incomplete and is completed in the <GuideLink link="../send-response/">Send response</GuideLink> section.
