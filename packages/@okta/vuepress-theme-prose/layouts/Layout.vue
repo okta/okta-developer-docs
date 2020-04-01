@@ -5,19 +5,19 @@
     </div>
 
     <div class="page-body">
-      <Breadcrumb />
+      <Breadcrumb/>
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
       <div class="content" v-else>
         <div class="content--container">
           <div class="tree-nav">
-            <Sidebar />
+            <Sidebar :sidebarActive="treeNavOpen"/>
           </div>
           <div class="content-area">
             <PageTitle />
             <MobileOnThisPage />
-            <Content />
+            <Content/>
           </div>
           <div class="on-this-page">
             <OnThisPage />
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
@@ -46,10 +47,11 @@ export default {
     Quickstart: () => import('../components/Quickstart.vue'),
   },
   data() {
-    return {}
+    return {
+      treeNavOpen: false
+    }
   },
   mounted() {
-
     window.addEventListener('load', () => {
         window.setTimeout(() => {
           let anchor = window.location.href.split('#')[1];
@@ -81,6 +83,10 @@ export default {
         }, 500);
     });
 
+    let that = this;
+    this.$on('toggle-tree-nav', event => {
+      that.treeNavOpen = event.treeNavOpen;
+    });
   }
 }
 </script>

@@ -85,7 +85,17 @@
       display: inline-block;
     }
 
-    div[class^='language-'],
+    div[class^='language-'] {
+      @include media('>=tablet') {
+        td img {
+          width:100%;
+          max-width: 100%;
+        }
+      }
+      margin-top: $base-spacing;
+      margin-bottom: $base-spacing;
+    }
+
     table {
       overflow-x: scroll;
 
@@ -103,6 +113,9 @@
       margin-top: 2rem;
     }
 
+    p > code {
+      overflow-wrap: break-word;
+    }
   }
 
   .on-this-page {
