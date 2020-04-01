@@ -364,7 +364,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/users/${id}/linkedObjects/${primary.name}" />
 
-For the user specified by ID, returns the `self` link for the `primary` user in the relationship specified by the primary.name. If the user specified is not the `associated` user in any relationship, an empty array is returned.
+For the user specified by ID, returns the `self` link for the `primary` user in the relationship specified by `primary.name`. If the user specified is not the `associated` user in any relationship, an empty array is returned.
 
 Use `me` instead of `id` to specify the current session user.
 
@@ -374,6 +374,7 @@ Use `me` instead of `id` to specify the current session user.
 | Parameter        | Description                                                                                                       | DataType          | Required      |
 | :--------------- | :-----------------                                                                                                | :---------------- | :------------ |
 | id               | ID of the user for whom you want to get the `primary` user ID. Can be `me` to represent the current session user. | String            | TRUE          |
+| primary.name     | Name of the `primary` relationship being queried                                                                  | String            | TRUE          |
 
 ##### Response Parameters
 
