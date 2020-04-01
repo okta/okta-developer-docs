@@ -8,18 +8,18 @@ The OIN Manager always shows the current status of your app.
 
 ### Step 1: Initial Review
 
-* **Pending review by Okta** - Okta App Analysts are notified of your submission. Okta App Analysts review the app submission and notify you by email when the submission review is complete.
-* **Action required** - Okta has reviewed your submission and found issues that require your correction. Check your email for results from the Okta initial review. Sign in to OIN Manager, update the requested details, and click **Submit for Review**. After the submission review is complete, the App Analyst moves it to Step 2 for QA testing.
+* **Pending review by Okta** &#8212; Okta App Analysts are notified of your submission. Okta App Analysts review the app submission and notify you by email when the submission review is complete.
+* **Action required** &#8212; Okta has reviewed your submission and found issues that require your correction. Check your email for results from the Okta initial review. Sign in to OIN Manager, update the requested details, and click **Submit for Review**. After the submission review is complete, the App Analyst moves it to Step 2 for QA testing.
 
 ### Step 2: Code Review
 
-* **Pending review by Okta** - Okta App Analysts are now conducting internal QA tests and will notify you by email when the QA review is complete.
-* **Action required** - Okta has found QA issues that require your correction. Check your email for results from the Okta QA review.
+* **Pending review by Okta** &#8212; Okta App Analysts are now conducting internal QA tests and will notify you by email when the QA review is complete.
+* **Action required** &#8212; Okta has found QA issues that require your correction. Check your email for results from the Okta QA review.
 
 ### Step 3: Approved
 
-* **Action required** - Your app submission has passed the QA testing process. Click **Publish Integration** to approve it for publication to the OIN catalog.
-* **Pending review by Okta** - An Okta App Analysts will publish your submission within 3 business days.
+* **Action required** &#8212; Your app submission has passed the QA testing process. Click **Publish Integration** to approve it for publication to the OIN catalog.
+* **Pending review by Okta** &#8212; An Okta App Analysts will publish your submission within 3 business days.
 
 ### Step 4: Published
 
