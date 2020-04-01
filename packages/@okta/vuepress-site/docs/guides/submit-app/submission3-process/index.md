@@ -14,7 +14,7 @@ The OIN Manager always shows the current status of your app.
 ### Step 2: Code Review
 
 * **Pending review by Okta** &#8212; Okta App Analysts are now conducting internal QA tests and will notify you by email when the QA review is complete.
-* **Action required** &#8212; Okta has found QA issues that require your correction. Check your email for results from the Okta QA review.
+* **Action required** &#8212; Okta has found QA issues that require your correction. Check your email for results from the Okta QA review. Make the requested changes as an update to your existing submission.
 
 ### Step 3: Approved
 
