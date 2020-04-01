@@ -1,4 +1,4 @@
-In this implementation of the external service in NodeJS, the Express framework is used, as well as a few packages to handle the routine tasks of REST request processing, to process the Inline Hook calls that come from Okta.
+In this implementation of an external service, the code is written for NodeJS and the Express framework is used. Several Node packages are used to handle the routine tasks of REST request processing to process the Inline Hook calls that come from Okta.
 
 
 ```javascript
