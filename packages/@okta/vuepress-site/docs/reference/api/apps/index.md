@@ -1152,7 +1152,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * All redirect URIs must be absolute URIs and must not include a fragment component.
 
-* When you create an app using the App Wizard in the UI, and you specify an app logo for the **Application logo** property, that value is stored as the `logo_uri` value and used as the logo on the application's tile for the dashboard as well as the client consent dialog box during the client consent flow. If you add or **modify** a `logo_uri` value later, that value is used only on the client consent dialog box during the client consent flow.
+* When you create an app using the App Wizard in the UI, and you specify an app logo for the **Application logo** property, that value is stored as the `logo_uri` value and used as the logo on the application's tile for the dashboard as well as the client consent dialog box during the client consent flow. If you add or modify a `logo_uri` value later, that value is used only on the client consent dialog box during the client consent flow.
 
 * Different application types have different valid values for the corresponding grant type:
 
