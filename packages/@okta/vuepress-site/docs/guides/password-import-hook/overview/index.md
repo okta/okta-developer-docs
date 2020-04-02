@@ -4,7 +4,7 @@ title: Overview
 
 This guide is about coding an external service to respond to calls from the Password Import Inline Hook. An external service is the customer-provided piece of software that Okta calls when the Inline Hook fires.
 
-* See [Password Import Inline Hook](docs/reference/password-hook/) for a complete description of this Inline Hook type.
+* See [Password Import Inline Hook](/docs/reference/password-hook/) for a complete description of this Inline Hook type.
 
 * See [Inline Hooks](/docs/concepts/inline-hooks/) for a general conceptual overview of how Okta Inline Hooks work. 
 
