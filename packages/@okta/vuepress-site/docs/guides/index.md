@@ -46,8 +46,6 @@ featured:
  - sign-into-web-app
  - sign-into-spa
 ---
-# Step-by step guides for the Okta platform
-
 Learn how to build applications using Okta's APIs with these step-by-step guides.
 
 To get started, choose a guide from the left.

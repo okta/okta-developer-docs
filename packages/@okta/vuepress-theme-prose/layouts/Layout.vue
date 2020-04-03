@@ -5,19 +5,19 @@
     </div>
 
     <div class="page-body">
-      <Breadcrumb/>
+      <Breadcrumb />
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
       <div class="content" v-else>
         <div class="content--container">
           <div class="tree-nav">
-            <Sidebar :sidebarActive="treeNavOpen"/>
+            <Sidebar :sidebarActive="treeNavOpen" />
           </div>
           <div class="content-area">
             <PageTitle />
             <MobileOnThisPage />
-            <Content/>
+            <Content />
           </div>
           <div class="on-this-page">
             <OnThisPage />

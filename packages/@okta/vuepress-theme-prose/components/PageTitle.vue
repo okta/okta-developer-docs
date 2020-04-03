@@ -1,7 +1,7 @@
 <template>
-  <div class="page-title" v-if="$page.frontmatter.icon">
+  <div class="page-title" v-if="showPageTitle">
     <h1 class="page-title--title">
-      <i class='icon-48' :class="$page.frontmatter.icon" ></i>
+      <i class='icon-48' v-if="$page.frontmatter.icon" :class="$page.frontmatter.icon" ></i>
       {{$page.title}}
     </h1>
     <div class="page-title--updated" v-show="false">
@@ -25,6 +25,12 @@
   export default {
     name: 'PageTitle',
     computed: {
+      showPageTitle() {
+        if (this.$page.path.includes("/docs/guides")) {
+          return true;
+        }
+        return this.$page.frontmatter.icon ? true : false;
+      },
       editLink () {
         if (this.$page.frontmatter.editLink === false) {
           return
