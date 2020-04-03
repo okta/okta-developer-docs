@@ -1,10 +1,10 @@
 ---
-title: Configure protocol specific settings
+title: Configure protocol-specific settings
 ---
 
-Your app has to support at least one protocol: SAML or OIDC for authentication, or SCIM for provisioning.
+Your app needs to support at least one protocol for interacting with Okta: SAML or OIDC for authentication, or SCIM for provisioning.
 
-If you want to support more than one, you can submit asynchronously. For example, you can submit your SAML app now and then add OIDC configuration details later on when your app is configured for OIDC.
+Protocol support details can be submitted all together or asynchronously. For example, if your app currently only supports SAML and SCIM, you can create the submission with the SAML and SCIM protocol details. At a later date, when you add OIDC support in your app, you can return to your integration submission, activate the OIDC support panel, and add in the details needed for Okta to enable OIDC support.
 
 For each protocol, click on the appropriate tab name and change the protocol support drop-down box from **Off** to **On**.
 
@@ -31,7 +31,7 @@ To get your Okta instance URL:
 1. Paste that value into your app submission.
 -->
 
-## Protocol specific settings
+## Protocol-specific settings
 
 Each of the supported protocols has different configuration settings for the remainder of the submission.
 

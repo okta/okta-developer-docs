@@ -2,6 +2,8 @@
 title: Publish an app integration with Okta Integration Network
 ---
 
+The Okta Integration Network (OIN) is the identity industry’s broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. By adding your app to the OIN, you can gain exposure to thousands of Okta customers who can discover and deploy your app to millions of users. OIN apps speed adoption by simplifying configuration steps and reducing friction for your customers.
+
 If you are an independent software vendor (ISV), Okta customer, or IT system integrator who wants to add their app integration to the [Okta Integration Network](https://www.okta.com/integrations/), read this guide for instructions on how to submit your app. Integrating your application with the Okta Integration Network is completely cost free.
 
 ## Protocols supported
@@ -29,6 +31,6 @@ After you have built a functioning app integration, a few steps are required to 
 
 If you need additional help with the publication process, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or email us at <developers@okta.com>.
 
->**Note:** OIN apps are public. If you want to submit a private app request for SCIM 1.1 apps, or Profile Master apps, or apps that use a custom header expression for Header Auth, then use the SCIM App Wizard to create your app and then send an email to <developers@okta.com>.
+>**Note:** All apps in the OIN catalog are public. If you want to submit a private app request for: SCIM 1.1 apps, Profile Master apps, or apps that use a custom header expression for Header Auth, then use the SCIM App Wizard to create your app and send an email to <developers@okta.com>. Okta App Analysts will help you to create an internal-only app that is not included in the OIN.
 
 <NextSectionLink/>

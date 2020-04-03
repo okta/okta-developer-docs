@@ -31,11 +31,11 @@ Your configuration guide should include the following sections:
 
 ### Prerequisites
 
-In this section, specify any prerequisites required before the customer configures your provisioning integration in Okta. Examples may include enabling specific Okta features or SKUs, enabling API access to your SCIM server, or adding a particular version of an app in Okta.
+In this section, specify any prerequisites required before your customer configures your provisioning integration in Okta. Examples may include enabling specific Okta features or SKUs, enabling API access to your SCIM server, or adding a particular version of an app in Okta.
 
 For example:
 
-`When using SAML as the SSO mode with provisioning, a specific account plan needs to be enabled on the application side for silent activation.`
+> When using SAML as the SSO mode with provisioning, a specific account plan needs to be enabled on the application side for silent activation.
 
 ### Supported Features
 
@@ -54,7 +54,7 @@ In this section of your guide, you want to outline what features your app suppor
 
 Also include any restrictions. For example:
 
-`Okta cannot update user attributes for Admin users. This is an API limitation.`
+> Okta cannot update user attributes for Admin users. This is an API limitation.
 
 ### Procedure
 
@@ -62,7 +62,7 @@ This section constitutes the majority of your guide and explains all the configu
 
 Also include any best practices for your procedure, such as guidance on setting mappings for attributes, especially required attributes that don't have a default mapping. For example:
 
-`The External ID is a required attribute, but it doesn't have a default mapping. This is because some customers prefer to set it to EmployeeNumber, and others like to set it to emailAddress. Assign the mapping to the correct value for your organization.`
+> The External ID is a required attribute, but it doesn't have a default mapping. This is because some customers prefer to set it to EmployeeNumber, and others like to set it to emailAddress. Assign the mapping to the correct value for your organization.
 
 ### Troubleshooting and Tips
 
