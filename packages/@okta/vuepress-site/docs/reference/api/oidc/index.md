@@ -126,7 +126,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
   * `okta_post_message` - Uses [HTML5 Web Messaging](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) (for example, `window.postMessage()`) instead of the redirect for the authorization response from the `/authorize` endpoint.
 
     `okta_post_message` is an adaptation of the [Web Message Response Mode](https://tools.ietf.org/html/draft-sakimura-oauth-wmrm-00#section-4.1).
-    This value provides a secure way for a single-page application to perform a sign-in flow in a pop-up window or an iFrame and receive the ID token, access token, and/or authorization code back in the parent page without leaving the context of that page. The data model for the `postMessage` call is in the next section.
+    This value provides a secure way for a single-page application to perform a sign-in flow in a pop-up window or an iFrame and receive the ID token, access token, and/or authorization code back in the parent page without leaving the context of that page. The data object for the `postMessage` call is in the next section.
   * The `Referrer-Policy` header is automatically included in the request for `fragment` or `query` and is set to `Referrer-Policy: no-referrer`.
 
 * `state`:
@@ -135,9 +135,9 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
   The OAuth 2.0 specification [requires](https://tools.ietf.org/html/rfc6749#section-10.12) that clients protect their redirect URIs against CSRF by sending a value in the authorize request that binds the request to the user-agent's authenticated state.
   Using the `state` parameter is also a countermeasure to several other known attacks as outlined in [OAuth 2.0 Threat Model and Security Considerations](https://tools.ietf.org/html/rfc6819).
 
-#### postMessage() data model
+#### postMessage() data object
 
-Use the `postMessage()` data model to help you when working with the `okta_post_message` value of the `response_mode` request parameter.
+Use the `postMessage()` data object to help you when working with the `okta_post_message` value of the `response_mode` request parameter.
 
 `message`:
 

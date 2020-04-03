@@ -15,8 +15,8 @@ Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
  - **[List Operations](#factor-operations)** - List factors and security questions.
  - **[Lifecycle Operations](#factor-lifecycle-operations)** - Enroll, activate, and reset factors.
- - **[Challenge and Verify Operations](#factors-that-perform-challenge-and-verify-operations)** - Challenge and Verify a factor
- - **[Verification Only Operations](#factor-that-perform-only-verification-operations)** - Verify a factor
+ - **[Challenge and Verify Operations](#factors-that-require-a-challenge-and-verify-operation)** - Challenge and Verify a factor
+ - **[Verification Only Operations](#factors-that-require-only-a-verification-operation)** - Verify a factor
 
 ### Get Factor
 
@@ -28,12 +28,12 @@ Fetches a factor for the specified user
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |
 | factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
+| userId       | `id` of a user                                      | URL        | String   | TRUE     |
 
 #### Response Parameters
 
-[Factor](#factor-model)
+[Factor](#factor-object)
 
 ##### Request Example
 
@@ -103,7 +103,7 @@ Enumerates all the enrolled factors for the specified user
 
 ##### Response Parameters
 
-Array of [Factors](#factor-model)
+Array of [Factors](#factor-object)
 
 ##### Request Example
 
@@ -260,7 +260,7 @@ Enumerates all the [supported factors](#supported-factors-for-providers) that ca
 
 ##### Response Parameters
 
-Array of [Factors](#factor-model)
+Array of [Factors](#factor-object)
 
 ##### Request Example
 
@@ -476,7 +476,7 @@ Enrolls a user with a supported [factor](#list-factors-to-enroll)
 | Parameter            | Description                                                                                            | Param Type | DataType                | Required |
 | -------------------- | ------------------------------------------------------------------------------------------------------ | ---------- | ----------------------- | -------- |
 | activate             | If set to `true` will automatically attempt to activate a Factor after enrolling it                    | Query      | Boolean                 | FALSE    |
-| factor               | Factor                                                                                                 | Body       | [Factor](#factor-model) | TRUE     |
+| factor               | Factor                                                                                                 | Body       | [Factor](#factor-object) | TRUE     |
 | id                   | `id` of user                                                                                           | URL        | String                  | TRUE     |
 | templateId           | `id` of an SMS template (only for SMS Factors)                                                         | Query      | String                  | FALSE    |
 | tokenLifetimeSeconds | The lifetime of the Email Factors OTP, with a value between `1` and `86400` (Default is `300`)         | Query      | Number                  | FALSE    |
@@ -484,7 +484,7 @@ Enrolls a user with a supported [factor](#list-factors-to-enroll)
 
 ##### Response Parameters
 
-All responses return the enrolled [Factor](#factor-model) with a status of either `PENDING_ACTIVATION` or `ACTIVE`.
+All responses return the enrolled [Factor](#factor-object) with a status of either `PENDING_ACTIVATION` or `ACTIVE`.
 
 > Some [factor types](#factor-type) require [activation](#activate-factor) to complete the enrollment process.
 
@@ -1740,7 +1740,7 @@ Activates a `token:software:totp` factor by verifying the OTP.
 
 ##### Response Parameters
 
-If the passcode is correct you will receive the [Factor](#factor-model) with an `ACTIVE` status.
+If the passcode is correct you will receive the [Factor](#factor-object) with an `ACTIVE` status.
 
 If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
 
@@ -1828,7 +1828,7 @@ Activates a `sms` factor by verifying the OTP.  The request/response is identica
 
 ##### Response Parameters
 
-If the passcode is correct you will receive the [Factor](#factor-model) with an `ACTIVE` status.
+If the passcode is correct you will receive the [Factor](#factor-object) with an `ACTIVE` status.
 
 If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
 
@@ -1916,7 +1916,7 @@ Activates a `call` factor by verifying the OTP.  The request/response is identic
 
 ##### Response Parameters
 
-If the passcode is correct you will receive the [Factor](#factor-model) with an `ACTIVE` status.
+If the passcode is correct you will receive the [Factor](#factor-object) with an `ACTIVE` status.
 
 If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
 
@@ -2009,7 +2009,7 @@ Activations have a short lifetime (minutes) and will `TIMEOUT` if they are not c
 
 | Parameter        | Description                    | Param Type | DataType                                                        | Required | Default |
 | ---------------- | ------------------------------ | ---------- | --------------------------------------------------------------- | -------- | ------- |
-| activationResult | asynchronous activation result | Body       | [Push Factor Activation Object](#push-factor-activation-object) | TRUE     |         |
+| activationResult | asynchronous activation result | Body       | [Push Factor Activation object](#push-factor-activation-object) | TRUE     |         |
 
 ##### Request Example
 
@@ -2144,7 +2144,7 @@ Activates an `email` factor by verifying the OTP.
 
 ##### Response Parameters
 
-If the passcode is correct the response contains [Factor](#factor-model) with an `ACTIVE` status.
+If the passcode is correct the response contains [Factor](#factor-object) with an `ACTIVE` status.
 
 If the passcode is invalid response will be `403 Forbidden` with the following error:
 
@@ -2263,7 +2263,7 @@ Activate a U2F factor by verifying the registration data and client data.
 
 ##### Activate U2F Response Parameters
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction.
 
 If the registration nonce is invalid or if registration data is invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -2383,7 +2383,7 @@ Activate a WebAuthn factor by verifying the attestation and client data.
 | clientData        | base64-encoded client data from WebAuthn javascript call        | Body       | String   | TRUE     |
 
 
-[Authentication Transaction Object](#authentication-transaction-model) with the current [state](#transaction-state) for the authentication transaction.
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction.
 
 If the attestation nonce is invalid, or if the attestation or client data are invalid, you receive a `403 Forbidden` status code with the following error:
 
@@ -3562,7 +3562,7 @@ curl -v -X POST \
 }
 ```
 
-## Factor Model
+## Factor object
 
 ### Example
 
@@ -3619,8 +3619,8 @@ Factors have the following properties:
 | status         | status of a factor                                                | `NOT_SETUP`, `PENDING_ACTIVATION`, `ENROLLED`, `ACTIVE`, `INACTIVE`, `EXPIRED` | FALSE    | FALSE  | TRUE     |
 | created        | timestamp when factor was created                                 | Date                                                                           | FALSE    | FALSE  | TRUE     |
 | lastUpdated    | timestamp when factor was last updated                            | Date                                                                           | FALSE    | FALSE  | TRUE     |
-| profile        | profile of a [supported factor](#supported-factors-for-providers) | [Factor Profile Object](#factor-profile-object)                                | TRUE     | FALSE  | FALSE    |
-| verify         | optional verification  for factor enrollment                      | [Factor Verification Object](#factor-verification-object)                      | TRUE     | FALSE  | FALSE    |
+| profile        | profile of a [supported factor](#supported-factors-for-providers) | [Factor Profile object](#factor-profile-object)                                | TRUE     | FALSE  | FALSE    |
+| verify         | optional verification  for factor enrollment                      | [Factor Verification object](#factor-verification-object)                      | TRUE     | FALSE  | FALSE    |
 | _links         | [discoverable resources](#links-object) related to the factor     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                 | TRUE     | FALSE  | TRUE     |
 | _embedded      | [embedded resources](#embedded-resources) related to the factor   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                 | TRUE     | FALSE  | TRUE     |
 
@@ -3676,7 +3676,7 @@ Each provider supports a subset of a factor types.  The following table lists th
 | `DUO`      | `web`                 |
 | `YUBICO`   | `token:hardware`      |
 
-### Factor Profile Object
+### Factor Profile object
 
 Profiles are specific to the [factor type](#factor-type).
 
@@ -3826,7 +3826,7 @@ Email factor can be used
 
 * As a proper Okta 2nd factor (just like Okta Verify, SMS, etc). This can be configured via the standard MultiFactor UI in the Okta administrator UI. The email factor is then eligible to be used during Okta Sign-On as a valid 2nd factor just like any of other the factors. This is currently BETA.
 
-### Factor Verification Object
+### Factor Verification object
 
 Specifies additional verification data for `token` or `token:hardware` factors
 
@@ -3844,7 +3844,7 @@ Specifies additional verification data for `token` or `token:hardware` factors
 }
 ```
 
-### Links Object
+### Links object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.  This object is used for dynamic discovery of related resources and lifecycle operations.
 
@@ -3858,11 +3858,11 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | resend             | List of delivery options to resend activation or factor challenge                |
 | poll               | Polls factor for completion of activation of verification                        |
 
-> The Links Object is **read-only**.
+> The Links object is **read-only**.
 
 ## Embedded Resources
 
-### TOTP Factor Activation Object
+### TOTP Factor Activation object
 
 TOTP factors when activated have an embedded activation object which describes the [TOTP](http://tools.ietf.org/html/rfc6238) algorithm parameters.
 
@@ -3885,7 +3885,7 @@ TOTP factors when activated have an embedded activation object which describes t
 }
 ```
 
-### Push Factor Activation Object
+### Push Factor Activation object
 
 Push factors must complete activation on the device by scanning the QR code or visiting activation link sent via email or sms.
 
@@ -3930,7 +3930,7 @@ Push factors must complete activation on the device by scanning the QR code or v
 }
 ```
 
-#### Push Factor Activation Links Object
+#### Push Factor Activation Links object
 
 Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the push factor activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.  This object is used for dynamic discovery of related resources and operations.
 
@@ -3940,7 +3940,7 @@ Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | send               | Sends an activation link via `email` or `sms` for users who can't scan the QR code |
 
 
-### Factor Verify Result Object
+### Factor Verify Result object
 
 Describes the outcome of a factor verification request
 

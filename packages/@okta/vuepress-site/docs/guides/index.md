@@ -13,6 +13,7 @@ guides:
  - enable-cors
  - find-your-app-credentials
  - find-your-domain
+ - password-import-hook
  - implement-auth-code
  - implement-auth-code-pkce
  - implement-client-creds

@@ -30,11 +30,11 @@ Adds a new client Application to your organization
 
 | Parameter   | Description                          | ParamType   | DataType                                        | Required |
 | :---------- | :----------------------------------- | :---------- | :---------------------------------------------- | :------- |
-| settings    | OAuth client registration settings   | Body        | [Client settings](#client-application-model)    | TRUE     |
+| settings    | OAuth client registration settings   | Body        | [Client settings](#client-application-object)    | TRUE     |
 
 ##### Response parameters
 
-The [OAuth client](#client-application-model) created by the request
+The [OAuth client](#client-application-object) created by the request
 
 > **Note:** <ApiLifecycle access="ea" /> Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
 
@@ -211,7 +211,7 @@ Lists all the client Applications in your organization (with optional pagination
 
 ##### Response parameters
 
-Array of [OAuth clients](#client-application-model)
+Array of [OAuth clients](#client-application-object)
 
 ##### Request example: List all clients
 
@@ -416,7 +416,7 @@ Fetches a specific client by `clientId` from your organization
 
 ##### Response parameters
 
-The requested [OAuth client](#client-application-model)
+The requested [OAuth client](#client-application-object)
 
 ##### Request example
 
@@ -488,13 +488,13 @@ Updates the settings for a client Application from your organization
 | Parameter | Description                        | ParamType | DataType                                     | Required |
 | --------- | ---------------------------------- | --------- | --------------------------------------       | -------- |
 | clientId  | `client_id` of a specific client   | URL       | String                                       | TRUE     |
-| settings  | OAuth client registration settings | Body      | [Client settings](#client-application-model) | TRUE     |
+| settings  | OAuth client registration settings | Body      | [Client settings](#client-application-object) | TRUE     |
 
 > **Note:** You must specifiy all settings when you update a client Application. Partial updates aren't supported. If any settings are missing when you update a client Application, the update fails. The exceptions are: `client_secret_expires_at` or `client_id_issued_at` must not be included in the request, and the `client_secret` can be omitted.
 
 ##### Response parameters
 
-Updated [OAuth client](#client-application-model)
+Updated [OAuth client](#client-application-object)
 
 ##### Request example
 
@@ -592,7 +592,7 @@ Generates a new client secret for the specified client Application
 
 ##### Response parameters
 
-Updated [OAuth client](#client-application-model) with `client_secret` shown
+Updated [OAuth client](#client-application-object) with `client_secret` shown
 
 ##### Request example
 
@@ -706,7 +706,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-## Client Application model
+## Client Application object
 
 ### Example
 
@@ -756,7 +756,7 @@ Client Applications have the following properties:
 | grant_types                             | Array of OAuth 2.0 grant type strings. Default value: `authorization_code`                    | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`   | TRUE       | FALSE    | FALSE     |
 | initiate_login_uri                      | URL that a third party can use to initiate a login by the client                                                             | String                                                                                         | TRUE       | FALSE    | FALSE     |
 | jwks                                    | A [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                   | [JSON Web Key Set](#json-web-key-set)                                                          | TRUE       | FALSE    | FALSE     |
-| logo_uri                                | URL string that references a logo for the client consent dialogs (not sign-in dialogs)   | String                                                                                         | TRUE       | FALSE    | FALSE     |
+| logo_uri                                | URL string that references a logo for the client consent dialog box (not the sign-in dialog box). See [Add an OAuth 2.0 client application](/docs/reference/api/apps/#details) for more information on how the `logo_uri` is used.   | String                                                                                         | TRUE       | FALSE    | FALSE     |
 | policy_uri <ApiLifecycle access="ea" /> | URL string of a web page providing the client's policy document                                                              | URL                                                                                           | TRUE       | FALSE    | FALSE     |
 | post_logout_redirect_uris               | Array of redirection URI strings for use for relying party initiated logouts                  | Array      | TRUE   | FALSE  | FALSE    |
 | redirect_uris                           | Array of redirection URI strings for use in redirect-based flows                              | Array      | TRUE   | FALSE  | FALSE    |
