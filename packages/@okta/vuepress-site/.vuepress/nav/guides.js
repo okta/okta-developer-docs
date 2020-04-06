@@ -14,6 +14,7 @@ module.exports = [
     { title: 'Enable CORS', guideName: 'enable-cors' },
     { title: 'Find your application credentials', guideName: 'find-your-app-credentials' },
     { title: 'Find your Okta domain', guideName: 'find-your-domain' },
+    { title: 'Implement a Password Import Inline Hook', guideName: 'password-import-hook' },
     { title: 'Implement the Authorization Code Flow', guideName: 'implement-auth-code' },
     { title: 'Implement the Authorization Code Flow with PKCE', guideName: 'implement-auth-code-pkce' },
     { title: 'Implement the Client Credentials Flow', guideName: 'implement-client-creds' },
