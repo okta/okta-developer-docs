@@ -3992,7 +3992,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 | algorithm  | String   | The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5. |
 | value      | String   | For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded `value` of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the `salt` to the `password`, depending on the `saltOrder`. If a `salt` was not used in the `source` system, then this should just be the the Base64 encoded `value` of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password. |
 | salt       | String   | For salted algorithms, specifies the base64-encoded password salt used to generate the hash. For BCRYPT, specifies the radix64-encoded password salt used to generate the hash. Only required for salted algorithms. Length must be 22. |
-| workFactor | Integer  | Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20. |
+| workFactor | Number  | Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20. |
 | saltOrder  | String   | Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms. |
 
 ###### BCRYPT Hashed Password object example
