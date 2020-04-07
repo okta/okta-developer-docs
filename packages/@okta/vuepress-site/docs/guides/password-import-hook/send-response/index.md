@@ -2,7 +2,7 @@
 title: Send response
 ---
 
-The way to specify to Okta whether to accept the credentials as valid or not is by returning a `commands` object in the body of your HTTPS response, using a specified syntax within the object to tell Okta that the credentials should either be denied or accepted.
+The way to specify to Okta whether to accept the credentials as valid or not is by returning a `commands` object in the body of your HTTPS response, using a specified syntax within the object to indicate to Okta that the credentials should either be denied or accepted.
 
 If you return an empty HTTPS response with an HTTP 204 "No content success" status code,  Okta takes the default action, which is to reject the credentials.
 
