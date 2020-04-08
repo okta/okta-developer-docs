@@ -16,9 +16,9 @@ Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 ## User Schema Operations
 
-Each of the operations described here affects the Schema associated with a single User Type (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)). The `${typeId}` element in the URL specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.
+Each of the operations described here affects the Schema associated with a single User Type (see [User Types](/docs/reference/api/user-types)). The `${typeId}` element in the URL specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.
 
-Each User Type has an associated Schema. In the future the linkage between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. The schema ID for the Schema associated with a [User Type](/docs/reference/api/user-types/#user-type-object) object can be obtained from its `schema` link. If the <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types) feature is enabled, the `schema` link is also included in individual [User](/docs/reference/api/users/#user-object) objects.
+Each User Type has an associated Schema. In the future the linkage between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. The schema ID for the Schema associated with a [User Type](/docs/reference/api/user-types/#user-type-object) object can be obtained from its `schema` link. The `schema` link is also included in individual [User](/docs/reference/api/users/#user-object) objects.
 
 The Request Examples below all use the `default` form, as all orgs include a default User Type.
 
@@ -656,7 +656,7 @@ curl -v -X POST \
 
 ## App User Schema Operations
 
-The <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types) feature does not extend to applications: all users assigned to a given application use the same [App User Schema](#app-user-schema-object). Thus, unlike the User Schema operations, the App User Schema operations all specify `default` and do not accept a schema ID.
+The [User Types](/docs/reference/api/user-types) feature does not extend to applications: all users assigned to a given application use the same [App User Schema](#app-user-schema-object). Thus, unlike the User Schema operations, the App User Schema operations all specify `default` and do not accept a schema ID.
 
 ### Get App User Schema
 
@@ -1270,7 +1270,7 @@ The base user profile is based on the [System for Cross-Domain Identity Manageme
 
 > **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code; e.g., 'en_US' specifies the language English and country US.
 
-> **Note:** The `userType` field is an arbitrary String value and is not related to the newer User Types feature (see <ApiLifecycle access="ea" /> [User Types](/docs/reference/api/user-types)).
+> **Note:** The `userType` field is an arbitrary String value and is not related to the newer User Types feature (see [User Types](/docs/reference/api/user-types)).
 
 ##### Login Pattern Validation
 
