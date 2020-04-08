@@ -3,7 +3,7 @@ title: Get an access token using a Service app
 ---
 To request an access token using the Client Credentials grant flow, you make a request to your Okta [Org Authorization Server's](/docs/concepts/auth-servers) `/token` endpoint. The following is an example request for an access token (the JWT is truncated for brevity):
 
-> **Note:** Move on to the <GuideLink link="../save-access-token">next section</GuideLink> if you aren't using the Client Credentials grant flow.
+> **Note:** Move on to the <GuideLink link="../scopes">next section</GuideLink> if you aren't using the Client Credentials grant flow.
 
 ```json
 curl -X POST "https://{yourOktaDomain}/oauth2/v1/token"
