@@ -1,6 +1,5 @@
 const fs = require('fs');
 const yaml = require('js-yaml');
-const path = require('path')
 
 // generate info that will provide both the list of additional Pages & any necessary extendPageData
 // Convert util/guides to pull from that extended PageData as much as possible (reduce client-side load)
@@ -51,7 +50,6 @@ allGuidesMeta.guides.forEach( guide => {
         title: `${sectionMeta.title} - ${guideMeta.title}`,
         toAdd: true, // used to flag additions compared to any existing page definitions
         mainFramework: guideMeta.mainFramework,
-        filePath: path.resolve(__dirname, `../../${GUIDE_ROOT}/${guide}/${section}/index.md`)
       };
     });
   });

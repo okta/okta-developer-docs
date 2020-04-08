@@ -7,11 +7,6 @@
 @import 'abstracts/colors';
 @import 'abstracts/variables';
 
-// Icons
-@import 'okta/global/fontawesome';
-@import 'okta/global/fontello';
-@import 'okta/icons/all';
-
 // Base 
 @import 'base/typography';
 
@@ -38,7 +33,4 @@
 @import 'components/categoryLinks';
 @import 'components/quickstart';
 @import 'components/search';
-@import 'components/frameworkIconBlock';
-@import 'components/featuredGuides';
-@import 'components/stackSelector';
-@import 'components/nextSectionLink';
+

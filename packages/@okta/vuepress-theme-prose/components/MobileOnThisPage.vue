@@ -1,5 +1,5 @@
 <template>
-  <div class="mobile-on-this-page" v-show="options.length > 0">
+  <div class="mobile-on-this-page">
     <h3>On This Page</h3>
     <v-select :options="options" :searchable="false" :multiple="false" :clearable="false" v-on:input="inputChanged"></v-select>
   </div>

@@ -27,6 +27,9 @@
         if(this.$page.path == '/docs/reference/') {
           return false;
         }
+        if(this.$page.path.includes('/docs/guides/')) {
+          return false;
+        }
         return true;
       },
       showHideContents() {
