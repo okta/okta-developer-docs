@@ -58,7 +58,7 @@ import React, { useState } from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { useOktaAuth } from '@okta/okta-react';
 
-const LoginForm = ({ baseUrl }) => { 
+const LoginForm = ({ issuer }) => { 
   const { authService } = useOktaAuth();
   const [sessionToken, setSessionToken] = useState();
   const [username, setUsername] = useState();
@@ -66,7 +66,7 @@ const LoginForm = ({ baseUrl }) => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    const oktaAuth = new OktaAuth({ url: baseUrl });
+    const oktaAuth = new OktaAuth({ issuer: issuer });
     oktaAuth.signIn({ username, password })
       .then(res => setSessionToken(res.sessionToken))
       .catch(err => console.log('Found an error', err));
@@ -125,7 +125,7 @@ export default withOktaAuth(class LoginForm extends Component {
       password: ''
     };
 
-    this.oktaAuth = new OktaAuth({ url: props.baseUrl });
+    this.oktaAuth = new OktaAuth({ issuer: props.issuer });
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -284,7 +284,7 @@ import { Redirect } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import { useOktaAuth } from '@okta/okta-react';
 
-const Login = ({ baseUrl }) => { 
+const Login = ({ issuer }) => { 
   const { authState } = useOktaAuth();
 
   if (authState.isPending) { 
@@ -292,7 +292,7 @@ const Login = ({ baseUrl }) => {
   }
   return authState.isAuthenticated ?
     <Redirect to={{ pathname: '/' }}/> :
-    <LoginForm baseUrl={baseUrl} />;
+    <LoginForm issuer={issuer} />;
 };
 ```
 
@@ -313,7 +313,7 @@ export default withOktaAuth(class Login extends Component {
     }
     return this.props.authState.isAuthenticated ?
       <Redirect to={{ pathname: '/' }}/> :
-      <LoginForm baseUrl={this.props.baseUrl} />;
+      <LoginForm issuer={this.props.issuer} />;
   }
 });
 ```
@@ -368,7 +368,7 @@ const AppWithRouterAccess = () => {
               pkce={true} >
       <Route path='/' exact={true} component={Home} />
       <SecureRoute path='/protected' component={Protected} />
-      <Route path='/login' render={() => <Login baseUrl='https://${yourOktaDomain}' />} />
+      <Route path='/login' render={() => <Login issuer='https://${yourOktaDomain}/oauth2/default' />} />
       <Route path='/implicit/callback' component={LoginCallback} />
     </Security>
   );
@@ -425,7 +425,7 @@ export default withRouter(class AppWithRouterAccess extends Component {
                 pkce={true} >
         <Route path='/' exact={true} component={Home} />
         <SecureRoute path='/protected' component={Protected} />
-        <Route path='/login' render={() => <Login baseUrl='https://${yourOktaDomain}' />} />
+        <Route path='/login' render={() => <Login issuer='https://${yourOktaDomain}/oauth2/default' />} />
         <Route path='/implicit/callback' component={LoginCallback} />
       </Security>
     );
