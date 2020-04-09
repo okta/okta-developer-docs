@@ -1889,3 +1889,7 @@ redirects:
     to: /docs/guides/build-sso-integration/openidconnect/test-your-app/
   - from: /docs/guides/build-sso-integration/saml/test-your-app/index.html
     to: /docs/guides/build-sso-integration/saml2/test-your-app/
+  - from: /docs/guides/submit-app/prepare-for-submission/index.html
+    to: /docs/guides/submit-app/overview/
+  - from: /docs/guides/submit-app/submit/index.html
+    to: /docs/guides/submit-app/submission1-general/
