@@ -3,6 +3,7 @@
 module.exports = [
     { title: 'Guides', path: '/docs/guides/' },
     { title: 'Add an external Identity Provider', guideName: 'add-an-external-idp' },
+    { title: 'Add multifactor authentication', guideName: 'mfa' },
     { title: 'Build a custom sign-in UI in your mobile app', guideName: 'build-custom-ui-mobile' },
     { title: 'Build a JWT for Client Authentication', guideName: 'build-self-signed-jwt' },
     { title: 'Create an API token', guideName: 'create-an-api-token' },
@@ -21,7 +22,6 @@ module.exports = [
     { title: 'Implement the Implicit Flow', guideName: 'implement-implicit' },
     { title: 'Implement OAuth for Okta', guideName: 'implement-oauth-for-okta' },
     { title: 'Implement the Resource Owner Password Flow', guideName: 'implement-password' },
-    { title: 'Add multifactor authentication', guideName: 'mfa' },
     { title: 'OIN - Build a SCIM provisioning integration', guideName: 'build-provisioning-integration' },
     { title: 'OIN - Build a Single Sign-On (SSO) integration', guideName: 'build-sso-integration' },
     { title: 'OIN - Submit an app integration', guideName: 'submit-app' },
@@ -30,7 +30,6 @@ module.exports = [
     { title: 'Request user consent', guideName: 'request-user-consent' },
     { title: 'Revoke Tokens', guideName: 'revoke-tokens' },
     { title: 'Set up a SAML application in Okta', guideName: 'saml-application-setup' },
-    { title: 'Work with Okta session cookies', guideName: 'session-cookie' },
     { title: 'Set Up Event Hooks', guideName: 'set-up-event-hook' },
     { title: 'Share a sign-in session with native mobile apps', guideName: 'shared-sso-android-ios' },
     { title: 'Share Application Key Credentials for IdPs Across Apps', guideName: 'sharing-cert' },
@@ -43,4 +42,5 @@ module.exports = [
     { title: 'Upgrade SAML Apps to SHA256', guideName: 'updating-saml-cert' },
     { title: 'Validate Access Tokens', guideName: 'validate-access-tokens' },
     { title: 'Validate ID Tokens', guideName: 'validate-id-tokens' },
+    { title: 'Work with Okta session cookies', guideName: 'session-cookie' },
 ]
