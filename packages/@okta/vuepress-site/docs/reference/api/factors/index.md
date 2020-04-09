@@ -3235,31 +3235,6 @@ curl -v -X POST \
 }
 ```
 
-### Verify YubiKey Factor
-
-<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
-Verifies a user with a [Yubico OTP](https://developers.yubico.com/OTP/OTPs_Explained.html) for a YubiKey `token:hardware` factor.
-
-#### Request Example for Verify YubiKey Factor
-
-```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
--d '{
-"passCode": "123456"
-}' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ostf17zuKEUMYQAQGCOV/verify"
-```
-
-#### Response Example for Verify YubiKey Factor
-
-```json
-{
-"factorResult": "SUCCESS"
-}
-```
-
 ### Issue a WebAuthn Factor Challenge
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
@@ -3555,6 +3530,31 @@ curl -v -X POST \
 ```
 
 ##### Response Example
+
+```json
+{
+  "factorResult": "SUCCESS"
+}
+```
+
+### Verify YubiKey Factor
+
+<ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
+Verifies a user with a [Yubico OTP](https://developers.yubico.com/OTP/OTPs_Explained.html) for a YubiKey `token:hardware` factor.
+
+#### Request Example for Verify YubiKey Factor
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "passCode": "123456"
+}' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ostf17zuKEUMYQAQGCOV/verify"
+```
+
+#### Response Example for Verify YubiKey Factor
 
 ```json
 {
