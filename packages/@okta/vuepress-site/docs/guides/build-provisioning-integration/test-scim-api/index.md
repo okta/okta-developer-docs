@@ -44,7 +44,7 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
     | Variable Name | Example Values | Notes |
     |:-|:-|:-|
     | SCIMBaseURL | `https://example.com/scim/v2`  `https://example.com/scim/v1` | For example, if your SCIM integration is hosted on <https://example.com> and uses a prefix of /scim/v2 then the *SCIMBaseURL* value for your integration would be: `https://example.com/scim/v2`. |
-    | auth | Bearer abcxyz1234567890 | Basic or OAuth authorization token. |
+    | auth | Bearer abcxyz1234567890 | OAuth 2.0 Bearer token or Basic authentication code. |
     Click **Save**.
 
 1. In a new browser window, open the [Initial Script Spec](/standards/SCIM/SCIMFiles/Initial_Script_Spec.txt) text file and copy all the text to your clipboard.
