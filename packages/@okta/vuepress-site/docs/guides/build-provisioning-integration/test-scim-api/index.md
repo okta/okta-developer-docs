@@ -35,7 +35,7 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 1. You should be looking at the **API Tests** window in Runscope, if not, click the **Tests** tab at the top of the Runscope user interface.
 1. You should see a test named **Okta SCIM X.X Spec Test** (where X.X corresponds to the SCIM version of the JSON file you uploaded).
 1. Click **Edit** on the test panel.
-1. The **Okta SCIM X.X SPEC Test** window appears. Under the **Environment** section of your test, there is a collapsed section labelled **Test Settings** . Click the small arrow to expand this section.
+1. The **Okta SCIM X.X SPEC Test** window appears. Under the **Environment** section of your test, there is a collapsed section labelled **Test Settings**. Click the small arrow to expand this section.
 1. Select the **Initial Variables** tab.
 
     ![Initial Variables tab](/img/oin/scim_test-init_variables.png "Showing the location of the Initial Variables tab")
