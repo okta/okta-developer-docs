@@ -1,15 +1,13 @@
 <template>
   <aside class="on-this-page-navigation">
-    <div v-show="showOnthisPage">
-      <div class="title">On This Page</div>
-      <div>
-        <ul class="links" v-if="items">
-          <OnThisPageItem v-for="(link, index) in items" :link="link" :key="index" :activeAnchor=activeAnchor />
-          </ul>
-        <ul class="links" v-else>
-          <OnThisPageItem v-for="(link, index) in $page.fullHeaders[0].children" :link="link" :key="index" :activeAnchor=activeAnchor />
+    <div class="title">On This Page</div>
+    <div>
+      <ul class="links" v-if="items">
+        <OnThisPageItem v-for="(link, index) in items" :link="link" :key="index" :activeAnchor=activeAnchor />
         </ul>
-      </div>
+      <ul class="links" v-else>
+        <OnThisPageItem v-for="(link, index) in $page.fullHeaders[0].children" :link="link" :key="index" :activeAnchor=activeAnchor />
+      </ul>
     </div>
   </aside>
 </template>
@@ -24,13 +22,6 @@
     data() {
       return {
         activeAnchor: null
-      }
-    },
-    computed: {
-      showOnthisPage: function(){
-         return this.items || 
-                (this.$page.fullHeaders[0].children && this.$page.fullHeaders[0].children.length > 0) 
-                ? true : false;
       }
     },
     mounted() {

@@ -119,8 +119,7 @@ module.exports = {
 
     sidebars: {
       codePages: require('./nav/codePages'),
-      reference: require('./nav/reference'),
-      guides: require('./nav/guides')
+      reference: require('./nav/reference')
     },
 
     quickstarts: {
@@ -242,8 +241,17 @@ module.exports = {
   extraWatchFiles: [
     '.vuepress/nav/*',
   ],
-  
   additionalPages: [
     ...guidesInfo.additionalPagesForGuides(),
   ],
+  extendPageData(page) {
+    if(page.path.startsWith(`/docs/guides/`)) {
+      page.frontmatter.layout = 'Guides';
+      const info = guidesInfo.guideInfo[page.path];
+      if(info) {
+        page.breadcrumb = info.breadcrumb;
+      }
+    }
+  },
+
 }
