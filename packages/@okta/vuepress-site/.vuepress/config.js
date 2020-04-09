@@ -242,8 +242,31 @@ module.exports = {
   extraWatchFiles: [
     '.vuepress/nav/*',
   ],
-  
+
   additionalPages: [
     ...guidesInfo.additionalPagesForGuides(),
   ],
+    
+  extendPageData ($page) {
+    const {
+      _filePath,           // file's absolute path
+      _computed,           // access the client global computed mixins at build time, e.g _computed.$localePath.
+      _content,            // file's raw content string
+      _strippedContent,    // file's content string without frontmatter
+      key,                 // page's unique hash key
+      frontmatter,         // page's frontmatter object
+      regularPath,         // current page's default link (follow the file hierarchy)
+      path,                // current page's real link (use regularPath when permalink does not exist)
+    } = $page
+
+    // add redir url for main guide pages
+    let found = guidesInfo.guideInfo[path];
+    if(found && found.guide && found.sections) {
+      if(found.mainFramework) {
+        $page.redir = `/docs/guides/${found.guide}/${found.mainFramework}/${found.sections[0]}/`
+      } else {
+        $page.redir = `/docs/guides/${found.guide}/${found.sections[0]}/`
+      }
+    }
+  },
 }

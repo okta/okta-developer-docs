@@ -52,6 +52,14 @@ export default {
     }
   },
   mounted() {
+    if(this.$page && this.$page.redir) {
+        let anchor = window.location.href.split('#')[1] || '';
+        if(anchor) {
+          this.$router.push({ path: `${this.$page.redir}#${anchor}` });
+        } else {
+          this.$router.push({ path: `${this.$page.redir}` });
+        }
+    }
     window.addEventListener('load', () => {
         window.setTimeout(() => {
           let anchor = window.location.href.split('#')[1];

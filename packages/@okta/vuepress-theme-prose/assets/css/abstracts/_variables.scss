@@ -5,3 +5,73 @@ $container-width: 1340px;
 //-----------------------------------------------------------------------
 
 $asset-path: '/assets';
+
+
+//-----------------------------------------------------------------------
+// Typography
+//-----------------------------------------------------------------------
+$font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
+$font-family--alt: 'museo', Helvetica, Arial, sans-serif;
+
+$font-size: (
+  'small':            14px,
+  'base':             16px,
+  'button':           14px,
+  'h6':               20px,
+  'h5':               22px,
+  'h4':               24px,
+  'h3':               28px,
+  'h2':               32px,
+  'h1':               36px,
+  'new-small':        12px,
+  'new-h2':           28px,
+  'new-h1':           44px,
+);
+
+$font-weight: (
+  'x-small':          300,
+  'small':            400,
+  'base':             400,
+  'button':           600,
+  'h6':               500,
+  'h5':               500,
+  'h4':               500,
+  'h3':               500,
+  'h2':               500,
+  'h1':               500,
+  'light':            300,
+  'semibold':         500,
+  'mediumbold':       600,
+  'bold':             700,
+  'new-h2':           500,
+  'new-h1':           500
+);
+
+$line-height: (
+  'small':            24px,
+  'base':             26px,
+  'h6':               30px,
+  'h5':               32px,
+  'h4':               34px,
+  'h3':               38px,
+  'h2':               42px,
+  'h1':               46px,
+  'large':            56px,
+  'new-h1':           52px,
+  'new-h2':           36px,
+  'new-small':        20px,
+  'new-button':       38px,
+);
+
+
+//-----------------------------------------------------------------------
+// Transitions
+//-----------------------------------------------------------------------
+
+$transition-speed: (
+  'x-slow':                 0.8s,
+  'slow':                   0.6s,
+  'normal':                 0.4s,
+  'fast':                   0.2s,
+  'x-fast':                 0.1s
+);

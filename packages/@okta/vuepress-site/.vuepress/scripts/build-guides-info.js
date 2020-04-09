@@ -24,6 +24,7 @@ const guideInfo = {};
 const allGuidesMeta = getMetaFor(GUIDE_ROOT);
 allGuidesMeta.guides.forEach( guide => {
   const guideMeta = getMetaFor(`${GUIDE_ROOT}/${guide}`);
+  guideMeta.guide = guide;
   guideInfo[`/${GUIDE_ROOT}/${guide}/`] = {...guideMeta};
 
   guideMeta.sections.forEach( section => {
@@ -55,6 +56,7 @@ allGuidesMeta.guides.forEach( guide => {
       };
     });
   });
+  guideInfo[`/${GUIDE_ROOT}/${guide}/`] = {...guideMeta};
 });
 
 const additionalPagesForGuides = () => {
