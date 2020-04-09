@@ -12,7 +12,7 @@
       <div class="content" v-else>
         <div class="content--container">
           <div class="tree-nav">
-            <Sidebar :sidebarActive="treeNavOpen" />
+            <Sidebar />
           </div>
           <div class="content-area">
             <PageTitle />
@@ -32,7 +32,6 @@
 </template>
 
 <script>
-
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
@@ -47,11 +46,10 @@ export default {
     Quickstart: () => import('../components/Quickstart.vue'),
   },
   data() {
-    return {
-      treeNavOpen: false
-    }
+    return {}
   },
   mounted() {
+
     window.addEventListener('load', () => {
         window.setTimeout(() => {
           let anchor = window.location.href.split('#')[1];
@@ -83,10 +81,6 @@ export default {
         }, 500);
     });
 
-    let that = this;
-    this.$on('toggle-tree-nav', event => {
-      that.treeNavOpen = event.treeNavOpen;
-    });
   }
 }
 </script>
