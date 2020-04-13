@@ -59,7 +59,7 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
     | randomEmail | `Runscope300Hfluaklab151@atko.com` | A valid email address. |
     | randomFamilyName | `Hfluaklab151` | A valid last name. |
     | randomGivenName | `Runscope300` | A valid first name. |
-    | randomUsername | `Runscope300Hfluaklab151@atko.com` | An valid user name. |
+    | randomUsername | `Runscope300Hfluaklab151@atko.com` | A valid user name. |
     | randomUsernameCaps |  `RUNSCOPE300HFLUAKLAB151@ATKO.COM` | The random user name in all caps to test case sensitivity. |
     | UserIdThatDoesNotExist | `010101001010101011001010101011` | A specific UUID considered invalid by the test. |
 
