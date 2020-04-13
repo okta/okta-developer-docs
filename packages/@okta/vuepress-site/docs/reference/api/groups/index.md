@@ -1750,7 +1750,7 @@ Specifies required and optional properties for a Group. The `objectClass` of a G
 
 #### ObjectClass: okta:user_group
 
-Profile for any Group that is **not** imported from Active Directory
+Profile for any Group that is not imported from Active Directory
 
 | Property    | Description              | DataType | Nullable | Readonly | MinLength | MaxLength | Validation |
 | ----------- | ------------------------ | -------- | -------- | -------- | --------- | --------- | ---------- |
