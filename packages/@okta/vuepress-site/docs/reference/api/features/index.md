@@ -204,7 +204,7 @@ Content-Type: application/json
 ]
 ```
 
-### Update a feature
+### Update a Feature
 
 <ApiOperation method="post" url="/api/v1/features/${featureId}/${lifecycle}" />
 
