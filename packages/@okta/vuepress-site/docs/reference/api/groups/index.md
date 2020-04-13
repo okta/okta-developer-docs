@@ -749,7 +749,7 @@ Application imports are responsible for updating Group Profiles with `APP_GROUP`
 | id        | ID of the Group to update     | URL       | String                            | TRUE     |         |
 | profile   | Updated Profile for the Group | Body      | [Profile object](#profile-object) | TRUE     |         |
 
-> **Note:** All Profile properties must be specified when updating a Groups's Profile. **Partial updates aren't supported.**
+> **Note:** All Profile properties must be specified when updating a Groups's Profile. Partial updates aren't supported.
 
 ##### Response parameters
 
