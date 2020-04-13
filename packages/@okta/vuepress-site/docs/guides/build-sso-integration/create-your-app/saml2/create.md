@@ -31,9 +31,9 @@ If you don't have an Okta developer account, begin by signing up for one at <htt
             | `Email`                 | `user.email`              |
       1. In the **GROUP ATTRIBUTE STATEMENTS (OPTIONAL)** section, add the required group attributes, if they are used by your app.
       For example:
-          * **Name**: `groups`
-          * **Filter**: `Matches regex`
-          * **Value**: `.*`
+          * **Name** &mdash; `groups`
+          * **Filter** &mdash; `Matches regex`
+          * **Value** &mdash; `.*`
       1. Click **Next**.
 1. In the final app creation step, the **Feedback** tab helps Okta to understand how you want to position this application.
       * For ISVs that are creating a SAML app for the OIN:
