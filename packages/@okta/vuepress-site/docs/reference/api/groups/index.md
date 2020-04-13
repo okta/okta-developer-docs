@@ -1525,7 +1525,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/apps" />
 
-Enumerates all [applications](/docs/reference/api/apps/#application-object) that are assigned to a Group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations).
+Enumerates all [Applications](/docs/reference/api/apps/#application-object) that are assigned to a Group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations).
 
 ##### Request parameters
 
