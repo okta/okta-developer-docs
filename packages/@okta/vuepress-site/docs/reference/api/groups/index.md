@@ -1730,7 +1730,7 @@ All groups have the following properties:
 | profile               | the Group's Profile properties                               | [Profile object](#profile-object)                              | FALSE    | FALSE  | FALSE    |           |           |            |
 | type                  | determines how a Group's Profile and memberships are managed | [Group Type](#group-type)                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 
-> **Note:** Properties `id`, `created`, `lastUpdated`, `lastMembershipUpdated`, `objectClass`, `type`, and `_links` are available only after you create a Group.
+> **Note:** The `id`, `created`, `lastUpdated`, `lastMembershipUpdated`, `objectClass`, `type`, and `_links` properties are available only after you create a Group.
 
 ### Group type
 
