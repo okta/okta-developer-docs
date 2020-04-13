@@ -109,7 +109,7 @@ Content-Type: application/json
 }
 ```
 
-### List features
+### List Features
 
 <ApiOperation method="get" url="/api/v1/features" />
 
