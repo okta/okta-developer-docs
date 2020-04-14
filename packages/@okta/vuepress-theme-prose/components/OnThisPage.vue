@@ -34,8 +34,10 @@
       }
     },
     mounted() {
-      this.handleScroll();
-      this.setActiveHash();
+      this.$nextTick(() => {
+        this.handleScroll();
+        this.setActiveHash();
+      })
       window.addEventListener('scroll', this.handleScroll);
       window.addEventListener('scroll', this.setActiveHash);
     },
