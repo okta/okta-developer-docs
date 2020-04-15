@@ -4078,7 +4078,7 @@ Links an Okta User to an existing [social provider](#identity-provider-object). 
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- |
 | externalId    | unique IdP-specific identifier for user                                         | Body       | String                                        | TRUE     |
 | idpId         | `id` of the IdP                                                                 | URL        | String                                        | TRUE     |
-| userId        | `id` of a user                                                                  | URL        | String                                        | TRUE     |
+| userId        | `id` of a User                                                                  | URL        | String                                        | TRUE     |
 
 ##### Response parameters
 
@@ -4124,7 +4124,7 @@ curl -v -X POST \
 }
 ```
 
-> **Note:** If either the user or the IdP doesn't exist, you receive an error response.
+> **Note:** If either the User or the IdP doesn't exist, you receive an error response.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -4143,7 +4143,7 @@ Content-Type: application/json
 
 <ApiOperation method="delete" url="/api/v1/idps/${idpId}/users/${userId}" />
 
-Removes the link between the Okta user and the IdP User. The next time the User federates into Okta through this IdP, they have to re-link their account according to the account link policy configured in Okta for this IdP.
+Removes the link between the Okta User and the IdP User. The next time the User federates into Okta through this IdP, they have to re-link their account according to the account link policy configured in Okta for this IdP.
 
 ##### Request parameters
 
@@ -4466,9 +4466,9 @@ The Single Sign-On (SSO) endpoint is the IdP's `SingleSignOnService` endpoint wh
 
 | Property    | Description                                                                        | DataType                         | Nullable | Readonly | MinLength | MaxLength | Validation                                      |
 | ----------- | ---------------------------------------------------------------------------------- | -------------------------------- | -------- | -------- | --------- | --------- | ----------------------------------------------- |
-| binding     | HTTP binding used to send an `<AuthnRequest>` message to IdP                       | `HTTP-POST` or `HTTP-Redirect`   | FALSE    | FALSE    |           |           |                                                 |
+| binding     | HTTP binding used to send an `<AuthnRequest>` message to the IdP                       | `HTTP-POST` or `HTTP-Redirect`   | FALSE    | FALSE    |           |           |                                                 |
 | destination | URI reference that indicates the address to which the `<AuthnRequest>` message is sent | String                           | TRUE     | FALSE    | 1         | 512       |                                                 |
-| url         | URL of binding-specific endpoint to send an `<AuthnRequest>` message to IdP        | String                           | FALSE    | FALSE    | 11        | 1014      | [RFC 3986](https://tools.ietf.org/html/rfc3986) |
+| url         | URL of the binding-specific endpoint to send an `<AuthnRequest>` message to the IdP        | String                           | FALSE    | FALSE    | 11        | 1014      | [RFC 3986](https://tools.ietf.org/html/rfc3986) |
 
 **Property details**
 
@@ -4501,7 +4501,7 @@ The Single Sign-On (SSO) endpoint is the IdP's `SingleSignOnService` endpoint wh
 
 ###### Assertion Consumer Service (ACS) endpoint object
 
-The Assertion Consumer Service (ACS) endpoint is Okta's `SPSSODescriptor` endpoint where the IdP sends a SAML 2.0 `<SAMLResponse>` message.
+The ACS endpoint is Okta's `SPSSODescriptor` endpoint where the IdP sends a SAML 2.0 `<SAMLResponse>` message.
 
 | Property    | Description                                                                                                            | DataType              | Nullable | Readonly | Default     |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------  | --------------------- | -------- | -------- | ----------  |
@@ -4659,7 +4659,7 @@ XML digital Signature Algorithm settings for verifying `<SAMLResponse>` messages
 
 | Property   | Description                                                                                                            | DataType                       | Nullable | Readonly |
 | ---------- | ----------------------------------------------------------------------------------                                     | --------------------           | -------- | -------- |
-| algorithm  | The minimum XML digital signature algorithm allowed when verifying a `<SAMLResponse>` message or `<Assertion>` element | `SHA-1` or `SHA-256`           | FALSE    | FALSE    |
+| algorithm  | The minimum XML digital Signature Algorithm allowed when verifying a `<SAMLResponse>` message or `<Assertion>` element | `SHA-1` or `SHA-256`           | FALSE    | FALSE    |
 | scope      | Specifies whether to verify a `<SAMLResponse>` message or `<Assertion>` element XML digital signature                  | `RESPONSE`, `ASSERTION`, `ANY` | FALSE    | FALSE    |
 
 ###### SAML 2.0 Credentials object
@@ -4893,12 +4893,12 @@ The IdP Authorization Server (AS) endpoints are currently defined as part of the
 
 ##### OAuth 2.0 and OpenID Connect Client Credentials object
 
-Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3).
+Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3)
 
 | Property      | Description                                                                                                 | DataType | Nullable | Readonly | MinLength | MaxLength |
 | ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
-| client_id     | [Unique identifier](https://tools.ietf.org/html/rfc6749#section-2.2) issued by AS for the Okta IdP instance | String   | FALSE    | FALSE    | 1         | 1024      |
-| client_secret | [Client secret issued](https://tools.ietf.org/html/rfc6749#section-2.3.1) by AS for the Okta IdP instance   | String   | FALSE    | FALSE    | 1         | 1024      |
+| client_id     | [Unique identifier](https://tools.ietf.org/html/rfc6749#section-2.2) issued by the AS for the Okta IdP instance | String   | FALSE    | FALSE    | 1         | 1024      |
+| client_secret | [Client secret issued](https://tools.ietf.org/html/rfc6749#section-2.3.1) by the AS for the Okta IdP instance   | String   | FALSE    | FALSE    | 1         | 1024      |
 
 > **Note:** You must complete client registration with the IdP Authorization Server for your Okta IdP instance to obtain client credentials.
 
@@ -4982,7 +4982,7 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
 | `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`                        |                       |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User Provisioning Action and Account Link Action.
+> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action.
 
 #### Provisioning Policy object
 
@@ -5021,7 +5021,7 @@ Specifies the behavior for just-in-time (JIT) provisioning of an IdP User as a n
 }
 ```
 
-##### IdP type provisioning policy actions
+##### IdP type Provisioning Policy actions
 
 The follow provisioning actions are supported by each IdP provider:
 
@@ -5054,7 +5054,7 @@ Specifies the User provisioning action during authentication when an IdP User is
 
 | Property            | Description                                                                                                 | DataType                                                          | Nullable | Readonly | MinLength | MaxLength |
 | ------------------  | ---------------------------------------------------                                                         | ------------------------------------                              | -------- | -------- | --------- | --------- |
-| action              | Provisioning action for IdP User's Group memberships                                                        | [Group Provisioning Action Type](#group-provisioning-action-type) | FALSE    | FALSE    |           |           |
+| action              | Provisioning action for the IdP User's Group memberships                                                        | [Group Provisioning Action Type](#group-provisioning-action-type) | FALSE    | FALSE    |           |           |
 | assignments         | List of `OKTA_GROUP` Group identifiers to add an IdP User as a member with the `ASSIGN` action              | Array of String (`OKTA_GROUP` IDs)                                | TRUE     | FALSE    |           |           |
 | filter              | Whitelist of `OKTA_GROUP` Group identifiers that are allowed for the `APPEND` or `SYNC` provisioning action | Array of String (`OKTA_GROUP` IDs)                                | TRUE     | FALSE    |           |           |
 | sourceAttributeName | IdP User profile attribute name (case-insensitive) for an array value that contains Group memberships       | String                                                            | TRUE     | FALSE    | 0         | 1024      |
@@ -5089,7 +5089,7 @@ The Group provisioning action for an IdP User:
 
 | Action      | Description                                                                                                                                                        | Existing OKTA_GROUP Memberships                                                               | Existing APP_GROUP Memberships                     | Existing BUILT_IN Memberships                |
 | ----------- | ---------------------------------                                                                                                                                  | ------------------------------------------------------                                        | -------------------------------------------------- | -------------------------------------------- |
-| `APPEND`    | Adds a User to any Group defined by the IdP as a value of the `sourceAttributeName` array that matches the name of the whitelisted group defined in the `filter` | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
+| `APPEND`    | Adds a User to any Group defined by the IdP as a value of the `sourceAttributeName` array that matches the name of the whitelisted Group defined in the `filter` | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `ASSIGN`    | Assigns a User to Groups defined in the `assignments` array                                                                                                          | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `NONE`      | Skips processing of Group memberships                                                                                                                              | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `SYNC`      | Group memberships are mastered by the IdP as a value of the `sourceAttributeName` array that matches the name of the whitelisted Group defined in the `filter` | Removed if not defined by the IdP in `sourceAttributeName` and matching name of the Group in `filter` | Unchanged                                          | Unchanged                                    |
@@ -5108,7 +5108,7 @@ The Group provisioning action for an IdP User:
 | 00gjg5lzfBpn62wuF0g3 | MFA Users               | `OKTA_GROUP` |
 | 00glxpsrGUKMnSPss0g3 | Enterprise IdP Users    | `OKTA_GROUP` |
 
-**Existing Group Memberships for IdP User**
+**Existing Group memberships for an IdP User**
 
 | ID                   | Name           | Type         |
 | -------------------- | ------------   | ------------ |
@@ -5238,9 +5238,9 @@ The following Account Link actions are supported by each IdP provider:
 
 > **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> account link action.
 
-##### Account link action type
+##### Account Link action type
 
-The account link action for an IdP User during authentication:
+The Account Link action for an IdP User during authentication:
 
 | Action Type                                    | Description                                                                                                                                                                            |
 | -----------                                    | ------------------------------------------------------------------------------------------------------------------------------------------------------------------                     |
@@ -5315,7 +5315,7 @@ Specifies the behavior for establishing, validating, and matching a username for
 | matchType        | Determines the Okta User profile attribute match conditions for account linking and authentication of the transformed IdP username  | `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`      | FALSE    | FALSE    |           |           |
 | userNameTemplate | [Okta EL Expression](/docs/reference/okta-expression-language/) to generate or transform a unique username for the IdP User           | [UserName Template object](#username-template-object)  | FALSE    | FALSE    |           |           | [Okta EL Expression](/docs/reference/okta-expression-language/)       |
 
- `matchAttribute` Validation
+`matchAttribute` Validation
 
 The `matchAttribute` must be a valid Okta User profile attribute of one of the following types:
 
@@ -5347,7 +5347,7 @@ For example, the filter pattern `(\S+@example\.com)` allows only Users that have
 
 | Property | Description                                                                                                                | DataType | Nullable | Readonly | MinLength | MaxLength | Validation                                                    |
 | -------  | ------------------------------------------------------------------------------                                             | -------- | -------- | -------- | --------- | --------- | ----------------------------------------------                |
-| template | [Okta EL Expression](/docs/reference/okta-expression-language/) to generate or transform an unique username for the IdP User | String   | FALSE    | FALSE    | 9         | 1024      | [Okta EL Expression](/docs/reference/okta-expression-language/) |
+| template | [Okta EL Expression](/docs/reference/okta-expression-language/) to generate or transform a unique username for the IdP User | String   | FALSE    | FALSE    | 9         | 1024      | [Okta EL Expression](/docs/reference/okta-expression-language/) |
 
 **Property details**
 
@@ -5391,7 +5391,7 @@ The IdP Authorization Server (AS) endpoints are defined as part of the [IdP prov
 
 | Property   | Description                                                                 | DataType                       | Nullable    | Readonly     | MinLength      | Validation                                      |
 | ---------- | -------------------------------------------------                           | ----------------------------   | ----------- | ------------ | -------------- | ----------------                                |
-| binding    | HTTP binding used to send request to the IdP Authorization Server (AS) endpoint | `HTTP-POST` or `HTTP-Redirect` | TRUE        | TRUE         |                |                                                 |
+| binding    | HTTP binding used to send a request to the IdP Authorization Server (AS) endpoint | `HTTP-POST` or `HTTP-Redirect` | TRUE        | TRUE         |                |                                                 |
 | url        | URL of the IdP Authorization Server (AS) token endpoint                     | String                         | TRUE        | TRUE         | 11             | [RFC 3986](https://tools.ietf.org/html/rfc3986) |
 
 ```json
@@ -5485,7 +5485,7 @@ Webhook authorization settings for an IdP provisioning or account link Transacti
 * A null value specifies that no authorization scheme is used for a callout.
 * Authorization schemes are mutually exclusive. Specify a single scheme per callout.
 
-###### Basic authorization scheme
+###### Basic Authorization scheme
 
 | Property      | Description                              | DataType | Nullable | Readonly |
 | ------------- | ---------------------------------------- | -------- | -------- | -------- |
@@ -5503,7 +5503,7 @@ Webhook authorization settings for an IdP provisioning or account link Transacti
 }
 ```
 
-###### Bearer authorization scheme
+###### Bearer Authorization scheme
 
 | Property      | Description          | DataType | Nullable | Readonly |
 | ------------- | -------------------- | -------- | -------- | -------- |
@@ -5525,10 +5525,10 @@ Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc59
 
 | Link Relation Type | Description                                                                                                                       |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| acs                | SAML 2.0 Assertion Consumer Service URL for Okta SP                                                                               |
+| acs                | SAML 2.0 Assertion Consumer Service URL for the Okta SP                                                                               |
 | authorize          | OAuth 2.0 authorization endpoint for the IdP [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1) |
-| clientRedirectUri  | Redirect URI for [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1)                             |
-| metadata           | Federation metadata document for IdP (e.g SAML 2.0 Metadata)                                                                      |
+| clientRedirectUri  | Redirect URI for the [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1)                             |
+| metadata           | Federation metadata document for the IdP (for example: SAML 2.0 Metadata)                                                                      |
 | self               | The primary URL for the IdP                                                                                                       |
 | users              | IdP Users                                                                                                                         |
 
@@ -5607,9 +5607,9 @@ Metadata about the IdP that authenticated the User:
 
 | Property | Description             | DataType                                          | Nullable  | Unique   | Readonly |
 | -------- | ----------------------- | ------------------------------------------------- | --------  | ------   | -------- |
-| id       | unique key for the IdP  | String                                            | FALSE     | TRUE     | TRUE     |
-| name     | unique name for the IdP | String                                            | FALSE     | FALSE    | TRUE     |
-| type     | type of IdP             | [Identity Provider Type](#identity-provider-type) | FALSE     | FALSE    | TRUE     |
+| id       | Unique key for the IdP  | String                                            | FALSE     | TRUE     | TRUE     |
+| name     | Unique name for the IdP | String                                            | FALSE     | FALSE    | TRUE     |
+| type     | Type of IdP             | [Identity Provider Type](#identity-provider-type) | FALSE     | FALSE    | TRUE     |
 
 ```json
 {
@@ -5623,7 +5623,7 @@ Metadata about the IdP that authenticated the User:
 
 #### Identity Provider Transaction Context object
 
-Additional context that describes the HTTP client for the Transaction:
+Additional Context that describes the HTTP client for the Transaction:
 
 | Property      | Description                            | DataType                   | Nullable  | Unique   | Readonly |
 | ------------- | -------------------------------------- | -------------------------- | --------  | ------   | -------- |
@@ -5700,13 +5700,13 @@ IdP credential keys have the following properties:
 | e           | The exponent value for the RSA public key                                                | String   | FALSE    | TRUE   | TRUE     |
 | kid         | Unique identifier for the key                                                            | String   | FALSE    | TRUE   | TRUE     |
 | kty         | Identifies the cryptographic algorithm family used with the key (Supported value: `RSA`) | String   | FALSE    | FALSE  | TRUE     |
-| lastUpdated | Timestamp when key was last updated                                                      | Date     | FALSE    | FALSE  | TRUE     |
+| lastUpdated | Timestamp when the key was last updated                                                      | Date     | FALSE    | FALSE  | TRUE     |
 | n           | The modulus value for the RSA public key                                                 | String   | FALSE    | TRUE   | TRUE     |
 | use         | Intended use of the public key (Supported value: `sig`)                                  | String   | FALSE    | FALSE  | TRUE     |
 | x5c         | Base64-encoded X.509 certificate chain with DER encoding                                 | Array    | FALSE    | TRUE   | FALSE    |
 | x5t#S256    | Base64url-encoded SHA-256 thumbprint of the DER encoding of an X.509 certificate         | String   | FALSE    | TRUE   | TRUE     |
 
-Note that IdP signing keys are read-only.
+> **Note:** IdP signing keys are read-only.
 
 ## Identity Provider User object
 
@@ -5764,14 +5764,14 @@ All linked IdP Users have the following properties:
 | _embedded        | Embedded resources related to the IdP User                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                  | TRUE     | FALSE  | TRUE     |           |
 | _links           | Discoverable resources related to the IdP User            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                  | TRUE     | FALSE  | TRUE     |           |
 | created          | Timestamp when IdP User was created                       | Date                                                                            | FALSE    | FALSE  | TRUE     |           |
-| externalId       | Unique IdP-specific identifier for User                   | String                                                                          | FALSE    | TRUE   | TRUE     | 512       |
-| id               | Unique key of [User](/docs/reference/api/users/)           | String                                                                          | FALSE    | TRUE   | TRUE     |           |
-| lastUpdated      | Timestamp when IdP User was last updated                  | Date                                                                            | FALSE    | FALSE  | TRUE     |           |
+| externalId       | Unique IdP-specific identifier for the User                   | String                                                                          | FALSE    | TRUE   | TRUE     | 512       |
+| id               | Unique key of the [User](/docs/reference/api/users/)           | String                                                                          | FALSE    | TRUE   | TRUE     |           |
+| lastUpdated      | Timestamp when the IdP User was last updated                  | Date                                                                            | FALSE    | FALSE  | TRUE     |           |
 | profile          | IdP-specific profile for the User                         | [Identity Provider User Profile object](#identity-provider-user-profile-object) | FALSE    | FALSE  | TRUE     |           |
 
 ### Identity Provider User Profile object
 
-Identity Provider uUer profiles are IdP-specific but may be customized by the Profile Editor in the Admin Console.
+Identity Provider User profiles are IdP-specific but may be customized by the Profile Editor in the Admin Console.
 
 ![IdP Profile Editor UI](/img/okta-admin-ui-profile-editor-idp.png "IdP Profile Editor UI")
 
@@ -5813,7 +5813,7 @@ Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc59
 
 ## Identity Provider CSR object
 
-The CSR object for IdP defines a certificate signing request for a signature or decryption credential for an IdP.
+The CSR object for the IdP defines a CSR for a signature or decryption credential for an IdP.
 
 ### Example
 
@@ -5845,13 +5845,13 @@ The CSR object for IdP defines a certificate signing request for a signature or 
 }
 ```
 
-### Identity Provider CSR Properties
+### Identity Provider CSR properties
 
 | Property         | Description                                                  | DataType                                                                     | Nullable   | Unique     | Readonly  |
 | ---------------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------  | --------   | ------     | --------  |
 | _links           | Discoverable resources related to the CSR                    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)               | TRUE       | FALSE      | TRUE      |
-| created          | Timestamp when CSR was created                               | Date                                                                         | FALSE      | FALSE      | TRUE      |
-| csr              | Base64 encoded CSR in DER format                             | String                                                                       | TRUE       | TRUE       | TRUE      |
+| created          | Timestamp when the CSR was created                               | Date                                                                         | FALSE      | FALSE      | TRUE      |
+| csr              | Base64-encoded CSR in DER format                             | String                                                                       | TRUE       | TRUE       | TRUE      |
 | id               | Unique identifier for the CSR                                | String                                                                       | FALSE      | TRUE       | TRUE      |
 | kty              | Cryptographic algorithm family for the CSR's keypair         | String                                                                       | FALSE      | FALSE      | TRUE      |
 
@@ -5880,5 +5880,5 @@ The Social Authentication Token object provides the tokens and associated metada
 | id              | Unique identifier for the token                                                                                                         | String                                                    | FALSE       | TRUE        | TRUE         |
 | scopes          | The scopes that the token is good for                                                                                                  | Array of Strings                                          | FALSE       | FALSE       | TRUE         |
 | token           | The raw token                                                                                                                         | String                                                    | FALSE       | TRUE        | TRUE         |
-| tokenAuthScheme | The token authentication scheme as defined by the social provider.                                                                     | String                                                    | FALSE       | FALSE       | TRUE         |
+| tokenAuthScheme | The token authentication scheme as defined by the social provider                                                                     | String                                                    | FALSE       | FALSE       | TRUE         |
 | tokenType       | The type of token defined by the [OAuth Token Exchange Spec](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-07#section-3) | String                                                    | TRUE        | TRUE        | TRUE         |
