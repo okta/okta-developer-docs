@@ -13,10 +13,10 @@ Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 ## Factor Operations
 
- - **[List Operations](#factor-operations)** - List factors and security questions.
- - **[Lifecycle Operations](#factor-lifecycle-operations)** - Enroll, activate, and reset factors.
- - **[Challenge and Verify Operations](#factors-that-require-a-challenge-and-verify-operation)** - Challenge and Verify a factor
- - **[Verification Only Operations](#factors-that-require-only-a-verification-operation)** - Verify a factor
+- **[List Operations](#factor-operations)** &mdash; List factors and security questions.
+- **[Lifecycle Operations](#factor-lifecycle-operations)** &mdash; Enroll, activate, and reset factors.
+- **[Challenge and Verify Operations](#factors-that-require-a-challenge-and-verify-operation)** &mdash; Challenge and Verify a factor
+- **[Verification Only Operations](#factors-that-require-only-a-verification-operation)** &mdash; Verify a factor
 
 ### Get Factor
 
