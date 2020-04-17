@@ -1,12 +1,14 @@
 ---
-title: OIN - Submit an app integration
+title: OIN - Publish an app integration
 meta:
   - name: description
-    content: Use this guide to learn how to submit your integration to the Okta Integration Network.
+    content: Use this guide to learn how to submit your integration to Okta for publication in the Okta Integration Network.
 layout: Guides
 sections:
  - overview
- - prepare-for-submission
- - submit
- - faqs
+ - create-guide
+ - submission1-general
+ - submission2-specific
+ - submission3-process
+ - update-submission
 ---

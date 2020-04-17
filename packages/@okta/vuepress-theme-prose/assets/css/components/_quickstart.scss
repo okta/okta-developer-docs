@@ -1,26 +1,59 @@
 .quickstart--content {
-
-  .Button--red {
-    text-decoration: none;
-    border: none;
-  }
-
+  
   .code-selector {
-
+    background-color: cv('brand', 'base');
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 20px;
     margin-top: $base-spacing;
 
     a {
       text-decoration: none;
       color: cv('gray', '000');
+      display: inline-block;
+      height: 42px;
+      line-height: 32px;
+      margin-right: 20px;
+      padding-left: 15px;
+      padding-right: 15px;
+      position: relative;
+      &:hover{
+        cursor: pointer;
+        text-decoration: none;
+      }
+      &.active,
+      &:hover {
+        border-bottom: 2px solid cv('gray', '000');
+      }
+      .icon {
+        left: 5px;
+        position: absolute;
+      }
     }
 
     h3 {
       margin-top: 0rem;
       margin-bottom: 1.5rem;
+      color: cv('gray', '000');
+      font-size: 18px;
+      font-weight: lighter;
     }
 
     li {
       margin-bottom: $base-spacing;
+    }
+
+    li.with-icon a{
+      padding-left: 45px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-block;
+        list-style-type: none;
+      }
     }
   }
 }

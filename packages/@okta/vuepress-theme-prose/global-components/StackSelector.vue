@@ -17,7 +17,7 @@
 </template>
 
 <script>
-  import { findOnAncestor } from '../util/guides';
+  import { getGuidesInfo, guideFromPath } from '../util/guides';
   export default {
     name: 'StackSelector',
     props: [ 'snippet' ],
@@ -44,11 +44,20 @@
       }
     },
     computed: { 
+      guideName() {
+        return guideFromPath( this.$route.path ).guideName;
+      },
       framework() { 
         // Default to first available framework
-        return findOnAncestor({ find: 'framework', node: this }) || this.options[0].name;
+        return guideFromPath( this.$route.path ).framework || this.options[0].name;
       },
-      section() { return findOnAncestor({ find: 'section', node: this }); },
+      sectionName() {
+        return guideFromPath( this.$route.path ).sectionName;
+      },
+      guide() { return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName]; },
+      section() { 
+        return this.guide.sectionByName[this.sectionName];
+      },
       options() { 
         return (this.section &&  // Eagerly awaiting the ?. operator 
           this.section.snippetByName && 
