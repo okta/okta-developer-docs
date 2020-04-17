@@ -1,6 +1,6 @@
 {
-  "release" : "2020.03.1",
-  "build" : "2020.03.1-begin-63-gedcb1f661676",
+  "release" : "2020.04.2",
+  "build" : "2020.04.2-begin-171-gedc36d54c15f",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -3974,12 +3974,6 @@
       "tags" : [ "office365-app" ],
       "mappings" : [ "app.office365.api.error.import.profile" ]
     }, {
-      "id" : "app.office365.api.error.import.profile.photo",
-      "category" : "msft-apps",
-      "description" : "Could not import profile photo for Office 365 user, received error.",
-      "tags" : [ "office365-app" ],
-      "mappings" : [ "app.office365.api.error.import.profile.photo" ]
-    }, {
       "id" : "app.office365.api.error.no.endpoints.found",
       "category" : "msft-apps",
       "description" : "No Office 365 endpoint found to send our request.",
@@ -3997,12 +3991,6 @@
       "description" : "Could not push profile for Office 365 user, received error.",
       "tags" : [ "office365-app" ],
       "mappings" : [ "app.office365.api.error.push.profile" ]
-    }, {
-      "id" : "app.office365.api.error.push.profile.object",
-      "category" : "msft-apps",
-      "description" : "Could not sync object for Office 365 user, received error.",
-      "tags" : [ "office365-app" ],
-      "mappings" : [ "app.office365.api.error.push.profile.object" ]
     }, {
       "id" : "app.office365.api.error.reactivate.user",
       "category" : "msft-apps",
@@ -5597,6 +5585,12 @@
       "id" : "app.workday.api.error.get-workers",
       "category" : "oin-advanced-apps",
       "description" : "Unable to fetch Workday users.",
+      "tags" : [ "workday-app" ],
+      "mappings" : [ "application.provision.user.import" ]
+    }, {
+      "id" : "app.workday.api.error.minimum-concurrent-connections",
+      "category" : "oin-advanced-apps",
+      "description" : "No Concurrent Connections allowed for this Workday Instance.",
       "tags" : [ "workday-app" ],
       "mappings" : [ "application.provision.user.import" ]
     }, {
@@ -9466,22 +9460,6 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
-      "id" : "app.office365.api.error.import.profile.photo",
-      "category" : "msft-apps",
-      "description" : "Could not import profile photo for Office 365 user, received error.",
-      "info" : {
-        "created" : "2017-01-23",
-        "release" : "2017.01"
-      },
-      "beta" : false,
-      "tags" : [ "app", "office365-app" ],
-      "mappings" : [ "app.office365.api.error.import.profile.photo" ],
-      "schema" : {
-        "debugData" : "Office365DebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
       "id" : "app.office365.api.error.no.endpoints.found",
       "category" : "msft-apps",
       "description" : "No Office 365 endpoint found to send our request.",
@@ -9524,22 +9502,6 @@
       "beta" : false,
       "tags" : [ "app", "office365-app" ],
       "mappings" : [ "app.office365.api.error.push.profile" ],
-      "schema" : {
-        "debugData" : "Office365DebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
-      "id" : "app.office365.api.error.push.profile.object",
-      "category" : "msft-apps",
-      "description" : "Could not sync object for Office 365 user, received error.",
-      "info" : {
-        "created" : "2017-01-23",
-        "release" : "2017.01"
-      },
-      "beta" : false,
-      "tags" : [ "app", "office365-app" ],
-      "mappings" : [ "app.office365.api.error.push.profile.object" ],
       "schema" : {
         "debugData" : "Office365DebugData",
         "actor" : null,
@@ -12179,7 +12141,7 @@
       },
       "beta" : false,
       "tags" : [ "app-api" ],
-      "mappings" : [ "app.api.error.download_users", "app.bloomfire.api.error.download_users", "app.boxnet.api.error.download.users", "app.confluence.api.error.download.users", "app.dropbox.api.error.download.users", "app.echosign.api.error.download.users", "app.exacttarget.api.error.download_users", "app.google.user_management.error.download_org_units", "app.google.user_management.error.download_users", "app.gotomeeting.user_management.config.failure.user_import", "app.gotomeeting_rest.user_management.config.failure.user_import", "app.hipchat.api.error.download.users", "app.jira.api.error.download.users", "app.netsuite.api.error.download_users", "app.postini.user_management.failure.download_users", "app.rightscale.api.error.download.users", "app.salesforce.user_management.failure.user_import", "app.sendwordnow.api.error.service", "app.servicenow.api.error.download.users", "app.servicenow_app2.api.error.download.users", "app.sugarcrm.api.error.download.users", "app.veeva_vault.api.error.download.users", "app.workday.api.error.connect-custom-report", "app.workday.api.error.custom-report-unknown-failure", "app.workday.api.error.get-locations", "app.workday.api.error.get-tx-logs", "app.workday.api.error.get-worker-by-username", "app.workday.api.error.get-workers", "app.workday.api.error.parse-custom-report", "app.workday.api.error.parse-workers", "app.workday.api.error.timezone-deactivations-processing-errors", "app.workday.api.error.universal-directory-setup-error", "app.workday.api.get-custom-report-data-empty", "app.yammer.api.error.download.users", "gooddata.api.error.project.access.forbidden" ],
+      "mappings" : [ "app.api.error.download_users", "app.bloomfire.api.error.download_users", "app.boxnet.api.error.download.users", "app.confluence.api.error.download.users", "app.dropbox.api.error.download.users", "app.echosign.api.error.download.users", "app.exacttarget.api.error.download_users", "app.google.user_management.error.download_org_units", "app.google.user_management.error.download_users", "app.gotomeeting.user_management.config.failure.user_import", "app.gotomeeting_rest.user_management.config.failure.user_import", "app.hipchat.api.error.download.users", "app.jira.api.error.download.users", "app.netsuite.api.error.download_users", "app.postini.user_management.failure.download_users", "app.rightscale.api.error.download.users", "app.salesforce.user_management.failure.user_import", "app.sendwordnow.api.error.service", "app.servicenow.api.error.download.users", "app.servicenow_app2.api.error.download.users", "app.sugarcrm.api.error.download.users", "app.veeva_vault.api.error.download.users", "app.workday.api.error.connect-custom-report", "app.workday.api.error.custom-report-unknown-failure", "app.workday.api.error.get-locations", "app.workday.api.error.get-tx-logs", "app.workday.api.error.get-worker-by-username", "app.workday.api.error.get-workers", "app.workday.api.error.minimum-concurrent-connections", "app.workday.api.error.parse-custom-report", "app.workday.api.error.parse-workers", "app.workday.api.error.timezone-deactivations-processing-errors", "app.workday.api.error.universal-directory-setup-error", "app.workday.api.get-custom-report-data-empty", "app.yammer.api.error.download.users", "gooddata.api.error.project.access.forbidden" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,

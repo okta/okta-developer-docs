@@ -1,0 +1,10 @@
+.content-area {
+    .next-section > a{
+       text-decoration: none;
+    }    
+}
+
+.next-section + .stack-selector,
+  .stack-selector + .next-section {
+    margin-top: 20px;
+}
