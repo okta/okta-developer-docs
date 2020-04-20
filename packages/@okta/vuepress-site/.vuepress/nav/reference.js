@@ -1,7 +1,7 @@
 // the navigation that is shown across the reference pages
 
 module.exports = [
-    { title: 'References' },
+    { title: 'Reference' },
     { title: 'API Overview', path: '/docs/reference/api-overview/' },
     { title: 'Sign in Your Users', subLinks: [
       { title: 'OpenID Connect & OAuth 2.0 API', path: '/docs/reference/api/oidc/'},

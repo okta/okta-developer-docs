@@ -1,13 +1,15 @@
 <template>
   <aside class="on-this-page-navigation">
-    <div class="title">On This Page</div>
-    <div>
-      <ul class="links" v-if="items">
-        <OnThisPageItem v-for="(link, index) in items" :link="link" :key="index" :activeAnchor=activeAnchor />
+    <div v-show="showOnthisPage">
+      <div class="title">On This Page</div>
+      <div>
+        <ul class="links" v-if="items">
+          <OnThisPageItem v-for="(link, index) in items" :link="link" :key="index" :activeAnchor=activeAnchor />
+          </ul>
+        <ul class="links" v-else>
+          <OnThisPageItem v-for="(link, index) in $page.fullHeaders[0].children" :link="link" :key="index" :activeAnchor=activeAnchor />
         </ul>
-      <ul class="links" v-else>
-        <OnThisPageItem v-for="(link, index) in $page.fullHeaders[0].children" :link="link" :key="index" :activeAnchor=activeAnchor />
-      </ul>
+      </div>
     </div>
   </aside>
 </template>
@@ -24,9 +26,18 @@
         activeAnchor: null
       }
     },
+    computed: {
+      showOnthisPage: function(){
+         return this.items || 
+                (this.$page.fullHeaders[0].children && this.$page.fullHeaders[0].children.length > 0) 
+                ? true : false;
+      }
+    },
     mounted() {
-      this.handleScroll();
-      this.setActiveHash();
+      this.$nextTick(() => {
+        this.handleScroll();
+        this.setActiveHash();
+      })
       window.addEventListener('scroll', this.handleScroll);
       window.addEventListener('scroll', this.setActiveHash);
     },

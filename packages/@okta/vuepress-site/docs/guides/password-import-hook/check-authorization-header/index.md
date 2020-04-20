@@ -5,9 +5,9 @@ title: Check Authorization header
 
 The requests that Okta sends to your external service include an Authorization header containing a secret string.
 
-You choose the value of the string that should be sent when you register your external service with Okta. This provides a mechanism to secure access to your endpoint.
+At the time you register your external service with Okta, you specify the value of the secret string that should be sent. This provides a mechanism to secure access to your endpoint.
 
-Your code should therefore always check for the presence of the Authorization header in any requests that come in, and confirm that its value is correct. Processing should not proceed if the authorization header cannot be verified.
+An important piece, therefore, to include in any external service implementation, is a check for the presence of an Authorization header that contains the correct value in all incoming requests. If the Authorization header in an incoming request cannot be verified, the request needs to be denied.
 
 <StackSelector snippet="check-authorization-header"/>
 
