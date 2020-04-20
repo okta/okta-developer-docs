@@ -1,4 +1,4 @@
-Here, some basic checks are done to confirm that the properties exist and that they are strings. Then, their values are populated into an object called `credentials`, to be available later to be checked against our user store.
+First, some basic checks are done to confirm that the properties exist and that they are strings. Then, their values are populated into an object called `credentials`, which is used later to check against our user store.
 
 ```javascript
 const passwordImportValidation = [
