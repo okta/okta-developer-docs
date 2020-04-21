@@ -1046,10 +1046,10 @@ Creates a Group rule to dynamically add users to the specified Group if they mat
 | Parameter                           | Description                                    | ParamType | DataType                          | Required | Default |
 | ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- | ------- |
 | name                                | name of the Group                              | Body      | String                            | TRUE     |         |
-| condition.expression.value          | Okta expression that would result in a boolean value | Body      | String                     | TRUE     |         |
-| condition.expression.type           | `urn:okta:expression:1.0`             | Body      | String                     | TRUE     |         |
-| condition.people.users.exclude      | userIds that would be excluded when rules are processed | Body      | String                  | FALSE    |         |
-| condition.people.groups.exclude     | currently not supported                     | Body      | String                            | FALSE    |         |
+| conditions.expression.value          | Okta expression that would result in a boolean value | Body      | String                     | TRUE     |         |
+| conditions.expression.type           | `urn:okta:expression:1.0`             | Body      | String                     | TRUE     |         |
+| conditions.people.users.exclude      | userIds that would be excluded when rules are processed | Body      | String                  | FALSE    |         |
+| conditions.people.groups.exclude     | currently not supported                     | Body      | String                            | FALSE    |         |
 | actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added.| Body      | String                           | TRUE     |         |
 
 ##### Response parameters
@@ -1146,10 +1146,10 @@ You can't currently update the action section.
 | Parameter                           | Description                                    | ParamType | DataType                          | Required | Default |
 | ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- | ------- |
 | actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added| Body      | String                            | TRUE     |         |
-| condition.expression.type           | `urn:okta:expression:1.0 `                     | Body      | String                            | TRUE     |         |
-| condition.expression.value          | okta expression that would result in a boolean value | Body      | String                     | TRUE     |         |
-| condition.people.groups.exclude     | currently not supported                        | Body      | String                            | FALSE    |         |
-| condition.people.users.exclude      | userIds that would be excluded when rules are processed | Body      | String                   | FALSE    |         |
+| conditions.expression.type           | `urn:okta:expression:1.0 `                     | Body      | String                            | TRUE     |         |
+| conditions.expression.value          | okta expression that would result in a boolean value | Body      | String                     | TRUE     |         |
+| conditions.people.groups.exclude     | currently not supported                        | Body      | String                            | FALSE    |         |
+| conditions.people.users.exclude      | userIds that would be excluded when rules are processed | Body      | String                   | FALSE    |         |
 | id                                  | ID of the rule to be updated                   | URL       | String                            | TRUE     |         |
 | name                                | name of the Group                              | Body      | String                            | TRUE     |         |
 
