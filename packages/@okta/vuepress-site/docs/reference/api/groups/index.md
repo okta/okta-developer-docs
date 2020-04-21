@@ -1247,7 +1247,7 @@ Lists all Group rules for your organization
 | after          | Specifies the pagination cursor for the next page of rules     | Query      | String                            | FALSE    |         |
 | expand         | If specified as `groupIdToGroupNameMap`, then show Group names | Query      | String                            | FALSE    |         |
 | limit          | Specifies the number of rule results in a page                 | Query      | Number                            | FALSE    | 50      |
-| search         | Specifies the keyword to search fules for                      | Query      | String                            | FALSE    |         |
+| search         | Specifies the keyword to search rules for                      | Query      | String                            | FALSE    |         |
 
 ##### Response parameters
 
