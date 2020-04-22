@@ -61,7 +61,7 @@ export default withOktaAuth(class Home extends Component {
     } else if( !this.props.authState.isAuthenticated ) { 
       return (
         <div>
-          <a onClick={login}>Login</a>
+          <a onClick={this.login}>Login</a>
         </div>
       );
     }

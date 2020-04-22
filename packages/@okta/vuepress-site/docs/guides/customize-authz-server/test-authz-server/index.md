@@ -104,5 +104,3 @@ To check the returned ID Token, you can copy the value and paste it into any JWT
 In this example, we see the `nonce` with value `YsG76jo` and the custom claim `preferred_honorific` with value `Commodore`.
 
 At this point you have set up your authorization server and confirmed that it is working.
-
-<NextSectionLink/>

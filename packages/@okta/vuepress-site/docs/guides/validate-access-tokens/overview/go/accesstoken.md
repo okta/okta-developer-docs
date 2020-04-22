@@ -12,6 +12,5 @@ You should verify the following:
 
 - The `iss` (issuer) claim matches the identifier of your Okta Authorization Server.
 - Verify that the `aud` (audience) claim is the value configured in the Authorization Server.
-- The `cid` claim is your Okta application's Client ID.
 - The `exp` (expiry time) claim is the time at which this token will expire, expressed in Unix time. You should make sure that this has not already passed.
 

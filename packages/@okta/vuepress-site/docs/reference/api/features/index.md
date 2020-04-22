@@ -7,13 +7,13 @@ category: management
 
 The Okta Features API provides operations to manage self-service Early Access (EA) and Beta features in your org.
 
-> **Note:** Important background information for this API is available on this page: [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/).
+> **Note:** Important background information for this API is available on the [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) page.
 
-## Getting Started
+## Get started
 
 Explore the Features API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ab22761da96ff7a7ab0c)
 
-## Feature Operations
+## Feature operations
 
 The Features API has the following operations:
 
@@ -29,22 +29,22 @@ The Features API has the following operations:
 
 Fetches a Feature by its `id`. If you don't know the Feature `id`, you can [list Features](#list-features).
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter   | Type   | Description                      |
 | ----------- | ------ | -------------------------------- |
-| `featureId` | String | The Feature's unique identifier. |
+| `featureId` | String | The Feature's unique identifier |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 None
 
-#### Response Body
+#### Response body
 
-The requested [Feature](#feature-object).
+The requested [Feature](#feature-object)
 
-#### Usage Example
+#### Usage example
 
 This request fetches a Feature object with an `id` value `ftrYooGoH8b41iCZiPk7`:
 
@@ -91,7 +91,8 @@ curl -v -X GET \
   }
 }
 ```
-##### Error Response
+
+##### Error response
 
 An invalid `id` returns a `404 Not Found` status code.
 
@@ -112,19 +113,19 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/features" />
 
-Fetches a list of all available self-service Features for your org.
+Fetches a list of all available self-service Features for your org
 
-#### Request Parameters
+#### Request parameters
 
 None
 
-#### Response Body
+#### Response body
 
-Array of [Feature](#feature-object) objects.
+Array of [Feature](#feature-object) objects
 
-#### Usage Example
+#### Usage example
 
-The following request returns a list of all available self-service Features:
+The following request returns a list of all available self-service Features.
 
 ##### Request
 
@@ -213,35 +214,35 @@ The following chart shows the different state transitions for a Feature:
 
 [![Update Feature Flowchart](/img/update-ssfeat-flowchart.png "Update Feature Flowchart")](/img/update-ssfeat-flowchart.png)
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter   | Type   | Description                                                           |
 | ----------- | ------ | --------------------------------------------------------------------- |
-| `featureId` | String | Unique identifier of the Feature to update.                           |
+| `featureId` | String | Unique identifier of the Feature to update                            |
 | `lifecycle` | String | Enables or disables the Feature. Possible values: `enable`, `disable` |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 | Parameter | Type   | Description                                                                      |
 | --------- | ------ | -------------------------------------------------------------------------------- |
 | `mode`    | String | Indicates if you want to force enable/disable a feature. Possible value: `force` |
 
-Force mode is used to override dependency restrictions for a particular Feature. Normally, you cannot enable a Feature if it has one or more dependencies that are not enabled.
+Force mode is used to override dependency restrictions for a particular Feature. Normally, you can't enable a Feature if it has one or more dependencies that aren't enabled.
 
-If you use the `mode=force` parameter while enabling a Feature, then Okta first tries enabling any disabled Features that this Feature may have as dependencies. If you do not pass the `mode=force` parameter and the Feature has dependencies that need to be enabled before the Feature is enabled, a `400` error is returned.
+If you use the `mode=force` parameter while enabling a Feature, then Okta first tries enabling any disabled Features that this Feature may have as dependencies. If you don't pass the `mode=force` parameter and the Feature has dependencies that need to be enabled before the Feature is enabled, a `400` error is returned.
 
-If you use the `mode=force` parameter while disabling a Feature, then Okta first tries disabling any enabled Features that this Feature may have as dependents. If you do not pass the `mode=force` parameter and the Feature has dependencies that need to be disabled before the Feature is disabled, a `400` error is returned.
+If you use the `mode=force` parameter while disabling a Feature, then Okta first tries disabling any enabled Features that this Feature may have as dependents. If you don't pass the `mode=force` parameter and the Feature has dependencies that need to be disabled before the Feature is disabled, a `400` error is returned.
 
-#### Request Body
+#### Request body
 
 None
 
-#### Response Body
+#### Response body
 
 Updated [Feature](#feature-object)
 
-#### Example Usage
+#### Example usage
 
 The following request enables the Feature with an `id` value `ftrZooGoT8b41iWRiQs7`.
 
@@ -289,7 +290,7 @@ curl -v -X POST \
 }
 ```
 
-##### Error Response (Invalid featureId)
+##### Error response (invalid featureId)
 
 An invalid `featureId` returns a `404 Not Found` status code.
 
@@ -305,7 +306,8 @@ Content-Type: application/json
     "errorCauses": []
 }
 ```
-##### Error Response (Method not allowed)
+
+##### Error response (method not allowed)
 
 The following returns a `405 Method Not Allowed` status code:
 
@@ -326,7 +328,7 @@ Content-Type: application/json
  }
 ```
 
-##### Error Response (Feature in closed Beta)
+##### Error response (Feature in closed Beta)
 
 Sending an enable request for a Feature with a `stage` value of `BETA CLOSED` in a Preview cell returns a `405 Method Not Allowed` status code:
 
@@ -343,9 +345,9 @@ Content-Type: application/json
  }
 ```
 
-##### Error Response (Dependency/Dependents Conflict)
+##### Error response (dependency/dependents conflict)
 
-If the `mode` is not `force` and the disable/enable requires other self-service features to be enabled/disabled, `400 Bad Request` is returned.
+If the `mode` isn't `force` and the disable/enable requires other self-service features to be enabled/disabled, a `400 Bad Request` is returned.
 
 ```json
 HTTP/1.1 400 Bad Request
@@ -367,27 +369,27 @@ Content-Type: application/json
 }
 ```
 
-### Get Dependencies
+### Get dependencies
 
 <ApiOperation method="get" url="/api/v1/features/${featureId}/dependencies" />
 
-Fetches the list of Feature dependencies for a specified Feature. A Feature's dependencies are the Features which it requires to be enabled in order to itself be enabled.
+Fetches the list of Feature dependencies for a specified Feature. A Feature's dependencies are the Features that it requires to be enabled in order for itself to be enabled.
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter   | Type   | Description                                                           |
 | ----------- | ------ | --------------------------------------------------------------------- |
-| `featureId` | String | Unique identifier of the Feature to update.                           |
+| `featureId` | String | Unique identifier of the Feature to update                            |
 
-#### Request Query Parameters
+#### Request query parameters
 
 None
 
-#### Response Body
+#### Response body
 
-Array of [Feature](#feature-object) objects.
+Array of [Feature](#feature-object) objects
 
-#### Example Usage
+#### Example usage
 
 The following request returns the Feature dependencies for a Feature with an `id` value of `ftrlBPVcRtYP2epHSMHn`.
 
@@ -440,7 +442,7 @@ curl -v -X GET \
 ]
 ```
 
-##### Error Response (Invalid featureId)
+##### Error response (invalid featureId)
 
 An invalid `featureId` returns a `404 Not Found` status code.
 
@@ -457,29 +459,29 @@ Content-Type: application/json
 }
 ```
 
-### Get Dependents
+### Get dependents
 
 <ApiOperation method="get" url="/api/v1/features/${featureId}/dependents" />
 
-Fetches the list of Feature dependents for a specified Feature. A Feature's dependents are the Features which need to be disabled in order for the Feature itself to be disabled.
+Fetches the list of Feature dependents for a specified Feature. A Feature's dependents are the Features that need to be disabled in order for the Feature itself to be disabled.
 
 #### Request Path Parameters
 
 | Parameter   | Type   | Description                                                           |
 | ----------- | ------ | --------------------------------------------------------------------- |
-| `featureId` | String | Unique identifier of the Feature to update.                           |
+| `featureId` | String | Unique identifier of the Feature to update                            |
 
-#### Request Query Parameters
+#### Request query parameters
 
 None
 
-##### Response Parameters
+##### Response parameters
 
-Array of [Feature](#feature-object) objects.
+Array of [Feature](#feature-object) objects
 
-#### Usage Example
+#### Usage example
 
-The following request would retrieve the dependent Features for a Feature with an `id` value `ftrcDO2RUt1sjQsSIok3`.
+The following request would retrieve the dependent Features for a Feature with an `id` value of `ftrcDO2RUt1sjQsSIok3`.
 
 ##### Request
 
@@ -526,7 +528,7 @@ curl -v -X GET \
 ]
 ```
 
-##### Error Response
+##### Error response
 
 An invalid `featureId` returns a `404 Not Found` status code.
 
@@ -543,31 +545,31 @@ Content-Type: application/json
 }
 ```
 
-## Features API Objects
+## Features API objects
 
 This API has the following objects:
 
 * [Feature](#feature-object)
-  * [Links](#links-object)
+* [Links](#links-object)
 * [Stage](#stage-object)
 
 ### Feature object
 
-#### Feature Properties
+#### Feature properties
 
 The Feature object defines several properties:
 
 | Property      | Type                                                           | Description                                                           |
 | ------------- | -------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | [Link relations](#links-object) for the Feature's current `status`    |
 | `description` | String                                                         | Brief description of the Feature and what it provides                 |
-| `id`          | String                                                         | Unique identifier for this Feature. (Read-only)                       |
+| `id`          | String                                                         | Unique identifier for this Feature (Read-only)                       |
 | `name`        | String                                                         | Name of the Feature                                                   |
 | `stage`       | [Stage object](#stage-object)                                  | Current [Stage](#stage-object) for this Feature                       |
 | `status`      | String (Enum)                                                  | Current status of the Feature. Possible values: `ENABLED`, `DISABLED` |
-| `type`        | String (Enum)                                                  | Current type of Feature. Possible value: `self-service`.              |
-| `_links`      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | [Link relations](#links-object) for the Feature's current `status`    |
+| `type`        | String (Enum)                                                  | Current type of Feature. Possible value: `self-service`               |
 
-### Feature Example
+### Feature example
 
 ```json
 {
@@ -604,12 +606,11 @@ The Feature object defines several properties:
 }
 ```
 
-
 ### Stage object
 
-Specifies the [release cycle stage](/docs/reference/releases-at-okta/) of a Feature.
+Specifies the [release cycle stage](/docs/reference/releases-at-okta/) of a Feature
 
-#### Stage Properties
+#### Stage properties
 
 The Stage object has following properties:
 
@@ -618,12 +619,11 @@ The Stage object has following properties:
 | `state`   | String | `OPEN`, `CLOSED` |
 | `value`    | String | `EA`, `BETA`     |
 
-If a Feature's stage `value` is `EA`, the `state` is `null` and not returned. If the value is `BETA` the state is `OPEN` or `CLOSED` depending on the `BETA` feature
-being manageable or not.
+If a Feature's stage `value` is `EA`, the `state` is `null` and not returned. If the value is `BETA` the state is `OPEN` or `CLOSED` depending on whether the `BETA` feature is manageable.
 
-> **Note:** If a Feature's stage is Open Beta, it can be updated in Preview cells only. If a Feature's stage is Closed Beta, it can only be disabled in Preview cells.
+> **Note:** If a Feature's stage is Open Beta, you can update it only in Preview cells. If a Feature's stage is Closed Beta, you can disable it only in Preview cells.
 
-#### Stage Example
+#### Stage example
 
 ```json
 {
@@ -636,25 +636,25 @@ being manageable or not.
 
 ### Links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a Feature.  The Links object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only and returned within a Feature object.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a Feature. The Links object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only and returned within a Feature object.
 
-#### Link Properties
+#### Link properties
 
 Here are some links that may be available on a Feature, as determined by your policies:
 
 | Link Relation Type | Description                                                                  |
 | ------------------ | ---------------------------------------------------------------------------- |
-| `dependencies`       | A link to this Feature's [dependencies](#get-dependencies).                  |
-| `dependents`         | A link to this Feature's [dependents](#get-dependents).                      |
-| `devDoc`             | A link to this Feature's developer documentation.                            |
-| `disable`            | Lifecycle action to [disable the Feature](#update-feature).                  |
-| `enable`             | Lifecycle action to [enable the Feature](#update-feature).                   |
-| `helpDoc`            | A link to this Feature's help documentation.                                 |
-| `self`               | A self-referential link to this Feature.                                     |
+| `dependencies`       | A link to this Feature's [dependencies](#get-dependencies)                  |
+| `dependents`         | A link to this Feature's [dependents](#get-dependents)                      |
+| `devDoc`             | A link to this Feature's developer documentation                            |
+| `disable`            | Lifecycle action to [disable the Feature](#update-feature)                  |
+| `enable`             | Lifecycle action to [enable the Feature](#update-feature)                   |
+| `helpDoc`            | A link to this Feature's help documentation                                 |
+| `self`               | A self-referential link to this Feature                                     |
 | `survey`             | A link to this Feature's survey. Only available for enabled Beta Features.   |
 
 
-#### Link Example
+#### Link example
 
 ```json
 "_links": {

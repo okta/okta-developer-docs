@@ -1,8 +1,5 @@
-const { extractHeaders } = require('@vuepress/shared-utils')
-
 module.exports = ( options, ctx) => {
   const { themeConfig, siteConfig } = ctx
-
   return {
     plugins: [
       ['@vuepress/last-updated', {

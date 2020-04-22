@@ -58,7 +58,10 @@ const COMMON_NAME_TO_ICON_NAME = {
   reactnative: 'code-react-32',
   saml2: 'advanced-sso-16-blue',
   springboot: 'code-spring-32',
-  vue: 'code-vue-32'
+  vue: 'code-vue-32',
+  go: 'code-go-32',
+  java: 'code-java-32',
+  php: 'code-php-32'
 };
 
 export const commonify = framework => FRAMEWORK_TO_COMMON_NAME[framework] || framework.toLowerCase();
