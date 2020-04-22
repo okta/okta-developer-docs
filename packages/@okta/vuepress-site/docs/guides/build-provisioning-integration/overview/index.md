@@ -1,8 +1,6 @@
 ---
-title: Build a SCIM provisioning integration
+title: Overview
 ---
-
-## Overview
 
 Whether you are an independent software vendor (ISV), an existing Okta customer, an IT systems administrator, or a developer new to Okta, you need to know how to set up and test your API service and application so that you can successfully deploy a provisioning integration using SCIM with Okta.
 
