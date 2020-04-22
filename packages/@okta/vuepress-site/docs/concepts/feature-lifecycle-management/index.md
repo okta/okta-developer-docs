@@ -10,7 +10,7 @@ This page will cover a few key concepts that underpin the [Okta Features API](/d
 
 Self-service features are features that can be enabled or disabled by an Okta admin directly. Features that are not self-service can only be enabled or disabled by getting in touch with Okta Support. The [Okta Features API](/docs/reference/api/features/) is used to list, enable, and disable self-service features.
 
-> **Note**: A Beta feature that is marked as self-service will stay as self-service even if it's closed and temporarily unavailable to be enabled. For example, if an [open Beta](#beta-features) transitions into a closed Beta, the feature will remain self-service. This means that it will appear in the list of available self-service Features, but you will not be able to enable it without contacting Support.
+> **Note:** A Beta feature that is marked as self-service will stay as self-service even if it's closed and temporarily unavailable to be enabled. For example, if an [open Beta](#beta-features) transitions into a closed Beta, the feature will remain self-service. This means that it will appear in the list of available self-service Features, but you will not be able to enable it without contacting Support.
 
 Only Beta and Early Access (EA) features are considered self-service. Once a feature transitions from either of these states to Generally Available (GA), it will no longer be listed as an available self-service Feature.
 

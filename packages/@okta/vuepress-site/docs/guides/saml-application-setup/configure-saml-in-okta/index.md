@@ -7,23 +7,23 @@ To configure the SAML settings of your SAML Service Provider app in Okta, follow
 
 2. Paste the Audience URI into the **Audience URI (SP Entity ID)** field.
 
-    > **Note**: If you are just testing the setup and are using a SAML SP such as this [SAML Service Provider on GitHub](https://github.com/mcguinness/saml-sp), enter this test URL into the **Single sign on URL** and **Audience URI (SP Entity ID)** fields: `http://example.com/saml/sso/example-okta-com`.
+    > **Note:** If you are just testing the setup and are using a SAML SP such as this [SAML Service Provider on GitHub](https://github.com/mcguinness/saml-sp), enter this test URL into the **Single sign on URL** and **Audience URI (SP Entity ID)** fields: `http://example.com/saml/sso/example-okta-com`.
 
 3. Select the **Name ID format** and **Application username** that your application requires (for example, `EmailAddress` and `Email`) or leave the defaults.
 
 4. In the **ATTRIBUTE STATEMENTS (OPTIONAL)** section, add the required SAML attributes for your app. For example:
     
-    | Name                    | Value                     | 
-    | ----------------------- | ------------------------- | 
-    | `FirstName`             | `user.firstName`          | 
+    | Name                    | Value                     |
+    | ----------------------- | ------------------------- |
+    | `FirstName`             | `user.firstName`          |
     | `LastName`              | `user.lastName`           |
     | `Email`                 | `user.email`              |
 
 5. In the **GROUP ATTRIBUTE STATEMENTS (OPTIONAL)** section, add the required group attributes for your app. For example:
 
-    * **Name**: groups
-    * **Filter**: Matches regex
-    * **Value**: .*
+    * **Name** &mdash; `groups`
+    * **Filter** &mdash; `Matches regex`
+    * **Value** &mdash; `.*`
 
 6. Click **Next**.
 

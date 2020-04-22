@@ -28,19 +28,6 @@ export const makeGuidePath = ({ guideName, framework, sectionName }) => {
 
 export const alphaSort = (a,b) => a > b ? 1 : a < b ? -1 : 0;
 
-export const findOnAncestor = ({ find, node }) => { 
-  // Abusing Vue in order to keep life simple for authors
-  // pulls values from ancestors so we don't have to pass them down
-  node = node.$parent;
-  while(node) { 
-    if(node[find]) { 
-      return node[find];
-    }
-    node = node.$parent;
-  }
-};
-
-
 const recordGuidesMeta = ({ guidesInfo, page }) => { 
   guidesInfo.order = page.frontmatter.guides || [];
   guidesInfo.featured = page.frontmatter.featured || [];

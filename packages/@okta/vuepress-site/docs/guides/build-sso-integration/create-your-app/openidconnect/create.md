@@ -45,8 +45,8 @@ You can use the API endpoint `.well-known/openid-configuration` to configure Okt
 1. Click **Save** to commit your changes.
 
 * In the **Client Credentials** section, you can select a **Client authentication** type:
-  * **Use PKCE (for public clients)** - Recommended for native apps. By requiring a Proof Key for Code Exchange, this option ensures that only the client that requested the access token can redeem it.
-  * **Use Client Authentication** - This option is not recommended for distributed native apps. A client secret is embedded in the client and sent with requests to prove the client's identity.
+  * **Use PKCE (for public clients)** &mdash; Recommended for native apps. By requiring a Proof Key for Code Exchange, this option ensures that only the client that requested the access token can redeem it.
+  * **Use Client Authentication** &mdash; This option is not recommended for distributed native apps. A client secret is embedded in the client and sent with requests to prove the client's identity.
 * Click **Save** to commit your changes.
 
 * If required, you can generate a new client secret. In the **Client Credentials** section, click **Edit**, then **Generate New Client Secret**.
