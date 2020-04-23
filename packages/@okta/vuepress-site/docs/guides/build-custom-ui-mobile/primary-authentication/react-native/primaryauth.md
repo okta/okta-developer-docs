@@ -16,31 +16,27 @@ class LoginScreen extends React.Component {
 
   render() {
     return (
-        <SafeAreaView style={styles.container}>
-            <Text style={styles.title}>Native Sign-In</Text>
-            <View style={styles.buttonContainer}>
-            <View style={styles.button}>
-                <TextInput
-                style={styles.textInput}
-                placeholder="User Name"
-                onChangeText={username => this.setState({ username })}
-                />
-                <TextInput
-                style={styles.textInput}
-                placeholder="Password"
-                secureTextEntry={true}
-                onChangeText={password => this.setState({ password })}
-                />
-                <View style={{marginTop: 40, height: 40}}>
-                <Button
-                    testID="loginButton"
-                    onPress={this.login}
-                    title="Login"
-                />
-                </View>
-            </View>
-            </View>
-        </SafeAreaView>
+      <SafeAreaView>
+        <Text>Native Sign-In</Text>
+        <View style={{ flexDirection: 'column' }}>
+          <TextInput
+            placeholder="User Name"
+            onChangeText={username => this.setState({ username })}
+          />
+          <TextInput
+            placeholder="Password"
+            secureTextEntry={true}
+            onChangeText={password => this.setState({ password })}
+          />
+          <View style={{ marginTop: 40, height: 40 }}>
+            <Button
+              testID="loginButton"
+              onPress={this.login}
+              title="Login"
+            />
+          </View>
+        </View>
+      </SafeAreaView>
     );
   }
 }
@@ -57,13 +53,13 @@ import { signIn } from '@okta/okta-react-native';
 
 class LoginScreen extends React.Component {
 
-    /* code from last section */
+  /* code from last section */
 
-    login() {
-        const { username, password } = this.state;
-        signIn({ username, password });
-    }
+  login() {
+    const { username, password } = this.state;
+    signIn({ username, password });
+  }
 
-    /* code from last section */
+  /* code from last section */
 }
 ```
