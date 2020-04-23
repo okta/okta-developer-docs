@@ -1160,7 +1160,7 @@ Updated [Rule](#rule-object)
 ##### Request example
 
 ```bash
-curl -v -X POST \
+curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
