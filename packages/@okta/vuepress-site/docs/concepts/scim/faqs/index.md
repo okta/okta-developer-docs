@@ -1,13 +1,11 @@
 ---
-title: SCIM - Frequently Asked Questions
-layout: docs_page
-icon: /assets/img/icons/scim.svg
+title: SCIM - frequently asked questions
 meta:
   - name: description
     content: Answers to your questions about how SCIM works with Okta.
 ---
 
-## SCIM Technical Questions
+# SCIM technical questions
 
 **Q: Our API is similar to SCIM, but isn't 100% compliant. Can we still integrate with Okta?**
 
