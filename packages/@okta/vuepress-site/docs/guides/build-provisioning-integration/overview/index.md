@@ -1,5 +1,5 @@
 ---
-title: Build a SCIM provisioning integration
+title: Overview
 ---
 
 ## Overview
