@@ -4,7 +4,7 @@ title: Prepare your SCIM service
 
 The first step in delivering your SCIM integration is preparing a SCIM-compliant API server to host your SCIM service.
 
-Okta supports lifecycle provisioning through version 2.0 and version 1.1 of the SCIM protocol.
+Okta supports lifecycle provisioning using either Version 2.0 and Version 1.1 of the SCIM protocol.
 
 If your service already supports the SCIM protocol, it is important that you review the Okta SCIM reference documentation to understand the specifics of how Okta implements the SCIM protocol:
 
@@ -12,7 +12,7 @@ If your service already supports the SCIM protocol, it is important that you rev
 
 If you haven't yet implemented SCIM, Okta recommends that you use Version 2.0 of the SCIM protocol.
 
-Another important part of the planning process is determining which Okta provisioning features your SCIM API can or should support. At a minimum, Okta requires that your SCIM 2.0 API implements the following features.
+Another important part of the planning process is determining which Okta provisioning features your SCIM API can or should support. At a minimum, Okta requires that your SCIM Version 2.0 API implements the following features.
 
 - [API Endpoints](#api-endpoints)
 - [Authentication](#authentication)
@@ -21,7 +21,7 @@ Another important part of the planning process is determining which Okta provisi
 - [Unique ID](#unique-id)
 - [Active Resources](#active-resources)
 
-### API Endpoints
+### API endpoints
 
 The API endpoint for your SCIM API must be secured using the [Transport Layer Security](https://tools.ietf.org/html/rfc5246) protocol. Connections through this secure layer are routed by using the `https://` prefix for your URL.
 
@@ -39,7 +39,7 @@ Okta supports authentication against SCIM APIs using any one of the following me
 
 If you are using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, your app's authorization server redirects the user back to Okta, with either an authorization code or an access token.
 
-Okta requires that all SCIM applications in the OIN catalog support all of the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
+If you are going to publish your app to the OIN catalog, Okta requires that all SCIM applications support all of the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
 
 - `https://system-admin.okta.com/admin/app/cpc/{appName}/oauth/callback`
 - `https://system-admin.okta-emea.com/admin/app/cpc/{appName}/oauth/callback`
@@ -69,7 +69,7 @@ You can pass a Base URL containing the name of the org:
 
 On your SCIM server, you can read which subdomain the request is coming from and route the request to the appropriate tenant for the Okta org.
 
-### Basic User Schema
+### Basic user schema
 
 Okta requires that your SCIM implementation be able to store the following four user attributes:
 
@@ -108,12 +108,12 @@ A best practice is to use a generated globally unique identifier (GUID) for this
 
 Okta user management requires that your SCIM API supports an `active` attribute for each user resource that can be set to `true` or `false` to denote a resource as "active" or "inactive".
 
-## SCIM Facade
+## SCIM facade
 
 Sometimes it isn't feasible for your cloud-based application to natively support a SCIM API. An alternative option is to build and host your own SCIM facade middleware that translates between the Okta SCIM API connection and the cloud app's proprietary API. The Okta integration connection is then made to this SCIM facade.
 
-## Provisioning to On-Premise Applications
+## Provisioning to on-premise applications
 
-This provisioning guide targets cloud-based applications, but Okta does have a solution for on-premise applications. See [Configuring On Premises Provisioning](https://support.okta.com/help/s/article/29448976-Configuring-On-Premises-Provisioning) for details about the Okta agent-based provisioning solution.
+This provisioning guide targets cloud-based applications, but Okta does have a solution for on-premise applications. See [Configuring On Premises Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_OPP_configure) for details about the Okta agent-based provisioning solution.
 
 <NextSectionLink/>
