@@ -14,14 +14,14 @@ Assign users to your app:
 
 #### Test SSO
 
-To test the Okta-initiated sign-in flow:
+##### Test the Okta-initiated sign-in flow
 
 1. Sign out of your administrator account in your development org.
   ![Sign out of the Admin Console](/img/oin/sso_user-sign-out.png "Sign out of the Admin Console")
 1. Sign in to the Okta End-User Dashboard as the regular user that you assigned to the app.
 1. Click on the app icon in your dashboard and confirm that the user is signed in to your app.
 
-To test the App-initiated sign-in flow:
+##### Test the App-initiated sign-in flow
 
 1. Sign out of your administrator account in your development org and sign out of your app.
 1. In your browser, sign in to your app either through your app's sign in button, or directly using the Login redirect URI. Regardless of which method you choose, your browser must end up at the Okta-hosted sign-in page.
@@ -35,7 +35,3 @@ If you run into issues with your sign-in process, you can try the following to t
 * In the Admin Console of your Okta development org, navigate to **Reports** > **System Log** and examine any failure messages reported.
 * Open the developer console of your web browser and examine any status messages related to your authentication request. The console errors have status codes in the 4XX range. Investigate and resolve any error messages from your request.
 * Send an email to <developers@okta.com>, or post your questions on the [Okta developer forum](https://devforum.okta.com/search?q=oidc) or on [Stack Overflow](https://stackoverflow.com/search?q=oidc+okta).
-
-#### Prepare to submit
-
-After your testing is complete, copy the app's instance URL (for example `https://acme.oktapreview.com/admin/app/acme_mytestapp/instance/123123123`) into a text file. You will need this information during the OIN submission process.

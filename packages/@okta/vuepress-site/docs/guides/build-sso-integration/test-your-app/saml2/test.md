@@ -25,7 +25,3 @@ If you run into issues with your sign-in process, you can try the following to t
   This tool makes it easy for you to send SAML Requests to your SAML SP. It allows you to quickly change the contents of the SAML requests and simplifies the process of debugging SAML issues by automatically decoding SAML payloads and displaying server headers for you.
 * You can also install the [SAML Tracer extension to Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) for testing, or similar tools for other browsers.
 * Send an email to <developers@okta.com>, or post your questions on the [Okta developer forum](https://devforum.okta.com/search?q=saml) or on [Stack Overflow](https://stackoverflow.com/search?q=saml+okta).
-
-#### Prepare to submit
-
-After your testing is complete, copy the app's instance URL (for example `https://acme.oktapreview.com/admin/app/acme_mytestapp/instance/123123123`) into a text file. You will need this information during the OIN submission process.
