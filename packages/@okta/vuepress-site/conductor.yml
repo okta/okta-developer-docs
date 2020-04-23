@@ -349,7 +349,7 @@ redirects:
     to: /docs/reference/api/system-log/
   - from: /docs/how-to/creating-token-with-groups-claim.html
     to: /docs/guides/customize-tokens-returned-from-okta/
-  - from: /docs/guides/create-token-with-groups-claim
+  - from: /docs/guides/create-token-with-groups-claim/
     to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/sdk/core/api.html
     to: /docs/
