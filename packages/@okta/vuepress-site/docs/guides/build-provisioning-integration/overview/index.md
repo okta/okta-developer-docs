@@ -12,6 +12,6 @@ Your app integration can also use Single Sign-On (SSO) to initiate end-user auth
 
 If you need help, read through our [SCIM FAQ](/docs/concepts/scim/faqs/) page, post your question on the [Okta Developer Forums](https://devforum.okta.com/), or email us at <developers@okta.com>.
 
-After you have prepared and tested your SCIM integration, if you want to make your integration public, you can [submit your app](/docs/guides/submit-app/) for publication in the [Okta Integration Network (OIN) catalog](https://www.okta.com/integrations/).
+After you have prepared and tested your SCIM integration, if you want to make your integration public, you can [submit your app](/docs/guides/submit-app) for publication in the [Okta Integration Network (OIN) catalog](https://www.okta.com/integrations/).
 
 <NextSectionLink/>
