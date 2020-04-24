@@ -32,7 +32,7 @@ class LoginScreen extends React.Component {
 
 You can also register event listeners from the `EventEmitter` function in the SDK to handle responses.
 
-**Note:** Please make sure listeners will be properly unregistered when component unmounted.
+**Note:** Please make sure listeners will be properly unregistered when component will unmount.
 
 ```javascript
 import { EventEmitter } from '@okta/okta-react-native';
