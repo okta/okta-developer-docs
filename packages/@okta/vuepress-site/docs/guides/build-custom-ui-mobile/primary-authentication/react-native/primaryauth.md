@@ -1,6 +1,6 @@
 ### Build a sign in form
 
-To create a custom UI for user sign in, you need to first create a simple form to prompt the user for their username and password:
+To create a custom UI for user sign-in, you need to first create a simple form to prompt the user for their username and password:
 
 ```javascript
 class LoginScreen extends React.Component {
@@ -44,9 +44,9 @@ class LoginScreen extends React.Component {
 
 ### Primary authentication
 
-The SDK supports primary authentication flow since version 1.4.0. Implementing primary authentication can be as simple as calling `signIn` function from the SDK.
+The SDK supports the primary authentication flow since version 1.4.0. You can implement primary authentication by calling the `signIn` function.
 
-The code will continue work on the `login` method from last section.
+The following code example is the continuous work of the `login` method from last section.
 
 ```javascript
 import { signIn } from '@okta/okta-react-native';

@@ -6,9 +6,9 @@ npm install @okta/okta-react-native
 
 ## Configure the SDK
 
-Call the `createConfig` function to create a configured client when app initialized. You can put it in `index.js` or `App.js`. Resolves true if it successfully configures a client. 
+Call the `createConfig` function to create a configured client when app is initialized. You can put it in `index.js` or `App.js`. Resolves `true` if it successfully configures a client.
 
-**Note:** requireHardwareBackedKeyStore is a configurable setting only on Android devices. If you're testing on Android emulators, set this field to false.
+**Note:** `requireHardwareBackedKeyStore` is a configurable setting only on Android devices. If you're testing on Android emulators, set this field to `false`.
 
 ```javascript
 import { createConfig } from '@okta/okta-react-native';
