@@ -1045,10 +1045,13 @@ curl -v -X POST \
 #### Add Smart Card Identity Provider
 
 
-Adds a new `Smart Card` type IdP to your organization
+Adds a new Smart Card `X509` type IdP to your organization
 
 ##### Request Example
 
+> **Notes:** You must first add the IdP's server certificate to the IdP key store before you can add a Smart Card `X509` IdP with a `kid` credential reference. You need the upload the whole trust chain as single key using [key store apis](#add-x-509-certificate-public-key).
+Depending on the information stored in the smart card select proper template "idpuser.subjectAltNameEmail" or "idpuser.subjectAltNameUpn".
+<br><br>
 
 ```bash
 curl -v -X POST \
@@ -1066,8 +1069,8 @@ curl -v -X POST \
       "trust": {
         "revocation": "CRL",
         "revocationCacheLifetime": 2880,
-        "issuer": "CN=Test Smart Card, OU=Test OU, O=Test O, C=US",
-        "kid": "45dec5ff-8cdc-48c0-85fe-a4869f1753dc"
+        "issuer": "your-issuer",
+        "kid": "your-kid"
       }
     }
   },
@@ -3115,7 +3118,7 @@ HTTP/1.1 200 OK
 
 Adds a new X.509 certificate credential to the IdP key store
 
-> **Note:** Okta currently supports only RSA-based certificates.
+> **Note:** RSA-based certificates are supported for all Idp types. Okta currently supports EC-based certificates only for `X509` type of Idp. For EC-based certificates we support only P-256, P-384 and P-521 curves.
 
 ##### Request parameters
 
@@ -3309,6 +3312,22 @@ curl -v -X GET \
        1KKY9CdHcFhkSsMhoeaZylZHtzbnoipUlQKSLMdJQiiYZQ0bYL83/Ta9fulr1EERICMFt3GUmtYaZZKHpWSfdJp9"
     ],
     "x5t#S256": "wzPVobIrveR1x-PCbjsFGNV-6zn7Rm9KuOWOG4Rk6jE"
+  },
+  {
+    "kty": "EC",
+    "created": "2020-04-24T20:51:20.000Z",
+    "lastUpdated": "2020-04-24T20:51:20.000Z",
+    "expiresAt": "2040-03-01T20:22:29.000Z",
+    "alg": "EC",
+    "x5c": [
+        "MIICqDCCAgqgAwIBAgIJAOkmCa/S8dHiMAoGCCqGSM49BAMCMG0xCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMRAwDgYDVQQKDAdKYW5reUNvMR8wHQYDVQQDDBZUZXN0IElkZW50aXR5IFByb3ZpZGVyMB4XDTIwMDMwNjIwMjIyOVoXDTQwMDMwMTIwMjIyOVowbTELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xEDAOBgNVBAoMB0phbmt5Q28xHzAdBgNVBAMMFlRlc3QgSWRlbnRpdHkgUHJvdmlkZXIwgZswEAYHKoZIzj0CAQYFK4EEACMDgYYABABW/lGHl17mKDtCD4D7gcMYYOWgyWTGno8MTefDOABA8PddessTsbfrguF49Gli6lCzrZaAKhhvgINc3R6t/dYleAE3lY6LAocOoLe9xDkeggXNcSuP5fDc1x5R9GHTXl44vLoJOLSLsMbOXVMXIXoqbPDzTSYUy24aFdv4W4LZxW6ak6NQME4wHQYDVR0OBBYEFChTXNWvs4z1qjRVemPDD/hqlDQ4MB8GA1UdIwQYMBaAFChTXNWvs4z1qjRVemPDD/hqlDQ4MAwGA1UdEwQFMAMBAf8wCgYIKoZIzj0EAwIDgYsAMIGHAkIBuDhHMNLbBIsorbKtjxJzHJ2ItCSD2wAwqYv/6JBtA2ulKN5gRTSqdNCnqFsZ1/nYY7FFVXHEuQ2N3pPq7Ri8h84CQSgCq1UQyd0lFtb7+57JbiGb6LVaRqRm7vwx8zLRA+tVjIM1DlQ2Gbxkj3nlkzmM93j9wchiqGdQidyKnF6EBnfd"
+    ],
+    "x": "Vv5Rh5de5ig7Qg-A-4HDGGDloMlkxp6PDE3nwzgAQPD3XXrLE7G364LhePRpYupQs62WgCoYb4CDXN0erf3WJXg",
+    "y": "ATeVjosChw6gt73EOR6CBc1xK4_l8NzXHlH0YdNeXji8ugk4tIuwxs5dUxcheips8PNNJhTLbhoV2_hbgtnFbpqT",
+    "crv": "P-521",
+    "kid": "your-kid",
+    "use": "sig",
+    "x5t#S256": "TUx-AIwypm2pZURHNqafk7ZDxqQP_ypzIyUwDDnPOlw"
   }
 ]
 ```
@@ -5150,8 +5169,6 @@ Protocol settings for the [MTLS Protocol](https://tools.ietf.org/html/rfc5246#se
 ```
 
 ##### MTLS Endpoints Object
-
-The `MTLS` protocol supports `sso` endpoint.
 
 | Property | Description                                                                           | DataType                                                                                            | Nullable | Readonly |
 | -------- | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------- | -------- |
