@@ -14,11 +14,11 @@ Call the `createConfig` function to create a configured client when app initiali
 import { createConfig } from '@okta/okta-react-native';
 
 createConfig({
-    clientId: "{clientId}",
-    redirectUri: "{redirectUri}",
-    endSessionRedirectUri: "{endSessionRedirectUri}",
-    discoveryUri: "https://${yourOktaDomain}",
-    scopes: ["openid", "profile", "offline_access"],
+    clientId: '{clientId}',
+    redirectUri: '{redirectUri}',
+    endSessionRedirectUri: '{endSessionRedirectUri}',
+    discoveryUri: 'https://${yourOktaDomain}',
+    scopes: ['openid', 'profile', 'offline_access'],
     requireHardwareBackedKeyStore: false
 });
 ```
