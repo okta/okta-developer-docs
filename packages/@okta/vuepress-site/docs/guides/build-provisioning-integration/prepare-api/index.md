@@ -12,14 +12,16 @@ If your service already supports the SCIM protocol, it is important that you rev
 
 If you haven't yet implemented SCIM, Okta recommends that you use Version 2.0 of the SCIM protocol.
 
-Another important part of the planning process is determining which Okta provisioning features your SCIM API can or should support. At a minimum, Okta requires that your SCIM Version 2.0 API implements the following features.
+## Features
 
-- [API Endpoints](#api-endpoints)
+Another important part of the planning process is determining which Okta provisioning features your SCIM API can or should support. At a minimum, Okta requires that your SCIM Version 2.0 API implements the following features.
+<!-- no toc -->
+- [API endpoints](#api-endpoints)
 - [Authentication](#authentication)
 - [Base URL](#base-url)
-- [Basic User Schema](#basic-user-schema)
+- [Basic user schema](#basic-user-schema)
 - [Unique ID](#unique-id)
-- [Active Resources](#active-resources)
+- [Active resources](#active-resources)
 
 ### API endpoints
 
@@ -112,7 +114,7 @@ Okta user management requires that your SCIM API supports an `active` attribute 
 
 Sometimes it isn't feasible for your cloud-based application to natively support a SCIM API. An alternative option is to build and host your own SCIM facade middleware that translates between the Okta SCIM API connection and the cloud app's proprietary API. The Okta integration connection is then made to this SCIM facade.
 
-## Provisioning to on-premise applications
+## Provisioning to on-premises applications
 
 This provisioning guide targets cloud-based applications, but Okta does have a solution for on-premise applications. See [Configuring On Premises Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_OPP_configure) for details about the Okta agent-based provisioning solution.
 
