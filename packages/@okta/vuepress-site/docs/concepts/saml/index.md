@@ -1,13 +1,11 @@
 ---
 title: Understanding SAML
-layout: docs_page
-icon: /assets/img/icons/saml.svg
 meta:
   - name: description
     content: Secure Authentication Markup Language is a standards-based protocol for exchanging digital authentication signatures. Learn how SAML operates and how to set up SAML applications in Okta.
 ---
 
-## SAML
+# SAML
 
 Traditionally, enterprise applications are deployed and run within the company network. To obtain information about users such as user profile and group information, many of these applications are built to integrate with corporate directories such as Microsoft Active Directory. More importantly, a user's credentials are typically stored and validated using the directory. For example, if you use SharePoint and Exchange that are running on premises, your login credentials are your Active Directory credentials.
 
@@ -147,3 +145,7 @@ This is particularly important where the entire population is intended to be SAM
 - [Assertions and Protocols for the OASIS Security Assertion Markup Language (SAML) V2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf)
 - [Bindings for the OASIS Security Assertion Markup Language (SAML) V2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf)
 - [Profiles for the OASIS Security Assertion Markup Language (SAML) V2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf)
+
+### SAML FAQs
+
+- [Okta SAML frequently asked questions](/docs/concepts/saml/faqs/)

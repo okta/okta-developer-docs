@@ -1,13 +1,11 @@
 ---
 title: SAML - frequently asked questions
-layout: docs_page
-icon: /assets/img/icons/saml.svg
 meta:
   - name: description
     content: Answers to your questions about how SAML works with Okta.
 ---
 
-## SAML technical questions
+# SAML technical questions
 
 **Q: Does Okta support Single Logout (SLO) for the SAML protocol?**
 
