@@ -8,7 +8,7 @@ deprecated: true
 
 The Okta Events API provides read access to your organization's system log. [Export event data](https://support.okta.com/help/Documentation/Knowledge_Article/Exporting-Okta-Log-Data) as a batch job from your organization to another system for reporting or analysis.
 
-> **Important:** the [System Log API](/docs/reference/api/system-log/) will eventually replace the Events API and contains much more [structured data](/docs/reference/api/system-log/#logevent-object). As of Jan 7, 2019 developers of new projects are unable to access the Events API and should use the System Log API. For information on migrating from the Events API to the System Log API please see [Events API Migration](/docs/concepts/events-api-migration/).
+> **Important:** The [System Log API](/docs/reference/api/system-log/) will eventually replace the Events API and contains much more [structured data](/docs/reference/api/system-log/#logevent-object). As of Jan 7, 2019 developers of new projects are unable to access the Events API and should use the System Log API. As of April 20, 2020, no new event types will be added for the Events API. Information about migrating from the Events API to the System Log API can be found on the [Events API Migration page](/docs/concepts/events-api-migration/). Other information can be found in the [Events API End of Life FAQ](https://support.okta.com/help/s/article/FAQ-Events-API-End-of-Life)
 
 ## Getting Started
 
