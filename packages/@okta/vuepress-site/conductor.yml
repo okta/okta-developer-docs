@@ -1899,3 +1899,11 @@ redirects:
     to: /docs/guides/submit-app/submission1-general/
   - from: /docs/api/getting_started/api_test_client
     to: /code/rest/
+  - from: /docs/guides/build-sso-integration/submit-your-app/index.html
+    to: /docs/guides/build-sso-integration/next-steps/
+  - from: /docs/guides/build-sso-integration/openidconnect/submit-your-app/index.html
+    to: /docs/guides/build-sso-integration/next-steps/
+  - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
+    to: /docs/guides/build-sso-integration/next-steps/
+  - from: /docs/guides/build-provisioning-integration/prepare-guide/index.html
+    to: /docs/guides/build-provisioning-integration/next-steps/

@@ -11,8 +11,8 @@ If you are an independent software vendor (ISV), Okta customer, or IT system int
 This guide covers app submissions that use one or more of the protocols:
 
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
-* [Security Assertion Markup Language (SAML)](https://en.wikipedia.org/wiki/SAML_2.0), version 2.0
-* [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/), versions 2.0 and 1.1
+* [Security Assertion Markup Language (SAML)](https://en.wikipedia.org/wiki/SAML_2.0), Version 2.0
+* [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/), Versions 2.0 and 1.1
 
 ## Prerequisites
 

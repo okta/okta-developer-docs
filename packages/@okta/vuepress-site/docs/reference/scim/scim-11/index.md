@@ -1,12 +1,11 @@
 ---
 title: SCIM 1.1 Protocol Reference
-icon: /assets/img/icons/scim.svg
 meta:
   - name: description
     content: Your SCIM API must support specific SCIM 1.1 API endpoints to work with Okta. Those endpoints and their explanations are detailed here.
 ---
 
-# Okta and SCIM V1.1
+# Okta and SCIM Version 1.1
 
 This reference focuses on how Okta API endpoints share information with System for Cross-domain Identity Management (SCIM) specific API calls.
 
