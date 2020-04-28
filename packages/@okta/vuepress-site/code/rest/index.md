@@ -24,11 +24,11 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
 3. Launch Postman and select **Import** from the **File** menu.
 4. Click **Import From Link** and then paste this link into the box that appears: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`
 5. Click **Import**.
-6. After the import is complete, verify that the `example.oktapreview.com` environment is selected in the upper-right corner of the page.
+6. After the import is complete, verify that the `{yourOktaDomain}` environment is selected in the upper-right corner of the page.
 
   ![Postman app with collections](/img/postman_example_start.png "Points to the box in the upper-right corner that contains environments for use with Postman")
 
-7. Click the gear icon to the right of `example.oktapreview.com` and select your org to replace or add these values:
+7. Click the gear icon to the right of `{yourOktaDomain}` and select your org to replace or add these values:
     * Rename your environment to something that you recognize, for example: `My Org`.
     * `url`: Replace the example value with your org's full URL: For example, `https://mytestorg.oktapreview.com`. Make sure that you don't include `-admin` in the subdomain.
     * `apikey`: Enter the API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
