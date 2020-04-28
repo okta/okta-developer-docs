@@ -1907,7 +1907,7 @@ redirects:
     to: /docs/guides/build-sso-integration/next-steps/
   - from: /docs/guides/build-provisioning-integration/prepare-guide/index.html
     to: /docs/guides/build-provisioning-integration/next-steps/
-  - from: /docs/api/resources/oidc.html/
+  - from: /docs/api/resources/oidc.html/index.html
     to: /docs/reference/api/oidc/
-  - from: /docs/api/resources/authn.html/
+  - from: /docs/api/resources/authn.html/index.html
     to: /docs/reference/api/authn/
