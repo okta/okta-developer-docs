@@ -52,14 +52,6 @@ export default {
     }
   },
   mounted() {
-    if(this.$page && this.$page.redir) {
-        let anchor = window.location.href.split('#')[1] || '';
-        if(anchor) {
-          this.$router.push({ path: `${this.$page.redir}#${anchor}` });
-        } else {
-          this.$router.push({ path: `${this.$page.redir}` });
-        }
-    }
     window.addEventListener('load', () => {
         window.setTimeout(() => {
           let anchor = window.location.href.split('#')[1];
@@ -95,6 +87,25 @@ export default {
     this.$on('toggle-tree-nav', event => {
       that.treeNavOpen = event.treeNavOpen;
     });
+
+    this.redirIfRequired();
+  },
+  watch: {
+    $route(to, from) {
+      this.redirIfRequired();
+    }
+  },
+  methods: {
+    redirIfRequired() {
+      if(this.$page && this.$page.redir) {
+        let anchor = window.location.href.split('#')[1] || '';
+        if(anchor) {
+          this.$router.replace({ path: `${this.$page.redir}#${anchor}` });
+        } else {
+          this.$router.replace({ path: `${this.$page.redir}` });
+        }
+      }
+    }
   }
 }
 </script>
