@@ -46,7 +46,7 @@ class LoginScreen extends React.Component {
 
 The SDK supports the primary authentication flow since version 1.4.0. You can implement primary authentication by calling the `signIn` function.
 
-The following code example is the continuous work of the `login` method from last section.
+The following code example is a continuous work of the `login` method from the last section.
 
 ```javascript
 import { signIn } from '@okta/okta-react-native';
