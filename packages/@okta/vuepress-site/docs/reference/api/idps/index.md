@@ -5283,9 +5283,10 @@ Certificate chain description for verifying assertions from the Smart Card.
 | `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
 | `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`                        |                       |
-| `X509`       | `AUTO` or `DISABLED`          |                                  |                            |                    |
+| `X509`       | `DISABLED`                    |                                       |                               |                       |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action.
+> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action. <br>
+`X509` Idp type do not support JIT provisioning.
 
 #### Provisioning Policy object
 
@@ -5334,9 +5335,10 @@ The follow provisioning actions are supported by each IdP provider:
 | `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
 | `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` |
-| `X509`       | `AUTO` or `DISABLED`          | `NONE`                                |
+| `X509`       | `DISABLED`                    |                                       |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action.
+> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action.<br>
+`X509` Idp type do not support JIT provisioning.
 
 ##### User provisioning action type
 
