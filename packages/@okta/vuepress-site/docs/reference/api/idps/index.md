@@ -5143,9 +5143,9 @@ Protocol settings for the [MTLS Protocol](https://tools.ietf.org/html/rfc5246#se
 
 | Property    | Description                                                        | DataType                                                          | Nullable | Readonly |
 | ----------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- | -------- | -------- |
-| type        | The only supported value is `MTLS`                                                    | String                                                            | FALSE    | TRUE     |
-| endpoints   | Location of authentication endpoint                                | [MTLS Endpoints Object](#mtls-endpoints-object)                   | FALSE    | FALSE    |
 | credentials | Description of the issuing cert                                    | [MTLS Credentials Object](#mtls-credentials-object)               | FALSE    | FALSE    |
+| endpoints   | Location of authentication endpoint                                | [MTLS Endpoints Object](#mtls-endpoints-object)                   | FALSE    | FALSE    |
+| type        | The only supported value is `MTLS`                                 | String                                                            | FALSE    | TRUE     |
 
 ```json
 {
@@ -5171,7 +5171,7 @@ Protocol settings for the [MTLS Protocol](https://tools.ietf.org/html/rfc5246#se
 
 | Property | Description                                                                           | DataType                                                                                            | Nullable | Readonly |
 | -------- | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------- | -------- |
-| sso      | IdP's `SingleSignOnService` endpoint                 |             | FALSE    | TRUE          |
+| sso      | IdP's `SingleSignOnService` endpoint                                                  | [MTLS SSO Endpoint Object](#mtls-single-sign-on-sso-endpoint-object)                                | FALSE    | TRUE     |
 
 ###### MTLS Single Sign-On (SSO) Endpoint Object
 
@@ -5209,11 +5209,11 @@ Certificate chain description for verifying assertions from the Smart Card:
 
 | Property                | Description                                                                                            | DataType | Nullable | Readonly | MinLength | MaxLength | Validation                                 |
 | --------                | -----------------------------------------------------------------------------------------------------  | -------- | -------- | -------- | --------- | --------- | ------------------------------------------ |
-| issuer                  | Description of the certificate issuer                                                                  | String   | FALSE    | FALSE    | 1         | 1024      |     |
 | audience                | not used                                                                                               | String   | TRUE     | FALSE    | 1         | 1024      | [URI](https://tools.ietf.org/html/rfc3986) |
+| issuer                  | Description of the certificate issuer                                                                  | String   | FALSE    | FALSE    | 1         | 1024      |                                            |
 | kid                     | [Key ID](#identity-provider-key-store-operations) reference to the IdP's X.509 signature certificate   | String   | FALSE    | FALSE    | 36        | 36        | Valid IdP Key ID reference                 |
 | revocation              | Mechanism to validate the certificate                                                                  | String   | FALSE    | FALSE    | 36        | 36        | CRL                                        |
-| revocationCacheLifetime | Time in minutes to cache the certificate revocation information                                        | Number  | FALSE    | FALSE    | 1         | 4320      | from 1 minute to 72 hours                  |
+| revocationCacheLifetime | Time in minutes to cache the certificate revocation information                                        | Number   | FALSE    | FALSE    | 1         | 4320      | from 1 minute to 72 hours                  |
 
 ```json
 {
@@ -5334,7 +5334,7 @@ The follow provisioning actions are supported by each IdP provider:
 | `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
 | `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` |
-| `X509`       | `AUTO` or `DISABLED`          |                                       |
+| `X509`       | `AUTO` or `DISABLED`          | `NONE`                                |
 
 > **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action.
 
