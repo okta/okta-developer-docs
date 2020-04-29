@@ -1049,9 +1049,8 @@ Adds a new Smart Card `X509` type IdP to your organization
 
 ##### Request Example
 
-> **Notes:** You must first add the IdP's server certificate to the IdP key store before you can add a Smart Card `X509` IdP with a `kid` credential reference. You need the upload the whole trust chain as single key using [key store apis](#add-x-509-certificate-public-key).
+> **Notes:** You must first add the IdP's server certificate to the IdP key store before you can add a Smart Card `X509` IdP with a `kid` credential reference. You need to upload the whole trust chain as single key using the [Key Store API](#add-x-509-certificate-public-key).
 Depending on the information stored in the smart card select proper template "idpuser.subjectAltNameEmail" or "idpuser.subjectAltNameUpn".
-<br><br>
 
 ```bash
 curl -v -X POST \
@@ -3118,7 +3117,7 @@ HTTP/1.1 200 OK
 
 Adds a new X.509 certificate credential to the IdP key store
 
-> **Note:** RSA-based certificates are supported for all Idp types. Okta currently supports EC-based certificates only for `X509` type of Idp. For EC-based certificates we support only P-256, P-384 and P-521 curves.
+> **Note:** RSA-based certificates are supported for all IdP types. Okta currently supports EC-based certificates only for the `X509` IdP type. For EC-based certificates we support only P-256, P-384 and P-521 curves.
 
 ##### Request parameters
 
@@ -5144,7 +5143,7 @@ Protocol settings for the [MTLS Protocol](https://tools.ietf.org/html/rfc5246#se
 
 | Property    | Description                                                        | DataType                                                          | Nullable | Readonly |
 | ----------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- | -------- | -------- |
-| type        | MTLS protocol                                                      | `MTLS`                                                            | FALSE    | TRUE     |
+| type        | The only supported value is `MTLS`                                                    | String                                                            | FALSE    | TRUE     |
 | endpoints   | Location of authentication endpoint                                | [MTLS Endpoints Object](#mtls-endpoints-object)                   | FALSE    | FALSE    |
 | credentials | Description of the issuing cert                                    | [MTLS Credentials Object](#mtls-credentials-object)               | FALSE    | FALSE    |
 
