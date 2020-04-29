@@ -532,7 +532,7 @@ redirects:
   - from: /authentication-guide/tokens/validating-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide/generic-oidc/index.html
-    to: /docs/guides/federate-with-oidc/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /authentication-guide/tokens/refreshing-tokens/index.html
     to: /docs/guides/refresh-tokens/
   - from: /authentication-guide/tokens/revoking-tokens/index.html
@@ -692,7 +692,7 @@ redirects:
   - from: /authentication-guide/tokens/validating-id-tokens
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide/generic-oidc
-    to: /docs/guides/federate-with-oidc/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /authentication-guide/tokens/refreshing-tokens
     to: /docs/guides/refresh-tokens/
   - from: /authentication-guide/tokens/revoking-tokens
@@ -816,19 +816,19 @@ redirects:
   - from: /guides/enable-cors/-/overview/index.html
     to: /docs/guides/enable-cors/-/overview/
   - from: /guides/federate-with-oidc/-/add-redirect-to-idp/index.html
-    to: /docs/guides/federate-with-oidc/-/add-redirect-to-idp/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/configure-idp/index.html
-    to: /docs/guides/federate-with-oidc/-/configure-idp/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/create-client-app/index.html
-    to: /docs/guides/federate-with-oidc/-/create-client-app/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/create-okta-app/index.html
-    to: /docs/guides/federate-with-oidc/-/create-okta-app/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/overview/index.html
-    to: /docs/guides/federate-with-oidc/-/overview/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/test-authz-url/index.html
-    to: /docs/guides/federate-with-oidc/-/test-authz-url/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/use-for-signin/index.html
-    to: /docs/guides/federate-with-oidc/-/use-for-signin/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/find-your-app-credentials/-/overview/index.html
     to: /docs/guides/find-your-app-credentials/-/overview/
   - from: /guides/find-your-domain/-/overview/index.html
@@ -1502,7 +1502,7 @@ redirects:
   - from: /guides/enable-cors/index.html
     to: /docs/guides/enable-cors/
   - from: /guides/federate-with-oidc/index.html
-    to: /docs/guides/federate-with-oidc/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/find-your-app-credentials/index.html
     to: /docs/guides/find-your-app-credentials/
   - from: /guides/find-your-domain/index.html
@@ -1697,6 +1697,8 @@ redirects:
     to: /docs/guides/add-an-external-idp/openidconnect/create-authz-url/
   - from: /docs/guides/federate-with-oidc/use-for-signin/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in/
+  - from: /docs/guides/federate-with-oidc/overview/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /docs/api/getting_started/getting_a_token.html
     to: /docs/guides/create-an-api-token/overview/
   - from: /reference/okta_expression_language/index
