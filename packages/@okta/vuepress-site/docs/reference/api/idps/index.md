@@ -1050,7 +1050,7 @@ Adds a new Smart Card `X509` type IdP to your organization
 ##### Request Example
 
 > **Notes:** You must first add the IdP's server certificate to the IdP key store before you can add a Smart Card `X509` IdP with a `kid` credential reference. You need to upload the whole trust chain as single key using the [Key Store API](#add-x-509-certificate-public-key).
-Depending on the information stored in the smart card select proper template "idpuser.subjectAltNameEmail" or "idpuser.subjectAltNameUpn".
+Depending on the information stored in the smart card select proper [template](/docs/reference/okta-expression-language/#idp-user-profile) "idpuser.subjectAltNameEmail" or "idpuser.subjectAltNameUpn".
 
 ```bash
 curl -v -X POST \
