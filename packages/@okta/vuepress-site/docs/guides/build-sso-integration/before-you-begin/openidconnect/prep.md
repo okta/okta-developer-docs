@@ -6,10 +6,10 @@ Before you create a new OIDC integration in Okta:
 1. Decide which platform you'll be using for the integration:
    * A web application is accessed through the browser and can remain running on a server that can store a secret safely.
    * A native application resides on the end user's device.
-   * A single page app (SPA) is a web application that is contained on a single web page. All code is retrieved when the page is loaded initially - the page does not reload or refresh. A SPA application cannot keep running on a server.
+   * A single page app (SPA) is a web application that is contained on a single web page. All code is retrieved when the page is loaded initially - the page doesn't reload or refresh. A SPA application cannot keep running on a server.
 -->
 
-1. Determine the login and (optional) logout redirect URIs on your system. A redirect URI is where Okta sends the authentication response and ID token. You can specify more than one URI if required.
+1. Determine the login and (optional) logout redirect URIs on your system. A redirect URI is where Okta sends the authentication response and ID token during the sign-in flow. You can specify more than one URI if required.
 1. Your application must support automatic credential rotation. For more information, see the `/keys` section in the [OpenID Connect & OAuth 2.0 API reference](/docs/reference/api/oidc/#key-rotation).
 1. Your application must support refresh tokens.
 

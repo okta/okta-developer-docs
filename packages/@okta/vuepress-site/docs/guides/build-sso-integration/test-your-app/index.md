@@ -16,10 +16,10 @@ First you must assign your integration to one or more test users in your org:
 
 ### Test Single Sign-On
 
-1. Sign out of your administrator account in your development org. Click **Sign out** in the top right corner of the Admin Console.
+1. Sign out of your administrator account in your development org. Click **Sign out** in the upper-right corner of the Admin Console.
 1. Sign in to the Okta End-User Dashboard as the regular user that was assigned the integration.
-1. In your dashboard, click on the Okta tile for the integration and confirm that the user is signed in to your application.
+1. In your dashboard, click the Okta tile for the integration and confirm that the user is signed in to your application.
 
 <StackSelector snippet="test" />
 
-<NextSectionLink/>
+<NextSectionLink>Next Steps</NextSectionLink>

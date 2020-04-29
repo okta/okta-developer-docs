@@ -4,7 +4,7 @@ In a SAML integration, Okta is the Identity Provider (IdP), and your application
 
 Before you create a new SAML integration in Okta:
 
-1. Determine the default Assertion Consumer Service (ACS) URL for your integration. This is often referred to as the SP login URL. This is the endpoint on your application where the SAML responses are posted.
+1. Determine the default Assertion Consumer Service (ACS) URL for your integration. This is often referred to as the SP sign-in URL. This is the endpoint on your application where the SAML responses are posted.
 1. Find your Audience URI. This is sometimes referred to as the SP Entity ID or the Entity ID of your application.
-1. Optionally, set up a Default Relay State page, where users will land after they successfully sign in to the SP using SAML. This must be a valid URL.
+1. (Optional). Set up a Default Relay State page, where users land after they successfully sign in to the SP using SAML. This must be a valid URL.
 1. Gather any required SAML attributes. You can choose to share Okta user profile field values as SAML attributes with your application.

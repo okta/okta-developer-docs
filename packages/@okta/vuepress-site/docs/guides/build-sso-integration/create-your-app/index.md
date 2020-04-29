@@ -7,9 +7,9 @@ After you have your background information, you can use the Okta Admin Console a
 If you don't have an Okta developer account, begin by signing up for one at <https://developer.okta.com/signup/>.
 
 1. After you request the developer account and have received the initialization email, click the link in the email to go to your developer org. Sign in as a user with administrative privileges.
-1. Navigate to the Admin Console in your Okta org by clicking **Admin** in the top right corner.
+1. Navigate to the Admin Console in your Okta org by clicking **Admin** in the upper-right corner.
 
-   >**Note:** If you are in the Developer Console, click **< > Developer Console** in the top left corner and then click **Classic UI** to switch over to the Admin Console in your Okta org.
+   >**Note:** If you are in the Developer Console, click **< > Developer Console** in the upper-left corner and then click **Classic UI** to switch over to the Admin Console in your Okta org.
   ![Switch to Admin Console](/img/oin/scim_switch-ui.png "Switch to Admin UI")
 
 3. In the Admin Console, go to  **Applications** > **Applications**.
