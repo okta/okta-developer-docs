@@ -16,9 +16,9 @@ Scoped access tokens have a number of advantages, including:
 
 To use this guide, you need the following:
 
-* An Okta Developer Edition Org. (Don't have one? [Create an org for free](https://developer.okta.com/signup).)
+* An Okta Developer Org. (Don't have one? [Create an org for free](https://developer.okta.com/signup).)
 * [Postman client](https://www.getpostman.com/downloads/) to test requests with the access token. See [Get Started with the Okta APIs](https://developer.okta.com/code/rest/) for information on setting up Postman.
 
-> **Note:** At this time, OAuth for Okta works only with the APIs listed in the <GuideLink link="../scopes">Scopes & supported endpoints</GuideLink> section. We are actively working towards supporting additional APIs. Our goal is to cover all Okta public API endpoints.
+> **Note:** At this time, OAuth for Okta works only with the APIs listed in the <GuideLink link="../scopes">Scopes & supported endpoints</GuideLink> section. We are actively working towards supporting additional APIs. Our goal is to cover all public Okta API endpoints.
 
 <NextSectionLink/>

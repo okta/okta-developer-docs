@@ -2,13 +2,13 @@
 title: Create a service app and grant scopes
 ---
 
-Create an OAuth service client app and register the public key with the service app using the dynamic client registration endpoint (`/oauth/v1/clients`). Then, grant the scopes that you want to allow for the service app.
+Create an OAuth service app and register the public key with the service app using the dynamic client registration endpoint (`/oauth/v1/clients`). Then grant the scopes that you want to allow for the service app.
 
 ## Create a service app
 
 1. Use the following POST example to create your service app using the `/oauth2/v1/clients` endpoint and provide values for these parameters:
 
-    * `client_name` &mdash; Name of the service client app
+    * `client_name` &mdash; Name of the service app
     * `grant_types` &mdash; `client_credentials`
     * `token_endpoint_auth_method` &mdash; `private_key_jwt`
     * `application_type` &mdash; `service`
@@ -48,7 +48,7 @@ Create an OAuth service client app and register the public key with the service 
 
 ### Grant allowed scopes
 
-When a request is sent to the Okta Org Authorization Server, it validates all of the requested scopes in the OAuth2 token request against the service client app's grants collection. The scope is granted if the scope exists in the service client app's grants collection.
+When a request is sent to the Okta Org Authorization Server, it validates all of the requested scopes in the OAuth2 token request against the service app's grants collection. The scope is granted if the scope exists in the service app's grants collection.
 
 > **Note:** You can find a list of available values for `scopeId` on the [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/) page.
 

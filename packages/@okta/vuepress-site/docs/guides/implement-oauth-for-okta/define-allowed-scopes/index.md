@@ -1,6 +1,7 @@
 ---
 title: Define allowed scopes
 ---
+
 When a request is sent to the Okta Org Authorization Server, it validates all of the requested scopes in the OAuth2 authorize request against the app's grants collection. The scope is granted if it exists in the app's grants collection.
 
 > **Note:** Only the Super Admin role has permissions to grant scopes to an app.

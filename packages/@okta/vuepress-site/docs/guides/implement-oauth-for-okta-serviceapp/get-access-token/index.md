@@ -44,7 +44,7 @@ The response should look something like this (the token is truncated for brevity
 Make a request to the `/users` endpoint using the access token.
 
 1. If you are using Postman to test, select the **List Users** `GET` request to the `/api/v1/users` endpoint to get back a list of all users.
-2. On the **Header** tab, remove the existing SSWS Authorization API Key.
+2. On the **Header** tab, remove the existing Okta API token (SSWS Authorization API Key).
 3. Click the **Authorization** tab and from the **Type** drop-down box, select **OAuth 2.0**.
 4. On the right, paste the access token into the **Access Token** box and click **Send**. The response should contain an array of all the users associated with your app. This is dependent on the user's permissions.
 

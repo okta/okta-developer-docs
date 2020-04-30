@@ -8,14 +8,14 @@ Create and sign the JWT with your private key for use as a JWT assertion in the 
 
 For testing purposes, use [this tool](https://www.jsonwebtoken.dev/) to generate and sign a JWT. This tool supports both JWT and PEM formats. For a production use case, see [Build a JWT with a private key](/docs/guides/build-self-signed-jwt/java/jwt-with-private-key/) for both a Java and a JavaScript example of signing the JWT.
 
-> **Note:** After the service app has Okta-scoped grants, only an admin with Super Admin permissions can rotate the keys.
+> **Note:** After the service app has Okta-scoped grants, only an admin with Super Admin role permissions can rotate the keys.
 
 The following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) can be used in the request for a scoped access token:
 
 * `aud` &mdash; The full URL of the resource that you're using the JWT to authenticate to
 * `exp` &mdash; The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
 * `jti` &mdash; (Optional) A unique identifier of the token. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
-* `iat` &mdash; (Optional) The issuing time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp).
+* `iat` &mdash; (Optional) The issuing time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp)
 * `iss` &mdash; The issuer of the token. This value must be the same as the `client_id`.
 * `sub` &mdash; The subject of the token. This value must be the same as the `client_id`.
 
@@ -37,7 +37,7 @@ The following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-aut
 
 2. In the **Signing Key** box, paste the public and private key that you generated in the <GuideLink link="../create-publicprivate-keypair">Create a public/private key pair</GuideLink> step.
 
-3. Leave the default of **JWT** as the key format or switch to **PEM**, and then click **Generate JWT**.
+3. For the key format, use either the default of **JWT** or switch to **PEM**, and then click **Generate JWT**.
 
 4. The signed JWT appears. Copy the JWT for use in the <GuideLink link="../get-access-token">Get an access token</GuideLink> step.
 
