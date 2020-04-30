@@ -62,6 +62,73 @@ This starts a preview server on your machine, and watches all files for changes.
 
 The preview server supports hot reloading. Once the server is running on your machine, any changes you make to Markdown content will appear automatically in your browser within a few seconds. Note that changes to page frontmatter or site configuration require you to stop and start the preview server.
 
+## Windows 
+
+If you are on a Windows machine you may experience the following issues.
+
+### EOL Error
+Because Windows handles line endings differently than *nix operating systems, you may see the following error after running `yarn dev`:
+
+```
+yarn run v1.22.4
+$ yarn workspace @okta/vuepress-site dev
+$ yarn conductor:validate && vuepress dev .
+$ node .vuepress/scripts/yml-parse-check.js
+conductor.yml parse successful
+conductor.yml exports correct values
+Error: Error: conductor.yml must end in a new (but not blank) line
+    at Object.<anonymous> (C:\src\repos\okta-developer-docs\packages\@okta\vuepress-site\.vuepress\scripts\yml-parse-ch
+eck.js:68:11)
+    at Module._compile (internal/modules/cjs/loader.js:1133:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1153:10)
+    at Module.load (internal/modules/cjs/loader.js:977:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:877:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:74:12)
+    at internal/main/run_main_module.js:18:47
+error Command failed with exit code 1.
+
+... 
+```
+
+To resolve this issue run the following command from a bash prompt (included with git for windows installation):
+
+```
+dos2unix ./packages/\@okta/vuepress-site/conductor.yml
+```
+
+### Cannot resolve theme
+
+Due to limitations of the Windows file system you may see the following error after running `yarn dev`:
+
+```
+yarn run v1.22.4
+$ yarn workspace @okta/vuepress-site dev
+$ yarn conductor:validate && vuepress dev .
+$ node .vuepress/scripts/yml-parse-check.js
+conductor.yml parse successful
+conductor.yml exports correct values
+conductor.yml end-of-file check successful
+wait Extracting site metadata...
+Error: Cannot resolve theme: @okta/vuepress-theme-prose.
+    at resolveTheme (C:\src\repos\okta-developer-docs\node_modules\@vuepress\core\lib\node\loadTheme.js:111:13)        
+    at loadTheme (C:\src\repos\okta-developer-docs\node_modules\@vuepress\core\lib\node\loadTheme.js:36:17)
+    at App.process (C:\src\repos\okta-developer-docs\node_modules\@vuepress\core\lib\node\App.js:100:21)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async dev (C:\src\repos\okta-developer-docs\node_modules\@vuepress\core\lib\index.js:14:3)
+error Command failed with exit code 1.
+
+...
+```
+
+To resolve this issue run the following commands from a bash prompt (included with git for windows installation):
+
+```
+cd ./packages/\@okta/vuepress-theme-prose/
+yarn link
+cd ../../../
+yarn link "@okta/vuepress-theme-prose"
+```
+
 Links:
 
 - Developer docs: <https://developer.okta.com>
