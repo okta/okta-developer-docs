@@ -48,7 +48,7 @@ Create an OAuth service app and register the public key with the service app usi
 
 ### Grant allowed scopes
 
-When a request is sent to the Okta Org Authorization Server, it validates all of the requested scopes in the OAuth2 token request against the service app's grants collection. The scope is granted if the scope exists in the service app's grants collection.
+When a request is sent to the Okta Org Authorization Server's `/token` endpoint, it validates all of the requested scopes in the request against the service app's grants collection. The scope is granted if the scope exists in the service app's grants collection.
 
 > **Note:** You can find a list of available values for `scopeId` on the [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/) page.
 
