@@ -92,7 +92,7 @@ error Command failed with exit code 1.
 
 To resolve this issue run the following command from a bash prompt (included with git for windows installation):
 
-```
+```sh
 dos2unix ./packages/\@okta/vuepress-site/conductor.yml
 ```
 
@@ -122,7 +122,7 @@ error Command failed with exit code 1.
 
 To resolve this issue run the following commands from a bash prompt (included with git for windows installation):
 
-```
+```sh
 cd ./packages/\@okta/vuepress-theme-prose/
 yarn link
 cd ../../../
