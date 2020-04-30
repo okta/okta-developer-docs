@@ -21,6 +21,7 @@ module.exports = [
     { title: 'Implement the Client Credentials Flow', guideName: 'implement-client-creds' },
     { title: 'Implement the Implicit Flow', guideName: 'implement-implicit' },
     { title: 'Implement OAuth for Okta', guideName: 'implement-oauth-for-okta' },
+    { title: 'Implement OAuth for Okta with a Service App', guideName: 'implement-oauth-for-okta-serviceapp' },
     { title: 'Implement the Resource Owner Password Flow', guideName: 'implement-password' },
     { title: 'OIN - Build a SCIM provisioning integration', guideName: 'build-provisioning-integration' },
     { title: 'OIN - Build a Single Sign-On (SSO) integration', guideName: 'build-sso-integration' },
