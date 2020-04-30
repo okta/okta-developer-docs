@@ -62,7 +62,7 @@ This starts a preview server on your machine, and watches all files for changes.
 
 The preview server supports hot reloading. Once the server is running on your machine, any changes you make to Markdown content will appear automatically in your browser within a few seconds. Note that changes to page frontmatter or site configuration require you to stop and start the preview server.
 
-## Windows 
+## Troubleshooting 
 
 If you are on a Windows machine you may experience the following issues.
 
