@@ -12,7 +12,7 @@ Include the following parameters:
 
 * `client_assertion_type` &mdash; Specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
-* `client_assertion` &mdash; The signed JWT. Paste the JWT that you signed in the <GuideLink link="../whateverlaststepis">Create and sign the JWT</GuideLink> section.
+* `client_assertion` &mdash; The signed JWT. Paste the JWT that you signed in the <GuideLink link="../create-sign-jwt">Create and sign the JWT</GuideLink> section.
 
 The following is an example request for an access token (the JWT is truncated for brevity).
 

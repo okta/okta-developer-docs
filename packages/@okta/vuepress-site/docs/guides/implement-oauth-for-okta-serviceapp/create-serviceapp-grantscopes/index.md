@@ -6,7 +6,7 @@ Create an OAuth service client app and register the public key with the service 
 
 ## Create a service app
 
-1. Use the following POST example to create your service app using the `/oauth/v1/clients` endpoint and provide values for these parameters:
+1. Use the following POST example to create your service app using the `/oauth2/v1/clients` endpoint and provide values for these parameters:
 
     * `client_name` &mdash; Name of the service client app
     * `grant_types` &mdash; `client_credentials`
@@ -71,7 +71,7 @@ Now that you've created the service app and registered the public key with that 
   -d '{
       "scopeId": "okta.users.read",
       "issuer": "https://{yourOktaDomain}"
-  }' "https://${yourOktaDomain}/api/v1/apps/serviceappclient_id/grants"
+  }' "https://${yourOktaDomain}/api/v1/apps/{serviceappclient_id}/grants"
 ```
 
 > **Note:** You can also use the Developer Console to grant allowed scopes to your service app on the **Okta API Scopes** tab. Click **Grant** for each of the scopes that you want to add to the application's grant collection.

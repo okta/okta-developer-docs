@@ -14,8 +14,8 @@ The following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-aut
 
 * `aud` &mdash; The full URL of the resource that you're using the JWT to authenticate to
 * `exp` &mdash; The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
-* `jti` &mdash; A unique identifier of the token. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
-* `iat` &mdash; The issuing time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp).
+* `jti` &mdash; (Optional) A unique identifier of the token. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
+* `iat` &mdash; (Optional) The issuing time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp).
 * `iss` &mdash; The issuer of the token. This value must be the same as the `client_id`.
 * `sub` &mdash; The subject of the token. This value must be the same as the `client_id`.
 
