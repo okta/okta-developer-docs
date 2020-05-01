@@ -36,6 +36,7 @@ Adds a new IdP to your organization
 - [Add Google Identity Provider](#add-google-identity-provider)
 - [Add LinkedIn Identity Provider](#add-linkedin-identity-provider)
 - [Add Microsoft Identity Provider](#add-microsoft-identity-provider)
+- [Add Smart Card Identity Provider](#add-smart-card-identity-provider)
 
 ##### Request parameters
 
@@ -1041,6 +1042,127 @@ curl -v -X POST \
 }
 ```
 
+#### Add Smart Card Identity Provider
+
+
+Adds a new Smart Card `X509` type IdP to your organization
+
+##### Request Example
+
+> **Notes:** You must first add the IdP's server certificate to the IdP key store before you can add a Smart Card `X509` IdP with a `kid` credential reference. You need to upload the whole trust chain as a single key using the [Key Store API](#add-x-509-certificate-public-key).
+Depending on the information stored in the smart card select the proper [template](/docs/reference/okta-expression-language/#idp-user-profile) `idpuser.subjectAltNameEmail` or `idpuser.subjectAltNameUpn`.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "type": "X509",
+  "status": "ACTIVE",
+  "features": [],
+  "name": "Smart Card IDP Name",
+  "protocol": {
+    "type": "MTLS",
+    "credentials": {
+      "trust": {
+        "revocation": "CRL",
+        "revocationCacheLifetime": 2880,
+        "issuer": "your-issuer",
+        "kid": "your-kid"
+      }
+    }
+  },
+  "policy": {
+    "provisioning": {
+      "action":"DISABLED"
+      }
+    },
+    "maxClockSkew":120000,
+    "subject": {
+      "matchType": "EMAIL",
+      "matchAttribute": "",
+      "userNameTemplate": {
+        "template": "idpuser.subjectAltNameEmail"
+      }
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/idps"
+```
+
+##### Response Example
+
+
+```json
+{
+  "id": "0oa6jxasyhwM2ZHJh0g4",
+  "type": "X509",
+  "name": "Smart Card IDP Name",
+  "status": "ACTIVE",
+  "created": "2020-01-07T00:19:27.000Z",
+  "lastUpdated": "2020-01-07T00:19:27.000Z",
+  "protocol": {
+    "type": "MTLS",
+    "endpoints": {
+      "sso": {
+        "url": "https://${yourOktaDomain}.okta.com/login/cert"
+      }
+    },
+    "credentials": {
+      "trust": {
+        "issuer": "CN=Test Smart Card, OU=Test OU, O=Test O, C=US",
+        "audience": null,
+        "kid":"45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
+        "revocation":"CRL",
+        "revocationCacheLifetime":2880
+      }
+    }
+  },
+  "policy": {
+    "provisioning": {
+      "action": "DISABLED",
+      "profileMaster": false,
+      "groups": null
+    },
+    "subject": {
+      "userNameTemplate": {
+        "template": "idpuser.subjectAltNameEmail"
+      },
+      "filter": null,
+      "matchType": "EMAIL",
+      "matchAttribute": null
+    },
+    "maxClockSkew":0
+  },
+  "_links": {
+    "deactivate": {
+      "href": "https://${yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "users": {
+      "href": "https://${yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/users",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    },
+    "keys": {
+      "href":"https://${yourOktaDomain}.okta.com/api/v1/idps/credentials/keys/45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    }
+  } 
+}
+```
+
 ### Get Identity Provider
 
 <ApiOperation method="get" url="/api/v1/idps/${idpId}" />
@@ -1727,7 +1849,74 @@ curl -v -X GET \
               }
           }
       }
-  }
+  },
+  {
+  "id": "0oa6jxasyhwM2ZHJh0g4",
+  "type": "X509",
+  "name": "Smart Card IDP Name",
+  "status": "ACTIVE",
+  "created": "2020-01-07T00:19:27.000Z",
+  "lastUpdated": "2020-01-07T00:19:27.000Z",
+  "protocol": {
+    "type": "MTLS",
+    "endpoints": {
+      "sso": {
+        "url": "https://${yourOktaDomain}.okta.com/login/cert"
+      }
+    },
+    "credentials": {
+      "trust": {
+        "issuer": "CN=Test Smart Card, OU=Test OU, O=Test O, C=US",
+        "audience": null,
+        "kid":"45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
+        "revocation":"CRL",
+        "revocationCacheLifetime":2880
+      }
+    }
+  },
+  "policy": {
+    "provisioning": {
+      "action": "DISABLED",
+      "profileMaster": false,
+      "groups": null
+    },
+    "subject": {
+      "userNameTemplate": {
+        "template": "idpuser.subjectAltNameEmail"
+      },
+      "filter": null,
+      "matchType": "EMAIL",
+      "matchAttribute": null
+    },
+    "maxClockSkew":0
+  },
+  "_links": {
+    "deactivate": {
+      "href": "https://${yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "users": {
+      "href": "https://${yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/users",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    },
+    "keys": {
+      "href":"https://${yourOktaDomain}.okta.com/api/v1/idps/credentials/keys/45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    }
+  } 
+}
 ]
 ```
 
@@ -2928,7 +3117,7 @@ HTTP/1.1 200 OK
 
 Adds a new X.509 certificate credential to the IdP key store
 
-> **Note:** Okta currently supports only RSA-based certificates.
+> **Note:** RSA-based certificates are supported for all IdP types. Okta currently supports EC-based certificates only for the `X509` IdP type. For EC-based certificates we support only P-256, P-384 and P-521 curves.
 
 ##### Request parameters
 
@@ -3122,6 +3311,22 @@ curl -v -X GET \
        1KKY9CdHcFhkSsMhoeaZylZHtzbnoipUlQKSLMdJQiiYZQ0bYL83/Ta9fulr1EERICMFt3GUmtYaZZKHpWSfdJp9"
     ],
     "x5t#S256": "wzPVobIrveR1x-PCbjsFGNV-6zn7Rm9KuOWOG4Rk6jE"
+  },
+  {
+    "kty": "EC",
+    "created": "2020-04-24T20:51:20.000Z",
+    "lastUpdated": "2020-04-24T20:51:20.000Z",
+    "expiresAt": "2040-03-01T20:22:29.000Z",
+    "alg": "EC",
+    "x5c": [
+        "MIICqDCCAgqgAwIBAgIJAOkmCa/S8dHiMAoGCCqGSM49BAMCMG0xCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMRAwDgYDVQQKDAdKYW5reUNvMR8wHQYDVQQDDBZUZXN0IElkZW50aXR5IFByb3ZpZGVyMB4XDTIwMDMwNjIwMjIyOVoXDTQwMDMwMTIwMjIyOVowbTELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xEDAOBgNVBAoMB0phbmt5Q28xHzAdBgNVBAMMFlRlc3QgSWRlbnRpdHkgUHJvdmlkZXIwgZswEAYHKoZIzj0CAQYFK4EEACMDgYYABABW/lGHl17mKDtCD4D7gcMYYOWgyWTGno8MTefDOABA8PddessTsbfrguF49Gli6lCzrZaAKhhvgINc3R6t/dYleAE3lY6LAocOoLe9xDkeggXNcSuP5fDc1x5R9GHTXl44vLoJOLSLsMbOXVMXIXoqbPDzTSYUy24aFdv4W4LZxW6ak6NQME4wHQYDVR0OBBYEFChTXNWvs4z1qjRVemPDD/hqlDQ4MB8GA1UdIwQYMBaAFChTXNWvs4z1qjRVemPDD/hqlDQ4MAwGA1UdEwQFMAMBAf8wCgYIKoZIzj0EAwIDgYsAMIGHAkIBuDhHMNLbBIsorbKtjxJzHJ2ItCSD2wAwqYv/6JBtA2ulKN5gRTSqdNCnqFsZ1/nYY7FFVXHEuQ2N3pPq7Ri8h84CQSgCq1UQyd0lFtb7+57JbiGb6LVaRqRm7vwx8zLRA+tVjIM1DlQ2Gbxkj3nlkzmM93j9wchiqGdQidyKnF6EBnfd"
+    ],
+    "x": "Vv5Rh5de5ig7Qg-A-4HDGGDloMlkxp6PDE3nwzgAQPD3XXrLE7G364LhePRpYupQs62WgCoYb4CDXN0erf3WJXg",
+    "y": "ATeVjosChw6gt73EOR6CBc1xK4_l8NzXHlH0YdNeXji8ugk4tIuwxs5dUxcheips8PNNJhTLbhoV2_hbgtnFbpqT",
+    "crv": "P-521",
+    "kid": "your-kid",
+    "use": "sig",
+    "x5t#S256": "TUx-AIwypm2pZURHNqafk7ZDxqQP_ypzIyUwDDnPOlw"
   }
 ]
 ```
@@ -4378,6 +4583,7 @@ Okta supports the following enterprise and social providers:
 | `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on)                                |
 | `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)                                                    |
 | `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) |
+| `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280)                                |
 
 ### Protocol object
 
@@ -4391,6 +4597,7 @@ The Protocol object contains IdP-specific protocol settings for endpoints, bindi
 | `MICROSOFT`  | [OpenID Connect](#openid-connect-protocol) |
 | `OIDC`       | [OpenID Connect](#openid-connect-protocol) |
 | `SAML2`      | [SAML 2.0](#saml-20-protocol)              |
+| `MTLS`  | [Mutual TLS](#mtls-protocol) |
 
 #### SAML 2.0 Protocol
 
@@ -4930,7 +5137,102 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
 }
 ```
 
-### Policy object
+#### MTLS Protocol
+
+Protocol settings for the [MTLS Protocol](https://tools.ietf.org/html/rfc5246#section-7.4.4):
+
+| Property    | Description                                                        | DataType                                                          | Nullable | Readonly |
+| ----------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- | -------- | -------- |
+| credentials | Description of the issuing cert                                    | [MTLS Credentials Object](#mtls-credentials-object)               | FALSE    | FALSE    |
+| endpoints   | Location of authentication endpoint                                | [MTLS Endpoints Object](#mtls-endpoints-object)                   | FALSE    | FALSE    |
+| type        | The only supported value is `MTLS`                                 | String                                                            | FALSE    | TRUE     |
+
+```json
+{
+  "type": "MTLS",
+  "endpoints": {
+    "sso": {
+      "url": "https://${yourOktaDomain}.okta.com/login/cert"
+    }
+  },
+  "credentials": {
+    "trust": {
+      "issuer": "CN=Test Smart Card, OU=Test OU, O=Test O, C=US",
+      "audience": null,
+      "kid":"45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
+      "revocation":"CRL",
+      "revocationCacheLifetime":2880
+    }
+  }
+}
+```
+
+##### MTLS Endpoints Object
+
+| Property | Description                                                                           | DataType                                                                                            | Nullable | Readonly |
+| -------- | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------- | -------- |
+| sso      | IdP's `SingleSignOnService` endpoint                                                  | [MTLS SSO Endpoint Object](#mtls-single-sign-on-sso-endpoint-object)                                | FALSE    | TRUE     |
+
+###### MTLS Single Sign-On (SSO) Endpoint Object
+
+The Single Sign-On (SSO) endpoint is the IdP's `SingleSignOnService` endpoint:
+
+| Property    | Description                                                                        | DataType                         | Nullable | Readonly | MinLength | MaxLength | Validation                                      |
+| ----------- | ---------------------------------------------------------------------------------- | -------------------------------- | -------- | -------- | --------- | --------- | ----------------------------------------------- |
+| url         | URL of binding-specific endpoint     | String                           | FALSE    | TRUE    | 11        | 1014      | [RFC 3986](https://tools.ietf.org/html/rfc3986) |
+
+Property Details
+
+```json
+{
+  "protocol": {
+    "type": "MTLS",
+    "endpoints": {
+      "sso": {
+        "url": "https://${yourOktaDomain}.okta.com/login/cert",
+      }
+    }
+  }
+}
+```
+###### MTLS Credentials Object
+
+Certificate chain description for verifying assertions from the Smart Card.
+
+| Property   | Description                                                                        | DataType                                                                   | Nullable | Readonly |
+| ---------- | ---------------------------------------------------------------------------------- | --------------------                                                       | -------- | -------- |
+| trust      | Object containing information for verifying assertions from the IdP                | [MTLS Trust Credentials Object](#mtls-trust-credentials-object)            | FALSE    | FALSE    |
+
+###### MTLS Trust Credentials Object
+
+Certificate chain description for verifying assertions from the Smart Card.
+
+| Property                | Description                                                                                            | DataType | Nullable | Readonly | MinLength | MaxLength | Validation                                 |
+| --------                | -----------------------------------------------------------------------------------------------------  | -------- | -------- | -------- | --------- | --------- | ------------------------------------------ |
+| audience                | not used                                                                                               | String   | TRUE     | FALSE    | 1         | 1024      | [URI](https://tools.ietf.org/html/rfc3986) |
+| issuer                  | Description of the certificate issuer                                                                  | String   | FALSE    | FALSE    | 1         | 1024      |                                            |
+| kid                     | [Key ID](#identity-provider-key-store-operations) reference to the IdP's X.509 signature certificate   | String   | FALSE    | FALSE    | 36        | 36        | Valid IdP Key ID reference                 |
+| revocation              | Mechanism to validate the certificate                                                                  | String   | FALSE    | FALSE    | 36        | 36        | CRL                                        |
+| revocationCacheLifetime | Time in minutes to cache the certificate revocation information                                        | Number   | FALSE    | FALSE    | 1         | 4320      | from 1 minute to 72 hours                  |
+
+```json
+{
+  "protocol": {
+    "type": "MTLS",
+    "credentials": {
+      "trust": {
+        "issuer": "CN=Test Smart Card, OU=Test OU, O=Test O, C=US",
+        "audience": null,
+        "kid":"45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
+        "revocation":"CRL",
+        "revocationCacheLifetime":2880
+      }
+    }
+  }
+}
+```
+
+### Policy Object
 
 | Property     | Description                                                                                    | DataType                                                  | Nullable | Readonly |
 | ------------ | ---------------------------------------------------------------                                | -------------------------------------------               | -------- | -------- |
@@ -4981,8 +5283,9 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
 | `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
 | `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`                        |                       |
+| `X509`       | `DISABLED`                    | No support for JIT provisioning       |                               |                       |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action.
+> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action. 
 
 #### Provisioning Policy object
 
@@ -5031,6 +5334,7 @@ The follow provisioning actions are supported by each IdP provider:
 | `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
 | `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` |
+| `X509`       | `DISABLED`                    | No support for JIT provisioning       |
 
 > **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action.
 

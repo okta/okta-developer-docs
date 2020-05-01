@@ -1,5 +1,5 @@
 ---
-title: OIN - Publish an app integration
+title: OIN - Publish an integration
 meta:
   - name: description
     content: Use this guide to learn how to submit your integration to Okta for publication in the Okta Integration Network.
