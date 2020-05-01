@@ -2,9 +2,9 @@
 title: Prepare a customer-facing configuration guide
 ---
 
-A configuration guide helps your customers understand how to configure your app in Okta to meet their needs.
+A configuration guide helps your customers understand how to configure your Okta integration to work with your cloud application.
 
-You need to provide a configuration guide as part of the OIN submission process. Your guide is provided to administrators through the Okta Admin Console. Okta checks your document for general adherence to the configuration guide instructions. After your app is published to the OIN, you can make the link public or customer‐accessible.
+You need to provide a configuration guide as part of the OIN submission process. Your guide is provided to administrators through the Okta Admin Console. Okta checks your document for general adherence to the configuration guide instructions. After your integration is published to the OIN, you can make the link public or customer‐accessible.
 
 You can create the guide in whatever format works best for you: a Web page, a Google or Word doc, or a PDF are all acceptable.
 
@@ -31,7 +31,7 @@ Your configuration guide should include the following sections:
 
 ### Prerequisites
 
-In this section, specify any prerequisites required before your customer configures your provisioning integration in Okta. Examples may include enabling specific Okta features or SKUs, enabling API access to your SCIM server, or adding a particular version of an app in Okta.
+In this section, specify any prerequisites required before your customer configures your integration in Okta. Examples may include enabling specific Okta features or SKUs, enabling API access to your SCIM server, or adding a particular version of an integration in Okta.
 
 For example:
 
@@ -39,7 +39,7 @@ For example:
 
 ### Supported Features
 
-In this section of your guide, you want to outline what features your app supports. For example:
+In this section of your guide, you want to outline what features your application supports. For example:
 
 * IdP-initiated SSO
 * SP-initiated SSO
@@ -58,11 +58,11 @@ Also include any restrictions. For example:
 
 ### Procedure
 
-This section constitutes the majority of your guide and explains all the configuration steps needed to get your customers set up with your app. Detail all settings and include any screenshots from your app that can assist the user.
+This section constitutes the majority of your guide and explains all the configuration steps needed to get your customers set up with your integration. Detail all settings and include any screenshots that can assist the user.
 
 Also include any best practices for your procedure, such as guidance on setting mappings for attributes, especially required attributes that don't have a default mapping. For example:
 
-> The External ID is a required attribute, but it doesn't have a default mapping. This is because some customers prefer to set it to EmployeeNumber, and others like to set it to emailAddress. Assign the mapping to the correct value for your organization.
+> The External ID is a required attribute, but it doesn't have a default mapping. This is because some customers prefer to set it to `EmployeeNumber`, and others like to set it to `emailAddress`. Assign the mapping to the correct value for your organization.
 
 ### Troubleshooting and Tips
 
