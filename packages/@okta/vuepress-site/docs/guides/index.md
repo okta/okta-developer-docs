@@ -19,6 +19,7 @@ guides:
  - implement-client-creds
  - implement-implicit
  - implement-oauth-for-okta
+ - implement-oauth-for-okta-serviceapp
  - implement-password
  - mfa
  - build-provisioning-integration

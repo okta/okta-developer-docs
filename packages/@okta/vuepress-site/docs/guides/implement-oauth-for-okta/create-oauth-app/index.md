@@ -11,8 +11,6 @@ Create the client application that you want to use with the Okta APIs.
 
 3. On the **Create New Application** page, select any app type and then click **Next**. We suggest creating a web, single-page, or native app for an easy way to test scope-based access to Okta's APIs using an OAuth 2.0 bearer token.
 
-    > **Note:** See the <GuideLink link="../use-client-credentials-grant-flow">Use the Client Credentials grant flow</GuideLink> section for information on using an OAuth Service app when you need a backend service to call the Okta APIs.
-
 4. Enter a name for your app and, in the **Login redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating.
 
 5. For testing purposes, select the **Implicit (Hybrid)** grant flow. Using Implicit streamlines authentication for testing by returning a token without introducing any additional steps. In a production environment, we recommend that you always use the Authorization Code grant flow and clear the **Implicit (Hybrid)** check box.
