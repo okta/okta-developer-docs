@@ -8,6 +8,7 @@ sections:
  - overview
  - before-you-begin
  - create-your-app
+ - specify-your-settings
  - test-your-app
  - next-steps
 ---
