@@ -1643,7 +1643,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
 | q         | Searches the `name` or `displayName` property of applications                                                    | Query      | String   | FALSE    |         |
 
-The results are [paginated][pagination] according to the `limit` parameter.
+The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ###### Filters
@@ -3640,7 +3640,7 @@ Enumerates all assigned [Application users](#application-user-object) for an app
 | limit         | Specifies the number of results per page (maximum 500)                      | Query      | Number   | FALSE    | 50      |
 | q             | Returns a filtered list of app users. The value of `q` is matched against an application user profile's `userName`, `firstName`, `lastName`, and `email`. **Note:** This operation only supports `startsWith` that matches what the string starts with to the query. | Query      | String   | FALSE    |         |
 
-The results are [paginated][pagination] according to the `limit` parameter.
+The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ##### Response parameters
@@ -4034,7 +4034,7 @@ Enumerates group assignments for an application
 | applicationId | `id` of an [app](#application-object)                             | URL        | String   | TRUE     |         |
 | limit         | Specifies the number of results per page (maximum 200)           | Query      | Number   | FALSE    | 20      |
 
-The results are [paginated][pagination] according to the `limit` parameter.
+The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ##### Response parameters
@@ -5105,7 +5105,7 @@ Lists all tokens for the application
 | expand          | Valid value: `scope`. If specified, scope details are included in the `_embedded` attribute.   | Query        | String     | FALSE      |         |
 | limit           | Specifies the number of results per page (maximum 200)                                         | Query        | Number     | FALSE      | 20      |
 
-The results are [paginated][pagination] according to the `limit` parameter.
+The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 #### Request example
@@ -6198,5 +6198,3 @@ The application CSR object defines a certificate signing request for a signature
 | csr              | Base64 encoded CSR in DER format                             | String                                                                      | TRUE     | TRUE   | TRUE     |           |           |            |
 | id               | unique identifier for the CSR                                | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | kty              | cryptographic algorithm family for the CSR's keypair         | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
-
-[pagination](/docs/reference/api-overview/#pagination)
