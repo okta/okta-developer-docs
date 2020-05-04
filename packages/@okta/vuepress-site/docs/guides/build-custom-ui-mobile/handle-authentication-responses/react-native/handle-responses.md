@@ -4,7 +4,7 @@ The SDK provides two options, Promise and Event listener, to handle responses. Y
 
 #### Handle response in Promise
 
-The `signIn` function will return a Promise if user credentials (username, password) have been provided. Success and error responses can be easily handled in standard Promise way.
+The `signIn` function returns a Promise if user credentials (username, password) are provided. Success and error responses can be easily handled in the standard Promise way.
 
 ```javascript
 import { signIn } from '@okta/okta-react-native';
@@ -32,7 +32,7 @@ class LoginScreen extends React.Component {
 
 You can also register event listeners from the `EventEmitter` function in the SDK to handle responses.
 
-**Note:** Please make sure listeners will be properly unregistered when the component will unmount.
+**Note:** Make sure that listeners are properly unregistered when the component will unmount.
 
 ```javascript
 import { EventEmitter } from '@okta/okta-react-native';
@@ -64,7 +64,7 @@ class LoginScreen extends React.Component {
 
 #### Handle transaction state
 
-As transaction states are evaluated during primary authentication, this SDK also exposes a `getAuthClient` function to return an instance of `@okta/okta-auth-js` client to handle [Authentication API](/docs/reference/api/authn/) communication. Please refer to [Node JS and React Native Usage](https://github.com/okta/okta-auth-js#node-js-and-react-native-usage) for more information.
+As transaction states are evaluated during primary authentication, this SDK also exposes a `getAuthClient` function to return an instance of `@okta/okta-auth-js` client to handle [Authentication API](/docs/reference/api/authn/) communication. See [Node JS and React Native Usage](https://github.com/okta/okta-auth-js#node-js-and-react-native-usage) for more information.
 
 One general use case is that you can resume a transaction from the `authClient` to continue handling transactions for statuses other than `SUCCESS`.
 
