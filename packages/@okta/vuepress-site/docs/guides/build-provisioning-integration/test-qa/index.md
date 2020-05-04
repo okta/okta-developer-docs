@@ -6,4 +6,4 @@ If your SCIM integration has passed all the Runscope tests, and you are planning
 
 * [Okta SCIM Test Plan](/standards/SCIM/SCIMFiles/okta-scim-test-plan.xlsx)
 
-<NextSectionLink/>
+<NextSectionLink>Next Steps</NextSectionLink>
