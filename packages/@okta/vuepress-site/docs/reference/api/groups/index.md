@@ -348,7 +348,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/Groups?q=West&limit=10"
+"https://${yourOktaDomain}/api/v1/groups?q=West&limit=10"
 ```
 
 ##### Response example
