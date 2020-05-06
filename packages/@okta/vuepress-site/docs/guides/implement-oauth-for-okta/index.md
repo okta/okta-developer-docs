@@ -5,9 +5,7 @@ layout: Guides
 sections:
  - overview
  - create-oauth-app
- - use-client-credentials-grant-flow
  - define-allowed-scopes
  - request-access-token
- - get-access-token-using-service-app
  - scopes
 ---

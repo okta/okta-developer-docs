@@ -134,7 +134,7 @@ With the above code in your front-end application, you should see the Sign In Wi
 
 ### Configure the Sign-In Widget with PKCE
 
-If you want to use Auth Code Flow with PKCE, that's possible too.  Add `pkce: true` to `authParams`:
+If you want to use Auth Code Flow with PKCE, that's possible too.  Add `pkce: true` and `responseMode: 'query'` to `authParams`:
 
 ```html
 <script type="text/javascript">
@@ -143,7 +143,8 @@ If you want to use Auth Code Flow with PKCE, that's possible too.  Add `pkce: tr
     redirectUri: window.location.origin,
     clientId: '{yourClientId}',
     authParams: {
-      pkce: true
+      pkce: true,
+      responseMode: 'query'
     }
   });
 

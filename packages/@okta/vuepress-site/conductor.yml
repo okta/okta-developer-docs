@@ -35,6 +35,8 @@ redirects:
     to: /code/java/spring_security_saml/index.html
   - from: /docs/guides/okta_auth_sdk.html
     to: /code/javascript/okta_auth_sdk/index.html
+  - from: /docs/guides/okta_auth_sdk
+    to: /code/javascript/okta_auth_sdk/
   - from: /code/javascript/okta_auth_sdk_ref/index.html
     to: https://github.com/okta/okta-auth-js
   - from: /code/javascript/okta_auth_sdk_external_ref.html
@@ -349,7 +351,7 @@ redirects:
     to: /docs/reference/api/system-log/
   - from: /docs/how-to/creating-token-with-groups-claim.html
     to: /docs/guides/customize-tokens-returned-from-okta/
-  - from: /docs/guides/create-token-with-groups-claim
+  - from: /docs/guides/create-token-with-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/sdk/core/api.html
     to: /docs/
@@ -530,7 +532,7 @@ redirects:
   - from: /authentication-guide/tokens/validating-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide/generic-oidc/index.html
-    to: /docs/guides/federate-with-oidc/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /authentication-guide/tokens/refreshing-tokens/index.html
     to: /docs/guides/refresh-tokens/
   - from: /authentication-guide/tokens/revoking-tokens/index.html
@@ -690,7 +692,7 @@ redirects:
   - from: /authentication-guide/tokens/validating-id-tokens
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide/generic-oidc
-    to: /docs/guides/federate-with-oidc/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /authentication-guide/tokens/refreshing-tokens
     to: /docs/guides/refresh-tokens/
   - from: /authentication-guide/tokens/revoking-tokens
@@ -814,19 +816,19 @@ redirects:
   - from: /guides/enable-cors/-/overview/index.html
     to: /docs/guides/enable-cors/-/overview/
   - from: /guides/federate-with-oidc/-/add-redirect-to-idp/index.html
-    to: /docs/guides/federate-with-oidc/-/add-redirect-to-idp/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/configure-idp/index.html
-    to: /docs/guides/federate-with-oidc/-/configure-idp/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/create-client-app/index.html
-    to: /docs/guides/federate-with-oidc/-/create-client-app/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/create-okta-app/index.html
-    to: /docs/guides/federate-with-oidc/-/create-okta-app/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/overview/index.html
-    to: /docs/guides/federate-with-oidc/-/overview/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/test-authz-url/index.html
-    to: /docs/guides/federate-with-oidc/-/test-authz-url/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/federate-with-oidc/-/use-for-signin/index.html
-    to: /docs/guides/federate-with-oidc/-/use-for-signin/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/find-your-app-credentials/-/overview/index.html
     to: /docs/guides/find-your-app-credentials/-/overview/
   - from: /guides/find-your-domain/-/overview/index.html
@@ -1488,7 +1490,7 @@ redirects:
   - from: /guides/create-an-api-token/index.html
     to: /docs/guides/create-an-api-token/
   - from: /guides/create-token-with-groups-claim/index.html
-    to: /docs/guides/create-token-with-groups-claim/
+    to: /docs/guides/customize-tokens-returned-from-okta/overview/
   - from: /guides/custom-error-pages/index.html
     to: /docs/guides/custom-error-pages/
   - from: /guides/custom-hosted-signin/index.html
@@ -1500,7 +1502,7 @@ redirects:
   - from: /guides/enable-cors/index.html
     to: /docs/guides/enable-cors/
   - from: /guides/federate-with-oidc/index.html
-    to: /docs/guides/federate-with-oidc/
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/find-your-app-credentials/index.html
     to: /docs/guides/find-your-app-credentials/
   - from: /guides/find-your-domain/index.html
@@ -1695,6 +1697,8 @@ redirects:
     to: /docs/guides/add-an-external-idp/openidconnect/create-authz-url/
   - from: /docs/guides/federate-with-oidc/use-for-signin/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/use-idp-to-sign-in/
+  - from: /docs/guides/federate-with-oidc/overview/index.html
+    to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /docs/api/getting_started/getting_a_token.html
     to: /docs/guides/create-an-api-token/overview/
   - from: /reference/okta_expression_language/index
@@ -1847,6 +1851,8 @@ redirects:
     to: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/
   - from: /guides/create-token-with-groups-claim/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /docs/guides/create-token-with-groups-claim/
+    to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /standards/SCIM/SCIMFiles/Okta-SCIM-1.1-CRUD-Test.json
     to: /standards/SCIM/SCIMFiles/Okta-SCIM-11-CRUD-Test.json
   - from: /standards/SCIM/SCIMFiles/Okta-SCIM-CRUD-Test.json
@@ -1893,3 +1899,17 @@ redirects:
     to: /docs/guides/submit-app/overview/
   - from: /docs/guides/submit-app/submit/index.html
     to: /docs/guides/submit-app/submission1-general/
+  - from: /docs/api/getting_started/api_test_client
+    to: /code/rest/
+  - from: /docs/guides/build-sso-integration/submit-your-app/index.html
+    to: /docs/guides/build-sso-integration/next-steps/
+  - from: /docs/guides/build-sso-integration/openidconnect/submit-your-app/index.html
+    to: /docs/guides/build-sso-integration/next-steps/
+  - from: /docs/guides/build-sso-integration/saml2/submit-your-app/index.html
+    to: /docs/guides/build-sso-integration/next-steps/
+  - from: /docs/guides/build-provisioning-integration/prepare-guide/index.html
+    to: /docs/guides/build-provisioning-integration/next-steps/
+  - from: /docs/api/resources/oidc.html/index.html
+    to: /docs/reference/api/oidc/
+  - from: /docs/api/resources/authn.html/index.html
+    to: /docs/reference/api/authn/

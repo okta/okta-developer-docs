@@ -149,13 +149,12 @@ The Authorization Code flow is best used by server-side apps where the source co
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
 @startuml
-
 skinparam monochrome true
 
 actor "Resource Owner (User)" as user
-participant "Client" as client
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server (Your App)" as app
+participant "Web App" as client
+participant "Authorization Server (Okta) " as okta
+participant "Resource Server (Your App) " as app
 
 client -> okta: Authorization Code Request to /authorize
 okta -> user: 302 redirect to authentication prompt
@@ -165,6 +164,7 @@ client -> okta: Send authorization code + client secret to /token
 okta -> client: Access token (and optionally Refresh Token)
 client -> app: Request with access token
 app -> client: Response
+@enduml
 
 -->
 
