@@ -58,7 +58,7 @@ In addition to referencing user attributes, you can also reference App propertie
 
 ## Referencing Session Properties
 
-In addition to referencing user, app, and organization properties, you can also reference user session properties. Session properties allow you to configure Okta to pass Dynamic Authentication Context to certain SAML apps through the SAML assertion during app authentication. The app can then use that information to limit access to certain app-specific behaviors and calculate the risk profile for the signed-in user.
+In addition to referencing user, app, and organization properties, you can also reference user session properties. Session properties allow you to configure Okta to pass Dynamic Authentication Context to SAML apps through the assertion using custom SAML attributes. The app can then use that information to limit access to certain app-specific behaviors and calculate the risk profile for the signed-in user.
 
 ### Session Properties
 
