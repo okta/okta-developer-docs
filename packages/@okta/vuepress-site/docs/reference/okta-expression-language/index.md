@@ -38,7 +38,7 @@ In addition to an Okta user profile, some users have separate IdP user profiles 
 | `idpuser.$attribute`   | `idpuser` implicit reference to in-context IdP<br>`$attribute` the attribute variable name   | idpuser.firstName |
 
 
-> With Universal Directory, there are about 30 attributes in the base Okta profile and any number of custom attributes can be added. All App user profiles have a username attribute and possibly others depending on the application. To find a full list of Okta user and App user attributes and their variable names, go to People > Profile Editor. If you're not yet using Universal Directory, contact your Support or Professional Services team.
+> **Note:** With Universal Directory, there are about 30 attributes in the base Okta profile and any number of custom attributes can be added. All App user profiles have a username attribute and possibly others depending on the application. To find a full list of Okta user and App user attributes and their variable names, go to People > Profile Editor. If you're not yet using Universal Directory, contact your Support or Professional Services team.
 
 ## Referencing Application and Organization Properties
 In addition to referencing user attributes, you can also reference App properties and the properties of your Organization. To reference a particular attribute, just specify the appropriate binding and the attribute variable name. Here are some examples:
@@ -55,6 +55,16 @@ In addition to referencing user attributes, you can also reference App propertie
 | Syntax           | Definitions                                                             | Examples     |
 | --------         | ----------                                                              | ------------ |
 | `org.$attribute` | `org` reference to Okta org<br>`$attribute` the attribute variable name | org.domain   |
+
+## Referencing Session Properties
+
+In addition to referencing user, app, and organization properties, you can also reference user session properties. Session properties allow you to configure Okta to pass Dynamic Authentication Context to certain SAML apps through the SAML assertion during app authentication. The app can then use that information to limit access to certain app-specific behaviors and calculate the risk profile for the signed-in user.
+
+### Session Properties
+
+| Syntax            | Definitions                                                 | Evaluation Example                                     |
+| ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
+| `session.amr`     | `session` reference to a user's session<br>`amr` the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | ["pwd"], ["mfa", "pwd", "kba"], ["mfa", "mca", "pwd", "sms"] |
 
 ## Functions
 
