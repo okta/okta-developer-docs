@@ -30,7 +30,7 @@ Rate limits do not apply to these OAuth public metadata endpoints, so rate limit
 
 ### OAuth for Okta enabled for Trusted Origins, Sessions, and Custom Templates APIs
 
-OAuth for Okta is now enabled for the Trusted Origins API, the Sessions API, and the Custom Templates API. See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/). <!-- OKTA-286819 -->
+OAuth for Okta is now enabled for the [Trusted Origins API](/docs/reference/api/trusted-origins/), the [Sessions API](/docs/reference/api/sessions/), and the [Custom Templates API](/docs/reference/api/templates/). See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/). <!-- OKTA-286819 -->
 
 ### Updated behavior for logging of invalid use by OAuth 2.0 Client
 
