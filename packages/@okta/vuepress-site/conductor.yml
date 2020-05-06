@@ -292,13 +292,13 @@ redirects:
   - from: /docs/guides/saml_guidance.html
     to: /standards/SAML/
   - from: /docs/guides/setting_up_a_saml_application_in_okta
-    to: /docs/guides/saml-application-setup/index.html
+    to: /docs/guides/build-sso-integration/saml2/overview/index.html
   - from: /docs/guides/setting_up_a_saml_application_in_okta.html
-    to: /docs/guides/saml-application-setup/index.html
+    to: /docs/guides/build-sso-integration/saml2/overview/index.html
   - from: /docs/examples/configuring_a_saml_application_in_okta
-    to: /docs/guides/saml-application-setup/index.html
+    to: /docs/guides/build-sso-integration/saml2/overview/index.html
   - from: /docs/examples/configuring_a_saml_application_in_okta.html
-    to: /docs/guides/saml-application-setup/index.html
+    to: /docs/guides/build-sso-integration/saml2/overview/index.html
   - from: /standards/SCIM/index.html
     to: /docs/concepts/scim/
   - from: /docs/reference/api/resource-server-beta/index.html
@@ -506,7 +506,7 @@ redirects:
   - from: /docs/how-to/updating_saml_cert/index.html
     to: /docs/guides/updating-saml-cert/
   - from: /standards/SAML/setting_up_a_saml_application_in_okta/index.html
-    to: /docs/guides/saml-application-setup/
+    to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /standards/SAML/saml_tracer/index.html
     to: /docs/guides/saml-tracer/
   - from: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
@@ -668,7 +668,7 @@ redirects:
   - from: /docs/how-to/updating_saml_cert
     to: /docs/guides/updating-saml-cert/
   - from: /standards/SAML/setting_up_a_saml_application_in_okta
-    to: /docs/guides/saml-application-setup/
+    to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /standards/SAML/saml_tracer
     to: /docs/guides/saml-tracer/
   - from: /authentication-guide/implementing-authentication/set-up-authz-server.html
@@ -942,7 +942,7 @@ redirects:
   - from: /guides/revoke-tokens/-/overview/index.html
     to: /docs/guides/revoke-tokens/-/overview/
   - from: /guides/saml-application-setup/-/overview/index.html
-    to: /docs/guides/saml-application-setup/-/overview/
+    to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /guides/session-cookie/-/overview/index.html
     to: /docs/guides/session-cookie/-/overview/
   - from: /guides/sharing-cert/-/generate-new-credential/index.html
@@ -1526,7 +1526,7 @@ redirects:
   - from: /guides/revoke-tokens/index.html
     to: /docs/guides/revoke-tokens/
   - from: /guides/saml-application-setup/index.html
-    to: /docs/guides/saml-application-setup/
+    to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /guides/session-cookie/index.html
     to: /docs/guides/session-cookie/
   - from: /guides/sharing-cert/index.html
@@ -1921,3 +1921,15 @@ redirects:
     to: /docs/reference/api/oidc/
   - from: /docs/api/resources/authn.html/index.html
     to: /docs/reference/api/authn/
+  - from: /docs/guides/saml-application-setup/overview/index.html
+    to: /docs/guides/build-sso-integration/saml2/overview/
+  - from: /docs/guides/saml-application-setup/add-general-info/index.html
+    to: /docs/guides/build-sso-integration/saml2/before-you-begin/
+  - from: /docs/guides/saml-application-setup/configure-saml-in-okta/index.html
+    to: /docs/guides/build-sso-integration/saml2/create-your-app/
+  - from: /docs/guides/saml-application-setup/assign-users-to-the-app/index.html
+    to: /docs/guides/build-sso-integration/saml2/test-your-app/
+  - from: /docs/guides/saml-application-setup/config-saml-in-app/index.html
+    to: /docs/guides/build-sso-integration/saml2/specify-your-settings/
+  - from: /docs/guides/saml-application-setup/next-steps/index.html
+    to: /docs/guides/build-sso-integration/saml2/next-steps/
