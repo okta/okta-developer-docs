@@ -14,7 +14,7 @@ title: Okta API Products Release Notes
 
 ### Logging of successful password import
 
-A Syslog Event is now generated with details about the success or failure of the password import attempt when a user with an imported password has successfully logged in to Okta. <!-- OKTA-283126 -->
+A System Log Event is now generated with details about the success or failure of the password import attempt when a user with an imported password has successfully signed in to Okta. <!-- OKTA-283126 -->
 
 ### Rate limit headers no longer returned on cached static endpoints
 
