@@ -38,4 +38,4 @@ The [previously announced logging behavior](/docs/release-notes/2017-23/#additio
 
 ### Bugs fixed in 2020.05.0
 
-* When logging in a federated user using the `/oauth/v1/authorize` endpoint with consent enabled and the prompt parameter set to login, the widget failed with an error. (OKTA-290760)
+* When signing in a federated user using the `/oauth/v1/authorize` endpoint with consent enabled and the `prompt` parameter set to `login`, the Sign-In Widget failed with an error. (OKTA-290760)
