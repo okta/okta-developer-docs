@@ -34,7 +34,7 @@ application using SAML via SimpleSAMLphp.
 
 To set up Okta to connect to your application, follow the guide to
 [Build a Single Sign-On Integration](/docs/guides/build-sso-integration/saml2/overview/).
-As you follow the instructions to create your integration, there are two steps where you will do things differently:
+As you follow the instructions to [Create your integration](/docs/guides/build-sso-integration/saml2/create-your-app/), there are two steps where you will do things differently:
 
 * *In step \#9*: Use ***SimpleSAMLphp Example*** instead "Example SAML application"
 * *In step \#10*: Instead of entering the URL: `http://example.com/saml/sso/example-okta-com`
