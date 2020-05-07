@@ -1,17 +1,59 @@
 See the instructions for the [Okta JWT Verifier for Java](https://github.com/okta/okta-jwt-verifier-java).
 
-## Verify the Token Signature
+### Required Libraries
 
-You verify the Access or ID token's signature by matching the key that was used to sign in with one of the keys that you retrieved from your Okta Authorization Server's JWK endpoint. Specifically, each public key is identified by a `kid` attribute, which corresponds with the `kid` claim in the Access or ID token header.
+For validating a JWT, you will need the Okta JWT Verifier for Java library.
 
-If the `kid` claim doesn't match, it's possible that the signing keys have changed. Check the `jwks_uri` value in the Authorization Server metadata and try retrieving the keys again from Okta.
+Include the below lines in your Maven pom.xml:
 
-### Verify the Claims
+```xml
+<dependency>
+   <groupId>com.okta.jwt</groupId>
+   <artifactId>okta-jwt-verifier</artifactId>
+   <version>${okta-jwt.version}</version>
+</dependency>
+  
+<dependency>
+  <groupId>com.okta.jwt</groupId>
+  <artifactId>okta-jwt-verifier-impl</artifactId>
+  <version>${okta-jwt.version}</version>
+  <scope>runtime</scope>
+</dependency>
+```
 
-You should verify the following:
+### Validate Access Token
 
-- The `iss` (issuer) claim matches the identifier of your Okta Authorization Server.
-- Verify that the `aud` (audience) claim is the value configured in the Authorization Server.
-- The `exp` (expiry time) claim is the time at which this token will expire, expressed in Unix time. You should make sure that this has not already passed.
+Create the Okta JWT Verifier using `JwtVerifiers` class:
 
+```java
+AccessTokenVerifier jwtVerifier = JwtVerifiers.accessTokenVerifierBuilder()
+    .setIssuer("https://{yourOktaDomain}/oauth2/default")
+    .setAudience("api://default")                // defaults to 'api://default'
+    .setConnectionTimeout(Duration.ofSeconds(1)) // defaults to 1s
+    .setReadTimeout(Duration.ofSeconds(1))       // defaults to 1s
+    .build();
+```
+
+This helper class configures a JWT parser with the details found via the [OpenID Connect discovery endpoint](https://openid.net/specs/openid-connect-discovery-1_0.html).  The public keys used to validate the JWTs will also be retrieved and cached automatically.
+
+After you have a `JwtVerifier` from above section and a `access_token` from a successful login, or from the `Bearer token` 
+in the authorization header, you will need to make sure that this is still valid. All you need to do is call the 
+`decode` method (where `jwtString` is your access token in string format).
+
+```java
+Jwt jwt = jwtVerifier.decode(jwtString);
+```
+
+This will validate your JWT for the following:
+
+- Token expiration date
+- Valid token not before date
+- The token issuer matches the expected value passed into the above helper
+- The token audience matches the expected value passed into the above helper
+
+The result from the decode method is a `Jwt` object which you can introspect additional claims by calling:
+
+```java
+jwt.getClaims().get("aClaimKey");
+```
 
