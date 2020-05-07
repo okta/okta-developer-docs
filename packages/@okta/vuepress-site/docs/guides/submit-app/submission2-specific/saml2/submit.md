@@ -4,7 +4,7 @@
 
 * **Is SAML support available in the SP for all tenants by default or is it available only for specific SKUs?** &mdash; If you select only certain SKUs, provide details on which products provide SAML support.
 
-* **To configure SAML, can your customers do it by themselves from your app's UI, or do they need to contact your support team?** &mdash; If a customer needs support to configure your integration, you need to include support contact information in your configuration guide.
+* **To configure SAML, can your customers do it by themselves from your app's UI, or do they need to contact your support team?** &mdash; If a customer needs support to configure your integration, you need to include support contact information in your configuration guide. We recommend that you build a UI that enables self-service configuration to reduce the set up time for your customers.
 
 * **Is the Assertion Consumer Service (ACS) URL the same for all tenants and environments?** &mdash; If **No**, enter which part of the ACS URL is customizable. For example, the `subdomain` in `https://subdomain.example.com/saml2/`
 

@@ -29,7 +29,7 @@ After you have built a functioning integration, a few steps are required to subm
 1. Submit your integration to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata needed to create a customized integration for publication in the OIN.
 1. Work with Okta App Analysts who will test your integration with your input and get it published to the OIN Catalog.
 
-The time required to complete the OIN publication process depends on many factors, but the estimated times are:
+The service-level agreement for OIN publication time is:
 
 * Initial review by Okta - 5 business days
 * QA testing by Okta - 5 business days
