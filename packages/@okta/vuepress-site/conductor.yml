@@ -404,7 +404,7 @@ redirects:
   - from: /reference/scim/index.html
     to: /docs/reference/scim/
   - from: /reference/webfinger/index.html
-    to: /docs/reference/webfinger/
+    to: /docs/reference/api/webfinger/
   - from: /guides/index.html
     to: /docs/guides/
   - from: /reference/index.html
@@ -576,7 +576,7 @@ redirects:
   - from: /reference/scim
     to: /docs/reference/scim/
   - from: /reference/webfinger
-    to: /docs/reference/webfinger/
+    to: /docs/reference/api/webfinger/
   - from: /guides
     to: /docs/guides/
   - from: /reference
@@ -1913,3 +1913,7 @@ redirects:
     to: /docs/reference/api/oidc/
   - from: /docs/api/resources/authn.html/index.html
     to: /docs/reference/api/authn/
+  - from: /docs/reference/webfinger/index.html
+    to: /docs/reference/api/webfinger/
+  - from: /docs/reference/webfinger/
+    to: /docs/reference/api/webfinger/
