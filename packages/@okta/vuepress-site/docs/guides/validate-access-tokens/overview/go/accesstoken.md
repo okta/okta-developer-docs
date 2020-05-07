@@ -1,16 +1,39 @@
-See the instructions for the [Okta JWT Verifier for Golang](https://github.com/okta/okta-jwt-verifier-golang).
+This code uses the [Okta JWT Verifier for Golang](https://github.com/okta/okta-jwt-verifier-golang).
 
-## Verify the Token Signature
 
-You verify the Access or ID token's signature by matching the key that was used to sign in with one of the keys that you retrieved from your Okta Authorization Server's JWK endpoint. Specifically, each public key is identified by a `kid` attribute, which corresponds with the `kid` claim in the Access or ID token header.
+For any access token to be valid, the following must be asserted:
 
-If the `kid` claim doesn't match, it's possible that the signing keys have changed. Check the `jwks_uri` value in the Authorization Server metadata and try retrieving the keys again from Okta.
+- Signature is valid (the token was signed by a private key which has a corresponding public key in the JWKS response from the authorization server).
+- Access token is not expired (requires local system time to be in sync with Okta, checks the exp claim of the access token).
+- The `aud` claim matches any expected `aud` claim passed to `verifyAccessToken()`.
+- The `iss` claim matches the issuer the verifier is constructed with.
+- Any custom claim assertions that you add are confirmed
 
-### Verify the Claims
 
-You should verify the following:
+```go
+import github.com/okta/okta-jwt-verifier-golang
 
-- The `iss` (issuer) claim matches the identifier of your Okta Authorization Server.
-- Verify that the `aud` (audience) claim is the value configured in the Authorization Server.
-- The `exp` (expiry time) claim is the time at which this token will expire, expressed in Unix time. You should make sure that this has not already passed.
+toValidate := map[string]string{}
+toValidate["aud"] = "api://default"
+toValidate["cid"] = "{CLIENT_ID}"
 
+jwtVerifierSetup := jwtverifier.JwtVerifier{
+        Issuer: "{ISSUER}",
+        ClaimsToValidate: toValidate
+}
+
+verifier := jwtVerifierSetup.New()
+
+token, err := verifier.VerifyAccessToken("{JWT}")
+```
+
+You may need to adjust your clock skew leeway. We default to a `PT2M` clock skew adjustment in our validation. You can adjust this to your needs by setting the `SetLeeway` in seconds after getting a new instance of the verifier:
+
+```go
+jwtVerifierSetup := JwtVerifier{
+        Issuer: "{ISSUER}",
+}
+
+verifier := jwtVerifierSetup.New()
+verifier.SetLeeway(60) // seconds
+```
