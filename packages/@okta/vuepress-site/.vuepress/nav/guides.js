@@ -30,6 +30,7 @@ module.exports = [
     { title: 'Refresh access tokens', guideName: 'refresh-tokens' },
     { title: 'Request user consent', guideName: 'request-user-consent' },
     { title: 'Revoke Tokens', guideName: 'revoke-tokens' },
+    { title: 'Set up a SAML application in Okta', guideName: 'saml-application-setup' },
     { title: 'Set Up Event Hooks', guideName: 'set-up-event-hook' },
     { title: 'Share a sign-in session with native mobile apps', guideName: 'shared-sso-android-ios' },
     { title: 'Share Application Key Credentials for IdPs Across Apps', guideName: 'sharing-cert' },

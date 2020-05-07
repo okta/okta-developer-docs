@@ -22,6 +22,6 @@ Alternatively, you can add grants using the `/grants` API. The following is an e
     }' "https://${yourOktaDomain}/api/v1/apps/client_id/grants"
 ```
 
-> **Note:** You can find a list of available values for `scopeId` in the <GuideLink link="../scopes">Scopes and supported endpoints</GuideLink> section.
+> **Note:** You can find a list of available values for `scopeId` in the <GuideLink link="../scopes">Scopes & supported endpoints</GuideLink> section.
 
 <NextSectionLink/>

@@ -6,7 +6,7 @@ To request an access token using the Client Credentials grant flow, you make a r
 
 Include the following parameters:
 
-* `scope` &mdash; Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the <GuideLink link="../create-serviceapp-grantscopes/#grant-allowed-scopes">application's grants collection</GuideLink>. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/).
+* `scope` &mdash; Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the <GuideLink link="../create-serviceapp-grantscopes/#grant-allowed-scopes">application's grants collection</GuideLink>. See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/).
 
     In this example, we only request access for one scope. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read+okta.apps.read`
 
