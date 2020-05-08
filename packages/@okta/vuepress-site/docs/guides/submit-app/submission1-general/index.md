@@ -14,7 +14,9 @@ In the General Settings page, you need to fill in the basic information about yo
 
 ## App information
 
-* **Does your app exist in the OIN?** &mdash; If your integration already exists in the OIN, provide the existing name so the App Analyst can locate it.
+* **Does your app exist in the OIN?** &mdash; If your integration already exists in the OIN, provide the **Existing OIN app name** so the App Analyst can locate it.
+
+* **What changes are you making to the existing OIN integration?** &mdash; If your integration already exists in the OIN, summarize the changes that you are requesting in your update. This summary helps the Okta App Analyst to address your changes.
 
 * **App name** &mdash; Provide a name for your integration. This is the main title used for your integration in the OIN.
 
@@ -24,7 +26,7 @@ In the General Settings page, you need to fill in the basic information about yo
 
 * **App description** &mdash; Give a general description of your application and what the Okta integration does. For examples, see the overview section for any of the integrations listed on the [OIN](https://www.okta.com/integrations/).
 
-* **App icon** &mdash; Upload a .png, .jpg, or .gif file of your company logo to accompany the integration in the catalog. The image should be less than 100k in size, and have dimensions less than 104 x 37 pixels to prevent resizing.
+* **App icon** &mdash; Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The image must have dimensions of less than 1400 by 400 pixels. It also must be 1 megabyte or smaller in size.
 
 ## Customer support
 
