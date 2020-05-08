@@ -1,6 +1,6 @@
 {
-  "release" : "2020.04.2",
-  "build" : "2020.04.2-begin-171-gedc36d54c15f",
+  "release" : "2020.05.1",
+  "build" : "2020.05.1-begin-90-g0d77dca17131",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -408,6 +408,10 @@
     "tags" : [ ]
   }, {
     "id" : "x509-idp-auth",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "credential",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -1566,19 +1570,19 @@
       "category" : "sync",
       "description" : "Fired when a provision sync job has successfully completed. This can be used to confirm that a provision sync job has finished running and is no longer processing users. When fired, this event contains details about number of users processed in the job. Related events include app.app_instance.provision_sync_job.started and app.app_instance.provision_sync_job.failed.",
       "tags" : [ "admin", "app", "user-provision" ],
-      "mappings" : [ ]
+      "mappings" : [ "app.app_instance.provision_sync_job.completed" ]
     }, {
       "id" : "app.app_instance.provision_sync_job.failed",
       "category" : "sync",
       "description" : "Fired when a provision sync job has failed. This can be used to identify when a provision sync job has failed. When fired, this event contains information about the reason the provision sync job failed. Related events include app.app_instance.provision_sync_job.started and app.app_instance.provision_sync_job.completed.",
       "tags" : [ "admin", "app", "user-provision" ],
-      "mappings" : [ ]
+      "mappings" : [ "app.app_instance.provision_sync_job.failed" ]
     }, {
       "id" : "app.app_instance.provision_sync_job.started",
       "category" : "sync",
       "description" : "Fired when a provision sync job has successfully started. This can be used to confirm that a provision sync job has successfully started. Related events include app.app_instance.provision_sync_job.completed and app.app_instance.provision_sync_job.failed.",
       "tags" : [ "admin", "app", "user-provision" ],
-      "mappings" : [ ]
+      "mappings" : [ "app.app_instance.provision_sync_job.started" ]
     }, {
       "id" : "app.app_instance.sign_on_policy.access_denied",
       "category" : "authn",
@@ -3224,12 +3228,6 @@
       "tags" : [ "app" ],
       "mappings" : [ "app.kerberos_rich_client.instance_not_found" ]
     }, {
-      "id" : "app.kerberos_rich_client.invalid_org",
-      "category" : "directories",
-      "description" : "",
-      "tags" : [ "app" ],
-      "mappings" : [ "app.kerberos_rich_client.invalid_org" ]
-    }, {
       "id" : "app.kerberos_rich_client.multiple_accounts_found",
       "category" : "directories",
       "description" : "Kerberos based rich client authentication failed: Multiple users with username found.",
@@ -3534,13 +3532,13 @@
       "category" : "federation",
       "description" : "Administrator consent granted for client.",
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
-      "mappings" : [ ]
+      "mappings" : [ "app.oauth2.admin.consent.grant" ]
     }, {
       "id" : "app.oauth2.admin.consent.revoke_success",
       "category" : "federation",
       "description" : "Administrator consent revoked for client.",
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
-      "mappings" : [ ]
+      "mappings" : [ "app.oauth2.admin.consent.revoke" ]
     }, {
       "id" : "app.oauth2.as.authorize.code_success",
       "category" : "federation",
@@ -4619,12 +4617,6 @@
       "id" : "app.rich_client.instance_not_found",
       "category" : "msft-apps",
       "description" : "Rich client authentication failed: Unknown app instance id.",
-      "tags" : [ "app" ],
-      "mappings" : [ "user.authentication.auth_via_richclient" ]
-    }, {
-      "id" : "app.rich_client.invalid_org",
-      "category" : "msft-apps",
-      "description" : "Rich client authentication failed: Unknown org for instance.",
       "tags" : [ "app" ],
       "mappings" : [ "user.authentication.auth_via_richclient" ]
     }, {
@@ -5730,7 +5722,7 @@
       "category" : "aelm",
       "description" : "Beta feature was enabled for the Org.",
       "tags" : [ "admin", "self-service-feature-management", "system" ],
-      "mappings" : [ ]
+      "mappings" : [ "system.beta.feature.enable" ]
     }, {
       "id" : "core.billing.sms_usage_sent",
       "category" : "aelm",
@@ -6025,6 +6017,12 @@
       "description" : "User rejected Okta push verify.",
       "tags" : [ "user-factor" ],
       "mappings" : [ "user.mfa.okta_verify.deny_push" ]
+    }, {
+      "id" : "core.user.factor.push_rejected.upgrade_needed",
+      "category" : "enterprise-auth",
+      "description" : "Rejected Okta Verify Push verification attempt. Upgrade Needed.",
+      "tags" : [ "user-factor" ],
+      "mappings" : [ "user.mfa.okta_verify.deny_push_upgrade_needed" ]
     }, {
       "id" : "core.user.factor.reset_all",
       "category" : "mfa-platform",
@@ -6696,7 +6694,7 @@
       "category" : "lca",
       "description" : "Non-default user profile created.",
       "tags" : [ "cvd" ],
-      "mappings" : [ ]
+      "mappings" : [ "directory.non_default_user_profile.create" ]
     }, {
       "id" : "cvd.scheduled_action.user_suspension.canceled",
       "category" : "extensibility",
@@ -6822,13 +6820,13 @@
       "category" : "ud-core",
       "description" : "Okta group created.",
       "tags" : [ "group" ],
-      "mappings" : [ ]
+      "mappings" : [ "group.lifecycle.create" ]
     }, {
       "id" : "group.lifecycle.delete",
       "category" : "ud-core",
       "description" : "Okta group deleted.",
       "tags" : [ "group" ],
-      "mappings" : [ ]
+      "mappings" : [ "group.lifecycle.delete" ]
     }, {
       "id" : "invalidate_app_list.app.created",
       "category" : "app-platform",
@@ -7242,7 +7240,7 @@
       "category" : "extensibility",
       "description" : "Event hook was activated.",
       "tags" : [ "event-hook" ],
-      "mappings" : [ ]
+      "mappings" : [ "event_hook.activated" ]
     }, {
       "id" : "platform.event_hook.created",
       "category" : "extensibility",
@@ -7254,7 +7252,7 @@
       "category" : "extensibility",
       "description" : "Event hook was deactivated.",
       "tags" : [ "event-hook" ],
-      "mappings" : [ ]
+      "mappings" : [ "event_hook.deactivated" ]
     }, {
       "id" : "platform.event_hook.deleted",
       "category" : "extensibility",
@@ -7602,19 +7600,19 @@
       "category" : "adaptive",
       "description" : "A behavior setting was created.",
       "tags" : [ "behavior-settings" ],
-      "mappings" : [ ]
+      "mappings" : [ "security.behavior.settings.create" ]
     }, {
       "id" : "security.behavior.settings.delete",
       "category" : "adaptive",
       "description" : "A behavior setting was deleted.",
       "tags" : [ "behavior-settings" ],
-      "mappings" : [ ]
+      "mappings" : [ "security.behavior.settings.delete" ]
     }, {
       "id" : "security.behavior.settings.update",
       "category" : "adaptive",
       "description" : "A behavior setting was updated.",
       "tags" : [ "behavior-settings" ],
-      "mappings" : [ ]
+      "mappings" : [ "security.behavior.settings.update" ]
     }, {
       "id" : "security.device.add_request_blacklist_policy",
       "category" : "security",
@@ -7650,7 +7648,7 @@
       "category" : "adaptive",
       "description" : "Fired when a ThreatInsight configuration has been updated. This can be used to identify when an existing ThreatInsight configuration has been updated. An update can be updating the action or the excluded zones. When fired, this event contains information about who made the update to the configuration.",
       "tags" : [ "threat-insight-configuration" ],
-      "mappings" : [ ]
+      "mappings" : [ "security.threat.configuration.update" ]
     }, {
       "id" : "security.threat.detected",
       "category" : "adaptive",
@@ -7764,7 +7762,7 @@
       "category" : "sync",
       "description" : "Fired when an import roadblock has been updated.",
       "tags" : [ "app", "system" ],
-      "mappings" : [ ]
+      "mappings" : [ "system.import.roadblock.updated" ]
     }, {
       "id" : "system.import.user_matching.complete",
       "category" : "sync",
@@ -8093,7 +8091,7 @@
       },
       "beta" : false,
       "tags" : [ "admin", "app", "user-provision" ],
-      "mappings" : [ ],
+      "mappings" : [ "app.app_instance.provision_sync_job.completed" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -8109,7 +8107,7 @@
       },
       "beta" : false,
       "tags" : [ "admin", "app", "user-provision" ],
-      "mappings" : [ ],
+      "mappings" : [ "app.app_instance.provision_sync_job.failed" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -8125,7 +8123,7 @@
       },
       "beta" : false,
       "tags" : [ "admin", "app", "user-provision" ],
-      "mappings" : [ ],
+      "mappings" : [ "app.app_instance.provision_sync_job.started" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -8238,22 +8236,6 @@
       "beta" : false,
       "tags" : [ "app", "kerberos-rich-client" ],
       "mappings" : [ "app.kerberos_rich_client.instance_not_found" ],
-      "schema" : {
-        "debugData" : "Office365DebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
-      "id" : "app.kerberos_rich_client.invalid_org",
-      "category" : "directories",
-      "description" : "Kerberos based rich client authentication failed: Invalid org for app instance id.",
-      "info" : {
-        "created" : "2017-12-04",
-        "release" : "2017.50"
-      },
-      "beta" : false,
-      "tags" : [ "app", "kerberos-rich-client" ],
-      "mappings" : [ "app.kerberos_rich_client.invalid_org" ],
       "schema" : {
         "debugData" : "Office365DebugData",
         "actor" : null,
@@ -8397,7 +8379,7 @@
       },
       "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
-      "mappings" : [ ],
+      "mappings" : [ "app.oauth2.admin.consent.grant_success" ],
       "schema" : {
         "debugData" : "SystemDebugData",
         "actor" : null,
@@ -8413,7 +8395,7 @@
       },
       "beta" : false,
       "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-org-as" ],
-      "mappings" : [ ],
+      "mappings" : [ "app.oauth2.admin.consent.revoke_success" ],
       "schema" : {
         "debugData" : "SystemDebugData",
         "actor" : null,
@@ -12653,7 +12635,7 @@
       },
       "beta" : false,
       "tags" : [ "cvd", "directory" ],
-      "mappings" : [ ],
+      "mappings" : [ "cvd.non_default_user_profile_created" ],
       "schema" : {
         "debugData" : "SystemDebugData",
         "actor" : null,
@@ -12701,7 +12683,7 @@
       },
       "beta" : false,
       "tags" : [ "event-hook" ],
-      "mappings" : [ ],
+      "mappings" : [ "platform.event_hook.activated" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -12733,7 +12715,7 @@
       },
       "beta" : false,
       "tags" : [ "event-hook" ],
-      "mappings" : [ ],
+      "mappings" : [ "platform.event_hook.deactivated" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -12877,7 +12859,7 @@
       },
       "beta" : false,
       "tags" : [ "group" ],
-      "mappings" : [ ],
+      "mappings" : [ "group.lifecycle.create" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -12893,7 +12875,7 @@
       },
       "beta" : false,
       "tags" : [ "group" ],
-      "mappings" : [ ],
+      "mappings" : [ "group.lifecycle.delete" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -14317,7 +14299,7 @@
       },
       "beta" : true,
       "tags" : [ "behavior-settings" ],
-      "mappings" : [ ],
+      "mappings" : [ "security.behavior.settings.create" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -14333,7 +14315,7 @@
       },
       "beta" : true,
       "tags" : [ "behavior-settings" ],
-      "mappings" : [ ],
+      "mappings" : [ "security.behavior.settings.delete" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -14349,7 +14331,7 @@
       },
       "beta" : true,
       "tags" : [ "behavior-settings" ],
-      "mappings" : [ ],
+      "mappings" : [ "security.behavior.settings.update" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -14461,7 +14443,7 @@
       },
       "beta" : false,
       "tags" : [ "threat-insight-configuration" ],
-      "mappings" : [ ],
+      "mappings" : [ "security.threat.configuration.update" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -15181,7 +15163,7 @@
       },
       "beta" : true,
       "tags" : [ "admin", "self-service-feature-management", "system" ],
-      "mappings" : [ ],
+      "mappings" : [ "core.beta.feature.enable" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -15917,7 +15899,7 @@
       },
       "beta" : false,
       "tags" : [ "import", "system" ],
-      "mappings" : [ ],
+      "mappings" : [ "system.import.roadblock.updated" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -17117,7 +17099,7 @@
       },
       "beta" : false,
       "tags" : [ "user" ],
-      "mappings" : [ "app.rich_client.account_not_found", "app.rich_client.instance_not_found", "app.rich_client.invalid_org", "app.rich_client.login_failure", "app.rich_client.login_success", "app.rich_client.multiple_accounts_found" ],
+      "mappings" : [ "app.rich_client.account_not_found", "app.rich_client.instance_not_found", "app.rich_client.login_failure", "app.rich_client.login_success", "app.rich_client.multiple_accounts_found" ],
       "schema" : {
         "debugData" : "RichClientDebugData",
         "actor" : null,
@@ -17218,6 +17200,22 @@
         "debugData" : "DeviceTrustDebugData",
         "actor" : null,
         "targets" : [ "DeviceTrustResourceDetails" ]
+      }
+    }, {
+      "id" : "user.import.password",
+      "category" : "cred-platform",
+      "description" : "Fired when a user has successfully logged in to Okta and an attempt to import their Password has been made. This can be used to understand if a user password import attempt was successful or if it failed. If the attempt failed, the password import will be tried again on a subsequent successful login. When fired, this event contains information about the import type, and whether or not the password import was successful. If the import is successful, it is safe to \"clean up\" that user from an external system. If the import failed, Okta will continue retrying the import during every successful authentication attempt until the password is successfully imported. Check the failure reason for details about whether any action is needed for the import to succeed.",
+      "info" : {
+        "created" : "2020-04-13",
+        "release" : "2020.05.1"
+      },
+      "beta" : false,
+      "tags" : [ "credential", "import", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
       }
     }, {
       "id" : "user.lifecycle.activate",
@@ -17486,6 +17484,22 @@
       "beta" : false,
       "tags" : [ "mfa" ],
       "mappings" : [ "core.user.factor.push_rejected" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "user.mfa.okta_verify.deny_push_upgrade_needed",
+      "category" : "enterprise-auth",
+      "description" : "Rejected Okta push verify as Upgrade Needed. This can be used to audit events where Okta push verify was rejected as the app needed upgrade. Note that the event is fired when Okta Verify push is rejected. It is possible that the user might have chosen another factor and made successful login as well.",
+      "info" : {
+        "created" : "2020-03-22",
+        "release" : "2020.05.0"
+      },
+      "beta" : false,
+      "tags" : [ "mfa" ],
+      "mappings" : [ "core.user.factor.push_rejected.upgrade_needed" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
