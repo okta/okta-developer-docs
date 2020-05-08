@@ -1,5 +1,5 @@
 ---
-title: Step-by step guides for the Okta platform
+title: Step-by-step guides for the Okta platform
 guides:
  - add-an-external-idp
  - build-custom-ui-mobile
