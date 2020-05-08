@@ -1,5 +1,6 @@
 ---
 title: OIN - Build a SCIM provisioning integration
+excerpt: Create an Okta provisioning integration using SCIM.
 meta:
   - name: description
     content: Use this guide to learn how to build an application integration that uses SCIM to handle user provisioning.
