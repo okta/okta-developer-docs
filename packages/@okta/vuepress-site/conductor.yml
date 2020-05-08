@@ -1933,3 +1933,15 @@ redirects:
     to: /docs/guides/build-sso-integration/saml2/specify-your-settings/
   - from: /docs/guides/saml-application-setup/-/next-steps/index.html
     to: /docs/guides/build-sso-integration/saml2/next-steps/
+  - from: /docs/guides/saml-application-setup/overview/index.html
+    to: /docs/guides/build-sso-integration/saml2/overview/
+  - from: /docs/guides/saml-application-setup/add-general-info/index.html
+    to: /docs/guides/build-sso-integration/saml2/before-you-begin/
+  - from: /docs/guides/saml-application-setup/configure-saml-in-okta/index.html
+    to: /docs/guides/build-sso-integration/saml2/create-your-app/
+  - from: /docs/guides/saml-application-setup/assign-users-to-the-app/index.html
+    to: /docs/guides/build-sso-integration/saml2/test-your-app/
+  - from: /docs/guides/saml-application-setup/config-saml-in-app/index.html
+    to: /docs/guides/build-sso-integration/saml2/specify-your-settings/
+  - from: /docs/guides/saml-application-setup/next-steps/index.html
+    to: /docs/guides/build-sso-integration/saml2/next-steps/
