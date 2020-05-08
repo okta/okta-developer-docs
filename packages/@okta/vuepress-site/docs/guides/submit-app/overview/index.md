@@ -29,6 +29,14 @@ After you have built a functioning integration, a few steps are required to subm
 1. Submit your integration to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata needed to create a customized integration for publication in the OIN.
 1. Work with Okta App Analysts who will test your integration with your input and get it published to the OIN Catalog.
 
+The service-level agreement for OIN publication time is:
+
+* Initial review by Okta - 5 business days
+* QA testing by Okta - 5 business days
+* Final publication in the OIN Catalog - 3 business days
+
+All submissions go through these phases. Okta updates you by email for any remediations arising from the initial review and QA testing phases. At any point, you can check the status of your submission in the [OIN Manager](https://oinmanager.okta.com).
+
 If you need additional help with the publication process, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or email us at <developers@okta.com>.
 
 >**Note:** All integrations in the OIN catalog are public. If you want to submit a private integration request for applications that use SCIM 1.1 or Profile Mastering, or for applications that use a custom header expression for the Header Auth, then use the SCIM [App Integration Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard) to create your integration and send an email to <developers@okta.com>. Okta App Analysts will work with you to create an internal-only integration that is not included in the OIN.

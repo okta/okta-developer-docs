@@ -1,5 +1,5 @@
 ---
-title: Scopes & supported endpoints
+title: Scopes and supported endpoints
 ---
 
 Every action on an endpoint that supports OAuth 2.0 requires a specific scope. Okta scopes have the following format: `okta.<resource name>.<operation>`. For example, you can have resources that are users, clients, or apps with `read` or `manage` operations. The `read` scope is used to read information about a resource. The `manage` scope is used to create a new resource, manage a resource, or delete a resource. Use the `okta.<resource>.read` scopes to perform GET API operations and the `okta.<resource>.manage` scopes to perform POST, PUT, and DELETE API operations. The self scopes (`okta.<resource>.<operation>.self`) only allow access to the user who authorized the token. These scopes are used to perform end user API operations.
