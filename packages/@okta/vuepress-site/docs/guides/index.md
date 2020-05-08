@@ -1,5 +1,5 @@
 ---
-title: Step-by step guides for the Okta platform
+title: Step-by-step guides for the Okta platform
 guides:
  - add-an-external-idp
  - build-custom-ui-mobile
@@ -42,13 +42,22 @@ guides:
  - updating-saml-cert
  - validate-access-tokens
  - validate-id-tokens
-featured:
+featuredx:
  - sign-into-web-app
+ - build-sso-integration
+featuredy:
  - sign-into-spa
+ - build-provisioning-integration
+
 ---
 Learn how to build applications using Okta's APIs with these step-by-step guides.
 
 To get started, choose a guide from the left.
 
 ## Featured Guides
-<FeaturedGuides :featured="$page.frontmatter.featured" />
+
+<FeaturedGuides :featured="$page.frontmatter.featuredx" />
+
+<br/>
+
+<FeaturedGuides :featured="$page.frontmatter.featuredy" />
