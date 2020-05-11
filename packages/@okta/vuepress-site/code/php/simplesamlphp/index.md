@@ -26,7 +26,6 @@ command line and editing text files.
 If you're already familiar with Okta, you can skip to the
 section titled "Configuring SimpleSAMLphp to work with Okta."
 
-
 ## Configuring Okta to work with SimpleSAMLphp
 
 Before you can configure the example application and SimpleSAMLphp
@@ -34,11 +33,10 @@ you need to set up an Okta chiclet (application icon) that an Okta user selects 
 application using SAML via SimpleSAMLphp.
 
 To set up Okta to connect to your application, follow the guide to
-[setting up a SAML application in Okta](/docs/guides/saml-application-setup/).
-As you follow the instructions, there are two steps where you will do things differently:
+[Build a Single Sign-On Integration](/docs/guides/build-sso-integration/saml2/overview/). As you follow the instructions to [Create your integration](/docs/guides/build-sso-integration/saml2/create-your-app/), there are two steps where you will do things differently:
 
-* *In step \#6*: Use ***SimpleSAMLphp Example*** instead "Example SAML application"
-* *In step \#7*: Instead of entering the URL: `http://example.com/saml/sso/example-okta-com`
+* *In step \#9*: Use ***SimpleSAMLphp Example*** instead "Example SAML application"
+* *In step \#10*: Instead of entering the URL: `http://example.com/saml/sso/example-okta-com`
 
   Use the following URLs:
 
@@ -218,7 +216,7 @@ PHP, reconfiguring Apache, and creating some symbolic links.
 
     Be sure to replace the contents of `{metdata-url}` with the link
     that you copied in step \#10 of the
-    "[Setting up a SAML application in Okta](/docs/guides/saml-application-setup/)"
+    "[Setting up a SAML application in Okta](/docs/guides/build-sso-integration/saml2/create-your-app/)"
     instructions that you followed above!
 
     > **Note:** The contents of `{metadata-url}` should look similar to this:
