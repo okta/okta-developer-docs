@@ -21,3 +21,30 @@ All errors contain the follow fields:
 | `errorCauses`  | (Optional) Further information about what caused this error.                                                                            |
 
 <ErrorCodes />
+
+
+## Example Errors for OpenID Connect and Social Login
+
+In stituations where Okta needs to pass an error to a downstream application via a `redirect_uri`, the error code and description will be encoded as the query parameters `error` and `error_description`.
+
+> For example, if the **redirect_uri** is **https://example.com**, then the **ACCESS_DENIED** error would be passed as follows:
+>
+> ```
+> https://example.com?error=access_denied&error_description=The%20resource%20owner%20or%20authorization%20server%20denied%20the%20request.
+> ```
+
+| Property                    | Description                                                                                                                     |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `unauthorized_client`       | The client is not authorized to request an authorization code using this method.                                                |
+| `access_denied`             | The resource owner or authorization server denied the request.                                                                  |
+| `unsupported_response_type` | The authorization server does not support obtaining an authorization code using this method.                                    |
+| `unsupported_response_mode` | The authorization server does not support the requested response mode.                                                          |
+| `invalid_scope`             | The requested scope is invalid, unknown, or malformed.                                                                          |
+| `server_error`              | The authorization server encountered an unexpected condition that prevented it from fulfilling the request.                     |
+| `temporarily_unavailable`   | The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server. |
+| `invalid_client`            | The specified client is not valid.                                                                                              |
+| `login_required`            | The client specified not to prompt, but the user is not logged in.                                                              |
+| `invalid_request`           | The request parameters are not valid.                                                                                           |
+| `user_canceled_request`     | User canceled the social login request.                                                                                         |
+
+
