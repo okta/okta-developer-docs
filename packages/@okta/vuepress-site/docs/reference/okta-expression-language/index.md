@@ -64,7 +64,7 @@ In addition to referencing user, app, and organization properties, you can also 
 
 | Syntax            | Definitions                                                 | Evaluation Example                                     |
 | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
-| `session.amr`     | `session` reference to a user's session<br>`amr` the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | ["pwd"], ["mfa", "pwd", "kba"], ["mfa", "mca", "pwd", "sms"] |
+| `session.amr`     | `session` reference to a user's session<br>`amr` the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd"]` &mdash; password used by the user for authentication<br>`["mfa", "pwd", "kba"]` &mdash; password and MFA security question used by the user for authentication<br>`["mfa", "mca", "pwd", "sms"]` &mdash; password and MFA SMS used by the user for authentication |
 
 ## Functions
 
