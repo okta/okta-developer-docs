@@ -92,7 +92,8 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 **Notes:**
 
 1. If Okta makes any change to the DynamicScale add-on's rate limits, such change will be communicated to customers via an updated version of this product documentation.
-2. Customers purchasing the DynamicScale add-on service will get best-effort additional protection beyond the multiplier they've purchased to handle any additional unforeseen spikes in Production:
+2. DynamicScale add-on is not available for customers that are using Delegated Authentication.
+3. Customers purchasing the DynamicScale add-on service will get best-effort additional protection beyond the multiplier they've purchased to handle any additional unforeseen spikes in Production:
     1. This protection is not always guaranteed and should not be counted towards available rate limits
     2. Additional protection availability is subject to infrastructure capacity available to your Org
 
