@@ -4,7 +4,7 @@ See the instructions for the [Okta JWT Verifier for Java](https://github.com/okt
 
 To validate a JWT, you will need the Okta JWT Verifier for Java library.
 
-Include the below lines in your Maven pom.xml:
+Include the lines below in your Maven `pom.xml`:
 
 ```xml
 <dependency>
