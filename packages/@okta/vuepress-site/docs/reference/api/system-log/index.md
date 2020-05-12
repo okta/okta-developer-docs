@@ -609,7 +609,7 @@ For a request to be a _polling_ request it must meet the following request param
 
 Polling requests to the `/api/v1/logs` API have the following semantics:
   - They return every event that occurs in your organization.
-  - They are time-filtered by their internal "persistence time" to avoid skipping records due to system delays (unlike [Bounded Requests](#bounded-requests)).
+  - The returned events are time-filtered by their internal "persistence time" to avoid skipping records due to system delays (unlike [Bounded Requests](#bounded-requests)).
   - They may return events out of order according to the `published` field.
   - They have an infinite number of pages. That is, a [`next` `Link` relation header](#next-link-response-header) is always present, even if there are no new events (the event list may be empty).
 
@@ -625,7 +625,7 @@ For a request to be a _bounded_ request it must meet the following request param
   - `until` must be specified.
 
 Bounded requests to the `/api/v1/logs` API have the following semantics:
-  - They are time-filtered by their `published` field (unlike [Polling Requests](#polling-requests)).
+  - The returned events are time-filtered by their associated `published` field (unlike [Polling Requests](#polling-requests)).
   - The returned events are guaranteed to be in order according to the `published` field.
   - They have a finite number of pages. That is, the last page does not contain a [`next` `Link` relation header](#next-link-response-header).
   - Not all events for the specified time range may be present— events may be delayed. Such delays are rare but possible.
