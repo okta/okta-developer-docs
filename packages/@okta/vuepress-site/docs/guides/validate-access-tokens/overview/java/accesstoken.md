@@ -51,7 +51,7 @@ This will validate your JWT for the following:
 - The token issuer matches the expected value passed into the above helper
 - The token audience matches the expected value passed into the above helper
 
-The result from the decode method is a `Jwt` object which you can introspect additional claims by calling:
+The result of the decode method is a `Jwt` object which you can introspect for additional claims by calling:
 
 ```java
 jwt.getClaims().get("aClaimKey");
