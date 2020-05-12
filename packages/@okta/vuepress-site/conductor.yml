@@ -1948,7 +1948,7 @@ redirects:
   - from: /docs/reference/webfinger/
     to: /docs/reference/api/webfinger/
   - from: /docs/guides/saml-application-setup/
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /docs/guides/saml-application-setup/index.html
-    to: /docs/guides/build-sso-integration/
+    to: /docs/guides/build-sso-integration/saml2/overview/
     
