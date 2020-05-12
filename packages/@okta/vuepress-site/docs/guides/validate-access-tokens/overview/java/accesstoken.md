@@ -36,7 +36,7 @@ AccessTokenVerifier jwtVerifier = JwtVerifiers.accessTokenVerifierBuilder()
 
 This helper class configures a JWT parser with the details found via the [OpenID Connect discovery endpoint](https://openid.net/specs/openid-connect-discovery-1_0.html).  The public keys used to validate the JWTs will also be retrieved and cached automatically.
 
-After you have a `JwtVerifier` from above section and a `access_token` from a successful login, or from the `Bearer token` 
+After you have a `JwtVerifier` from the above section and an `access_token` from a successful sign in, or from a Bearer token 
 in the authorization header, you will need to make sure that this is still valid. All you need to do is call the 
 `decode` method (where `jwtString` is your access token in string format).
 
