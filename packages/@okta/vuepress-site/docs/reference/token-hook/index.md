@@ -124,6 +124,7 @@ Okta defines a number of reserved claims that can't be overridden. When you add 
 | amr            | Access Token      |
 | as_uri         | Access Token      |
 | cid            | Access Token      |
+| groups         | Access Token      |
 | rpt            | Access Token      |
 | rsi            | Access Token      |
 | uid            | Access Token      |

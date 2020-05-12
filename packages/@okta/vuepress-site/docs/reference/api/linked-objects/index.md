@@ -23,6 +23,8 @@ For details, see the [Linked Object object](#linked-object-object).
 
 The Expression Language function for [Linked Objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
 
+>**Note:** Linked Objects feature is not available for OpenID Connect claims.
+
 ## Example Usage
 
 Okta allows you to create up to 200 linked object definitions. These definitions are one-to-many, for example:
