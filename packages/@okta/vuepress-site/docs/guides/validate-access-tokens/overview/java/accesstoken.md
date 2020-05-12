@@ -34,7 +34,7 @@ AccessTokenVerifier jwtVerifier = JwtVerifiers.accessTokenVerifierBuilder()
     .build();
 ```
 
-This helper class configures a JWT parser with the details found through the [OpenID Connect discovery endpoint](https://openid.net/specs/openid-connect-discovery-1_0.html).  The public keys used to validate the JWTs will also be retrieved and cached automatically.
+This helper class configures a JWT parser with the details found through the [OpenID Connect discovery endpoint](https://developer.okta.com/docs/reference/api/oidc/#well-known-openid-configuration).  The public keys used to validate the JWTs will also be retrieved and cached automatically.
 
 After you have a `JwtVerifier` from the above section and an `access_token` from a successful sign in, or from a Bearer token 
 in the authorization header, you will need to make sure that it is still valid. All you need to do is call the 
