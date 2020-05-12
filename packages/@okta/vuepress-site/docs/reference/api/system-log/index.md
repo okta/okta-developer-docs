@@ -582,8 +582,8 @@ The table below summarizes the supported query parameters:
 
 | Parameter   | Description                                                                                                                             | Format                                                                                                                                                                                    | Default                 |
 | ----------- | -----------------------------------------------------------------------------------------------------                                   | --------------------------------------------------------                                                                                                                                  | ----------------------- |
-| `since`     | Filters the lower time bound of the log events `published` property                                                                     | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z`                                                       | 7 days prior to `until` |
-| `until`     | Filters the upper time bound of the log events `published` property                                                                     | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z`                                                       | Current time            |
+| `since`     | Filters the lower time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z`                                                       | 7 days prior to `until` |
+| `until`     | Filters the upper time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z`                                                       | Current time            |
 | `after`     | Used to retrieve the next page of results. Okta returns a link in the HTTP Header (`rel=next`) that includes the after query parameter. | Opaque token                                                                                                                                                                              |                         |
 | `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/reference/api-overview/#filtering). All [operators](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) except `ew`, `ne`, `not`, and `[ ]`  are supported |                         |
 | `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string. Max length is 40 characters per keyword, with a maximum of 10 keyword filters per query (before encoding)                                                             |                         |
@@ -609,6 +609,7 @@ For a request to be a _polling_ request it must meet the following request param
 
 Polling requests to the `/api/v1/logs` API have the following semantics:
   - They return every event that occurs in your organization.
+  - They are time-filtered by their internal "persistence time" to avoid skipping records due to system delays (unlike [Bounded Requests](#bounded-requests)).
   - They may return events out of order according to the `published` field.
   - They have an infinite number of pages. That is, a [`next` `Link` relation header](#next-link-response-header) is always present, even if there are no new events (the event list may be empty).
 
@@ -624,6 +625,7 @@ For a request to be a _bounded_ request it must meet the following request param
   - `until` must be specified.
 
 Bounded requests to the `/api/v1/logs` API have the following semantics:
+  - They are time-filtered by their `published` field (unlike [Polling Requests](#polling-requests)).
   - The returned events are guaranteed to be in order according to the `published` field.
   - They have a finite number of pages. That is, the last page does not contain a [`next` `Link` relation header](#next-link-response-header).
   - Not all events for the specified time range may be present— events may be delayed. Such delays are rare but possible.
