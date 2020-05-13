@@ -47,7 +47,7 @@ Jwt jwt = jwtVerifier.decode(jwtString);
 This will validate your JWT for the following:
 
 - token expiration time
-- the time it was issue at
+- the time it was issued at
 - that the token issuer matches the expected value passed into the above helper
 - that the token audience matches the expected value passed into the above helper
 
