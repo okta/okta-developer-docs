@@ -1,26 +1,32 @@
 ---
 title: Include app-specific information in a custom claim
 ---
-In machine to machine flows, if you want to include certain app-specific information in a token claim, you can do so by first adding the metadata into the profile section of the service app. You can access any values that are put inside the app profile using `app.profile` written in [Okta Expression Language](/docs/reference/okta-expression-language/).
+If you want to include certain app-specific information in a token claim, you can do so by first adding the metadata into the profile section of the app. You can access any values that are put inside the app profile using `app.profile` written in [Okta Expression Language](/docs/reference/okta-expression-language/).
 
 To include, for example, the app `label` parameter in a token claim:
 
-* Create a service app with the Profile object.
+* Create an app with the Profile object.
 * Add a custom claim to your Custom Authorization Server.
 
-## Create a service app with the Profile object
+> **Note:** You can directly use both `app.id` and `app.clientId` as claims.
+
+## Create an app with the Profile object
+
+Create an app with the Profile object using the [Apps API](/docs/reference/api/apps/).
 
 ```JSON
 {
       "name": "oidc_client",
-      "label": "Service App Example",
+      "label": "Example App",
       "signOnMode": "OPENID_CONNECT",
       "credentials": {
         "oauthClient": {
           "token_endpoint_auth_method": "client_secret_post"
         }
       },
-      "profile": {"label": "Service App Example"},
+      "profile": {
+        "label": "Example App"
+        },
       "settings": {
         "oauthClient": {
           "client_uri": null,
@@ -79,7 +85,7 @@ In this example, the service application's `token_endpoint_auth_method` was set 
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
 "https://${yourOktaDomain}/oauth2/default/v1/token" \
--d "client_id={client_id}&client_secret={client_secret}&grant_type=client_credentials"
+-d "client_id={client_id}&client_secret={client_secret}&grant_type=client_credentials&scope=acustomScope"
 ```
 
 If the credentials are valid, the access token is sent in the response:
@@ -89,8 +95,6 @@ If the credentials are valid, the access token is sent in the response:
     "access_token": "eyJhbG[...]1LQ",
     "token_type": "Bearer",
     "expires_in": 3600,
-    "scope": "customDefaultScope"
+    "scope": "acustomScope"
 }
 ```
-
-> **Note:** When you [create a custom scope](/docs/guides/customize-authz-server/create-scopes/) in your Custom Authorization Server, you can select **Set as a default scope** to allow Okta to grant authorization requests to apps that don't specify scopes on an authorization request. If the client omits the scope parameter in an authorization request, Okta returns all default scopes in the access token that are permitted by the access policy rule. Depending on which flow you are using, it might also allow you to exclude the scope parameter from your token request.
