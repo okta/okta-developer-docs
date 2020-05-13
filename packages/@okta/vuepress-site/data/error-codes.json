@@ -1,1239 +1,1133 @@
 {
-  "release": "1.0.0",
-  "build": "1.0.0-SNAPSHOT",
-  "errors": [
-    {
-      "title": "API validation exception",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000001",
-      "errorSummary": "Api validation failed: {0}",
-      "errorDescription": "API validation failed for the current request. This is a fairly general error that signifies that endpoint's precondition has been violated. Such preconditions are endpoint specific. Users are encouraged to navigate to the documentation for the endpoint and read through the \"Response Parameter\" section. For example, the documentation for <a href=\"/docs/reference/api/users/#suspend-user\">Suspend User</a> indicates that suspending a user who is not active will result in the <code>E0000001</code> error code."
-    },
-    {
-      "title": "Illegal API argument exception",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000002",
-      "errorSummary": "The request was not valid: {0}",
-      "errorDescription": null
-    },
-    {
-      "title": "Reader exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000003",
-      "errorSummary": "The request body was not well-formed.",
-      "errorDescription": null
-    },
-    {
-      "title": "Authentication exception",
-      "includesExceptionMessage": false,
-      "statusCode": 401,
-      "statusReasonPhrase": "Unauthorized",
-      "errorCode": "E0000004",
-      "errorSummary": "Authentication failed",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid session exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000005",
-      "errorSummary": "Invalid session",
-      "errorDescription": null
-    },
-    {
-      "title": "Access denied exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000006",
-      "errorSummary": "You do not have permission to perform the requested action",
-      "errorDescription": null
-    },
-    {
-      "title": "Resource not found exception",
-      "includesExceptionMessage": true,
-      "statusCode": 404,
-      "statusReasonPhrase": "Not Found",
-      "errorCode": "E0000007",
-      "errorSummary": "Not found: {0}",
-      "errorDescription": null
-    },
-    {
-      "title": "Not found exception",
-      "includesExceptionMessage": false,
-      "statusCode": 404,
-      "statusReasonPhrase": "Not Found",
-      "errorCode": "E0000008",
-      "errorSummary": "The requested path was not found",
-      "errorDescription": null
-    },
-    {
-      "title": "Internal server error",
-      "includesExceptionMessage": false,
-      "statusCode": 500,
-      "statusReasonPhrase": "Internal Server Error",
-      "errorCode": "E0000009",
-      "errorSummary": "Internal Server Error",
-      "errorDescription": null
-    },
-    {
-      "title": "Read only database exception",
-      "includesExceptionMessage": false,
-      "statusCode": 503,
-      "statusReasonPhrase": "Service Unavailable",
-      "errorCode": "E0000010",
-      "errorSummary": "Service is in read only mode",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid token exception",
-      "includesExceptionMessage": false,
-      "statusCode": 401,
-      "statusReasonPhrase": "Unauthorized",
-      "errorCode": "E0000011",
-      "errorSummary": "Invalid token provided",
-      "errorDescription": null
-    },
-    {
-      "title": "Unsupported media type",
-      "includesExceptionMessage": false,
-      "statusCode": 404,
-      "statusReasonPhrase": "Not Found",
-      "errorCode": "E0000012",
-      "errorSummary": "Unsupported media type",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid client app exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000013",
-      "errorSummary": "Invalid client app id",
-      "errorDescription": null
-    },
-    {
-      "title": "Update credentials failed exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000014",
-      "errorSummary": "Update of credentials failed",
-      "errorDescription": null
-    },
-    {
-      "title": "Feature not enabled exception",
-      "includesExceptionMessage": false,
-      "statusCode": 401,
-      "statusReasonPhrase": "Unauthorized",
-      "errorCode": "E0000015",
-      "errorSummary": "You do not have permission to access the feature you are requesting",
-      "errorDescription": null
-    },
-    {
-      "title": "Activate user failed exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000016",
-      "errorSummary": "Activation failed because the user is already active",
-      "errorDescription": null
-    },
-    {
-      "title": "Reset password failed exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000017",
-      "errorSummary": "Password reset failed",
-      "errorDescription": null
-    },
-    {
-      "title": "Servlet request binding exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000018",
-      "errorSummary": "Bad request.  Accept and/or Content-Type headers are likely not set.",
-      "errorDescription": null
-    },
-    {
-      "title": "HTTP media type not acceptable exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000019",
-      "errorSummary": "Bad request.  Accept and/or Content-Type headers likely do not match supported values.",
-      "errorDescription": null
-    },
-    {
-      "title": "Illegal argument exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000020",
-      "errorSummary": "Bad request.",
-      "errorDescription": null
-    },
-    {
-      "title": "HTTP media type not supported exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000021",
-      "errorSummary": "Bad request.  Accept and/or Content-Type headers likely do not match supported values.",
-      "errorDescription": null
-    },
-    {
-      "title": "HTTP request method not supported exception",
-      "includesExceptionMessage": false,
-      "statusCode": 405,
-      "statusReasonPhrase": "Method Not Allowed",
-      "errorCode": "E0000022",
-      "errorSummary": "The endpoint does not support the provided HTTP method",
-      "errorDescription": null
-    },
-    {
-      "title": "App user exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000023",
-      "errorSummary": "Operation failed because user profile is mastered under another system",
-      "errorDescription": null
-    },
-    {
-      "title": "Unsupported app metadata operation exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000024",
-      "errorSummary": "Bad request.  This operation on app metadata is not yet supported.",
-      "errorDescription": null
-    },
-    {
-      "title": "Assign app version failed exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000025",
-      "errorSummary": "App version assignment failed.",
-      "errorDescription": null
-    },
-    {
-      "title": "API endpoint deprecated exception",
-      "includesExceptionMessage": false,
-      "statusCode": 404,
-      "statusReasonPhrase": "Not Found",
-      "errorCode": "E0000026",
-      "errorSummary": "This endpoint has been deprecated.",
-      "errorDescription": null
-    },
-    {
-      "title": "Group push exception",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000027",
-      "errorSummary": "Group push bad request : {0}",
-      "errorDescription": null
-    },
-    {
-      "title": "Missing servlet request parameter exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000028",
-      "errorSummary": "The request is missing a required parameter.",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid paging exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000029",
-      "errorSummary": "Invalid paging request.",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid date exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000030",
-      "errorSummary": "Bad request. Invalid date. Dates must be of the form yyyy-MM-dd'T'HH:mm:ss.SSSZZ, e.g. 2013-01-01T12:00:00.000-07:00.",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid search criteria exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000031",
-      "errorSummary": "Invalid search criteria.",
-      "errorDescription": null
-    },
-    {
-      "title": "Unlock forbidden exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000032",
-      "errorSummary": "Unlock is not allowed for this user.",
-      "errorDescription": null
-    },
-    {
-      "title": "Search request exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000033",
-      "errorSummary": "Bad request. Can't specify a search query and filter in the same request.",
-      "errorDescription": null
-    },
-    {
-      "title": "Forgot password not allowed exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000034",
-      "errorSummary": "Forgot password not allowed on specified user.",
-      "errorDescription": null
-    },
-    {
-      "title": "Change password not allowed exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000035",
-      "errorSummary": "Change password not allowed on specified user.",
-      "errorDescription": null
-    },
-    {
-      "title": "Change recovery question not allowed exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000036",
-      "errorSummary": "Change recovery question not allowed on specified user.",
-      "errorDescription": null
-    },
-    {
-      "title": "Type mismatch exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000037",
-      "errorSummary": "Type mismatch exception.  {0}",
-      "errorDescription": null
-    },
-    {
-      "title": "User operation forbidden exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000038",
-      "errorSummary": "This operation is not allowed in the user's current status.",
-      "errorDescription": null
-    },
-    {
-      "title": "Change app instance failed exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000039",
-      "errorSummary": "Operation on application settings failed.",
-      "errorDescription": null
-    },
-    {
-      "title": "Duplicate instance label exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000040",
-      "errorSummary": "Application label must not be the same as an existing application label.",
-      "errorDescription": null
-    },
-    {
-      "title": "Password option argument exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000041",
-      "errorSummary": "Credentials should not be set on this resource based on the scheme.",
-      "errorDescription": null
-    },
-    {
-      "title": "Set redirect url failed exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000042",
-      "errorSummary": "Setting the error page redirect URL failed.",
-      "errorDescription": null
-    },
-    {
-      "title": "Self assign org apps not enabled exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000043",
-      "errorSummary": "Self service application assignment is not enabled.",
-      "errorDescription": null
-    },
-    {
-      "title": "Self assign not supported exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000044",
-      "errorSummary": "Self service application assignment is not supported.",
-      "errorDescription": null
-    },
-    {
-      "title": "Field mapping API exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000045",
-      "errorSummary": "Field mapping bad request.",
-      "errorDescription": null
-    },
-    {
-      "title": "Deactivate app user forbidden exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000046",
-      "errorSummary": "Deactivate application for user forbidden.",
-      "errorDescription": null
-    },
-    {
-      "title": "Too many requests exception",
-      "includesExceptionMessage": false,
-      "statusCode": 429,
-      "statusReasonPhrase": "Too Many Requests",
-      "errorCode": "E0000047",
-      "errorSummary": "API call exceeded rate limit due to too many requests.",
-      "errorDescription": null
-    },
-    {
-      "title": "OPP entity not found exception",
-      "includesExceptionMessage": false,
-      "statusCode": 404,
-      "statusReasonPhrase": "Not Found",
-      "errorCode": "E0000048",
-      "errorSummary": "Entity not found exception.",
-      "errorDescription": null
-    },
-    {
-      "title": "OPP invalid SCIM data from SCIM implementation exception",
-      "includesExceptionMessage": false,
-      "statusCode": 500,
-      "statusReasonPhrase": "Internal Server Error",
-      "errorCode": "E0000049",
-      "errorSummary": "Invalid SCIM data from SCIM implementation.",
-      "errorDescription": null
-    },
-    {
-      "title": "OPP invalid SCIM data from client exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000050",
-      "errorSummary": "Invalid SCIM data from client.",
-      "errorDescription": null
-    },
-    {
-      "title": "OPP no response from SCIM implementation exception",
-      "includesExceptionMessage": false,
-      "statusCode": 500,
-      "statusReasonPhrase": "Internal Server Error",
-      "errorCode": "E0000051",
-      "errorSummary": "No response from SCIM implementation.",
-      "errorDescription": null
-    },
-    {
-      "title": "OPP endpoint not implemented exception",
-      "includesExceptionMessage": false,
-      "statusCode": 501,
-      "statusReasonPhrase": "Not Implemented",
-      "errorCode": "E0000052",
-      "errorSummary": "Endpoint not implemented.",
-      "errorDescription": null
-    },
-    {
-      "title": "OPP invalid SCIM filter",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000053",
-      "errorSummary": "Invalid SCIM filter.",
-      "errorDescription": null
-    },
-    {
-      "title": "OPP invalid pagination properties",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000054",
-      "errorSummary": "Invalid pagination properties.",
-      "errorDescription": null
-    },
-    {
-      "title": "OPP duplicate group",
-      "includesExceptionMessage": false,
-      "statusCode": 409,
-      "statusReasonPhrase": "Conflict",
-      "errorCode": "E0000055",
-      "errorSummary": "Duplicate group.",
-      "errorDescription": null
-    },
-    {
-      "title": "Delete app instance forbidden exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000056",
-      "errorSummary": "Delete application forbidden.",
-      "errorDescription": null
-    },
-    {
-      "title": "Policy deny exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000057",
-      "errorSummary": "Access to this application is denied due to a policy.",
-      "errorDescription": null
-    },
-    {
-      "title": "Policy factor required exception",
-      "includesExceptionMessage": true,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000058",
-      "errorSummary": "Access to this application requires MFA: {0}",
-      "errorDescription": null
-    },
-    {
-      "title": "OPP connector settings test failure",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000059",
-      "errorSummary": "The connector configuration could not be tested. Make sure that the URL, Authentication Parameters are correct and that there is an implementation available at the URL provided.",
-      "errorDescription": null
-    },
-    {
-      "title": "Unsupported operation",
-      "includesExceptionMessage": false,
-      "statusCode": 501,
-      "statusReasonPhrase": "Not Implemented",
-      "errorCode": "E0000060",
-      "errorSummary": "Unsupported operation.",
-      "errorDescription": null
-    },
-    {
-      "title": "Tab exception",
-      "includesExceptionMessage": true,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000061",
-      "errorSummary": "Tab error: {0}",
-      "errorDescription": null
-    },
-    {
-      "title": "Duplicate app assignment",
-      "includesExceptionMessage": false,
-      "statusCode": 409,
-      "statusReasonPhrase": "Conflict",
-      "errorCode": "E0000062",
-      "errorSummary": "The specified user is already assigned to the application.",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid parameter combination exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000063",
-      "errorSummary": "Invalid combination of parameters specified.",
-      "errorDescription": null
-    },
-    {
-      "title": "Password expired exception",
-      "includesExceptionMessage": false,
-      "statusCode": 401,
-      "statusReasonPhrase": "Unauthorized",
-      "errorCode": "E0000064",
-      "errorSummary": "Password is expired and must be changed.",
-      "errorDescription": null
-    },
-    {
-      "title": "App metadata internal server exception",
-      "includesExceptionMessage": false,
-      "statusCode": 500,
-      "statusReasonPhrase": "Internal Server Error",
-      "errorCode": "E0000065",
-      "errorSummary": "Internal error processing app metadata.",
-      "errorDescription": null
-    },
-    {
-      "title": "Mim apns not configured exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000066",
-      "errorSummary": "APNS is not configured, contact your admin",
-      "errorDescription": null
-    },
-    {
-      "title": "Factor service timeout exception",
-      "includesExceptionMessage": false,
-      "statusCode": 504,
-      "statusReasonPhrase": "Gateway Timeout",
-      "errorCode": "E0000067",
-      "errorSummary": "Factors Service Error.",
-      "errorDescription": null
-    },
-    {
-      "title": "Factor invalid code exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000068",
-      "errorSummary": "Invalid Passcode/Answer",
-      "errorDescription": null
-    },
-    {
-      "title": "Factor user locked exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000069",
-      "errorSummary": "User Locked",
-      "errorDescription": null
-    },
-    {
-      "title": "Factor waiting for ack exception",
-      "includesExceptionMessage": false,
-      "statusCode": 202,
-      "statusReasonPhrase": "Accepted",
-      "errorCode": "E0000070",
-      "errorSummary": "Waiting for ACK",
-      "errorDescription": null
-    },
-    {
-      "title": "Mim unsupported version exception",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000071",
-      "errorSummary": "Unsupported OS Version: {0}",
-      "errorDescription": null
-    },
-    {
-      "title": "Mim enrollment disallowed exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000072",
-      "errorSummary": "MIM policy settings have disallowed enrollment for this user",
-      "errorDescription": null
-    },
-    {
-      "title": "Factor user rejected code exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000073",
-      "errorSummary": "User rejected authentication",
-      "errorDescription": null
-    },
-    {
-      "title": "Factor service exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000074",
-      "errorSummary": "Factor Service Error",
-      "errorDescription": null
-    },
-    {
-      "title": "App user profile push constraint exception",
-      "includesExceptionMessage": true,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000075",
-      "errorSummary": "Cannot modify the {0} attribute because it has a field mapping and profile push is enabled.",
-      "errorDescription": null
-    },
-    {
-      "title": "App user profile mastering constraint exception",
-      "includesExceptionMessage": false,
-      "statusCode": 405,
-      "statusReasonPhrase": "Method Not Allowed",
-      "errorCode": "E0000076",
-      "errorSummary": "Cannot modify the app user because it is mastered by an external app.",
-      "errorDescription": null
-    },
-    {
-      "title": "Read only attribute exception",
-      "includesExceptionMessage": true,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000077",
-      "errorSummary": "Cannot modify the {0} attribute because it is read-only.",
-      "errorDescription": null
-    },
-    {
-      "title": "Immutable attribute exception",
-      "includesExceptionMessage": true,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000078",
-      "errorSummary": "Cannot modify the {0} attribute because it is immutable.",
-      "errorDescription": null
-    },
-    {
-      "title": "Illegal auth state exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000079",
-      "errorSummary": "This operation is not allowed in the current authentication state.",
-      "errorDescription": null
-    },
-    {
-      "title": "Password policy violation exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000080",
-      "errorSummary": "The password does not meet the complexity requirements of the current password policy.",
-      "errorDescription": null
-    },
-    {
-      "title": "System scope attribute exception",
-      "includesExceptionMessage": true,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000081",
-      "errorSummary": "Cannot modify the {0} attribute because it is a reserved attribute for this application.",
-      "errorDescription": null
-    },
-    {
-      "title": "Factor passcode replayed exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000082",
-      "errorSummary": "Each code can only be used once. Please wait for a new code and try again.",
-      "errorDescription": null
-    },
-    {
-      "title": "Factor time window exceeded exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000083",
-      "errorSummary": "PassCode is valid but exceeded time window.",
-      "errorDescription": null
-    },
-    {
-      "title": "App evaluation exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000084",
-      "errorSummary": "App evaluation error.",
-      "errorDescription": null
-    },
-    {
-      "title": "Sign on denied exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000085",
-      "errorSummary": "You do not have permission to access your account at this time.",
-      "errorDescription": null
-    },
-    {
-      "title": "Policy activation exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000086",
-      "errorSummary": "This policy cannot be activated at this time.",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid recovery answer exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000087",
-      "errorSummary": "The recovery question answer did not match our records.",
-      "errorDescription": null
-    },
-    {
-      "title": "Org Creator API subdomain validation exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000088",
-      "errorSummary": "Org Creator API subdomain validation exception.",
-      "errorDescription": null
-    },
-    {
-      "title": "Org Creator API name validation exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000089",
-      "errorSummary": "Org Creator API name validation exception.",
-      "errorDescription": null
-    },
-    {
-      "title": "Duplicate role assignment exception",
-      "includesExceptionMessage": false,
-      "statusCode": 409,
-      "statusReasonPhrase": "Conflict",
-      "errorCode": "E0000090",
-      "errorSummary": "The role specified is already assigned to the user.",
-      "errorDescription": null
-    },
-    {
-      "title": "Illegal role assignment exception",
-      "includesExceptionMessage": false,
-      "statusCode": 405,
-      "statusReasonPhrase": "Method Not Allowed",
-      "errorCode": "E0000091",
-      "errorSummary": "The provided role type was not the same as required role type.",
-      "errorDescription": null
-    },
-    {
-      "title": "Policy allow with conditions exception",
-      "includesExceptionMessage": true,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000092",
-      "errorSummary": "Access to this application requires re-authentication: {0}",
-      "errorDescription": null
-    },
-    {
-      "title": "Too many target records exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000093",
-      "errorSummary": "Target count limit exceeded",
-      "errorDescription": null
-    },
-    {
-      "title": "Complex filter exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000094",
-      "errorSummary": "The provided filter is unsupported.",
-      "errorDescription": null
-    },
-    {
-      "title": "Recovery forbidden for unknown user exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000095",
-      "errorSummary": "Recovery not allowed for unknown user.",
-      "errorDescription": null
-    },
-    {
-      "title": "Idp certificate conflict exception",
-      "includesExceptionMessage": true,
-      "statusCode": 409,
-      "statusReasonPhrase": "Conflict",
-      "errorCode": "E0000096",
-      "errorSummary": "This certificate has already been uploaded with kid={0}.",
-      "errorDescription": null
-    },
-    {
-      "title": "Mobile phone not verified exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000097",
-      "errorSummary": "There is no verified phone number on file.",
-      "errorDescription": null
-    },
-    {
-      "title": "Phone number parse exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000098",
-      "errorSummary": "This phone number is invalid.",
-      "errorDescription": null
-    },
-    {
-      "title": "International SMS call not enabled exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000099",
-      "errorSummary": "Only numbers located in US and Canada are allowed.  Contact your administrator if this is a problem.",
-      "errorDescription": null
-    },
-    {
-      "title": "Search not available exception",
-      "includesExceptionMessage": false,
-      "statusCode": 503,
-      "statusReasonPhrase": "Service Unavailable",
-      "errorCode": "E0000100",
-      "errorSummary": "Unable to perform search query.",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid hosted mobile app",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000101",
-      "errorSummary": "There was an issue with the app binary file you uploaded. {0}",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid yubikey state exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000102",
-      "errorSummary": "YubiKey cannot be deleted while assigned to an user. Please deactivate YubiKey using reset MFA and try again",
-      "errorDescription": null
-    },
-    {
-      "title": "OEM command already queued",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000103",
-      "errorSummary": "Action on device already in queue or in progress",
-      "errorDescription": null
-    },
-    {
-      "title": "OEM device already locked",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000104",
-      "errorSummary": "Device is already locked and cannot be locked again",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid or expired recovery token",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000105",
-      "errorSummary": "You have accessed an account recovery link that has expired or been previously used.",
-      "errorDescription": null
-    },
-    {
-      "title": "Transition state exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000107",
-      "errorSummary": "The entity is not in the expected state for the requested transition.",
-      "errorDescription": null
-    },
-    {
-      "title": "OEM generic duplicate resource",
-      "includesExceptionMessage": false,
-      "statusCode": 409,
-      "statusReasonPhrase": "Conflict",
-      "errorCode": "E0000108",
-      "errorSummary": "OEM generic duplicate resource.",
-      "errorDescription": null
-    },
-    {
-      "title": "SMS too many requests exception",
-      "includesExceptionMessage": false,
-      "statusCode": 429,
-      "statusReasonPhrase": "Too Many Requests",
-      "errorCode": "E0000109",
-      "errorSummary": "An SMS message was recently sent. Please wait 30 seconds before trying again.",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid or expired transaction token",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000110",
-      "errorSummary": "You have accessed a link that has expired or has been previously used.",
-      "errorDescription": null
-    },
-    {
-      "title": "Read only object exception",
-      "includesExceptionMessage": true,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000111",
-      "errorSummary": "Cannot modify the {0} object because it is read-only.",
-      "errorDescription": null
-    },
-    {
-      "title": "Update activating user exception",
-      "includesExceptionMessage": false,
-      "statusCode": 409,
-      "statusReasonPhrase": "Conflict",
-      "errorCode": "E0000112",
-      "errorSummary": "Cannot update this user because they are still being activated. Please try again in a few minutes.",
-      "errorDescription": null
-    },
-    {
-      "title": "Factor additional challenge exception",
-      "includesExceptionMessage": true,
-      "statusCode": 409,
-      "statusReasonPhrase": "Conflict",
-      "errorCode": "E0000113",
-      "errorSummary": "{0}.",
-      "errorDescription": null
-    },
-    {
-      "title": "Hosted mobile app service exception",
-      "includesExceptionMessage": true,
-      "statusCode": 503,
-      "statusReasonPhrase": "Service Unavailable",
-      "errorCode": "E0000115",
-      "errorSummary": "There was an issue while uploading the app binary file. {0}",
-      "errorDescription": null
-    },
-    {
-      "title": "Hosted mobile app upload exception",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000116",
-      "errorSummary": "{0}",
-      "errorDescription": null
-    },
-    {
-      "title": "Inactive user forbidden exception",
-      "includesExceptionMessage": true,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000117",
-      "errorSummary": "Cannot assign apps or update app profiles for an inactive user.",
-      "errorDescription": null
-    },
-    {
-      "title": "Email too many requests exception",
-      "includesExceptionMessage": false,
-      "statusCode": 429,
-      "statusReasonPhrase": "Too Many Requests",
-      "errorCode": "E0000118",
-      "errorSummary": "An email was recently sent. Please wait 5 seconds before trying again.",
-      "errorDescription": null
-    },
-    {
-      "title": "User locked recovery answer exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000119",
-      "errorSummary": "Your account is locked. Please contact your administrator.",
-      "errorDescription": null
-    },
-    {
-      "title": "Org Creator API custom domain validation exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000120",
-      "errorSummary": "The custom domain requested is already in use by another organization.",
-      "errorDescription": null
-    },
-    {
-      "title": "Invalid phone extension",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000121",
-      "errorSummary": "Invalid phone extension. Please enter a valid phone extension.",
-      "errorDescription": null
-    },
-    {
-      "title": "Media type not accepted exception",
-      "includesExceptionMessage": false,
-      "statusCode": 406,
-      "statusReasonPhrase": "Not Acceptable",
-      "errorCode": "E0000122",
-      "errorSummary": "Accept Header did not contain supported media type 'application/json'",
-      "errorDescription": null
-    },
-    {
-      "title": "Enum mismatch exception",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000123",
-      "errorSummary": "Array specified in enum field must match const values specified in oneOf field.",
-      "errorDescription": null
-    },
-    {
-      "title": "Expire on create requires password exception",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000124",
-      "errorSummary": "Could not create user. To create a user and expire their password immediately, a password must be specified",
-      "errorDescription": null
-    },
-    {
-      "title": "Expire on create requires activation exception",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000125",
-      "errorSummary": "Could not create user. To create a user and expire their password immediately, \"activate\" must be true",
-      "errorDescription": null
-    },
-    {
-      "title": "Self service not supported exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000126",
-      "errorSummary": "Self service is not supported with the current settings.",
-      "errorDescription": null
-    },
-    {
-      "title": "Linked object definition exception",
-      "includesExceptionMessage": true,
-      "statusCode": 409,
-      "statusReasonPhrase": "Conflict",
-      "errorCode": "E0000127",
-      "errorSummary": "Invalid linked objection definition. {0}",
-      "errorDescription": null
-    },
-    {
-      "title": "Feature validation exception",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000131",
-      "errorSummary": "{0}",
-      "errorDescription": null
-    },
-    {
-      "title": "Client registration already active exception",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000132",
-      "errorSummary": "The registration is already active for the given user, client and device combination",
-      "errorDescription": null
-    },
-    {
-      "title": "Phone call too many requests exception",
-      "includesExceptionMessage": false,
-      "statusCode": 429,
-      "statusReasonPhrase": "Too Many Requests",
-      "errorCode": "E0000133",
-      "errorSummary": "A phone call was recently made. Please wait 30 seconds before trying again.",
-      "errorDescription": null
-    },
-    {
-      "title": "Callback execution exception",
-      "includesExceptionMessage": true,
-      "statusCode": 502,
-      "statusReasonPhrase": "Bad Gateway",
-      "errorCode": "E0000134",
-      "errorSummary": "Okta could not communicate correctly with an inline hook.",
-      "errorDescription": null
-    },
-    {
-      "title": "Callback error",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000135",
-      "errorSummary": "An inline hook responded with an error.",
-      "errorDescription": null
-    },
-    {
-      "title": "Mobile phone conflict exception",
-      "includesExceptionMessage": true,
-      "statusCode": 409,
-      "statusReasonPhrase": "Conflict",
-      "errorCode": "E0000136",
-      "errorSummary": "Mobile phone conflict exception.",
-      "errorDescription": null
-    },
-    {
-      "title": "Callback timeout",
-      "includesExceptionMessage": true,
-      "statusCode": 504,
-      "statusReasonPhrase": "Gateway Timeout",
-      "errorCode": "E0000137",
-      "errorSummary": "Okta did not receive a response from an inline hook.",
-      "errorDescription": null
-    },
-    {
-      "title": "Telephony internal error",
-      "includesExceptionMessage": false,
-      "statusCode": 500,
-      "statusReasonPhrase": "Internal Server Error",
-      "errorCode": "E0000138",
-      "errorSummary": "There was an internal error with call provider(s).",
-      "errorDescription": null
-    },
-    {
-      "title": "Telephony provider error",
-      "includesExceptionMessage": false,
-      "statusCode": 503,
-      "statusReasonPhrase": "Service Unavailable",
-      "errorCode": "E0000139",
-      "errorSummary": "Telephony provider error.",
-      "errorDescription": null
-    },
-    {
-      "title": "Telephony opt out error",
-      "includesExceptionMessage": false,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000140",
-      "errorSummary": "Telephony opt out error.",
-      "errorDescription": null
-    },
-    {
-      "title": "Feature update error",
-      "includesExceptionMessage": true,
-      "statusCode": 400,
-      "statusReasonPhrase": "Bad Request",
-      "errorCode": "E0000141",
-      "errorSummary": "Feature cannot be enabled or disabled due to dependencies/dependents conflicts.",
-      "errorDescription": null
-    },
-    {
-      "title": "Delete user type exception",
-      "includesExceptionMessage": false,
-      "statusCode": 403,
-      "statusReasonPhrase": "Forbidden",
-      "errorCode": "E0000142",
-      "errorSummary": "This User Type cannot be deleted.",
-      "errorDescription": null
-    }
-  ]
+  "release" : "2020.05.2",
+  "build" : "2020.05.2-begin-77-g3b40470dc850",
+  "errors" : [ {
+    "title" : "API validation exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000001",
+    "errorSummary" : "Api validation failed: {0}",
+    "errorDescription" : "API validation failed for the current request. This is a fairly general error that signifies that endpoint's precondition has been violated. Such preconditions are endpoint specific. Users are encouraged to navigate to the documentation for the endpoint and read through the \"Response Parameter\" section. For example, the documentation for \"Suspend User\" indicates that suspending a user who is not active will result in the `E0000001` error code."
+  }, {
+    "title" : "Illegal API argument exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000002",
+    "errorSummary" : "The request was not valid: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Reader exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000003",
+    "errorSummary" : "The request body was not well-formed.",
+    "errorDescription" : null
+  }, {
+    "title" : "Authentication exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "errorCode" : "E0000004",
+    "errorSummary" : "Authentication failed",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid session exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000005",
+    "errorSummary" : "Invalid session",
+    "errorDescription" : null
+  }, {
+    "title" : "Access denied exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000006",
+    "errorSummary" : "You do not have permission to perform the requested action",
+    "errorDescription" : null
+  }, {
+    "title" : "Resource not found exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 404,
+    "statusReasonPhrase" : "Not Found",
+    "errorCode" : "E0000007",
+    "errorSummary" : "Not found: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Not found exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 404,
+    "statusReasonPhrase" : "Not Found",
+    "errorCode" : "E0000008",
+    "errorSummary" : "The requested path was not found",
+    "errorDescription" : null
+  }, {
+    "title" : "Internal server error",
+    "includesExceptionMessage" : false,
+    "statusCode" : 500,
+    "statusReasonPhrase" : "Internal Server Error",
+    "errorCode" : "E0000009",
+    "errorSummary" : "Internal Server Error",
+    "errorDescription" : null
+  }, {
+    "title" : "Read only database exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 503,
+    "statusReasonPhrase" : "Service Unavailable",
+    "errorCode" : "E0000010",
+    "errorSummary" : "Service is in read only mode",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid token exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "errorCode" : "E0000011",
+    "errorSummary" : "Invalid token provided",
+    "errorDescription" : null
+  }, {
+    "title" : "Unsupported media type",
+    "includesExceptionMessage" : false,
+    "statusCode" : 404,
+    "statusReasonPhrase" : "Not Found",
+    "errorCode" : "E0000012",
+    "errorSummary" : "Unsupported media type",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid client app exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000013",
+    "errorSummary" : "Invalid client app id",
+    "errorDescription" : null
+  }, {
+    "title" : "Update credentials failed exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000014",
+    "errorSummary" : "Update of credentials failed",
+    "errorDescription" : null
+  }, {
+    "title" : "Feature not enabled exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "errorCode" : "E0000015",
+    "errorSummary" : "You do not have permission to access the feature you are requesting",
+    "errorDescription" : null
+  }, {
+    "title" : "Activate user failed exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000016",
+    "errorSummary" : "Activation failed because the user is already active",
+    "errorDescription" : null
+  }, {
+    "title" : "Reset password failed exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000017",
+    "errorSummary" : "Password reset failed",
+    "errorDescription" : null
+  }, {
+    "title" : "Servlet request binding exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000018",
+    "errorSummary" : "Bad request.  Accept and/or Content-Type headers are likely not set.",
+    "errorDescription" : null
+  }, {
+    "title" : "HTTP media type not acceptable exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000019",
+    "errorSummary" : "Bad request.  Accept and/or Content-Type headers likely do not match supported values.",
+    "errorDescription" : null
+  }, {
+    "title" : "Illegal argument exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000020",
+    "errorSummary" : "Bad request.",
+    "errorDescription" : null
+  }, {
+    "title" : "HTTP media type not supported exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000021",
+    "errorSummary" : "Bad request.  Accept and/or Content-Type headers likely do not match supported values.",
+    "errorDescription" : null
+  }, {
+    "title" : "HTTP request method not supported exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 405,
+    "statusReasonPhrase" : "Method Not Allowed",
+    "errorCode" : "E0000022",
+    "errorSummary" : "The endpoint does not support the provided HTTP method",
+    "errorDescription" : null
+  }, {
+    "title" : "App user exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000023",
+    "errorSummary" : "Operation failed because user profile is mastered under another system",
+    "errorDescription" : null
+  }, {
+    "title" : "Unsupported app metadata operation exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000024",
+    "errorSummary" : "Bad request.  This operation on app metadata is not yet supported.",
+    "errorDescription" : null
+  }, {
+    "title" : "Assign app version failed exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000025",
+    "errorSummary" : "App version assignment failed.",
+    "errorDescription" : null
+  }, {
+    "title" : "API endpoint deprecated exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 404,
+    "statusReasonPhrase" : "Not Found",
+    "errorCode" : "E0000026",
+    "errorSummary" : "This endpoint has been deprecated.",
+    "errorDescription" : null
+  }, {
+    "title" : "Group push exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000027",
+    "errorSummary" : "Group push bad request : {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Missing servlet request parameter exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000028",
+    "errorSummary" : "The request is missing a required parameter.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid paging exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000029",
+    "errorSummary" : "Invalid paging request.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid date exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000030",
+    "errorSummary" : "Bad request. Invalid date. Dates must be of the form yyyy-MM-dd'T'HH:mm:ss.SSSZZ, e.g. 2013-01-01T12:00:00.000-07:00.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid search criteria exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000031",
+    "errorSummary" : "Invalid search criteria.",
+    "errorDescription" : null
+  }, {
+    "title" : "Unlock forbidden exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000032",
+    "errorSummary" : "Unlock is not allowed for this user.",
+    "errorDescription" : null
+  }, {
+    "title" : "Search request exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000033",
+    "errorSummary" : "Bad request. Can't specify a search query and filter in the same request.",
+    "errorDescription" : null
+  }, {
+    "title" : "Forgot password not allowed exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000034",
+    "errorSummary" : "Forgot password not allowed on specified user.",
+    "errorDescription" : null
+  }, {
+    "title" : "Change password not allowed exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000035",
+    "errorSummary" : "Change password not allowed on specified user.",
+    "errorDescription" : null
+  }, {
+    "title" : "Change recovery question not allowed exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000036",
+    "errorSummary" : "Change recovery question not allowed on specified user.",
+    "errorDescription" : null
+  }, {
+    "title" : "Type mismatch exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000037",
+    "errorSummary" : "Type mismatch exception.  {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "User operation forbidden exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000038",
+    "errorSummary" : "This operation is not allowed in the user's current status.",
+    "errorDescription" : null
+  }, {
+    "title" : "Change app instance failed exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000039",
+    "errorSummary" : "Operation on application settings failed.",
+    "errorDescription" : null
+  }, {
+    "title" : "Duplicate instance label exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000040",
+    "errorSummary" : "Application label must not be the same as an existing application label.",
+    "errorDescription" : null
+  }, {
+    "title" : "Password option argument exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000041",
+    "errorSummary" : "Credentials should not be set on this resource based on the scheme.",
+    "errorDescription" : null
+  }, {
+    "title" : "Set redirect url failed exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000042",
+    "errorSummary" : "Setting the error page redirect URL failed.",
+    "errorDescription" : null
+  }, {
+    "title" : "Self assign org apps not enabled exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000043",
+    "errorSummary" : "Self service application assignment is not enabled.",
+    "errorDescription" : null
+  }, {
+    "title" : "Self assign not supported exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000044",
+    "errorSummary" : "Self service application assignment is not supported.",
+    "errorDescription" : null
+  }, {
+    "title" : "Field mapping API exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000045",
+    "errorSummary" : "Field mapping bad request.",
+    "errorDescription" : null
+  }, {
+    "title" : "Deactivate app user forbidden exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000046",
+    "errorSummary" : "Deactivate application for user forbidden.",
+    "errorDescription" : null
+  }, {
+    "title" : "Too many requests exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000047",
+    "errorSummary" : "API call exceeded rate limit due to too many requests.",
+    "errorDescription" : null
+  }, {
+    "title" : "OPP entity not found exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 404,
+    "statusReasonPhrase" : "Not Found",
+    "errorCode" : "E0000048",
+    "errorSummary" : "Entity not found exception.",
+    "errorDescription" : null
+  }, {
+    "title" : "OPP invalid SCIM data from SCIM implementation exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 500,
+    "statusReasonPhrase" : "Internal Server Error",
+    "errorCode" : "E0000049",
+    "errorSummary" : "Invalid SCIM data from SCIM implementation.",
+    "errorDescription" : null
+  }, {
+    "title" : "OPP invalid SCIM data from client exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000050",
+    "errorSummary" : "Invalid SCIM data from client.",
+    "errorDescription" : null
+  }, {
+    "title" : "OPP no response from SCIM implementation exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 500,
+    "statusReasonPhrase" : "Internal Server Error",
+    "errorCode" : "E0000051",
+    "errorSummary" : "No response from SCIM implementation.",
+    "errorDescription" : null
+  }, {
+    "title" : "OPP endpoint not implemented exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 501,
+    "statusReasonPhrase" : "Not Implemented",
+    "errorCode" : "E0000052",
+    "errorSummary" : "Endpoint not implemented.",
+    "errorDescription" : null
+  }, {
+    "title" : "OPP invalid SCIM filter",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000053",
+    "errorSummary" : "Invalid SCIM filter.",
+    "errorDescription" : null
+  }, {
+    "title" : "OPP invalid pagination properties",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000054",
+    "errorSummary" : "Invalid pagination properties.",
+    "errorDescription" : null
+  }, {
+    "title" : "OPP duplicate group",
+    "includesExceptionMessage" : false,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000055",
+    "errorSummary" : "Duplicate group.",
+    "errorDescription" : null
+  }, {
+    "title" : "Delete app instance forbidden exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000056",
+    "errorSummary" : "Delete application forbidden.",
+    "errorDescription" : null
+  }, {
+    "title" : "Policy deny exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000057",
+    "errorSummary" : "Access to this application is denied due to a policy.",
+    "errorDescription" : null
+  }, {
+    "title" : "Policy factor required exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000058",
+    "errorSummary" : "Access to this application requires MFA: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "OPP connector settings test failure",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000059",
+    "errorSummary" : "The connector configuration could not be tested. Make sure that the URL, Authentication Parameters are correct and that there is an implementation available at the URL provided.",
+    "errorDescription" : null
+  }, {
+    "title" : "Unsupported operation",
+    "includesExceptionMessage" : false,
+    "statusCode" : 501,
+    "statusReasonPhrase" : "Not Implemented",
+    "errorCode" : "E0000060",
+    "errorSummary" : "Unsupported operation.",
+    "errorDescription" : null
+  }, {
+    "title" : "Tab exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000061",
+    "errorSummary" : "Tab error: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Duplicate app assignment",
+    "includesExceptionMessage" : false,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000062",
+    "errorSummary" : "The specified user is already assigned to the application.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid parameter combination exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000063",
+    "errorSummary" : "Invalid combination of parameters specified.",
+    "errorDescription" : null
+  }, {
+    "title" : "Password expired exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "errorCode" : "E0000064",
+    "errorSummary" : "Password is expired and must be changed.",
+    "errorDescription" : null
+  }, {
+    "title" : "App metadata internal server exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 500,
+    "statusReasonPhrase" : "Internal Server Error",
+    "errorCode" : "E0000065",
+    "errorSummary" : "Internal error processing app metadata.",
+    "errorDescription" : null
+  }, {
+    "title" : "Mim apns not configured exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000066",
+    "errorSummary" : "APNS is not configured, contact your admin",
+    "errorDescription" : null
+  }, {
+    "title" : "Factor service timeout exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 504,
+    "statusReasonPhrase" : "Gateway Timeout",
+    "errorCode" : "E0000067",
+    "errorSummary" : "Factors Service Error.",
+    "errorDescription" : null
+  }, {
+    "title" : "Factor invalid code exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000068",
+    "errorSummary" : "Invalid Passcode/Answer",
+    "errorDescription" : null
+  }, {
+    "title" : "Factor user locked exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000069",
+    "errorSummary" : "User Locked",
+    "errorDescription" : null
+  }, {
+    "title" : "Factor waiting for ack exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 202,
+    "statusReasonPhrase" : "Accepted",
+    "errorCode" : "E0000070",
+    "errorSummary" : "Waiting for ACK",
+    "errorDescription" : null
+  }, {
+    "title" : "Mim unsupported version exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000071",
+    "errorSummary" : "Unsupported OS Version: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Mim enrollment disallowed exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000072",
+    "errorSummary" : "MIM policy settings have disallowed enrollment for this user",
+    "errorDescription" : null
+  }, {
+    "title" : "Factor user rejected code exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000073",
+    "errorSummary" : "User rejected authentication",
+    "errorDescription" : null
+  }, {
+    "title" : "Factor service exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000074",
+    "errorSummary" : "Factor Service Error",
+    "errorDescription" : null
+  }, {
+    "title" : "App user profile push constraint exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000075",
+    "errorSummary" : "Cannot modify the {0} attribute because it has a field mapping and profile push is enabled.",
+    "errorDescription" : null
+  }, {
+    "title" : "App user profile mastering constraint exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 405,
+    "statusReasonPhrase" : "Method Not Allowed",
+    "errorCode" : "E0000076",
+    "errorSummary" : "Cannot modify the app user because it is mastered by an external app.",
+    "errorDescription" : null
+  }, {
+    "title" : "Read only attribute exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000077",
+    "errorSummary" : "Cannot modify the {0} attribute because it is read-only.",
+    "errorDescription" : null
+  }, {
+    "title" : "Immutable attribute exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000078",
+    "errorSummary" : "Cannot modify the {0} attribute because it is immutable.",
+    "errorDescription" : null
+  }, {
+    "title" : "Illegal auth state exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000079",
+    "errorSummary" : "This operation is not allowed in the current authentication state.",
+    "errorDescription" : null
+  }, {
+    "title" : "Password policy violation exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000080",
+    "errorSummary" : "The password does not meet the complexity requirements of the current password policy.",
+    "errorDescription" : null
+  }, {
+    "title" : "System scope attribute exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000081",
+    "errorSummary" : "Cannot modify the {0} attribute because it is a reserved attribute for this application.",
+    "errorDescription" : null
+  }, {
+    "title" : "Factor passcode replayed exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000082",
+    "errorSummary" : "Each code can only be used once. Please wait for a new code and try again.",
+    "errorDescription" : null
+  }, {
+    "title" : "Factor time window exceeded exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000083",
+    "errorSummary" : "PassCode is valid but exceeded time window.",
+    "errorDescription" : null
+  }, {
+    "title" : "App evaluation exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000084",
+    "errorSummary" : "App evaluation error.",
+    "errorDescription" : null
+  }, {
+    "title" : "Sign on denied exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000085",
+    "errorSummary" : "You do not have permission to access your account at this time.",
+    "errorDescription" : null
+  }, {
+    "title" : "Policy activation exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000086",
+    "errorSummary" : "This policy cannot be activated at this time.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid recovery answer exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000087",
+    "errorSummary" : "The recovery question answer did not match our records.",
+    "errorDescription" : null
+  }, {
+    "title" : "Org Creator API subdomain validation exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000088",
+    "errorSummary" : "Org Creator API subdomain validation exception.",
+    "errorDescription" : null
+  }, {
+    "title" : "Org Creator API name validation exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000089",
+    "errorSummary" : "Org Creator API name validation exception.",
+    "errorDescription" : null
+  }, {
+    "title" : "Duplicate role assignment exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000090",
+    "errorSummary" : "The role specified is already assigned to the user.",
+    "errorDescription" : null
+  }, {
+    "title" : "Illegal role assignment exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 405,
+    "statusReasonPhrase" : "Method Not Allowed",
+    "errorCode" : "E0000091",
+    "errorSummary" : "The provided role type was not the same as required role type.",
+    "errorDescription" : null
+  }, {
+    "title" : "Policy allow with conditions exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000092",
+    "errorSummary" : "Access to this application requires re-authentication: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Too many target records exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000093",
+    "errorSummary" : "Target count limit exceeded",
+    "errorDescription" : null
+  }, {
+    "title" : "Complex filter exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000094",
+    "errorSummary" : "The provided filter is unsupported.",
+    "errorDescription" : null
+  }, {
+    "title" : "Recovery forbidden for unknown user exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000095",
+    "errorSummary" : "Recovery not allowed for unknown user.",
+    "errorDescription" : null
+  }, {
+    "title" : "Idp certificate conflict exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000096",
+    "errorSummary" : "This certificate has already been uploaded with kid={0}.",
+    "errorDescription" : null
+  }, {
+    "title" : "Mobile phone not verified exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000097",
+    "errorSummary" : "There is no verified phone number on file.",
+    "errorDescription" : null
+  }, {
+    "title" : "Phone number parse exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000098",
+    "errorSummary" : "This phone number is invalid.",
+    "errorDescription" : null
+  }, {
+    "title" : "International SMS call not enabled exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000099",
+    "errorSummary" : "Only numbers located in US and Canada are allowed.  Contact your administrator if this is a problem.",
+    "errorDescription" : null
+  }, {
+    "title" : "Search not available exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 503,
+    "statusReasonPhrase" : "Service Unavailable",
+    "errorCode" : "E0000100",
+    "errorSummary" : "Unable to perform search query.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid hosted mobile app",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000101",
+    "errorSummary" : "There was an issue with the app binary file you uploaded. {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid yubikey state exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000102",
+    "errorSummary" : "YubiKey cannot be deleted while assigned to an user. Please deactivate YubiKey using reset MFA and try again",
+    "errorDescription" : null
+  }, {
+    "title" : "OEM command already queued",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000103",
+    "errorSummary" : "Action on device already in queue or in progress",
+    "errorDescription" : null
+  }, {
+    "title" : "OEM device already locked",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000104",
+    "errorSummary" : "Device is already locked and cannot be locked again",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid or expired recovery token",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000105",
+    "errorSummary" : "You have accessed an account recovery link that has expired or been previously used.",
+    "errorDescription" : null
+  }, {
+    "title" : "Transition state exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000107",
+    "errorSummary" : "The entity is not in the expected state for the requested transition.",
+    "errorDescription" : null
+  }, {
+    "title" : "OEM generic duplicate resource",
+    "includesExceptionMessage" : false,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000108",
+    "errorSummary" : "OEM generic duplicate resource.",
+    "errorDescription" : null
+  }, {
+    "title" : "SMS too many requests exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000109",
+    "errorSummary" : "An SMS message was recently sent. Please wait 30 seconds before trying again.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid or expired transaction token",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000110",
+    "errorSummary" : "You have accessed a link that has expired or has been previously used.",
+    "errorDescription" : null
+  }, {
+    "title" : "Read only object exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000111",
+    "errorSummary" : "Cannot modify the {0} object because it is read-only.",
+    "errorDescription" : null
+  }, {
+    "title" : "Update activating user exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000112",
+    "errorSummary" : "Cannot update this user because they are still being activated. Please try again in a few minutes.",
+    "errorDescription" : null
+  }, {
+    "title" : "Factor additional challenge exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000113",
+    "errorSummary" : "{0}.",
+    "errorDescription" : null
+  }, {
+    "title" : "Hosted mobile app service exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 503,
+    "statusReasonPhrase" : "Service Unavailable",
+    "errorCode" : "E0000115",
+    "errorSummary" : "There was an issue while uploading the app binary file. {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Hosted mobile app upload exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000116",
+    "errorSummary" : "{0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Inactive user forbidden exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000117",
+    "errorSummary" : "Cannot assign apps or update app profiles for an inactive user.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email too many requests exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000118",
+    "errorSummary" : "An email was recently sent. Please wait 5 seconds before trying again.",
+    "errorDescription" : null
+  }, {
+    "title" : "User locked recovery answer exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000119",
+    "errorSummary" : "Your account is locked. Please contact your administrator.",
+    "errorDescription" : null
+  }, {
+    "title" : "Org Creator API custom domain validation exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000120",
+    "errorSummary" : "The custom domain requested is already in use by another organization.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid phone extension",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000121",
+    "errorSummary" : "Invalid phone extension. Please enter a valid phone extension.",
+    "errorDescription" : null
+  }, {
+    "title" : "Media type not accepted exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 406,
+    "statusReasonPhrase" : "Not Acceptable",
+    "errorCode" : "E0000122",
+    "errorSummary" : "Accept Header did not contain supported media type 'application/json'",
+    "errorDescription" : null
+  }, {
+    "title" : "Enum mismatch exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000123",
+    "errorSummary" : "Array specified in enum field must match const values specified in oneOf field.",
+    "errorDescription" : null
+  }, {
+    "title" : "Expire on create requires password exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000124",
+    "errorSummary" : "Could not create user. To create a user and expire their password immediately, a password must be specified",
+    "errorDescription" : null
+  }, {
+    "title" : "Expire on create requires activation exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000125",
+    "errorSummary" : "Could not create user. To create a user and expire their password immediately, \"activate\" must be true",
+    "errorDescription" : null
+  }, {
+    "title" : "Self service not supported exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000126",
+    "errorSummary" : "Self service is not supported with the current settings.",
+    "errorDescription" : null
+  }, {
+    "title" : "Linked object definition exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000127",
+    "errorSummary" : "Invalid linked objection definition. {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Feature validation exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000131",
+    "errorSummary" : "{0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Client registration already active exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000132",
+    "errorSummary" : "The registration is already active for the given user, client and device combination",
+    "errorDescription" : null
+  }, {
+    "title" : "Phone call too many requests exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000133",
+    "errorSummary" : "A phone call was recently made. Please wait 30 seconds before trying again.",
+    "errorDescription" : null
+  }, {
+    "title" : "Callback execution exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 502,
+    "statusReasonPhrase" : "Bad Gateway",
+    "errorCode" : "E0000134",
+    "errorSummary" : "Okta could not communicate correctly with an inline hook.",
+    "errorDescription" : null
+  }, {
+    "title" : "Callback error",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000135",
+    "errorSummary" : "An inline hook responded with an error.",
+    "errorDescription" : null
+  }, {
+    "title" : "Mobile phone conflict exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000136",
+    "errorSummary" : "Mobile phone conflict exception.",
+    "errorDescription" : null
+  }, {
+    "title" : "Callback timeout",
+    "includesExceptionMessage" : true,
+    "statusCode" : 504,
+    "statusReasonPhrase" : "Gateway Timeout",
+    "errorCode" : "E0000137",
+    "errorSummary" : "Okta did not receive a response from an inline hook.",
+    "errorDescription" : null
+  }, {
+    "title" : "Telephony internal error",
+    "includesExceptionMessage" : false,
+    "statusCode" : 500,
+    "statusReasonPhrase" : "Internal Server Error",
+    "errorCode" : "E0000138",
+    "errorSummary" : "There was an internal error with call provider(s).",
+    "errorDescription" : null
+  }, {
+    "title" : "Telephony provider error",
+    "includesExceptionMessage" : false,
+    "statusCode" : 503,
+    "statusReasonPhrase" : "Service Unavailable",
+    "errorCode" : "E0000139",
+    "errorSummary" : "Telephony provider error.",
+    "errorDescription" : null
+  }, {
+    "title" : "Telephony opt out error",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000140",
+    "errorSummary" : "Telephony opt out error.",
+    "errorDescription" : null
+  }, {
+    "title" : "Feature update error",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000141",
+    "errorSummary" : "Feature cannot be enabled or disabled due to dependencies/dependents conflicts.",
+    "errorDescription" : null
+  }, {
+    "title" : "Delete user type exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000142",
+    "errorSummary" : "This User Type cannot be deleted.",
+    "errorDescription" : null
+  }, {
+    "title" : "App instance operation not allowed exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000143",
+    "errorSummary" : "App instance operation not allowed.",
+    "errorDescription" : null
+  }, {
+    "title" : "User entity conversion type error",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000145",
+    "errorSummary" : "Some users returned by the search cannot be parsed because the user schema has been changed to be inconsistent with their stale profile data.",
+    "errorDescription" : null
+  }, {
+    "title" : "SMS roadblock exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000146",
+    "errorSummary" : "Your organization has reached the limit of sms requests that can be sent within a 24 hour period.",
+    "errorDescription" : null
+  }, {
+    "title" : "Call roadblock exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000147",
+    "errorSummary" : "Your organization has reached the limit of call requests that can be sent within a 24 hour period.",
+    "errorDescription" : null
+  } ]
 }

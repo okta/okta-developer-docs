@@ -5,7 +5,7 @@
 set -o errexit -o pipefail
 
 # Constants
-readonly url=https://bit.ly/2z4dsuv
+readonly url=https://bit.ly/3fK2iiQ
 readonly archive=/tmp/api-errors.zip
 readonly file=error-codes.json
 readonly dir=packages/@okta/vuepress-site/data

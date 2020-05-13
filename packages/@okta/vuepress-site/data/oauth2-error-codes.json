@@ -1,6 +1,6 @@
 {
-  "release" : "2019.11.1",
-  "build" : "2019.11.1-begin-23-g0b7e690973ff",
+  "release" : "2020.05.2",
+  "build" : "2020.05.2-begin-77-g3b40470dc850",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -514,8 +514,8 @@
     "errorDescription" : "The authorization code is invalid or has expired."
   }, {
     "title" : "User rate limited",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
     "internalErrorCode" : "user_rate_limited",
     "errorCode" : "invalid_grant",
     "errorDescription" : "API call exceeded rate limit due to too many requests."
