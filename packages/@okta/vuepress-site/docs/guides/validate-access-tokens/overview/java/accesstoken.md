@@ -36,9 +36,9 @@ AccessTokenVerifier jwtVerifier = JwtVerifiers.accessTokenVerifierBuilder()
 
 This helper class configures a JWT parser with the details found through the [OpenID Connect discovery endpoint](/docs/reference/api/oidc/#well-known-openid-configuration).  The public keys used to validate the JWTs will also be retrieved and cached automatically.
 
-After you have a `JwtVerifier` from the above section and an `access_token` from a successful sign in, or from a Bearer token 
-in the authorization header, you will need to make sure that it is still valid. All you need to do is call the 
-`decode` method (where `jwtString` is your access token in string format).
+After you have a `JwtVerifier` from the above section and an `access_token` from a successful sign in, or
+from a Bearer token in the authorization header, you will need to make sure that it is still valid.
+All you need to do is call the `decode` method (where `jwtString` is your access token in string format).
 
 ```java
 Jwt jwt = jwtVerifier.decode(jwtString);
@@ -46,8 +46,8 @@ Jwt jwt = jwtVerifier.decode(jwtString);
 
 This will validate your JWT for the following:
 
-- Token expiration time
-- The 'token not valid before' date
+- token expiration time
+- the time it was issue at
 - that the token issuer matches the expected value passed into the above helper
 - that the token audience matches the expected value passed into the above helper
 
