@@ -48,7 +48,7 @@ This will validate your JWT for the following:
 
 - Token expiration time
 - The 'token not valid before' date
-- The token issuer matches the expected value passed into the above helper
+- that the token issuer matches the expected value passed into the above helper
 - The token audience matches the expected value passed into the above helper
 
 The result of the decode method is a `Jwt` object which you can introspect for additional claims by calling:
