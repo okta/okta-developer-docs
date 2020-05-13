@@ -2,9 +2,9 @@
 title: Check the attributes and corresponding mappings
 ---
 
-When you add a SCIM template app to your development org, it comes with base attributes set by default. Your SCIM implementation's user schema might not support all of these attributes. It is important that you go through the steps below to ensure that the app you're submitting to Okta for review reflects the attributes you support.
+When you add a SCIM template integration to your development org, it comes with base attributes set by default. The user schema in your SCIM application might not support all of these attributes. It is important that you go through the steps below to ensure that the integration you're submitting to Okta for review reflects the attributes supported by your application.
 
->**Note:** The Okta App Analyst team will reject your app submission with a request to update your attributes if you don't confirm these attributes and mappings before you submit your app for review.
+>**Note:** If you don't confirm your attributes and mappings before you submit your integration for review, the Okta App Analyst will return your submission with a request to update your attributes.
 
 ## Delete Attributes
 
@@ -12,7 +12,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 A. Remove the mapping
 
-  1. From the Admin Console, open your SCIM app.
+  1. From the Admin Console, open your SCIM integration.
 
   1. Go to the **Provisioning** tab. Under the **SETTINGS** section, click **To App**.
     ![Provisioning to App tab](/img/oin/scim_check-attributes-1.png "Provisioning Tab: Provisioning to App")
@@ -46,7 +46,7 @@ B. Delete attributes from your attribute list
 
 ## Add Attributes
 
-1. From the Admin Console, open your SCIM app.
+1. From the Admin Console, open your SCIM integration.
 
 1. Go to the **Provisioning** tab. Under the **SETTINGS** section, click **To App**.
   ![Provisioning to App tab](/img/oin/scim_check-attributes-1.png "Provisioning Tab: Provisioning to App")
@@ -65,7 +65,7 @@ B. Delete attributes from your attribute list
 
 ## Map Attributes
 
-1. From the Admin Console, open your SCIM app.
+1. From the Admin Console, open your SCIM integration.
 
 1. Go to the **Provisioning** tab. Under the **SETTINGS** section, click **To App**.
   ![Provisioning to App tab](/img/oin/scim_check-attributes-1.png "Provisioning Tab: Provisioning to App")
@@ -76,9 +76,9 @@ B. Delete attributes from your attribute list
 1. In the dialog that appears, there are two drop-down fields. In the first drop-down menu, select **Map from Okta Profile**. In the second drop-down menu, choose the Okta profile attribute that you would like to map the SCIM attribute from. Click **Save**.
   ![Attributes - Map Attribute](/img/oin/scim_check-attributes-14.png "Attributes - Map Attribute")
 
-1. Repeat for all other SCIM attributes where you would like to modify the mapping (from Okta to app).
+1. Repeat for all other SCIM attributes where you would like to modify the mapping (from Okta to your application).
 
-1. After updating the mappings from Okta to your app, click **To Okta** under the settings section.
+1. After updating the mappings from Okta to your application, click **To Okta** under the settings section.
   ![Provisioning to Okta tab](/img/oin/scim_check-attributes-4.png "Provisioning Tab: Provisioning to Okta")
 
 1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
@@ -87,17 +87,17 @@ B. Delete attributes from your attribute list
 1. In the dialog that appears, there are two drop-down fields. In the first drop-down menu, select **Map from {App Name} App Profile**. In the second drop-down menu, choose the Okta profile attribute you would like to map the SCIM attribute to. Click **Save**.
   ![Attribute Dialog - Map Attribute](/img/oin/scim_check-attributes-17.png "Attribute Dialog - Map Attribute")
 
-1. Repeat for all other SCIM attributes that you would like to modify the mapping (from App to Okta).
+1. Repeat for all other SCIM attributes that you would like to modify the mapping (from your application to Okta).
 
 ## Attribute support
 
 You only want to include the attributes that you support in your current user schema. To ensure that the attributes are being sent properly to and from Okta:
 
-1. When assigning a user to the SCIM app you added in your dev org, ensure that all expected attributes are populated for that user.
+1. When assigning a user to the SCIM integration you added in your dev org, ensure that all expected attributes are populated for that user.
 
-1. After the user is pushed to your SCIM app, check that all attributes are populated in your SCIM repository.
+1. After the user is pushed to your SCIM application, check that all attributes are populated in your SCIM repository.
 
-1. If your app supports User Imports, try importing one user from your app. Check the imported user and ensure that the values for supported attributes are reflected in that imported user's account in Okta.
+1. If your integration supports User Imports, try importing one user from your application. Check the imported user and ensure that the values for supported attributes are reflected in that imported user's account in Okta.
 
     1. Go to your Admin Console.
     1. Click **Directory** > **People**.

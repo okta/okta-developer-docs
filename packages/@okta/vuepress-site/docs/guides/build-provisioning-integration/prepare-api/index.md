@@ -39,9 +39,9 @@ Okta supports authentication against SCIM APIs using any one of the following me
 - [Basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
 - A custom HTTP header
 
-If you are using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, your app's authorization server redirects the user back to Okta, with either an authorization code or an access token.
+If you are using OAuth 2.0, then after successfully authorizing Okta to use your SCIM API, your application's authorization server redirects the user back to Okta, with either an authorization code or an access token.
 
-If you are going to publish your app to the OIN catalog, Okta requires that all SCIM applications support all of the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
+If you are going to publish your integration to the OIN catalog, Okta requires that all SCIM applications support all of the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
 
 - `https://system-admin.okta.com/admin/app/cpc/{appName}/oauth/callback`
 - `https://system-admin.okta-emea.com/admin/app/cpc/{appName}/oauth/callback`
@@ -92,8 +92,8 @@ In addition to the basic user schema attributes, your SCIM API must also specify
 
 [Section 3.1](https://tools.ietf.org/html/rfc7643#section-3.1) of the SCIM specification asserts that the `id` attribute is used to uniquely identify resources. This unique identifier:
 
-- Is assigned a value by the service provider (your app) for each SCIM resource
-- Is always issued by the service provider (your app) and not specified by the client (Okta)
+- Is assigned a value by the service provider (your application) for each SCIM resource
+- Is always issued by the service provider (your application) and not specified by the client (Okta)
 - Must be included in every representation of the resource
 - Cannot be empty
 - Must be unique across the SCIM service provider's entire set of resources
@@ -112,7 +112,7 @@ Okta user management requires that your SCIM API supports an `active` attribute 
 
 ## SCIM facade
 
-Sometimes it isn't feasible for your cloud-based application to natively support a SCIM API. An alternative option is to build and host your own SCIM facade middleware that translates between the Okta SCIM API connection and the cloud app's proprietary API. The Okta integration connection is then made to this SCIM facade.
+Sometimes it isn't feasible for your cloud-based application to natively support a SCIM API. An alternative option is to build and host your own SCIM facade middleware that translates between the Okta SCIM API connection and the cloud application's proprietary API. The Okta integration connection is then made to this SCIM facade.
 
 ## Provisioning to on-premises applications
 
