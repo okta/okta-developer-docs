@@ -6,6 +6,7 @@ sections:
  - overview
  - request-token-claim
  - add-custom-claim
+ - create-app-profile-attribute
  - create-groups-claim
  - add-groups-claim-org-as
  - add-groups-claim-dynamic
