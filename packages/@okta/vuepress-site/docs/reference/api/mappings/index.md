@@ -6,40 +6,39 @@ category: management
 # Mappings API
 
 The Okta Mappings API provides operations to manage the mapping of properties between an Okta User's and an App User's
-[Profile Properties](/docs/reference/api/users/#profile-object) using [Expression Language](/docs/reference/okta-expression-language).
+[Profile properties](/docs/reference/api/users/#profile-object) using [Expression Language](/docs/reference/okta-expression-language).
 More information on Okta User and App User Profiles can be found in
 Okta's [Universal Directory](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_About_Universal_Directory).
 
-## Getting Started
+## Get started
 
 Explore the Mappings API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2b9feba6001a56b2a885)
 
-## Profile Mapping Operations
+## Profile Mapping operations
 
 ### List Profile Mappings
 
 <ApiOperation method="get" url="/api/v1/mappings" />
 
-Enumerates [Profile Mappings](#profile-mapping-object) in your organization with [pagination](/docs/reference/api-overview/#pagination).
-A subset of [Profile Mapping(s)](#profile-mapping-object) can be returned that match a supported `sourceId` and/or `targetId`.
+Enumerates [Profile Mappings](#profile-mapping-object) in your organization with [pagination](/docs/reference/api-overview/#pagination). You can return a subset of [Profile Mapping(s)](#profile-mapping-object) that match a supported `sourceId` and/or `targetId`.
 
-##### Request Parameters
+##### Request parameters
 
-| Parameter     | Description                                                                                                                                                | Param Type | DataType | Required | Default |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| sourceId      | UserType or App Instance `id` that acts as the source of expressions in a mapping. If included, all mappings returned will have this as their source:id    | Query      | String   | FALSE    | N/A     |
-| targetId      | UserType or App Instance `id` that acts as the target of expressions in a mapping. If included, all mappings returned will have this as their target:id    | Query      | String   | FALSE    | N/A     |
+| Parameter     | Description                                                                                                          | Param Type | DataType | Required | Default |
+| ------------- | -------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| sourceId      | UserType or App Instance `id` that acts as the source of expressions in a mapping. If included, all mappings returned have this as their `source:id`    | Query      | String   | FALSE    | N/A     |
+| targetId      | UserType or App Instance `id` that acts as the target of expressions in a mapping. If included, all mappings returned have this as their `target:id`    | Query      | String   | FALSE    | N/A     |
 | limit         | Specifies the number of results per page (maximum 200)                                                                                                     | Query      | Number   | FALSE    | 20      |
 | after         | mapping `id` that specifies the pagination cursor for the next page of mappings                                                                            | Query      | String   | FALSE    | N/A     |
 
 The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
-##### Response Parameters
+##### Response parameters
 
 Collection of [Profile Mapping(s)](#profile-mapping-object)
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X GET \
@@ -49,7 +48,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/mappings?sourceId=${sourceId}"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 [
@@ -128,19 +127,19 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/mappings/${mappingId}" />
 
-Fetches a single [Profile Mapping](#profile-mapping-object) referenced by its id
+Fetches a single [Profile Mapping](#profile-mapping-object) referenced by its ID
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter     | Description                           | Param Type | DataType | Required | Default |
 | ------------- | ------------------------------------- | ---------- | -------- | -------- | ------- |
 | mappingId     | unique identifier for Profile Mapping | URL        | String   | TRUE     | N/A     |
 
-##### Response Parameters
+##### Response parameters
 
 Fetched [Profile Mapping](#profile-mapping-object)
 
-##### Request Example
+##### Request example
 
 ``` bash
 curl -v -X GET \
@@ -150,7 +149,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -203,19 +202,19 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/mappings/${mappingId}" />
 
-Updates an existing [Profile Mapping](#profile-mapping-object) by adding, updating, or removing one or many [Property Mappings](#property-mapping-object).
+Updates an existing [Profile Mapping](#profile-mapping-object) by adding, updating, or removing one or many [Property Mappings](#property-mapping-object)
 
 - [Add Property Mapping](#add-property-mapping)
 - [Update Property Mapping](#update-property-mapping)
 - [Remove Property Mapping](#remove-property-mapping)
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter     | Description                           | Param Type | DataType | Required | Default |
 | ------------- | ------------------------------------- | ---------- | -------- | -------- | ------- |
 | mappingId     | unique identifier for Profile Mapping | URL        | String   | TRUE     | N/A     |
 
-##### Response Parameters
+##### Response parameters
 
 All responses return the updated [Profile Mapping](#profile-mapping-object)
 
@@ -223,7 +222,7 @@ All responses return the updated [Profile Mapping](#profile-mapping-object)
 
 Adds a [Property Mapping](#property-mapping-object) to an existing [Profile Mapping](#profile-mapping-object)
 
-##### Request Example
+##### Request example
 
 ``` bash
 curl -v -X POST \
@@ -244,7 +243,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -297,7 +296,7 @@ curl -v -X POST \
 
 Alters an existing [Property Mapping](#property-mapping-object) within a [Profile Mapping](#profile-mapping-object)
 
-##### Request Example
+##### Request example
 
 ``` bash
 curl -v -X POST \
@@ -314,7 +313,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -367,7 +366,7 @@ curl -v -X POST \
 
 Removes an existing [Property Mapping](#property-mapping-object) within a [Profile Mapping](#profile-mapping-object)
 
-##### Request Example
+##### Request example
 
 ``` bash
 curl -v -X POST \
@@ -381,7 +380,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -428,10 +427,9 @@ curl -v -X POST \
 
 ## Profile Mapping object
 
-The Profile Mapping object describes a mapping between an Okta User's and an App User's properties
-using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+The Profile Mapping object describes a mapping between an Okta User's and an App User's properties using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
-> Same type source/target mappings are not supported by this API. Profile Mappings must either be Okta->App or App->Okta.
+> **Note:** Same type source/target mappings aren't supported by this API. Profile Mappings must either be Okta->App or App->Okta.
 
 ### Example Profile Mapping
 
@@ -482,55 +480,51 @@ using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04
 }
 ```
 
-### Profile Mapping Properties
+### Profile Mapping properties
 
-The Profile Mapping is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) document with the following properties :
+The Profile Mapping is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) document with the following properties:
 
-| Property    | Description                                                                              | DataType                                                                                  | Nullable | Unique | Readonly | Validation  |
-|:------------|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:---------|:-------|:---------|:------------|
-| id          | unique identifier for Profile Mapping                                                    | String                                                                                    | FALSE    | TRUE   | TRUE     |             |
+| Property    | Description                                                                              | DataType   | Nullable | Unique | Readonly | Validation  |
+|:------------|:-----------------------------------------------------------------------------------------|:-----------|:---------|:-------|:---------|:------------|
+| id          | unique identifier for Profile Mapping                                                    | String     | FALSE    | TRUE   | TRUE     |             |
 | source      | source of schema property expressions                                                    | [AppInstance object](#appinstance-attribute-object) or [Okta object](#okta-attribute-object)  | FALSE    | FALSE  | TRUE     |             |
 | target      | target of schema property expressions                                                    | [AppInstance object](#appinstance-attribute-object) or [Okta object](#okta-attribute-object)  | FALSE    | FALSE  | TRUE     |             |
-| properties  | profile mapping properties                                                               | Collection of [Property Mappings](#property-mapping-object)                                | TRUE     | FALSE  | FALSE    |             |
-| _links      | discoverable resources related to the Profile Mapping                                    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)                            | FALSE    | FALSE  | TRUE     |             |
+| properties  | Profile Mapping properties                                                               | Collection of [Property Mappings](#property-mapping-object)| TRUE     | FALSE  | FALSE    |             |
+| _links      | discoverable resources related to the Profile Mapping                                    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)| FALSE    | FALSE  | TRUE     |             |
 
 
 ### AppInstance Attribute object
 
-Can be either the source or target of a Profile Mapping and is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) 
-document with the following properties :
+Can be either the source or target of a Profile Mapping and is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) document with the following properties:
 
-| Property    | Description                                                                              | DataType                                                                                  | Nullable | Unique | Readonly | Validation  |
-|:------------|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:---------|:-------|:---------|:------------|
-| id          | unique identifier for application instance                                               | String                                                                                    | FALSE    | TRUE   | TRUE     |             |
-| name        | variable name of the application instance                                                | String                                                                                    | FALSE    | TRUE   | TRUE     |             |
-| type        | type of user referenced in mapping                                                       | String                                                                                    | FALSE    | FALSE  | TRUE     |             |
-| _links      | discoverable resources related to the application instance                               | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)                            | FALSE    | FALSE  | TRUE     |             |
+| Property    | Description                                                | DataType                                       | Nullable | Unique | Read-Only | Validation  |
+|:------------|:-----------------------------------------------------------|:-----------------------------------------------|:---------|:-------|:----------|:------------|
+| id          | unique identifier for application instance                 | String                                         | FALSE    | TRUE   | TRUE     |             |
+| name        | variable name of the application instance                  | String                                         | FALSE    | TRUE   | TRUE     |             |
+| type        | type of user referenced in mapping                         | String                                         | FALSE    | FALSE  | TRUE     |             |
+| _links      | discoverable resources related to the application instance | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05) | FALSE    | FALSE  | TRUE     |             |
 
 
 ### Okta Attribute object
 
-Can be either the source or target of a Profile Mapping and is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) 
-document with the following properties :
+Can be either the source or target of a Profile Mapping and is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) document with the following properties:
 
-| Property    | Description                                                                              | DataType                                                                                  | Nullable | Unique | Readonly | Validation  |
-|:------------|:-----------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------|:---------|:-------|:---------|:------------|
-| id          | unique identifier for userType                                                           | String                                                                                    | FALSE    | TRUE   | TRUE     |             |
-| name        | name of the userType being referenced                                                    | String                                                                                    | FALSE    | TRUE   | TRUE     |             |
-| type        | type of user referenced in mapping                                                       | String                                                                                    | FALSE    | FALSE  | TRUE     |             |
-| _links      | discoverable resources related to the userType                                           | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)                            | FALSE    | FALSE  | TRUE     |             |
+| Property    | Description                                       | DataType                                              | Nullable | Unique | Readonly | Validation  |
+|:------------|:--------------------------------------------------|:------------------------------------------------------|:---------|:-------|:---------|:------------|
+| id          | unique identifier for userType                    | String                                                | FALSE    | TRUE   | TRUE     |             |
+| name        | name of the userType being referenced             | String                                                | FALSE    | TRUE   | TRUE     |             |
+| type        | type of user referenced in mapping                | String                                                | FALSE    | FALSE  | TRUE     |             |
+| _links      | discoverable resources related to the userType    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)| FALSE    | FALSE  | TRUE     |             |
 
-> If the source/target is Okta and the UserTypes feature is not enabled, then the source/target `_links` will only have a link the the schema.
+> **Note:** If the source/target is Okta and the UserTypes feature isn't enabled, then the source/target `_links` only has a link to the schema.
 
 ### Property Mapping object
 
-Consists of a target property, in String form, that maps to a valid [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) 
-document with the following properties :
+Consists of a target property, in String form, that maps to a valid [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) document with the following properties:
 
-| Property    | Description                                                                              | DataType                                                                     | Nullable | Unique | Readonly | Validation  |
-|:------------|:-----------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:---------|:-------|:---------|:------------|
-| expression  | combination or single source properties that will be mapped to the target property       | [Expression Language object](/docs/reference/okta-expression-language/)      | FALSE    | FALSE  | FALSE    |             |
-| pushStatus  | whether to update target properties on user create & update or just on create            | `DONT_PUSH` or `PUSH`                                                        | FALSE    | FALSE  | FALSE    |             |
+| Property    | Description                                                                     | DataType                      | Nullable | Unique | Readonly | Validation  |
+|:------------|:--------------------------------------------------------------------------------|:------------------------------|:---------|:-------|:---------|:------------|
+| expression  | combination or single source properties that are mapped to the target property  | [Expression Language object](/docs/reference/okta-expression-language/)| FALSE    | FALSE  | FALSE    |             |
+| pushStatus  | whether to update target properties on user create and update or just on create | `DONT_PUSH` or `PUSH`         | FALSE    | FALSE  | FALSE    |             |
 
-> Having a pushStatus of `PUSH` will cause properties in the target to be updated on create and update. 
-Having a pushStatus of `DONT_PUSH` will cause properties in the target to be updated only on create.
+> **Note:** Having a pushStatus of `PUSH` causes properties in the target to be updated on create and update. Having a pushStatus of `DONT_PUSH` causes properties in the target to be updated only on create.
