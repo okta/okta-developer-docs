@@ -872,15 +872,17 @@ Content-Type: application/json
 Include the `X-Device-Fingerprint` header to supply a device fingerprint. The `X-Device-Fingerprint` header is used in the following ways:
 
 * If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
-* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see [EA documentation](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm?).
+* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see [Security Behavior Detection](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm).
+
+> **Note:** Okta is improving its new device behavior detection such that it will no longer use a device fingerprint. This change will be behind a self-service feature flag TODO ADD FRIENDLY NAME HERE available in the 2020.06.0 release. Customers relying on device fingerprinting for new device behavior detection should start sending a `deviceToken` in the [context object](#context-object) to uniquely identify devices for behavior detection. Starting in the 2020.09.0 the update will be made for all orgs and the device fingerprint will no longer be accepted as a valid device identifier for new device behavior detection. Other features relying on device fingerprinting will not be affected at this time. For more information, see [Security Behavior Detection](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm).
 
 Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
 > **Note:** The `X-Device-Fingerprint` header is different from the device token. Device-based MFA in the Okta Sign-On policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. To read more about the device token, see [Context Object](#context-object). Device-based MFA would work only if you pass the device token in the [client request context](/docs/reference/api-overview/#client-request-context).
 
-##### Device Fingerprint Best Practices
+##### Best Practices for Generating a Device Fingerprint or Device Token
 
-Use the following recommendations as guidelines for generating and storing a device fingerprint in the `X-Device-Fingerprint` header for both web and native applications.
+Use the following recommendations as guidelines for generating and storing a device fingerprint in the `X-Device-Fingerprint` header or a `deviceToken` in the [context object](#context-object) for both web and native applications.
 
 **Web Apps**<br>
 Okta recommends using a secure, HTTP-only cookie with a random/unique value on the customer's domain as the default implementation. See [Cookie flags that matter](https://odino.org/security-hardening-http-cookies/#cookie-flags-that-matter) for more best practices on hardening HTTP cookies.
