@@ -26,10 +26,10 @@ Enumerates [Profile Mappings](#profile-mapping-object) in your organization with
 
 | Parameter     | Description                                                                                                          | Param Type | DataType | Required | Default |
 | ------------- | -------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| sourceId      | UserType or App Instance `id` that acts as the source of expressions in a mapping. If included, all mappings returned have this as their `source:id`    | Query      | String   | FALSE    | N/A     |
-| targetId      | UserType or App Instance `id` that acts as the target of expressions in a mapping. If included, all mappings returned have this as their `target:id`    | Query      | String   | FALSE    | N/A     |
+| after         | Mapping `id` that specifies the pagination cursor for the next page of mappings                                                                            | Query      | String   | FALSE    | N/A     |
 | limit         | Specifies the number of results per page (maximum 200)                                                                                                     | Query      | Number   | FALSE    | 20      |
-| after         | mapping `id` that specifies the pagination cursor for the next page of mappings                                                                            | Query      | String   | FALSE    | N/A     |
+| sourceId      | UserType or App Instance `id` that acts as the source of expressions in a mapping. If included, all mappings returned have this as their `source:id`.    | Query      | String   | FALSE    | N/A     |
+| targetId      | UserType or App Instance `id` that acts as the target of expressions in a mapping. If included, all mappings returned have this as their `target:id`.    | Query      | String   | FALSE    | N/A     |
 
 The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
@@ -133,7 +133,7 @@ Fetches a single [Profile Mapping](#profile-mapping-object) referenced by its ID
 
 | Parameter     | Description                           | Param Type | DataType | Required | Default |
 | ------------- | ------------------------------------- | ---------- | -------- | -------- | ------- |
-| mappingId     | unique identifier for Profile Mapping | URL        | String   | TRUE     | N/A     |
+| mappingId     | Unique identifier for Profile Mapping | URL        | String   | TRUE     | N/A     |
 
 ##### Response parameters
 
@@ -212,7 +212,7 @@ Updates an existing [Profile Mapping](#profile-mapping-object) by adding, updati
 
 | Parameter     | Description                           | Param Type | DataType | Required | Default |
 | ------------- | ------------------------------------- | ---------- | -------- | -------- | ------- |
-| mappingId     | unique identifier for Profile Mapping | URL        | String   | TRUE     | N/A     |
+| mappingId     | Unique identifier for Profile Mapping | URL        | String   | TRUE     | N/A     |
 
 ##### Response parameters
 
@@ -486,11 +486,11 @@ The Profile Mapping is a valid [JSON Schema Draft 4](https://tools.ietf.org/html
 
 | Property    | Description                                                                              | DataType   | Nullable | Unique | Readonly | Validation  |
 |:------------|:-----------------------------------------------------------------------------------------|:-----------|:---------|:-------|:---------|:------------|
-| id          | unique identifier for Profile Mapping                                                    | String     | FALSE    | TRUE   | TRUE     |             |
-| source      | source of schema property expressions                                                    | [AppInstance object](#appinstance-attribute-object) or [Okta object](#okta-attribute-object)  | FALSE    | FALSE  | TRUE     |             |
-| target      | target of schema property expressions                                                    | [AppInstance object](#appinstance-attribute-object) or [Okta object](#okta-attribute-object)  | FALSE    | FALSE  | TRUE     |             |
+| _links      | Discoverable resources related to the Profile Mapping                                    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)| FALSE    | FALSE  | TRUE     |             |
+| id          | Unique identifier for Profile Mapping                                                    | String     | FALSE    | TRUE   | TRUE     |             |
 | properties  | Profile Mapping properties                                                               | Collection of [Property Mappings](#property-mapping-object)| TRUE     | FALSE  | FALSE    |             |
-| _links      | discoverable resources related to the Profile Mapping                                    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)| FALSE    | FALSE  | TRUE     |             |
+| source      | Source of schema property expressions                                                    | [AppInstance object](#appinstance-attribute-object) or [Okta object](#okta-attribute-object)  | FALSE    | FALSE  | TRUE     |             |
+| target      | Target of schema property expressions                                                    | [AppInstance object](#appinstance-attribute-object) or [Okta object](#okta-attribute-object)  | FALSE    | FALSE  | TRUE     |             |
 
 
 ### AppInstance Attribute object
@@ -499,10 +499,10 @@ Can be either the source or target of a Profile Mapping and is a valid [JSON Sch
 
 | Property    | Description                                                | DataType                                       | Nullable | Unique | Read-Only | Validation  |
 |:------------|:-----------------------------------------------------------|:-----------------------------------------------|:---------|:-------|:----------|:------------|
-| id          | unique identifier for application instance                 | String                                         | FALSE    | TRUE   | TRUE     |             |
-| name        | variable name of the application instance                  | String                                         | FALSE    | TRUE   | TRUE     |             |
-| type        | type of user referenced in mapping                         | String                                         | FALSE    | FALSE  | TRUE     |             |
-| _links      | discoverable resources related to the application instance | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05) | FALSE    | FALSE  | TRUE     |             |
+| _links      | Discoverable resources related to the application instance | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05) | FALSE    | FALSE  | TRUE |             |
+| id          | Unique identifier for application instance                 | String                                         | FALSE    | TRUE   | TRUE     |             |
+| name        | Variable name of the application instance                  | String                                         | FALSE    | TRUE   | TRUE     |             |
+| type        | Type of user referenced in mapping                         | String                                         | FALSE    | FALSE  | TRUE     |             |
 
 
 ### Okta Attribute object
@@ -511,10 +511,10 @@ Can be either the source or target of a Profile Mapping and is a valid [JSON Sch
 
 | Property    | Description                                       | DataType                                              | Nullable | Unique | Readonly | Validation  |
 |:------------|:--------------------------------------------------|:------------------------------------------------------|:---------|:-------|:---------|:------------|
-| id          | unique identifier for userType                    | String                                                | FALSE    | TRUE   | TRUE     |             |
-| name        | name of the userType being referenced             | String                                                | FALSE    | TRUE   | TRUE     |             |
-| type        | type of user referenced in mapping                | String                                                | FALSE    | FALSE  | TRUE     |             |
-| _links      | discoverable resources related to the userType    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)| FALSE    | FALSE  | TRUE     |             |
+| _links      | Discoverable resources related to the userType    | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-05)| FALSE    | FALSE  | TRUE     |             |
+| id          | Unique identifier for userType                    | String                                                | FALSE    | TRUE   | TRUE     |             |
+| name        | Name of the userType being referenced             | String                                                | FALSE    | TRUE   | TRUE     |             |
+| type        | Type of user referenced in mapping                | String                                                | FALSE    | FALSE  | TRUE     |             |
 
 > **Note:** If the source/target is Okta and the UserTypes feature isn't enabled, then the source/target `_links` only has a link to the schema.
 
@@ -524,7 +524,7 @@ Consists of a target property, in String form, that maps to a valid [JSON Schema
 
 | Property    | Description                                                                     | DataType                      | Nullable | Unique | Readonly | Validation  |
 |:------------|:--------------------------------------------------------------------------------|:------------------------------|:---------|:-------|:---------|:------------|
-| expression  | combination or single source properties that are mapped to the target property  | [Expression Language object](/docs/reference/okta-expression-language/)| FALSE    | FALSE  | FALSE    |             |
-| pushStatus  | whether to update target properties on user create and update or just on create | `DONT_PUSH` or `PUSH`         | FALSE    | FALSE  | FALSE    |             |
+| expression  | Combination or single source properties that are mapped to the target property  | [Expression Language object](/docs/reference/okta-expression-language/)| FALSE    | FALSE  | FALSE    |             |
+| pushStatus  | Indicates whether to update target properties on user create and update or just on create | `DONT_PUSH` or `PUSH`         | FALSE    | FALSE  | FALSE    |           |
 
 > **Note:** Having a pushStatus of `PUSH` causes properties in the target to be updated on create and update. Having a pushStatus of `DONT_PUSH` causes properties in the target to be updated only on create.
