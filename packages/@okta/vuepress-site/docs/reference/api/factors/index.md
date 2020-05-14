@@ -5,37 +5,37 @@ category: management
 
 # Factors API
 
-The Okta Factors API provides operations to enroll, manage, and verify factors for multi-factor authentication (MFA).  Manage both administration and end-user accounts, or verify an individual factor at any time.
+The Okta Factors API provides operations to enroll, manage, and verify factors for multifactor authentication (MFA). Manage both administration and end-user accounts, or verify an individual factor at any time.
 
 ## Get started with the Factors API
 
 Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9fdda657d134039fcaba)
 
-## Factor Operations
+## Factor operations
 
-- **[List Operations](#factor-operations)** &mdash; List factors and security questions.
-- **[Lifecycle Operations](#factor-lifecycle-operations)** &mdash; Enroll, activate, and reset factors.
-- **[Challenge and Verify Operations](#factors-that-require-a-challenge-and-verify-operation)** &mdash; Challenge and Verify a factor
-- **[Verification Only Operations](#factors-that-require-only-a-verification-operation)** &mdash; Verify a factor
+- **[List operations](#factor-operations)** &mdash; List factors and security questions.
+- **[Lifecycle operations](#factor-lifecycle-operations)** &mdash; Enroll, activate, and reset factors.
+- **[Challenge and verify operations](#factors-that-require-a-challenge-and-verify-operation)** &mdash; Challenge and Verify a factor
+- **[Verification only operations](#factors-that-require-only-a-verification-operation)** &mdash; Verify a factor
 
 ### Get Factor
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/${factorId}" />
 
-Fetches a factor for the specified user
+Fetches a factor for the specified User
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
 | factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |
 
-#### Response Parameters
+#### Response parameters
 
 [Factor](#factor-object)
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X GET \
@@ -45,7 +45,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ufs2bysphxKODSZKWVCT"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -89,23 +89,23 @@ curl -v -X GET \
 }
 ```
 
-### List Enrolled Factors
+### List enrolled Factors
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors" />
 
-Enumerates all the enrolled factors for the specified user
+Enumerates all of the enrolled Factors for the specified User
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 Array of [Factors](#factor-object)
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X GET \
@@ -115,7 +115,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 [
@@ -246,23 +246,23 @@ curl -v -X GET \
 ]
 ```
 
-### List Factors to Enroll
+### List Factors to enroll
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/catalog" />
 
-Enumerates all the [supported factors](#supported-factors-for-providers) that can be enrolled for the specified user
+Enumerates all of the [supported Factors](#supported-factors-for-providers) that can be enrolled for the specified User
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 Array of [Factors](#factor-object)
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X GET \
@@ -272,7 +272,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/catalog"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 [
@@ -397,30 +397,30 @@ curl -v -X GET \
 ]
 ```
 
-> Notice that the `sms` factor type includes an existing phone number in `_embedded`. You can either use the existing phone number or update it with a new number. See [Enroll Okta SMS factor](#enroll-okta-sms-factor) for more information.
+> **Note:** Notice that the `sms` factor type includes an existing phone number in `_embedded`. You can either use the existing phone number or update it with a new number. See [Enroll Okta SMS Factor](#enroll-okta-sms-factor) for more information.
 
-### List Security Questions
+### List security questions
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/questions" />
 
-Enumerates all available security questions for a user's `question` factor
+Enumerates all available security questions for a User's `question` Factor
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
-Array of Questions
+Array of questions
 
 | Property      | Description               | DataType  | Nullable | Unique  | Readonly |
 | ------------- | ------------------------- | --------- | -------- | ------- | -------- |
 | question      | unique key for question   | String    | FALSE    | TRUE    | TRUE     |
 | questionText  | display text for question | String    | FALSE    | FALSE   | TRUE     |
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X GET \
@@ -430,7 +430,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/questions"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 [
@@ -449,13 +449,13 @@ curl -v -X GET \
 ]
 ```
 
-## Factor Lifecycle Operations
+## Factor lifecycle operations
 
 ### Enroll Factor
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors" />
 
-Enrolls a user with a supported [factor](#list-factors-to-enroll)
+Enrolls a User with a supported [Factor](#list-factors-to-enroll)
 
 - [Enroll Okta Security Question Factor](#enroll-okta-security-question-factor)
 - [Enroll Okta SMS Factor](#enroll-okta-sms-factor)
@@ -471,13 +471,13 @@ Enrolls a user with a supported [factor](#list-factors-to-enroll)
 - [Enroll WebAuthn Factor](#enroll-webauthn-factor)
 - [Enroll Custom HOTP Factor](#enroll-custom-hotp-factor)
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter            | Description                                                                                            | Param Type | DataType                | Required |
 | -------------------- | ------------------------------------------------------------------------------------------------------ | ---------- | ----------------------- | -------- |
-| activate             | If set to `true` will automatically attempt to activate a Factor after enrolling it                    | Query      | Boolean                 | FALSE    |
+| activate             | If set to `true`, an attempt is automatically made to activate a Factor after enrolling it             | Query      | Boolean                 | FALSE    |
 | factor               | Factor                                                                                                 | Body       | [Factor](#factor-object) | TRUE     |
-| id                   | `id` of user                                                                                           | URL        | String                  | TRUE     |
+| id                   | `id` of User                                                                                           | URL        | String                  | TRUE     |
 | templateId           | `id` of an SMS template (only for SMS Factors)                                                         | Query      | String                  | FALSE    |
 | tokenLifetimeSeconds | The lifetime of the Email Factors OTP, with a value between `1` and `86400` (Default is `300`)         | Query      | Number                  | FALSE    |
 | updatePhone          | Indicates if you'd like to update the `phoneNumber` (only for SMS Factors that are pending activation) | Query      | Boolean                 | FALSE    |
@@ -486,15 +486,15 @@ Enrolls a user with a supported [factor](#list-factors-to-enroll)
 
 All responses return the enrolled [Factor](#factor-object) with a status of either `PENDING_ACTIVATION` or `ACTIVE`.
 
-> Some [factor types](#factor-type) require [activation](#activate-factor) to complete the enrollment process.
+> **Note:** Some [Factor types](#factor-type) require [activation](#activate-factor) to complete the enrollment process.
 
 #### Enroll Okta Security Question Factor
 
-Enrolls a user with the `question` factor and [question profile](#question-profile).
+Enrolls a User with the `question` factor and [question profile](#question-profile).
 
-> The Security Question factor does not require activation and is `ACTIVE` after enrollment.
+> **Note:** The Security Question Factor doesn't require activation and is `ACTIVE` after enrollment.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -511,7 +511,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -558,9 +558,9 @@ curl -v -X POST \
 
 #### Enroll Okta SMS Factor
 
-Enrolls a user with the Okta `sms` factor and an [SMS profile](#sms-profile).  A text message with a One Time Passcode (OTP) is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `activate` link relation to complete the enrollment process.
+Enrolls a User with the Okta `sms` Factor and an [SMS profile](#sms-profile). A text message with a One-Time Passcode (OTP) is sent to the device during enrollment and must be [activated](#activate-sms-factor) by following the `activate` link relation to complete the enrollment process.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -576,7 +576,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -632,11 +632,9 @@ curl -v -X POST \
 
 ###### Rate Limit
 
-`429 Too Many Requests` status code may be returned if you attempt to resend an SMS challenge (OTP) within the same time window.
+A `429 Too Many Requests` status code may be returned if you attempt to resend an SMS challenge (OTP) within the same time window.
 
-*The current rate limit is one SMS challenge per device every 30 seconds.*
-
-> Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
+> **Notes:** The current rate limit is one SMS challenge per device every 30 seconds.<br><br> Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
 
 ```json
 {
@@ -648,11 +646,11 @@ curl -v -X POST \
 }
 ```
 
-###### Existing Phone
+###### Existing phone
 
-A `400 Bad Request` status code may be returned if you attempt to enroll with a different phone number when there is an existing mobile phone for the user.
+A `400 Bad Request` status code may be returned if the user attempts to enroll with a different phone number when there is an existing mobile phone for the user.
 
-*Currently, a user can enroll only one mobile phone.*
+> **Note:** Currently, a user can enroll only one mobile phone.
 
 ```json
 {
@@ -668,17 +666,17 @@ A `400 Bad Request` status code may be returned if you attempt to enroll with a 
 }
 ```
 
-##### Enroll Okta SMS Factor by Updating Phone Number
+##### Enroll Okta SMS Factor by updating phone number
 
-If the user wants to use a different phone number (instead of the existing phone number) then the enroll API call needs to supply the `updatePhone` query parameter set to `true`.
+If the user wants to use a different phone number (instead of the existing phone number), then the enroll API call needs to supply the `updatePhone` query parameter set to `true`.
 
-The phone number cannot be updated for an SMS factor that is already activated. If you'd like to update the phone number, you will need to reset the factor and re-enroll it:
+The phone number can't be updated for an SMS Factor that is already activated. If you'd like to update the phone number, you need to reset the factor and re-enroll it:
 
-1. [List Enrolled Factors](#list-enrolled-factors) and extract the relevant `factorId`.
+1. [List enrolled Factors](#list-enrolled-factors) and extract the relevant `factorId`.
 2. [Reset the Factor](#reset-factor)
-3. Then [enroll the Factor](#enroll-okta-sms-factor) again. You will be able to pass the `updatePhone` parameter set to `true`, along with an updated `phoneNumber` value for as long as the Factor has a `status` value of `PENDING_ACTIVATION`.
+3. Then [enroll the Factor](#enroll-okta-sms-factor) again. You are able to pass the `updatePhone` parameter set to `true`, along with an updated `phoneNumber` value for as long as the Factor has a `status` value of `PENDING_ACTIVATION`.
 
-###### Request Example
+###### Request example
 
 ```bash
 curl -v -X POST \
@@ -694,12 +692,12 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/${userId}/factors?updatePhone=true"
 ```
 
-##### Enroll Okta SMS Factor by Using Existing Phone Number
+##### Enroll Okta SMS Factor by using existing phone Nnmber
 
 If the user wants to use the existing phone number then the enroll API doesn't need to pass the phone number.
-Or, you can pass the existing phone number in a profile object.
+Or, you can pass the existing phone number in a Profile object.
 
-###### Request Example
+###### Request example
 
 ```bash
 curl -v -X POST \
@@ -712,16 +710,17 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/${userId}/factors"
 ```
 
-##### Enroll Okta SMS Factor Using Custom Template
+##### Enroll Okta SMS Factor using custom template
 
 Customize (and optionally localize) the SMS message sent to the user on enrollment.
+
 * If the request has an `Accept-Language` header and the template contains a translation for that language, the SMS message is sent using the translated template.
 * If the language provided in the `Accept-Language` header doesn't exist, the SMS message is sent using the template text.
-* If the provided <em>templateId</em> doesn't match the existing template, the SMS message is sent using the default template.
+* If the provided `templateId` doesn't match the existing template, the SMS message is sent using the default template.
 
-> For instructions about how to create custom templates, see [SMS Template](/docs/reference/api/templates/#add-sms-template).
+> **Note:** For instructions about how to create custom templates, see [SMS template](/docs/reference/api/templates/#add-sms-template).
 
-###### Request Example
+###### Request example
 
 ```bash
 curl -v -X POST \
@@ -737,11 +736,11 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/${userId}/factors?templateId=${templateId}"
 ```
 
-##### Resend SMS as Part of Enrollment
+##### Resend SMS as part of enrollment
 
-Use the `resend` link to send another OTP if user doesn't receive the original activation SMS OTP.
+Use the `resend` link to send another OTP if the user doesn't receive the original activation SMS OTP.
 
-###### Request Example
+###### Request example
 
 ```bash
 curl -v -X POST \
@@ -757,13 +756,13 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/${userId}/factors/${factorId}/resend"
 ```
 
-##### Resend SMS as Part of Enrollment Using a Custom Template
+##### Resend SMS as part of enrollment using a custom template
 
 Customize (and optionally localize) the SMS message sent to the user in case Okta needs to resend the message as part of enrollment.
 
-> For instructions about how to create custom templates, see [SMS Template](/docs/reference/api/templates/#add-sms-template).
+> **Note:** For instructions about how to create custom templates, see [SMS template](/docs/reference/api/templates/#add-sms-template).
 
-###### Request Example
+###### Request example
 
 ```bash
 curl -v -X POST \
@@ -780,11 +779,11 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/${userId}/factors/${factorId}/resend?templateId=${templateId}"
 ```
 
-##### Enroll and Auto-Activate Okta SMS Factor
+##### Enroll and auto-activate Okta SMS Factor
 
-To enroll and immediately activate the Okta `sms` factor, add the `activate` option to the enroll API and set it `true`.  An activation text message will not be sent to the device.
+To enroll and immediately activate the Okta `sms` factor, add the `activate` option to the enroll API and set it to `true`. An activation text message isn't sent to the device.
 
-###### Request Example
+###### Request example
 
 ```bash
 curl -v -X POST \
@@ -802,9 +801,9 @@ curl -v -X POST \
 
 #### Enroll Okta Call Factor
 
-Enrolls a user with the Okta `call` factor and a [Call profile](#call-profile).  A voice call with an OTP is made to the device during enrollment and must be [activated](#activate-call-factor).
+Enrolls a user with the Okta `call` Factor and a [Call profile](#call-profile). A voice call with an OTP is made to the device during enrollment and must be [activated](#activate-call-factor).
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -821,7 +820,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -876,11 +875,11 @@ curl -v -X POST \
 }
 ```
 
-###### Rate Limit
+###### Rate limit
 
-`429 Too Many Requests` status code may be returned if you attempt to resend a Voice Call challenge (OTP) within the same time window.
+A `429 Too Many Requests` status code may be returned if you attempt to resend a voice call challenge (OTP) within the same time window.
 
-*The current rate limit is one Voice Call challenge per device every 30 seconds.*
+> **Note:** The current rate limit is one voice call challenge per device every 30 seconds.
 
 ```json
 {
@@ -892,11 +891,11 @@ curl -v -X POST \
 }
 ```
 
-###### Existing Phone
+###### Existing phone
 
-A `400 Bad Request` status code may be returned if you attempt to enroll with a different phone number when there is an existing phone with 'Voice Call' capability for the user.
+A `400 Bad Request` status code may be returned if a user attempts to enroll with a different phone number when there is an existing phone with voice call capability for the user.
 
-*Currently, a user can enroll only one ''voice call' capable phone.*
+> **Note:** Currently, a user can enroll only one voice call capable phone.
 
 ```json
 {
@@ -912,11 +911,11 @@ A `400 Bad Request` status code may be returned if you attempt to enroll with a 
 }
 ```
 
-##### Resend Voice Call as Part of Enrollment
+##### Resend voice call as part of enrollment
 
-Use the `resend` link to send another OTP if user doesn't receive the original activation Voice Call OTP.
+Use the `resend` link to send another OTP if the user doesn't receive the original activation voice call OTP.
 
-###### Request Example
+###### Request example
 
 ```bash
 curl -v -X POST \
@@ -932,11 +931,11 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/${userId}/factors/${factorId}/resend"
 ```
 
-##### Enroll and Auto-Activate Okta Call Factor
+##### Enroll and auto-activate Okta Call Factor
 
-To enroll and immediately activate the Okta `call` factor, add the `activate` option to the enroll API and set it `true`.  An activation call will not be made to the device.
+To enroll and immediately activate the Okta `call` factor, add the `activate` option to the enroll API and set it to `true`. An activation call isn't made to the device.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -955,9 +954,9 @@ curl -v -X POST \
 
 #### Enroll Okta Verify TOTP Factor
 
-Enrolls a user with an Okta `token:software:totp` factor.  The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
+Enrolls a user with an Okta `token:software:totp` factor. The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -970,7 +969,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -1029,11 +1028,11 @@ curl -v -X POST \
 
 #### Enroll Okta Verify Push Factor
 
-Enrolls a user with the Okta verify `push` factor. The factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent via email or sms.
+Enrolls a user with the Okta Verify `push` Factor. The Factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
 
-> Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
+> **Note:** Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -1046,7 +1045,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -1120,9 +1119,9 @@ curl -v -X POST \
 
 #### Enroll Google Authenticator Factor
 
-Enrolls a user with the Google `token:software:totp` factor.  The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
+Enrolls a user with the Google `token:software:totp` Factor. The Factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -1135,7 +1134,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -1194,9 +1193,9 @@ curl -v -X POST \
 
 #### Enroll RSA SecurID Factor
 
-Enrolls a user with a RSA SecurID factor and a [token profile](#token-profile).  RSA tokens must be verified with the [current pin+passcode](#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a RSA SecurID Factor and a [token profile](#token-profile). RSA tokens must be verified with the [current pin+passcode](#factor-verification-object) as part of the enrollment request.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -1215,7 +1214,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -1261,9 +1260,9 @@ curl -v -X POST \
 
 #### Enroll Symantec VIP Factor
 
-Enrolls a user with a Symantec VIP factor and a [token profile](#token-profile).  Symantec tokens must be verified with the [current and next passcodes](#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a Symantec VIP Factor and a [token profile](#token-profile). Symantec tokens must be verified with the [current and next passcodes](#factor-verification-object) as part of the enrollment request.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -1283,7 +1282,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -1329,9 +1328,9 @@ curl -v -X POST \
 
 #### Enroll YubiKey Factor
 
-Enrolls a user with a YubiCo factor (YubiKey).  YubiKeys must be verified with the [current passcode](#factor-verification-object) as part of the enrollment request.
+Enrolls a user with a YubiCo Factor (YubiKey). YubiKeys must be verified with the [current passcode](#factor-verification-object) as part of the enrollment request.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -1347,7 +1346,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -1393,9 +1392,9 @@ curl -v -X POST \
 
 #### Enroll Okta Email Factor
 
-Enrolls a user with an email factor. An email with an OTP is sent to the primary or secondary (depending on which one is enrolled) email address of the user during enrollment. The factor must be [activated](#activate-email-factor) by following the `activate` link relation to complete the enrollment process. An optional `tokenLifetimeSeconds` can be specified as a query parameter to indicate the lifetime of the OTP. The default lifetime is 300 seconds. `tokenLifetimeSeconds` should be in the range 1 to 86400 inclusive.
+Enrolls a user with an Email Factor. An email with an OTP is sent to the primary or secondary (depending on which one is enrolled) email address of the user during enrollment. The Factor must be [activated](#activate-email-factor) by following the `activate` link relation to complete the enrollment process. An optional `tokenLifetimeSeconds` can be specified as a query parameter to indicate the lifetime of the OTP. The default lifetime is 300 seconds. `tokenLifetimeSeconds` should be in the range of 1 to 86400 inclusive.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -1411,7 +1410,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors?tokenLifetimeSeconds=600"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -1460,7 +1459,7 @@ curl -v -X POST \
 }
 ```
 
-###### Invalid Email address response
+###### Invalid email address response
 
 ```json
 {
@@ -1472,9 +1471,9 @@ curl -v -X POST \
 }
 ```
 
-##### Enroll and Auto-Activate Okta Email Factor
+##### Enroll and auto-activate Okta Email Factor
 
-To enroll and immediately activate the Okta `email` factor, add the `activate` option to the enroll API and set it `true`.  An activation email will not be sent to the user.
+To enroll and immediately activate the Okta `email` Factor, add the `activate` option to the enroll API and set it to `true`. An activation email isn't sent to the user.
 
 ```bash
 curl -v -X POST \
@@ -1492,10 +1491,9 @@ curl -v -X POST \
 
 #### Enroll U2F Factor
 
-Enrolls a user with a U2F factor. The enrollment process starts with getting a nonce from Okta and using that to get registration information from the U2F key using the U2F Javascript API.
+Enrolls a user with a U2F Factor. The enrollment process starts with getting a `nonce` from Okta and using that to get registration information from the U2F key using the U2F Javascript API.
 
-
-##### Enroll U2F Request Example
+##### Enroll U2F request example
 
 ```bash
 curl -v -X POST \
@@ -1508,7 +1506,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Enroll U2F Response Example
+##### Enroll U2F response example
 
 ```json
 {
@@ -1557,16 +1555,15 @@ curl -v -X POST \
 
 #### Enroll WebAuthn Factor
 
-Enrolls a user with a WebAuthn factor. The enrollment process starts with getting the WebAuthn credential creation options that are used to help select an appropriate authenticator using the WebAuthn API.
-This authenticator then generates an enrollment attestation, which may be used to register the authenticator for the user.
+Enrolls a user with a WebAuthn Factor. The enrollment process starts with getting the WebAuthn credential creation options that are used to help select an appropriate authenticator using the WebAuthn API. This authenticator then generates an enrollment attestation, which may be used to register the authenticator for the user.
 
-##### Enroll WebAuthn Response Parameters
+##### Enroll WebAuthn response parameters
 
-In the [embedded resources](#embedded-resources) object, the `response._embedded.activation` object contains properties used to guide the client in creating a new WebAuthn credential for use with Okta.
+In the [Embedded Resources](#embedded-resources) object, the `response._embedded.activation` object contains properties used to guide the client in creating a new WebAuthn credential for use with Okta.
 
 For more information about these credential creation options, see the [WebAuthn spec for PublicKeyCredentialCreationOptions](https://www.w3.org/TR/webauthn/#dictionary-makecredentialoptions).
 
-##### Enroll WebAuthn Request Example
+##### Enroll WebAuthn request example
 
 ```bash
 curl -v -X POST \
@@ -1579,7 +1576,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
 
-##### Enroll WebAuthn Response Example
+##### Enroll WebAuthn response example
 
 ```json
 {
@@ -1650,11 +1647,11 @@ curl -v -X POST \
 
 #### Enroll Custom HOTP Factor
 
-Enrolls a user for a Custom HMAC-based One-time Password (HOTP) factor. The enrollment process involves passing a factor profile Id and shared secret for a particular token.
+Enrolls a user with a Custom HMAC-based One-Time Password (HOTP) Factor. The enrollment process involves passing a Factor profile ID and shared secret for a particular token.
 
 > **Note:** Currently only auto-activation is supported for Custom HOTP Factor.
 
-##### Enroll and Auto-Activate Custom HOTP Factor
+##### Enroll and auto-activate Custom HOTP Factor
 
 ```bash
 curl -v -X POST \
@@ -1671,7 +1668,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors?activate=true"
 ```
 
-##### Enroll Custom HOTP Factor Response Example
+##### Enroll Custom HOTP Factor response example
 
 ```json
 {
@@ -1716,7 +1713,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/lifecycle/activate" />
 
-The `sms` and `token:software:totp` [factor types](#factor-type) require activation to complete the enrollment process.
+The `sms` and `token:software:totp` [Factor types](#factor-type) require activation to complete the enrollment process.
 
 - [Activate TOTP Factor](#activate-totp-factor)
 - [Activate SMS Factor](#activate-sms-factor)
@@ -1728,21 +1725,21 @@ The `sms` and `token:software:totp` [factor types](#factor-type) require activat
 
 #### Activate TOTP Factor
 
-Activates a `token:software:totp` factor by verifying the OTP.
+Activates a `token:software:totp` Factor by verifying the OTP.
 
 ##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
-| factorId     | `id` of a factor returned from enrollment           | URL        | String   | TRUE     |         |
+| factorId     | `id` of a Factor returned from enrollment           | URL        | String   | TRUE     |         |
 | passCode     | OTP generated by device                             | Body       | String   | TRUE     |         |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-##### Response Parameters
+##### Response parameters
 
-If the passcode is correct you will receive the [Factor](#factor-object) with an `ACTIVE` status.
+If the passcode is correct the response contains the [Factor](#factor-object) with an `ACTIVE` status.
 
-If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
+If the passcode is invalid the response is a `403 Forbidden` status code with the following error:
 
 ```json
 {
@@ -1758,7 +1755,7 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 }
 ```
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -1770,7 +1767,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ostf1fmaMGJLMNGNLIVG/lifecycle/activate"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -1816,21 +1813,21 @@ curl -v -X POST \
 
 #### Activate SMS Factor
 
-Activates a `sms` factor by verifying the OTP.  The request/response is identical to [activating a TOTP factor](#activate-totp-factor).
+Activates am `sms` factor by verifying the OTP. The request/response is identical to [activating a TOTP Factor](#activate-totp-factor).
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |
-| factorId     | `id` of a factor returned from enrollment           | URL        | String   | TRUE     |
+| factorId     | `id` of a Factor returned from enrollment           | URL        | String   | TRUE     |
 | passCode     | OTP sent to mobile device                           | Body       | String   | TRUE     |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
-If the passcode is correct you will receive the [Factor](#factor-object) with an `ACTIVE` status.
+If the passcode is correct the response contains the [Factor](#factor-object) with an `ACTIVE` status.
 
-If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
+If the passcode is invalid the response is a `403 Forbidden` status code with the following error:
 
 ```json
 {
@@ -1846,7 +1843,7 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 }
 ```
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -1858,7 +1855,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/sms1o51EADOTFXHHBXBP/lifecycle/activate"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -1904,21 +1901,21 @@ curl -v -X POST \
 
 #### Activate Call Factor
 
-Activates a `call` factor by verifying the OTP.  The request/response is identical to [activating a TOTP factor](#activate-totp-factor).
+Activates a `call` Factor by verifying the OTP. The request/response is identical to [activating a TOTP Factor](#activate-totp-factor).
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
-| factorId     | `id` of a factor returned from enrollment           | URL        | String   | TRUE     |         |
+| factorId     | `id` of a Factor returned from enrollment           | URL        | String   | TRUE     |         |
 | passCode     | OTP sent to mobile device                           | Body       | String   | TRUE     |         |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-##### Response Parameters
+##### Response parameters
 
-If the passcode is correct you will receive the [Factor](#factor-object) with an `ACTIVE` status.
+If the passcode is correct the response contains the [Factor](#factor-object) with an `ACTIVE` status.
 
-If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
+If the passcode is invalid the response is a `403 Forbidden` status code with the following error:
 
 ```json
 {
@@ -1934,7 +1931,7 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 }
 ```
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -1947,7 +1944,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/clf1o51EADOTFXHHBXBP/lifecycle/activate"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -1994,24 +1991,24 @@ curl -v -X POST \
 
 #### Activate Push Factor
 
-Activation of `push` factors are asynchronous and must be polled for completion when the `factorResult` returns a `WAITING` status.
+Activation of `push` Factors are asynchronous and must be polled for completion when the `factorResult` returns a `WAITING` status.
 
-Activations have a short lifetime (minutes) and will `TIMEOUT` if they are not completed before the `expireAt` timestamp.  Use the published `activate` link to restart the activation process if the activation is expired.
+Activations have a short lifetime (minutes) and `TIMEOUT` if they aren't completed before the `expireAt` timestamp. Use the published `activate` link to restart the activation process if the activation is expired.
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter | Description      | Param Type | DataType | Required | Default |
 | --------- | --------------   | ---------- | -------- | -------- | ------- |
-| userId    | `id` of a user   | URL        | String   | TRUE     |         |
-| factorId  | `id` of a factor | URL        | String   | TRUE     |         |
+| factorId  | `id` of a Factor | URL        | String   | TRUE     |         |
+| userId    | `id` of a User   | URL        | String   | TRUE     |         |
 
-##### Response Parameters
+##### Response parameters
 
 | Parameter        | Description                    | Param Type | DataType                                                        | Required | Default |
 | ---------------- | ------------------------------ | ---------- | --------------------------------------------------------------- | -------- | ------- |
 | activationResult | asynchronous activation result | Body       | [Push Factor Activation object](#push-factor-activation-object) | TRUE     |         |
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -2021,7 +2018,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opf3hkfocI4JTLAju0g4/lifecycle/activate"
 ```
 
-##### Response Example (Waiting)
+##### Response example (waiting)
 
 ```json
 {
@@ -2064,7 +2061,7 @@ curl -v -X POST \
 }
 ```
 
-##### Response Example (Timeout)
+##### Response example (timeout)
 
 ```json
 {
@@ -2082,7 +2079,7 @@ curl -v -X POST \
 }
 ```
 
-##### Response Example (Activated)
+##### Response example (activated)
 
 ```json
 {
@@ -2132,21 +2129,21 @@ curl -v -X POST \
 
 #### Activate Email Factor
 
-Activates an `email` factor by verifying the OTP.
+Activates an `email` Factor by verifying the OTP
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |
-| factorId     | `id` of a factor returned from enrollment           | URL        | String   | TRUE     |
+| factorId     | `id` of a Factor returned from enrollment           | URL        | String   | TRUE     |
 | passCode     | OTP sent to email                                   | Body       | String   | TRUE     |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
-If the passcode is correct the response contains [Factor](#factor-object) with an `ACTIVE` status.
+If the passcode is correct the response contains the [Factor](#factor-object) with an `ACTIVE` status.
 
-If the passcode is invalid response will be `403 Forbidden` with the following error:
+If the passcode is invalid the response is `403 Forbidden` with the following error:
 
 ```json
 {
@@ -2162,7 +2159,7 @@ If the passcode is invalid response will be `403 Forbidden` with the following e
 }
 ```
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -2174,7 +2171,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/emfnf3gSScB8xXoXK0g3/lifecycle/activate"
 ```
 
-##### Response Example (Activated)
+##### Response example (activated)
 
 ```json
 {
@@ -2253,21 +2250,21 @@ Activation gets the registration information from the U2F token using the API an
 
 Activate a U2F factor by verifying the registration data and client data.
 
-##### Activate U2F Request Parameters
+##### Activate U2F request parameters
 
 | Parameter         | Description                                                | Param Type | DataType | Required |
 | ----------------- | ---------------------------------------------------------- | ---------- | -------- | -------- |
-| factorId          | `id` of factor returned from enrollment                    | URL        | String   | TRUE     |
-| registrationData  | base64-encoded registration data from U2F javascript call  | Body       | String   | TRUE     |
-| clientData        | base64-encoded client data from U2F javascript call        | Body       | String   | TRUE     |
+| clientData        | base64-encoded client data from the U2F JavaScript call        | Body       | String   | TRUE     |
+| factorId          | `id` of Factor returned from enrollment                    | URL        | String   | TRUE     |
+| registrationData  | base64-encoded registration data from the U2F JavaScript call  | Body       | String   | TRUE     |
 
-##### Activate U2F Response Parameters
+##### Activate U2F response parameters
 
-[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction.
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
-If the registration nonce is invalid or if registration data is invalid, you receive a `403 Forbidden` status code with the following error:
+If the registration `nonce` is invalid or if registration data is invalid, the response is a `403 Forbidden` status code with the following error:
 
-```http
+```JSON
 HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
@@ -2284,7 +2281,7 @@ Content-Type: application/json
 }
 ```
 
-##### Activate U2F Request Example
+##### Activate U2F request example
 
 ```bash
 curl -v -X POST \
@@ -2297,7 +2294,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fuf2rovRxogXJ0nDy0g4/lifecycle/activate"
 ```
 
-##### Activate U2F Response Example
+##### Activate U2F response example
 
 ```json
 {
@@ -2370,24 +2367,24 @@ navigator.credentials.create({
 </script>
 ```
 
-Activate a WebAuthn factor by verifying the attestation and client data.
+Activate a WebAuthn Factor by verifying the attestation and client data.
 
-##### Activate WebAuthn Request Parameters
+##### Activate WebAuthn request parameters
 
 
 | Parameter         | Description                                                     | Param Type | DataType | Required |
 | ----------------- | --------------------------------------------------------------- | ---------- | -------- | -------- |
-| factorId          | `id` of factor returned from enrollment                         | URL        | String   | TRUE     |
+| attestation       | base64-encoded attestation from the WebAuthn JavaScript call        | Body       | String   | TRUE     |
+| clientData        | base64-encoded client data from the WebAuthn JavaScript call        | Body       | String   | TRUE     |
+| factorId          | `id` of Factor returned from enrollment                         | URL        | String   | TRUE     |
 | stateToken        | [state token](#state-token) for the current transaction             | Body       | String   | TRUE     |
-| attestation       | base64-encoded attestation from WebAuthn javascript call        | Body       | String   | TRUE     |
-| clientData        | base64-encoded client data from WebAuthn javascript call        | Body       | String   | TRUE     |
 
 
-[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction.
+[Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
 
-If the attestation nonce is invalid, or if the attestation or client data are invalid, you receive a `403 Forbidden` status code with the following error:
+If the attestation `nonce` is invalid, or if the attestation or client data are invalid, the response is a `403 Forbidden` status code with the following error:
 
-```http
+```JSON
 HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
@@ -2404,7 +2401,7 @@ Content-Type: application/json
 }
 ```
 
-##### Activate WebAuthn Request Example
+##### Activate WebAuthn request example
 
 ```bash
 curl -v -X POST \
@@ -2418,7 +2415,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4/lifecycle/activate"
 ```
 
-##### Activate WebAuthn Response Example
+##### Activate WebAuthn response example
 
 ```json
 {
@@ -2467,20 +2464,20 @@ curl -v -X POST \
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/factors/${factorId}" />
 
-Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
+Unenrolls an existing factor for the specified user, allowing the user to enroll a new Factor
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
-| factorId     | `id` of the factor to reset                         | URL        | String   | TRUE     |         |
+| factorId     | `id` of the Factor to reset                         | URL        | String   | TRUE     |         |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-##### Response Parameters
+##### Response parameters
 
 `204 No Content`
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X DELETE \
@@ -2490,29 +2487,29 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ufs1o01OTMGHLAJPVHDZ"
 ```
 
-##### Response Example
+##### Response example
 
 `204 No Content`
 
-## Factors that require a Challenge and Verify Operation
+## Factors that require a challenge and verify operation
 
-Some factors require a challenge to be issued by Okta to initiate the transaction
+Some Factors require a challenge to be issued by Okta to initiate the transaction.
 
-### Issue an SMS Factor Challenge
+### Issue an SMS Factor challenge
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
-Sends an OTP for a `sms` factor to the specified user's phone.
+Sends an OTP for an `sms` Factor to the specified user's phone.
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |
-| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
+| factorId     | `id` of a Factor                                    | URL        | String   | TRUE     |
 | templateId   | `id` of an SMS template                             | Query      | String   | FALSE    |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
@@ -2520,11 +2517,9 @@ Sends an OTP for a `sms` factor to the specified user's phone.
 | profile      | SMS profile                                         | Body       | [SMS profile](#sms-profile)                          | TRUE     |         |
 
 
-`429 Too Many Requests` status code may be returned if you attempt to resend a SMS challenge (OTP) within the same time window.
+A `429 Too Many Requests` status code may be returned if you attempt to resend an SMS challenge (OTP) within the same time window.
 
-*The current rate limit is one SMS challenge per device every 30 seconds.*
-
-> Okta will round-robin between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
+> **Notes:** The current rate limit is one SMS challenge per device every 30 seconds.<br><br> Okta round-robins between SMS providers with every resend request to help ensure delivery of zn SMS OTP across different carriers.
 
 ```json
 {
@@ -2536,7 +2531,7 @@ Sends an OTP for a `sms` factor to the specified user's phone.
 }
 ```
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -2547,7 +2542,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/smsszf1YNUtGWTx4j0g3/verify"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -2577,16 +2572,17 @@ curl -v -X POST \
 }
 ```
 
-#### Issuing an SMS Factor Challenge Using A Custom Template
+#### Issuing an SMS Factor challenge using a custom template
 
 Customize (and optionally localize) the SMS message sent to the user on verification.
+
 * If the request has an `Accept-Language` header and the template contains translation for that language, the SMS message is sent in that language.
 * If the language provided in the `Accept-Language` header doesn't exist in the template definition, the SMS message is sent using the template text.
 * If the provided `templateId` doesn't match an existing template, the SMS message is sent using the default template.
 
 To create custom templates, see [Templates](/docs/reference/api/templates/#add-sms-template).
 
-###### Request Example
+###### Request example
 
 Sends the verification message in German, assuming that the SMS template is configured with a German translation
 
@@ -2600,30 +2596,30 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/${userId}/factors/${factorId}/verify?templateId=${templateId}"
 ```
 
-### Verify an SMS Factor Challenge
+### Verify an SMS Factor challenge
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
-Verifies an OTP sent by an `sms` factor challenge.
+Verifies an OTP sent by an `sms` Factor challenge
 
 ##### Request Parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |
-| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |
+| factorId     | `id` of a Factor                                    | URL        | String   | TRUE     |
 | passCode     | OTP sent to device                                  | Body       | String   | FALSE    |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |
 
-> If you omit `passCode` in the request a new challenge will be initiated and a new OTP sent to the device.
+> **Note:** If you omit `passCode` in the request a new challenge is initiated and a new OTP sent to the device.
 
-##### Response Parameters
+##### Response parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
-| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
+| factorResult | verification result                                 | Body       | [Factor verify result](#factor-verify-result-object) | TRUE     |         |
 
 
-If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
+If the passcode is invalid the response is a `403 Forbidden` status code with the following error:
 
 ```json
 {
@@ -2639,7 +2635,7 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 }
 ```
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -2651,7 +2647,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/smsszf1YNUtGWTx4j0g3/verify"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -2659,30 +2655,30 @@ curl -v -X POST \
 }
 ```
 
-### Issue a  Call Factor Challenge
+### Issue a Call Factor challenge
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
-Sends an OTP for a `call` factor to the user's phone.
+Sends an OTP for a `call` Factor to the user's phone
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
-| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
+| factorId     | `id` of a Factor                                    | URL        | String   | TRUE     |         |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-##### Response Parameters
+##### Response parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
-| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
+| factorResult | Verification result                                 | Body       | [Factor verify result](#factor-verify-result-object) | TRUE     |         |
 | profile      | Call profile                                        | Body       | [Call profile](#call-profile)                        | TRUE     |         |
 
 
-`429 Too Many Requests` status code may be returned if you attempt to resend a Voice Call challenge (OTP) within the same time window.
+A `429 Too Many Requests` status code may be returned if you attempt to resend a voice call challenge (OTP) within the same time window.
 
-*The current rate limit is one Voice Call challenge per device every 30 seconds.*
+> **Note:** The current rate limit is one voice call challenge per device every 30 seconds.
 
 ```json
 {
@@ -2694,7 +2690,7 @@ Sends an OTP for a `call` factor to the user's phone.
 }
 ```
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -2705,7 +2701,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/clff17zuKEUMYQAQGCOV/verify"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -2736,29 +2732,29 @@ curl -v -X POST \
 }
 ```
 
-### Verify a Call Factor Challenge
+### Verify a Call Factor challenge
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
-Verifies an OTP sent by a `call` factor challenge.
+Verifies an OTP sent by a `call` Factor challenge
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
-| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
+| factorId     | `id` of a Factor                                    | URL        | String   | TRUE     |         |
 | passCode     | OTP sent to device                                  | Body       | String   | FALSE    |         |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-> If you omit `passCode` in the request a new challenge is initiated and a new OTP is sent to the phone.
+> **Note:** If you omit `passCode` in the request a new challenge is initiated and a new OTP is sent to the phone.
 
-##### Response Parameters
+##### Response parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
 | factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
 
-If the passcode is invalid you will receive a `403 Forbidden` status code with the following error:
+If the passcode is invalid the response is a `403 Forbidden` status code with the following error:
 
 ```json
 {
@@ -2774,7 +2770,7 @@ If the passcode is invalid you will receive a `403 Forbidden` status code with t
 }
 ```
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -2786,7 +2782,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/clff17zuKEUMYQAQGCOV/verify"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -2794,32 +2790,30 @@ curl -v -X POST \
 }
 ```
 
-### Issue a Push Factor Challenge
+### Issue a Push Factor challenge
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
 Creates a new transaction and sends an asynchronous push notification to the device for the user to approve or reject. You must [poll the transaction](#poll-for-verify-transaction-completion) to determine when it completes or expires.
 
-##### Start new Transaction
+##### Start new transaction
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
-| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |
+| factorId     | `id` of a Factor                                    | URL        | String   | TRUE     |         |
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-> The client `IP Address` & `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br>You should [always send a valid User-Agent HTTP header](/docs/reference/api-overview/#user-agent) when verifying a push factor.
+> **Notes:** The client `IP Address` and `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br>You should [always send a valid User-Agent HTTP header](/docs/reference/api-overview/#user-agent) when verifying a push Factor.<br><br> The **public IP address** of your application must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
-> The **public IP address** of your application must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
-
-##### Response Parameters
+##### Response parameters
 
 | Parameter    | Description                                                          | Param Type | DataType                                             | Required |
 | ------------ | -------------------------------------------------------------------- | ---------- | ---------------------------------------------------- | -------- |
-| factorResult | verification result (`WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`) | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
+| factorResult | Verification result (`WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`) | Body       | [Factor verify result](#factor-verify-result-object) | TRUE     |
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -2831,7 +2825,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opf3hkfocI4JTLAju0g4/verify"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
@@ -2858,17 +2852,17 @@ curl -v -X POST \
 }
 ```
 
-### Verify a Push Factor Challenge
+### Verify a Push Factor challenge
 
-#### Poll for Verify Transaction Completion
+#### Poll for verify transaction completion
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/${factorId}/transactions/${transactionId}" />
 
-Polls a push verification transaction for completion.  The transaction result is `WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`.
+Polls a push verification transaction for completion. The transaction result is `WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`.
 
-> You should always use the `poll` link relation and never manually construct your own URL.
+> **Note:** You should always use the `poll` link relation and never manually construct your own URL.
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter     | Description           | Param Type | DataType | Required |
 | ------------  | -------------------   | ---------- | -------- | -------- |
@@ -2876,13 +2870,13 @@ Polls a push verification transaction for completion.  The transaction result is
 | factorId      | `id` of a factor      | URL        | String   | TRUE     |
 | transactionId | `id` of a transaction | URL        | String   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 | Parameter    | Description         | Param Type | DataType                                             | Required |
 | ------------ | ------------------- | ---------- | ---------------------------------------------------- | -------- |
 | factorResult | verification result | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |
 
-##### Response Example (Waiting)
+##### Response example (waiting)
 
 ```json
 {
@@ -2909,7 +2903,7 @@ Polls a push verification transaction for completion.  The transaction result is
 }
 ```
 
-##### Response Example (Approved)
+##### Response example (approved)
 
 ```json
 {
@@ -2917,7 +2911,7 @@ Polls a push verification transaction for completion.  The transaction result is
 }
 ```
 
-##### Response Example (Rejected)
+##### Response example (rejected)
 
 ```json
 {
@@ -2944,7 +2938,7 @@ Polls a push verification transaction for completion.  The transaction result is
 }
 ```
 
-##### Response Example (Timeout)
+##### Response example (timeout)
 
 ```json
 {
@@ -2971,30 +2965,30 @@ Polls a push verification transaction for completion.  The transaction result is
 }
 ```
 
-### Issue an Email Factor Challenge
+### Issue an Email Factor challenge
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
-Sends an OTP for an `email` factor to the user's email address.
+Sends an OTP for an `email` Factor to the user's email address
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter    | Description                                         | Param Type | DataType | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| userId       | `id` of a user                                      | URL        | String   | TRUE     |         |
-| factorId     | `id` of a factor                                    | URL        | String   | TRUE     |         |               |
+| factorId     | `id` of a Factor                                    | URL        | String   | TRUE     |         |
 | tokenLifetimeSeconds | Lifetime of the OTP                         | QueryString | Int | FALSE        | 300
+| userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-#### Response Parameters
+#### Response parameters
 
 | Parameter    | Description                                         | Param Type | DataType                                             | Required | Default |
 | ------------ | --------------------------------------------------- | ---------- | ---------------------------------------------------  | -------- | ------- |
-| factorResult | verification result                                 | Body       | [Factor Verify Result](#factor-verify-result-object) | TRUE     |         |
+| factorResult | verification result                                 | Body       | [Factor verify result](#factor-verify-result-object) | TRUE     |         |
 
 
-`429 Too Many Requests` status code may be returned if you attempt to resend an Email challenge (OTP) within the same time window.
+A `429 Too Many Requests` status code may be returned if you attempt to resend an email challenge (OTP) within the same time window.
 
-*The current rate limit is one per email address every 5 seconds.*
+> **Note:** The current rate limit is one per email address every five seconds.
 
 ```json
 {
@@ -3006,7 +3000,7 @@ Sends an OTP for an `email` factor to the user's email address.
 }
 ```
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -v -X POST \
@@ -3017,7 +3011,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/emfnf3gSScB8xXoXK0g3/verify?tokenLifetimeSeconds=600"
 ```
 
-#### Response Example
+#### Response example
 
 ```json
 {
@@ -3044,11 +3038,11 @@ curl -v -X POST \
 }
 ```
 
-### Verify an Email Factor Challenge
+### Verify an Email Factor challenge
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/factors/${factorId}/verify" />
 
-Verifies an OTP for an `email` factor.
+Verifies an OTP for an `email` Factor
 
 #### Request Parameters
 
