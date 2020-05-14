@@ -52,6 +52,8 @@ If your integration doesn't need to distinguish between canonical entries, you c
 
 In Okta, user profiles are marked as "deactivated". This fact means that Okta never makes a DELETE request against a user resource through your SCIM API. Instead, Okta sends a request to set the `active` value to `false`. You'll need to support the concept of an "active" and "inactive" user within your application.
 
+For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
+
 **Q: How does data validation work with SCIM provisioning? For example, if my application requires the phone number in a specific format, how do I ensure that Okta passes the attribute in that format? If a data validation error issue occurs, how does error reporting work?**
 
 The SCIM specification identifies valid data formats for a given user profile attribute; however, to preserve flexibility, Okta doesn't rigorously validate that the customer has submitted values that meet those requirements.

@@ -4,7 +4,7 @@ title: Test your Okta integration
 
 This second suite of [Runscope](https://www.runscope.com) tests checks that your SCIM application can handle actual requests to **C**reate, **R**ead, **U**pdate and **D**elete (CRUD) user profile information.
 
->**Note:** Okta doesn't delete user profiles, but instead marks them as `active=false` to deactivate them.
+>**Note:** Okta doesn't delete user profiles in your application, but instead marks the user record with `active=false` to deactivate them. For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
 
 ### Runscope tests for CRUD
 

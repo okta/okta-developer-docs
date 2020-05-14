@@ -469,13 +469,15 @@ Content-Type: text/json;charset=UTF-8
 
 ### Deleting users
 
-![Flowchart - delete user](/img/oin/scim_flow-user-deprovision.png "Simple flow diagram for deprovisioning a user")
+![Flowchart - deprovision user](/img/oin/scim_flow-user-deprovision.png "Simple flow diagram for deprovisioning a user")
 
 **DELETE** /Users/*$userID*
 
-Okta doesn't perform DELETE operations on users.
+Okta doesn't perform DELETE operations on users in your SCIM application.
 
-If a user is suspended, deactivated, or removed from the application in Okta, then Okta sends a PATCH request to set the `active` attribute to `false`.
+If a user is suspended, deactivated, or removed from your integration inside Okta, then Okta sends a PATCH request to your SCIM application to set the `active` attribute to `false`.
+
+For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
 
 ## SCIM Group operations
 

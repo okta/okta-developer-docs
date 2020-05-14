@@ -61,9 +61,14 @@ User attributes can be mapped from your source into Okta and conversely, an attr
 
 ### Delete (Deprovision)
 
-For audit purposes, Okta users are never deleted. Instead, they are deprovisioned by setting an `active` attribute to "false". Then, if an existing user needs to be re-provisioned at a later date (for example, returning from parental leave or if a contractor is re-hired), then the attribute can be switched back to "true".
+The deletion or deprovisioning of end-user profiles in SCIM operations depends on whether Okta or your SCIM application functions as the source of truth for user profile information.
 
-Deprovisioning a user removes their access to the downstream application. Your application can specify different results for deprovisioning a user, such as changing user access permissions, removing a user license, or completely disabling the user account.
+* If an admin deprovisions an end-user's profile inside Okta, the user resource inside your SCIM application is updated with `active=false`. If that user needs to be reprovisioned at a later date (for example, a return from parental leave or if a contractor is rehired), then the `active` attribute can be switched back to `true`.
+
+   Deactivated end-user accounts lose access to their provisioned Okta integrations. Your application can run different actions to after deprovisioning a user, such as changing user access permissions, removing a license, or completely disabling the user account.
+* If an admin deletes a deactivated end-user profile inside Okta, the user resource inside your SCIM application is not changed. The initial deactivation step already set `active=false`. Okta does not send a request to delete the user resource inside the customer's SCIM application.
+* Conversely, if an end-user profile is marked with `active=false` inside your SCIM application, and the Okta integration is mastered by that SCIM application, then when an import from your SCIM application is run, the user's profile is marked as deactivated inside Okta.
+* Similarly, if an end-user profile is deleted from inside your SCIM application, and the end user is mastered by that SCIM application, then when an import from your SCIM application is run, the user's profile is deleted inside Okta.
 
 ### Syncing Passwords
 
@@ -77,9 +82,9 @@ This option sets the user's password for your integration to match the Okta pass
 
 Another provisioning feature supported by Okta is the mapping of user profile attributes.
 
-After provisioning is enabled, you can set a profile master to be the "source" application from which users are imported or the target application to which attributes are sent.
+After provisioning is enabled, you can set an application to be the "source" from which users profiles are imported or the "target" to which attributes are sent.
 
-Okta uses a Profile Editor to map user attributes from the source of truth to the Okta user profile.
+Okta uses a Profile Editor to map specific user attributes from the source application to the Okta user profile.
 
 ## Lifecycle Management Using Profile Mastering
 
