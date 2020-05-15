@@ -1,187 +1,192 @@
 ---
-title: Projects and Server Enrollment Tokens
+title: Server Enrollment Tokens
 category: asa
 ---
 
 # Server Enrollment Tokens API
 
-## Getting Started
+## Get started
 
-This article covers how to manage server enrollment in projects.
+This article covers how to manage server enrollment in Projects.
 
 Explore the Server Enrollment Tokens API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://example.com).
 
 
 ## Server Enrollment Tokens Operations
 
+
 The Server Enrollment Tokens API has the following operations:
-* [List server enrollment token within a project](#list-server-enrollment-token-within-a-project)
-* [Create a server enrollment token for a project](#create-a-server-enrollment-token-for-a-project)
-* [Delete a server enrollment token for a project](#delete-a-server-enrollment-token-for-a-project)
-* [Fetch a server enrollment token from a project](#fetch-a-server-enrollment-token-from-a-project)
+* [List Server Enrollment Tokens within a Project](#list-server-enrollment-tokens-within-a-project)
+* [Create a Server Enrollment Token for a Project](#create-a-server-enrollment-token-for-a-project)
+* [Fetch a Server Enrollment Token from a Project](#fetch-a-server-enrollment-token-from-a-project)
+* [Delete a Server Enrollment Token from a Project](#delete-a-server-enrollment-token-from-a-project)
 
 
-### List server enrollment token within a project
+### List Server Enrollment Tokens within a Project
 
-<ApiOperation method="GET" url="/v1/teams/{team_name}/projects/{project_name}/server_enrollment_tokens" />
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens" />
 
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| project_name   | string |  |
+| `project_name`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
-On returning a 200: List of enrollment tokens in the project
+On returning a 200: List of Server Enrollment Tokens in the Project
 
-Returns a list of [ServerEnrollmentToken](/docs/asa/models.html#serverenrollmenttoken) objects.
+Returns a list of [ServerEnrollmentToken](/docs/asa/objects.html#serverenrollmenttoken) objects.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/projects/{project_name}/server_enrollment_tokens
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens
+
 ```
 
 ##### Response
 ```json
 
 ```
-### Create a server enrollment token for a project
+### Create a Server Enrollment Token for a Project
 
-<ApiOperation method="POST" url="/v1/teams/{team_name}/projects/{project_name}/server_enrollment_tokens" />
+<ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens" />
 
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| project_name   | string |  |
+| `project_name`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 *Required:* Token to create
-Uses a [ServerEnrollmentToken](/docs/asa/models.html#serverenrollmenttoken) object.
+Uses a [ServerEnrollmentToken](/docs/asa/objects.html#serverenrollmenttoken) object.
 
-#### Response Body
+#### Response body
 
-On returning a 201: Token was succesfully created
+On returning a 201: Server Enrollment Token was successfully created
 
-Returns a [ServerEnrollmentToken](/docs/asa/models.html#serverenrollmenttoken) object.
+Returns a [ServerEnrollmentToken](/docs/asa/objects.html#serverenrollmenttoken) object.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/projects/{project_name}/server_enrollment_tokens
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens
+
 ```
 
 ##### Response
 ```json
 
 ```
-### Delete a server enrollment token for a project
+### Fetch a Server Enrollment Token from a Project
 
-<ApiOperation method="DELETE" url="/v1/teams/{team_name}/projects/{project_name}/server_enrollment_tokens/{id}" />
-
-
-#### Request Path Parameters
-
-| Parameter | Type        | Description   |
-| --------- | ----------- | ------------- |
-| team_name   | string |  |
-| project_name   | string |  |
-| id   | string |  |
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${id}" />
 
 
-#### Request Query Parameters
-
-This endpoint has no query parameters.
-
-#### Request Body
-
-This endpoint has no request body.
-
-#### Response Body
-
-On returning a 204: Token was successfully deleted
-
-
-
-#### Usage Example
-
-##### Request
-
-```bash
-curl -v -X DELETE \
--H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/projects/{project_name}/server_enrollment_tokens/{id}
-```
-
-##### Response
-```json
-
-```
-### Fetch a server enrollment token from a project
-
-<ApiOperation method="GET" url="/v1/teams/{team_name}/projects/{project_name}/server_enrollment_tokens/{id}" />
-
-
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| project_name   | string |  |
-| id   | string |  |
+| `id`   | string |  |
+| `project_name`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
-On returning a 200: Token that was requested
+On returning a 200: Server Enrollment Token that was requested
 
-Returns a [ServerEnrollmentToken](/docs/asa/models.html#serverenrollmenttoken) object.
+Returns a [ServerEnrollmentToken](/docs/asa/objects.html#serverenrollmenttoken) object.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/projects/{project_name}/server_enrollment_tokens/{id}
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${id}
+
+```
+
+##### Response
+```json
+
+```
+### Delete a Server Enrollment Token from a Project
+
+<ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${id}" />
+
+
+#### Request path parameters
+
+| Parameter | Type        | Description   |
+| --------- | ----------- | ------------- |
+| `id`   | string |  |
+| `project_name`   | string |  |
+| `team_name`   | string |  |
+
+
+#### Request query parameters
+
+This endpoint has no query parameters.
+
+#### Request body
+
+This endpoint has no request body.
+
+#### Response body
+
+On returning a 204: Server Enrollment Token was successfully deleted
+
+
+
+#### Usage example
+
+##### Request
+
+```bash
+curl -v -X DELETE \
+-H "Authorization: Bearer ${jwt}" \
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${id}
+
 ```
 
 ##### Response

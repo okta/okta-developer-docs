@@ -1,18 +1,19 @@
 ---
-title: Introduction to Client Endpoints
+title: Clients
 category: asa
 ---
 
 # Clients API
 
-## Getting Started
+## Get started
 
-This article provides an overview of the clients API
+This article provides an overview of the Clients API
 
 Explore the Clients API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://example.com).
 
 
 ## Clients Operations
+
 
 The Clients API has the following operations:
 * [List clients](#list-clients)
@@ -23,131 +24,166 @@ The Clients API has the following operations:
 
 ### List clients
 
-<ApiOperation method="GET" url="/v1/teams/{team_name}/clients" />
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/clients" />
 By default returns the clients for the requesting user. Query options can be provided to filter by user or state.
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 %List any query parameters here in alpha order%
 
-| Parameter | Description   | Required |
+| Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| offset   |   | false | 
-| count   |   | false | 
-| descending   |   | false | 
-| prev   |   | false | 
-| all   |  True returns all clients for the team | false | 
-| state   |  One of ACTIVE, PENDING, DELETED | false | 
-| username   |  List clients of a single user. An empty string returns unassigned clients. | false | 
+| `all`   |  boolean | (Optional) True returns all clients for the team. |
+| `count`   |  integer | (Optional) The number of objects per page. |
+| `descending`   |  boolean | (Optional) The object order. |
+| `offset`   |  string | (Optional) The page offset. |
+| `prev`   |  boolean | (Optional) The direction of paging. |
+| `state`   |  string | (Optional) One of ACTIVE, PENDING, DELETED. |
+| `username`   |  string | (Optional) List clients of a single user. An empty string returns unassigned clients. |
 
 
-#### Request Body
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
-On returning a 200: List of clients
+On returning a 200: List of clients.
 
-Returns a list of [Client](/docs/asa/models.html#client) objects.
+Returns a list of [Client](/docs/asa/objects.html#client) objects.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/clients
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/clients
+
 ```
 
 ##### Response
 ```json
-{"list":[{"deleted_at":null,"description":"Work laptop","encrypted":true,"hostname":"LightInAugust","id":"5ef813ef-8f5b-40c9-aca5-251410e5f239","os":"macOS 10.14.6","state":"PENDING","user_name":"Jason.Compson.IV"},{"deleted_at":null,"description":"Personal laptop","encrypted":true,"hostname":"Absalom","id":"fcac5df2-d74a-4e53-a1c3-ae1f561aef88","os":"macOS 10.14.6","state":"ACTIVE","user_name":"Jason.Compson.IV"}]}
+{
+	"list": [
+		{
+			"deleted_at": null,
+			"description": "Work laptop",
+			"encrypted": true,
+			"hostname": "LightInAugust",
+			"id": "1c8dd4d4-a9ab-499c-86b7-cac3fa6ac7a2",
+			"os": "macOS 10.14.6",
+			"state": "PENDING",
+			"user_name": "Jason.Compson.IV"
+		},
+		{
+			"deleted_at": null,
+			"description": "Personal laptop",
+			"encrypted": true,
+			"hostname": "Absalom",
+			"id": "185ed10c-9881-434d-ad0f-2f3fccb752f6",
+			"os": "macOS 10.14.6",
+			"state": "ACTIVE",
+			"user_name": "Jason.Compson.IV"
+		}
+	]
+}
 ```
 ### Fetch a client
 
-<ApiOperation method="GET" url="/v1/teams/{team_name}/clients/{id}" />
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${id}" />
 
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| id   | string |  |
+| `id`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
-On returning a 200: The client that was requested
+On returning a 200: The client that was requested.
 
-Returns a [Client](/docs/asa/models.html#client) object.
+Returns a [Client](/docs/asa/objects.html#client) object.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/clients/{id}
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/clients/${id}
+
 ```
 
 ##### Response
 ```json
-{"deleted_at":null,"description":"Work laptop","encrypted":true,"hostname":"LightInAugust","id":"5ef813ef-8f5b-40c9-aca5-251410e5f239","os":"macOS 10.14.6","state":"PENDING","user_name":"Jason.Compson.IV"}
+{
+	"deleted_at": null,
+	"description": "Work laptop",
+	"encrypted": true,
+	"hostname": "LightInAugust",
+	"id": "1c8dd4d4-a9ab-499c-86b7-cac3fa6ac7a2",
+	"os": "macOS 10.14.6",
+	"state": "PENDING",
+	"user_name": "Jason.Compson.IV"
+}
 ```
 ### Revoke a client
 
-<ApiOperation method="DELETE" url="/v1/teams/{team_name}/clients/{id}" />
-Revoke a client's access to this team.
+<ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${id}" />
+Revoke a client's access to this team
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| id   | string |  |
+| `id`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
 On returning a 204: The client was revoked successfully.
 
 
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/clients/{id}
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/clients/${id}
+
 ```
 
 ##### Response
@@ -156,40 +192,44 @@ https://app.scaleft.com/v1/teams/{team_name}/clients/{id}
 ```
 ### Approve or assign a client
 
-<ApiOperation method="PUT" url="/v1/teams/{team_name}/clients/{id}" />
-Used for clients enrolled using a token policy or a policy that requires approval.
+<ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${id}" />
+Used for clients enrolled using a token policy or a policy that requires approval
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| id   | string |  |
+| `id`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 *Required:* A user to which to assign the client or a state to which to update the client.
-Uses a [ClientUpdateRequest](/docs/asa/models.html#clientupdaterequest) object.
+Uses a [ClientUpdateRequest](/docs/asa/objects.html#clientupdaterequest) object.
 
-#### Response Body
+#### Response body
 
 On returning a 204: The client was updated successfully.
 
 
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/clients/{id}
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/clients/${id}
+{
+	"state": "ACTIVE",
+	"user_name": "Jason.Compson.IV"
+}
 ```
 
 ##### Response

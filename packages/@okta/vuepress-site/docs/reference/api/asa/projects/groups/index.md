@@ -1,273 +1,295 @@
 ---
-title: Projects and Groups
+title: Project Groups
 category: asa
 ---
 
 # Project Groups API
 
-## Getting Started
+## Get started
 
-This article covers the management of groups within a single project.
+This article covers the management of ASA Groups within a single Project.
 
 Explore the Project Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://example.com).
 
 
 ## Project Groups Operations
 
+
 The Project Groups API has the following operations:
-* [List all the server groups in a project](#list-all-the-server-groups-in-a-project)
-* [List all the groups in a project](#list-all-the-groups-in-a-project)
-* [Add a group to a project](#add-a-group-to-a-project)
-* [Remove a group from a project](#remove-a-group-from-a-project)
-* [Retrieve project details for a single project](#retrieve-project-details-for-a-single-project)
-* [Change the project properties of a group](#change-the-project-properties-of-a-group)
+* [List all the Groups in a Project](#list-all-the-groups-in-a-project)
+* [Add a Group to a Project](#add-a-group-to-a-project)
+* [Retrieve Group details for a single Project](#retrieve-group-details-for-a-single-project)
+* [Remove a Group from a Project](#remove-a-group-from-a-project)
+* [Change the Project properties of a Group](#change-the-project-properties-of-a-group)
 
 
-### List all the server groups in a project
+### List all the Groups in a Project
 
-<ApiOperation method="GET" url="/v1/teams/{team_name}/projects/{project_name}/server_groups" />
-This call returns all the server groups in a project.
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups" />
+Returns all the Groups in a Project.
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| project_name   | string |  |
+| `project_name`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
-On returning a 200: List of groups in the project
+On returning a 200: List of Groups in the Project
 
-Returns a list of [ProjectServerGroup](/docs/asa/models.html#projectservergroup) objects.
+Returns a list of [ProjectGroup](/docs/asa/objects.html#projectgroup) objects.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/projects/{project_name}/server_groups
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups
+
 ```
 
 ##### Response
 ```json
-
+{
+	"list": [
+		{
+			"create_server_group": true,
+			"deleted_at": null,
+			"group": "compsons",
+			"group_id": "4365f294-dad0-4f72-9c56-793b1d439776",
+			"name": "compsons",
+			"profile_attributes": {
+				"unix_gid": 63000,
+				"unix_group_name": "sft_compsons",
+				"windows_group_name": "sft_compsons"
+			},
+			"removed_at": null,
+			"server_access": false,
+			"server_admin": true,
+			"server_group_name": null,
+			"unix_gid": null
+		}
+	]
+}
 ```
-### List all the groups in a project
+### Add a Group to a Project
 
-<ApiOperation method="GET" url="/v1/teams/{team_name}/projects/{project_name}/groups" />
-This call returns all the groups in a project.
+<ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups" />
+Adds a pre-existing Group to the Project, enabling server access, with either user or admin permissions and the option to sync the Group to the servers in the Project.
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| project_name   | string |  |
+| `project_name`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
-
-This endpoint has no query parameters.
-
-#### Request Body
-
-This endpoint has no request body.
-
-#### Response Body
-
-On returning a 200: List of groups in the project
-
-Returns a list of [ProjectGroup](/docs/asa/models.html#projectgroup) objects.
-
-#### Usage Example
-
-##### Request
-
-```bash
-curl -v -X GET \
--H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/projects/{project_name}/groups
-```
-
-##### Response
-```json
-
-```
-### Add a group to a project
-
-<ApiOperation method="POST" url="/v1/teams/{team_name}/projects/{project_name}/groups" />
-Adds a pre-existing group in the team to the project, enabling server access, with either user or admin permissions and the option to sync the group to the servers in the project.
-
-#### Request Path Parameters
-
-| Parameter | Type        | Description   |
-| --------- | ----------- | ------------- |
-| team_name   | string |  |
-| project_name   | string |  |
-
-
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
-*Required:* The group with relevant project settings
-Uses a [ProjectGroup](/docs/asa/models.html#projectgroup) object.
+*Required:* The Group with relevant Project settings
+Uses a [ProjectGroup](/docs/asa/objects.html#projectgroup) object.
 
-#### Response Body
+#### Response body
 
-On returning a 204: The group was succesfully added to the project.
+On returning a 204: The Group was successfully added to the Project.
 
 
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/projects/{project_name}/groups
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups
+{
+	"create_server_group": true,
+	"deleted_at": null,
+	"group": "compsons",
+	"group_id": "",
+	"name": "compsons",
+	"removed_at": null,
+	"server_access": true,
+	"server_admin": false,
+	"server_group_name": null,
+	"unix_gid": null
+}
 ```
 
 ##### Response
 ```json
 
 ```
-### Remove a group from a project
+### Retrieve Group details for a single Project
 
-<ApiOperation method="DELETE" url="/v1/teams/{team_name}/projects/{project_name}/groups/{group_name}" />
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}" />
+Returns details for a Group on a Project. Use `group_id` to access group-related details.
 
-
-#### Request Path Parameters
-
-| Parameter | Type        | Description   |
-| --------- | ----------- | ------------- |
-| team_name   | string |  |
-| project_name   | string |  |
-| group_name   | string |  |
-
-
-#### Request Query Parameters
-
-This endpoint has no query parameters.
-
-#### Request Body
-
-This endpoint has no request body.
-
-#### Response Body
-
-On returning a 204: The group was succesfully removed from the project.
-
-
-
-#### Usage Example
-
-##### Request
-
-```bash
-curl -v -X DELETE \
--H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/projects/{project_name}/groups/{group_name}
-```
-
-##### Response
-```json
-
-```
-### Retrieve project details for a single project
-
-<ApiOperation method="GET" url="/v1/teams/{team_name}/projects/{project_name}/groups/{group_name}" />
-This call returns a project details for a group. Use `group_id` to access group-related details.
-
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| project_name   | string |  |
-| group_name   | string |  |
+| `group_name`   | string |  |
+| `project_name`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
-On returning a 200: The project group object requested
+On returning a 200: The Project Group object requested
 
-Returns a [ProjectGroup](/docs/asa/models.html#projectgroup) object.
+Returns a [ProjectGroupWithProfileAttributes](/docs/asa/objects.html#projectgroupwithprofileattributes) object.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/projects/{project_name}/groups/{group_name}
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}
+
+```
+
+##### Response
+```json
+{
+	"create_server_group": true,
+	"deleted_at": null,
+	"group": "compsons",
+	"group_id": "4365f294-dad0-4f72-9c56-793b1d439776",
+	"name": "compsons",
+	"profile_attributes": {
+		"unix_gid": 63000,
+		"unix_group_name": "sft_compsons",
+		"windows_group_name": "sft_compsons"
+	},
+	"removed_at": null,
+	"server_access": false,
+	"server_admin": true,
+	"server_group_name": null,
+	"unix_gid": null
+}
+```
+### Remove a Group from a Project
+
+<ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}" />
+
+
+#### Request path parameters
+
+| Parameter | Type        | Description   |
+| --------- | ----------- | ------------- |
+| `group_name`   | string |  |
+| `project_name`   | string |  |
+| `team_name`   | string |  |
+
+
+#### Request query parameters
+
+This endpoint has no query parameters.
+
+#### Request body
+
+This endpoint has no request body.
+
+#### Response body
+
+On returning a 204: The Group was successfully removed from the Project.
+
+
+
+#### Usage example
+
+##### Request
+
+```bash
+curl -v -X DELETE \
+-H "Authorization: Bearer ${jwt}" \
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}
+
 ```
 
 ##### Response
 ```json
 
 ```
-### Change the project properties of a group
+### Change the Project properties of a Group
 
-<ApiOperation method="PUT" url="/v1/teams/{team_name}/projects/{project_name}/groups/{group_name}" />
+<ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}" />
 
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| project_name   | string |  |
-| group_name   | string |  |
+| `group_name`   | string |  |
+| `project_name`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
-*Required:* The group and relevant project settings
-Uses a [ProjectGroup](/docs/asa/models.html#projectgroup) object.
+*Required:* The Group and relevant Project settings
+Uses a [ProjectGroup](/docs/asa/objects.html#projectgroup) object.
 
-#### Response Body
+#### Response body
 
-On returning a 204: The group was succesfully added to the project.
+On returning a 204: The Group was successfully updated in the Project.
 
 
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/projects/{project_name}/groups/{group_name}
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}
+{
+	"create_server_group": true,
+	"deleted_at": null,
+	"group": "compsons",
+	"group_id": "",
+	"name": "compsons",
+	"removed_at": null,
+	"server_access": false,
+	"server_admin": true,
+	"server_group_name": null,
+	"unix_gid": null
+}
 ```
 
 ##### Response

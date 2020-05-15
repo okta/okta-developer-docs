@@ -1,18 +1,19 @@
 ---
-title: Introduction to Teams
+title: Teams
 category: asa
 ---
 
 # Teams API
 
-## Getting Started
+## Get started
 
-This article covers API endpoints related to the team resource
+This article covers API endpoints related to the Team resource
 
 Explore the Teams API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://example.com).
 
 
 ## Teams Operations
+
 
 The Teams API has the following operations:
 * [Fetch settings for a team](#fetch-settings-for-a-team)
@@ -21,38 +22,39 @@ The Teams API has the following operations:
 
 ### Fetch settings for a team
 
-<ApiOperation method="GET" url="/v1/teams/{team_name}/settings" />
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/settings" />
 Each team has settings created by default.
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
 On returning a 200: The team settings requested
 
-Returns a [TeamSettings](/docs/asa/models.html#teamsettings) object.
+Returns a [TeamSettings](/docs/asa/objects.html#teamsettings) object.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/settings
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/settings
+
 ```
 
 ##### Response
@@ -61,39 +63,40 @@ https://app.scaleft.com/v1/teams/{team_name}/settings
 ```
 ### Update team settings
 
-<ApiOperation method="PUT" url="/v1/teams/{team_name}/settings" />
+<ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/settings" />
 Partial updates are permitted. URL parameters are optional and default to unset. To unset a previously-set URL, PUT with the value set to `null`.
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 *Required:* 
-Uses a [TeamSettings](/docs/asa/models.html#teamsettings) object.
+Uses a [TeamSettings](/docs/asa/objects.html#teamsettings) object.
 
-#### Response Body
+#### Response body
 
 On returning a 204: The team settings was successfully updated.
 
 
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/settings
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/settings
+
 ```
 
 ##### Response

@@ -1,18 +1,19 @@
 ---
-title: Introduction to Attribute Endpoints
+title: Attributes
 category: asa
 ---
 
 # Attributes API
 
-## Getting Started
+## Get started
 
-This article provides an overview of the attribute API
+This article provides an overview of the Attributes API
 
 Explore the Attributes API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://example.com).
 
 
 ## Attributes Operations
+
 
 The Attributes API has the following operations:
 * [List group attributes](#list-group-attributes)
@@ -25,124 +26,159 @@ The Attributes API has the following operations:
 
 ### List group attributes
 
-<ApiOperation method="GET" url="/v1/teams/{team_name}/groups/{group_name}/attributes" />
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes" />
 
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| group_name   | string |  |
+| `group_name`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
-This endpoint has no query parameters.
+%List any query parameters here in alpha order%
 
-#### Request Body
+| Parameter | Type   | Description |
+| --------- | ------------- | -------- |
+| `conflicting`   |  boolean | (Optional)  |
+| `count`   |  integer | (Optional) The number of objects per page. |
+| `descending`   |  boolean | (Optional) The object order. |
+| `offset`   |  string | (Optional) The page offset. |
+| `prev`   |  boolean | (Optional) The direction of paging. |
+
+
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
-On returning a 200: List of attributes
+On returning a 200: List of attributes.
 
-Returns a list of [TeamGroupAttribute](/docs/asa/models.html#teamgroupattribute) objects.
+Returns a list of [TeamGroupAttribute](/docs/asa/objects.html#teamgroupattribute) objects.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/groups/{group_name}/attributes
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes
+
 ```
 
 ##### Response
 ```json
-{"list":[{"attribute_name":"unix_group_name","attribute_value":"group_old","id":"dc80df68-ad9f-4294-9a32-9403bbd45a00","managed":false},{"attribute_name":"windows_group_name","attribute_value":"group_new","id":"431418f6-f001-47cd-825f-022e287e1167","managed":false}]}
+{
+	"list": [
+		{
+			"attribute_name": "unix_group_name",
+			"attribute_value": "group_old",
+			"id": "a888fedf-fb08-4877-97f4-ad2102ce7d1e",
+			"managed": false
+		},
+		{
+			"attribute_name": "windows_group_name",
+			"attribute_value": "group_new",
+			"id": "73fbe185-71e3-484a-a7dc-fa6189bb0066",
+			"managed": false
+		}
+	]
+}
 ```
 ### Fetch group attribute
 
-<ApiOperation method="GET" url="/v1/teams/{team_name}/groups/{group_name}/attributes/{attribute_id}" />
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}" />
 
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| group_name   | string |  |
-| attribute_id   | string |  |
+| `attribute_id`   | string |  |
+| `group_name`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
-On returning a 200: The attribute that was requested
+On returning a 200: The attribute that was requested.
 
-Returns a [TeamGroupAttribute](/docs/asa/models.html#teamgroupattribute) object.
+Returns a [TeamGroupAttribute](/docs/asa/objects.html#teamgroupattribute) object.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/groups/{group_name}/attributes/{attribute_id}
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}
+
 ```
 
 ##### Response
 ```json
-{"attribute_name":"unix_group_name","attribute_value":"group_old","id":"dc80df68-ad9f-4294-9a32-9403bbd45a00","managed":false}
+{
+	"attribute_name": "unix_group_name",
+	"attribute_value": "group_old",
+	"id": "a888fedf-fb08-4877-97f4-ad2102ce7d1e",
+	"managed": false
+}
 ```
 ### Update group attribute
 
-<ApiOperation method="PUT" url="/v1/teams/{team_name}/groups/{group_name}/attributes/{attribute_id}" />
+<ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}" />
 
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| group_name   | string |  |
-| attribute_id   | string |  |
+| `attribute_id`   | string |  |
+| `group_name`   | string |  |
+| `team_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 *Required:* Attribute to update
-Uses a [UpdateGroupAttribute](/docs/asa/models.html#updategroupattribute) object.
+Uses a [UpdateGroupAttribute](/docs/asa/objects.html#updategroupattribute) object.
 
-#### Response Body
+#### Response body
 
 On returning a 204: The group attribute was updated successfully.
 
 
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/groups/{group_name}/attributes/{attribute_id}
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}
+{
+	"attribute_name": "unix_group_name",
+	"attribute_value": 100
+}
 ```
 
 ##### Response
@@ -151,90 +187,119 @@ https://app.scaleft.com/v1/teams/{team_name}/groups/{group_name}/attributes/{att
 ```
 ### Lists the attributes for a user
 
-<ApiOperation method="GET" url="/v1/teams/{team_name}/users/{user_name}/attributes" />
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes" />
 
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| user_name   | string |  |
+| `team_name`   | string |  |
+| `user_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 %List any query parameters here in alpha order%
 
-| Parameter | Description   | Required |
+| Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| offset   |   | false | 
-| count   |   | false | 
-| descending   |   | false | 
-| prev   |   | false | 
-| conflicting   |   | false | 
+| `conflicting`   |  boolean | (Optional)  |
+| `count`   |  integer | (Optional) The number of objects per page. |
+| `descending`   |  boolean | (Optional) The object order. |
+| `offset`   |  string | (Optional) The page offset. |
+| `prev`   |  boolean | (Optional) The direction of paging. |
 
 
-#### Request Body
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
-On returning a 200: List of User Attributes
+On returning a 200: List of user attributes.
 
-Returns a list of [TeamUserAttribute](/docs/asa/models.html#teamuserattribute) objects.
+Returns a list of [TeamUserAttribute](/docs/asa/objects.html#teamuserattribute) objects.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/users/{user_name}/attributes
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes
+
 ```
 
 ##### Response
 ```json
-{"list":[{"attribute_name":"unix_user_name","attribute_value":"augusta_ada_king","id":"b6c2ea20-337d-42c7-b0d3-78b777fc92f1","managed":true},{"attribute_name":"unix_uid","attribute_value":1210,"id":"a7fbbd26-0638-490d-8001-6782bb375830","managed":true},{"attribute_name":"unix_gid","attribute_value":1210,"id":"4eebed43-f82a-451f-a659-4437d2f8d1cc","managed":true},{"attribute_name":"windows_user_name","attribute_value":"augusta_ada_king","id":"41178a42-de93-45f1-9b6f-a1aa945330ea","managed":true}]}
+{
+	"list": [
+		{
+			"attribute_name": "unix_user_name",
+			"attribute_value": "augusta_ada_king",
+			"id": "627ce600-bb71-48c9-b4c0-ac0a9bdce536",
+			"managed": true
+		},
+		{
+			"attribute_name": "unix_uid",
+			"attribute_value": 1210,
+			"id": "c208b887-43ef-4329-942c-90e6df6a2531",
+			"managed": true
+		},
+		{
+			"attribute_name": "unix_gid",
+			"attribute_value": 1210,
+			"id": "1e060322-eb37-4930-a10e-850640a65422",
+			"managed": true
+		},
+		{
+			"attribute_name": "windows_user_name",
+			"attribute_value": "augusta_ada_king",
+			"id": "f98c3e2e-96c8-40ed-8994-65814d43f9aa",
+			"managed": true
+		}
+	]
+}
 ```
 ### Fetch user attribute
 
-<ApiOperation method="GET" url="/v1/teams/{team_name}/users/{user_name}/attributes/{attribute_id}" />
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}" />
 
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| user_name   | string |  |
-| attribute_id   | string |  |
+| `attribute_id`   | string |  |
+| `team_name`   | string |  |
+| `user_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 This endpoint has no request body.
 
-#### Response Body
+#### Response body
 
-On returning a 200: The user attribute that was requested
+On returning a 200: The user attribute that was requested.
 
-Returns a [TeamUserAttribute](/docs/asa/models.html#teamuserattribute) object.
+Returns a [TeamUserAttribute](/docs/asa/objects.html#teamuserattribute) object.
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/users/{user_name}/attributes/{attribute_id}
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}
+
 ```
 
 ##### Response
@@ -243,41 +308,45 @@ https://app.scaleft.com/v1/teams/{team_name}/users/{user_name}/attributes/{attri
 ```
 ### Update a single attribute for a user
 
-<ApiOperation method="PUT" url="/v1/teams/{team_name}/users/{user_name}/attributes/{attribute_id}" />
+<ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}" />
 
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| team_name   | string |  |
-| user_name   | string |  |
-| attribute_id   | string |  |
+| `attribute_id`   | string |  |
+| `team_name`   | string |  |
+| `user_name`   | string |  |
 
 
-#### Request Query Parameters
+#### Request query parameters
 
 This endpoint has no query parameters.
 
-#### Request Body
+#### Request body
 
 *Required:* 
-Uses a [UpdateAttribute](/docs/asa/models.html#updateattribute) object.
+Uses a [UpdateAttribute](/docs/asa/objects.html#updateattribute) object.
 
-#### Response Body
+#### Response body
 
 On returning a 204: The attribute was updated successfully.
 
 
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
 ```bash
 curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/{team_name}/users/{user_name}/attributes/{attribute_id}
+https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}
+{
+	"attribute_name": "unix_user_name",
+	"attribute_value": "ada_lovelace"
+}
 ```
 
 ##### Response
