@@ -8,7 +8,7 @@ showToc: false
 
 # Okta Error Codes and Descriptions
 
-This document contains a complete list of all errors that the Okta API returns, as well as some general information about what causes these errors and how to resolve them.
+This document contains a complete list of all errors that the Okta API returns.
 
 All errors contain the follow fields:
 
@@ -25,7 +25,7 @@ All errors contain the follow fields:
 
 ## Example Errors for OpenID Connect and Social Login
 
-In stituations where Okta needs to pass an error to a downstream application via a `redirect_uri`, the error code and description will be encoded as the query parameters `error` and `error_description`.
+In situations where Okta needs to pass an error to a downstream application via a `redirect_uri`, the error code and description will be encoded as the query parameters `error` and `error_description`.
 
 > For example, if the **redirect_uri** is **https://example.com**, then the **ACCESS_DENIED** error would be passed as follows:
 >
