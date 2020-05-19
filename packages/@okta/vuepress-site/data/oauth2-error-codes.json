@@ -1,6 +1,6 @@
 {
-  "release" : "2020.05.2",
-  "build" : "2020.05.2-begin-77-g3b40470dc850",
+  "release" : "2020.05.3",
+  "build" : "2020.05.3-begin-37-g5945cb5f044c",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
