@@ -16,7 +16,7 @@ All errors contain the follow fields:
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | `errorCode`    | An Okta code for this type of error.                                                                                                    |
 | `errorSummary` | A short description of what caused this error. Sometimes this will contain dynamically-generated information about your specific error. |
-| `errorLink`    | A link to the section of this page that describes this error.                                                                           |
+| `errorLink`    | An Okta code for this type of error.                                                                                                    |
 | `errorId`      | A unique identifier for this error. This can be used by Okta Support to help with troubleshooting.                                      |
 | `errorCauses`  | (Optional) Further information about what caused this error.                                                                            |
 
