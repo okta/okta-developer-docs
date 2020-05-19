@@ -33,7 +33,7 @@
 <span class="token punctuation">{</span>
     <span class="token property">"errorCode"</span><span class="token punctuation">:</span> <span class="token string">"{{oktaError.errorCode}}"</span><span class="token punctuation">,</span>
     <span class="token property">"errorSummary"</span><span class="token punctuation">:</span> <span class="token string">"{{oktaError.errorSummary}}"</span><span class="token punctuation">,</span>
-    <span class="token property">"errorLink"</span><span class="token punctuation">:</span> <span class="token string">"https://developer.okta.com/docs/reference/error-codes/#{{oktaError.errorCode}}"</span><span class="token punctuation">,</span>
+    <span class="token property">"errorLink"</span><span class="token punctuation">:</span> <span class="token string">{{oktaError.errorCode}}</span><span class="token punctuation">,</span>
     <span class="token property">"errorId"</span><span class="token punctuation">:</span> <span class="token string">"{{errorId()}}"</span><span class="token punctuation">,</span>
     <span class="token property">"errorCauses"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
