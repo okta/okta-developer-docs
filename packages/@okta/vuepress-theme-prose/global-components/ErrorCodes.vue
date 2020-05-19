@@ -1,7 +1,7 @@
 <template>
   <div class="error-codes">
     <p class="error-codes-search-container">
-    <input type="text" id="error-code-search" name="filter" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search error codes for... (Titles, Http Status, or Error Code)" :value="search" @input="updateSearch"/>
+    <input type="text" id="error-code-search" name="filter" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search error codes for... (Titles, HTTP Status, or Error Code)" :value="search" @input="updateSearch"/>
 
     <select id="error-codes-release" name="release" markdown="block" v-model="filterStatusCode">
       <option :value="null">Status Codes</option>
