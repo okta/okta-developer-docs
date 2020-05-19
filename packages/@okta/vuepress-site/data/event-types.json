@@ -1,6 +1,6 @@
 {
-  "release" : "2020.05.1",
-  "build" : "2020.05.1-begin-90-g0d77dca17131",
+  "release" : "2020.05.3",
+  "build" : "2020.05.3-begin-37-g5945cb5f044c",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
