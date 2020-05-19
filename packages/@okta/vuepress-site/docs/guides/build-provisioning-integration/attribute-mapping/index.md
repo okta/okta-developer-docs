@@ -4,9 +4,9 @@ title: Check the attributes and corresponding mappings
 
 When you add a SCIM template integration to your development org, it comes with base attributes set by default. The user schema in your SCIM application might not support all of these attributes. It is important that you go through the steps below to ensure that the integration you're submitting to Okta for review reflects the attributes supported by your application.
 
->**Note:** If you don't confirm your attributes and mappings before you submit your integration for review, the Okta App Analyst will return your submission with a request to update your attributes.
+>**Note:** Confirm your attributes and mappings before you submit your integration for review, or your submission will be returned by the Okta App Analyst with a request to update your attributes.
 
-## Delete Attributes
+## Delete attributes
 
 Before you can delete an attribute, you first need to remove the mapping for that attribute.
 
@@ -44,7 +44,7 @@ B. Delete attributes from your attribute list
   1. Click **Delete Attribute** to confirm that you want to remove the attribute.
     ![Profile Editor - Delete Attribute](/img/oin/scim_check-attributes-8.png "Profile Editor - Delete Attribute")
 
-## Add Attributes
+## Add attributes
 
 1. From the Admin Console, open your SCIM integration.
 
@@ -63,7 +63,7 @@ B. Delete attributes from your attribute list
 
 1. After adding an attribute, you can add a mapping for that new attribute.
 
-## Map Attributes
+## Map attributes
 
 1. From the Admin Console, open your SCIM integration.
 
@@ -93,7 +93,7 @@ B. Delete attributes from your attribute list
 
 You only want to include the attributes that you support in your current user schema. To ensure that the attributes are being sent properly to and from Okta:
 
-1. When assigning a user to the SCIM integration you added in your dev org, ensure that all expected attributes are populated for that user.
+1. When assigning a user to the SCIM integration that you added in your dev org, ensure that all expected attributes are populated for that user.
 
 1. After the user is pushed to your SCIM application, check that all attributes are populated in your SCIM repository.
 

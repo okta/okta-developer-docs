@@ -56,11 +56,11 @@ For a detailed explanation on deleting user profiles, see [Delete (Deprovision)]
 
 **Q: How does data validation work with SCIM provisioning? For example, if my application requires the phone number in a specific format, how do I ensure that Okta passes the attribute in that format? If a data validation error issue occurs, how does error reporting work?**
 
-The SCIM specification identifies valid data formats for a given user profile attribute; however, to preserve flexibility, Okta doesn't rigorously validate that the customer has submitted values that meet those requirements.
+The SCIM specification identifies valid data formats for a given user profile attribute. However, to preserve flexibility, Okta doesn't rigorously validate that the customer has submitted values that meet those requirements.
 
 Therefore, data validation should be handled by your application. When Okta provisions a user profile to your server, your application should check that the data is valid according to any special requirements. Error messages sent in response from your application are surfaced to the Okta administrator through alerts and tasks in the Okta interface.
 
-You should also specify your data requirements in the configuration document you provide for using your integration.
+You should also specify your data requirements in the configuration document that you provide for using your integration.
 
 **Q: How much support is required for filtering results?**
 
@@ -90,4 +90,4 @@ SCIM integrations that are created using the Application Integration Wizard use 
 
 **Q: How do I get a SCIM application that resides inside my corporate firewall to integrate with Okta?**
 
-The [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/) instructions target cloud-based applications, but Okta does have a solution for on-premise applications. For more details about the Okta agent-based provisioning solution, see [Configuring On Premises Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_OPP_configure).
+The [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/) instructions target cloud-based applications, but Okta does have a solution for on-premises applications. For more details about the Okta agent-based provisioning solution, see the [On-Premises Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_OPP_configure) configuration guide.

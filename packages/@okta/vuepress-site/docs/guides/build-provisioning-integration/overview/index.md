@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-Whether you are an independent software vendor (ISV), an existing Okta customer, an IT systems administrator, or a developer new to Okta, you need to know how to set up and test your cloud-based application and API endpoints in order to successfully deploy an Okta integration using SCIM provisioning.
+Whether you are an independent software vendor (ISV), an existing Okta customer, an IT systems administrator, or a developer new to Okta, you need to know how to set up and test your cloud-based application and API endpoints to successfully deploy an Okta integration using SCIM provisioning.
 
 If you need more detail on the concepts behind lifecycle management with SCIM and Okta, see [Understanding SCIM](/docs/concepts/scim/).
 

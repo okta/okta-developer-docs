@@ -114,7 +114,7 @@ Okta user management requires that your SCIM API supports an `active` attribute 
 
 Sometimes it isn't feasible for your cloud-based application to natively support a SCIM API. An alternative option is to build and host your own SCIM facade middleware that translates between the Okta SCIM API connection and the cloud application's proprietary API. The Okta integration connection is then made to this SCIM facade.
 
-## Provisioning to on-premises applications
+## Provision to on-premises applications
 
 This provisioning guide targets cloud-based applications, but Okta does have a solution for on-premise applications. See [Configuring On Premises Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_OPP_configure) for details about the Okta agent-based provisioning solution.
 
