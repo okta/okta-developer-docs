@@ -14,6 +14,6 @@ The 30-day period is currently fixed and can't be changed for your organization.
 
 #### Token deactivation
 
-If a user account is deactivated in Okta, any API Token created by that user account is deprovisioned at the same time.
+If a user account is deactivated in Okta, any API token created by that user account is deprovisioned at the same time.
 
 <NextSectionLink/>
