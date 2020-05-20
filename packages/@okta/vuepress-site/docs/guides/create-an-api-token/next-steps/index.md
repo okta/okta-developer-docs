@@ -1,5 +1,5 @@
 ---
-title: Token expiration and deactivation
+title: Next steps
 ---
 
 With the token created, you can begin using it, supplying it in the `Authorization` header of calls to Okta API endpoints.
