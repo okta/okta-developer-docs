@@ -57,5 +57,3 @@ Response:
 ```
 
 > **Note:** The response has been truncated for clarity.
-
-<NextSectionLink/>
