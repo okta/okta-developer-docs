@@ -13,7 +13,7 @@ Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including ac
 * [Claim operations](#claim-operations)
 * [Key Store operations](#key-store-operations)
 
-## Getting Started
+## Get Started
 
 Explore the Authorization Servers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/145f5d5fb42a04e22c3e)
 
@@ -31,10 +31,10 @@ Use the following operations to manage Custom Authorization Servers:
 * [Activate](#activate-authorization-server)
 * [Deactivate](#deactivate-authorization-server)
 
-#### Working with the Default Authorization Server
+#### Work with the Default Authorization Server
 
 Okta provides a pre-configured Custom Authorization Server with the name `default`.
-This default Authorization Server includes a basic access policy and rule, which you can edit to control access.
+This Default Authorization Server includes a basic access policy and rule, which you can edit to control access.
 It allows you to specify `default` instead of the `authServerId` in requests to it:
 
 * `https://${yourOktaDomain}/api/v1/authorizationServers/default` vs
@@ -160,7 +160,7 @@ When you use these API endpoints to create or modify an Authorization Server res
 
 * If set to `CUSTOM_URL_DOMAIN`, then in responses, `issuer` is the custom domain URL configured in the administration user interface.
 
-After you enable the Custom URL Domain feature, all new Custom Authorization Servers use `CUSTOM_URL_DOMAIN` by default. All existing Custom Authorization Servers continue to use `ORG_URL` until changed via the administration UI or API, so that existing integrations with client and resource server continue to work after the feature is enabled.
+After you enable the Custom URL Domain feature, all new Custom Authorization Servers use `CUSTOM_URL_DOMAIN` by default. All existing Custom Authorization Servers continue to use `ORG_URL` until changed using the Admin Console or the API, so that existing integrations with client and resource server continue to work after the feature is enabled.
 
 #### Create Authorization Server
 
@@ -207,7 +207,7 @@ q         | Searches the `name` and `audiences` of Authorization Servers for mat
 limit     | Specifies the number of Authorizaton Server results on a page                               | Query      | Number   | FALSE    | 200
 after     | Specifies the pagination cursor for the next page of Authorization Servers                  | Query      | String   | FALSE    |
 
-Parameter Details
+**Parameter details**
 
 * The `after` cursor should be treated as an opaque value and obtained through the next link relationship. See [Pagination](/docs/reference/api-overview/#pagination).
 * `limit` can be no larger than 200.
@@ -252,14 +252,13 @@ curl -v -X GET \
 
 ##### Response example
 
-
-The [Custom Authorization Server](#authorization-server-object) you requested by '{authServerId}`.
+The [Custom Authorization Server](#authorization-server-object) that you requested by `{authServerId}`
 
 #### Update Authorization Server
 
 <ApiOperation method="put" url="/api/v1/authorizationServers/${authServerId}" />
 
-Updates Authorization Server identified by `authServerId`
+Updates the Authorization Server identified by `authServerId`
 
 > **Note:** Switching between rotation modes won't change the active signing Key.
 
@@ -675,16 +674,16 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 | consent <ApiLifecycle access="ea" />     | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`       | Enum      | `IMPLICIT`     | True for update if this EA feature is enabled |
 | default                                  | Whether the Scope is a default Scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the Scope                                                                                | String    |                | False                                      |
-| displayName <ApiLifecycle access="ea" /> | Name of the end user displayed in a consent dialog window                                                      | String    |                | False                                      |
+| displayName <ApiLifecycle access="ea" /> | Name of the end user displayed in a consent dialog box                                                      | String    |                | False                                      |
 | id                                       | ID of the Scope                                                                                         | String    |                | False                                      |
 | metadataPublish                          | Whether the Scope should be included in the metadata. Valid values: `NO_CLIENTS`, `ALL_CLIENTS`  | Enum      | `NO_CLIENTS`   | True except for create                     |
 | name                                     | Name of the Scope                                                                                       | String    |                | True                                       |
 | system                                   | Whether Okta created the Scope                                                                          | Boolean   |                | False                                      |
 
-* <ApiLifecycle access="ea" /> A consent dialog appears depending on the values of three elements:
+* <ApiLifecycle access="ea" /> A consent dialog box appears depending on the values of three elements:
     * `prompt` - a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
     * `consent_method` - a property on [apps](/docs/reference/api/apps/#settings-7)
-    * `consent` - a property on scopes as listed in the table above
+    * `consent` - a property on Scopes as listed in the table above
 
 | `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
 | :------------------ | :--------------------------------- | :---------------------------- | :----------- |
@@ -699,13 +698,13 @@ When you use these API endpoints to create or modify a Scope resource, the respo
   * Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
   * If you request a Scope that requires consent while using the `client_credentials` flow, an error is returned. Because there is no user, no consent can be given.
   * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
-  * The scope name must only contain printable ASCII except for spaces, double quotes, and backslashes. It also must not start with `okta.` or `okta:` and must not be only `okta` or `*`.
+  * The Scope name must only contain printable ASCII except for spaces, double quotes, and backslashes. It also must not start with `okta.` or `okta:` and must not be only `okta` or `*`.
 
-#### Get all scopes
+#### Get all Scopes
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/scopes" />
 
-Get the scopes defined for a specified Custom Authorization Server
+Get the Scopes defined for a specified Custom Authorization Server
 
 ##### Request parameters
 
@@ -870,6 +869,7 @@ HTTP 204: No Content
 * [Delete a Claim](#delete-a-claim)
 
 #### Claim object
+
 When you use these API endpoints to create or modify a Claim resource, the response looks like:
 
 ```json
@@ -892,10 +892,10 @@ When you use these API endpoints to create or modify a Claim resource, the respo
 
 | Property               | Description                                                                                                                                                                                                                                        | Type                                                   | Required for create or update            |
 | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------- | :--------------------------------------- |
-| alwaysIncludeInToken   | Specifies whether to include Claims in token. [Details](#details-for-alwaysincludeintoken)                                                                                                                                                         | Boolean                                                | False                                    |
+| alwaysIncludeInToken   | Specifies whether to include Claims in the token [Details](#details-for-alwaysincludeintoken)                                                                                                                                                         | Boolean                                                | False                                    |
 | claimType              | Specifies whether the Claim is for an access token (`RESOURCE`) or ID token (`IDENTITY`)                                                                                                                                                           | Enum                                                   | True                                     |
 | conditions             | Specifies the scopes for this Claim                                                                                                                                                                                                                | [Condition object](#condition-object)                  | False                                    |
-| group_filter_type        | Specifies the type of group filter if `valueType` is `GROUPS`. [Details](#details-for-groupfiltertype)                                                                                                                                             | Enum                                                   | False                                    |
+| group_filter_type        | Specifies the type of group filter if `valueType` is `GROUPS` [Details](#details-for-groupfiltertype)                                                                                                                                             | Enum                                                   | False                                    |
 | id                     | ID of the Claim                                                                                                                                                                                                                                    | String                                                 | True except for create or get all Claims |
 | name                   | Name of the Claim                                                                                                                                                                                                                                  | String                                                 | True                                     |
 | status                 | Specifies whether requests have access to this Claim. Valid values: `ACTIVE` or `INACTIVE`                                                                                                                                                         | Enum                                                   | True                                     |
@@ -907,12 +907,12 @@ When you use these API endpoints to create or modify a Claim resource, the respo
 
 If `valueType` is `GROUPS`, then the groups returned are filtered according to the value of `group_filter_type`:
 
-* `STARTS_WITH`: Group names start with `value` (not case sensitive). For example, if `value` is `group1`, then `group123` and `Group123` are included.
-* `EQUALS`: Group name is the same as `value` (not case sensitive). For example, if `value` is `group1`, then `group1` and `Group1` are included, but `group123` isn't.
-* `CONTAINS`: Group names contain `value` (not case sensitive). For example, if `value` is `group1`, then `MyGroup123` and `group1` are included.
-* `REGEX`: Group names match the regular expression in `value` (case sensitive). For example if `value` is `/^[a-z0-9_-]{3,16}$/`, then any group name that has at least 3 letters, no more than 16, and contains lower case letters, a hyphen, or numbers.
+* `STARTS_WITH`: Group names start with `value` (not case-sensitive). For example, if `value` is `group1`, then `group123` and `Group123` are included.
+* `EQUALS`: Group name is the same as `value` (not case-sensitive). For example, if `value` is `group1`, then `group1` and `Group1` are included, but `group123` isn't.
+* `CONTAINS`: Group names contain `value` (not case-sensitive). For example, if `value` is `group1`, then `MyGroup123` and `group1` are included.
+* `REGEX`: Group names match the regular expression in `value` (case-sensitive). For example if `value` is `/^[a-z0-9_-]{3,16}$/`, then any Group name that has at least three letters, no more than 16, and contains lowercase letters, a hyphen, or numbers.
 
-If you have complex filters for groups, you can [create a groups whitelist](/docs/guides/customize-tokens-returned-from-okta/create-groups-claim/) to put them all in a Claim.
+If you have complex filters for Groups, you can [create a Groups whitelist](/docs/guides/customize-tokens-returned-from-okta/create-groups-claim/) to put them all in a Claim.
 
 ##### Details for `alwaysIncludeInToken`
 
@@ -1056,7 +1056,7 @@ curl -v -X PUT \
 
 ##### Response example
 
-Returns the [Claim](#claim-object) you updated
+Returns the [Claim](#claim-object) that you updated
 
 #### Delete a Claim
 
@@ -1089,8 +1089,8 @@ HTTP 204: No Content
 
 ### Key Store operations
 
-* [Get Authorization Server keys](#get-authorization-server-keys)
-* [Rotate Authorization Server keys](#rotate-authorization-server-keys)
+* [Get Authorization Server Keys](#get-authorization-server-keys)
+* [Rotate Authorization Server Keys](#rotate-authorization-server-keys)
 
 #### Credentials object
 
@@ -1114,15 +1114,15 @@ When you use these API endpoints to create or modify a Credentials resource, the
 
 | Property        | Description                                            | DataType     | Required     | Updatable  |
 | :-------------- | :----------------------------------------------------- | :----------- | :----------- | :--------- |
-| kid             | The ID of the JSON Web Key used for signing tokens issued by the authorization server  | String       | FALSE        | FALSE      |
-| lastRotated     | The timestamp when the authorization server started to use the `kid` for signing tokens| String       | FALSE        | FALSE      |
-| nextRotation    | The timestamp when the authorization server changes the Key for signing tokens. Only returned when `rotationMode` is `AUTO`   | String       | FALSE        | FALSE      |
-| rotationMode    | The key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`.| Enum     | FALSE        | TRUE       |
+| kid             | The ID of the JSON Web Key used for signing tokens issued by the Authorization Server  | String       | FALSE        | FALSE      |
+| lastRotated     | The timestamp when the Authorization Server started to use the `kid` for signing tokens| String       | FALSE        | FALSE      |
+| nextRotation    | The timestamp when the Authorization Server changes the Key for signing tokens. Only returned when `rotationMode` is `AUTO`.   | String       | FALSE        | FALSE      |
+| rotationMode    | The Key rotation mode for the authorization server. Can be `AUTO` or `MANUAL`.| Enum     | FALSE        | TRUE       |
 | use             | How the Key is used. Valid value: `sig`            |            |            |         |
 
 #### Certificate JSON Web Key object
 
-This object defines a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517) for an application's signature or encryption credential.
+Defines a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517) for an application's signature or encryption credential
 
 When you use these API endpoints to create or modify a Certificate JSON Web Key resource, the response looks like:
 
@@ -1157,18 +1157,18 @@ When you use these API endpoints to create or modify a Certificate JSON Web Key 
 | Property    | Description                                                                              | Type   |
 | :---------- | :--------------------------------------------------------------------------------------- | :----- |
 | alg         | The algorithm used with the Key. Valid value: `RS256`                                    | String |
-| e           | RSA key value (exponent) for key blinding                                               | String |
-| kid         | The certificate's key ID                                                                | String |
-| kty         | Cryptographic algorithm family for the certificate's key pair. Valid value: `RSA`        | String |
+| e           | RSA Key value (exponent) for Key blinding                                               | String |
+| kid         | The certificate's Key ID                                                                | String |
+| kty         | Cryptographic algorithm family for the certificate's Key pair. Valid value: `RSA`        | String |
 | n           | RSA modulus value                                                                       | String |
 | status      | `ACTIVE`, `NEXT`, or `EXPIRED`                                                           | Enum   |
 | use         | How the Key is used. Valid value: `sig`                                                  | String |
 
-#### Get Authorization Server keys
+#### Get Authorization Server Keys
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/credentials/keys" />
 
-Returns the current, future, and expired [keys](#certificate-json-web-key-object) used by the Custom Authorization Server
+Returns the current, future, and expired [Keys](#certificate-json-web-key-object) used by the Custom Authorization Server
 
 ##### Request parameters
 
@@ -1259,16 +1259,16 @@ curl -v -X GET \
 ```
 
 * The listed `ACTIVE` Key is used to sign tokens issued by the Authorization Aerver.
-* The listed `NEXT` Key is the next Key that the Authorization Server will use to sign tokens when keys are rotated. The NEXT Key might not be listed if it has not been generated yet.
+* The listed `NEXT` Key is the next Key that the Authorization Server uses to sign tokens when Keys are rotated. The NEXT Key might not be listed if it hasn't been generated yet.
 * The listed `EXPIRED` Key is the previous Key that the Authorization Server used to sign tokens. The EXPIRED Key might not be listed if no Key has expired or the expired Key has been deleted.
 
-#### Rotate Authorization Server keys
+#### Rotate Authorization Server Keys
 
 <ApiOperation method="post" url="/api/v1/authorizationServers/${authServerId}/credentials/lifecycle/keyRotate" />
 
-Rotates the current [keys](#certificate-json-web-key-object) for a Custom Authorization Server. If you rotate keys, the `ACTIVE` Key becomes the `EXPIRED` Key, the `NEXT` Key becomes the `ACTIVE` Key, and the Custom Authorization Server immediately begins using the new active Key to sign tokens.
+Rotates the current [Keys](#certificate-json-web-key-object) for a Custom Authorization Server. If you rotate Keys, the `ACTIVE` Key becomes the `EXPIRED` Key, the `NEXT` Key becomes the `ACTIVE` Key, and the Custom Authorization Server immediately begins using the new active Key to sign tokens.
 
-> **Note:** Okta rotates your keys automatically in `AUTO` mode. You can rotate keys yourself in either mode. If keys are rotated manually, any intermediate cache should be invalidated and keys should be fetched again using the [keys](#get-authorization-server-keys) endpoint.
+> **Note:** Okta rotates your Keys automatically in `AUTO` mode. You can rotate Keys yourself in either mode. If Keys are rotated manually, any intermediate cache should be invalidated and Keys should be fetched again using the [Keys](#get-authorization-server-Keys) endpoint.
 
 ##### Request parameters
 
@@ -1364,6 +1364,7 @@ curl -v -X POST \
 HTTP/1.1 400 Bad Request
 Content-Type: application/json;charset=UTF-8
 ```
+
 ```json
 {
   "errorCode": "E0000001",
@@ -1463,17 +1464,17 @@ Content-Type: application/json;charset=UTF-8
 | Property     | Description                                                                                  | Type                                    | Required for create   | Required for update |
 | :----------- | :------------------------------------------------------------------------------------------- | :-------------------------------------- | :-------------------- | :------------------ |
 | actions      | An object that contains the `tokens` array, which shows lifetime durations for the tokens    | Object                                  | System generated      | System generated    |
-| conditions   | Specifies the people, groups, grant types and scopes the rule will be applied to             | [Condition object](#condition-object)   | False                 | False               |
+| conditions   | Specifies the people, Groups, grant types, and Scopes that the rule is applied to             | [Condition object](#condition-object)   | False                 | False               |
 | id           | ID of the rule                                                                               | String                                  | False                 | True                |
 | name         | Name of the rule                                                                             | String                                  | True                  | True                |
 | status       | Specifies whether requests have access to this Claim. Valid values: `ACTIVE` or `INACTIVE`   | Enum                                    | True                  | True                |
-| system       | Specifies whether the rule was created by Okta or not                                        | Boolean                                 | True                  | True                |
+| system       | Specifies whether the rule was created by Okta                                        | Boolean                                 | True                  | True                |
 
 Token limits:
 
-* accessTokenLifetimeMinutes: minimum 5 minutes, maximum 1 day
-* refreshTokenLifetimeMinutes: minimum access token lifetime
-* refreshTokenWindowMinutes: minimum 10 minutes, maximum of five years
+* `accessTokenLifetimeMinutes`: minimum five minutes, maximum one day
+* `refreshTokenLifetimeMinutes`: minimum access token lifetime
+* `refreshTokenWindowMinutes`: minimum 10 minutes, maximum of five years
 
 ### Condition object
 
@@ -1523,8 +1524,8 @@ Example from a Policy object
 | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ | :---------------------------- |
 | clients      | For Policies, specifies which clients are included or excluded in the Policy                                                                                                          | `include` and `exclude` lists   | True                          |
 | grant_type   | Can be one of the following: `authorization_code`, `password`, `refresh_token`, or `client_credentials`. Determines the mechanism Okta uses to authorize the creation of the tokens.   | Enum                            | True                          |
-| people       | For rules, specifies which users and groups are included or excluded in the rule                                                                                                      | `include` and `exclude` lists   | True                          |
-| scopes       | Array of scopes this condition includes or excludes                                                                                                                                   | `include` and `exclude` lists   | True                          |
+| people       | For rules, specifies which Users and Groups are included or excluded in the rule                                                                                                      | `include` and `exclude` lists   | True                          |
+| scopes       | Array of Scopes this condition includes or excludes                                                                                                                                   | `include` and `exclude` lists   | True                          |
 
 ## Client Resource operations
 
@@ -1536,7 +1537,7 @@ Example from a Policy object
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/clients" />
 
-Lists all client resources for which the specified Authorization Server has tokens
+Lists all Client Resources for which the specified Authorization Server has tokens
 
 #### Request parameters
 
@@ -1773,7 +1774,7 @@ curl -v -X GET \
 
 <ApiOperation method="delete" url="/api/v1/authorizationServers/${authorizationServerId}/clients/${clientId}/tokens" />
 
-Revokes all refresh tokens issued by an Authorization Server for the specified client. Any access tokens issued with these refresh tokens will also be revoked, but access tokens issued without a refresh token will not be affected.
+Revokes all refresh tokens issued by an Authorization Server for the specified client. Any access tokens issued with these refresh tokens are also revoked, but access tokens issued without a refresh token aren't affected.
 
 #### Request parameters
 
@@ -1808,7 +1809,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="delete" url="/api/v1/authorizationServers/${authServerId}/clients/${clientId}/tokens/${tokenId}" />
 
-Revokes the specified refresh token. If an access token was issued with this refresh token, it will also be revoked.
+Revokes the specified refresh token. If an access token was issued with this refresh token, it is also revoked.
 
 #### Request parameters
 
