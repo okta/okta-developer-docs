@@ -3,7 +3,7 @@ title: Overview
 ---
 Okta API tokens are used to authenticate requests to Okta APIs.
 
-When calling an Okta API endpoint, you need to supply a valid API token in the HTTP `Authorization` header, with a valid token specified as the header value. The value needs to be prefixed with the identifier `SSWS`, which specifies the proprietary authentication scheme used. For example:
+When calling an Okta API endpoint, you need to supply a valid API token in the HTTP `Authorization` header, with a valid token specified as the header value. The value needs to be prefixed with the identifier `SSWS`, which specifies the proprietary authentication scheme Okta uses. For example:
 
 ```HTTP
 Authorization: SSWS 00QCjAl4MlV-WPXM...0HmjFx-vbGua
