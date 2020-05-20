@@ -24,6 +24,7 @@
     "posttest": "yarn stop",
     "stop": "if-env CI=true && exit 0 || yarn test:stop-web-driver || echo 'done'",
     "stop-all": "if-env CI=true && exit 0 || pkill -f 'yarn' || echo 'done'",
+    "update-docs": "yarn update-event-types && yarn update-error-codes && yarn update-oauth2-error-codes",
     "update-event-types": "bash scripts/update-event-types.sh",
     "update-error-codes": "bash scripts/update-error-codes.sh",
     "update-oauth2-error-codes": "bash scripts/update-oauth2-error-codes.sh"
