@@ -2,7 +2,7 @@
 title: Token expiration and deactivation
 ---
 
-Tokens expire after a certain period of non-use and can be deactivated.
+Tokens expire automatically after a certain period and can also be deactivated at any time.
 
 #### Token expiration
 
