@@ -6,4 +6,5 @@ sections:
  - overview
  - create-the-token
  - token-expiration-deactivation
+ - next-steps
 ---
