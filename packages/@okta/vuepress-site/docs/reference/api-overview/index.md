@@ -121,8 +121,6 @@ The `Accept-Language` HTTP header advertises which languages the client is able 
 
 The `X-Device-Fingerprint` HTTP header supplies the device fingerprint used in an authentication request.
 
-> **Note:** test
-
 ## Errors
 
 > **Note:** JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, make sure to properly escape all values before use in a browser or any HTML context.
