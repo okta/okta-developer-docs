@@ -354,6 +354,7 @@ Be sure that you are using the `/introspect` endpoint of the same authorization 
 The following parameters can be posted as a part of the URL-encoded form values to the API.
 
 > **Note:** The `/introspect` endpoint requires client authentication. Most client authentication methods require the `client_id` and `client_secret` to be included in the Authorization header as a Basic auth base64-encoded string with the request. See the [Client authentication methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+<br><br>For public clients (such as single-page and mobile apps) that don't have a `client_secret`, you must include the `client_id` as a query parameter when calling the `/introspect` endpoint. Make sure that you aren't passing the Authorization header in the request.
 
 | Parameter               | Description                                                                                                    | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------------------- | :-----        |
