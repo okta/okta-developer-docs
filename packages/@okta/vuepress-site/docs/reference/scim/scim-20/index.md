@@ -23,7 +23,7 @@ To better understand SCIM and the specific implementation of SCIM using Okta, se
 
 ## SCIM User operations
 
-### Create users
+### Create Users
 
 ![Flowchart - create User](/img/oin/scim_flow-user-create.png "Simple flow diagram for create User process")
 
