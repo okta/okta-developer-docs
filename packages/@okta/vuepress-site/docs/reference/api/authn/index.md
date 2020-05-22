@@ -2060,6 +2060,8 @@ curl -v -X POST \
 
 Use the `resend` link to send another OTP if the user doesn't receive the original activation SMS OTP.
 
+> **Notes:** The current rate limit is one SMS challenge per device every 30 seconds.<br><br> Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
+
 ###### Request example for resend SMS
 
 
@@ -2171,6 +2173,8 @@ curl -v -X POST \
 ##### Resend voice call as part of enrollment
 
 Use the `resend` link to send another OTP if the user doesn't receive the original activation Voice Call OTP.
+
+> **Notes:** The current rate limit is one voice call challenge per device every 30 seconds.<br><br> Okta round-robins between voice call providers with every resend request to help ensure delivery of voice call OTP across different carriers.
 
 ###### Request example for resend voice call
 
@@ -4307,6 +4311,24 @@ curl -v -X POST \
 }
 ```
 
+##### Resend SMS challenge
+
+Use the `resend` link to send another OTP if the user doesn't receive the original SMS OTP.
+
+> **Notes:** The current rate limit is one SMS challenge per device every 30 seconds.<br><br> Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
+
+###### Request example for resend SMS
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb"
+}' "https://${yourOktaDomain}/api/v1/authn/factors/sms193zUBEROPBNZKPPE/verify/resend"
+```
+
 ##### Verify SMS challenge (OTP)
 
 Specify `passCode` in the request to verify the Factor.
@@ -4458,6 +4480,24 @@ curl -v -X POST \
     }
   }
 }
+```
+
+##### Resend voice call challenge
+
+Use the `resend` link to send another OTP if the user doesn't receive the original Voice Call OTP.
+
+> **Notes:** The current rate limit is one voice call challenge per device every 30 seconds.<br><br> Okta round-robins between voice call providers with every resend request to help ensure delivery of voice call OTP across different carriers.
+
+###### Request example for resend voice call
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-d '{
+  "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb"
+}' "https://${yourOktaDomain}/api/v1/authn/factors/clf193zUBEROPBNZKPPE/verify/resend"
 ```
 
 ##### Verify Call challenge (OTP)
