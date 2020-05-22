@@ -11,7 +11,7 @@ Import any Okta API collection for Postman from the following list:
 
 | Collections                         | Click to Run                                                                                                                           |
 | :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| Administrator Roles                 | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/04f5ec85685ac6f2827e)                   |
+| Administrator Roles                 | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4f1233beeef282acbcfb)                 |
 | API Access Management (OAuth 2.0)   | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/52edf1dcddc70269b77d)                   |
 | Apps                                | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/18dd817ee8abace68dd8)                   |
 | Authentication                      | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f4f9ca4145db4d80270)                   |
