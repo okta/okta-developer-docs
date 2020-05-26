@@ -814,7 +814,8 @@ Exceeding the rate limit results in:
 ```
 
 ### Rate Limits
-Callers are limited to 60 queries max per minute.
+
+See the tables entries for `/api/v1/logs` in [Rate Limits](/docs/reference/rate-limits/) for details.
 
 ## Data Retention
 

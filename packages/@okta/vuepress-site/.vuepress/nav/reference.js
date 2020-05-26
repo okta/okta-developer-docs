@@ -41,5 +41,6 @@ module.exports = [
     { title: 'Rate Limits', path: '/docs/reference/rate-limits/'},
     { title: 'Release Life Cycle', path: '/docs/reference/releases-at-okta/'},
     { title: 'SCIM Protocol', path: '/docs/reference/scim/'},
+    { title: 'Social IdP Settings', path: '/docs/reference/social-settings/'},
     { title: 'WebFinger', path: '/docs/reference/api/webfinger/'}
   ]
