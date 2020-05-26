@@ -16,8 +16,8 @@ Import any Okta API collection for Postman from the following list:
 | Apps                                | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/18dd817ee8abace68dd8)                   |
 | Authentication                      | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f4f9ca4145db4d80270)                   |
 | Authorization Servers               | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6e58e52a03637c290665)                   |
-| Client Registration                 | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/291ba43cde74844dd4a7)                   |
 | Custom SMS Templates                | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d71f7946d8d56ccdaa06)                   |
+| Dynamic Client Registration         | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/065ebd914e0d998e5759)                   |
 | Events                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f990a71f061a7a16d0bf)                   |
 | Factors                             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9fdda657d134039fcaba)                   |
 | Features                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ab22761da96ff7a7ab0c)                   |
