@@ -9,7 +9,7 @@ meta:
 
 **Q: Does Okta support Single Logout (SLO) for the SAML protocol?**
 
-Yes, Okta supports Service Provider-initiated SLO. This enables users to sign out of both a configured integration and Okta with a single click. For more information, see the **Advanced Settings** section in [Using the App Integration Wizard: SAML App Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard).
+Yes, Okta supports Service Provider-initiated SLO. This feature enables users to sign out of both a configured integration and Okta with a single click. For more information, see the **Advanced Settings** section in [Create a SAML integration using AIW](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-saml).
 
 **Q: I'm an ISV setting up a SAML 2.0 integration using the App Integration Wizard, and we have different domains for each customer. How do you manage these types of situations?**
 
