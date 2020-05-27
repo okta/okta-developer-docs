@@ -23,7 +23,7 @@ Import any Okta API collection for Postman from the following list:
 | Factors                             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9fdda657d134039fcaba)                   |
 | Features                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c8436aac9c9f4966dc8d)                   |
 | Groups                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5dbb338ac908fb32035c)                   |
-| Identity Providers (IdP)            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00a7a643fc0ab3bb54c8)                   |
+| Identity Providers                  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c778cb5f0792b0682a79)                   |
 | Inline Hooks                        | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b4cf1c4baa548b0ea031)                   |
 | Linked Objects                      | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/09416941ad62f022cabb)                   |
 | Mappings                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2b9feba6001a56b2a885)                   |
