@@ -10,9 +10,11 @@ If you are an independent software vendor (ISV), Okta customer, or IT system int
 
 This guide covers submissions that use one or more of the protocols:
 
+* [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/)
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
 * [Security Assertion Markup Language (SAML)](https://en.wikipedia.org/wiki/SAML_2.0)
-* [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/)
+
+    **Note:** SAML integrations must use SHA256 encryption for security. If you are using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/overview/).
 
 ## Prerequisites
 
