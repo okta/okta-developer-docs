@@ -89,7 +89,7 @@ With these defaults, when any validated OpenID Connect JWT is provided, Okta sea
 
 See [Authentication Settings](/docs/reference/social-settings/#authentication-settings) for more information on these attributes.
 
-> **Important:** After an account is linked, any validated JWT token with the same `sub` claim (which is mapped to the `idp.externalid` in the Identity Provider profile) is automatically mapped to the same user regardless of the content of the claims in the JWT or if the values for **IdP Username** and **Match Against** no longer result in a match.
+> **Important:** After an account is linked, any validated JWT token with the same `sub` claim (which is mapped to the `idp.externalId` in the Identity Provider profile) is automatically mapped to the same user regardless of the content of the claims in the JWT or if the values for **IdP Username** and **Match Against** no longer result in a match.
 
 To remove an existing account link or validate account linking on every sign in, we recommend that you make a DELETE call to the [`/api/v1/idps/${idpId}/users/${userId}` endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the Identity Provider user before authentication.
 
