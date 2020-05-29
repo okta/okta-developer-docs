@@ -101,9 +101,9 @@ If the **Account Link Policy** is disabled, no account linking occurs. You can m
 
 If a user signs in to your application for the first time using another Identity Provider, you can implement [JIT provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Identity_Providers) to automatically create an Okta account for them. JIT account creation and activation only works for end users who aren't already Okta users.
 
-Additionally, you can apply granular control over Account Linking and JIT by defining a policy and then rules for the policy. You can base a policy on a variety of factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for groups that have been assigned to your application. You can create multiple policies with more or less restrictive rules and apply them to different groups.
+Additionally, you can apply granular control over account linking and JIT by defining a policy and then rules for the policy. You can base a policy on a variety of factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for groups that have been assigned to your application. You can create multiple policies with more or less restrictive rules and apply them to different groups.
 
-You can also set up group sync to specify the groups that users should be added to and enable profile mastering so that a user's profile gets updated each time that the user signs in. This allows you to always have the most recent data about your users. 
+You can also set up group sync to specify the groups that users should be added to and enable profile mastering so that a user's profile gets updated each time that the user signs in. This allows you to always have the most recent data about your users.
 
 ## IdP Discovery
 If you have more than one Identity Provider configured in your org (which can mean just one external Identity Provider, in addition to Okta itself also serving as an Identity Provider), you can define logic to determine which Identity Provider individual end users are routed to when they authenticate. This functionality is called IdP Discovery, or IdP Routing Rules, and is configured by means of the [IdP Discovery Policy](/docs/reference/api/policy/#idp-discovery-policy).
