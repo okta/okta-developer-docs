@@ -72,13 +72,22 @@ ok -> ua: 302 to redirect_uri
 -->
 
 ## Account Linking and Just-in-Time Provisioning
+
 When you allow your users to sign in to your app using their choice of Identity Providers, you can use [Account Linking](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_match-user) to help create a unified view of your users within your org. Additionally, you can use Just-In-Time (JIT) provisioning to create a seamless experience for users that sign-in to your application for the first time using their credentials from another Identity Provider.
 
-### Acount Linking
+### Account Linking
 
-Users can use multiple Identity Providers to sign in, and Okta can link all of those profiles to a single Okta user. This is called Account Linking. If, for example, a user signs in to your app using a different Identity Provider than they used for registration, Account Linking can establish that the user owns both identities, allowing the user to sign in from either account.
+Users can use multiple Identity Providers to sign in, and Okta can link all of those profiles to a single Okta user. This is called account linking. If, for example, a user signs in to your app using a different Identity Provider than they used for registration, account linking can establish that the user owns both identities, allowing the user to sign in from either account.
 
-Account linking is configured at the Identity Provider level. When you create an Identity Provider using the Developer Console, by default **Account Link Policy** is set to **Automatic**, **Match Against** is set to **Okta Username**, and **IdP Username** is set to **idpuser.email**. With these defaults, when any validated OpenID Connect JWT is provided, Okta searches the Universal Directory for a user's profile where the `email` attribute value that was passed by the Identity Provider (the **IdP Username** value) matches the `username` attribute value (the **Match Against** value). If there is a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
+Account linking is configured at the Identity Provider level. When you create an Identity Provider using the Developer Console, these values are set by default:
+
+* **Account Link Policy** &mdash; Automatic
+* **Match Against** &mdash; Okta Username
+* **IdP Username** &mdash; idpuser.email
+
+With these defaults, when any validated OpenID Connect JWT is provided, Okta searches the Universal Directory for a user's profile where the `email` attribute value passed by the Identity Provider (the **IdP Username** value) matches the `username` attribute value (the **Match Against** value). If there is a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
+
+See [Authentication Settings](/docs/reference/social-settings/#authentication-settings) for more information on these attributes.
 
 > **Important:** After an account is linked, any validated JWT token with the same `sub` claim (which is mapped to the `idp.externalid` in the Identity Provider profile) is automatically mapped to the same user regardless of the content of the claims in the JWT or if the values for **IdP Username** and **Match Against** no longer result in a match.
 
