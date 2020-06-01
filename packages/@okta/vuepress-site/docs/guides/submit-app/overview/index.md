@@ -8,7 +8,7 @@ If you are an independent software vendor (ISV), Okta customer, or IT system int
 
 ## Protocols supported
 
-This guide covers submissions that use one or more of the protocols:
+This guide covers submissions that use one or more of these protocols:
 
 * [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/)
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
