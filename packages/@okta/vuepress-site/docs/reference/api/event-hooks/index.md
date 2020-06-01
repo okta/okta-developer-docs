@@ -12,7 +12,7 @@ For general information on event hooks and how to create and use them, see [Even
 
 ## Get started
 
-Explore the Event Hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b02d234a2af183981254)
+Explore the Event Hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ee24ad1d7e7e17df1783)
 
 ## Event Hook operations
 
