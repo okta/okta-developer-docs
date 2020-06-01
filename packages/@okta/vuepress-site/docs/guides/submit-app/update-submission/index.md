@@ -2,9 +2,9 @@
 title: Update your published integration
 ---
 
-If you need to make protocol changes to your integration that is already published in the OIN catalog, you can visit the [OIN Manager](https://oinmanager.okta.com/) and create a updated version of the integration.
+If you need to make protocol changes to your integration that is already published in the OIN catalog, you can visit the [OIN Manager](https://oinmanager.okta.com/) and create an updated version of the integration.
 
-Similarly, when you enable a new feature in your cloud application (for example, adding SCIM provisioning onto an existing published SAML application), you don't need to create an entirely new submission. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
+Similarly, when you enable a new capability in your application (for example, adding SCIM provisioning onto an existing published SAML application), you don't need to create an entirely new submission. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
 
 1. Sign on to the OIN Manager using the credentials for your original dev org.
     >**Note:** You must submit the updated integration using the same dev org that was used to make the original submission, otherwise the Okta App Analysts reject the update.
