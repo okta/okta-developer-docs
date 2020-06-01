@@ -5,6 +5,7 @@ title: Update your published integration
 If you need to change your integration that is already published in the OIN catalog, you can visit the [OIN Manager](https://oinmanager.okta.com/) and create a new version of the integration.
 
 1. Sign on to the OIN Manager using the credentials for your original dev org.
+    >**Note:** You must submit the updated integration using the same dev org that was used to make the original submission, otherwise the Okta App Analysts reject the update.
 1. The published integration appears on your integrations page. Click **Update**.
 
     This creates a new instance of your integration where you can safely change any of the parameters. Your existing integration remains in the OIN catalog and keeps the previous settings until this new version is published.
