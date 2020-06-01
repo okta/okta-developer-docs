@@ -1,368 +1,332 @@
 {
-  "id": "372c2553-c72b-4dad-84a2-67a3eb821924",
-  "name": "Features(Okta API)",
-  "description": "",
-  "auth": null,
-  "events": null,
-  "variables": [],
-  "order": [],
-  "folders_order": [
-    "3f9c7b76-3ad8-4e19-81b1-f848e1c7aef3",
-    "e944d27c-c7d5-44bb-b4f8-277071ac76a7",
-    "bbe9e67d-82e8-4cbb-b820-7504b6da0305",
-    "fed0e3bc-fac7-4c58-bac2-a08a42f377ae"
-  ],
-  "folders": [
-    {
-      "id": "bbe9e67d-82e8-4cbb-b820-7504b6da0305",
-      "name": "Get Dependencies",
-      "description": "",
-      "auth": null,
-      "events": null,
-      "collection": "372c2553-c72b-4dad-84a2-67a3eb821924",
-      "folder": null,
-      "order": [
-        "c9bf4513-fd21-4f64-aa49-ee33f8724b94"
-      ],
-      "folders_order": []
-    },
-    {
-      "id": "fed0e3bc-fac7-4c58-bac2-a08a42f377ae",
-      "name": "Get Dependents",
-      "description": "",
-      "auth": null,
-      "events": null,
-      "collection": "372c2553-c72b-4dad-84a2-67a3eb821924",
-      "folder": null,
-      "order": [
-        "95f4d4e9-1c83-441b-b11e-3de76937d93e"
-      ],
-      "folders_order": []
-    },
-    {
-      "id": "3f9c7b76-3ad8-4e19-81b1-f848e1c7aef3",
-      "name": "List Features",
-      "description": "",
-      "auth": null,
-      "events": null,
-      "collection": "372c2553-c72b-4dad-84a2-67a3eb821924",
-      "folder": null,
-      "order": [
-        "58af5018-7d7d-43b3-a68c-cbeaa5dead65"
-      ],
-      "folders_order": []
-    },
-    {
-      "id": "e944d27c-c7d5-44bb-b4f8-277071ac76a7",
-      "name": "Update Feature",
-      "description": "",
-      "auth": null,
-      "events": null,
-      "collection": "372c2553-c72b-4dad-84a2-67a3eb821924",
-      "folder": null,
-      "order": [
-        "9c37af42-2550-46ef-8821-76f225d44bfd",
-        "829c4204-9997-4ff4-ae3c-734012e4b027",
-        "7ba6663d-c404-4906-817a-60a8b3d40aed",
-        "57198dc1-2023-4d3e-afcc-793bddc4ed5e"
-      ],
-      "folders_order": []
-    }
-  ],
-  "requests": [
-    {
-      "id": "57198dc1-2023-4d3e-afcc-793bddc4ed5e",
-      "name": "Force Disable Feature",
-      "url": "{{url}}/api/v1/features/{{featureId}}/disable?mode=force",
-      "description": "",
-      "data": null,
-      "dataMode": null,
-      "headerData": [
-        {
-          "key": "Content-Type",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Accept",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Authorization",
-          "value": "SSWS {{apikey}}",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        }
-      ],
-      "method": "POST",
-      "pathVariableData": [],
-      "queryParams": [
-        {
-          "key": "mode",
-          "value": "force",
-          "description": "",
-          "enabled": true
-        }
-      ],
-      "auth": null,
-      "events": [],
-      "folder": "e944d27c-c7d5-44bb-b4f8-277071ac76a7",
-      "headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: SSWS {{apikey}}\n",
-      "pathVariables": {}
-    },
-    {
-      "id": "58af5018-7d7d-43b3-a68c-cbeaa5dead65",
-      "name": "List Features",
-      "url": "{{url}}/api/v1/features",
-      "description": "",
-      "data": null,
-      "dataMode": null,
-      "headerData": [
-        {
-          "key": "Accept",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Content-Type",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Authorization",
-          "value": "SSWS {{apikey}}",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        }
-      ],
-      "method": "GET",
-      "pathVariableData": [],
-      "queryParams": [],
-      "auth": null,
-      "events": [],
-      "folder": "3f9c7b76-3ad8-4e19-81b1-f848e1c7aef3",
-      "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-      "pathVariables": {}
-    },
-    {
-      "id": "7ba6663d-c404-4906-817a-60a8b3d40aed",
-      "name": "Disable Feature",
-      "url": "{{url}}/api/v1/features/{{featureId}}/disable",
-      "description": "",
-      "data": null,
-      "dataMode": null,
-      "headerData": [
-        {
-          "key": "Content-Type",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Accept",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Authorization",
-          "value": "SSWS {{apikey}}",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        }
-      ],
-      "method": "POST",
-      "pathVariableData": [],
-      "queryParams": [],
-      "auth": null,
-      "events": [],
-      "folder": "e944d27c-c7d5-44bb-b4f8-277071ac76a7",
-      "headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: SSWS {{apikey}}\n",
-      "pathVariables": {}
-    },
-    {
-      "id": "829c4204-9997-4ff4-ae3c-734012e4b027",
-      "name": "Force Enable Feature",
-      "url": "{{url}}/api/v1/features/{{featureId}}/enable?mode=force",
-      "description": "",
-      "data": null,
-      "dataMode": null,
-      "headerData": [
-        {
-          "key": "Content-Type",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Accept",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Authorization",
-          "value": "SSWS {{apikey}}",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        }
-      ],
-      "method": "POST",
-      "pathVariableData": [],
-      "queryParams": [
-        {
-          "key": "mode",
-          "value": "force",
-          "description": "",
-          "enabled": true
-        }
-      ],
-      "auth": null,
-      "events": [],
-      "folder": "e944d27c-c7d5-44bb-b4f8-277071ac76a7",
-      "headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: SSWS {{apikey}}\n",
-      "pathVariables": {}
-    },
-    {
-      "id": "95f4d4e9-1c83-441b-b11e-3de76937d93e",
-      "name": "Get Dependents",
-      "url": "{{url}}/api/v1/features/{{featureId}}/dependents",
-      "description": "",
-      "data": null,
-      "dataMode": null,
-      "headerData": [
-        {
-          "description": "",
-          "enabled": true,
-          "key": "Accept",
-          "type": "text",
-          "value": "application/json"
-        },
-        {
-          "description": "",
-          "enabled": true,
-          "key": "Content-Type",
-          "type": "text",
-          "value": "application/json"
-        },
-        {
-          "description": "",
-          "enabled": true,
-          "key": "Authorization",
-          "type": "text",
-          "value": "SSWS {{apikey}}"
-        }
-      ],
-      "method": "GET",
-      "pathVariableData": [],
-      "queryParams": [],
-      "auth": null,
-      "events": [],
-      "folder": "fed0e3bc-fac7-4c58-bac2-a08a42f377ae",
-      "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-      "pathVariables": {}
-    },
-    {
-      "id": "9c37af42-2550-46ef-8821-76f225d44bfd",
-      "name": "Enable Feature",
-      "url": "{{url}}/api/v1/features/{{featureId}}/enable",
-      "description": "",
-      "data": null,
-      "dataMode": null,
-      "headerData": [
-        {
-          "key": "Content-Type",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Accept",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Authorization",
-          "value": "SSWS {{apikey}}",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        }
-      ],
-      "method": "POST",
-      "pathVariableData": [],
-      "queryParams": [
-        {
-          "key": "",
-          "value": "",
-          "description": "",
-          "enabled": false
-        }
-      ],
-      "auth": null,
-      "events": [],
-      "folder": "e944d27c-c7d5-44bb-b4f8-277071ac76a7",
-      "headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: SSWS {{apikey}}\n",
-      "pathVariables": {}
-    },
-    {
-      "id": "c9bf4513-fd21-4f64-aa49-ee33f8724b94",
-      "name": "Get Dependencies",
-      "url": "{{url}}/api/v1/features/{{featureId}}/dependencies",
-      "description": "",
-      "data": null,
-      "dataMode": null,
-      "headerData": [
-        {
-          "key": "Accept",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Content-Type",
-          "value": "application/json",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        },
-        {
-          "key": "Authorization",
-          "value": "SSWS {{apikey}}",
-          "description": "",
-          "type": "text",
-          "enabled": true
-        }
-      ],
-      "method": "GET",
-      "pathVariableData": [],
-      "queryParams": [],
-      "auth": null,
-      "events": [],
-      "folder": "bbe9e67d-82e8-4cbb-b820-7504b6da0305",
-      "headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-      "pathVariables": {}
-    }
-  ]
+	"info": {
+		"_postman_id": "0b514b0e-c024-4624-90c5-8045899996a2",
+		"name": "Features (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Features",
+			"item": [
+				{
+					"name": "List Features",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/features",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"features"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Update Feature",
+			"item": [
+				{
+					"name": "Enable Feature",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/features/{{featureId}}/enable",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"features",
+								"{{featureId}}",
+								"enable"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Force Enable Feature",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/features/{{featureId}}/enable?mode=force",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"features",
+								"{{featureId}}",
+								"enable"
+							],
+							"query": [
+								{
+									"key": "mode",
+									"value": "force"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disable Feature",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/features/{{featureId}}/disable",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"features",
+								"{{featureId}}",
+								"disable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Force Disable Feature",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/features/{{featureId}}/disable?mode=force",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"features",
+								"{{featureId}}",
+								"disable"
+							],
+							"query": [
+								{
+									"key": "mode",
+									"value": "force"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get Dependencies",
+			"item": [
+				{
+					"name": "Get Dependencies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/features/{{featureId}}/dependencies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"features",
+								"{{featureId}}",
+								"dependencies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get Dependents",
+			"item": [
+				{
+					"name": "Get Dependents",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/features/{{featureId}}/dependents",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"features",
+								"{{featureId}}",
+								"dependents"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "2252c917-12ce-4dea-8b48-66dff2c05293",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "54af1deb-24ae-476a-9849-ec35127a0635",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
 }
