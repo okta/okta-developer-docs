@@ -1,13 +1,12 @@
-Using Apple as an external Identity Provider involves multiple steps at the Apple Developer Portal. These steps assume that you already have a standard Apple developer account.
+Using Apple as an external Identity Provider involves multiple steps at the Apple Developer Portal. These steps assume that you already have a [standard Apple developer account](https://developer.apple.com/).
 
 
 ??add note about applie info on Sign in with Apple? https://help.apple.com/developer-account/#/devde676e696??
 
-> **Note:** See the [Apple Developer Portal](https://developer.apple.com/) for more information on registering for a developer account.
 
 ## Create an App ID
 
-note here about in case Apple's UI or steps have changed, see Apple's documentation? (https://developer.apple.com/sign-in-with-apple/get-started/)
+??note here about in case Apple's UI or steps have changed, see Apple's documentation? (https://developer.apple.com/sign-in-with-apple/get-started/)??
 
 1. Access your account's [Apple Developer Dashboard](https://developer.apple.com/).
 
@@ -17,29 +16,29 @@ note here about in case Apple's UI or steps have changed, see Apple's documentat
 
 4. Select **App IDs** if it isn't already selected and click **Continue**. An App ID enables your app to access available services and identifies your app in a provisioning profile with Apple.
 
-5. Enter a description and a Bundle ID for the App ID. Apple recommends using a reverse-domain name style string for the Bundle ID (for example, if the domain the app runs on is `example.com`, then enter `com.example` as the Bundle ID.) ??What is a Bundle ID used for??
+5. Enter a description and a Bundle ID for the App ID. Apple recommends using a reverse-domain name style string for the Bundle ID (for example, if the domain the app runs on is `example.com`, then enter `com.example` as the Bundle ID.)
 
-> **Note:** You can't edit this identifier after you create it, you can only remove it and create a new one.
+    > **Note:** You can't edit this identifier after you create it, you can only remove it and create a new one.
 
-6. Scroll down and select **Sign In with Apple**.
+6. Scroll down and select the **Sign In with Apple** check box.
 
 7. Click **Continue** and then **Register**.
 
 ## Create a Services ID
 
-1. Create another identifier, this time selecting **Services IDs**. The Services ID identifies the particular instance of your app and is used as the OAuth `client_id`.
+1. Create another identifier, this time selecting **Services IDs**. The Services ID identifies the particular instance of your app and it's identifier is used as the OAuth `client_id`.
 
-2. After you click **Continue**, enter a name for the app in the **Description** box. This is what the user sees during the sign-in flow.
+2. After you click **Continue**, enter a name for the app in the **Description** box. This is what the user sees during sign-in.
 
 3. In the **Identifier** box, enter the identifier in a reverse-domain name style string. This identifier becomes the OAuth `client_id`.
 
 4. Click **Continue** and then **Register**.
 
-5. On the Identifiers page, select the identifier that you just created.
+5. On the **Identifiers** page, select the identifier that you just created.
 
-6. Select **Sign In with Apple** and then click **Configure** to define the domain your app is running on and the redirect URLs used during OAuth flow.
+6. Scroll down and select the **Sign In with Apple** check box, and then click **Configure** to define the domain your app is running on and the redirect URLs used during the OAuth flow.
 
-7. If it isn't already selected, select the App ID that you just created from the **Primary App ID** drop-down list.
+7. If it isn't already selected, select the App ID that you just created from the **Primary App ID** drop-down box.
 
 8. Enter the domain name where your app runs in the **Domains and Subdomains** box. Be sure to enter a real domain. Domains such as `localhost` or IP addresses such as `127.0.0.1` won't work.
 
@@ -49,7 +48,7 @@ note here about in case Apple's UI or steps have changed, see Apple's documentat
 
 ## Create a Private Key for Client Authentication
 
-Apple uses a public/private key pair as the client secret. Register a new private key with Apple.
+Apple uses a public/private key pair as the client secret. Register a new private key with Apple. ??You use this key to sign the JWT that you create??
 
 1. On the **Certificates, Identifiers, & Profiles** page, select **Keys** and then **Create a key**.
 
@@ -65,7 +64,7 @@ Apple uses a public/private key pair as the client secret. Register a new privat
 
 6. Click **Done**.
 
-7. On the **Keys** page, click the key that you just made to obtain the Key ID that you need in the next step.
+7. On the **Keys** page, click the key that you just created to obtain the Key ID that you need in the next step.
 
 ## Generate the Client Secret
 
