@@ -62,11 +62,13 @@ For example commands, see the [value](#value) section below.
 
 #### Supported Command
 
-The following command is supported for the Registration Inline Hook type:
+The following command is supported for the Password Import Inline Hook type:
 
 | Command                | Description                                                            |
 |------------------------|------------------------------------------------------------------------|
 | com.okta.action.update | Indicates that an update action should occur for the supplied `value`. |
+
+In this case, you are updating the authentication action that the user is taking. You can specify how to proceed with the `value` object.
 
 #### value
 
