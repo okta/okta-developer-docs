@@ -41,4 +41,4 @@ You can configure a custom attribute statement for SAML assertions to send user 
 
 ### New JWKS key length validation
 
-New client JSON Web Key Sets are now validated and rejected if the key length is less than 2048. <!-- OKTA-283603 -->
+New client JSON Web Key Sets are now validated and rejected if the key length is less than 2048 bits. <!-- OKTA-283603 -->
