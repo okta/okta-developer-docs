@@ -24,7 +24,7 @@ func isAuthenticated(r *http.Request) bool {
 }
 ```
 
-and then in your route, you would call this function to confirm authorization
+and then in your route, you would call this function to confirm authorization:
 
 ```go
 if !isAuthenticated(req) {

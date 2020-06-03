@@ -1,10 +1,10 @@
-You can give the user a **Sign In** button or link to direct the user to your login route.
+You can give the user a **Sign In** button or link to direct the user to your login route:
 
 ```html
 <a href="/login">Sign In</a>
 ```
 
-Your login handler will generate the link and redirect the user to Okta
+Your login handler will generate the link and redirect the user to Okta:
 
 ```go
 http.HandleFunc("/login", LoginHandler)

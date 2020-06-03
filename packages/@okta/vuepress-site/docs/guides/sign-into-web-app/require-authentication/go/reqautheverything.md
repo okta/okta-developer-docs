@@ -25,7 +25,7 @@ func AuthMiddleware(next http.Handler) http.Handler {
 }
 ```
 
-Then you can use the middleware in your handler
+Then you can use the middleware in your handler:
 
 ```go
 http.Handle("/order/{id:[0-9]+}",Middleware(
