@@ -14,5 +14,3 @@ For more information about topics mentioned in this guide:
 * [Concepts: External Identity Providers](/docs/concepts/identity-providers/)
 * [Implement the Implicit Flow](/docs/guides/implement-implicit/overview/)
 * [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/overview/)
-
-

@@ -27,7 +27,7 @@ Okta also offers an easily embeddable JavaScript widget that reproduces the look
 ```js
 config.idps= [
         {type: 'IdentityProviderName', id: 'Your_IDP_ID_Here'}
-        ]; 
+        ];
 	config.idpDisplay ="SECONDARY";
 ```
 
