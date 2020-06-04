@@ -56,6 +56,16 @@ In addition to referencing user attributes, you can also reference App propertie
 | --------         | ----------                                                              | ------------ |
 | `org.$attribute` | `org` reference to Okta org<br>`$attribute` the attribute variable name | org.domain   |
 
+## Referencing Session Properties
+
+In addition to referencing User, App, and Organization properties, you can also reference user Session properties. Session properties allow you to configure Okta to pass Dynamic Authentication Context to SAML apps through the assertion using custom SAML attributes. The App can then use that information to limit access to certain App-specific behaviors and calculate the risk profile for the signed-in user.
+
+### Session Properties
+
+| Syntax            | Definitions                                                 | Evaluation Example                                     |
+| ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
+| `session.amr`     | `session` reference to a user's session<br> `amr` the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd"]` &mdash; password used by the user for authentication<br>`["mfa", "pwd", "kba"]` &mdash; password and MFA security question used by the user for authentication<br>`["mfa", "mca", "pwd", "sms"]` &mdash; password and MFA SMS used by the user for authentication |
+
 ## Functions
 
 Okta offers a variety of functions to manipulate attributes or properties to generate a desired output. You can combine and nest functions inside a single expression.
