@@ -26,8 +26,8 @@ For steps to enable this Inline Hook, see below, [Enabling a Password Import Inl
 The Password Import Inline Hook enables migration of users from another data store in a case where you wish the users to retain their current passwords. It is meant to be used in conjunction with the [Create User with Password Import Inline Hook](/docs/reference/api/users#create-user-with-password-import-inline-hook) flow that is provided by the Users API.
 
 The Password Import Inline Hook is triggered when the end user tries to sign in to Okta for the first time. Okta sends your external service the password that the user supplied. Your external service then needs to send a response to Okta indicating whether the password supplied by the end user is valid or not.
-
-If the password is valid, Okta can authenticate the user independently from then on.
+3
+If the password is valid, Okta can usually authenticate the user independently from then on, but see [Password Inline Hook and Okta Service Mode](#) and [Removal of Password from Existing User Store](#) below.
 
 ## Objects in the Request from Okta
 
@@ -151,5 +151,7 @@ To enable a Password Import Inline Hook, you first need to register your externa
 
 When creating a new user with the `/users` API, you need to use the [Create User with Password Import Inline Hook](/docs/reference/api/users#create-user-with-password-import-inline-hook) use case. This involves specifying a `credentials.password.hook` property in the request body.
 
-When the end user that you have added attempts to sign in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not. If the credentials are valid, Okta can authenticate the user independently from then on.
+When the end user that you have added attempts to sign in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not.
+
+If the credentials are valid, Okta can usually authenticate the user independently from then on.
 
