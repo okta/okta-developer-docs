@@ -15,7 +15,7 @@ OAuth 2.0 and OpenID Connect endpoints. This API largely follows the contract de
 
 ## Get started
 
-Explore the Client Application API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/291ba43cde74844dd4a7)
+Explore the Client Application API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/065ebd914e0d998e5759)
 
 ## Client Application operations
 

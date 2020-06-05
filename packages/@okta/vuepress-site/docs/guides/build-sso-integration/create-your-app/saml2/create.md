@@ -3,7 +3,7 @@
 7. Select **SAML 2.0** in the **Sign on method** section.
 1. Click **Create**.
 1. On the **General Settings** tab, enter a name for your integration and optionally upload a logo. You can also hide the integration from your end-user's Okta dashboard or mobile app.
-1. On the **Configure SAML** tab, use the SAML information that you gathered in the <GuideLink link="../before-you-begin">first step</GuideLink> to configure the settings of your integration. These steps are also detailed in the SAML App Wizard section of [Using the App Integration Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard) in the Okta product documentation.
+1. On the **Configure SAML** tab, use the SAML information that you gathered in the <GuideLink link="../before-you-begin">first step</GuideLink> to configure the settings of your integration. See [Create a SAML integration using AIW](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-saml) in the Okta product documentation.
     * In the **Single sign on URL** field, enter the Assertion Consumer Service (ACS) URL.
     * Enter the Audience URI into the **Audience URI (SP Entity ID)** field.  
         >**Note:** If you are just testing your setup using a sample SAML SP (such as this [SAML Service Provider on GitHub](https://github.com/mcguinness/saml-sp)), enter the following test URL into the **Single sign on URL** and **Audience URI (SP Entity ID)** fields: `http://example.com/saml/sso/example-okta-com`

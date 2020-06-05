@@ -13,7 +13,7 @@ SMS templates customize the SMS message sent to users. One default SMS template 
 
 ## Get started with Custom Templates
 
-Explore the Custom Templates API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d71f7946d8d56ccdaa06)
+Explore the Custom Templates API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6806eb23befaf5bb3b6c)
 
 ## Template Operations
 

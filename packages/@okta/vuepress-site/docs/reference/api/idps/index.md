@@ -5,16 +5,15 @@ category: management
 
 # Identity Providers API
 
-The Okta Identity Providers API provides operations to manage federations with external Identity Providers (IdP).
-For example, your app can support signing in with credentials from Facebook, Google, LinkedIn, Microsoft, an enterprise IdP using SAML 2.0, or an IdP using the OpenID Connect (`OIDC`) protocol.
+The Okta Identity Providers API provides operations to manage federations with external Identity Providers (IdP). For example, your app can support signing in with credentials from Facebook, Google, LinkedIn, Microsoft, an enterprise IdP using SAML 2.0, or an IdP using the OpenID Connect (`OIDC`) protocol.
 
-## Get Started
+## Get started
 
 Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c778cb5f0792b0682a79)
 
-## Setup Guides
+## Setup guides
 
-Each Identity Provider (IdP) requires some setup. Use the Okta setup guide for your IdP:
+Each IdP requires some setup. Use the Okta setup guide for your IdP:
 
 * [Facebook](/docs/guides/add-an-external-idp/facebook/before-you-begin/)
 * [Google](/docs/guides/add-an-external-idp/google/before-you-begin/)
@@ -2649,8 +2648,7 @@ If you aren't receiving a Transaction ID, check that:
 
 Fetches an IdP Transaction by `id`
 
-You must use a `CALLOUT` action for [user provisioning](#user-provisioning-action-type) or [account linking](#account-link-action-type)
-to obtain an IdP Transaction `id`.
+You must use a `CALLOUT` action for [user provisioning](#user-provisioning-action-type) or [account linking](#account-link-action-type) to obtain an IdP Transaction `id`.
 
 ##### Request parameters
 

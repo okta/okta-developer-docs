@@ -54,6 +54,18 @@ In Okta, user profiles are marked as "deactivated". This fact means that Okta ne
 
 For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
 
+**Q: What parts of the SCIM spec aren't included in Okta's SCIM implementation?**
+
+Okta continually strives to improve our support for components of the SCIM protocol specification. Currently, we don't use the following parts of the SCIM specification:
+
+* Search queries using POST
+* Bulk operations
+* `/Me` endpoint
+* `/Schemas` endpoint
+* `/ServiceProviderConfig` endpoint
+* `/ResourceTypes` endpoint
+* Query filtering using `meta.lastModified`
+
 **Q: How does data validation work with SCIM provisioning? For example, if my application requires the phone number in a specific format, how do I ensure that Okta passes the attribute in that format? If a data validation error issue occurs, how does error reporting work?**
 
 The SCIM specification identifies valid data formats for a given user profile attribute. However, to preserve flexibility, Okta doesn't rigorously validate that the customer has submitted values that meet those requirements.
