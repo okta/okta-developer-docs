@@ -91,9 +91,17 @@ The context object allows [trusted web applications](#trusted-application) such 
 | ----------- | ----------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- |
 | deviceToken | A globally unique ID identifying the user's client device or user agent | String   | TRUE     | FALSE  | FALSE    |           | 32        |
 
-> **Note:** You must always pass the same `deviceToken` for a user's device with every authentication request for **per-device** or **per-session** Sign-On Policy Factor challenges. If the `deviceToken` is absent or does not match the previous `deviceToken`, the user is challenged every-time instead of **per-device** or **per-session**.
+> **Note:** You must always pass the same `deviceToken` for a user's device with every authentication request for per-device or per-session Sign-On Policy Factor challenges. If the `deviceToken` is absent or does not match the previous `deviceToken`, the user is challenged every-time instead of per-device or per-session.<br><br>Similarly, you must always pass the same `deviceToken` for a user's device with every authentication request for **new device security behavior detection**. If the `deviceToken` is absent or doesn't match a recent `deviceToken` for the user, the request is considered to be from a new device. See [New Device Behavior Detection](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm#NewDevices).
 
-It is recommended that you generate a UUID or GUID for each client and persist the `deviceToken` as a persistent cookie or HTML5 localStorage item scoped to your web application's origin.
+##### Device Token Best Practices
+
+Use the following recommendations as guidelines for generating and storing a `deviceToken` for both web and native applications.
+
+**Web Apps**<br>
+Okta recommends that you generate a UUID or GUID for each client and persist the `deviceToken` using a secure, HTTP-only cookie or HTML5 localStorage scoped to the customer's domain as the default implementation. See [Cookie flags that matter](https://odino.org/security-hardening-http-cookies/#cookie-flags-that-matter) for more best practices on hardening HTTP cookies.
+
+**Native Apps**<br>
+Ask the device operating system for a unique device ID. See [Apple's information on DeviceCheck](https://developer.apple.com/documentation/devicecheck) for an example.
 
 #### Response parameters
 
@@ -872,7 +880,7 @@ Content-Type: application/json
 Include the `X-Device-Fingerprint` header to supply a device fingerprint. The `X-Device-Fingerprint` header is used in the following ways:
 
 * If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm?).
-* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see [EA documentation](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm?).
+* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. See [New Device Behavior Detection](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm#NewDevices).
 
 Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
