@@ -9,7 +9,7 @@ const FRAMEWORK_TO_COMMON_NAME = {
 };
 
 const COMMON_NAME_TO_FANCY_NAME = {
-  apple: 'Apple'
+  apple: 'Apple',
   azure: 'Azure AD',
   javascript: 'JS',
   angular: 'Angular',

@@ -5,7 +5,7 @@ These steps assume that you already have a [standard Apple developer account](ht
 There are three steps necessary to configure the Identity Provider at Apple:
 
 * **Create an App ID** &mdash; An App ID enables your app to access available services and identifies your app in a provisioning profile with Apple.
-* **Create a Services ID** &mdash; The Services ID identifies the particular instance of your app. The Services ID identifier is used as the OAuth `client_id`.
+* **Create a Services ID** &mdash; The Services ID identifies the particular instance of your app. The Services ID is used as the OAuth `client_id`.
 * **Create a private key for client authentication** &mdash; Apple uses a public/private key pair as the client secret. You must register a new private key with Apple and download the key file for use with Okta.
 
 ## Create an App ID
@@ -46,7 +46,7 @@ There are three steps necessary to configure the Identity Provider at Apple:
 
 10. Click **Next**, **Done**, **Continue**, and then **Save**.
 
-## Create a Private Key for Client Authentication
+## Create a private key for client authentication
 
  Register a new private key for sign in with Apple.
 
