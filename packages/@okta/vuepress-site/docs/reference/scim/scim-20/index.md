@@ -23,7 +23,7 @@ To better understand SCIM and the specific implementation of SCIM using Okta, se
 
 ## SCIM User operations
 
-### Create users
+### Create Users
 
 ![Flowchart - create User](/img/oin/scim_flow-user-create.png "Simple flow diagram for create User process")
 
@@ -529,7 +529,10 @@ Content-Type: text/json;charset=UTF-8
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
     "id": "abf4dd94-a4c0-4f67-89c9-76b03340cb9b",
     "displayName": "Test SCIMv2",
-    "members": null,
+    "members":  [{
+        "value": "b1c794f24f4c49f4b5d503a4cb2686ea",
+        "display": "SCIM 2 Group A"
+    }],
     "meta": {
         "resourceType": "Group"
     }
