@@ -1241,7 +1241,7 @@ Adds Apple as an IdP to your organization
   },
   "_links": {
     "authorize": {
-      "href": "http://rain.okta1.com:1802/oauth2/v1/authorize?idp=0oa18hsHsG3boVejU0g4&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+      "href": "http://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa18hsHsG3boVejU0g4&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1250,7 +1250,7 @@ Adds Apple as an IdP to your organization
       }
     },
     "clientRedirectUri": {
-      "href": "http://rain.okta1.com:1802/oauth2/v1/authorize/callback",
+      "href": "http://r{yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
