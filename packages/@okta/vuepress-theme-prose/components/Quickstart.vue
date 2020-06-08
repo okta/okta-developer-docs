@@ -69,17 +69,14 @@
     },
 
     beforeMount: function () {
-      if(window.location.hash == "") {
+      if(!window.location.hash) {
         window.location.replace("/docs/guides/")
         return
       }
 
-      let redirecturl = this.mappings[window.location.hash]
-      if(redirecturl == undefined) {
-        window.location.replace("/docs/guides")
-        return
-      }
-      window.location.replace(redirecturl)
+      let redirectUrl = this.mappings[window.location.hash] || '/docs/guides'
+
+      window.location.replace(redirectUrl)
       return
     }
   }
