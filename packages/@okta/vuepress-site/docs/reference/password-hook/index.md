@@ -155,9 +155,11 @@ When the end user that you have added attempts to sign in to Okta for the first 
 
 If the credentials are valid, Okta can usually authenticate the user independently from then on.
 
-## Password Inline Hook and Okta Service Mod
+## Password Inline Hook and Okta Service Mode
 
-## Removal of Password from Existing User Store
+
+
+## Removing Password from Existing User Store
 
 
 
