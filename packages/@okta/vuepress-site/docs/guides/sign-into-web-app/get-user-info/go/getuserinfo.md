@@ -1,4 +1,4 @@
-After setting up the previous steps, we stored the profile data in the `sessionStore`:
+After setting up the previous steps, you stored the profile data in the `sessionStore`:
 
 
 ```go

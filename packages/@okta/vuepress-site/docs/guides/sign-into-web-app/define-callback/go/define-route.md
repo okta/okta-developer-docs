@@ -4,7 +4,7 @@ To set up the callback route, you need to define a handler:
 http.HandleFunc("/authorization-code/callback", AuthCodeCallbackHandler)
 ```
 
-Then we need to define how the handler works. During this, we exchange the code for an access token and id token.
+Then you need to define how the handler works. During this, you exchange the code for an access token and id token.
 
 ```go
 type Exchange struct {
