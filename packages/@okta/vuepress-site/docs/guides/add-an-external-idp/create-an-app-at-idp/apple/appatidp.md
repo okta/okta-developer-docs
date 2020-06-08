@@ -24,7 +24,7 @@ There are three steps necessary to configure the Identity Provider at Apple:
 
 ## Create a Services ID
 
-1. Create another identifier, this time selecting **Services IDs** from the drop-down box on the right.
+1. On the **Identifiers** page, click the blue plus icon, and select **Services IDs**.
 
 2. After you click **Continue**, enter a name for the identifier in the **Description** box. This is what the user sees when they sign in.
 
@@ -36,7 +36,7 @@ There are three steps necessary to configure the Identity Provider at Apple:
 
 5. Select the identifier that you just created.
 
-6. Scroll down and select the **Sign In with Apple** check box, and then click **Configure** to define the domain your app is running on and the redirect URLs used during the OAuth flow.
+6. Select the **Sign In with Apple** check box, and then click **Configure** to define the domain your app is running on and the redirect URLs used during the OAuth flow.
 
 7. If it isn't already selected, select the App ID that you just created from the **Primary App ID** drop-down box.
 

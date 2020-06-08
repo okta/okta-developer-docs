@@ -1049,6 +1049,8 @@ Adds Apple as an IdP to your organization
 
 ##### Request Example
 
+> **Note:** The key is truncated for brevity.
+
 ```json
 {
   "type": "APPLE",
@@ -1102,7 +1104,7 @@ Adds Apple as an IdP to your organization
         "client_id": "test client id"
       },
       "signing": {
-        "privateKey": "-----BEGIN PRIVATE KEY-----MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg2X/r1Mg53UkRlly7YB2RS83kZKdql8l378k0oDWGXICgCgYIKoZIzj0DAQehRANCAARuD1kMlGUjqx8JEpWq9ZlFo4SF3zP3TnGJph1QmY46uZA031O3mR/3U62p4Cb9PnybCnzDv+3cWSGWqpAIsQQZ-----END PRIVATE KEY-----",
+        "privateKey": "-----BEGIN PRIVATE KEY-----MIGTAgEAMBM........Cb9PnybCnzDv+3cWSGWqpAIsQQZ-----END PRIVATE KEY-----",
         "kid": "test key id",
         "teamId": "test team id"
       }
@@ -1168,6 +1170,8 @@ Adds Apple as an IdP to your organization
 ```
 ##### Response Example
 
+> **Note:** The key is truncated for brevity.
+
 ```json
 {
   "id": "0oa18hsHsG3boVejU0g4",
@@ -1200,7 +1204,7 @@ Adds Apple as an IdP to your organization
       },
       "signing": {
         "teamId": "test team id",
-        "privateKey": "-----BEGIN PRIVATE KEY-----MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg2X/r1Mg53UkRlly7YB2RS83kZKdql8l378k0oDWGXICgCgYIKoZIzj0DAQehRANCAARuD1kMlGUjqx8JEpWq9ZlFo4SF3zP3TnGJph1QmY46uZA031O3mR/3U62p4Cb9PnybCnzDv+3cWSGWqpAIsQQZ-----END PRIVATE KEY-----",
+        "privateKey": "-----BEGIN PRIVATE KEY-----MIGTAgEAMBM........Cb9PnybCnzDv+3cWSGWqpAIsQQZ-----END PRIVATE KEY-----",
         "kid": "test key id"
       }
     }
