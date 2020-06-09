@@ -41,16 +41,14 @@ The Okta React SDK makes it easy to integrate react-router with Okta's OpenID Co
 
 ## Recommended Guides
 
-
 - [Okta React Overview](/code/react/okta_react/)
+- [Okta Sign-In Widget and React](/code/react/okta_react_sign-in_widget/)
 - [Implementing the PKCE Flow](/docs/guides/implement-auth-code-pkce/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
 
 ## Related Blog Posts
-
-
 
 - [Build a Health Tracking App with React, GraphQL, and User Authentication](/blog/2018/07/11/build-react-graphql-api-user-authentication)
 - [Build User Registration with Node, React, and Okta](/blog/2018/02/06/build-user-registration-with-node-react-and-okta)
