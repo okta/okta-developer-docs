@@ -68,7 +68,7 @@ The following command is supported for the Password Import Inline Hook type:
 |------------------------|------------------------------------------------------------------------|
 | com.okta.action.update | Indicates that an update action should occur for the supplied `value`. |
 
-In this case, you are updating the authentication action that the user is taking. You can specify how to proceed with the `value` object.
+In this case, you are updating the authentication action that is taken for the user. You can specify how to proceed with the `value` object.
 
 #### value
 
@@ -153,14 +153,13 @@ When creating a new user with the `/users` API, you need to use the [Create User
 
 When the end user that you have added attempts to sign in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not.
 
-If the credentials are valid, Okta can usually authenticate the user independently from then on.
-
 ## Password Inline Hook and Okta Service Mode
 
-Your Okta service can be in either *active* or *read-only mode*. See [Okta Service Mode](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_ref_service_op_mode). 
-
+Normally, if your external service responds to Okta indicating that the credentials are valid, Okta saves the password and can authenticate the user independently from then on, without needing to call Password Import Inline Hook. However, if your Okta org is in  *read-only mode* (see [Okta Service Mode](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_ref_service_op_mode)), saving the password isn't possible, so that the next time this end user attempts to sign in, the Password Import Inline Hook will need to be called again to verify their password.
 
 ## Removing Password from Existing User Store
 
+Because of the posssiblity of being in read-only mode, permanent deletion of user passwords from your existing user store should not be performed until success of the password migration can be verified. An Okta System Log [Event](/docs/reference/api/event-types/), `user.import.password`, is available for this purpose. This event is created every time a Password Import Inline Hook is fired, and its `Event.Outcome` property provides a status of `FAILURE` or `SUCCESS` for the password import operation. If the status is `SUCCESS`, Okta has successfully saved the end user's password, and it's safe to delete it from your previous user store.
 
+You can configure an [Event Hook](/docs/concepts/event-hooks/) to send events of this type, to trigger automated cleanup of end user passwords from your previous user store after successful migration.
 
