@@ -1428,7 +1428,7 @@ Searches for users based on the properties specified in the search parameter
 
 > **Note:** Listing users with search should not be used as a part of any critical flows, such as authentication, to prevent potential data loss. Search results may not reflect the latest information, as this endpoint uses a search index which may not be up-to-date with recent updates to the object.
 
-Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.
+Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.  Unlike in [user logins](#okta-login), diacritical marks are significant in search string values: a search for `o.henry` will find `O.Henry` but will not find a property whose value is `ö.hénry`. 
 
 This operation:
 
@@ -3903,6 +3903,8 @@ The default user profile is based on the [System for Cross-Domain Identity Manag
 ##### Okta Login
 
 Every user within your Okta organization must have a unique identifier for a login.  This constraint applies to all users you import from other systems or applications such as Active Directory.  Your organization is the top-level namespace to mix and match logins from all your connected applications or directories.  Careful consideration of naming conventions for your login identifier will make it easier to onboard new applications in the future.
+
+Logins are not considered unique if they differ only in case and/or diacritical marks.  If one of your users has a login of *O.Henry@example.com*, there cannot be another user whose login is *o.henry@example.com*, nor *Ö.Hénry@example.com*.
 
 Okta has a default ambiguous name resolution policy for logins that include @-signs.  (By default, logins must be formatted as email addresses and thus always include @-signs.  That restriction can be removed using either the administrator UI or the [Schemas API](/docs/reference/api/schemas).)  Users can login with their non-qualified short name (e.g. `isaac.brock` with login *isaac.brock@example.com*) as long as the short name is still unique within the organization.
 
