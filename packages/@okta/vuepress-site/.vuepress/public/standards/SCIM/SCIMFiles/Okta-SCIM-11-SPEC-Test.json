@@ -687,7 +687,7 @@
       "assertions": [
         {
           "comparison": "equal_number", 
-          "value": "405", 
+          "value": "404", 
           "source": "response_status"
         }, 
         {
