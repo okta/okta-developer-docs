@@ -157,6 +157,7 @@ If the credentials are valid, Okta can usually authenticate the user independent
 
 ## Password Inline Hook and Okta Service Mode
 
+Your Okta service can be in either *active* or *read-only mode*. See [Okta Service Mode](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_ref_service_op_mode). 
 
 
 ## Removing Password from Existing User Store
