@@ -71,7 +71,7 @@ module.exports = {
           { text: 'User Management', link: '/product/user-management/' },
           { type: 'divider' },
           { text: 'Publish an integration' },
-          { text: 'Overview', link: '/okta-integration-network' },
+          { text: 'Overview', link: '/okta-integration-network/' },
         ]
       },
       { text: 'Pricing', link: '/pricing/' },
