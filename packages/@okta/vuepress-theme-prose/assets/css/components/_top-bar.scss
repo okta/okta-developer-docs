@@ -1,3 +1,4 @@
+$gray-900: #2f3f4a;
 .top-bar {
   display: block;
   background-color: cv('brand');
@@ -26,7 +27,7 @@
 
     @include media(">=tablet") {
       display: flex;
-      min-width: 850px;
+      min-width: 1024px;
     }
   }
 
@@ -126,7 +127,7 @@
       flex: 1;
       align-items: start;
       flex-flow: row wrap;
-      min-width: 810px;
+      min-width: 1024px;
       overflow: hidden;
 
 
@@ -215,13 +216,22 @@
         }
 
         li {
+          @include media("<tablet") {
+            padding: 5px 0;
+            .non-link {
+              border-bottom: 1px solid grey;
+            }
+            .caret {
+              display: none;
+            }
+          }
 
           a.router-link-active,
           a.active {
             text-decoration: none;
             border-bottom: none;
             @include media(">=tablet") {
-              border-bottom: 1px solid white;
+              border-bottom: 1px solid $white;
             }
           }
 
@@ -230,11 +240,25 @@
 
 
             &.hasSubMenu {
-
+              .caret {
+                font-size: 5px;
+                color: $white;
+                vertical-align: middle;
+                margin-left: 6px;
+              }
+              &:hover:before {
+                content: '';
+                display: block;
+                height: 30px;
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 60%;
+              }
               ul.submenu {
                 display: none;
-                margin-top: 2.2rem;
-                padding-top: 0.5rem;
+                margin-top: 1.2rem;
+                padding: 20px 0;
                 margin-bottom: 0rem;
                 box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
                 border-radius: 3px;
@@ -245,18 +269,42 @@
                   content: '';
                   display: block;
                   position: absolute;
-                  top: -40px;
-                  left: 10px;
-                  border-bottom: solid 20px white;
+                  top: -32px;
+                  border-bottom: solid 26px white;
                   border-left: solid 20px transparent;
                   border-right: solid 20px transparent;
-                  padding-top: 25px;
+                  padding-top: 20px;
+                }
+
+                &.submenu-docs {
+                  margin-left: -3%;
+                  &::before {
+                    left: 38%;
+                  }
+                }
+
+                &.submenu-use-cases {
+                  margin-left: -4%;
+                  &::before {
+                    left: 40%;
+                  }
+                }
+
+                &.submenu-support {
+                  margin-left: -5%;
+                  &::before {
+                    left: 44%;
+                  }
+                }
+
+                .non-link {
+                  font-weight: 600;
+                  text-transform: none;
+                  font-size: 18px;
+                  letter-spacing: 0;
                 }
 
               }
-
-
-
             }
 
           }
@@ -282,12 +330,15 @@
               position: absolute;
               background-color: white;
 
-              a {
-                color: cv('cerise');
+              a,div {
+                text-decoration: none;
                 width: 100%;
-                padding: 1.0rem 1.3rem;
+                padding: 5px 25px;
                 transition: color .4s;
-
+                font-weight: 500;
+              }
+              .non-link {
+                color: $gray-900;
               }
             }
 
@@ -305,21 +356,20 @@
                 margin-right: 0rem;
                 margin-bottom: 0rem;
 
-                &:hover {
-                  background-color: cv('cerise');
-                  color: cv('gray', '000');
-
                   a {
-                    color: cv('gray', '000');
-                    text-decoration: none;
-
-
-
-
-
-
+                    color: cv('cerise');
+                    
+                    &:hover {
+                      background-color: cv('cerise');
+                      color: $white;
+                    }
                   }
-                }
+
+                  .divider {
+                    border-top: 1px solid rgb(210, 210, 214);
+                    margin: 5px 25px;
+                    width: 100%;
+                  }
               }
 
             }
@@ -327,18 +377,14 @@
         }
 
 
-        a {
-          color: cv('gray', '000');
+        a,div {
+          color: $white;
           text-decoration: none;
           text-transform: uppercase;
-          font-size: 1.3rem;
-          letter-spacing: 0.1em;
-          padding-bottom: 0.5em;
+          font-size: 16px;
+          letter-spacing: 1.5px;
+          padding-top: 5px;
           font-weight: 400;
-
-          @include media(">=tablet") {
-            font-size: 0.88em;
-          }
 
           &.router-link-active {
             border-bottom: 1px solid white;

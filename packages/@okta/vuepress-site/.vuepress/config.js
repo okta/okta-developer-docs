@@ -54,16 +54,6 @@ module.exports = {
      * Primary Nav: Array of MenuItem components to iterate over within TopNavigation component
      */
     primary_nav: [
-      { text: 'Product', link: '/product/',
-        children: [
-          { text: 'Overview', link: '/product/' },
-          { text: 'Authentication', link: '/product/authentication/' },
-          { text: 'Authorization', link: '/product/authorization/' },
-          { text: 'User Management', link: '/product/user-management/' },
-        ]
-      },
-      { text: 'Pricing', link: '/pricing/' },
-      { text: 'Blog', link: '/blog/' },
       { text: 'Docs', link: '/docs/', active: true,
         children: [
           { text: 'Get Started', link: '/docs/' },
@@ -72,6 +62,20 @@ module.exports = {
           { text: 'Reference', link: '/docs/reference/' }
         ]
       },
+      { text: 'Use Cases', link: '/product/',
+        children: [
+          { text: 'Embed auth into your app' },
+          { text: 'Overview', link: '/product/' },
+          { text: 'Authentication', link: '/product/authentication/' },
+          { text: 'Authorization', link: '/product/authorization/' },
+          { text: 'User Management', link: '/product/user-management/' },
+          { type: 'divider' },
+          { text: 'Publish an integration' },
+          { text: 'Overview', link: '/okta-integration-network/' },
+        ]
+      },
+      { text: 'Pricing', link: '/pricing/' },
+      { text: 'Blog', link: '/blog/' },
       { text: 'Support', link: 'https://www.okta.com/contact/',
         children: [
           { text: 'Okta Developer Forums', link: 'https://devforum.okta.com/' },
