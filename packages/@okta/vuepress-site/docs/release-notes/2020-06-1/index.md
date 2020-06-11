@@ -10,4 +10,4 @@ title: Okta API Products Release Notes
 
 ### Bug fixed in 2020.06.1
 
-For deleted or inactive instances, or instances that don't support CVD, calls to the `/mappings` endpoint incorrectly returned HTTP 500 errors.
+For deleted or inactive instances, or instances that don't support CVD, calls to the `/mappings` endpoint incorrectly returned HTTP 500 errors. (OKTA-287888)
