@@ -1,5 +1,5 @@
 ---
-title: Integrate your SCIM service with an Okta integration
+title: Connect your SCIM service with a new Okta integration
 ---
 
 After you have a SCIM implementation that passes all of the Runscope tests, you need to create your SCIM integration directly within Okta.
@@ -62,5 +62,15 @@ Click **Test Connector Configuration** to confirm that Okta can connect to your 
 
 1. Click **Save** to complete the SCIM integration setup.
 -->
+
+## Troubleshooting
+
+If you experience any difficulties when creating your SCIM integration in Okta, check out the system log information available in the Okta Admin Console.
+
+1. From the Admin Console for your developer org, go to **Applications > Applications**.
+1. Click on your Okta integration to open the integration settings page.
+1. Click **View Logs** to open the System Log. 
+
+The system log captures all events in your developer org for the previous 7 days. This information is invaluable to troubleshoot any connection or authentication issues between Okta and your application. See [System Log](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog) in the Okta product documentation.
 
 <NextSectionLink/>

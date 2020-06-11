@@ -110,6 +110,13 @@ A best practice is to use a generated globally unique identifier (GUID) for this
 
 Okta user management requires that your SCIM API supports an `active` attribute for each user resource that can be set to `true` or `false` to denote a resource as "active" or "inactive".
 
+## Example implementations
+
+There are numerous examples of how to implement SCIM servers and applications. Here are a few to get you started:
+
+- [scimify](https://toolkit.okta.com/apps/scimify/) - A PHP application that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups and /ServiceProviderConfig endpoints
+- [Apache Directory SCIMple](https://github.com/apache/directory-scimple) - Apache's Java EE implementation of the SCIM version 2.0 specification.
+
 ## SCIM facade
 
 Sometimes it isn't feasible for your cloud-based application to natively support a SCIM API. An alternative option is to build and host your own SCIM facade middleware that translates between the Okta SCIM API connection and the cloud application's proprietary API. The Okta integration connection is then made to this SCIM facade.
