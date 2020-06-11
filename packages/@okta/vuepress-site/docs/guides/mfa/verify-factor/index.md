@@ -2,7 +2,7 @@
 title: Verify the factor
 ---
 
-Now that you've verified the factor, you are ready to start verifying MFA tokens.
+Now that the factor has been enrolled and activated, you can verify that the factor works as intended.
 
 1. Open the **Factors (Okta API)** collection, and then the **Factor Verification Operations** collection.
 2. Select the **POST Verify TOTP Factor** request template.

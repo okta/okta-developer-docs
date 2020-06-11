@@ -893,6 +893,8 @@ redirects:
     to: /docs/guides/mfa/-/set-up-postman/
   - from: /guides/mfa/-/verify-factor/index.html
     to: /docs/guides/mfa/-/verify-factor/
+  - from: /docs/guides/mfa/add-factor/index.html
+    to: /docs/guides/mfa/enroll-factor/
   - from: /guides/protect-your-api/-/before-you-begin/index.html
     to: /docs/guides/protect-your-api/-/before-you-begin/
   - from: /guides/protect-your-api/-/configure-cors/index.html
@@ -1951,4 +1953,4 @@ redirects:
     to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /docs/guides/saml-application-setup/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
-    
+
