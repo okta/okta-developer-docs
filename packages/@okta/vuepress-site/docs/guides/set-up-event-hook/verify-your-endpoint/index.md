@@ -2,7 +2,7 @@
 title: Verify Your Endpoint
 ---
 
-After registering the event hook, you need to trigger a one-time verification process, by clicking the **Verify** button displayed in Admin Console after you register your Event Hook.
+After registering the Event Hook, you need to trigger a one-time verification process, by clicking the **Verify** button that is displayed in Admin Console.
 
 You can also trigger verification later, by going to **Workflow > Event Hooks**, selecting the particular Event Hook you registered, and selecting **Verify** from the **Actions** menu.
 
