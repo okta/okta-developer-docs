@@ -9,6 +9,8 @@ Do the following to test your CORS configuration:
 
 <CorsTest />
 
+> **Note:** If this test seems to be working incorrectly, make sure you have all tracking blockers turned off in your browser and reload the page.
+
 ### Request examples
 
 The following code samples can be added to your website to test your CORS configuration. Remember to replace the `baseUrl` with the URL for your Okta organization.
