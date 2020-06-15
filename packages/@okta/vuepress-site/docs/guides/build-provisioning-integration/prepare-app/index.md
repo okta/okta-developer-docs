@@ -68,9 +68,9 @@ Click **Test Connector Configuration** to confirm that Okta can connect to your 
 If you experience any difficulties when creating your SCIM integration in Okta, check out the system log information available in the Okta Admin Console.
 
 1. From the Admin Console for your developer org, go to **Applications > Applications**.
-1. Click on your Okta integration to open the integration settings page.
+1. Select your Okta integration to open the integration settings page.
 1. Click **View Logs** to open the System Log.
 
-The system log captures all events in your developer org for the previous 7 days. This information is invaluable to troubleshoot any connection or authentication issues between Okta and your application. See [System Log](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog) in the Okta product documentation.
+The system log captures all events in your developer org for the previous seven days. This information is invaluable to troubleshoot any connection or authentication issues between Okta and your application. See [System Log](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog) in the Okta product documentation.
 
 <NextSectionLink/>
