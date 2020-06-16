@@ -2,7 +2,7 @@
 title: Configure your Okta integration
 ---
 
-Now that you have created a integration within your Okta org, you need to configure the SCIM options for that integration. These settings tell your Okta integration how to handle provisioning between the users in your downstream SCIM app and their Okta user profiles.
+Now that you have created an integration within your Okta org, you need to configure the SCIM options for that integration. These settings tell your Okta integration how to handle provisioning between the users in your downstream SCIM app and their Okta user profiles.
 
 On the **Provisioning** tab of your Okta integration page, there are now three options listed in the **SETTINGS** panel:
 
