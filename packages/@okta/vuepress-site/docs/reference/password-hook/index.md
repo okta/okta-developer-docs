@@ -163,3 +163,4 @@ Because of the possibility of your org being in a special service mode, permanen
 
 You can configure an [Event Hook](/docs/concepts/event-hooks/) to send this event type to you, to use to trigger automated cleanup of end user passwords after successful migration.
 
+> **Note:** Only one Password Import Inline Hook can be created per org.
