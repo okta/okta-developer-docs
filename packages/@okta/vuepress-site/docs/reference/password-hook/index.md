@@ -153,3 +153,4 @@ When creating a new user with the `/users` API, you need to use the [Create User
 
 When the end user that you have added attempts to sign in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not. If the credentials are valid, Okta can authenticate the user independently from then on.
 
+> **Note:** Only one Password Import Inline Hook can be created per org.
