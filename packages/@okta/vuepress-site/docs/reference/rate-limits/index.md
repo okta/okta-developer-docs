@@ -55,13 +55,12 @@ Note that limits for more specific endpoints override the limits for less specif
 | **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/{authorizationServerId}/v1` except public metadata endpoints (see Note below)                           | 300              | 600              | 600     | 1200       | 2000                  |
 | **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints (see Note below)                          | 300              | 600              | 600     | 1200       | 2000                  |
 | **OAuth2 client configuration requests:**<br>`/oauth2/v1/clients`                                                                                                         | 25               | 50               | 50      | 100        | 100                   |
-| **Get public metadata of Authorization Servers**:<br> Each metadata endpoint has its own limit and not shared with other endpoints (see Note below for list of endpoints) | 600              | 1200             | 1200    | 3000       | 3000                  |
 | **All other OAuth2 requests:**<br>`/oauth2`                                                                                                                               | 100              | 300              | 300     | 600        | 600                   |
 | **Most other API actions:**<br>`/api/v1`                                                                                                                                  | 100              | 300              | 300     | 600        | 1200                  |
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
 
-> **Note:** Public metadata endpoints for Org Authorization Server are: <br/> - `/oauth2/v1/keys` <br/> - `/.well-known/openid-configuration` <br/> Public metadata endpoints for Custom Authorization Servers are: <br/> - `/oauth2/{authorizationServerId}/v1/keys` <br/> - `/oauth2/{authorizationServerId}/.well-known/openid-configuration` <br/> - `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`.
+> **Note:** The following public metadata endpoints are not subjected to rate limiting. </br> Public metadata endpoints for Org Authorization Server are: <br/> - `/oauth2/v1/keys` <br/> - `/.well-known/openid-configuration` <br/> - `/.well-known/oauth-authorization-server` <br/> Public metadata endpoints for Custom Authorization Servers are: <br/> - `/oauth2/{authorizationServerId}/v1/keys` <br/> - `/oauth2/{authorizationServerId}/.well-known/openid-configuration` <br/> - `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`.
 
 ### DynamicScale Rate Limits
 
