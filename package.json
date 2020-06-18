@@ -17,7 +17,7 @@
     "test:unit": "jest tests/unit",
     "test-only": "yarn test:unit && yarn test:update-web-driver && protractor tests/selenium/conf.js && yarn stop",
     "test:test-local": "yarn test:wait-on-local && yarn test-only || (yarn stop && exit 1)",
-    "test:update-web-driver": "./scripts/update-se-drivers.sh",
+    "test:update-web-driver": "node ./scripts/update-se-drivers.js",
     "test:stop-web-driver": "yarn fkill -s $(pgrep -f 'webdriver-manager/selenium' || echo 99999999)",
     "test:wait-on-local": "wait-for-localhost 8080 --use-get",
     "markdown-lint": "node scripts/markdown-check",
@@ -33,6 +33,7 @@
   "author": "Brian Retterer <brian.retterer@okta.com>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "axios": "^0.19.0",
     "chai": "^4.2.0",
     "chai-as-promised": "*",
     "chalk": "^2.4.2",
