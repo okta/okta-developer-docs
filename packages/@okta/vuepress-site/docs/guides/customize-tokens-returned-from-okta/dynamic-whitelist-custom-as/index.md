@@ -9,12 +9,17 @@ To use the Group Functions to create an ID token or an access token using a dyna
 4. In the **Include in token type** section, leave **Access Token** selected.
 5. Leave **Expression** as the **Value type**.
 6. Enter the following expression as the **Value**: `Groups.startsWith("OKTA", "IT", 10)`
+
+    > **Note:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than a user's email. If you are targeting groups that may have duplicate group names (such as Google Groups), use `getFilteredGroups` instead.
+
+    Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
+
+    See the **Parameter Examples** section of [Use group functions for static group whitelists](/docs/guides/customize-tokens-returned-from-okta/static-whitelist/#use-group-functions-for-static-group-whitelists) for more information on the parameters used in this Group function.
+
 7. Click **Create**.
 8. Select the **Scopes** tab and click **Add Scope**.
 9. Add **groups** as the scope **Name** and **DisplayName**, and then select the **Metadata** check box.
 10. Click **Create**.
-
-> **Note:** The syntax for these three Group Functions is different from `getFilteredGroups`.
 
 ### Request an access token that contains the Groups claim
 
