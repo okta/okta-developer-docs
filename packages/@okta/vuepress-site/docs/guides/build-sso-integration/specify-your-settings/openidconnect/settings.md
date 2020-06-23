@@ -9,7 +9,7 @@
 
 * If you want to support launching your application from the Okta dashboard:
   1. Enter one or more **Login redirect URI** values where Okta sends the OAuth responses.
-  2. (Optional). Enter the **Logout redirect URIs** where Okta redirects the browser after logging out from the relying-party and terminating its end-user session. See [Single Logout](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Single_Logout) or the [`/logout` API endpoint](/docs/reference/api/oidc/#logout).
+  2. (Optional). Enter the **Logout redirect URIs** where Okta redirects the browser after receiving the sign out request from the relying-party and terminating its end-user session. See [Single Logout](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Single_Logout) or the [`/logout` API endpoint](/docs/reference/api/oidc/#logout).
   3. Change the **Login initiated by** field to **Either Okta or App** to give your integration an Okta tile.
       >**Note:** When you select this option, an **App Embed Link** section appears at the bottom of the page with the URL that can be used to sign in to the OIDC client from outside of Okta.
   4. Check the box for **Display application icon to users**.
