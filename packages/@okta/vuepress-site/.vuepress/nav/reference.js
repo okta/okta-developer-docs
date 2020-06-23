@@ -37,6 +37,7 @@ module.exports = [
     { title: 'Registration Hook', path: '/docs/reference/registration-hook/'},
     { title: 'Token Hook', path: '/docs/reference/token-hook/'},
     { title: 'Okta Expression Language', path: '/docs/reference/okta-expression-language/'},
+    { title: 'Password Hook', path: '/docs/reference/password-hook/'},
     { title: 'Postman Collections', path: '/docs/reference/postman-collections/'},
     { title: 'Rate Limits', path: '/docs/reference/rate-limits/'},
     { title: 'Release Life Cycle', path: '/docs/reference/releases-at-okta/'},
