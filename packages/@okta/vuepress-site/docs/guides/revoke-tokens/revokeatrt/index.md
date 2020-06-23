@@ -2,8 +2,6 @@
 title: Revoke an access token or a refresh token
 ---
 
-## Revoke the access vs the refresh token
-
 The token revocation endpoint can revoke either access or refresh tokens. Revoking an access token doesn't revoke the associated refresh token, though revoking a refresh token does revoke the associated access token.
 
 ### Revoke only the access token
