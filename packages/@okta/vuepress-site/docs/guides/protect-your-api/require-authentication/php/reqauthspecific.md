@@ -29,7 +29,7 @@ function authenticate() {
 }
 ```
 
-and then in your route, you would call this function to confirm authorization
+and then in your route, you would call this function to confirm authorization:
 
 ```php
 $route->get('/protected/route', function() {
