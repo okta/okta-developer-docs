@@ -19,7 +19,7 @@ curl --location --request POST 'https://${yourOktadomain}/oauth2/v1/revoke' \
 -d "token_type_hint=access_token"
 ```
 
-> **Note:** Since revoking a token that is invalid, expired, or already revoked returns a `200 OK`, you should test that the token has been revoked by making, for example, a GET request to the `/users` endpoint.
+> **Note:** Since revoking a token that is invalid, expired, or already revoked returns a `200 OK` status code, you should test that the token has been revoked by making, for example, a GET request to the `/users` endpoint.
 
 ### Revoke only the refresh token
 
