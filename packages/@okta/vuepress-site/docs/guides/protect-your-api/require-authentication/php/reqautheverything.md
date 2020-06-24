@@ -1,4 +1,4 @@
-Depending on your router you use, you can define middleware that is used for requiring auth for all routes. For `league/route`.
+Depending on the router you use, you can define middleware that is used for requiring auth for all routes. For `league/route`.
 
 Create a middleware class:
 
