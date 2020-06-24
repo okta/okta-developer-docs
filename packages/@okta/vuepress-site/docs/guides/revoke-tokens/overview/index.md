@@ -4,7 +4,15 @@ title: Overview
 
 If you would like to disable an access or refresh token, simply send a request to the `/revoke` endpoint for the appropriate Authorization Server.
 
-This example makes a request to revoke an access token issued by the Org Authorization Server. The URL of the Authorization Server for your request might be different than this example. See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) for more information.
+This example makes a request to revoke an access token issued by the Org Authorization Server. The URL of the Authorization Server for your request might be different than this example.
+
+**Examples**
+
+The URL for an Org Authorization Server: `https://${yourOktaDomain}/oauth2/`
+
+The URL for a Custom Authorization Server: `https://${yourOktaDomain}/oauth2/${authServerId}/` or `https://${yourOktaDomain}/oauth2/default/`
+
+See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) for more information.
 
 ```BASH
 http --form POST https://${yourOktaDomain}/oauth2/v1/revoke \
