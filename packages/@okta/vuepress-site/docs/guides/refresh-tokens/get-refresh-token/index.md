@@ -98,7 +98,7 @@ You would then get back an ID token as well as your access and refresh tokens. S
 
 ### Get a new access token/ID token silently for your SPA
 
-With a normal Single-Page Application (SPA), it is usually undesirable to redirect the user to a sign-in page during normal navigation. For example, a user could request access to a resource, prompting your SPA to send a request to the Okta `/authorize` endpoint. Normally, if a user doesn't have a valid session, this request results in a redirection to a sign-in page. To avoid this disruptive redirection, the endpoint allows for a request parameter called `prompt`. If the value of the `prompt` parameter is `none`, this guarantees that the user won't be prompted to sign in, regardless of whether they have an active session. Instead, your application either silently obtains the requested tokens or an OAuth error response occurs.
+With a normal Single-Page Application (SPA), it is usually undesirable to redirect the user to a sign-in page during normal navigation. For example, a user could request access to a resource, prompting your SPA to send a request to the Okta `/authorize` endpoint. Normally, if a user doesn't have a valid session, this request results in a redirect to a sign-in page. To avoid this disruptive redirection, the endpoint allows for a request parameter called `prompt`. If the value of the `prompt` parameter is `none`, this guarantees that the user won't be prompted to sign in, regardless of whether they have an active session. Instead, your application either silently obtains the requested tokens or an OAuth error response occurs.
 
 See the [Authentication Request section of the OIDC Reference](/docs/reference/api/oidc/#authorize).
 
