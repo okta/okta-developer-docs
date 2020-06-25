@@ -8,7 +8,7 @@ meta:
     content: Use our PHP guide, SDK, and libraries to help you add user authentication to your PHP application.
 ---
 
-New to Okta? Our quickstart will walk you through adding user authentication to your PHP app in minutes.
+New to Okta? Our how to guide will walk you through adding user authentication to your PHP app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -17,8 +17,8 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 		</a>
 	</li>
 	<li>
-		<a href='/quickstart/#/okta-sign-in-page/php/' class='Button--blue' data-proofer-ignore>
-			<span>PHP Quickstart</span>
+		<a href='/docs/guides/sign-into-web-app/php/before-you-begin/' class='Button--blue' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 </ul>
