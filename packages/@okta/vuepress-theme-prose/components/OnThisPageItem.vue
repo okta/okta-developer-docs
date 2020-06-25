@@ -53,7 +53,10 @@ export default {
       }
     
       if(hash) {
-        window.scrollTo(0, document.querySelector(hash).offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
+        const node = document.querySelector(hash);
+        if(node) { // node is sometimes null - perhaps content hasn't loaded?
+          window.scrollTo(0, node.offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
+        }
       }
     }
   }

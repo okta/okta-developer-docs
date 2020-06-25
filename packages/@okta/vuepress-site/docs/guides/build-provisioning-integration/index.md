@@ -10,6 +10,7 @@ sections:
  - prepare-api
  - test-scim-api
  - prepare-app
+ - configure-app
  - attribute-mapping
  - test-scim-app
  - test-qa
