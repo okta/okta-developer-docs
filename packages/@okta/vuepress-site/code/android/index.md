@@ -11,7 +11,7 @@ meta:
 
 ## Get Started with Android + Okta
 
-New to Okta? Our quickstart will walk you through adding user authentication to your Android app in minutes.
+New to Okta? Our how to guide will walk you through adding user authentication to your Android app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -20,8 +20,8 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 		</a>
 	</li>
 	<li>
-		<a href='/quickstart/#/android' class='Button--blue' data-proofer-ignore>
-			<span>Android Quickstart</span>
+		<a href='/docs/guides/sign-into-mobile-app/android/before-you-begin/' class='Button--blue' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 </ul>
