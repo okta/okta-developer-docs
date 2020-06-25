@@ -22,6 +22,8 @@ To use ExpressOIDC you create an instance of the middleware by passing the neede
 <DomainAdminWarning />
 
 ```javascript
+const express = require('express');
+const app = express();
 const session = require('express-session');
 const { ExpressOIDC } = require('@okta/oidc-middleware');
 
@@ -37,7 +39,8 @@ const oidc = new ExpressOIDC({
   client_id: '{clientId}',
   client_secret: '{clientSecret}',
   redirect_uri: 'http://localhost:3000/authorization-code/callback',
-  scope: 'openid profile'
+  scope: 'openid profile',
+  appBaseUrl: '{appBaseUrl}' // In this example, it should be http://localhost:3000
 });
 
 // ExpressOIDC will attach handlers for the /login and /authorization-code/callback routes

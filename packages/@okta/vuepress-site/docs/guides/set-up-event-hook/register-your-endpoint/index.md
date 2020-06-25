@@ -2,17 +2,19 @@
 title: Register Your Endpoint
 ---
 
-After implementing your external service, you need to register it with Okta. To do this, you need to make a REST API call to the [Event Hooks Management API](/docs/reference/api/event-hooks/). You can use a tool like Postman to make the call, and Okta provides a [Postman collection](/docs/reference/api/event-hooks/#getting-started) to make this easier.
+After implementing your external service, you need to register it with Okta. To do so, you use the Admin Console.
 
-You make a `POST` call to `https://${yourOktaDomain}/api/v1/eventHooks` to register your endpoint. The body of the request needs to contain a JSON payload containing an [eventHook](/docs/reference/api/event-hooks/#event-hook-object) object, which specifies the properties of the Event Hook you are registering, including:
+### Getting there
+
+In Admin Console, go to **Workflow > Event Hooks**. Click **Create Event Hook**. The screen that is displayed lets you specify the following items:
 
  - the URI of your external service's endpoint
  - the list of specific event types this Event Hook should deliver
  - the secret value Okta should send in the authorization header of requests, to authenticate to your service
 
-See [Event Hook Object](/docs/reference/api/event-hooks/#event-hook-object) for a description of the object.
+See [Event Hook Object](/docs/reference/api/event-hooks/#event-hook-object) for a description of the underlying objects.
 
-If the operation is successful, Okta sends back a `200 OK` response also containing an `eventHook` object in its body, confirming the properties of the created Event Hook. The object also includes a system-generated `id` property, which is the unique identifier for the newly-created Event Hook. You need to provide this `id` property later when using the Event Hooks Management API to perform additional operations on this Event Hook.
+**Note:** The **Authentication field** box lets you specify the header name for the authorization header. This is separate from the **Authentication secret**, which is where you specify the actual secret to send as the value of the authentication header. Typically, you would simply set the name of the header to "Authentication".
 
 <NextSectionLink/>
 

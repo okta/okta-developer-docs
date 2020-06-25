@@ -2,12 +2,14 @@
 title: Test your configuration
 ---
 
-<!-- Do the following to test your CORS configuration:
+Do the following to test your CORS configuration:
 
 1. Grant cross-origin access to `https://developer.okta.com`.
 2. In the same browser in which you have an active session in your Okta organization, enter your Okta subdomain in the form below and click **Test**. Your Okta user profile appears below the form.
 
-<CorsTest /> -->
+<CorsTest />
+
+> **Note:** If this test seems to be working incorrectly, make sure you have all tracking blockers turned off in your browser and reload the page.
 
 ### Request examples
 
