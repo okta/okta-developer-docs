@@ -44,11 +44,13 @@
         <div class="top-bar--collapse--links">
           <ul class="menu">
             <li v-for="(link, index) in $themeConfig.primary_nav" :key="index" :class="{'hasSubMenu': link.children}">
-              <a :href="link.link" v-html="link.text" :class="{'active': $page.path.includes(link.link)}" ></a>
-              <ul v-if="link.children" class="submenu">
+              <a :href="link.link" :class="{'active': $page.path.includes(link.link)}" >{{link.text}}</a><span v-if="link.children" class="caret">◥◤</span>
+              <ul v-if="link.children" :class="'submenu submenu-' + link.text.split(' ').join('-').toLowerCase()">
                 <li v-for="(childLink, childIndex) in link.children" :key="childIndex">
-                  <a :href="childLink.link" v-html="childLink.text"></a>
-                  </li>
+                  <a v-if="childLink.link" :href="childLink.link">{{childLink.text}}</a>
+                  <div v-else-if="childLink.text" v-html="childLink.text" class="non-link"></div>
+                  <span v-else-if="childLink.type === 'divider'" class="divider"></span>
+                </li>
               </ul>
             </li>
           </ul>

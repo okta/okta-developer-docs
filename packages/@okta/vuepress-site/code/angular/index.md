@@ -19,8 +19,8 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 		</a>
 	</li>
 	<li>
-		<a href='/quickstart/#/angular' class='Button--blue' data-proofer-ignore>
-			<span>Angular Quickstart</span>
+		<a href='/docs/guides/sign-into-spa/angular/before-you-begin/' class='Button--blue' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 </ul>

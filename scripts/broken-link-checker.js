@@ -27,7 +27,8 @@ var options = {
     "/blog/",
     "/pricing/",
     "/product/",
-    "/product/*"
+    "/product/*",
+    "/okta-integration-network/",
   ]
 };
 
