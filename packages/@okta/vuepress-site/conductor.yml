@@ -1953,4 +1953,3 @@ redirects:
     to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /docs/guides/saml-application-setup/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
-
