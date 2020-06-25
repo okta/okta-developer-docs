@@ -8,7 +8,7 @@ meta:
     content: Our guide helps you to add user authentication to your React app, integrate with react-router, and suggests related content.
 ---
 
-New to Okta? Our quickstart will walk you through adding user authentication to your React app in minutes.
+New to Okta? Our how to guide will walk you through adding user authentication to your React app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -17,8 +17,8 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 		</a>
 	</li>
 	<li>
-		<a href='/quickstart/#/react' class='Button--blue' data-proofer-ignore>
-			<span>React Quickstart</span>
+		<a href='/docs/guides/sign-into-spa/react/before-you-begin/' class='Button--blue' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 </ul>
