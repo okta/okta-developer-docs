@@ -10,7 +10,7 @@ meta:
 
 ## Get Started with Angular + Okta
 
-New to Okta? Our quickstart will walk you through adding user authentication to your Angular app in minutes.
+New to Okta? Our how to guide will walk you through adding user authentication to your Angular app in minutes.
 
 <ul class='language-ctas'>
 	<li>
