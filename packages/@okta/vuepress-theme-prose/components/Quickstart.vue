@@ -1,3 +1,6 @@
+<template>
+  <p>This quickstart has moved to our <a :href="this.redirectUrl">new Guides</a>.</p>
+</template>
 <script>
   export default {
 
@@ -7,6 +10,7 @@
         activeClient: null,
         activeServer: null,
         activeFramework: null,
+        redirectUrl: null,
         mappings: {
           '#/okta-sign-in-page/nodejs/express' : '/docs/guides/sign-into-web-app/nodeexpress/before-you-begin/',
           '#/okta-sign-in-page/nodejs/generic' : '/docs/guides/sign-into-web-app/nodeexpress/before-you-begin/',
@@ -74,9 +78,9 @@
         return
       }
 
-      let redirectUrl = this.mappings[window.location.hash] || '/docs/guides'
+      this.redirectUrl = this.mappings[window.location.hash] || '/docs/guides'
 
-      window.location.replace(redirectUrl)
+      window.location.replace(this.redirectUrl)
       return
     }
   }
