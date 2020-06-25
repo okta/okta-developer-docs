@@ -4,7 +4,7 @@ title: Get a refresh token
 
 To get a refresh token, you send a request to your Okta Authorization Server.
 
-The only flows that support refresh tokens are the resource owner password flow and the authorization code flow. This means that the following combinations of grant type and scope, when sent to `/token` endpoint, return a refresh token:
+The only flows that support refresh tokens are the resource owner password flow and the authorization code flow. This means that the following combinations of grant type and scope, when sent to the `/token` endpoint, return a refresh token:
 
 | Grant Type           | Scope                       |
 | -----------          | -----                       |
@@ -21,6 +21,33 @@ In the case of the authorization code flow, you use the authorization server's `
 > **Note:**  Authorization code with PKCE requests don't return refresh tokens if they are sent from SPAs or other browser-based apps. Instead, you can [silently refresh tokens](#get-a-new-access-token-id-token-silently-for-your-spa) by making a call to the `/authorize` endpoint.
 
 For more information about this endpoint, see [Obtain an authorization grant from a User](/docs/reference/api/oidc/#authorize). For more information about the authorization code flow, see [Implementing the authorization code flow](/docs/guides/implement-auth-code/).
+
+#### Example request for code and refresh token
+
+The following is an example request to the `/authorize` endpoint for an authorization code and includes the `offline_access` scope.
+
+`https://&{yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid offline_access&redirect_uri=http://&{yourOktaDomain}/authorization-code/callback&state=1`
+
+#### Example request for an access token and a refresh token
+
+The following is an example request to the `/token` endpoint to obtain an access token and a refresh token.
+
+`https://&{yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code&redirect_uri={{redirectUri}}&code={codereceivedinlastreqest}&state=1&scope=openid offline_access`
+
+#### Example response with an access token, an ID token, and a refresh token
+
+> **Note:** The access and ID tokens are truncated for brevity.
+
+```json
+{
+    "token_type": "Bearer",
+    "expires_in": 3600,
+    "access_token": "eyJraWQ.....rm8EA4osYg",
+    "scope": "offline_access openid",
+    "refresh_token": "i6mapTIAVSp2oJkgUnCACKKfZxt_H5MBLiqcybBBd04",
+    "id_token": "eyJraWQiOiJ.....XAn3ty6o-yeA"
+}
+```
 
 ### Get a refresh token with the resource owner password flow
 
