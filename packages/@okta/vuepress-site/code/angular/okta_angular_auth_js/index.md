@@ -77,7 +77,7 @@ import * as OktaAuth from '@okta/okta-auth-js';
 
 @Injectable()
 export class OktaAuthService {
-  
+
   // IMPORTANT!
   // Replace {clientId} with your actual Client ID
   // Replace {yourOktaDomain} with your actual Okta domain
@@ -357,7 +357,7 @@ After the server is started, this message will appear in your terminal:
 
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
 
-Want to learn how to use the user's `access_token`? Check out our <a href='/quickstart/#/angular/nodejs/generic' data-proofer-ignore>Angular Quickstart integrations</a> to learn about protecting routes on your server, validating the `access_token`, and more!
+Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/angular/before-you-begin/' data-proofer-ignore>how to guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
 ## Support
 
