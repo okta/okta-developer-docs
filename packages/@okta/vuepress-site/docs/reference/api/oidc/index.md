@@ -39,17 +39,29 @@ All of the endpoints on this page start with an authorization server, however th
 
 #### 1. Single Sign-On to Okta
 
-This is for the use case where your users are all part of your Okta organization, and you would just like to offer them single sign-on (for example, you want your employees to sign in to an application with their Okta accounts). In OAuth 2.0 terminology, Okta is both the authorization server and the resource server. When Okta is serving as the authorization server for itself, we refer to this as the "Okta Org Authorization Server" and your full URL looks like this:
+This is for the use case where your users are all part of your Okta organization, and you would just like to offer them single sign-on (for example, you want your employees to sign in to an application with their Okta accounts). In OAuth 2.0 terminology, Okta is both the authorization server and the resource server. When Okta is serving as the authorization server for itself, we refer to this as the "Okta Org Authorization Server" and your base URL looks like this:
+
+`https://${yourOktaDomain}/oauth2`
+
+The full URL to the `/authorize` endpoint looks like this:
 
 `https://${yourOktaDomain}/oauth2/v1/authorize`
 
 #### 2. Okta as the identity platform for your app or API
 
-This is for use cases where Okta is the authorization server for your resource server (for example, you want Okta to act as the user store for your application, but Okta is invisible to your users). This kind of authorization server we call a "Custom Authorization Server", and your full URL looks like this:
+This is for use cases where Okta is the authorization server for your resource server (for example, you want Okta to act as the user store for your application, but Okta is invisible to your users). This kind of authorization server we call a "Custom Authorization Server", and your base URL looks like this:
+
+`https://${yourOktaDomain}/oauth2/${authServerId}`
+
+The full URL to the `/authorize` endpoint looks like this:
 
 `https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 
-If you have a developer account, you can use the `default` authorization server that was created along with your account, in which case the full URL looks like this:
+If you have a developer account, you can use the `default` authorization server that was created along with your account, in which case the base URL looks like this:
+
+`https://${yourOktaDomain}/oauth2/default`
+
+The full URL to the `/authorize` endpoint looks like this:
 
 `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
