@@ -1,265 +1,88 @@
 <template>
-  <div class="content--container">
-    <div class="content-area">
-      <PageTitle />
-
-      <div class="quickstart--content">
-        <Content slot-key="intro" />
-
-        <Content slot-key="account" />
-
-        <Content slot-key="client" />
-        <p>Now, let's add authentication to your client. (Already done? <a href="#server_setup" @click.prevent="scrollToServer()">Skip to server setup</a>)</p>
-        <div class="code-selector" id="client-selector">
-          <h3>Client</h3>
-          <ul>
-            <li v-for="(client, index) in $themeConfig.quickstarts.clients" class="with-icon" :key="index">
-              <a :class="{active: activeClient==client.name}" @click="activeClient=client.name">
-                <i :class="['with-icon','icon', 'code-'+(client.codeIconName || client.name)+'-32']"></i>{{ client.label }}
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <Content :pageKey="activeClientComponent" id="client_content" class="example-content-well"></Content>
-
-
-        <Content slot-key="server" />
-
-        <div class="code-selector" id="server-selector">
-          <h3>Server</h3>
-          <ul>
-            <li v-for="(server, index) in $themeConfig.quickstarts.servers" class="with-icon" :key="index">
-              <a :class="{active: activeServer==server.name}" @click="activeServer=server.name">
-                <i :class="['with-icon','icon', 'code-'+(server.codeIconName || server.name)+'-32']"></i>{{ server.label }}
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="code-selector" id="framework-selector">
-          <h3>Framework</h3>
-          <ul>
-            <li v-for="(framework, index) in activeServerFrameworks" :key="index">
-              <a :class="{active: activeFramework==framework.name}" @click="activeFramework=framework.name">
-                {{ framework.label }}
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <Content :pageKey="activeServerComponent" id="server_content" class="example-content-well"></Content>
-      </div>
-
-    </div>
-    <div class="on-this-page">
-      <OnThisPage :items="otpItems"/>
-    </div>
-
-  </div>
+  <p>This quickstart has moved to our <a :href="this.redirectUrl">new Guides</a>.</p>
 </template>
-
 <script>
   export default {
-    components: {
-      Sidebar: () => import('./Sidebar.vue'),
-      PageTitle: () => import('./PageTitle.vue'),
-      OnThisPage: () => import('./OnThisPage.vue')
-    },
+
     data() {
       return {
-        activeTab: null,
         currentHash: null,
         activeClient: null,
-        activeClientComponent: null,
         activeServer: null,
-        activeServerComponent: null,
         activeFramework: null,
-        otpItems: [
-          {'title': 'Create an Account', 'path': '#create-an-okta-account'},
-          {'title': 'Client Setup', 'path': '#client-setup'},
-          {'title': 'Server Setup', 'path': '#server-setup'}
-        ]
+        redirectUrl: null,
+        mappings: {
+          '#/okta-sign-in-page/nodejs/express' : '/docs/guides/sign-into-web-app/nodeexpress/before-you-begin/',
+          '#/okta-sign-in-page/nodejs/generic' : '/docs/guides/sign-into-web-app/nodeexpress/before-you-begin/',
+          '#/okta-sign-in-page/java/spring' : '/docs/guides/sign-into-web-app/springboot/before-you-begin/',
+          '#/okta-sign-in-page/java/generic' : '/docs/guides/sign-into-web-app/springboot/before-you-begin/',
+          '#/okta-sign-in-page/php/generic' : '/docs/guides/sign-into-web-app/php/before-you-begin/',
+          '#/okta-sign-in-page/dotnet/aspnetcore' : '/docs/guides/sign-into-web-app/aspnetcore/before-you-begin/',
+          '#/okta-sign-in-page/dotnet/aspnet4' : '/docs/guides/sign-into-web-app/aspnet/before-you-begin/',
+          '#/widget/nodejs/express' : '/docs/guides/protect-your-api/nodeexpress/before-you-begin/',
+          '#/widget/nodejs/generic' : '/docs/guides/protect-your-api/nodeexpress/before-you-begin/',
+          '#/widget/java/spring' : '/docs/guides/protect-your-api/springboot/before-you-begin/',
+          '#/widget/java/generic' : '/docs/guides/protect-your-api/springboot/before-you-begin/',
+          '#/widget/php/generic' : '/docs/guides/protect-your-api/php/before-you-begin/',
+          '#/widget/dotnet/aspnetcore' : '/docs/guides/protect-your-api/aspnet/before-you-begin/',
+          '#/widget/dotnet/aspnet4' : '/docs/guides/protect-your-api/aspnetcore/before-you-begin/',
+          '#/angular/nodejs/express' : '/docs/guides/sign-into-spa/angular/before-you-begin/',
+          '#/angular/nodejs/generic' : '/docs/guides/sign-into-spa/angular/before-you-begin/',
+          '#/angular/java/spring' : '/docs/guides/sign-into-spa/angular/before-you-begin/',
+          '#/angular/java/generic' : '/docs/guides/sign-into-spa/angular/before-you-begin/',
+          '#/angular/php/generic' : '/docs/guides/sign-into-spa/angular/before-you-begin/',
+          '#/angular/dotnet/aspnetcore' : '/docs/guides/sign-into-spa/angular/before-you-begin/',
+          '#/angular/dotnet/aspnet4' : '/docs/guides/sign-into-spa/angular/before-you-begin/',
+          '#/react/nodejs/express' : '/docs/guides/sign-into-spa/react/before-you-begin/',
+          '#/react/nodejs/generic' : '/docs/guides/sign-into-spa/react/before-you-begin/',
+          '#/react/java/spring' : '/docs/guides/sign-into-spa/react/before-you-begin/',
+          '#/react/java/generic' : '/docs/guides/sign-into-spa/react/before-you-begin/',
+          '#/react/php/generic' : '/docs/guides/sign-into-spa/react/before-you-begin/',
+          '#/react/dotnet/aspnetcore' : '/docs/guides/sign-into-spa/react/before-you-begin/',
+          '#/react/dotnet/aspnet4' : '/docs/guides/sign-into-spa/react/before-you-begin/',
+          '#/vue/nodejs/express' : '/docs/guides/sign-into-spa/vue/before-you-begin/',
+          '#/vue/nodejs/generic' : '/docs/guides/sign-into-spa/vue/before-you-begin/',
+          '#/vue/java/spring' : '/docs/guides/sign-into-spa/vue/before-you-begin/',
+          '#/vue/java/generic' : '/docs/guides/sign-into-spa/vue/before-you-begin/',
+          '#/vue/php/generic' : '/docs/guides/sign-into-spa/vue/before-you-begin/',
+          '#/vue/dotnet/aspnetcore' : '/docs/guides/sign-into-spa/vue/before-you-begin/',
+          '#/vue/dotnet/aspnet4' : '/docs/guides/sign-into-spa/vue/before-you-begin/',
+          '#/android/nodejs/express' : '/docs/guides/sign-into-mobile-app/android/before-you-begin/',
+          '#/android/nodejs/generic' : '/docs/guides/sign-into-mobile-app/android/before-you-begin/',
+          '#/android/java/spring' : '/docs/guides/sign-into-mobile-app/android/before-you-begin/',
+          '#/android/java/generic' : '/docs/guides/sign-into-mobile-app/android/before-you-begin/',
+          '#/android/php/generic' : '/docs/guides/sign-into-mobile-app/android/before-you-begin/',
+          '#/android/dotnet/aspnetcore' : '/docs/guides/sign-into-mobile-app/android/before-you-begin/',
+          '#/android/dotnet/aspnet4' : '/docs/guides/sign-into-mobile-app/android/before-you-begin/',
+          '#/ios/nodejs/express' : '/docs/guides/sign-into-mobile-app/ios/before-you-begin/',
+          '#/ios/nodejs/generic' : '/docs/guides/sign-into-mobile-app/ios/before-you-begin/',
+          '#/ios/java/spring' : '/docs/guides/sign-into-mobile-app/ios/before-you-begin/',
+          '#/ios/java/generic' : '/docs/guides/sign-into-mobile-app/ios/before-you-begin/',
+          '#/ios/php/generic' : '/docs/guides/sign-into-mobile-app/ios/before-you-begin/',
+          '#/ios/dotnet/aspnetcore' : '/docs/guides/sign-into-mobile-app/ios/before-you-begin/',
+          '#/ios/dotnet/aspnet4' : '/docs/guides/sign-into-mobile-app/ios/before-you-begin/',
+          '#/react-native/nodejs/express' : '/docs/guides/sign-into-mobile-app/react-native/before-you-begin/',
+          '#/react-native/nodejs/generic' : '/docs/guides/sign-into-mobile-app/react-native/before-you-begin/',
+          '#/react-native/java/spring' : '/docs/guides/sign-into-mobile-app/react-native/before-you-begin/',
+          '#/react-native/java/generic' : '/docs/guides/sign-into-mobile-app/react-native/before-you-begin/',
+          '#/react-native/php/generic' : '/docs/guides/sign-into-mobile-app/react-native/before-you-begin/',
+          '#/react-native/dotnet/aspnetcore' : '/docs/guides/sign-into-mobile-app/react-native/before-you-begin/',
+          '#/react-native/dotnet/aspnet4' : '/docs/guides/sign-into-mobile-app/react-native/before-you-begin/',
+        }
       }
     },
 
     beforeMount: function () {
-      if(window.location.hash == "") {
-        window.location.hash = this.defaultUriHash
+      if(!window.location.hash) {
+        window.location.replace("/docs/guides/")
+        return
       }
 
-      this.currentHash = window.location.hash
+      this.redirectUrl = this.mappings[window.location.hash] || '/docs/guides'
 
-      const matches = window.location.hash.match('/([^/]*)?/?([^/]*)?/?([^/]*)');
-      this.activeClient = matches && matches[1];
-      this.activeServer = matches && matches[2];
-      this.activeFramework = matches && matches[3];
-
-
-    },
-
-    watch: {
-      currentHash: function () {
-        this.checkActiveClient()
-        this.checkActiveServer()
-
-        let clientComponent = this.$site.pages.find((page) => {
-          return page.regularPath.startsWith('/quickstart-fragments/'+this.activeClient+'/default-example')
-        })
-        if(clientComponent) {
-          this.activeClientComponent = clientComponent.key
-        }
-
-
-        let client = this.$themeConfig.quickstarts.clients.filter((client) => {
-          return client.name === this.activeClient
-        })[0];
-        let serverComponent = this.$site.pages.find((page) => {
-          return page.regularPath.startsWith('/quickstart-fragments/' + this.activeServer + '/' + this.activeFramework + '-' + client.serverExampleType + '/')
-        })
-        if(serverComponent) {
-          this.activeServerComponent = serverComponent.key
-        }
-
-
-      },
-
-      activeClient: function () {
-        window.location.hash = '/'+this.activeClient+'/'+this.activeServer+'/'+this.activeFramework
-        this.currentHash = window.location.hash
-      },
-
-      activeServer: function () {
-        let frameworkToSet = null
-        // is current Framework available for current Server
-        this.$themeConfig.quickstarts.servers.find((server) => {
-          if (server.name == this.activeServer) {
-            return server.frameworks.find((framework) => {
-              // console.log(framework.name, this.activeFramework)
-              if (framework.name == this.activeFramework) {
-                frameworkToSet = this.activeFramework
-                return
-              }
-            })
-          }
-        })
-        // get Default Framework for server if current one is not available
-        if (frameworkToSet === null) {
-          this.$themeConfig.quickstarts.servers.find((server) => {
-            if (server.name == this.activeServer) {
-              return server.frameworks.find((framework) => {
-                // console.log(framework.name, this.activeFramework)
-                if (framework.default && framework.default===true) {
-                  frameworkToSet = framework.name
-                  return
-                }
-              })
-            }
-          })
-        }
-        this.activeFramework = frameworkToSet
-
-        window.location.hash = '/'+this.activeClient+'/'+this.activeServer+'/'+this.activeFramework
-        this.currentHash = window.location.hash
-      },
-
-      activeFramework: function () {
-        window.location.hash = '/'+this.activeClient+'/'+this.activeServer+'/'+this.activeFramework
-        this.currentHash = window.location.hash
-      }
-    },
-
-    computed: {
-      defaultClient: function () {
-        return this.$themeConfig.quickstarts.clients.find((client) => {
-          if(client.default && client.default == true) {
-            return client
-          }
-        })
-      },
-
-      defaultServer: function () {
-        return this.$themeConfig.quickstarts.servers.find((server) => {
-          if(server.default && server.default == true) {
-            return server
-          }
-        })
-      },
-
-      defaultServerFramework: function () {
-        let defaultServer = this.$themeConfig.quickstarts.servers.find((server) => {
-          if(server.default && server.default == true) {
-            return server
-          }
-        })
-
-        return defaultServer.frameworks.find((framework) => {
-          if(framework.default && framework.default == true) {
-            return framework
-          }
-        })
-      },
-
-      defaultUriHash: function () {
-        return '/' + this.defaultClient.name + '/' + this.defaultServer.name + '/' + this.defaultServerFramework.name + '/'
-      },
-
-      activeServerFrameworks: function () {
-        if(this.activeServer == null) return []
-        let activeServerFrameworks = this.$themeConfig.quickstarts.servers.find((server) => {
-          return server.name == this.activeServer
-        })
-        return activeServerFrameworks.frameworks
-      }
-    },
-
-    methods: {
-      scrollToAccount: function () {
-        this.scrollTo('#account')
-        this.activeTab = 'account'
-      },
-      scrollToServer: function () {
-        this.scrollTo('#server-setup')
-        this.activeTab = 'server'
-      },
-      scrollToClient: function () {
-        this.scrollTo('#client-setup')
-        this.activeTab = 'client'
-      },
-      scrollTo: function (element) {
-        window.scrollTo(0, document.querySelectorAll(element)[0].offsetTop - 150)
-      },
-
-      checkActiveClient: function () {
-        let found =  this.$themeConfig.quickstarts.clients.find((client) => {
-          if(client.name == this.activeClient) {
-            return true
-          }
-        })
-
-        if (!found) {
-          this.activeClient = this.defaultClient.name
-        }
-      },
-
-      checkActiveServer: function () {
-        let found =  this.$themeConfig.quickstarts.servers.find((server) => {
-          if(server.name == this.activeServer) {
-            return true
-          }
-        })
-
-        if (!found) {
-          this.activeServer = this.defaultServer.name
-        }
-      }
+      window.location.replace(this.redirectUrl)
+      return
     }
   }
 
 </script>
-
-<style lang="scss" scoped>
-  .header-anchor.header-link {
-    display: none;
-  }
-</style>
