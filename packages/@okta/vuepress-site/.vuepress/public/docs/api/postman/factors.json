@@ -1,552 +1,947 @@
 {
-	"id": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-	"name": "Factors (Okta API)",
-	"description": "",
-	"order": [
-		"570f5dfa-0a00-e434-e67d-3ffdaa21af58",
-		"5f574240-f4d5-ea2d-7a50-c99b82d5ddeb",
-		"1145bc5e-766e-9633-2f58-823933cc589b",
-		"8875445f-670b-2b3b-db16-296360991483",
-		"83bc26e3-d5be-b9d5-b84d-63fd41409521"
-	],
-	"folders": [
+	"info": {
+		"_postman_id": "14df3036-359a-4599-9600-249cefafb336",
+		"name": "Factors (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"owner": "64678",
-			"lastUpdatedBy": "64678",
-			"lastRevision": 11617744,
-			"id": "709a7f99-e75e-e031-ca13-14b543ed7d93",
 			"name": "Factor Lifecycle Operations",
-			"description": "",
-			"order": [
-				"5bc439ab-6061-7bd5-1994-df9bbddc32b4",
-				"e1048400-42bd-d96b-2126-560504235e3f",
-				"8a09e78b-6f27-2f56-e894-39465e5f2af7",
-				"9e2c3b60-4b7a-7fc8-f7d3-8f9370cc7954",
-				"23b621b0-a373-b6ae-3fbb-b69c3090701d",
-				"235a9e67-9fe2-6ecc-bbe0-6ec488a6efc8",
-				"3c105eab-8000-1a0b-55f1-dab862b4dd84",
-				"b443e90d-e32d-2b73-5bea-8680e449325e",
-				"9eebc338-5dc8-31a5-8cb3-74922971d4a0",
-				"3006f68d-93d0-f68e-f704-f94204e185c1",
-				"26646b34-1568-124c-08c4-b35e0b0f8bb2",
-				"bbce8986-7a23-229b-3bc9-6fcfd71ad606"
+			"item": [
+				{
+					"name": "Enroll Okta Security Question Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"factorType\": \"question\",\n  \"provider\": \"OKTA\",\n  \"profile\": {\n    \"question\": \"disliked_food\",\n    \"answer\": \"mayonnaise\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enroll Okta SMS Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"factorType\": \"sms\",\n  \"provider\": \"OKTA\",\n  \"profile\": {\n    \"phoneNumber\": \"{{phoneNumber}}\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enroll Okta SMS Factor with New Number",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"factorType\": \"sms\",\n  \"provider\": \"OKTA\",\n  \"profile\": {\n    \"phoneNumber\":  \"+1-555-415-1337\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors?updatePhone=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors"
+							],
+							"query": [
+								{
+									"key": "updatePhone",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enroll Okta Verify TOTP Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"factorType\": \"token:software:totp\",\n  \"provider\": \"OKTA\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enroll Okta Verify Push Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"factorType\": \"push\",\n  \"provider\": \"OKTA\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enroll Google Authenticator Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"factorType\": \"token:software:totp\",\n  \"provider\": \"GOOGLE\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enroll Symantec VIP Token Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"factorType\": \"token\",\n  \"provider\": \"SYMANTEC\",\n  \"profile\": {\n    \"credentialId\": \"VSMT14393584\"\n  },\n  \"verify\": {\n    \"passCode\": \"875498\",\n    \"nextPassCode\": \"678195\"    \n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enroll RSA SecurID  Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"factorType\": \"token\",\n  \"provider\": \"RSA\",\n  \"profile\": {\n    \"credentialId\": \"{{username}}\"\n  },\n  \"verify\": {\n    \"passCode\": \"875498\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enroll YubiKey Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"factorType\": \"token:hardware\",\n  \"provider\": \"YUBICO\",\n  \"verify\": {\n    \"passCode\": \"cccccceukngdfgkukfctkcvfidnetljjiknckkcjulji\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate SMS Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"passCode\": \"309524\"\n}  \n  "
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/lifecycle/activate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors",
+								"{{factorId}}",
+								"lifecycle",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate TOTP Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"passCode\": \"866028\"\n}  "
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/lifecycle/activate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors",
+								"{{factorId}}",
+								"lifecycle",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset All Factors",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS{{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/lifecycle/reset_factors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"lifecycle",
+								"reset_factors"
+							]
+						}
+					},
+					"response": []
+				}
 			],
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2"
+			"protocolProfileBehavior": {}
 		},
 		{
-			"owner": "64678",
-			"lastUpdatedBy": "64678",
-			"lastRevision": 11617745,
-			"id": "6ca381c6-3450-267f-ddb5-3f506b21d028",
 			"name": "Factor Verification Operations",
-			"description": "",
-			"order": [
-				"0b91cf13-be6c-54a8-e0c0-805ad6c4e00d",
-				"54438aef-23e0-d079-b3dc-a9e2fc97019e",
-				"9fdcd006-a8d8-1bd8-a3ec-982fe0839111",
-				"b1d318f3-0aa8-a89d-7175-9f58e7fa6827",
-				"66211708-3189-c534-01f8-ded1e4586b1c",
-				"b66cf74d-8345-89af-274f-a3d3217aeb7e",
-				"0d0eb40f-7c09-f367-e261-0ea460c01687"
+			"item": [
+				{
+					"name": "Verify Question Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"answer\": \"Annie Oakley\"\n}  "
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors",
+								"{{factorId}}",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send SMS Challenge",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors",
+								"{{factorId}}",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify SMS Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"passCode\": \"382883\"\n}  "
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors",
+								"{{factorId}}",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify TOTP Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"passCode\": \"382883\"\n}  "
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors",
+								"{{factorId}}",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Push  Challenge",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}  "
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors",
+								"{{factorId}}",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Push  Factor",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/transactions/{{transactionId}}/verify",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors",
+								"{{factorId}}",
+								"transactions",
+								"{{transactionId}}",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Token Factor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"passCode\": \"382883\"\n}  "
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"factors",
+								"{{factorId}}",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				}
 			],
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2"
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get Factor",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"factors",
+						"{{factorId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Factors to Enroll",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/factors/catalog",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"factors",
+						"catalog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Factors",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/factors",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"factors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Security Questions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/factors/questions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"factors",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Factor",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS{{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"factors",
+						"{{factorId}}"
+					]
+				}
+			},
+			"response": []
 		}
 	],
-	"timestamp": 0,
-	"owner": "64678",
-	"remoteLink": "",
-	"public": false,
-	"requests": [
-		{
-			"id": "0b91cf13-be6c-54a8-e0c0-805ad6c4e00d",
-			"folder": "6ca381c6-3450-267f-ddb5-3f506b21d028",
-			"name": "Verify Question Factor",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": "null",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"isFromCollection": true,
-			"collectionRequestId": "0b91cf13-be6c-54a8-e0c0-805ad6c4e00d",
-			"rawModeData": "{\n  \"answer\": \"Annie Oakley\"\n}  "
-		},
-		{
-			"id": "0d0eb40f-7c09-f367-e261-0ea460c01687",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1447637972306,
-			"name": "Verify Token Factor",
-			"description": "",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"responses": [],
-			"rawModeData": "{\n  \"passCode\": \"382883\"\n}  "
-		},
-		{
-			"folder": null,
-			"id": "1145bc5e-766e-9633-2f58-823933cc589b",
-			"name": "List Factors",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": null,
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "GET",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors",
-			"preRequestScript": null,
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": null,
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2"
-		},
-		{
-			"id": "235a9e67-9fe2-6ecc-bbe0-6ec488a6efc8",
-			"folder": "709a7f99-e75e-e031-ca13-14b543ed7d93",
-			"name": "Enroll Google Authenticator Factor",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": "null",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"isFromCollection": true,
-			"collectionRequestId": "235a9e67-9fe2-6ecc-bbe0-6ec488a6efc8",
-			"rawModeData": "{\n  \"factorType\": \"token:software:totp\",\n  \"provider\": \"GOOGLE\"\n}"
-		},
-		{
-			"id": "23b621b0-a373-b6ae-3fbb-b69c3090701d",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/factors",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "POST",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"data": [],
-			"dataMode": "raw",
-			"name": "Enroll Okta Verify Push Factor",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1447400211381,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "709a7f99-e75e-e031-ca13-14b543ed7d93",
-			"rawModeData": "{\n  \"factorType\": \"push\",\n  \"provider\": \"OKTA\"\n}"
-		},
-		{
-			"id": "26646b34-1568-124c-08c4-b35e0b0f8bb2",
-			"folder": "709a7f99-e75e-e031-ca13-14b543ed7d93",
-			"name": "Activate TOTP Factor",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/lifecycle/activate",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": "null",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"isFromCollection": true,
-			"collectionRequestId": "26646b34-1568-124c-08c4-b35e0b0f8bb2",
-			"rawModeData": "{\n  \"passCode\": \"866028\"\n}  "
-		},
-		{
-			"id": "3006f68d-93d0-f68e-f704-f94204e185c1",
-			"folder": "709a7f99-e75e-e031-ca13-14b543ed7d93",
-			"name": "Activate SMS Factor",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/lifecycle/activate",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": "null",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"isFromCollection": true,
-			"collectionRequestId": "3006f68d-93d0-f68e-f704-f94204e185c1",
-			"rawModeData": "{\n  \"passCode\": \"309524\"\n}  \n  "
-		},
-		{
-			"id": "3c105eab-8000-1a0b-55f1-dab862b4dd84",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/factors",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1447398488421,
-			"name": "Enroll Symantec VIP Token Factor",
-			"description": "",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"responses": [],
-			"rawModeData": "{\n  \"factorType\": \"token\",\n  \"provider\": \"SYMANTEC\",\n  \"profile\": {\n    \"credentialId\": \"VSMT14393584\"\n  },\n  \"verify\": {\n    \"passCode\": \"875498\",\n    \"nextPassCode\": \"678195\"    \n  }\n}"
-		},
-		{
-			"id": "54438aef-23e0-d079-b3dc-a9e2fc97019e",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "POST",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"data": [],
-			"dataMode": "raw",
-			"name": "Send SMS Challenge",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1447637932520,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "6ca381c6-3450-267f-ddb5-3f506b21d028",
-			"rawModeData": "{\n  \"passCode\": \"382883\"\n}  "
-		},
-		{
-			"folder": null,
-			"id": "570f5dfa-0a00-e434-e67d-3ffdaa21af58",
-			"name": "Get Factor",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": null,
-			"descriptionFormat": "html",
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "GET",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}",
-			"preRequestScript": null,
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": null,
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2"
-		},
-		{
-			"id": "5bc439ab-6061-7bd5-1994-df9bbddc32b4",
-			"folder": "709a7f99-e75e-e031-ca13-14b543ed7d93",
-			"name": "Enroll Okta Security Question Factor",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": "null",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"isFromCollection": true,
-			"collectionRequestId": "5bc439ab-6061-7bd5-1994-df9bbddc32b4",
-			"rawModeData": "{\n  \"factorType\": \"question\",\n  \"provider\": \"OKTA\",\n  \"profile\": {\n    \"question\": \"disliked_food\",\n    \"answer\": \"mayonnaise\"\n  }\n}"
-		},
-		{
-			"folder": null,
-			"id": "5f574240-f4d5-ea2d-7a50-c99b82d5ddeb",
-			"name": "List Factors to Enroll",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": null,
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "GET",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/catalog",
-			"preRequestScript": null,
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": null,
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2"
-		},
-		{
-			"id": "66211708-3189-c534-01f8-ded1e4586b1c",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "POST",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"data": [],
-			"dataMode": "raw",
-			"name": "Send Push  Challenge",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1447637985112,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "6ca381c6-3450-267f-ddb5-3f506b21d028",
-			"rawModeData": "{\n}  "
-		},
-		{
-			"folder": null,
-			"id": "83bc26e3-d5be-b9d5-b84d-63fd41409521",
-			"name": "Delete Factor",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": null,
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS{{apikey}}\n",
-			"method": "DELETE",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}",
-			"preRequestScript": null,
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": null,
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2"
-		},
-		{
-			"folder": null,
-			"id": "8875445f-670b-2b3b-db16-296360991483",
-			"name": "List Security Questions",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": null,
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "GET",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/questions",
-			"preRequestScript": null,
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": null,
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2"
-		},
-		{
-			"id": "8a09e78b-6f27-2f56-e894-39465e5f2af7",
-			"folder": "709a7f99-e75e-e031-ca13-14b543ed7d93",
-			"name": "Enroll Okta SMS Factor with New Number",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": "html",
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors?updatePhone=true",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": "null",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"isFromCollection": true,
-			"collectionRequestId": "8a09e78b-6f27-2f56-e894-39465e5f2af7",
-			"rawModeData": "{\n  \"factorType\": \"sms\",\n  \"provider\": \"OKTA\",\n  \"profile\": {\n    \"phoneNumber\":  \"+1-555-415-1337\"\n  }\n}"
-		},
-		{
-			"id": "9e2c3b60-4b7a-7fc8-f7d3-8f9370cc7954",
-			"folder": "709a7f99-e75e-e031-ca13-14b543ed7d93",
-			"name": "Enroll Okta Verify TOTP Factor",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": "null",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"isFromCollection": true,
-			"collectionRequestId": "9e2c3b60-4b7a-7fc8-f7d3-8f9370cc7954",
-			"rawModeData": "{\n  \"factorType\": \"token:software:totp\",\n  \"provider\": \"OKTA\"\n}"
-		},
-		{
-			"id": "9eebc338-5dc8-31a5-8cb3-74922971d4a0",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/factors",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "POST",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"data": [],
-			"dataMode": "raw",
-			"name": "Enroll YubiKey Factor",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1447401672987,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "709a7f99-e75e-e031-ca13-14b543ed7d93",
-			"rawModeData": "{\n  \"factorType\": \"token:hardware\",\n  \"provider\": \"YUBICO\",\n  \"verify\": {\n    \"passCode\": \"cccccceukngdfgkukfctkcvfidnetljjiknckkcjulji\"\n  }\n}"
-		},
-		{
-			"id": "9fdcd006-a8d8-1bd8-a3ec-982fe0839111",
-			"folder": "6ca381c6-3450-267f-ddb5-3f506b21d028",
-			"name": "Verify SMS Factor",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": "html",
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": "null",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"isFromCollection": true,
-			"collectionRequestId": "9fdcd006-a8d8-1bd8-a3ec-982fe0839111",
-			"rawModeData": "{\n  \"passCode\": \"382883\"\n}  "
-		},
-		{
-			"id": "b1d318f3-0aa8-a89d-7175-9f58e7fa6827",
-			"folder": "6ca381c6-3450-267f-ddb5-3f506b21d028",
-			"name": "Verify TOTP Factor",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/verify",
-			"preRequestScript": null,
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": "null",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"isFromCollection": true,
-			"collectionRequestId": "b1d318f3-0aa8-a89d-7175-9f58e7fa6827",
-			"rawModeData": "{\n  \"passCode\": \"382883\"\n}  "
-		},
-		{
-			"id": "b443e90d-e32d-2b73-5bea-8680e449325e",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/factors",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1447398475335,
-			"name": "Enroll RSA SecurID  Factor",
-			"description": "",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"responses": [],
-			"rawModeData": "{\n  \"factorType\": \"token\",\n  \"provider\": \"RSA\",\n  \"profile\": {\n    \"credentialId\": \"{{username}}\"\n  },\n  \"verify\": {\n    \"passCode\": \"875498\"\n  }\n}"
-		},
-		{
-			"id": "b66cf74d-8345-89af-274f-a3d3217aeb7e",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/factors/{{factorId}}/transactions/{{transactionId}}/verify",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1447638153126,
-			"name": "Verify Push  Factor",
-			"description": "",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"responses": []
-		},
-		{
-			"id": "bbce8986-7a23-229b-3bc9-6fcfd71ad606",
-			"folder": "709a7f99-e75e-e031-ca13-14b543ed7d93",
-			"name": "Reset All Factors",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": null,
-			"descriptionFormat": "html",
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS{{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/lifecycle/reset_factors",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": "null",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"isFromCollection": true,
-			"collectionRequestId": "bbce8986-7a23-229b-3bc9-6fcfd71ad606"
-		},
-		{
-			"id": "e1048400-42bd-d96b-2126-560504235e3f",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/factors",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1447398394531,
-			"name": "Enroll Okta SMS Factor",
-			"description": "",
-			"collectionId": "427881f9-60e1-407e-7cc1-de1c0f64ced2",
-			"rawModeData": "{\n  \"factorType\": \"sms\",\n  \"provider\": \"OKTA\",\n  \"profile\": {\n    \"phoneNumber\": \"{{phoneNumber}}\"\n  }\n}"
-		}
-	]
+	"protocolProfileBehavior": {}
 }
