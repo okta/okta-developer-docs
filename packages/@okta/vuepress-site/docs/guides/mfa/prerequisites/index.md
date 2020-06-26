@@ -15,6 +15,6 @@ This guide assumes that you have:
 * An Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup))
 * [Postman configured](/code/rest/) to make API requests to your Developer Edition org
 * The Users API and Factors API [Postman collections](/docs/reference/postman-collections/)
-* Have [created an API token](/docs/guides/create-an-api-token/) for your Okta org
+* [Created an API token](/docs/guides/create-an-api-token/) for your Okta org
 
 <NextSectionLink/>
