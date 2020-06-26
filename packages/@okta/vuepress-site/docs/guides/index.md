@@ -39,6 +39,7 @@ guides:
  - sign-users-out
  - sign-your-own-saml-csr
  - unlock-mobile-app-with-biometrics
+ - updatng-saml-cert-generic
  - updating-saml-cert
  - validate-access-tokens
  - validate-id-tokens
