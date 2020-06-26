@@ -6,6 +6,8 @@ Use the [List Apps API](/docs/reference/api/apps/#list-applications) to return a
 
 For each app to update, collect the `id`, `name`, and `label` elements.
 
+To enable reverting later, if needed, you should also record the value of `credential.signing.kid`. 
+
 Request: `GET /api/v1/apps`
 
 Truncated Response:
