@@ -39,6 +39,7 @@ module.exports = [
     { title: 'Sign users out', guideName: 'sign-users-out' },
     { title: 'Sign the Okta certificate with your own CA', guideName: 'sign-your-own-saml-csr' },
     { title: 'Unlock a mobile app with biometrics', guideName: 'unlock-mobile-app-with-biometrics' },
+    { title: 'Update SAML certificates', guideName: 'updating-saml-cert-generic' },
     { title: 'Upgrade SAML Apps to SHA256', guideName: 'updating-saml-cert' },
     { title: 'Validate Access Tokens', guideName: 'validate-access-tokens' },
     { title: 'Validate ID Tokens', guideName: 'validate-id-tokens' },
