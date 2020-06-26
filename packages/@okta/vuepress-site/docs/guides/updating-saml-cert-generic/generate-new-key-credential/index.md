@@ -3,7 +3,7 @@ title: Generate a new application key credential
 ---
 
 Use the [Apps API](/docs/reference/api/apps/#generate-new-application-key-credential)
-to generate new credentials. Pass each app ID (`id`) that was collected in the previous step as the app ID (`aid`) in this API. If you have no company policy for credential expiration, 10 years is suggested.
+to generate new credentials. Pass each app ID (`id`) that was collected in the previous step as the app ID (`aid`) in this API. Follow you company policy for credential expiration.
 
 
 Request: `POST /api/v1/apps/0000000000aaaaaBBBBBo/credentials/keys/generate?validityYears=10`
