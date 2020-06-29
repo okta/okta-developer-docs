@@ -1,11 +1,11 @@
 In the **General Settings** section:
 
-* **Name** &mdash; Enter the name that you would expect to see on a button, such as **Sign in with MyIdentityProvider**.
+* **Name** &mdash; Enter a name for the Identity Provider configuration.
 * **Client Id** &mdash; Paste the app ID or client ID that you obtained when you configured the Identity Provider in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>.
 * **Client Secret** &mdash; Paste the secret that you obtained in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>. 
 * **Scopes** &mdash; Leave the defaults. These scopes are included when Okta makes an OpenID Connect request to the Identity Provider.
 
-    By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory. If your Identity Provider doesn't support this attribute, you can make it optional. See [Manage User Profiles](https://help.okta.com/en/prod/Content/Topics/Directory/eu-profile-editor.htm).
+    By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory. If your Identity Provider doesn't support this attribute, you can make it optional. See [Manage User Profiles](https://help.okta.com/en/prod/Content/Topics/Directory/eu-profile-editor.htm). For Just In Time (JIT) provisioning, Okta requires the `firstName` and `lastName` attributes for a user. Include the `name` scope if the the Identity Provider needs to support JIT.
 
 In the **Endpoints** section:
 
