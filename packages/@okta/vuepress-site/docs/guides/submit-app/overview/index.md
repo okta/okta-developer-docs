@@ -37,7 +37,7 @@ The service-level agreement for OIN publication time is:
 * QA testing by Okta - 5 business days
 * Final publication in the OIN Catalog - 3 business days
 
-All submissions go through these phases. The Okta OIN team will send you email to note any remediations arising from the initial review and QA testing phases. At any point in the process, you can check the status of your submission in the [OIN Manager](https://oinmanager.okta.com).
+All submissions go through these phases. The Okta OIN team sends you email identifying any issues found in the initial review and QA testing phases. At any point in the process, you can check the status of your submission in the [OIN Manager](https://oinmanager.okta.com).
 
 ## Submission support
 
@@ -45,7 +45,7 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
 When you are constructing your Okta integration, you can post a question on the Okta Developer Forum, or email the Okta Developer Support team at <developers@okta.com>.
 
-When you are troubleshooting a submission or need to know the current publication status, sign in to the [OIN Manager](https://oinmanager.okta.com). There you can make any necessary changes to your submission. If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
+When you are troubleshooting a submission or need to know the current publication status, sign in to the [OIN Manager](https://oinmanager.okta.com) using your dev credentials. You can make any necessary changes to your submission there. If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
 
 >**Note:** All integrations in the OIN catalog are public. If you want to submit a private integration request for applications that use SCIM 1.1 or Profile Mastering, or for applications that use a custom header expression for the Header Auth, then use the SCIM [App Integration Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard) to create your integration and then send an email to <oin@okta.com>. The Okta OIN team will work with you to create an internal-only integration that is not included in the OIN.
 
