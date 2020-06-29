@@ -842,8 +842,8 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 
 | Parameter             | Description                                     | DataType                             | Nullable | Unique | Validation                              |
 | --------------------- | ----------------------------------------------- | ------------------------------------ | -------- | -----  | --------------------------------------  |
-| allowMultipleAcsEndpoints       | Determines whether the app allows configuring multiple ACS URIs                                         | Boolean                                              | FALSE    | FALSE  |                                           |
-| acsEndpoints          | A maximum of 100 ACS endpoints                                                                                    | Array of [ACS Endpoints](#acs-endpoint-object)       | TRUE     | FALSE  |                                           |
+| allowMultipleAcsEndpoints       | Determines whether the app allows you to configure multiple ACS URIs                                    | Boolean                                              | FALSE    | FALSE  |                                           |
+| acsEndpoints          | An array of ACS endpoints. You can configure a maximum of 100 endpoints.                                          | Array of [ACS Endpoints](#acs-endpoint-object)       | TRUE     | FALSE  |                                           |
 | assertionSigned       | Determines whether the SAML assertion is digitally signed or not                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
 | attributeStatements   | Check the [SAML Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |                                           |
 | audience              | Audience URI (SP Entity ID)                                                                                       | String                                               | FALSE    | FALSE  |                                           |
@@ -6235,7 +6235,7 @@ The application CSR object defines a certificate signing request for a signature
 
 ### ACS Endpoint Object
 
-The ACS endpoint containing the ACS URI and index of the URI.
+The ACS endpoint that contains the ACS URI and the index of the URI.
 
 ```json
 {
@@ -6244,15 +6244,14 @@ The ACS endpoint containing the ACS URI and index of the URI.
 }
 ```
 
-
 #### ACS Endpoint properties
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | url              | URL of the ACS                                               | String                                                                      | FALSE    | FALSE  | FALSE    |           | 1024      | [URL](http://tools.ietf.org/html/rfc3986)           |
-| index            | index of the URL in the array of ACS endpoints               | Number                                                                      | FALSE    | TRUE   | FALSE    | 0         |           |            |
+| index            | index of the URL in the array of ACS endpoints               | Number                                                                      | FALSE    | TRUE   | FALSE    |           |           |            |
 
 Property details
 
- * `url` cannot have query or fragment parameters.
- * `index` has to be a non-negative number, and cannot be duplicated in a set of ACS endpoints configured for an app.
+ * `url` can't have query or fragment parameters.
+ * `index` has to be a non-negative number and cannot be duplicated in a set of ACS endpoints configured for an app.
