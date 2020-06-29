@@ -8,8 +8,8 @@ The following is a list of popular third-party CA providers that can be used to 
  - Comodo SSL
  - DigiCert
  - GeoTrust
- - GoDaddy
  - GlobalSign
+ - GoDaddy
  - Network Solutions
  - RapidSSL
  - SSL.com
