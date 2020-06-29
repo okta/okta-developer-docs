@@ -58,7 +58,7 @@ This table lists the current (and historical) major versions of our open-source 
 | [Android OIDC][oidc-android]                          | 1.0.1                              | **Stable**
 | [Angular SDK][sdk-angular]                                      | 0.1.0<br>**1.x**                   | Retired<br>**Stable**                |
 | [ASP.NET SDK][sdk-aspnet]                                      | **1.x**                   | **Stable**                |
-| [ASP.NET Core SDK][sdk-aspnet]                                      | **1.x**                   | **Stable**                |
+| [ASP.NET Core SDK][sdk-aspnet]                                      | **3.x**                   | **Stable**                |
 | [JWT verifier for Go][go-jwt-verifier]                          | 0.x                                | Beta                                 |
 | [OIDC iOS][oidc-ios] (<i>formerly **iOS AppAuth SDK**</i>)                                  | 1.x<br>2.x<br>**3.x**                     | Retiring on 2019-07-19<br>Retiring on 2020-01-16<br>**Stable** |
 | [iOS OktaJWT][ios-oktajwt]                                      | 0.1.0<br>**1.x**                   | Retired<br>**Stable**                |
@@ -67,7 +67,7 @@ This table lists the current (and historical) major versions of our open-source 
 | [Java authentication SDK][authsdk-java]                         | **1.x**                            | **Stable**                           |
 | [JWT verifier for Java][java-jwt-verifier]                      | **0.x**                            | **Stable**                           |
 | [Spring Boot Starter][spring-boot-starter]                      | **0.x**                            | **Stable**                           |
-| [.NET management SDK][sdk-dotnet]                               | [0.3.3][sdk-dotnet-033]<br>**1.x** | Retiring on 2019-12-11<br>**Stable** |
+| [.NET management SDK][sdk-dotnet]                               | **2.x**                            | **Stable**                           |
 | [.NET authentication SDK][sdk-auth-dotnet]                      | **1.x**                            | **Stable**                                 |
 | [Node.js management SDK][sdk-nodejs]                            | 1.2.0<br>**2.x**                   | Retiring on 2020-01-03<br>**Stable**                |
 | [JWT verifier for Node.js][nodejs-jwt-verifier]                 | **0.x**                            | **Stable**                           |
@@ -81,7 +81,6 @@ This table lists the current (and historical) major versions of our open-source 
 
 [sdk-angular]: https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular
 [sdk-dotnet]: https://github.com/okta/okta-sdk-dotnet
-[sdk-dotnet-033]: https://github.com/okta/okta-sdk-dotnet/releases/tag/0.3.3.0
 [powershell-module]: https://github.com/okta/okta-sdk-dotnet/tree/legacy/Okta.Core.Automation
 [sdk-aspnet]: https://github.com/okta/okta-aspnet/releases
 [sdk-aspnetcore]: https://github.com/okta/okta-aspnet/releases
