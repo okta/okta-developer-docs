@@ -5,7 +5,7 @@ In the **General Settings** section:
 * **Client Secret** &mdash; Paste the secret that you obtained in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>. 
 * **Scopes** &mdash; Leave the defaults. These scopes are included when your Okta org makes a request to the other Okta org that represents the Identity Provider.
 
-    By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory. For Just In Time (JIT) provisioning, Okta requires the `firstName` and `lastName` attributes for a user. Include the `name` scope if the the Identity Provider needs to support JIT.
+    By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
 
 In the **Endpoints** section:
 
