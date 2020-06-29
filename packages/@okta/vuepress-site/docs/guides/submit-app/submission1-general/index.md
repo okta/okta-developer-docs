@@ -36,7 +36,7 @@ In the General Settings page, you need to fill in the basic information about yo
 
 ## Test account
 
-The Okta OIN team require a dedicated account on your application to run their tests. This account needs to be kept active beyond the submission period, in case Okta needs to update or troubleshoot a submission.
+The Okta OIN team requires a dedicated account on your application to run their tests. This account needs to be kept active beyond the submission period, in case Okta needs to update or troubleshoot a submission.
 
 * **Test account URL** &mdash; This is a static URL for Okta to sign on to your application. The account credentials you provide below must work for this URL.
 
