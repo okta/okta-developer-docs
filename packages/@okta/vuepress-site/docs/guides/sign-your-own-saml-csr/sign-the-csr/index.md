@@ -7,8 +7,8 @@ Follow the third-party Certificate Authority (CA) process that your company uses
 The following is a list of popular third-party CA providers that can be used to sign the CSR:
  - Comodo SSL
  - DigiCert
- - GoDaddy
  - GeoTrust
+ - GoDaddy
  - GlobalSign
  - Network Solutions
  - RapidSSL
@@ -17,7 +17,7 @@ The following is a list of popular third-party CA providers that can be used to 
 
 > **Note:** There is a cost associated with SSL certificates being signed by a third-party CA.
 
-The certificate authority you choose will provide instructions for how to upload the CSR you generated in the previous steps.
+The certificate authority you choose will provide instructions on how to upload the CSR you generated in the previous steps.
 
 > **Note:** The CSR is generated in Base64 DER format. If your process requires a different format, convert it using OpenSSL or a third-party decoder. Free, third-party decoders are readily available.
 
