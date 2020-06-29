@@ -19,6 +19,8 @@ The following is a list of popular third-party CA providers that can be used to 
 
 The certificate authority you choose will provide instructions on how to upload the CSR you generated in the previous steps.
 
-> **Note:** The CSR is generated in Base64 DER format. If your process requires a different format, convert it using OpenSSL or a third-party decoder. Free, third-party decoders are readily available.
+The CSR is generated in Base64 DER format. If your process requires a different format, convert it using OpenSSL or a third-party decoder. Free, third-party decoders are readily available.
+
+After you update the key credential, your users can't access the SAML app until you upload the new certificate to the Service Provider (SP).
 
 <NextSectionLink/>
