@@ -8,7 +8,7 @@ meta:
     content: Use our Node.js guide to add authentication to your app and our Node.js SDK to create and update users and groups.
 ---
 
-New to Okta? Our quickstart will walk you through adding user authentication to your Node.js app in minutes.
+New to Okta? Our how to guide will walk you through adding user authentication to your Node.js app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -17,8 +17,8 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 		</a>
 	</li>
 	<li>
-		<a href='/quickstart/#/okta-sign-in-page/nodejs/' class='Button--blue' data-proofer-ignore>
-			<span>Node.js Quickstart</span>
+		<a href='/docs/guides/sign-into-web-app/nodeexpress/before-you-begin/' class='Button--blue' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 </ul>

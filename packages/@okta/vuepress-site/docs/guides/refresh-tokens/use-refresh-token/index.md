@@ -16,7 +16,9 @@ http --form POST https://${yourOktaDomain}/oauth2/default/v1/token \
   refresh_token=MIOf-U1zQbyfa3MUfJHhvnUqIut9ClH0xjlDXGJAyqo
 ```
 
-If the refresh token is valid, then you get back a new access/refresh token combination:
+If the refresh token is valid, then you get back a new access/refresh token combination.
+
+> **Note:** The access and ID tokens are truncated for brevity.
 
 ```JSON
 {

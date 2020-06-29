@@ -58,12 +58,12 @@ import React, { useState } from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { useOktaAuth } from '@okta/okta-react';
 
-const LoginForm = ({ issuer }) => { 
+const LoginForm = ({ issuer }) => {
   const { authService } = useOktaAuth();
   const [sessionToken, setSessionToken] = useState();
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const oktaAuth = new OktaAuth({ issuer: issuer });
@@ -75,7 +75,7 @@ const LoginForm = ({ issuer }) => {
       authService.redirect({ sessionToken });
     })
     .catch(err => console.log('Found an error', err));
-  };     
+  };
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -211,10 +211,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 
-const Home = () => { 
+const Home = () => {
   const { authState, authService } = useOktaAuth();
 
-  if (authState.isPending) { 
+  if (authState.isPending) {
     return <div>Loading...</div>;
   }
 
@@ -248,7 +248,7 @@ export default withOktaAuth(class Home extends Component {
   }
 
   render() {
-    if (this.props.authState.isPending) { 
+    if (this.props.authState.isPending) {
       return <div>Loading...</div>;
     }
 
@@ -294,10 +294,10 @@ import { Redirect } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import { useOktaAuth } from '@okta/okta-react';
 
-const Login = ({ issuer }) => { 
+const Login = ({ issuer }) => {
   const { authState } = useOktaAuth();
 
-  if (authState.isPending) { 
+  if (authState.isPending) {
     return <div>Loading...</div>;
   }
   return authState.isAuthenticated ?
@@ -320,7 +320,7 @@ import { withOktaAuth } from '@okta/okta-react';
 
 export default withOktaAuth(class Login extends Component {
   render() {
-    if (this.props.authState.isPending) { 
+    if (this.props.authState.isPending) {
       return <div>Loading...</div>;
     }
     return this.props.authState.isAuthenticated ?
@@ -334,7 +334,7 @@ export default withOktaAuth(class Login extends Component {
 The component for this route (LoginCallback) comes with `@okta/okta-react`. It handles token parsing, token storage, and redirecting to a protected page if one triggered the login.
 
 ### Connect the Routes
-Update `src/App.jsx` to include your project components and routes. `Security` is the component that controls the authentication flows, so it requires your OpenId Connect configuration. By default, `@okta/okta-react` redirects to Okta's login page when the user isn't authenticated. 
+Update `src/App.jsx` to include your project components and routes. `Security` is the component that controls the authentication flows, so it requires your OpenId Connect configuration. By default, `@okta/okta-react` redirects to Okta's login page when the user isn't authenticated.
 
 In this example, `onAuthRequired` is overridden to redirect to the custom login route instead, which requires a component that is a descendent of Router to have access to `react-router`'s `history`.  Other router libraries will have their own methods of managing browser history:
 
@@ -346,7 +346,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppWithRouterAccess from './AppWithRouterAccess';
 
-const App = () => { 
+const App = () => {
   return (
     <Router>
       <AppWithRouterAccess/>
@@ -366,9 +366,9 @@ import Home from './Home';
 import Login from './Login';
 import Protected from './Protected';
 
-const AppWithRouterAccess = () => { 
+const AppWithRouterAccess = () => {
   const history = useHistory();
-  const onAuthRequired = () => { 
+  const onAuthRequired = () => {
     history.push('/login');
   };
 
@@ -419,12 +419,12 @@ import Login from './Login';
 import Protected from './Protected';
 
 export default withRouter(class AppWithRouterAccess extends Component {
-  constructor(props) { 
+  constructor(props) {
     super(props);
     this.onAuthRequired = this.onAuthRequired.bind(this);
   }
-  
-  onAuthRequired() { 
+
+  onAuthRequired() {
     this.props.history.push('/login');
   }
 
@@ -455,7 +455,7 @@ npm start
 ## Conclusion
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
 
-Want to learn how to use the user's `access_token`? Check out our <a href='/quickstart/#/react/nodejs/generic' data-proofer-ignore>React Quickstart integrations</a> to learn about protecting routes on your server, validating the `access_token`, and more!
+Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/react/before-you-begin/' data-proofer-ignore>React How To Guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
 ## Support
 Have a question or see a bug? Post your question on [Okta Developer Forums](https://devforum.okta.com/).

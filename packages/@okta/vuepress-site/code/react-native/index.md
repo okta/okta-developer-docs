@@ -5,7 +5,7 @@ icon: code-react
 integration: mobile
 ---
 
-New to Okta? Our quickstart will walk you through adding user authentication to your React Native app in minutes.
+New to Okta? Our how to guide will walk you through adding user authentication to your React Native app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -14,8 +14,8 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 		</a>
 	</li>
 	<li>
-		<a href='/quickstart/#/react-native' class='Button--blue' data-proofer-ignore>
-			<span>React Native Quickstart</span>
+		<a href='/docs/guides/sign-into-mobile-app/react-native/before-you-begin/' class='Button--blue' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 </ul>
