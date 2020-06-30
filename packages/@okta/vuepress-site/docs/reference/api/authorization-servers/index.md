@@ -3,7 +3,7 @@ title: Authorization Servers
 category: management
 ---
 
-# Authorization Servers
+# Authorization Servers API
 
 Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including access tokens and ID tokens. The Okta Management API gives you the ability to configure and manage Authorization Servers and the security policies that are attached to them. The following configuration operations can be found on this page:
 
