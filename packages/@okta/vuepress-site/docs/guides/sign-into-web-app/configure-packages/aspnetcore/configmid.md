@@ -21,6 +21,23 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+Okta middleware uses the default Custom Authorization Server by default. If you are using an Authorization Server other than the `default`, make sure to configure it by setting up the `AuthorizationServerId`. If you are using the [Org Authorization Server](/docs/concepts/auth-servers/), your middleware configuration should look like this: 
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    //...
+    .AddOktaMvc(new OktaMvcOptions
+    {
+        // Replace these values with your Okta configuration
+        OktaDomain = "https://${yourOktaDomain}",
+        ClientId = "{clientId}",
+        ClientSecret = "{clientSecret}",
+        AuthorizationServerId = "",
+    });
+}
+```
+
 Modify the `Configure` method to include the `app.UseAuthentication()` line. It must be above `UseMvc()`:
 
 ```csharp
