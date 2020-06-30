@@ -7,7 +7,7 @@ If you need to make protocol changes to your integration that is already publish
 Similarly, when you enable a new capability in your application (for example, adding SCIM provisioning onto an existing published SAML application), you don't need to create an entirely new submission. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
 
 1. Sign on to the OIN Manager using the credentials for your original dev org.
-    >**Note:** You must submit the updated integration using the same dev org that was used to make the original submission, otherwise the Okta OIN team will reject the update.
+    >**Note:** You must submit the updated integration using the same dev org that was used to make the original submission, otherwise the Okta OIN team rejects the update.
 1. The published integration appears on your integrations page. Click **Update**.
 
     This creates a new instance of your integration where you can safely change any of the parameters. Your existing integration remains in the OIN catalog and keeps the previous settings until this new version is published.
