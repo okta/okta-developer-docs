@@ -4,7 +4,7 @@ title: Check the attributes and corresponding mappings
 
 When you add a SCIM template integration to your development org, it comes with base attributes set by default. The user schema in your SCIM application might not support all of these attributes. It is important that you go through the steps below to ensure that the integration you're submitting to Okta for review reflects the attributes supported by your application.
 
->**Note:** Confirm your attributes and mappings before you submit your integration for review, or your submission will be returned by the Okta App Analyst with a request to update your attributes.
+>**Note:** Confirm your attributes and mappings before you submit your integration for review, or your submission will be returned by the Okta OIN team with a request to update your attributes.
 
 ## Delete attributes
 
