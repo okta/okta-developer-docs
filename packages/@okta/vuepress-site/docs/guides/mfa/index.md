@@ -9,8 +9,8 @@ sections:
  - set-up-org
  - set-up-postman
  - create-test-user
- - add-factor
  - enroll-factor
+ - activate-factor
  - verify-factor
  - next-steps
 ---
