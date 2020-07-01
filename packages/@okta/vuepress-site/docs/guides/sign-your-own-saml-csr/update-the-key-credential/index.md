@@ -8,6 +8,8 @@ Update the key credential for the app or IdP to specify the new signing Key ID.
 
 * For Inbound SAML, call the [Update IdP API](/docs/reference/api/idps/#update-identity-provider). Pass the entire [IdP](/docs/reference/api/idps/#update-identity-provider) that you obtained in <GuideLink link="../list-your-apps">step 1</GuideLink> and use the Key ID value that you obtained in <GuideLink link="../sign-the-csr">step 4</GuideLink>. Partial updates aren't supported by the `Updated IdP API`.
 
+> **Caution:** After you update the key credential, your users can't access the SAML app or the Identity Provider until you upload the new certificate to the Service Provider (SP).
+
 The following request is for Outbound SAML.
 
 ``` json

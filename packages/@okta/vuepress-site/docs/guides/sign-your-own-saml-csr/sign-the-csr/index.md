@@ -10,6 +10,4 @@ The CA that you choose provides instructions on how to upload the CSR that you g
 
 The CSR is generated in Base64 DER format. If your process requires a different format, convert it using OpenSSL or a third-party decoder. Free, third-party decoders are readily available.
 
-> **Caution** After you update the key credential, your users can't access the SAML app or the Identity Provider until you upload the new certificate to the Service Provider (SP).
-
 <NextSectionLink/>
