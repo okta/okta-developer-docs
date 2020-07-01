@@ -2717,7 +2717,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/idps/tx/${transactionId}/source" />
 
-Fetches the source [IdP user](#identity-provider-user-object) for a Transaction
+Fetches the source [IdP User](#identity-provider-user-object) for a Transaction
 
 ##### Request parameters
 
@@ -2764,7 +2764,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/idps/tx/${transactionId}/target" />
 
-Fetches the target transformed [Okta User Profile](/docs/reference/api/users/#profile-object) for a just-in-time (JIT) provisioning Transaction
+Fetches the target transformed [Okta User Profile](/docs/reference/api/users/#profile-object) for a Just-In-Time (JIT) provisioning Transaction
 
 ##### Request parameters
 
@@ -2903,13 +2903,13 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/idps/tx/${transactionId}/lifecycle/provision" />
 
-Provisions an IdP user as a new Okta user
+Provisions an IdP User as a new Okta User
 
 ##### Request parameters
 
 | Parameter     | Description                                                          |Param Type  | DataType                          | Required | Default                 |
 | ---------     | -------------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ----------------------- |
-| profile       | profile for [Okta user](/docs/reference/api/users/#profile-object) | Body         | [Okta User Profile object](/docs/reference/api/users/#profile-object)  | FALSE    | UD transformed Okta user profile |
+| profile       | profile for the [Okta User](/docs/reference/api/users/#profile-object) | Body         | [Okta User Profile object](/docs/reference/api/users/#profile-object)  | FALSE    | UD transformed Okta user profile |
 | transactionId | `id` of an IdP Transaction                                           | URL        | String                            | TRUE     |                         |
 
 ##### Response parameters
@@ -3113,7 +3113,7 @@ HTTP/1.1 200 OK
 
 Adds a new X.509 certificate credential to the IdP key store
 
-> **Note:** RSA-based certificates are supported for all IdP types. Okta currently supports EC-based certificates only for the `X509` IdP type. For EC-based certificates we support only P-256, P-384 and P-521 curves.
+> **Note:** RSA-based certificates are supported for all IdP types. Okta currently supports EC-based certificates only for the `X509` IdP type. For EC-based certificates we support only P-256, P-384, and P-521 curves.
 
 ##### Request parameters
 
@@ -3362,7 +3362,7 @@ HTTP/1.1 204 No Content
 
 ## Identity Provider signing key store operations
 
-> **Note:** EA feature constraint: Okta currently uses the same key for both request signing and decrypting SAML Assertions that have been encrypted by the IdP. Changing your signing key also changes your decryption key.
+> **Note:** EA feature constraint: Okta currently uses the same key for both request signing and decrypting SAML assertions that have been encrypted by the IdP. Changing your signing key also changes your decryption key.
 
 ### Generate new IdP signing Key Credential
 
@@ -3415,10 +3415,9 @@ Location: https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials
 
 > **Note:** If `validityYears` is out of range (2 - 10 years), you receive an error response.
 
-```http
+```JSON
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
-
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: generateKey",
@@ -3716,7 +3715,7 @@ Content-Type: application/json
 
 Updates the CSR with a signed X.509 certificate and adds it into the signing Key Credentials for the IdP.
 
-> **Note:** Publishing a certificate completes the lifecycle of the CSR, and it is no longer acessible.
+> **Note:** Publishing a certificate completes the lifecycle of the CSR, and it is no longer accessible.
 
 ##### Request parameters
 
@@ -3942,7 +3941,7 @@ Gets a specific [CSR object](#identity-provider-csr-object) by `id`
 
 ##### Response parameters
 
-Return base64-encoded CSR in DER format if the ``Accept`` media type is ``application/pkcs10`` or a CSR object if the ``Accept`` media type is ``application/json``.
+Returns base64-encoded CSR in DER format if the ``Accept`` media type is ``application/pkcs10`` or a CSR object if the ``Accept`` media type is ``application/json``
 
 ##### Request example
 
@@ -4060,7 +4059,7 @@ Lists the IdPs associated with the User
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- |
-| userId        | `id` of a user                                                                  | URL        | String                                        | TRUE     |
+| userId        | `id` of a User                                                                  | URL        | String                                        | TRUE     |
 
 ##### Response parameters
 
@@ -4196,7 +4195,7 @@ Fetches a linked [IdP User](#identity-provider-user-object) by ID
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- |
 | idpId         | ID of the [Identity Provider](#identity-provider-object)                         | URL        | String                                        | TRUE     |
-| userId        | `id` of a user                                                                  | URL        | String                                        | TRUE     |
+| userId        | `id` of a User                                                                  | URL        | String                                        | TRUE     |
 
 ##### Response parameters
 
@@ -4277,7 +4276,7 @@ Links an Okta User to an existing [social provider](#identity-provider-object). 
 
 | Parameter     | Description                                                                     | Param Type | DataType                                      | Required |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- |
-| externalId    | unique IdP-specific identifier for user                                         | Body       | String                                        | TRUE     |
+| externalId    | unique IdP-specific identifier for a User                                         | Body       | String                                        | TRUE     |
 | idpId         | `id` of the IdP                                                                 | URL        | String                                        | TRUE     |
 | userId        | `id` of a User                                                                  | URL        | String                                        | TRUE     |
 
