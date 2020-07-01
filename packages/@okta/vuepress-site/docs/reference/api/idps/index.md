@@ -1043,13 +1043,12 @@ curl -v -X POST \
 
 #### Add Smart Card Identity Provider
 
-
 Adds a new Smart Card `X509` type IdP to your organization
 
-##### Request Example
+##### Request example
 
-> **Notes:** You must first add the IdP's server certificate to the IdP key store before you can add a Smart Card `X509` IdP with a `kid` credential reference. You need to upload the whole trust chain as a single key using the [Key Store API](#add-x-509-certificate-public-key).
-Depending on the information stored in the smart card select the proper [template](/docs/reference/okta-expression-language/#idp-user-profile) `idpuser.subjectAltNameEmail` or `idpuser.subjectAltNameUpn`.
+> **Notes:** You must first add the IdP's server certificate to the IdP key store before you can add a Smart Card `X509` IdP with a `kid` credential reference. You need to upload the whole trust chain as a single key using the [Key Store API](#add-x-509-certificate-public-key).<br>
+Depending on the information stored in the Smart Card, select the proper [template](/docs/reference/okta-expression-language/#idp-user-profile) `idpuser.subjectAltNameEmail` or `idpuser.subjectAltNameUpn`.
 
 ```bash
 curl -v -X POST \
@@ -1089,7 +1088,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/idps"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -1294,10 +1293,10 @@ limit     | Specifies the number of IdP results in a page                       
 q         | Searches the `name` property of IdPs for matching value                                    | Query      | String   | FALSE    |
 type      | Filters IdPs by `type`                                                                     | Query      | String   | FALSE    |
 
-**Parameter Details**
+**Parameter details**
 
 * Treat the `after` cursor as an opaque value and obtain it through the next link relationship. See [Pagination](/docs/reference/api-overview/#pagination).
-* Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.
+* Search currently performs a `startsWith` match, but it should be considered an implementation detail and may change without notice in the future.
 
 ##### Response parameters
 
@@ -1923,8 +1922,7 @@ curl -v -X GET \
 
 Searches for IdPs by `name` in your organization
 
-Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.
-Exact matches are returned before partial matches.
+Search currently performs a `startsWith` match, but it should be considered an implementation detail and may change without notice in the future. Exact matches are returned before partial matches.
 
 ##### Request example
 
@@ -2605,7 +2603,7 @@ curl -v -X POST \
 
 > **Note:** This is a <ApiLifecycle access="deprecated" /> feature.
 
-Operations for just-in-time (JIT) provisioning or account linking with a `callout` action (webhook)
+Operations for Just-In-Time (JIT) provisioning or account linking with a `callout` action (webhook)
 
 All Transaction operations require a Transaction ID that is obtained as part of the authentication call.
 
