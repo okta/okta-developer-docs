@@ -4,18 +4,6 @@ title: Sign the CSR
 
 Follow the third-party Certificate Authority (CA) process that your company uses to sign the CSR. You can't proceed to the next step until your certificate is signed using this process.
 
-The following is a list of popular third-party CA providers that can be used to sign the CSR:
-
- - Comodo SSL
- - DigiCert
- - GeoTrust
- - GlobalSign
- - GoDaddy
- - Network Solutions
- - RapidSSL
- - SSL.com
- - Thawte
-
 > **Note:** There is a cost associated with SSL certificates being signed by a third-party CA.
 
 The CA that you choose provides instructions on how to upload the CSR that you generated in the previous steps.
