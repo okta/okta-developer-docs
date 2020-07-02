@@ -463,6 +463,8 @@ Adds a new `Apple` type IdP to your organization
 
 ##### Request example
 
+> **Note:** The key is truncated for brevity.
+
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -470,7 +472,7 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "APPLE",
-  "name": "Apple",
+  "name": "Apple Identity Provider",
   "protocol": {
     "type": "OIDC",
     "scopes": ["openid", "email", "name"],
@@ -502,30 +504,28 @@ curl -v -X POST \
       }
     },
     "accountLink": {
-      "filter": null,
       "action": "AUTO"
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.email",
-        "type": null
+        "template": "idpuser.email"
       },
-      "filter": null,
       "matchType": "USERNAME"
-    },
-    "maxClockSkew": 0
+    }
   }
 }' "https://${yourOktaDomain}/api/v1/idps"
 ```
 
 ##### Response example
 
+> **Note:** The key is truncated for brevity.
+
 ```json
 {
   "id": "0oa18hsHsG3boVejU0g4",
   "type": "APPLE",
   "issuerMode": "ORG_URL",
-  "name": "Apple",
+  "name": "Apple Identity Provider",
   "status": "ACTIVE",
   "created": "2020-06-05T20:57:51.000Z",
   "lastUpdated": "2020-06-05T20:57:51.000Z",
@@ -5151,7 +5151,7 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 
 | Property    | Description                                                      | DataType                                          | Nullable | Readonly | MinLength |
 | ----------- | ---------------------------------------------------------------- | ------------------------------------------------- | -------- | -------- | --------- |
-| credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-client-credentials-object) | FALSE | FALSE |   |
+| credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-credentials-object) | FALSE | FALSE |   |
 | endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server (AS)                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE  | TRUE  |   |
 | scopes      | OpenID Connect and IdP-defined permission bundles to request delegated access from the User                                         | Array of String                                                              | FALSE | FALSE | 1 |
 | type        | [OpenID Connect Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)                     | `OIDC`                                                                       | FALSE | TRUE  |   |
@@ -5252,7 +5252,7 @@ The IdP Authorization Server (AS) endpoints are currently defined as part of the
 }
 ```
 
-##### OAuth 2.0 and OpenID Connect Client Credentials object
+##### OAuth 2.0 and OpenID Connect Credentials object
 
 Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3)
 
@@ -5266,7 +5266,7 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
 | Property      | Description                                                                                                 | DataType | Nullable | Readonly | MinLength | MaxLength |
 | ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
 | client_id     | [Unique identifier](https://tools.ietf.org/html/rfc6749#section-2.2) issued by the AS for the Okta IdP instance | String   | FALSE    | FALSE    | 1         | 1024      |
-| client_secret | [Client secret issued](https://tools.ietf.org/html/rfc6749#section-2.3.1) by the AS for the Okta IdP instance   | String   | TRUE(Only Nullable for Apple IdP)     | FALSE    | 1         | 1024      |
+| client_secret | [Client secret issued](https://tools.ietf.org/html/rfc6749#section-2.3.1) by the AS for the Okta IdP instance   | String   | TRUE (Only Nullable for Apple IdP)     | FALSE    | 1         | 1024      |
 
 > **Note:** You must complete client registration with the IdP Authorization Server for your Okta IdP instance to obtain client credentials.
 
@@ -5304,9 +5304,11 @@ The information is used to generate the secret JSON Web Token for the token requ
 
 | Property      | Description                                                                                                 | DataType | Nullable | Readonly | MinLength | MaxLength |
 | ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
-| privateKey    | The  PKCS #8 encoded private key that you created for the client and downloaded from Apple                  | String   | TRUE(Only Nullable in update operation and it will keep the existing value if it is null)    | FALSE    | 1         | 1024      |
-| kid           | The Key ID that you obtained from Apple when you created the private key for client                         | String   | FALSE    | FALSE    | 1         | 1024      |
+| privateKey    | The  PKCS #8 encoded private key that you created for the client and downloaded from Apple                  | String   | TRUE     | FALSE    | 1         | 1024      |
+| kid           | The Key ID that you obtained from Apple when you created the private key for the client                     | String   | FALSE    | FALSE    | 1         | 1024      |
 | teamId        | The Team ID associated with your Apple developer account                                                    | String   | FALSE    | FALSE    | 1         | 1024      |
+
+> **Note:** privateKey is required in the CREATE request, but it is nullable when performing an UPDATE and keeps the existing value if it is null. It will not be returned for all the LIST and GET requests, as well as the UPDATE requests with it is null.
 
 ```json
 {
