@@ -15,4 +15,3 @@ For Outbound SAML, complete the following four steps.
 
 For Inbound SAML, follow the existing procedures for your setup.
 
-<NextSectionLink/>

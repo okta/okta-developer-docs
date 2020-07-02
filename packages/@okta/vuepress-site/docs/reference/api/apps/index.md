@@ -4420,7 +4420,7 @@ YoEdncuy+GQGzE9yLOhC4HNfHQXpqp2tMPdRlw==</ds:X509Certificate>
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/credentials/csrs" />
 
-Generates a new key pair and returns the Certificate Signing Request for it
+Generates a new key pair and returns the Certificate Signing Request (CSR). The information in a CSR is used by the Certificate Authority (CA) to verify and create your certificate. It also contains the public key that is included in your certificate.
 
 > **Note:** The key pair isn't listed in the [key credentials for the application](#list-key-credentials-for-application) until it's published.
 

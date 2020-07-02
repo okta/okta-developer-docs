@@ -22,6 +22,8 @@ The general procedure is the same for both the Outbound and Inbound SAML applica
 * [Clone the certificate (optional)](/docs/guides/sign-your-own-saml-csr/clone-the-certificate/)
 * [Upload the new certificate to the ISV](/docs/guides/sign-your-own-saml-csr/upload-the-certificate/)
 
+> **Note:** After you update the key credential, your users can't access the SAML app until you upload the new certificate to the ISV.
+
 For information on using the Postman REST API test client for these steps, see [Get Started with the Okta REST APIs](/code/rest/).
 
 <NextSectionLink/>

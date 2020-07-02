@@ -3,7 +3,7 @@ title: Authorization Servers
 category: management
 ---
 
-# Authorization Servers
+# Authorization Servers API
 
 Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including access tokens and ID tokens. The Okta Management API gives you the ability to configure and manage Authorization Servers and the security policies that are attached to them. The following configuration operations can be found on this page:
 
@@ -15,7 +15,7 @@ Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including ac
 
 ## Get Started
 
-Explore the Authorization Servers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/145f5d5fb42a04e22c3e)
+Explore the Authorization Servers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6e58e52a03637c290665)
 
 This page also has information about the [OAuth 2.0 Objects](#oauth-20-objects) related to these operations.
 
@@ -144,7 +144,7 @@ When you use these API endpoints to create or modify an Authorization Server res
 | Property                                | Description                                                                                                                                                         | Type                                                                      | Required for create or update |
 | :------------                           | :---------------------------------------------------------------------------------------------------------------------                                              | :------------------------------------------------------------------------ | :---------------------------- |
 | _links                                  | List of discoverable resources related to a Custom Authorization Server                                                                                             | Links                                                                     | False                         |
-| audiences                               | The recipients that the tokens are intended for. This becomes the `aud` claim in an access token.                                                                   | Array                                                                     | True                          |
+| audiences                               | The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently, Okta supports only one audience.                       | Array                                                                     | True                          |
 | credentials                             | Keys and settings used to sign tokens.                                                                                                                              | [Credentials object](#credentials-object)                                 | False                         |
 | description                             | The description of a Custom Authorization Server                                                                                                                    | String                                                                    | True                          |
 | issuer                                  | The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.                                                                | String                                                                    | False                         |

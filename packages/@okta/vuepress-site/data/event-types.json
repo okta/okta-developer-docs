@@ -1,6 +1,6 @@
 {
-  "release" : "2020.05.3",
-  "build" : "2020.05.3-begin-37-g5945cb5f044c",
+  "release" : "2020.06.1",
+  "build" : "2020.06.1-begin-77-gf2370d9c059f",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -4596,6 +4596,12 @@
       "tags" : [ "app" ],
       "mappings" : [ "app.realtimesync.import_failed" ]
     }, {
+      "id" : "app.realtimesync.import_failed.details.precomputed_login_length",
+      "category" : "directories",
+      "description" : "Real time sync failed due to precomputed login too long.",
+      "tags" : [ "app" ],
+      "mappings" : [ "app.realtimesync.import_failed" ]
+    }, {
       "id" : "app.registration_policy.lifecycle.create",
       "category" : "sync",
       "description" : "Registration policy created.",
@@ -5331,6 +5337,12 @@
       "id" : "app.user_management.importing_profile_failed.missing_externalid",
       "category" : "sync",
       "description" : "User dropped from import due to missing externalId.",
+      "tags" : [ "app" ],
+      "mappings" : [ "system.import.import_profile" ]
+    }, {
+      "id" : "app.user_management.importing_profile_failed.precomputed_login_length",
+      "category" : "sync",
+      "description" : "Skip importing profile for user from app due to precomputed login too long.",
       "tags" : [ "app" ],
       "mappings" : [ "system.import.import_profile" ]
     }, {
@@ -6225,6 +6237,12 @@
       "id" : "core.user_auth.idp.invalid_user_status",
       "category" : "federation",
       "description" : "Unable to authenticate username because the matched user has an invalid status.",
+      "tags" : [ "idp" ],
+      "mappings" : [ "user.authentication.auth_via_IDP" ]
+    }, {
+      "id" : "core.user_auth.idp.link_denied_for_groups",
+      "category" : "federation",
+      "description" : "Account link of incoming subject to user denied due to group membership restriction.",
       "tags" : [ "idp" ],
       "mappings" : [ "user.authentication.auth_via_IDP" ]
     }, {
@@ -7415,48 +7433,6 @@
       "description" : "Updated system task.",
       "tags" : [ "system-task" ],
       "mappings" : [ "task.lifecycle.update" ]
-    }, {
-      "id" : "platform.tokens.transform.oauth2.process.failure",
-      "category" : "federation",
-      "description" : "Failed to process OAuth2 command.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "oauth2.tokens.transform.process" ]
-    }, {
-      "id" : "platform.tokens.transform.oauth2.response",
-      "category" : "federation",
-      "description" : "Received response from OAuth2 inline hook.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "oauth2.tokens.transform.response" ]
-    }, {
-      "id" : "platform.tokens.transform.oauth2.response.error",
-      "category" : "federation",
-      "description" : "Received error response from OAuth2 inline hook.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "oauth2.tokens.transform.error.response" ]
-    }, {
-      "id" : "platform.tokens.transform.oauth2.response.failure",
-      "category" : "federation",
-      "description" : "Failed to receive response from OAuth2 inline hook.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "oauth2.tokens.transform.response" ]
-    }, {
-      "id" : "platform.tokens.transform.saml.process.failure",
-      "category" : "federation",
-      "description" : "Failed to process SAML command.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "saml.tokens.transform.process" ]
-    }, {
-      "id" : "platform.tokens.transform.saml.response",
-      "category" : "federation",
-      "description" : "Received response from SAML inline hook.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "saml.tokens.transform.response" ]
-    }, {
-      "id" : "platform.tokens.transform.saml.response.failure",
-      "category" : "federation",
-      "description" : "Failed to receive response from SAML inline hook.",
-      "tags" : [ "tokens-transform" ],
-      "mappings" : [ "saml.tokens.transform.response" ]
     }, {
       "id" : "platform.union_gaa_failure_event",
       "category" : "sync",
@@ -10907,7 +10883,7 @@
       },
       "beta" : true,
       "tags" : [ "app" ],
-      "mappings" : [ "app.realtimesync.import_failed.details.email_length" ],
+      "mappings" : [ "app.realtimesync.import_failed.details.email_length", "app.realtimesync.import_failed.details.precomputed_login_length" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -11482,7 +11458,7 @@
         "release" : "2016.13"
       },
       "beta" : false,
-      "tags" : [ "app" ],
+      "tags" : [ "app", "event-hook-eligible" ],
       "mappings" : [ "app.generic.config.app_activated" ],
       "schema" : {
         "debugData" : null,
@@ -11498,7 +11474,7 @@
         "release" : "2016.13"
       },
       "beta" : false,
-      "tags" : [ "app" ],
+      "tags" : [ "app", "event-hook-eligible" ],
       "mappings" : [ "app.app_editor.app.create" ],
       "schema" : {
         "debugData" : "AppManagerUserConfigDebugData",
@@ -11514,7 +11490,7 @@
         "release" : "2016.13"
       },
       "beta" : false,
-      "tags" : [ "app" ],
+      "tags" : [ "app", "event-hook-eligible" ],
       "mappings" : [ "app.generic.config.app_deactivated" ],
       "schema" : {
         "debugData" : null,
@@ -11530,7 +11506,7 @@
         "release" : "2016.13"
       },
       "beta" : false,
-      "tags" : [ "app" ],
+      "tags" : [ "app", "event-hook-eligible" ],
       "mappings" : [ "app.generic.config.app_deleted" ],
       "schema" : {
         "debugData" : null,
@@ -11546,7 +11522,7 @@
         "release" : "2016.13"
       },
       "beta" : false,
-      "tags" : [ "app" ],
+      "tags" : [ "app", "event-hook-eligible" ],
       "mappings" : [ "app.app_editor.app.update", "app.generic.config.app_updated" ],
       "schema" : {
         "debugData" : "AppManagerUserConfigDebugData",
@@ -13650,54 +13626,6 @@
         "targets" : [ "AuthorizationServerResourceDetails" ]
       }
     }, {
-      "id" : "oauth2.tokens.transform.error.response",
-      "category" : "federation",
-      "description" : "This event no longer fires. It has been replaced with the inline_hook.response.processed event. Fired when Okta's authorization server received a response from an external service and the response format was valid, but the response contained an error. This could also be used to debug why command response erred. When fired, the event contained information about the error summary. Related events include: oauth2_tokens_transform_response.",
-      "info" : {
-        "created" : "2019-01-25",
-        "release" : "2019.01.3"
-      },
-      "beta" : false,
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.oauth2.response.error" ],
-      "schema" : {
-        "debugData" : "TokenTransformDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
-      "id" : "oauth2.tokens.transform.process",
-      "category" : "federation",
-      "description" : "This event no longer fires. It has been replaced with the inline_hook.response.processed event. Fired when Okta's authorization server used the command response for token transform, and the token transform failed. This event fired only when the token transform has failed due to the command response from the external server, for example that the response contained info to transform an access token and an access token was not requested in the request. This could also be used to debug why a token transformation failed. When fired, this event contained information about the entities involved in the inline hook request and response - including the relevant application, user, authorization server, and policy. This event also contained information about why the token transformation failed. Related events include: oauth2_tokens_transform_response.",
-      "info" : {
-        "created" : "2019-01-25",
-        "release" : "2019.01.3"
-      },
-      "beta" : false,
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.oauth2.process.failure" ],
-      "schema" : {
-        "debugData" : "TokenTransformDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
-      "id" : "oauth2.tokens.transform.response",
-      "category" : "federation",
-      "description" : "This event no longer fires. It has been replaced with the inline_hook.executed event. Fired when Okta's authorization server sent an inline hook to an external service. This event fired when the response was successful or when a response was not received. This could be used to audit the details of the entities involved in the inline hook request and response. When fired, this event contained information about the entities involved in the inline hook request and response - including the relevant application, user, authorization server, and policy.",
-      "info" : {
-        "created" : "2019-01-25",
-        "release" : "2019.01.3"
-      },
-      "beta" : false,
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.oauth2.response", "platform.tokens.transform.oauth2.response.failure" ],
-      "schema" : {
-        "debugData" : "TokenTransformDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
       "id" : "omm.app.VPN.settings.changed",
       "category" : "mobile-omm",
       "description" : "",
@@ -14192,38 +14120,6 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "ExecutePolicyResourceDetails" ]
-      }
-    }, {
-      "id" : "saml.tokens.transform.process",
-      "category" : "federation",
-      "description" : "This event no longer fires. It has been replaced with the inline_hook.response.processed event. Fired when Okta used the command response for token transform, and the token transform failed. This event fired only when the token transform had failed due to the command response from the external server, for example that the response tried to add a duplicate attribute to the assertion. This could also be used to debug why a token transformation failed. When fired, this event contained information about the entities involved in the inline hook request and response - including the relevant application and user. This event also contained information about why the token transformation failed. Related events include: saml_tokens_transform_response.",
-      "info" : {
-        "created" : "2018-07-01",
-        "release" : "2018.28"
-      },
-      "beta" : false,
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.saml.process.failure" ],
-      "schema" : {
-        "debugData" : "TokenTransformDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
-      }
-    }, {
-      "id" : "saml.tokens.transform.response",
-      "category" : "federation",
-      "description" : "This event no longer fires. It has been replaced with the inline_hook.executed event. Fired when Okta sends an inline hook to an external service for modifying a SAML Assertion. This event fired when the response was successful or when a response was not received. This could be used to audit the details of the entities involved in the inline hook request and response. When fired, this event contained information about the entites involved in the inline hook request and response - including the relevant application and user.",
-      "info" : {
-        "created" : "2018-07-01",
-        "release" : "2018.28"
-      },
-      "beta" : false,
-      "tags" : [ "token", "tokens-transform" ],
-      "mappings" : [ "platform.tokens.transform.saml.response", "platform.tokens.transform.saml.response.failure" ],
-      "schema" : {
-        "debugData" : "TokenTransformDebugData",
-        "actor" : null,
-        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "scheduled_action.user_suspension.canceled",
@@ -15396,7 +15292,7 @@
     }, {
       "id" : "system.feature.disable",
       "category" : "aelm",
-      "description" : "Fired when self service features are requested to be disabled by admins. This can be used to understand who disabled the features and whether there are any limitations concerning the features. When fired, this event contains information about the requested features, they're names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.enable'.",
+      "description" : "Fired when self service features are requested to be disabled by admins. This can be used to understand who disabled the features and whether there are any limitations concerning the features. When fired, this event contains information about the requested features, their names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.enable'.",
       "info" : {
         "created" : "2019-04-30",
         "release" : "2019.05.0"
@@ -15428,7 +15324,7 @@
     }, {
       "id" : "system.feature.enable",
       "category" : "aelm",
-      "description" : "Fired when self service features are requested to be enabled by admins. This can be used to understand who enabled the features and whether there are any limitations concerning the features. When fired, this event contains information about the requested features, they're names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.disable.",
+      "description" : "Fired when self service features are requested to be enabled by admins. This can be used to understand who enabled the features and whether there are any limitations concerning the features. When fired, this event contains information about the requested features, their names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.disable.",
       "info" : {
         "created" : "2019-04-30",
         "release" : "2019.05.0"
@@ -15739,7 +15635,7 @@
       },
       "beta" : false,
       "tags" : [ "import", "system" ],
-      "mappings" : [ "app.user_management.importing_profile", "app.user_management.importing_profile_failed.email_length", "app.user_management.importing_profile_failed.missing_externalid" ],
+      "mappings" : [ "app.user_management.importing_profile", "app.user_management.importing_profile_failed.email_length", "app.user_management.importing_profile_failed.missing_externalid", "app.user_management.importing_profile_failed.precomputed_login_length" ],
       "schema" : {
         "debugData" : "SystemImportDebugData",
         "actor" : null,
@@ -16987,7 +16883,7 @@
       },
       "beta" : false,
       "tags" : [ "user" ],
-      "mappings" : [ "core.user_auth.idp.cannot_update_user_profile_or_groups", "core.user_auth.idp.cannot_update_user_profile_or_groups.server_read_only", "core.user_auth.idp.general_schema_warning", "core.user_auth.idp.invalid_user_status", "core.user_auth.idp.login_failed", "core.user_auth.idp.multiple_matching_users", "core.user_auth.idp.no_matching_users", "core.user_auth.idp.saml.assertion_received_same_assertion_id", "core.user_auth.idp.saml.login_success", "core.user_auth.idp.saml.response_received_in_response_to_no_matching_key", "core.user_auth.idp.saml.saml_validation_failed", "core.user_auth.idp.saml.unknown_endpoint", "core.user_auth.idp.saml.unknown_profile_attribute", "core.user_auth.idp.username_filtered", "core.user_auth.idp.username_transform_failed", "core.user_auth.idp.x509.login_success" ],
+      "mappings" : [ "core.user_auth.idp.cannot_update_user_profile_or_groups", "core.user_auth.idp.cannot_update_user_profile_or_groups.server_read_only", "core.user_auth.idp.general_schema_warning", "core.user_auth.idp.invalid_user_status", "core.user_auth.idp.link_denied_for_groups", "core.user_auth.idp.login_failed", "core.user_auth.idp.multiple_matching_users", "core.user_auth.idp.no_matching_users", "core.user_auth.idp.saml.assertion_received_same_assertion_id", "core.user_auth.idp.saml.login_success", "core.user_auth.idp.saml.response_received_in_response_to_no_matching_key", "core.user_auth.idp.saml.saml_validation_failed", "core.user_auth.idp.saml.unknown_endpoint", "core.user_auth.idp.saml.unknown_profile_attribute", "core.user_auth.idp.username_filtered", "core.user_auth.idp.username_transform_failed", "core.user_auth.idp.x509.login_success" ],
       "schema" : {
         "debugData" : "IdpAuthDebugData",
         "actor" : null,
@@ -17210,7 +17106,7 @@
         "release" : "2020.05.1"
       },
       "beta" : false,
-      "tags" : [ "credential", "import", "user" ],
+      "tags" : [ "credential", "event-hook-eligible", "import", "user" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -18816,32 +18712,6 @@
           "app_unassignment_percent" : "String",
           "AppName" : "String",
           "added_objects" : "Integer"
-        }
-      },
-      "TokenTransformDebugData" : {
-        "name" : "TokenTransformDebugData",
-        "properties" : {
-          "webhooks" : "List",
-          "threat_suspected" : "boolean",
-          "security_conditions" : "List",
-          "anonymizer_status" : "String",
-          "proxy_type" : "String",
-          "behaviors" : "Map",
-          "risk" : "Map",
-          "url" : "String",
-          "request_uri" : "String",
-          "request_id" : "String",
-          "redirect_uri" : "String",
-          "original_principal" : "Resource",
-          "device_fingerprint" : "String",
-          "authn_request_id" : "String",
-          "source" : "String",
-          "messages" : "String",
-          "inline_hook_id" : "String",
-          "inline_hook" : "Map",
-          "hasIdToken" : "String",
-          "hasAccessToken" : "String",
-          "command" : "String"
         }
       },
       "UserAccessDebugData" : {

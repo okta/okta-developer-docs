@@ -49,7 +49,7 @@ If you are going to publish your integration to the OIN catalog, Okta requires t
 - `https://system-admin.trexcloud.com/admin/app/cpc/{appName}/oauth/callback`
 - `http://system-admin.okta1.com:1802/admin/app/cpc/{appName}/oauth/callback`
 
-where the `{appName}` is a unique identifier provided to you after your integration is submitted and processed by Okta. If, for any reason, your unique `{appName}` identifier isn't provided to you after the initial review, send an email to <developers@okta.com>.
+where the `{appName}` is a unique identifier provided to you after your integration is submitted and processed by Okta. If, for any reason, your unique `{appName}` identifier isn't provided to you after the initial review, send an email to <oin@okta.com>.
 
 ### Base URL
 
@@ -109,6 +109,17 @@ A best practice is to use a generated globally unique identifier (GUID) for this
 ### Active resources
 
 Okta user management requires that your SCIM API supports an `active` attribute for each user resource that can be set to `true` or `false` to denote a resource as "active" or "inactive".
+
+## Example implementations
+
+There are numerous examples of how to implement SCIM servers and applications. Here are a few to get you started:
+
+- [scimify](https://toolkit.okta.com/apps/scimify/) &mdash; A PHP application for Okta that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups, and /ServiceProviderConfig endpoints
+- [Apache Directory SCIMple](https://github.com/apache/directory-scimple) &mdash; Apache's Java EE implementation of the SCIM version 2.0 specification
+- [django-scim2](https://github.com/15five/django-scim2) &mdash; A SCIM 2.0 service provider implementation (for Django)
+- [go-scim](https://github.com/imulab/go-scim) &mdash; Building blocks for servers implementing SCIM v2
+
+A full list of implementations, both open-source and proprietary, is available at [SimpleCloud.info](http://www.simplecloud.info/#Implementations2).
 
 ## SCIM facade
 

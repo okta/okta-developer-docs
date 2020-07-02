@@ -14,9 +14,9 @@ In the General Settings page, you need to fill in the basic information about yo
 
 ## App information
 
-* **Does your app exist in the OIN?** &mdash; If your integration already exists in the OIN, provide the **Existing OIN app name** so the App Analyst can locate it.
+* **Does your app exist in the OIN?** &mdash; If your integration already exists in the OIN, provide the **Existing OIN app name** so that the Okta OIN team can locate it.
 
-* **What changes are you making to the existing OIN integration?** &mdash; If your integration already exists in the OIN, summarize the changes that you are requesting in your update. This summary helps the Okta App Analyst to address your changes.
+* **What changes are you making to the existing OIN integration?** &mdash; If your integration already exists in the OIN, summarize the changes that you are requesting in your update. This summary helps the Okta OIN team address your changes.
 
 * **App name** &mdash; Provide a name for your integration. This is the main title used for your integration in the OIN.
 
@@ -36,7 +36,7 @@ In the General Settings page, you need to fill in the basic information about yo
 
 ## Test account
 
-OKTA App Analysts require a dedicated account on your application to run their tests. This account needs to be kept active beyond the submission period, in case Okta needs to update or troubleshoot a submission.
+The Okta OIN team requires a dedicated account on your application to run their tests. This account needs to be kept active beyond the submission period in case Okta needs to update or troubleshoot a submission.
 
 * **Test account URL** &mdash; This is a static URL for Okta to sign on to your application. The account credentials you provide below must work for this URL.
 
@@ -44,6 +44,6 @@ OKTA App Analysts require a dedicated account on your application to run their t
 
 * **Test account password** &mdash; Password for the test account.
 
-* **Additional instructions** &mdash; Include any other information that you think the App Analysts need to know about your integration, the test account, or the testing configuration.
+* **Additional instructions** &mdash; Include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
 
 <NextSectionLink/>

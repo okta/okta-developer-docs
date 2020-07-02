@@ -1,0 +1,1069 @@
+{
+	"info": {
+		"_postman_id": "ae22a5bc-5daa-4543-9d08-a1cf6a6e976e",
+		"name": "Policy (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MFA Enroll",
+			"item": [
+				{
+					"name": "Update MFA Enroll Rule",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"MFA_ENROLL\",\n    \"id\": \"{{ruleId}}\",\n    \"status\": \"ACTIVE\",\n    \"name\": \"Updated Challenge Rule\",\n    \"priority\": 1,\n    \"system\": false,\n    \"conditions\": {\n        \"people\": {\n            \"users\": {\n                \"exclude\": []\n            }\n        },\n        \"network\": {\n            \"connection\": \"ANYWHERE\"\n        }\n    },\n    \"actions\": {\n        \"enroll\": {\n            \"self\": \"CHALLENGE\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/rules/{{ruleId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								"rules",
+								"{{ruleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Enroll Rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"MFA_ENROLL\",\n    \"status\": \"ACTIVE\",\n    \"name\": \"Challenge Rule\",\n    \"system\": false,\n    \"conditions\": {\n        \"people\": {\n            \"users\": {\n                \"exclude\": []\n            }\n        },\n        \"network\": {\n            \"connection\": \"ANYWHERE\"\n        }\n    },\n    \"actions\": {\n        \"enroll\": {\n            \"self\": \"CHALLENGE\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update MFA Enroll Policy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"MFA_ENROLL\",\n    \"id\": \"{{policyId}}\",\n    \"status\": \"ACTIVE\",\n    \"name\": \"Updated MFA Policy\",\n    \"priority\": 1,\n    \"system\": false,\n    \"conditions\": {\n        \"people\": {\n            \"groups\": {\n                \"include\": [\n                    \"{{groupId}}\"\n                ]\n            }\n        }\n    },\n    \"settings\": {\n        \"factors\": {\n            \"rsa_token\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"symantec_vip\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"yubikey_token\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"google_otp\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"duo\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"okta_question\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"okta_otp\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"okta_sms\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"okta_push\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            }\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get MFA Enroll Policies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/policies?type=MFA_ENROLL",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "MFA_ENROLL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create MFA Enroll Policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"MFA_ENROLL\",\n    \"name\": \"Test MFA Policy\",\n    \"conditions\": {\n        \"people\": {\n            \"groups\": {\n                \"include\": [\n                    \"{{groupId}}\"\n                ]\n            }\n        }\n    },\n    \"settings\": {\n        \"factors\": {\n            \"rsa_token\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"symantec_vip\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"yubikey_token\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"google_otp\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"duo\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"okta_question\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"okta_otp\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"okta_sms\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            },\n            \"okta_push\": {\n                \"enroll\": {\n                    \"self\": \"OPTIONAL\"\n                },\n                \"consent\": {\n                    \"type\": \"NONE\"\n                }\n            }\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Okta Sign On",
+			"item": [
+				{
+					"name": "Create Okta Sign On Policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"OKTA_SIGN_ON\",\n    \"name\": \"Okta Corp Policy\",\n    \"description\": \"Standard policy for every employee\",\n    \"conditions\": {\n        \"people\": {\n            \"groups\": {\n                \"include\": [\n                    \"{{groupId}}\"\n                ]\n            }\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create On-Prem Rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"SIGN_ON\",\n    \"status\": \"ACTIVE\",\n    \"name\": \"Skip Factor Challenge when On-Prem\",\n    \"conditions\": {\n      \"network\": {\n        \"connection\": \"ON_NETWORK\"\n      },\n      \"authContext\": {\n        \"authType\": \"ANY\"\n      }\n    },\n    \"actions\": {\n      \"signon\": {\n        \"access\": \"ALLOW\",\n        \"requireFactor\": false,\n        \"rememberDeviceByDefault\": false,\n        \"session\": {\n          \"usePersistentCookie\": false,\n          \"maxSessionIdleMinutes\": 720,\n          \"maxSessionLifetimeMinutes\": 0\n        }\n      }      \n    }\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Okta Sign On Policies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/policies?type=OKTA_SIGN_ON",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "OKTA_SIGN_ON"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create RADIUS Rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"SIGN_ON\",\n    \"status\": \"ACTIVE\",\n    \"name\": \"Challenge VPN Users\",\n    \"conditions\": {\n      \"network\": {\n        \"connection\": \"ANYWHERE\"\n      },\n      \"authContext\": {\n        \"authType\": \"RADIUS\"\n      }\n    },\n    \"actions\": {\n      \"signon\": {\n        \"access\": \"ALLOW\",\n        \"requireFactor\": true,\n        \"factorPromptMode\": \"ALWAYS\",\n        \"rememberDeviceByDefault\": false,\n        \"session\": {\n          \"usePersistentCookie\": false,\n          \"maxSessionIdleMinutes\": 720,\n          \"maxSessionLifetimeMinutes\": 0\n        }\n      }\n    }\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cloud Rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"SIGN_ON\",\n    \"name\": \"Challenge Cloud Users\",\n    \"conditions\": {\n      \"people\": {\n        \"users\": {\n          \"include\": [],\n          \"exclude\": []\n        },\n        \"groups\": {\n          \"include\": [],\n          \"exclude\": []\n        }\n      },\n      \"network\": {\n        \"connection\": \"OFF_NETWORK\"\n      },\n      \"authContext\": {\n        \"authType\": \"ANY\"\n      }\n    },\n    \"actions\": {\n      \"signon\": {\n        \"access\": \"ALLOW\",\n        \"requireFactor\": true,\n        \"factorPromptMode\": \"ALWAYS\",\n        \"rememberDeviceByDefault\": false,\n        \"session\": {\n          \"usePersistentCookie\": false,\n          \"maxSessionIdleMinutes\": 720,\n          \"maxSessionLifetimeMinutes\": 0\n        }\n      }      \n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Okta Sign On Policy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"My Updated Policy\",\n  \"description\": \"This is my policy\",\n  \"conditions\": {\n  \t\"people\": {\n      \"groups\": {\n        \"include\": [\"00gpcqYQRBCMFWXDMVWO\"]\n      }\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sign On Rule",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"My Updated Policy Rule\",\n  \"conditions\": {\n  \t\"people\": {\n      \"users\": {\n        \"exclude\": []\n      }\n    },\n    \"network\": {\n      \"connection\": \"ON_NETWORK\"\n    },\n    \"authContext\": {\n      \"authType\": \"ANY\"\n    }\n  },\n  \"actions\": {\n  \t\"signon\": {\n      \"access\": \"DENY\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/rules/{{ruleId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								"rules",
+								"{{ruleId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Deny Rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"SIGN_ON\",\n    \"name\": \"Deny\",\n    \"conditions\": {\n        \"network\": {\n            \"connection\": \"ANYWHERE\"\n        },\n        \"authContext\": {\n            \"authType\": \"ANY\"\n        }\n    },\n    \"actions\": {\n        \"signon\": {\n            \"access\": \"DENY\",\n            \"requireFactor\": false\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Password",
+			"item": [
+				{
+					"name": "Get Password Policies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/policies?type=PASSWORD",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "PASSWORD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Password Policy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"PASSWORD\",\n    \"name\": \"Password Policy\",\n    \"description\": \"The test policy applies to users with Okta managed passwords.\",\n    \"conditions\": {\n        \"people\": {\n            \"groups\": {\n                \"include\": [\n                    \"{{groupId}}\"\n                ]\n            }\n        },\n        \"authProvider\": {\n            \"provider\": \"OKTA\"\n        }\n    },\n    \"settings\": {\n        \"password\": {\n            \"complexity\": {\n                \"minLength\": 8,\n                \"minLowerCase\": 1,\n                \"minUpperCase\": 1,\n                \"minNumber\": 1,\n                \"minSymbol\": 0,\n                \"excludeUsername\": true\n            },\n            \"age\": {\n                \"maxAgeDays\": 90,\n                \"expireWarnDays\": 5,\n                \"minAgeMinutes\": 0,\n                \"historyCount\": 10\n            },\n            \"lockout\": {\n                \"maxAttempts\": 10,\n                \"autoUnlockMinutes\": 60,\n                \"showLockoutFailures\": true\n            }\n        },\n        \"recovery\": {\n       \"factors\": {\n         \"recovery_question\": {\n           \"status\": \"ACTIVE\",\n           \"properties\": {\n             \"complexity\": {\n               \"minLength\": 4\n             }\n           }\n         },\n         \"okta_email\": {\n           \"status\": \"ACTIVE\",\n           \"properties\": {\n             \"recoveryToken\": {\n               \"tokenLifetimeMinutes\": 60\n             }\n           }\n         },\n         \"okta_sms\": {\n           \"status\": \"INACTIVE\"\n         },\n         \"okta_call\": {\n           \"status\": \"INACTIVE\"\n         }\n       }\n     },\n     \"delegation\": {\n       \"options\": {\n         \"skipUnlock\": false\n       }\n     }\n   }\n  }"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Password Rule",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"PASSWORD\",\n  \"name\": \"Allow All Rule\",\n  \"conditions\": {\n    \"people\": {\n      \"users\": {\n        \"exclude\": []\n      }\n    },\n    \"network\": {\n      \"connection\": \"ANYWHERE\"\n    }\n  },\n  \"actions\": {\n    \"passwordChange\": {\n      \"access\": \"ALLOW\"\n    },\n    \"selfServicePasswordReset\": {\n      \"access\": \"ALLOW\"\n    },\n    \"selfServiceUnlock\": {\n      \"access\": \"ALLOW\"\n    }\n  }\n}\n"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/rules",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password Policy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"PASSWORD\",\n    \"id\": \"{{policyId}}\",\n    \"status\": \"ACTIVE\",\n    \"name\": \"Updated Test Policy\",\n    \"description\": \"The test policy applies to users with Okta managed passwords.\",\n    \"priority\": 1,\n    \"system\": false,\n    \"conditions\": {\n        \"people\": {\n            \"groups\": {\n                \"include\": [\n                    \"00gak46y5hydV6NdM0g4\"\n                ]\n            }\n        },\n        \"authProvider\": {\n            \"provider\": \"OKTA\"\n        }\n    },\n    \"settings\": {\n        \"password\": {\n            \"complexity\": {\n                \"minLength\": 8,\n                \"minLowerCase\": 1,\n                \"minUpperCase\": 1,\n                \"minNumber\": 1,\n                \"minSymbol\": 0,\n                \"excludeUsername\": true\n            },\n            \"age\": {\n                \"maxAgeDays\": 90,\n                \"expireWarnDays\": 5,\n                \"minAgeMinutes\": 0,\n                \"historyCount\": 10\n            },\n            \"lockout\": {\n                \"maxAttempts\": 10,\n                \"autoUnlockMinutes\": 60,\n                \"showLockoutFailures\": true\n            }\n        },\n        \"recovery\": {\n            \"credentials\": {\n                \"recoveryToken\": {\n                    \"tokenLifetimeMinutes\": 60\n                },\n                \"securityAnswer\": {\n                    \"complexity\": {\n                        \"minLength\": 4\n                    }\n                },\n                \"sms\": {\n                    \"selfService\": true\n                }\n            }\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password Rule",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"PASSWORD\",\n    \"id\": \"{{ruleId}}\",\n    \"status\": \"ACTIVE\",\n    \"name\": \"Updated Rule\",\n    \"priority\": 1,\n    \"system\": false,\n    \"conditions\": {\n        \"people\": {\n            \"users\": {\n                \"exclude\": []\n            }\n        },\n        \"network\": {\n            \"connection\": \"ANYWHERE\"\n        }\n    },\n    \"actions\": {\n        \"passwordChange\": {\n            \"access\": \"ALLOW\"\n        },\n        \"selfServicePasswordReset\": {\n            \"access\": \"ALLOW\"\n        },\n        \"selfServiceUnlock\": {\n            \"access\": \"ALLOW\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/policies/{{policyId}}/rules/{{ruleId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"policies",
+								"{{policyId}}",
+								"rules",
+								"{{ruleId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get Rule",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/policies/{{policyId}}/rules/{{ruleId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"policies",
+						"{{policyId}}",
+						"rules",
+						"{{ruleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activate Rule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/policies/{{policyId}}/rules/{{ruleId}}/lifecycle/activate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"policies",
+						"{{policyId}}",
+						"rules",
+						"{{ruleId}}",
+						"lifecycle",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate Policy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/policies/{{policyId}}/lifecycle/deactivate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"policies",
+						"{{policyId}}",
+						"lifecycle",
+						"deactivate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate Rule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/policies/{{policyId}}/rules/{{ruleId}}/lifecycle/deactivate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"policies",
+						"{{policyId}}",
+						"rules",
+						"{{ruleId}}",
+						"lifecycle",
+						"deactivate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Policy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/policies/{{policyId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"policies",
+						"{{policyId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activate Policy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/policies/{{policyId}}/lifecycle/activate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"policies",
+						"{{policyId}}",
+						"lifecycle",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rules",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/policies/{{policyId}}/rules",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"policies",
+						"{{policyId}}",
+						"rules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Rule",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/policies/{{policyId}}/rules/{{ruleId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"policies",
+						"{{policyId}}",
+						"rules",
+						"{{ruleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Policy",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/policies/{{policyId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"policies",
+						"{{policyId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e1da6eeb-101f-49e6-8cf2-7c668ce42686",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e97dac16-0ec6-4bdb-9a08-97eb3860def4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

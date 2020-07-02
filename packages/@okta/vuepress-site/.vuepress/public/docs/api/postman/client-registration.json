@@ -1,374 +1,380 @@
 {
-	"id": "247ee64f-bf86-7004-699c-9619c4431dcc",
-	"name": "Client Registration (Okta API)",
-	"description": "",
-	"order": [
-		"43825a0a-7d08-1912-cf88-24f08ddde8bc",
-		"f1f69ce0-9314-0ac2-048d-9e5ead99d0fd",
-		"03e5fb07-249a-f3cf-b2c2-68daa90827ea",
-		"bd75b235-27bc-7c95-7cc0-c7ea9c521347",
-		"2eca73ba-1e25-0b3e-c337-da856edaae26",
-		"e44bb904-06be-103b-983b-7a858ce4ff94",
-		"ad4b0210-bad9-7040-d0d8-3f5d37c47d67"
-	],
-	"folders": [
+	"info": {
+		"_postman_id": "b0d47b7b-b67b-4c05-a7c9-847000e2142d",
+		"name": "Dynamic Client Registration (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "d72a2486-60a8-2af8-9c51-064044be1e83",
 			"name": "Apps API",
-			"description": "",
-			"order": [
-				"4ac8b861-0c78-49be-7b53-02ab2f10f80d",
-				"25c13535-f8a5-be79-5337-c78d8de73e5f",
-				"8d59cc68-88c1-c3c2-bd4d-d35832e5dfb4"
+			"item": [
+				{
+					"name": "Create App",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"oidc_client\",\n    \"label\": \"Sample Client\",\n    \"signOnMode\": \"OPENID_CONNECT\",\n    \"credentials\": {\n      \"oauthClient\": {\n        \"token_endpoint_auth_method\": \"client_secret_post\"\n      }\n    },\n    \"settings\": {\n      \"oauthClient\": {\n        \"client_uri\": \"http://localhost:8080\",\n        \"logo_uri\": \"http://developer.okta.com/assets/images/logo-new.png\",\n        \"redirect_uris\": [\n          \"https://example.com/oauth2/callback\",\n          \"myapp://callback\"\n        ],\n        \"response_types\": [\n          \"token\",\n          \"id_token\",\n          \"code\"\n        ],\n        \"grant_types\": [\n          \"implicit\",\n          \"authorization_code\"\n        ],\n        \"application_type\": \"native\"\n      }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/apps",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Apps",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/apps",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update App",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"{{appId}}\",\n  \"name\": \"oidc_client\",\n  \"label\": \"Sample Client\",\n  \"signOnMode\": \"OPENID_CONNECT\",\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"cg4-_A_ifCK7fsKIKjHP27P0JGeuhnHHKEID1yXy42M\"\n    },\n    \"oauthClient\": {\n      \"client_id\": \"0oa1hm4POxgJM6CPu0g4\",\n      \"client_secret\": \"5jVbn2W72FOAWeQCg7-s_PA0aLqHWjHvUCt2xk-z\",\n      \"token_endpoint_auth_method\": \"client_secret_post\"\n    }\n  },\n  \"settings\": {\n    \"oauthClient\": {\n      \"client_uri\": \"http://localhost:8080\",\n      \"logo_uri\": \"http://developer.okta.com/assets/images/logo-new.png\",\n      \"redirect_uris\": [\n        \"https://example.com/oauth2/callback\",\n        \"myapp://callback\"\n      ],\n      \"response_types\": [\n        \"token\",\n        \"id_token\",\n        \"code\"\n      ],\n      \"grant_types\": [\n        \"implicit\",\n        \"authorization_code\"\n      ],\n      \"application_type\": \"native\"\n    }\n  },\n  \"profile\": {\n    \"whitelist\": [\n      \"{{groupId}}\"\n    ]\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/apps/{{appId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps",
+								"{{appId}}"
+							]
+						}
+					},
+					"response": []
+				}
 			],
-			"owner": 0,
-			"collectionId": "fe22ea63-8402-f933-8348-8e6d2a2ba3a2"
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Get Logo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/.well-known/logo",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						".well-known",
+						"logo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Clients",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/clients",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Client",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"client_name\": \"Web client\",\n    \"redirect_uris\": [\n      \"https://httpbin.org/get\"\n    ],\n    \"response_types\": [\n      \"code\",\n      \"token\",\n      \"id_token\"\n    ],\n    \"grant_types\": [\n      \"refresh_token\",\n      \"authorization_code\",\n      \"implicit\"\n    ],\n    \"token_endpoint_auth_method\": \"client_secret_basic\",\n    \"application_type\": \"web\"\n  }"
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/clients",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Client",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/clients/{{clientId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"clients",
+						"{{clientId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Client",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"client_id\": \"{{clientId}}\",\n\t\"client_name\": \"Web client\",\n\t\"redirect_uris\": [\n\t\t\"https://httpbin.org/get\"\n\t],\n\t\"response_types\": [\n\t\t\"code\",\n\t\t\"token\",\n\t\t\"id_token\"\n\t],\n\t\"grant_types\": [\n\t\t\"refresh_token\",\n\t\t\"authorization_code\",\n\t\t\"implicit\"\n\t],\n\t\"token_endpoint_auth_method\": \"client_secret_basic\",\n\t\"application_type\": \"web\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/clients/{{clientId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"clients",
+						"{{clientId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Client",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/clients/{{clientId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"clients",
+						"{{clientId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate New Client Secret",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/clients/{{clientId}}/lifecycle/newSecret",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"clients",
+						"{{clientId}}",
+						"lifecycle",
+						"newSecret"
+					]
+				}
+			},
+			"response": []
 		}
 	],
-	"timestamp": 1496191784412,
-	"owner": 0,
-	"public": false,
-	"hasRequests": true,
-	"requests": [
+	"event": [
 		{
-			"id": "03e5fb07-249a-f3cf-b2c2-68daa90827ea",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/oauth2/v1/clients",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1496191982173,
-			"name": "Create Client",
-			"description": "",
-			"collectionId": "247ee64f-bf86-7004-699c-9619c4431dcc",
-			"responses": [],
-			"rawModeData": "  {\n    \"client_name\": \"Web client\",\n    \"redirect_uris\": [\n      \"https://httpbin.org/get\"\n    ],\n    \"response_types\": [\n      \"code\",\n      \"token\",\n      \"id_token\"\n    ],\n    \"grant_types\": [\n      \"refresh_token\",\n      \"authorization_code\",\n      \"implicit\"\n    ],\n    \"token_endpoint_auth_method\": \"client_secret_basic\",\n    \"application_type\": \"web\"\n  }"
+			"listen": "prerequest",
+			"script": {
+				"id": "78bffbce-b069-4f47-88a8-979094822a00",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		},
 		{
-			"id": "25c13535-f8a5-be79-5337-c78d8de73e5f",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "SSWS {{apikey}}",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/api/v1/apps",
-			"queryParams": [],
-			"preRequestScript": "",
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1496856648691,
-			"name": "List Apps",
-			"description": "",
-			"collectionId": "247ee64f-bf86-7004-699c-9619c4431dcc",
-			"responses": [],
-			"rawModeData": "",
-			"folder": "d72a2486-60a8-2af8-9c51-064044be1e83"
-		},
-		{
-			"id": "2eca73ba-1e25-0b3e-c337-da856edaae26",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "SSWS {{apikey}}",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/oauth2/v1/clients/{{clientId}}",
-			"queryParams": [],
-			"preRequestScript": "",
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1497494493380,
-			"name": "Update Client",
-			"description": "",
-			"collectionId": "247ee64f-bf86-7004-699c-9619c4431dcc",
-			"responses": [],
-			"rawModeData": "{\n\t\"client_id\": \"{{clientId}}\",\n\t\"client_name\": \"Web client\",\n\t\"redirect_uris\": [\n\t\t\"https://httpbin.org/get\"\n\t],\n\t\"response_types\": [\n\t\t\"code\",\n\t\t\"token\",\n\t\t\"id_token\"\n\t],\n\t\"grant_types\": [\n\t\t\"refresh_token\",\n\t\t\"authorization_code\",\n\t\t\"implicit\"\n\t],\n\t\"token_endpoint_auth_method\": \"client_secret_basic\",\n\t\"application_type\": \"web\"\n}"
-		},
-		{
-			"id": "43825a0a-7d08-1912-cf88-24f08ddde8bc",
-			"headers": "Accept: application/json\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/.well-known/logo",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1496856750071,
-			"name": "Get Logo",
-			"description": "",
-			"collectionId": "247ee64f-bf86-7004-699c-9619c4431dcc",
-			"responses": [],
-			"rawModeData": ""
-		},
-		{
-			"id": "4ac8b861-0c78-49be-7b53-02ab2f10f80d",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "SSWS {{apikey}}",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/api/v1/apps",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": "",
-			"method": "POST",
-			"collectionId": "247ee64f-bf86-7004-699c-9619c4431dcc",
-			"data": [],
-			"dataMode": "raw",
-			"name": "Create App",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1497443028132,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "d72a2486-60a8-2af8-9c51-064044be1e83",
-			"isFromCollection": true,
-			"rawModeData": "{\n    \"name\": \"oidc_client\",\n    \"label\": \"Sample Client\",\n    \"signOnMode\": \"OPENID_CONNECT\",\n    \"credentials\": {\n      \"oauthClient\": {\n        \"token_endpoint_auth_method\": \"client_secret_post\"\n      }\n    },\n    \"settings\": {\n      \"oauthClient\": {\n        \"client_uri\": \"http://localhost:8080\",\n        \"logo_uri\": \"http://developer.okta.com/assets/images/logo-new.png\",\n        \"redirect_uris\": [\n          \"https://example.com/oauth2/callback\",\n          \"myapp://callback\"\n        ],\n        \"response_types\": [\n          \"token\",\n          \"id_token\",\n          \"code\"\n        ],\n        \"grant_types\": [\n          \"implicit\",\n          \"authorization_code\"\n        ],\n        \"application_type\": \"native\"\n      }\n    }\n}"
-		},
-		{
-			"id": "8d59cc68-88c1-c3c2-bd4d-d35832e5dfb4",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "SSWS {{apikey}}",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/api/v1/apps/{{appId}}",
-			"queryParams": [],
-			"preRequestScript": "",
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1497494572469,
-			"name": "Update App",
-			"description": "",
-			"collectionId": "247ee64f-bf86-7004-699c-9619c4431dcc",
-			"responses": [],
-			"rawModeData": "{\n  \"id\": \"{{appId}}\",\n  \"name\": \"oidc_client\",\n  \"label\": \"Sample Client\",\n  \"signOnMode\": \"OPENID_CONNECT\",\n  \"credentials\": {\n    \"signing\": {\n      \"kid\": \"cg4-_A_ifCK7fsKIKjHP27P0JGeuhnHHKEID1yXy42M\"\n    },\n    \"oauthClient\": {\n      \"client_id\": \"0oa1hm4POxgJM6CPu0g4\",\n      \"client_secret\": \"5jVbn2W72FOAWeQCg7-s_PA0aLqHWjHvUCt2xk-z\",\n      \"token_endpoint_auth_method\": \"client_secret_post\"\n    }\n  },\n  \"settings\": {\n    \"oauthClient\": {\n      \"client_uri\": \"http://localhost:8080\",\n      \"logo_uri\": \"http://developer.okta.com/assets/images/logo-new.png\",\n      \"redirect_uris\": [\n        \"https://example.com/oauth2/callback\",\n        \"myapp://callback\"\n      ],\n      \"response_types\": [\n        \"token\",\n        \"id_token\",\n        \"code\"\n      ],\n      \"grant_types\": [\n        \"implicit\",\n        \"authorization_code\"\n      ],\n      \"application_type\": \"native\"\n    }\n  },\n  \"profile\": {\n    \"whitelist\": [\n      \"{{groupId}}\"\n    ]\n  }\n}"
-		},
-		{
-			"id": "ad4b0210-bad9-7040-d0d8-3f5d37c47d67",
-			"name": "Generate New Client Secret",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "",
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/oauth2/v1/clients/{{clientId}}/lifecycle/newSecret",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "[]",
-			"responses": [],
-			"collectionId": "247ee64f-bf86-7004-699c-9619c4431dcc",
-			"isFromCollection": true
-		},
-		{
-			"id": "bd75b235-27bc-7c95-7cc0-c7ea9c521347",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "SSWS {{apikey}}",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/oauth2/v1/clients/{{clientId}}",
-			"queryParams": [],
-			"preRequestScript": "",
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "raw",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1496856843255,
-			"name": "Get Client",
-			"description": "",
-			"collectionId": "247ee64f-bf86-7004-699c-9619c4431dcc",
-			"responses": [],
-			"rawModeData": ""
-		},
-		{
-			"id": "e44bb904-06be-103b-983b-7a858ce4ff94",
-			"name": "Delete Client",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "",
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "DELETE",
-			"pathVariables": {},
-			"url": "{{url}}/oauth2/v1/clients/{{clientId}}",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "[]",
-			"responses": [],
-			"collectionId": "247ee64f-bf86-7004-699c-9619c4431dcc"
-		},
-		{
-			"id": "f1f69ce0-9314-0ac2-048d-9e5ead99d0fd",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Content-Type",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "SSWS {{apikey}}",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/oauth2/v1/clients",
-			"queryParams": [],
-			"preRequestScript": "",
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "raw",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1496856795315,
-			"name": "List Clients",
-			"description": "",
-			"collectionId": "247ee64f-bf86-7004-699c-9619c4431dcc",
-			"responses": [],
-			"rawModeData": ""
+			"listen": "test",
+			"script": {
+				"id": "e240ff6e-48c1-4fa5-89ff-8e8f5345c650",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

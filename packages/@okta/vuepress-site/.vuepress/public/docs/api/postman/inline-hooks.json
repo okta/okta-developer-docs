@@ -1,8 +1,7 @@
 {
 	"info": {
-		"_postman_id": "0b299d67-192f-4f38-b4cd-7dac839883cc",
-		"name": "Inline Hooks",
-		"description": "APIs to use for Okta's Inline Hooks features",
+		"_postman_id": "c4bcea97-0421-4120-9db0-ac2bc6dcd09b",
+		"name": "Inline Hooks (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -287,5 +286,28 @@
 			},
 			"response": []
 		}
-	]
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7c4b4bd5-7eae-489d-9b4a-ca834d50856d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "31df49a3-1bdd-4450-9a3c-6a3565198381",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
 }

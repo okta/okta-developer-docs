@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "358aca06-f49b-4e26-afe4-c71e0171a7ec",
-		"name": "API Access Management (Okta API) copy",
+		"_postman_id": "0504d24d-68a2-4a80-bc5b-685e693cefd4",
+		"name": "API Access Management (OAuth 2.0)  (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -26,10 +26,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/authorizationServers/{{authorizationServerId}}/credentials/keys",
 							"host": [
@@ -65,10 +61,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/authorizationServers/{{authorizationServerId}}/credentials/keys/{{keyId}}",
 							"host": [
@@ -127,7 +119,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "OAuth2 Claim Operations",
@@ -150,10 +143,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/authorizationServers/{{authorizationServerId}}/claims",
 							"host": [
@@ -226,10 +215,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/authorizationServers/{{authorizationServerId}}/claims/{{claimId}}",
 							"host": [
@@ -325,7 +310,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "OAuth2 Scope Operations",
@@ -348,10 +334,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/authorizationServers/{{authorizationServerId}}/scopes",
 							"host": [
@@ -424,10 +406,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/authorizationServers/{{authorizationServerId}}/scopes/{{scopeId}}",
 							"host": [
@@ -523,7 +501,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Resource Access Policy Operations",
@@ -546,10 +525,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/authorizationServers/{{authorizationServerId}}/policies",
 							"host": [
@@ -622,10 +597,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/authorizationServers/{{authorizationServerId}}/policies/{{policyId}}",
 							"host": [
@@ -803,7 +774,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Resource Access Policy Rule Operations",
@@ -826,10 +798,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/authorizationServers/{{authorizationServerId}}/policies/{{policyId}}/rules",
 							"host": [
@@ -906,10 +874,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/authorizationServers/{{authorizationServerId}}/policies/{{policyId}}/rules/{{ruleId}}",
 							"host": [
@@ -1097,7 +1061,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Get OpenID Provider Metadata",
@@ -1109,10 +1074,6 @@
 						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/.well-known/openid-configuration?client_id={{clientId}}",
 					"host": [
@@ -1144,10 +1105,6 @@
 						"value": "application/json"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/.well-known/oauth-authorization-server?client_id={{clientId}}",
 					"host": [
@@ -1421,10 +1378,6 @@
 						"value": "Bearer {{accessToken}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/userinfo",
 					"host": [
@@ -1445,10 +1398,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/authorize?client_id={{clientId}}&response_type=id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
 					"host": [
@@ -1499,10 +1448,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/authorize?client_id={{clientId}}&response_type=token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
 					"host": [
@@ -1553,10 +1498,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/authorize?client_id={{clientId}}&response_type=id_token token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
 					"host": [
@@ -1607,10 +1548,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/authorize?client_id={{clientId}}&response_type=code&response_mode=query&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
 					"host": [
@@ -1661,10 +1598,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/authorize?client_id={{clientId}}&response_type=code&response_mode=query&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
 					"host": [
@@ -1724,10 +1657,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/authorize?client_id={{clientId}}&response_type=code token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
 					"host": [
@@ -1778,10 +1707,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/authorize?client_id={{clientId}}&response_type=code token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
 					"host": [
@@ -1840,10 +1765,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/authorize?client_id={{clientId}}&response_type=code id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
 					"host": [
@@ -1894,10 +1815,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/authorize?client_id={{clientId}}&response_type=code id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
 					"host": [
@@ -1956,10 +1873,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/authorize?client_id={{clientId}}&response_type=code token id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
 					"host": [
@@ -2010,10 +1923,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/oauth2/{{authorizationServerId}}/v1/authorize?client_id={{clientId}}&response_type=code token id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
 					"host": [
@@ -2852,5 +2761,6 @@
 			},
 			"response": []
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
