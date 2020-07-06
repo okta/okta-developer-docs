@@ -5308,7 +5308,7 @@ The information is used to generate the secret JSON Web Token for the token requ
 | kid           | The Key ID that you obtained from Apple when you created the private key for the client                     | String   | FALSE    | FALSE    | 1         | 1024      |
 | teamId        | The Team ID associated with your Apple developer account                                                    | String   | FALSE    | FALSE    | 1         | 1024      |
 
-> **Note:** privateKey is required in the CREATE request, but it is nullable when performing an UPDATE and keeps the existing value if it is null. It will not be returned for all the LIST and GET requests, as well as the UPDATE requests with it is null.
+> **Note:** privateKey is required for a CREATE request. For an UPDATE request, it can be null and keeps the existing value if it is null. privateKey isn't returned for LIST and GET requests or UDPATE requests if it is null.
 
 ```json
 {
@@ -5324,6 +5324,8 @@ The information is used to generate the secret JSON Web Token for the token requ
   }
 }
 ```
+> **Note:** The key is truncated for brevity.
+
 
 #### MTLS Protocol
 
