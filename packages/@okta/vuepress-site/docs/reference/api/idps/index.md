@@ -9,7 +9,7 @@ The Okta Identity Providers API provides operations to manage federations with e
 
 ## Get started
 
-Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c778cb5f0792b0682a79)
+Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b6ae6cc993c84d50d927)
 
 ## Setup guides
 
