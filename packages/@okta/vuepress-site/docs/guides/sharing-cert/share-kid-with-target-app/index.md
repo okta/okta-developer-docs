@@ -1,6 +1,8 @@
 ---
-title: Share the source app's key credential (kid) with the target app
+title: Share the source app's key credential ID with the target app
 ---
+
+Share the source app's `kid` with the target app. This clones an X.509 certificate for an application key credential from a source application to a target application. The `targetAid`is the target app's ID.
 
 Request:
 
@@ -8,7 +10,7 @@ Request:
 
 Response:
 
-``` json
+```json
 {
   "created": "2016-10-03T16:07:02.000Z",
   "lastUpdated": "2016-10-03T16:07:02.000Z",

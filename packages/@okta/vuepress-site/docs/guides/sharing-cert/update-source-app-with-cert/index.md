@@ -2,12 +2,12 @@
 title: Update the source app to use the new certificate
 ---
 
-Update the source app with the application key credential's ID, `kid` so that the source app
+Update the source app with the application key credential's ID (`kid`) so that the source app
 uses the new credential to sign assertions.
 
 Request: `PUT /api/v1/apps/0oa8ae1t5yev2ajDs0h7`
 
-``` json
+```json
 {
   "name": "myorg_app1",
   "signOnMode": "SAML_2_0",
@@ -21,8 +21,7 @@ Request: `PUT /api/v1/apps/0oa8ae1t5yev2ajDs0h7`
 
 Response:
 
-``` json
-
+```json
 {
   "id": "0oa8ae1t5yev2ajDs0h7",
   "name": "myorg_app1",
