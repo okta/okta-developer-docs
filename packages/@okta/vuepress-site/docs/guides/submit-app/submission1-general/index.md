@@ -26,7 +26,7 @@ In the General Settings page, you need to fill in the basic information about yo
 
 * **App description** &mdash; Give a general description of your application and what the Okta integration does. For examples, see the overview section for any of the integrations listed on the [OIN](https://www.okta.com/integrations/).
 
-* **App icon** &mdash; Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The image must have dimensions of less than 1400 by 400 pixels. It also must be 1 megabyte or smaller in size.
+* **App icon** &mdash; Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be smaller than 1 MB in size. For best results, use a PNG image with a transparent background, a landscape orientation, and use a minimum resolution of 420 x 120 pixels to prevent upscaling.
 
 ## Customer support
 
