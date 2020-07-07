@@ -6,7 +6,7 @@ This second suite of [Runscope](https://www.runscope.com) tests checks that your
 
 >**Note:** Okta doesn't delete user profiles in your application, but instead marks the user record with `active=false` to deactivate them. For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
 
-### Runscope tests for CRUD
+## Runscope tests for CRUD
 
 If you are not familiar with Runscope, follow the detailed instructions in the [Test your SCIM API](/docs/guides/build-provisioning-integration/test-scim-api/) topic to get started.
 
@@ -26,7 +26,7 @@ This suite runs the following tests:
 1. Removes your integration from the user in Okta.
 1. Verifies that user is deactivated on your SCIM server.
 
-### Configure and run tests
+## Configure and run tests
 
 To configure and run the SCIM CRUD tests:
 
@@ -58,7 +58,7 @@ To configure and run the SCIM CRUD tests:
 1. Copy the contents of the [Okta CRUD Initial Script](/standards/SCIM/SCIMFiles/Initial_Script_CRUD.txt) text file and paste into this Runscope console.
 1. Click **Save & Run**.
 
-### Review test results
+## Review test results
 
 On the left side of your screen, the test appears in the **Recent Test Runs** section.
 

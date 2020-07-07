@@ -1,206 +1,389 @@
 {
-	"id": "975b2d79-c9a2-fc1e-c05c-14e486e453b7",
-	"owner": "64678",
-	"name": "Admin Roles (Okta API)",
-	"description": "Lists, assigns, and revokes administrative roles for a user",
-	"order": [
-		"8d3d7bf3-db45-37bf-6a65-64bcce0d334c",
-		"c912759b-21eb-f555-b1da-4b2af8fa6c19",
-		"76355f2e-9a49-5b8d-0f08-bea0ace2498d",
-		"9962d460-ab72-1169-6049-5a28c7ad3323",
-		"27be1eac-40d7-aed2-9c12-2bd4f808cf7e",
-		"c1f97d0f-0bcf-cf5a-b7eb-82056ebff3d7",
-		"0b58fded-ecf4-ceb3-041a-180a116d5173",
-		"e060e255-bc40-a1c4-4e02-3d5de16c7549",
-		"aed9ba53-f1c4-ad7a-28ef-206c81ab8265"
-	],
-	"folders": [],
-	"timestamp": 0,
-	"remoteLink": null,
-	"public": false,
-	"lastUpdatedBy": {
-		"id": "64678",
-		"username": "mcguinnesss"
+	"info": {
+		"_postman_id": "2baf8109-9117-48f4-8b01-df21b211ccd7",
+		"name": "Administrator Roles (Okta API)",
+		"description": "The Okta Administrator Roles API provides operations to manage administrative role assignments for a User.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
-	"lastRevision": 54307546,
-	"team": null,
-	"requests": [
+	"item": [
 		{
-			"folder": null,
-			"id": "0b58fded-ecf4-ceb3-041a-180a116d5173",
-			"name": "List App Targets for App Admin Role",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": null,
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "GET",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"collectionId": "975b2d79-c9a2-fc1e-c05c-14e486e453b7"
-		},
-		{
-			"id": "27be1eac-40d7-aed2-9c12-2bd4f808cf7e",
-			"folder": null,
-			"name": "Add Group Target to Group Admin Role",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "",
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "PUT",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups/{{groupId}}",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"collectionId": "975b2d79-c9a2-fc1e-c05c-14e486e453b7"
-		},
-		{
-			"id": "76355f2e-9a49-5b8d-0f08-bea0ace2498d",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1441556004528,
-			"name": "Unassign  Role from User",
-			"description": "",
-			"collectionId": "975b2d79-c9a2-fc1e-c05c-14e486e453b7",
-			"rawModeData": "",
-			"descriptionFormat": "html",
-			"folder": null
-		},
-		{
-			"id": "8d3d7bf3-db45-37bf-6a65-64bcce0d334c",
-			"folder": null,
 			"name": "List Roles Assigned to User",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": null,
-			"descriptionFormat": "html",
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "GET",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/roles",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"collectionId": "975b2d79-c9a2-fc1e-c05c-14e486e453b7"
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/roles",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"roles"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "9962d460-ab72-1169-6049-5a28c7ad3323",
-			"folder": null,
-			"name": "List Group Targets for Group Admin Role",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": null,
-			"descriptionFormat": "html",
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "GET",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"collectionId": "975b2d79-c9a2-fc1e-c05c-14e486e453b7"
-		},
-		{
-			"id": "aed9ba53-f1c4-ad7a-28ef-206c81ab8265",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps/{{appName}}",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1441555967196,
-			"name": "Remove App Target from App Admin Role",
-			"description": "",
-			"collectionId": "975b2d79-c9a2-fc1e-c05c-14e486e453b7",
-			"rawModeData": "",
-			"descriptionFormat": "html",
-			"folder": null
-		},
-		{
-			"id": "c1f97d0f-0bcf-cf5a-b7eb-82056ebff3d7",
-			"folder": null,
-			"name": "Remove Group Target from Group Admin Role",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "",
-			"descriptionFormat": "html",
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "DELETE",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups/{{groupId}}",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"collectionId": "975b2d79-c9a2-fc1e-c05c-14e486e453b7"
-		},
-		{
-			"id": "c912759b-21eb-f555-b1da-4b2af8fa6c19",
-			"folder": null,
 			"name": "Assign  Role to User",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/users/{{userId}}/roles",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"collectionId": "975b2d79-c9a2-fc1e-c05c-14e486e453b7",
-			"rawModeData": "{\n    \"type\": \"{{roleType}}\"\n}"
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"{{roleType}}\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/roles",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"roles"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "e060e255-bc40-a1c4-4e02-3d5de16c7549",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps/{{appName}}",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1441555983094,
+			"name": "Unassign  Role from User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"roles",
+						"{{roleId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Group Targets for Group Admin Role",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"roles",
+						"{{roleId}}",
+						"targets",
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Group Target to Group Admin Role",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups/{{groupId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"roles",
+						"{{roleId}}",
+						"targets",
+						"groups",
+						"{{groupId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Group Target from Group Admin Role",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/groups/{{groupId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"roles",
+						"{{roleId}}",
+						"targets",
+						"groups",
+						"{{groupId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List App Targets for App Admin Role",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"roles",
+						"{{roleId}}",
+						"targets",
+						"catalog",
+						"apps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Add App Target for App Admin Role",
-			"description": "",
-			"collectionId": "975b2d79-c9a2-fc1e-c05c-14e486e453b7",
-			"rawModeData": "",
-			"descriptionFormat": "html",
-			"folder": null
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps/{{appName}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"roles",
+						"{{roleId}}",
+						"targets",
+						"catalog",
+						"apps",
+						"{{appName}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove App Target from App Admin Role",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/roles/{{roleId}}/targets/catalog/apps/{{appName}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"roles",
+						"{{roleId}}",
+						"targets",
+						"catalog",
+						"apps",
+						"{{appName}}"
+					]
+				}
+			},
+			"response": []
 		}
-	]
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5945fc5b-a910-466c-93bb-9797925b0dfc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "336b978f-2df9-4483-bb92-ce9d262c4b83",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
 }

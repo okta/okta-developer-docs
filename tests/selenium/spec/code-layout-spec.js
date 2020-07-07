@@ -16,7 +16,6 @@ describe('code page spec (java/spring/)', () => {
   }));
 
   it('has a quick start guide and sample app', util.itHelper(async () => {
-    expect(await codePage.hasQuickStart(), 'expects Quick Start element to be present').to.be.true;
     expect(await codePage.hasSampleApp(), 'expects Sample App element to be present').to.be.true;
     expect(await codePage.hasCreateAccountButton(), 'expects Create Account button to be present').to.be.true;
   }));

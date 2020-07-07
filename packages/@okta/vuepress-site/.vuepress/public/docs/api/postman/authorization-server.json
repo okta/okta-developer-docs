@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "6b41448b-e9dd-4fa0-bd4a-4d4acc635292",
-		"name": "Authorization Server (Okta API)",
+		"_postman_id": "9af1521a-4244-477f-898c-7bf6dcf0a3c0",
+		"name": "Authorization Servers (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -23,10 +23,6 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/api/v1/authorizationServers",
 					"host": [
@@ -95,10 +91,6 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/api/v1/authorizationServers/{{authorizationServerId}}",
 					"host": [
@@ -266,5 +258,6 @@
 			},
 			"response": []
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

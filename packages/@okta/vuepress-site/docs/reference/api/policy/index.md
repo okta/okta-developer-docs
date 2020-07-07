@@ -23,7 +23,7 @@ The policy API supports the following **rule operations**:
 
 ## Getting Started
 
-Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/47502b8570a5105f57b1)
+Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7c7660f56191450a27aa)
 
 ## Policy API Operations
 

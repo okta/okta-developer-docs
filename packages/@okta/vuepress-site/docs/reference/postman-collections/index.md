@@ -11,24 +11,24 @@ Import any Okta API collection for Postman from the following list:
 
 | Collections                         | Click to Run                                                                                                                           |
 | :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| Administrator Roles                 | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/04f5ec85685ac6f2827e)                   |
-| API Access Management (OAuth 2.0)   | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/52edf1dcddc70269b77d)                   |
+| Administrator Roles                 | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4f1233beeef282acbcfb)                   |
+| API Access Management (OAuth 2.0)   | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/01108eafad818f5aa3c7)                   |
 | Apps                                | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/18dd817ee8abace68dd8)                   |
 | Authentication                      | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f4f9ca4145db4d80270)                   |
-| Authorization Server                | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/145f5d5fb42a04e22c3e)                   |
-| Client Registration                 | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/291ba43cde74844dd4a7)                   |
-| Custom SMS Templates                | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d71f7946d8d56ccdaa06)                   |
+| Authorization Servers               | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6e58e52a03637c290665)                   |
+| Custom Templates                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6806eb23befaf5bb3b6c)                   |
+| Dynamic Client Registration         | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/065ebd914e0d998e5759)                   |
+| Event Hooks                         | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ee24ad1d7e7e17df1783)                   |
 | Events                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f990a71f061a7a16d0bf)                   |
-| Factors                             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9fdda657d134039fcaba)                   |
-| Features                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ab22761da96ff7a7ab0c)                   |
+| Factors                             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2e52a7def4973635840e)                   |
+| Features                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c8436aac9c9f4966dc8d)                   |
 | Groups                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5dbb338ac908fb32035c)                   |
-| Identity Providers (IdP)            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/00a7a643fc0ab3bb54c8)                   |
-| Inline Hooks                        | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b4cf1c4baa548b0ea031)                   |
-| Event Hooks                         | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b02d234a2af183981254)                   |
+| Identity Providers                  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c778cb5f0792b0682a79)                   |
+| Inline Hooks                        | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8be0f0b6e03d02c3bb45)                   |
 | Linked Objects                      | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/09416941ad62f022cabb)                   |
 | Mappings                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2b9feba6001a56b2a885)                   |
 | OpenID Connect                      | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fd92d7c1ab0fbfdecab2)                   |
-| Policy                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/47502b8570a5105f57b1)                   |
+| Policy                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7c7660f56191450a27aa)                   |
 | Schemas                             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/443242e60287fb4b8d6d)                   |
 | Sessions                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b2e06a22c396bcc94530)                   |
 | System Log                          | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/54def5ab52f04b7e4011)                   |

@@ -1,272 +1,287 @@
 {
-  "info": {
-    "_postman_id": "bc903859-b682-459f-bfc5-94525fde4543",
-    "name": "Event Hooks",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "List all event hooks",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "SSWS {{apikey}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "{{url}}/api/v1/eventHooks",
-          "host": [
-            "{{url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "eventHooks"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Get event hook by id",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "SSWS {{apikey}}"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}",
-          "host": [
-            "{{url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "eventHooks",
-            "{{eventHookId}}"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Create new event hook",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "SSWS {{apikey}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"name\": \"Login And Create User event hook\",\n    \"events\": {\n        \"type\": \"EVENT_TYPE\",\n        \"items\": [\n            \"user.session.start\",\n            \"user.lifecycle.create\"\n        ]\n    },\n    \"channel\": {\n        \"type\": \"HTTP\",\n        \"version\": \"1.0.0\",\n        \"config\": {\n            \"uri\": \"https://example.com/eventHooks\",\n            \"headers\": [\n                {\n                    \"key\": \"x-any-key\",\n                    \"value\": \"my-header-value\"\n                }\n            ],\n            \"authScheme\": {\n                \"type\": \"HEADER\",\n                \"key\": \"Authorization\",\n                \"value\": \"my-shared-secret\"\n            }\n        }\n    }\n}"
-        },
-        "url": {
-          "raw": "{{url}}/api/v1/eventHooks",
-          "host": [
-            "{{url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "eventHooks"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Activate an event hook",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "SSWS {{apikey}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}/lifecycle/activate",
-          "host": [
-            "{{url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "eventHooks",
-            "{{eventHookId}}",
-            "lifecycle",
-            "activate"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Verify an event hook",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "type": "text",
-            "value": "SSWS {{apikey}}"
-          },
-          {
-            "key": "Content-Type",
-            "type": "text",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}/lifecycle/verify",
-          "host": [
-            "{{url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "eventHooks",
-            "{{eventHookId}}",
-            "lifecycle",
-            "verify"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Deactivate an event hook",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "SSWS {{apikey}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}/lifecycle/deactivate",
-          "host": [
-            "{{url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "eventHooks",
-            "{{eventHookId}}",
-            "lifecycle",
-            "deactivate"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Delete an event hook",
-      "request": {
-        "method": "DELETE",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "SSWS {{apikey}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": ""
-        },
-        "url": {
-          "raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}",
-          "host": [
-            "{{url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "eventHooks",
-            "{{eventHookId}}"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Update an existing event hook",
-      "request": {
-        "method": "PUT",
-        "header": [
-          {
-            "key": "Authorization",
-            "value": "SSWS {{apikey}}"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\n    \"name\": \"Create, Activate and Login user event hook\",\n    \"events\": {\n        \"type\": \"EVENT_TYPE\",\n        \"items\": [\n            \"user.lifecycle.activate\",\n            \"user.lifecycle.create\",\n            \"user.session.start\"\n        ]\n    },\n    \"channel\": {\n        \"type\": \"HTTP\",\n        \"version\": \"1.0.0\",\n        \"config\": {\n            \"uri\": \"https://example.com/eventHooks\",\n            \"headers\": [\n                {\n                    \"key\": \"X-Other-Header\",\n                    \"value\": \"some-other-value\"\n                }\n            ],\n            \"authScheme\": {\n                \"type\": \"HEADER\",\n                \"key\": \"Authorization\",\n                \"value\": \"Updated shared secret\"\n            }\n        }\n    }\n}"
-        },
-        "url": {
-          "raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}",
-          "host": [
-            "{{url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "eventHooks",
-            "{{eventHookId}}"
-          ]
-        },
-        "description": "Update an event hook (e.g add or remove events, change the name)"
-      },
-      "response": []
-    }
-  ]
+	"info": {
+		"_postman_id": "bba52d37-aafc-42d0-a5dd-d03e72e4def2",
+		"name": "Event Hooks (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all event hooks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/eventHooks",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"eventHooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get event hook by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"eventHooks",
+						"{{eventHookId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new event hook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Login And Create User event hook\",\n    \"events\": {\n        \"type\": \"EVENT_TYPE\",\n        \"items\": [\n            \"user.session.start\",\n            \"user.lifecycle.create\"\n        ]\n    },\n    \"channel\": {\n        \"type\": \"HTTP\",\n        \"version\": \"1.0.0\",\n        \"config\": {\n            \"uri\": \"https://example.com/eventHooks\",\n            \"headers\": [\n                {\n                    \"key\": \"x-any-key\",\n                    \"value\": \"my-header-value\"\n                }\n            ],\n            \"authScheme\": {\n                \"type\": \"HEADER\",\n                \"key\": \"Authorization\",\n                \"value\": \"my-shared-secret\"\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/eventHooks",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"eventHooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activate an event hook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}/lifecycle/activate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"eventHooks",
+						"{{eventHookId}}",
+						"lifecycle",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify an event hook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "SSWS {{apikey}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}/lifecycle/verify",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"eventHooks",
+						"{{eventHookId}}",
+						"lifecycle",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate an event hook",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}/lifecycle/deactivate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"eventHooks",
+						"{{eventHookId}}",
+						"lifecycle",
+						"deactivate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an event hook",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"eventHooks",
+						"{{eventHookId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an existing event hook",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Create, Activate and Login user event hook\",\n    \"events\": {\n        \"type\": \"EVENT_TYPE\",\n        \"items\": [\n            \"user.lifecycle.activate\",\n            \"user.lifecycle.create\",\n            \"user.session.start\"\n        ]\n    },\n    \"channel\": {\n        \"type\": \"HTTP\",\n        \"version\": \"1.0.0\",\n        \"config\": {\n            \"uri\": \"https://example.com/eventHooks\",\n            \"headers\": [\n                {\n                    \"key\": \"X-Other-Header\",\n                    \"value\": \"some-other-value\"\n                }\n            ],\n            \"authScheme\": {\n                \"type\": \"HEADER\",\n                \"key\": \"Authorization\",\n                \"value\": \"Updated shared secret\"\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/eventHooks/{{eventHookId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"eventHooks",
+						"{{eventHookId}}"
+					]
+				},
+				"description": "Update an event hook (e.g add or remove events, change the name)"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "cbfb7212-0484-416f-9637-577ef06b7418",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3f9af714-d6ee-4699-8462-c8136192353f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
 }

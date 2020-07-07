@@ -9,7 +9,7 @@ The Okta Factors API provides operations to enroll, manage, and verify factors f
 
 ## Get started with the Factors API
 
-Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9fdda657d134039fcaba)
+Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2e52a7def4973635840e)
 
 ## Factor operations
 
