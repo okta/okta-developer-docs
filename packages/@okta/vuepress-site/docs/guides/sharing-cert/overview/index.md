@@ -6,7 +6,7 @@ title: Overview
 
 Sharing certificates is useful for Okta orgs that have apps with [sign-on modes](/docs/reference/api/apps/#sign-on-modes) such as `SAML_2_0`, `SAML_1_1`, or `WS_FEDERATION`.
 
-### Why should I do this?
+### Why should I do this
 
 When configuring multiple apps, you might need them to accept the same Identity Provider (IdP). In that case, the assertions from the two apps must be signed by the same key.
 
