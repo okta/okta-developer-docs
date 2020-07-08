@@ -4,13 +4,13 @@ title: Okta API Products Release Notes
 
 ## 2020.07.0
 
-| Change                                                                                                                                                              | Expected in Preview Orgs |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
-| [Apple as an Identity Provider is now GA in Preview](#ddddddd)                                                                                     | July 9, 2020             |
-| [YubiKey OTP Token operations added](#ddddddd)                               | July 9, 2020             |
-| [Support for creating OIN OIDC Apps via the Dynamic Client Registration API](#ddddddd)   | July 9, 2020             |
-| [API support for multiple ACS URLs](#ddddddd)                                 | July 9, 2020             |
-| [Bugs fixed in 2020.07.0](#ddddddd)                                                                                                                 | July 9, 2020             |
+| Change                                                                                                                                                      | Expected in Preview Orgs |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| [Apple as an Identity Provider is now GA in Preview](#apple-as-an-identity-provider-is-now-ga-in-preview)                                                   | July 9, 2020             |
+| [YubiKey OTP Token operations added](#yubikey-otp-token-operations-added)                                                                                   | July 9, 2020             |
+| [Support for creating OIN OIDC Apps via the Dynamic Client Registration API](#support-for-creating-oin-oidc-apps-via-the-dynamic-client-registration-api)   | July 9, 2020             |
+| [API support for multiple ACS URLs](#api-support-for-multiple-acs-urls)                                                                                     | July 9, 2020             |
+| [Bugs fixed in 2020.07.0](#bugs-fixed-in-2020-07-0)                                                                                                         | July 9, 2020             |
 
 ### Apple as an Identity Provider is now GA in Preview
 
