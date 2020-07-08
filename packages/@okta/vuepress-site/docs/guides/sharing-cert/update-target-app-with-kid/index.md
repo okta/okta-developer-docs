@@ -2,14 +2,11 @@
 title: Update the target app to use the new credential
 ---
 
-Update the target app to use the new credential that you just shared.
-When you update the target app with the `kid`, the target app starts
-using the same certificate to sign assertions.
+Update the target app to use the new application key credential that you just shared. When you update the target app with the source app's key ID `kid`, the target app starts using the same certificate to sign assertions.
 
 Request: `PUT /api/v1/apps/0oa8ae0dv4RGQvjyZ0h7`
 
-``` json
-
+```json
 {
   "name": "myorg_app2",
   "signOnMode": "SAML_2_0",
@@ -53,7 +50,8 @@ Response:
     }
   },
 }
-
 ```
 
 > **Note:** The response has been truncated for clarity.
+
+<NextSectionLink>Next Steps</NextSectionLink>
