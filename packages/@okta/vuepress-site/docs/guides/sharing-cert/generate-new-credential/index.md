@@ -2,7 +2,7 @@
 title: Generate a new credential for the source app
 ---
 
-Using the source app's ID, generate a new credential for the source app:
+Using the source app's ID, generate a new application key credential for the source app:
 
 Request: `POST /api/v1/apps/0oa8ae1t5yev2ajDs0h7/credentials/keys/generate?validityYears=2`
 

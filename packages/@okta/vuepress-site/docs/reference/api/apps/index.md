@@ -5525,6 +5525,7 @@ The list of possible modes an app may support are:
 | BROWSER_PLUGIN        | Secure Web Authentication (SWA) with Okta Browser Plugin               |
 | Custom                | App-Specific SignOn Mode                                               |
 | OPENID_CONNECT        | Federated Authentication with OpenID Connect                           |
+| SAML_1_1              | Federated Authentication with SAML 1.1 WebSSO                          |
 | SAML_2_0              | Federated Authentication with SAML 2.0 WebSSO                          |
 | SECURE_PASSWORD_STORE | Secure Web Authentication (SWA) with POST (plugin not required)        |
 | WS_FEDERATION         | Federated Authentication with WS-Federation Passive Requestor Profile  |

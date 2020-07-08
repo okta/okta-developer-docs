@@ -2,7 +2,7 @@
 title: Share the source app's key credential ID with the target app
 ---
 
-Share the source app's `kid` with the target app. This clones an X.509 certificate for an application key credential from a source application to a target application. The `targetAid`is the target app's ID.
+Share the source app's key ID `kid` with the target app. This clones the X.509 certificate of the application key credential from the source application to the target application. The `targetAid`is the target app's ID.
 
 Request:
 

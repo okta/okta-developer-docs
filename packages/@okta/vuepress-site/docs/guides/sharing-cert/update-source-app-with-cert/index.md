@@ -2,8 +2,7 @@
 title: Update the source app to use the new certificate
 ---
 
-Update the source app with the application key credential's ID (`kid`) so that the source app
-uses the new credential to sign assertions.
+Update the source app with the updated key ID (`kid`) so that the source app uses the new credential to sign assertions.
 
 Request: `PUT /api/v1/apps/0oa8ae1t5yev2ajDs0h7`
 
