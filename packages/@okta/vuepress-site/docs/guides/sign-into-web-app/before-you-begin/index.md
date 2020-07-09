@@ -7,7 +7,7 @@ If you are building a single-page (browser) app, see [Sign users in to your sing
 
 This guide assumes that you:
 
-* Have an Okta Developer Edition organization. [Create one for free](https://developer.okta.com/signup).
+* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * Know the basics of building Web applications.
 * Have a project or application that you want to add authentication to.
 * Are building a web app that's rendered by a server.

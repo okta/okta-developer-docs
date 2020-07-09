@@ -7,7 +7,7 @@ These steps apply to back-end APIs that are serving [single-page apps](/docs/gui
 
 This guide assumes that you:
 
-* Have an Okta Developer Edition organization. [Create one for free](https://developer.okta.com/signup).
+* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * Have a project or application that you want to add authentication to.
 
 If you don't have an existing app, or are new to building apps, start with this documentation:

@@ -7,7 +7,7 @@ This guide uses sample apps to demonstrate the concept of sharing a Single Sign-
 
 This guide assumes that you:
 
-* Have an Okta Developer Edition organization. [Create one for free](https://developer.okta.com/signup).
+* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * Are using Android Studio with an emulator for Android testing
 * Are using Xcode with a simulator for iOS testing
 * Downloaded the appropriate apps to use for testing purposes:

@@ -7,7 +7,7 @@ If you are building a web app that is served by a server framework, see [Sign us
 
 This guide assumes that you:
 
-* Have an Okta Developer Edition organization. [Create one for free](https://developer.okta.com/signup).
+* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * Already followed one of our sign-in guides:
   * [Sign users in to your web app](/docs/guides/sign-into-web-app/)
   * [Sign users in to your single-page app](/docs/guides/sign-into-spa/)

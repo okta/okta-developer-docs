@@ -5,7 +5,7 @@ You can connect your mobile app to Okta and sign users in by [opening a browser]
 
 This guide assumes that:
 
-* You have an Okta Developer organization. [Create one for free](https://developer.okta.com/signup).
+* You have an Okta Developer organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * You have an app that you want to add a custom UI to
 * You have already walked through the [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/) guide.
 
