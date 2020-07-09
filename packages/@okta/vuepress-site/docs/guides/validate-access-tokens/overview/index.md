@@ -45,7 +45,7 @@ You will have to decode the access token, which is in JWT format.  This involves
 - Verify the Token Signature
 - Verify the Claims
 
-Okta provides libraries to perform these steps for you: 
+Okta provides libraries to perform these steps for you:
 <StackSelector snippet="accesstoken"/>
 
 Don't see the language you're working in? Get in touch: <developers@okta.com>
@@ -56,3 +56,6 @@ Alternatively, you can also validate an access or refresh Token using the Token 
 
 This incurs a network request which is slower to do verification, but can be used when you want to guarantee that the access token hasn't been revoked.
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).

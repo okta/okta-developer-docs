@@ -1,7 +1,7 @@
 ---
 title: Next steps
 ---
-You should now understand how to protect your API. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
+You should now understand how to protect your API.
 
 Read about customization options:
 

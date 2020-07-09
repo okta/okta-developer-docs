@@ -1,7 +1,7 @@
 ---
 title: Next steps
 ---
-You should now understand how to share application key credentials between apps. If you got stuck, post a question in our [Developer Forum](https://devforum.okta.com).
+You should now understand how to share application key credentials between apps.
 
 Read more in our API Reference docs:
 

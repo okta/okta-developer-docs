@@ -1,7 +1,7 @@
 ---
 title: Next steps
 ---
-You should now understand how to sign users out of your app and out of Okta. If you got stuck, post a question in our [Developer Forum](https://devforum.okta.com).
+You should now understand how to sign users out of your app and out of Okta.
 
 Read more:
 

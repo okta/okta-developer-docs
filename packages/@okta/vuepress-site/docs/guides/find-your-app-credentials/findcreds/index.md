@@ -11,5 +11,3 @@ To find your Application's credentials:
 5. Copy the client ID and/or client secret using the **Copy to Clipboard** buttons to the right of each text field.
 
 ![Application Client Credentials section with Client ID and Client Secret fields](/img/app-client-credentials-section.png "Application Client Credentials section with Client ID and Client Secret fields")
-
-If you're stuck and need help, post a question on our [Developer Forum](https://devforum.okta.com).

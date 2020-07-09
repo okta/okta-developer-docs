@@ -29,4 +29,8 @@ No. You can only have one custom domain set up per Okta organization.
 **Will the existing Okta domain work?**
 Yes. When you turn the custom domain on, the Okta domain (for example, `example.okta.com`) still works.
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

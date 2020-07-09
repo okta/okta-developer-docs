@@ -17,7 +17,6 @@ As instructed, upload the SHA256 certificate to the ISV.
 
 ### Existing SAML 2.0 App Integrations
 
-
 To update existing app integrations, there are four steps to follow.
 
   1. List your apps and get the app id, name, and label for each app to update.<br />For each app to update, perform the following steps.<br />
@@ -78,5 +77,9 @@ Where:
 `<application id>` is the application ID you used in Step 1.
 
 > **Note:** Certificates downloaded with this method contain the Begin Certificate and End Certificate lines.
+
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

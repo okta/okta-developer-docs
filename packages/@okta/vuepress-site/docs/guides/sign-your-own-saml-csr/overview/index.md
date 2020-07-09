@@ -26,4 +26,8 @@ The general procedure is the same for both the Outbound and Inbound SAML applica
 
 For information on using the Postman REST API test client for these steps, see [Get Started with the Okta REST APIs](/code/rest/).
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

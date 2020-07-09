@@ -21,4 +21,8 @@ For this example, we assume that you want to share a certificate between two ins
 
 This example also works if the apps are two instances of the same app or two different apps.
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

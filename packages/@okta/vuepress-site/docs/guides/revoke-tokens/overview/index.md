@@ -20,4 +20,8 @@ http --form POST https://${yourOktaDomain}/oauth2/v1/revoke \
 
 See [Revoke a token](/docs/reference/api/oidc/#revoke) in the Okta OpenID Connect & OAuth 2.0 API reference.
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>
