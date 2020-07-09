@@ -1,6 +1,6 @@
 {
-  "release" : "2020.06.1",
-  "build" : "2020.06.1-begin-77-gf2370d9c059f",
+  "release" : "2020.07.1",
+  "build" : "2020.07.1-begin-109-g80b46798ce40",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -567,8 +567,16 @@
     "description" : "",
     "tags" : [ ]
   }, {
+    "id" : "push",
+    "description" : "",
+    "tags" : [ ]
+  }, {
     "id" : "auth-factor",
     "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "authenticator",
+    "description" : "Authenticator Management.",
     "tags" : [ ]
   }, {
     "id" : "agent",
@@ -5196,6 +5204,12 @@
       "tags" : [ "app" ],
       "mappings" : [ "application.provision.user.deactivate" ]
     }, {
+      "id" : "app.user_management.deactivate_user_failed",
+      "category" : "sync",
+      "description" : "Could not deactivate user in app.",
+      "tags" : [ "app" ],
+      "mappings" : [ "application.provision.user.deactivate" ]
+    }, {
       "id" : "app.user_management.deprovision_task_complete",
       "category" : "sync",
       "description" : "Deprovision task completed.",
@@ -5459,6 +5473,12 @@
       "description" : "Failed to update user group from app.",
       "tags" : [ "app-group-member-import" ],
       "mappings" : [ "app.user_management.user_group_import.update_failure" ]
+    }, {
+      "id" : "app.user_management.user_group_import.upsert_failure",
+      "category" : "ud-core",
+      "description" : "Failed to import the user group from app.",
+      "tags" : [ "app-group-member-import" ],
+      "mappings" : [ "app.user_management.user_group_import.upsert_fail" ]
     }, {
       "id" : "app.user_management.user_group_import.upsert_success",
       "category" : "ud-core",
@@ -11162,6 +11182,22 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "app.user_management.user_group_import.upsert_fail",
+      "category" : "sync",
+      "description" : "Failed to import the group from app. This event helps identify when a group is failed to be imported. Fired when we skip processing an import of a group.",
+      "info" : {
+        "created" : "2020-07-07",
+        "release" : "2020.07.1"
+      },
+      "beta" : false,
+      "tags" : [ "app", "app-user-management" ],
+      "mappings" : [ "app.user_management.user_group_import.upsert_failure" ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "app.user_management.user_group_import.upsert_success",
       "category" : "sync",
       "description" : "Imported the group from app.",
@@ -12067,7 +12103,7 @@
       },
       "beta" : false,
       "tags" : [ "app-api" ],
-      "mappings" : [ "app.api.error.deactivate_user", "app.bigmachines.api.error.deactivate", "app.boxnet.api.error.deactivate_user", "app.clarizen.api.error.entity.not_found", "app.confluence.api.error.deactivate.user", "app.confluence.api.error.remove.user", "app.cornerstone.api.error.api.deactivate_user", "app.dropbox.api.error.deactivation", "app.evernote_business.api.error.deactivation", "app.exacttarget.api.error.deactivate_user", "app.google.user_management.error.deactivate_user", "app.hipchat.api.error.deactivation", "app.netsuite.api.error.deactivate_user", "app.pagerduty.api.deactivate.user.unexpected.status", "app.servicenow.api.error.deactivate.user", "app.servicenow_app2.api.error.deactivate.user", "app.sugarcrm.api.error.deactivate.user", "app.user_management.deactivate_user", "app.user_management.deactivate_user.api_account", "app.veeva_vault.api.error.deactivate.user", "app.yammer.api.error.deactivation", "roambi.api.error.deactivate_user.confirmation" ],
+      "mappings" : [ "app.api.error.deactivate_user", "app.bigmachines.api.error.deactivate", "app.boxnet.api.error.deactivate_user", "app.clarizen.api.error.entity.not_found", "app.confluence.api.error.deactivate.user", "app.confluence.api.error.remove.user", "app.cornerstone.api.error.api.deactivate_user", "app.dropbox.api.error.deactivation", "app.evernote_business.api.error.deactivation", "app.exacttarget.api.error.deactivate_user", "app.google.user_management.error.deactivate_user", "app.hipchat.api.error.deactivation", "app.netsuite.api.error.deactivate_user", "app.pagerduty.api.deactivate.user.unexpected.status", "app.servicenow.api.error.deactivate.user", "app.servicenow_app2.api.error.deactivate.user", "app.sugarcrm.api.error.deactivate.user", "app.user_management.deactivate_user", "app.user_management.deactivate_user.api_account", "app.user_management.deactivate_user_failed", "app.veeva_vault.api.error.deactivate.user", "app.yammer.api.error.deactivation", "roambi.api.error.deactivate_user.confirmation" ],
       "schema" : {
         "debugData" : "UserProvisioningDebugData",
         "actor" : null,
@@ -14186,6 +14222,38 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "security.authenticator.lifecycle.activate",
+      "category" : "mfa-platform",
+      "description" : "Fired when an admin activates an authenticator for the org. This event can be used to identify who activated an authenticator and which authenticator was activated. When fired, this event contains information about the authenticator type that was activated, and the actor who activated the authenticator. Related events include security.authenticator.lifecycle.deactivate.",
+      "info" : {
+        "created" : "2020-06-30",
+        "release" : "2020.06.3"
+      },
+      "beta" : true,
+      "tags" : [ "authenticator", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "security.authenticator.lifecycle.deactivate",
+      "category" : "mfa-platform",
+      "description" : "Fired when an admin deactivates an authenticator for the org. This event can be used to identify who deactivated an authenticator and which authenticator was deactivated. When fired, this event contains information about the authenticator type that was deactivated, and the actor who deactivated the authenticator. Related events include security.authenticator.lifecycle.activate.",
+      "info" : {
+        "created" : "2020-06-30",
+        "release" : "2020.06.3"
+      },
+      "beta" : true,
+      "tags" : [ "authenticator", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "security.behavior.settings.create",
       "category" : "adaptive",
       "description" : "Behavior settings create. This can also be used to identify when a behavior setting is created. When fired, this event contains information about a created setting.",
@@ -15080,6 +15148,38 @@
         "debugData" : null,
         "actor" : null,
         "targets" : null
+      }
+    }, {
+      "id" : "system.client.concurrency_rate_limit.violation",
+      "category" : "performance",
+      "description" : "Too many requests in flight for client. This can be used to track if there are too many concurrent requests from a client. When fired, this event contains information about the request such as client, device and ip details.",
+      "info" : {
+        "created" : "2020-06-09",
+        "release" : "2020.06.1"
+      },
+      "beta" : false,
+      "tags" : [ "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "ClientRateLimitDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.client.rate_limit.violation",
+      "category" : "performance",
+      "description" : "Client rate limit violation. This can be used to track if a client is exceeding its rate limit. When fired, this event contains information about the request such as client, device and ip details.",
+      "info" : {
+        "created" : "2020-06-09",
+        "release" : "2020.06.1"
+      },
+      "beta" : false,
+      "tags" : [ "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "ClientRateLimitDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "system.csv.import_user",
@@ -16326,6 +16426,22 @@
       "mappings" : [ "core.org.task.remove" ],
       "schema" : {
         "debugData" : "OrgLifecycleDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.push.send_factor_verify_push",
+      "category" : "enterprise-auth",
+      "description" : "Fired when a Push notification is sent to a device. Used to notify admins when a push was sent to a user for verification. Note that this event is fired whenever a Push is sent.",
+      "info" : {
+        "created" : "2020-06-15",
+        "release" : "2020.06.3"
+      },
+      "beta" : false,
+      "tags" : [ "push" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "PushNotificationDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
       }
@@ -17874,6 +17990,34 @@
           "country_calling_code" : "Integer"
         }
       },
+      "ClientRateLimitDebugData" : {
+        "name" : "ClientRateLimitDebugData",
+        "properties" : {
+          "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
+          "behaviors" : "Map",
+          "risk" : "Map",
+          "url" : "String",
+          "request_uri" : "String",
+          "request_id" : "String",
+          "redirect_uri" : "String",
+          "original_principal" : "Resource",
+          "device_fingerprint" : "String",
+          "authn_request_id" : "String",
+          "user_id" : "String",
+          "org_id" : "String",
+          "device_token" : "String",
+          "ip" : "String",
+          "client_id" : "String",
+          "client_type" : "String",
+          "time_span" : "Integer",
+          "time_unit" : "String",
+          "threshold" : "Integer"
+        }
+      },
       "CommandDebugData" : {
         "name" : "CommandDebugData",
         "properties" : {
@@ -18431,6 +18575,7 @@
           "original_principal" : "Resource",
           "device_fingerprint" : "String",
           "authn_request_id" : "String",
+          "sync_password_tasks" : "Long",
           "deprovision_tasks" : "Long",
           "app_assignment_tasks" : "Long"
         }
@@ -18525,6 +18670,27 @@
           "old_value" : "String",
           "new_value" : "String",
           "description" : "String"
+        }
+      },
+      "PushNotificationDebugData" : {
+        "name" : "PushNotificationDebugData",
+        "properties" : {
+          "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
+          "behaviors" : "Map",
+          "risk" : "Map",
+          "url" : "String",
+          "request_uri" : "String",
+          "request_id" : "String",
+          "redirect_uri" : "String",
+          "original_principal" : "Resource",
+          "device_fingerprint" : "String",
+          "authn_request_id" : "String",
+          "device_category" : "String",
+          "device_platform" : "String"
         }
       },
       "RadiusDebugData" : {
