@@ -18,15 +18,15 @@ Apple as an Identity Provider is now Generally Available in Preview. Apple as an
 
 ### YubiKey OTP Token operations added
 
-Using the [Factors API](/docs/reference/api/factors/), requests for single YubiKey OTP Tokens, and uploading a seed for a YubiKey OTP are now supported. Other API operations for YubiKey OTP Tokens are now documented in the [Factors API](/docs/reference/api/factors/). <!-- OKTA-302434 -->
+Using the [Factors API](/docs/reference/api/factors/), requests for single YubiKey OTP Tokens and uploading a seed for a YubiKey OTP are now supported. Other API operations for YubiKey OTP Tokens are now documented in the [Factors API](/docs/reference/api/factors/). <!-- OKTA-302434 -->
 
-### Support for creating OIN OIDC Apps via the Dynamic Client Registration API
+### Support for creating OIN OIDC Apps using the Dynamic Client Registration API
 
-Creating OIN OIDC Apps via the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/) is now supported. <!-- OKTA-289900 -->
+Creating OIN OIDC Apps using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/) is now supported. <!-- OKTA-289900 -->
 
 ### API support for multiple ACS URLs
 
-When [creating a custom SAML app](/docs/reference/api/apps/#add-custom-saml-application) using the [Apps API](/docs/reference/api/apps/), you can now pass 2 optional parameters (`allowMultipleAcsEndpoints` and `acsEndpoints`) to configure up to 100 Assertion Consumer Service (ACS) URLs. <!-- OKTA-302291 -->
+When [creating a custom SAML app](/docs/reference/api/apps/#add-custom-saml-application) using the [Apps API](/docs/reference/api/apps/), you can now pass two optional parameters (`allowMultipleAcsEndpoints` and `acsEndpoints`) to configure up to 100 Assertion Consumer Service (ACS) URLs. <!-- OKTA-302291 -->
 
 ### Bugs fixed in 2020.07.0
 
