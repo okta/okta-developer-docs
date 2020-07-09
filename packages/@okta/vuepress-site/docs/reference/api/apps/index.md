@@ -842,6 +842,8 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 
 | Parameter             | Description                                     | DataType                             | Nullable | Unique | Validation                              |
 | --------------------- | ----------------------------------------------- | ------------------------------------ | -------- | -----  | --------------------------------------  |
+| allowMultipleAcsEndpoints       | Determines whether the app allows you to configure multiple ACS URIs                                    | Boolean                                              | FALSE    | FALSE  |                                           |
+| acsEndpoints          | An array of ACS endpoints. You can configure a maximum of 100 endpoints.                                          | Array of [ACS Endpoints](#acs-endpoint-object)       | TRUE     | FALSE  |                                           |
 | assertionSigned       | Determines whether the SAML assertion is digitally signed or not                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
 | attributeStatements   | Check the [SAML Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |                                           |
 | audience              | Audience URI (SP Entity ID)                                                                                       | String                                               | FALSE    | FALSE  |                                           |
@@ -950,6 +952,17 @@ curl -v -X POST \
       "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
       "spIssuer": null,
       "requestCompressed": false,
+      "allowMultipleAcsEndpoints": true,
+      "acsEndpoints": [
+        {
+          "url": "http://testorgone.okta",
+          "index":0
+        },
+        {
+          "url": "http://testorgone.okta/1",
+          "index":1
+        }
+      ],
       "attributeStatements": [
         {
           "type": "EXPRESSION",
@@ -1028,6 +1041,17 @@ curl -v -X POST \
       "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
       "spIssuer": null,
       "requestCompressed": false,
+      "allowMultipleAcsEndpoints": true,
+      "acsEndpoints": [
+        {
+          "url": "http://testorgone.okta",
+          "index":0
+        },
+        {
+          "url": "http://testorgone.okta/1",
+          "index":1
+        }
+      ],
       "attributeStatements": [
         {
           "type": "EXPRESSION",
@@ -1583,6 +1607,8 @@ curl -v -X GET \
       "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
       "spIssuer": null,
       "requestCompressed": false,
+      "allowMultipleAcsEndpoints": false,
+      "acsEndpoints": [],
       "attributeStatements": []
     }
   },
@@ -1752,6 +1778,8 @@ curl -v -X GET \
         "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
         "spIssuer": null,
         "requestCompressed": false,
+        "allowMultipleAcsEndpoints": false,
+        "acsEndpoints": [],
         "attributeStatements": []
       }
     },
@@ -1931,6 +1959,8 @@ curl -v -X GET \
         "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
         "spIssuer": null,
         "requestCompressed": false,
+        "allowMultipleAcsEndpoints": false,
+        "acsEndpoints": [],
         "attributeStatements": []
       }
     },
@@ -2242,6 +2272,8 @@ curl -v -X GET \
         "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
         "spIssuer": null,
         "requestCompressed": false,
+        "allowMultipleAcsEndpoints": false,
+        "acsEndpoints": [],
         "attributeStatements": []
       }
     },
@@ -5400,6 +5432,8 @@ HTTP/1.1 204 No Content
       "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
       "spIssuer": null,
       "requestCompressed": false,
+      "allowMultipleAcsEndpoints": false,
+      "acsEndpoints": [],
       "attributeStatements": []
     }
   },
@@ -6199,3 +6233,26 @@ The application CSR object defines a certificate signing request for a signature
 | csr              | Base64 encoded CSR in DER format                             | String                                                                      | TRUE     | TRUE   | TRUE     |           |           |            |
 | id               | unique identifier for the CSR                                | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | kty              | cryptographic algorithm family for the CSR's keypair         | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
+
+### ACS Endpoint Object
+
+The ACS endpoint that contains the ACS URI and the index of the URI.
+
+```json
+{
+  "url": "https://www.example.com/sso/saml",
+  "index": 0
+}
+```
+
+#### ACS Endpoint properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| url              | URL of the ACS                                               | String                                                                      | FALSE    | FALSE  | FALSE    |           | 1024      | [URL](http://tools.ietf.org/html/rfc3986)           |
+| index            | index of the URL in the array of ACS endpoints               | Number                                                                      | FALSE    | TRUE   | FALSE    |           |           |            |
+
+Property details
+
+ * `url` can't have query or fragment parameters.
+ * `index` has to be a non-negative number and cannot be duplicated in a set of ACS endpoints configured for an app.
