@@ -12,4 +12,8 @@ Or this one:
 
 The first step in building an Application with Okta is creating an Okta Application resource that represents your project. Okta generates credentials for you (called a client ID and client secret) that you copy into your code to associate your project with the Okta Application.
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

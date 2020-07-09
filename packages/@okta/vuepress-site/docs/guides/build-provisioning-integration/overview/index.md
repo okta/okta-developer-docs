@@ -10,10 +10,12 @@ While many ISVs have custom APIs for managing user accounts, this guide assumes 
 
 Your Okta integration should use Single Sign-On (SSO) to initiate end-user authentication. Learn how to set up your integration with SSO in our [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/) guide.
 
-If you need additional assistance, read through our [SCIM FAQ](/docs/concepts/scim/faqs/) page, post your question on the [Okta Developer Forums](https://devforum.okta.com/), or email us at <developers@okta.com>.
-
 ## Submit your integration
 
 After you have prepared and tested your SCIM integration, and you want to make it public, you can follow the steps in our [Submit an app integration](/docs/guides/submit-app) guide to have it published in the [Okta Integration Network (OIN) catalog](https://www.okta.com/integrations/).
+
+# Support
+
+If you need additional assistance, read through our [SCIM FAQ](/docs/concepts/scim/faqs/) page, post your question on the [Okta Developer Forums](https://devforum.okta.com/), or email us at <developers@okta.com>.
 
 <NextSectionLink/>

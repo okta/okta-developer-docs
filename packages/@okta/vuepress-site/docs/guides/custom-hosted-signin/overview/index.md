@@ -17,4 +17,8 @@ Yes. See the <GuideLink link="../customization-examples/#per-application-customi
 ## Before you begin
 Before you can get started customizing your hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-domain/).
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

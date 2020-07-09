@@ -12,9 +12,13 @@ in an idiomatic way.
 
 This guide assumes that you have:
 
-* An Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup))
+* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup)
 * [Postman configured](/code/rest/) to make API requests to your Developer Edition org
 * The Users API and Factors API [Postman collections](/docs/reference/postman-collections/)
 * [Created an API token](/docs/guides/create-an-api-token/) for your Okta org
+
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

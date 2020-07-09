@@ -22,4 +22,8 @@ Before you can get started customizing error pages, you must have already [custo
 
 A custom error page appears only when an application connects to Okta using your custom domain. Otherwise, the default Okta error page appears.
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

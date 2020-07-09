@@ -1,7 +1,7 @@
 ---
 title: Next steps
 ---
-You should now have a better understanding of how a sign-in session is shared between two mobile apps on a device and can then use the steps in the guide to help you configure your own apps. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
+You should now have a better understanding of how a sign-in session is shared between two mobile apps on a device and can then use the steps in the guide to help you configure your own apps.
 
 To learn more about our Mobile OpenID Connect (OIDC) SDKs and sample apps:
 
