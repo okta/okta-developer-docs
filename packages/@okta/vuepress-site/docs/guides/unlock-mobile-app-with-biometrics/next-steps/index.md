@@ -1,7 +1,7 @@
 ---
 title: Next steps
 ---
-You should now understand how to unlock a mobile app with biometrics. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
+You should now understand how to unlock a mobile app with biometrics.
 
 ## Sample applications
 

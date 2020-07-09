@@ -1,7 +1,7 @@
 ---
 title: Next steps
 ---
-You should now understand how to sign users in to your mobile applications using Okta. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
+You should now understand how to sign users in to your mobile applications using Okta.
 
 In this guide you signed users in to your app by opening a browser. To learn how to customize the sign-in page displayed in the browser, see [Customize the Okta-hosted sign-in page](/docs/guides/custom-hosted-signin/).
 

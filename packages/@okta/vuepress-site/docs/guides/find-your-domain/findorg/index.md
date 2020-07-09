@@ -19,5 +19,3 @@ Your Okta domain looks like:
 * `example.okta-emea.com`
 
 See [Okta Organizations](/docs/concepts/okta-organizations/) for more information on the types of Okta orgs.
-
-If you're stuck and need help, post a question on our [Developer Forum](https://devforum.okta.com).

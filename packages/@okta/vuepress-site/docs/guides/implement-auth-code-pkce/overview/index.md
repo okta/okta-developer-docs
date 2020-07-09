@@ -14,4 +14,8 @@ The Authorization Code Flow with PKCE is the standard Code flow with an extra st
 
 For more information on the authorization code with PKCE flow, including why to use it, see our [OAuth 2.0 Overview](/docs/concepts/auth-overview/#authorization-code-with-pkce-flow).
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

@@ -9,5 +9,8 @@ Event Hooks are outbound calls from Okta that can be used to notify your own sof
 1. Verify to Okta that you control the endpoint.
 1. Begin receiving ongoing delivery of event notifications.
 
-<NextSectionLink/>
+## Support
 
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
+<NextSectionLink/>

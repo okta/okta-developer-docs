@@ -170,3 +170,7 @@ GET /app/template_wsfed/k9x69oiKYSUWMIYZBKTY/sso/wsfed/passive?wa=wsignin1.0&wtr
 Host: your-domain.okta.com
 Accept: */*
 ```
+
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).

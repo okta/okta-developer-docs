@@ -9,4 +9,3 @@ Every time an event of a type that the Event Hook is subscribed to occurs in you
 ## Next Steps
 
 See the Event Hooks [Overview](/docs/concepts/event-hooks/) for more information on Event Hooks.
-
