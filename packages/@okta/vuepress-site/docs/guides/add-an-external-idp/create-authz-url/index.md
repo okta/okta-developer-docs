@@ -9,17 +9,17 @@ In the URL, replace {yourOktaDomain} with your org's base URL, and then replace 
 
 * `client_id`: Use the `client_id` value that you obtained from the OpenID Connect client application in the <GuideLink link="../register-app-in-okta">previous section</GuideLink>. This is not the `client_id` from the Identity Provider.
 
-* `response_type` &#8212; Determines which flow is used. For the [Implicit](/docs/guides/implement-implicit/overview/) flow, this should be `id_token`. For the [Authorization Code](/docs/guides/implement-auth-code/overview/) flow, this should be `code`.
+* `response_type` &mdash;; Determines which flow is used. For the [Implicit](/docs/guides/implement-implicit/overview/) flow, this should be `id_token`. For the [Authorization Code](/docs/guides/implement-auth-code/overview/) flow, this should be `code`.
 
-* `response_mode` &#8212; Determines how the authorization response should be returned. This should be `fragment`.
+* `response_mode` &mdash;; Determines how the authorization response should be returned. This should be `fragment`.
 
-* `scope` &#8212; Determines the claims that are returned in the ID token. Include the scopes that you want to request authorization for and separate each by a space. You need to include at least the `openid` scope. You can request any of the standard OpenID Connect scopes about users, such as `profile` and `email` as well as any custom scopes specific to your Identity Provider.
+* `scope` &mdash;; Determines the claims that are returned in the ID token. Include the scopes that you want to request authorization for and separate each by a space. You need to include at least the `openid` scope. You can request any of the standard OpenID Connect scopes about users, such as `profile` and `email` as well as any custom scopes specific to your Identity Provider.
 
-* `redirect_uri`: The location where Okta returns a browser after the user finishes authenticating with their Identity Provider. This URL must start with HTTPS and must match one of the redirect URIs that you configured in the <GuideLink link="../register-app-in-okta">previous section</GuideLink>.
+* `redirect_uri` &mdash;; The location where Okta returns a browser after the user finishes authenticating with their Identity Provider. This URL must start with HTTPS and must match one of the redirect URIs that you configured in the <GuideLink link="../register-app-in-okta">previous section</GuideLink>.
 
-* `state` &#8212; Protects against cross-site request forgery (CSRF). Can be any value.
+* `state` &mdash;; Protects against cross-site request forgery (CSRF). Can be any value.
 
-* `nonce` &#8212; A string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. Can be any value.
+* `nonce` &mdash;; A string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. Can be any value.
 
 For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters).
 

@@ -1,6 +1,6 @@
 {
-  "release" : "2020.06.1",
-  "build" : "2020.06.1-begin-77-gf2370d9c059f",
+  "release" : "2020.07.1",
+  "build" : "2020.07.1-begin-109-g80b46798ce40",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1128,6 +1128,22 @@
     "statusReasonPhrase" : "Too Many Requests",
     "errorCode" : "E0000147",
     "errorSummary" : "Your organization has reached the limit of call requests that can be sent within a 24 hour period.",
+    "errorDescription" : null
+  }, {
+    "title" : "Policy violation exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000148",
+    "errorSummary" : "The operation is not permitted by policy.",
+    "errorDescription" : null
+  }, {
+    "title" : "HTTP request not acceptable",
+    "includesExceptionMessage" : false,
+    "statusCode" : 406,
+    "statusReasonPhrase" : "Not Acceptable",
+    "errorCode" : "E0000149",
+    "errorSummary" : "The HTTP request is not acceptable.",
     "errorDescription" : null
   } ]
 }

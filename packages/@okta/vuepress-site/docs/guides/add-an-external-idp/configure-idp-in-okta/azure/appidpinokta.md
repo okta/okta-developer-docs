@@ -2,12 +2,12 @@
 
 In the **General Settings** section:
 
-* **Name** &mdash; Enter the name that you would expect to see on a button, such as **Sign in with Azure AD**.
+* **Name** &mdash; Enter a name for the Identity Provider configuration.
 * **Client Id** &mdash; Paste the client ID that you obtained from Azure AD when you configured the Identity Provider in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>.
 * **Client Secret** &mdash; Paste the secret that you obtained in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>.
 * **Scopes** &mdash; Leave the defaults. These scopes are included when Okta makes an OpenID Connect request to Azure AD.
 
-    By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
+    > **Note:** By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
 
 In the **Endpoints** section:
 

@@ -19,6 +19,7 @@ This guide assumes that you:
 
 We support a lot of Identity Providers. This guide provides instructions for the following Identity Providers. If the provider that you need isn't listed, we may still support it through generic OpenID Connect or SAML. The Identity Provider's documentation should say which protocol you need to use.
 
+* [Apple](/docs/guides/add-an-external-idp/apple/create-an-app-at-idp/)
 * [Azure AD](/docs/guides/add-an-external-idp/azure/create-an-app-at-idp/)
 * [Facebook](/docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/)
 * [Google](/docs/guides/add-an-external-idp/google/create-an-app-at-idp/)

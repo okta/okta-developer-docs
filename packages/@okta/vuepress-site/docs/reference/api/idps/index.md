@@ -5,16 +5,17 @@ category: management
 
 # Identity Providers API
 
-The Okta Identity Providers API provides operations to manage federations with external Identity Providers (IdP). For example, your app can support signing in with credentials from Facebook, Google, LinkedIn, Microsoft, an enterprise IdP using SAML 2.0, or an IdP using the OpenID Connect (`OIDC`) protocol.
+The Okta Identity Providers API provides operations to manage federations with external Identity Providers (IdP). For example, your app can support signing in with credentials from Apple, Facebook, Google, LinkedIn, Microsoft, an enterprise IdP using SAML 2.0, or an IdP using the OpenID Connect (`OIDC`) protocol.
 
 ## Get started
 
-Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c778cb5f0792b0682a79)
+Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b6ae6cc993c84d50d927)
 
 ## Setup guides
 
 Each IdP requires some setup. Use the Okta setup guide for your IdP:
 
+* [Apple](/docs/guides/add-an-external-idp/apple/before-you-begin/)
 * [Facebook](/docs/guides/add-an-external-idp/facebook/before-you-begin/)
 * [Google](/docs/guides/add-an-external-idp/google/before-you-begin/)
 * [LinkedIn](/docs/guides/add-an-external-idp/linkedin/before-you-begin/)
@@ -31,6 +32,7 @@ Adds a new IdP to your organization
 
 - [Add Generic OIDC Identity Provider](#add-generic-openid-connect-identity-provider)
 - [Add SAML 2.0 Identity Provider](#add-saml-2-0-identity-provider)
+- [Add Apple Identity Provider](#add-apple-identity-provider)
 - [Add Facebook Identity Provider](#add-facebook-identity-provider)
 - [Add Google Identity Provider](#add-google-identity-provider)
 - [Add LinkedIn Identity Provider](#add-linkedin-identity-provider)
@@ -454,6 +456,158 @@ For example: `?RelayState=:anyUrlEncodedValue`
 
 The deep link for the above three parts is:<br>
 `https://{myOktaDomain}.com/sso/saml2/:idpId/app/:app-location/:appId/sso/saml?RelayState=:anyUrlEncodedValue`
+
+#### Add Apple Identity Provider
+
+Adds a new `Apple` type IdP to your organization
+
+##### Request example
+
+> **Note:** The key is truncated for brevity.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "type": "APPLE",
+  "name": "Apple Identity Provider",
+  "protocol": {
+    "type": "OIDC",
+    "scopes": ["openid", "email", "name"],
+    "credentials": {
+      "client": {
+        "client_id": "your-client-id"
+      },
+      "signing": {
+        "privateKey": "MIGTAgEAMBM........Cb9PnybCnzDv+3cWSGWqpAIsQQZ",
+        "kid": "test key id",
+        "teamId": "test team id"
+      }
+    }
+  },
+  "policy": {
+    "provisioning": {
+      "action": "AUTO",
+      "profileMaster": true,
+      "groups": {
+        "action": "NONE"
+      },
+      "conditions": {
+        "deprovisioned": {
+          "action": "NONE"
+        },
+        "suspended": {
+          "action": "NONE"
+        }
+      }
+    },
+    "accountLink": {
+      "action": "AUTO"
+    },
+    "subject": {
+      "userNameTemplate": {
+        "template": "idpuser.email"
+      },
+      "matchType": "USERNAME"
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/idps"
+```
+
+##### Response example
+
+> **Note:** The key is truncated for brevity.
+
+```json
+{
+  "id": "0oa18hsHsG3boVejU0g4",
+  "type": "APPLE",
+  "issuerMode": "ORG_URL",
+  "name": "Apple Identity Provider",
+  "status": "ACTIVE",
+  "created": "2020-06-05T20:57:51.000Z",
+  "lastUpdated": "2020-06-05T20:57:51.000Z",
+  "protocol": {
+    "type": "OIDC",
+    "endpoints": {
+      "authorization": {
+        "url": "https://appleid.apple.com/auth/authorize",
+        "binding": "HTTP-REDIRECT"
+      },
+      "token": {
+        "url": "https://appleid.apple.com/auth/token",
+        "binding": "HTTP-POST"
+      }
+    },
+    "scopes": [
+      "openid",
+      "email",
+      "name"
+    ],
+    "credentials": {
+      "client": {
+        "client_id": "your-client-id"
+      },
+      "signing": {
+        "teamId": "test team id",
+        "privateKey": "MIGTAgEAMBM........Cb9PnybCnzDv+3cWSGWqpAIsQQZ",
+        "kid": "test key id"
+      }
+    }
+  },
+  "policy": {
+    "provisioning": {
+      "action": "AUTO",
+      "profileMaster": true,
+      "groups": {
+        "action": "NONE"
+      },
+      "conditions": {
+        "deprovisioned": {
+          "action": "NONE"
+        },
+        "suspended": {
+          "action": "NONE"
+        }
+      }
+    },
+    "accountLink": {
+      "filter": null,
+      "action": "AUTO"
+    },
+    "subject": {
+      "userNameTemplate": {
+        "template": "idpuser.email"
+      },
+      "filter": null,
+      "matchType": "USERNAME",
+      "matchAttribute": null
+    },
+    "maxClockSkew": 0
+  },
+  "_links": {
+    "authorize": {
+      "href": "http://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa18hsHsG3boVejU0g4&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+      "templated": true,
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    },
+    "clientRedirectUri": {
+      "href": "http://{yourOktaDomain}/oauth2/v1/authorize/callback",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    }
+  }
+}
+```
 
 #### Add Facebook Identity Provider
 
@@ -3370,7 +3524,7 @@ HTTP/1.1 204 No Content
 
 Generates a new X.509 certificate for an IdP signing Key Credential to be used for signing assertions sent to the IdP
 
-> **Note:** To update an IdP with the newly generated Key Credential, [update your IdP](#update-identity-provider) using the returned key's `kid` in the [signing credential](#saml-20-signing-credentials-object).
+> **Note:** To update an IdP with the newly generated Key Credential, [update your IdP](#update-identity-provider) using the returned key's `kid` in the [signing credential](#saml-2-0-signing-credentials-object).
 
 ##### Request parameters
 
@@ -4572,6 +4726,7 @@ Okta supports the following enterprise and social providers:
 
 | Type         | Description                                                                                                                                           |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `APPLE`      | [Apple Sign In](https://developer.apple.com/documentation/sign_in_with_apple)                                                                       |
 | `FACEBOOK`   | [Facebook Sign In](https://developers.facebook.com/docs/facebook-login/overview/)                                                                       |
 | `GOOGLE`     | [Google Sign In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect)                                                  |
 | `LINKEDIN`   | [Sign In with LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin)                                                                     |
@@ -4586,12 +4741,13 @@ The Protocol object contains IdP-specific protocol settings for endpoints, bindi
 
 | Provider     | Protocol                                   |
 | ------------ | -----------------------------------------  |
-| `FACEBOOK`   | [OAuth 2.0](#oauth-20-protocol)            |
+| `APPLE`      | [OpenID Connect](#openid-connect-protocol) |
+| `FACEBOOK`   | [OAuth 2.0](#oauth-2-0-protocol)            |
 | `GOOGLE`     | [OpenID Connect](#openid-connect-protocol) |
-| `LINKEDIN`   | [OAuth 2.0](#oauth-20-protocol)            |
+| `LINKEDIN`   | [OAuth 2.0](#oauth-2-0-protocol)            |
 | `MICROSOFT`  | [OpenID Connect](#openid-connect-protocol) |
 | `OIDC`       | [OpenID Connect](#openid-connect-protocol) |
-| `SAML2`      | [SAML 2.0](#saml-20-protocol)              |
+| `SAML2`      | [SAML 2.0](#saml-2-0-protocol)              |
 | `MTLS`  | [Mutual TLS](#mtls-protocol) |
 
 #### SAML 2.0 Protocol
@@ -4600,11 +4756,11 @@ Protocol settings for the [SAML 2.0 Authentication Request Protocol](http://docs
 
 | Property    | Description                                                        | DataType                                                          | Nullable | Readonly |
 | ----------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- | -------- | -------- |
-| algorithms  | Settings for signing and verifying SAML messages                   | [SAML 2.0 Algorithms object](#saml-20-algorithms-object)          | FALSE    | FALSE    |
-| credentials | Federation trust credentials for verifying assertions from the IdP | [SAML 2.0 Credentials object](#saml-20-credentials-object)        | FALSE    | FALSE    |
-| endpoints   | SAML 2.0 HTTP binding settings for IdP and SP (Okta)               | [SAML 2.0 Endpoints object](#saml-20-endpoints-object)            | FALSE    | FALSE    |
-| relayState  | Relay state settings for IdP                                       | [SAML 2.0 Relay State object](#saml-20-relay-state-object)        | TRUE     | FALSE    |
-| settings    | Advanced settings for the SAML 2.0 protocol                        | [SAML 2.0 Settings object](#saml-20-settings-object)              | TRUE     | FALSE    |
+| algorithms  | Settings for signing and verifying SAML messages                   | [SAML 2.0 Algorithms object](#saml-2-0-algorithms-object)          | FALSE    | FALSE    |
+| credentials | Federation trust credentials for verifying assertions from the IdP | [SAML 2.0 Credentials object](#saml-2-0-credentials-object)        | FALSE    | FALSE    |
+| endpoints   | SAML 2.0 HTTP binding settings for IdP and SP (Okta)               | [SAML 2.0 Endpoints object](#saml-2-0-endpoints-object)            | FALSE    | FALSE    |
+| relayState  | Relay state settings for IdP                                       | [SAML 2.0 Relay State object](#saml-2-0-relay-state-object)        | TRUE     | FALSE    |
+| settings    | Advanced settings for the SAML 2.0 protocol                        | [SAML 2.0 Settings object](#saml-2-0-settings-object)              | TRUE     | FALSE    |
 | type        | SAML 2.0 protocol                                                  | `SAML2`                                                           | FALSE    | TRUE     |
 
 ```json
@@ -4674,7 +4830,7 @@ The Single Sign-On (SSO) endpoint is the IdP's `SingleSignOnService` endpoint wh
 
 **Property details**
 
-* The `destination` property is required if request signatures are specified. See [SAML 2.0 Request Algorithm object](#saml-20-request-algorithm-object).
+* The `destination` property is required if request signatures are specified. See [SAML 2.0 Request Algorithm object](#saml-2-0-request-algorithm-object).
 * The value of `url` is defaulted to the same value as the `sso` endpoint if omitted during creation of a new IdP instance.
 
 ```json
@@ -4771,8 +4927,8 @@ The `SAML2` protocol supports `request` and `response` algorithm and verificatio
 
 | Property | Description                                                   | DataType                                                                 | Nullable | Readonly |
 | -------- | ------------------------------------------------------------- | ------------------------------------------------------------------------ | -------- | ------   |
-| request  | Algorithm settings used to secure an `<AuthnRequest>` message | [SAML 2.0 Request Algorithm object](#saml-20-request-algorithm-object)   | FALSE    | FALSE    |
-| response | Algorithm settings used to verify a `<SAMLResponse>` message  | [SAML 2.0 Response Algorithm object](#saml-20-response-algorithm-object) | FALSE    | FALSE    |
+| request  | Algorithm settings used to secure an `<AuthnRequest>` message | [SAML 2.0 Request Algorithm object](#saml-2-0-request-algorithm-object)   | FALSE    | FALSE    |
+| response | Algorithm settings used to verify a `<SAMLResponse>` message  | [SAML 2.0 Response Algorithm object](#saml-2-0-response-algorithm-object) | FALSE    | FALSE    |
 
 ```json
 {
@@ -4802,7 +4958,7 @@ Algorithm settings for securing `<AuthnRequest>` messages sent to the IdP:
 
 | Property  | Description                                                 | DataType                                                                                   | Nullable | Readonly |
 | --------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------- | -------- |
-| signature | Algorithm settings used to sign an `<AuthnRequest>` message | [SAML 2.0 Request Signature Algorithm object](#saml-20-request-signature-algorithm-object) | FALSE    | FALSE    |
+| signature | Algorithm settings used to sign an `<AuthnRequest>` message | [SAML 2.0 Request Signature Algorithm object](#saml-2-0-request-signature-algorithm-object) | FALSE    | FALSE    |
 
 ```json
 {
@@ -4837,7 +4993,7 @@ Algorithm settings for verifying `<SAMLResponse>` messages and `<Assertion>` ele
 
 | Property   | Description                                                                                        | DataType                                                                                     | Nullable   | Readonly      |
 | ---------- | ----------------------------------------------------------------------------------                 | --------------------                                                                         | ---------- | ------------- |
-| signature  | Algorithm settings for verifying `<SAMLResponse>` messages and `<Assertion>` elements from the IdP | [SAML 2.0 Response Signature Algorithm object](#saml-20-response-signature-algorithm-object) | FALSE      | FALSE         |
+| signature  | Algorithm settings for verifying `<SAMLResponse>` messages and `<Assertion>` elements from the IdP | [SAML 2.0 Response Signature Algorithm object](#saml-2-0-response-signature-algorithm-object) | FALSE      | FALSE         |
 
 ```json
 {
@@ -4870,8 +5026,8 @@ Federation Trust Credentials for verifying assertions from the IdP and signing r
 
 | Property   | Description                                                                        | DataType                                                                   | Nullable | Readonly |
 | ---------- | ---------------------------------------------------------------------------------- | --------------------                                                       | -------- | -------- |
-| signing    | Key used for signing requests to the IdP                                           | [SAML 2.0 Signing Credentials object](#saml-20-signing-credentials-object) | TRUE     | FALSE    |
-| trust      | Object that contains information for verifying assertions from the IdP                | [SAML 2.0 Trust Credentials object](#saml-20-trust-credentials-object)     | FALSE    | FALSE    |
+| signing    | Key used for signing requests to the IdP                                           | [SAML 2.0 Signing Credentials object](#saml-2-0-signing-credentials-object) | TRUE     | FALSE    |
+| trust      | Object that contains information for verifying assertions from the IdP                | [SAML 2.0 Trust Credentials object](#saml-2-0-trust-credentials-object)     | FALSE    | FALSE    |
 
 ###### SAML 2.0 Trust Credentials object
 
@@ -4923,7 +5079,7 @@ Determines the [IdP Key Credential](#identity-provider-key-credential-object) us
 
 | Property   | Description                       | DataType    | Nullable | Readonly | DataType                                                             | Default                                               |
 | ---------- | ---------------------             | ----------- | -------- | -------- | -------------------------------------------------------------------- | ----------------------------------------------        |
-| nameFormat | The name identifier format to use | String      | TRUE     | FALSE    | [SAML 2.0 Name Identifier Formats](#saml-20-name-identifier-formats) | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified |
+| nameFormat | The name identifier format to use | String      | TRUE     | FALSE    | [SAML 2.0 Name Identifier Formats](#saml-2-0-name-identifier-formats) | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified |
 
 ```json
 {
@@ -4951,8 +5107,8 @@ Protocol settings for authentication using the [OAuth 2.0 Authorization Code Flo
 
 | Property    | Description                                                                                                                     | DataType                                                                     | Nullable | Readonly | MinLength |
 | ----------- | ---------------------                                                                                                           | ---------------------------------------------------------                    | -------- | -------- | --------- |
-| credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-20-and-openid-connect-client-credentials-object) | FALSE    | FALSE    |           |
-| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server (AS)                                                                       | [OAuth 2.0 Endpoints object](#oauth-20-and-openid-connect-endpoints-object)  | TRUE     | TRUE     |           |
+| credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-client-credentials-object) | FALSE    | FALSE    |           |
+| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server (AS)                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE     | TRUE     |           |
 | scopes      | IdP-defined permission bundles to request delegated access from the User                                                            | Array of String                                                              | FALSE    | FALSE    | 1         |
 | type        | [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1)                                            | `OAUTH2`                                                                     | FALSE    | TRUE     |           |
 
@@ -4992,8 +5148,8 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 
 | Property    | Description                                                      | DataType                                          | Nullable | Readonly | MinLength |
 | ----------- | ---------------------------------------------------------------- | ------------------------------------------------- | -------- | -------- | --------- |
-| credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-20-and-openid-connect-client-credentials-object) | FALSE | FALSE |   |
-| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server (AS)                                                                       | [OAuth 2.0 Endpoints object](#oauth-20-and-openid-connect-endpoints-object)  | TRUE  | TRUE  |   |
+| credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-credentials-object) | FALSE | FALSE |   |
+| endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server (AS)                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE  | TRUE  |   |
 | scopes      | OpenID Connect and IdP-defined permission bundles to request delegated access from the User                                         | Array of String                                                              | FALSE | FALSE | 1 |
 | type        | [OpenID Connect Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)                     | `OIDC`                                                                       | FALSE | TRUE  |   |
 
@@ -5044,9 +5200,9 @@ The IdP Authorization Server (AS) endpoints are currently defined as part of the
 
 | Property      | Description                                                                                                    | DataType                                                                                                                     | Nullable    | Readonly      |
 | ------------- | -----------------------------------------------------------------------------------                            | -----------------------------------------                                                                                    | ----------- | ------------  |
-| authorization | IdP Authorization Server (AS) endpoint to request consent from the User and obtain an authorization code grant | [OAuth 2.0 Authorization Server Authorization Endpoint object](#oauth-20-authorization-server-authorization-endpoint-object) | TRUE        | TRUE          |
+| authorization | IdP Authorization Server (AS) endpoint to request consent from the User and obtain an authorization code grant | [OAuth 2.0 Authorization Server Authorization Endpoint object](#oauth-2-0-authorization-server-authorization-endpoint-object) | TRUE        | TRUE          |
 | jwks          | Endpoint where the signer of the keys publishes its keys in a JWK Set                                          | [OpenID Connect JWKs Endpoint object](#openid-connect-jwks-endpoint-object)                                                  | TRUE        | TRUE          |
-| token         | IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token            | [OAuth 2.0 Authorization Server Token Endpoint object](#oauth-20-authorization-server-token-endpoint-object)                 | TRUE        | TRUE          |
+| token         | IdP Authorization Server (AS) endpoint to exchange the authorization code grant for an access token            | [OAuth 2.0 Authorization Server Token Endpoint object](#oauth-2-0-authorization-server-token-endpoint-object)                 | TRUE        | TRUE          |
 | userInfo      | Protected resource endpoint that returns claims about the authenticated User                                   | [OpenID Connect Userinfo Endpoint object](#openid-connect-userinfo-endpoint-object)                                          | TRUE        | TRUE          |
 
 ```json
@@ -5093,14 +5249,21 @@ The IdP Authorization Server (AS) endpoints are currently defined as part of the
 }
 ```
 
-##### OAuth 2.0 and OpenID Connect Client Credentials object
+##### OAuth 2.0 and OpenID Connect Credentials object
 
 Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3)
 
+| Property      | Description                                                                                                 | DataType | Nullable | Readonly |
+| ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
+| client        | Client infomation                                                                                           | [OAuth 2.0 And OpenID Connect Client Object](#oauth-2-0-and-openid-connect-client-object)   | FALSE    | FALSE    |
+| signing       | Information used to sign the request, currently only Apple IdP supports it                                  | [Apple Client Signing Object](#apple-client-signing-object)   | TRUE    | FALSE    |
+
+
+##### OAuth 2.0 and OpenID Connect Client object
 | Property      | Description                                                                                                 | DataType | Nullable | Readonly | MinLength | MaxLength |
 | ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
 | client_id     | [Unique identifier](https://tools.ietf.org/html/rfc6749#section-2.2) issued by the AS for the Okta IdP instance | String   | FALSE    | FALSE    | 1         | 1024      |
-| client_secret | [Client secret issued](https://tools.ietf.org/html/rfc6749#section-2.3.1) by the AS for the Okta IdP instance   | String   | FALSE    | FALSE    | 1         | 1024      |
+| client_secret | [Client secret issued](https://tools.ietf.org/html/rfc6749#section-2.3.1) by the AS for the Okta IdP instance   | String   | TRUE (Only Nullable for Apple IdP)     | FALSE    | 1         | 1024      |
 
 > **Note:** You must complete client registration with the IdP Authorization Server for your Okta IdP instance to obtain client credentials.
 
@@ -5131,6 +5294,35 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
   }
 }
 ```
+
+##### Apple Client Signing object
+
+The information is used to generate the secret JSON Web Token for the token requests to Apple IdP.
+
+| Property      | Description                                                                                                 | DataType | Nullable | Readonly | MinLength | MaxLength |
+| ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
+| privateKey    | The  PKCS #8 encoded private key that you created for the client and downloaded from Apple                  | String   | TRUE     | FALSE    | 1         | 1024      |
+| kid           | The Key ID that you obtained from Apple when you created the private key for the client                     | String   | FALSE    | FALSE    | 1         | 1024      |
+| teamId        | The Team ID associated with your Apple developer account                                                    | String   | FALSE    | FALSE    | 1         | 1024      |
+
+> **Note:** privateKey is required for a CREATE request. For an UPDATE request, it can be null and keeps the existing value if it is null. privateKey isn't returned for LIST and GET requests or UDPATE requests if it is null.
+
+```json
+{
+  "protocol": {
+    "type": "OIDC",
+    "credentials": {
+      "signing": {
+        "privateKey": "MIGTAgEAMBM........Cb9PnybCnzDv+3cWSGWqpAIsQQZ",
+        "kid": "test key id",
+        "teamId": "test team id"
+      }
+    }
+  }
+}
+```
+> **Note:** The key is truncated for brevity.
+
 
 #### MTLS Protocol
 
