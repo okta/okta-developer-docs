@@ -14,7 +14,7 @@ In Admin Console, go to **Workflow > Event Hooks**. Click **Create Event Hook**.
 
 See [Event Hook Object](/docs/reference/api/event-hooks/#event-hook-object) for a description of the underlying objects.
 
-**Note:** The **Authentication field** box lets you specify the header name for the authorization header. This is separate from the **Authentication secret**, which is where you specify the actual secret to send as the value of the authentication header. Typically, you would simply set the name of the header to "Authentication".
+**Note:** The **Authentication field** box lets you specify the header name for the authorization header. This is separate from the **Authentication secret**, which is where you specify the actual secret to send as the value of the authentication header. Typically, you would simply set the name of the header to "Authorization".
 
 <NextSectionLink/>
 
