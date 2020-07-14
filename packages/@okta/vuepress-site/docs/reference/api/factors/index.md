@@ -3087,9 +3087,13 @@ Polls a push verification transaction for completion. The transaction result is 
 {
   "expiresAt": "2015-04-01T15:57:32.000Z",
   "factorResult": "WAITING",
+  "profile":{
+     "credentialId":"jane.doe@example.com",
+     ...
+  },
   "_links": {
     "poll": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
+      "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/v2mst.GldKV5VxTrifyeZmWSQguA",
       "hints": {
         "allow": [
           "GET"
@@ -3097,7 +3101,7 @@ Polls a push verification transaction for completion. The transaction result is 
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
+      "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/v2mst.GldKV5VxTrifyeZmWSQguA",
       "hints": {
         "allow": [
           "DELETE"
@@ -3121,6 +3125,10 @@ Polls a push verification transaction for completion. The transaction result is 
 ```json
 {
   "factorResult": "REJECTED",
+  "profile":{
+     "credentialId":"jane.doe@example.com",
+     ...
+  },
   "_links": {
     "verify": {
       "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/verify",
@@ -3148,6 +3156,10 @@ Polls a push verification transaction for completion. The transaction result is 
 ```json
 {
   "factorResult": "TIMEOUT",
+  "profile":{
+     "credentialId":"jane.doe@example.com",
+     ...
+  },
   "_links": {
     "verify": {
       "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/verify",
