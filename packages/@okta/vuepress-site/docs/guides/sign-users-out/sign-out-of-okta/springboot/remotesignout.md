@@ -15,8 +15,27 @@ Open your Okta Developer Console:
 4. Click **Save**.
 
 ```java
-@Configuration
-static class SecurityConfig extends WebSecurityConfigurerAdapter {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.client.oidc.web.logout.OidcClientInitiatedLogoutSuccessHandler;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+
+import java.net.URI;
+
+@SpringBootApplication
+public class LogoutExampleApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(LogoutExampleApplication.class, args);
+    }
+
+    @Configuration
+    static class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     ClientRegistrationRepository clientRegistrationRepository;
