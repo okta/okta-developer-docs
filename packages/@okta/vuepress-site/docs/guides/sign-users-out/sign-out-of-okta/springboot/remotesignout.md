@@ -1,4 +1,4 @@
-After performing [local signout](/docs/guides/sign-users-out/sign-out-of-your-app/springboot/), navigate the user's browser to the [OIDC logout page](https://developer.okta.com/docs/reference/api/oidc/#logout).
+After performing [local signout](/docs/guides/sign-users-out/sign-out-of-your-app/springboot/localsignout), navigate the user's browser to the [OIDC logout page](https://developer.okta.com/docs/reference/api/oidc/#logout).
 
 This page clears the user's Okta session, and then redirects back to the `post_logout_redirect_uri` that is provided. This URI must be one of those listed in the `Logout redirect URI` section of your application's settings.
 
