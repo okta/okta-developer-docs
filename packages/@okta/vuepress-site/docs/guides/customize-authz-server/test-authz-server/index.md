@@ -57,8 +57,9 @@ Add the following URL query parameters to the URL:
 - Your OpenID Connect application's `client_id` and `redirect_uri`
 - A `scope`, which for the purposes of this test are `openid` and `profile`
 - A `response_mode`, which you can set to `fragment`
-- A `state` value
-- (Optional) A `nonce` value. A `nonce` value is required if the `response_type` is `code`.
+- A `state` value and a `nonce` value
+
+> **Note:** A `nonce` value isn't required if the `response_type` is `code`.
 
 All of the values are fully documented here: [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize).
 
