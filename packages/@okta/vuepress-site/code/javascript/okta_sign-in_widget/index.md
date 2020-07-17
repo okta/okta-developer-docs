@@ -387,7 +387,7 @@ Position:
 
 ### Modifying Strings
 
-To modify strings in the Widget, you can override any of the properties set in [login.properties](https://github.com/okta/okta-signin-widget/blob/master/packages/@okta/i18n/dist/properties/login.properties). You override these properties by specifying new values for them inside an `i18n` object in the Widget's `config` section.
+To modify strings in the Widget, you can override any of the properties set in [login.properties](https://github.com/okta/okta-signin-widget/blob/master/packages/@okta/i18n/src/properties/login.properties). You override these properties by specifying new values for them inside an `i18n` object in the Widget's `config` section.
 
 #### Examples
 
