@@ -2418,7 +2418,7 @@ is required to delete the user.
 ##### Response Parameters
 
 
-Returns an empty object.
+`204 No Content`
 
 Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 
@@ -2437,10 +2437,7 @@ curl -v -X DELETE \
 
 
 ```http
-HTTP/1.1 202 ACCEPTED
-Content-Type: application/json
-
-{}
+`204 No Content`
 ```
 
 ### Unlock User
