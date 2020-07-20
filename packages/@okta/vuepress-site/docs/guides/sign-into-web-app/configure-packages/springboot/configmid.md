@@ -2,7 +2,7 @@ Edit `src/main/resources/application.properties` and update these values to incl
 
 ```properties
 okta.oauth2.issuer=https://${yourOktaDomain}/oauth2/default
-okta.oauth2.clientId={clientId}
+okta.oauth2.client-id={clientId}
 okta.oauth2.client-secret={clientSecret}
 
 # Customize the callback route path
