@@ -5,77 +5,27 @@ category: asa
 
 # ASA Users API
 
-## Get started
-
-This article provides an overview of the ASA Users API
-
-Explore the ASA Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://example.com).
+## Get Started
 
 
-## ASA Users Operations
+| Product  | API Basics  | API Namespace        |
+|----------|-------------|----------------------|
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
+
+An ASA User corresponds to a human or service user.
 
 
-The ASA Users API has the following operations:
-* [Issue a Service User token](#issue-a-service-user-token)
-* [Lists the users for a team](#lists-the-users-for-a-team)
-* [Fetches single user](#fetches-single-user)
-* [Updates a user](#updates-a-user)
-* [Lists groups a user is a member of](#lists-groups-a-user-is-a-member-of)
+## Users API Operations
 
 
-### Issue a Service User token
-
-<ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/service_token" />
-Most calls to the Okta Advanced Server Access API require an HTTP Authorization header with a value of the form Bearer ${AUTH_TOKEN}.
-To retrieve an auth token, you'll need to [create a service user and API key](https://help.okta.com/en/prod/Content/Topics/Adv_Server_Access/docs/service-users.htm), then pass the API key information to the "Get token for service user" endpoint.
-Auth tokens may expire at any time, so code using them should be prepared to handle a 401 response code by creating a new one.
-
-#### Request path parameters
-
-| Parameter | Type        | Description   |
-| --------- | ----------- | ------------- |
-| `team_name`   | string |  |
+The Users API has the following operations:
+* [List the Users for a team](#list-the-users-for-a-team)
+* [Fetch a User](#fetch-a-user)
+* [Update a User](#update-a-user)
+* [List Groups a specific User is a member of](#list-groups-a-specific-user-is-a-member-of)
 
 
-#### Request query parameters
-
-This endpoint has no query parameters.
-
-#### Request body
-
-*Required:* API key ID and secret
-Uses a [IssueServiceTokenRequestBody](/docs/asa/objects.html#issueservicetokenrequestbody) object.
-
-#### Response body
-
-On returning a 200: On success, the call will return a JSON object with the bearer token and its expiration date.
-
-Returns a [AuthTokenResponse](/docs/asa/objects.html#authtokenresponse) object.
-
-#### Usage example
-
-##### Request
-
-```bash
-curl -v -X POST \
--H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/service_token
-{
-	"key_id": "18a1f790-2746-4f71-ba7e-2bf1b00b0019",
-	"key_secret": "uF0SoVBVQP/hJmQSLUZdM2a7ArYzjD8ykzvG7n4tKaOEfSErcwMUUDWpEf4Q42/HaVKPZUfILkzy/bsQFv7WRg==",
-	"roles": null
-}
-```
-
-##### Response
-```json
-{
-	"key_id": "18a1f790-2746-4f71-ba7e-2bf1b00b0019",
-	"key_secret": "uF0SoVBVQP/hJmQSLUZdM2a7ArYzjD8ykzvG7n4tKaOEfSErcwMUUDWpEf4Q42/HaVKPZUfILkzy/bsQFv7WRg==",
-	"roles": null
-}
-```
-### Lists the users for a team
+### List the Users for a team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/users" />
 
@@ -84,12 +34,10 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/service_tok
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string |  |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
-
-%List any query parameters here in alpha order%
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
@@ -108,10 +56,12 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/service_tok
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 200: List of users.
-
-Returns a list of [User](/docs/asa/objects.html#user) objects.
+This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
+| `name`   | string | The name of the User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. Users cannot disable or delete their own User. |
 
 #### Usage example
 
@@ -120,8 +70,8 @@ Returns a list of [User](/docs/asa/objects.html#user) objects.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users
 
+https://app.scaleft.com/v1/teams/${team_name}/users
 ```
 
 ##### Response
@@ -136,7 +86,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users
 				"full_name": "Jason Compson IV",
 				"last_name": "Compson"
 			},
-			"id": "4664ad72-f7a6-4f3f-a530-0be5ccc54275",
+			"id": "a18fe558-be47-4ae5-a2a8-ad622c3df259",
 			"name": "Jason.Compson.IV",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -151,7 +101,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users
 				"full_name": "Benjy Compson",
 				"last_name": "Compson"
 			},
-			"id": "e4de46a8-8fa9-4612-a220-ab85952394e5",
+			"id": "51c7f515-d97a-4d7d-9918-895d0e704147",
 			"name": "Benjy.Compson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -166,7 +116,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users
 				"full_name": "Quentin Compson III",
 				"last_name": "Compson"
 			},
-			"id": "7eb30d83-387e-416d-9bc5-fee2162b85ae",
+			"id": "cbc05d63-2300-42fc-a82b-99ae50a8c1b9",
 			"name": "Quentin.Compson.III",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -176,7 +126,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users
 	]
 }
 ```
-### Fetches single user
+### Fetch a User
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}" />
 
@@ -185,8 +135,8 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string |  |
-| `user_name`   | string |  |
+| `team_name`   | string | The name of your Team. |
+| `user_name`   | string | The relevant username. |
 
 
 #### Request query parameters
@@ -198,10 +148,12 @@ This endpoint has no query parameters.
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 200: The user that was requested.
-
-Returns a [User](/docs/asa/objects.html#user) object.
+This endpoint returns an object with the following fields and a `200` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
+| `name`   | string | The name of the User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. Users cannot disable or delete their own User. |
 
 #### Usage example
 
@@ -210,8 +162,8 @@ Returns a [User](/docs/asa/objects.html#user) object.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${user_name}
 
+https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}
 ```
 
 ##### Response
@@ -224,7 +176,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${use
 		"full_name": "Jason Compson IV",
 		"last_name": "Compson"
 	},
-	"id": "4664ad72-f7a6-4f3f-a530-0be5ccc54275",
+	"id": "a18fe558-be47-4ae5-a2a8-ad622c3df259",
 	"name": "Jason.Compson.IV",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -232,7 +184,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${use
 	"user_type": "human"
 }
 ```
-### Updates a user
+### Update a User
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}" />
 
@@ -241,8 +193,8 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${use
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string |  |
-| `user_name`   | string |  |
+| `team_name`   | string | The name of your Team. |
+| `user_name`   | string | The relevant username. |
 
 
 #### Request query parameters
@@ -254,9 +206,7 @@ This endpoint has no query parameters.
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 204: The user was updated successfully.
-
+This endpoint returns a `204 No Content` response on a successful call.
 
 
 #### Usage example
@@ -266,15 +216,15 @@ On returning a 204: The user was updated successfully.
 ```bash
 curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${user_name}
 
+https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}
 ```
 
 ##### Response
 ```json
-
+HTTP 204 No Content
 ```
-### Lists groups a user is a member of
+### List Groups a specific User is a member of
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/groups" />
 
@@ -283,17 +233,15 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${use
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string |  |
-| `user_name`   | string |  |
+| `team_name`   | string | The name of your Team. |
+| `user_name`   | string | The relevant username. |
 
 
 #### Request query parameters
 
-%List any query parameters here in alpha order%
-
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| `contains`   |  string | (Optional) Includes groups with name that contain value. |
+| `contains`   |  string | (Optional) Includes ASA Groups with names that contain value. |
 | `count`   |  integer | (Optional) The number of objects per page. |
 | `descending`   |  boolean | (Optional) The object order. |
 | `offset`   |  string | (Optional) The page offset. |
@@ -305,10 +253,12 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${use
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 200: List of groups.
-
-Returns a list of [Group](/docs/asa/objects.html#group) objects.
+This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the Group. |
+| `name`   | string | The name of the Group. |
+| `roles`   | array | A list of roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Usage example
 
@@ -317,8 +267,8 @@ Returns a list of [Group](/docs/asa/objects.html#group) objects.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/groups
 
+https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/groups
 ```
 
 ##### Response
@@ -329,7 +279,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/users/${use
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": null,
 			"federation_approved_at": null,
-			"id": "2ddc20e1-b939-4023-ae13-0ece0ad9482a",
+			"id": "22b107e6-cf5d-4a90-8013-3c744352de82",
 			"name": "compsons",
 			"roles": [
 				"access_user",

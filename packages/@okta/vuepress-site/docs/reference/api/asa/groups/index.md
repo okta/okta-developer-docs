@@ -5,29 +5,32 @@ category: asa
 
 # ASA Groups API
 
-## Get started
-
-This article provides an overview of the ASA Groups API
-
-Explore the ASA Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://example.com).
+## Get Started
 
 
-## ASA Groups Operations
+| Product  | API Basics  | API Namespace        |
+|----------|-------------|----------------------|
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
+
+An ASA Group is a collection of ASA Users that share permissions and access.
 
 
-The ASA Groups API has the following operations:
-* [Lists the groups for a team](#lists-the-groups-for-a-team)
-* [Create a group](#create-a-group)
-* [Fetches a single group](#fetches-a-single-group)
-* [Remove group from team](#remove-group-from-team)
-* [Update a group](#update-a-group)
-* [List users of group](#list-users-of-group)
-* [Add user to group](#add-user-to-group)
-* [Remove user from group](#remove-user-from-group)
-* [List users of a team not assigned to a group](#list-users-of-a-team-not-assigned-to-a-group)
+## Groups API Operations
 
 
-### Lists the groups for a team
+The Groups API has the following operations:
+* [List the Groups for a Team](#list-the-groups-for-a-team)
+* [Create a Group](#create-a-group)
+* [Fetch a single Group](#fetch-a-single-group)
+* [Remove a Group from Team](#remove-a-group-from-team)
+* [Update a Group](#update-a-group)
+* [List Users of a Group](#list-users-of-a-group)
+* [Add a User to a Group](#add-a-user-to-a-group)
+* [Remove a User from a Group](#remove-a-user-from-a-group)
+* [List Users of a Team not assigned to a Group](#list-users-of-a-team-not-assigned-to-a-group)
+
+
+### List the Groups for a Team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups" />
 
@@ -36,16 +39,14 @@ The ASA Groups API has the following operations:
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string |  |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
 
-%List any query parameters here in alpha order%
-
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| `contains`   |  string | (Optional) Includes groups with name that contain value. |
+| `contains`   |  string | (Optional) Includes ASA Groups with names that contain value. |
 | `count`   |  integer | (Optional) The number of objects per page. |
 | `descending`   |  boolean | (Optional) The object order. |
 | `offset`   |  string | (Optional) The page offset. |
@@ -57,10 +58,12 @@ The ASA Groups API has the following operations:
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 200: List of groups.
-
-Returns a list of [Group](/docs/asa/objects.html#group) objects.
+This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the Group. |
+| `name`   | string | The name of the Group. |
+| `roles`   | array | A list of roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Usage example
 
@@ -69,8 +72,8 @@ Returns a list of [Group](/docs/asa/objects.html#group) objects.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups
 
+https://app.scaleft.com/v1/teams/${team_name}/groups
 ```
 
 ##### Response
@@ -81,7 +84,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": "william-faulkner",
 			"federation_approved_at": "2018-04-07T00:00:00Z",
-			"id": "96dfd7fb-cc9a-4cfd-ab56-d38fcf70964c",
+			"id": "02ccfce8-b7f9-4707-823c-b518cf460bdb",
 			"name": "compsons",
 			"roles": [
 				"access_user",
@@ -93,7 +96,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": null,
 			"federation_approved_at": null,
-			"id": "2ddc20e1-b939-4023-ae13-0ece0ad9482a",
+			"id": "22b107e6-cf5d-4a90-8013-3c744352de82",
 			"name": "compsons",
 			"roles": [
 				"access_user",
@@ -104,7 +107,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups
 	]
 }
 ```
-### Create a group
+### Create a Group
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/groups" />
 
@@ -113,7 +116,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string |  |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
@@ -122,14 +125,20 @@ This endpoint has no query parameters.
 
 #### Request body
 
-*Required:* Group to create.
-Uses a [Group](/docs/asa/objects.html#group) object.
+This endpoint requires an object with the following fields.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the Group. |
+| `name`   | string | The name of the Group. |
+| `roles`   | array | A list of roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Response body
-
-On returning a 201: The group that was created.
-
-Returns a [Group](/docs/asa/objects.html#group) object.
+This endpoint returns an object with the following fields and a `201` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the Group. |
+| `name`   | string | The name of the Group. |
+| `roles`   | array | A list of roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Usage example
 
@@ -138,8 +147,7 @@ Returns a [Group](/docs/asa/objects.html#group) object.
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups
-{
+--data '{
 	"deleted_at": null,
 	"federated_from_team": null,
 	"federation_approved_at": null,
@@ -150,7 +158,8 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups
 		"reporting_user",
 		"access_admin"
 	]
-}
+}' \
+https://app.scaleft.com/v1/teams/${team_name}/groups
 ```
 
 ##### Response
@@ -159,7 +168,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"federated_from_team": null,
 	"federation_approved_at": null,
-	"id": "2ddc20e1-b939-4023-ae13-0ece0ad9482a",
+	"id": "22b107e6-cf5d-4a90-8013-3c744352de82",
 	"name": "compsons",
 	"roles": [
 		"access_user",
@@ -168,7 +177,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups
 	]
 }
 ```
-### Fetches a single group
+### Fetch a single Group
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}" />
 
@@ -177,8 +186,8 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `group_name`   | string |  |
-| `team_name`   | string |  |
+| `group_name`   | string | The ASA Group name. |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
@@ -190,10 +199,12 @@ This endpoint has no query parameters.
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 200: The group that was requested.
-
-Returns a [Group](/docs/asa/objects.html#group) object.
+This endpoint returns an object with the following fields and a `200` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the Group. |
+| `name`   | string | The name of the Group. |
+| `roles`   | array | A list of roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Usage example
 
@@ -202,15 +213,15 @@ Returns a [Group](/docs/asa/objects.html#group) object.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
 
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
 ```
 
 ##### Response
 ```json
-
+HTTP 204 No Content
 ```
-### Remove group from team
+### Remove a Group from Team
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}" />
 
@@ -219,8 +230,8 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `group_name`   | string |  |
-| `team_name`   | string |  |
+| `group_name`   | string | The ASA Group name. |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
@@ -232,9 +243,7 @@ This endpoint has no query parameters.
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 204: The group was removed successfully.
-
+This endpoint returns a `204 No Content` response on a successful call.
 
 
 #### Usage example
@@ -244,15 +253,15 @@ On returning a 204: The group was removed successfully.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
 
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
 ```
 
 ##### Response
 ```json
-
+HTTP 204 No Content
 ```
-### Update a group
+### Update a Group
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}" />
 
@@ -261,8 +270,8 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `group_name`   | string |  |
-| `team_name`   | string |  |
+| `group_name`   | string | The ASA Group name. |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
@@ -271,13 +280,13 @@ This endpoint has no query parameters.
 
 #### Request body
 
-*Required:* Roles to update.
-Uses a [GroupUpdate](/docs/asa/objects.html#groupupdate) object.
+This endpoint requires an object with the following fields.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `roles`   | array | A list of Roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Response body
-
-On returning a 204: The group was updated successfully.
-
+This endpoint returns a `204 No Content` response on a successful call.
 
 
 #### Usage example
@@ -287,21 +296,21 @@ On returning a 204: The group was updated successfully.
 ```bash
 curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
-{
+--data '{
 	"roles": [
 		"access_user",
 		"reporting_user",
 		"access_admin"
 	]
-}
+}' \
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
 ```
 
 ##### Response
 ```json
-
+HTTP 204 No Content
 ```
-### List users of group
+### List Users of a Group
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users" />
 
@@ -310,13 +319,11 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `group_name`   | string |  |
-| `team_name`   | string |  |
+| `group_name`   | string | The ASA Group name. |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
-
-%List any query parameters here in alpha order%
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
@@ -335,10 +342,12 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 200: List of users.
-
-Returns a list of [User](/docs/asa/objects.html#user) objects.
+This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
+| `name`   | string | The name of the User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. Users cannot disable or delete their own User. |
 
 #### Usage example
 
@@ -347,8 +356,8 @@ Returns a list of [User](/docs/asa/objects.html#user) objects.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
 
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
 ```
 
 ##### Response
@@ -363,7 +372,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 				"full_name": "Benjy Compson",
 				"last_name": "Compson"
 			},
-			"id": "e4de46a8-8fa9-4612-a220-ab85952394e5",
+			"id": "51c7f515-d97a-4d7d-9918-895d0e704147",
 			"name": "Benjy.Compson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -373,7 +382,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 	]
 }
 ```
-### Add user to group
+### Add a User to a Group
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users" />
 
@@ -382,8 +391,8 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `group_name`   | string |  |
-| `team_name`   | string |  |
+| `group_name`   | string | The ASA Group name. |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
@@ -392,13 +401,13 @@ This endpoint has no query parameters.
 
 #### Request body
 
-*Required:* Roles to update.
-Uses a [GroupUpdate](/docs/asa/objects.html#groupupdate) object.
+This endpoint requires an object with the following fields.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `roles`   | array | A list of Roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Response body
-
-On returning a 204: The user was added to the group successfully.
-
+This endpoint returns a `204 No Content` response on a successful call.
 
 
 #### Usage example
@@ -408,8 +417,7 @@ On returning a 204: The user was added to the group successfully.
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
-{
+--data '{
 	"deleted_at": null,
 	"details": {
 		"email": "jason.compson@example.com",
@@ -417,20 +425,21 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 		"full_name": "Jason Compson IV",
 		"last_name": "Compson"
 	},
-	"id": "4664ad72-f7a6-4f3f-a530-0be5ccc54275",
+	"id": "a18fe558-be47-4ae5-a2a8-ad622c3df259",
 	"name": "Jason.Compson.IV",
 	"oauth_client_application_id": null,
 	"role_grants": null,
 	"status": "ACTIVE",
 	"user_type": "human"
-}
+}' \
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
 ```
 
 ##### Response
 ```json
-
+HTTP 204 No Content
 ```
-### Remove user from group
+### Remove a User from a Group
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users/${user_name}" />
 
@@ -439,9 +448,9 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `group_name`   | string |  |
-| `team_name`   | string |  |
-| `user_name`   | string |  |
+| `group_name`   | string | The ASA Group name. |
+| `team_name`   | string | The name of your Team. |
+| `user_name`   | string | The relevant username. |
 
 
 #### Request query parameters
@@ -453,9 +462,7 @@ This endpoint has no query parameters.
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 204: The user was removed from the group successfully.
-
+This endpoint returns a `204 No Content` response on a successful call.
 
 
 #### Usage example
@@ -465,15 +472,15 @@ On returning a 204: The user was removed from the group successfully.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users/${user_name}
 
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users/${user_name}
 ```
 
 ##### Response
 ```json
-
+HTTP 204 No Content
 ```
-### List users of a team not assigned to a group
+### List Users of a Team not assigned to a Group
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_group" />
 
@@ -482,13 +489,11 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `group_name`   | string |  |
-| `team_name`   | string |  |
+| `group_name`   | string | The ASA Group name. |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
-
-%List any query parameters here in alpha order%
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
@@ -507,10 +512,12 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 200: List of users.
-
-Returns a list of [User](/docs/asa/objects.html#user) objects.
+This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
+| `name`   | string | The name of the User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. Users cannot disable or delete their own User. |
 
 #### Usage example
 
@@ -519,8 +526,8 @@ Returns a list of [User](/docs/asa/objects.html#user) objects.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_group
 
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_group
 ```
 
 ##### Response
@@ -535,7 +542,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/groups/${gr
 				"full_name": "Jason Compson IV",
 				"last_name": "Compson"
 			},
-			"id": "4664ad72-f7a6-4f3f-a530-0be5ccc54275",
+			"id": "a18fe558-be47-4ae5-a2a8-ad622c3df259",
 			"name": "Jason.Compson.IV",
 			"oauth_client_application_id": null,
 			"role_grants": null,

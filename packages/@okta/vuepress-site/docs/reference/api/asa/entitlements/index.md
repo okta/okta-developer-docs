@@ -1,29 +1,32 @@
 ---
-title: Entitlements
+title: ASA Entitlements
 category: asa
 ---
 
-# Entitlements API
+# ASA Entitlements API
 
-## Get started
-
-This article provides an overview of the Entitlements API
-
-Explore the Entitlements API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://example.com).
+## Get Started
 
 
-## Entitlements Operations
+| Product  | API Basics  | API Namespace        |
+|----------|-------------|----------------------|
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
+
+ASA Entitlements offer Advanced Server Access admins a system of layered permissions, which allow admins to specify the exact commands that their users can run on end servers.
+
+
+## Entitlements API Operations
 
 
 The Entitlements API has the following operations:
-* [Lists the sudo entitlements for a team](#lists-the-sudo-entitlements-for-a-team)
-* [Creates a sudo entitlement](#creates-a-sudo-entitlement)
-* [Fetches a single sudo entitlement](#fetches-a-single-sudo-entitlement)
-* [Deletes a single sudo entitlement](#deletes-a-single-sudo-entitlement)
-* [Updates a sudo entitlement](#updates-a-sudo-entitlement)
+* [List the Sudo Entitlements for a team](#list-the-sudo-entitlements-for-a-team)
+* [Create a Sudo Entitlement](#create-a-sudo-entitlement)
+* [Fetche a single sudo Entitlement](#fetche-a-single-sudo-entitlement)
+* [Delete a single Sudo Entitlement](#delete-a-single-sudo-entitlement)
+* [Update a Sudo Entitlement](#update-a-sudo-entitlement)
 
 
-### Lists the sudo entitlements for a team
+### List the Sudo Entitlements for a team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo" />
 
@@ -32,12 +35,10 @@ The Entitlements API has the following operations:
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string |  |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
-
-%List any query parameters here in alpha order%
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
@@ -52,10 +53,18 @@ The Entitlements API has the following operations:
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 200: List of sudo entitlements.
-
-Returns a list of [EntitlementSudo](/docs/asa/objects.html#entitlementsudo) objects.
+This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `add_env`   | array | A list of env vars to include when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info). |
+| `description`   | string | A description of the Entitlement. |
+| `name`   | string | A name for the Entitlement. |
+| `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
+| `opt_no_passwd`   | boolean | Whether or not to require a password when sudo is run (should generally not be used, as ASA accounts do not require a password). |
+| `opt_run_as`   | string | A non-root User to run commands as. |
+| `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
+| `structured_commands`   | array | A list of commands to allow. |
+| `sub_env`   | array | A list of env vars to ignore when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info) |
 
 #### Usage example
 
@@ -64,8 +73,8 @@ Returns a list of [EntitlementSudo](/docs/asa/objects.html#entitlementsudo) obje
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
 
+https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
 ```
 
 ##### Response
@@ -77,7 +86,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlement
 			"commands": null,
 			"created_at": "2018-04-07T00:00:00Z",
 			"description": "desc",
-			"id": "4713d5a6-f709-4b8a-b1fd-c37f905a4840",
+			"id": "4569d2a1-8df0-4b3f-af46-20f0dba37c74",
 			"name": "name",
 			"opt_no_exec": false,
 			"opt_no_passwd": true,
@@ -105,7 +114,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlement
 	]
 }
 ```
-### Creates a sudo entitlement
+### Create a Sudo Entitlement
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo" />
 
@@ -114,7 +123,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlement
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string |  |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
@@ -123,14 +132,32 @@ This endpoint has no query parameters.
 
 #### Request body
 
-*Required:* Sudo entitlement to create
-Uses a [EntitlementSudo](/docs/asa/objects.html#entitlementsudo) object.
+This endpoint requires an object with the following fields.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `add_env`   | array | A list of env vars to include when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info). |
+| `description`   | string | A description of the Entitlement. |
+| `name`   | string | A name for the Entitlement. |
+| `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
+| `opt_no_passwd`   | boolean | Whether or not to require a password when sudo is run (should generally not be used, as ASA accounts do not require a password). |
+| `opt_run_as`   | string | A non-root User to run commands as. |
+| `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
+| `structured_commands`   | array | A list of commands to allow. |
+| `sub_env`   | array | A list of env vars to ignore when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info) |
 
 #### Response body
-
-On returning a 201: The sudo entitlement that was created.
-
-Returns a [EntitlementSudo](/docs/asa/objects.html#entitlementsudo) object.
+This endpoint returns an object with the following fields and a `201` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `add_env`   | array | A list of env vars to include when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info). |
+| `description`   | string | A description of the Entitlement. |
+| `name`   | string | A name for the Entitlement. |
+| `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
+| `opt_no_passwd`   | boolean | Whether or not to require a password when sudo is run (should generally not be used, as ASA accounts do not require a password). |
+| `opt_run_as`   | string | A non-root User to run commands as. |
+| `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
+| `structured_commands`   | array | A list of commands to allow. |
+| `sub_env`   | array | A list of env vars to ignore when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info) |
 
 #### Usage example
 
@@ -139,13 +166,12 @@ Returns a [EntitlementSudo](/docs/asa/objects.html#entitlementsudo) object.
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
-{
+--data '{
 	"add_env": [],
 	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
-	"id": "4713d5a6-f709-4b8a-b1fd-c37f905a4840",
+	"id": "4569d2a1-8df0-4b3f-af46-20f0dba37c74",
 	"name": "name",
 	"opt_no_exec": false,
 	"opt_no_passwd": true,
@@ -169,14 +195,15 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlement
 	],
 	"sub_env": [],
 	"updated_at": "2018-04-07T00:00:00Z"
-}
+}' \
+https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
 ```
 
 ##### Response
 ```json
-
+HTTP 204 No Content
 ```
-### Fetches a single sudo entitlement
+### Fetche a single sudo Entitlement
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}" />
 
@@ -185,8 +212,8 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlement
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `sudo_id`   | string |  |
-| `team_name`   | string |  |
+| `sudo_id`   | string | The UUID of the Sudo Entitlement. |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
@@ -198,10 +225,18 @@ This endpoint has no query parameters.
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 200: The sudo entitlement that was requested.
-
-Returns a [EntitlementSudo](/docs/asa/objects.html#entitlementsudo) object.
+This endpoint returns an object with the following fields and a `200` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `add_env`   | array | A list of env vars to include when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info). |
+| `description`   | string | A description of the Entitlement. |
+| `name`   | string | A name for the Entitlement. |
+| `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
+| `opt_no_passwd`   | boolean | Whether or not to require a password when sudo is run (should generally not be used, as ASA accounts do not require a password). |
+| `opt_run_as`   | string | A non-root User to run commands as. |
+| `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
+| `structured_commands`   | array | A list of commands to allow. |
+| `sub_env`   | array | A list of env vars to ignore when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info) |
 
 #### Usage example
 
@@ -210,8 +245,8 @@ Returns a [EntitlementSudo](/docs/asa/objects.html#entitlementsudo) object.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
 
+https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
 ```
 
 ##### Response
@@ -221,7 +256,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlement
 	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
-	"id": "4713d5a6-f709-4b8a-b1fd-c37f905a4840",
+	"id": "4569d2a1-8df0-4b3f-af46-20f0dba37c74",
 	"name": "name",
 	"opt_no_exec": false,
 	"opt_no_passwd": true,
@@ -247,7 +282,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlement
 	"updated_at": "2018-04-07T00:00:00Z"
 }
 ```
-### Deletes a single sudo entitlement
+### Delete a single Sudo Entitlement
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}" />
 
@@ -256,8 +291,8 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlement
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `sudo_id`   | string |  |
-| `team_name`   | string |  |
+| `sudo_id`   | string | The UUID of the Sudo Entitlement. |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
@@ -269,9 +304,7 @@ This endpoint has no query parameters.
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 204: The sudo entitlement was deleted successfully.
-
+This endpoint returns a `204 No Content` response on a successful call.
 
 
 #### Usage example
@@ -281,15 +314,15 @@ On returning a 204: The sudo entitlement was deleted successfully.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
 
+https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
 ```
 
 ##### Response
 ```json
-
+HTTP 204 No Content
 ```
-### Updates a sudo entitlement
+### Update a Sudo Entitlement
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}" />
 
@@ -298,8 +331,8 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlement
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `sudo_id`   | string |  |
-| `team_name`   | string |  |
+| `sudo_id`   | string | The UUID of the Sudo Entitlement. |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
@@ -308,13 +341,21 @@ This endpoint has no query parameters.
 
 #### Request body
 
-*Required:* 
-Uses a [EntitlementSudo](/docs/asa/objects.html#entitlementsudo) object.
+This endpoint requires an object with the following fields.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `add_env`   | array | A list of env vars to include when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info). |
+| `description`   | string | A description of the Entitlement. |
+| `name`   | string | A name for the Entitlement. |
+| `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
+| `opt_no_passwd`   | boolean | Whether or not to require a password when sudo is run (should generally not be used, as ASA accounts do not require a password). |
+| `opt_run_as`   | string | A non-root User to run commands as. |
+| `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
+| `structured_commands`   | array | A list of commands to allow. |
+| `sub_env`   | array | A list of env vars to ignore when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info) |
 
 #### Response body
-
-On returning a 204: The sudo entitlement was updated successfully.
-
+This endpoint returns a `204 No Content` response on a successful call.
 
 
 #### Usage example
@@ -324,13 +365,13 @@ On returning a 204: The sudo entitlement was updated successfully.
 ```bash
 curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
 
+https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
 ```
 
 ##### Response
 ```json
-
+HTTP 204 No Content
 ```
 
 

@@ -1,25 +1,28 @@
 ---
-title: Audit Events
+title: ASA Audit Events
 category: asa
 ---
 
-# Audit Events API
+# ASA Audit Events API
 
-## Get started
-
-This article provides an overview of the Audit Events API
-
-Explore the Audit Events API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://example.com).
+## Get Started
 
 
-## Audit Events Operation
+| Product  | API Basics  | API Namespace        |
+|----------|-------------|----------------------|
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
+
+ASA Audit Events provide log data of ASA User actions such as accessing ASA Servers, enrolling ASA Clients, and creating resources.
+
+
+## Audit Events API Operation
 
 
 The Audit Events API has the following operation:
-* [Lists the audits for a team.](#lists-the-audits-for-a-team.)
+* [List the Audits for a Team](#list-the-audits-for-a-team)
 
 
-### Lists the audits for a team.
+### List the Audits for a Team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/auditsV2" />
 
@@ -28,12 +31,10 @@ The Audit Events API has the following operation:
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string |  |
+| `team_name`   | string | The name of your Team. |
 
 
 #### Request query parameters
-
-%List any query parameters here in alpha order%
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
@@ -48,10 +49,11 @@ The Audit Events API has the following operation:
 This endpoint has no request body.
 
 #### Response body
-
-On returning a 200: List of audits
-
-Returns a list of [AuditEventV2Schema](/docs/asa/objects.html#auditeventv2schema) objects.
+This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+| Parameter | Type        | Description          |
+|----------|-------------|----------------------|
+| `list`   | array | The list of Audit events. |
+| `related_objects`   | object | All objects related to the Audit events. |
 
 #### Usage example
 
@@ -60,8 +62,8 @@ Returns a list of [AuditEventV2Schema](/docs/asa/objects.html#auditeventv2schema
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/auditsV2
 
+https://app.scaleft.com/v1/teams/${team_name}/auditsV2
 ```
 
 ##### Response
@@ -81,7 +83,7 @@ https://app.scaleft.comhttps://app.scaleft.com/v1/teams/${team_name}/auditsV2
 				"via": null
 			},
 			"id": "UD5pqjIhjKVQPmmqMiGMpQ==",
-			"timestamp": "2020-05-14T16:44:37.945863832Z"
+			"timestamp": "2020-07-20T21:09:44.688675773Z"
 		}
 	],
 	"related_objects": {

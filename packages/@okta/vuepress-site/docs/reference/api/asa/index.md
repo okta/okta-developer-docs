@@ -1,21 +1,24 @@
 ---
-title: Advanced Server Access
+title: ASA 
 category: asa
 ---
 
-# Advanced Server Access API
+# ASA  API
 
-## Get started
-
-This is a dummy page that holds uncategorized endpoints
-
-Explore the Advanced Server Access API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://example.com).
+## Get Started
 
 
-## Advanced Server Access Operations
+| Product  | API Basics  | API Namespace        |
+|----------|-------------|----------------------|
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
 
 
-The Advanced Server Access API has the following operations:
+
+
+##  API Operations
+
+
+The  API has the following operations:
 
 
 
