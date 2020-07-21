@@ -83,7 +83,7 @@ https://app.scaleft.com/v1/teams/${team_name}/auditsV2
 				"via": null
 			},
 			"id": "UD5pqjIhjKVQPmmqMiGMpQ==",
-			"timestamp": "2020-07-20T21:09:44.688675773Z"
+			"timestamp": "2020-07-21T23:11:49.57656415Z"
 		}
 	],
 	"related_objects": {

@@ -21,7 +21,7 @@ ASA Entitlements offer Advanced Server Access admins a system of layered permiss
 The Entitlements API has the following operations:
 * [List the Sudo Entitlements for a team](#list-the-sudo-entitlements-for-a-team)
 * [Create a Sudo Entitlement](#create-a-sudo-entitlement)
-* [Fetche a single sudo Entitlement](#fetche-a-single-sudo-entitlement)
+* [Fetch a single sudo Entitlement](#fetch-a-single-sudo-entitlement)
 * [Delete a single Sudo Entitlement](#delete-a-single-sudo-entitlement)
 * [Update a Sudo Entitlement](#update-a-sudo-entitlement)
 
@@ -56,7 +56,7 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `add_env`   | array | A list of env vars to include when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info). |
+| `add_env`   | array | A list of environment variables to include when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 | `description`   | string | A description of the Entitlement. |
 | `name`   | string | A name for the Entitlement. |
 | `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
@@ -64,7 +64,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `opt_run_as`   | string | A non-root User to run commands as. |
 | `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
 | `structured_commands`   | array | A list of commands to allow. |
-| `sub_env`   | array | A list of env vars to ignore when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info) |
+| `sub_env`   | array | A list of environment variables to ignore when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 
 #### Usage example
 
@@ -86,7 +86,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
 			"commands": null,
 			"created_at": "2018-04-07T00:00:00Z",
 			"description": "desc",
-			"id": "4569d2a1-8df0-4b3f-af46-20f0dba37c74",
+			"id": "3f54e542-f40f-4261-9ed2-180af9975e97",
 			"name": "name",
 			"opt_no_exec": false,
 			"opt_no_passwd": true,
@@ -135,7 +135,7 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `add_env`   | array | A list of env vars to include when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info). |
+| `add_env`   | array | A list of environment variables to include when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 | `description`   | string | A description of the Entitlement. |
 | `name`   | string | A name for the Entitlement. |
 | `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
@@ -143,13 +143,13 @@ This endpoint requires an object with the following fields.
 | `opt_run_as`   | string | A non-root User to run commands as. |
 | `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
 | `structured_commands`   | array | A list of commands to allow. |
-| `sub_env`   | array | A list of env vars to ignore when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info) |
+| `sub_env`   | array | A list of environment variables to ignore when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 
 #### Response body
 This endpoint returns an object with the following fields and a `201` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `add_env`   | array | A list of env vars to include when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info). |
+| `add_env`   | array | A list of environment variables to include when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 | `description`   | string | A description of the Entitlement. |
 | `name`   | string | A name for the Entitlement. |
 | `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
@@ -157,7 +157,7 @@ This endpoint returns an object with the following fields and a `201` code on a 
 | `opt_run_as`   | string | A non-root User to run commands as. |
 | `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
 | `structured_commands`   | array | A list of commands to allow. |
-| `sub_env`   | array | A list of env vars to ignore when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info) |
+| `sub_env`   | array | A list of environment variables to ignore when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 
 #### Usage example
 
@@ -171,7 +171,7 @@ curl -v -X POST \
 	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
-	"id": "4569d2a1-8df0-4b3f-af46-20f0dba37c74",
+	"id": "3f54e542-f40f-4261-9ed2-180af9975e97",
 	"name": "name",
 	"opt_no_exec": false,
 	"opt_no_passwd": true,
@@ -203,7 +203,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
 ```json
 HTTP 204 No Content
 ```
-### Fetche a single sudo Entitlement
+### Fetch a single sudo Entitlement
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}" />
 
@@ -228,7 +228,7 @@ This endpoint has no request body.
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `add_env`   | array | A list of env vars to include when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info). |
+| `add_env`   | array | A list of environment variables to include when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 | `description`   | string | A description of the Entitlement. |
 | `name`   | string | A name for the Entitlement. |
 | `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
@@ -236,7 +236,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `opt_run_as`   | string | A non-root User to run commands as. |
 | `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
 | `structured_commands`   | array | A list of commands to allow. |
-| `sub_env`   | array | A list of env vars to ignore when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info) |
+| `sub_env`   | array | A list of environment variables to ignore when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 
 #### Usage example
 
@@ -256,7 +256,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
 	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
-	"id": "4569d2a1-8df0-4b3f-af46-20f0dba37c74",
+	"id": "3f54e542-f40f-4261-9ed2-180af9975e97",
 	"name": "name",
 	"opt_no_exec": false,
 	"opt_no_passwd": true,
@@ -344,7 +344,7 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `add_env`   | array | A list of env vars to include when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info). |
+| `add_env`   | array | A list of environment variables to include when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 | `description`   | string | A description of the Entitlement. |
 | `name`   | string | A name for the Entitlement. |
 | `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
@@ -352,7 +352,7 @@ This endpoint requires an object with the following fields.
 | `opt_run_as`   | string | A non-root User to run commands as. |
 | `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
 | `structured_commands`   | array | A list of commands to allow. |
-| `sub_env`   | array | A list of env vars to ignore when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info) |
+| `sub_env`   | array | A list of environment variables to ignore when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.

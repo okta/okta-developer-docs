@@ -19,16 +19,16 @@ An ASA Client corresponds to a user's device.
 
 
 The Clients API has the following operations:
-* [List Clients](#list-clients)
-* [Fetch a Client](#fetch-a-client)
-* [Revoke a Client](#revoke-a-client)
-* [Approve or assign a Client](#approve-or-assign-a-client)
+* [List ASA Clients](#list-asa-clients)
+* [Fetch a ASA Client](#fetch-a-asa-client)
+* [Revoke an ASA Client](#revoke-an-asa-client)
+* [Approve or assign an ASA Client](#approve-or-assign-an-asa-client)
 
 
-### List Clients
+### List ASA Clients
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/clients" />
-By default returns the Clients for the requesting User. Query options can be provided to filter by User or state.
+By default returns the ASA Clients for the requesting ASA User. Query options can be provided to filter by ASA User or state.
 
 #### Request path parameters
 
@@ -58,13 +58,13 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `description`   | string | A description of the Client. |
-| `encrypted`   | boolean | A boolean reflecting whether sft was able to determine that the Client was encrypted. |
-| `hostname`   | string | The hostname of the Client. |
-| `id`   | string | The UUID of the Client. |
-| `os`   | string | The OS of the Client device. |
-| `state`   | string | The state of the Client. One of: `ACTIVE`, `PENDING`, or `DELETED`. |
-| `user_name`   | string | The User to whom this Client belongs. |
+| `description`   | string | A description of the ASA Client. |
+| `encrypted`   | boolean | A boolean reflecting whether sft was able to determine that the ASA Client was encrypted. |
+| `hostname`   | string | The hostname of the ASA Client. |
+| `id`   | string | The UUID of the ASA Client. |
+| `os`   | string | The OS of the ASA Client device. |
+| `state`   | string | The state of the ASA Client. One of: `ACTIVE`, `PENDING`, or `DELETED`. |
+| `user_name`   | string | The ASA User to whom this ASA Client belongs. |
 
 #### Usage example
 
@@ -86,7 +86,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients
 			"description": "Work laptop",
 			"encrypted": true,
 			"hostname": "LightInAugust",
-			"id": "ed742cb8-2305-41a7-9649-598ed4fba2da",
+			"id": "c35a675c-e625-48d5-8ade-60574c36bc4d",
 			"os": "macOS 10.14.6",
 			"state": "PENDING",
 			"user_name": "Jason.Compson.IV"
@@ -96,7 +96,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients
 			"description": "Personal laptop",
 			"encrypted": true,
 			"hostname": "Absalom",
-			"id": "6e79f0db-6394-4129-a96a-79eb59f3a3b5",
+			"id": "e41f872d-5619-42d0-8935-82e19d14f6e3",
 			"os": "macOS 10.14.6",
 			"state": "ACTIVE",
 			"user_name": "Jason.Compson.IV"
@@ -104,7 +104,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients
 	]
 }
 ```
-### Fetch a Client
+### Fetch a ASA Client
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}" />
 
@@ -129,13 +129,13 @@ This endpoint has no request body.
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `description`   | string | A description of the Client. |
-| `encrypted`   | boolean | A boolean reflecting whether sft was able to determine that the Client was encrypted. |
-| `hostname`   | string | The hostname of the Client. |
-| `id`   | string | The UUID of the Client. |
-| `os`   | string | The OS of the Client device. |
-| `state`   | string | The state of the Client. One of: `ACTIVE`, `PENDING`, or `DELETED`. |
-| `user_name`   | string | The User to whom this Client belongs. |
+| `description`   | string | A description of the ASA Client. |
+| `encrypted`   | boolean | A boolean reflecting whether sft was able to determine that the ASA Client was encrypted. |
+| `hostname`   | string | The hostname of the ASA Client. |
+| `id`   | string | The UUID of the ASA Client. |
+| `os`   | string | The OS of the ASA Client device. |
+| `state`   | string | The state of the ASA Client. One of: `ACTIVE`, `PENDING`, or `DELETED`. |
+| `user_name`   | string | The ASA User to whom this ASA Client belongs. |
 
 #### Usage example
 
@@ -155,16 +155,16 @@ https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}
 	"description": "Work laptop",
 	"encrypted": true,
 	"hostname": "LightInAugust",
-	"id": "ed742cb8-2305-41a7-9649-598ed4fba2da",
+	"id": "c35a675c-e625-48d5-8ade-60574c36bc4d",
 	"os": "macOS 10.14.6",
 	"state": "PENDING",
 	"user_name": "Jason.Compson.IV"
 }
 ```
-### Revoke a Client
+### Revoke an ASA Client
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}" />
-Revoke a Client's access to this team
+Revoke an ASA Client's access to this Team
 
 #### Request path parameters
 
@@ -201,10 +201,10 @@ https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}
 ```json
 HTTP 204 No Content
 ```
-### Approve or assign a Client
+### Approve or assign an ASA Client
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}" />
-Used for Clients enrolled using a token policy or a policy that requires approval
+Used for ASA Clients enrolled using a token policy or a policy that requires approval
 
 #### Request path parameters
 
@@ -223,8 +223,8 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `state`   | string | The state of the Client. One of: `ACTIVE`, `PENDING`, or `DELETED`. |
-| `user_name`   | string | The User to whom this Client belongs. |
+| `state`   | string | The state of the ASA Client. One of: `ACTIVE`, `PENDING`, or `DELETED`. |
+| `user_name`   | string | The ASA User to whom this ASA Client belongs. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.

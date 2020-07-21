@@ -82,13 +82,13 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes
 		{
 			"attribute_name": "unix_group_name",
 			"attribute_value": "group_old",
-			"id": "bba48591-e075-442c-af60-4471ea772fea",
+			"id": "c8b53fbd-24c0-46c1-95ec-5ca001f62130",
 			"managed": false
 		},
 		{
 			"attribute_name": "windows_group_name",
 			"attribute_value": "group_new",
-			"id": "4dbda913-d40e-4ab6-8b50-e2fa8ee0af34",
+			"id": "f7305522-b2a3-4660-a39e-684b55f1d28c",
 			"managed": false
 		}
 	]
@@ -141,7 +141,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${
 {
 	"attribute_name": "unix_group_name",
 	"attribute_value": "group_old",
-	"id": "bba48591-e075-442c-af60-4471ea772fea",
+	"id": "c8b53fbd-24c0-46c1-95ec-5ca001f62130",
 	"managed": false
 }
 ```
@@ -248,25 +248,25 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes
 		{
 			"attribute_name": "unix_user_name",
 			"attribute_value": "augusta_ada_king",
-			"id": "b751bdb1-a4bb-48f2-8e56-2c0572379a9f",
+			"id": "7efa7f94-7027-4c3e-909d-1a2b5348f41e",
 			"managed": true
 		},
 		{
 			"attribute_name": "unix_uid",
 			"attribute_value": 1210,
-			"id": "6afdec8e-f30f-4b67-8814-c338541b95f8",
+			"id": "d71ffc05-34d0-40f9-9107-828675e8479a",
 			"managed": true
 		},
 		{
 			"attribute_name": "unix_gid",
 			"attribute_value": 1210,
-			"id": "ab806365-128f-4c12-8526-8648791243fe",
+			"id": "6ce66020-a7c4-4313-a899-8546a532060c",
 			"managed": true
 		},
 		{
 			"attribute_name": "windows_user_name",
 			"attribute_value": "augusta_ada_king",
-			"id": "59146d9b-12c7-42f2-a542-a2bcab0550d9",
+			"id": "f80493a7-f521-4d81-852a-e651835c42f3",
 			"managed": true
 		}
 	]

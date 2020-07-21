@@ -71,7 +71,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
 --data '{
-	"key_id": "64c87d02-f30a-4a32-b5e2-ba3a93b760c7",
+	"key_id": "1048abf1-b7c5-403f-ae5d-ad9a3d23a69a",
 	"key_secret": "uF0SoVBVQP/hJmQSLUZdM2a7ArYzjD8ykzvG7n4tKaOEfSErcwMUUDWpEf4Q42/HaVKPZUfILkzy/bsQFv7WRg==",
 	"roles": null
 }' \
@@ -121,8 +121,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the User. |
-| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. Users cannot disable or delete their own User. |
+| `name`   | string | The name of the ASA User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
 
@@ -142,7 +142,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 		{
 			"deleted_at": null,
 			"details": null,
-			"id": "f208c1fc-888b-4b73-bc23-b0fa111b60f6",
+			"id": "0b6e4fe5-8813-49c1-ac3e-672f9577ff4b",
 			"name": "shreve",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -152,7 +152,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 		{
 			"deleted_at": null,
 			"details": null,
-			"id": "39e57cd8-e617-405e-81f9-abd47e43f436",
+			"id": "724f407f-456f-4641-bf1e-2d4132914dee",
 			"name": "dilsey.gibson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -190,8 +190,8 @@ This endpoint returns an object with the following fields and a `201` code on a 
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the User. |
-| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. Users cannot disable or delete their own User. |
+| `name`   | string | The name of the ASA User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
 
@@ -211,7 +211,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "f208c1fc-888b-4b73-bc23-b0fa111b60f6",
+	"id": "0b6e4fe5-8813-49c1-ac3e-672f9577ff4b",
 	"name": "shreve",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -245,8 +245,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the User. |
-| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. Users cannot disable or delete their own User. |
+| `name`   | string | The name of the ASA User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
 
@@ -264,7 +264,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "f3d35925-3428-4cc0-8511-7a6807283446",
+	"id": "f32bffe4-169e-461e-8737-a33e25f66a58",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -295,16 +295,16 @@ This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the User. |
-| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. Users cannot disable or delete their own User. |
+| `name`   | string | The name of the ASA User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the User. |
-| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. Users cannot disable or delete their own User. |
+| `name`   | string | The name of the ASA User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
 
@@ -316,7 +316,7 @@ curl -v -X PUT \
 --data '{
 	"deleted_at": null,
 	"details": null,
-	"id": "39e57cd8-e617-405e-81f9-abd47e43f436",
+	"id": "724f407f-456f-4641-bf1e-2d4132914dee",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -331,7 +331,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "39e57cd8-e617-405e-81f9-abd47e43f436",
+	"id": "724f407f-456f-4641-bf1e-2d4132914dee",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -386,13 +386,13 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys
 	"list": [
 		{
 			"expires_at": "0001-01-01T00:00:00Z",
-			"id": "d0563c4c-823a-402b-9cbc-860ef84a3370",
+			"id": "a9144f5b-4469-40fc-aed0-d86729841dc1",
 			"issued_at": "2020-04-07T02:00:00Z",
 			"last_used": null
 		},
 		{
 			"expires_at": "2020-04-09T00:00:00Z",
-			"id": "1c5c4069-3a9e-4c77-ace0-64d6264dad50",
+			"id": "2af39fc6-e178-4b64-923d-f00dfe4f5920",
 			"issued_at": "2020-04-07T00:00:00Z",
 			"last_used": null
 		}
@@ -445,7 +445,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys
 ```json
 {
 	"expires_at": "0001-01-01T00:00:00Z",
-	"id": "665ebd50-55b6-4997-b878-c9f1cf729a4a",
+	"id": "76c9787c-af26-4e25-aae8-9c850e82afc4",
 	"issued_at": "2020-04-07T00:00:00Z",
 	"last_used": null,
 	"secret": "NOvsvBg0g9mFXdHbLxEJcEFpu+LZjQSKsYezqMALq5WbGZTpUsxoS4vBqqHOO9O3xrhOq03B+oLf7bSTShbudw=="

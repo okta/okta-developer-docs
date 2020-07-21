@@ -19,18 +19,18 @@ An ASA Group is a collection of ASA Users that share permissions and access.
 
 
 The Groups API has the following operations:
-* [List the Groups for a Team](#list-the-groups-for-a-team)
-* [Create a Group](#create-a-group)
-* [Fetch a single Group](#fetch-a-single-group)
-* [Remove a Group from Team](#remove-a-group-from-team)
-* [Update a Group](#update-a-group)
-* [List Users of a Group](#list-users-of-a-group)
-* [Add a User to a Group](#add-a-user-to-a-group)
-* [Remove a User from a Group](#remove-a-user-from-a-group)
-* [List Users of a Team not assigned to a Group](#list-users-of-a-team-not-assigned-to-a-group)
+* [List the ASA Groups for a Team](#list-the-asa-groups-for-a-team)
+* [Create an ASA Group](#create-an-asa-group)
+* [Fetch a single ASA Group](#fetch-a-single-asa-group)
+* [Remove an ASA Group from Team](#remove-an-asa-group-from-team)
+* [Update an ASA Group](#update-an-asa-group)
+* [List ASA Users of an ASA Group](#list-asa-users-of-an-asa-group)
+* [Add an ASA User to an ASA Group](#add-an-asa-user-to-an-asa-group)
+* [Remove an ASA User from an ASA Group](#remove-an-asa-user-from-an-asa-group)
+* [List ASA Users of a Team not assigned to a ASA Group](#list-asa-users-of-a-team-not-assigned-to-a-asa-group)
 
 
-### List the Groups for a Team
+### List the ASA Groups for a Team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups" />
 
@@ -61,9 +61,9 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the Group. |
-| `name`   | string | The name of the Group. |
-| `roles`   | array | A list of roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
+| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the ASA Group. |
+| `name`   | string | The name of the ASA Group. |
+| `roles`   | array | A list of roles for the ASA Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Usage example
 
@@ -84,7 +84,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": "william-faulkner",
 			"federation_approved_at": "2018-04-07T00:00:00Z",
-			"id": "02ccfce8-b7f9-4707-823c-b518cf460bdb",
+			"id": "2b618747-4e45-4712-9667-ae69f0749c48",
 			"name": "compsons",
 			"roles": [
 				"access_user",
@@ -96,7 +96,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": null,
 			"federation_approved_at": null,
-			"id": "22b107e6-cf5d-4a90-8013-3c744352de82",
+			"id": "b7c1dff0-2cc7-460d-ab38-ae76b1e52a2a",
 			"name": "compsons",
 			"roles": [
 				"access_user",
@@ -107,7 +107,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 	]
 }
 ```
-### Create a Group
+### Create an ASA Group
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/groups" />
 
@@ -128,17 +128,17 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the Group. |
-| `name`   | string | The name of the Group. |
-| `roles`   | array | A list of roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
+| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the ASA Group. |
+| `name`   | string | The name of the ASA Group. |
+| `roles`   | array | A list of roles for the ASA Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Response body
 This endpoint returns an object with the following fields and a `201` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the Group. |
-| `name`   | string | The name of the Group. |
-| `roles`   | array | A list of roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
+| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the ASA Group. |
+| `name`   | string | The name of the ASA Group. |
+| `roles`   | array | A list of roles for the ASA Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Usage example
 
@@ -168,7 +168,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"federated_from_team": null,
 	"federation_approved_at": null,
-	"id": "22b107e6-cf5d-4a90-8013-3c744352de82",
+	"id": "b7c1dff0-2cc7-460d-ab38-ae76b1e52a2a",
 	"name": "compsons",
 	"roles": [
 		"access_user",
@@ -177,7 +177,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 	]
 }
 ```
-### Fetch a single Group
+### Fetch a single ASA Group
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}" />
 
@@ -202,9 +202,9 @@ This endpoint has no request body.
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the Group. |
-| `name`   | string | The name of the Group. |
-| `roles`   | array | A list of roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
+| `federated_from_team`   | string | (Optional) The name of the Team from which to federate the ASA Group. |
+| `name`   | string | The name of the ASA Group. |
+| `roles`   | array | A list of roles for the ASA Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Usage example
 
@@ -221,7 +221,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
 ```json
 HTTP 204 No Content
 ```
-### Remove a Group from Team
+### Remove an ASA Group from Team
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}" />
 
@@ -261,7 +261,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
 ```json
 HTTP 204 No Content
 ```
-### Update a Group
+### Update an ASA Group
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}" />
 
@@ -283,7 +283,7 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `roles`   | array | A list of Roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
+| `roles`   | array | A list of Roles for the ASA Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
@@ -310,7 +310,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
 ```json
 HTTP 204 No Content
 ```
-### List Users of a Group
+### List ASA Users of an ASA Group
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users" />
 
@@ -346,8 +346,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the User. |
-| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. Users cannot disable or delete their own User. |
+| `name`   | string | The name of the ASA User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
 
@@ -372,7 +372,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
 				"full_name": "Benjy Compson",
 				"last_name": "Compson"
 			},
-			"id": "51c7f515-d97a-4d7d-9918-895d0e704147",
+			"id": "5f43f1bf-05f6-48ea-9a2b-928910cd4827",
 			"name": "Benjy.Compson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -382,7 +382,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
 	]
 }
 ```
-### Add a User to a Group
+### Add an ASA User to an ASA Group
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users" />
 
@@ -404,7 +404,9 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `roles`   | array | A list of Roles for the Group. Options are `access_user`, `access_admin` and `reporting_user`. |
+| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
+| `name`   | string | The name of the ASA User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
@@ -425,7 +427,7 @@ curl -v -X POST \
 		"full_name": "Jason Compson IV",
 		"last_name": "Compson"
 	},
-	"id": "a18fe558-be47-4ae5-a2a8-ad622c3df259",
+	"id": "82c63031-3cf9-416a-9b8a-192b3ff01ea5",
 	"name": "Jason.Compson.IV",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -439,7 +441,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
 ```json
 HTTP 204 No Content
 ```
-### Remove a User from a Group
+### Remove an ASA User from an ASA Group
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users/${user_name}" />
 
@@ -480,7 +482,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users/${user_
 ```json
 HTTP 204 No Content
 ```
-### List Users of a Team not assigned to a Group
+### List ASA Users of a Team not assigned to a ASA Group
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_group" />
 
@@ -516,8 +518,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the User. |
-| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. Users cannot disable or delete their own User. |
+| `name`   | string | The name of the ASA User. |
+| `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
 
@@ -542,7 +544,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_
 				"full_name": "Jason Compson IV",
 				"last_name": "Compson"
 			},
-			"id": "a18fe558-be47-4ae5-a2a8-ad622c3df259",
+			"id": "82c63031-3cf9-416a-9b8a-192b3ff01ea5",
 			"name": "Jason.Compson.IV",
 			"oauth_client_application_id": null,
 			"role_grants": null,

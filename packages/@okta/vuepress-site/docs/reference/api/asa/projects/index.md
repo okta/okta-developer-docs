@@ -70,7 +70,7 @@ The Projects API has the following operations:
 | `descending`   |  boolean | (Optional) The object order. |
 | `offset`   |  string | (Optional) The page offset. |
 | `prev`   |  boolean | (Optional) The direction of paging. |
-| `self`   |  boolean | (Optional)  |
+| `self`   |  boolean | (Optional) If true, only lists the Projects that this ASA User has been assigned. |
 
 
 #### Request body
@@ -110,7 +110,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects
 			"create_server_users": true,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"force_shared_ssh_users": false,
-			"id": "1b127da1-bde2-4b37-993f-499cf4e2aa58",
+			"id": "758ee095-d66f-4251-9448-bd07aa70c89b",
 			"name": "the-sound-and-the-fury",
 			"next_unix_gid": 63001,
 			"next_unix_uid": 60001,
@@ -124,7 +124,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects
 			"create_server_users": true,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"force_shared_ssh_users": false,
-			"id": "1b127da1-bde2-4b37-993f-499cf4e2aa58",
+			"id": "758ee095-d66f-4251-9448-bd07aa70c89b",
 			"name": "the-sound-and-the-fury",
 			"next_unix_gid": 63001,
 			"next_unix_uid": 60001,
@@ -212,7 +212,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects
 	"create_server_users": true,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"force_shared_ssh_users": false,
-	"id": "1b127da1-bde2-4b37-993f-499cf4e2aa58",
+	"id": "758ee095-d66f-4251-9448-bd07aa70c89b",
 	"name": "the-sound-and-the-fury",
 	"next_unix_gid": 63001,
 	"next_unix_uid": 60001,
@@ -413,12 +413,12 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_co
 		{
 			"config_key": "ssh.insecure_forward_agent",
 			"config_value": "host",
-			"id": "48b2a6c8-572d-438e-904c-6175c17c9c56"
+			"id": "621a1eb6-f043-48b2-b5b1-cc5e7f5b3d27"
 		},
 		{
 			"config_key": "ssh.port_forward_method",
 			"config_value": "netcat",
-			"id": "893ed228-87b2-4afa-a4fb-9d701ab50926"
+			"id": "f8d59cf6-8658-4e76-8c7e-184dcaf7a81a"
 		}
 	]
 }
@@ -477,7 +477,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_co
 {
 	"config_key": "ssh.insecure_forward_agent",
 	"config_value": "host",
-	"id": "48b2a6c8-572d-438e-904c-6175c17c9c56"
+	"id": "621a1eb6-f043-48b2-b5b1-cc5e7f5b3d27"
 }
 ```
 ### Remove a Client Configuration Option from a Project
@@ -569,13 +569,13 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_acc
 		{
 			"account_id": "123456789012",
 			"description": "Dev AWS account",
-			"id": "ba811e06-e1ad-438f-8296-32f2faf2509f",
+			"id": "c5c20937-47ca-4528-880f-a4f4e4db2887",
 			"provider": "aws"
 		},
 		{
 			"account_id": "630225935076",
 			"description": "Dev GCE account",
-			"id": "752486bc-045a-4215-bd3a-7e9777f71c5e",
+			"id": "456e727c-1a88-4628-ab35-a5085a699fad",
 			"provider": "gce"
 		}
 	]
@@ -627,7 +627,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_acc
 {
 	"account_id": "123456789012",
 	"description": "Dev AWS account",
-	"id": "ba811e06-e1ad-438f-8296-32f2faf2509f",
+	"id": "c5c20937-47ca-4528-880f-a4f4e4db2887",
 	"provider": "aws"
 }
 ```
@@ -725,7 +725,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups
 			"create_server_group": true,
 			"deleted_at": null,
 			"group": "compsons",
-			"group_id": "86f20e75-594e-4c37-8dd7-8d9cb383a5ee",
+			"group_id": "96fe2cb8-93b2-411d-a5c4-7df64a35f41d",
 			"name": "compsons",
 			"profile_attributes": {
 				"unix_gid": 63000,
@@ -855,7 +855,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${
 	"create_server_group": true,
 	"deleted_at": null,
 	"group": "compsons",
-	"group_id": "86f20e75-594e-4c37-8dd7-8d9cb383a5ee",
+	"group_id": "96fe2cb8-93b2-411d-a5c4-7df64a35f41d",
 	"name": "compsons",
 	"profile_attributes": {
 		"unix_gid": 63000,
@@ -1101,7 +1101,7 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `add_env`   | array | A list of env vars to include when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info). |
+| `add_env`   | array | A list of environment variables to include when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 | `description`   | string | A description of the Entitlement. |
 | `name`   | string | A name for the Entitlement. |
 | `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
@@ -1109,7 +1109,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `opt_run_as`   | string | A non-root User to run commands as. |
 | `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
 | `structured_commands`   | array | A list of commands to allow. |
-| `sub_env`   | array | A list of env vars to ignore when running these commands (see https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment for more info) |
+| `sub_env`   | array | A list of environment variables to ignore when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
 
 #### Usage example
 
@@ -1421,7 +1421,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_us
 	"list": [
 		{
 			"admin": true,
-			"id": "7e7f15c9-81cc-4d2a-ba78-66796b9e1f28",
+			"id": "788f6056-53ca-42ca-94cf-62c6da847ee6",
 			"server_user_name": "benjy",
 			"status": "ACTIVE",
 			"type": "human",
@@ -1432,7 +1432,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_us
 		},
 		{
 			"admin": false,
-			"id": "b88cf6b7-696b-48e9-9f09-65fb7990edfb",
+			"id": "252aaee3-b930-4773-8369-07d96930dd82",
 			"server_user_name": "quentin",
 			"status": "DELETED",
 			"type": "human",
@@ -1513,7 +1513,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "harvard",
-			"id": "a63dd1a8-00fc-4601-bd03-d04dde9ff0d6",
+			"id": "e815ffb1-c327-4c55-954e-ce95c0c7442d",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -1538,7 +1538,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "jefferson",
-			"id": "09968d33-2484-48f9-89e0-deac28b276ea",
+			"id": "3a2efed9-609a-4f35-91f0-e051330ced99",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -1635,7 +1635,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
 	"cloud_provider": null,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"hostname": "bastion.dev.com",
-	"id": "2bf66b20-1ef8-411b-a3b0-8d59c21dbe5e",
+	"id": "cc0b7fa1-3b8d-437f-b44b-a0cd0127945b",
 	"instance_details": null,
 	"last_seen": "0001-01-01T00:00:00Z",
 	"managed": false,
@@ -1718,7 +1718,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/$
 	"cloud_provider": null,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"hostname": "harvard",
-	"id": "a63dd1a8-00fc-4601-bd03-d04dde9ff0d6",
+	"id": "e815ffb1-c327-4c55-954e-ce95c0c7442d",
 	"instance_details": null,
 	"last_seen": "0001-01-01T00:00:00Z",
 	"managed": true,
