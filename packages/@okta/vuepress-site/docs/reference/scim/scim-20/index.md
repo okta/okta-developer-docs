@@ -611,7 +611,7 @@ Authorization: <Authorization credentials>
           "op": "add",
           "path": "members",
           "value": [{
-              "value": "1baf6a44-70e0-44ef-a043-3a546116799f",
+              "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
               "display": "test.user@okta.local"
         }]
     }]
@@ -655,12 +655,12 @@ Authorization: <Authorization credentials>
       "path": "members",
       "value": [
         {
-          "value": "addUser1",
-          "display": "add.User1@example.com"
+          "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+          "display": "test.user@okta.local"
         },
         {
-          "value": "addUser2",
-          "display": "add.User2@example.com"
+          "value": "89bb1940-b905-4575-9e7f-6f887cfb368e",
+          "display": "test.user@okta.local"
         }
       ]
     }
