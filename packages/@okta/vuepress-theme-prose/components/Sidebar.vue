@@ -90,11 +90,15 @@ export default {
       let navs = _.map(this.$site.themeConfig.sidebars.guides, _.clone);
       const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
+        // Travere guide tree to add links to leaf nodes
         let queue = new Array();
         queue.push(nav);
         let current = queue.pop();
         while(current){
           if( current && current.subLinks ){
+            // Add activeCheck to sub-categories in nav
+            current.subLinks = current.subLinks.map(subLink => 
+              subLink.guideName ? ({ ...subLink, activeCheck: `/${subLink.guideName}` }) : subLink);
             queue.push(...current.subLinks)
           } else if( current && current.guideName ) {
             // add sections
