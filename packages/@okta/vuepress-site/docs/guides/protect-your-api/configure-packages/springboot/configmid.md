@@ -2,5 +2,7 @@ Edit `src/main/resources/application.properties` and include your Okta Issuer an
 
 ```properties
 okta.oauth2.issuer=https://${yourOktaDomain}/oauth2/default
-okta.oauth2.audience=api://default # Optional
+
+# Optional
+okta.oauth2.audience=api://default
 ```
