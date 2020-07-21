@@ -1,4 +1,4 @@
-By default the redirect to the login page happens automatically when a users access a protected route, (by default Spring Security protects all routes).
+By default, the redirect to the login page happens automatically when users access a protected route (by default, Spring Security protects all routes).
 
 You can give the user a **Sign In** button or link. The link must navigate to `/oauth2/authorization/okta`:
 
