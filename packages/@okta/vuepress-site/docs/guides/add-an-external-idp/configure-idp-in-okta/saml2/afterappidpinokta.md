@@ -3,3 +3,7 @@
 * Save the **Audience URI** value.
 
 * Download the metadata by clicking **Download metadata**. The metadata URL is similar to this: `https://${yourOktaDomain}/api/v1/idps/{IdP_ID}/metadata.xml`.
+
+## Upload the metadata
+
+Follow the SAML IdP instructions on how to upload the metadata. If your IdP doesn't support uploading metadata, enter the ACS URL and Audience URI values at the IdP manually.

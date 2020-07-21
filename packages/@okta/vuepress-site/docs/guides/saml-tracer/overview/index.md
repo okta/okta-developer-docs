@@ -232,3 +232,7 @@ RKvwyyTfqfq9pgSmB9xNVJIeVZbbZGTlNGqJti24E0AiIPggtxg5NJ+HHnEQ5RxdSsR4fbMz9i0K
 ```
 
 SAML responses are signed, and contain the profile attributes of the person who requested access to the app, as set in the General tab of the administrator UI.
+
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).

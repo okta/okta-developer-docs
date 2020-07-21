@@ -25,7 +25,7 @@
     * If you are only creating an internal SAML integration:
         1. Select **I'm an Okta customer adding an internal app**.
         1. For the check boxes that appear, select the **App type** check box if your company created the integration and it won't be released publicly. If you check this box, you don't need to enter any further information.
-        1. Select the **Contact app vendor** check box if Okta needs to contact you to enable SAML for the integration. If you select this check box, you need to provide further general information about your integration to the Okta analyst team.
+        1. Select the **Contact app vendor** check box if Okta needs to contact you to enable SAML for the integration. If you select this check box, you need to provide further general information about your integration to the Okta OIN team.
         1. Click **Finish**.
     * For ISVs that are creating a SAML integration for the OIN:
         1. Select **I'm a software vendor. I'd like to integrate my app with Okta**.

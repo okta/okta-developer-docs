@@ -12,4 +12,8 @@ The refresh token is used to get new access tokens. Access tokens allow your mob
 
 By storing the refresh token on the device and encrypting it with a biometric challenge, you can safely keep the user signed in, but require the user to pass a biometric challenge to keep using the app. This means that the user must sign in with their password the first time, but can then use their fingerprint or face to unlock the app after that.
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

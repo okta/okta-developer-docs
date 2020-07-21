@@ -231,7 +231,7 @@ If you do not return any value for that `errorCauses` object, but deny the user'
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
-You then need to associate the registered Inline Hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable self-service registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm).)
+You then need to associate the registered Inline Hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable and configure a self-service registration policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_self_service_registration_policy).)
 
 1. Go to **Directory > Self-Service Registration**.
 

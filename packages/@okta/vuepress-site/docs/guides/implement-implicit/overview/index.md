@@ -15,4 +15,8 @@ At a high level, the Implicit flow has the following steps:
 
 For more information on the Implicit flow, see our [OAuth 2.0 overview](/docs/concepts/auth-overview/#implicit-flow).
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

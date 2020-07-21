@@ -1,7 +1,7 @@
 ---
 title: Next steps
 ---
-You should now understand how to customize the error page. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
+You should now understand how to customize the error page.
 
 Read more about other customization options:
 

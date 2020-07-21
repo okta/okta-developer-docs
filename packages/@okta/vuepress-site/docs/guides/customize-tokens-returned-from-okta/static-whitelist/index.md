@@ -141,7 +141,7 @@ This function takes Okta EL expressions for all parameters that evaluate to the 
 
 The string produced by the `group_expression` parameter usually contains attributes and objects from the [Groups API](/docs/reference/api/groups/), although it isn't limited to those attributes and objects. Attributes and objects listed in the [Group Attributes](/docs/reference/api/groups/#group-attributes) section of the Groups API can be any of the following: `id`, `status`, `name`, `description`, `objectClass`, and the `profile` object that contains the `groupType`, `samAccountName`, `objectSid`, `groupScope`, `windowsDomainQualifiedName`, `dn`, and `externalID` attributes for Groups that come from apps such as Active Directory.
 
-The whitelist parameter must evaluate to a list of group ids that is returned from the [Groups API](/docs/reference/api/groups/). If the user isn't a member of a group in the whitelist, the group is ignored.
+The whitelist parameter must evaluate to a list of group IDs that are returned from the [Groups API](/docs/reference/api/groups/). If the user isn't a member of a group in the whitelist, the group is ignored.
 
 **Parameter Examples**
 
@@ -153,6 +153,6 @@ The whitelist parameter must evaluate to a list of group ids that is returned fr
   * Okta EL string that contains an `if` condition: `"(group.objectClass[0] == 'okta:windows_security_principal') ? 'AD: ' + group.profile.windowsDomainQualifiedName : 'Okta: ' + group.name"` If `okta:windows_security_principal` is true for a group, the function returns the `windowsDomainQualifiedName` prefixed with `AD:`. Otherwise, the function returns the group name prefixed with `Okta:`.
 * limit
   * Integer between 1 and 100, inclusive. For example: `50`
-  * Okta EL expression containing a condition that evaluates to an integer: `app.profile.maxLimit < 100 ? app.profile.maxLimit : 100`. If the maximum group limit in the profile is less than 100, return that number of Groups. Otherwise, return a maximum of 100 Groups. If there are more Groups returned than the specified limit, an error is returned.
+  * Okta EL expression that contains a condition that evaluates to an integer: `app.profile.maxLimit < 100 ? app.profile.maxLimit : 100`. If the maximum group limit in the profile is less than 100, return that number of Groups. Otherwise, return a maximum of 100 Groups. If there are more Groups returned than the specified limit, an error is returned.
 
 <NextSectionLink/>

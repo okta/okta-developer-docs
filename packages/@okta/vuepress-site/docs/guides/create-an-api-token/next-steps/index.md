@@ -9,4 +9,3 @@ With the token created, you can begin using it, supplying it in the `Authorizati
 * For information on the general principles the Okta API follows, see [API Overview](/docs/reference/api-overview/).
 
 * For reference documentation for each API, see [API Reference](/docs/reference/).
-

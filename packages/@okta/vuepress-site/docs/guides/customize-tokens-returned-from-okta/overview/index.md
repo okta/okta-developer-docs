@@ -5,8 +5,12 @@ Tokens contain claims that are statements about the subject, such as name, role,
 
 This guide assumes that you:
 
-* Have an Okta Developer Edition organization. Don't have one? [Create an org for free](https://developer.okta.com/signup).
+* Have an Okta Developer Edition organization. [Create an org for free](https://developer.okta.com/signup).
 * Have an [OpenID Connect client application](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-assign-apps).
 * Have a [group in Okta](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Groups) with at least one person assigned to it.
+
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

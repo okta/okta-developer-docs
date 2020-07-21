@@ -20,4 +20,8 @@ Not all browsers supports CORS. The following table describes which browsers sup
 
 > **Note:** IE8 and IE9 don't support authenticated requests and can't use the Okta session cookie with CORS.
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

@@ -14,5 +14,3 @@ For Outbound SAML, complete the following four steps.
 4. Perform the setup for your app again, using the instructions provided. During this setup, you upload the certificate in a specified format, the metadata, or the certificate fingerprint.
 
 For Inbound SAML, follow the existing procedures for your setup.
-
-<NextSectionLink/>

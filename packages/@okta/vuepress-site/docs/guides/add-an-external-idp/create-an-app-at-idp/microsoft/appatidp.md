@@ -1,6 +1,8 @@
 1. Create a Microsoft app using these [instructions](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
 
-2. Skip the **Redirect URI** section for now. We come back to it later.
+2. In the **Redirect URI** section of the page, paste the Okta redirect URI. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the Identity Provider (IdP). This is the URL where the IdP returns the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URL has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and then the callback endpoint.
+
+    For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
 3. Save the Application ID value so you can add it to the Okta configuration in the next section.
 

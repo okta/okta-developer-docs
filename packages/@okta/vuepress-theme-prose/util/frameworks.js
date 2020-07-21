@@ -9,6 +9,7 @@ const FRAMEWORK_TO_COMMON_NAME = {
 };
 
 const COMMON_NAME_TO_FANCY_NAME = {
+  apple: 'Apple',
   azure: 'Azure AD',
   javascript: 'JS',
   angular: 'Angular',
@@ -40,7 +41,9 @@ const COMMON_NAME_TO_FANCY_NAME = {
   google: 'Google',
   linkedin: 'LinkedIn',
   microsoft: 'Microsoft',
-  nodeexpress: 'Node Express'
+  nodeexpress: 'Node Express',
+  ga: 'Authenticator',
+  sms: 'SMS'
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
