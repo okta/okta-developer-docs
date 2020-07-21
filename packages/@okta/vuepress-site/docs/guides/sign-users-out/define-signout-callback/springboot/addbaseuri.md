@@ -1,1 +1,3 @@
-This functionality is coming soon. Watch this GitHub issue for updates: [#126 Support OIDC logout](https://github.com/okta/okta-spring-boot/issues/126)
+Spring Boot provides support for logout handling right out of the box. Most of these security components can be easily configured.
+See [Spring Security Logout Handling](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#jc-logout) for more
+insights on this topic.
