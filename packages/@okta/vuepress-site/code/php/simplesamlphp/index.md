@@ -1,5 +1,5 @@
 ---
-title: SimpleSAMPphp
+title: SimpleSAMLphp
 language: PHP
 icon: code-php
 excerpt: How to use SimpleSAMLphp to add support for Okta via SAML.
@@ -95,8 +95,8 @@ PHP, reconfiguring Apache, and creating some symbolic links.
    $ cd ~
    $ mkdir simplesamlphp
    $ cd simplesamlphp
-   $ git clone git@github.com:simplesamlphp/simplesamlphp.git
-   $ git clone git@github.com:jpf/okta-simplesamlphp-example.git
+   $ git clone https://github.com/jpf/okta-simplesamlphp-example.git
+   $ git clone https://github.com/simplesamlphp/simplesamlphp.git
    ```
 
 2. Install php56 and php56-mcrypt with [homebrew](http://brew.sh/).
