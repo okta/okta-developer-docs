@@ -90,7 +90,7 @@ export default {
       let navs = _.map(this.$site.themeConfig.sidebars.guides, _.clone);
       const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
-        // Travere guide tree to add links to leaf nodes
+        // Traverse guide tree to add links to leaf nodes
         let queue = new Array();
         queue.push(nav);
         let current = queue.pop();
