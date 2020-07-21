@@ -57,7 +57,9 @@ Add the following URL query parameters to the URL:
 - Your OpenID Connect application's `client_id` and `redirect_uri`
 - A `scope`, which for the purposes of this test are `openid` and `profile`
 - A `response_mode`, which you can set to `fragment`
-- (Optionally) `state` and `nonce` values
+- A `state` value and a `nonce` value
+
+> **Note:** A `nonce` value isn't required if the `response_type` is `code`.
 
 All of the values are fully documented here: [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize).
 
@@ -73,7 +75,7 @@ Enter the credentials for a user who is mapped to your Open ID Connect applicati
 
 `https://yourRedirectUriHere.com/#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImluZUdjZVQ4SzB1SnZyWGVUX082WnZLQlB2RFowO[...]z7UvPoMEIjuBTH-zNkTS5T8mGbY8y7532VeWKA&state=WM6D`
 
-To check the returned ID Token, you can copy the value and paste it into any JWT decoder (for example: <https://jsonwebtoken.io>). Using a JWT decoder you can check the payload to confirm that it contains all of the claims that you are expecting, including custom ones. If you specified a `nonce`, that also is included:
+To check the returned ID Token, you can copy the value and paste it into any JWT decoder (for example: <https://jsonwebtoken.io>). Using a JWT decoder you can check the payload to confirm that it contains all of the claims that you are expecting, including custom ones. If you included a `nonce` value, that is also included:
 
 ```json
 {

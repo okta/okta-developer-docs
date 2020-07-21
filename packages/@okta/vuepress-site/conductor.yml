@@ -1953,3 +1953,7 @@ redirects:
     to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /docs/guides/saml-application-setup/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
+  - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/
+    to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
+  - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
+    to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
