@@ -18,7 +18,7 @@ If you don't have an Okta developer account, begin by signing up for one at <htt
 <!--  ![Create Application](/img/oin/scim_create-app.png "Add Application button") -->
 1. Click **Create New App** to start the Application Integration Wizard.
 <!--   ![Create New Application](/img/oin/scim_create-app-new.png "Create Application button") -->
-1. Choose **Web** as the platform for your integration. Web is the only supported platform for OIDC and SAML 2.0 applications in the OIN.
+1. Choose either **Web** or **SPA** as the platform for your integration. Web is the only supported platform for both OIDC and SAML 2.0 applications in the OIN. SPA is supported for OIDC apps only.
 
     If you are creating an OIDC integration that is intended for private use only, you can select Native or Single Page App as the platform.
 
