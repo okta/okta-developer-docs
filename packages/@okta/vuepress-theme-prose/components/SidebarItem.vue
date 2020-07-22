@@ -10,10 +10,10 @@
             </svg>
 
             <div v-if="link.path">
-                <router-link :to="link.path" @click="setData" :class="{'router-link-active': imActive, 'router-link-exact-active': imActive}">{{link.title}}</router-link>
+                <router-link :to="link.path" @click="setData" :class="{'router-link-active': link.imActive, 'router-link-exact-active': link.imActive}">{{link.title}}</router-link>
             </div>
             <div v-else>
-                <div class="is-link" @click="iHaveChildrenActive = !iHaveChildrenActive">{{link.title}}</div>
+                <div class="is-link" @click="toggle">{{link.title}}</div>
             </div>
         </div>
 
@@ -32,7 +32,6 @@ export default {
     },
     data() {
         return {
-            imActive: false,
             iHaveChildrenActive: false
         }
     },
@@ -40,24 +39,16 @@ export default {
         this.setData();
     },
     watch: {
-        '$route': function() {
+        'link'() {
             this.setData();
         }
     },
     methods: {
+        toggle() {
+            this.iHaveChildrenActive = !this.iHaveChildrenActive
+        },
         setData: function() {
-            this.imActive = false;
-            if(this.link.path) {
-                this.imActive = this.$page.regularPath == this.link.path;
-            }
-            if(this.link.activeCheck) {
-                this.imActive = this.$page.regularPath.includes(this.link.activeCheck);
-            }
-            this.$nextTick(() => {
-                this.iHaveChildrenActive = (this.$children || [] ).some((child) => {
-                    return child.imActive || child.iHaveChildrenActive;
-                });
-            });
+            this.iHaveChildrenActive = this.link.imActive;
         }
     }
 }
