@@ -26,6 +26,6 @@ To view and modify the mappings, access the Identity Provider that you created b
 
 If there are attributes that don't exist in your org's Universal Directory, but are a part of the user's Identity Provider profile, add the attributes by editing the Identity Provider user profile in your org.
 
-See [Manage User Profiles](https://help.okta.com/en/prod/Content/Topics/Directory/eu-profile-editor.htm?cshid=ext_Directory_Profile_Editor) for more information on custom attributes.
+See [Manage User Profiles](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) for more information on custom attributes.
 
 <NextSectionLink/>
