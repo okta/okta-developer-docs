@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     navigation() {
-      return this.getNavigation().map(nav => {
+      return (this.getNavigation() || []).map(nav => {
         this.addStatesToLink(nav);
         return nav;
       });
