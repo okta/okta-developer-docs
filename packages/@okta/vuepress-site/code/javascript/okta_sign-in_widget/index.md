@@ -150,6 +150,10 @@ signIn.showSignInToGetTokens({
 
   // Return an access token from the authorization server
   getAccessToken: true,
+  
+  // By default, new applications are configured to use the Authorization Code Flow with Proof-of-Code-Key-Exchange (PKCE)
+  // If your application uses the Implicit Flow instead, tell the widget not to use PKCE by uncommenting the below line
+  // pkce: false,
 
   // Return an ID token from the authorization server
   getIdToken: true,
@@ -169,7 +173,7 @@ function callMessagesApi() {
     return;
   }
 
-  // Make a request using jQuery
+  // Make a request using jQuery 
   $.ajax({
     // Your API or resource server:
     url: 'http://localhost:8080/api/messages',
@@ -217,21 +221,6 @@ function error(err) {
 The Okta Sign-In Widget is fully customizable via CSS and JavaScript.
 
 > You can try all these customizations for yourself using our [Live Widget](https://developer.okta.com/live-widget/).
-
-### Authorization Code Flow using PKCE
-
-To enable PKCE flow, set `pkce: true` in the `authParams` configuration object passed to `OktaSignIn`. For more information on how to set up your application to use this flow, see [Implement the Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/).
-
-```javascript
-var config = {
-  baseUrl: 'https://${yourOktaDomain}',
-  authParams: {
-    pkce: true
-  }
-};
-
-var signIn = new OktaSignIn(config);
-```
 
 ### Initial Login Screen
 
