@@ -29,6 +29,7 @@ guides:
  - refresh-tokens
  - request-user-consent
  - revoke-tokens
+ - saml-tracer
  - session-cookie
  - set-up-event-hook
  - shared-sso-android-ios
