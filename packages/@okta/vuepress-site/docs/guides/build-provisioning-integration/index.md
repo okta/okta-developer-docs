@@ -1,5 +1,5 @@
 ---
-title: OIN - Build a SCIM provisioning integration
+title: Build a SCIM provisioning integration
 excerpt: Create a provisioning integration using SCIM.
 meta:
   - name: description

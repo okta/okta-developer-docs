@@ -29,9 +29,9 @@ module.exports = [
           { title: 'Share a sign-in session with native mobile apps', guideName: 'shared-sso-android-ios' },
         ]
       },
-      { title: 'Sign users out', guideName: 'sign-users-out' },
       { title: 'Sign users in to your single-page application', guideName: 'sign-into-spa' },
       { title: 'Sign users in to your web application', guideName: 'sign-into-web-app' },
+      { title: 'Sign users out', guideName: 'sign-users-out' },
     ] 
   },
   { 
@@ -69,9 +69,9 @@ module.exports = [
   { 
     title: 'OIN Partner Integrations', 
     subLinks: [
-      { title: 'OIN - Build a SCIM provisioning integration', guideName: 'build-provisioning-integration' },
-      { title: 'OIN - Build a Single Sign-On (SSO) integration', guideName: 'build-sso-integration' },
-      { title: 'OIN - Submit an app integration', guideName: 'submit-app' },        
+      { title: 'Build a SCIM provisioning integration', guideName: 'build-provisioning-integration' },
+      { title: 'Build a Single Sign-On (SSO) integration', guideName: 'build-sso-integration' },
+      { title: 'Submit an app integration', guideName: 'submit-app' },        
     ]
   },
   { 
