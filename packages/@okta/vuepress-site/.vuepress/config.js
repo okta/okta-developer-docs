@@ -240,7 +240,8 @@ module.exports = {
       exclude: [
         '/test_page/'
       ]
-    }
+    },
+    '@okta/vuepress-plugin-qualtrics-feedback': {}
   },
 
   extraWatchFiles: [
