@@ -72,8 +72,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/groups
+
 ```
 
 ##### Response
@@ -84,7 +84,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": "william-faulkner",
 			"federation_approved_at": "2018-04-07T00:00:00Z",
-			"id": "2b618747-4e45-4712-9667-ae69f0749c48",
+			"id": "34e3b6ac-8e6a-4445-bf71-551d7591ac6b",
 			"name": "compsons",
 			"roles": [
 				"access_user",
@@ -96,7 +96,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": null,
 			"federation_approved_at": null,
-			"id": "b7c1dff0-2cc7-460d-ab38-ae76b1e52a2a",
+			"id": "5e7b3589-b6c2-406a-8238-2ba2290887f6",
 			"name": "compsons",
 			"roles": [
 				"access_user",
@@ -168,7 +168,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"federated_from_team": null,
 	"federation_approved_at": null,
-	"id": "b7c1dff0-2cc7-460d-ab38-ae76b1e52a2a",
+	"id": "5e7b3589-b6c2-406a-8238-2ba2290887f6",
 	"name": "compsons",
 	"roles": [
 		"access_user",
@@ -213,13 +213,24 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
+
 ```
 
 ##### Response
 ```json
-HTTP 204 No Content
+{
+	"deleted_at": "0001-01-01T00:00:00Z",
+	"federated_from_team": null,
+	"federation_approved_at": null,
+	"id": "5e7b3589-b6c2-406a-8238-2ba2290887f6",
+	"name": "compsons",
+	"roles": [
+		"access_user",
+		"reporting_user",
+		"access_admin"
+	]
+}
 ```
 ### Remove an ASA Group from Team
 
@@ -253,8 +264,8 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
+
 ```
 
 ##### Response
@@ -327,14 +338,14 @@ HTTP 204 No Content
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| `contains`   |  string | (Optional) Includes users with name that contains the value. |
+| `contains`   |  string | (Optional) Includes ASA Users with name that contains the value. |
 | `count`   |  integer | (Optional) The number of objects per page. |
 | `descending`   |  boolean | (Optional) The object order. |
 | `offset`   |  string | (Optional) The page offset. |
 | `prev`   |  boolean | (Optional) The direction of paging. |
-| `starts_with`   |  string | (Optional) Includes users with name that begins with the value. |
-| `status`   |  string | (Optional) Includes users with specified statuses. Valid statuses are ACTIVE, DISABLED, and DELETED. |
-| `user_type`   |  string | (Optional) Includes users of the specified type. Valid types are human and service. |
+| `starts_with`   |  string | (Optional) Includes ASA Users with name that begins with the value. |
+| `status`   |  string | (Optional) Includes ASA Users with specified statuses. Valid statuses are `ACTIVE`, `DISABLED`, and `DELETED`. |
+| `user_type`   |  string | (Optional) Includes ASA Users of the specified type. Valid types are `human` and `service`. |
 
 
 #### Request body
@@ -346,7 +357,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the ASA User. |
+| `name`   | string | The username of the ASA User. |
 | `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
@@ -356,8 +367,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
+
 ```
 
 ##### Response
@@ -372,7 +383,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
 				"full_name": "Benjy Compson",
 				"last_name": "Compson"
 			},
-			"id": "5f43f1bf-05f6-48ea-9a2b-928910cd4827",
+			"id": "097575a5-d527-46c9-a96a-c3d8bc0e7f23",
 			"name": "Benjy.Compson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -405,7 +416,7 @@ This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the ASA User. |
+| `name`   | string | The username of the ASA User. |
 | `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Response body
@@ -427,7 +438,7 @@ curl -v -X POST \
 		"full_name": "Jason Compson IV",
 		"last_name": "Compson"
 	},
-	"id": "82c63031-3cf9-416a-9b8a-192b3ff01ea5",
+	"id": "3ee57523-fa67-4b31-b11e-aaca8bfa946f",
 	"name": "Jason.Compson.IV",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -474,8 +485,8 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users/${user_name}
+
 ```
 
 ##### Response
@@ -499,14 +510,14 @@ HTTP 204 No Content
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| `contains`   |  string | (Optional) Includes users with name that contains the value. |
+| `contains`   |  string | (Optional) Includes ASA Users with name that contains the value. |
 | `count`   |  integer | (Optional) The number of objects per page. |
 | `descending`   |  boolean | (Optional) The object order. |
-| `include_service_users`   |  string | (Optional) Includes service users in result. |
+| `include_service_users`   |  string | (Optional) Include Service Users in result. |
 | `offset`   |  string | (Optional) The page offset. |
 | `prev`   |  boolean | (Optional) The direction of paging. |
-| `starts_with`   |  string | (Optional) Includes users with name that begins with the value. |
-| `status`   |  string | (Optional) Includes users with specified statuses. Valid statuses are ACTIVE, DISABLED, and DELETED. |
+| `starts_with`   |  string | (Optional) Includes ASA Users with name that begins with the value. |
+| `status`   |  string | (Optional) Includes ASA Users with specified statuses. Valid statuses are `ACTIVE`, `DISABLED`, and `DELETED`. |
 
 
 #### Request body
@@ -518,7 +529,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the ASA User. |
+| `name`   | string | The username of the ASA User. |
 | `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
@@ -528,8 +539,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_group
+
 ```
 
 ##### Response
@@ -544,7 +555,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_
 				"full_name": "Jason Compson IV",
 				"last_name": "Compson"
 			},
-			"id": "82c63031-3cf9-416a-9b8a-192b3ff01ea5",
+			"id": "3ee57523-fa67-4b31-b11e-aaca8bfa946f",
 			"name": "Jason.Compson.IV",
 			"oauth_client_application_id": null,
 			"role_grants": null,

@@ -44,7 +44,7 @@ The Attributes API has the following operations:
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| `conflicting`   |  boolean | (Optional) When true, returns attributes that conflict with other ASA Group attributes on this Team. |
+| `conflicting`   |  boolean | (Optional) When true, returns only attributes that conflict with other ASA Group attributes on this Team. |
 | `count`   |  integer | (Optional) The number of objects per page. |
 | `descending`   |  boolean | (Optional) The object order. |
 | `offset`   |  string | (Optional) The page offset. |
@@ -71,8 +71,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes
+
 ```
 
 ##### Response
@@ -82,13 +82,13 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes
 		{
 			"attribute_name": "unix_group_name",
 			"attribute_value": "group_old",
-			"id": "c8b53fbd-24c0-46c1-95ec-5ca001f62130",
+			"id": "be8a6fe0-22a4-430f-a289-3a1bae11212e",
 			"managed": false
 		},
 		{
 			"attribute_name": "windows_group_name",
 			"attribute_value": "group_new",
-			"id": "f7305522-b2a3-4660-a39e-684b55f1d28c",
+			"id": "8d56362f-915d-4138-9421-f706ed85df30",
 			"managed": false
 		}
 	]
@@ -132,8 +132,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}
+
 ```
 
 ##### Response
@@ -141,7 +141,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${
 {
 	"attribute_name": "unix_group_name",
 	"attribute_value": "group_old",
-	"id": "c8b53fbd-24c0-46c1-95ec-5ca001f62130",
+	"id": "be8a6fe0-22a4-430f-a289-3a1bae11212e",
 	"managed": false
 }
 ```
@@ -168,8 +168,8 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `attribute_name`   | string | Accepted names include unix_group_name, windows_group_name, and unix_gid. |
-| `attribute_value`   | object | Accepted values are 0 to 255, 0 to 255, and 100 to 2147483647, respectively. |
+| `attribute_name`   | string | Accepted names include `unix_group_name`, `windows_group_name`, and `unix_gid`. |
+| `attribute_value`   | object | Accepted values for `unix_group_name` and `windows_group_name` are strings of length 0 to 255 and for `unix_gid`, an integer between 100 to 2147483647. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
@@ -210,7 +210,7 @@ HTTP 204 No Content
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| `conflicting`   |  boolean | (Optional) When true, returns attributes that conflict with other ASA User attributes on this Team. |
+| `conflicting`   |  boolean | (Optional) When true, returns only attributes that conflict with other ASA User attributes on this Team. |
 | `count`   |  integer | (Optional) The number of objects per page. |
 | `descending`   |  boolean | (Optional) The object order. |
 | `offset`   |  string | (Optional) The page offset. |
@@ -237,8 +237,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes
+
 ```
 
 ##### Response
@@ -248,25 +248,25 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes
 		{
 			"attribute_name": "unix_user_name",
 			"attribute_value": "augusta_ada_king",
-			"id": "7efa7f94-7027-4c3e-909d-1a2b5348f41e",
+			"id": "4ee31ff7-fe8f-48fc-b990-a7ac8898a5b1",
 			"managed": true
 		},
 		{
 			"attribute_name": "unix_uid",
 			"attribute_value": 1210,
-			"id": "d71ffc05-34d0-40f9-9107-828675e8479a",
+			"id": "54ce15e7-494b-4616-a1c9-7bf363a499fb",
 			"managed": true
 		},
 		{
 			"attribute_name": "unix_gid",
 			"attribute_value": 1210,
-			"id": "6ce66020-a7c4-4313-a899-8546a532060c",
+			"id": "76e982c0-e9a2-4429-beea-5477b76ee912",
 			"managed": true
 		},
 		{
 			"attribute_name": "windows_user_name",
 			"attribute_value": "augusta_ada_king",
-			"id": "f80493a7-f521-4d81-852a-e651835c42f3",
+			"id": "7b45bf01-3904-4728-8fba-32b3d5e00a2c",
 			"managed": true
 		}
 	]
@@ -310,8 +310,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}
+
 ```
 
 ##### Response

@@ -62,8 +62,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/auditsV2
+
 ```
 
 ##### Response
@@ -83,7 +83,7 @@ https://app.scaleft.com/v1/teams/${team_name}/auditsV2
 				"via": null
 			},
 			"id": "UD5pqjIhjKVQPmmqMiGMpQ==",
-			"timestamp": "2020-07-21T23:11:49.57656415Z"
+			"timestamp": "2020-07-29T17:35:26.734674808Z"
 		}
 	],
 	"related_objects": {

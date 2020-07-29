@@ -46,7 +46,7 @@ Lists all the Servers enrolled in a Team to which the requesting ASA User has ac
 | `alt_names_contains`   |  string | (Optional)  |
 | `bastion`   |  string | (Optional) A bastion hostname |
 | `canonical_name`   |  string | (Optional) A canonical name |
-| `cloud_provider`   |  string | (Optional) A cloud provider. Can be 'aws' or 'gcp' |
+| `cloud_provider`   |  string | (Optional) A cloud provider. Can be `aws` or `gcp` |
 | `count`   |  integer | (Optional) The number of objects per page. |
 | `descending`   |  boolean | (Optional) The object order. |
 | `hostname`   |  string | (Optional) A hostname |
@@ -73,13 +73,13 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `id`   | string | The UUID corresponding to the Server. |
 | `instance_details`   | object | Information the cloud provider provides of the Server, if one exists. |
 | `last_seen`   | string | The last time the Server made a request to the ASA platform. |
-| `managed`   | boolean | True if the Server is managed by SFTD. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through SFTD. With an Unmanaged Server record to represent this box, ASA will know it exists and to use it as a bastion hop. |
+| `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA will know it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server. |
 | `os_type`   | string | Can either be Linux or Windows. |
 | `project_name`   | string | The Project that the Server belongs to. |
 | `registered_at`   | string | The time the Server was registered to the Project. |
 | `services`   | array | Can either be ssh or rdp. |
-| `sftd_version`   | string | The version of SFTD the Server is running. |
+| `sftd_version`   | string | The version of 'sftd' the Server is running. |
 | `ssh_host_keys`   | array | The host keys used to authenticate the Server. |
 | `state`   | string | Can be either `ACTIVE` or `INACTIVE`. |
 | `team_name`   | string | The name of the Team. |
@@ -91,8 +91,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/servers
+
 ```
 
 ##### Response
@@ -108,7 +108,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "harvard",
-			"id": "e815ffb1-c327-4c55-954e-ce95c0c7442d",
+			"id": "f3097af2-a333-47a5-81ba-245b71141e91",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -133,7 +133,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "jefferson",
-			"id": "3a2efed9-609a-4f35-91f0-e051330ced99",
+			"id": "2c69c2cc-c34a-45d5-a54c-a2c8708d6300",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -176,11 +176,11 @@ This endpoint has no request body.
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `approve_device_without_interaction`   | boolean | If enabled, ASA will auto-approve devices for Users authenticated into this Team. |
+| `approve_device_without_interaction`   | boolean | If enabled, ASA will auto-approve devices for ASA Users authenticated into this Team. |
 | `client_session_duration`   | integer | Configure client session to be between 1 hour and 25 hours. |
-| `post_device_enrollment_url`   | string | If configured, the URL a User will be directed to after enrolling a device in ASA. |
-| `post_login_url`   | string | If configured, this is the URL a User who has not recently been authenticated will be directed to after being validated by their IDP in the course of getting credentials. |
-| `reactivate_users_via_idp`   | boolean | If a disabled or deleted User is able to authenticate via the IDP, their ASA user will be re-enabled. |
+| `post_device_enrollment_url`   | string | If configured, the URL a ASA User will be directed to after enrolling a device in ASA. |
+| `post_login_url`   | string | If configured, this is the URL a ASA User who has not recently been authenticated will be directed to after being validated by their IDP in the course of getting credentials. |
+| `reactivate_users_via_idp`   | boolean | If a disabled or deleted ASA User is able to authenticate via the IDP, their ASA user will be re-enabled. |
 | `web_session_duration`   | integer | Configure web session to be between 30 minutes and 25 hours. |
 
 #### Usage example
@@ -190,8 +190,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/settings
+
 ```
 
 ##### Response
@@ -229,11 +229,11 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `approve_device_without_interaction`   | boolean | If enabled, ASA will auto-approve devices for Users authenticated into this Team. |
+| `approve_device_without_interaction`   | boolean | If enabled, ASA will auto-approve devices for ASA Users authenticated into this Team. |
 | `client_session_duration`   | integer | Configure client session to be between 1 hour and 25 hours. |
-| `post_device_enrollment_url`   | string | If configured, the URL a User will be directed to after enrolling a device in ASA. |
-| `post_login_url`   | string | If configured, this is the URL a User who has not recently been authenticated will be directed to after being validated by their IDP in the course of getting credentials. |
-| `reactivate_users_via_idp`   | boolean | If a disabled or deleted User is able to authenticate via the IDP, their ASA user will be re-enabled. |
+| `post_device_enrollment_url`   | string | If configured, the URL a ASA User will be directed to after enrolling a device in ASA. |
+| `post_login_url`   | string | If configured, this is the URL a ASA User who has not recently been authenticated will be directed to after being validated by their IDP in the course of getting credentials. |
+| `reactivate_users_via_idp`   | boolean | If a disabled or deleted ASA User is able to authenticate via the IDP, their ASA user will be re-enabled. |
 | `web_session_duration`   | integer | Configure web session to be between 30 minutes and 25 hours. |
 
 #### Response body
@@ -291,11 +291,11 @@ This endpoint returns an object with the following fields and a `200` code on a 
 |----------|-------------|----------------------|
 | `num_clients`   | integer | The number of Clients in a Team. |
 | `num_gateways`   | integer | The number of Gateways in a Team. |
-| `num_groups`   | integer | The number of Groups in a Team. |
-| `num_human_users`   | integer | The number of human users in a Team. |
+| `num_groups`   | integer | The number of ASA Groups in a Team. |
+| `num_human_users`   | integer | The number of human ASA Users in a Team. |
 | `num_projects`   | integer | The number of Projects in a Team. |
 | `num_servers`   | integer | The number of Servers in a Team. |
-| `num_service_users`   | integer | The number of service users in a Team. |
+| `num_service_users`   | integer | The number of service ASA Users in a Team. |
 
 #### Usage example
 
@@ -304,8 +304,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/team_stats
+
 ```
 
 ##### Response

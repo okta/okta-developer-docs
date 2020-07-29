@@ -20,7 +20,7 @@ An ASA Client corresponds to a user's device.
 
 The Clients API has the following operations:
 * [List ASA Clients](#list-asa-clients)
-* [Fetch a ASA Client](#fetch-a-asa-client)
+* [Fetch an ASA Client](#fetch-an-asa-client)
 * [Revoke an ASA Client](#revoke-an-asa-client)
 * [Approve or assign an ASA Client](#approve-or-assign-an-asa-client)
 
@@ -46,7 +46,7 @@ By default returns the ASA Clients for the requesting ASA User. Query options ca
 | `descending`   |  boolean | (Optional) The object order. |
 | `offset`   |  string | (Optional) The page offset. |
 | `prev`   |  boolean | (Optional) The direction of paging. |
-| `state`   |  string | (Optional) One of ACTIVE, PENDING, DELETED. |
+| `state`   |  string | (Optional) One of `ACTIVE`, `PENDING`, `DELETED`. |
 | `username`   |  string | (Optional) List clients of a single user. An empty string returns unassigned clients. |
 
 
@@ -59,7 +59,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `description`   | string | A description of the ASA Client. |
-| `encrypted`   | boolean | A boolean reflecting whether sft was able to determine that the ASA Client was encrypted. |
+| `encrypted`   | boolean | A boolean reflecting whether `sft` was able to determine that the ASA Client was encrypted. |
 | `hostname`   | string | The hostname of the ASA Client. |
 | `id`   | string | The UUID of the ASA Client. |
 | `os`   | string | The OS of the ASA Client device. |
@@ -73,8 +73,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/clients
+
 ```
 
 ##### Response
@@ -86,7 +86,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients
 			"description": "Work laptop",
 			"encrypted": true,
 			"hostname": "LightInAugust",
-			"id": "c35a675c-e625-48d5-8ade-60574c36bc4d",
+			"id": "b6a5c53f-3ae3-4be6-adb3-012e5384373a",
 			"os": "macOS 10.14.6",
 			"state": "PENDING",
 			"user_name": "Jason.Compson.IV"
@@ -96,7 +96,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients
 			"description": "Personal laptop",
 			"encrypted": true,
 			"hostname": "Absalom",
-			"id": "e41f872d-5619-42d0-8935-82e19d14f6e3",
+			"id": "0598d7ad-fc8b-42ca-aae4-053f98f33945",
 			"os": "macOS 10.14.6",
 			"state": "ACTIVE",
 			"user_name": "Jason.Compson.IV"
@@ -104,7 +104,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients
 	]
 }
 ```
-### Fetch a ASA Client
+### Fetch an ASA Client
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}" />
 
@@ -130,7 +130,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `description`   | string | A description of the ASA Client. |
-| `encrypted`   | boolean | A boolean reflecting whether sft was able to determine that the ASA Client was encrypted. |
+| `encrypted`   | boolean | A boolean reflecting whether `sft` was able to determine that the ASA Client was encrypted. |
 | `hostname`   | string | The hostname of the ASA Client. |
 | `id`   | string | The UUID of the ASA Client. |
 | `os`   | string | The OS of the ASA Client device. |
@@ -144,8 +144,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}
+
 ```
 
 ##### Response
@@ -155,7 +155,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}
 	"description": "Work laptop",
 	"encrypted": true,
 	"hostname": "LightInAugust",
-	"id": "c35a675c-e625-48d5-8ade-60574c36bc4d",
+	"id": "b6a5c53f-3ae3-4be6-adb3-012e5384373a",
 	"os": "macOS 10.14.6",
 	"state": "PENDING",
 	"user_name": "Jason.Compson.IV"
@@ -193,8 +193,8 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}
+
 ```
 
 ##### Response

@@ -73,8 +73,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
+
 ```
 
 ##### Response
@@ -86,7 +86,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
 			"commands": null,
 			"created_at": "2018-04-07T00:00:00Z",
 			"description": "desc",
-			"id": "3f54e542-f40f-4261-9ed2-180af9975e97",
+			"id": "d95dadba-fe63-4c1a-a4b5-4a59272a7e7b",
 			"name": "name",
 			"opt_no_exec": false,
 			"opt_no_passwd": true,
@@ -171,7 +171,7 @@ curl -v -X POST \
 	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
-	"id": "3f54e542-f40f-4261-9ed2-180af9975e97",
+	"id": "d95dadba-fe63-4c1a-a4b5-4a59272a7e7b",
 	"name": "name",
 	"opt_no_exec": false,
 	"opt_no_passwd": true,
@@ -245,8 +245,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
+
 ```
 
 ##### Response
@@ -256,7 +256,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
 	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
-	"id": "3f54e542-f40f-4261-9ed2-180af9975e97",
+	"id": "d95dadba-fe63-4c1a-a4b5-4a59272a7e7b",
 	"name": "name",
 	"opt_no_exec": false,
 	"opt_no_passwd": true,
@@ -314,8 +314,8 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
+
 ```
 
 ##### Response
@@ -365,8 +365,8 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
+
 ```
 
 ##### Response

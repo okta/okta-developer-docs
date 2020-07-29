@@ -32,7 +32,7 @@ The Service Users API has the following operations:
 ### Issue a Service User token
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/service_token" />
-Most calls to the Okta Advanced Server Access API require an HTTP Authorization header with a value of the form Bearer ${AUTH_TOKEN}.
+Most calls to the Okta Advanced Server Access API require an HTTP Authorization header with a value of the form `Bearer ${AUTH_TOKEN}`.
 To retrieve an auth token, you'll need to [create a service user and API key](https://help.okta.com/en/prod/Content/Topics/Adv_Server_Access/docs/service-users.htm), then pass the API key information to this endpoint.
 Auth tokens may expire at any time, so code using them should be prepared to handle a 401 response code by creating a new one.
 
@@ -60,7 +60,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `bearer_token`   | string | The JSON Web Token used to authenticate against the ASA API. |
-| `expires_at`   | string | The time at which the token expires, formatted with ISO 8601. |
+| `expires_at`   | string | The time at which the token expires, formatted in accordance with RFC 3339. |
 | `team_name`   | string | The name of the Team this token is for. |
 
 #### Usage example
@@ -71,7 +71,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
 --data '{
-	"key_id": "1048abf1-b7c5-403f-ae5d-ad9a3d23a69a",
+	"key_id": "f3577fca-5730-461e-aff1-420577a1d1a4",
 	"key_secret": "uF0SoVBVQP/hJmQSLUZdM2a7ArYzjD8ykzvG7n4tKaOEfSErcwMUUDWpEf4Q42/HaVKPZUfILkzy/bsQFv7WRg==",
 	"roles": null
 }' \
@@ -102,14 +102,14 @@ https://app.scaleft.com/v1/teams/${team_name}/service_token
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| `contains`   |  string | (Optional) Includes users with name that contains the value. |
+| `contains`   |  string | (Optional) Includes ASA Users with name that contains the value. |
 | `count`   |  integer | (Optional) The number of objects per page. |
 | `descending`   |  boolean | (Optional) The object order. |
-| `include_service_users`   |  string | (Optional) Includes service users in result. |
+| `include_service_users`   |  string | (Optional) Include Service Users in result. |
 | `offset`   |  string | (Optional) The page offset. |
 | `prev`   |  boolean | (Optional) The direction of paging. |
-| `starts_with`   |  string | (Optional) Includes users with name that begins with the value. |
-| `status`   |  string | (Optional) Includes users with specified statuses. Valid statuses are ACTIVE, DISABLED, and DELETED. |
+| `starts_with`   |  string | (Optional) Includes ASA Users with name that begins with the value. |
+| `status`   |  string | (Optional) Includes ASA Users with specified statuses. Valid statuses are `ACTIVE`, `DISABLED`, and `DELETED`. |
 
 
 #### Request body
@@ -121,7 +121,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the ASA User. |
+| `name`   | string | The username of the ASA User. |
 | `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
@@ -131,8 +131,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/service_users
+
 ```
 
 ##### Response
@@ -142,7 +142,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 		{
 			"deleted_at": null,
 			"details": null,
-			"id": "0b6e4fe5-8813-49c1-ac3e-672f9577ff4b",
+			"id": "e8ddcc7e-a2b0-46e4-a8d1-2478b63f87ef",
 			"name": "shreve",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -152,7 +152,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 		{
 			"deleted_at": null,
 			"details": null,
-			"id": "724f407f-456f-4641-bf1e-2d4132914dee",
+			"id": "ca49198c-7101-4492-a2d6-fbaafce25a49",
 			"name": "dilsey.gibson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -190,7 +190,7 @@ This endpoint returns an object with the following fields and a `201` code on a 
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the ASA User. |
+| `name`   | string | The username of the ASA User. |
 | `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
@@ -211,7 +211,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "0b6e4fe5-8813-49c1-ac3e-672f9577ff4b",
+	"id": "e8ddcc7e-a2b0-46e4-a8d1-2478b63f87ef",
 	"name": "shreve",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -245,7 +245,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the ASA User. |
+| `name`   | string | The username of the ASA User. |
 | `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
@@ -255,8 +255,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
+
 ```
 
 ##### Response
@@ -264,7 +264,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "f32bffe4-169e-461e-8737-a33e25f66a58",
+	"id": "3d3cb259-d2f4-4bf4-bd88-9107ebfb92f2",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -295,7 +295,7 @@ This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the ASA User. |
+| `name`   | string | The username of the ASA User. |
 | `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Response body
@@ -303,7 +303,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `name`   | string | The name of the ASA User. |
+| `name`   | string | The username of the ASA User. |
 | `status`   | integer | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
 
 #### Usage example
@@ -316,7 +316,7 @@ curl -v -X PUT \
 --data '{
 	"deleted_at": null,
 	"details": null,
-	"id": "724f407f-456f-4641-bf1e-2d4132914dee",
+	"id": "ca49198c-7101-4492-a2d6-fbaafce25a49",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -331,7 +331,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "724f407f-456f-4641-bf1e-2d4132914dee",
+	"id": "ca49198c-7101-4492-a2d6-fbaafce25a49",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -376,8 +376,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys
+
 ```
 
 ##### Response
@@ -386,13 +386,13 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys
 	"list": [
 		{
 			"expires_at": "0001-01-01T00:00:00Z",
-			"id": "a9144f5b-4469-40fc-aed0-d86729841dc1",
+			"id": "42b37f28-8017-4136-be29-48485c147b89",
 			"issued_at": "2020-04-07T02:00:00Z",
 			"last_used": null
 		},
 		{
 			"expires_at": "2020-04-09T00:00:00Z",
-			"id": "2af39fc6-e178-4b64-923d-f00dfe4f5920",
+			"id": "52340326-2ecd-44f1-a2cb-7117abb497cd",
 			"issued_at": "2020-04-07T00:00:00Z",
 			"last_used": null
 		}
@@ -437,15 +437,15 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys
+
 ```
 
 ##### Response
 ```json
 {
 	"expires_at": "0001-01-01T00:00:00Z",
-	"id": "76c9787c-af26-4e25-aae8-9c850e82afc4",
+	"id": "586e3a3d-7e40-4b82-bd68-799d928db365",
 	"issued_at": "2020-04-07T00:00:00Z",
 	"last_used": null,
 	"secret": "NOvsvBg0g9mFXdHbLxEJcEFpu+LZjQSKsYezqMALq5WbGZTpUsxoS4vBqqHOO9O3xrhOq03B+oLf7bSTShbudw=="
@@ -484,8 +484,8 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys/${key_id}
+
 ```
 
 ##### Response

@@ -30,11 +30,11 @@ The Projects API has the following operations:
 * [List Cloud Accounts in a Project](#list-cloud-accounts-in-a-project)
 * [Add a Cloud Account to a Project](#add-a-cloud-account-to-a-project)
 * [Remove a Cloud Account from a Project](#remove-a-cloud-account-from-a-project)
-* [List all the Groups in a Project](#list-all-the-groups-in-a-project)
-* [Add a Group to a Project](#add-a-group-to-a-project)
-* [Retrieve Group details for a single Project](#retrieve-group-details-for-a-single-project)
-* [Remove a Group from a Project](#remove-a-group-from-a-project)
-* [Change the Project properties of a Group](#change-the-project-properties-of-a-group)
+* [List all the ASA Groups in a Project](#list-all-the-asa-groups-in-a-project)
+* [Add an ASA Group to a Project](#add-an-asa-group-to-a-project)
+* [Retrieve ASA Group details for a single Project](#retrieve-asa-group-details-for-a-single-project)
+* [Remove an ASA Group from a Project](#remove-an-asa-group-from-a-project)
+* [Change the Project properties of an ASA Project Group](#change-the-project-properties-of-an-asa-project-group)
 * [Fetch a Preauthorization](#fetch-a-preauthorization)
 * [Create a Preauthorization](#create-a-preauthorization)
 * [Lists the Preauthorizations for a Project](#lists-the-preauthorizations-for-a-project)
@@ -81,15 +81,15 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `create_server_users`   | boolean | (Optional) Whether or not to create Server Users for Users in this Project. Defaults to `False`. If left false, the User is responsible for ensuring that Users matching the Server User names in ASA exist on the server. |
-| `force_shared_ssh_users`   | boolean | (Optional) If true, new Server users will not be created for each User in the Project. Instead they will share a single standard user and a single admin user. Defaults to `False`. |
-| `forward_traffic`   | boolean | Whether or not to require all traffic in project to be forwarded through selected Gateways. Defaults to `False`. |
+| `create_server_users`   | boolean | (Optional) Whether or not to create Server Users for ASA Users in this Project. Defaults to `False`. If left false, the ASA User is responsible for ensuring that users matching the names of the Server Users in ASA exist on the server. |
+| `force_shared_ssh_users`   | boolean | (Optional) If true, new Server Users will not be created for each ASA User in the Project. Instead they will share a single standard user and a single admin user. Defaults to `False`. |
+| `forward_traffic`   | boolean | Whether or not to require all traffic in Project to be forwarded through selected Gateways. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
 | `name`   | string | The name of the Project. |
-| `rdp_session_recording`   | boolean | Whether or not to enable rdp recording on all servers in this project. Defaults to `False`. |
-| `require_preauth_for_creds`   | boolean | (Optional) Whether or not to require preauthorization before a User can retrieve credentials to log in. Defaults to `False`. |
-| `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on servers in this project. If `force_shared_ssh_users` is `True`, this must be provided. |
-| `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on servers in this project. If `force_shared_ssh_users` is `True`, this must be provided. |
-| `ssh_session_recording`   | boolean | Whether or not to enable ssh recording on all servers in this project. Defaults to `False`. |
+| `rdp_session_recording`   | boolean | Whether or not to enable rdp recording on all Servers in this Project. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
+| `require_preauth_for_creds`   | boolean | (Optional) Whether or not to require preauthorization before an ASA User can retrieve credentials to log in. Defaults to `False`. |
+| `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `True`, this must be provided. |
+| `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this names Project. If `force_shared_ssh_users` is `True`, this must be provided. |
+| `ssh_session_recording`   | boolean | Whether or not to enable ssh recording on all Servers in this Project. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
 
 #### Usage example
 
@@ -98,8 +98,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects
+
 ```
 
 ##### Response
@@ -110,7 +110,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects
 			"create_server_users": true,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"force_shared_ssh_users": false,
-			"id": "758ee095-d66f-4251-9448-bd07aa70c89b",
+			"id": "29ea6f10-7046-4629-bedf-ff3dc78270ba",
 			"name": "the-sound-and-the-fury",
 			"next_unix_gid": 63001,
 			"next_unix_uid": 60001,
@@ -124,7 +124,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects
 			"create_server_users": true,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"force_shared_ssh_users": false,
-			"id": "758ee095-d66f-4251-9448-bd07aa70c89b",
+			"id": "29ea6f10-7046-4629-bedf-ff3dc78270ba",
 			"name": "the-sound-and-the-fury",
 			"next_unix_gid": 63001,
 			"next_unix_uid": 60001,
@@ -158,29 +158,29 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `create_server_users`   | boolean | (Optional) Whether or not to create Server Users for Users in this Project. Defaults to `False`. If left false, the User is responsible for ensuring that Users matching the Server User names in ASA exist on the server. |
-| `force_shared_ssh_users`   | boolean | (Optional) If true, new Server users will not be created for each User in the Project. Instead they will share a single standard user and a single admin user. Defaults to `False`. |
-| `forward_traffic`   | boolean | Whether or not to require all traffic in project to be forwarded through selected Gateways. Defaults to `False`. |
+| `create_server_users`   | boolean | (Optional) Whether or not to create Server Users for ASA Users in this Project. Defaults to `False`. If left false, the ASA User is responsible for ensuring that users matching the names of the Server Users in ASA exist on the server. |
+| `force_shared_ssh_users`   | boolean | (Optional) If true, new Server Users will not be created for each ASA User in the Project. Instead they will share a single standard user and a single admin user. Defaults to `False`. |
+| `forward_traffic`   | boolean | Whether or not to require all traffic in Project to be forwarded through selected Gateways. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
 | `name`   | string | The name of the Project. |
-| `rdp_session_recording`   | boolean | Whether or not to enable rdp recording on all servers in this project. Defaults to `False`. |
-| `require_preauth_for_creds`   | boolean | (Optional) Whether or not to require preauthorization before a User can retrieve credentials to log in. Defaults to `False`. |
-| `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on servers in this project. If `force_shared_ssh_users` is `True`, this must be provided. |
-| `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on servers in this project. If `force_shared_ssh_users` is `True`, this must be provided. |
-| `ssh_session_recording`   | boolean | Whether or not to enable ssh recording on all servers in this project. Defaults to `False`. |
+| `rdp_session_recording`   | boolean | Whether or not to enable rdp recording on all Servers in this Project. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
+| `require_preauth_for_creds`   | boolean | (Optional) Whether or not to require preauthorization before an ASA User can retrieve credentials to log in. Defaults to `False`. |
+| `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `True`, this must be provided. |
+| `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this names Project. If `force_shared_ssh_users` is `True`, this must be provided. |
+| `ssh_session_recording`   | boolean | Whether or not to enable ssh recording on all Servers in this Project. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
 
 #### Response body
 This endpoint returns an object with the following fields and a `201` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `create_server_users`   | boolean | (Optional) Whether or not to create Server Users for Users in this Project. Defaults to `False`. If left false, the User is responsible for ensuring that Users matching the Server User names in ASA exist on the server. |
-| `force_shared_ssh_users`   | boolean | (Optional) If true, new Server users will not be created for each User in the Project. Instead they will share a single standard user and a single admin user. Defaults to `False`. |
-| `forward_traffic`   | boolean | Whether or not to require all traffic in project to be forwarded through selected Gateways. Defaults to `False`. |
+| `create_server_users`   | boolean | (Optional) Whether or not to create Server Users for ASA Users in this Project. Defaults to `False`. If left false, the ASA User is responsible for ensuring that users matching the names of the Server Users in ASA exist on the server. |
+| `force_shared_ssh_users`   | boolean | (Optional) If true, new Server Users will not be created for each ASA User in the Project. Instead they will share a single standard user and a single admin user. Defaults to `False`. |
+| `forward_traffic`   | boolean | Whether or not to require all traffic in Project to be forwarded through selected Gateways. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
 | `name`   | string | The name of the Project. |
-| `rdp_session_recording`   | boolean | Whether or not to enable rdp recording on all servers in this project. Defaults to `False`. |
-| `require_preauth_for_creds`   | boolean | (Optional) Whether or not to require preauthorization before a User can retrieve credentials to log in. Defaults to `False`. |
-| `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on servers in this project. If `force_shared_ssh_users` is `True`, this must be provided. |
-| `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on servers in this project. If `force_shared_ssh_users` is `True`, this must be provided. |
-| `ssh_session_recording`   | boolean | Whether or not to enable ssh recording on all servers in this project. Defaults to `False`. |
+| `rdp_session_recording`   | boolean | Whether or not to enable rdp recording on all Servers in this Project. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
+| `require_preauth_for_creds`   | boolean | (Optional) Whether or not to require preauthorization before an ASA User can retrieve credentials to log in. Defaults to `False`. |
+| `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `True`, this must be provided. |
+| `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this names Project. If `force_shared_ssh_users` is `True`, this must be provided. |
+| `ssh_session_recording`   | boolean | Whether or not to enable ssh recording on all Servers in this Project. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
 
 #### Usage example
 
@@ -212,7 +212,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects
 	"create_server_users": true,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"force_shared_ssh_users": false,
-	"id": "758ee095-d66f-4251-9448-bd07aa70c89b",
+	"id": "29ea6f10-7046-4629-bedf-ff3dc78270ba",
 	"name": "the-sound-and-the-fury",
 	"next_unix_gid": 63001,
 	"next_unix_uid": 60001,
@@ -248,15 +248,15 @@ This endpoint has no request body.
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `create_server_users`   | boolean | (Optional) Whether or not to create Server Users for Users in this Project. Defaults to `False`. If left false, the User is responsible for ensuring that Users matching the Server User names in ASA exist on the server. |
-| `force_shared_ssh_users`   | boolean | (Optional) If true, new Server users will not be created for each User in the Project. Instead they will share a single standard user and a single admin user. Defaults to `False`. |
-| `forward_traffic`   | boolean | Whether or not to require all traffic in project to be forwarded through selected Gateways. Defaults to `False`. |
+| `create_server_users`   | boolean | (Optional) Whether or not to create Server Users for ASA Users in this Project. Defaults to `False`. If left false, the ASA User is responsible for ensuring that users matching the names of the Server Users in ASA exist on the server. |
+| `force_shared_ssh_users`   | boolean | (Optional) If true, new Server Users will not be created for each ASA User in the Project. Instead they will share a single standard user and a single admin user. Defaults to `False`. |
+| `forward_traffic`   | boolean | Whether or not to require all traffic in Project to be forwarded through selected Gateways. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
 | `name`   | string | The name of the Project. |
-| `rdp_session_recording`   | boolean | Whether or not to enable rdp recording on all servers in this project. Defaults to `False`. |
-| `require_preauth_for_creds`   | boolean | (Optional) Whether or not to require preauthorization before a User can retrieve credentials to log in. Defaults to `False`. |
-| `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on servers in this project. If `force_shared_ssh_users` is `True`, this must be provided. |
-| `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on servers in this project. If `force_shared_ssh_users` is `True`, this must be provided. |
-| `ssh_session_recording`   | boolean | Whether or not to enable ssh recording on all servers in this project. Defaults to `False`. |
+| `rdp_session_recording`   | boolean | Whether or not to enable rdp recording on all Servers in this Project. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
+| `require_preauth_for_creds`   | boolean | (Optional) Whether or not to require preauthorization before an ASA User can retrieve credentials to log in. Defaults to `False`. |
+| `shared_admin_user_name`   | string | (Optional) The name for a shared admin user on Servers in this Project. If `force_shared_ssh_users` is `True`, this must be provided. |
+| `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this names Project. If `force_shared_ssh_users` is `True`, this must be provided. |
+| `ssh_session_recording`   | boolean | Whether or not to enable ssh recording on all Servers in this Project. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
 
 #### Usage example
 
@@ -265,13 +265,26 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}
+
 ```
 
 ##### Response
 ```json
-HTTP 204 No Content
+{
+	"create_server_users": true,
+	"deleted_at": "0001-01-01T00:00:00Z",
+	"force_shared_ssh_users": false,
+	"id": "29ea6f10-7046-4629-bedf-ff3dc78270ba",
+	"name": "the-sound-and-the-fury",
+	"next_unix_gid": 63001,
+	"next_unix_uid": 60001,
+	"require_preauth_for_creds": true,
+	"shared_admin_user_name": null,
+	"shared_standard_user_name": null,
+	"team": "william-faulkner",
+	"user_on_demand_period": null
+}
 ```
 ### Delete a Project
 
@@ -305,8 +318,8 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}
+
 ```
 
 ##### Response
@@ -335,11 +348,11 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `create_server_users`   | boolean | (Optional) Whether or not to create Server Users for Users in this Project. Defaults to `False`. If left false, the User is responsible for ensuring that Users matching the Server User names in ASA exist on the server. |
-| `forward_traffic`   | boolean | Whether or not to require all traffic in project to be forwarded through selected Gateways. Defaults to `False`. |
-| `rdp_session_recording`   | boolean | Whether or not to enable rdp recording on all servers in this project. Defaults to `False`. |
-| `require_preauth_for_creds`   | boolean | (Optional) Whether or not to require preauthorization before a User can retrieve credentials to log in. Defaults to `False`. |
-| `ssh_session_recording`   | boolean | Whether or not to enable ssh recording on all servers in this project. Defaults to `False`. |
+| `create_server_users`   | boolean | (Optional) Whether or not to create Server Users for ASA Users in this Project. Defaults to `False`. If left false, the ASA User is responsible for ensuring that Users matching the Server User names in ASA exist on the server. |
+| `forward_traffic`   | boolean | Whether or not to require all traffic in Project to be forwarded through selected Gateways. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
+| `rdp_session_recording`   | boolean | Whether or not to enable rdp recording on all Servers in this Project. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
+| `require_preauth_for_creds`   | boolean | (Optional) Whether or not to require preauthorization before an ASA User can retrieve credentials to log in. Defaults to `False`. |
+| `ssh_session_recording`   | boolean | Whether or not to enable ssh recording on all Servers in this Project. Defaults to `False`. Warning: Currently requires a feature flag to be enabled. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
@@ -402,8 +415,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_config_options
+
 ```
 
 ##### Response
@@ -413,12 +426,12 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_co
 		{
 			"config_key": "ssh.insecure_forward_agent",
 			"config_value": "host",
-			"id": "621a1eb6-f043-48b2-b5b1-cc5e7f5b3d27"
+			"id": "7ae2309e-dfd3-4651-a0c0-47da1b4ea02e"
 		},
 		{
 			"config_key": "ssh.port_forward_method",
 			"config_value": "netcat",
-			"id": "f8d59cf6-8658-4e76-8c7e-184dcaf7a81a"
+			"id": "b3713bcc-c497-4f7e-a453-6ce0dcb40c8f"
 		}
 	]
 }
@@ -477,7 +490,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_co
 {
 	"config_key": "ssh.insecure_forward_agent",
 	"config_value": "host",
-	"id": "621a1eb6-f043-48b2-b5b1-cc5e7f5b3d27"
+	"id": "7ae2309e-dfd3-4651-a0c0-47da1b4ea02e"
 }
 ```
 ### Remove a Client Configuration Option from a Project
@@ -513,8 +526,8 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_config_options/${client_config_options_id}
+
 ```
 
 ##### Response
@@ -547,7 +560,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `account_id`   | string | The provider-specific account ID. |
-| `description`   | string | (optional) Human readable description of the account. |
+| `description`   | string | (optional) Human-readable description of the account. |
 | `id`   | string | UUID of the Cloud Account. |
 | `provider`   | string | A provider. For now, only accepts `aws` or `gce`, case sensitive. |
 
@@ -558,8 +571,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts
+
 ```
 
 ##### Response
@@ -569,13 +582,13 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_acc
 		{
 			"account_id": "123456789012",
 			"description": "Dev AWS account",
-			"id": "c5c20937-47ca-4528-880f-a4f4e4db2887",
+			"id": "9730ba7e-6a4b-4beb-be4b-afafc60ae456",
 			"provider": "aws"
 		},
 		{
 			"account_id": "630225935076",
 			"description": "Dev GCE account",
-			"id": "456e727c-1a88-4628-ab35-a5085a699fad",
+			"id": "51237c8f-54f5-4d45-9b81-f20fc1b10508",
 			"provider": "gce"
 		}
 	]
@@ -584,7 +597,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_acc
 ### Add a Cloud Account to a Project
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts" />
-Adding a Cloud Account to a Project allows servers created in that account to register with Okta Advanced Server Access without using a Server Enrollment Token. This is only possible on cloud providers that expose cryptographically signed instance metadata so is currently restricted to AWS and GCE.
+Adding a Cloud Account to a Project allows servers created in that account to register with Okta Advanced Server Access without using a Server Enrollment Token. This is only possible on cloud providers that expose cryptographically signed instance metadata so this is currently restricted to AWS and GCE.
 
 #### Request path parameters
 
@@ -607,7 +620,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
 | `account_id`   | string | The provider-specific account ID. |
-| `description`   | string | (optional) Human readable description of the account. |
+| `description`   | string | (optional) Human-readable description of the account. |
 | `id`   | string | UUID of the Cloud Account. |
 | `provider`   | string | A provider. For now, only accepts `aws` or `gce`, case sensitive. |
 
@@ -618,8 +631,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts
+
 ```
 
 ##### Response
@@ -627,7 +640,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_acc
 {
 	"account_id": "123456789012",
 	"description": "Dev AWS account",
-	"id": "c5c20937-47ca-4528-880f-a4f4e4db2887",
+	"id": "9730ba7e-6a4b-4beb-be4b-afafc60ae456",
 	"provider": "aws"
 }
 ```
@@ -664,18 +677,18 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts/${cloud_account_id}
+
 ```
 
 ##### Response
 ```json
 HTTP 204 No Content
 ```
-### List all the Groups in a Project
+### List all the ASA Groups in a Project
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups" />
-Returns all the Groups in a Project.
+
 
 #### Request path parameters
 
@@ -697,14 +710,14 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `create_server_group`   | boolean | True if the Group is being created on the Project servers. |
+| `create_server_group`   | boolean | True if you want `sftd` to create a corresponding local (unix or windows) group on the end server. Regardless, Server Users will still be created as long as `create_server_users` is set to true on the Project. |
 | `deleted_at`   | string | Time of removal from the Project. Null if not removed. |
-| `group_id`   | string | The UUID that corresponds to the Group. |
-| `name`   | string | The name of the Group. |
-| `server_access`   | boolean | True if the Group has access to the Project servers. |
-| `server_admin`   | boolean | True if the Group has admin on the Project servers. |
-| `server_group_name`   | string | If create_server_group is true, the name of the Group on the server. |
-| `unix_gid`   | integer | If create_server_group is true, the GID of the Group created. |
+| `group_id`   | string | The UUID that corresponds to the ASA Group. |
+| `name`   | string | The name of the ASA Group. |
+| `server_access`   | boolean | True if members of this ASA Group have access to the Project Servers. |
+| `server_admin`   | boolean | True if members of this ASA Group have sudo permissions on the Project Servers. |
+| `server_group_name`   | string | If `create_server_group` is true, the name of the server group. |
+| `unix_gid`   | integer | If `create_server_group` is true, the GID of the server group created. |
 
 #### Usage example
 
@@ -713,8 +726,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups
+
 ```
 
 ##### Response
@@ -725,7 +738,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups
 			"create_server_group": true,
 			"deleted_at": null,
 			"group": "compsons",
-			"group_id": "96fe2cb8-93b2-411d-a5c4-7df64a35f41d",
+			"group_id": "3b77ed28-2be2-4d2e-9b6d-84d8cf8c5e1c",
 			"name": "compsons",
 			"profile_attributes": {
 				"unix_gid": 63000,
@@ -741,10 +754,10 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups
 	]
 }
 ```
-### Add a Group to a Project
+### Add an ASA Group to a Project
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups" />
-Adds a pre-existing Group to the Project, enabling server access, with either user or admin permissions and the option to sync the Group to the servers in the Project.
+Adds a pre-existing ASA Group to the Project, enabling server access, with either user or admin permissions and the option to sync an ASA Group to the servers in the Project.
 
 #### Request path parameters
 
@@ -763,14 +776,14 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `create_server_group`   | boolean | True if the Group is being created on the Project servers. |
+| `create_server_group`   | boolean | True if you want `sftd` to create a corresponding local (unix or windows) group on the end server. Regardless, Server Users will still be created as long as `create_server_users` is set to true on the Project. |
 | `deleted_at`   | string | Time of removal from the Project. Null if not removed. |
-| `group_id`   | string | The UUID that corresponds to the Group. |
-| `name`   | string | The name of the Group. |
-| `server_access`   | boolean | True if the Group has access to the Project servers. |
-| `server_admin`   | boolean | True if the Group has admin on the Project servers. |
-| `server_group_name`   | string | If create_server_group is true, the name of the Group on the server. |
-| `unix_gid`   | integer | If create_server_group is true, the GID of the Group created. |
+| `group_id`   | string | The UUID that corresponds to the ASA Group. |
+| `name`   | string | The name of the ASA Group. |
+| `server_access`   | boolean | True if members of this ASA Group have access to the Project Servers. |
+| `server_admin`   | boolean | True if members of this ASA Group have sudo permissions on the Project Servers. |
+| `server_group_name`   | string | If `create_server_group` is true, the name of the server group. |
+| `unix_gid`   | integer | If `create_server_group` is true, the GID of the server group created. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
@@ -802,10 +815,10 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups
 ```json
 HTTP 204 No Content
 ```
-### Retrieve Group details for a single Project
+### Retrieve ASA Group details for a single Project
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}" />
-Returns details for a Group on a Project. Use `group_id` to access group-related details.
+Returns details for an ASA Group on an Project.
 
 #### Request path parameters
 
@@ -828,15 +841,15 @@ This endpoint has no request body.
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `create_server_group`   | boolean | True if the Group is being created on the Project servers. |
+| `create_server_group`   | boolean | True if you want `sftd` to create a corresponding local (unix or windows) group on the end server. Regardless, Server Users will still be created as long as `create_server_users` is set to true on the Project. |
 | `deleted_at`   | string | Time of removal from the project. Null if not removed. |
-| `group_id`   | string | The UUID that corresponds to the Group. |
-| `name`   | string | The name of the Group. |
-| `profile_attributes`   | string | If create_server_group is true, the Attributes that will be synced to the server. |
-| `server_access`   | boolean | True if the Group has access to the Project servers. |
-| `server_admin`   | boolean | True if the Group has admin on the Project servers. |
-| `server_group_name`   | string | If create_server_group is true, the name of the Group on the server. |
-| `unix_gid`   | integer | If create_server_group is true, the GID of the Group created. |
+| `group_id`   | string | The UUID that corresponds to the ASA Group. |
+| `name`   | string | The name of the ASA Group. |
+| `profile_attributes`   | string | If `create_server_group` is true, the Attributes that will be synced to the server. |
+| `server_access`   | boolean | True if members of this ASA Group have access to the Project Servers. |
+| `server_admin`   | boolean | True if members of this ASA Group have sudo permissions on the Project Servers. |
+| `server_group_name`   | string | If `create_server_group` is true, the name of the server group. |
+| `unix_gid`   | integer | If `create_server_group` is true, the GID of the server group created. |
 
 #### Usage example
 
@@ -845,8 +858,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}
+
 ```
 
 ##### Response
@@ -855,7 +868,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${
 	"create_server_group": true,
 	"deleted_at": null,
 	"group": "compsons",
-	"group_id": "96fe2cb8-93b2-411d-a5c4-7df64a35f41d",
+	"group_id": "3b77ed28-2be2-4d2e-9b6d-84d8cf8c5e1c",
 	"name": "compsons",
 	"profile_attributes": {
 		"unix_gid": 63000,
@@ -869,7 +882,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${
 	"unix_gid": null
 }
 ```
-### Remove a Group from a Project
+### Remove an ASA Group from a Project
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}" />
 
@@ -902,15 +915,15 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}
+
 ```
 
 ##### Response
 ```json
 HTTP 204 No Content
 ```
-### Change the Project properties of a Group
+### Change the Project properties of an ASA Project Group
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}" />
 
@@ -933,14 +946,14 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `create_server_group`   | boolean | True if the Group is being created on the Project servers. |
+| `create_server_group`   | boolean | True if you want `sftd` to create a corresponding local (unix or windows) group on the end server. Regardless, Server Users will still be created as long as `create_server_users` is set to true on the Project. |
 | `deleted_at`   | string | Time of removal from the Project. Null if not removed. |
-| `group_id`   | string | The UUID that corresponds to the Group. |
-| `name`   | string | The name of the Group. |
-| `server_access`   | boolean | True if the Group has access to the Project servers. |
-| `server_admin`   | boolean | True if the Group has admin on the Project servers. |
-| `server_group_name`   | string | If create_server_group is true, the name of the Group on the server. |
-| `unix_gid`   | integer | If create_server_group is true, the GID of the Group created. |
+| `group_id`   | string | The UUID that corresponds to the ASA Group. |
+| `name`   | string | The name of the ASA Group. |
+| `server_access`   | boolean | True if members of this ASA Group have access to the Project Servers. |
+| `server_admin`   | boolean | True if members of this ASA Group have sudo permissions on the Project Servers. |
+| `server_group_name`   | string | If `create_server_group` is true, the name of the server group. |
+| `unix_gid`   | integer | If `create_server_group` is true, the GID of the server group created. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
@@ -975,7 +988,7 @@ HTTP 204 No Content
 ### Fetch a Preauthorization
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations" />
-
+A Preauthorization is a time-limited grant for an ASA User to access resources in a specific Project.
 
 #### Request path parameters
 
@@ -1002,7 +1015,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `id`   | string | The UUID of the Preauthorization. |
 | `projects`   | array | The Projects that the Preauthorization is valid for. |
 | `servers`   | array | The Servers that the Preauthorization is valid for. |
-| `user_name`   | string | The username that the Preauthorization is for. |
+| `user_name`   | string | The username of the ASA User that the Preauthorization is for. |
 
 #### Usage example
 
@@ -1011,13 +1024,22 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations
+
 ```
 
 ##### Response
 ```json
-HTTP 204 No Content
+{
+	"disabled": false,
+	"expires_at": "2020-07-28T18:30:00Z",
+	"id": "566b0fa9-f3ef-4825-a390-16d1766764a0",
+	"projects": [
+		"the-sound-and-the-fury"
+	],
+	"servers": null,
+	"user_name": "jason.compson"
+}
 ```
 ### Create a Preauthorization
 
@@ -1046,7 +1068,7 @@ This endpoint requires an object with the following fields.
 | `id`   | string | The UUID of the Preauthorization. |
 | `projects`   | array | The Projects that the Preauthorization is valid for. |
 | `servers`   | array | The Servers that the Preauthorization is valid for. |
-| `user_name`   | string | The username that the Preauthorization is for. |
+| `user_name`   | string | The username of the ASA User that the Preauthorization is for. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
@@ -1059,7 +1081,16 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-
+--data '{
+	"disabled": false,
+	"expires_at": "2020-07-28T18:30:00Z",
+	"id": "",
+	"projects": [
+		"the-sound-and-the-fury"
+	],
+	"servers": null,
+	"user_name": "jason.compson"
+}' \
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations
 ```
 
@@ -1101,15 +1132,12 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `add_env`   | array | A list of environment variables to include when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
-| `description`   | string | A description of the Entitlement. |
-| `name`   | string | A name for the Entitlement. |
-| `opt_no_exec`   | boolean | Whether to allow commands to execute child processes. |
-| `opt_no_passwd`   | boolean | Whether or not to require a password when sudo is run (should generally not be used, as ASA accounts do not require a password). |
-| `opt_run_as`   | string | A non-root User to run commands as. |
-| `opt_set_env`   | boolean | Whether to allow overriding environment variables to commands. |
-| `structured_commands`   | array | A list of commands to allow. |
-| `sub_env`   | array | A list of environment variables to ignore when running these commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment) for more information. |
+| `disabled`   | boolean | `true` if the Preauthorization is disabled. |
+| `expires_at`   | string | The Preauthorization will cease to work after the `expires_at` date. |
+| `id`   | string | The UUID of the Preauthorization. |
+| `projects`   | array | The Projects that the Preauthorization is valid for. |
+| `servers`   | array | The Servers that the Preauthorization is valid for. |
+| `user_name`   | string | The username of the ASA User that the Preauthorization is for. |
 
 #### Usage example
 
@@ -1118,13 +1146,26 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations/${authorization_id}
+
 ```
 
 ##### Response
 ```json
-HTTP 204 No Content
+{
+	"list": [
+		{
+			"disabled": false,
+			"expires_at": "2020-07-28T18:30:00Z",
+			"id": "566b0fa9-f3ef-4825-a390-16d1766764a0",
+			"projects": [
+				"the-sound-and-the-fury"
+			],
+			"servers": null,
+			"user_name": "jason.compson"
+		}
+	]
+}
 ```
 ### Update a Preauthorization
 
@@ -1154,7 +1195,7 @@ This endpoint requires an object with the following fields.
 | `id`   | string | The UUID of the Preauthorization. |
 | `projects`   | array | The Projects that the Preauthorization is valid for. |
 | `servers`   | array | The Servers that the Preauthorization is valid for. |
-| `user_name`   | string | The username that the Preauthorization is for. |
+| `user_name`   | string | The username of the ASA User that the Preauthorization is for. |
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
@@ -1165,7 +1206,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `id`   | string | The UUID of the Preauthorization. |
 | `projects`   | array | The Projects that the Preauthorization is valid for. |
 | `servers`   | array | The Servers that the Preauthorization is valid for. |
-| `user_name`   | string | The username that the Preauthorization is for. |
+| `user_name`   | string | The username of the ASA User that the Preauthorization is for. |
 
 #### Usage example
 
@@ -1174,13 +1215,31 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
-
+--data '{
+	"disabled": true,
+	"expires_at": "2020-07-28T18:30:00Z",
+	"id": "",
+	"projects": [
+		"the-sound-and-the-fury"
+	],
+	"servers": null,
+	"user_name": "jason.compson"
+}' \
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations/${authorization_id}
 ```
 
 ##### Response
 ```json
-HTTP 204 No Content
+{
+	"disabled": true,
+	"expires_at": "2020-07-28T18:30:00Z",
+	"id": "566b0fa9-f3ef-4825-a390-16d1766764a0",
+	"projects": [
+		"the-sound-and-the-fury"
+	],
+	"servers": null,
+	"user_name": "jason.compson"
+}
 ```
 ### List Server Enrollment Tokens within a Project
 
@@ -1207,11 +1266,11 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `created_by_user`   | string | The User that created the Server Enrollment Token. |
-| `description`   | string | A description of why this Server Enrollment Token was created. |
+| `created_by_user`   | string | The ASA User that created this Server Enrollment Token. |
+| `description`   | string | A human-readable description of why this Server Enrollment Token was created. |
 | `id`   | string | The UUID that corresponds to the Server Enrollment Token. |
 | `issued_at`   | string | Time of creation. |
-| `token`   | object | A token used to enroll a server. |
+| `token`   | object | A token used to enroll an ASA Server. |
 
 #### Usage example
 
@@ -1220,8 +1279,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens
+
 ```
 
 ##### Response
@@ -1250,21 +1309,21 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `created_by_user`   | string | The User that created the Server Enrollment Token. |
-| `description`   | string | A description of why this Server Enrollment Token was created. |
+| `created_by_user`   | string | The ASA User that created this Server Enrollment Token. |
+| `description`   | string | A human-readable description of why this Server Enrollment Token was created. |
 | `id`   | string | The UUID that corresponds to the Server Enrollment Token. |
 | `issued_at`   | string | Time of creation. |
-| `token`   | object | A token used to enroll a server. |
+| `token`   | object | A token used to enroll an ASA Server. |
 
 #### Response body
 This endpoint returns an object with the following fields and a `201` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `created_by_user`   | string | The User that created the Server Enrollment Token. |
-| `description`   | string | A description of why this Server Enrollment Token was created. |
+| `created_by_user`   | string | The ASA User that created this Server Enrollment Token. |
+| `description`   | string | A human-readable description of why this Server Enrollment Token was created. |
 | `id`   | string | The UUID that corresponds to the Server Enrollment Token. |
 | `issued_at`   | string | Time of creation. |
-| `token`   | object | A token used to enroll a server. |
+| `token`   | object | A token used to enroll an ASA Server. |
 
 #### Usage example
 
@@ -1273,8 +1332,8 @@ This endpoint returns an object with the following fields and a `201` code on a 
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens
+
 ```
 
 ##### Response
@@ -1307,11 +1366,11 @@ This endpoint has no request body.
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `created_by_user`   | string | The User that created the Server Enrollment Token. |
-| `description`   | string | A description of why this Server Enrollment Token was created. |
+| `created_by_user`   | string | The ASA User that created this Server Enrollment Token. |
+| `description`   | string | A human-readable description of why this Server Enrollment Token was created. |
 | `id`   | string | The UUID that corresponds to the Server Enrollment Token. |
 | `issued_at`   | string | Time of creation. |
-| `token`   | object | A token used to enroll a server. |
+| `token`   | object | A token used to enroll an ASA Server. |
 
 #### Usage example
 
@@ -1320,8 +1379,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${server_enrollment_token_id}
+
 ```
 
 ##### Response
@@ -1361,8 +1420,8 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${server_enrollment_token_id}
+
 ```
 
 ##### Response
@@ -1372,7 +1431,7 @@ HTTP 204 No Content
 ### List Server Users in a Project
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_users" />
-
+A Server User is a representation of a given ASA User that that will be realized on an end server.
 
 #### Request path parameters
 
@@ -1394,14 +1453,14 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Parameter | Type        | Description          |
 |----------|-------------|----------------------|
-| `admin`   | boolean | True if Server User has sudo. |
+| `admin`   | boolean | True if Server User has sudo permissions. |
 | `id`   | string | UUID of Server User API object. |
 | `server_user_name`   | string | The username that will be realized on Unix servers. |
-| `status`   | string | Status of the User. |
+| `status`   | string | Status of the Server User. |
 | `type`   | string | Whether this is a Service or Human User. |
 | `unix_gid`   | integer | Unix GID of the Server User. |
 | `unix_uid`   | integer | Unix UID of the Server User. |
-| `user_name`   | string | The username. |
+| `user_name`   | string | The username of the corresponding ASA User. |
 | `windows_server_user_name`   | string | The username that will be realized on Windows servers. |
 
 #### Usage example
@@ -1411,8 +1470,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_users
+
 ```
 
 ##### Response
@@ -1421,7 +1480,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_us
 	"list": [
 		{
 			"admin": true,
-			"id": "788f6056-53ca-42ca-94cf-62c6da847ee6",
+			"id": "f5a72891-a189-48f4-b9f3-e711ec214f3c",
 			"server_user_name": "benjy",
 			"status": "ACTIVE",
 			"type": "human",
@@ -1432,7 +1491,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_us
 		},
 		{
 			"admin": false,
-			"id": "252aaee3-b930-4773-8369-07d96930dd82",
+			"id": "280f5329-acd5-41ba-8b17-7a1f926afdf3",
 			"server_user_name": "quentin",
 			"status": "DELETED",
 			"type": "human",
@@ -1478,13 +1537,13 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `id`   | string | The UUID corresponding to the Server. |
 | `instance_details`   | object | Information the cloud provider provides of the Server, if one exists. |
 | `last_seen`   | string | The last time the Server made a request to the ASA platform. |
-| `managed`   | boolean | True if the Server is managed by SFTD. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through SFTD. With an Unmanaged Server record to represent this box, ASA will know it exists and to use it as a bastion hop. |
+| `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA will know it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server. |
 | `os_type`   | string | Can either be Linux or Windows. |
 | `project_name`   | string | The Project that the Server belongs to. |
 | `registered_at`   | string | The time the Server was registered to the Project. |
 | `services`   | array | Can either be ssh or rdp. |
-| `sftd_version`   | string | The version of SFTD the Server is running. |
+| `sftd_version`   | string | The version of 'sftd' the Server is running. |
 | `ssh_host_keys`   | array | The host keys used to authenticate the Server. |
 | `state`   | string | Can be either `ACTIVE` or `INACTIVE`. |
 | `team_name`   | string | The name of the Team. |
@@ -1496,8 +1555,8 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
+
 ```
 
 ##### Response
@@ -1513,7 +1572,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "harvard",
-			"id": "e815ffb1-c327-4c55-954e-ce95c0c7442d",
+			"id": "f3097af2-a333-47a5-81ba-245b71141e91",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -1538,7 +1597,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "jefferson",
-			"id": "3a2efed9-609a-4f35-91f0-e051330ced99",
+			"id": "2c69c2cc-c34a-45d5-a54c-a2c8708d6300",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -1596,13 +1655,13 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `id`   | string | The UUID corresponding to the Server. |
 | `instance_details`   | object | Information the cloud provider provides of the Server, if one exists. |
 | `last_seen`   | string | The last time the Server made a request to the ASA platform. |
-| `managed`   | boolean | True if the Server is managed by SFTD. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through SFTD. With an Unmanaged Server record to represent this box, ASA will know it exists and to use it as a bastion hop. |
+| `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA will know it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server. |
 | `os_type`   | string | Can either be Linux or Windows. |
 | `project_name`   | string | The Project that the Server belongs to. |
 | `registered_at`   | string | The time the Server was registered to the Project. |
 | `services`   | array | Can either be ssh or rdp. |
-| `sftd_version`   | string | The version of SFTD the Server is running. |
+| `sftd_version`   | string | The version of 'sftd' the Server is running. |
 | `ssh_host_keys`   | array | The host keys used to authenticate the Server. |
 | `state`   | string | Can be either `ACTIVE` or `INACTIVE`. |
 | `team_name`   | string | The name of the Team. |
@@ -1635,7 +1694,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
 	"cloud_provider": null,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"hostname": "bastion.dev.com",
-	"id": "cc0b7fa1-3b8d-437f-b44b-a0cd0127945b",
+	"id": "913b8d2e-ad73-4fa3-935c-65c917dc111d",
 	"instance_details": null,
 	"last_seen": "0001-01-01T00:00:00Z",
 	"managed": false,
@@ -1685,13 +1744,13 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `id`   | string | The UUID corresponding to the Server. |
 | `instance_details`   | object | Information the cloud provider provides of the Server, if one exists. |
 | `last_seen`   | string | The last time the Server made a request to the ASA platform. |
-| `managed`   | boolean | True if the Server is managed by SFTD. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through SFTD. With an Unmanaged Server record to represent this box, ASA will know it exists and to use it as a bastion hop. |
+| `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA will know it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server. |
 | `os_type`   | string | Can either be Linux or Windows. |
 | `project_name`   | string | The Project that the Server belongs to. |
 | `registered_at`   | string | The time the Server was registered to the Project. |
 | `services`   | array | Can either be ssh or rdp. |
-| `sftd_version`   | string | The version of SFTD the Server is running. |
+| `sftd_version`   | string | The version of 'sftd' the Server is running. |
 | `ssh_host_keys`   | array | The host keys used to authenticate the Server. |
 | `state`   | string | Can be either `ACTIVE` or `INACTIVE`. |
 | `team_name`   | string | The name of the Team. |
@@ -1703,8 +1762,8 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}
+
 ```
 
 ##### Response
@@ -1718,7 +1777,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/$
 	"cloud_provider": null,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"hostname": "harvard",
-	"id": "e815ffb1-c327-4c55-954e-ce95c0c7442d",
+	"id": "f3097af2-a333-47a5-81ba-245b71141e91",
 	"instance_details": null,
 	"last_seen": "0001-01-01T00:00:00Z",
 	"managed": true,
@@ -1768,8 +1827,8 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}
+
 ```
 
 ##### Response
