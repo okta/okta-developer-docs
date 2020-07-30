@@ -9,7 +9,7 @@ The Authenticator Admin API enables an Org Administrator to configure which Auth
 
 End users would be required to use one or more Authenticators depending on the security requirements of the application sign-on policy.
 
-The Okta Identity Engine currently supports Authenticators for the following %TODO What? What are these? To me they are Factors%:
+The Okta Identity Engine currently supports Authenticators for the following factors:
 
 **Knowledge-based:**
 * Password
@@ -441,7 +441,7 @@ Returns a [Authenticator](#Authenticator-object).
 
 #### Usage example
 
-This request would set the `status` of the specified Authenticator to `INACTIVE`
+This request would set the `status` of the specified Authenticator to `INACTIVE`.
 
 ##### Request
 
@@ -497,32 +497,19 @@ The Authenticator Admin API only involves one object, which is the Authenticator
 
 ### Authenticator object
 
-#### Authenticator properties
-
-The Authenticator object has several properties:
-
-%All properties should be in alpha order%
-
-| Property           | Type                           | Description                                                                                                       |
-| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `propertyA`        | %JsonDataType%                 | A description                                                                                                     |
-| `objectA`          | [%ObjectName%](#object-object) | A short description of this object. If the object can be returned standalone, it should be documented separately. |
-| `object.PropertyA` | %JsonDataType%                 | A description of a property in a nested object                                                                    |
-
-
 #### Authenticator Properties
 
-The Authenticator model defines the following attributes
+The Authenticator model defines the following properties:
 
 | Property      | Type                                                            | Description                                                                     |
 | ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | `_links`      | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                  |
 | `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created.                                   |
-| `id`          | String                                                          | Identifier of the Authenticator.                                                |
+| `id`          | String                                                          | A unique identifier for the Authenticator.                                                |
+| `key`         | String                                                          | Unique string that identifies the Authenticator.                                |
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified.                             |
 | `name`        | String                                                          | Display name of this Authenticator.                                             |
-| `key`         | String                                                          | Unique string that identifies the Authenticator.                                |
-| `type`        | String (Enum)                                                   | Type of the Authenticator. Possible values: `password`, `security_question`, `phone`, `email`, `security_key`                            |
+| `type`        | String (Enum)                                                   | The type of Authenticator. Possible values: `password`, `security_question`, `phone`, `email`, `security_key`                            |
 
 
 #### Example of Email Authenticator
