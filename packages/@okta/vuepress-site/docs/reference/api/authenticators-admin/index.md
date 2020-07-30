@@ -1,45 +1,66 @@
 ---
-title: Authenticators Admin API
+title: Authenticator Admin
 category: management
 ---
 
-# Authenticators Admin API
+# Authenticator Admin API
 
-Authenticator Admin API enables an Org Administrator to configure which authenticators are available to end users to be used for signing into applications.
+The Authenticator Admin API enables an Org Administrator to configure which Authenticators are available to end users to be used for signing into applications.
 
-End users would be required to use one or more authenticators depending on the security requirements of the application sign-on policy. 
+End users would be required to use one or more Authenticators depending on the security requirements of the application sign-on policy.
 
-IDX currently supports authenticators for the following:
+The Okta Identity Engine currently supports Authenticators for the following %TODO What? What are these? To me they are Factors%:
 
-**Knowledge based:**
+**Knowledge-based:**
 * Password
 * Security Question
 
-**Possession based:**
-* Phone (supports SMS, Call)
+**Possession-based:**
+* Phone (SMS, Voice Call)
 * Email
-* WebAuthn 
+* WebAuthn
+
+<!--
+## Get started
+
+Explore the Authenticator Admin API: [![Run in Postman](https://run.pstmn.io/button.svg)](%linkhere%). % How to generate this link: https://oktawiki.atlassian.net/wiki/spaces/DOC/pages/227648499/How+to+publish+Postman+collections %
+
+-->
 
 ## Authenticator Admin Operations
 
-The Authenticator Admin API supports the following operations:
+The Authenticator Admin API has the following CRUD operations:
 
-* List Authenticators available to activate or deactivate
-* Get an Authenticator
-* Activate an Authenticator
-* Deactivate an Authenticator
+* [List Authenticators](#list-authenticators)
+* [Get an Authenticator by id](#get-an-authenticator-by-id)
+* [Activate an Authenticator](#activate-an-authenticator)
+* [Deactivate Authenticator](#deactivate-an-authenticator)
 
 ### List Authenticators
-This lists all the authenticators that can be activated or deactivated.
 
-<ApiOperation method="post" url="/api/v1/authenticators" />
+<ApiOperation method="get" url="/api/v1/authenticators" />
 
-#### Response Body
+Creates a Authenticator object.
 
-HTTP 200:
-Array of [Authenticator Object](#authenticator-object)
+#### Request path parameters
 
-#### Example Usage
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+N/A
+
+#### Response body
+
+An Array of [Authenticator Objects](#authenticator-object)
+
+#### Usage example
+
+This request would return all available Authenticators:
 
 ##### Request
 
@@ -50,6 +71,7 @@ curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 "https://{yourOktaDomain}/api/v1/authenticators"
 ```
+
 ##### Response
 
 ```json
@@ -228,22 +250,33 @@ curl -v -X GET \
 ]
 ```
 
-### Get an Authenticator
+### Get an Authenticator by id
 
 <ApiOperation method="get" url="/api/v1/authenticators/${authenticatorId}" />
 
-#### Request Path Parameters
+Fetches a Authenticator by its `id`.
+
+#### Request path parameters
 
 | Parameter          | Type   | Description                                            |
 | ------------------ | ------ | ------------------------------------------------------ |
 | `authenticatorId`  | String | The Authenticator's unique identifier.                 |
 
-#### Response Body
+#### Request query parameters
 
-HTTP 200:
-[Authenticator Object](#authenticator-object)
+N/A
 
-#### Example Usage
+#### Request body
+
+N/A
+
+#### Response body
+
+The requested [Authenticator](#Authenticator-object).
+
+#### Usage example
+
+This request returns the Authenticator with an `id` value of `aut1nd8PQhGcQtSxB0g4`:
 
 ##### Request
 
@@ -296,22 +329,40 @@ curl -v -X GET \
 }
 ```
 
-### Activate Authenticator
+##### Error response example %optional%
 
-<ApiOperation method="post" url="/api/v1/authenticators/{authenticatorId}/lifecycle/activate" />
+%Here you can show any errors that are specific to this API. One error example per section%
 
-#### Request Path Parameters
+```http
+
+```
+
+
+
+### Activate an Authenticator
+
+<ApiOperation method="post" url="/api/v1/authenticators/${authenticatorId}/lifecycle/activate" />
+
+Activates an Authenticator
+
+
+#### Request path parameters
 
 | Parameter          | Type   | Description                                            |
 | ------------------ | ------ | ------------------------------------------------------ |
 | `authenticatorId`  | String | The Authenticator's unique identifier.                 |
 
-#### Response Body
+#### Request body
 
-HTTP 200:
-[Authenticator Object](#authenticator-object)
+N/A
 
-#### Example Usage
+#### Response body
+
+Returns a [Authenticator](#authenticator-object).
+
+#### Usage example
+
+This request would set the `status` of the specified Authenticator to `ACTIVE`
 
 ##### Request
 
@@ -366,29 +417,37 @@ curl -v -X POST \
 
 ### Deactivate Authenticator
 
-<ApiOperation method="post" url="/api/v1/authenticators/{authenticatorId}/lifecycle/deactivate" />
+<ApiOperation method="delete" url="/api/v1/" />
 
-#### Request Path Parameters
+Deactivates an Authenticator.
+
+#### Request path parameters
 
 | Parameter          | Type   | Description                                            |
 | ------------------ | ------ | ------------------------------------------------------ |
 | `authenticatorId`  | String | The Authenticator's unique identifier.                 |
 
-#### Response Body
+#### Request query parameters
 
-HTTP 200:
-[Authenticator Object](#authenticator-object)
+N/A
 
-#### Example Usage
+#### Request body
+
+N/A
+
+#### Response body
+
+Returns a [Authenticator](#Authenticator-object).
+
+#### Usage example
+
+This request would set the `status` of the specified Authenticator to `INACTIVE`
 
 ##### Request
 
 ```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/deactivate"
+curl -v -X DELETE \
+-H "Authorization: SSWS ${api_token}" "https://{yourOktaDomain}/api/v1/devices/"
 ```
 
 ##### Response
@@ -432,12 +491,24 @@ curl -v -X POST \
 }
 ```
 
-## Authenticator Admin API Objects
+## Authenticator Admin API object
 
-This API has one object:
-* Authenticator Object
+The Authenticator Admin API only involves one object, which is the Authenticator.
 
-### Authenticator Object
+### Authenticator object
+
+#### Authenticator properties
+
+The Authenticator object has several properties:
+
+%All properties should be in alpha order%
+
+| Property           | Type                           | Description                                                                                                       |
+| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `propertyA`        | %JsonDataType%                 | A description                                                                                                     |
+| `objectA`          | [%ObjectName%](#object-object) | A short description of this object. If the object can be returned standalone, it should be documented separately. |
+| `object.PropertyA` | %JsonDataType%                 | A description of a property in a nested object                                                                    |
+
 
 #### Authenticator Properties
 
@@ -649,6 +720,3 @@ The Authenticator model defines the following attributes
   }
 }
 ```
-
-
-
