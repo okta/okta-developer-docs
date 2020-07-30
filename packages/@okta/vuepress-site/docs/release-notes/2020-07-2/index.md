@@ -10,4 +10,4 @@ title: Okta API Products Release Notes
 
 ### Bugs fixed in 2020.07.2
 
-* When using the [Apps API](https://developer.okta.com/docs/reference/api/apps/), exceeding the character limit for OIDC application redirect URIs resulted in an HTTP 500 error instead of an HTTP 400 error. (OKTA-297164)
+* When using the [Apps API](/docs/reference/api/apps/), exceeding the character limit for OIDC application redirect URIs resulted in an HTTP 500 error instead of an HTTP 400 error. (OKTA-297164)
