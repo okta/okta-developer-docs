@@ -19,3 +19,31 @@ Similarly, when you enable a new capability in your application (for example, ad
     At this point, the Okta OIN team is notified and your submission undergoes the same process flow as the original submission.
 
     After the new version of the integration has reached the **Publish** stage and been published by Okta, the new version replaces the old one in the OIN catalog.
+
+>**Note:** You can have a maximum of 10 submissions for any development org in the OIN Manager.
+
+## Delete draft submissions
+
+There are two scenarios where you need to delete a draft submission:
+
+1. You have 10 draft submissions, which is the maximum number permitted in the OIN Manager.
+1. You have decided against completing a draft submission and want to remove it.
+
+In either of these scenarios, the OIN Manager provides a method to delete unpublished submissions. For instructions on how to delete app integrations that are already published in the OIN catalog, see [Delete published submissions](#delete-published-submissions).
+
+You can only delete unpublished submissions that are in **DRAFT** state. If the delete icon is dimmed, that means the delete operation isn't available for that submission. If you can't move your submission to the **DRAFT** state, contact the Okta OIN team at <oin@okta.com> for assistance.
+
+To delete your submission:
+
+1. Click on the delete icon ![Delete submission](/img/icons/delete_can.png "Deletion icon") beside the **Edit** button.
+1. Confirm the deletion in the dialog box.
+
+No email confirmation is sent when deleting a submission. Deleted submissions can't be recovered.
+
+## Delete published submissions
+
+If you want to remove an app integration that is already published to the OIN catalog, this change must be processed by the Okta OIN team. Send an email to <oin@okta.com> with the URL of your dev org, the name of the app integration, and a link to its location in the OIN catalog.
+
+Removing an app integration from the OIN doesn't prohibit existing users from accessing it. The app integration won't be removed from end-user dashboards until an admin for the customer's org removes the app integration from the org.
+
+Finally, if you intend to remove your back-end application support for the Okta app integration, alert your customer admins about the change and if you are deploying a replacement solution.
