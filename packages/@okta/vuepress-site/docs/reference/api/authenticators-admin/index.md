@@ -40,7 +40,7 @@ The Authenticator Admin API has the following CRUD operations:
 
 <ApiOperation method="get" url="/api/v1/authenticators" />
 
-Creates a Authenticator object.
+Lists all available Authenticators.
 
 #### Request path parameters
 
@@ -329,15 +329,6 @@ curl -v -X GET \
 }
 ```
 
-##### Error response example %optional%
-
-%Here you can show any errors that are specific to this API. One error example per section%
-
-```http
-
-```
-
-
 
 ### Activate an Authenticator
 
@@ -417,7 +408,7 @@ curl -v -X POST \
 
 ### Deactivate Authenticator
 
-<ApiOperation method="delete" url="/api/v1/" />
+<ApiOperation method="delete" url="/api/v1/authenticators/${authenticatorId}/lifecycle/activate" />
 
 Deactivates an Authenticator.
 
@@ -446,8 +437,11 @@ This request would set the `status` of the specified Authenticator to `INACTIVE`
 ##### Request
 
 ```bash
-curl -v -X DELETE \
--H "Authorization: SSWS ${api_token}" "https://{yourOktaDomain}/api/v1/devices/"
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://{yourOktaDomain}/api/v1/authenticators/aut1nd8PQhGcQtSxB0g4/lifecycle/deactivate"
 ```
 
 ##### Response
