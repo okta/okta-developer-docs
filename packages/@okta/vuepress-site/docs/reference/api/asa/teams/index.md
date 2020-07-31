@@ -10,7 +10,8 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
+| [Advanced Server
+Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 An ASA Team is the top-level organizational concept in Advanced Server Access, unique by name. Each ASA Team maps to a single chiclet in the Okta dashboard.
 
@@ -91,9 +92,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/servers
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/servers```
 
 ##### Response
 ```json
@@ -108,7 +107,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "harvard",
-			"id": "f3097af2-a333-47a5-81ba-245b71141e91",
+			"id": "48571026-6d34-4463-8ef3-0e6a69a3758c",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -133,7 +132,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "jefferson",
-			"id": "2c69c2cc-c34a-45d5-a54c-a2c8708d6300",
+			"id": "42a9df1d-acaa-4d72-a558-c0f7ea1c34c3",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -190,9 +189,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/settings
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/settings```
 
 ##### Response
 ```json
@@ -258,8 +255,7 @@ curl -v -X PUT \
 	"user_provisioning_exact_username": null,
 	"web_session_duration": 600
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/settings
-```
+https://app.scaleft.com/v1/teams/${team_name}/settings```
 
 ##### Response
 ```json
@@ -304,9 +300,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/team_stats
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/team_stats```
 
 ##### Response
 ```json

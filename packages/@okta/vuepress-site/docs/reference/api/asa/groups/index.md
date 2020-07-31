@@ -10,7 +10,8 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
+| [Advanced Server
+Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 An ASA Group is a collection of ASA Users that share permissions and access.
 
@@ -72,9 +73,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/groups
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups```
 
 ##### Response
 ```json
@@ -84,7 +83,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": "william-faulkner",
 			"federation_approved_at": "2018-04-07T00:00:00Z",
-			"id": "34e3b6ac-8e6a-4445-bf71-551d7591ac6b",
+			"id": "d3b6e08b-1c38-4d94-8ed7-f016775bac61",
 			"name": "compsons",
 			"roles": [
 				"access_user",
@@ -96,7 +95,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": null,
 			"federation_approved_at": null,
-			"id": "5e7b3589-b6c2-406a-8238-2ba2290887f6",
+			"id": "71d6c3ff-d930-4445-86a2-138386b535c5",
 			"name": "compsons",
 			"roles": [
 				"access_user",
@@ -159,8 +158,7 @@ curl -v -X POST \
 		"access_admin"
 	]
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/groups
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups```
 
 ##### Response
 ```json
@@ -168,7 +166,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"federated_from_team": null,
 	"federation_approved_at": null,
-	"id": "5e7b3589-b6c2-406a-8238-2ba2290887f6",
+	"id": "71d6c3ff-d930-4445-86a2-138386b535c5",
 	"name": "compsons",
 	"roles": [
 		"access_user",
@@ -213,9 +211,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}```
 
 ##### Response
 ```json
@@ -223,7 +219,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"federated_from_team": null,
 	"federation_approved_at": null,
-	"id": "5e7b3589-b6c2-406a-8238-2ba2290887f6",
+	"id": "71d6c3ff-d930-4445-86a2-138386b535c5",
 	"name": "compsons",
 	"roles": [
 		"access_user",
@@ -264,9 +260,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}```
 
 ##### Response
 ```json
@@ -314,8 +308,7 @@ curl -v -X PUT \
 		"access_admin"
 	]
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}```
 
 ##### Response
 ```json
@@ -367,9 +360,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users```
 
 ##### Response
 ```json
@@ -383,7 +374,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
 				"full_name": "Benjy Compson",
 				"last_name": "Compson"
 			},
-			"id": "097575a5-d527-46c9-a96a-c3d8bc0e7f23",
+			"id": "470117b4-9d2e-4282-80fd-bd7cfa6815b3",
 			"name": "Benjy.Compson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -438,15 +429,14 @@ curl -v -X POST \
 		"full_name": "Jason Compson IV",
 		"last_name": "Compson"
 	},
-	"id": "3ee57523-fa67-4b31-b11e-aaca8bfa946f",
+	"id": "6918503b-3345-462c-abc2-e32f92231685",
 	"name": "Jason.Compson.IV",
 	"oauth_client_application_id": null,
 	"role_grants": null,
 	"status": "ACTIVE",
 	"user_type": "human"
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users```
 
 ##### Response
 ```json
@@ -485,9 +475,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users/${user_name}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users/${user_name}```
 
 ##### Response
 ```json
@@ -539,9 +527,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_group
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_group```
 
 ##### Response
 ```json
@@ -555,7 +541,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_
 				"full_name": "Jason Compson IV",
 				"last_name": "Compson"
 			},
-			"id": "3ee57523-fa67-4b31-b11e-aaca8bfa946f",
+			"id": "6918503b-3345-462c-abc2-e32f92231685",
 			"name": "Jason.Compson.IV",
 			"oauth_client_application_id": null,
 			"role_grants": null,

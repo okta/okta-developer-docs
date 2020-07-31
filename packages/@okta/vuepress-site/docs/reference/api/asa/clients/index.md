@@ -10,7 +10,8 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
+| [Advanced Server
+Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 An ASA Client corresponds to a user's device.
 
@@ -73,9 +74,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/clients
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/clients```
 
 ##### Response
 ```json
@@ -86,7 +85,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients
 			"description": "Work laptop",
 			"encrypted": true,
 			"hostname": "LightInAugust",
-			"id": "b6a5c53f-3ae3-4be6-adb3-012e5384373a",
+			"id": "e4b181a8-025a-4f42-9351-fc028170614c",
 			"os": "macOS 10.14.6",
 			"state": "PENDING",
 			"user_name": "Jason.Compson.IV"
@@ -96,7 +95,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients
 			"description": "Personal laptop",
 			"encrypted": true,
 			"hostname": "Absalom",
-			"id": "0598d7ad-fc8b-42ca-aae4-053f98f33945",
+			"id": "8f1881a1-128b-4df2-b82e-9438ffcd4214",
 			"os": "macOS 10.14.6",
 			"state": "ACTIVE",
 			"user_name": "Jason.Compson.IV"
@@ -144,9 +143,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}```
 
 ##### Response
 ```json
@@ -155,7 +152,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}
 	"description": "Work laptop",
 	"encrypted": true,
 	"hostname": "LightInAugust",
-	"id": "b6a5c53f-3ae3-4be6-adb3-012e5384373a",
+	"id": "e4b181a8-025a-4f42-9351-fc028170614c",
 	"os": "macOS 10.14.6",
 	"state": "PENDING",
 	"user_name": "Jason.Compson.IV"
@@ -193,9 +190,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}```
 
 ##### Response
 ```json
@@ -241,8 +236,7 @@ curl -v -X PUT \
 	"state": "ACTIVE",
 	"user_name": "Jason.Compson.IV"
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}
-```
+https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}```
 
 ##### Response
 ```json

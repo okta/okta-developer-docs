@@ -10,7 +10,8 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
+| [Advanced Server
+Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 ASA Service Users are used to access to the ASA API. ASA Service Users are provided tokens for authentication and authorization against the service.
 
@@ -71,12 +72,11 @@ This endpoint returns an object with the following fields and a `200` code on a 
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
 --data '{
-	"key_id": "f3577fca-5730-461e-aff1-420577a1d1a4",
+	"key_id": "0c62dba6-bf82-4e7f-aec3-e466d2e1fef9",
 	"key_secret": "uF0SoVBVQP/hJmQSLUZdM2a7ArYzjD8ykzvG7n4tKaOEfSErcwMUUDWpEf4Q42/HaVKPZUfILkzy/bsQFv7WRg==",
 	"roles": null
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/service_token
-```
+https://app.scaleft.com/v1/teams/${team_name}/service_token```
 
 ##### Response
 ```json
@@ -131,9 +131,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/service_users
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/service_users```
 
 ##### Response
 ```json
@@ -142,7 +140,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 		{
 			"deleted_at": null,
 			"details": null,
-			"id": "e8ddcc7e-a2b0-46e4-a8d1-2478b63f87ef",
+			"id": "f2773ee5-eb2d-4ae6-9c7a-f7cae95558c1",
 			"name": "shreve",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -152,7 +150,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 		{
 			"deleted_at": null,
 			"details": null,
-			"id": "ca49198c-7101-4492-a2d6-fbaafce25a49",
+			"id": "c112ad73-432f-4179-9682-e2459104427d",
 			"name": "dilsey.gibson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -203,15 +201,14 @@ curl -v -X POST \
 --data '{
 	"name": "shreve"
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/service_users
-```
+https://app.scaleft.com/v1/teams/${team_name}/service_users```
 
 ##### Response
 ```json
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "e8ddcc7e-a2b0-46e4-a8d1-2478b63f87ef",
+	"id": "f2773ee5-eb2d-4ae6-9c7a-f7cae95558c1",
 	"name": "shreve",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -255,16 +252,14 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}```
 
 ##### Response
 ```json
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "3d3cb259-d2f4-4bf4-bd88-9107ebfb92f2",
+	"id": "8782ed3f-4b23-4b4b-92ea-4add93ec6465",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -316,22 +311,21 @@ curl -v -X PUT \
 --data '{
 	"deleted_at": null,
 	"details": null,
-	"id": "ca49198c-7101-4492-a2d6-fbaafce25a49",
+	"id": "c112ad73-432f-4179-9682-e2459104427d",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
 	"status": "DISABLED",
 	"user_type": "service"
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
-```
+https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}```
 
 ##### Response
 ```json
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "ca49198c-7101-4492-a2d6-fbaafce25a49",
+	"id": "c112ad73-432f-4179-9682-e2459104427d",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -376,9 +370,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys```
 
 ##### Response
 ```json
@@ -386,13 +378,13 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys
 	"list": [
 		{
 			"expires_at": "0001-01-01T00:00:00Z",
-			"id": "42b37f28-8017-4136-be29-48485c147b89",
+			"id": "c3762f1b-78a3-46f9-801b-f29352d17911",
 			"issued_at": "2020-04-07T02:00:00Z",
 			"last_used": null
 		},
 		{
 			"expires_at": "2020-04-09T00:00:00Z",
-			"id": "52340326-2ecd-44f1-a2cb-7117abb497cd",
+			"id": "8cb8cb26-3235-4499-8ad3-80080ea79d47",
 			"issued_at": "2020-04-07T00:00:00Z",
 			"last_used": null
 		}
@@ -437,15 +429,13 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys```
 
 ##### Response
 ```json
 {
 	"expires_at": "0001-01-01T00:00:00Z",
-	"id": "586e3a3d-7e40-4b82-bd68-799d928db365",
+	"id": "3f8429d1-52a5-4c68-a892-e2583c8fde66",
 	"issued_at": "2020-04-07T00:00:00Z",
 	"last_used": null,
 	"secret": "NOvsvBg0g9mFXdHbLxEJcEFpu+LZjQSKsYezqMALq5WbGZTpUsxoS4vBqqHOO9O3xrhOq03B+oLf7bSTShbudw=="
@@ -484,9 +474,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys/${key_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys/${key_id}```
 
 ##### Response
 ```json

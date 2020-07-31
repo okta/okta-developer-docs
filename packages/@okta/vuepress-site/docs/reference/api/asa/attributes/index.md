@@ -10,7 +10,8 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
+| [Advanced Server
+Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 ASA Attributes are key-value mappings that hold metadata of ASA Users and ASA Groups.
 
@@ -71,9 +72,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes```
 
 ##### Response
 ```json
@@ -82,13 +81,13 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes
 		{
 			"attribute_name": "unix_group_name",
 			"attribute_value": "group_old",
-			"id": "be8a6fe0-22a4-430f-a289-3a1bae11212e",
+			"id": "b858899f-b2bc-4db3-bf70-f935e0b5d1c9",
 			"managed": false
 		},
 		{
 			"attribute_name": "windows_group_name",
 			"attribute_value": "group_new",
-			"id": "8d56362f-915d-4138-9421-f706ed85df30",
+			"id": "9bd3c232-d43b-43f9-9253-0bc29572ae72",
 			"managed": false
 		}
 	]
@@ -132,16 +131,14 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}```
 
 ##### Response
 ```json
 {
 	"attribute_name": "unix_group_name",
 	"attribute_value": "group_old",
-	"id": "be8a6fe0-22a4-430f-a289-3a1bae11212e",
+	"id": "b858899f-b2bc-4db3-bf70-f935e0b5d1c9",
 	"managed": false
 }
 ```
@@ -186,8 +183,7 @@ curl -v -X PUT \
 	"attribute_name": "unix_group_name",
 	"attribute_value": 100
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}
-```
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}```
 
 ##### Response
 ```json
@@ -237,9 +233,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes```
 
 ##### Response
 ```json
@@ -248,25 +242,25 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes
 		{
 			"attribute_name": "unix_user_name",
 			"attribute_value": "augusta_ada_king",
-			"id": "4ee31ff7-fe8f-48fc-b990-a7ac8898a5b1",
+			"id": "b7a4de33-b4f3-4e69-ac25-a93e989dc635",
 			"managed": true
 		},
 		{
 			"attribute_name": "unix_uid",
 			"attribute_value": 1210,
-			"id": "54ce15e7-494b-4616-a1c9-7bf363a499fb",
+			"id": "34e7c8c1-b051-4b12-81ea-48f8f4f58810",
 			"managed": true
 		},
 		{
 			"attribute_name": "unix_gid",
 			"attribute_value": 1210,
-			"id": "76e982c0-e9a2-4429-beea-5477b76ee912",
+			"id": "8fbeca9d-4030-442a-99bf-5bc8e5784332",
 			"managed": true
 		},
 		{
 			"attribute_name": "windows_user_name",
 			"attribute_value": "augusta_ada_king",
-			"id": "7b45bf01-3904-4728-8fba-32b3d5e00a2c",
+			"id": "8b089289-859a-4cba-82d7-113ba8a24ef4",
 			"managed": true
 		}
 	]
@@ -310,9 +304,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}```
 
 ##### Response
 ```json
@@ -359,8 +351,7 @@ curl -v -X PUT \
 	"attribute_name": "unix_user_name",
 	"attribute_value": "ada_lovelace"
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}
-```
+https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}```
 
 ##### Response
 ```json

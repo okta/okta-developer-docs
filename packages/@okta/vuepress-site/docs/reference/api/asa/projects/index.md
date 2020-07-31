@@ -10,7 +10,8 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
+| [Advanced Server
+Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 An ASA Project is a collection of ASA Servers and ASA Users that have access to those Servers through ASA Groups.
 
@@ -98,9 +99,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects```
 
 ##### Response
 ```json
@@ -110,7 +109,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects
 			"create_server_users": true,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"force_shared_ssh_users": false,
-			"id": "29ea6f10-7046-4629-bedf-ff3dc78270ba",
+			"id": "84a4310e-ebd0-4f97-9d54-9178c863e875",
 			"name": "the-sound-and-the-fury",
 			"next_unix_gid": 63001,
 			"next_unix_uid": 60001,
@@ -124,7 +123,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects
 			"create_server_users": true,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"force_shared_ssh_users": false,
-			"id": "29ea6f10-7046-4629-bedf-ff3dc78270ba",
+			"id": "84a4310e-ebd0-4f97-9d54-9178c863e875",
 			"name": "the-sound-and-the-fury",
 			"next_unix_gid": 63001,
 			"next_unix_uid": 60001,
@@ -203,8 +202,7 @@ curl -v -X POST \
 	"team": "william-faulkner",
 	"user_on_demand_period": null
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/projects
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects```
 
 ##### Response
 ```json
@@ -212,7 +210,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects
 	"create_server_users": true,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"force_shared_ssh_users": false,
-	"id": "29ea6f10-7046-4629-bedf-ff3dc78270ba",
+	"id": "84a4310e-ebd0-4f97-9d54-9178c863e875",
 	"name": "the-sound-and-the-fury",
 	"next_unix_gid": 63001,
 	"next_unix_uid": 60001,
@@ -265,9 +263,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}```
 
 ##### Response
 ```json
@@ -275,7 +271,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}
 	"create_server_users": true,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"force_shared_ssh_users": false,
-	"id": "29ea6f10-7046-4629-bedf-ff3dc78270ba",
+	"id": "84a4310e-ebd0-4f97-9d54-9178c863e875",
 	"name": "the-sound-and-the-fury",
 	"next_unix_gid": 63001,
 	"next_unix_uid": 60001,
@@ -318,9 +314,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}```
 
 ##### Response
 ```json
@@ -372,8 +366,7 @@ curl -v -X PUT \
 	"require_preauth_for_creds": false,
 	"user_on_demand_period": null
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}```
 
 ##### Response
 ```json
@@ -415,9 +408,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_config_options
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_config_options```
 
 ##### Response
 ```json
@@ -426,12 +417,12 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_co
 		{
 			"config_key": "ssh.insecure_forward_agent",
 			"config_value": "host",
-			"id": "7ae2309e-dfd3-4651-a0c0-47da1b4ea02e"
+			"id": "f332114d-38a8-446b-b346-0c58544d8381"
 		},
 		{
 			"config_key": "ssh.port_forward_method",
 			"config_value": "netcat",
-			"id": "b3713bcc-c497-4f7e-a453-6ce0dcb40c8f"
+			"id": "22c0b45a-2e50-45c8-851c-41af91326579"
 		}
 	]
 }
@@ -482,15 +473,14 @@ curl -v -X POST \
 	"config_value": "host",
 	"id": ""
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_config_options
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_config_options```
 
 ##### Response
 ```json
 {
 	"config_key": "ssh.insecure_forward_agent",
 	"config_value": "host",
-	"id": "7ae2309e-dfd3-4651-a0c0-47da1b4ea02e"
+	"id": "f332114d-38a8-446b-b346-0c58544d8381"
 }
 ```
 ### Remove a Client Configuration Option from a Project
@@ -526,9 +516,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_config_options/${client_config_options_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_config_options/${client_config_options_id}```
 
 ##### Response
 ```json
@@ -571,9 +559,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts```
 
 ##### Response
 ```json
@@ -582,13 +568,13 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_acc
 		{
 			"account_id": "123456789012",
 			"description": "Dev AWS account",
-			"id": "9730ba7e-6a4b-4beb-be4b-afafc60ae456",
+			"id": "f588c61d-ae92-490d-825a-3b66f92e7444",
 			"provider": "aws"
 		},
 		{
 			"account_id": "630225935076",
 			"description": "Dev GCE account",
-			"id": "51237c8f-54f5-4d45-9b81-f20fc1b10508",
+			"id": "ac81534c-eaae-40e4-9478-5ac77ad16bea",
 			"provider": "gce"
 		}
 	]
@@ -631,16 +617,14 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts```
 
 ##### Response
 ```json
 {
 	"account_id": "123456789012",
 	"description": "Dev AWS account",
-	"id": "9730ba7e-6a4b-4beb-be4b-afafc60ae456",
+	"id": "f588c61d-ae92-490d-825a-3b66f92e7444",
 	"provider": "aws"
 }
 ```
@@ -677,9 +661,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts/${cloud_account_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts/${cloud_account_id}```
 
 ##### Response
 ```json
@@ -726,9 +708,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups```
 
 ##### Response
 ```json
@@ -738,7 +718,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups
 			"create_server_group": true,
 			"deleted_at": null,
 			"group": "compsons",
-			"group_id": "3b77ed28-2be2-4d2e-9b6d-84d8cf8c5e1c",
+			"group_id": "087bc3dd-c9fd-42d1-a21b-e595d1eaf124",
 			"name": "compsons",
 			"profile_attributes": {
 				"unix_gid": 63000,
@@ -808,8 +788,7 @@ curl -v -X POST \
 	"server_group_name": null,
 	"unix_gid": null
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups```
 
 ##### Response
 ```json
@@ -858,9 +837,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}```
 
 ##### Response
 ```json
@@ -868,7 +845,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${
 	"create_server_group": true,
 	"deleted_at": null,
 	"group": "compsons",
-	"group_id": "3b77ed28-2be2-4d2e-9b6d-84d8cf8c5e1c",
+	"group_id": "087bc3dd-c9fd-42d1-a21b-e595d1eaf124",
 	"name": "compsons",
 	"profile_attributes": {
 		"unix_gid": 63000,
@@ -915,9 +892,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}```
 
 ##### Response
 ```json
@@ -978,8 +953,7 @@ curl -v -X PUT \
 	"server_group_name": null,
 	"unix_gid": null
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}```
 
 ##### Response
 ```json
@@ -1024,9 +998,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations```
 
 ##### Response
 ```json
@@ -1091,8 +1063,7 @@ curl -v -X POST \
 	"servers": null,
 	"user_name": "jason.compson"
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations```
 
 ##### Response
 ```json
@@ -1146,9 +1117,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations/${authorization_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations/${authorization_id}```
 
 ##### Response
 ```json
@@ -1225,8 +1194,7 @@ curl -v -X PUT \
 	"servers": null,
 	"user_name": "jason.compson"
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations/${authorization_id}
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations/${authorization_id}```
 
 ##### Response
 ```json
@@ -1279,9 +1247,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens```
 
 ##### Response
 ```json
@@ -1332,9 +1298,7 @@ This endpoint returns an object with the following fields and a `201` code on a 
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens```
 
 ##### Response
 ```json
@@ -1379,9 +1343,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${server_enrollment_token_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${server_enrollment_token_id}```
 
 ##### Response
 ```json
@@ -1420,9 +1382,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${server_enrollment_token_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${server_enrollment_token_id}```
 
 ##### Response
 ```json
@@ -1470,9 +1430,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_users
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_users```
 
 ##### Response
 ```json
@@ -1480,7 +1438,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_us
 	"list": [
 		{
 			"admin": true,
-			"id": "f5a72891-a189-48f4-b9f3-e711ec214f3c",
+			"id": "10d678ff-b8ec-42cf-be30-6690c8dc9c9f",
 			"server_user_name": "benjy",
 			"status": "ACTIVE",
 			"type": "human",
@@ -1491,7 +1449,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_us
 		},
 		{
 			"admin": false,
-			"id": "280f5329-acd5-41ba-8b17-7a1f926afdf3",
+			"id": "35d0a5bc-0891-4e1d-badb-aae8c94fe455",
 			"server_user_name": "quentin",
 			"status": "DELETED",
 			"type": "human",
@@ -1555,9 +1513,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers```
 
 ##### Response
 ```json
@@ -1572,7 +1528,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "harvard",
-			"id": "f3097af2-a333-47a5-81ba-245b71141e91",
+			"id": "48571026-6d34-4463-8ef3-0e6a69a3758c",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -1597,7 +1553,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "jefferson",
-			"id": "2c69c2cc-c34a-45d5-a54c-a2c8708d6300",
+			"id": "42a9df1d-acaa-4d72-a558-c0f7ea1c34c3",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -1680,8 +1636,7 @@ curl -v -X POST \
 	],
 	"hostname": "bastion.dev.com"
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers```
 
 ##### Response
 ```json
@@ -1694,7 +1649,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers
 	"cloud_provider": null,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"hostname": "bastion.dev.com",
-	"id": "913b8d2e-ad73-4fa3-935c-65c917dc111d",
+	"id": "478a5763-faea-449b-ba3f-40f61ea9e2c5",
 	"instance_details": null,
 	"last_seen": "0001-01-01T00:00:00Z",
 	"managed": false,
@@ -1762,9 +1717,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}```
 
 ##### Response
 ```json
@@ -1777,7 +1730,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/$
 	"cloud_provider": null,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"hostname": "harvard",
-	"id": "f3097af2-a333-47a5-81ba-245b71141e91",
+	"id": "48571026-6d34-4463-8ef3-0e6a69a3758c",
 	"instance_details": null,
 	"last_seen": "0001-01-01T00:00:00Z",
 	"managed": true,
@@ -1827,9 +1780,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}```
 
 ##### Response
 ```json

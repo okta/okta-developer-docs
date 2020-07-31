@@ -10,7 +10,8 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../intro/) | `https://app.scaleft.com/v1/`
+| [Advanced Server
+Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 ASA Entitlements offer Advanced Server Access admins a system of layered permissions, which allow admins to specify the exact commands that their users can run on end servers.
 
@@ -73,9 +74,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo```
 
 ##### Response
 ```json
@@ -86,7 +85,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
 			"commands": null,
 			"created_at": "2018-04-07T00:00:00Z",
 			"description": "desc",
-			"id": "d95dadba-fe63-4c1a-a4b5-4a59272a7e7b",
+			"id": "cef63ac2-cd2e-4c20-8a9b-50b44c5e758e",
 			"name": "name",
 			"opt_no_exec": false,
 			"opt_no_passwd": true,
@@ -171,7 +170,7 @@ curl -v -X POST \
 	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
-	"id": "d95dadba-fe63-4c1a-a4b5-4a59272a7e7b",
+	"id": "cef63ac2-cd2e-4c20-8a9b-50b44c5e758e",
 	"name": "name",
 	"opt_no_exec": false,
 	"opt_no_passwd": true,
@@ -196,8 +195,7 @@ curl -v -X POST \
 	"sub_env": [],
 	"updated_at": "2018-04-07T00:00:00Z"
 }' \
-https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
-```
+https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo```
 
 ##### Response
 ```json
@@ -245,9 +243,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}```
 
 ##### Response
 ```json
@@ -256,7 +252,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
 	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
-	"id": "d95dadba-fe63-4c1a-a4b5-4a59272a7e7b",
+	"id": "cef63ac2-cd2e-4c20-8a9b-50b44c5e758e",
 	"name": "name",
 	"opt_no_exec": false,
 	"opt_no_passwd": true,
@@ -314,9 +310,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}```
 
 ##### Response
 ```json
@@ -365,9 +359,7 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
-
-```
+https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}```
 
 ##### Response
 ```json
