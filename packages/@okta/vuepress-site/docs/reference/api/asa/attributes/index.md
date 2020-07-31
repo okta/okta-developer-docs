@@ -10,8 +10,7 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server
-Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 ASA Attributes are key-value mappings that hold metadata of ASA Users and ASA Groups.
 
@@ -31,7 +30,7 @@ The Attributes API has the following operations:
 ### List Group Attributes
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes" />
-
+This endpoint requires one of the following roles: `access_admin`, `access_user`, `reporting_user`.
 
 #### Request path parameters
 
@@ -81,13 +80,13 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes```
 		{
 			"attribute_name": "unix_group_name",
 			"attribute_value": "group_old",
-			"id": "b858899f-b2bc-4db3-bf70-f935e0b5d1c9",
+			"id": "d4e14002-c655-435c-be91-bd46c6c4c96d",
 			"managed": false
 		},
 		{
 			"attribute_name": "windows_group_name",
 			"attribute_value": "group_new",
-			"id": "9bd3c232-d43b-43f9-9253-0bc29572ae72",
+			"id": "3acfe7b7-ff01-4000-b945-e9af5d7bf212",
 			"managed": false
 		}
 	]
@@ -96,7 +95,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes```
 ### Fetch a Group Attribute
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}" />
-
+This endpoint requires one of the following roles: `access_admin`, `access_user`, `reporting_user`.
 
 #### Request path parameters
 
@@ -138,14 +137,14 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${
 {
 	"attribute_name": "unix_group_name",
 	"attribute_value": "group_old",
-	"id": "b858899f-b2bc-4db3-bf70-f935e0b5d1c9",
+	"id": "d4e14002-c655-435c-be91-bd46c6c4c96d",
 	"managed": false
 }
 ```
 ### Update a Group Attribute
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -192,7 +191,7 @@ HTTP 204 No Content
 ### List the Attributes for a User
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes" />
-
+This endpoint requires one of the following roles: `access_admin`, `access_user`, `reporting_user`.
 
 #### Request path parameters
 
@@ -242,25 +241,25 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes```
 		{
 			"attribute_name": "unix_user_name",
 			"attribute_value": "augusta_ada_king",
-			"id": "b7a4de33-b4f3-4e69-ac25-a93e989dc635",
+			"id": "5cc50405-238e-45bc-a3bc-449d5b4a7866",
 			"managed": true
 		},
 		{
 			"attribute_name": "unix_uid",
 			"attribute_value": 1210,
-			"id": "34e7c8c1-b051-4b12-81ea-48f8f4f58810",
+			"id": "7c0109ef-8bc4-449e-9e39-be9ceae9591d",
 			"managed": true
 		},
 		{
 			"attribute_name": "unix_gid",
 			"attribute_value": 1210,
-			"id": "8fbeca9d-4030-442a-99bf-5bc8e5784332",
+			"id": "707c27fc-e9ff-482e-a222-a8d861b58b19",
 			"managed": true
 		},
 		{
 			"attribute_name": "windows_user_name",
 			"attribute_value": "augusta_ada_king",
-			"id": "8b089289-859a-4cba-82d7-113ba8a24ef4",
+			"id": "a13ec6bd-d564-4c24-b4ee-e0190815d19a",
 			"managed": true
 		}
 	]
@@ -269,7 +268,7 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes```
 ### Fetch a User Attribute
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}" />
-
+This endpoint requires one of the following roles: `access_admin`, `access_user`, `reporting_user`.
 
 #### Request path parameters
 
@@ -313,7 +312,7 @@ HTTP 204 No Content
 ### Update a single Attribute for a User
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 

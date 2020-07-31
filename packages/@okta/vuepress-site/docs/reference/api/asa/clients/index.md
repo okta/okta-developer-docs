@@ -10,8 +10,7 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server
-Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 An ASA Client corresponds to a user's device.
 
@@ -30,6 +29,7 @@ The Clients API has the following operations:
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/clients" />
 By default returns the ASA Clients for the requesting ASA User. Query options can be provided to filter by ASA User or state.
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `reporting_user`.
 
 #### Request path parameters
 
@@ -85,7 +85,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients```
 			"description": "Work laptop",
 			"encrypted": true,
 			"hostname": "LightInAugust",
-			"id": "e4b181a8-025a-4f42-9351-fc028170614c",
+			"id": "20dd99e6-a94e-4ebf-afc5-e9fa05bdec38",
 			"os": "macOS 10.14.6",
 			"state": "PENDING",
 			"user_name": "Jason.Compson.IV"
@@ -95,7 +95,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients```
 			"description": "Personal laptop",
 			"encrypted": true,
 			"hostname": "Absalom",
-			"id": "8f1881a1-128b-4df2-b82e-9438ffcd4214",
+			"id": "2d461787-0bf2-44c1-aa8e-54e49ed26b60",
 			"os": "macOS 10.14.6",
 			"state": "ACTIVE",
 			"user_name": "Jason.Compson.IV"
@@ -106,7 +106,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients```
 ### Fetch an ASA Client
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}" />
-
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `reporting_user`.
 
 #### Request path parameters
 
@@ -152,7 +152,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}```
 	"description": "Work laptop",
 	"encrypted": true,
 	"hostname": "LightInAugust",
-	"id": "e4b181a8-025a-4f42-9351-fc028170614c",
+	"id": "20dd99e6-a94e-4ebf-afc5-e9fa05bdec38",
 	"os": "macOS 10.14.6",
 	"state": "PENDING",
 	"user_name": "Jason.Compson.IV"
@@ -162,6 +162,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}```
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}" />
 Revoke an ASA Client's access to this Team
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `authenticated_client`.
 
 #### Request path parameters
 
@@ -200,6 +201,7 @@ HTTP 204 No Content
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}" />
 Used for ASA Clients enrolled using a token policy or a policy that requires approval
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 

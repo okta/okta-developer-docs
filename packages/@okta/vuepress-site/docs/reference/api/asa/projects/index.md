@@ -10,8 +10,7 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server
-Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 An ASA Project is a collection of ASA Servers and ASA Users that have access to those Servers through ASA Groups.
 
@@ -54,7 +53,7 @@ The Projects API has the following operations:
 ### List Projects for a Team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects" />
-
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `authenticated_client`, `client`, `reporting_user`.
 
 #### Request path parameters
 
@@ -109,7 +108,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects```
 			"create_server_users": true,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"force_shared_ssh_users": false,
-			"id": "84a4310e-ebd0-4f97-9d54-9178c863e875",
+			"id": "781d137e-7b4e-48c3-9676-c40885ad0d04",
 			"name": "the-sound-and-the-fury",
 			"next_unix_gid": 63001,
 			"next_unix_uid": 60001,
@@ -123,7 +122,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects```
 			"create_server_users": true,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"force_shared_ssh_users": false,
-			"id": "84a4310e-ebd0-4f97-9d54-9178c863e875",
+			"id": "781d137e-7b4e-48c3-9676-c40885ad0d04",
 			"name": "the-sound-and-the-fury",
 			"next_unix_gid": 63001,
 			"next_unix_uid": 60001,
@@ -140,6 +139,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects```
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/projects" />
 Create a Project
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -210,7 +210,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects```
 	"create_server_users": true,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"force_shared_ssh_users": false,
-	"id": "84a4310e-ebd0-4f97-9d54-9178c863e875",
+	"id": "781d137e-7b4e-48c3-9676-c40885ad0d04",
 	"name": "the-sound-and-the-fury",
 	"next_unix_gid": 63001,
 	"next_unix_uid": 60001,
@@ -224,7 +224,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects```
 ### Fetch a Project
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}" />
-
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `authenticated_client`, `client`, `reporting_user`.
 
 #### Request path parameters
 
@@ -271,7 +271,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}```
 	"create_server_users": true,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"force_shared_ssh_users": false,
-	"id": "84a4310e-ebd0-4f97-9d54-9178c863e875",
+	"id": "781d137e-7b4e-48c3-9676-c40885ad0d04",
 	"name": "the-sound-and-the-fury",
 	"next_unix_gid": 63001,
 	"next_unix_uid": 60001,
@@ -285,7 +285,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}```
 ### Delete a Project
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -323,7 +323,7 @@ HTTP 204 No Content
 ### Update a Project
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -376,6 +376,7 @@ HTTP 204 No Content
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_config_options" />
 Use Client Configuration Options to automatically pass settings to any Client logging into a server in this Project.
+This endpoint requires one of the following roles: `access_admin`, `access_user`.
 
 #### Request path parameters
 
@@ -417,12 +418,12 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_co
 		{
 			"config_key": "ssh.insecure_forward_agent",
 			"config_value": "host",
-			"id": "f332114d-38a8-446b-b346-0c58544d8381"
+			"id": "8c1244ee-b5bc-41a8-88d2-3ce56887e33b"
 		},
 		{
 			"config_key": "ssh.port_forward_method",
 			"config_value": "netcat",
-			"id": "22c0b45a-2e50-45c8-851c-41af91326579"
+			"id": "3a75d600-d9dd-478e-8a7b-c9c3be998c12"
 		}
 	]
 }
@@ -430,7 +431,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_co
 ### Add Client Configuration Options for a Project
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_config_options" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -480,13 +481,13 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_co
 {
 	"config_key": "ssh.insecure_forward_agent",
 	"config_value": "host",
-	"id": "f332114d-38a8-446b-b346-0c58544d8381"
+	"id": "8c1244ee-b5bc-41a8-88d2-3ce56887e33b"
 }
 ```
 ### Remove a Client Configuration Option from a Project
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/client_config_options/${client_config_options_id}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -525,7 +526,7 @@ HTTP 204 No Content
 ### List Cloud Accounts in a Project
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts" />
-
+This endpoint requires one of the following roles: `access_user`, `reporting_user`.
 
 #### Request path parameters
 
@@ -568,13 +569,13 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_acc
 		{
 			"account_id": "123456789012",
 			"description": "Dev AWS account",
-			"id": "f588c61d-ae92-490d-825a-3b66f92e7444",
+			"id": "d97a4a43-6e9f-4e80-905d-a80c3d919b45",
 			"provider": "aws"
 		},
 		{
 			"account_id": "630225935076",
 			"description": "Dev GCE account",
-			"id": "ac81534c-eaae-40e4-9478-5ac77ad16bea",
+			"id": "17290bbd-211d-4063-9d7a-e7db3013930c",
 			"provider": "gce"
 		}
 	]
@@ -584,6 +585,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_acc
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts" />
 Adding a Cloud Account to a Project allows servers created in that account to register with Okta Advanced Server Access without using a Server Enrollment Token. This is only possible on cloud providers that expose cryptographically signed instance metadata so this is currently restricted to AWS and GCE.
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -624,14 +626,14 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_acc
 {
 	"account_id": "123456789012",
 	"description": "Dev AWS account",
-	"id": "f588c61d-ae92-490d-825a-3b66f92e7444",
+	"id": "d97a4a43-6e9f-4e80-905d-a80c3d919b45",
 	"provider": "aws"
 }
 ```
 ### Remove a Cloud Account from a Project
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/cloud_accounts/${cloud_account_id}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -670,7 +672,7 @@ HTTP 204 No Content
 ### List all the ASA Groups in a Project
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups" />
-
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `reporting_user`.
 
 #### Request path parameters
 
@@ -718,7 +720,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups```
 			"create_server_group": true,
 			"deleted_at": null,
 			"group": "compsons",
-			"group_id": "087bc3dd-c9fd-42d1-a21b-e595d1eaf124",
+			"group_id": "223a4cd8-9cea-4713-ab4d-e27298d6f14b",
 			"name": "compsons",
 			"profile_attributes": {
 				"unix_gid": 63000,
@@ -738,6 +740,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups```
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups" />
 Adds a pre-existing ASA Group to the Project, enabling server access, with either user or admin permissions and the option to sync an ASA Group to the servers in the Project.
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -798,6 +801,7 @@ HTTP 204 No Content
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}" />
 Returns details for an ASA Group on an Project.
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `reporting_user`.
 
 #### Request path parameters
 
@@ -845,7 +849,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${
 	"create_server_group": true,
 	"deleted_at": null,
 	"group": "compsons",
-	"group_id": "087bc3dd-c9fd-42d1-a21b-e595d1eaf124",
+	"group_id": "223a4cd8-9cea-4713-ab4d-e27298d6f14b",
 	"name": "compsons",
 	"profile_attributes": {
 		"unix_gid": 63000,
@@ -862,7 +866,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${
 ### Remove an ASA Group from a Project
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -901,7 +905,7 @@ HTTP 204 No Content
 ### Change the Project properties of an ASA Project Group
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/groups/${group_name}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -963,6 +967,7 @@ HTTP 204 No Content
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations" />
 A Preauthorization is a time-limited grant for an ASA User to access resources in a specific Project.
+This endpoint requires one of the following roles: `access_admin`, `preauthorization`.
 
 #### Request path parameters
 
@@ -1016,7 +1021,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthor
 ### Create a Preauthorization
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations" />
-
+This endpoint requires one of the following roles: `access_admin`, `preauthorization`.
 
 #### Request path parameters
 
@@ -1072,7 +1077,7 @@ HTTP 204 No Content
 ### Lists the Preauthorizations for a Project
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations/${authorization_id}" />
-
+This endpoint requires one of the following roles: `access_admin`, `preauthorization`.
 
 #### Request path parameters
 
@@ -1139,7 +1144,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthor
 ### Update a Preauthorization
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthorizations/${authorization_id}" />
-
+This endpoint requires one of the following roles: `access_admin`, `preauthorization`.
 
 #### Request path parameters
 
@@ -1212,7 +1217,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/preauthor
 ### List Server Enrollment Tokens within a Project
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens" />
-
+This endpoint requires one of the following roles: `access_admin`, `server_enrollment_token_viewer`, `access_user`.
 
 #### Request path parameters
 
@@ -1256,7 +1261,7 @@ HTTP 204 No Content
 ### Create a Server Enrollment Token for a Project
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens" />
-
+This endpoint requires one of the following roles: `access_admin`, `server_enrollment_token_creator`, `access_user`.
 
 #### Request path parameters
 
@@ -1307,7 +1312,7 @@ HTTP 204 No Content
 ### Fetch a Server Enrollment Token from a Project
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${server_enrollment_token_id}" />
-
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `server_enrollment_token_viewer`.
 
 #### Request path parameters
 
@@ -1352,7 +1357,7 @@ HTTP 204 No Content
 ### Delete a Server Enrollment Token from a Project
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_enrollment_tokens/${server_enrollment_token_id}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -1392,6 +1397,7 @@ HTTP 204 No Content
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_users" />
 A Server User is a representation of a given ASA User that that will be realized on an end server.
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `reporting_user`.
 
 #### Request path parameters
 
@@ -1438,7 +1444,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_us
 	"list": [
 		{
 			"admin": true,
-			"id": "10d678ff-b8ec-42cf-be30-6690c8dc9c9f",
+			"id": "31d41630-04ee-466b-af51-ae4582ef3ec2",
 			"server_user_name": "benjy",
 			"status": "ACTIVE",
 			"type": "human",
@@ -1449,7 +1455,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_us
 		},
 		{
 			"admin": false,
-			"id": "35d0a5bc-0891-4e1d-badb-aae8c94fe455",
+			"id": "4140c19d-2b06-401e-9325-a5657232b2a0",
 			"server_user_name": "quentin",
 			"status": "DELETED",
 			"type": "human",
@@ -1465,6 +1471,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/server_us
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers" />
 The Servers enrolled in this Project
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `server_admin`.
 
 #### Request path parameters
 
@@ -1528,7 +1535,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers``
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "harvard",
-			"id": "48571026-6d34-4463-8ef3-0e6a69a3758c",
+			"id": "3738566e-7db7-4bc1-aaeb-3e3cb47ff719",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -1553,7 +1560,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers``
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "jefferson",
-			"id": "42a9df1d-acaa-4d72-a558-c0f7ea1c34c3",
+			"id": "27e7f359-ca73-4bf1-98d9-2e69f0d7e819",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -1576,6 +1583,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers``
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers" />
 Unmanaged Servers don't use Advanced Server Access for authentication, but still receive Client Configuration Options. Create an Unmanaged Server in order to control the options your team members use to connect to appliances, especially bastions which can't fully utilize Advanced Server Access.
+This endpoint requires one of the following roles: `access_admin`, `server_admin`.
 
 #### Request path parameters
 
@@ -1649,7 +1657,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers``
 	"cloud_provider": null,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"hostname": "bastion.dev.com",
-	"id": "478a5763-faea-449b-ba3f-40f61ea9e2c5",
+	"id": "452d0664-1fbf-49d3-85ea-44400f340d3d",
 	"instance_details": null,
 	"last_seen": "0001-01-01T00:00:00Z",
 	"managed": false,
@@ -1667,7 +1675,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers``
 ### Get a Server object
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}" />
-
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `server_admin`.
 
 #### Request path parameters
 
@@ -1730,7 +1738,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/$
 	"cloud_provider": null,
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"hostname": "harvard",
-	"id": "48571026-6d34-4463-8ef3-0e6a69a3758c",
+	"id": "3738566e-7db7-4bc1-aaeb-3e3cb47ff719",
 	"instance_details": null,
 	"last_seen": "0001-01-01T00:00:00Z",
 	"managed": true,
@@ -1750,7 +1758,7 @@ https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/$
 ### Remove a Server from a Project
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}" />
-
+This endpoint requires one of the following roles: `access_admin`, `server_admin`.
 
 #### Request path parameters
 

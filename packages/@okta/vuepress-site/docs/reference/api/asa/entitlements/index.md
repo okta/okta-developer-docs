@@ -10,8 +10,7 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server
-Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 ASA Entitlements offer Advanced Server Access admins a system of layered permissions, which allow admins to specify the exact commands that their users can run on end servers.
 
@@ -30,7 +29,7 @@ The Entitlements API has the following operations:
 ### List the Sudo Entitlements for a team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -85,7 +84,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo```
 			"commands": null,
 			"created_at": "2018-04-07T00:00:00Z",
 			"description": "desc",
-			"id": "cef63ac2-cd2e-4c20-8a9b-50b44c5e758e",
+			"id": "f2616e06-a9db-4abd-a820-0c97b9a6f222",
 			"name": "name",
 			"opt_no_exec": false,
 			"opt_no_passwd": true,
@@ -116,7 +115,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo```
 ### Create a Sudo Entitlement
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -170,7 +169,7 @@ curl -v -X POST \
 	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
-	"id": "cef63ac2-cd2e-4c20-8a9b-50b44c5e758e",
+	"id": "f2616e06-a9db-4abd-a820-0c97b9a6f222",
 	"name": "name",
 	"opt_no_exec": false,
 	"opt_no_passwd": true,
@@ -204,7 +203,7 @@ HTTP 204 No Content
 ### Fetch a single sudo Entitlement
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -252,7 +251,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}```
 	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
-	"id": "cef63ac2-cd2e-4c20-8a9b-50b44c5e758e",
+	"id": "f2616e06-a9db-4abd-a820-0c97b9a6f222",
 	"name": "name",
 	"opt_no_exec": false,
 	"opt_no_passwd": true,
@@ -281,7 +280,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}```
 ### Delete a single Sudo Entitlement
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -319,7 +318,7 @@ HTTP 204 No Content
 ### Update a Sudo Entitlement
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 

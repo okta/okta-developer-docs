@@ -10,8 +10,7 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server
-Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 ASA Audit Events provide log data of ASA User actions such as accessing ASA Servers, enrolling ASA Clients, and creating resources.
 
@@ -26,7 +25,7 @@ The Audit Events API has the following operation:
 ### List the Audits for a Team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/auditsV2" />
-
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `reporting_user`.
 
 #### Request path parameters
 
@@ -82,7 +81,7 @@ https://app.scaleft.com/v1/teams/${team_name}/auditsV2```
 				"via": null
 			},
 			"id": "UD5pqjIhjKVQPmmqMiGMpQ==",
-			"timestamp": "2020-07-31T19:33:24.267245435Z"
+			"timestamp": "2020-07-31T22:52:15.239331336Z"
 		}
 	],
 	"related_objects": {

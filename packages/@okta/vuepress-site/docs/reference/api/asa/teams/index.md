@@ -10,8 +10,7 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server
-Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 An ASA Team is the top-level organizational concept in Advanced Server Access, unique by name. Each ASA Team maps to a single chiclet in the Okta dashboard.
 
@@ -32,6 +31,7 @@ The Teams API has the following operations:
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/servers" />
 Lists all the Servers enrolled in a Team to which the requesting ASA User has access.
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `authenticated_client`, `reporting_user`, `server_admin`.
 
 #### Request path parameters
 
@@ -107,7 +107,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers```
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "harvard",
-			"id": "48571026-6d34-4463-8ef3-0e6a69a3758c",
+			"id": "3738566e-7db7-4bc1-aaeb-3e3cb47ff719",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -132,7 +132,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers```
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "jefferson",
-			"id": "42a9df1d-acaa-4d72-a558-c0f7ea1c34c3",
+			"id": "27e7f359-ca73-4bf1-98d9-2e69f0d7e819",
 			"instance_details": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
@@ -155,6 +155,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers```
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/settings" />
 Each Team has settings created by default.
+This endpoint requires one of the following roles: `instance_admin`, `access_user`, `access_admin`.
 
 #### Request path parameters
 
@@ -209,6 +210,7 @@ https://app.scaleft.com/v1/teams/${team_name}/settings```
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/settings" />
 Partial updates are permitted. URL parameters are optional and default to unset. To unset a previously-set URL, PUT with the value set to `null`.
+This endpoint requires one of the following roles: `access_admin`, `instance_admin`.
 
 #### Request path parameters
 
@@ -265,6 +267,7 @@ HTTP 204 No Content
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/team_stats" />
 Provides some general statistics regarding a Team.
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 

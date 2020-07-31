@@ -10,8 +10,7 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server
-Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 ASA Service Users are used to access to the ASA API. ASA Service Users are provided tokens for authentication and authorization against the service.
 
@@ -72,7 +71,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
 --data '{
-	"key_id": "0c62dba6-bf82-4e7f-aec3-e466d2e1fef9",
+	"key_id": "0d9b55c6-45fc-4822-b482-9897de169d4c",
 	"key_secret": "uF0SoVBVQP/hJmQSLUZdM2a7ArYzjD8ykzvG7n4tKaOEfSErcwMUUDWpEf4Q42/HaVKPZUfILkzy/bsQFv7WRg==",
 	"roles": null
 }' \
@@ -89,7 +88,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_token```
 ### List the Service Users for a Team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/service_users" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -140,7 +139,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users```
 		{
 			"deleted_at": null,
 			"details": null,
-			"id": "f2773ee5-eb2d-4ae6-9c7a-f7cae95558c1",
+			"id": "416cbdb0-aad4-4b02-9c50-81b3e061be9e",
 			"name": "shreve",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -150,7 +149,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users```
 		{
 			"deleted_at": null,
 			"details": null,
-			"id": "c112ad73-432f-4179-9682-e2459104427d",
+			"id": "c8bf9e50-789a-4dc5-bf07-8e39009873b0",
 			"name": "dilsey.gibson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -163,7 +162,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users```
 ### Create a Service User
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/service_users" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -208,7 +207,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users```
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "f2773ee5-eb2d-4ae6-9c7a-f7cae95558c1",
+	"id": "416cbdb0-aad4-4b02-9c50-81b3e061be9e",
 	"name": "shreve",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -219,7 +218,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users```
 ### Fetch a Service User
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -259,7 +258,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}```
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "8782ed3f-4b23-4b4b-92ea-4add93ec6465",
+	"id": "a4dd3eb3-a5fb-4474-9f73-3feb0bd2a5f6",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -270,7 +269,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}```
 ### Update the status of a Service User
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -311,7 +310,7 @@ curl -v -X PUT \
 --data '{
 	"deleted_at": null,
 	"details": null,
-	"id": "c112ad73-432f-4179-9682-e2459104427d",
+	"id": "c8bf9e50-789a-4dc5-bf07-8e39009873b0",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -325,7 +324,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}```
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "c112ad73-432f-4179-9682-e2459104427d",
+	"id": "c8bf9e50-789a-4dc5-bf07-8e39009873b0",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -336,7 +335,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}```
 ### List the API keys for a Service User
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -378,13 +377,13 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys```
 	"list": [
 		{
 			"expires_at": "0001-01-01T00:00:00Z",
-			"id": "c3762f1b-78a3-46f9-801b-f29352d17911",
+			"id": "85e72e8e-ad00-45c4-89e9-8244bba2044a",
 			"issued_at": "2020-04-07T02:00:00Z",
 			"last_used": null
 		},
 		{
 			"expires_at": "2020-04-09T00:00:00Z",
-			"id": "8cb8cb26-3235-4499-8ad3-80080ea79d47",
+			"id": "135fbd30-6add-4c7f-aa98-057dbe2f5114",
 			"issued_at": "2020-04-07T00:00:00Z",
 			"last_used": null
 		}
@@ -395,6 +394,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys```
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys" />
 Rotating an API key will automatically set an expiration date on the rest of the API keys a Service User has.
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -435,7 +435,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys```
 ```json
 {
 	"expires_at": "0001-01-01T00:00:00Z",
-	"id": "3f8429d1-52a5-4c68-a892-e2583c8fde66",
+	"id": "748d52ad-7389-4960-bb31-ac52ab505561",
 	"issued_at": "2020-04-07T00:00:00Z",
 	"last_used": null,
 	"secret": "NOvsvBg0g9mFXdHbLxEJcEFpu+LZjQSKsYezqMALq5WbGZTpUsxoS4vBqqHOO9O3xrhOq03B+oLf7bSTShbudw=="
@@ -444,7 +444,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys```
 ### Delete an API key for a Service User
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys/${key_id}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 

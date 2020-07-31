@@ -10,8 +10,7 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server
-Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
 
 An ASA User corresponds to a human or service user in the ASA ecosystem.
 
@@ -29,7 +28,7 @@ The Users API has the following operations:
 ### List the ASA Users for a team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/users" />
-
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `reporting_user`.
 
 #### Request path parameters
 
@@ -85,7 +84,7 @@ https://app.scaleft.com/v1/teams/${team_name}/users```
 				"full_name": "Jason Compson IV",
 				"last_name": "Compson"
 			},
-			"id": "6918503b-3345-462c-abc2-e32f92231685",
+			"id": "791b5d74-9220-40fe-ae44-4a0735a3c132",
 			"name": "Jason.Compson.IV",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -100,7 +99,7 @@ https://app.scaleft.com/v1/teams/${team_name}/users```
 				"full_name": "Benjy Compson",
 				"last_name": "Compson"
 			},
-			"id": "470117b4-9d2e-4282-80fd-bd7cfa6815b3",
+			"id": "5fe657bc-ad67-45c6-95d7-3649f6555ec8",
 			"name": "Benjy.Compson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -115,7 +114,7 @@ https://app.scaleft.com/v1/teams/${team_name}/users```
 				"full_name": "Quentin Compson III",
 				"last_name": "Compson"
 			},
-			"id": "f757ea13-159c-4b4e-a14b-3267d726ffe4",
+			"id": "1c4a5fa5-f0bb-47e2-8ff2-69bdab790b11",
 			"name": "Quentin.Compson.III",
 			"oauth_client_application_id": null,
 			"role_grants": null,
@@ -128,7 +127,7 @@ https://app.scaleft.com/v1/teams/${team_name}/users```
 ### Fetch an ASA User
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}" />
-
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `reporting_user`.
 
 #### Request path parameters
 
@@ -173,7 +172,7 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}```
 		"full_name": "Jason Compson IV",
 		"last_name": "Compson"
 	},
-	"id": "6918503b-3345-462c-abc2-e32f92231685",
+	"id": "791b5d74-9220-40fe-ae44-4a0735a3c132",
 	"name": "Jason.Compson.IV",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -184,7 +183,7 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}```
 ### Update an ASA User
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}" />
-
+This endpoint requires one of the following roles: `access_admin`.
 
 #### Request path parameters
 
@@ -222,7 +221,7 @@ HTTP 204 No Content
 ### List Groups a specific ASA User is a member of
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/groups" />
-
+This endpoint requires one of the following roles: `access_user`, `access_admin`, `reporting_user`.
 
 #### Request path parameters
 
@@ -272,7 +271,7 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/groups```
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": null,
 			"federation_approved_at": null,
-			"id": "71d6c3ff-d930-4445-86a2-138386b535c5",
+			"id": "44f1c727-7540-44e0-849d-1441748eaf0c",
 			"name": "compsons",
 			"roles": [
 				"access_user",
