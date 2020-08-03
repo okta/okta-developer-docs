@@ -131,6 +131,8 @@ The EL function format: `getFilteredGroups(whitelist, group_expression, limit)`
 
 You can use this function anywhere to get a list of Groups of which the current user is a member, including both User Groups and App Groups that originate from sources outside Okta, such as from Active Directory and Workday. Additionally, you can use this combined, custom-formatted list for customizable claims into access and ID tokens that drive authorization flows.
 
+> **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using G Suite). If you are targeting groups that may have duplicate group names (such as Google Groups), the `getFilteredGroups` Group function is the best function to use for that use case.<br>
+
 This function takes Okta EL expressions for all parameters that evaluate to the correct data type. With these expressions you can create complex definitions for the whitelist, for the group format, and for the number of Groups to return that can include `if` logic and customized formatting.
 
 | Parameter              | Description                                                                    | Nullable    |
