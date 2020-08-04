@@ -6,6 +6,8 @@ title: Okta API Products Release Notes
 
 | Change                                                    | Expected in Preview Orgs |
 | --------------------------------------------------------- | ------------------------ |
+| [Apple as an Identity Provider is now GA in Production](#apple-as-an-identity-provider-is-now-ga-in-production) | August 5, 2020 |
+| [OAuth 2.0 authorization code length has been increased](#oauth-2-0-authorization-code-length-has-been-increased)| August 5, 2020 |
 | [Bugs fixed in 2020.08.0](#bugs-fixed-in-2020-08-0)       | August 5, 2020           |
 
 ### Apple as an Identity Provider is now GA in Production
