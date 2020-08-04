@@ -31,14 +31,16 @@ There are two scenarios where you need to delete a draft submission:
 
 In either of these scenarios, the OIN Manager provides a method to delete unpublished submissions. For instructions on how to delete app integrations that are already published in the OIN catalog, see [Delete published submissions](#delete-published-submissions).
 
-You can only delete unpublished submissions that are in **DRAFT** state. If the delete icon is dimmed, that means the delete operation isn't available for that submission. If you can't move your submission to the **DRAFT** state, contact the Okta OIN team at <oin@okta.com> for assistance.
+You can only delete unpublished submissions that are in **DRAFT** state.
 
 To delete your submission:
 
-1. Click on the delete icon ![Delete submission](/img/icons/delete_can.png "Deletion icon") beside the **Edit** button.
+1. Click the delete icon ![Delete submission](/img/icons/delete_can.png "Deletion icon") beside the **Edit** button. If the delete icon is unavailable, that submission can't be deleted.
 1. Confirm the deletion in the dialog box.
 
 No email confirmation is sent when deleting a submission. Deleted submissions can't be recovered.
+
+If you need assistance with deleting a draft submission, contact the Okta OIN team at <oin@okta.com> for assistance.
 
 ## Delete published submissions
 
