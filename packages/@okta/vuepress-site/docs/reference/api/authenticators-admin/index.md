@@ -406,6 +406,27 @@ curl -v -X POST \
 }
 ```
 
+##### Error response example
+
+If the authenticator you are trying to activate or deactivate is currently in-use as part of an active Policy, you will get a 403 error:
+
+```json
+{
+    "errorCode": "E0000148",
+    "errorSummary": "Cannot disable this authenticator because it is enabled in one or more policies. To continue, disable the authenticator in these policies.",
+    "errorLink": "E0000148",
+    "errorId": "oae2VGZs7HVR6CuUdwmtkE-Ig",
+    "errorCauses": [
+        {
+            "errorSummary": "Self-Service Password Management Policies: Legacy Policy, Default Policy"
+        },
+        {
+            "errorSummary": "Authenticator Enrollment Policies: Default Policy"
+        }
+    ]
+}
+```
+
 ### Deactivate Authenticator
 
 <ApiOperation method="delete" url="/api/v1/authenticators/${authenticatorId}/lifecycle/activate" />
@@ -487,20 +508,20 @@ curl -v -X POST \
 
 ## Authenticator Admin API object
 
-The Authenticator Admin API only involves one object, which is the Authenticator.
+The Authenticator Admin API only involves one object: the Authenticator.
 
 ### Authenticator object
 
 #### Authenticator Properties
 
-The Authenticator model defines the following properties:
+The Authenticator object defines the following properties:
 
 | Property      | Type                                                            | Description                                                                     |
 | ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | `_links`      | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                  |
 | `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created.                                   |
 | `id`          | String                                                          | A unique identifier for the Authenticator.                                                |
-| `key`         | String                                                          | Unique string that identifies the Authenticator.                                |
+| `key`         | String                                                          | A string that identifies the Authenticator.                                |
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified.                             |
 | `name`        | String                                                          | Display name of this Authenticator.                                             |
 | `type`        | String (Enum)                                                   | The type of Authenticator. Possible values: `password`, `security_question`, `phone`, `email`, `security_key`                            |
