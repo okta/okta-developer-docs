@@ -40,7 +40,7 @@ To delete your submission:
 
 No email confirmation is sent when deleting a submission. Deleted submissions can't be recovered.
 
-If you need assistance with deleting a draft submission, contact the Okta OIN team at <oin@okta.com> for assistance.
+If you need assistance with deleting a draft submission, contact the Okta OIN team at <oin@okta.com>.
 
 ## Delete published submissions
 
