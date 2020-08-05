@@ -2,7 +2,7 @@
 title: Create your integration
 ---
 
-After you have your background information, you can use the Okta Admin Console and the Application Integration Wizard to create your SSO integration inside the Okta org associated with your developer account.
+After you have your background information, you can use the Okta Admin Console and the Application Integration Wizard (AIW) to create your SSO integration inside the Okta org associated with your developer account.
 
 If you don't have an Okta developer account, begin by signing up for one at <https://developer.okta.com/signup/>.
 
