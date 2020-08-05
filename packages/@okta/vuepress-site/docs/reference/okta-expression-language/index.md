@@ -174,7 +174,13 @@ Group functions return either an array of groups or **True** or **False**.
 
 **Note:** The **Groups.contains**, **Groups.startsWith**, and **Groups.endsWith** group functions are designed to work only with group claims. You can't use these functions with property mappings.
 
-For an example using group functions and for more information on using group functions for dynamic and static whitelists, see [Create an ID Token or Access Token Containing a Groups Claim](/docs/guides/customize-tokens-returned-from-okta/).
+For an example using group functions and for more information on using group functions for dynamic and static whitelists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
+
+> **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using G Suite). If you are targeting groups that may have duplicate group names (such as Google Groups), use the `getFilteredGroups` Group function instead.<br>
+<br>
+Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`<br>
+<br>
+See the **Parameter Examples** section of [Use group functions for static group whitelists](/docs/guides/customize-tokens-returned-from-okta/static-whitelist/#use-group-functions-for-static-group-whitelists) for more information on the parameters used in this Group function.
 
 ### Linked Object Function
 

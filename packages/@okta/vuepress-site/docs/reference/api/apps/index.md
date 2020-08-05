@@ -1667,7 +1667,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | expand    | Traverses the `users` link relationship and optionally embeds the [Application User](#application-user-object) resource   | Query      | String   | FALSE    |         |
 | filter    | Filters apps by `status`, `user.id`, `group.id` or `credentials.signing.kid` expression                          | Query      | String   | FALSE    |         |
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
-| q         | Searches the `name` or `displayName` property of applications                                                    | Query      | String   | FALSE    |         |
+| q         | Searches the `name` or `label` property of applications                                                          | Query      | String   | FALSE    |         |
 
 The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
