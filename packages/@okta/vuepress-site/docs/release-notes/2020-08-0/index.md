@@ -22,4 +22,4 @@ To better align with [security best practices](https://tools.ietf.org/html/rfc68
 
 * The GET `/api/v1/users/<userid>/idps` and POST `/api/v1/idps/<idpId>/users/<userId>` endpoints weren't [OAuth](/docs/guides/implement-oauth-for-okta/scopes/) enabled. (OKTA-303902)
 
-* Non-CORS requests to the OAuth 2.0 `/token` endpoint were failing when the Okta session cookie was present. (OKTA-312816)
+* Non-CORS requests to the OAuth 2.0 `/token` endpoint failed when the Okta session cookie was present. (OKTA-312816)
