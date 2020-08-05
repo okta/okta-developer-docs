@@ -16,3 +16,22 @@ public IActionResult SignOut()
 }
 
 ```
+
+In ASP.NET Core, you have two redirect options for your app after the user is signed out of Okta:
+
+* Define the sign-out callback in the Developer Console and add it to your configuration using `PostLogoutRedirectUri`. This is the same approach as ASP.NET.
+* Add your redirect URI in the `AuthenticationProperties` as shown on line 15 of this file:
+
+```csharp
+[HttpPost]
+public IActionResult SignOut()
+{
+    return new SignOutResult(
+        new[]
+        {
+                OktaDefaults.MvcAuthenticationScheme,
+                CookieAuthenticationDefaults.AuthenticationScheme,
+        },
+        new AuthenticationProperties { RedirectUri = "/Home/" }); // Redirect to /Home after sign out
+}
+```

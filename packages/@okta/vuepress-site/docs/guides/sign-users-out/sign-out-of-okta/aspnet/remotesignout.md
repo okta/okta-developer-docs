@@ -23,3 +23,5 @@ Update your `using` statements to import the following namespaces:
 using Microsoft.Owin.Security.Cookies;
 using Okta.AspNet;
 ```
+
+After users sign out of Okta, they are redirected to the location defined in <GuideLink link="../define-signout-callback">Define the sign-out callback</GuideLink> section.
