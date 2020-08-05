@@ -2,13 +2,13 @@ Use the [Okta OIDC](https://github.com/okta/okta-oidc-android) library, availabl
 
 To install it, add the following to your `build.gradle`:
 
-```gradle
+```groovy
 implementation 'com.okta.oidc.android:okta-oidc-androidx:1.0.1'
 ```
 
 For projects that don't yet use AndroidX:
 
-```gradle
+```groovy
 repositories {
     maven {
         url  "https://dl.bintray.com/okta/com.okta.android"
@@ -16,6 +16,6 @@ repositories {
 }
 ```
 
-```gradle
+```groovy
 implementation 'com.okta.oidc.android:okta-oidc-android:1.0.1'
 ```
