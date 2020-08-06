@@ -3,7 +3,8 @@
 source ${OKTA_HOME}/${REPO}/scripts/setup.sh
 cd ${OKTA_HOME}/${REPO}/packages/@okta/vuepress-site
 DEPLOY_ENVIRONMENT=""
-REGISTRY="${ARTIFACTORY_URL}/api/npm/npm-topic"
+export REGISTRY_REPO="npm-topic"
+export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
 
 declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
@@ -43,6 +44,12 @@ npm config set @okta:registry ${REGISTRY}
 if ! npm publish --registry ${REGISTRY}; then
   echo "npm publish failed! Exiting..."
   exit ${BUILD_FAILURE}
+fi
+
+DATALOAD=$(ci-pkginfo -t dataload)
+if ! artifactory_curl -X PUT -u ${ARTIFACTORY_CREDS} ${DATALOAD} -v -f; then
+  echo "artifactory_curl failed! Exiting..."
+  exit $PUBLISH_ARTIFACTORY_FAILURE
 fi
 
 ARTIFACT_FILE="$([[ ${DATALOAD} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH})"
