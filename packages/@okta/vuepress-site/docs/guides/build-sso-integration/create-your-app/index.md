@@ -4,6 +4,8 @@ title: Create your integration
 
 After you have your background information, you can use the Okta Admin Console and the Application Integration Wizard (AIW) to create your SSO integration inside the Okta org associated with your developer account.
 
+>**Note:** Creating your SSO app integration does not automatically make it available in the [OIN](https://www.okta.com/integrations/). After you have created and tested it, you need to [submit your app integration](/docs/guides/submit-app/openidconnect/overview/) to the OIN.
+
 If you don't have an Okta developer account, begin by signing up for one at <https://developer.okta.com/signup/>.
 
 1. After you request the developer account and have received the initialization email, click the link in the email to go to your developer org. Sign in as a user with administrative privileges.
@@ -18,9 +20,6 @@ If you don't have an Okta developer account, begin by signing up for one at <htt
 <!--  ![Create Application](/img/oin/scim_create-app.png "Add Application button") -->
 1. Click **Create New App** to start the Application Integration Wizard.
 <!--   ![Create New Application](/img/oin/scim_create-app-new.png "Create Application button") -->
-1. Choose either **Web** or **SPA** as the platform for your integration. Web is the only supported platform for both OIDC and SAML 2.0 applications in the OIN. SPA is supported for OIDC apps only.
-
-    If you are creating an OIDC integration that is intended for private use only, you can select Native or Single Page App as the platform.
 
 <StackSelector snippet="create" />
 

@@ -1,6 +1,6 @@
 ### Prepare an OIDC integration
 
-Okta uses a multi-tenant local credential system for OIDC. Each instance of your app integration in customer orgs has a separate set of OIDC client credentials that are used to access your application.
+Okta uses a multi-tenant local credential system for OIDC. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your application.
 
 For example, consider a scenario where your app integration is added to ten separate customer orgs. Seven of those customers create a single instance of your app integration. However, the other three customers each create two separate instances of your app integration so they can use different configuration options. This creates a total of 13 (7 + (3*2)) sets of client credentials for your application that you need to track.
 
@@ -15,10 +15,10 @@ Before you create a new OIDC integration in Okta:
    * A single page app (SPA) is a web application that is contained on a single web page. All code is retrieved when the page is loaded initially - the page doesn't reload or refresh. A SPA application cannot keep running on a server.
 -->
 
-1. Have your application developed and tested - with a front-end (e.g. JavaScript/HTML) and back-end (e.g. middleware, database software) stack, with services available through APIs and accepting HTTP connections. 
+1. Have your application developed and tested - with a front-end (for example, JavaScript and HTML) and back-end (for example, middleware and database software) stack, with services available through APIs and accepting HTTP connections.
+1. Based on the [type of application you have built](/docs/concepts/auth-overview/#what-kind-of-client-are-you-building), determine the correct [OAuth 2.0 flow](/docs/concepts/auth-overview/#recommended-flow-by-application-type) that is required below the OIDC identity layer. For OIN app integrations, the OAuth 2.0 flow must be either Web (server side) or a Single Page Application (SPA).
 1. Determine the login redirect URIs on your system. A redirect URI is where Okta sends the authentication response and ID token during the sign-in flow. You can specify more than one URI if required.
 1. Your application must support automatic credential rotation. For more information, see the `/keys` section in the [OpenID Connect & OAuth 2.0 API reference](/docs/reference/api/oidc/#key-rotation).
-1. Your application must support refresh tokens.
 
 <!-- [ian 2020.02.25] the following steps are unnecessary if we only support web applications in the OIN
 1. If your integration is a web or native application, decide whether or not to use refresh tokens.
