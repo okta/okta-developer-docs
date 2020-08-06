@@ -51,9 +51,9 @@ To initialize the SDK, create a new instance of the `OktaAuth` object:
 
 ``` js
 var authClient = new OktaAuth({
-  url: 'https://${yourOktaDomain}',
-  clientId: '0oab4exampleR4Jbi0h7',
-  redirectUri: 'http://localhost:3333'
+  url: 'https://{yourOktaDomain}',
+  clientId: '{clientId}',
+  redirectUri: 'http://localhost:8080'
 });
 ```
 
@@ -128,48 +128,45 @@ authClient.tokenManager.get('idToken')
 
 Putting it all together, the final example looks like this:
 
-``` html
+``` js
 
-<script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-auth-js/2.0.1/okta-auth-js.min.js" type="text/javascript"></script>
+import OktaAuth from '@okta/okta-auth-js';
 
-<body>
-  <script>
-    // Bootstrap the AuthJS Client
-    var authClient = new OktaAuth({
-      // Org URL
-      url: 'https://${yourOktaDomain}',
-      // OpenID Connect APP Client ID
-      clientId: '0oab4qpkhz1UR4Jbi0h7',
-      // Trusted Origin Redirect URI
-      redirectUri: 'http://localhost:3333'
+// Bootstrap the AuthJS Client
+const authClient = new OktaAuth({
+  // Org URL
+  url: 'https://{yourOktaDomain}',
+  // OpenID Connect APP Client ID
+  clientId: '{clientId}',
+  // Trusted Origin Redirect URI
+  redirectUri: 'http://localhost:8080'
+});
+
+if (authClient.token.isLoginRedirect()) {
+  // Parse token from redirect url
+  authClient.token.parseFromUrl()
+    .then(data => {
+      const { idToken } = data.tokens;
+      console.log(`hi ${idToken.claims.email}!`);
+      // Store parsed token in Token Manager
+      authClient.tokenManager.add('idToken', idToken);
+      console.log(idToken);
     });
-    // Attempt to retrieve ID Token from Token Manager
-    var idToken = authClient.tokenManager.get('idToken')
+} else {
+  // Attempt to retrieve ID Token from Token Manager
+  authClient.tokenManager.get('idToken')
     .then(idToken => {
-      // If ID Token exists, output it to the console
+      console.log(idToken);
       if (idToken) {
         console.log(`hi ${idToken.claims.email}!`);
-      // If ID Token isn't found, try to parse it from the current URL
-      }
-      else if (location.hash) {
-        authClient.token.parseFromUrl()
-        .then(idToken => {
-          console.log(`hi ${idToken.claims.email}!`);
-          // Store parsed token in Token Manager
-          authClient.tokenManager.add('idToken', idToken);
-          console.log(idToken);
-        });
-      }
-      else {
+      } else {
         // You're not logged in, you need a sessionToken
         authClient.token.getWithRedirect({
           responseType: 'id_token'
         });
       }
-    });
-  </script>
-</body>
-
+    })
+}
 ```
 
 ## Part 2: Get an Okta Session Cookie
@@ -185,69 +182,67 @@ else {
   var password = prompt('What is your password?');
 
   authClient.signIn({username, password})
-  .then(res => {
-    if (res.status === 'SUCCESS') {
-      authClient.token.getWithRedirect({
-        sessionToken: res.sessionToken,
-        responseType: 'id_token'
-      });
-    }
-  });
-});
+    .then(res => {
+      if (res.status === 'SUCCESS') {
+        authClient.token.getWithRedirect({
+          sessionToken: res.sessionToken,
+          responseType: 'id_token'
+        });
+      }
+    });
+}
 ```
 
 > This example, like everything else on this page, is for illustrative purposes only. The `prompt()` method is not considered a secure way of asking for user authentication credentials.
 
 #### Complete Okta Session and OIDC Token Example
 
-``` html
+``` js
+import OktaAuth from '@okta/okta-auth-js';
 
-<script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-auth-js/2.0.1/okta-auth-js.min.js" type="text/javascript"></script>
+// Bootstrap the AuthJS Client
+const authClient = new OktaAuth({
+  // Org URL
+  url: 'https://{yourOktaDomain}',
+  // OpenID Connect APP Client ID
+  clientId: '{clientId}',
+  // Trusted Origin Redirect URI
+  redirectUri: 'http://localhost:8080'
+});
 
-<body>
-  <script>
-    // Bootstrap the AuthJS Client
-    var authClient = new OktaAuth({
-      // Org URL
-      url: 'https://${yourOktaDomain}',
-      // OpenID Connect APP Client ID
-      clientId: '0oab4example4Jbi0h7',
-      // Trusted Origin Redirect URI
-      redirectUri: 'http://localhost:3333'
+if (authClient.token.isLoginRedirect()) {
+  // Parse token from redirect url
+  authClient.token.parseFromUrl()
+    .then(data => {
+      const { idToken } = data.tokens;
+      console.log(`hi ${idToken.claims.email}!`);
+      // Store parsed token in Token Manager
+      authClient.tokenManager.add('idToken', idToken);
+      console.log(idToken);
     });
-    // Attempt to retrieve ID Token from Token Manager
-    var idToken = authClient.tokenManager.get('idToken')
+} else {
+  // Attempt to retrieve ID Token from Token Manager
+  authClient.tokenManager.get('idToken')
     .then(idToken => {
-      // If ID Token exists, output it to the console
+      console.log(idToken);
       if (idToken) {
         console.log(`hi ${idToken.claims.email}!`);
-      // If ID Token isn't found, try to parse it from the current URL
-      } else if (location.hash) {
-        authClient.token.parseFromUrl()
-        .then(idToken => {
-          console.log(`hi ${idToken.claims.email}!`);
-          // Store parsed token in Token Manager
-          authClient.tokenManager.add('idToken', idToken);
-          console.log(idToken);
-        });
       } else {
-        // You're not logged in, you need a sessionToken
         var username = prompt('What is your username?');
         var password = prompt('What is your password?');
 
         authClient.signIn({username, password})
-        .then(res => {
-          if (res.status === 'SUCCESS') {
-            authClient.token.getWithRedirect({
-              sessionToken: res.sessionToken,
-              responseType: 'id_token'
-            });
-          }
-        });
+          .then(res => {
+            if (res.status === 'SUCCESS') {
+              authClient.token.getWithRedirect({
+                sessionToken: res.sessionToken,
+                responseType: 'id_token'
+              });
+            }
+          });
       }
     });
-  </script>
-</body>
+}
 ```
 
 [authjs-reference]: https://github.com/okta/okta-auth-js
