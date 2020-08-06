@@ -1,6 +1,6 @@
 {
-  "release" : "2020.07.1",
-  "build" : "2020.07.1-begin-109-g80b46798ce40",
+  "release" : "2020.08.0",
+  "build" : "2020.08.0-begin-83-g54c957d183ad",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -10,6 +10,9 @@
   }, {
     "id" : "aelm",
     "name" : "Admin Experience and License Management"
+  }, {
+    "id" : "agent-rotation",
+    "name" : "Agent Rotation"
   }, {
     "id" : "analytics",
     "name" : "Analytics"
@@ -11568,7 +11571,7 @@
     }, {
       "id" : "application.policy.sign_on.deny_access",
       "category" : "authn",
-      "description" : "Deny user access due to app sign on policy.",
+      "description" : "Deny user access due to app sign on policy. When fired due to app assurance being evaluated as unsatisfiable (the policy requirements could not be satisfied by the users' current set of available authenticator enrollments), this event contains information about the user and the app that the user is trying to authenticate into.",
       "info" : {
         "created" : "2016-03-24",
         "release" : "2016.13"
@@ -17190,7 +17193,7 @@
         "release" : "2017.27"
       },
       "beta" : false,
-      "tags" : [ "user" ],
+      "tags" : [ "end-user-visible", "user" ],
       "mappings" : [ "user.authentication.verify" ],
       "schema" : {
         "debugData" : "UserAuthenticationDebugData",
@@ -17985,6 +17988,7 @@
           "original_principal" : "Resource",
           "device_fingerprint" : "String",
           "authn_request_id" : "String",
+          "phone_number" : "String",
           "transaction_id" : "String",
           "call_provider" : "String",
           "country_calling_code" : "Integer"

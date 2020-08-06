@@ -14,6 +14,7 @@ module.exports = [
         { title: 'Authorization Servers', path: '/docs/reference/api/authorization-servers/'},
         { title: 'Dynamic Client Registration', path: '/docs/reference/api/oauth-clients/'},
         { title: 'Event Hooks', path: '/docs/reference/api/event-hooks/'},
+        { title: 'Event Types', path: '/docs/reference/api/event-types/'},
         { title: 'Factors', path: '/docs/reference/api/factors/'},
         { title: 'Features', path: '/docs/reference/api/features/'},
         { title: 'Groups', path: '/docs/reference/api/groups/'},
