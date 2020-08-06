@@ -10,15 +10,13 @@ declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
 branch_environment_map[staging]=vuepress-site-preprod
 
-npm install -g @okta/ci-append-sha
-
 # Check if we are in one of our publish branches
 if [[ -z "${branch_environment_map[$BRANCH]+unset}" ]]; then
     echo "Current branch is not a publish branch"
     exit ${SUCCESS}
 else
     DEPLOY_ENVIRONMENT=${branch_environment_map[$BRANCH]}
-fi
+# fi
 
 interject "Generating conductor file in $(pwd)"
 if ! generate_conductor_file; then
@@ -46,13 +44,7 @@ if ! npm publish --registry ${REGISTRY}; then
   exit ${BUILD_FAILURE}
 fi
 
-DATALOAD=$(ci-pkginfo -t dataload)
-if ! artifactory_curl -X PUT -u ${ARTIFACTORY_CREDS} ${DATALOAD} -v -f; then
-  echo "artifactory_curl failed! Exiting..."
-  exit $PUBLISH_ARTIFACTORY_FAILURE
-fi
-
-ARTIFACT_FILE="$([[ ${DATALOAD} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH})"
+ARTIFACT_FILE="$(ci-pkginfo -t pkgname)-$(ci-pkginfo -t pkgsemver).tgz"
 DEPLOY_VERSION="$([[ ${ARTIFACT_FILE} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH[1]})"
 ARTIFACT="@okta/vuepress-site/-/@okta/${ARTIFACT_FILE}"
 
