@@ -9,7 +9,7 @@ The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured 
 
 Okta uses the Widget as part of its normal sign-in page. If you would like to customize the Widget, then you will need to host it yourself. This guide will walk you through the [installation process](#installation) for the Widget, as well as [a few common use cases](#use-cases) for the Widget and how to implement them. The full Widget reference can be found [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
 
-> A version of the Widget that you can edit in real time can be found here: <https://developer.okta.com/live-widget/>.
+> A version of the Widget that you can edit in real time can be found here: <https://developer.okta.com/live-widget/>
 
 ![Screenshot of basic Okta Sign-In Widget](/img/okta-signin.png "Screenshot of basic Okta Sign-In Widget")
 
@@ -103,7 +103,7 @@ The Widget can handle a number of different authentication scenarios. Here are a
 
 In this case, you would like to use the Widget to sign in to a simple web page and display the user's email. This requires an Okta developer account, and you have to create a new Single-Page App (SPA) for it to work.
 
-Log in to your Okta developer dashboard and navigate to **Applications** > **Add Application**. Choose **Single-Page App** and click **Next**. Set `http://localhost:8080` as a Login redirect URI and click **Done**. The next page will show a client ID that you'll need to use in the code below.
+Sign in to your Okta developer dashboard and navigate to **Applications** > **Add Application**. Choose **Single-Page App** and click **Next**. Set `http://localhost:8080` as a Login redirect URI and click **Done**. The next page will show a client ID that you'll need to use in the code below.
 
 ```html
 <!doctype html>
@@ -186,7 +186,7 @@ Log in to your Okta developer dashboard and navigate to **Applications** > **Add
 
 Copy the code above into an `index.html` file on your hard drive.
 
-For this example to work, you'll need to host it on a web server that runs locally on port 8080. To do this, if you have Python 3 installed, you can simply run the command `python -m http.server 8080` in the same directory as `index.html`. If you're on a Mac, you can use `python -m SimpleHTTPServer 8080`. This will open a web server on port 8080 and you'll be able to access your page at http://localhost:8080.
+For this example to work, you'll need to host it on a web server that runs locally on port 8080. If you have Python 3 installed you can simply run the command `python -m http.server 8080` in the same directory as `index.html`. If you're on a Mac, you can use `python -m SimpleHTTPServer 8080`. This will open a web server on port 8080 and you'll be able to access your page at `http://localhost:8080`.
 
 #### Sign In to Okta with the Default Dashboard
 
