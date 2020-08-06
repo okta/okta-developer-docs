@@ -406,27 +406,6 @@ curl -v -X POST \
 }
 ```
 
-##### Error response example
-
-If the authenticator you are trying to activate or deactivate is currently in-use as part of an active Policy, you will get a 403 error:
-
-```json
-{
-    "errorCode": "E0000148",
-    "errorSummary": "Cannot disable this authenticator because it is enabled in one or more policies. To continue, disable the authenticator in these policies.",
-    "errorLink": "E0000148",
-    "errorId": "oae2VGZs7HVR6CuUdwmtkE-Ig",
-    "errorCauses": [
-        {
-            "errorSummary": "Self-Service Password Management Policies: Legacy Policy, Default Policy"
-        },
-        {
-            "errorSummary": "Authenticator Enrollment Policies: Default Policy"
-        }
-    ]
-}
-```
-
 ### Deactivate Authenticator
 
 <ApiOperation method="delete" url="/api/v1/authenticators/${authenticatorId}/lifecycle/activate" />
@@ -505,6 +484,28 @@ curl -v -X POST \
     }
 }
 ```
+
+##### Error response example
+
+If the authenticator you are trying to deactivate is currently in-use as part of an active Policy, you will get a 403 error:
+
+```json
+{
+    "errorCode": "E0000148",
+    "errorSummary": "Cannot disable this authenticator because it is enabled in one or more policies. To continue, disable the authenticator in these policies.",
+    "errorLink": "E0000148",
+    "errorId": "oae2VGZs7HVR6CuUdwmtkE-Ig",
+    "errorCauses": [
+        {
+            "errorSummary": "Self-Service Password Management Policies: Legacy Policy, Default Policy"
+        },
+        {
+            "errorSummary": "Authenticator Enrollment Policies: Default Policy"
+        }
+    ]
+}
+```
+
 
 ## Authenticator Admin API object
 
