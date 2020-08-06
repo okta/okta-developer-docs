@@ -2,11 +2,11 @@
 
 To install the library, add the following to your `build.gradle`:
 
-```gradle
+```groovy
 implementation 'com.okta.oidc.android:okta-oidc-androidx:1.0.2'
 ```
 
 For projects that don't yet use AndroidX:
 
-```gradle
+```groovy
 implementation 'com.okta.oidc.android:okta-oidc-android:1.0.2'
