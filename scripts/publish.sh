@@ -46,14 +46,14 @@ fi
 
 ARTIFACT_FILE="$(ci-pkginfo -t pkgname)-$(ci-pkginfo -t pkgsemver).tgz"
 DEPLOY_VERSION="$([[ ${ARTIFACT_FILE} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH[1]})"
-ARTIFACT="@okta/vuepress-site/-/@okta/${ARTIFACT_FILE}"
+ARTIFACT_PATH="@okta/vuepress-site/-/@okta/${ARTIFACT_FILE}"
 
 if ! trigger_and_wait_release_promotion_task 60; then
   echo "Automatic promotion failed..."
   exit ${BUILD_FAILURE}
 fi
 
-if ! send_promotion_message "${DEPLOY_ENVIRONMENT}" "${ARTIFACT}" "${DEPLOY_VERSION}"; then
+if ! send_promotion_message "${DEPLOY_ENVIRONMENT}" "${ARTIFACT_PATH}" "${DEPLOY_VERSION}"; then
   echo "Error sending promotion event to aperture"
   exit ${BUILD_FAILURE}
 fi
