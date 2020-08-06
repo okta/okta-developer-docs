@@ -40,7 +40,7 @@ These values will be used in your Android application to setup the OpenID Connec
 
 The simplest way to add authentication into an Android app is using the library [Okta OIDC](https://bintray.com/okta/com.okta.android/okta-oidc-android), available through [JCenter](https://bintray.com/bintray/jcenter). To install it, simply add the following to your `build.grade`:
 
-```gradle
+```groovy
 implementation 'com.okta.android:oidc-androidx:1.0.6'
 ```
 
@@ -68,7 +68,7 @@ Create a new `okta_oidc_config.json` file in your application's `res/raw` direct
 
 In order to redirect back to your application from a web browser, you must specify a unique URI to your app. To do this, you must define a gradle manifest placeholder in your app's `build.gradle`:
 
-```gradle
+```groovy
 android.defaultConfig.manifestPlaceholders = [
     "appAuthRedirectScheme": "com.okta.example"
 ]
