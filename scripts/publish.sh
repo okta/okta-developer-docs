@@ -3,7 +3,8 @@
 source ${OKTA_HOME}/${REPO}/scripts/setup.sh
 cd ${OKTA_HOME}/${REPO}/packages/@okta/vuepress-site
 DEPLOY_ENVIRONMENT=""
-REGISTRY="${ARTIFACTORY_URL}/api/npm/npm-okta"
+export REGISTRY_REPO="npm-topic"
+export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
 
 declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
@@ -37,27 +38,27 @@ else
   TARGET_BRANCH=$BRANCH
 fi
 
-if ! ci-update-package --branch ${TARGET_BRANCH}; then
-  echo "ci-update-package failed! Exiting..."
-  exit ${BUILD_FAILURE}
+if ! ci-append-sha; then
+  echo "ci-append-sha failed! Exiting..."
+  exit $FAILED_SETUP
 fi
 
+npm config set @okta:registry ${REGISTRY}
 if ! npm publish --registry ${REGISTRY}; then
   echo "npm publish failed! Exiting..."
   exit ${BUILD_FAILURE}
 fi
 
-DATALOAD=$(ci-pkginfo -t dataload)
-if ! artifactory_curl -X PUT -u ${ARTIFACTORY_CREDS} ${DATALOAD} -v -f; then
-  echo "artifactory_curl failed! Exiting..."
-  exit $PUBLISH_ARTIFACTORY_FAILURE
+ARTIFACT_FILE="$(ci-pkginfo -t pkgname)-$(ci-pkginfo -t pkgsemver).tgz"
+DEPLOY_VERSION="$([[ ${ARTIFACT_FILE} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH[1]})"
+ARTIFACT_PATH="@okta/vuepress-site/-/@okta/${ARTIFACT_FILE}"
+
+if ! trigger_and_wait_release_promotion_task 60; then
+  echo "Automatic promotion failed..."
+  exit ${BUILD_FAILURE}
 fi
 
-ARTIFACT_FILE="$([[ ${DATALOAD} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH})"
-DEPLOY_VERSION="$([[ ${ARTIFACT_FILE} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH[1]})"
-ARTIFACT="@okta/vuepress-site/-/@okta/${ARTIFACT_FILE}"
-
-if ! send_promotion_message "${DEPLOY_ENVIRONMENT}" "${ARTIFACT}" "${DEPLOY_VERSION}"; then
+if ! send_promotion_message "${DEPLOY_ENVIRONMENT}" "${ARTIFACT_PATH}" "${DEPLOY_VERSION}"; then
   echo "Error sending promotion event to aperture"
   exit ${BUILD_FAILURE}
 fi
