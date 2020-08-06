@@ -9,10 +9,12 @@ The Okta Auth SDK builds on top of our [Authentication API](/docs/reference/api/
 
 The Okta Auth SDK is used by Okta's [Sign-in Widget](/code/javascript/okta_sign-in_widget/) which powers the default Okta sign-in page. If you are building a JavaScript front end or Single Page App (SPA), the Auth SDK gives you added control and customization beyond what is possible with the Widget.
 
-In this guide you will learn how to use the Auth SDK on a simple static page to:
+In this guide you will learn how to use the Auth SDK to:
 
 - Retrieve and store an OpenID Connect (OIDC) token
 - Get an Okta session
+
+**NOTE**: `@okta/okta-auth-js` version 3.2.2 or above is required to run samples in this guide.
 
 If you'd like to explore the entire Auth SDK, please see the [Okta AuthJS Source &amp; API Reference][authjs-reference].
 
@@ -27,10 +29,33 @@ You will need the following things for this guide:
 
 ## Installation
 
-Include the following script tag in your target web page:
+### Using the npm module
 
-``` html
-<script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-auth-js/2.0.1/okta-auth-js.min.js" type="text/javascript"></script>
+Using our npm module is a good choice if:
+
+- You have a build system in place where you manage dependencies with npm.
+- You do not want to load scripts directly from third party sites.
+
+To install [@okta/okta-auth-js](https://www.npmjs.com/package/@okta/okta-auth-js):
+
+```bash
+# Run this command in your project root folder.
+# yarn
+yarn add @okta/okta-auth-js
+
+# npm
+npm install --save @okta/okta-auth-js
+```
+
+### Using script tag in your target web page
+
+If you are using the JS on a web page from the browser, you can copy the `node_modules/@okta/okta-auth-js/dist` contents to publicly hosted directory, and include a reference to the `okta-auth-js.min.js` file in a `<script>` tag.  
+
+However, if you're using a bundler like [Webpack](https://webpack.github.io/) or [Browserify](http://browserify.org/), you can simply import the module using CommonJS.
+
+```javascript
+var OktaAuth = require('@okta/okta-auth-js');
+var authClient = new OktaAuth(/* configOptions */);
 ```
 
 ## Part 1: Retrieve and Store an OpenID Connect Token
