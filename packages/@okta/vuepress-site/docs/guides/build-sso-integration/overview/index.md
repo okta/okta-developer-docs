@@ -37,6 +37,6 @@ In developing your SSO app integration, the customer’s Okta org serves as the 
 
 ## Publishing
 
-This guide assumes you intend to develop an app integration and make it public by publishing it in the Okta Integration Network (OIN). If you want to develop a custom app integration that is intended for private deployment within your own company, use the Okta [App Integration Wizard (AIW)](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard) to create your app integration.
+This guide assumes that you intend to develop an app integration and make it public by publishing it in the Okta Integration Network (OIN). If you want to develop a custom app integration that is intended for private deployment within your own company, use the Okta [App Integration Wizard (AIW)](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard) to create your app integration.
 
 <NextSectionLink/>

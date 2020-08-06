@@ -12,7 +12,7 @@
     * Optional. **Implicit (Hybrid)**
   * SPA:
     * Implicit &mdash; choose either **Allow ID Token with implicit grant type** or **Allow Access Token with implicit grant type**
-* The **Client acting on behalf of itself** grant type is not permitted in OIN app integrations.
+  >**Note:** The **Client acting on behalf of itself** grant type is not permitted in OIN app integrations.
 * If you only want to support direct SSO to your application (so the integration isn't launched from the Okta End-User Dashboard), then:
   1. Enter one or more **Login redirect URI** values where Okta sends the OAuth responses.
   1. Set the **Login initiated by** drop-down box to **App Only**.
@@ -53,7 +53,7 @@
 
 <!-- [ian 2020.02.25] we don't currently support OIDC SPA applications in the OIN -->
 <!--
-#### Single Page applications
+#### Single-page applications
 
 1. Select from among the different grant type options.
 1. If you only want to support direct SSO to your integration (not launched from the Okta End-User Dashboard), then you only need to set the **Login initiated by**  to App Only, enter one or more **Login redirect URI** values, and you can leave all of the remaining entries at their default values.
