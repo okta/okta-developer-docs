@@ -12,7 +12,7 @@ A great way to learn an API is to issue requests and inspect the responses. You 
 
 ## Sign up for Okta
 
-You need a free Okta developer edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). When you create a new Okta org, the org is assigned a base URL such as `dev-12345.okta.com`. This is your unique subdomain in Okta.
+You need a free Okta developer edition org to get started. Don't have one? [Create an org for free](https://developer.okta.com/signup). When you create a new Okta org, the org is assigned a base URL such as `dev-1234.okta.com`. This is your unique subdomain in Okta.
 
 ## Set up your environment
 
