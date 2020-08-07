@@ -22,7 +22,7 @@ Okta session cookies that accompany XHR calls to Okta API endpoints like `/sessi
 
 The result is that Okta returns 403 forbidden errors to the user or repeatedly directs them back to the sign-in page.
 
-Specifically, this problem affects [certain methods](https://github.com/okta/okta-auth-js#third-party-cookies - Connect to preview  of the Okta Auth JavaScript SDK. The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-sign-in-widget - Connect to preview ) uses the affected Okta Auth JavaScript SDK methods internally. Any customer-developed code that directly makes XHR calls to the Okta [Sessions API](/docs/reference/api/sessions/) is also affected. 
+Specifically, this problem affects [certain methods](https://github.com/okta/okta-auth-js#third-party-cookies]. The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-sign-in-widget) uses the affected Okta Auth JavaScript SDK methods internally. Any customer-developed code that directly makes XHR calls to the Okta [Sessions API](/docs/reference/api/sessions/) is also affected. 
 
 ### Token renewal in customer-built SPAs that use the OAuth 2.0 implicit flow
 
