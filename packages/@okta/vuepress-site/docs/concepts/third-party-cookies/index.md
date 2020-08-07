@@ -1,8 +1,8 @@
 ---
-title: Safari 13.1 disrupts certain customer-hosted flows
+title: Cross-Site Cookie Blocking
 ---
 
-# Safari 13.1 disrupts certain customer-hosted flows
+# Cross-Site Cookie Blocking
 
 ## Description of the problem
 
