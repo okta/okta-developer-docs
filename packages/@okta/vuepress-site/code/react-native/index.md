@@ -32,7 +32,7 @@ The Okta React Native client makes it easy to add authentication to your React N
 	<span class='icon download-16'></span> <span>okta-react-native on npm</span>
 </a>
 
-<a href='https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react-native'>
+<a href='https://github.com/okta/okta-react-native'>
 	<span class='fa fa-github'></span> <span>React Native SDK Source</span>
 </a>
 
