@@ -10,13 +10,18 @@ declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
 branch_environment_map[staging]=vuepress-site-preprod
 
+if ! yarn build; then
+    echo "Error building site"
+    exit ${BUILD_FAILURE}
+fi
+
 # Check if we are in one of our publish branches
 if [[ -z "${branch_environment_map[$BRANCH]+unset}" ]]; then
     echo "Current branch is not a publish branch"
     exit ${SUCCESS}
 else
     DEPLOY_ENVIRONMENT=${branch_environment_map[$BRANCH]}
-# fi
+fi
 
 interject "Generating conductor file in $(pwd)"
 if ! generate_conductor_file; then
@@ -46,7 +51,7 @@ fi
 
 ARTIFACT_FILE="$(ci-pkginfo -t pkgname)-$(ci-pkginfo -t pkgsemver).tgz"
 DEPLOY_VERSION="$([[ ${ARTIFACT_FILE} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH[1]})"
-ARTIFACT_PATH="@okta/vuepress-site/-/@okta/${ARTIFACT_FILE}"
+ARTIFACT_PATH="@okta/vuepress-site/-/${ARTIFACT_FILE}"
 
 if ! trigger_and_wait_release_promotion_task 60; then
   echo "Automatic promotion failed..."
