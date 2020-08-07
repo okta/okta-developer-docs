@@ -4,6 +4,8 @@ title: Cross-Site Cookie Blocking
 
 # Cross-Site Cookie Blocking
 
+Cross-site cookie blocking is a privacy-protection feature that is being added to web browsers like Safari. It can disrupt certain customer-hosted flows in Okta.
+
 ## Description of the problem
 
 Beginning from version 13.1, Safari [blocks third-party cookies by default](https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/), disrupting Okta functionality in certain flows. This issue will not affect your organization if you use the Okta-hosted sign-in page. Only customers who host their own sign-in functionality can be affected.
