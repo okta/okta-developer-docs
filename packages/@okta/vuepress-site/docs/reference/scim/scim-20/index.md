@@ -241,9 +241,9 @@ Content-Type: text/json;charset=UTF-8
 
 ![Flowchart - update User (PUT)](/img/oin/scim_flow-user-update-put.png "Simple flow diagram for updating a User with a PUT method request")
 
-Updating a User refers to modifying an attribute in the Okta user's profile that is mapped to an attribute in the SCIM application.
+Updating a User object refers to modifying an attribute in the Okta user's profile that is mapped to an attribute in the SCIM application.
 
-To update a User, you need to enable the functionality in the Okta Admin Console:
+To update a User object, you need to enable the functionality in the Okta Admin Console:
 
 1. Select your SCIM integration from the list of integrations in your Okta org.
 1. Under the **Provisioning** tab, click **To App**.
@@ -253,7 +253,7 @@ To update a User, you need to enable the functionality in the Okta Admin Console
 
 **GET** /Users/*$userID*
 
-To update a User profile, Okta first makes a GET method request to `/Users/${userID}` and retrieves the body of the user's SCIM profile:
+To update a profile, Okta first makes a GET method request to `/Users/${userID}` and retrieves the body of the user's SCIM profile:
 
 ```http
 GET /scim/v2/Users/23a35c27-23d3-4c03-b4c5-6443c09e7173 HTTP/1.1
@@ -374,7 +374,7 @@ For new OIN app integrations, the following operations update a User object thro
 
 All other updates to User objects should be handled through a PUT method request.
 
->**Note:** For any custom app integrations created using the AIW, all SCIM operations that update a User object are always sent through a PUT method request.
+For any custom app integrations created using the AIW, all SCIM operations that update a User object, including these operations, are always sent through a PUT method request.
 
 The `active` attribute in a user profile represents the user's current status.  
 
