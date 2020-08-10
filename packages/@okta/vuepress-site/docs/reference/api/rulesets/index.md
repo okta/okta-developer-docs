@@ -145,6 +145,8 @@ curl -v -X POST \
 
 <ApiOperation method="get" url="/api/v1/policies/${ruleSetId}" />
 
+Returns the specified [Rule Set](#rule-set-object).
+
 #### Request path parameters
 
 | Parameter   | Type   | Description                                      |
@@ -255,7 +257,7 @@ N/A
 
 #### Response body
 
-An array of [Rule Set](#rule-set-object) objects of the matching type.
+An Array of [Rule Set](#rule-set-object) objects of the matching type.
 
 #### Usage example
 
@@ -503,7 +505,7 @@ N/A
 
 #### Response body
 
-No content is returned when the activation is successful.
+N/A
 
 #### Usage example
 
@@ -548,11 +550,11 @@ N/A
 
 #### Response body
 
-No content is returned when the deactivation is successful.
+N/A
 
 #### Usage example
 
-The following request would activate the specified Rule Set:
+The following request would deactivate the specified Rule Set:
 
 ##### Request
 
@@ -615,11 +617,11 @@ N/A
 
 #### Response body
 
-An Array of [Rules](#rules-object) from the specified Rule Set.
+The [Rule](#rule-object) that you just created.
 
 #### Usage example
 
-The following request would create a new Rule in the specified Rule Set.
+The following request would create a new Rule in the specified Rule Set:
 
 ##### Request
 
@@ -630,7 +632,7 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "Okta:SignOn",
-  "name": "EExample App Assurance Rule",
+  "name": "Example App Assurance Rule",
   "status": "ACTIVE",
   "default": false,
   "priority": 0,
@@ -758,7 +760,7 @@ The specified [Rule](#rule-object)
 
 #### Usage example
 
-The following request would retrieve the specified Rule.
+The following request would retrieve the specified Rule:
 
 ##### Request
 
@@ -977,7 +979,7 @@ The following properties can be updated as part of a PUT:
 
 #### Response body
 
-A [Rule object](#rule-object)
+The updated [Rule object](#rule-object)
 
 #### Usage example
 
@@ -1121,7 +1123,7 @@ N/A
 
 #### Usage example
 
-The following request would delete the specified Rule from the specified Rule Set.
+The following request would delete the specified Rule from the specified Rule Set:
 
 ##### Request
 
@@ -1151,7 +1153,7 @@ Activates the specified Rule.
 | Parameter   | Type   | Description                                      |
 | ----------- | ------ | ------------------------------------------------ |
 | `ruleSetId` | String | The `id` of the Rule Set this Rule belongs to    |
-| `ruleId`    | String | The `id` of the Rule that you'd like to retrieve |
+| `ruleId`    | String | The `id` of the Rule that you'd like to activate |
 
 #### Request query parameters
 
@@ -1163,11 +1165,11 @@ N/A
 
 #### Response body
 
-No content is returned when the activation is successful.
+N/A
 
 #### Usage example
 
-The following request would activate the specified Rule.
+The following request would activate the specified Rule:
 
 ##### Request
 
@@ -1197,7 +1199,7 @@ Deactivates the specified Rule.
 | Parameter   | Type   | Description                                      |
 | ----------- | ------ | ------------------------------------------------ |
 | `ruleSetId` | String | The `id` of the Rule Set this Rule belongs to    |
-| `ruleId`    | String | The `id` of the Rule that you'd like to retrieve |
+| `ruleId`    | String | The `id` of the Rule that you'd like to deactivate |
 
 #### Request query parameters
 
@@ -1209,11 +1211,11 @@ N/A
 
 #### Response body
 
-No content is returned when the deactivation is successful.
+N/A
 
 #### Usage example
 
-The following request would deactivate the specified Rule.
+The following request would deactivate the specified Rule:
 
 ##### Request
 
@@ -1249,9 +1251,9 @@ Creates a new Mapping for the specified Rule Set.
 
 #### Request path parameters
 
-| Parameter | Type        | Description   |
-| --------- | ----------- | ------------- |
-| `ruleSetId`  | String | The `id` of the Rule Set you'd like to create a Mapping for. |
+| Parameter   | Type   | Description                                                  |
+| ----------- | ------ | ------------------------------------------------------------ |
+| `ruleSetId` | String | The `id` of the Rule Set you'd like to create a Mapping for. |
 
 #### Request query parameters
 
@@ -1259,10 +1261,10 @@ N/A
 
 #### Request body
 
-| Parameter | Type        | Description   |
-| --------- | ----------- | ------------- |
-| `resourceType` | String | The type of Okta object that this Rule Set should be mapped to. (Valid value: `APP`) |
-| `resourceId` | String | The `id` of the object that you would like to map this Rule Set to.  |
+| Parameter      | Type   | Description                                                                          |
+| -------------- | ------ | ------------------------------------------------------------------------------------ |
+| `resourceType` | String | The type of Okta object that this Rule Set should be mapped to: `APP` |
+| `resourceId`   | String | The `id` of the object that you would like to map this Rule Set to.                  |
 
 #### Response body
 
@@ -1270,7 +1272,7 @@ N/A
 
 #### Usage example
 
-The following request would create a new Mapping between the Rule Set with id `rst30qv3igD5OpiL50g7` and an App with id `0oa10510BvfrKTfzD0g4`
+The following request would create a new Mapping between the Rule Set with id `rst30qv3igD5OpiL50g7` and an App with id `0oa10510BvfrKTfzD0g4`:
 
 ##### Request
 
@@ -1351,7 +1353,7 @@ A [Mapping object](#mapping-object)
 
 #### Usage example
 
-The following request would retrieve a Mapping for this Rule Set.
+The following request would retrieve a Mapping for this Rule Set:
 
 ##### Request
 
@@ -1410,8 +1412,8 @@ Retrieves all Mappings associated with the specified Rule Set.
 
 #### Request path parameters
 
-| Parameter | Type        | Description   |
-| --------- | ----------- | ------------- |
+| Parameter   | Type   | Description                   |
+| ----------- | ------ | ----------------------------- |
 | `ruleSetId` | String | The identifier for a Rule Set |
 
 #### Request query parameters
@@ -1428,7 +1430,7 @@ An Array of [Mapping objects](#mapping-object)
 
 #### Usage example
 
-The following request would retrieve all Mappings associated with a Rule Set.
+The following request would retrieve all Mappings associated with specified Rule Set:
 
 ##### Request
 
@@ -1506,7 +1508,7 @@ N/A
 
 #### Usage example
 
-The following request would delete the specified Mapping.
+The following request would delete the specified Mapping:
 
 ##### Request
 
@@ -1520,7 +1522,9 @@ curl -v -X DELETE \
 
 ##### Response
 
-```json
+```http
+HTTP/1.1 204 No Content
+Content-Type: application/json
 ```
 
 ## Rule Sets API objects
@@ -1626,7 +1630,6 @@ There is always a default Rule Set created for each [type](#rule-set-types). The
 - The default Rule Set is always the last in the priority order. Any added Rule Sets of this type have higher priority than the default Rule Set.
 - The default Rule Set always has one default rule that cannot be deleted. It is always the last rule in the priority order. If you add rules to the default Rule Set, they have a higher priority than the default rule.
 
-
 ### Rule Object
 
 Each Rule Set may contain one or more rules. Rules contain conditions which must be satisfied in order for the rule to be applied.
@@ -1649,7 +1652,7 @@ Each Rule Set may contain one or more rules. Rules contain conditions which must
 | `priority`          | Number       | Priority of this Rule                                                                                                                                       |
 | `requirement`       | Object       | The [Requirement object](#requirement-object) for this Rule                                                                                                                        |
 | `status`            | String       | Status of the Rule: `ACTIVE` (default) or `INACTIVE`                                                                                                        |
-| `type`              | String       | Rule type. Valid values: `Okta:SignOn` or `Okta:UserProfile`                                                                                                |
+| `type`              | String       | Rule type: `Okta:SignOn` or `Okta:UserProfile`                                                                                                |
 
 
 #### Rule JSON example (Okta:SignOn)
@@ -1855,7 +1858,7 @@ The contents of the Requirement object are different for each type of Rule:
 
 | Property                     | Type    | Description                                                                            |
 | ---------------------------- | ------- | -------------------------------------------------------------------------------------- |
-| `activationRequirements`     | Object  | Indicates whether `emailVerification` should occur (`true`) or not (`false`, default). |
+| `activationRequirements`     | Object  | Contains a single Boolean property that Indicates whether `emailVerification` should occur (`true`) or not (`false`, default). |
 | `preRegistrationInlineHooks` | Array   | (Optional) The `id` of most one pre-registration Inline Hook                           |
 | `profileAttributes.label`    | String  | A display-friendly label for this property.                                            |
 | `profileAttributes.name`     | String  | The name of a User Profile property. Can be an existing User Profile property.         |
@@ -1919,6 +1922,7 @@ The number of authenticator class constraints in each constraint object be less 
 #### Verification Method JSON Examples
 
 ##### Any single Factor
+
 ```json
 {
   "type": "ASSURANCE",
@@ -1929,6 +1933,7 @@ The number of authenticator class constraints in each constraint object be less 
 ```
 
 ##### Password + any Factor
+
 ```json
 {
     "type": "ASSURANCE",
@@ -1945,6 +1950,7 @@ The number of authenticator class constraints in each constraint object be less 
 ```
 
 ##### Password + SMS
+
 ```json
 {
   "type": "ASSURANCE",
@@ -1968,6 +1974,7 @@ The number of authenticator class constraints in each constraint object be less 
 ```
 
 ##### Any hardware-protected key-based authenticator
+
 ```json
 {
   "type": "ASSURANCE",
@@ -1989,6 +1996,7 @@ The number of authenticator class constraints in each constraint object be less 
 ```
 
 ##### Any 2 Factors with 1 being a hardware-protected key-based authenticator
+
 ```json
 {
   "type": "ASSURANCE",
