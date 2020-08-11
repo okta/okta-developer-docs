@@ -14,7 +14,7 @@ In this guide you will learn how to use the Auth SDK to:
 - Retrieve and store an OpenID Connect (OIDC) token (id_token)
 - Get an Okta session
 
-> **NOTE:** `@okta/okta-auth-js` version 3.2.2 or above is required to run samples in this guide.
+> **Note:** `@okta/okta-auth-js` version 3.2.2 or above is required to run samples in this guide.
 
 If you'd like to explore the entire Auth SDK, please see the [Okta AuthJS Source &amp; API Reference][authjs-reference].
 
@@ -34,7 +34,7 @@ You will need the following things for this guide:
 Using our npm module is a good choice if:
 
 - You have a build system in place where you manage dependencies with npm.
-- You do not want to load scripts directly from third party sites.
+- You don't want to load scripts directly from third-party sites.
 
 To install [@okta/okta-auth-js](https://www.npmjs.com/package/@okta/okta-auth-js):
 
@@ -49,7 +49,7 @@ npm install --save @okta/okta-auth-js
 
 ### Using script tag in your target web page
 
-If you're using the JS on a web page from the browser, you can copy the `node_modules/@okta/okta-auth-js/dist` contents to publicly hosted directory, and include a reference to the `okta-auth-js.min.js` file in a `<script>` tag.  
+If you're using the JS on a web page from the browser, you can copy the `node_modules/@okta/okta-auth-js/dist` contents to publicly hosted directory and include a reference to the `okta-auth-js.min.js` file in a `<script>` tag.  
 
 However, if you're using a bundler like [Webpack](https://webpack.github.io/) or [Browserify](http://browserify.org/), you can simply import the module using CommonJS.
 
@@ -218,7 +218,7 @@ else {
 }
 ```
 
-> **NOTE:** This example, like everything else on this page, is for illustrative purposes only. The `prompt()` method isn't considered a secure way of asking for user authentication credentials.
+> **Note:** This example, like everything else on this page, is for illustrative purposes only. The `prompt()` method isn't considered a secure way of asking for user authentication credentials.
 
 #### Complete Okta Session and OIDC Token Example
 
