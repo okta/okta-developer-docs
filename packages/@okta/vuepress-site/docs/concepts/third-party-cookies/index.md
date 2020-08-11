@@ -4,11 +4,11 @@ title: Cross-Site Cookie Blocking
 
 # Cross-Site Cookie Blocking
 
-Cross-site cookie blocking is a privacy-protection feature that is being added to web browsers like Safari. It can disrupt certain customer-hosted flows in Okta.
+Cross-site cookie blocking is a privacy-protection feature that is being added to web browsers like Safari and Firefox. It can disrupt certain customer-hosted flows in Okta.
 
 ## Description of the problem
 
-Beginning from version 13.1, Safari [blocks third-party cookies by default](https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/), disrupting Okta functionality in certain flows. This issue will not affect your organization if you use the Okta-hosted sign-in page. Only customers who host their own sign-in functionality can be affected.
+Beginning from version 13.1, Safari [blocks third-party cookies by default](https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/), disrupting Okta functionality in certain flows. Firefox is in the process of rolling out a similar change. This issue will not affect your organization if you use the Okta-hosted sign-in page. Only customers who host their own sign-in functionality can be affected.
 
 When customer-hosted code makes a call to Okta that relies on an [Okta Session Cookie](/docs/guides/session-cookie/) being included in the HTTP request by the user’s browser, Safari blocks the cookie from reaching Okta because the user is on the customer domain and the cookie is being sent to Okta, a different domain.
 
@@ -32,16 +32,18 @@ The result is that ID tokens and access tokens expire without being renewed, and
 
 ## Workaround: Custom URL Domain
 
-You can implement a workaround by using the [Customize the Okta URL domain](/docs/guides/custom-url-domain/) feature.
+You can implement a workaround by using the [custom URL domain](/docs/guides/custom-url-domain/) feature.
 
 By making your Okta org effectively part of the same domain as your application server from a browser’s perspective, Custom URL Domain moves Okta session cookies to a first-party context. Calls to Okta become calls within the same site, and Safari third-party cookie blocking is no longer triggered.
 
+For example, if the original Okta org is `you-company-name.okta.com`, and your app server has the URL `your-app.your-company-name.com`, you would use the custom URL domain feature to give your Okta org a URL like `auth.your-company-name.com`. That way, both your app and your Okta share the same site. It is okay for them to have different subdomains, in this case, `your-app` and `auth`, but the domain, `your-company-name.com` needs to be the same.
+
 After setting up Custom URL Domain, your need to update your configuration of the Okta Sign-In Widget and the the Okta Auth JavaScript SDK, if you use them, so that they use your new custom domain as the base URL of your org. If your code makes any XHR calls directly to Okta endpoints, you need to update the URLs of those calls.
 
-For information on updating the configuration of the Okta Sign-In Widget, see <https://github.com/okta/okta-signin-widget#basic-config-options>
+ - For information on updating the configuration of the Okta Sign-In Widget, see <https://github.com/okta/okta-signin-widget#basic-config-options>
 
-For information on updating the configuration of the Okta Auth JavaScript SDK, see <https://github.com/okta/okta-auth-js/blob/master/README.md>.
+ - For information on updating the configuration of the Okta Auth JavaScript SDK, see <https://github.com/okta/okta-auth-js/blob/master/README.md>.
 
-For XHR calls in your own code, the base URL of the endpoint needs to change. For example, a call to `https://example.okta.com/api/v1/sessions/me` would change to `https://subdomain.yourdomain.com/api/v1/sessions/me` (assuming your Custom URL domain is `subdomain.yourdomain.com`).
+ - For XHR calls in your own code, the base URL of the endpoint needs to change. For example, a call to `https://example.okta.com/api/v1/sessions/me` would change to `https://subdomain.yourdomain.com/api/v1/sessions/me` (assuming your Custom URL domain is `subdomain.yourdomain.com`).
 
  
