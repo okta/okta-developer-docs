@@ -7,14 +7,14 @@ excerpt: A JavaScript wrapper for Okta's Authentication APIs.
 
 The Okta Auth SDK builds on top of our [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/) to enable you to create a fully branded sign-in experience using JavaScript.
 
-The Okta Auth SDK is used by Okta's [Sign-in Widget](/code/javascript/okta_sign-in_widget/) which powers the default Okta sign-in page. If you are building a JavaScript front end or Single Page App (SPA), the Auth SDK gives you added control and customization beyond what is possible with the Widget.
+The Okta Auth SDK is used by Okta's [Sign-in Widget](/code/javascript/okta_sign-in_widget/) which powers the default Okta sign-in page. If you're building a JavaScript front end or Single Page App (SPA), the Auth SDK gives you added control and customization beyond what is possible with the Widget.
 
 In this guide you will learn how to use the Auth SDK to:
 
-- Retrieve and store an OpenID Connect (OIDC) token
+- Retrieve and store an OpenID Connect (OIDC) token (id_token)
 - Get an Okta session
 
-**NOTE**: `@okta/okta-auth-js` version 3.2.2 or above is required to run samples in this guide.
+> **NOTE:** `@okta/okta-auth-js` version 3.2.2 or above is required to run samples in this guide.
 
 If you'd like to explore the entire Auth SDK, please see the [Okta AuthJS Source &amp; API Reference][authjs-reference].
 
@@ -49,7 +49,7 @@ npm install --save @okta/okta-auth-js
 
 ### Using script tag in your target web page
 
-If you are using the JS on a web page from the browser, you can copy the `node_modules/@okta/okta-auth-js/dist` contents to publicly hosted directory, and include a reference to the `okta-auth-js.min.js` file in a `<script>` tag.  
+If you're using the JS on a web page from the browser, you can copy the `node_modules/@okta/okta-auth-js/dist` contents to publicly hosted directory, and include a reference to the `okta-auth-js.min.js` file in a `<script>` tag.  
 
 However, if you're using a bundler like [Webpack](https://webpack.github.io/) or [Browserify](http://browserify.org/), you can simply import the module using CommonJS.
 
@@ -107,7 +107,7 @@ authClient.token.parseFromUrl()
 You can also display a specific part of the parsed token:
 
 ``` js
-console.log(`hi ${idToken.claims.email}!`);
+console.log(`Hi ${idToken.claims.email}!`);
 ```
 
 [Read more about parseFromUrl in the Auth SDK Reference][authjs-reference-token-parsefromurl].
@@ -127,7 +127,7 @@ The full code to parse the token, display the email from it, and then add it to 
 ``` js
 authClient.token.parseFromUrl()
   .then(idToken => {
-    console.log(`hi ${idToken.claims.email}!`);
+    console.log(`Hi ${idToken.claims.email}!`);
     authClient.tokenManager.add('idToken', idToken);
   })
 ```
@@ -172,7 +172,7 @@ if (authClient.token.isLoginRedirect()) {
   authClient.token.parseFromUrl()
     .then(data => {
       const { idToken } = data.tokens;
-      console.log(`hi ${idToken.claims.email}!`);
+      console.log(`Hi ${idToken.claims.email}!`);
       // Store parsed token in Token Manager
       authClient.tokenManager.add('idToken', idToken);
       console.log(idToken);
@@ -183,7 +183,7 @@ if (authClient.token.isLoginRedirect()) {
     .then(idToken => {
       console.log(idToken);
       if (idToken) {
-        console.log(`hi ${idToken.claims.email}!`);
+        console.log(`Hi ${idToken.claims.email}!`);
       } else {
         // You're not logged in, you need a sessionToken
         authClient.token.getWithRedirect({
@@ -218,7 +218,7 @@ else {
 }
 ```
 
-> This example, like everything else on this page, is for illustrative purposes only. The `prompt()` method is not considered a secure way of asking for user authentication credentials.
+> **NOTE:** This example, like everything else on this page, is for illustrative purposes only. The `prompt()` method isn't considered a secure way of asking for user authentication credentials.
 
 #### Complete Okta Session and OIDC Token Example
 
@@ -240,7 +240,7 @@ if (authClient.token.isLoginRedirect()) {
   authClient.token.parseFromUrl()
     .then(data => {
       const { idToken } = data.tokens;
-      console.log(`hi ${idToken.claims.email}!`);
+      console.log(`Hi ${idToken.claims.email}!`);
       // Store parsed token in Token Manager
       authClient.tokenManager.add('idToken', idToken);
       console.log(idToken);
@@ -251,7 +251,7 @@ if (authClient.token.isLoginRedirect()) {
     .then(idToken => {
       console.log(idToken);
       if (idToken) {
-        console.log(`hi ${idToken.claims.email}!`);
+        console.log(`Hi ${idToken.claims.email}!`);
       } else {
         var username = prompt('What is your username?');
         var password = prompt('What is your password?');
