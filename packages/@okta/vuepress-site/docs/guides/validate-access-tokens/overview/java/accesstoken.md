@@ -12,7 +12,7 @@ Include the lines below in your Maven `pom.xml`:
    <artifactId>okta-jwt-verifier</artifactId>
    <version>${okta-jwt.version}</version>
 </dependency>
-  
+
 <dependency>
   <groupId>com.okta.jwt</groupId>
   <artifactId>okta-jwt-verifier-impl</artifactId>
@@ -20,6 +20,8 @@ Include the lines below in your Maven `pom.xml`:
   <scope>runtime</scope>
 </dependency>
 ```
+
+> **Note:** Replace `${okta-jwt.version}` in your Maven `pom.xml` with the latest version from [here](https://search.maven.org/search?q=a:okta-jwt-verifier)
 
 ### Validate Access Token
 
