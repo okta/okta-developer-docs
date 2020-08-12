@@ -1,5 +1,5 @@
 ---
-title: Customize the Domain of Emails sent by Okta
+title: Customize the Domain of Emails Sent by Okta
 excerpt: Learn how to add set the email domain used by Okta.
 ---
 
