@@ -25,7 +25,6 @@ To use the CDN, include this in your HTML:
 ```html
 <!-- Latest CDN production Javascript and CSS -->
 <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
-
 <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
@@ -35,7 +34,7 @@ More info, including the latest published version, can be found in the [Widget D
 
 ```
 # Run this command in your project root folder.
-npm install @okta/okta-signin-widget --save
+npm install @okta/okta-signin-widget@-=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 ```
 
 More info, including the latest published version, can be found in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-npm-module).
@@ -100,6 +99,95 @@ To ensure that the Widget renders properly on mobile, include the `viewport` met
 
 The Widget can handle a number of different authentication scenarios. Here are a few common ones:
 
+#### Sign In and Display User's Email
+
+In this case, you would like to use the Widget to sign in to a simple web page and display the user's email. This requires an Okta developer account, and you have to create a new Single-Page App (SPA) for it to work.
+
+Sign in to your Okta developer dashboard and navigate to **Applications** > **Add Application**. Choose **Single-Page App** and click **Next**. Set `http://localhost:8080` as a Login redirect URI and click **Done**. The next page will show a client ID that you'll need to use in the code below.
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Simple Web Page</title>
+    <style>
+      h1 {
+        margin: 2em 0;
+      }
+    </style>
+    <!-- widget stuff here -->
+    <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
+    <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Simple Web Page</h1>
+      <div id="messageBox" class="jumbotron">
+        You are not logged in. Get outta here! Shoo! >:S
+      </div>
+      <!-- where the sign-in form will be displayed -->
+      <div id="okta-login-container"></div>
+      <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
+    </div>
+    <script type="text/javascript">
+      var oktaSignIn = new OktaSignIn({
+        baseUrl: "https://${yourOktaDomain}",
+        clientId: "${yourClientId}",
+        authParams: {
+          issuer: "https://${yourOktaDomain}/oauth2/default",
+          responseType: ['token', 'id_token'],
+          display: 'page'
+        }
+      });
+
+      if (oktaSignIn.hasTokensInUrl()) {
+        oktaSignIn.authClient.token.parseFromUrl().then(
+          // If we get here, the user just logged in.
+          function success(res) {
+            var accessToken = res.tokens.accessToken;
+            var idToken = res.tokens.idToken;
+
+            oktaSignIn.authClient.tokenManager.add('accessToken', accessToken);
+            oktaSignIn.authClient.tokenManager.add('idToken', idToken);
+
+            document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
+            document.getElementById("logout").style.display = 'block';
+          },
+          function error(err) {
+            console.error(err);
+          }
+        );
+      } else {
+        oktaSignIn.authClient.token.getUserInfo().then(function(user) {
+          document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";
+          document.getElementById("logout").style.display = 'block';
+        }, function(error) {
+          oktaSignIn.renderEl(
+            { el: '#okta-login-container' },
+            function success(res) {},
+            function error(err) {
+              console.error(err);
+            }
+          );
+        });
+      }
+
+      function logout() {
+        oktaSignIn.authClient.signOut();
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
+```
+
+Copy the code above into an `index.html` file on your hard drive.
+
+For this example to work, you'll need to host it on a web server that runs locally on port 8080. If you have Python 3 installed you can simply run the command `python -m http.server 8080` in the same directory as `index.html`. If you're on a Mac, you can use `python -m SimpleHTTPServer 8080`. This will open a web server on port 8080 and you'll be able to access your page at `http://localhost:8080`.
+
 #### Sign In to Okta with the Default Dashboard
 
 In this case, you would like to use the Widget to sign in to the default Okta dashboard. This requires taking the Widget initialization code, and modifying the success behavior so that it redirects to your org's dashboard.
@@ -150,7 +238,7 @@ signIn.showSignInToGetTokens({
 
   // Return an access token from the authorization server
   getAccessToken: true,
-  
+
   // By default, new applications are configured to use the Authorization Code Flow with Proof-of-Code-Key-Exchange (PKCE)
   // If your application uses the Implicit Flow instead, tell the widget not to use PKCE by uncommenting the below line
   // pkce: false,
@@ -173,7 +261,7 @@ function callMessagesApi() {
     return;
   }
 
-  // Make a request using jQuery 
+  // Make a request using jQuery
   $.ajax({
     // Your API or resource server:
     url: 'http://localhost:8080/api/messages',

@@ -5,7 +5,7 @@ In your app's `build.gradle`, add the redirect scheme inside the `defaultConfig`
 For example, if your redirect URI is `com.first.sample:/callback`, then the appAuth redirect scheme is `com.first.sample`.
 
 Example
-```gradle
+```groovy
     manifestPlaceholders = [
         "appAuthRedirectScheme": "com.first.sample"
     ]
@@ -14,7 +14,7 @@ Example
 To compile your project, you need to set up the `AuthenticationClient` with an `Org URL`. Your Org URL is in the upper-right corner of your Okta Org dashboard. Do this by adding the following to your `local.properties` file:
 
 Example
-```gradle
+```groovy
     authn.orgUrl="https://${yourOktaDomain}"
 ```
 
