@@ -44,6 +44,6 @@ After setting up Custom URL Domain, your need to update your configuration of th
 
  - For information on updating the configuration of the Okta Auth JavaScript SDK, see <https://github.com/okta/okta-auth-js/blob/master/README.md>.
 
- - For XHR calls in your own code, the base URL of the endpoint needs to change. For example, a call to `https://example.okta.com/api/v1/sessions/me` would change to `https://subdomain.yourdomain.com/api/v1/sessions/me` (assuming your Custom URL domain is `subdomain.yourdomain.com`).
+ - For XHR calls in your own code, the base URL of the endpoint needs to change. For example, a call to `https:/yourcompany.okta.com/api/v1/sessions/me` would change to `https://auth.companyname.com/api/v1/sessions/me` (assuming your Custom URL domain is `auth.companyname.com`).
 
  
