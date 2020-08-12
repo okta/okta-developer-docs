@@ -9,7 +9,7 @@ This guide will walk you through integrating authentication into a React app wit
 1. [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
 2. [Create a React App](#create-a-react-app)
 3. [Install Dependencies](#install-dependencies)
-4. [Create a Custom Sign In Form](#create-a-custom-sign-in-form)
+4. [Create a Custom Sign-In Form](#create-a-custom-sign-in-form)
 5. [Create Routes](#create-routes)
 6. [Connect the Routes](#connect-the-routes)
 7. [Start Your App](#start-your-app)
@@ -44,7 +44,7 @@ We'll also need `@okta/okta-react` and `react-router-dom` to manage our routes (
 npm install @okta/okta-react react-router-dom --save
 ```
 
-## Create a Custom Sign In Form
+## Create a Custom Sign-In Form
 If the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) does not fit your needs, [AuthJS](/code/javascript/okta_auth_sdk/) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, we'll create a simple username and password form without MFA.
 
 Create a `src/SignInForm.jsx` file:
@@ -208,7 +208,7 @@ Some routes require authentication in order to render. Defining those routes is 
 
 - `/`: A default page to handle basic control of the app.
 - `/protected`: A route protected by `SecureRoute`.
-- `/login`: Redirect to the org sign in page.
+- `/login`: Redirect to the org sign-in page.
 - `/implicit/callback`: A route to parse tokens after a redirect.
 
 ### `/`
@@ -348,7 +348,7 @@ The component for this route (LoginCallback) comes with `@okta/okta-react`. It h
 ### Connect the Routes
 Update `src/App.jsx` to include your project components and routes. `Security` is the component that controls the authentication flows, so it requires your OpenId Connect configuration. By default, `@okta/okta-react` redirects to Okta's sign in page when the user isn't authenticated.
 
-In this example, `onAuthRequired` is overridden to redirect to the custom sign in route instead, which requires a component that is a descendent of Router to have access to `react-router`'s `history`.  Other router libraries will have their own methods of managing browser history:
+In this example, `onAuthRequired` is overridden to redirect to the custom sign-in route instead, which requires a component that is a descendent of Router to have access to `react-router`'s `history`.  Other router libraries will have their own methods of managing browser history:
 
 `src/App.jsx` and `src/AppWithRouterAccess.jsx` using function-based components:
 ```jsx
