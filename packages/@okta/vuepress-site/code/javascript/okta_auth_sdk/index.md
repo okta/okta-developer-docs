@@ -49,7 +49,7 @@ npm install --save @okta/okta-auth-js
 
 ### Using script tag in your target web page
 
-If you're using the JS on a web page from the browser, you can copy the `node_modules/@okta/okta-auth-js/dist` contents to publicly hosted directory and include a reference to the `okta-auth-js.min.js` file in a `<script>` tag.  
+If you're using the JS on a web page from the browser, you can copy the `node_modules/@okta/okta-auth-js/dist` contents to a publicly hosted directory and include a reference to the `okta-auth-js.min.js` file in a `<script>` tag.  
 
 However, if you're using a bundler like [Webpack](https://webpack.github.io/) or [Browserify](http://browserify.org/), you can simply import the module using CommonJS.
 
