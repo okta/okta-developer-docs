@@ -36,7 +36,7 @@ You can implement a workaround by using the [custom URL domain](/docs/guides/cus
 
 By making your Okta org effectively part of the same domain as your application server from a browser’s perspective, Custom URL Domain moves Okta session cookies to a first-party context. Calls to Okta become calls within the same site, and Safari third-party cookie blocking is no longer triggered.
 
-For example, if your original Okta org is `companyname.okta.com`, and your app server is `app.companyname.com`, you would use the custom URL domain feature to give your Okta org a new URL like `auth.companyname.com`. This puts your app and your Okta org within the same site. It's okay for them to have different subdomains (in this example, `app` and `auth`). Only the effective Top-Level Domain plus the one label immediately to its left (eTLD+1) need to be the same (in this example, `companyname.com`), in order for your app and your Okta org to be considered as being on the same site.
+For example, if your original Okta org is `companyname.okta.com`, and your app server is `app.companyname.com`, you would use the custom URL domain feature to give your Okta org a new URL like `login.companyname.com`. This puts your app and your Okta org within the same site. It's okay for them to have different subdomains (in this example, `app` and `auth`). Only the effective Top-Level Domain plus the one label immediately to its left (eTLD+1) need to be the same (in this example, `companyname.com`), in order for your app and your Okta org to be considered as being on the same site.
 
 After setting up Custom URL Domain, your need to update your configuration of the Okta Sign-In Widget and the the Okta Auth JavaScript SDK, if you use them, so that they use your new custom domain as the base URL of your org. If your code makes any XHR calls directly to Okta endpoints, you need to update the URLs of those calls.
 
@@ -44,6 +44,6 @@ After setting up Custom URL Domain, your need to update your configuration of th
 
  - For information on updating the configuration of the Okta Auth JavaScript SDK, see <https://github.com/okta/okta-auth-js/blob/master/README.md>.
 
- - For XHR calls in your own code, the base URL of the endpoint needs to change. For example, a call to `https:/companyname.okta.com/api/v1/sessions/me` would change to `https://auth.companyname.com/api/v1/sessions/me` (assuming your Custom URL domain is `auth.companyname.com`).
+ - For XHR calls in your own code, the base URL of the endpoint needs to change. For example, a call to `https:/companyname.okta.com/api/v1/sessions/me` would change to `https://login.companyname.com/api/v1/sessions/me` (assuming your Custom URL domain is `login.companyname.com`).
 
  
