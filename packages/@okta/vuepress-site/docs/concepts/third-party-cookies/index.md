@@ -40,6 +40,8 @@ For example, if your original Okta org is `companyname.okta.com`, and your app s
 
 After setting up Custom URL Domain, your need to update your configuration of the Okta Sign-In Widget and of any Okta SDKs you utilize, so that they use your new custom domain as the base URL of your org. If your code makes any XHR calls directly to Okta endpoints, you need to update the URLs of those calls.
 
+The following examples assume your original Okta Org URL was `companyname.okta.com` and your custom URL domain is `login.companyname.com`.
+
 ### Sign-In Widget
 
 For information on updating the configuration of the Okta Sign-In Widget, see <https://github.com/okta/okta-signin-widget#basic-config-options>
@@ -53,7 +55,7 @@ Example change:
  });
 ```
 
-### Auth JavaScript SDK
+### Auth JavaScript
 
 For information on updating the configuration of the Okta Auth JavaScript SDK, see <https://github.com/okta/okta-auth-js/blob/master/README.md>.
 
@@ -66,7 +68,9 @@ Example change:
  });
 ```
 
-### React SDK
+### JavaScript React
+
+For information on updating the configuration of a React application, see <https://github.com/okta/samples-js-react#readme>.
 
 Example change:
 
@@ -92,7 +96,11 @@ class App extends Component {
 
 ```
 
-### Angular SDK
+###  JavaScript Angular
+
+For information on updating the configuration of an Angular application, see <https://github.com/okta/samples-js-angular#readme>.
+
+Example change:
 
 ```
 import {
@@ -120,7 +128,9 @@ import {
 export class MyAppModule { }
 ```
 
-### vue SDK
+### JavaScript Vue
+
+For information on updating the configuration of a Vue application, see <https://github.com/okta/samples-js-vue#readme>.
 
 ```
  import Auth from '@okta/okta-vue'
@@ -135,5 +145,5 @@ export class MyAppModule { }
 
 ### XHR Calls in your own code
 
-For XHR calls in your own code, the base URL of the endpoint needs to change. For example, a call to `https:/companyname.okta.com/api/v1/sessions/me` would change to `https://login.companyname.com/api/v1/sessions/me` (assuming your Custom URL domain is `login.companyname.com`).
+For XHR calls in your own code, the base URL of the endpoint needs to change. For example, a call to `https:/companyname.okta.com/api/v1/sessions/me` would change to `https://login.companyname.com/api/v1/sessions/me`.
 
