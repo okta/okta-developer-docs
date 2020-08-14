@@ -46,7 +46,7 @@ After setting up custom URL domain, your need to update your configuration of th
 
 If your code makes any XHR calls directly to Okta endpoints, you need to update the URLs of those calls.
 
-The following examples of these changes assume your original Okta Org URL is `companyname.okta.com` and your custom URL domain is `login.companyname.com`:
+The following sections show examples of these changes. The examples assume your original Okta Org URL is `companyname.okta.com` and your custom URL domain is `login.companyname.com`.
 
 ### Sign-In Widget
 
