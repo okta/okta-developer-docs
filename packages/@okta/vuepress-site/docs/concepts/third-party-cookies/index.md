@@ -4,11 +4,11 @@ title: Cross-Site Cookie Blocking
 
 # Cross-Site Cookie Blocking
 
-Cross-site cookie blocking is a privacy-protection feature that is being added to web browsers like Safari and Firefox, and likely to become common across most browsers in the future. It can disrupt certain customer-hosted flows in Okta.
+Cross-site cookie blocking is a privacy-protection feature that is being added to web browsers like Safari and Firefox, and which is likely to become common across most browsers in the future. It can disrupt certain customer-hosted flows in Okta.
 
 ## Description of the problem
 
-Beginning from version 13.1, Safari [blocks third-party cookies by default](https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/), disrupting Okta functionality in certain flows. Firefox is in the process of rolling out a similar change. This issue will not affect your organization if you use the Okta-hosted sign-in page. Only customers who host their own sign-in functionality can be affected.
+Beginning from version 13.1, Safari [blocks third-party cookies by default](https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/), disrupting Okta functionality in certain flows. Firefox and other browsers are in the process of rolling out a similar change. This issue will not affect your organization if you use the Okta-hosted sign-in page. Only customers who host their own sign-in functionality can be affected.
 
 When customer-hosted code makes a call to Okta that relies on an [Okta Session Cookie](/docs/guides/session-cookie/) being included in the HTTP request, the browser blocks the cookie from reaching Okta because the user is on the customer domain and the cookie is being sent to Okta, a different domain.
 
@@ -34,13 +34,17 @@ The result is that ID tokens and access tokens expire without being renewed, and
 
 You can implement a workaround by using the [custom URL domain](/docs/guides/custom-url-domain/) feature.
 
-By making your Okta org effectively part of the same domain as your application server from a browser’s perspective, Custom URL Domain moves Okta session cookies to a first-party context. Calls to Okta become calls within the same site, and Safari third-party cookie blocking is no longer triggered.
+By making your Okta org effectively part of the same domain as your application server from a browser’s perspective, use of custom URL domain moves Okta session cookies to a first-party context. Calls to Okta become calls within the same site, and Safari third-party cookie blocking is no longer triggered.
 
-For example, if your original Okta org is `companyname.okta.com`, and your app server is `app.companyname.com`, you would use the custom URL domain feature to give your Okta org a new URL like `login.companyname.com`. This puts your app and your Okta org within the same site. It's okay for them to have different subdomains (in this example, `app` and `auth`). Only the effective Top-Level Domain plus the one label immediately to its left (eTLD+1) need to be the same (in this example, `companyname.com`), in order for your app and your Okta org to be considered as being on the same site.
+For example, if your original Okta org is `companyname.okta.com`, and your app server is `app.companyname.com`, you would use the custom URL domain feature to give your Okta org a new URL like `login.companyname.com`. This puts your app and your Okta org within the same site.
 
-After setting up Custom URL Domain, your need to update your configuration of the Okta Sign-In Widget and of any Okta SDKs you utilize, so that they use your new custom domain as the base URL of your org. If your code makes any XHR calls directly to Okta endpoints, you need to update the URLs of those calls.
+It's okay for the Okta org and the app server to have different subdomains (in the above example, `app` and `auth`). Only the effective Top-Level Domain plus the one label immediately to its left (eTLD+1) need to be the same (in the example, `companyname.com`).
 
-The following examples assume your original Okta Org URL was `companyname.okta.com` and your custom URL domain is `login.companyname.com`.
+After setting up custom URL domain, your need to update your configuration of the Okta Sign-In Widget and of any Okta SDKs, so that they use your new custom domain as the base URL of your org.
+
+If your code makes any XHR calls directly to Okta endpoints, you need to update the URLs of those calls.
+
+The following examples of these changes assume your original Okta Org URL is `companyname.okta.com` and your custom URL domain is `login.companyname.com`:
 
 ### Sign-In Widget
 
