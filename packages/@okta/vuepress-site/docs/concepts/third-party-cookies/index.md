@@ -38,12 +38,102 @@ By making your Okta org effectively part of the same domain as your application 
 
 For example, if your original Okta org is `companyname.okta.com`, and your app server is `app.companyname.com`, you would use the custom URL domain feature to give your Okta org a new URL like `login.companyname.com`. This puts your app and your Okta org within the same site. It's okay for them to have different subdomains (in this example, `app` and `auth`). Only the effective Top-Level Domain plus the one label immediately to its left (eTLD+1) need to be the same (in this example, `companyname.com`), in order for your app and your Okta org to be considered as being on the same site.
 
-After setting up Custom URL Domain, your need to update your configuration of the Okta Sign-In Widget and the the Okta Auth JavaScript SDK, if you use them, so that they use your new custom domain as the base URL of your org. If your code makes any XHR calls directly to Okta endpoints, you need to update the URLs of those calls.
+After setting up Custom URL Domain, your need to update your configuration of the Okta Sign-In Widget and of any Okta SDKs you utilize, so that they use your new custom domain as the base URL of your org. If your code makes any XHR calls directly to Okta endpoints, you need to update the URLs of those calls.
 
- - For information on updating the configuration of the Okta Sign-In Widget, see <https://github.com/okta/okta-signin-widget#basic-config-options>
+### Sign-In Widget
 
- - For information on updating the configuration of the Okta Auth JavaScript SDK, see <https://github.com/okta/okta-auth-js/blob/master/README.md>.
+For information on updating the configuration of the Okta Sign-In Widget, see <https://github.com/okta/okta-signin-widget#basic-config-options>
 
- - For XHR calls in your own code, the base URL of the endpoint needs to change. For example, a call to `https:/companyname.okta.com/api/v1/sessions/me` would change to `https://login.companyname.com/api/v1/sessions/me` (assuming your Custom URL domain is `login.companyname.com`).
+Example change:
 
+```
+ var signIn = new OktaSignIn({
+-  baseUrl: 'https://companyname.okta.com'
++  baseUrl: 'https://login.companyname.com'
+ });
+```
+
+### Auth JavaScript SDK
+
+For information on updating the configuration of the Okta Auth JavaScript SDK, see <https://github.com/okta/okta-auth-js/blob/master/README.md>.
+
+Example change:
+
+```
+ var authClient = new OktaAuth({
+-  issuer: 'https://companyname.okta.com'
++  issuer: 'https://login.companyname.com'
+ });
+```
+
+### React SDK
+
+Example change:
+
+```
+import { SecureRoute, Security, LoginCallback } from '@okta/okta-react';
+
+class App extends Component {
+   render() {
+     return (
+       <Router>
+-        <Security issuer='https://companyname.okta.com/oauth2/default'
++        <Security issuer='https://login.companyname.com/oauth2/default'
+                   clientId='{clientId}'
+                   redirectUri={window.location.origin + '/implicit/callback'} >
+           <Route path='/' exact={true} component={Home}/>
+          <SecureRoute path='/protected' component={Protected}/>
+          <Route path='/implicit/callback' component={LoginCallback} />
+        </Security>
+      </Router>
+    );
+  }
+}
+
+```
+
+### Angular SDK
+
+```
+import {
+  OKTA_CONFIG,
+  OktaAuthModule
+ } from '@okta/okta-angular';
  
+ const oktaConfig = {
+-  issuer: 'https://companyname.okta.com/oauth2/default',
++  issuer: 'https://login.companyname.com/oauth2/default',
+   clientId: '{clientId}',
+   redirectUri: 'http://localhost:{port}/implicit/callback',
+   pkce: true
+};
+
+@NgModule({
+  imports: [
+    ...
+    OktaAuthModule
+  ],
+  providers: [
+    { provide: OKTA_CONFIG, useValue: oktaConfig }
+  ],
+})
+export class MyAppModule { }
+```
+
+### vue SDK
+
+```
+ import Auth from '@okta/okta-vue'
+ 
+ Vue.use(Auth, {
+-  issuer: 'https://companyname.okta.com/oauth2/default',
++  issuer: 'https://login.companyname.com/oauth2/default',
+   clientId: '{clientId}',
+   redirectUri: 'http://localhost:{port}/implicit/callback',
+   scopes: ['openid', 'profile', 'email'],
+```
+
+### XHR Calls in your own code
+
+For XHR calls in your own code, the base URL of the endpoint needs to change. For example, a call to `https:/companyname.okta.com/api/v1/sessions/me` would change to `https://login.companyname.com/api/v1/sessions/me` (assuming your Custom URL domain is `login.companyname.com`).
+
