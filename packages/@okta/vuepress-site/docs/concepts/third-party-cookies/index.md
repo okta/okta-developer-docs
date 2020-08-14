@@ -4,21 +4,21 @@ title: Cross-Site Cookie Blocking
 
 # Cross-Site Cookie Blocking
 
-Cross-site cookie blocking is a privacy-protection feature that is being added to web browsers like Safari and Firefox. It can disrupt certain customer-hosted flows in Okta.
+Cross-site cookie blocking is a privacy-protection feature that is being added to web browsers like Safari and Firefox, and likely to become common across most browsers in the future. It can disrupt certain customer-hosted flows in Okta.
 
 ## Description of the problem
 
 Beginning from version 13.1, Safari [blocks third-party cookies by default](https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/), disrupting Okta functionality in certain flows. Firefox is in the process of rolling out a similar change. This issue will not affect your organization if you use the Okta-hosted sign-in page. Only customers who host their own sign-in functionality can be affected.
 
-When customer-hosted code makes a call to Okta that relies on an [Okta Session Cookie](/docs/guides/session-cookie/) being included in the HTTP request by the user’s browser, Safari blocks the cookie from reaching Okta because the user is on the customer domain and the cookie is being sent to Okta, a different domain.
+When customer-hosted code makes a call to Okta that relies on an [Okta Session Cookie](/docs/guides/session-cookie/) being included in the HTTP request, the browser blocks the cookie from reaching Okta because the user is on the customer domain and the cookie is being sent to Okta, a different domain.
 
 The specific functionality that is affected is session management, as well as token renewal in the OAuth 2.0 implicit flow.
 
 ### Session management in customer-built applications
 
-If you host your own sign-in page, and use a self-hosted instance of the Okta Sign-In Widget to sign users in, or rely on JavaScript running in the user’s browser to make calls to Okta to handle session management, functionality can be broken by Safari’s blocking of third-party cookies.
+If you host your own sign-in page, and use a self-hosted instance of the Okta Sign-In Widget to sign users in, or rely on JavaScript running in the user’s browser to make calls to Okta to handle session management, functionality can be broken by the browser’s blocking of third-party cookies.
 
-Okta session cookies that accompany XHR calls to Okta API endpoints like `/sessions/me` and `/user/me`	 are blocked by Safari because they are sent to a different domain than the one the user is on. Okta session cookies never get through to Okta, and Okta cannot complete the request.
+Okta session cookies that accompany XHR calls to Okta API endpoints like `/sessions/me` and `/user/me`	 are blocked by the browser because they are sent to a different domain than the one the user is on. Okta session cookies never get through to Okta, and Okta cannot complete the request.
 
 The result is that Okta returns 403 forbidden errors to the user or that your application repeatedly directs users back to the sign-in page.
 
