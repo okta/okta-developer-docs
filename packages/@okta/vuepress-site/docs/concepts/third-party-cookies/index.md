@@ -28,7 +28,7 @@ Specifically, this problem affects [certain methods](https://github.com/okta/okt
 
 ### Token renewal in customer-built SPAs that use the OAuth 2.0 implicit flow
 
-If your code uses the OAuth 2.0 implicit flow to handle token renewal (which typically occurs in the context of a SPA that uses the [implicit flow](/docs/guides/implement-implicit/)), Safari can block Okta session cookies from being sent, so that token renewal is never successfully completed.
+If your code uses the OAuth 2.0 implicit flow to handle token renewal (which typically occurs in the context of a SPA that uses the [implicit flow](/docs/guides/implement-implicit/)), the user's browser can block Okta session cookies from being sent, so that token renewal is never successfully completed.
 
 The result is that ID tokens and access tokens expire without being renewed, and users are prompted to sign in more frequently, with the frequency determined by the token expiry time.
 
@@ -36,7 +36,7 @@ The result is that ID tokens and access tokens expire without being renewed, and
 
 You can implement a workaround by using the [custom URL domain](/docs/guides/custom-url-domain/) feature.
 
-By making your Okta org effectively part of the same domain as your application server from a browser’s perspective, use of custom URL domain moves Okta session cookies to a first-party context. Calls to Okta become calls within the same site, and Safari third-party cookie blocking is no longer triggered.
+By making your Okta org effectively part of the same domain as your application server from a browser’s perspective, use of custom URL domain moves Okta session cookies to a first-party context. Calls to Okta become calls within the same site, and browser third-party cookie blocking is no longer triggered.
 
 For example, if your original Okta org is `companyname.okta.com`, and your app server is `app.companyname.com`, you would use the custom URL domain feature to give your Okta org a new URL like `login.companyname.com`. This puts your app and your Okta org within the same site.
 
