@@ -32,6 +32,7 @@ guides:
  - saml-tracer
  - session-cookie
  - set-up-event-hook
+ - set-up-self-service-registration
  - shared-sso-android-ios
  - sharing-cert
  - sign-into-mobile-app
