@@ -71,6 +71,7 @@ The Okta Management SDK for .NET uses .NET Standard and will work with both .NET
 		</a>
 	</li>
 </ul>
+</br>
 
 The Okta Authentication SDK for .NET is useful if you cannot use OIDC and need your server-side code to interact with the Authentication API for handling the sign in flow.
 
@@ -82,6 +83,7 @@ The Okta Authentication SDK for .NET is useful if you cannot use OIDC and need y
 		</a>
 	</li>
 </ul>
+</br>
 
 The Okta SDK for Xamarin follows current best practice for native apps using ODIC, the Authorization Code Flow + PKCE.
 
