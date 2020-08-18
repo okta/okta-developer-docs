@@ -10,7 +10,7 @@ Okta sends your super admins a confirmation email after your custom domain is co
 ## Prerequisites
 
 * Only qualified administrators with access to the DNS records of your public custom domain should attempt these procedures.
-* Okta strongly recommends that your organization implement the [Sender Policy Framework](https://www.proofpoint.com/us/blog/user-protection/what-sender-policy-framework-spf) (SPF) to prevent sender address forgery. If you already implement SPF in your custom domain, be aware that you must [update the SPF record](https://help.okta.com/en/prod/Content/Topics/Settings/Settings_Configure_A_Custom_Email_Domain.htm#An).
+* Okta strongly recommends that your organization implement the [Sender Policy Framework](https://www.proofpoint.com/us/blog/user-protection/what-sender-policy-framework-spf) (SPF) to prevent sender address forgery. If you already implement SPF in your custom domain, be aware that you must [update the SPF record](#add-spf-record).
 
 ## Configure A Custom Email Domain
 
@@ -19,25 +19,29 @@ Okta sends your super admins a confirmation email after your custom domain is co
 
     ![okta-email-config:](/img/custom-email-sender-link.png "Screenshot of Okta Admin Console email configuration")
 
-1. Select a sender in the **Configure Email Sender** dialog box.
+1. Populate the details of the sender in the **Configure Email Sender** dialog box.
 
-    ![okta-email-config-details:](/img/custom-email-dns-records.png "Screenshot of Okta Admin Console email configuration details")
+    ![okta-email-config-details:](/img/custom-email-sender-config.png "Screenshot of Okta Admin Console email configuration details")
 
     If you select **Custom email domain**, enter or edit information in the following fields:
       1. Email address to send from
       1. Name of sender
       1. Mail domain to send from.
+
       **Note:** You must enter a unique mail domain that your organization has dedicated for Okta to send mail from. Later in this procedure, you will add this mail domain to your SPF record as an include-statement to show that you allow Okta to send mail from this domain.
+
 1. Save your changes.
     * The **Save** button appears if you chose `noreply@okta.com`, or if you chose a custom email domain and your org's DNS records do not need to be updated. You are finished after you click **Save**.
     * The **Save & View Required DNS Records** button appears if you chose a custom email domain and your org's DNS records need to be updated before your settings can take effect. After you click the button, the DNS records that you need to update are shown.
+
 1. Update your DNS records using the provided values.
 
-    ![okta-email-config-details:](/img/custom-email-sender-config.png "Screenshot of Okta Admin Console email configuration details")
+    ![okta-email-config-details:](/img/custom-email-dns-records.png "Screenshot of Okta Admin Console email configuration details")
 
 1. Click a DNS update option:
     * **I've updated the DNS records** — Okta begins polling your DNS records until it detects your updates (up to 24 hours). Your configuration is pending until the DNS updates are detected.
     * **I will update the DNS records later** — Your records are not polled and your configuration is incomplete until you update the relevant DNS records and click I've updated the DNS records. You can view the list of records that require an update at any time.
+<a id="add-spf-record"/>
 1. Add the [SPF](https://www.proofpoint.com/us/blog/user-protection/what-sender-policy-framework-spf) record to your DNS zone (root domain).
     If your root domain already has an SPF record, the following update can prevent spoofers from sending mail that mimics your domain.
     An SPF record specifies the mail servers that your organization has authorized to send mail from your domain.
