@@ -1,11 +1,11 @@
 ---
-title: Authenticator Admin
+title: Authenticators Administration
 category: management
 ---
 
 # Authenticators Administration API
 
-The Authenticator Admin API enables an Org Administrator to configure which Authenticators are available to end users to be used for signing into applications.
+The Authenticators Administration API enables an Org Administrator to configure which Authenticators are available to end users to be used for signing into applications.
 
 End users would be required to use one or more Authenticators depending on the security requirements of the application sign-on policy.
 
@@ -23,13 +23,13 @@ The Okta Identity Engine currently supports Authenticators for the following fac
 <!--
 ## Get started
 
-Explore the Authenticator Admin API: [![Run in Postman](https://run.pstmn.io/button.svg)](%linkhere%). % How to generate this link: https://oktawiki.atlassian.net/wiki/spaces/DOC/pages/227648499/How+to+publish+Postman+collections %
+Explore the Authenticators Administration API: [![Run in Postman](https://run.pstmn.io/button.svg)](%linkhere%). % How to generate this link: https://oktawiki.atlassian.net/wiki/spaces/DOC/pages/227648499/How+to+publish+Postman+collections %
 
 -->
 
-## Authenticator Admin Operations
+## Authenticators Administration Operations
 
-The Authenticator Admin API has the following CRUD operations:
+The Authenticators Administration API has the following CRUD operations:
 
 * [List Authenticators](#list-authenticators)
 * [Get an Authenticator by id](#get-an-authenticator-by-id)
@@ -507,9 +507,9 @@ If the authenticator you are trying to deactivate is currently in-use as part of
 ```
 
 
-## Authenticator Admin API object
+## Authenticators Administration API object
 
-The Authenticator Admin API only involves one object: the Authenticator.
+The Authenticators Administration API only involves one object: the Authenticator.
 
 ### Authenticator object
 
