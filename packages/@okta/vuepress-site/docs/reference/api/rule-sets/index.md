@@ -11,7 +11,7 @@ The Identity Engine Early Adopter Program contains many updates to Okta's existi
 
 ## Limitations
 
-Okta limits the number of Policies to 100 per [type](#policy-types). %todo
+Okta limits the number of Policies of the new types to 500 total. Each of those Policies can in turn have a maximum of 100 associated Rules.
 
 ## Policies Operations
 
@@ -1324,7 +1324,7 @@ Retrieves the specified Mapping for the specified Policy.
 | Parameter   | Type   | Description                   |
 | ----------- | ------ | ----------------------------- |
 | `mappingId` | String | The identifier for a Mapping  |
-| `policyId` | String | The identifier for a Policy|
+| `policyId` | String | The identifier for a Policy |
 
 #### Request query parameters
 
@@ -1534,7 +1534,7 @@ The Policy object has several properties:
 | Property            | Type         | Description                                                                                                                                                 |
 | ------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `_links.activate`   | String (URL) | Link to activate a Policy or Rule (present if the Rule is currently inactive)                                                                             |
-| `_links.deactivate` | String (URL) | Link to deactivate a Policy or rule (present if the rule is currently active)                                                                             |
+| `_links.deactivate` | String (URL) | Link to deactivate a Policy or Rule (present if the Rule is currently active)                                                                             |
 | `_links.mappings`   | String (URL) | Link to retrieve the Mapping objects for the given Policy                                                                                                |
 | `_links.rules`      | String (URL) | Link to retrieve the Rules objects for the given Policy                                                                                                  |
 | `_links.self`       | String (URL) | Link to the current Policy object                                                                                                                         |
@@ -1615,11 +1615,11 @@ There is always a default Policy created for each [type](#policy-types). The def
 
 - A default Policy is required and cannot be deleted.
 - The default Policy is always the last in the priority order. Any added Policies of this type have higher priority than the default Policy.
-- The default Policy always has one default rule that cannot be deleted. It is always the last rule in the priority order. If you add rules to the default Policy, they have a higher priority than the default rule.
+- The default Policy always has one default Rule that cannot be deleted. It is always the last Rule in the priority order. If you add Rules to the default Policy, they have a higher priority than the default Rule.
 
 ### Rule Object
 
-Each Policy may contain one or more rules. Rules contain conditions which must be satisfied in order for the rule to be applied.
+Each Policy may contain one or more Rules. Rules contain conditions which must be satisfied in order for the Rule to be applied.
 
 #### Rule properties
 
@@ -1764,12 +1764,12 @@ Each Policy may contain one or more rules. Rules contain conditions which must b
 
 ### Conditions Object
 
-The Conditions object specifies the conditions that must be met during Policy evaluation in order for that Rule to be applied. All conditions must be met in order to apply the requirements for a given rule. The conditions which can be used with a particular Rule depends on the Rule type.
+The Conditions object specifies the conditions that must be met during Policy evaluation in order for that Rule to be applied. All conditions must be met in order to apply the requirements for a given Rule. The conditions which can be used with a particular Rule depends on the Rule type.
 
 
 #### Conditions properties
 
-Conditions are represented by a `key`, `op`, and `value` that are used in conjunction with a context object to evaluate to a boolean result. Multiple conditions in a given rule are AND-ed together.
+Conditions are represented by a `key`, `op`, and `value` that are used in conjunction with a context object to evaluate to a boolean result. Multiple conditions in a given Rule are AND-ed together.
 
 | Property | Type                             | Description                                                     |
 | -------- | -------------------------------- | --------------------------------------------------------------- |
