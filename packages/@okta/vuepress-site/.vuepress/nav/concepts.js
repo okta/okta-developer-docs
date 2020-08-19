@@ -50,6 +50,9 @@ module.exports = [
         link: '/docs/concepts/okta-organizations/'
     },
     { 
+        title: 'Policies', 
+        link: '/docs/concepts/policies/'
+    }, { 
         title: 'SAML', 
         link: '/docs/concepts/saml/'
     }, 
