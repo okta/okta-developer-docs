@@ -6,9 +6,13 @@ title: Release Life Cycle
 
 Okta features travel through a regular life cycle:
 
-- [Beta](#beta-release)
-- [Early Access (EA)](#early-access-ea)
-- [General Availability (GA)](#general-availability-ga)
+- [Release Life Cycle](#release-life-cycle)
+  - [Quick Reference Table](#quick-reference-table)
+  - [Beta Release](#beta-release)
+  - [Early Access (EA)](#early-access-ea)
+  - [General Availability (GA)](#general-availability-ga)
+  - [Deprecation](#deprecation)
+  - [Exceptions to the Beta-EA-GA Lifecycle](#exceptions-to-the-beta-ea-ga-lifecycle)
 
 > **Note:** Okta reserves the right to add new parameters, properties, or resources to the API without advance notice.
 These updates are non-breaking because they are additive. Follow [the compatibility rules](/docs/reference/api-overview/) to ensure that your application doesn't break
@@ -56,7 +60,7 @@ A feature in an Early Access (EA) stage is new or enhanced functionality made av
 
 Any bug fixes or improvements are managed and fixed with the same timeline and processes as those in General Availability.
 
-Features in EA release are marked with the EA icon: <Apilife cycle access="ea" />
+Features in EA release are marked with the EA icon: <ApiLifecycle access="ea" />
 
 EA releases are managed in two ways:
 
