@@ -2,7 +2,7 @@
 title: Get an access token
 ---
 
-To request an access token using the Client Credentials grant flow, you make a request to your Okta [Org Authorization Server's](/docs/concepts/auth-servers) `/token` endpoint.
+To request an access token using the Client Credentials grant flow, your app makes a request to your Okta [Org Authorization Server's](/docs/concepts/auth-servers) `/token` endpoint.
 
 Include the following parameters:
 
