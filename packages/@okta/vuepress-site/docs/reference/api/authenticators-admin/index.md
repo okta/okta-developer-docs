@@ -215,7 +215,7 @@ curl -v -X GET \
   {
     "type": "security_question",
     "id": "aut1nbvIgEenhwE6c0g4",
-    "key": "recovery_question",
+    "key": "security_question",
     "status": "ACTIVE",
     "name": "Security Question",
     "created": "2020-07-26T21:05:23.000Z",
@@ -649,7 +649,7 @@ The Authenticator object defines the following properties:
 {
   "type": "security_question",
   "id": "aut1nbvIgEenhwE6c0g4",
-  "key": "recovery_question",
+  "key": "security_question",
   "status": "ACTIVE",
   "name": "Security Question",
   "created": "2020-07-26T21:05:23.000Z",
