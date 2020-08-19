@@ -5,9 +5,9 @@ category: management
 
 # New Types for Policy API
 
-<!-- AS OF 2020-08-19 THIS SHOULD BE A PART OF THE POLICY API. THIS MAY CHANGE BY THE TIME THIS GOES LIVE. -->
+<!-- AS OF 2020-08-19 THIS SHOULD BE A PART OF THE POLICY API. THIS MAY CHANGE -->
 
-The Identity Engine Early Adopter Program contains many updates to Okta's existing Policy API. Specifically, it introduces two new Policy types which both start with `Okta:`: `Okta:SignOn` and `Okta:ProfileEnrollment` as well as new kinds of Rules and Conditions. This documentation will discuss only the differences between the [existing Policy API](https://developer.okta.com/docs/reference/api/policy/) and the Identity Engine EAP additions.
+The Identity Engine Early Adopter Program (EAP) contains many updates to Okta's existing Policy API. Specifically, it introduces two new Policy types which both start with `Okta:`: `Okta:SignOn` and `Okta:ProfileEnrollment` as well as new kinds of Rules and Conditions. This documentation will discuss only the differences between the [existing Policy API](https://developer.okta.com/docs/reference/api/policy/) and the Identity Engine EAP additions.
 
 ## Limitations
 
@@ -349,7 +349,7 @@ Returns a [Policy](#policy-object).
 
 ##### Request
 
-This request updates the `name` and `default` properties, which would set this Policy as default and also update its name.
+This request updates the `name` property:
 
 ```bash
 curl -v -X PUT \
@@ -428,7 +428,7 @@ curl -v -X PUT \
 
 <ApiOperation method="delete" url="/api/v1/policies/${policyId}" />
 
-Permanently deletes a Policy along with any associated Rules and Mappings.
+Permanently deletes a non-default Policy along with any associated Rules and Mappings. Policies set as default cannot be deleted.
 
 #### Request path parameters
 
@@ -474,7 +474,7 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/policies/${policyId}/lifecycle/activate" />
 
-Activates the specified Policy.
+Activates the specified non-default Policy. Policies set as default will always be active.
 
 #### Request path parameters
 
@@ -519,7 +519,7 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/policies/${policyId}/lifecycle/deactivate" />
 
-Deactivates the specified Policy.
+Deactivates the specified non-default Policy. Policies set as default cannot be deactivated.
 
 #### Request path parameters
 
@@ -1766,28 +1766,26 @@ Each Policy may contain one or more Rules. Rules contain conditions which must b
 
 The Conditions object specifies the conditions that must be met during Policy evaluation in order for that Rule to be applied. All conditions must be met in order to apply the requirements for a given Rule. The conditions which can be used with a particular Rule depends on the Rule type.
 
-
 #### Conditions properties
 
 Conditions are represented by a `key`, `op`, and `value` that are used in conjunction with a context object to evaluate to a boolean result. Multiple conditions in a given Rule are AND-ed together.
 
-| Property | Type                             | Description                                                     |
-| -------- | -------------------------------- | --------------------------------------------------------------- |
-| `key`    | String                           | The [key](#key-values) indicates which part of the authentication context to match against                               |
-| `op`     | String                           | The operation to perform on the value. See [op values](#op-values) for more |
-| `value`  | String, Boolean, Number, or List | A static value to match the `key` against                         |
+| Property | Type                             | Description                                                                                |
+| -------- | -------------------------------- | ------------------------------------------------------------------------------------------ |
+| `key`    | String                           | The [key](#key-values) indicates which part of the authentication context to match against |
+| `op`     | String                           | The operation to perform on the value. See [op values](#op-values) for more                |
+| `value`  | String, Boolean, Number, or List | A static value to match the `key` against                                                  |
 
 ##### key values
 
-Supported `key` values are limited to:
+The `Okta:SignOn` Rule type supports the following Condition `key` values:
 
 * `Okta:User`
-* `Okta:Group`
-* `Okta:Identifier`
 * `Okta:UserType`
-* `Okta:AppInstance`
+* `Okta:Group`
 * `Okta:NetworkZone`
-* `Okta:IpAddress`
+
+Currently, the `Okta:ProfileEnrollment` Rule type does not support any Conditions.
 
 ##### op values
 
