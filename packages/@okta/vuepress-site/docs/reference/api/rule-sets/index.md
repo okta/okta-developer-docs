@@ -13,7 +13,7 @@ The Identity Engine Early Adopter Program contains many updates to Okta's existi
 
 Okta limits the number of Policies of the new types to 500 total. Each of those Policies can in turn have a maximum of 100 associated Rules.
 
-## Policies Operations
+## Policy Operations
 
 The Policy API supports the following Policy operations:
 
