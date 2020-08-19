@@ -6,13 +6,9 @@ title: Release Life Cycle
 
 Okta features travel through a regular life cycle:
 
-- [Release Life Cycle](#release-life-cycle)
-  - [Quick Reference Table](#quick-reference-table)
-  - [Beta Release](#beta-release)
-  - [Early Access (EA)](#early-access-ea)
-  - [General Availability (GA)](#general-availability-ga)
-  - [Deprecation](#deprecation)
-  - [Exceptions to the Beta-EA-GA Lifecycle](#exceptions-to-the-beta-ea-ga-lifecycle)
+- [Beta](#beta-release)
+- [Early Access (EA)](#early-access-ea)
+- [General Availability (GA)](#general-availability-ga)
 
 > **Note:** Okta reserves the right to add new parameters, properties, or resources to the API without advance notice.
 These updates are non-breaking because they are additive. Follow [the compatibility rules](/docs/reference/api-overview/) to ensure that your application doesn't break
