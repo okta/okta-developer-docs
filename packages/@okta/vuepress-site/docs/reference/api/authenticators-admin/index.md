@@ -406,7 +406,7 @@ curl -v -X POST \
 }
 ```
 
-### Deactivate Authenticator
+### Deactivate an Authenticator
 
 <ApiOperation method="delete" url="/api/v1/authenticators/${authenticatorId}/lifecycle/activate" />
 
@@ -487,7 +487,7 @@ curl -v -X POST \
 
 ##### Error response example
 
-If the authenticator you are trying to deactivate is currently in-use as part of an active Policy, you will get a 403 error:
+If the Authenticator you are trying to deactivate is currently in-use as part of an active Policy, you will get a 403 error:
 
 ```json
 {
