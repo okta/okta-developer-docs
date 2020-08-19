@@ -1,39 +1,35 @@
 ---
-title: Rule Sets
+title: Policies
 category: management
 ---
 
-# Rule Sets API
+# New Types for Policy API
 
-Rule Sets are ordered sets of Rules that support more granular targeting and unioning so that matched Rules can either contribute to the final result or possibly deny the action.
+<!-- AS OF 2020-08-19 THIS SHOULD BE A PART OF THE POLICY API. THIS MAY CHANGE BY THE TIME THIS GOES LIVE. -->
 
-Rule Sets are exposed under the familiar [Okta Policy API](/docs/reference/api/policy).
-
-We distinguish between Policies and Rule Sets based on the `type` field in the Policy API. Rule Set types always begin with the prefix `Okta:` (such as `Okta:SignOn`).
-
-Rule Sets also introduce the concept of "Mappings", which map a particular Rule Set to a particular App. Mappings represent the governance relationship of a policy over a given resource. Currently Okta allows a single Mapping for each Rule Set.
+The Identity Engine Early Adopter Program contains many updates to Okta's existing Policy API. Specifically, it introduces two new Policy types which both start with `Okta:`: `Okta:SignOn` and `Okta:ProfileEnrollment` as well as new kinds of Rules and Conditions. This documentation will discuss only the differences between the [existing Policy API](https://developer.okta.com/docs/reference/api/policy/) and the Identity Engine EAP additions.
 
 ## Limitations
 
-Okta limits the number of Rule Sets to 100 per [type](#rule-set-types).
+Okta limits the number of Policies to 100 per [type](#policy-types). %todo
 
-## Rule Sets Operations
+## Policies Operations
 
-The Rule Set API supports the following Rule Set operations:
+The Policy API supports the following Policy operations:
 
-* [Create a Rule Set](#create-a-rule-set)
-* [Get a Rule Set by id](#get-a-rule-set-by-id)
-* [Get all Rule Sets of a specific type](#get-all-rule-sets-of-a-specific-type)
-* [Update a Rule Set](#update-a-rule-set)
-* [Delete a Rule Set](#delete-a-rule-set)
-* [Activate a Rule Set](#activate-a-rule-set)
-* [Deactivate a Rule Set](#deactivate-a-rule-set)
+* [Create a Policy](#create-a-policy)
+* [Get a Policy by id](#get-a-policy-by-id)
+* [Get all Policies of a specific type](#get-all-policies-of-a-specific-type)
+* [Update a Policy](#update-a-policy)
+* [Delete a Policy](#delete-a-policy)
+* [Activate a Policy](#activate-a-policy)
+* [Deactivate a Policy](#deactivate-a-policy)
 
-### Create a Rule Set
+### Create a Policy
 
 <ApiOperation method="post" url="/api/v1/policies" />
 
-Creates a new Rule Set object.
+Creates a new Policy object.
 
 #### Request path parameters
 
@@ -47,18 +43,18 @@ N/A
 
 | Property  | Type    | Description                                                                                 |
 | --------- | ------- | ------------------------------------------------------------------------------------------- |
-| `default` | Boolean | Indicates whether this Rule Set is default                                                  |
-| `name`    | String  | A name for this Rule Set                                                                    |
-| `status`  | String  | The status of this [Rule Set object](#rule-set-object): `ACTIVE`, `INACTIVE`                |
-| `type`    | String  | A valid type of [Rule Set object](#rule-set-object): `Okta:SignOn`,`Okta:ProfileEnrollment` |
+| `default` | Boolean | Indicates whether this Policy is default                                                  |
+| `name`    | String  | A name for this Policy                                                                   |
+| `status`  | String  | The status of this [Policy object](#policy-object): `ACTIVE`, `INACTIVE`                |
+| `type`    | String  | A valid type of [Policy object](#policy-object): `Okta:SignOn`,`Okta:ProfileEnrollment` |
 
 #### Response body
 
-Returns a [Rule Set](#rule-set-object).
+Returns a [Policy](#policy-object).
 
 #### Usage example
 
-This request creates a new non-default Sign On Rule Set:
+This request creates a new non-default Sign On Policy:
 
 ##### Request
 
@@ -70,7 +66,7 @@ curl -v -X POST \
 -d '{
   "type": "Okta:SignOn",
   "status": "ACTIVE",
-  "name": "My App Assurance Rule Set",
+  "name": "My App Assurance Policy",
   "default": false
   }
 }' "https://${yourOktaDomain}/api/v1/policies"
@@ -81,7 +77,7 @@ curl -v -X POST \
 ```json
 {
   "id": "rst30qv3igD5OpiL50g7",
-  "name": "My App Assurance Rule Set",
+  "name": "My App Assurance Policy",
   "type": "Okta:SignOn",
   "status": "ACTIVE",
   "default": false,
@@ -132,17 +128,17 @@ curl -v -X POST \
 }
 ```
 
-### Get a Rule Set by id
+### Get a Policy by id
 
-<ApiOperation method="get" url="/api/v1/policies/${ruleSetId}" />
+<ApiOperation method="get" url="/api/v1/policies/${policyId}" />
 
-Returns the specified [Rule Set](#rule-set-object).
+Returns the specified [Policy](#policy-object).
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                                      |
 | ----------- | ------ | ------------------------------------------------ |
-| `ruleSetId` | String | The `id` of the Rule Set you'd like to retrieve. |
+| `policyId` | String | The `id` of the Policy you'd like to retrieve. |
 
 #### Request query parameters
 
@@ -154,11 +150,11 @@ N/A
 
 #### Response body
 
-Returns a [Rule Set](#rule-set-object).
+Returns a [Policy](#policy-object).
 
 #### Usage example
 
-This request returns a Rule Set with an `id` value of `rst30qv3igD5OpiL50g7`.
+This request returns a Policy with an `id` value of `rst30qv3igD5OpiL50g7`.
 
 ##### Request
 
@@ -175,7 +171,7 @@ curl -v -X GET \
 ```json
 {
   "id": "rst30qv3igD5OpiL50g7",
-  "name": "My App Assurance Rule Set",
+  "name": "My App Assurance Policy",
   "type": "Okta:SignOn",
   "status": "ACTIVE",
   "default": false,
@@ -226,11 +222,11 @@ curl -v -X GET \
 }
 ```
 
-### Get all Rule Sets of a specific type
+### Get all Policies of a specific type
 
 <ApiOperation method="get" url="/api/v1/policies?type=${type}" />
 
-Retrieves all Rule Sets with a matching `type` value.
+Retrieves all Policies with a matching `type` value.
 
 #### Request path parameters
 
@@ -240,7 +236,7 @@ N/A
 
 | Parameter | Type   | Description                                           |
 | --------- | ------ | ----------------------------------------------------- |
-| `type`    | String | A valid `type` of [Rule Set object](#rule-set-object) |
+| `type`    | String | A valid `type` of [Policy object](#policy-object) |
 
 #### Request body
 
@@ -248,11 +244,11 @@ N/A
 
 #### Response body
 
-An Array of [Rule Set](#rule-set-object) objects of the matching type.
+An Array of [Policy](#policy-object) objects of the matching type.
 
 #### Usage example
 
-This request would return all Rule Sets with the type `Okta:SignOn`.
+This request would return all Policies with the type `Okta:SignOn`.
 
 ##### Request
 
@@ -269,7 +265,7 @@ curl -v -X GET \
 ```json
 {
   "id": "rst30qv3igD5OpiL50g7",
-  "name": "My App Assurance Rule Set",
+  "name": "My App Assurance Policy",
   "type": "Okta:SignOn",
   "status": "ACTIVE",
   "default": false,
@@ -320,17 +316,17 @@ curl -v -X GET \
 }
 ```
 
-### Update a Rule Set
+### Update a Policy
 
-<ApiOperation method="put" url="/api/v1/policies/${rulesetId}" />
+<ApiOperation method="put" url="/api/v1/policies/${policyId}" />
 
-Updates the specified Rule Set.
+Updates the specified Policy.
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                                    |
 | ----------- | ------ | ---------------------------------------------- |
-| `ruleSetId` | String | The `id` of the Rule Set you'd like to update. |
+| `policyId` | String | The `id` of the Policy you'd like to update. |
 
 #### Request query parameters
 
@@ -340,20 +336,20 @@ N/A
 
 | Property | Type   | Description                                    |
 | -------- | ------ | ---------------------------------------------- |
-| `name`   | String | Name of the Rule Set                           |
-| `status` | String | Status of the Rule Set: `ACTIVE` or `INACTIVE` |
+| `name`   | String | Name of the Policy                          |
+| `status` | String | Status of the Policy: `ACTIVE` or `INACTIVE` |
 
-> **Note:** The `status` property can only be updated if this is not a default Rule Set.
+> **Note:** The `status` property can only be updated if this is not a default Policy.
 
 #### Response body
 
-Returns a [Rule Set](#rule-set-object).
+Returns a [Policy](#policy-object).
 
 #### Usage example
 
 ##### Request
 
-This request updates the `name` and `default` properties, which would set this Rule Set as default and also update its name.
+This request updates the `name` and `default` properties, which would set this Policy as default and also update its name.
 
 ```bash
 curl -v -X PUT \
@@ -364,7 +360,7 @@ curl -v -X PUT \
   "type": "Okta:SignOn",
   "id": "rst30qv3igD5OpiL50g7",
   "status": "ACTIVE",
-  "name": "My Default App Assurance Rule Set",
+  "name": "My Default App Assurance Policy",
   "default": true
   }
 }' "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7"
@@ -375,7 +371,7 @@ curl -v -X PUT \
 ```json
 {
   "id": "rst30qv3igD5OpiL50g7",
-  "name": "My Default App Assurance Rule Set",
+  "name": "My Default App Assurance Policy",
   "type": "Okta:SignOn",
   "status": "ACTIVE",
   "default": true,
@@ -428,17 +424,17 @@ curl -v -X PUT \
 
 
 
-### Delete a Rule Set
+### Delete a Policy
 
-<ApiOperation method="delete" url="/api/v1/policies/${rulesetId}" />
+<ApiOperation method="delete" url="/api/v1/policies/${policyId}" />
 
-Permanently deletes a Rule Set along with any associated Rules and Mappings.
+Permanently deletes a Policy along with any associated Rules and Mappings.
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                                    |
 | ----------- | ------ | ---------------------------------------------- |
-| `ruleSetId` | String | The `id` of the Rule Set you'd like to delete. |
+| `policyId` | String | The `id` of the Policy you'd like to delete. |
 
 #### Request query parameters
 
@@ -454,7 +450,7 @@ N/A
 
 #### Usage example
 
-The following request would delete a Rule Set with an `id` value of `rst30qv3igD5OpiL50g7`.
+The following request would delete a Policy with an `id` value of `rst30qv3igD5OpiL50g7`.
 
 ##### Request
 
@@ -474,17 +470,17 @@ Content-Type: application/json
 ```
 
 
-### Activate a Rule Set
+### Activate a Policy
 
-<ApiOperation method="post" url="/api/v1/policies/${rulesetId}/lifecycle/activate" />
+<ApiOperation method="post" url="/api/v1/policies/${policyId}/lifecycle/activate" />
 
-Activates the specified Rule Set.
+Activates the specified Policy.
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                                      |
 | ----------- | ------ | ------------------------------------------------ |
-| `ruleSetId` | String | The `id` of the Rule Set you'd like to activate. |
+| `policyId` | String | The `id` of the Policy you'd like to activate. |
 
 #### Request query parameters
 
@@ -500,7 +496,7 @@ N/A
 
 #### Usage example
 
-The following request would activate the specified Rule Set:
+The following request would activate the specified Policy:
 
 ##### Request
 
@@ -519,17 +515,17 @@ HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
-### Deactivate a Rule Set
+### Deactivate a Policy
 
-<ApiOperation method="post" url="/api/v1/policies/${rulesetId}/lifecycle/deactivate" />
+<ApiOperation method="post" url="/api/v1/policies/${policyId}/lifecycle/deactivate" />
 
-Deactivates the specified Rule Set.
+Deactivates the specified Policy.
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                                        |
 | ----------- | ------ | -------------------------------------------------- |
-| `ruleSetId` | String | The `id` of the Rule Set you'd like to deactivate. |
+| `policyId` | String | The `id` of the Policy you'd like to deactivate. |
 
 #### Request query parameters
 
@@ -545,7 +541,7 @@ N/A
 
 #### Usage example
 
-The following request would deactivate the specified Rule Set:
+The following request would deactivate the specified Policy:
 
 ##### Request
 
@@ -566,11 +562,11 @@ Content-Type: application/json
 
 ## Rule Operations
 
-The Rule Set API supports the following Rule operations:
+The Policy API supports the following Rule operations:
 
 * [Create a Rule](#create-a-rule)
 * [Get a Rule](#get-a-rule)
-* [Get all Rules in a Rule Set](#get-all-rules-in-a-rule-set)
+* [Get all Rules in a Policy](#get-all-rules-in-a-policy)
 * [Update a Rule](#update-a-rule)
 * [Delete a Rule](#delete-a-rule)
 * [Activate a Rule](#activate-a-rule)
@@ -578,15 +574,15 @@ The Rule Set API supports the following Rule operations:
 
 ### Create a Rule
 
-<ApiOperation method="post" url="/api/v1/policies/${rulesetId}/rules" />
+<ApiOperation method="post" url="/api/v1/policies/${policyId}/rules" />
 
-Creates a new Rule in the specified Rule Set.
+Creates a new Rule in the specified Policy.
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                                              |
 | ----------- | ------ | -------------------------------------------------------- |
-| `rulesetId` | String | The `id` of the Rule Set that this Rule will be added to |
+| `policyId` | String | The `id` of the Policy that this Rule will be added to |
 
 #### Request query parameters
 
@@ -601,7 +597,7 @@ N/A
 | `default`     | Boolean | Indicates whether this is the default Rule (`FALSE` by default)        |
 | `name`        | String  | Name of the Rule                                                       |
 | `priority`    | Number  | Priority of this Rule                                                  |
-| `requirement` | Object  | Specific remediation [Requirements](#requirement-object) for this Rule |
+| `requirement` | Object  | Specific action or remediation [Requirements](#requirement-object) for this Rule |
 | `status`      | String  | Status of the Rule: `ACTIVE` (default) or `INACTIVE`                   |
 | `type`        | String  | Rule type. Valid values: `Okta:SignOn` or `Okta:ProfileEnrollment`           |
 
@@ -612,7 +608,7 @@ The [Rule](#rule-object) that you just created.
 
 #### Usage example
 
-The following request would create a new Rule in the specified Rule Set:
+The following request would create a new Rule in the specified Policy:
 
 ##### Request
 
@@ -726,15 +722,15 @@ curl -v -X POST \
 
 ### Get a Rule
 
-<ApiOperation method="get" url="/api/v1/policies/${rulesetId}/rules/${ruleId}" />
+<ApiOperation method="get" url="/api/v1/policies/${policyId}/rules/${ruleId}" />
 
-Retrieves the specified Rule from the specified Rule Set.
+Retrieves the specified Rule from the specified Policy.
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                                      |
 | ----------- | ------ | ------------------------------------------------ |
-| `ruleSetId` | String | The `id` of the Rule Set this Rule belongs to    |
+| `policyId` | String | The `id` of the Policy this Rule belongs to    |
 | `ruleId`    | String | The `id` of the Rule that you'd like to retrieve |
 
 #### Request query parameters
@@ -831,17 +827,17 @@ curl -v -X GET \
 }
 ```
 
-### Get all Rules in a Rule Set
+### Get all Rules in a Policy
 
-<ApiOperation method="get" url="/api/v1/policies/${rulesetId}/rules" />
+<ApiOperation method="get" url="/api/v1/policies/${policyId}/rules" />
 
-Retrieves all Rules in the specified Rule Set.
+Retrieves all Rules in the specified Policy.
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                                   |
 | ----------- | ------ | --------------------------------------------- |
-| `ruleSetId` | String | The `id` of the Rule Set this Rule belongs to |
+| `policyId` | String | The `id` of the Policy this Rule belongs to |
 
 #### Request query parameters
 
@@ -857,7 +853,7 @@ An Array of [Rule objects](#rule-object)
 
 #### Usage example
 
-The following request would return all Rules found within the specified Rule Set.
+The following request would return all Rules found within the specified Policy.
 
 ##### Request
 
@@ -939,15 +935,15 @@ curl -v -X GET \
 
 ### Update a Rule
 
-<ApiOperation method="put" url="/api/v1/policies/${rulesetId}/rules/${ruleId}" />
+<ApiOperation method="put" url="/api/v1/policies/${policyId}/rules/${ruleId}" />
 
-Updates the specified Rule found within the specified Rule Set.
+Updates the specified Rule found within the specified Policy.
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                                      |
 | ----------- | ------ | ------------------------------------------------ |
-| `ruleSetId` | String | The `id` of the Rule Set this Rule belongs to    |
+| `policyId` | String | The `id` of the Policy this Rule belongs to    |
 | `ruleId`    | String | The `id` of the Rule that you'd like to retrieve |
 
 #### Request query parameters
@@ -1089,7 +1085,7 @@ curl -v -X PUT \
 
 ### Delete a Rule
 
-<ApiOperation method="delete" url="/api/v1/policies/${rulesetId}/rules/${ruleId}" />
+<ApiOperation method="delete" url="/api/v1/policies/${policyId}/rules/${ruleId}" />
 
 Deletes the specified Rule permanently.
 
@@ -1097,7 +1093,7 @@ Deletes the specified Rule permanently.
 
 | Parameter   | Type   | Description                                      |
 | ----------- | ------ | ------------------------------------------------ |
-| `ruleSetId` | String | The `id` of the Rule Set this Rule belongs to    |
+| `policyId` | String | The `id` of the Policy this Rule belongs to    |
 | `ruleId`    | String | The `id` of the Rule that you'd like to retrieve |
 
 #### Request query parameters
@@ -1114,7 +1110,7 @@ N/A
 
 #### Usage example
 
-The following request would delete the specified Rule from the specified Rule Set:
+The following request would delete the specified Rule from the specified Policy:
 
 ##### Request
 
@@ -1135,7 +1131,7 @@ Content-Type: application/json
 
 ### Activate a Rule
 
-<ApiOperation method="post" url="/api/v1/policies/${rulesetId}/rules/${ruleId}/lifecycle/activate" />
+<ApiOperation method="post" url="/api/v1/policies/${policyId}/rules/${ruleId}/lifecycle/activate" />
 
 Activates the specified Rule.
 
@@ -1143,7 +1139,7 @@ Activates the specified Rule.
 
 | Parameter   | Type   | Description                                      |
 | ----------- | ------ | ------------------------------------------------ |
-| `ruleSetId` | String | The `id` of the Rule Set this Rule belongs to    |
+| `policyId` | String | The `id` of the Policy this Rule belongs to    |
 | `ruleId`    | String | The `id` of the Rule that you'd like to activate |
 
 #### Request query parameters
@@ -1181,7 +1177,7 @@ Content-Type: application/json
 
 ### Deactivate a Rule
 
-<ApiOperation method="post" url="/api/v1/policies/${rulesetId}/rules/${ruleId}/lifecycle/deactivate" />
+<ApiOperation method="post" url="/api/v1/policies/${policyId}/rules/${ruleId}/lifecycle/deactivate" />
 
 Deactivates the specified Rule.
 
@@ -1189,7 +1185,7 @@ Deactivates the specified Rule.
 
 | Parameter   | Type   | Description                                      |
 | ----------- | ------ | ------------------------------------------------ |
-| `ruleSetId` | String | The `id` of the Rule Set this Rule belongs to    |
+| `policyId` | String | The `id` of the Policy this Rule belongs to    |
 | `ruleId`    | String | The `id` of the Rule that you'd like to deactivate |
 
 #### Request query parameters
@@ -1227,24 +1223,24 @@ Content-Type: application/json
 
 ## Mapping Operations
 
-The Rule Set API supports the following Mapping operations:
+The Policy API supports the following Mapping operations:
 
 * [Create a Mapping](#create-a-mapping)
 * [Get a Mapping by id](#get-a-mapping-by-id)
-* [Get all Mappings for a Rule Set](#get-all-mappings-for-a-rule-set)
+* [Get all Mappings for a Policy](#get-all-mappings-for-a-policy)
 * [Delete a Mapping](#delete-a-mapping)
 
 ### Create a Mapping
 
-<ApiOperation method="post" url="/api/v1/policies/${rulesetId}/mappings" />
+<ApiOperation method="post" url="/api/v1/policies/${policyId}/mappings" />
 
-Creates a new Mapping for the specified Rule Set.
+Creates a new Mapping for the specified Policy.
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                                                  |
 | ----------- | ------ | ------------------------------------------------------------ |
-| `ruleSetId` | String | The `id` of the Rule Set you'd like to create a Mapping for. |
+| `policyId` | String | The `id` of the Policy you'd like to create a Mapping for. |
 
 #### Request query parameters
 
@@ -1254,8 +1250,8 @@ N/A
 
 | Parameter      | Type   | Description                                                                          |
 | -------------- | ------ | ------------------------------------------------------------------------------------ |
-| `resourceType` | String | The type of Okta object that this Rule Set should be mapped to: `APP` |
-| `resourceId`   | String | The `id` of the object that you would like to map this Rule Set to.                  |
+| `resourceType` | String | The type of Okta object that this Policy should be mapped to: `APP` |
+| `resourceId`   | String | The `id` of the object that you would like to map this Policy to.                  |
 
 #### Response body
 
@@ -1263,7 +1259,7 @@ N/A
 
 #### Usage example
 
-The following request would create a new Mapping between the Rule Set with id `rst30qv3igD5OpiL50g7` and an App with id `0oa10510BvfrKTfzD0g4`:
+The following request would create a new Mapping between the Policy with id `rst30qv3igD5OpiL50g7` and an App with id `0oa10510BvfrKTfzD0g4`:
 
 ##### Request
 
@@ -1319,16 +1315,16 @@ curl -v -X POST \
 
 ### Get a Mapping by id
 
-<ApiOperation method="get" url="/api/v1/policies/${rulesetId}/mappings/${mappingId}" />
+<ApiOperation method="get" url="/api/v1/policies/${policyId}/mappings/${mappingId}" />
 
-Retrieves the specified Mapping for the specified Rule Set.
+Retrieves the specified Mapping for the specified Policy.
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                   |
 | ----------- | ------ | ----------------------------- |
 | `mappingId` | String | The identifier for a Mapping  |
-| `ruleSetId` | String | The identifier for a Rule Set |
+| `policyId` | String | The identifier for a Policy|
 
 #### Request query parameters
 
@@ -1344,7 +1340,7 @@ A [Mapping object](#mapping-object)
 
 #### Usage example
 
-The following request would retrieve a Mapping for this Rule Set:
+The following request would retrieve a Mapping for this Policy:
 
 ##### Request
 
@@ -1395,17 +1391,17 @@ curl -v -X GET \
 }
 ```
 
-### Get all Mappings for a Rule Set
+### Get all Mappings for a Policy
 
-<ApiOperation method="get" url="/api/v1/policies/${rulesetId}/mappings" />
+<ApiOperation method="get" url="/api/v1/policies/${policyId}/mappings" />
 
-Retrieves all Mappings associated with the specified Rule Set.
+Retrieves all Mappings associated with the specified Policy.
 
 #### Request path parameters
 
 | Parameter   | Type   | Description                   |
 | ----------- | ------ | ----------------------------- |
-| `ruleSetId` | String | The identifier for a Rule Set |
+| `policyId` | String | The identifier for a Policy|
 
 #### Request query parameters
 
@@ -1421,7 +1417,7 @@ An Array of [Mapping objects](#mapping-object)
 
 #### Usage example
 
-The following request would retrieve all Mappings associated with specified Rule Set:
+The following request would retrieve all Mappings associated with specified Policy:
 
 ##### Request
 
@@ -1474,7 +1470,7 @@ curl -v -X GET \
 
 ### Delete a Mapping
 
-<ApiOperation method="delete" url="/api/v1/policies/${rulesetId}/mappings/${mappingId}" />
+<ApiOperation method="delete" url="/api/v1/policies/${policyId}/mappings/${mappingId}" />
 
 Deletes the specified Mapping permanently.
 
@@ -1483,7 +1479,7 @@ Deletes the specified Mapping permanently.
 | Parameter   | Type   | Description                   |
 | ----------- | ------ | ----------------------------- |
 | `mappingId` | String | The identifier for a Mapping  |
-| `ruleSetId` | String | The identifier for a Rule Set |
+| `policyId` | String | The identifier for a Policy|
 
 #### Request query parameters
 
@@ -1518,43 +1514,43 @@ HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
-## Rule Sets API objects
+## Policies API objects
 
-The Rule Sets API involves the following objects:
+The Policies API involves the following objects:
 
-* [Rule Set](#rule-set-object)
+* [Policy](#policy-object)
 * [Rule](#rule-object)
   * [Conditions](#conditions-object)
   * [Requirement](#requirement-object)
     * [Verification Method](#verification-method-object)
 * [Mapping](#mapping-object)
 
-### Rule Set object
+### Policy object
 
-#### Rule Set properties
+#### Policy properties
 
-The Rule Set object has several properties:
+The Policy object has several properties:
 
 | Property            | Type         | Description                                                                                                                                                 |
 | ------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `_links.activate`   | String (URL) | Link to activate a Rule Set or rule (present if the rule is currently inactive)                                                                             |
-| `_links.deactivate` | String (URL) | Link to deactivate a Rule Set or rule (present if the rule is currently active)                                                                             |
-| `_links.mappings`   | String (URL) | Link to retrieve the Mapping objects for the given Rule Set                                                                                                 |
-| `_links.rules`      | String (URL) | Link to retrieve the Rules objects for the given Rule Set                                                                                                   |
-| `_links.self`       | String (URL) | Link to the current Rule Set object                                                                                                                         |
-| `_links`            | Object       | Specifies read-only [link relations](http://tools.ietf.org/html/rfc5988) available for the current policy. Used for dynamic discovery of related resources. |
-| `default`           | Boolean      | Indicates whether this Rule Set is set as default                                                                                                           |
-| `id`                | String       | Identifier of this Rule Set                                                                                                                                 |
-| `name`              | String       | Name of the Rule Set                                                                                                                                        |
-| `status`            | String       | Status of the Rule Set: `ACTIVE` (default) or `INACTIVE`                                                                                                    |
-| `type`              | String       | Specifies the [type of Rule Set](#rule-set-types). Valid values: `Okta:SignOn` or `Okta:ProfileEnrollment`                                                        |
+| `_links.activate`   | String (URL) | Link to activate a Policy or Rule (present if the Rule is currently inactive)                                                                             |
+| `_links.deactivate` | String (URL) | Link to deactivate a Policy or rule (present if the rule is currently active)                                                                             |
+| `_links.mappings`   | String (URL) | Link to retrieve the Mapping objects for the given Policy                                                                                                |
+| `_links.rules`      | String (URL) | Link to retrieve the Rules objects for the given Policy                                                                                                  |
+| `_links.self`       | String (URL) | Link to the current Policy object                                                                                                                         |
+| `_links`            | Object       | Specifies read-only [link relations](http://tools.ietf.org/html/rfc5988) available for the current Policy. Used for dynamic discovery of related resources. |
+| `default`           | Boolean      | Indicates whether this Policy is set as default                                                                                                           |
+| `id`                | String       | Identifier of this Policy                                                                                                                                |
+| `name`              | String       | Name of the Policy                                                                                                                                       |
+| `status`            | String       | Status of the Policy: `ACTIVE` (default) or `INACTIVE`                                                                                                    |
+| `type`              | String       | Specifies the [type of Policy](#policy-types). Valid values: `Okta:SignOn` or `Okta:ProfileEnrollment`                                                        |
 
-#### Rule Set JSON example
+#### Policy JSON example
 
 ```json
 {
   "id": "rst30qv3igD5OpiL50g7",
-  "name": "My App Assurance Rule Set",
+  "name": "My App Assurance Policy",
   "type": "Okta:SignOn",
   "status": "ACTIVE",
   "default": false,
@@ -1604,36 +1600,36 @@ The Rule Set object has several properties:
   }
 ```
 
-#### About Rule Sets
+#### About Policies
 
-##### Rule Set Types
+##### Policy Types
 
-Different Rule Sets control the behavior for different steps in the Identity Engine pipeline. All Rule Set types share a common framework, message structure and API, but have different settings and Rule data.
+Different Policies control the behavior for different steps in the Identity Engine pipeline. All Policy types share a common framework, message structure and API, but have different settings and Rule data.
 
-* Sign On Rule Sets have the type `Okta:SignOn`, and are always associated with an application via a [Mapping](#resource-mappings). The Okta Identity Engine always evaluates both Okta Sign On Policy and the Sign On Rule Set for the application. The resulting user experience will be the union of both policies.
-* User Profile Rule Sets User have the type `Okta:ProfileEnrollment`. These Rule Sets specify what profile attributes are required for creating new Users via self-service registration, and also can be used for progressive profiling.
+* Sign On Policies have the type `Okta:SignOn`, and are always associated with an application via a [Mapping](#resource-mappings). The Okta Identity Engine always evaluates both Okta Sign On Policy and the Sign On Policy for the application. The resulting user experience will be the union of both policies.
+* User Profile Policies User have the type `Okta:ProfileEnrollment`. These Policies specify what profile attributes are required for creating new Users via self-service registration, and also can be used for progressive profiling.
 
-##### Rule Set Priority and Defaults
+##### PolicyPriority and Defaults
 
-There is always a default Rule Set created for each [type](#rule-set-types). The default applies to any resources for which other policies in the Okta org do not apply.
+There is always a default Policy created for each [type](#policy-types). The default applies to any resources for which other policies in the Okta org do not apply.
 
-- A default Rule Set is required and cannot be deleted.
-- The default Rule Set is always the last in the priority order. Any added Rule Sets of this type have higher priority than the default Rule Set.
-- The default Rule Set always has one default rule that cannot be deleted. It is always the last rule in the priority order. If you add rules to the default Rule Set, they have a higher priority than the default rule.
+- A default Policy is required and cannot be deleted.
+- The default Policy is always the last in the priority order. Any added Policies of this type have higher priority than the default Policy.
+- The default Policy always has one default rule that cannot be deleted. It is always the last rule in the priority order. If you add rules to the default Policy, they have a higher priority than the default rule.
 
 ### Rule Object
 
-Each Rule Set may contain one or more rules. Rules contain conditions which must be satisfied in order for the rule to be applied.
+Each Policy may contain one or more rules. Rules contain conditions which must be satisfied in order for the rule to be applied.
 
 #### Rule properties
 
 | Property            | Type         | Description                                                                                                                                                 |
 | ------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `_links.activate`   | String (URL) | Link to activate a Rule Set or rule (present if the rule is currently inactive)                                                                             |
-| `_links.deactivate` | String (URL) | Link to deactivate a Rule Set or rule (present if the rule is currently active)                                                                             |
-| `_links.mappings`   | String (URL) | Link to retrieve the Mapping objects for the given Rule Set                                                                                                 |
-| `_links.rules`      | String (URL) | Link to retrieve the Rules objects for the given Rule Set                                                                                                   |
-| `_links.self`       | String (URL) | Link to the current Rule Set object                                                                                                                         |
+| `_links.activate`   | String (URL) | Link to activate a Policy or Rule (present if the Rule is currently inactive)                                                                             |
+| `_links.deactivate` | String (URL) | Link to deactivate a Policy or Rule (present if the Rule is currently active)                                                                             |
+| `_links.mappings`   | String (URL) | Link to retrieve the Mapping objects for the given Policy                                                                                                |
+| `_links.rules`      | String (URL) | Link to retrieve the Rule objects for the given Policy                                                                                                  |
+| `_links.self`       | String (URL) | Link to the current Policy object                                                                                                                         |
 | `_links`            | Object       | Specifies read-only [link relations](http://tools.ietf.org/html/rfc5988) available for the current Rule. Used for dynamic discovery of related resources. |
 | `action`            | String       | Top-level action for Rule: `ALLOW` or `DENY`                                                                                                                |
 | `conditions`        | Object       | The [Conditions object](#conditions-object) for this Rule                                                                                                                         |
@@ -1768,7 +1764,7 @@ Each Rule Set may contain one or more rules. Rules contain conditions which must
 
 ### Conditions Object
 
-The Conditions object specifies the conditions that must be met during Rule Set evaluation in order for that Rule to be applied. All conditions must be met in order to apply the requirements for a given rule. The conditions which can be used with a particular Rule depends on the Rule type.
+The Conditions object specifies the conditions that must be met during Policy evaluation in order for that Rule to be applied. All conditions must be met in order to apply the requirements for a given rule. The conditions which can be used with a particular Rule depends on the Rule type.
 
 
 #### Conditions properties
@@ -1847,16 +1843,16 @@ The contents of the Requirement object are different for each type of Rule:
 
 #### Requirement properties
 
-| Property                     | Type    | Description                                                                            |
-| ---------------------------- | ------- | -------------------------------------------------------------------------------------- |
-| `activationRequirements`     | Object  | Contains a single Boolean property that Indicates whether `emailVerification` should occur (`true`) or not (`false`, default). |
-| `preRegistrationInlineHooks` | Array   | (Optional) The `id` of most one pre-registration Inline Hook                           |
-| `profileAttributes.label`    | String  | A display-friendly label for this property.                                            |
-| `profileAttributes.name`     | String  | The name of a User Profile property. Can be an existing User Profile property.         |
-| `profileAttributes.required` | Boolean | (Optional, default `false`) Indicates if this property is required for enrollment      |
-| `profileAttributes`          | Array   | A list of User Profile properties                                                      |
-| `targetGroupIds`             | Array   | (Optional, max 1 entry) The `id` of a Group that this user should be added to          |
-| `unknownUserAction`          | String  | Which action should be taken if this User is new (Valid values: `DENY`, `REGISTER`)    |
+| Property                     | Type    | Description                                                                                                                                                                                                                                                                                                                                               |
+| ---------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `activationRequirements`     | Object  | Contains a single Boolean property that Indicates whether `emailVerification` should occur (`true`) or not (`false`, default).                                                                                                                                                                                                                            |
+| `preRegistrationInlineHooks` | Array   | (Optional) The `id` of most one pre-registration Inline Hook                                                                                                                                                                                                                                                                                              |
+| `profileAttributes.label`    | String  | A display-friendly label for this property.                                                                                                                                                                                                                                                                                                               |
+| `profileAttributes.name`     | String  | The name of a User Profile property. Can be an existing User Profile property.                                                                                                                                                                                                                                                                            |
+| `profileAttributes.required` | Boolean | (Optional, default `FALSE`) Indicates if this property is required for enrollment                                                                                                                                                                                                                                                                         |
+| `profileAttributes`          | Array   | A list of attributes for which to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes will be persisted in the user's profile. Non-schema attributes may also be added, which will not be persisted to the user's Profile, but will be included in requests to the Registration Inline Hook. |
+| `targetGroupIds`             | Array   | (Optional, max 1 entry) The `id` of a Group that this user should be added to                                                                                                                                                                                                                                                                             |
+| `unknownUserAction`          | String  | Which action should be taken if this User is new (Valid values: `DENY`, `REGISTER`)                                                                                                                                                                                                                                                                       |
 
 #### Requirement JSON example (Okta:ProfileEnrollment)
 
@@ -2006,14 +2002,14 @@ The number of authenticator class constraints in each constraint object be less 
 
 ### Mapping Object
 
-A Mapping object links together an Application and a Rule Set.
+A Mapping object links together an Application and a Policy.
 
 #### Mapping properties
 
 | Property             | Type         | Description                                                                                                                                                  |
 | -------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `_links.application` | String (URL) | A link to the Application for this Mapping                                                                                                                   |
-| `_links.policy`      | String (URL) | A link to the Rule Set for this Mapping                                                                                                                      |
+| `_links.policy`      | String (URL) | A link to the Policy for this Mapping                                                                                                                      |
 | `_links.self`        | String (URL) | A link to this Mapping                                                                                                                                       |
 | `_links`             | Object       | Specifies read-only [link relations](http://tools.ietf.org/html/rfc5988) available for the current Mapping. Used for dynamic discovery of related resources. |
 | `id`                 | String       | The identifier for this Mapping                                                                                                                              |
