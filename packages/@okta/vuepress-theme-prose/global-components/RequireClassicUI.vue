@@ -2,9 +2,10 @@
   <div>
     <blockquote>
       <details class="custom-block details">
-        <summary>The <strong>Classic UI</strong> is required for this guide.</summary>
+        <summary>The Admin Console (<strong>Classic UI</strong>) is required for this guide.</summary>
+        <br/>
         <p>
-          The top left of your Okta Admin Console should say <strong>Classic UI</strong>, if it says <strong>Developer Console</strong> click the dropdown to change it to <strong>Classic UI</strong>.
+          The upper-left corner of the page should say <strong>Classic UI</strong>. If it says <strong>Developer Console</strong>, click the drop-down box to change it to <strong>Classic UI</strong>.
         </p>
       </details>
     </blockquote>
