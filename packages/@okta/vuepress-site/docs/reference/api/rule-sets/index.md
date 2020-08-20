@@ -944,7 +944,7 @@ Updates the specified Rule found within the specified Policy.
 | Parameter   | Type   | Description                                      |
 | ----------- | ------ | ------------------------------------------------ |
 | `policyId` | String | The `id` of the Policy this Rule belongs to    |
-| `ruleId`    | String | The `id` of the Rule that you'd like to retrieve |
+| `ruleId`    | String | The `id` of the Rule that you'd like to update |
 
 #### Request query parameters
 
@@ -1094,7 +1094,7 @@ Deletes the specified Rule permanently.
 | Parameter   | Type   | Description                                      |
 | ----------- | ------ | ------------------------------------------------ |
 | `policyId` | String | The `id` of the Policy this Rule belongs to    |
-| `ruleId`    | String | The `id` of the Rule that you'd like to retrieve |
+| `ruleId`    | String | The `id` of the Rule that you'd like to delete |
 
 #### Request query parameters
 
@@ -1844,7 +1844,7 @@ The contents of the Requirement object are different for each type of Rule:
 | Property                     | Type    | Description                                                                                                                                                                                                                                                                                                                                               |
 | ---------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `activationRequirements`     | Object  | Contains a single Boolean property that Indicates whether `emailVerification` should occur (`true`) or not (`false`, default).                                                                                                                                                                                                                            |
-| `preRegistrationInlineHooks` | Array   | (Optional) The `id` of most one pre-registration Inline Hook                                                                                                                                                                                                                                                                                              |
+| `preRegistrationInlineHooks` | Array   | (Optional) The `id` of at most one Registration Inline Hook                                                                                                                                                                                                                                                                                              |
 | `profileAttributes.label`    | String  | A display-friendly label for this property.                                                                                                                                                                                                                                                                                                               |
 | `profileAttributes.name`     | String  | The name of a User Profile property. Can be an existing User Profile property.                                                                                                                                                                                                                                                                            |
 | `profileAttributes.required` | Boolean | (Optional, default `FALSE`) Indicates if this property is required for enrollment                                                                                                                                                                                                                                                                         |
@@ -1878,7 +1878,7 @@ A Verification Method describes the means by which the user must be verified. Th
 
 Assurance is the degree of confidence that the end-user logging into an application or service is the same end-user who previously enrolled or logged in to the application or service.
 
-Authenticators can be broadly classified into factors. A factor represents the mechanism by which a end-user owns or controls the authenticator. The three classifications are:
+Authenticators can be broadly classified into factors. A factor represents the mechanism by which an end-user owns or controls the authenticator. The three classifications are:
 
 * Knowledge: something you know, such as a password
 * Possession: something you have, such as a phone
