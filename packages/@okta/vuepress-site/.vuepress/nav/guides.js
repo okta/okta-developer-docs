@@ -64,6 +64,7 @@ module.exports = [
       { title: 'Customize the Okta-hosted error pages', guideName: 'custom-error-pages' },
       { title: 'Customize the Okta URL domain', guideName: 'custom-url-domain' },
       { title: 'Customize the Okta-hosted sign-in page', guideName: 'custom-hosted-signin' },
+      { title: 'Customize SMS messages', guideName: 'sms-customization' },
     ]
   },
   { 

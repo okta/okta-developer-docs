@@ -2,6 +2,8 @@
 title: Add a translation
 ---
 
+If you support other languages in your org, you need to create a translation for each language to match your <GuideLink link="../customize-default-sms">new custom SMS message</GuideLink>. You also need to provide the translated text for each message.
+
 1. In the Developer Console, go to **Customizations**, and then **Emails & SMS**.
 
 2. Select the **SMS** tab.
@@ -20,4 +22,4 @@ title: Add a translation
 
 > **Note:** Alternatively, you can use the [Okta Templates API](/docs/reference/api/templates/) to manage custom SMS message templates.
 
-
+<NextSectionLink>Next steps</NextSectionLink>
