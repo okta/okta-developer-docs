@@ -22,7 +22,7 @@ If you host your own sign-in page, and use a self-hosted instance of the Okta Si
 
 Okta session cookies that accompany XHR calls to Okta API endpoints like `/sessions/me` and `/user/me`	 are blocked by the browser because they are sent to a different domain than the one the user is on. Okta session cookies never get through to Okta, and Okta cannot complete the request.
 
-The result is that Okta returns 403 forbidden errors to the user or that your application repeatedly directs users back to the sign-in page.
+The result is that Okta returns 403 Forbidden errors to the user or that your application repeatedly directs users back to the sign-in page.
 
 Specifically, this problem affects [certain methods](https://github.com/okta/okta-auth-js#third-party-cookies) of the Okta Auth JavaScript SDK. The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-sign-in-widget) uses the affected Okta Auth JavaScript SDK methods internally. Any customer-developed code that directly makes XHR calls to the Okta [Sessions API](/docs/reference/api/sessions/) is also affected. 
 
@@ -69,8 +69,8 @@ Example change:
 
 ```
  var authClient = new OktaAuth({
--  issuer: 'https://companyname.okta.com'
-+  issuer: 'https://login.companyname.com'
+-  issuer: 'https://companyname.okta.com/oauth2/default'
++  issuer: 'https://login.companyname.com/oauth2/default'
  });
 ```
 
