@@ -14,7 +14,7 @@ In this guide you will learn how to use the Auth SDK on a simple static page to:
 - Retrieve and store an OpenID Connect (OIDC) token (id_token)
 - Get an Okta session
 
-> **Note:** `@okta/okta-auth-js` version 4.0.0 or above is required to run samples in this guide.
+> **Note:** `@okta/okta-auth-js` version 3.2.2 or above is required to run samples in this guide.
 
 If you'd like to explore the entire Auth SDK, please see the [Okta AuthJS Source &amp; API Reference][authjs-reference].
 
