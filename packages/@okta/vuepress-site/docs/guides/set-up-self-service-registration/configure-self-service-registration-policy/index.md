@@ -36,7 +36,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
     * string
     * number
-    * Boolean
+    * boolean
     * integer
 
     > **Note:** The form also supports `enum` data types for strings, numbers, and integers.
