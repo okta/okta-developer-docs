@@ -6,7 +6,7 @@ meta:
 ---
 ## What is an authorization server
 
-At its core, an authorization server is simply an engine for minting OpenID Connect or [OAuth 2.0](/docs/concepts/auth-overview/#oauth-2-0) tokens. An authorization server is also used to apply access policies. Each authorization server has a unique issuer URI and its own signing key for tokens to keep a proper boundary between security domains.
+At its core, an authorization server is simply an engine for minting OpenID Connect or [OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0) tokens. An authorization server is also used to apply access policies. Each authorization server has a unique issuer URI and its own signing key for tokens to keep a proper boundary between security domains.
 
 ## What you can use an authorization server for
 
