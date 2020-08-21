@@ -39,6 +39,7 @@ guides:
  - sign-into-web-app
  - sign-users-out
  - sign-your-own-saml-csr
+ - style-the-widget
  - unlock-mobile-app-with-biometrics
  - updating-saml-cert
  - validate-access-tokens
