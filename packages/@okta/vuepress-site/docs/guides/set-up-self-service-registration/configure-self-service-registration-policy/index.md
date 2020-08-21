@@ -48,11 +48,11 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
     * **Default redirect:** After registration, users are redirected to the app that sent them to the registration form. In the event that no app context is provided, they are redirected to the location that you select here.
 
         * **User dashboard:** Select to redirect users to your org's Okta homepage.
-        * **Custom URL** Select and then enter the URL where you want the authorization server to redirect your users, such as to your custom app, OpenID Connect portal, or SAML portal.
+        * **Custom URL** Select and then enter the URL where you want the authorization server to redirect your users, such as to your custom app or portal.
 
 6. Click **Save**.
 
-7. (Optional) If you added fields to the registration form in step 4, and you want your users to be able to modify this field after registration on their **Settings** page:
+7. (Optional) If you added more fields from the existing attribute list to the registration form during step 4, and you want your users to be able to modify those fields after registration on their **Settings** page, do the following:
 
     * Go to **Directory** and then **Profile Editor**.
     * Click **Profile** for the **Okta User (default)** profile.
