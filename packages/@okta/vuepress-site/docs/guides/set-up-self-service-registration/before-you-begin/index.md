@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Before you begin
 ---
 
 A new user's first impression starts with the registration process, making it a critical aspect to get right. Because you're asking a user to give you information for the first time, you need to personalize and streamline the experience.
@@ -14,7 +14,7 @@ Okta's self-service registration lets you configure a custom app or the Okta Hom
 
 * **Make email verification optional.** After registration, end users are immediately redirected to your custom app/portal or to your org's Okta Homepage. Okta then sends the user an email requesting verification of their email address.
 
-## Before you begin
+## Prerequisites
 
 > **Note:** This is an Early Access feature. To enable it, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
 

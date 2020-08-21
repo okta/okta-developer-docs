@@ -1,6 +1,7 @@
 ---
 title: Disable the security image and additional self-service recovery options
 ---
+<RequireClassicUI/>
 
 With Okta, new users are prompted to choose a security image and optionally an additional security question prompt when they first sign in. To provide your users with a seamless and smooth sign-in experience, you may need to disable these options.
 

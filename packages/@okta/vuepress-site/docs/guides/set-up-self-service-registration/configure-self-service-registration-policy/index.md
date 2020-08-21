@@ -1,6 +1,7 @@
 ---
 title: Enable and configure a self-service registration policy
 ---
+<RequireClassicUI/>
 
 Use a self-service registration policy to let users self register for application access. When you create the policy, you can choose the fields that you want to include on the Create Account registration form, specify how those fields are ordered, and mark which of the fields are required.
 
