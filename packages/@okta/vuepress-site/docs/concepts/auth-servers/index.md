@@ -10,7 +10,7 @@ Authentication and authorization are essential to application development. Wheth
 
 ## What is an authorization server
 
-At its core, an authorization server is simply an engine for minting OpenID Connect or [OAuth 2.0](/docs/concepts/auth-overview/#oauth-2-0) tokens. An authorization server is also used to apply access policies. An authorization server is also used to apply access policies. Each authorization server has a unique issuer URI (for example: `https://example.okta.com/oauth2/default`) and its own signing key for tokens to keep a proper boundary between security domains.
+At its core, an authorization server is simply an engine for minting OpenID Connect or [OAuth 2.0](/docs/concepts/auth-overview/#oauth-2-0) tokens. An authorization server is also used to apply access policies. Each authorization server has a unique issuer URI (for example: `https://example.okta.com/oauth2/default`) and its own signing key for tokens to keep a proper boundary between security domains.
 
 > **Note:** See [Key rotation](/docs/concepts/key-rotation/) for information on retiring and replacing signing keys by generating new ones.
 
