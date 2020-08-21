@@ -8,7 +8,7 @@ meta:
 
 Policies help you manage access to your applications and APIs. You can restrict access based on a number of conditions such as user and group membership, device, location, or time. You can also require more authentication steps for access to sensitive applications, such as confirmation of a push notification to a mobile device or re-authentication through an SMS one-time passcode.
 
-Policies are objects that Okta evaluates when a request is made. Rules in the policies define permissions that determine whether the request is allowed or denied. Policies are stored in Okta as JSON documents.
+Policies are evaluated when a requeset is made. Rules in the policies define permissions that determine whether the request is allowed or denied. Policies are stored in Okta as JSON documents.
 
 There are many possibilities for policy use:
 
@@ -17,9 +17,9 @@ There are many possibilities for policy use:
 * Maintain a white-list of users and deny access based on multiple conditions
 * Change the returned scopes of the access token and add claims to it and to the ID token using [inline hooks](/docs/concepts/inline-hooks/)
 * Notify other systems through an API when a sign in happens in real-time
-* Query for user information from a database/API using scopes and add it to the user profile object
+* Use the scopes of a token to look up user information in an external database or API, then add that data to the user's profile object.
 
-Okta supports six types of policies:
+Okta supports the following policy types:
 
 * [Okta Sign On Policy](/docs/reference/api/policy/#okta-sign-on-policy) &mdash; Controls who can sign in and how a user is allowed to sign in to Okta, including whether they are challenged for MFA and how long they are allowed to remain signed in before re-authenticating.
 
@@ -29,9 +29,11 @@ Okta supports six types of policies:
 
 * [Password Policy](/docs/reference/api/policy/#password-policy) &mdash; Determines the requirements for a user's password length and complexity, as well as the frequency with which a password must be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password, and self-service password unlock.
 
-* [IdP Discovery Policy](/docs/reference/api/policy/#idp-discovery-policy) &mdash; Determines where to route users when they are attempting to sign in to your org. Users can be routed to a variety of identity providers (SAML2, IWA, AgentlessDSSO, X509, APPLE, FACEBOOK, GOOGLE, LINKEDIN, MICROSOFT, OIDC).
+* [IdP Discovery Policy](/docs/reference/api/policy/#idp-discovery-policy) &mdash; Determines where to route users when they are attempting to sign in to your org. Users can be routed to a variety of [identity providers](/docs/guides/add-an-external-idp/).
 
-* [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object) &mdash; Specific to a particular client application and the rules that it contains define particular token lifetimes for a given combination of grant type, user, and scope. 
+> **Note:** This policy isn't for performing authentication or authorization. It is used only to determine where a user should be routed. You can't control access with an IdP Discovery Policy.
+
+* [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object) &mdash; Specific to a particular client application and the rules that it contains define particular token lifetimes for a given combination of grant type, user, and scope.
 
 ## Policy use cases
 
@@ -41,9 +43,7 @@ The Okta Sign On Policy controls the manner in which a user is allowed to sign i
 
 **Control how users access your app**
 
-In addition to the Okta Sign On Policy, there is a sign-on policy for each application that determines the extra levels of authentication that you may want performed before an application can be accessed. [Add a rule](https://help.okta.com/en/prod/okta_help_CSH.htm#App_Based_Signon), for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes.
-
-<!--- need new URL to policy configuration guide when it's added -->
+In addition to the Okta Sign On Policy, there is a sign-on policy for each application that determines the extra levels of authentication that you may want performed before an application can be accessed. [Add a rule](/docs/guides/configure-access-policy), for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes.
 
 You can also control how users access your app by creating an MFA enrollment policy. You may want to prompt users to enroll in a factor the first time that they sign in or to define conditions that trigger additional authentication challenges, like when users attempt to access your app from a new country.
 
