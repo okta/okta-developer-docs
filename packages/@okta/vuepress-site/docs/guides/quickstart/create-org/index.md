@@ -2,8 +2,6 @@
 title: Create your Okta organization
 ---
 
-## Create your Okta organization
-
 You built an awesome app and you want to add user authentication to it. Let’s get you set up and working with Okta.
 
 To start, you're going to need a free Okta developer edition org. An org is a private data space Okta creates for you, to hold all the resources you  create to handle user authentication.

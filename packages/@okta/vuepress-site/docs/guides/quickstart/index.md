@@ -6,6 +6,6 @@ sections:
  - create-org
  - using-console
  - add-user
- - regsiter-app
+ - regsister-app
  ---
 
