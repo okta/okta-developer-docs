@@ -136,7 +136,7 @@ export class MyAppModule { }
 
 ### JavaScript Vue
 
-For information on updating the configuration of a Vue application, see <https://github.com/okta/samples-js-vue#readme>.
+For information on updating the configuration of a Vue application, see <https://github.com/okta/okta-vue>.
 
 ```
  import Auth from '@okta/okta-vue'
