@@ -9,4 +9,5 @@ sections:
  - configure-self-service-registration-policy
  - disable-security-image
  - customize-link-in-widget
+ - next-steps
 ---

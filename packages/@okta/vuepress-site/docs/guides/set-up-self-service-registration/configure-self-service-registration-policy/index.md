@@ -27,13 +27,15 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
     * **Registration form fields:** (Optional) The `firstName` and `lastName` fields are required and can't be removed. You can accept the default **Form label** value or optionally enter a different field name.
 
-        * To include additional fields: click **Add Field** and then select the field that you want to include from the list.
+        * To include more fields: click **Add Field** and then select an existing profile attribute from the list.
+
+          > **Note:** If you want to add new profile attributes, click **Configure the Okta user profile** to add them to the Okta user profile. They are then available in the list on this page. Be sure to set the **User permission** drop-down box to **Read - Write** if you want your users to be able to modify the new attributes after registration.
+
         * To make a field mandatory: select the **Required** check box.
         * To change the order of the fields on the form: grab the dotted vertical bar on the left to drag a field to a new location.
         * To remove a field: click **X**.
 
     The registration form supports the following data types:
-
     * string
     * number
     * boolean
@@ -52,11 +54,11 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
 6. Click **Save**.
 
-7. (Optional) If you added more fields from the existing attribute list to the registration form during step 4, and you want your users to be able to modify those fields after registration on their **Settings** page, do the following:
+7. (Optional) If you added more fields (existing Okta user profile attributes) from the attribute list to the registration form during step 4, and you want your users to be able to modify those fields after registration on their **Settings** page, do the following:
 
     * Go to **Directory** and then **Profile Editor**.
     * Click **Profile** for the **Okta User (default)** profile.
-    * Find the new attribute, and then click its information icon.
+    * Find the attribute that you added, and then click its information icon.
     * Change the **User permission** drop-down box to **Read - Write**.
     * Click **Save Attribute**.
 
