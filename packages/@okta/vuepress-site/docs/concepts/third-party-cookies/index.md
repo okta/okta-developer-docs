@@ -118,7 +118,7 @@ import {
 -  issuer: 'https://companyname.okta.com/oauth2/default',
 +  issuer: 'https://login.companyname.com/oauth2/default',
    clientId: '{clientId}',
-   redirectUri: 'http://localhost:{port}/implicit/callback',
+   redirectUri: 'http:/app.companyname.com/implicit/callback',
    pkce: true
 };
 
