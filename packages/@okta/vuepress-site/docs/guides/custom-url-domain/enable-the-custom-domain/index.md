@@ -10,18 +10,25 @@ Use the configuration wizard to walk through the steps to customize your Okta UR
     * The **Update Certification** button appears if a custom URL domain is already configured for your org. To delete the current configuration, click **Restore to default**.
 
 ### Add your subdomain information
-On the Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
+On the Domain page of the configuration wizard, enter your subdomain name, for example, `login.exampledomain.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
 
 ### Create a DNS TXT record
 You need to add a DNS TXT record to your domain to verify ownership of your domain with Okta before Okta can serve traffic over it. This record includes the Okta-generated values provided in the **Host** and **Data** columns of the table on the **Verify domain ownership page**. Okta verifies that you own your domain when it finds the TXT record that contains the generated value.
 
 1. On the **DNS Records** page of the configuration wizard, copy the values of the **Host** and **Data** columns into a text file.
+
 2. Sign in to your Domain Name registrar and locate the option to modify your DNS records.
+
 3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field.
-> Important: Depending on your registrar, you may only need to enter `_oktaverification` rather than `_oktaverification.login.example.com`. If your registrar doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
+
+> **Note**: Depending on your registrar, you may only need to enter `_oktaverification` rather than `_oktaverification.login.exampledomain.com`. If your registrar doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
+
 4. Paste the value that you copied from the **Data** column into the appropriate field, for example, the **Record** or **Value** field.
+
 5. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer), and then return to Okta and click **Verify** to prove to Okta that you have rights to use the domain name.
+
 > **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
+
 6. If **Verified** appears, click **Next**. If an error occurs, possible issues may be that the TXT record may not have propagated yet or there may be a copy and paste issue with the values.
 
     Uploading your TLS certificate is the next step in the configuration wizard.
@@ -41,14 +48,14 @@ Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to 
 Before Okta can serve traffic over your domain, you need to add an alias from your custom domain to the Okta subdomain of your Okta organization. You do this by creating or modifying a CNAME record for your custom domain name.
 
 1. Return to your Domain Name registrar and locate the option to modify your DNS records.
-1. Create a new CNAME record and paste the value from the **Host** column into the appropriate field at the registrar, for example, the **Name** or **Host** field.
+1. Create a new CNAME record and paste the value from the **Host** column in the **Create a DNS TXT record** section into the appropriate field at the registrar, for example, the **Name** or **Host** field.
 
-> Important: Depending on your registrar, you may only need to enter the subdomain part. For example, if you picked the subdomain `id.example.com`, your registrar may only require you to create a CNAME record for `id` (because `.example.com` is implied). If you're not sure, check your registrar's documentation.
+> **Note:** Depending on your registrar, you may only need to enter the subdomain part. For example, if you picked the subdomain `id.exampledomain.com`, your registrar may only require you to create a CNAME record for `id` (because `.exampledomain.com` is implied). If you're not sure, check your registrar's documentation.
 
-3. Paste the value from the **Data** column into the appropriate field at the registrar, for example, the **Record** or **Value** field.
+3. Paste the value from the **Data** column that you copied in the **Create a DNS TXT record** section into the appropriate field at the registrar, for example, the **Record** or **Value** field.
 4. Save the record.
 
-After the CNAME record is saved and confirmed by your registrar, you are done setting up a custom domain name for your Okta organization. Okta will begin to serve traffic over your custom domain. It may take a few minutes to propagate the changes.
+After the CNAME record is saved and confirmed by your registrar, you are done setting up a custom domain name for your Okta organization. Okta begins to serve traffic over your custom domain. It may take a few minutes to propagate the changes.
 
 ### Confirm that it works
 Use the link that appears in the **Confirmation** section of the CNAME step to confirm that Okta is serving traffic over HTTPS (TLS) for your custom domain.
@@ -64,7 +71,7 @@ You can also use a tool such as `dig` or `nslookup` to test and verify that your
 
 2. Verify that the configured domain, for example, `org.Subdomain.customdomains.oktapreview.com` appears in the answer section of the output.
 
-> There are also external tool versions of [dig](https://toolbox.googleapps.com/apps/dig) and [nslookup](https://network-tools.com/nslookup/) that you can use.
+> **Note:** There are also external tool versions of [dig](https://toolbox.googleapps.com/apps/dig) and [nslookup](https://network-tools.com/nslookup/) that you can use.
 
 ### Flush DNS cache
 After you've changed your DNS records, old records may still be cached by DNS providers or your local machine. If you've verified that your records are correct, but your custom domain isn't working, you can flush the DNS cache.

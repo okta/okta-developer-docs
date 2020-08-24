@@ -3,9 +3,9 @@ title: Overview
 ---
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. This allows you to create a seamless and white-labeled experience for your users so that all URLs look like your application.
 
-Okta organizations host pages on subdomains such as `example.okta.com`. Using this feature aliases your Okta organization's domain name to another subdomain that you own, like `login.example.com`.
+Okta organizations host pages on subdomains such as `example.okta.com`. Using this feature aliases your Okta organization's domain name to another subdomain that you own, like `login.exampledomain.com`.
 
-For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias `login.example.com` to `example.okta.com`.
+For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias `login.exampledomain.com` to `exampledomain.okta.com`.
 
 > **Note:** You must first customize the Okta URL domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/custom-hosted-signin/) or [error pages](/docs/guides/custom-error-pages/).
 
@@ -17,7 +17,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
-* If your organization has configured any SAML or WS-Fed integrated applications, review the SAML or WS-Fed SSO setup instructions. If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
+* If your organization has configured any SAML or WS-Fed integrated applications, review the SAML or WS-Fed SSO set-up instructions. If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
 * When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change, for example, is to [create a custom notification](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
 
