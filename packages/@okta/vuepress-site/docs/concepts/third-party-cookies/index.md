@@ -26,9 +26,9 @@ The result is that Okta returns 403 Forbidden errors to the user or that your ap
 
 Specifically, this problem affects [certain methods](https://github.com/okta/okta-auth-js#third-party-cookies) of the Okta Auth JavaScript SDK. The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-sign-in-widget) uses the affected Okta Auth JavaScript SDK methods internally. Any customer-developed code that directly makes XHR calls to the Okta [Sessions API](/docs/reference/api/sessions/) is also affected. 
 
-### Token renewal in customer-built SPAs that use the OAuth 2.0 implicit flow
+### Token renewal in customer-built SPAs that use the OAuth 2.0 implicit flow or PKCE flow
 
-If your code uses the OAuth 2.0 implicit flow to handle token renewal (which typically occurs in the context of a SPA that uses the [implicit flow](/docs/guides/implement-implicit/)), the user's browser can block Okta session cookies from being sent, so that token renewal is never successfully completed.
+If your code uses the OAuth 2.0 implicit flow or PKCE flow to handle token renewal (which typically occurs in the context of a SPA that uses the [implicit flow](/docs/guides/implement-implicit/)) or [PKCE flow](/docs/guides/implement-auth-code-pkce/), the user's browser can block Okta session cookies from being sent, so that token renewal is never successfully completed.
 
 The result is that ID tokens and access tokens expire without being renewed, and users are prompted to sign in more frequently, with the frequency determined by the token expiry time.
 
