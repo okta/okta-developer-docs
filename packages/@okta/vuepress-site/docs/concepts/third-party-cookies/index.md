@@ -40,7 +40,7 @@ By making your Okta org effectively part of the same domain as your application 
 
 For example, if your original Okta org is `companyname.okta.com`, and your app server is `app.companyname.com`, you would use the custom URL domain feature to give your Okta org a new URL like `login.companyname.com`. This puts your app and your Okta org within the same site.
 
-It's okay for the Okta org and the app server to have different subdomains (in the above example, `app` and `auth`). Only the effective Top-Level Domain plus the one label immediately to its left (eTLD+1) need to be the same (in the example, `companyname.com`).
+It's okay for the Okta org and the app server to have different subdomains (in the above example, `app` and `login`). Only the effective Top-Level Domain plus the one label immediately to its left (eTLD+1) need to be the same (in the example, `companyname.com`).
 
 After setting up custom URL domain, your need to update your configuration of the Okta Sign-In Widget and of any Okta SDKs, so that they use your new custom domain as the base URL of your org.
 
