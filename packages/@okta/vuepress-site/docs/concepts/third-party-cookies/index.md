@@ -14,7 +14,7 @@ This issue will not affect your organization if you use the Okta-hosted sign-in 
 
 When customer-hosted code makes a call to Okta that relies on an [Okta Session Cookie](/docs/guides/session-cookie/) being included in the HTTP request, the browser blocks the cookie from reaching Okta because the user is on the customer domain and the cookie is being sent to Okta, a different domain.
 
-The specific functionality that is affected is session management, as well as token renewal in the OAuth 2.0 implicit flow.
+The specific functionality that is affected is session management, as well as token renewal in the OAuth 2.0 implicit and PKCE flow.
 
 ### Session management in customer-built applications
 
