@@ -76,7 +76,7 @@ Example change:
 
 ### JavaScript React
 
-For information on updating the configuration of a React application, see <https://github.com/okta/samples-js-react#readme>.
+For information on updating the configuration of a React application, see <https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react>.
 
 Example change:
 
