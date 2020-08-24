@@ -145,7 +145,7 @@ For information on updating the configuration of a Vue application, see <https:/
 -  issuer: 'https://companyname.okta.com/oauth2/default',
 +  issuer: 'https://login.companyname.com/oauth2/default',
    clientId: '{clientId}',
-   redirectUri: 'http://localhost:{port}/implicit/callback',
+   redirectUri: 'http://app.companyname.com/implicit/callback',
    scopes: ['openid', 'profile', 'email'],
 ```
 
