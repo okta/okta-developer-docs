@@ -54,7 +54,7 @@ For information on updating the configuration of the Okta Sign-In Widget, see <h
 
 Example change:
 
-```
+```diff
  var signIn = new OktaSignIn({
 -  baseUrl: 'https://companyname.okta.com'
 +  baseUrl: 'https://login.companyname.com'
@@ -67,7 +67,7 @@ For information on updating the configuration of the Okta Auth JavaScript SDK, s
 
 Example change:
 
-```
+```diff
  var authClient = new OktaAuth({
 -  issuer: 'https://companyname.okta.com/oauth2/default'
 +  issuer: 'https://login.companyname.com/oauth2/default'
@@ -80,7 +80,7 @@ For information on updating the configuration of a React application, see <https
 
 Example change:
 
-```
+```diff
 import { SecureRoute, Security, LoginCallback } from '@okta/okta-react';
 
 class App extends Component {
@@ -108,7 +108,7 @@ For information on updating the configuration of an Angular application, see <ht
 
 Example change:
 
-```
+```diff
 import {
   OKTA_CONFIG,
   OktaAuthModule
@@ -138,7 +138,7 @@ export class MyAppModule { }
 
 For information on updating the configuration of a Vue application, see <https://github.com/okta/okta-vue>.
 
-```
+```diff
  import Auth from '@okta/okta-vue'
  
  Vue.use(Auth, {
