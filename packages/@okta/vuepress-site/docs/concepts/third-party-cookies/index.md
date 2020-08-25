@@ -90,7 +90,7 @@ class App extends Component {
 -        <Security issuer='https://companyname.okta.com/oauth2/default'
 +        <Security issuer='https://login.companyname.com/oauth2/default'
                    clientId='{clientId}'
-                   redirectUri={window.location.origin + '/implicit/callback'} >
+                   redirectUri = 'https://app.companyname.com/implicit/callback' >
            <Route path='/' exact={true} component={Home}/>
           <SecureRoute path='/protected' component={Protected}/>
           <Route path='/implicit/callback' component={LoginCallback} />
