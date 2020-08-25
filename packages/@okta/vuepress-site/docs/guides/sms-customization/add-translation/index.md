@@ -14,6 +14,8 @@ If you support other languages in your org, you need to create a translation for
 
 5. Enter the message, in the translated language, into the box.
 
+For example: `it": "${org.name}: il codice di verifica è ${code}`
+
 6. Click **Add Translation**.
 
 > **Note:** If you are adding a translation for the Okta Default SMS message, after you add that translation, you are no longer using the Default message. The new language translation appears under what is now your custom SMS message.
