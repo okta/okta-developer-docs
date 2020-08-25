@@ -3,9 +3,9 @@ title: Overview
 ---
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. This allows you to create a seamless and white-labeled experience for your users so that all URLs look like your application.
 
-Okta organizations host pages on subdomains such as `example.okta.com`. Using this feature aliases your Okta organization's domain name to another subdomain that you own, like `login.exampledomain.com`.
+Okta organizations host pages on subdomains such as `example.okta.com`. Using this feature aliases your Okta organization's domain name to another subdomain that you own, like `login.example.com`.
 
-For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias `login.exampledomain.com` to `exampledomain.okta.com`.
+For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias `login.example.com` to `example.okta.com`.
 
 > **Note:** You must first customize the Okta URL domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/custom-hosted-signin/) or [error pages](/docs/guides/custom-error-pages/).
 
