@@ -56,7 +56,7 @@ A feature in an Early Access (EA) stage is new or enhanced functionality made av
 
 Any bug fixes or improvements are managed and fixed with the same timeline and processes as those in General Availability.
 
-Features in EA release are marked with the EA icon: <Apilife cycle access="ea" />
+Features in EA release are marked with the EA icon: <ApiLifecycle access="ea" />
 
 EA releases are managed in two ways:
 
