@@ -63,7 +63,7 @@ Example change:
 
 ### Okta Auth JavaScript SDK
 
-For information on updating the configuration of the Okta Auth JavaScript SDK, see the [README](https://github.com/okta/okta-auth-js/blob/master/README.md).
+For information on updating the configuration of the Okta Auth JavaScript SDK, see the [Okta Auth JavaScript SDK - Configuration reference](https://github.com/okta/okta-auth-js/blob/master/README.md#configuration-reference).
 
 Example change:
 
@@ -76,7 +76,7 @@ Example change:
 
 ### Okta React SDK 
 
-For information on updating the configuration of the Okta React SDK, see the [README](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react).
+For information on updating the configuration of the Okta React SDK, see the [Okta React SDK - Configuration options](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#configuration-options).
 
 Example change:
 
@@ -104,7 +104,7 @@ class App extends Component {
 
 ###  Okta Angular SDK
 
-For information on updating the configuration of the Okta Angular SDK, see the [README](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular).
+For information on updating the configuration of the Okta Angular SDK, see the [Okta Angular SDK - Usage](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#usage).
 
 Example change:
 
@@ -136,7 +136,7 @@ export class MyAppModule { }
 
 ### Okta Vue SDK
 
-For information on updating the configuration of the Okta Vue SDK, see the [README](https://github.com/okta/okta-vue).
+For information on updating the configuration of the Okta Vue SDK, see the [Okta Vue SDK - Configuration](https://github.com/okta/okta-vue#configuration).
 
 ```diff
  import Auth from '@okta/okta-vue'
