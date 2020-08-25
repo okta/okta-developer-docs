@@ -136,7 +136,7 @@ export class MyAppModule { }
 
 ### Okta Vue SDK
 
-For information on updating the configuration of the Okta Vue SDK, see [Okta Vue SDK - Configuration](https://github.com/okta/okta-vue#configuration).
+For information on updating the configuration of the Okta Vue SDK, see [Okta Vue SDK - Configuration options](https://github.com/okta/okta-vue#configuration-options).
 
 ```diff
  import Auth from '@okta/okta-vue'
