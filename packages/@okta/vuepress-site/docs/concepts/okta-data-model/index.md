@@ -16,7 +16,7 @@ When you `sign up` for Okta, a private data space is created for you that is rep
 
 A top-level `Directory` resource is available for your user base in your organization. Directories can either be hosted inside Okta or can be used to replicate outside user directories, as in the case of Active Directory or LDAP.
 
-Your end users are modeled inside Okta as [`Users`](/docs/reference/api/users/). Users are associated with a email address and a username. The username must be unique, but it can be changed (and often is when, for example, someone has their name changed). The email address doesn't need to be unique and often isn't. Uniqueness for a user is determined by their Okta user ID.
+Your end users are modeled inside Okta as [`Users`](/docs/reference/api/users/). Users are associated with an email address and a username. The username must be unique, but it can be changed (and often is when, for example, someone changes their name). The email address doesn't need to be unique and often isn't. Uniqueness for a user is determined by their Okta user ID.
 
 A [`Group`](/docs/reference/api/groups/) is made up of users found within a directory. It can be thought of as a label applied to a set of users. A user can be a member of multiple groups. Groups are useful for representing roles, relationships, and can even be used for subscription tiers.
 
