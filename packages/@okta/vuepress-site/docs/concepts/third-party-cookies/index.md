@@ -50,7 +50,7 @@ The following sections show examples of these changes. The examples assume your 
 
 ### Sign-In Widget
 
-For information on updating the configuration of the Okta Sign-In Widget, see <https://github.com/okta/okta-signin-widget#basic-config-options>
+For information on updating the configuration of the Okta Sign-In Widget, see [Sign-In Widget - Basic config options](https://github.com/okta/okta-signin-widget#basic-config-options).
 
 Example change:
 
@@ -61,9 +61,9 @@ Example change:
  });
 ```
 
-### Auth JavaScript
+### Okta Auth JavaScript
 
-For information on updating the configuration of the Okta Auth JavaScript SDK, see <https://github.com/okta/okta-auth-js/blob/master/README.md>.
+For information on updating the configuration of the Okta Auth JavaScript SDK, see [Okta Auth JavaScript SDK - README](https://github.com/okta/okta-auth-js/blob/master/README.md).
 
 Example change:
 
