@@ -5,7 +5,7 @@ layout: Guides
 sections:
  - before-you-begin
  - define-signout-callback
- - sign-out-of-your-app
  - sign-out-of-okta
+ - sign-out-of-your-app
  - next-steps
 ---
