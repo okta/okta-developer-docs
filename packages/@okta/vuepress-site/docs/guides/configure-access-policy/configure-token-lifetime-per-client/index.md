@@ -1,5 +1,5 @@
 ---
-title: Configure a custom token lifetime per client
+title: Configure a custom access token lifetime per client
 ---
 
 Use the following steps to configure an access token lifetime for a specific client.
@@ -14,11 +14,13 @@ Use the following steps to configure an access token lifetime for a specific cli
 
 4. Enter a **Name** and a **Description** for the policy.
 
-5. Select **The following clients:** and start typing the names of the Okta OpenID Connect applications that you want to cover with the access policy. This field automatically displays a list of applications that match what you type.
+5. Select **The following clients:** and start typing the names of the Okta OpenID Connect applications that you want this access policy to apply to. This field automatically displays a list of applications that match what you type.
 
 6. Click **Create Policy**.
 
 ## Create the rule
+
+Now that you've created a policy container, the next step is to create one or more rules for that policy.
 
 1. Select the name of the access policy that you just created, and then select **Add Rule**.
 
