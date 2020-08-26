@@ -25,7 +25,7 @@ Okta provides a very rich [Authentication API](/docs/reference/api/authn/) to va
 
 ## Getting Started
 
-Explore the Sessions API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b2e06a22c396bcc94530)
+Explore the Sessions API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9f729bbb060e6bac09fa)
 
 ## Session Operations
 

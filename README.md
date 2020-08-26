@@ -62,7 +62,7 @@ This starts a preview server on your machine, and watches all files for changes.
 
 The preview server supports hot reloading. Once the server is running on your machine, any changes you make to Markdown content will appear automatically in your browser within a few seconds. Note that changes to page frontmatter or site configuration require you to stop and start the preview server.
 
-## Troubleshooting 
+## Troubleshooting
 
 If you are on a Windows machine you may experience the following issues.
 
@@ -87,7 +87,7 @@ eck.js:68:11)
     at internal/main/run_main_module.js:18:47
 error Command failed with exit code 1.
 
-... 
+...
 ```
 
 To resolve this issue run the following command from a bash prompt (included with git for windows installation):
@@ -110,7 +110,7 @@ conductor.yml exports correct values
 conductor.yml end-of-file check successful
 wait Extracting site metadata...
 Error: Cannot resolve theme: @okta/vuepress-theme-prose.
-    at resolveTheme (C:\src\repos\okta-developer-docs\node_modules\@vuepress\core\lib\node\loadTheme.js:111:13)        
+    at resolveTheme (C:\src\repos\okta-developer-docs\node_modules\@vuepress\core\lib\node\loadTheme.js:111:13)
     at loadTheme (C:\src\repos\okta-developer-docs\node_modules\@vuepress\core\lib\node\loadTheme.js:36:17)
     at App.process (C:\src\repos\okta-developer-docs\node_modules\@vuepress\core\lib\node\App.js:100:21)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
@@ -129,7 +129,7 @@ cd ../../../
 yarn link "@okta/vuepress-theme-prose"
 ```
 
-Links:
+### Links:
 
 - Developer docs: <https://developer.okta.com>
 - Developer forum: <https://devforum.okta.com>
