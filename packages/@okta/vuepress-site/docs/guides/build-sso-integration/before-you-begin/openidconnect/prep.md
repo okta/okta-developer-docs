@@ -16,7 +16,8 @@ Before you create a new OIDC integration in Okta:
 -->
 
 1. Have your application developed and tested, with a front-end (for example, JavaScript and HTML) and back-end (for example, middleware and database software) stack, along with services available through APIs, and accepting HTTP connections.
-1. Based on the [type of application that you have built](/docs/concepts/oauth-openid/#what-kind-of-client-are-you-building), determine the correct [OAuth 2.0 flow](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) that is required below the OIDC identity layer. For OIN app integrations, the OAuth 2.0 flow must be either Web (server side) or a Single-Page Application (SPA).
+1. Based on the [type of application that you have built](/docs/concepts/auth-overview/#what-kind-of-client-are-you-building), determine the correct [OAuth 2.0 flow](/docs/concepts/auth-overview/#recommended-flow-by-application-type) that is required below the OIDC identity layer.
+    >**Note:** For OIDC app integrations intended for publication in the OIN, you must use a Web (server-side) platform with an authorization code flow.
 1. Determine the login redirect URIs on your system. A redirect URI is where Okta sends the authentication response and ID token during the sign-in flow. You can specify more than one URI if required.
 1. Your application must support automatic credential rotation. For more information, see the `/keys` section in the [OpenID Connect & OAuth 2.0 API reference](/docs/reference/api/oidc/#key-rotation).
 
