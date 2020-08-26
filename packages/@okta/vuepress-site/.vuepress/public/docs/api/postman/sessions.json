@@ -1,201 +1,291 @@
 {
-	"id": "1f98885f-a451-0be9-efb7-df84e1746083",
-	"name": "Sessions (Okta API)",
-	"description": "The [Okta Session API](/docs/api/resources/sessions) provides operations to create and manage authentication sessions with your Okta organization.",
-	"order": [
-		"4a5cb892-c0cc-526f-8053-fdf38aeabd97",
-		"3f8273a0-71d4-e9b5-c049-29a55495e4b2",
-		"2cb0b62d-0a6f-e499-fea1-7c76d326c628",
-		"b625f803-522f-f404-df86-784c8d5918ed",
-		"d06cda3f-da69-3f24-7b25-02120c06e98f",
-		"c1eb2d71-b5e2-946e-3ee9-4fc1c8418248",
-		"da6d7699-d63a-a0bf-9afd-f88655006191",
-		"ceec017b-635e-3867-04cf-cc1225dcd311",
-		"6297707f-fa16-66cb-979e-8d5e78e301a0"
-	],
-	"folders": [],
-	"timestamp": 0,
-	"owner": "2065",
-	"remoteLink": "",
-	"public": false,
-	"requests": [
+	"info": {
+		"_postman_id": "27a8c71c-6b7e-4d48-9c0a-240c1cdae6d1",
+		"name": "Sessions (Okta API)",
+		"description": "The [Okta Session API](/docs/api/rest/sessions.html) provides operations to create and manage authentication sessions with your Okta organization.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "2cb0b62d-0a6f-e499-fea1-7c76d326c628",
-			"headers": "Accept: */*\n",
-			"url": "{{url}}/login/sessionCookieRedirect?token={{sessionToken}}&redirectUrl={{redirectUrl}}",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1441556860984,
-			"name": "Set Session with Token Redirect",
-			"description": "",
-			"collectionId": "1f98885f-a451-0be9-efb7-df84e1746083",
-			"rawModeData": null,
-			"descriptionFormat": null,
-			"folder": null
-		},
-		{
-			"id": "3f8273a0-71d4-e9b5-c049-29a55495e4b2",
-			"folder": null,
 			"name": "Create Session with Session Token",
-			"dataMode": "raw",
-			"data": [],
-			"descriptionFormat": "html",
-			"description": "",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "{{url}}/api/v1/sessions?additionalFields=cookieToken",
-			"preRequestScript": "",
-			"tests": "",
-			"currentHelper": null,
-			"helperAttributes": "null",
-			"collectionId": "1f98885f-a451-0be9-efb7-df84e1746083",
-			"rawModeData": "{\n  \"sessionToken\": \"{{sessionToken}}\"\n}"
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"sessionToken\": \"{{sessionToken}}\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/sessions?additionalFields=cookieToken",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sessions"
+					],
+					"query": [
+						{
+							"key": "additionalFields",
+							"value": "cookieToken"
+						}
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "4a5cb892-c0cc-526f-8053-fdf38aeabd97",
-			"headers": "Accept: application/json\nContent-Type: application/json\n//Authorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/sessions?additionalFields=cookieToken",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1441516857131,
-			"name": "Create Session with Credentials (Deprecated)",
-			"description": "",
-			"collectionId": "1f98885f-a451-0be9-efb7-df84e1746083",
-			"descriptionFormat": null,
-			"folder": null,
-			"rawModeData": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+			"name": "Set Session with Token Redirect",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/login/sessionCookieRedirect?token={{sessionToken}}&redirectUrl={{redirectUrl}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login",
+						"sessionCookieRedirect"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{sessionToken}}"
+						},
+						{
+							"key": "redirectUrl",
+							"value": "{{redirectUrl}}"
+						}
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "6297707f-fa16-66cb-979e-8d5e78e301a0",
-			"headers": "Accept: application/json\nContent-Type: application/json\n",
-			"url": "{{url}}/api/v1/sessions/{{externalId}}/lifecycle/refresh",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1454455615319,
-			"name": "Refresh Session",
-			"description": "",
-			"collectionId": "1f98885f-a451-0be9-efb7-df84e1746083"
-		},
-		{
-			"id": "b625f803-522f-f404-df86-784c8d5918ed",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/sessions/{{sessionId}}",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1441516822540,
 			"name": "Extend Session",
-			"description": "",
-			"collectionId": "1f98885f-a451-0be9-efb7-df84e1746083",
-			"rawModeData": "",
-			"descriptionFormat": null,
-			"folder": null
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/sessions/{{sessionId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sessions",
+						"{{sessionId}}"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "c1eb2d71-b5e2-946e-3ee9-4fc1c8418248",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/sessions/{{sessionId}}",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1441516836541,
-			"name": "Clear Session",
-			"description": "",
-			"collectionId": "1f98885f-a451-0be9-efb7-df84e1746083",
-			"rawModeData": "",
-			"descriptionFormat": null,
-			"folder": null
-		},
-		{
-			"id": "ceec017b-635e-3867-04cf-cc1225dcd311",
-			"headers": "Accept: application/json\nContent-Type: application/json\n",
-			"url": "{{url}}/api/v1/sessions/me",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "DELETE",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1454455770763,
-			"name": "Close Current Session",
-			"description": "",
-			"collectionId": "1f98885f-a451-0be9-efb7-df84e1746083"
-		},
-		{
-			"id": "d06cda3f-da69-3f24-7b25-02120c06e98f",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/sessions/{{sessionId}}",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1441516803028,
 			"name": "Validate Session",
-			"description": "",
-			"collectionId": "1f98885f-a451-0be9-efb7-df84e1746083",
-			"rawModeData": null,
-			"descriptionFormat": null,
-			"folder": null
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/sessions/{{sessionId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sessions",
+						"{{sessionId}}"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "da6d7699-d63a-a0bf-9afd-f88655006191",
-			"headers": "Accept: application/json\nContent-Type: application/json\n",
-			"url": "{{url}}/api/v1/sessions/me",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1454455775891,
+			"name": "Clear Session",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/sessions/{{sessionId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sessions",
+						"{{sessionId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get Current Session",
-			"description": "Get session information for the current user. Use this method in a browser based application to determine if the user is logged in.\n\n> The session `id` returned from `/sessions/me` is an `externalId` and can only be used with the **Refresh Session** endpoint.",
-			"collectionId": "1f98885f-a451-0be9-efb7-df84e1746083"
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/sessions/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sessions",
+						"me"
+					]
+				},
+				"description": "Get session information for the current user. Use this method in a browser based application to determine if the user is logged in.\n\n> The session `id` returned from `/sessions/me` is an `externalId` and can only be used with the **Refresh Session** endpoint."
+			},
+			"response": []
+		},
+		{
+			"name": "Close Current Session",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/sessions/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sessions",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Session",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/sessions/{{externalId}}/lifecycle/refresh",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"sessions",
+						"{{externalId}}",
+						"lifecycle",
+						"refresh"
+					]
+				}
+			},
+			"response": []
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
