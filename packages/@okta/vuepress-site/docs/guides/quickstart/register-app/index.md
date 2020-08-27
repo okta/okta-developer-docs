@@ -2,7 +2,7 @@
 title: Register your app
 ---
 
-In this section, we hook up your Okta org to the app that's going to use it for sign-in. To tell Okta about the app, and to collect the pieces of information you need to integrate into your app, you use the Developer Console's app screen.
+In this section, you'll learn how to hook up your Okta org to the app that's going to use it for sign-in. To tell Okta about the app, and to collect the pieces of information you need to integrate into your app, you use the Developer Console's app screen.
 
 For simplicity, in this run-through let's assume that your app is a web app, i.e., a server-side app, and that you want to use the Okta-hosted sign-in page, rather than implement or host your own sign-in page.
 
@@ -66,4 +66,3 @@ Now, still in Developer Console, go to **API > Authorization Servers** and gathe
 ### Set values in environment variables or configuration file
 
 You now have the specific values for Client ID, Client Secret, and Issuer ID, which your app needs to use. The various example apps all provide ways of setting these values, but some of the example apps expect you to set environment variables, while some expect settings in a configuration file. Consult the README file for the example app you're using and set the three values.
-
