@@ -6,13 +6,11 @@ meta:
 ---
 ## Authorization Servers
 
-Authentication and authorization are essential to application development. Whether you are developing an internal IT app for your employees, building a portal for your partners, or exposing a set of APIs for developers building apps around your resources, you need the right authentication and authorization support for your projects. With Okta, you can control access to your application using both [OAuth 2.0 and OpenID Connect](/docs/concepts/auth-overview/). Use Okta as your authorization server to retain all of your user information and grant users tokens to control their authorization and authentication.
+Authentication and authorization are essential to application development. Whether you are developing an internal IT app for your employees, building a portal for your partners, or exposing a set of APIs for developers building apps around your resources, you need the right authentication and authorization support for your projects. With Okta, you can control access to your application using both [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/). Use Okta as your authorization server to retain all of your user information and grant users tokens to control their authorization and authentication.
 
 ## What is an authorization server
 
-At its core, an authorization server is simply an engine for minting OpenID Connect or [OAuth 2.0](/docs/concepts/auth-overview/#oauth-2-0) tokens. An authorization server is also used to apply access policies. Each authorization server has a unique issuer URI (for example: `https://example.okta.com/oauth2/default`) and its own signing key for tokens to keep a proper boundary between security domains.
-
-> **Note:** See [Key rotation](/docs/concepts/key-rotation/) for information on retiring and replacing signing keys by generating new ones.
+At its core, an authorization server is simply an engine for minting OpenID Connect or [OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0) tokens. An authorization server is also used to apply access policies. Each authorization server has a unique issuer URI and its own signing key for tokens to keep a proper boundary between security domains.
 
 ## What you can use an authorization server for
 
