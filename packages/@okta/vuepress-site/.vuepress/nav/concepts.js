@@ -42,6 +42,10 @@ module.exports = [
         link: '/docs/concepts/auth-overview/'
     },
     { 
+        title: 'Okta Data Model', 
+        link: '/docs/concepts/okta-data-model/'
+    },
+    { 
         title: 'Okta-Hosted Flows', 
         link: '/docs/concepts/okta-hosted-flows/'
     },
