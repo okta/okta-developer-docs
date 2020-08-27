@@ -10,6 +10,7 @@ guides:
  - custom-url-domain
  - customize-authz-server
  - customize-tokens-returned-from-okta
+ - email-customization
  - enable-cors
  - find-your-app-credentials
  - find-your-domain
