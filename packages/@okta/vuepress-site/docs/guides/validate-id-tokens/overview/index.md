@@ -8,7 +8,7 @@ OpenID Connect (OIDC) is an authentication protocol built on top of OAuth 2.0. W
 
 We will now cover the terms used in this document, and an explanation of why you should use ID tokens.
 
-A high-level overview of OpenID Connect can be found [here](/docs/concepts/auth-overview/#openid-connect).
+A high-level overview of OpenID Connect can be found [here](/docs/concepts/oauth-openid/#openid-connect).
 
 The ID tokens are in JSON Web Token (JWT) format, the specification for which can be found here: <https://tools.ietf.org/html/rfc7519>. They are signed using private JSON Web Keys (JWK), the specification for which you can find here: <https://tools.ietf.org/html/rfc7517>.
 
