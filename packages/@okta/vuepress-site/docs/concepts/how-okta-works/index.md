@@ -27,7 +27,7 @@ Use Okta to allow your users to [sign in to other applications](/docs/guides/bui
 
 ### You want to enforce multifactor authentication (MFA) when your users want to access sensitive data
 
-Use Okta to [enable a second level of security](/docs/guides/mfa/) (SMS, Email, Voice, Biometrics, Okta Verify, and so on) for every sign in or [configure policies](/docs/guides/configure-signon-policy) to only enforce MFA based on location, network, and device context. For instance, you can enforce MFA only if the user is signing in from a new device that is in a different country than your office.
+Use Okta to [enable a second level of security](/docs/guides/mfa/) (SMS, Email, Voice, Biometrics, Okta Verify, and so on) for every sign in or configure policies to only enforce MFA based on location, network, and device context. For instance, you can enforce MFA only if the user is signing in from a new device that is in a different country than your office.
 
 ### You want to federate your users using an existing enterprise directory
 
