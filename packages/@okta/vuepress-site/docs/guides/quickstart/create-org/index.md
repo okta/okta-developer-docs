@@ -4,7 +4,7 @@ title: Create your Okta organization
 
 You built an awesome app and you want to add user authentication to it. Let’s get you set up and working with Okta.
 
-To start, you're going to need a free Okta developer edition org. An org is a private data space Okta creates for you, to hold all the resources you  create to handle user authentication.
+To start, you're going to need a free Okta developer edition org. An org is a private data space Okta creates for you, to hold all the resources you create to handle user authentication.
 
 An org is free, and you can use it to handle authentication for up to 1,000 users. Later, if you need more capacity, you can upgrade to a paid org.
 
@@ -35,4 +35,3 @@ A wizard launches to help you through basic setup for a few commons scenarios. Y
 Note that the URL to access your org's Developer Console consists of your Okta domain plus `-admin`, e.g., `https://dev-887252-admin.oktapreview.com/`, but the domain itself doesn’t have the “-admin” part, e.g., `https://dev-887252.oktapreview.com/`.
 
 You now have an org. You can create additional orgs at any time, and it's often useful to do so, to support separate development environments, for example, separating Development and Production.
-
