@@ -26,6 +26,7 @@ guides:
  - mfa
  - build-provisioning-integration
  - build-sso-integration
+ - sms-customization
  - submit-app
  - protect-your-api
  - refresh-tokens
