@@ -1,13 +1,16 @@
 <template>
   <div class="mobile-on-this-page" v-show="options.length > 0">
     <h3>On This Page</h3>
-    <v-select :options="options" :value="options[0]" :searchable="false" :multiple="false" :clearable="false" v-on:input="inputChanged"></v-select>
+    <v-select :options="options" v-model="selectedOption" :searchable="false" :multiple="false" :clearable="false" v-on:input="inputChanged"></v-select>
   </div>
 </template>
 
 <script>
   export default {
     name: 'MobileOnThisPage',
+    data: ()=>({ 
+     selectedOption: {}
+    }),
     computed: {
       options: function () {
         let optionsList = [];
@@ -16,12 +19,13 @@
             optionsList.push({label: header.title, code: header.slug});
           });
         }
-
+        this.selectedOption = optionsList[0]
         return optionsList;
-      }
+      },
     },
     methods: {
       inputChanged: function(value) {
+        this.selectedOption = value
         window.scrollTo(0, document.querySelector('#'+value.code).offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
       }
     }
