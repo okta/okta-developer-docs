@@ -8,7 +8,9 @@ To start, you're going to need a free Okta developer edition org. An org is a pr
 
 An org is free, and you can use it to handle authentication for up to 1,000 users. Later, if you need more capacity, you can upgrade to a paid org.
 
-Creating an org is easy:
+Creating an org is easy, especially if you use the [Okta CLI](https://github.com/oktadeveloper/okta-cli). After installing the Okta CLI, run `okta register`. 
+
+You can also create an account manually through your browser:
 
 1. Go to: <https://developer.okta.com/signup>
 
