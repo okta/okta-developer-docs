@@ -23,7 +23,7 @@ To start, find the example applications, provided by Okta on GitHub, for the lan
 | Python Flask         | <https://github.com/okta/samples-python-flask>     |
 | PHP                  | <https://github.com/okta/samples-php>              |
 
-Specifically, look for the example app provided for that language/framework for implementing authentication inr a web app using the Okta-hosted login page (here are samples provided for many other purposes).
+Specifically, look for the `okta-hosted-login` example (there are samples provided for many other purposes).
 
 After getting the sample code, you need to hook it up to your Okta org by registering the app in Developer Console and then getting some values from Okta, which you need to set in the app.
 
