@@ -4,6 +4,7 @@ guides:
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - configure-signon-policy
  - create-an-api-token
  - custom-error-pages
  - custom-hosted-signin
