@@ -29,7 +29,14 @@ After getting the sample code, you need to hook it up to your Okta org by regist
 
 ### Tell Okta about the app
 
-You need to register the app in Developer Console:
+Using the Okta CLI, run `okta apps create`.
+
+1. Give your app a name.
+2. Select **Web** for Type of Application.
+3. Select **Other**.
+4. Use the default Login redirect URI, `http://localhost:8080/callback`
+
+You can also use the Developer Console:
 
 1. Click **Applications**.
 
