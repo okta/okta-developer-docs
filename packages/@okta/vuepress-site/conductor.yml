@@ -516,11 +516,11 @@ redirects:
   - from: /authentication-guide/social-login/index.html
     to: /docs/concepts/social-login/
   - from: /authentication-guide/index.html
-    to: /docs/concepts/auth-overview/
+    to: /docs/concepts/oauth-openid/
   - from: /authentication-guide/auth-overview/index.html
-    to: /docs/concepts/auth-overview/
+    to: /docs/concepts/oauth-openid/
   - from: /authentication-guide/implementing-authentication/index.html
-    to: /docs/concepts/auth-overview/#recommended-flow-by-application-type
+    to: /docs/concepts/oauth-openid/#recommended-flow-by-application-type
   - from: /authentication-guide/tokens/index.html
     to: /docs/guides/validate-access-tokens/
   - from: /authentication-guide/tokens/verifying-token-signature/index.html
@@ -680,11 +680,11 @@ redirects:
   - from: /authentication-guide/social-login
     to: /docs/concepts/social-login/
   - from: /authentication-guide
-    to: /docs/concepts/auth-overview/
+    to: /docs/concepts/oauth-openid/
   - from: /authentication-guide/auth-overview
-    to: /docs/concepts/auth-overview/
+    to: /docs/concepts/oauth-openid/
   - from: /authentication-guide/implementing-authentication
-    to: /docs/concepts/auth-overview/#recommended-flow-by-application-type
+    to: /docs/concepts/oauth-openid/#recommended-flow-by-application-type
   - from: /authentication-guide/tokens
     to: /docs/guides/validate-access-tokens/
   - from: /authentication-guide/tokens/verifying-token-signature
@@ -1558,7 +1558,7 @@ redirects:
   - from: /guides/validate-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /authentication-guide
-    to: /docs/concepts/auth-overview/
+    to: /docs/concepts/oauth-openid/
   - from: /code
     to: /docs/
   - from: /code.html
