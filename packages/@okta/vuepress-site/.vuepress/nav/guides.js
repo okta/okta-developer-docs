@@ -9,10 +9,11 @@ module.exports = [
       { title: 'Enable CORS', guideName: 'enable-cors' },
       { title: 'Find your Okta domain', guideName: 'find-your-domain' },
       { title: 'Find your application credentials', guideName: 'find-your-app-credentials' },
-      { title: 'Share Application Key Credentials for IdPs Across Apps', guideName: 'sharing-cert' },
+      { title: 'Share Application Key Credentials for IdPs across Apps', guideName: 'sharing-cert' },
       { title: 'Set up SAML Tracer', guideName: 'saml-tracer' },
       { title: 'Upgrade SAML Apps to SHA256', guideName: 'updating-saml-cert' },
       { title: 'Sign the Okta certificate with your own CA', guideName: 'sign-your-own-saml-csr' },
+      { title: 'Set up self-service registration', guideName: 'set-up-self-service-registration' },
     ] 
   },
   { 
@@ -64,6 +65,9 @@ module.exports = [
       { title: 'Customize the Okta-hosted error pages', guideName: 'custom-error-pages' },
       { title: 'Customize the Okta URL domain', guideName: 'custom-url-domain' },
       { title: 'Customize the Okta-hosted sign-in page', guideName: 'custom-hosted-signin' },
+      { title: 'Customize SMS messages', guideName: 'sms-customization' },
+      { title: 'Customize email notifications and email domains', guideName: 'email-customization' },
+
     ]
   },
   { 
@@ -80,6 +84,7 @@ module.exports = [
       { title: 'Implement OAuth for Okta', guideName: 'implement-oauth-for-okta' },
       { title: 'Implement OAuth for Okta with a Service App', guideName: 'implement-oauth-for-okta-serviceapp' },
       { title: 'Protect your API endpoints', guideName: 'protect-your-api' },
+      { title: 'Configure an access policy', guideName: 'configure-access-policy' },
     ]
   },
   { 

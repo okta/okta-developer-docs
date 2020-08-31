@@ -29,7 +29,7 @@ For example:
 
 You can also specify authorization servers in your OpenID Connect API calls.
 Every OpenID resource is also available in a version that lets you specify an authorization server that you created in Okta.
-See [OAuth 2.0 and OpenID Connect](/docs/concepts/auth-overview/) for details.
+See [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) for details.
 
 ## Benefits of API Access Management
 
@@ -75,7 +75,7 @@ Custom claims also help you by reducing the number of lookup calls required to r
 
 ## Get started with API Access Management
 
-* [Learn more](/docs/concepts/auth-overview/) about Okta and OAuth 2.0.
+* [Learn more](/docs/concepts/oauth-openid/) about Okta and OAuth 2.0.
 * [Set up a custom authorization server](/docs/guides/customize-authz-server/) and use the power of Okta's API Access Management.
 * Visit [the OIDC/OAuth 2.0 endpoint documentation](/docs/reference/api/oidc/) and start building your integration today.
 * For simpler use cases focused on SSO, visit [the OpenID Connect documentation](/docs/reference/api/oidc/).

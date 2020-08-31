@@ -59,7 +59,7 @@ The decoded JWT looks something like this:
 **ID token**
 
 ```json
-}
+{
   "sub": "00uixa271s6x7qt8I0h7",
   "ver": 1,
   "iss": "https://${yourOktaDomain}/oauth2/${authServerId}",
