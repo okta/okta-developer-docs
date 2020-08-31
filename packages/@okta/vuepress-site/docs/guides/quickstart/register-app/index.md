@@ -60,7 +60,9 @@ You can also use the Developer Console:
 
 ### Get values from Okta to set in the app
 
-On the same **Apps** page in Developer Console, gather the following information that Okta populates into fields on the page:
+If you used the Okta CLI to create your app, the issuer and client ID will be available in your terminal.
+
+If you used the Developer Console, gather the following information from your app's settings page:
 
  - **Client ID**: This is the public identifier for the client, which is required for all OAuth flows.
 
