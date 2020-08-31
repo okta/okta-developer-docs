@@ -1959,3 +1959,5 @@ redirects:
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
+  - from: /docs/concepts/auth-overview/
+    to: /docs/concepts/oauth-openid/
