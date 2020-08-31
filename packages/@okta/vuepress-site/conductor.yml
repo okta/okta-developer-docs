@@ -390,9 +390,11 @@ redirects:
   - from: /docs/change-log/index.html
     to: /docs/release-notes/
   - from: /standards/OAuth/index.html
-    to: /docs/concepts/oauth-openid/#choosing-an-oauth-2-0-flow
+    to: /docs/concepts/oauth-openid/
+  - from: /standards/OAuth/
+    to: /docs/concepts/oauth-openid/
   - from: /standards/OAuth
-    to: /docs/concepts/oauth-openid/#choosing-an-oauth-2-0-flow
+    to: /docs/concepts/oauth-openid/
   - from: /documentation/index.html
     to: /docs/
   - from: /reference/error_codes/index.html
