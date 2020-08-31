@@ -12,7 +12,7 @@ The following are step-by-step instructions to configure an Okta Sign-On Policy 
 
 2. Click the **Sign On** tab, and then click **Add New Okta Sign-on Policy**.
 
-3. In the **Add Policy** window, enter a **Policy Name** and a **Policy Description**.
+3. In the **Add Policy** window, enter a **Policy Name**, such as **Require MFA for Contractors**, and then enter a **Policy Description**.
 
 4. In the **Assign to Groups** box, enter the group name that you want to apply the policy to. In this example, we are specifying the **Contractor** group in our org. The group names must already exist before assigning them to a policy.
 
@@ -20,13 +20,13 @@ The following are step-by-step instructions to configure an Okta Sign-On Policy 
 
 ### Create the rule
 
-1. In the **Add Rule** window, add a descriptivbe name for the rul in the **Rule name** box.
+1. In the **Add Rule** window, add a descriptive name for the rule in the **Rule name** box, such as **Require contractors to use MFA once per session**.
 
 2.  If there are any users in the **Contractor** group that you want to exclude from the rule, enter them in the **Exclude Users** box.
 
-3. For this use case example, leave the default of **Anywhere** in the **If User's IP is** drop-down box. Use this box to assign location parameters. This specifies what kind of location prompts authentication, for example, prompting a user for a factor when they aren't on the corporate network.
+3. For this use case example, leave the default of **Anywhere** in the **If User's IP is** drop-down box. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication, for example, prompting a user for a factor when they aren't on the corporate network.
 
-    > **Note:** You can click the **Networks** link to access your gateway settings that enable your choice of access. A [network zone](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create networks zones using the [Zone API](/docs/reference/api/zones/).
+    > **Note:** You can click the **Networks** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create networks zones using the [Zone API](/docs/reference/api/zones/).
 
 4. Leave the default of **Any** in the **And Authenticates via** drop-down box.
 
@@ -36,7 +36,9 @@ The following are step-by-step instructions to configure an Okta Sign-On Policy 
 
     > **Note:** Click the **Multifactor Authentication** link for quick access to the **Authentication** page and the **Multifactor** tab to define the factors that you want to use.
 
-7. Use the option buttons to determine how users are prompted for MFA in a given session. You can configure whether the factor prompt is triggered per a device, at every sign-on, or per a session time that you specify. In this example, leave the default of **Per Session** selected.
+7. Use the option buttons to determine how users are prompted for MFA in a given session. In this example, leave the default of **Per Session** selected.
+
+    You can configure whether the factor prompt is triggered per a device, at every sign-on, or per a session time that you specify:
 
     * **Per Device:** Provides the option **Do not challenge me on this device again** on the end user MFA challenge dialog box. This option allows prompts solely for new devices.
     * **Every Time:** End users are prompted every time they sign in to Okta and can't influence when they are prompted to provide a factor.

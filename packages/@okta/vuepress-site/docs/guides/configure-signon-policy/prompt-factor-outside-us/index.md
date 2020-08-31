@@ -20,7 +20,7 @@ In addition to the Okta Sign-On Policy, there is a sign-on policy for each appli
 
 1. Click **Add Rule**.
 
-2. Enter a **Rule Name**.
+2. Enter a **Rule Name** such as **Prompt for an MFA factor when a user is outside the US**.
 
 3. Select who the rule applies to in the **People** section. In this use case example, select **The following groups and users:**.
 
@@ -30,7 +30,7 @@ In addition to the Okta Sign-On Policy, there is a sign-on policy for each appli
 
 5. Specify the location to which you want the policy to apply in the **LOCATION** section of the dialog box. In this example, select **In Zone**.
 
-6. In the **Network Zones** box that appears, enter the name of the zone that you want to apply, and then add it when it appears in the list.
+6. In the **Network Zones** box that appears, enter the name of the zone that you want to apply, and then add it when it appears in the list. In this example, we are adding the [network zone](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network) for the United States that we suggested you create <GuideLink link="../before-you-begin">before starting</GuideLink> the steps in this guide.
 
 7. In the **CLIENT** section, clear the platform conditions that you don't want the rule to apply to. In this example, leave the default of all platforms selected.
 
