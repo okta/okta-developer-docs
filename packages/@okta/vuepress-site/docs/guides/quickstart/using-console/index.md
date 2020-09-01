@@ -4,7 +4,7 @@ title: Using the Developer Console
 
 The Developer Console is the web UI that provides you with a window into your org and lets you configure and manage it. The URL to access your Developer Console consists of your Okta domain plus `-admin`, e.g., `https://dev-l33337.okta.com`.
 
-### The Dashboard
+#### Dashboard
 
 On signing in to Developer Console, you see the Dashboard, a landing page that provides a summary of activity in your org.
 
