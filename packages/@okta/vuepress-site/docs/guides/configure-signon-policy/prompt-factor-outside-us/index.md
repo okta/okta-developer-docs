@@ -42,7 +42,7 @@ In addition to the Okta Sign-On Policy, there is a sign-on policy for each appli
 
 10. Then, specify how frequently you want the users to be prompted. Select **Once per session** for this use case.
 
-    > **Note:** While you can configure your App Sign-On Policies to prompt end users for MFA, be aware that legacy protocols such as `POP` or `IMAP` don't support MFA even if MFA is configured.
+    > **Note:** While you can configure your App sign-on policies to prompt end users for MFA, be aware that legacy protocols such as `POP` or `IMAP` don't support MFA even if MFA is configured.
 
 11. Click **Save**.
 
