@@ -22,7 +22,6 @@
       options: function () {
         let optionsList = [];
         if( this.$page.headers ) {
-          console.log(this.$page.headers)
           this.$page.headers.forEach(function (header, index) {
             optionsList.push({label: header.title, code: header.slug, isSubheading: header.level === 3});
           });
