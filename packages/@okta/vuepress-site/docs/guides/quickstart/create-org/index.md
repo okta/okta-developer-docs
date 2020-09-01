@@ -12,20 +12,6 @@ An org is free, and you can use it to handle authentication for up to 1,000 user
 
 <StackSelector snippet="create-org" />
 
-#### Activate your org
-
-After creating your org, check your email, and complete the following steps:
-
-1. You receive an email to activate your account. The email gives you a temporary password and your Okta domain.
-
-	Your Okta domain is important: It’s the base URL you use to access your org.  Authorization requests for users will be directed to an endpoint that has this as its base, and any Okta API endpoints you call will also have this as their base.
-
-	Record your domain and your temporary password. Click the **Activate your account** button in the email.
-
-2. You're prompted to sign in to your org. Supply your email address and the temporary password that was provided in the email.
-
-3. You're prompted to change your password and to choose a security question to use if you forget your password. You're also prompted to choose a security image. The image is displayed whenever Okta prompts you to sign in, providing some assurance that it’s Okta asking.
-
 #### Next steps
 
 Your org is now created and usable. There's a survey you’re prompted to fill out about your role, goal, and software stack, which can help us support you.
