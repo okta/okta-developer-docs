@@ -32,7 +32,6 @@ module.exports = [
       { title: 'Sign users in to your single-page application', guideName: 'sign-into-spa' },
       { title: 'Sign users in to your web application', guideName: 'sign-into-web-app' },
       { title: 'Sign users out', guideName: 'sign-users-out' },
-      { title: 'Configure Okta Sign-On and App Sign-On policies', guideName: 'configure-signon-policy' },
     ] 
   },
   { 
