@@ -17,4 +17,6 @@ Creating an org is easy using the [Okta CLI](https://github.com/oktadeveloper/ok
 
 5. The CLI provides a link to use to set your password. Open the URL in your web browser.
 
+6. You're prompted to change your password and to choose a security question to use if you forget your password. You're also prompted to choose a security image. The image is displayed whenever Okta prompts you to sign in, providing some assurance that it’s Okta asking.
+
 
