@@ -36,7 +36,7 @@ To confirm that your custom claim was successfully added, you can [retrieve a li
 
 ### Request a token that contains the custom claim
 
-To test the full authentication flow that returns an ID token or an access token, build your request URL. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the claim</GuideLink>.
+To test the full authentication flow that returns an ID token or an access token, build your request URL. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains a custom claim</GuideLink>.
 
 > **Note:** The scope that you need to include as a query parameter is `openid`.
 
