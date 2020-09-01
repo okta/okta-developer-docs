@@ -16,4 +16,7 @@ To create a new user:
 4. For password, select "Set by user".
 5. Click **Save**.
 
-As you’ll see later, in addition to manually creating a user in the Developer Console, there are multiple ways of importing users from existing user stores.
+As you’ll see later, in addition to manually creating a user in the Developer Console, you can create users via API. There are also multiple ways of importing users from existing user stores.
+
+<NextSectionLink/>
+
