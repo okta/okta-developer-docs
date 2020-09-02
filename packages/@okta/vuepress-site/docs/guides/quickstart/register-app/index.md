@@ -2,9 +2,9 @@
 title: Register your app
 ---
 
-In this section, you'll learn how to hook up your Okta org to the app that's going to use it for sign-in. To tell Okta about the app, and to collect the pieces of information you need to integrate into your app, you use the Developer Console's app screen.
+In this section, you'll learn how to hook up your Okta org to the app that's going to use it for sign-in. You'll tell Okta about the app, and  you'll collect certain values provided by Okta that you need to integrate into your app.
 
-For simplicity, in this run-through let's assume that your app is a web app, i.e., a server-side app, and that you want to use the Okta-hosted sign-in page, rather than implement or host your own sign-in page.
+For simplicity, in this run-through we'll assume that your app is a web app, i.e., a server-side app, and that you want to use the Okta-hosted sign-in page, rather than implement or host your own sign-in page.
 
 To start, find the example applications, provided by Okta on GitHub, for the language or framework you work in:
 
@@ -15,9 +15,9 @@ To start, find the example applications, provided by Okta on GitHub, for the lan
 | ASP.Net Web Forms    | <https://github.com/okta/samples-aspnet-webforms>  |
 | Java Servlet         | <https://github.com/okta/samples-java-servlet>     |
 | Java Spring          | <https://github.com/okta/samples-java-spring>      |
-| JavaScript Angular   | <https://github.com/okta/samples-js-angular>       |
-| JavaScript React     | <https://github.com/okta/samples-js-react>         |
-| JavaScript Vue       | <https://github.com/okta/samples-js-vue>           |
+| Angular   | <https://github.com/okta/samples-js-angular>       |
+| React     | <https://github.com/okta/samples-js-react>         |
+| Vue       | <https://github.com/okta/samples-js-vue>           |
 | Golang               | <https://github.com/okta/samples-golang>           |
 | Node.js Express      | <https://github.com/okta/samples-nodejs-express-4> |
 | Python Flask         | <https://github.com/okta/samples-python-flask>     |
@@ -25,7 +25,7 @@ To start, find the example applications, provided by Okta on GitHub, for the lan
 
 Specifically, look for the `okta-hosted-login` example (there are samples provided for many other purposes).
 
-After getting the sample code, you need to hook it up to your Okta org by registering the app in Developer Console and then getting some values from Okta, which you need to set in the app.
+You can try building the example app as-is, or using it as a template for modifying your app. When you have it running, you can connect it to your org. 
 
 ### Tell Okta about the app
 
