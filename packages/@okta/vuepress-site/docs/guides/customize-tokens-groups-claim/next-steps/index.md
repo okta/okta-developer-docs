@@ -9,4 +9,4 @@ Next, take a look at how to include custom claims in an ID token or an access to
 * [Add a custom claim](/docs/guides/customize-tokens-returned-from-okta/add-custom-claim/)
 * [Include App-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute/)
 * [Customize tokens returned from Okta with a dynamic whitelist](/docs/guides/customize-tokens-dynamic/)
-* [Customize tokens returned from Okta with a static whitelist](/docs/guides/customized-tokens-static/)
+* [Customize tokens returned from Okta with a static whitelist](/docs/guides/customize-tokens-static/)
