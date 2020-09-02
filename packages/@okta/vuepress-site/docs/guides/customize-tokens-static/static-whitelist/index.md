@@ -1,15 +1,17 @@
 ---
 title: Add a Groups claim with a static whitelist
 ---
+
 You can create a static whitelist when you need to set group whitelists on a per-application basis. For example, you have a large number of Groups. Every time a Groups claim is created, you don't want to run through all of your Groups if only 20 Groups apply to your app.
 
 This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create a whitelist of Groups that can then easily be referenced.
 
-The following pages walk you through creating a Groups claim, assigning a group whitelist to your client app, and configuring a Groups claim that references a whitelist for the authorization server that you want to use.
+The following sections walk you through creating a Groups claim, assigning a group whitelist to your client app, and configuring a Groups claim that references a whitelist for the authorization server that you want to use.
 
 For this example, we're configuring just one group (the IT group) for simplicity. This group has a group ID of: `00goeudyucv6CcaeV0h7` and the OpenID Connect client used has a client ID of: `0oaoesxtxmPf08QHk0h7`.
 
 ## Get the group IDs
+
 Send a request to `https://${yourOktaDomain}/api/v1/groups` and collect the IDs for all of the Groups that you want to whitelist.
 
 **Request Example**
@@ -61,7 +63,7 @@ curl -X GET \
     },
 ```
 
-## Add a list of Groups to the client app profile
+## Add a list of Groups to the client App profile
 
 When you have a lot of Groups to whitelist, you can put the group IDs in the client app's profile property. You can add App Groups, User Groups, or both to the group whitelist specified as an array of IDs. If you only have one or two Groups to specify, simply add the group IDs to the first parameter of the `getFilteredGroups` function described in the <GuideLink link="../use-static-group-whitelist-org-as">next step</GuideLink>.
 
@@ -148,7 +150,7 @@ The whitelist parameter must evaluate to a list of group IDs that are returned f
 **Parameter Examples**
 
 * whitelist
-  * Array: <code class="OKTA-263808">{"00gn335BVurvavwEEL0g3", "00gnfg5BVurvavAAEL0g3"}</code> 
+  * Array: <code class="OKTA-263808">{"00gn335BVurvavwEEL0g3", "00gnfg5BVurvavAAEL0g3"}</code>
   * Array variable: `app.profile.groups.whitelist`
 * group_expression
   * Attribute name: `"group.id"`

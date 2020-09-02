@@ -1,7 +1,10 @@
 ---
 title: Use a dynamic group whitelist with a Custom Authorization Server
 ---
+
 To use the Group Functions to create an ID token or an access token using a dynamic group whitelist, create a Groups claim and a Groups scope in the Custom Authorization Server. For this example, we are adding a claim for use with an access token.
+
+<RequireClassicUI/>
 
 1. In the Admin Console, from the **Security** menu, select **API**, and then select the authorization server that you want to configure.
 2. Navigate to the **Claims** tab and click **Add Claim**.
@@ -10,11 +13,11 @@ To use the Group Functions to create an ID token or an access token using a dyna
 5. Leave **Expression** as the **Value type**.
 6. Enter the following expression as the **Value**: `Groups.startsWith("OKTA", "IT", 10)`
 
-    > **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using G Suite). If you are targeting groups that may have duplicate group names (such as Google Groups), use the `getFilteredGroups` Group function instead.<br>
-<br>
-    Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`<br>
-<br>
-    See the **Parameter Examples** section of [Use group functions for static group whitelists](/docs/guides/customize-tokens-returned-from-okta/static-whitelist/#use-group-functions-for-static-group-whitelists) for more information on the parameters used in this Group function.
+    > **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using G Suite). If you are targeting groups that may have duplicate group names (such as Google Groups), use the `getFilteredGroups` Group function instead.
+    >
+    >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
+    >
+    >See the **Parameter Examples** section of [Use group functions for static group whitelists](/docs/guides/customize-tokens-returned-from-okta/static-whitelist/#use-group-functions-for-static-group-whitelists) for more information on the parameters used in this Group function.
 
 7. Click **Create**.
 8. Select the **Scopes** tab and click **Add Scope**.
@@ -45,7 +48,7 @@ The decoded JWT looks something like this:
 {
   "ver": 1,
   "jti": "AT.lsZ5XmKiK4KxpKs2IDUBKMRgfMhiB2i2hTBZEM7epAk",
-  "iss": "https://${yourOktaDomain}"/oauth2/ausocqn9bk00KaKbZ0h7",
+  "iss": "https://${yourOktaDomain}/oauth2/ausocqn9bk00KaKbZ0h7",
   "aud": "https://${yourOktaDomain}",
   "iat": 1574270245,
   "exp": 1574273845,
@@ -62,4 +65,4 @@ The decoded JWT looks something like this:
 }
 ```
 
-<NextSectionLink/>
+<NextSectionLink>Next Steps</NextSectionLink>

@@ -11,6 +11,9 @@ guides:
  - custom-url-domain
  - customize-authz-server
  - customize-tokens-returned-from-okta
+ - customize-tokens-dynamic
+ - customize-tokens-static
+ - customize-tokens-groups-claim
  - email-customization
  - enable-cors
  - find-your-app-credentials

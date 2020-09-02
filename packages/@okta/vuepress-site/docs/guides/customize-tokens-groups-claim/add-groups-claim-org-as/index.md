@@ -56,4 +56,4 @@ The decoded JWT looks something like this:
 }
 ```
 
-<NextSectionLink/>
+<NextSectionLink>Next Steps</NextSectionLink>

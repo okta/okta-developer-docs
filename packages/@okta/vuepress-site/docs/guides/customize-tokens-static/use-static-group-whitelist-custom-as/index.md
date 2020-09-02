@@ -1,7 +1,10 @@
 ---
 title: Use a static group whitelist with a Custom Authorization Server
 ---
+
 Add a Groups custom claim for an ID token or access token in a Custom Authorization Server. The maximum number of Groups specified must be less than 100. For the following example, we are adding a custom claim for an access token.
+
+<RequireClassicUI/>
 
 1. In the Admin Console, from the **Security** menu, select **API**, and then select the authorization server that you want to configure.
 2. Navigate to the **Claims** tab and click **Add Claim**.
@@ -36,7 +39,7 @@ curl -X GET
 &state=myState"
 ```
 
-> **Note:** The claim was configured to work with all scopes. If you specify only certain scopes to return the claim, you'll need to specify one of them in the request.
+> **Note:** The claim was configured to work with all scopes. If you specify only certain scopes to return the claim, you need to specify one of them in the request.
 
 The decoded JWT looks something like this:
 
@@ -61,4 +64,4 @@ The decoded JWT looks something like this:
 }
 ```
 
-<NextSectionLink/>
+<NextSectionLink>Next Steps</NextSectionLink>

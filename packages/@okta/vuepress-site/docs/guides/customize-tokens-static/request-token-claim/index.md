@@ -1,7 +1,8 @@
 ---
 title: Request a token that contains a custom claim
 ---
-There are sections in this guide that include information on building a URL to request a claim. These sections refer you to this page for the specific steps to build the URL to request a claim and decode the JWT to verify that the claim was included in the token. Specific request and payload examples remain in the appropriate sections. Move on to the section for the claim that you want to create if you don't currently need these steps.
+
+There are sections in this guide that include information on building a URL to request a claim. These sections refer you to this page for the specific steps to build the URL to request a claim and decode the JWT to verify that the claim was included in the token. Specific request and payload examples remain in the appropriate sections. Move on to the next section if you don't currently need these steps.
 
 To test the full authentication flow that returns an ID token or an access token, build your request URL:
 
@@ -70,6 +71,6 @@ To test the full authentication flow that returns an ID token or an access token
     https://yourRedirectUriHere.com#access_token=eyJraWQiOiIxLVN5M2w2dFl2VTR4MXBSLXR5cVZQWERX[...]YNXrsr1gTzD6C60h0UfLiLUhA&token_type=Bearer&expires_in=3600&scope=openid&state=myState
     ```
 
-5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: https://jsonwebtoken.io). Using a JWT decoder, confirm that the token contains all of the claims that you are expecting, including the custom one. If you specified a nonce, that is also included.
+5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: `https://jsonwebtoken.io`). Using a JWT decoder, confirm that the token contains all of the claims that you are expecting, including the custom one. If you specified a nonce, that is also included.
 
 <NextSectionLink/>
