@@ -1559,8 +1559,6 @@ redirects:
     to: /docs/reference/api/factor-admin/
   - from: /guides/validate-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
-  - from: /authentication-guide
-    to: /docs/concepts/oauth-openid/
   - from: /code
     to: /docs/
   - from: /code.html
@@ -1959,6 +1957,8 @@ redirects:
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
+  - from: /docs/concepts/auth-overview
+    to: /docs/concepts/oauth-openid/
   - from: /docs/concepts/auth-overview/
     to: /docs/concepts/oauth-openid/
   - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/index.html
