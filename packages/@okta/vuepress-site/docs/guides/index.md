@@ -5,6 +5,7 @@ guides:
  - build-custom-ui-mobile
  - build-self-signed-jwt
  - configure-access-policy
+ - configure-signon-policy
  - create-an-api-token
  - custom-error-pages
  - custom-hosted-signin
