@@ -17,9 +17,9 @@ A search bar at the top of the Dashboard lets you quickly bring up information o
 
 #### System Log
 
-The latest events logged in your org's System Log are displayed in the lower part of the dashboard. The System Log records actions taken by you and any other admins, as well as ongoing events that occur for each user, like user creation, and successful or failed authentication attempts. There will be lots of events in the System Log even if you haven't done anything yet, just created your org. You can click each event to expand it and get full info for it.
+The latest events logged in your org's System Log are displayed in the lower part of the dashboard. The System Log records actions taken by you and any other admins, as well as ongoing events that occur for each user, like user creation and authentication attempts. You can click each event to expand it and get full details.
 
-In the upper-right corner of the screen, you can see the domain of the org you’re in. This can be handy if you manage multiple orgs.
+In the upper-right corner of the screen, you can see the Okta domain of the org you’re in. This can be handy if you manage multiple orgs.
 
 The footer of the dashboard displays the version of the Okta system that you're currently running, e.g., "Version: 2020.06.4". It also displays the Okta cell your org is running in, e.g. "OK11 Cell (US)".
 
@@ -27,7 +27,7 @@ The footer of the dashboard displays the version of the Okta system that you're 
 
 Menus take you from the Dashboard to the management screens for various aspects of your org's functionality:
 
-| Menu          | What can I do here?                                                                                |
+| Menu          | What can you do there?                                                                                 |
 |---------------|----------------------------------------------------------------------------------------------------|
 | Users         | Manager your end users.                                                                            |
 | Applications  | Configure the connection between your Okta org and the apps you want to handle authentication for. |
