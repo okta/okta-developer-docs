@@ -8,24 +8,24 @@ For simplicity, in this run-through we'll assume that your app is a web app, i.e
 
 To start, find the example applications, provided by Okta on GitHub, for the language or framework you work in:
 
-| Language / Framework | Link                                               |
-|----------------------|----------------------------------------------------|
-| ASP.Net              | <https://github.com/okta/samples-aspnet>           |
-| ASP.NET Core         | <https://github.com/okta/samples-aspnetcore>       |
-| ASP.Net Web Forms    | <https://github.com/okta/samples-aspnet-webforms>  |
-| Java Servlet         | <https://github.com/okta/samples-java-servlet>     |
-| Java Spring          | <https://github.com/okta/samples-java-spring>      |
-| Angular   | <https://github.com/okta/samples-js-angular>       |
-| React     | <https://github.com/okta/samples-js-react>         |
-| Vue       | <https://github.com/okta/samples-js-vue>           |
-| Golang               | <https://github.com/okta/samples-golang>           |
-| Node.js Express      | <https://github.com/okta/samples-nodejs-express-4> |
-| Python Flask         | <https://github.com/okta/samples-python-flask>     |
-| PHP                  | <https://github.com/okta/samples-php>              |
+| Framework         | Repository                                         |
+|-------------------|----------------------------------------------------|
+| ASP.Net           | <https://github.com/okta/samples-aspnet>           |
+| ASP.NET Core      | <https://github.com/okta/samples-aspnetcore>       |
+| ASP.Net Web Forms | <https://github.com/okta/samples-aspnet-webforms>  |
+| Java Servlet      | <https://github.com/okta/samples-java-servlet>     |
+| Java Spring       | <https://github.com/okta/samples-java-spring>      |
+| Angular           | <https://github.com/okta/samples-js-angular>       |
+| React             | <https://github.com/okta/samples-js-react>         |
+| Vue               | <https://github.com/okta/samples-js-vue>           |
+| Golang            | <https://github.com/okta/samples-golang>           |
+| Node.js Express   | <https://github.com/okta/samples-nodejs-express-4> |
+| Python Flask      | <https://github.com/okta/samples-python-flask>     |
+| PHP               | <https://github.com/okta/samples-php>              |
 
 Specifically, look for the `okta-hosted-login` example (there are samples provided for many other purposes).
 
-You can try building the example app as-is, or using it as a template for modifying your app. When you have it running, you can connect it to your org. 
+You can try building the example app as is, to start, or use it as a template for modifying your own app. When you have the app running, you're ready to connect it to your org. 
 
 ### Tell Okta about the app
 
