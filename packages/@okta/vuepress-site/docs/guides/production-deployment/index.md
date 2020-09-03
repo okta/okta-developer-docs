@@ -31,7 +31,6 @@ If you created an Okta application that uses `localhost` or a test domain, you w
 
 * [Configure Multi-Factor Authentication (MFA)](/docs/guides/mfa/ga/set-up-org/) - Setup which security factors are used when users login.
 * [Setup Self-Service Registration](/docs/guides/set-up-self-service-registration/) - Allow users to sign up for an account with an email address.
-
 * [Enable Social Authentication](/docs/guides/add-an-external-idp/) - Allow your users to login with their other services.
 
 ### Rate Limits
