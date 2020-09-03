@@ -14,11 +14,11 @@ An org is free, and you can use it to handle authentication for up to 1,000 user
 
 #### Next steps
 
-Your org is now created and usable. There's a survey you’re prompted to fill out about your role, goal, and software stack, which can help us support you.
+Your org is now created and usable. There's a survey you’re prompted to fill out about your role, aims, and software stack, which can help us support you.
 
-A wizard launches to help you through basic setup for a few commons scenarios. You can choose to exit the wizard by clicking **Dashboard**. (In the next sections of this quick start, we won’t use the wizard, but rather the regular Developer Console menus that you can use on an ongoing basis to complete tasks.)
+A wizard launches to help you through basic setup for a few commons scenarios. You can choose to exit the wizard by clicking **Dashboard**. (In the next sections of this QuickStart, we won’t use the wizard, but rather the regular Dashboard menus that can be used on an ongoing basis.)
 
-You now have an org. You can create additional orgs at any time, and it's often useful to do so to support separate different development environments.
+You now have an org. You can create additional orgs at any time, and it's often useful to do so to support separate development environments.
 
 <NextSectionLink/>
 
