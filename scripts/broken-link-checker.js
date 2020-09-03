@@ -29,6 +29,7 @@ var options = {
     "/product/",
     "/product/*",
     "/okta-integration-network/",
+    "github.com/okta/okta-developer-docs/edit",
   ]
 };
 
