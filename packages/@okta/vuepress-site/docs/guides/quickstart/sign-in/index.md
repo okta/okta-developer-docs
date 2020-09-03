@@ -14,3 +14,5 @@ With the app now configured, you're ready to try signing in as an end user and s
 
 To see the Admin view of the process that just occurred, you can open Developer Console in another browser window, signing in with your original Admin account. Check the Dashboard for information about the end user sign-in that took place.
 
+<NextSectionLink/>
+

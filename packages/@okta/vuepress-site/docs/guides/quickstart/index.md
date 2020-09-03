@@ -8,5 +8,6 @@ sections:
  - add-user
  - register-app
  - sign-in
+ - try-api
 ---
 
