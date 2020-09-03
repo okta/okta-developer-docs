@@ -21,7 +21,7 @@ Okta provides OAuth 2.0 and OpenID Connect implementations, the Sign-In Widget, 
 
 Okta allows you to control access to your application using both the OAuth 2.0 and OpenID Connect specifications. You can use Okta as your authorization server to retain all of your user information, and grant users tokens to control their authorization and authentication. Okta also supports using social logins and pulling a user's external data into your Okta org.
 
-To find out more about Okta's OAuth 2.0 and OpenID Connect implementations, see [OAuth 2.0 and OpenID Connect](/docs/concepts/auth-overview/).
+To find out more about Okta's OAuth 2.0 and OpenID Connect implementations, see [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/).
 
 ### Sign-In Widget
 

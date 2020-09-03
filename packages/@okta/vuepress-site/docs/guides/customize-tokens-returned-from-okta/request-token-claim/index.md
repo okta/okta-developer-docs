@@ -37,7 +37,7 @@ To test the full authentication flow that returns an ID token or an access token
     * Your OpenID Connect application's `client_id` and `redirect_uri`
     * A scope, which for the purposes of the examples is `openid`. When you are adding a Groups claims, both the `openid` and the `groups` scopes are included.
     * The response type, which for an ID token is `id_token` and an access token is `token`
-    > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/auth-overview/#implicit-flow). For the [Authorization Code flow](/docs/concepts/auth-overview/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
+    > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
     * Values for `state` and `nonce`, which can be anything
 
     > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize) page.

@@ -7,6 +7,8 @@ category: management
 
 Okta uses a cookie-based authentication mechanism to maintain a user's authentication session across web requests. The Okta Sessions API provides operations to create and manage authentication sessions for users in your Okta organization.
 
+>The Sessions API does not support direct authentication. Direct authentication is supported via the [Authentication API](/docs/reference/api/authn/#authentication-operations) or via OIDC using the [Resource Owner Password Flow](/docs/guides/implement-password/overview/).
+
 ### Session Cookie
 
 Okta utilizes a HTTP session cookie to provide access to your Okta organization and applications across web requests for an interactive user agent such as a web browser. Session cookies have an expiration configurable by an administrator for the organization and are valid until the cookie expires or the user closes the session (logout) or browser application.
