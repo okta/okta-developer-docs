@@ -30,6 +30,10 @@ module.exports = [
         link: '/docs/concepts/feature-lifecycle-management/'
     },
     { 
+        title: 'How Okta works', 
+        link: '/docs/concepts/how-okta-works/'
+    },
+    { 
         title: 'Inline Hooks', 
         link: '/docs/concepts/inline-hooks/'
     },
@@ -54,6 +58,9 @@ module.exports = [
         link: '/docs/concepts/okta-organizations/'
     },
     { 
+        title: 'Policies', 
+        link: '/docs/concepts/policies/'
+    }, { 
         title: 'SAML', 
         link: '/docs/concepts/saml/'
     }, 
