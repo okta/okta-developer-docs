@@ -64,7 +64,7 @@ These rate limits apply to all new Okta organizations. For orgs created before 2
 
 ### DynamicScale Rate Limits
 
-If your needs exceed Okta's default rate limits for the base product subscriptions (e.g. One App, Enterprise or IT Products) you've already purchased, you can purchase a "DynamicScale" add-on service which will grant you higher rate limits for the endpoints listed below. DynamicScale will increase your default rate limits by 3x to 1000x, depending on the tier multiplier you purchase. Customers can purchase this add-on annually for a Production tenant or temporarily for testing in a Sandbox tenant.  The following list of endpoints are included in the DynamicScale add-on service:
+If your needs exceed Okta's default rate limits for the base product subscriptions (One App or Enterprise) you've already purchased, you can purchase a "DynamicScale" add-on service which will grant you higher rate limits for the endpoints listed below. DynamicScale will increase your default rate limits by 5x to 1000x, depending on the tier multiplier you purchase. Customers can purchase this add-on annually for a Production tenant or temporarily for testing in a Sandbox tenant.  The following list of endpoints are included in the DynamicScale add-on service:
 
 **Authentication endpoints:**
 
