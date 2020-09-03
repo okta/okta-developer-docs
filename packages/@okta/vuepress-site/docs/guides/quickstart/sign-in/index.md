@@ -1,8 +1,8 @@
 ---
-title: Try signing-in as an end user
+title: Try signing in
 ---
 
-With the app now configured, you're ready to try signing-in as an end user and see how the functionality comes together:
+With the app now configured, you're ready to try signing in as an end user and see how the functionality comes together:
 
 1. Follow the directions in the README to start the app.
 
