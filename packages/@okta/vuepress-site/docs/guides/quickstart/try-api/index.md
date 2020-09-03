@@ -6,7 +6,7 @@ You've seen how Okta handles sign-in for your app and how you can use the Develo
 
 #### Get an API token
 
-To secure access to API endpoints, Okta requires requests to include an API token, which consists of a secret value that you include in the header of the request.
+To secure access to API endpoints, Okta requires an API token, which consists of a secret value, to included in the header of each request.
 
 To obtain an API token your software can use, use the Developer Console:
 
@@ -22,11 +22,15 @@ For full details on API tokens, see [Create an API token](/docs/guides/create-an
 
 #### Create a user by API
 
-To create an additional end user in your org, without using the Developer Console, you can make a REST API call to the `/users` endpoint.
+As a first example of API use, to create an additional end user in your org, you can make a REST API call to the `/users` endpoint.
 
-The full URL of the endpoint need to begin with your Okta domain, which should be followed by `/api/v1/users`, for example: `https://dev-l33337.okta.com/api/v1/users`.
+The full URL of the endpoint needs to begin with your Okta domain. That should be followed by `/api/v1/users`. For example: `https://dev-l33337.okta.com/api/v1/users`.
 
-To create a new user, make a `POST` call to the endpoint, supplying information about the new user in a JSON object in the request body. You need to include your API token in the `Authorization` header. Here's how you would do it using curl from the command line:
+To create a new user, make a `POST` call to that endpoint, supplying information about the new user in a JSON object in the request body. 
+
+You need to include your API token in the `Authorization` header of the request.
+
+Here's how you would do it using curl from the command line:
 
 ```bash
 curl -v -X POST \
@@ -41,15 +45,17 @@ curl -v -X POST \
     "login": "isaac.brock@example.com",
     "mobilePhone": "555-415-1337"
   }
-}' "https://dev-l33337.okta.com/api/v1/users?activate=false"
+}' "https://dev-33337.okta.com/api/v1/users?activate=false"
 ```
 You need to replace the Okta domain in the endpoint with your own Okta domain. You also need to replace the API token in the `Authorization` header with the API token you created. Note that the value of the API token needs to be prefaced with `SSWS` followed by a space.
 
 For full details of the `/users` API and everything it can do, see the [Users](/docs/reference/api/users/) API reference page.
 
+For information on using Postman to explore Okta APIs, see [Use Postman with the Okta REST APIs](/code/rest/). 
+
 #### Create a user by SDK
 
-Instead of making REST API calls directly, you can use Okta SDKs provided for a variety languages to access the same functionality.
+Instead of making REST API calls directly, you can use Okta SDKs, provided for a variety languages, to access the same functionality.
 
 <StackSelector snippet="try-api" />
 
