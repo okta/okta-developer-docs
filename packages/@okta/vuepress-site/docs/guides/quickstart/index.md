@@ -7,5 +7,6 @@ sections:
  - using-console
  - add-user
  - register-app
+ - sign-in
 ---
 
