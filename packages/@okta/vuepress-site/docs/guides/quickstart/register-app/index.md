@@ -51,3 +51,5 @@ Remaining in Developer Console, go to **API > Authorization Servers** and gather
 
 You now have the specific values for Client ID, Client Secret, and Issuer ID, which your app needs to use. The various example apps all provide ways of setting these values, but some of the example apps expect you to set environment variables, while some expect settings in a configuration file. Consult the README file for the example app you're using and set the three values.
 
+<NextSectionLink/>
+
