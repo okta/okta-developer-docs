@@ -1,5 +1,5 @@
 ---
-title: Add a user using Developer Console
+title: Add a user using Console
 ---
 
 Any authentication system needs to have a way of keeping track of the end users who are allowed to authenticate.
