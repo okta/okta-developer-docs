@@ -56,7 +56,7 @@ For information on using Postman to explore Okta APIs, see [Use Postman with the
 
 #### Create a user by SDK
 
-Instead of making REST API calls directly, you can use one of the Okta SDKs provided for specific languages and frameworks.
+Instead of making REST API calls directly, you can use one of the Okta SDKs provided for specific languages and frameworks. See [Languages & SDKs](/docs/) for information on getting started with them.
 
 <StackSelector snippet="try-api" />
 
