@@ -743,6 +743,8 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 
 >Hint: you can substitute `me` for the `id` to fetch the current user linked to an API token or session cookie.
 
+>**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
+
 ##### Response Parameters
 
 
@@ -3020,6 +3022,8 @@ A consent represents a user's explicit permission to allow an application to acc
 Consent grants remain valid until the user manually revokes them, or until the user, application, authorization server or scope is deactivated or deleted.
 
 > Hint: For all grant operations, you can use `me` instead of the `userId` in an endpoint that contains `/users`, in an active session with no SSWS token (API token). For example: `https://${yourOktaDomain}/api/v1/users/me/grants` returns all the grants for the active session user.
+
+>**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
 
 ### List Grants
 
