@@ -28,7 +28,7 @@
     "@vuepress/plugin-active-header-links": "1.1.0",
     "axios": "^0.18.0",
     "lodash": "^4.17.19",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.13.1",
     "sass-loader": "^7.1.0"
   },
   "devDependencies": {
