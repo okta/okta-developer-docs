@@ -16,7 +16,7 @@ title: Okta API Products Release Notes
 
 ### New Device Notification Emails are Generally Available (GA)
 
-When enabled, end users will receive a new device notification email when signing in to Okta from a new or unrecognized device. This feature is now generally available to all orgs. For more information about email notifications, refer to the New or Unknown Device Notification Emails section on [this page](https://help.okta.com/en/prod/Content/Topics/Security/Security_General.htm). <!--OKTA-186366-->
+When enabled, end users will receive a new device notification email when signing in to Okta from a new or unrecognized device. This feature is now generally available to all orgs. For more information about email notifications, refer to the New or Unknown Device Notification Emails section on [this page]https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_General. <!--OKTA-186366-->
 
 ### Email Rate Limiting
 
