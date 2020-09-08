@@ -4,12 +4,15 @@ guides:
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - configure-access-policy
+ - configure-signon-policy
  - create-an-api-token
  - custom-error-pages
  - custom-hosted-signin
  - custom-url-domain
  - customize-authz-server
  - customize-tokens-returned-from-okta
+ - email-customization
  - enable-cors
  - find-your-app-credentials
  - find-your-domain
@@ -24,6 +27,7 @@ guides:
  - mfa
  - build-provisioning-integration
  - build-sso-integration
+ - sms-customization
  - submit-app
  - protect-your-api
  - refresh-tokens
@@ -32,6 +36,7 @@ guides:
  - saml-tracer
  - session-cookie
  - set-up-event-hook
+ - set-up-self-service-registration
  - shared-sso-android-ios
  - sharing-cert
  - sign-into-mobile-app
