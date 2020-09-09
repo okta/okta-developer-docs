@@ -19,7 +19,7 @@ To test the full authentication flow that returns an ID token or an access token
 
         `https://${yourOktaDomain}/oauth2/v1/authorize`
 
-    * A custom authorization endpoint looks like this:
+    * A Custom Authorization Server authorization endpoint looks like this:
 
         `https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 
