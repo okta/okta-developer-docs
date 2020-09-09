@@ -65,7 +65,7 @@ curl -X GET \
 
 ## Add a list of Groups to the client App profile
 
-When you have a lot of Groups to whitelist, you can put the group IDs in the client app's profile property. You can add App Groups, User Groups, or both to the group whitelist specified as an array of IDs. If you only have one or two Groups to specify, simply add the group IDs to the first parameter of the `getFilteredGroups` function described in the <GuideLink link="../use-static-group-whitelist-org-as">next step</GuideLink>.
+When you have a lot of Groups to whitelist, you can put the Group IDs in the client App's profile property. You can add App Groups, User Groups, or both to the Group whitelist specified as an array of IDs. If you only have one or two Groups to specify, simply add the Group IDs to the first parameter of the `getFilteredGroups` function described in the <GuideLink link="../use-static-group-whitelist-org-as">next step</GuideLink>.
 
 The following example names the group whitelist `groupwhitelist`, but you can name it anything.
 
