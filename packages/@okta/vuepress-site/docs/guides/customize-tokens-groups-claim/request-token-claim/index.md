@@ -52,7 +52,7 @@ To test the full authentication flow that returns an ID token or an access token
     &scope=openid
     &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
     &state=myState
-    &nonce=${myNonceValue}"
+    &nonce=myNonceValue"
     ```
 
     > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
