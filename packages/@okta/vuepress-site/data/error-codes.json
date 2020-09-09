@@ -1,6 +1,6 @@
 {
-  "release" : "2020.08.1",
-  "build" : "2020.08.1-begin-123-gb5373c499fac",
+  "release" : "2020.09.2",
+  "build" : "2020.09.2-begin-18-g149a027075ea",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,

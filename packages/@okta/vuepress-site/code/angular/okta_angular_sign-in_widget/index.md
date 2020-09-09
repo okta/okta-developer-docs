@@ -86,6 +86,15 @@ Then, update `src/app/app.component.ts` to handle the `logout()` call:
 
 ```typescript
 // src/app/app.component.ts
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { OktaAuthService } from '@okta/okta-angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
 
 export class AppComponent {
   isAuthenticated: boolean;
@@ -138,7 +147,6 @@ export class ProtectedComponent {
   }
 }
 ```
-
 
 When a user attempts to access a route that is protected by `OktaAuthGuard`, it first checks to see if the user has been authenticated. If `isAuthenticated()` returns `false`, start the login flow.
 
@@ -224,6 +232,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import {
+  OKTA_CONFIG,
   OktaAuthModule,
   OktaCallbackComponent,
   OktaAuthGuard
@@ -272,7 +281,10 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    OktaAuthModule.initAuth(config)
+    OktaAuthModule
+  ],
+  providers: [
+    { provide: OKTA_CONFIG, useValue: config },
   ],
   bootstrap: [AppComponent]
 })

@@ -18,7 +18,7 @@ top_links:
 
 ::: slot left
 ## Sign in Your Users
-API endpoints to authenticate your users, challenge for factors, recover passwords, and more. [Learn about which APIs to use.](/docs/concepts/auth-overview/#authentication-api-vs-oauth-20-vs-openid-connect)
+API endpoints to authenticate your users, challenge for factors, recover passwords, and more. [Learn about which APIs to use.](/docs/concepts/oauth-openid/#authentication-api-vs-oauth-20-vs-openid-connect)
 
 <CategoryLinks category="authentication" class="list--with-descriptions" />
 :::
