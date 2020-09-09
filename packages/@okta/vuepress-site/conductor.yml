@@ -390,9 +390,11 @@ redirects:
   - from: /docs/change-log/index.html
     to: /docs/release-notes/
   - from: /standards/OAuth/index.html
-    to: /docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow
+    to: /docs/concepts/oauth-openid/
+  - from: /standards/OAuth/
+    to: /docs/concepts/oauth-openid/
   - from: /standards/OAuth
-    to: /docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow
+    to: /docs/concepts/oauth-openid/
   - from: /documentation/index.html
     to: /docs/
   - from: /reference/error_codes/index.html
@@ -516,11 +518,11 @@ redirects:
   - from: /authentication-guide/social-login/index.html
     to: /docs/concepts/social-login/
   - from: /authentication-guide/index.html
-    to: /docs/concepts/auth-overview/
+    to: /docs/concepts/oauth-openid/
   - from: /authentication-guide/auth-overview/index.html
-    to: /docs/concepts/auth-overview/
+    to: /docs/concepts/oauth-openid/
   - from: /authentication-guide/implementing-authentication/index.html
-    to: /docs/concepts/auth-overview/#recommended-flow-by-application-type
+    to: /docs/concepts/oauth-openid/#recommended-flow-by-application-type
   - from: /authentication-guide/tokens/index.html
     to: /docs/guides/validate-access-tokens/
   - from: /authentication-guide/tokens/verifying-token-signature/index.html
@@ -680,11 +682,11 @@ redirects:
   - from: /authentication-guide/social-login
     to: /docs/concepts/social-login/
   - from: /authentication-guide
-    to: /docs/concepts/auth-overview/
+    to: /docs/concepts/oauth-openid/
   - from: /authentication-guide/auth-overview
-    to: /docs/concepts/auth-overview/
+    to: /docs/concepts/oauth-openid/
   - from: /authentication-guide/implementing-authentication
-    to: /docs/concepts/auth-overview/#recommended-flow-by-application-type
+    to: /docs/concepts/oauth-openid/#recommended-flow-by-application-type
   - from: /authentication-guide/tokens
     to: /docs/guides/validate-access-tokens/
   - from: /authentication-guide/tokens/verifying-token-signature
@@ -1557,8 +1559,6 @@ redirects:
     to: /docs/reference/api/factor-admin/
   - from: /guides/validate-id-tokens/index.html
     to: /docs/guides/validate-id-tokens/
-  - from: /authentication-guide
-    to: /docs/concepts/auth-overview/
   - from: /code
     to: /docs/
   - from: /code.html
@@ -1957,25 +1957,27 @@ redirects:
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
-  - from: /docs/guides/custom-hosted-signin/overview/index.html
-    to: /docs/guides/style-the-widget/before-you-begin/
-  - from: /docs/guides/custom-hosted-signin/edit-the-sign-in-page/index.html
-    to:  /docs/guides/style-the-widget/style-okta-hosted/
-  - from: /docs/guides/custom-hosted-signin/use-macros-and-request-context/index.html
-    to: /docs/guides/style-the-widget/style-okta-hosted/
-  - from: /docs/guides/custom-hosted-signin/customization-examples/index.html
-    to: /docs/guides/style-the-widget/style-okta-hosted/
-  - from: /docs/guides/custom-hosted-signin/next-steps/index.html
-    to: /docs/guides/style-the-widget/next-steps/
-  - from: /docs/guides/custom-hosted-signin/-/customization-examples/index.html
-    to: /docs/guides/style-the-widget/-/customization-examples/
-  - from: /docs/guides/custom-hosted-signin/-/edit-the-sign-in-page/index.html
-    to:  /docs/guides/style-the-widget/-/style-okta-hosted/
-  - from: /docs/guides/custom-hosted-signin/-/next-steps/index.html
-    to: /docs/guides/style-the-widget/-/next-steps/
-  - from: /docs/guides/custom-hosted-signin/-/overview/index.html
-    to: /docs/guides/style-the-widget/-/before-you-begin/
-  - from: /docs/guides/custom-hosted-signin/-/use-macros-and-request-context/index.html
-    to: /docs/guides/style-the-widget/-/style-okta-hosted/
-  - from: /docs/guides/custom-hosted-signin/index.html
-    to: /docs/guides/style-the-widget/
+  - from: /docs/concepts/auth-overview
+    to: /docs/concepts/oauth-openid/
+  - from: /docs/concepts/auth-overview/
+    to: /docs/concepts/oauth-openid/
+  - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/index.html
+    to: /docs/guides/customize-tokens-groups-claim/-/overview/
+  - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim/index.html
+    to: /docs/guides/customize-tokens-groups-claim/overview/
+  - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as/index.html
+    to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic/index.html
+    to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
+  - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-org-as/index.html
+    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-custom-as/index.html
+    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-custom-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/index.html
+    to: /docs/guides/customize-tokens-static/static-allowlist/
+  - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/index.html
+    to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/index.html
+    to: /docs/guides/customize-tokens-static/-/static-allowlist/
+  - from: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/index.html
+    to: /docs/guides/customize-tokens-static/-/use-static-group-allowlist-org-as/
