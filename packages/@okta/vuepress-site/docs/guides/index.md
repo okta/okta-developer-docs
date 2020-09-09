@@ -6,7 +6,6 @@ guides:
  - build-self-signed-jwt
  - create-an-api-token
  - custom-error-pages
- - custom-hosted-signin
  - custom-url-domain
  - customize-authz-server
  - customize-tokens-returned-from-okta

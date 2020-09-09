@@ -1957,3 +1957,25 @@ redirects:
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
+  - from: /docs/guides/custom-hosted-signin/overview/index.html
+    to: /docs/guides/style-the-widget/before-you-begin/
+  - from: /docs/guides/custom-hosted-signin/edit-the-sign-in-page/index.html
+    to:  /docs/guides/style-the-widget/style-okta-hosted/
+  - from: /docs/guides/custom-hosted-signin/use-macros-and-request-context/index.html
+    to: /docs/guides/style-the-widget/style-okta-hosted/
+  - from: /docs/guides/custom-hosted-signin/customization-examples/index.html
+    to: /docs/guides/style-the-widget/style-okta-hosted/
+  - from: /docs/guides/custom-hosted-signin/next-steps/index.html
+    to: /docs/guides/style-the-widget/next-steps/
+  - from: /docs/guides/custom-hosted-signin/-/customization-examples/index.html
+    to: /docs/guides/style-the-widget/-/customization-examples/
+  - from: /docs/guides/custom-hosted-signin/-/edit-the-sign-in-page/index.html
+    to:  /docs/guides/style-the-widget/-/style-okta-hosted/
+  - from: /docs/guides/custom-hosted-signin/-/next-steps/index.html
+    to: /docs/guides/style-the-widget/-/next-steps/
+  - from: /docs/guides/custom-hosted-signin/-/overview/index.html
+    to: /docs/guides/style-the-widget/-/before-you-begin/
+  - from: /docs/guides/custom-hosted-signin/-/use-macros-and-request-context/index.html
+    to: /docs/guides/style-the-widget/-/style-okta-hosted/
+  - from: /docs/guides/custom-hosted-signin/index.html
+    to: /docs/guides/style-the-widget/
