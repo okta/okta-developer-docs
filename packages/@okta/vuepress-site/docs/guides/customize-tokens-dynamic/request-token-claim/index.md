@@ -57,7 +57,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
 
-4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a user who is mapped to your OpenID Connect application, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. An ID token, or an access token, and any state that you defined are included in the response. The following are response examples:
+4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a User who is mapped to your OpenID Connect application, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. The response will contain an ID token or an access token, as well as any state that you defined.
 
     **ID token**
 
