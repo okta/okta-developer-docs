@@ -1,1 +1,1 @@
-If you want to skip this guide and just download a working sample app, download our [Android example](https://github.com/okta/samples-android/tree/master/custom-sign-in).
+If you want to skip this guide and just download a working sample app, download our [Android example](https://github.com/okta/samples-android/tree/master/sign-in-kotlin).

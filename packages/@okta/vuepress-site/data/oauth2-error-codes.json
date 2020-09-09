@@ -1,6 +1,6 @@
 {
-  "release" : "2020.08.0",
-  "build" : "2020.08.0-begin-83-g54c957d183ad",
+  "release" : "2020.09.2",
+  "build" : "2020.09.2-begin-18-g149a027075ea",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -1179,8 +1179,8 @@
     "errorDescription" : "Failed to create the RAR based access_token."
   }, {
     "title" : "Too many groups in groups claim",
-    "statusCode" : 500,
-    "statusReasonPhrase" : "Internal Server Error",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "too_many_groups_in_groups_claim",
     "errorCode" : "server_error",
     "errorDescription" : "The groups claim matched too many groups and must be configured to match fewer groups."
