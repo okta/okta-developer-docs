@@ -27,7 +27,7 @@ curl -X GET
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
 &state=myState
-&nonce=${myNonceValue}"
+&nonce=myNonceValue"
 ```
 
 The decoded JWT looks something like this:

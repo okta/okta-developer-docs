@@ -17,7 +17,7 @@ To use the Group Functions to create an ID token or an access token using a dyna
     >
     >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
     >
-    >See the Parameter Examples section of [Use group functions for static group whitelists](/docs/guides/customize-tokens-static/static-whitelist/#use-group-functions-for-static-group-whitelists) for more information on the parameters used in this Group function.
+    >See the Parameter Examples section of [Use group functions for static group whitelists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-whitelists) for more information on the parameters used in this Group function.
 
 7. Click **Create**.
 8. Select the **Scopes** tab and click **Add Scope**.
@@ -39,7 +39,7 @@ curl -X GET
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
 &state=myState
-&nonce=${myNonceValue}"
+&nonce=myNonceValue"
 ```
 
 The decoded JWT looks something like this:

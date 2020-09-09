@@ -16,11 +16,11 @@ You can use this function anywhere to get a list of Groups of which the current 
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
->See the **Parameter Examples** section of [Use group functions for static group whitelists](/docs/guides/customize-tokens-static/static-whitelist/#use-group-functions-for-static-group-whitelists) for more information on the parameters used in this Group function.
+>See the **Parameter Examples** section of [Use group functions for static group whitelists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-whitelists) for more information on the parameters used in this Group function.
 
 You can use a dynamic group whitelist with both the Okta Org Authorization Server and a Custom Authorization Server:
 
-* <GuideLink link="../dynamic-whitelist-org-as">Use a dynamic group whitelist with the Org Authorization Server</GuideLink>
-* <GuideLink link="../dynamic-whitelist-custom-as">Use a dynamic group whitelist with a Custom Authorization Server</GuideLink>
+* <GuideLink link="../dynamic-allowlist-org-as">Use a dynamic group whitelist with the Org Authorization Server</GuideLink>
+* <GuideLink link="../dynamic-allowlist-custom-as">Use a dynamic group whitelist with a Custom Authorization Server</GuideLink>
 
 <NextSectionLink/>

@@ -35,7 +35,7 @@ curl -X GET
 &response_type=token
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2Fexample.com
-&nonce=${yourNonceValue}
+&nonce=yourNonceValue
 &state=myState"
 ```
 

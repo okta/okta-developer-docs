@@ -49,7 +49,7 @@ curl -X GET
 &scope=openid
 &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
 &state=myState
-&nonce=${myNonceValue}"
+&nonce=myNonceValue"
 ```
 
 > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
@@ -73,7 +73,7 @@ The decoded JWT looks something like this:
     "kba"
   ],
   "idp": "00oixa26ycdNcX0VT0h7",
-  "nonce": "${myNonceValue}",
+  "nonce": "myNonceValue",
   "auth_time": 1573756969,
   "IDTClaim": "eng"
 }

@@ -99,4 +99,5 @@ If the credentials are valid, the access token is sent in the response:
     "scope": "aCustomScope"
 }
 ```
+
 <NextSectionLink>Next Steps</NextSectionLink>
