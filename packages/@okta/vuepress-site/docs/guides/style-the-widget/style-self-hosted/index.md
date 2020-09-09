@@ -120,7 +120,7 @@ This section provides examples that you can use to make your own customizations 
 All text:
 
 ```css
-#okta-sign-in {
+#okta-sign-in * {
     color: red;
 }
 ```
@@ -158,6 +158,16 @@ Position:
     margin: 100px auto 8px;
 }
 ```
+
+#### Video Tutorial
+
+For a more in-depth look at styling the widget, you can watch this video:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q__ugprsOWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#### Live Widget
+
+You can also play with the SASS in real time with the [live widget](https://developer.okta.com/live-widget).
 
 ## Modify strings
 
