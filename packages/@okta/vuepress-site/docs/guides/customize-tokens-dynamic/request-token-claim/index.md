@@ -35,10 +35,11 @@ To test the full authentication flow that returns an ID token or an access token
 
 3. Add the following query parameters to the URL:
 
-    * Your OpenID Connect application's `client_id` and `redirect_uri`
-    * A scope, which for the purposes of the examples is `openid`. When you are adding a Groups claims, both the `openid` and the `groups` scopes are included.
+    * Your OpenID Connect application's `client_id`.
     * The response type, which for an ID token is `id_token` and an access token is `token`
     > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
+    * A scope, which for the purposes of the examples is `openid`. When you are adding a Groups claims, both the `openid` and the `groups` scopes are included.
+    * Your OpenID Connect application's `redirect_uri`.
     * Values for `state` and `nonce`, which can be anything
 
     > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize) page.
@@ -57,7 +58,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
 
-4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a User who is mapped to your OpenID Connect application, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. The response will contain an ID token or an access token, as well as any state that you defined.
+4. After you paste the request into your browser, the browser is redirected to the sign-in page for your Okta org. Enter the credentials for a User who is mapped to your OpenID Connect application, and then the browser is directed to the `redirect_uri` that you specified in the URL and in the OpenID Connect app. The response contains an ID token or an access token, as well as any state that you defined.
 
     **ID token**
 

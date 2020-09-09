@@ -1970,14 +1970,14 @@ redirects:
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic/index.html
     to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
   - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-org-as/index.html
-    to: /docs/guides/customize-tokens-dynamic/dynamic-whitelist-org-as/
+    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-custom-as/index.html
-    to: /docs/guides/customize-tokens-dynamic/dynamic-whitelist-custom-as/
+    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-custom-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/index.html
-    to: /docs/guides/customize-tokens-static/static-whitelist/
+    to: /docs/guides/customize-tokens-static/static-allowlist/
   - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/index.html
-    to: /docs/guides/customize-tokens-static/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/index.html
-    to: /docs/guides/customize-tokens-static/-/static-whitelist/
+    to: /docs/guides/customize-tokens-static/-/static-allowlist/
   - from: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/index.html
-    to: /docs/guides/customize-tokens-static/-/use-static-group-whitelist-org-as/
+    to: /docs/guides/customize-tokens-static/-/use-static-group-allowlist-org-as/

@@ -6,7 +6,7 @@ sections:
  - overview
  - request-token-claim
  - add-groups-claim-dynamic
- - dynamic-whitelist-org-as
- - dynamic-whitelist-custom-as
+ - dynamic-allowlist-org-as
+ - dynamic-allowlist-custom-as
  - next-steps
 ---

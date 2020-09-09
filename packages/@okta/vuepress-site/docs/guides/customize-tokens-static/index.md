@@ -6,7 +6,7 @@ sections:
  - overview
  - request-token-claim
  - static-whitelist
- - use-static-group-whitelist-org-as
- - use-static-group-whitelist-custom-as
+ - use-static-group-allowlist-org-as
+ - use-static-group-allowlist-custom-as
  - next-steps
 ---
