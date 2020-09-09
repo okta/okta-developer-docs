@@ -23,7 +23,7 @@ To test the full authentication flow that returns an ID token or an access token
 
         `https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 
-    > **Note:** If you add the claim to the default authorization server, the `${authServerId}` is `default`.
+    > **Note:** If you add the claim to the default Custom Authorization Server, the `${authServerId}` is `default`.
 
     You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
 
