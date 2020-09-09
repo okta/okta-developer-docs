@@ -5,7 +5,7 @@ layout: Guides
 sections:
  - overview
  - request-token-claim
- - static-whitelist
+ - static-allowlist
  - use-static-group-allowlist-org-as
  - use-static-group-allowlist-custom-as
  - next-steps
