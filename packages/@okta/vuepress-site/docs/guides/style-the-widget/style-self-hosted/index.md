@@ -171,7 +171,7 @@ You can also play with the SASS in real time with the [live widget](https://deve
 
 ## Modify strings
 
-To modify strings in the Wwidget, you can override any of the properties set in [login.properties](https://github.com/okta/okta-signin-widget/blob/master/packages/@okta/i18n/src/properties/login.properties). You override these properties by specifying new values for them inside an `i18n` object in the Widget's `config` section.
+To modify strings in the Widget, you can override any of the properties set in [login.properties](https://github.com/okta/okta-signin-widget/blob/master/packages/@okta/i18n/src/properties/login.properties). You override these properties by specifying new values for them inside an `i18n` object in the Widget's `config` section.
 
 ### Examples
 
@@ -237,4 +237,5 @@ var config = {
   ...
 };
 ```
+
 <NextSectionLink/>
