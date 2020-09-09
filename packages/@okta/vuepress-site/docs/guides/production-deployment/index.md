@@ -25,13 +25,13 @@ Ensure your application fits your brand:
 If you created an Okta application that uses `localhost` or a test domain, you will need to update your Okta application (or create a new one) using publicly accessible URLs.
 * [Configure Cross-Origin Resource Sharing(CORS)](/docs/guides/enable-cors/overview/) - If you are building a SPA or you are embedding the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) into your own app CORS must be configured for your domain.
 
-    **NOTE:** Configuring CORS is NOT needed if you are using Okta's custom domain feature.
+    **NOTE:** Configuring CORS is not needed if you are using Okta's [custom domain feature](/docs/guides/custom-url-domain/enable-the-custom-domain/).
 
 ### User Authorization & Registration
 
-* [Configure Multi-Factor Authentication (MFA)](/docs/guides/mfa/ga/set-up-org/) - Setup which security factors are used when users login.
+* [Configure Multi-Factor Authentication (MFA)](/docs/guides/mfa/ga/set-up-org/) - Set up which security factors are used when users sign in.
 * [Setup Self-Service Registration](/docs/guides/set-up-self-service-registration/) - Allow users to sign up for an account with an email address.
-* [Enable Social Authentication](/docs/guides/add-an-external-idp/) - Allow your users to login with their other services.
+* [Enable Social Authentication](/docs/guides/add-an-external-idp/) - Allow your users to sign in with their other services.
 
 ### Rate Limits
 
@@ -43,5 +43,5 @@ Okta provides a set of reports and logs to help you troubleshoot user problems. 
 
 If the top of your Okta Admin Console says **Developer Console** click the dropdown and select **Classic UI**.
 
-* [View Activity and Security Reports](https://help.okta.com/en/prod/Content/Topics/Reports/Reports.htm) - Help diagnose login problems for your users.
-* [View Events in the System Log](https://help.okta.com/en/prod/Content/Topics/Reports/Reports_SysLog.htm) - To see a more general log of all events in your Okta Oranziation.
+* [View Activity and Security Reports](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports) - Help diagnose sign-in problems for your users.
+* [View Events in the System Log](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog) - To see a more general log of all events in your Okta Organization.
