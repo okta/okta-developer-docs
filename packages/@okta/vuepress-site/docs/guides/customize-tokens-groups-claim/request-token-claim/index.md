@@ -25,7 +25,7 @@ To test the full authentication flow that returns an ID token or an access token
 
     > **Note:** If you add the claim to the default Custom Authorization Server, the `${authServerId}` is `default`.
 
-    You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
+    You can retrieve a Custom Authorization Server's authorization endpoint using the server's metadata URI:
 
     **ID token**
     `https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration`
