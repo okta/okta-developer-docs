@@ -11,8 +11,7 @@ Okta uses the Widget as part of its normal sign-in page. If you would like to cu
 
 > A version of the Widget that you can edit in real time can be found here: <https://developer.okta.com/live-widget/>
 
-![Screenshot of basic Okta Sign-In Widget](/img/okta-signin.png "Screenshot of basic Okta Sign-In Widget")
-
+<img src="/img/okta-signin.png" alt="Screenshot of basic Okta Sign-In Widget" width="400">
 
 ## Installation
 
@@ -23,7 +22,7 @@ The first step is to install the Widget. For this, you have two options: linking
 To use the CDN, include this in your HTML:
 
 ```html
-<!-- Latest CDN production Javascript and CSS -->
+<!-- Latest CDN production JavaScript and CSS -->
 <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
 <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
@@ -52,7 +51,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 ### Enabling Cross-Origin Access
 
-Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins. More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
+Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
 
 > If you are using the Widget to sign users in to your own application, then you can skip this step. When you create an Application in Okta, you will need to specify a `redirectURI`, and the Okta Developer Console will automatically add it as a CORS URL.
 
@@ -303,6 +302,112 @@ function error(err) {
   );
 }
 ```
+
+
+## Using with Okta's SDKs
+
+Okta provides a number of SDKs that you might want to use the Sign-In Widget with, including Android, Angular, React, React Native, iOS, and Vue.
+
+Using the Sign-In Widget with our SDKs that target the web is fairly straightforward.
+
+### Angular
+
+Your Angular configuration for Okta should have an `onAuthRequired` property that redirects the user to the custom login page.
+
+```ts
+const config = {
+  clientId: '{clientId}',
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
+  redirectUri: 'http://localhost:8080/login/callback',
+  scopes: ['openid', 'profile', 'email'],
+  onAuthRequired: (oktaAuth, injector) => {
+    const router = injector.get(Router);
+    // Redirect the user to your custom login page
+    router.navigate(['/login']);
+  }
+};
+```
+
+The `login.component.html` should contain a placeholder for the Sign-In Widget.
+
+```html
+<div id="sign-in-widget"></div>
+```
+
+And, the `login.component.ts` should have code like the following to render everything.
+
+```ts
+import { Component, OnInit } from '@angular/core';
+import * as OktaSignIn from '@okta/okta-signin-widget';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+  signIn: any;
+
+  constructor() {
+    this.signIn = new OktaSignIn({
+      baseUrl: 'https://{yourOktaDomain}',
+      clientId: '{yourClientId}',
+      redirectUri: window.location.origin + '/login/callback',
+      authParams: {
+        pkce: true,
+        responseMode: 'query',
+        issuer: 'https://{yourOktaDomain}/oauth2/default',
+        display: 'page',
+        scopes: ['openid', 'profile', 'email'],
+      },
+    });
+  }
+
+  ngOnInit() {
+    this.signIn.renderEl(
+      { el: '#sign-in-widget' },
+      () => {
+        /**
+         * In this flow, the success handler will not be called because we redirect
+         * to the Okta org for the authentication workflow.
+         */
+      },
+      (err) => {
+        throw err;
+      },
+    );
+  }
+
+}
+```
+
+See the [Okta Angular + Custom Login Example](https://github.com/okta/samples-js-angular/tree/master/custom-login) for more information.
+
+### React
+
+// todo
+
+### Vue
+
+// todo
+
+### Mobile SDKs
+
+For mobile apps, we've found it's difficult or impossible to embed the Sign-In Widget. If you redirect to Okta for authentication, you can [customize the hosted sign-in widget](/docs/guides/custom-hosted-signin/overview/). However, if you want to have a custom login form and have that provided by the Sign-In Widget, you're (currently) out of luck.
+
+The good news is our mobile SDKs provide support for you to build your own UI.
+
+- Android:
+  - [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
+  - [Custom Sign In Example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
+- iOS:
+    - todo: https://github.com/okta/okta-oidc-ios has no docs like Android does
+    - [Okta iOS Custom Sign In Example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
+- React Native
+    - todo: https://github.com/okta/okta-react-native has no docs like Android does
+    - [Okta React Native Custom Sign In Example](https://github.com/okta/samples-js-react-native/tree/master/custom-sign-in)
+
+You can also develop your mobile app with frameworks like Ionic and Flutter. We currently don't have native SDKs for either, but they should work with an AppAuth library. We recommend [Ionic AppAuth](https://github.com/wi3land/ionic-appauth) and the [Flutter AppAuth Plugin](https://pub.dev/packages/flutter_appauth).
 
 ## Customization
 
