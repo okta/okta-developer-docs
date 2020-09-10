@@ -2,7 +2,7 @@
 
 * On the **General** tab, in the **Application** area, you can rename your integration and select which [grant type options](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1#whats-a-response-type) are allowed.
 
-  An OAuth 2.0 grant is the authorization granted to the client by the user. Each type of grant has a corresponding [grant flow](/docs/concepts/auth-overview/#choosing-an-oauth-2-0-flow).
+  An OAuth 2.0 grant is the authorization granted to the client by the user. Each type of grant has a corresponding [grant flow](/docs/concepts/oauth-openid/#choosing-an-oauth-2-0-flow).
 
   The grant types permitted for OIN applications depend on the application type selected:
 

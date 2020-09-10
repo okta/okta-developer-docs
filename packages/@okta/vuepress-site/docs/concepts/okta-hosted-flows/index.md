@@ -24,4 +24,4 @@ At a high level, a sign-in flow has the following steps:
 4. Your application processes the payload from Okta and may make additional requests to Okta behind the scenes to get more info about the user.
 5. Your application redirects the browser to the user's final destination. This is up to you: it can be the route the user was originally trying to access, the home page, or somewhere else.
 
-Depending on the type of application, different [OpenID Connect grant types](/docs/concepts/auth-overview/#recommended-flow-by-application-type) are recommended.
+Depending on the type of application, different [OpenID Connect grant types](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) are recommended.
