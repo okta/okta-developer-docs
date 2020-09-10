@@ -36,7 +36,7 @@ To confirm that your custom claim was successfully added, you can [retrieve a li
 
 ### Request a token that contains the custom claim
 
-To test the full authentication flow that returns an ID token or an access token, build your request URL. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the claim</GuideLink>.
+To test the full authentication flow that returns an ID token or an access token, build your request URL. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains a custom claim</GuideLink>.
 
 > **Note:** The scope that you need to include as a query parameter is `openid`.
 
@@ -49,7 +49,7 @@ curl -X GET
 &scope=openid
 &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
 &state=myState
-&nonce=${myNonceValue}"
+&nonce=myNonceValue"
 ```
 
 > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
@@ -73,7 +73,7 @@ The decoded JWT looks something like this:
     "kba"
   ],
   "idp": "00oixa26ycdNcX0VT0h7",
-  "nonce": "${myNonceValue}",
+  "nonce": "myNonceValue",
   "auth_time": 1573756969,
   "IDTClaim": "eng"
 }
