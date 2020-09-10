@@ -36,7 +36,7 @@ When using a Social Identity Provider, you can request information in stages. Th
 
 #### New Versions of Sign-In Widget and Auth SDK for JS
 
-Version 1.11 of the [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-1.11.0) and version 1.8 of the [Okta Auth SDK for Javascript](https://github.com/okta/okta-auth-js) are available. Check out the new features and bug fixes!<!-- (OKTA-131642) -->
+Version 1.11 of the [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-1.11.0) and version 1.8 of the [Okta Auth SDK for JavaScript](https://github.com/okta/okta-auth-js) are available. Check out the new features and bug fixes!<!-- (OKTA-131642) -->
 
 ### Platform Bugs Fixed
 
