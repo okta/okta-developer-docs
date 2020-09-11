@@ -140,7 +140,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
     `okta_post_message` is an adaptation of the [Web Message Response Mode](https://tools.ietf.org/html/draft-sakimura-oauth-wmrm-00#section-4.1).
     This value provides a secure way for a single-page application to perform a sign-in flow in a pop-up window or an iFrame and receive the ID token, access token, and/or authorization code back in the parent page without leaving the context of that page. The data object for the `postMessage` call is in the next section.
   
-  The `Referrer-Policy` header is automatically included in the response when `fragment` or `query` and is set to `Referrer-Policy: no-referrer`.
+  The `Referrer-Policy` header is automatically included in the response when either the `fragment` or `query` parameter values are used. The header is set to `Referrer-Policy: no-referrer`.
 
 * `state`:
 
