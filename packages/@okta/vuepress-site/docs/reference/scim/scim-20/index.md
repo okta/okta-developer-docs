@@ -155,7 +155,7 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
-However, if your SCIM server has one or more custom attributes that you want added to a new user's application profile, then any custom attributes that are defined in your application schema for user profiles are applied to that user’s application profile during the user creation operation. The request to the SCIM server looks like the following:
+There is another scenario if your SCIM server has custom attributes that you want to add for any new user. Any custom attributes defined in your application schema for user profiles are applied to the user's application profile when the user is created. The request to the SCIM server looks like the following:
 
 ```http
 POST /scim/v2/Users HTTP/1.1
@@ -182,7 +182,7 @@ Authorization: <Authorization credentials>
 }
 ```
 
-The response from the SCIM server contains the created user object with the additional attributes:
+The response from the SCIM server contains the created user object with the additional custom attributes:
 
 ```http
 HTTP/1.1 201 Created
@@ -214,9 +214,9 @@ Content-Type: text/json;charset=UTF-8
 }
 ```
 
-In this example, the `externalID` and `userType` attributes were not included in the original POST method request, but are generated and returned in the SCIM server response.
+In this example, the `externalID` and `userType` attributes weren't included in the original POST method request, but are generated and returned in the SCIM server response.
 
->**Note:** If you have your custom attribute defined in your Okta application integration settings as an App to Okta mapping, the custom attributes are not applied to the Okta user profile until either the user profile is imported from the SCIM application or the administrator performs a Force Sync operation.
+>**Note:** If your custom attributes are defined in your Okta integration (as an App to Okta mapping), the custom attributes aren't applied to the Okta user profile until an admin runs an import from the SCIM application or a Force Sync operation.
 
 If the SCIM server returns an empty response body to the provisioning request, then Okta marks the operation as invalid, and the Okta Admin Console displays an error:
 
