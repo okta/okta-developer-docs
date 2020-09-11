@@ -183,6 +183,69 @@ Content-Type: application/json
 }
 ```
 
+There is another scenario if your SCIM server has custom attributes that you want to add for any new user. Any custom attributes defined in your application schema for user profiles are applied to the user's application profile when the user is created. The request to the SCIM server looks like the following:
+
+```http
+POST /scim/v1/Users HTTP/1.1
+User-Agent: Okta SCIM Client 1.0.0
+Authorization: <Authorization credentials>
+
+{
+    "schemas": ["urn:scim:schemas:core:1.0"],
+    "userName": "test.user@okta.local",
+    "name": {
+        "givenName": "Test",
+        "familyName": "User"
+    },
+    "emails": [{
+        "primary": true,
+        "value": "test.user@okta.local",
+        "type": "work"
+    }],
+    "displayName": "Test User",
+    "locale": "en-US",
+    "groups": [],
+    "password": "1mz050nq",
+    "active": true
+}
+```
+
+The response from the SCIM server contains the created user object with the additional custom attributes:
+
+```http
+HTTP/1.1 201 Created
+Date: Tue, 10 Sep 2019 02:02:58 GMT
+Content-Type: text/json;charset=UTF-8
+
+{
+    "schemas": ["urn:scim:schemas:core:1.0"],
+    "id": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+    "userName": "test.user@okta.local",
+    "name": {
+        "givenName": "Test",
+        "familyName": "User"
+    },
+    "emails": [{
+        "primary": true,
+        "value": "test.user@okta.local",
+        "type": "work"
+    }],
+    "displayName": "Test User",
+    "locale": "en-US",
+    "externalId": "00ujl29u0le5T6Aj10h7",
+    "active": true,
+    "userType": "Contractor"
+    "groups": [],
+    "meta": {
+        "resourceType": "User"
+    }
+}
+```
+
+In this example, the `externalID` and `userType` attributes weren't included in the original POST method request, but are generated and returned in the SCIM server response.
+
+>**Note:** If your custom attributes are defined in your Okta integration (as an App to Okta mapping), the custom attributes aren't applied to the Okta user profile until an admin runs an import from the SCIM application or a Force Sync operation.
+
 If the SCIM server returns an empty response body to the provisioning request, then Okta marks the operation as invalid, and the Okta Admin Console displays an error:
 
 "Automatic provisioning of user `userName` to app `AppName` failed: Error while creating user `displayName`: Create new user returned empty user."
