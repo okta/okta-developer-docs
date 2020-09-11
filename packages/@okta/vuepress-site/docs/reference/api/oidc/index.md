@@ -1397,6 +1397,8 @@ If you configured your client to use the `client_secret_jwt` client authenticati
 
 Provide the `client_id` in a JWT that you sign with the `client_secret` using an HMAC SHA algorithm (HS256, HS384, or HS512). The JWT must also contain other values, such as issuer and subject. See [Token claims for client authentication with client secret or private key JWT](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt).
 
+> **Note:** JWTs with a shared key require a secret that is at least 32 characters in length to satisfy HS256 cryptographic minimums. Clients that attempt to set `token_endpoint_auth_method` to `client_secret_jwt` with an imported secret less than 32 characters will receive a validation error. Clients that send Okta a JWT for verification signed with HS256, HS384, or HS512 with a secret less than 32 characters will receive an error: `The client secret is too short to verify a JWT HMAC.`.
+
   After you create the JWT, in the request you need to specify the `client_assertion_type` as `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` and specify the JWT as the value for the `client_assertion` parameter.
 
   For example:
