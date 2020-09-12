@@ -5204,7 +5204,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/${applicationId}/tokens/${tokenId}" />
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
 Gets a token for the specified application
 
