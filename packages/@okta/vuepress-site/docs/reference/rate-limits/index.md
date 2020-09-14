@@ -289,7 +289,7 @@ For existing orgs, to configure client-based rate limiting:
 **Answer:** Today, client-based rate limiting only applies to an authorization server's `/authorize` endpoint.
 
 **Question:** How is the client-specific rate limit determined?
-**Answer:** The client rate-limiting framework calculates the per client rate limit based on the OAuth client ID, the user's IP address, and the Okta device identifier (the DT cookie that Okta sets in the browser).
+**Answer:** The client rate-limiting framework calculates the per client rate limit based on the OAuth client ID, the user's IP address, and the Okta device identifier (the Okta device identifier that Okta sets in the browser).
 
 **Question:** What happens if my network contains a proxy server through which the requests are proxied?
 **Answer:** Requests would appear to come from the same IP Address. When `/authorize` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). This allows the client-based rate-limiting framework to look for the IP address before the proxy to find the true client IP address.
