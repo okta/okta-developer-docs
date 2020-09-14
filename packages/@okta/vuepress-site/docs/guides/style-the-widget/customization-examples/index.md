@@ -70,7 +70,7 @@ To access the application's client ID (which uniquely identifies the application
 </script>
 ```
 
-Elsewhere on your page, using the method above, you can inspect the client ID and take action. For example, if you had a CSS file on your server that was for a particular client's CSS:
+Elsewhere in your file, using the method above, you can inspect the client ID and take action. For example, if you had a CSS file on your server that was for a particular client's CSS:
 
 ```html
 <script>

@@ -83,10 +83,6 @@ var config = {
 
 In addition to the parameters in the Widget's `config`, you can also modify the CSS or override the default styles with your own.
 
-### Modify the existing theme
-
-If you want to add on top of the Okta theme, just edit [okta-theme.scss](https://github.com/okta/okta-signin-widget/blob/master/assets/sass/okta-theme.scss) and add any CSS to the bottom of the file.
-
 ### CSS customization examples
 
 This section provides examples that you can use to make your own customizations to the widget.
@@ -95,11 +91,11 @@ This section provides examples that you can use to make your own customizations 
 
 ```css
 #okta-sign-in.auth-container.main-container {
-    background-color: red;
+  background-color: red;
 }
 
 #okta-sign-in .beacon-blank {
-    background-color: red;
+  background-color: red;
 }
 ```
 
@@ -107,11 +103,11 @@ This section provides examples that you can use to make your own customizations 
 
 ```css
 #okta-sign-in.auth-container.main-container {
-    border-color: red;
+  border-color: red;
 }
 
 #okta-sign-in.auth-container .okta-sign-in-header {
-    border-bottom-color: red;
+  border-bottom-color: red;
 }
 ```
 
@@ -121,7 +117,7 @@ All text:
 
 ```css
 #okta-sign-in * {
-    color: red;
+  color: red;
 }
 ```
 
@@ -129,7 +125,7 @@ All text:
 
 ```css
 #okta-sign-in.auth-container .o-form-head {
-    color: red;
+  color: red;
 }
 ```
 
@@ -137,7 +133,7 @@ Link text:
 
 ```css
 #okta-sign-in.auth-container a.link:link {
-    color: red;
+  color: red;
 }
 ```
 
@@ -147,7 +143,7 @@ Width:
 
 ```css
 #okta-sign-in {
-    width: 600px;
+  width: 600px;
 }
 ```
 
@@ -155,7 +151,7 @@ Position:
 
 ```css
 #okta-sign-in {
-    margin: 100px auto 8px;
+  margin: 100px auto 8px;
 }
 ```
 
@@ -167,7 +163,7 @@ For a more in-depth look at styling the widget, you can watch this video:
 
 #### Live Widget
 
-You can also play with the SASS in real time with the [live widget](https://developer.okta.com/live-widget).
+You can also play with the sass in real time with the [live widget](https://developer.okta.com/live-widget).
 
 ## Modify strings
 
@@ -204,7 +200,7 @@ For more information about these configuration options, see the [Okta Sign-In Wi
 
 If you want to display different strings depending on the user's language, you can specify this using the following structure:
 
-```javascript
+```json
 lang: {
   'key': 'value'
 }
