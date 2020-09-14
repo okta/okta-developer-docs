@@ -11,12 +11,12 @@ The number of API requests for an organization is limited for all APIs in order 
 
 Okta has two types of API rate limits:
 
-* [Org-wide rate limits](#org-wide-rate-limits) that vary by API endpoint. These limits are applied on a per-minute or per-second basis, and some are also applied on a per-user basis. For example, if your org sends a request to list applications more than one hundred times in a minute, the org-wide rate limit is exceeded. These limits protect against denial-of-service attacks, and help ensure that adequate resources are available for all customers.
+* [Org-wide rate limits](#org-wide-rate-limits) that vary by API endpoint. These limits are applied on a per minute or per-second basis, and some are also applied on a per-user basis. For example, if your org sends a request to list applications more than one hundred times in a minute, the org-wide rate limit is exceeded. These limits protect against denial-of-service attacks, and help ensure that adequate resources are available for all customers.
 * [Concurrent rate limits](#concurrent-rate-limits) on the number of simultaneous transactions. For example, if you sent 77 very long-lasting requests to any API endpoint simultaneously, you might exceed the concurrent rate limit.
 
 Okta has one type of email rate limit:
 
-* [Okta-Generated Email Message Rate Limits](#okta-generated-email-message-rate-limits) that vary by email type. Okta enforces rate limits on the number of Okta-generated email messages that are sent to customers and customer users. For example, if the number of emails sent to a given user exceeds the per-minute limit for a given email type, subsequent emails of that type are dropped for that user until that minute elapses.
+* [Okta-Generated Email Message Rate Limits](#okta-generated-email-message-rate-limits) that vary by email type. Okta enforces rate limits on the number of Okta-generated email messages that are sent to customers and customer users. For example, if the number of emails sent to a given user exceeds the per minute limit for a given email type, subsequent emails of that type are dropped for that user until that minute elapses.
 
 Rate limits may be changed to protect customers. We provide advance warning of changes when possible.
 
@@ -150,7 +150,7 @@ A message is written to the System Log indicating that the end-user rate limit w
 
 ## Concurrent Rate Limits
 
-In order to protect the service for all customers, Okta enforces concurrent rate limits, a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per-minute API rate limits](#org-wide-rate-limits), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
+In order to protect the service for all customers, Okta enforces concurrent rate limits, a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per minute API rate limits](#org-wide-rate-limits), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
 
 For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
 
@@ -178,49 +178,49 @@ The [`/authorize` endpoint](/docs/reference/api/oidc/#authorize) is the starting
 
 Currently, client-based rate limits apply to the OAuth `/authorize` endpoint on both the Okta Org Authorization server and any of the Custom Authorization Servers. All Custom Authorization Servers share a rate limit. The Org Authorization Server has a separate rate limit.
 
-Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/0) rate limit bucket (`/oauth2/{authorizationServerId}/v1` or `/oauth2/v1`). The per-minute rate limits on these endpoints apply across an Okta tenant.
+Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/0) rate limit bucket (`/oauth2/{authorizationServerId}/v1` or `/oauth2/v1`). The per minute rate limits on these endpoints apply across an Okta tenant.
 
-For example, company Example.com has 10 OAuth applications running in a production environment. Bob's team is launching a new marketing portal that is a single page OAuth application. Unaware of the rate limits on the `/authorize` endpoint, Bob's team begins running some batch testing scripts against the newly created application that makes hundreds of `/authorize` requests in a single minute. Without the client-based rate limiting framework, the new marketing portal application could potentially consume all of the per-minute request limits assigned to Example.okta.com and thereby cause rate-limit violations for the rest of the users that access the other OAuth applications.
+For example, company Example.com has 10 OAuth applications running in a production environment. Bob's team is launching a new marketing portal that is a single page OAuth application. Unaware of the rate limits on the `/authorize` endpoint, Bob's team begins running some batch testing scripts against the newly created application that makes hundreds of `/authorize` requests in a single minute. Without the client-based rate limiting framework, the new marketing portal application could potentially consume all of the per minute request limits assigned to Example.okta.com and thereby cause rate-limit violations for the rest of the users that access the other OAuth applications.
 
 Client-based rate limiting can be helpful in the following scenarios:
 
-* You have several OAuth applications that are split across multiple teams. You need to ensure that one OAuth application doesn't consume all of the assigned per-minute request limits.
+* You have several OAuth applications that are split across multiple teams. You need to ensure that one OAuth application doesn't consume all of the assigned per minute request limits.
 * You want the ability to isolate any rogue OAuth applications from other valid OAuth applications.
 * You want to ensure that every application team adheres to best-coding practices such as proper error handling without resulting in redirect loops.
 * You want protection against random synthetic tests or batch jobs that make numerous requests every minute in production.
 
 ### How it works
 
-The best way to describe how client-based rate limiting works is to provide some example use case scenarios.
+The best way to describe how client-based rate limiting works is to provide some example use cases.
 
 #### Client-based isolation for a unique IP address
 
 Bob and Alice are working from home and have distinct IP addresses. Both Bob and Alice try to sign in to their company's portal application (clientID: portal123) at the same time. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate-limiting framework creates a unique per minute request quota for both Bob and Alice using their IP address and the OAuth client ID that they are trying to access.
 
-Bob: (IP1 + portal123) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
-Alice: (IP2 + portal123) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
+Bob: (IP1 + portal123) Gets a quota of 500 total requests per minute and a maximum of two concurrent requests
+Alice: (IP2 + portal123) Gets a quota of 500 total requests per minute and a maximum of two concurrent requests
 
-Let's assume the org-wide quota for the `/authorize` endpoint is a total of 2,000 requests per minute on custom authorization servers. For some reason, Bob decides to run a batch job that triggers about 2,100 `/authorize` requests per minute. Without the client-based rate-limiting framework, Bob would consume the entirety of the total allowed requests per minute (2,000 requests per minute). This would result in ??429 errors?? for both Bob and Alice, which makes the application inaccessible for everyone.
+Let's assume the org-wide quota for the `/authorize` endpoint is a total of 2,000 requests per minute on custom authorization servers. For some reason, Bob decides to run a batch job that triggers about 2,000 `/authorize` requests per minute. Without the client-based rate-limiting framework, Bob would consume the entirety of the total allowed requests per minute (2,000 requests per minute). This would result in HTTP 429 errors for both Bob and Alice, which makes the application inaccessible for everyone.
 
-With client-based rate-limiting framework enabled, after Bob exceeds his individual limit of 60 requests per minute, requests that originate from Bob's IP address would start receiving 429 violations whereas Alice could continue to access the application without any issues.
+With client-based rate-limiting framework enabled, after Bob exceeds his individual limit of 500 requests per minute, requests that originate from Bob's IP address would start receiving HTTP 429 errors. Alice could continue to access the application without any issues.
 
 ![Client-based isolation for a unique IP address](/img/diagram1.png "Displays Bob as portal123 IP1 and Alice as portal123 IP2, both making authorize requests")
 
 #### Client-based isolation for users accessing `/authorize` from a NAT IP
 
-Alice, Bob, and Lisa all work from the same office. Since they access Okta through a Network Address Translation (NAT) IP from their office network, everyone shares the same IP address. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate-limiting framework creates a unique per-minute request quota for the combination of every user's IP address, OAuth client ID of the application, and the device identifier set by Okta in each user's browser.
+Alice, Bob, and Lisa all work from the same office. Since they access Okta through a Network Address Translation (NAT) IP from their office network, everyone shares the same IP address. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate-limiting framework creates a unique per minute request quota for the combination of every user's IP address, OAuth client ID of the application, and the device identifier set by Okta in each user's browser.
 
 ![Client-based isolation for users accessing the authorize endpoint from a NAT IP](/img/diagram2.png "Displays Alice as portal123 Device1, Bob as portal123 Device2, Lisa as portal123 Device3, all making authorize requests that are a combination of the shared IP address")
 
-Alice: (NAT IP + portal123 + Device1 ID) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
-Bob: (NAT IP + portal123 + Device2 ID) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
-Lisa: (NAT IP + portal123 + Device3 ID) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
+Alice: (NAT IP + portal123 + Device1 ID) Gets a quota of 500 total requests per minute and a maximum of two concurrent requests
+Bob: (NAT IP + portal123 + Device2 ID) Gets a quota of 500 total requests per minute and a maximum of two concurrent requests
+Lisa: (NAT IP + portal123 + Device3 ID) Gets a quota of 500 total requests per minute and a maximum of two concurrent requests
 
 > **Note:** When the requests are made using a non-browser client, the device cookie isn't present. In that case, such requests fall under a common quota with the device cookie being null (NAT IP + portal123 + null).
 
 #### Client-based isolation for users accessing `/authorize` through a proxy
 
-When `/authorize` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). ??This allows the client-based rate-limiting framework to look for the IP address before the proxy in the chain to find the true client IP address.??
+When `/authorize` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). This allows the client-based rate-limiting framework to look for the IP address before the proxy to find the true client IP address.
 
 ### Client-based rate-limiting modes
 
@@ -228,13 +228,13 @@ The client-based rate-limiting framework can exist in one of three modes:
 
 | Mode               | Description                                                                            |
 | ------------------ | -------------------------------------------------------------------------------------- |
-| Disable            | Rate limits aren't enforced at the client-specific level. Rate limiting is based on the org-wide rate limit values. |
-| Preview            | Rate limiting is still based on the org-wide rate limit values, but client-specific rate limiting violation information is logged by firing System Log events. |
+| Disable            | Rate limits aren't enforced at the client-specific level. Rate limiting is based on the [org-wide Rate Limit](/docs/reference/rate-limits/#org-wide-rate-limits) values. |
+| Preview            | Rate limiting is still based on the [org-wide Rate Limit](/docs/reference/rate-limits/#org-wide-rate-limits) values, but client-specific rate limiting violation information is logged by firing System Log events. |
 | Enable (recommended)|Rate Limiting is based on client-based rate limiting values. Client-specific rate limiting violation information is logged by firing System Log events. |
 
 ### System Log events
 
-When an individual user violates the per-minute requests limit assigned to them, the following System Log event is fired:
+When an individual user violates the per minute requests limit assigned to them, depending on which mode is set, the following System Log event is fired:
 
 * `system.client.rate_limit.violation`: This event is fired when the framework is in Enable mode. This event is fired when a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
@@ -242,61 +242,76 @@ When an individual user violates the per-minute requests limit assigned to them,
 
 * `system.client.rate_limit.violation.preview `: This event is fired when the framework is in Preview mode. This event is fired when a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the end user wouldn't see a rate limit violation. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
-* `system.client.concurrency_rate_limit.violation.preview`: This event is fired when the framework is turned on in log-only mode. This event would be fired when a specific client, IP address, Device token combination makes more than 2 concurrent requests. However, the end user would not see a rate limit violation. The Syslog contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
+* `system.client.concurrency_rate_limit.violation.preview`: This event is fired when the framework is turned on in Preview mode. This event is fired when a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user wouldn't see a rate limit violation. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
 
-Check your Rate Limits with Okta Rate Limit headers
-The rate limit headers returned when client based rate limiting is enabled are very similar to the headers returned today via the Org wide rate Limits. The difference is that the header value is specific to a given client / IP/ Device combination instead of the Org wide rate limit values. Okta provides three headers in each response to report client specific rate limits.
+### Check your Rate Limits with Okta Rate Limit headers
 
-Note: If the Client based rate limiting is in preview mode, headers returned would still reflect the Org wide rate Limits
+The Rate Limit headers returned when client-based rate limiting is enabled are very similar to the headers returned today through the [org-wide Rate Limits](/docs/reference/rate-limits/#org-wide-rate-limits). The difference is that the header value is specific to a given client/IP/device combination rather than the org-wide Rate Limit values. Okta provides three headers in each response to report client-specific rate limits.
 
-For Client specific rate limits, three headers show the limit that is being enforced, when it resets and how close you are to hitting the limit:
+> **Note:** If client-based rate limiting is in Preview or Disable mode, headers that are returned still reflect the org-wide Rate Limits.
 
-`X-Rate-Limit-Limit` - the rate limit ceiling that is applicable for the current request to the specific Client / IP/ Device identifier combination 
-`X-Rate-Limit-Remaining` - the number of requests left for the specific Client / IP/ Device identifier combination during the current rate-limit window.
-`X-Rate-Limit-Reset` - the time at which the rate limit will reset, specified in UTC epoch time for the specific Client / IP/ Device identifier combination 
+For client-specific rate limits, three headers show the limit that is being enforced, when it resets, and how close you are to hitting the limit:
+
+`X-Rate-Limit-Limit` - The Rate Limit ceiling that is applicable for the current request to the specific client/IP/device identifier combination
+`X-Rate-Limit-Remaining` - The number of requests left for the specific client/IP/device identifier combination during the current rate-limit window
+`X-Rate-Limit-Reset` - The time when the rate limit resets, specified in [UTC epoch time](https://www.epochconverter.com/) for the specific client/IP/device identifier combination
 
 For example:
 
+``` http
 HTTP/1.1 200 OK
 X-Rate-Limit-Limit: 60
 X-Rate-Limit-Remaining: 35
 X-Rate-Limit-Reset: 1516307596
+```
 
-When a specific client/IP/device identifier combination exceeds either the per minute request limit (60 request per min) or concurrent limit (2 concurrent request), the `/authorize` request would return a 429 violation
-How to enable this feature?
-For all orgs created after [Date 2020], this feature would be automatically enabled.
-For existing Orgs, go to enable go to reports>rate limits->set in enable mode.
-To set the client based rate limiting in preview mode,  go to reports>rate limits->set in preview mode
-How to disable this feature?
-To enable go to settings->disable flag (TBD)
+When a specific client/IP/device identifier combination exceeds either the per minute request limit (500 request per minute) or concurrent limit (two concurrent requests), the `/authorize` request returns an HTTP 429 error.
 
-FAQ
-Q: What endpoints are covered under client based rate limiting ?
-Ans: Today, Client based rate limiting only applies to Authorization server’s `/authorize` endpoints.
+### How to enable this feature
 
-Q: How is the client specific rate limit determined ?
-Ans: The Client framework rate limiting calculates the per client rate limit based on the OAuth client ID, user’s IP address and Okta device Identifier i.e the DT cookie that Okta sets in the browser.
+<!-- need to see the UI to finish this section correctly -->
 
-Q: What happens if my network contains a proxy server through which the requests are proxied?
-Ans: In that case, requests would seem to come from the same IP Address. When `/authorize` requests are made from behind a proxy IP address, make sure to configure the respective IPs as proxies using the following doc. This allows the client based rate limiting framework to look for the IP address before the proxy in the chain to find the true client IP address.
+> **Note:** For all orgs created after [Date 2020], this feature is automatically enabled.
 
-Q: Can I update the per client rate limit today?
-Ans: No. Today every client ID / IP address/ Device identifier combination gets 60 total requests per minute and a maximum of 2 concurrent requests
+For existing orgs, to configure client-based rate limiting:
 
-Q: Does the Org wide rate limit still apply when I enable client based rate limiting?
-Ans: Yes. The underlying Org wide rate limiting still applies to your Okta tenant. When the cumulative total request or maximum concurrent requests from every unique client exceed the Org wide rate Limits you Okta tenant would experience Org wide rate limit violations.
+1. From the Admin Console select **Reports** > **Rate Limits**, and then select the **Settings** tab.
 
-Q: Would the rate limit headers returned by Okta on `/authorize` endpoint reflect client specific rate limits?
-Ans: Yes. The header value is specific to a given client / IP/ Device combination instead of the Org wide rate limit values.
+2. Select **Enable**.
 
-Q: How can I find out if the client based rate limiting would be effective for my Okta tenant?
-Ans: You can set the Client based rate limiting framework in Preview mode. In preview mode, Rate Limiting is still based on the Org wide rate limit values, but client specific rate limiting violation information is logged by firing syslog events. By analyzing the preview syslog events you can determine if Client based rate limiting would be effective for you.
+    * Select **Preview** to enable client-based rate limiting in Preview mode.
+
+    * Select **Disable** to disable client-based rate limiting.
+
+### Frequently Asked Questions
+
+**Question:** What endpoints are covered under client-based rate limiting ?
+**Answer:** Today, client-based rate limiting only applies to an authorization server's `/authorize` endpoint.
+
+**Question:** How is the client-specific rate limit determined?
+**Answer:** The client rate-limiting framework calculates the per client rate limit based on the OAuth client ID, the user's IP address, and the Okta device identifier (the DT cookie that Okta sets in the browser).
+
+**Question:** What happens if my network contains a proxy server through which the requests are proxied?
+**Answer:** Requests would appear to come from the same IP Address. When `/authorize` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). This allows the client-based rate-limiting framework to look for the IP address before the proxy to find the true client IP address.
+
+**Question:** Can I update the per client rate limiting today?
+**Answer:** No. Today every client ID/IP address/device identifier combination gets 60 total requests per minute and a maximum of two concurrent requests.
+
+**Question:** Does the org-wide rate limit still apply when I enable client-based rate limiting?
+**Answer:** Yes. The underlying org-wide rate limiting still applies to your Okta tenant. When the cumulative total request or maximum concurrent requests from every unique client exceeds the org-wide rate limits, your Okta tenant experiences org-wide rate-limit errors.
+
+**Question:** Would the rate-limit headers returned by Okta on the `/authorize` endpoint reflect client-specific rate limits?
+**Answer:** Yes. The header value is specific to a given client/IP/device combination rather than the org-wide rate-limit values.
+
+**Question:** How can I find out if client-based rate limiting would be effective for my Okta tenant?
+**Answer:** You can set the client-based rate limiting framework to **Preview** mode. In **Preview** mode, rate limiting is still based on the org-wide rate-limit values, but client-specific rate limiting error information is logged by firing System Log events. By analyzing the preview System Log events, you can determine if client-based rate limiting is effective for you.
 
 ## Check Your Rate Limits with Okta's Rate Limit Headers
 
 Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
 
 For org-wide rate limits, the three headers show the limit that is being enforced, when it resets, and how close you are to hitting the limit:
+
 * `X-Rate-Limit-Limit` - the rate limit ceiling that is applicable for the current request.
 * `X-Rate-Limit-Remaining` - the number of requests left for the current rate-limit window.
 * `X-Rate-Limit-Reset` - the time at which the rate limit will reset, specified in UTC epoch time.
@@ -516,7 +531,7 @@ If your usage needs exceed the rate limits applicable to the "High Capacity Rate
 
 ### Org-Wide Rate Limits (Legacy Orgs)
 
-Extensions to the base URLs listed below are included in the specified limit, unless the URL is followed by "only." For example, `/api/v1/apps/{id}` has a per-minute rate limit of `500` as listed in the second line in the table. However, `/api/v1/apps/{id}/users` falls under the more general first line of the table. This pattern applies to all the URLs.
+Extensions to the base URLs listed below are included in the specified limit, unless the URL is followed by "only." For example, `/api/v1/apps/{id}` has a per minute rate limit of `500` as listed in the second line in the table. However, `/api/v1/apps/{id}/users` falls under the more general first line of the table. This pattern applies to all the URLs.
 
 | Action                                    | Okta API Endpoint                                                       | Per Minute Limit (Older Orgs) |
 | :---------                                | :--------------------------------------------------------------         | -----------------------:      |
@@ -559,4 +574,4 @@ The following endpoints are used by the Okta home page for authentication and si
 
 ## Okta-Generated Email Message Rate Limits
 
-Limits are applied on a per-recipient basis and vary by email-type. The limit for some email types is no more than 30 emails per-recipient, per-minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
+Limits are applied on a per-recipient basis and vary by email-type. The limit for some email types is no more than 30 emails per-recipient, per minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
