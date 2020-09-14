@@ -37,7 +37,7 @@ SAML is mostly used as a web-based authentication mechanism inasmuch as it relie
 
 We are now ready to introduce some common SAML terms. We will go into the technical details of these later, but it is important to understand the high-level concept during the planning stage.
 
-- **A Service Provider (SP)** is the entity providing the service, typically in the form of an application
+- **A Service Provider (SP)** is the entity providing the service, typically in the form of an application.
 
 - **An Identity Provider (IdP)** is the entity providing the identities, including the ability to authenticate a user. The Identity Provider typically also contains the user profile: additional information about the user such as first name, last name, job code, phone number, address, and so on. Depending on the application, some service providers may require a very simple profile (username, email), while others may require a richer set of user data (job code, department, address, location, manager, and so on).
 
