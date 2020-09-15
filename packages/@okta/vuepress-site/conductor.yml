@@ -782,15 +782,15 @@ redirects:
   - from: /guides/custom-error-pages/-/use-macros/index.html
     to: /docs/guides/custom-error-pages/-/use-macros/
   - from: /guides/custom-hosted-signin/-/customization-examples/index.html
-    to: /docs/guides/custom-hosted-signin/-/customization-examples/
+    to: /docs/guides/style-the-widget/-/customization-examples/
   - from: /guides/custom-hosted-signin/-/edit-the-sign-in-page/index.html
-    to: /docs/guides/custom-hosted-signin/-/edit-the-sign-in-page/
+    to: /docs/guides/style-the-widget/-/style-okta-hosted/
   - from: /guides/custom-hosted-signin/-/next-steps/index.html
-    to: /docs/guides/custom-hosted-signin/-/next-steps/
+    to: /docs/guides/style-the-widget/-/next-steps/
   - from: /guides/custom-hosted-signin/-/overview/index.html
-    to: /docs/guides/custom-hosted-signin/-/overview/
+    to: /docs/guides/style-the-widget/-/before-you-begin/
   - from: /guides/custom-hosted-signin/-/use-macros-and-request-context/index.html
-    to: /docs/guides/custom-hosted-signin/-/use-macros-and-request-context/
+    to: /docs/guides/style-the-widget/-/style-okta-hosted/
   - from: /guides/custom-url-domain/-/enable-the-custom-domain/index.html
     to: /docs/guides/custom-url-domain/-/enable-the-custom-domain/
   - from: /guides/custom-url-domain/-/gather-information/index.html
