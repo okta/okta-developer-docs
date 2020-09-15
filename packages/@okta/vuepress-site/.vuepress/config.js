@@ -5,7 +5,6 @@ const convertReplacementStrings = require('./scripts/convert-replacement-strings
 module.exports = {
   dest: 'dist',
   theme: "@okta/vuepress-theme-prose",
-  shouldPrefetch: false,
   /**
    * Custom head elements here
    */
@@ -198,19 +197,6 @@ module.exports = {
 
   },
 
-  plugins: [
-    [
-      'vuepress-plugin-sitemap', {
-        hostname: 'https://developer.okta.com',
-        outFile: 'docs-sitemap.xml',
-        exclude:
-          [
-            '/test_page'
-          ]
-      }
-    ],
-  ],
-
   chainWebpack(config) {
     config.module
       .rule('md')
@@ -250,7 +236,8 @@ module.exports = {
       exclude: [
         '/test_page/'
       ]
-    }
+    },
+    '@okta/vuepress-plugin-qualtrics-feedback': {}
   },
 
   extraWatchFiles: [

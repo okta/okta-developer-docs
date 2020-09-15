@@ -1,4 +1,4 @@
-`use strict`
+'use strict'
 
 const EventEmitter = require('events').EventEmitter
 const webpack = require('webpack')
@@ -133,8 +133,6 @@ module.exports = class Build extends EventEmitter {
         }
       })
       worker.on('error', error => {
-        // readline.cursorTo(process.stdout, 0, i)
-        // readline.clearLine(process.stdout, 0)
         console.error(
           logger.error(
             chalk.red(`Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`),
@@ -144,8 +142,6 @@ module.exports = class Build extends EventEmitter {
       })
       worker.on('exit', code => {
         activeWorkers--
-        // readline.cursorTo(process.stdout, 0, i)
-        // readline.clearLine(process.stdout, 0)
         if (code === 0) {
           logger.success(`Worker ${workerNumber} completed successfully.`)
         } else {
