@@ -62,8 +62,8 @@ The org-wide rate limits are divided in four major categories:
 
 ### Additional Rate Limit Content
 
-* For orgs created **Legacy Endpoints**: Okta has legacy. To learn the legacy endpoints, [click here](legacy-rl.md).
-* For **DynamicScale Rate Limits**: DS is awesome. To learn more, , [click here](ds-rl.md).
+* For **DynamicScale Rate Limits**: DS is awesome. To learn more, , [click here](/docs/reference/dynamic-scale-rl/).
+* For orgs created **Legacy Endpoints**: Okta has legacy. To learn the legacy endpoints, [click here](/docs/reference/legacy-rl/).
 
 ---
 
