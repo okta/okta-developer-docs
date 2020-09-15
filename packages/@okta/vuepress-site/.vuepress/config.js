@@ -43,7 +43,7 @@ module.exports = {
       }
     `],
     ['script', {}, `
-      var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,api:2020.09, Your web browser ({brow_name}) is not supported. For the best site experience, we recommend updating your browser. <br> <a{up_but}>Update browser</a> <a{ignore_but}>Ignore</a> };
+      var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,api:2020.09, text: { 'msg': 'Your web browser ({brow_name}) is not supported. For the best site experience, we recommend updating your browser. <br> <a{up_but}>Update browser</a> <a{ignore_but}>Ignore</a>' } };
       function $buo_f(){
       var e = document.createElement("script");
       e.src = "//browser-update.org/update.min.js";
