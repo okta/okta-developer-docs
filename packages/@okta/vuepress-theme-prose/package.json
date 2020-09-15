@@ -25,7 +25,6 @@
   "dependencies": {
     "@okta/odyssey": "^0.0.1",
     "include-media": "^1.4.9",
-    "moment": "^2.24.0",
-    "vue-browserupdate": "^1.2.0"
+    "moment": "^2.24.0"
   }
 }
