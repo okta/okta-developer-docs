@@ -3902,7 +3902,7 @@ curl -v -X POST \
 
 Activation gets the registration information from the U2F token using the API and passes it to Okta.
 
-##### Get registration information from U2F token by calling the U2F Javascript library method
+##### Get registration information from U2F token by calling the U2F JavaScript library method
 
 
 ```html
@@ -4011,7 +4011,7 @@ curl -v -X POST \
 
 Activation gets the registration information from the WebAuthn assertion using the API and passes it to Okta.
 
-##### Get registration information from WebAuthn assertion by calling the WebAuthn Javascript library
+##### Get registration information from WebAuthn assertion by calling the WebAuthn JavaScript library
 
 
 ```html

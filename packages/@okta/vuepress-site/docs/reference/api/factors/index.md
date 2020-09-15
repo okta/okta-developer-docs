@@ -1696,7 +1696,7 @@ curl -v -X POST \
 
 #### Enroll U2F Factor
 
-Enrolls a user with a U2F Factor. The enrollment process starts with getting a `nonce` from Okta and using that to get registration information from the U2F key using the U2F Javascript API.
+Enrolls a user with a U2F Factor. The enrollment process starts with getting a `nonce` from Okta and using that to get registration information from the U2F key using the U2F JavaScript API.
 
 ##### Enroll U2F request example
 
@@ -2422,7 +2422,7 @@ curl -v -X POST \
 
 Activation gets the registration information from the U2F token using the API and passes it to Okta.
 
-##### Get registration information from U2F token by calling the U2F Javascript API
+##### Get registration information from U2F token by calling the U2F JavaScript API
 
 ```html
 <!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
@@ -2548,7 +2548,7 @@ curl -v -X POST \
 
 Activation gets the registration information from the WebAuthn authenticator using the API and passes it to Okta.
 
-##### Get registration information from WebAuthn authenticator by calling the WebAuthn Javascript API
+##### Get registration information from WebAuthn authenticator by calling the WebAuthn JavaScript API
 
 ```html
 <!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
@@ -3373,7 +3373,7 @@ curl -v -X POST \
 }
 ```
 
-#### Get the signed assertion from the U2F token by calling the U2F Javascript API
+#### Get the signed assertion from the U2F token by calling the U2F JavaScript API
 
 ```html
 <!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
@@ -3502,7 +3502,7 @@ curl -v -X POST \
 }
 ```
 
-#### Get the signed assertion from the WebAuthn authenticator by calling the WebAuthn Javascript API
+#### Get the signed assertion from the WebAuthn authenticator by calling the WebAuthn JavaScript API
 
 ```html
 <!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
