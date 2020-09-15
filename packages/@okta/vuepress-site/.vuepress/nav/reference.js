@@ -32,6 +32,11 @@ module.exports = [
         { title: 'Zones', path: '/docs/reference/api/zones/'}
       ]
     },
+    { title: 'Rate Limits', subLinks: [
+      { title: 'DynamicScale rate limits', path: '/docs/reference/dynamicscalerl/'},
+      { title: 'Legacy rate limits', path: '/docs/reference/legacyrl/'}
+    ]
+    },
     { title: 'Error Codes', path: '/docs/reference/error-codes/'},
     { title: 'Import Hook', path: '/docs/reference/import-hook/'},
     { title: 'Okta Expression Language', path: '/docs/reference/okta-expression-language/'},

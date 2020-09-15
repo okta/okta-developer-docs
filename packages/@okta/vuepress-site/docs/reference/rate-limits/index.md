@@ -5,100 +5,78 @@ excerpt: >-
   resources
 ---
 
-# Rate Limits
-
-The number of API requests for an organization is limited for all APIs in order to protect the service for all users. The number of Okta-generated emails that can be sent also has rate limits.
+The number of API requests for an organization is limited for all APIs to protect the service for all users. The number of Okta-generated emails that can be sent also has rate limits.
 
 Okta has two types of API rate limits:
 
-* [Org-wide rate limits](#org-wide-rate-limits) that vary by API endpoint. These limits are applied on a per-minute or per-second basis, and some are also applied on a per-user basis. For example, if your org sends a request to list applications more than one hundred times in a minute, the org-wide rate limit is exceeded. These limits protect against denial-of-service attacks, and help ensure that adequate resources are available for all customers.
 * [Concurrent rate limits](#concurrent-rate-limits) on the number of simultaneous transactions. For example, if you sent 77 very long-lasting requests to any API endpoint simultaneously, you might exceed the concurrent rate limit.
+* [Org-wide rate limits](#org-wide-rate-limits) that vary by API endpoint. These limits are applied on a per-minute or per-second basis, and some are also applied on a per-user basis. For example, if your org sends a request to list applications more than one hundred times in a minute, the org-wide rate limit is exceeded. These limits protect against denial-of-service attacks, and help ensure that adequate resources are available for all customers.
 
 Okta has one type of email rate limit:
 
 * [Okta-Generated Email Message Rate Limits](#okta-generated-email-message-rate-limits) that vary by email type. Okta enforces rate limits on the number of Okta-generated email messages that are sent to customers and customer users. For example, if the number of emails sent to a given user exceeds the per-minute limit for a given email type, subsequent emails of that type are dropped for that user until that minute elapses.
 
-Rate limits may be changed to protect customers. We provide advance warning of changes when possible.
+Rate limits may be changed to protect customers. We provide advanced warning of changes when possible.
 
-## Org-Wide Rate Limits
+## Concurrent Rate Limits
 
-API rate limits apply per minute or per second to the endpoints in an org.
+To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per-minute API rate limits](#org-wide-rate-limits), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
 
-If an org-wide rate limit is exceeded, an HTTP 429 status code is returned.
-You can anticipate hitting the rate limit by checking [Okta's rate limiting headers](#check-your-rate-limits-with-okta-s-rate-limit-headers).
+For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
 
-Rate limits differ depending on the level of service you have purchased from Okta. See the [pricing page](https://developer.okta.com/pricing/) for more details.
+* For agent traffic, Okta has set the limit based on typical org use. This limit varies from agent to agent.
+* For Office365 traffic, the limit is 75 concurrent transactions per org.
+* For all other traffic, including API requests, the limit is described in the table below.
 
-DynamicScale rate limits apply to a variety of endpoints across different APIs for customers that purchased this add-on. These rate limits can be found [below](#dynamicscale-rate-limits).
+| Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity |
+| ---------------- | ---------------- | ------- | ---------- | ------------------ |
+| 15               | 35               | 35      | 75         | 75                 |
 
-> If you have a One App or Enterprise organization, the admin console will display a banner and you will receive an email notification when your org approaches its rate limit.
+The first request to exceed the concurrent limit returns an HTTP 429 error, and the first error every sixty seconds is written to the log. Reporting concurrent rate limits once a minute keeps log volume manageable.
 
-### Okta API Endpoints and Per Minute Limits
-
-Note that limits for more specific endpoints override the limits for less specific endpoints. For example, the limit for getting an application by ID is higher than the more general limit for the `/api/v1/apps` endpoint.
-
-| Action and Okta API Endpoint                                                                                                                                              | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
-| **Authenticate different end users:**<br>`/api/v1/authn`                                                                                                                  | 100              | 300              | 300     | 600        | 500                   |
-| **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only                                                                                        | 100              | 300              | 300     | 600        | 500                   |
-| **Create or list applications:**<br>`/api/v1/apps` except `/api/v1/apps/{id}`                                                                                             | 20               | 25               | 25      | 100        | 100                   |
-| **Get, update, or delete an application by ID:**<br>`/api/v1/apps/{id}` only                                                                                              | 100              | 300              | 300     | 600        | 500                   |
-| **Create or list groups:**<br>`/api/v1/groups` except `/api/v1/groups/{id}`                                                                                               | 100              | 300              | 300     | 600        | 500                   |
-| **Get, update, or delete a group by ID:**<br>`/api/v1/groups/{id}` only                                                                                                   | 100              | 300              | 300     | 600        | 1000                  |
-| **Create or list users:**<br>Only `GET` or `POST` to `/api/v1/users`                                                                                                      | 100              | 300              | 300     | 600        | 600                   |
-| **Get a user by ID or login:**<br>Only `GET` to `/api/v1/users/{idOrLogin}`                                                                                               | 100              | 300              | 300     | 1000       | 2000                  |
-| **Update or delete a user by ID:**<br>Only `POST`, `PUT` or `DELETE` to `/api/v1/users/{id}`                                                                              | 100              | 300              | 300     | 600        | 600                   |
-| **Get System Log data:**<br>`/api/v1/logs`                                                                                                                                | 20               | 25               | 25      | 50         | 120                   |
-| **Get System Log data:**<br>`/api/v1/events`                                                                                                                              | 20               | 25               | 25      | 50         | 100 					 |
-| **Get session information:**<br>`/api/v1/sessions`                                                                                                                        | 100              | 300              | 300     | 600        | 750                   |
-| **Create an organization:**<br>`/api/v1/orgs`                                                                                                                             | N/A              | N/A              | N/A     | 50         | 50                    |
-| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/{authorizationServerId}/v1` except public metadata endpoints (see Note below)                           | 300              | 600              | 600     | 1200       | 2000                  |
-| **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints (see Note below)                          | 300              | 600              | 600     | 1200       | 2000                  |
-| **OAuth2 client configuration requests:**<br>`/oauth2/v1/clients`                                                                                                         | 25               | 50               | 50      | 100        | 100                   |
-| **All other OAuth2 requests:**<br>`/oauth2`                                                                                                                               | 100              | 300              | 300     | 600        | 600                   |
-| **Most other API actions:**<br>`/api/v1`                                                                                                                                  | 100              | 300              | 300     | 600        | 1200                  |
+> **Note:** Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem that requires investigation.
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
 
-> **Note:** The following public metadata endpoints are not subjected to rate limiting. </br> Public metadata endpoints for Org Authorization Server are: <br/> - `/oauth2/v1/keys` <br/> - `/.well-known/openid-configuration` <br/> - `/.well-known/oauth-authorization-server` <br/> Public metadata endpoints for Custom Authorization Servers are: <br/> - `/oauth2/{authorizationServerId}/v1/keys` <br/> - `/oauth2/{authorizationServerId}/.well-known/openid-configuration` <br/> - `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`.
+> **Note:** For information on possible interaction between Inline Hooks and concurrent rate limits, see [Inline Hooks and Concurrent Rate Limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
 
-### DynamicScale Rate Limits
+## Org-Wide Rate Limits [KARTHICK]
 
-If your needs exceed Okta's default rate limits for the base product subscriptions (One App or Enterprise) you've already purchased, you can purchase a "DynamicScale" add-on service which will grant you higher rate limits for the endpoints listed below. DynamicScale will increase your default rate limits by 5x to 1000x, depending on the tier multiplier you purchase. Customers can purchase this add-on annually for a Production tenant or temporarily for testing in a Sandbox tenant.  The following list of endpoints are included in the DynamicScale add-on service:
+API rate limits apply per minute or per second to the endpoints in an org. If an org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking [Okta's rate limiting headers](#check-your-rate-limits-with-okta-s-rate-limit-headers)(update link).
 
-**Authentication endpoints:**
+Rate limits differ depending on the level of service that you have purchased from Okta. See the [pricing page](https://developer.okta.com/pricing/) for more details.
 
-* `/api/v1/authn`
-* `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
-* `/api/v1/sessions`
+DynamicScale rate limits apply to a variety of endpoints across different APIs for customers that purchased this add-on. See [dynamicscale-rate-limits]/docs/reference/dynamicscalerl)(update link).
 
-**OAuth2 endpoints:**
+> **Note:** If you have a One App or Enterprise organization, the admin console displays a banner, and you are sent an email notification when your org approaches its rate limit.
 
-* `/oauth2/{authorizationServerId}/v1`
-* `/oauth2/v1` except `/oauth2/v1/clients`
+The org-wide rate limits are divided in four major categories:
 
-**SAML endpoints:**
+| Category                | Combined Rate Limit
+| Category                | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
+| ----------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
+| End user                | 10,000           | 30,000           | 30,000  | 60,000     | 50,000                |
+<!--| Client-based endpoints  | 10,000           | 30,000           | 30,000  | 60,000     | 50,000            |-->
+| Management              | 10,000           | 30,000           | 30,000  | 60,000     | 50,000                |
+| All other endpoints     | 10,000           | 30,000           | 30,000  | 60,000     | 50,000                |
 
-* `/app/template_saml_2_0/{key}/sso/saml`
-* `/app/{app}/{key}/sso/saml`
+### Additional Rate Limit Content
 
-**Single User/Group/App operations (Get, Update and Delete):**
+* For orgs created **Legacy Endpoints**: Okta has legacy. To learn the legacy endpoints, [click here](legacy-rl.md).
+* For **DynamicScale Rate Limits**: DS is awesome. To learn more, , [click here](ds-rl.md).
 
-* `/api/v1/apps/{id}` &nbsp;
-* `/api/v1/groups/{id}` &nbsp;
-* `/api/v1/users/{idOrLogin}` &nbsp;
+---
 
-**Notes:**
+# STUFF WE DON'T KNOW WHAT TO DO (KARTHICK)
 
-1. If Okta makes any change to the DynamicScale add-on's rate limits, such change will be communicated to customers via an updated version of this product documentation.
-2. DynamicScale add-on is not available for customers that are using Delegated Authentication.
-3. Customers purchasing the DynamicScale add-on service will get best-effort additional protection beyond the multiplier they've purchased to handle any additional unforeseen spikes in Production:
-    1. This protection is not always guaranteed and should not be counted towards available rate limits
-    2. Additional protection availability is subject to infrastructure capacity available to your Org
+These are the things we cannot find a place to park (within those categories)
 
-If your usage pattern exceeds the rate limits offered by DynamicScale add-on or the endpoint you're consuming isn't listed as part of the DynamicScale add-on then please contact your Okta Sales Representative regarding other options.
+### End-User Rate Limit
 
-For orgs that purchased the "High Capacity Rate Limit" SKU before 2019-10-24, the [previous rate limits](#high-capacity-rate-limits) still apply.
+Okta limits the number of requests from the administrator and end-user UI to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other, and from other API requests in the system.
+
+If a user exceeds this limit, they receive an HTTP 429 response without affecting other users in your org.
+A message is written to the System Log indicating that the end-user rate limit was encountered.
 
 ### Okta API Endpoints and Per-User Limits
 
@@ -109,15 +87,9 @@ API endpoints that take username and password credentials, including the [Authen
 | **Authenticate the same user:**<br>`/api/v1/authn`                | 4 per second               |
 | **Generate or refresh an OAuth 2.0 token:**<br>`/oauth2/v1/token` | 4 per second               |
 
-### Okta Rate Limits for Most Other Endpoints
+### Okta-Generated Email Message Rate Limits
 
-Finally, for most endpoints not listed in the tables above, the API rate limit is a combined rate limit:
-
-| Developer (free) | Developer (paid) | One App    | Enterprise | Workforce Identity |
-| ---------------- | ---------------- | ---------- | ---------- | ------------------ |
-| 1000             | 3000             | 3000       | 6000       | 10000              |
-
-For organizations created before 2018-05-17, the limit is 10,000 requests per minute.
+Limits are applied on a per-recipient basis and vary by email-type. The limit for some email types is no more than 30 emails per-recipient, per-minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
 
 ### Okta Home Page Endpoints and Per-Minute Limits
 
@@ -141,36 +113,77 @@ These rate limits apply to all new Okta organizations. For orgs created before 2
 
 *The limits for these endpoints can be increased by purchasing the [High-Capacity add-on](#high-capacity-rate-limits).
 
-### End-User Rate Limit
+[THESE ARE SEPARATED PAGES]
 
-Okta limits the number of requests from the administrator and end-user UI to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other, and from other API requests in the system.
+----
+rl-global-enduser.md
+### End-User
 
-If a user exceeds this limit, they receive an HTTP 429 response without affecting other users in your org.
-A message is written to the System Log indicating that the end-user rate limit was encountered.
+Endpoints related to end-user activity (you don't need  to login as an admin in Okta to use thoese endpoints).
 
-## Concurrent Rate Limits
+| Action and Okta API Endpoint                                                                                                                                              | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
+| **Authenticate different end users:**<br>`/api/v1/authn`                                                                                                                  | 100              | 300              | 300     | 600        | 500                   |
+| **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only                                                                                        | 100              | 300              | 300     | 600        | 500                   |
+| **Get session information:**<br>`/api/v1/sessions`                                                                                                                        | 100              | 300              | 300     | 600        | 750                   |
+| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/{authorizationServerId}/v1` except public metadata endpoints (see Note below)                           | 300              | 600              | 600     | 1200       | 2000                  |
+| **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints (see Note below)                          | 300              | 600              | 600     | 1200       | 2000                  |
+| **All other OAuth2 requests:**<br>`/oauth2`                                                                                                                               | 100              | 300              | 300     | 600        | 600                   |
+| **Most other API actions:**<br>`/api/v1` [KARTHICK]                                                                                                                       | 100              | 300              | 300     | 600        | 1200                  |
 
-In order to protect the service for all customers, Okta enforces concurrent rate limits, a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per-minute API rate limits](#org-wide-rate-limits), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
+> **Note:** The following public metadata endpoints are not subjected to rate limiting. </br> Public metadata endpoints for Org Authorization Server are: <br/> - `/oauth2/v1/keys` <br/> - `/.well-known/openid-configuration` <br/> - `/.well-known/oauth-authorization-server` <br/> Public metadata endpoints for Custom Authorization Servers are: <br/> - `/oauth2/{authorizationServerId}/v1/keys` <br/> - `/oauth2/{authorizationServerId}/.well-known/openid-configuration` <br/> - `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`.
 
-For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
+----
+rl-global-client.md
+### Client Endpoints
 
-* For agent traffic, Okta has set the limit based on typical org usage. This limit varies from agent to agent.
-* For Office365 traffic, the limit is 75 concurrent transactions per org.
-* For all other traffic, including API requests, the limit is described in the table below.
+----
+rl-global-mgmt.md
+### Management
 
-| Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity |
-| ---------------- | ---------------- | ------- | ---------- | ------------------ |
-| 15               | 35               | 35      | 75         | 75                 |
+Endpoints related to administrative actions in Okta (you list access as an admin)
 
-The first request to exceed the concurrent limit returns an HTTP 429 error, and the first error every sixty seconds is written to the log. Reporting concurrent rate limits once a minute keeps log volume manageable.
+| Action and Okta API Endpoint                                                                                                                                              | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
+| **Create or list applications:**<br>`/api/v1/apps` except `/api/v1/apps/{id}` [KARTHICK]                                                                                            | 20               | 25               | 25      | 100        | 100                   |
+| **Get, update, or delete an application by ID:**<br>`/api/v1/apps/{id}` only [KARTHICK]                                                                                             | 100              | 300              | 300     | 600        | 500                   |
+| **Create or list groups:**<br>`/api/v1/groups` except `/api/v1/groups/{id}` [KARTHICK]                                                                                              | 100              | 300              | 300     | 600        | 500                   |
+| **Get, update, or delete a group by ID:**<br>`/api/v1/groups/{id}` only [KARTHICK]                                                                                                  | 100              | 300              | 300     | 600        | 1000                  |
+| **Create or list users:**<br>Only `GET` or `POST` to `/api/v1/users` [KARTHICK]                                                                                                     | 100              | 300              | 300     | 600        | 600                   |
+| **Get a user by ID or login:**<br>Only `GET` to `/api/v1/users/{idOrLogin}` [KARTHICK]                                                                                              | 100              | 300              | 300     | 1000       | 2000                  |
+| **Update or delete a user by ID:**<br>Only `POST`, `PUT` or `DELETE` to `/api/v1/users/{id}`                                                                              | 100              | 300              | 300     | 600        | 600                   |
+| **Get System Log data:**<br>`/api/v1/logs`                                                                                                                                | 20               | 25               | 25      | 50         | 120                   |
+| **Get System Log data:**<br>`/api/v1/events`                                                                                                                              | 20               | 25               | 25      | 50         | 100 					 |
+| **Get session information:**<br>`/api/v1/sessions` [KARTHICK]                                                                                                                       | 100              | 300              | 300     | 600        | 750                   |
+| **Create an organization:**<br>`/api/v1/orgs`                                                                                                                             | N/A              | N/A              | N/A     | 50         | 50                    |
+| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/{authorizationServerId}/v1` except public metadata endpoints (see Note below) [KARTHICK]                          | 300              | 600              | 600     | 1200       | 2000                  |
+| **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints (see Note below) [KARTHICK]                         | 300              | 600              | 600     | 1200       | 2000                  |
+| **OAuth2 client configuration requests:**<br>`/oauth2/v1/clients`                                                                                                         | 25               | 50               | 50      | 100        | 100                   |
+| **Most other API actions:**<br>`/api/v1` [KARTHICK]                                                                                                                                  | 100              | 300              | 300     | 600        | 1200                  |
 
-> Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem which requires investigation.
 
-These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
+----
+rl-global-other-endpoints.md
 
-> For information on possible interaction between Inline Hooks and concurrent rate limits, see [Inline Hooks and Concurrent Rate Limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
+### All other endpoints
 
-## Check Your Rate Limits with Okta's Rate Limit Headers
+Finally, for all endpoints not listed in the categories above, the API rate limit is a combined rate limit:
+
+| Developer (free) | Developer (paid) | One App    | Enterprise | Workforce Identity |
+| ---------------- | ---------------- | ---------- | ---------- | ------------------ |
+| 1000             | 3000             | 3000       | 6000       | 10000              |
+
+*Note:* For organizations created before 2018-05-17, the limit is 10,000 requests per minute. To learn more, [click here](legacy-rl.md).
+
+
+----
+rl-best-practices.md
+
+## Rate Limit Best Practices
+
+In this section, you learn how to check your rate limits and request exceptions.
+
+### Check Your Rate Limits with Okta's Rate Limit Headers
 
 Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
 
@@ -199,7 +212,7 @@ The three headers behave a little differently for concurrent rate limits: when t
 When you exceed a concurrent rate limit threshold, the headers report that the limit has been exceeded. When you drop back down below the concurrent rate limit, the headers  switch back to reporting the time-based rate limits.
 Additionally, the `X-Rate-Limit-Reset` time for concurrent rate limits is only a suggestion. There's no guarantee that enough requests will complete to stop exceeding the concurrent rate limit at the time indicated.
 
-### Example Rate Limit Header with Org-Wide Rate Limit
+#### Example Rate Limit Header with Org-Wide Rate Limit
 
 This example shows the relevant portion of a rate limit header being returned with  for a request that hasn't exceeded the org-wide rate limit for the `/api/v1/users` endpoint:
 
@@ -221,7 +234,7 @@ X-Rate-Limit-Remaining: 0
 X-Rate-Limit-Reset: 1516308966
 ```
 
-### Example Rate Limit Header with Concurrent Rate Limit
+#### Example Rate Limit Header with Concurrent Rate Limit
 
 This example shows the relevant portion of a rate limit header being returned with the error for a request that exceeded the concurrent rate limit. If the rate limit wasn't being exceeded, the headers would contain information about the org-wide rate limit. You won't ever see non-error concurrent rate limits in the headers.
 
@@ -239,7 +252,7 @@ The third header reports an estimated time interval when the concurrent rate lim
 The error condition resolves itself as soon as there is another concurrent thread available. Normally, no intervention is required. However, if you notice frequent bursts of 429 errors, or if the concurrent rate limit isn't quickly resolved, you may be exceeding the concurrent rate limit. If you can't identify what is causing you to exceed the limit by examining activity in the log before the burst of 429 errors are logged, contact [Support](https://support.okta.com/help/open_case).
 
 
-### Example Error Response Events for Concurrent Rate Limit
+#### Example Error Response Events for Concurrent Rate Limit
 
 ```json
 {
@@ -271,7 +284,7 @@ The error condition resolves itself as soon as there is another concurrent threa
   }
 ```
 
-### Example Error Response in System Log API (Beta) for Concurrent Rate Limit
+#### Example Error Response in System Log API (Beta) for Concurrent Rate Limit
 
 ```json
 {
@@ -348,7 +361,7 @@ The error condition resolves itself as soon as there is another concurrent threa
 }
 ```
 
-## Requesting Exceptions
+### Request Exceptions
 
 You can request a temporary rate limit increase. For example, if you are importing a large number of users and groups you may need a temporary rate limit increase.
 
@@ -361,6 +374,51 @@ To request an exception, contact [Support](https://support.okta.com/help/open_ca
 * Business justification: why you need the temporary increase
 
 If you have an application that requires sustained rate limits higher than the posted limits, please consult an Okta Sales Representative for more options.
+
+----
+ds-rl.md
+
+# DynamicScale Rate Limits
+
+If your needs exceed Okta's default rate limits for the base product subscriptions (One App or Enterprise) you've already purchased, you can purchase a "DynamicScale" add-on service which will grant you higher rate limits for the endpoints listed below. DynamicScale will increase your default rate limits by 5x to 1000x, depending on the tier multiplier you purchase. Customers can purchase this add-on annually for a Production tenant or temporarily for testing in a Sandbox tenant.  The following list of endpoints are included in the DynamicScale add-on service:
+
+**Authentication endpoints:**
+
+* `/api/v1/authn`
+* `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
+* `/api/v1/sessions`
+
+**OAuth2 endpoints:**
+
+* `/oauth2/{authorizationServerId}/v1`
+* `/oauth2/v1` except `/oauth2/v1/clients`
+
+**SAML endpoints:**
+
+* `/app/template_saml_2_0/{key}/sso/saml`
+* `/app/{app}/{key}/sso/saml`
+
+**Single User/Group/App operations (Get, Update and Delete):**
+
+* `/api/v1/apps/{id}` &nbsp;
+* `/api/v1/groups/{id}` &nbsp;
+* `/api/v1/users/{idOrLogin}` &nbsp;
+
+**Notes:**
+
+1. If Okta makes any change to the DynamicScale add-on's rate limits, such change will be communicated to customers via an updated version of this product documentation.
+2. DynamicScale add-on is not available for customers that are using Delegated Authentication.
+3. Customers purchasing the DynamicScale add-on service will get best-effort additional protection beyond the multiplier they've purchased to handle any additional unforeseen spikes in Production:
+    1. This protection is not always guaranteed and should not be counted towards available rate limits
+    2. Additional protection availability is subject to infrastructure capacity available to your Org
+
+If your usage pattern exceeds the rate limits offered by DynamicScale add-on or the endpoint you're consuming isn't listed as part of the DynamicScale add-on then please contact your Okta Sales Representative regarding other options.
+
+For orgs that purchased the "High Capacity Rate Limit" SKU before 2019-10-24, the [previous rate limits](#high-capacity-rate-limits) still apply.
+
+----
+
+legacy-rl.md
 
 ## Previous Rate Limits
 
@@ -433,8 +491,3 @@ The following endpoints are used by the Okta home page for authentication and si
 | `/api/plugin/{protocolVersion}/sites`                                   | 150              |
 | `/bc/fileStoreRecord`                                                   | 500              |
 | `/bc/globalFileStoreRecord`                                             | 500              |
-
-
-## Okta-Generated Email Message Rate Limits
-
-Limits are applied on a per-recipient basis and vary by email-type. The limit for some email types is no more than 30 emails per-recipient, per-minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
