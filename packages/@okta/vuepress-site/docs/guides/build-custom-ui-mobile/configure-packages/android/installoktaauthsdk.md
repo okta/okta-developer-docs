@@ -13,6 +13,6 @@ dependencies {
 
 Add the following to your `proguard-rules.pro`
 
-```text
+```
 -keep class com.okta.** { *; }
 ```
