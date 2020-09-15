@@ -17,7 +17,7 @@ To access the individual API limits, visit a category page by clicking the appro
 
 | Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ----------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
-| [End-User access](/docs/reference/rl-global-enduser/)             | ??,???           | ??,???           | ??,???  | ??,???     | 10,050                |
+| [End-user access](/docs/reference/rl-global-enduser/)             | ??,???           | ??,???           | ??,???  | ??,???     | 10,050                |
 | [Management](/docs/reference/rl-global-mgmt/)                     | ?,???            | ?,???            | ?,???   | ?,???      | 4,600                 |
 | [Other endpoints](/docs/reference/rl-global-other-endpoints/)     | 1,000            | 3,000            | 3,000   | 6,000      | 10,000                |
 
@@ -39,10 +39,12 @@ If an org-wide rate limit is exceeded, an HTTP 429 status code is returned. You 
 
 * [Okta-generated email message rate limits](/docs/reference/additional-limits/#okta-generated-email-message-rate-limits): These rate limits vary by email type. Okta enforces rate limits on the number of Okta-generated email messages that are sent to customers and customer users. For example, if the number of emails sent to a given user exceeds the per-minute limit for a given email type, subsequent emails of that type are dropped for that user until that minute elapses.
 
-* [Okta home page endpoints and per-minute limits](docs/reference/additional-limits/#okta-home-page-endpoints-and-per-minute-limits): These endpoints are used by the Okta home page for authentication and user sign in and have org-wide rate limits.
+* [Okta home page endpoints and per-minute limits](/docs/reference/additional-limits/#okta-home-page-endpoints-and-per-minute-limits): These endpoints are used by the Okta home page for authentication and user sign in and have org-wide rate limits.
 
-* [Okta API endpoints and per-user limits](docs/reference/additional-limits/#okta-api-endpoints-and-per-user-limits): API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password.
+* [Okta API endpoints and per-user limits](/docs/reference/additional-limits/#okta-api-endpoints-and-per-user-limits): API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password.
 
-* [DynamicScale Rate Limits](/docs/reference/dynamic-scale-rl/): If your needs exceed Okta's default rate limits for the base product subscriptions (One App or Enterprise) that you've already purchased, the  DynamicScale add-on service grants you higher limits for a variety of endpoints across different APIs.
+* [End-user rate limits](/docs/reference/additional-limits/#end-user-rate-limits): Okta limits the number of requests from the Admin Console and End-User Dashboard to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
 
-* [Legacy Endpoints](/docs/reference/legacy-rl/): This content covers the rate limits for orgs that were created before 2018-05-17.
+* [DynamicScale rate limits](/docs/reference/dynamic-scale-rl/): If your needs exceed Okta's default rate limits for the base product subscriptions (One App or Enterprise) that you've already purchased, the  DynamicScale add-on service grants you higher limits for a variety of endpoints across different APIs.
+
+* [Legacy endpoints](/docs/reference/legacy-rl/): This content covers the rate limits for orgs that were created before 2018-05-17.

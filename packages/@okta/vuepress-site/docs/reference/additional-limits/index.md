@@ -11,7 +11,7 @@ blah blah
 
 ## Concurrent rate limits
 
-To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per-minute API rate limits](#org-wide-rate-limits), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
+To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per-minute API rate limits](/docs/reference/rate-limits/), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
 
 For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
 
@@ -23,21 +23,21 @@ For concurrent rate limits, traffic is measured in three different areas. Counts
 | ---------------- | ---------------- | ------- | ---------- | ------------------ |
 | 15               | 35               | 35      | 75         | 75                 |
 
-The first request to exceed the concurrent limit returns an HTTP 429 error, and the first error every sixty seconds is written to the log. Reporting concurrent rate limits once a minute keeps log volume manageable.
+The first request to exceed the concurrent limit returns an HTTP 429 error, and the first error every 60 seconds is written to the log. Reporting concurrent rate limits once a minute keeps log volume manageable.
 
 > **Note:** Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem that requires investigation.
 
-These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply.
+These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/legacy-rl/) still apply.
 
-> **Note:** For information on possible interaction between Inline Hooks and concurrent rate limits, see [Inline Hooks and Concurrent Rate Limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
+> **Note:** For information on possible interaction between Inline Hooks and concurrent rate limits, see [Inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
 
 ### Okta-generated email message rate limits
 
-Limits are applied on a per-recipient basis and vary by email-type. The limit for some email types is no more than 30 emails per-recipient, per-minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
+Limits are applied on a per-recipient basis and vary by email type. The limit for some email types is no more than 30 emails per-recipient, per-minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
 
 ### Okta home page endpoints and per-minute limits
 
-The following endpoints are used by the Okta home page for authentication and sign on and have org-wide rate limits:
+The following endpoints are used by the Okta home page for authentication and user sign in and have org-wide rate limits:
 
 | Okta Home Page Endpoints                                                | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity |
 | ----------------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | ------------------ |
@@ -53,9 +53,9 @@ The following endpoints are used by the Okta home page for authentication and si
 | `/bc/image/fileStoreRecord`                                             | 100              | 300              | 300*    | 600*       | 500                |
 | `/bc/globalFileStoreRecord`                                             | 100              | 300              | 300*    | 600*       | 500                |
 
-These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](#previous-rate-limits) still apply. 
+These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/legacy-rl/) still apply.
 
-The limits for these endpoints can be increased by purchasing the [High-Capacity add-on](#high-capacity-rate-limits).
+The limits for these endpoints can be increased by purchasing the [High-Capacity add-on](/docs/reference/legacy-rl/#high-capacity-rate-limits).
 
 ### Okta API endpoints and per-user limits
 
@@ -65,3 +65,9 @@ API endpoints that take username and password credentials, including the [Authen
 | ----------------------------------------------------------------- | -------------------------: |
 | **Authenticate the same user:**<br>`/api/v1/authn`                | 4 per second               |
 | **Generate or refresh an OAuth 2.0 token:**<br>`/oauth2/v1/token` | 4 per second               |
+
+### End-user rate limits
+
+Okta limits the number of requests from the Admin Console and End-User Dashboard to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
+
+If a user exceeds this limit, they receive an HTTP 429 error response without affecting other users in your org. A message is written to the System Log that indicates that the end-user rate limit was encountered.

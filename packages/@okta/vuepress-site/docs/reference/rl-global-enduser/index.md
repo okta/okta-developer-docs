@@ -7,10 +7,6 @@ excerpt: >-
 
 # End-user access rate limits
 
-Okta limits the number of requests from the administrator and end-user UI to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
-
-If a user exceeds this limit, they receive an HTTP 429 response without affecting other users in your org. A message is written to the System Log that indicates that the end-user rate limit was encountered.
-
 Endpoints related to end-user activity (you don't need  to login as an admin in Okta to use thoese endpoints).
 
 | Action and Okta API Endpoint                                                                                                        | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
