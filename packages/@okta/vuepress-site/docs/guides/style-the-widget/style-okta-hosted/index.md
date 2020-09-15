@@ -43,7 +43,9 @@ If you are familiar with using HTML and want to change the page layout, colors, 
 
 Use the `/login/default` backdoor sign-in URL to bypass the custom sign-in page. If, for example, something goes wrong with your customizations and your sign-in page won't load, add `/login/default` to the end of your Okta URL to bring up the default sign-in page and enter your credentials:
 
-`https://${yourOktaDomain}/login/default`
+```
+https://${yourOktaDomain}/login/default
+```
 
 This URL only bypasses changes that you have made to the HTML in the HTML editor. It doesn't bypass changes that you made using the controls on the left side of the page.
 
@@ -70,6 +72,7 @@ Inserts the JavaScript and CSS files required to use the Okta Sign-In Widget.
 Inserts a URL to the background image configured in your Okta organization. This setting can be changed by selecting **Customization**, and then **Appearance**.
 
 Example:
+
 ```html
 <div class="login-bg-image" style="background-image: {{bgImageUrl}}"></div>
 ```
@@ -85,28 +88,28 @@ By calling the `OktaUtil.getRequestContext()` method, JavaScript code on your si
 Here's what is returned from `getRequestContext()`:
 
 ```json
-  {
-  "target":{
-    "clientId":"0oadday782XUlHyp90h3",
-    "name":"sample_client",
-    "label":"Demo App",
+{
+  "target": {
+    "clientId": "0oadday782XUlHyp90h3",
+    "name": "sample_client",
+    "label": "Demo App"
+  },
+  "authentication": {
+    "request": {
+      "scope": "openid",
+      "response_type": "code",
+      "redirect_uri": "https://example.com/debug",
+      "state": "asdf",
+      "response_mode": "form_post"
     },
-  "authentication":{
-    "request":{
-    "scope":"openid",
-    "response_type":"code",
-    "redirect_uri":"https://example.com/debug",
-    "state":"asdf",
-    "response_mode":"form_post"
+    "client": {
+      "name": "Demo App",
+      "id": "0oadday782XUlHyp90h3"
     },
-  "client":{
-    "name":"Demo App",
-    "id":"0oadday782XUlHyp90h3"
-    },
-  "issuer":{
-    "name":"default",
-    "id":"ausblkmh242Vtu5430h2",
-    "uri":"https://${yourOktaDomain}/oauth2/default"
+    "issuer": {
+      "name": "default",
+      "id": "ausblkmh242Vtu5430h2",
+      "uri": "https://${yourOktaDomain}/oauth2/default"
     }
   }
 }
