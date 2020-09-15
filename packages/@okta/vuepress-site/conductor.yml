@@ -1256,7 +1256,7 @@ redirects:
   - from: /guides/custom-hosted-signin/customization-examples/index.html
     to: /docs/guides/custom-hosted-signin/customization-examples/
   - from: /guides/custom-hosted-signin/edit-the-sign-in-page/index.html
-    to: /docs/guides/custom-hosted-signin/edit-the-sign-in-page/
+    to: /docs/guides/style-the-widget/style-okta-hosted/
   - from: /guides/custom-hosted-signin/next-steps/index.html
     to: /docs/guides/custom-hosted-signin/next-steps/
   - from: /guides/custom-hosted-signin/overview/index.html
