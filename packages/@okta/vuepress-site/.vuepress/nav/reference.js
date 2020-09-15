@@ -33,9 +33,15 @@ module.exports = [
       ]
     },
     { title: 'Rate Limits', subLinks: [
-      { title: 'DynamicScale rate limits', path: '/docs/reference/dynamicscalerl/'},
-      { title: 'Legacy rate limits', path: '/docs/reference/legacyrl/'}
-    ]
+      { title: 'Rate limits overview', path: '/docs/reference/rate-limits/'},
+      { title: 'End-user access rate limits', path: '/docs/reference/rl-global-enduser/'},
+      { title: 'Management rate limits', path: '/docs/reference/rl-global-mgmt/'},
+      { title: 'Other endpoint rate limits', path: '/docs/reference/rl-global-other-endpoints/'},
+      { title: 'Additional limits', path: '/docs/reference/additional-limits/'},
+      { title: 'Rate limit best practices', path: '/docs/reference/rl-best-practices/'},
+      { title: 'DynamicScale rate limits', path: '/docs/reference/dynamic-scale-rl/'},
+      { title: 'Legacy rate limits', path: '/docs/reference/legacy-rl/'}
+      ]
     },
     { title: 'Error Codes', path: '/docs/reference/error-codes/'},
     { title: 'Import Hook', path: '/docs/reference/import-hook/'},
