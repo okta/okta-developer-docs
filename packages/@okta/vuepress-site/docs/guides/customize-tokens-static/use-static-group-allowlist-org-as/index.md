@@ -1,9 +1,10 @@
 ---
 title: Use a static group whitelist with the Org Authorization Server
 ---
-For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. For the steps to configure a Groups claim for use with an access token, see the <GuideLink link="../use-static-group-whitelist-custom-as">Use a static group whitelist with a Custom Authorization Server</GuideLink> section.
 
-> **Note:** This step requires the Admin Console. If you are using the Developer Console, select the drop-down list in the upper-left corner and select **Classic UI** to switch.
+For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. For the steps to configure a Groups claim for use with an access token, see the <GuideLink link="../use-static-group-allowlist-custom-as">Use a static group whitelist with a Custom Authorization Server</GuideLink> section.
+
+<RequireClassicUI/>
 
 1. In the Admin Console, from the **Applications** menu, select **Applications**, and then select the OpenID Connect client application that you want to configure.
 2. Navigate to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
@@ -26,7 +27,7 @@ curl -X GET \
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2Fexample.com
 &state=myState
-&nonce=${yourNonceValue}"
+&nonce=yourNonceValue"
 ```
 
 The decoded JWT looks something like this:
@@ -46,7 +47,7 @@ The decoded JWT looks something like this:
     "pwd"
   ],
   "idp": "00oixa26ycdNcX0VT0h7",
-  "nonce": "${yourNonceValue}",
+  "nonce": "yourNonceValue",
   "auth_time": 1574117006,
   "groups": [
     "IT"

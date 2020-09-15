@@ -44,10 +44,10 @@ These values will be used in your Vue application to setup the OpenID Connect fl
 
 ## Install the Okta Vue SDK
 
-You will need to use the [Okta Vue SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-vue) library to sign in the user by redirecting to the authorization endpoint on your Okta org. You can install it via npm:
+You will need to use the [Okta Vue SDK](https://github.com/okta/okta-vue) library to sign in the user by redirecting to the authorization endpoint on your Okta org. You can install it via npm:
 
 ```bash
-npm install @okta/okta-vue --save
+npm install @okta/okta-vue
 ```
 
 ### Configuration

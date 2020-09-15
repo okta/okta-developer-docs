@@ -50,7 +50,10 @@ module.exports = [
         title: 'Tokens',
         subLinks: [
           { title: 'Build a JWT for Client Authentication', guideName: 'build-self-signed-jwt' },
-          { title: 'Customize tokens returned from Okta', guideName: 'customize-tokens-returned-from-okta' },
+          { title: 'Customize tokens returned from Okta with custom claims', guideName: 'customize-tokens-returned-from-okta' },
+          { title: 'Customize tokens returned from Okta with a Groups claim', guideName: 'customize-tokens-groups-claim' },
+          { title: 'Customize tokens returned from Okta with a dynamic whitelist', guideName: 'customize-tokens-dynamic' },
+          { title: 'Customize tokens returned from Okta with a static whitelist', guideName: 'customize-tokens-static' },
           { title: 'Refresh access tokens', guideName: 'refresh-tokens' },
           { title: 'Revoke Tokens', guideName: 'revoke-tokens' },
           { title: 'Work with Okta session cookies', guideName: 'session-cookie' },
