@@ -14,6 +14,6 @@ Dates for preview release are the earliest possible release date. Always check y
 To verify the current release for an org, check the footer of the administrator UI. If necessary, click the **Admin** button to navigate to your administrator UI.<br>
 ![Release Number in Footer](/img/release_notes/version_footer.png)
 
-> **Note:** Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/en/prod/Content/Topics/ReleaseNotes/okta-relnotes.htm).
+> **Note:** Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_okta_relnotes).
 
 <ReleaseNotesList />
