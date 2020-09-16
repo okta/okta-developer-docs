@@ -23,11 +23,11 @@ You can customize your Okta org by replacing the Okta domain name with a custom 
 
 ### Custom Okta-hosted Sign-In Page is in Early Access
 
-You can customize the text and the look and feel of the Okta-hosted sign-in page using form controls and an embedded HTML editor. When used together with [custom URL domain](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_custom_url_domain) (required) and [custom Okta-hosted error page](/docs/guides/custom-error-pages/overview/), this feature offers a fully customized end-user sign-in experience hosted by Okta. For details, see [Configure a custom Okta-hosted sign-in page](/docs/guides/custom-hosted-signin/overview/).
+You can customize the text and the look and feel of the Okta-hosted sign-in page using form controls and an embedded HTML editor. When used together with [custom URL domain](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_custom_url_domain) (required) and [custom Okta-hosted error page](/docs/guides/custom-error-pages/overview/), this feature offers a fully customized end-user sign-in experience hosted by Okta. For details, see [Configure a custom Okta-hosted sign-in page](/docs/guides/style-the-widget/style-okta-hosted/).
 
 ### Custom Error Page is in Early Access
 
-You can customize the text and the look and feel of error pages using an embedded HTML editor. When used together with [custom URL domain](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_custom_url_domain) (required) and [custom Okta-hosted sign-in page](/docs/guides/custom-hosted-signin/overview/), this feature offers a fully customized error page. For details, see [Configure a custom error page](/docs/guides/custom-error-pages/overview/).
+You can customize the text and the look and feel of error pages using an embedded HTML editor. When used together with [custom URL domain](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_custom_url_domain) (required) and [custom Okta-hosted sign-in page](/docs/guides/style-the-widget/style-okta-hosted/), this feature offers a fully customized error page. For details, see [Configure a custom error page](/docs/guides/custom-error-pages/overview/).
 
 ### Bugs Fixed in 2018.19
 
