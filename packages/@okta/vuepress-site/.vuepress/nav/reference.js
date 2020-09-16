@@ -37,10 +37,10 @@ module.exports = [
       { title: 'End-user access rate limits', path: '/docs/reference/rl-global-enduser/'},
       { title: 'Management rate limits', path: '/docs/reference/rl-global-mgmt/'},
       { title: 'Other endpoint rate limits', path: '/docs/reference/rl-global-other-endpoints/'},
-      { title: 'Additional limits', path: '/docs/reference/additional-limits/'},
+      { title: 'Additional limits', path: '/docs/reference/rl-additional-limits/'},
       { title: 'Rate limit best practices', path: '/docs/reference/rl-best-practices/'},
-      { title: 'DynamicScale', path: '/docs/reference/dynamic-scale-rl/'},
-      { title: 'Previous rate limits', path: '/docs/reference/legacy-rl/'}
+      { title: 'DynamicScale', path: '/docs/reference/rl-dynamic-scale/'},
+      { title: 'Previous rate limits', path: '/docs/reference/rl-legacy/'}
       ]
     },
     { title: 'Error Codes', path: '/docs/reference/error-codes/'},
