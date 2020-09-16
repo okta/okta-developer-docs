@@ -1340,7 +1340,7 @@ The Role object defines several **read-only** properties:
 
 Some Roles support optional targets that constrain the Role to a specific set of Groups or Apps. If an optional target isn't specified, then the role assignment is unbounded (for example, applies to all Groups or Apps).
 
-Refer to the [product documentation](https://help.okta.com/en/prod/Content/Topics/Security/Administrators.htm?cshid=Security_Administrators#Security_Administrators) for a complete definition of permissions granted to each Role.
+Refer to the [product documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Administrators) for a complete definition of permissions granted to each Role.
 
 | Role type                     | Label                               | Optional targets                      |
 | :---------------------------- | :---------------------------------- | :------------------------------------ |
