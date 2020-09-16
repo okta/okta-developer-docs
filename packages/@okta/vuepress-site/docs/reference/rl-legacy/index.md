@@ -1,17 +1,17 @@
 ---
-title: Legacy rate limits
+title: Previous rate limits
 excerpt: >-
   Understand legacy rate limits at Okta and learn how to design for efficient use of
   resources
 ---
 
-## Legacy rate limits
+## Previous rate limits
 
 This page covers the rate limits for orgs that were created before 2018-05-17.
 
 ### High capacity rate limits
 
-If your needs exceed Okta's rate limits, you can purchase the "High Capacity Rate Limit" add-on. Customers who purchase the "High Capacity Rate Limit" add-on service may not use the service in excess of the "static" rate limit, as set forth in the table below.  If Okta makes any change to the rate limit, such change will be communicated to customers via an updated version of this product documentation.
+If your needs exceed Okta's rate limits, you can purchase the High Capacity Rate Limit add-on. Customers who purchase the High Capacity Rate Limit add-on service may not use the service in excess of the static rate limit, as set forth in the table below. If Okta makes any change to the rate limit, the change is communicated to customers through an updated version of this product documentation.
 
 The following are the high capacity rate limits per minute that apply across the Okta API for these endpoints:
 
@@ -33,7 +33,7 @@ The following are the high capacity rate limits per minute that apply across the
 | `/bc/image/fileStoreRecord`                                                | 1500      | 3000         |
 | `/bc/globalFileStoreRecord`                                                | 1500      | 3000         |
 
-If your usage needs exceed the rate limits applicable to the "High Capacity Rate Limit" add-on service, please contact your Okta Sales Representative regarding other options.
+If your usage needs exceed the rate limits applicable to the High Capacity Rate Limit add-on service, please contact your Okta Sales Representative regarding other options.
 
 ### Org-wide rate limits (legacy orgs)
 
@@ -61,7 +61,7 @@ For legacy orgs, the limit is 75 concurrent transactions.
 
 ### Home page endpoint limits (legacy orgs)
 
-The following endpoints are used by the Okta home page for authentication and sign on and have org-wide rate limits:
+The following endpoints are used by the Okta home page for authentication and user ign in and have org-wide rate limits:
 
 | Okta Home Page Endpoints                                                | Per-Minute Limit |
 | :-----------------------------------------                              | ------:          |

@@ -39,8 +39,8 @@ module.exports = [
       { title: 'Other endpoint rate limits', path: '/docs/reference/rl-global-other-endpoints/'},
       { title: 'Additional limits', path: '/docs/reference/additional-limits/'},
       { title: 'Rate limit best practices', path: '/docs/reference/rl-best-practices/'},
-      { title: 'DynamicScale rate limits', path: '/docs/reference/dynamic-scale-rl/'},
-      { title: 'Legacy rate limits', path: '/docs/reference/legacy-rl/'}
+      { title: 'DynamicScale', path: '/docs/reference/dynamic-scale-rl/'},
+      { title: 'Previous rate limits', path: '/docs/reference/legacy-rl/'}
       ]
     },
     { title: 'Error Codes', path: '/docs/reference/error-codes/'},
@@ -48,7 +48,6 @@ module.exports = [
     { title: 'Okta Expression Language', path: '/docs/reference/okta-expression-language/'},
     { title: 'Password Hook', path: '/docs/reference/password-hook/'},
     { title: 'Postman Collections', path: '/docs/reference/postman-collections/'},
-    { title: 'Rate Limits', path: '/docs/reference/rate-limits/'},
     { title: 'Registration Hook', path: '/docs/reference/registration-hook/'},
     { title: 'Release Life Cycle', path: '/docs/reference/releases-at-okta/'},
     { title: 'SAML Hook', path: '/docs/reference/saml-hook/'},
