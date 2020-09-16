@@ -12,6 +12,7 @@ For testing purposes, use [this tool](https://www.jsonwebtoken.io/) to generate 
 
 The following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) can be used in the request for a scoped access token:
 
+* `alg` &mdash; The value "RS256" in order for Okta to successfully verify the token using the signing keys provided in the previous step.
 * `aud` &mdash; The full URL of the resource that you're using the JWT to authenticate to
 * `exp` &mdash; The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
 * `jti` &mdash; (Optional) A unique identifier of the token. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
