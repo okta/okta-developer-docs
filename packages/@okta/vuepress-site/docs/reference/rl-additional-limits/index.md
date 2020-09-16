@@ -22,7 +22,8 @@ These limits are part of the Okta [Rate limit](/docs/reference/rate-limits) poli
 >
 > * In addition to the rate limits listed on this page, Okta applies rate limits per API, divided into three categories. See the [Rate limit overview](/docs/reference/rate-limits).
 > * To learn more about how to manage rate limits, see our [best practices](/docs/reference/rl-best-practices).
-> * You can expand Okta rate limits upon request. To learn how, see [Rate increase requests](#concurrent-rate-limits) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
+> * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
+>
 
 ## Concurrent rate limits
 

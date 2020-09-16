@@ -17,7 +17,7 @@ For org-wide rate limits, the three headers show the limit that is being enforce
 
 * `X-Rate-Limit-Limit` - the rate limit ceiling that is applicable for the current request.
 * `X-Rate-Limit-Remaining` - the number of requests left for the current rate-limit window.
-* `X-Rate-Limit-Reset` - the time at which the rate limit will reset, specified in UTC epoch time.
+* `X-Rate-Limit-Reset` - the time at which the rate limit resets, specified in UTC epoch time.
 
 For example:
 
