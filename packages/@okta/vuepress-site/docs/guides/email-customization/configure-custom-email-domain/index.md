@@ -38,7 +38,7 @@ To configure a custom email domain:
 
     For example, if you only send mail from Microsoft Office 365, your SPF record has an include-statement like this:
 
-    ```txt
+    ```
     example.com TXT    v=spf1 include:spf.protection.outlook.com -all
     ```
 
@@ -48,7 +48,7 @@ To configure a custom email domain:
 
     Add the host to the existing record to configure a combined SPF record similar to this:
 
-    ```txt
+    ```
     example.com TXT    v=spf1 include:oktamail.example.com include:spf.protection.outlook.com -all
     ```
 
