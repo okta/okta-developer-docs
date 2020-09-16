@@ -5,7 +5,7 @@ You should now understand how to protect your API.
 
 Read about customization options:
 
-* [Customize the Okta-hosted sign-in page](/docs/guides/custom-hosted-signin/)
+* [Style the Widget]((/docs/guides/style-the-widget/style-okta-hosted/))
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
 
