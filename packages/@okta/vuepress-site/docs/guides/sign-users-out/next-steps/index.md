@@ -10,7 +10,7 @@ Next, you might want to configure self-service registration for your org:
 Read more on customizing your org:
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-* [Customize the Okta-hosted sign-in page](/docs/guides/custom-hosted-signin/)
+* [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
 
 ## Sample applications
 

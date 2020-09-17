@@ -4,11 +4,11 @@ title: Okta-hosted Flows
 
 # Okta-hosted flows
 
-Okta hosts authentication and identity flows for your applications. This means that your application can let Okta handle signing users in, registering new users, and performing account recovery. The pages hosted by Okta can be [customized](/docs/guides/custom-hosted-signin/), and you can [bring your own domain](/docs/guides/custom-url-domain/).
+Okta hosts authentication and identity flows for your applications. This means that your application can let Okta handle signing users in, registering new users, and performing account recovery. The pages hosted by Okta can be [customized](/docs/guides/style-the-widget/style-okta-hosted/), and you can [bring your own domain](/docs/guides/custom-url-domain/).
 
 You can build and self-host these flows in your application if you'd like, but using Okta-hosted flows has some advantages:
 
-* **Works out of the box:** The sign-in page Okta provides works by default, not requiring any configuration on your part. If you do want to change it, we provide a UI editor with preview, as well as a number of macros to help you customize the page to your liking. For more information, see [Customize the Hosted Sign-in Page](/docs/guides/custom-hosted-signin/).
+* **Works out of the box:** The sign-in page Okta provides works by default, not requiring any configuration on your part. If you do want to change it, we provide a UI editor with preview, as well as a number of macros to help you customize the page to your liking. For more information, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
 * **Less complexity:** If you host your authentication and identity flows with Okta, you can keep your application logic (focused on core business) separate from your identity (handled by Okta).
 * **Less maintenance:** The Okta-hosted pages always reflect the latest available version of the Sign-in Widget.
 
