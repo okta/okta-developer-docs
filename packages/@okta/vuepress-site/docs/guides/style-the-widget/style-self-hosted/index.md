@@ -6,13 +6,13 @@ This section discusses the customization options that you have when you are self
 
 > **Note:** You can try all of these customizations yourself using our [Live Widget](https://developer.okta.com/live-widget/).
 
-## Initial sign-in page
+### Initial sign-in page
 
 You can modify the look of the initial sign-in page using parameters in the `config` section of the main Widget initialization block.
 
 ![Screenshot of basic Okta Sign-In Widget](/img/widget_theming.png "Screenshot of basic Okta Sign-In Widget")
 
-### Logo
+#### Logo
 
 ```javascript
 var config = {
@@ -24,7 +24,7 @@ var config = {
 var signIn = new OktaSignIn(config);
 ```
 
-### Custom buttons
+#### Custom buttons
 
 You can add buttons below the **Sign In** button.
 
@@ -53,7 +53,7 @@ var config = {
 };
 ```
 
-### Links
+#### Links
 
 You can also change the **Help**, **Forgot Password**, and **Unlock** links, including both their text and URLs.
 
@@ -79,15 +79,15 @@ var config = {
 };
 ```
 
-## Modify the CSS
+### Modify the CSS
 
 In addition to the parameters in the Widget's `config`, you can also modify the CSS or override the default styles with your own.
 
-### CSS customization examples
+#### CSS customization examples
 
 This section provides examples that you can use to make your own customizations to the widget.
 
-#### Background
+##### Background
 
 ```css
 #okta-sign-in.auth-container.main-container {
@@ -99,7 +99,7 @@ This section provides examples that you can use to make your own customizations 
 }
 ```
 
-#### Border color
+##### Border color
 
 ```css
 #okta-sign-in.auth-container.main-container {
@@ -111,7 +111,7 @@ This section provides examples that you can use to make your own customizations 
 }
 ```
 
-#### Text color
+##### Text color
 
 All text:
 
@@ -137,7 +137,7 @@ Link text:
 }
 ```
 
-#### Widget positioning + width
+##### Widget positioning + width
 
 Width:
 
@@ -155,21 +155,21 @@ Position:
 }
 ```
 
-#### Video Tutorial
+##### Video Tutorial
 
 For a more in-depth look at styling the widget, you can watch this video:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Q__ugprsOWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-#### Live Widget
+##### Live Widget
 
 You can also play with the sass in real time with the [live widget](https://developer.okta.com/live-widget).
 
-## Modify strings
+### Modify strings
 
 To modify strings in the Widget, you can override any of the properties set in [login.properties](https://github.com/okta/okta-signin-widget/blob/master/packages/@okta/i18n/src/properties/login.properties). You override these properties by specifying new values for them inside an `i18n` object in the Widget's `config` section.
 
-### Examples
+#### Examples
 
 You can modify any of the labels found in the Widget by providing new values for them.
 
@@ -196,7 +196,7 @@ var config = {
 
 For more information about these configuration options, see the [Okta Sign-In Widget Reference page](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
 
-## Localization
+### Localization
 
 If you want to display different strings depending on the user's language, you can specify this using the following structure:
 
