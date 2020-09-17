@@ -186,7 +186,7 @@ Sign in to your Okta developer dashboard and navigate to **Applications** > **Ad
 
 Copy the code above into an `index.html` file on your hard drive.
 
-For this example to work, you'll need to host it on a web server that runs locally on port 8080. If you have Python 3 installed you can simply run the command `python -m http.server 8080` in the same directory as `index.html`. If you're on a Mac, you can use `python -m SimpleHTTPServer 8080`. This will open a web server on port 8080 and you'll be able to access your page at `http://localhost:8080`.
+For this example to work, you'll need to host it on a web server that runs locally on port 8080. Check your Python version by running `python -V`.  If Python version returned is 3.X you can simply run the command `python3 -m http.server 8080`  (On windows try "python" instead of "python3") in the same directory as `index.html`. If Python version returned above is 2.X you can use `python -m SimpleHTTPServer 8080`. This will open a web server on port 8080 and you'll be able to access your page at `http://localhost:8080`.
 
 #### Sign In to Okta with the Default Dashboard
 
