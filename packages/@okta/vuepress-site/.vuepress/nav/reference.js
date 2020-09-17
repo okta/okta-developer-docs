@@ -40,7 +40,7 @@ module.exports = [
       { title: 'Additional limits', path: '/docs/reference/rl-additional-limits/'},
       { title: 'Rate limit best practices', path: '/docs/reference/rl-best-practices/'},
       { title: 'DynamicScale', path: '/docs/reference/rl-dynamic-scale/'},
-      { title: 'Previous rate limits', path: '/docs/reference/rl-legacy/'}
+      { title: 'Previous rate limits', path: '/docs/reference/rl-previous/'}
       ]
     },
     { title: 'Error Codes', path: '/docs/reference/error-codes/'},

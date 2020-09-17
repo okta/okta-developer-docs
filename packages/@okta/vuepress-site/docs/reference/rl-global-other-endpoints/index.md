@@ -13,4 +13,4 @@ This page provides the API rate Limits for other endpoint activities not covered
 | ---------------- | ---------------- | ---------- | ---------- | ------------------ |
 | 1,000             | 3,000             | 3,000       | 6,000       | 10,000              |
 
-> **Note:** For organizations created before 2018-05-17, the limit is 10,000 requests per minute. See [Previous rate limits](/docs/reference/rl-legacy/).
+> **Note:** For organizations created before 2018-05-17, the limit is 10,000 requests per minute. See [Previous rate limits](/docs/reference/rl-previous/).

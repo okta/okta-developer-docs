@@ -42,4 +42,4 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 
 If your usage pattern exceeds the rate limits offered by DynamicScale add-on or the endpoint that you're consuming isn't listed as part of the DynamicScale add-on, then please contact your Okta Sales Representative regarding other options.
 
-For orgs that purchased the High Capacity Rate Limit SKU before 2019-10-24, the [previous rate limits](/docs/reference/rl-legacy/) still apply.
+For orgs that purchased the High Capacity Rate Limit SKU before 2019-10-24, the [previous rate limits](/docs/reference/rl-previous/) still apply.

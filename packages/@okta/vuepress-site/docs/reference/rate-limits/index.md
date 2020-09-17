@@ -43,7 +43,7 @@ If an org-wide rate limit is exceeded, an HTTP 429 status code is returned. You 
 
 * [Home page endpoints and per-minute limits](/docs/reference/rl-additional-limits/#okta-home-page-endpoints-and-per-minute-limits): These endpoints are used by the Okta home page for authentication and user sign in and have org-wide rate limits.
 
-* [Previous rate limits](/docs/reference/rl-legacy/): This content covers the rate limits for orgs that were created before 2018-05-17.
+* [Previous rate limits](/docs/reference/rl-previous/): This content covers the rate limits for orgs that were created before 2018-05-17.
 
 * [Okta API endpoints and per-user limits](/docs/reference/rl-additional-limits/#okta-api-endpoints-and-per-user-limits): API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password.
 

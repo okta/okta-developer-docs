@@ -43,7 +43,7 @@ The first request to exceed the concurrent limit returns an HTTP 429 error, and 
 
 > **Note:** Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem that requires investigation.
 
-These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-legacy/) still apply.
+These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-previous/) still apply.
 
 > **Note:** For information on possible interaction between Inline Hooks and concurrent rate limits, see [Inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
 
@@ -71,9 +71,9 @@ The following endpoints are used by the Okta home page for authentication and us
 | `/bc/image/fileStoreRecord`                                             | 100              | 300              | 300*    | 600*       | 500                |
 | `/bc/globalFileStoreRecord`                                             | 100              | 300              | 300*    | 600*       | 500                |
 
-These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-legacy/) still apply.
+These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-previous/) still apply.
 
-The limits for these endpoints can be increased by purchasing the [High-capacity add-on](/docs/reference/rl-legacy/#high-capacity-rate-limits).
+The limits for these endpoints can be increased by purchasing the [High-capacity add-on](/docs/reference/rl-previous/#high-capacity-rate-limits).
 
 ### Per-user limits
 
