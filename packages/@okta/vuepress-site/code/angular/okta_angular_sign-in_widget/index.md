@@ -26,13 +26,20 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
 | Application Name     | OpenId Connect App *(must be unique)*               |
-| Login redirect URIs  | http://localhost:4200/callback                      |
+| Login redirect URIs  | http://localhost:4200/login/callback                      |
 | Logout redirect URIs | http://localhost:4200/login                         |
 | Allowed grant types  | Authorization Code                                  |
 
 ## Create an Angular App
 
-To quickly create an Angular app, we recommend the **angular-cli**. Follow [their installation guide](https://github.com/angular/angular-cli#installation) to create a new Angular app.
+To quickly create an Angular app, we recommend the **Angular CLI**.
+
+```bash
+npm install -g @angular/cli
+ng new okta-app --routing
+```
+
+If you need more information, see [the Angular CLI installation guide](https://github.com/angular/angular-cli#installation).
 
 ## Install Dependencies
 
@@ -40,13 +47,13 @@ A simple way to add authentication into an Angular app is using the library [Okt
 
 ```bash
 cd okta-app
-npm install @okta/okta-signin-widget --save
+npm install @okta/okta-signin-widget
 ```
 
 To easily interact with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/), we will also need [`@okta/okta-angular`](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular/):
 
 ```bash
-npm install @okta/okta-angular --save
+npm install @okta/okta-angular
 ```
 
 > If you're using **Angular 6.x**, you'll need to install `rxjs-compat`:
@@ -229,7 +236,7 @@ Update `src/app/app.module.ts` to include your project components and routes. Yo
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 import {
   OKTA_CONFIG,
@@ -244,19 +251,21 @@ import { LoginComponent } from './login.component';
 
 const config = {
   issuer: 'https://${yourOktaDomain}/oauth2/default',
-  redirectUri: 'http://localhost:4200/implicit/callback',
+  redirectUri: 'http://localhost:4200/login/callback',
   clientId: '{clientId}',
   pkce: true
 }
 
-export function onAuthRequired({ oktaAuth, router }) {
+export function onAuthRequired(oktaAuth, injector) {
+  const router = injector.get(Router);
+
   // Redirect the user to your custom login page
   router.navigate(['/login']);
 }
 
 const appRoutes: Routes = [
   {
-    path: 'implicit/callback',
+    path: 'login/callback',
     component: OktaCallbackComponent
   },
   {

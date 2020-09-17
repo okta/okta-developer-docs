@@ -4,6 +4,6 @@
     "description": "qualtrics-feedback plugin for okta vuepress",
     "main": "index.js",
     "peerDependencies": {
-      "vuepress": "1.2.0"
+      "vuepress": "^1.2.0"
     }
 }
