@@ -12,7 +12,7 @@ This page provides Okta's additional limits on:
 * [Concurrent requests](#concurrent-rate-limits)
 * [End-user rate limit](#end-user-rate-limits)
 * [Home page endpoints](#home-page-endpoints-and-per-minute-limits)
-* [Okta API endpoints and per-user limits](#okta-api-endpoints-and-per-user-limits)
+* [Per-user limits](#per-user-limits)
 * [Okta-generated email messages](#okta-generated-email-message-rate-limits)
 
 
@@ -75,7 +75,7 @@ These rate limits apply to all new Okta organizations. For orgs created before 2
 
 The limits for these endpoints can be increased by purchasing the [High-capacity add-on](/docs/reference/rl-legacy/#high-capacity-rate-limits).
 
-### Okta API endpoints and per-user limits
+### Per-user limits
 
 API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password:
 

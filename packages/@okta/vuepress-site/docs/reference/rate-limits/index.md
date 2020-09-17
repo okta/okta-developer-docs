@@ -11,9 +11,9 @@ To protect the service for all customers, Okta APIs are subject to rate limiting
 
 The Okta API rate limits are divided into three categories: end-user access, management, and other endpoints. Each category has APIs with rate limits that are enforced individually as well as a cumulative rate limit. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
 
-#### API rate limit categories and cumulative rate limits (requests per minute)
+#### API rate limit categories and cumulative rate limits
 
-We enforce limits at the individual API endpoint level. The cumulative limits per category are:
+We enforce limits at the individual API endpoint level **as requests per minute**. The cumulative limits per category are:
 
 > **Note:** To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
 
@@ -43,7 +43,7 @@ If an org-wide rate limit is exceeded, an HTTP 429 status code is returned. You 
 
 * [Home page endpoints and per-minute limits](/docs/reference/rl-additional-limits/#okta-home-page-endpoints-and-per-minute-limits): These endpoints are used by the Okta home page for authentication and user sign in and have org-wide rate limits.
 
-* [Legacy endpoints](/docs/reference/rl-legacy/): This content covers the rate limits for orgs that were created before 2018-05-17.
+* [Previous rate limits](/docs/reference/rl-legacy/): This content covers the rate limits for orgs that were created before 2018-05-17.
 
 * [Okta API endpoints and per-user limits](/docs/reference/rl-additional-limits/#okta-api-endpoints-and-per-user-limits): API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password.
 

@@ -30,7 +30,6 @@ This page provides the API rate limits for authentication and end-user activitie
 | `/app/template_saml_2_0/{key}/sso/saml`                                                                                | 100              | 300              | 300     | 600        | 2,500                  |
 | `/login/login.htm`                                                                                                     | 100              | 300              | 300     | 600        | 850                   |
 | `/login/sso_iwa_auth`                                                                                                  | 100              | 300              | 300     | 600        | 500                   |
-| `/login/agentlessDsso`                                                                                                 |               |               |      |         |                    |
 | `/api/{apiVersion}/radius`                                                                                             | 100              | 100              | 300     | 600        | 600                   |
 | `/idp/idx`                                                                                                             | 100              | 100              | 300     | 600        | 500                   |
 
