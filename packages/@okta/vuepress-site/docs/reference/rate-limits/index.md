@@ -11,17 +11,17 @@ To protect the service for all customers, Okta APIs are subject to rate limiting
 
 The Okta API rate limits are divided into three categories: end-user access, management, and other endpoints. Each category has APIs with rate limits that are enforced individually as well as a cumulative rate limit. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
 
-#### API rate limit categories and combined rate limits (requests per minute)
+#### API rate limit categories and cumulative rate limits (requests per minute)
 
 We enforce limits at the individual API endpoint level. The cumulative limits per category are:
 
+> **Note:** To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
+
 | Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ----------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
-| [End-user access](/docs/reference/rl-global-enduser/)             | 1600             | 3800             | 4200    | 10650      | 13300                 |
-| [Management](/docs/reference/rl-global-mgmt/)                     | 985              | 2425             | 2425    | 5200       | 7020                  |
-| [Other endpoints](/docs/reference/rl-global-other-endpoints/)     | 1000             | 3000             | 3000    | 6000       | 10000                 |
-
-> **Note:** To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
+| [Authentication/End user](/docs/reference/rl-global-enduser/)     | 1,600             | 3,800             | 4,200    | 10,650      | 13,300                 |
+| [Management](/docs/reference/rl-global-mgmt/)                     | 985              | 2,425             | 2,425    | 5,200       | 7,020                  |
+| [Other endpoints](/docs/reference/rl-global-other-endpoints/)     | 1,000             | 3,000             | 3,000    | 6,000       | 10,000                 |
 
 If an org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking [Okta's rate limiting headers](/docs/reference/rl-best-practices/#check-your-rate-limits-with-okta-s-rate-limit-headers). Additionally, if you have a One App or Enterprise organization, the Admin Console displays a banner, and you are sent an email notification when your org approaches its rate limit.
 
