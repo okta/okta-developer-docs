@@ -34,7 +34,7 @@ module.exports = [
     },
     { title: 'Rate Limits', subLinks: [
       { title: 'Rate limits overview', path: '/docs/reference/rate-limits/'},
-      { title: 'End-user access rate limits', path: '/docs/reference/rl-global-enduser/'},
+      { title: 'Authentication/End-user rate limits', path: '/docs/reference/rl-global-enduser/'},
       { title: 'Management rate limits', path: '/docs/reference/rl-global-mgmt/'},
       { title: 'Other endpoint rate limits', path: '/docs/reference/rl-global-other-endpoints/'},
       { title: 'Additional limits', path: '/docs/reference/rl-additional-limits/'},

@@ -5,7 +5,7 @@ excerpt: >-
   resources
 ---
 
-# End-user access rate limits
+# Authentication/End-user rate limits
 
 This page provides the API rate limits for authentication and end-user activities, which is part of Okta [rate limits](/docs/reference/rate-limits).
 
