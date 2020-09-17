@@ -7,7 +7,7 @@ category: management
 
 The Okta System Log records system events related to your organization in order to provide an audit trail that can be used to understand platform activity and to diagnose problems.
 
-The Okta System Log API provides near real-time read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/en/prod/Content/Topics/Reports/Reports_SysLog.htm).
+The Okta System Log API provides near real-time read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog).
 
 Often the terms "event" and "log event" are used interchangeably. In the context of this API, an "event" is an occurrence of interest within the system and "log" or "log event" is the recorded fact.
 
@@ -294,7 +294,7 @@ The request object describes details related to the HTTP request that triggers t
 
 ### GeographicalContext object
 
-Geographical Context describes a set of geographic coordinates. In addition to containing latitude and longitude data, this object also contains address data of postal code-level granularity. Within the [Client](#client-object) object, the geographical context refers to the physical location of the client when it sends the request that triggers this event. All [Transaction](#transaction-object) events with `type` equal to `WEB` will have a geographical context set. [Transaction](#transaction-object) events with `type` equal to `JOB` will have no geographical context set. The geographical context data could be missing if the geographical data for a request could not be resolved.  
+Geographical Context describes a set of geographic coordinates. In addition to containing latitude and longitude data, this object also contains address data of postal code-level granularity. Within the [Client](#client-object) object, the geographical context refers to the physical location of the client when it sends the request that triggers this event. All [Transaction](#transaction-object) events with `type` equal to `WEB` will have a geographical context set. [Transaction](#transaction-object) events with `type` equal to `JOB` will have no geographical context set. The geographical context data could be missing if the geographical data for a request could not be resolved.
 
 | Property    | Description                                                                                                          | DataType                                  | Nullable |
 | ----------- | ----------------------------------------------------------------------------------                                   | -------------------------------------     | -------- |
