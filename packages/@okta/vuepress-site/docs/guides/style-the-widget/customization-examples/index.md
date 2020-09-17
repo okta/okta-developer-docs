@@ -4,7 +4,7 @@ title: Customization examples
 
 Use the following examples to help you customize the sign-in page with your own CSS, scripts, and per-application branding.
 
-## Add your own stylesheet
+### Add your own stylesheet
 
 You can add your own stylesheet to extend the look of the sign-in page. In the embedded HTML editor, add a link to your stylesheet in the `<head>` section, below the <span v-pre>`{{{SignInWidgetResources}}}`</span> line.
 
@@ -24,7 +24,7 @@ Example:
 ...
 ```
 
-## Add your own scripts
+### Add your own scripts
 
 You can add custom JavaScript code to the sign-in page. In the embedded HTML editor, add a script in the `<head>` section, below the <span v-pre>`{{{SignInWidgetResources}}}`</span> line.
 
@@ -49,7 +49,7 @@ Example:
 ...
 ```
 
-## Per-application customization
+### Per-application customization
 
 The Okta-hosted sign-in page is application-aware. This means that your client-side customizations can understand which application caused the sign-in page to load. This is useful when you have multiple applications or brands that you want to support.
 
@@ -71,6 +71,8 @@ To access the application's client ID (which uniquely identifies the application
 ```
 
 Elsewhere in your file, using the method above, you can inspect the client ID and take action. For example, if you had a CSS file on your server that was for a particular client's CSS:
+
+> **Note:** To locate the `clientId` for an app, from the Dev Console select **Applications**, select the App that you need the `clientId` for, select the **General** tab, and then scroll down to the **Client Credentials** section of the page to copy the ID from the **Client ID** box.
 
 ```html
 <script>

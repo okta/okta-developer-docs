@@ -163,7 +163,7 @@ For a more in-depth look at styling the widget, you can watch this video:
 
 ##### Live Widget
 
-You can also play with the sass in real time with the [live widget](https://developer.okta.com/live-widget).
+You can also play with the Sass in real time with the [live widget](https://developer.okta.com/live-widget).
 
 ### Modify strings
 
