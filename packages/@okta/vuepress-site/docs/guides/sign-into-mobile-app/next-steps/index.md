@@ -3,7 +3,7 @@ title: Next steps
 ---
 You should now understand how to sign users in to your mobile applications using Okta.
 
-In this guide you signed users in to your app by opening a browser. To learn how to customize the sign-in page displayed in the browser, see [Customize the Okta-hosted sign-in page](/docs/guides/custom-hosted-signin/).
+In this guide you signed users in to your app by opening a browser. To learn how to customize the sign-in page displayed in the browser, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
 
 To learn how to protect the API endpoints that your mobile app calls, see [Protect your API endpoints](/docs/guides/protect-your-api/).
 

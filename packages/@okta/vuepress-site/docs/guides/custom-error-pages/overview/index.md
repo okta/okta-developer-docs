@@ -2,7 +2,7 @@
 title: Overview
 ---
 
-When using an Okta-hosted flow, you can create a unique sign-in experience by providing a customized [Okta URL domain](/docs/guides/custom-url-domain/) and creating an [Okta-hosted sign-in page](/docs/guides/custom-hosted-signin/) that matches your application's look and feel.
+When using an Okta-hosted flow, you can create a unique sign-in experience by providing a customized [Okta URL domain](/docs/guides/custom-url-domain/) and creating an [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/) that matches your application's look and feel.
 
 However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using the embedded HTML editor provided on the **Custom Error Pages** tab of the **Customization** page.
 
