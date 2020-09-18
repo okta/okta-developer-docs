@@ -12,7 +12,7 @@ We will now cover the terms used in this document, and an explanation of why you
 - If you'd like to see how to validate a token directly with Okta: [Validating A Token Remotely With Okta](#validating-a-token-remotely-with-okta)
 - If you want to see specifically how to accomplish this in your language of choice: [Okta Libraries to Help You Verify Access Tokens](#okta-libraries-to-help-you-verify-access-tokens)
 
-A high-level overview of OAuth 2.0 can be found [here](/docs/concepts/auth-overview/#oauth-2-0).
+A high-level overview of OAuth 2.0 can be found [here](/docs/concepts/oauth-openid/#oauth-2-0).
 
 The access tokens are in [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) format. They are signed using asynmmetrical [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
 

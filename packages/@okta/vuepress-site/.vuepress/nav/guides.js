@@ -10,10 +10,11 @@ module.exports = [
       { title: 'Enable CORS', guideName: 'enable-cors' },
       { title: 'Find your Okta domain', guideName: 'find-your-domain' },
       { title: 'Find your application credentials', guideName: 'find-your-app-credentials' },
-      { title: 'Share Application Key Credentials for IdPs Across Apps', guideName: 'sharing-cert' },
+      { title: 'Share Application Key Credentials for IdPs across Apps', guideName: 'sharing-cert' },
       { title: 'Set up SAML Tracer', guideName: 'saml-tracer' },
       { title: 'Upgrade SAML Apps to SHA256', guideName: 'updating-saml-cert' },
       { title: 'Sign the Okta certificate with your own CA', guideName: 'sign-your-own-saml-csr' },
+      { title: 'Set up self-service registration', guideName: 'set-up-self-service-registration' },
     ] 
   },
   { 
@@ -33,6 +34,7 @@ module.exports = [
       { title: 'Sign users in to your single-page application', guideName: 'sign-into-spa' },
       { title: 'Sign users in to your web application', guideName: 'sign-into-web-app' },
       { title: 'Sign users out', guideName: 'sign-users-out' },
+      { title: 'Configure Okta sign-on and App sign-on policies', guideName: 'configure-signon-policy' },
     ] 
   },
   { 
@@ -49,7 +51,10 @@ module.exports = [
         title: 'Tokens',
         subLinks: [
           { title: 'Build a JWT for Client Authentication', guideName: 'build-self-signed-jwt' },
-          { title: 'Customize tokens returned from Okta', guideName: 'customize-tokens-returned-from-okta' },
+          { title: 'Customize tokens returned from Okta with custom claims', guideName: 'customize-tokens-returned-from-okta' },
+          { title: 'Customize tokens returned from Okta with a Groups claim', guideName: 'customize-tokens-groups-claim' },
+          { title: 'Customize tokens returned from Okta with a dynamic whitelist', guideName: 'customize-tokens-dynamic' },
+          { title: 'Customize tokens returned from Okta with a static whitelist', guideName: 'customize-tokens-static' },
           { title: 'Refresh access tokens', guideName: 'refresh-tokens' },
           { title: 'Revoke Tokens', guideName: 'revoke-tokens' },
           { title: 'Work with Okta session cookies', guideName: 'session-cookie' },
@@ -64,7 +69,9 @@ module.exports = [
     subLinks: [
       { title: 'Customize the Okta-hosted error pages', guideName: 'custom-error-pages' },
       { title: 'Customize the Okta URL domain', guideName: 'custom-url-domain' },
-      { title: 'Customize the Okta-hosted sign-in page', guideName: 'custom-hosted-signin' },
+      { title: 'Style the Widget', guideName: 'style-the-widget' },
+      { title: 'Customize SMS messages', guideName: 'sms-customization' },
+      { title: 'Customize email notifications and email domains', guideName: 'email-customization' },
     ]
   },
   { 
@@ -81,6 +88,7 @@ module.exports = [
       { title: 'Implement OAuth for Okta', guideName: 'implement-oauth-for-okta' },
       { title: 'Implement OAuth for Okta with a Service App', guideName: 'implement-oauth-for-okta-serviceapp' },
       { title: 'Protect your API endpoints', guideName: 'protect-your-api' },
+      { title: 'Configure an access policy', guideName: 'configure-access-policy' },
     ]
   },
   { 

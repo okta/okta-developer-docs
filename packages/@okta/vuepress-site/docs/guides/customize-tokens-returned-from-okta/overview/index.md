@@ -1,7 +1,10 @@
 ---
 title: Overview
 ---
-Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/) that are contained in ID tokens and access tokens, you can define your own custom claims and Groups claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token. You can also add a Groups claim to ID tokens for any combination of App Groups and User Groups to perform SSO using the Okta Org Authorization Server. And, you can add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+
+Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/) that are contained in ID tokens and access tokens, you can define your own custom claims and Groups claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
+
+You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/) to ID tokens for any combination of App Groups and User Groups to perform SSO using the Okta Org Authorization Server. And, you can add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
 
 This guide assumes that you:
 

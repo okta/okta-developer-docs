@@ -5,7 +5,7 @@ excerpt: 'How to manually validate Okta JWTs with .NET (C#).'
 icon: code-angular
 ---
 
-When you use Okta to [get OAuth 2.0 or OpenID Connect tokens for a user](/docs/concepts/auth-overview/#recommended-flow-by-application-type), the response contains a signed JWT (`id_token` and/or `access_token`).
+When you use Okta to [get OAuth 2.0 or OpenID Connect tokens for a user](/docs/concepts/oauth-openid/#recommended-flow-by-application-type), the response contains a signed JWT (`id_token` and/or `access_token`).
 
 If you are writing low-level code that retrieves or uses these tokens, it's important to validate the tokens before you trust them. This guide will show you how to validate tokens manually.
 
