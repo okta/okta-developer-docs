@@ -2418,8 +2418,8 @@ is required to delete the user.
 | sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    | FALSE   |
 
 > User deletion can also be performed asynchronously. To invoke asynchronous user deletion, pass an HTTP header
-> `Prefer: respond-async` with the request. This header also invokes asynchronous user deactivation when the delete user
-> operation is performed on a user that hasn't been deactivated.
+> `Prefer: respond-async` with the request. This header is also supported by user deactivation, which will
+> be performed asynchronously if the delete endpoint is invoked on a user that has not been deactivated.
 
 ##### Response Parameters
 
