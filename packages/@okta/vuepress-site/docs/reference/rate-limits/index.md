@@ -13,9 +13,9 @@ The Okta API rate limits are divided into three categories: authentication/end u
 
 #### API rate limit categories and cumulative rate limits
 
-We enforce limits at the individual API endpoint level **as requests per minute**. The cumulative limits per category are:
+To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
 
-> **Note:** To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
+> We enforce limits at the individual API endpoint level **as requests per minute**. The cumulative limits per category are:
 
 | Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ----------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
