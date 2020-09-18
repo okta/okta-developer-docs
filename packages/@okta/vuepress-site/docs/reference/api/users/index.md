@@ -2417,12 +2417,19 @@ is required to delete the user.
 | id        | `id` of user                                                                          | URL        | String   | TRUE     |         |
 | sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    | FALSE   |
 
+> User deletion can also be performed asynchronously. To invoke asynchronous user deletion, pass an HTTP header
+> `Prefer: respond-async` with the request. This header also invokes asynchronous user deactivation when the delete user
+> operation is performed on a user that hasn't been deactivated.
+
 ##### Response Parameters
 
 
 `204 No Content`
 
 Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
+
+#### Delete user
+
 
 ##### Request Example
 
@@ -2432,6 +2439,28 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR?sendEmail=true"
+```
+
+##### Response Example
+
+
+```http
+`204 No Content`
+```
+
+#### Delete user asynchronously
+
+
+##### Request example
+
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-H "Prefer: respond-async" \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR?sendEmail=true"
 ```
 
