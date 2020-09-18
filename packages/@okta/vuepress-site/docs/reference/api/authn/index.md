@@ -3003,7 +3003,7 @@ curl -v -X POST \
 
 #### Enroll WebAuthn Factor
 
-> **Note:** The WebAuthN Factor is available for those using the [Okta-hosted Custom Sign-In Page](/docs/guides/custom-hosted-signin/). If you are using a self-hosted, customized sign-in widget, you must first upgrade to widget version 3.4.0 and enable the [configuration option](https://github.com/okta/okta-signin-widget#configuration).
+> **Note:** The WebAuthN Factor is available for those using the [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/). If you are using a self-hosted, customized sign-in widget, you must first upgrade to widget version 3.4.0 and enable the [configuration option](https://github.com/okta/okta-signin-widget#configuration).
 
 Enrolls a user with a WebAuthn Factor. The enrollment process starts with getting the WebAuthn credential creation options, which are used to help select an appropriate authenticator using the WebAuthn API.
 This authenticator then generates an enrollment attestation that may be used to register the authenticator for the user.
