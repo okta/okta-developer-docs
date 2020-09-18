@@ -16,6 +16,8 @@ This page provides the API rate limits for authentication and end-user activitie
 > * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
 
+> We enforce limits at the individual API endpoint level **as requests per minute**.
+
 | Action and Okta API Endpoint                                                                                           | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ---------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
 | **Cumulative rate limit**                                                                                              | **1,600**        | **3,800**        | **4,200**| **10,650**| **13,300**            |
