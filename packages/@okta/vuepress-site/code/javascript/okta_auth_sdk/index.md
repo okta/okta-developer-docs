@@ -23,7 +23,7 @@ If you'd like to explore the entire Auth SDK, please see the [Okta AuthJS Source
 You will need the following things for this guide:
 
 - An Okta org - If you don't have an existing org, register for [Okta Developer Edition](https://developer.okta.com/signup/).
-- An OpenID Connect application integration. Instructions for creating one can be found on [this page](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc).
+- An OpenID Connect application integration. See the [instructions for creating an application integration](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc).
 - At least one user [assigned to the application integration](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-apps-page-show-application-embed-links).
 - An entry in your Org's "Trusted Origins" for your application. To do this, follow the steps found under the "Trusted Origins tab" section in our [API Security help page](https://help.okta.com/en/prod/okta_help_CSH.htm#Security_API).
 
