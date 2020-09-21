@@ -37,7 +37,7 @@ You can find out more about the Okta Sign-in Widget [on GitHub](https://github.c
 
 ## Custom Okta-hosted Sign-in Page
 
-If you configured a [Custom Okta-hosted Sign-in Page](/docs/guides/custom-hosted-signin/overview/), you can add a **Sign in with {IdentityProviderName}** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
+If you configured a [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/), you can add a **Sign in with {IdentityProviderName}** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
 
 ```js
 config.idps= [
