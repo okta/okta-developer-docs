@@ -12,7 +12,7 @@ The [`/authorize` endpoint](/docs/reference/api/oidc/#authorize) is the starting
 
 Currently, client-based rate limits apply to the OAuth `/authorize` endpoint on both the Okta Org Authorization server and any Custom Authorization Server. All Custom Authorization Servers share a rate limit. The Org Authorization Server has a separate rate limit.
 
-Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/0) rate limit bucket (`/oauth2/{authorizationServerId}/v1` or `/oauth2/v1`). The per minute rate limits on these endpoints apply across an Okta tenant.
+Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/) rate limit bucket (`/oauth2/{authorizationServerId}/v1` or `/oauth2/v1`). The per minute rate limits on these endpoints apply across an Okta tenant.
 
 For example, company Example.com has 10 OAuth applications running in a production environment. Bob's team is launching a new marketing portal that is a single page OAuth application. Unaware of the rate limits on the `/authorize` endpoint, Bob's team begins running some batch testing scripts against the newly created application that makes hundreds of `/authorize` requests in a single minute. Without the client-based rate limiting framework, the new marketing portal application could potentially consume all of the per minute request limits assigned to Example.okta.com and thereby cause rate-limit violations for the rest of the users that access the other OAuth applications.
 
