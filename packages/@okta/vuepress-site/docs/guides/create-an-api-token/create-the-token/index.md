@@ -3,7 +3,7 @@ title: Create the token
 ---
 To create an API token, follow these steps:
 
-1. Sign in to your Okta organization as a user with [administrator privileges](https://help.okta.com/en/prod/Content/Topics/Security/Administrators.htm?cshid=Security_Administrators#Security_Administrators).
+1. Sign in to your Okta organization as a user with [administrator privileges](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Administrators).
 
      API tokens have the same permissions as the user who creates them, and if the user permissions change, the API token permissions also change.
 

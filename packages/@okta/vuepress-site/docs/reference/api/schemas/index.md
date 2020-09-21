@@ -6,7 +6,7 @@ excerpt: The Schemas API defines custom user profiles for Okta users and applica
 
 # Schemas API
 
-Okta's [Universal Directory](https://help.okta.com/en/prod/Content/Topics/Directory/About_Universal_Directory.htm) allows administrators to define custom user profiles for Okta users and applications.  Okta has adopted a subset [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) as the schema language to describe and validate extensible user profiles. [JSON Schema](http://json-schema.org/) is a lightweight declarative format for describing the structure, constraints, and validation of JSON documents.
+Okta's [Universal Directory](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_About_Universal_Directory) allows administrators to define custom user profiles for Okta users and applications.  Okta has adopted a subset [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) as the schema language to describe and validate extensible user profiles. [JSON Schema](http://json-schema.org/) is a lightweight declarative format for describing the structure, constraints, and validation of JSON documents.
 
 > Okta has only implemented a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).  This document should describe which parts are applicable to Okta and any extensions Okta has made to [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04)
 
@@ -1327,7 +1327,7 @@ User profile schema properties have the following standard [JSON Schema Draft 6]
  * `enum`: The value of the property is limited to one of the values specified in the enum definition.
  The list of values for the enum has to be made up of unique elements.
 
- * `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`, each schema has the following format.  
+ * `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`, each schema has the following format.
  ```json
 {
   "const": "enumValue",
