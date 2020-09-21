@@ -39,6 +39,7 @@ module.exports = [
       { title: 'Other endpoint rate limits', path: '/docs/reference/rl-global-other-endpoints/'},
       { title: 'Additional limits', path: '/docs/reference/rl-additional-limits/'},
       { title: 'Rate limit best practices', path: '/docs/reference/rl-best-practices/'},
+      { title: 'Client-based rate limits', path: '/docs/reference/rl-clientbased/'},
       { title: 'DynamicScale', path: '/docs/reference/rl-dynamic-scale/'},
       { title: 'Previous rate limits', path: '/docs/reference/rl-previous/'}
       ]
