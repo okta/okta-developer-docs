@@ -27,11 +27,11 @@ To find out more about Okta's OAuth 2.0 and OpenID Connect implementations, see 
 
 ### Sign-In Widget
 
-The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) provides an embeddable Javascript sign-in implementation that can be easily embedded into your customized sign-in page. The Sign-In Widget carries the same feature set in the standard Okta sign-in page of every tenant, along with the added flexibility to change the look and feel. Included in the widget is support for password reset, forgotten password, and strong authentication functionality - all of which are driven by policies configured in Okta. Developers don't have to write a single line of code to trigger these functions from within the widget. For consumer facing sites, social providers are also supported in the widget.
+The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) provides an embeddable JavaScript sign-in implementation that can be easily embedded into your customized sign-in page. The Sign-In Widget carries the same feature set in the standard Okta sign-in page of every tenant, along with the added flexibility to change the look and feel. Included in the widget is support for password reset, forgotten password, and strong authentication functionality - all of which are driven by policies configured in Okta. Developers don't have to write a single line of code to trigger these functions from within the widget. For consumer facing sites, social providers are also supported in the widget.
 
 ### Auth SDK
 
-For developers building a Javascript front end or Single Page App (SPA), the light-weight, JavaScript-based [Okta Auth SDK](/code/javascript/okta_auth_sdk/) gives you additional control beyond our Sign-In Widget. This Javascript SDK provides all the standard sign-in support, including password management and strong authentication. Additionally, social providers and OpenID Connect are supported through the SDK, where the appropriate ID tokens are returned for downstream authentication and authorization needs.
+For developers building a JavaScript front end or Single Page App (SPA), the light-weight, JavaScript-based [Okta Auth SDK](/code/javascript/okta_auth_sdk/) gives you additional control beyond our Sign-In Widget. This JavaScript SDK provides all the standard sign-in support, including password management and strong authentication. Additionally, social providers and OpenID Connect are supported through the SDK, where the appropriate ID tokens are returned for downstream authentication and authorization needs.
 
 ### Authentication API
 

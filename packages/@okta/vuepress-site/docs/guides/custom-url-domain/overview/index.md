@@ -7,7 +7,7 @@ Okta organizations host pages on subdomains such as `example.okta.com`. Using th
 
 For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias `login.example.com` to `example.okta.com`.
 
-> **Note:** You must first customize the Okta URL domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/custom-hosted-signin/) or [error pages](/docs/guides/custom-error-pages/).
+> **Note:** You must first customize the Okta URL domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/style-the-widget/style-okta-hosted/) or [error pages](/docs/guides/custom-error-pages/).
 
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain.
 

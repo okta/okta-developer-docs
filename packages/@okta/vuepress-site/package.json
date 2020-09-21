@@ -22,16 +22,22 @@
     "url": "https://github.com/okta/okta.github.io/issues"
   },
   "devDependencies": {
-    "@okta/vuepress-theme-default": "^0.1.0-alpha.1",
     "@okta/vuepress-theme-prose": "^0.1.0-alpha.1"
   },
   "dependencies": {
     "@okta/vuepress-plugin-qualtrics-feedback": "^1.0.0",
+    "commander": "^2.0.0",
+    "esm": "^3.0.0",
     "js-yaml": "^3.13.1",
+    "markdown-it": "^7.0.1",
     "markdown-it-attrs": "2.3.2",
-    "vue-select": "^3.4.0",
+    "node-sass": "^4.9.4",
+    "sass-loader": "^7.1.0",
     "string-replace-loader": "^2.2.0",
+    "vue": "^2.0.0",
+    "vue-select": "^3.4.0",
     "vuepress-plugin-sitemap": "^2.1.2",
+    "webpack": "^3.0.0",
     "xml2js": "^0.4.19"
   },
   "browserslist": "> 0.25%"
