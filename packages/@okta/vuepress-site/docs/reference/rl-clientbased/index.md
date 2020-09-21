@@ -103,7 +103,7 @@ When a specific client/IP/device identifier combination exceeds either the per m
 
 ### How to enable this feature
 
-<!-- need to see the UI to finish this section correctly -->
+<!-- need to see the UI to finish this section correctly and need more information on the NOTE right below-->
 
 > **Note:** For all orgs created after [Date 2020], this feature is automatically enabled.
 
