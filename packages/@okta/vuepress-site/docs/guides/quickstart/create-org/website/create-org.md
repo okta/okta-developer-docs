@@ -16,7 +16,7 @@ You can create an account on our website:
 
 5. You receive an email to activate your account. The email gives you a temporary password and also lets you know your Okta domain.
 
-	Your Okta domain is important: It’s the base URL you use to access your org.  Authorization requests for users will be directed to an endpoint that has this as its base, and any Okta API endpoints you call will also have this URL as their base.
+	Your Okta domain is important: It’s the base of the URL you use to access your org.  Authorization requests for users will be directed to an endpoint that has this as its base, and any Okta API endpoints you call will also have this URL as their base.
 
 	Record your Okta domain and your temporary password. Click the **Activate your account** button in the email.
 
