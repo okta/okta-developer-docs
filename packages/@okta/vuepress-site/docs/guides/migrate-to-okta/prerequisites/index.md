@@ -148,10 +148,10 @@ Finally, when running your tests, ensure you execute all test cases and capture 
 
 ### Create a rollback plan
 
-Identify a rollback plan for users Identify users to roll back by assigning them to an Okta group that identifies the source. Do the users already exist in Okta? If so, an export of the current user data, or a valid data source will be needed.
+Identify users to roll back by assigning them to an Okta group that identifies the source. Do the users already exist in Okta? If so, an export of the current user data, or a valid data source will be needed.
 
 Note that data migration rollback is for users only. Other items (for example, application assignment) should have their own plan. Isolate these other items by temporarily disabling those features during data migration.
 
 ### Next steps
 
-With a plan in place, you’re ready to move on to implementation, which differs according to where your data is coming from and what method you chose to use. For the purpose of this document, we’ve chosen to use the [Okta API](https://developer.okta.com/docs/reference/) and we’ll cover those steps in the next section.
+With a plan in place, you’re ready to move on to implementation, which differs according to where your data is coming from and what method you chose to use. For the purpose of this document, we’ve chosen to use the [Okta API](/docs/reference/) and we’ll cover those steps in the next section.
