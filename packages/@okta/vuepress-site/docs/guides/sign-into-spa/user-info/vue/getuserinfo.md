@@ -1,4 +1,4 @@
-Your code can get the user's profile using the [getUser()](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-vue#authgetuser) method on the [Auth](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-vue#auth) object. This object is made available in your components as `this.$auth` after you've called `Vue.use(Auth, ...)` in your application setup.
+Your code can get the user's profile using the [getUser()](https://github.com/okta/okta-vue#authgetuser) method on the [Auth](https://github.com/okta/okta-vue#auth) object. This object is made available in your components as `this.$auth` after you've called `Vue.use(Auth, ...)` in your application setup.
 
 ```vue
 <template>
