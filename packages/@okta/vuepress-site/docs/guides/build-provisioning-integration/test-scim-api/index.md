@@ -96,9 +96,7 @@ As you refine your SCIM implementation, you can share API test results with your
 1. From your Runscope dashboard, open the test result that you want to share.
 2. At the top of the test result, Change the **Private | Shareable** toggle from **Private** to **Shareable**.
 3. Copy the URL for the test result, it will look something like this:
-    ```http
-    https://www.runscope.com/radar/abcdefghijkl/m01nopq2-3456-7r8s-9012-t34567uvw890/history/123ef4gh-i567-89j0-1k2l-3m4n5o678901
-    ```
-The test results can be viewed in detail, but the test can't be edited or re-run by people outside of your team.
+    `https://www.runscope.com/radar/abcdefghijkl/m01nopq2-3456-7r8s-9012-t34567uvw890/history/123ef4gh-i567-89j0-1k2l-3m4n5o678901`.
+    The test results can be viewed in detail, but the test can't be edited or re-run by people outside of your team.
 
 <NextSectionLink/>
