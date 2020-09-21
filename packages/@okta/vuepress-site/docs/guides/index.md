@@ -8,7 +8,6 @@ guides:
  - configure-signon-policy
  - create-an-api-token
  - custom-error-pages
- - custom-hosted-signin
  - custom-url-domain
  - customize-authz-server
  - customize-tokens-returned-from-okta
@@ -47,6 +46,7 @@ guides:
  - sign-into-web-app
  - sign-users-out
  - sign-your-own-saml-csr
+ - style-the-widget
  - unlock-mobile-app-with-biometrics
  - updating-saml-cert
  - validate-access-tokens

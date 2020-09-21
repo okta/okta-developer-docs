@@ -22,7 +22,7 @@
 
 * **Do you support SAML Just-In-Time provisioning?** &mdash; With Just-in-Time provisioning, you can use a SAML assertion to create users on the fly the first time they try to log in. This eliminates the need to create user accounts in advance.
 
-* **Do you support receiving SAML user/group attribute statements?** &mdash; If **Yes**, you can add the attribute statements or group attribute statements in the provided fields. For more details on configuring attribute statements in SAML integrations, see [Create a SAML integration using AIW](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard_SAML.htm#SAMLAttributeStatements).
+* **Do you support receiving SAML user/group attribute statements?** &mdash; If **Yes**, you can add the attribute statements or group attribute statements in the provided fields. For more details on configuring attribute statements in SAML integrations, see [Create a SAML integration using AIW](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-saml).
 
 * **Can one tenant connect to multiple Identity Providers?** &mdash; Select **Yes** if your customers can set up a SAML connection between their tenant in your application and multiple external IdPs or even multiple instances inside a single IdP.
 

@@ -3069,7 +3069,7 @@ curl -v -X PUT \
 
 ##### Response example (self-service application assignment not available)
 
-If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/Content/Topics/Directory/Directory_Profile_Editor.htm#Expressions) with profile mappings (Universal Directory) and how to [update user permissions](https://help.okta.com/en/prod/Content/Topics/Directory/Directory_Profile_Editor.htm#createcustomattrib) on properties in the user profile to secure your app before enabling self-service.
+If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) with profile mappings (Universal Directory) and how to update user permissions on properties in the user profile to secure your app before enabling self-service.
 
 ``` http
 HTTP/1.1 403 Forbidden
@@ -5204,7 +5204,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/${applicationId}/tokens/${tokenId}" />
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
 Gets a token for the specified application
 
