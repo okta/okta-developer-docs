@@ -5,7 +5,7 @@ module.exports = [
   { 
     title: 'Basics', 
     subLinks: [
-      { title: 'QuickStart', guideName: 'quickstart' },
+      { title: 'Quickstart: Signing in your first user', guideName: 'quickstart' },
       { title: 'Create an API token', guideName: 'create-an-api-token' },
       { title: 'Enable CORS', guideName: 'enable-cors' },
       { title: 'Find your Okta domain', guideName: 'find-your-domain' },
