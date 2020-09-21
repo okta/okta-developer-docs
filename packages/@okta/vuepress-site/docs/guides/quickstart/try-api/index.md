@@ -58,5 +58,15 @@ For information on using Postman to explore Okta APIs, see [Use Postman with the
 
 Instead of making REST API calls directly, you can use one of the Okta SDKs provided for specific languages and frameworks. See [Languages & SDKs](/docs/) for information on getting started with them.
 
-<StackSelector snippet="try-api" />
+For example, to create a user with the Java SDK, you could use the following code:
+
+```java
+User user = UserBuilder.instance()
+    .setEmail("joe.coder@example.com")
+    .setFirstName("Joe")
+    .setLastName("Code")
+    .buildAndCreate(client);
+```
+
+The Java SDK and its documentation are available at its [GitHub Repository](https://github.com/okta/okta-sdk-java).
 
