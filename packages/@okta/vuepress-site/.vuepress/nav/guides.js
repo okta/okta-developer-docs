@@ -91,6 +91,12 @@ module.exports = [
     ]
   },
   { 
+    title: 'Deploy to Production',
+    subLinks: [
+      { title: 'Deployment checklist', guideName: 'production-deployment' },
+    ]
+  },
+  { 
     title: 'Hooks',
     subLinks: [
       { title: 'Set Up Event Hooks', guideName: 'set-up-event-hook' },
