@@ -32,6 +32,7 @@ guides:
  - sms-customization
  - submit-app
  - protect-your-api
+ - quickstart
  - refresh-tokens
  - request-user-consent
  - revoke-tokens
