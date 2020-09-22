@@ -104,4 +104,10 @@ module.exports = [
       { title: 'Implement a Password Import Inline Hook', guideName: 'password-import-hook' },    
     ] 
   },
+  {
+    title: 'Migrate from Legacy Systems',
+    subLinks: [
+      { title: 'Migrate to Okta', guideName: 'migrate-to-okta'}
+    ]
+  }
 ];

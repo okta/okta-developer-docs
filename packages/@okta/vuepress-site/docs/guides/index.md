@@ -27,6 +27,7 @@ guides:
  - implement-oauth-for-okta-serviceapp
  - implement-password
  - mfa
+ - migrate-to-okta
  - build-provisioning-integration
  - build-sso-integration
  - sms-customization
