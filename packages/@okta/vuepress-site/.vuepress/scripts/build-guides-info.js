@@ -36,7 +36,7 @@ allGuidesMeta.guides.forEach( guide => {
       guideMeta.frameworks = frameworks;
       guideMeta.mainFramework = guideMeta.mainFramework || frameworks[0];
     } else if (guideMeta.frameworks && frameworks.length) {
-      // TODO: blow up (helpfully) if this doesn't match expected
+      guideMeta.frameworks = Array.from( new Set([...guideMeta.frameworks, ...frameworks]));
     }
   });
   // If a guide had no frameworks in any section
