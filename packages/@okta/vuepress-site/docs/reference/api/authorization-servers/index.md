@@ -678,13 +678,13 @@ curl -v -X GET \
 
 ##### Response example
 
-Returns a list of [Policy Rule](#rule-object) defined in the specified Custom Authorization Server and Policy
+Returns a list of [Policy Rules](#rule-object) defined in the specified Custom Authorization Server and Policy
 
 #### Get a Policy Rule
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/policies/${policyId}/rules/${ruleId}" />
 
-Returns a Policy Rule by ID defined in the specified Custom Authorization Server and Policy
+Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy
 
 ##### Request parameters
 
@@ -769,7 +769,7 @@ Returns the [Policy Rule](#rule-object) that you created
 
 <ApiOperation method="put" url="/api/v1/authorizationServers/${authServerId}/policies/${policyId}/rules/${ruleId}" />
 
-Change the configuration of Policy Rule defined in the specified Custom Authorization Server and Policy
+Change the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy
 
 ##### Request parameters
 
@@ -1688,7 +1688,7 @@ Content-Type: application/json;charset=UTF-8
 | name          | Name of the rule                                                   | String                                         | Yes                  | Yes                    |
 | status        | Status of the rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | No                   | No                     |
 | priority      | Priority of the rule                                               | Integer                                        | No                   | No                     |
-| system        | This is set to 'true' on system rules, which cannot be deleted.    | Boolean                                        | No                   | No                     |
+| system        | This is set to 'true' on system rules, which can't be deleted.    | Boolean                                        | No                   | No                     |
 | created       | Timestamp when the rule was created                                | Date                                           | No                   | Assigned               |
 | lastUpdated   | Timestamp when the rule was last modified                          | Date                                           | No                   | Assigned               |
 | conditions    | Conditions for rule                                                | [Conditions object](#conditions-object)        | Yes                  | No                     |
