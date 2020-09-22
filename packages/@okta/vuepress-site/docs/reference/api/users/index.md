@@ -2283,7 +2283,7 @@ This operation can only be performed on users that do not have a `DEPROVISIONED`
 | userId    | ID of user                                                                            | URL        | String   | TRUE     |
 | sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    |
 
-> Note: You can also perform user deactivation asynchronously.
+> **Note:** You can also perform user deactivation asynchronously.
 > To invoke asynchronous user deactivation, pass an HTTP header `Prefer: respond-async` with the request.
 
 ##### Response Parameters
@@ -2447,9 +2447,9 @@ is required to delete the user.
 | id        | `id` of user                                                                          | URL        | String   | TRUE     |         |
 | sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    | FALSE   |
 
-> Note: You can also perform user deletion asynchronously. To invoke asynchronous user deletion, pass an HTTP header
+> **Note:** You can also perform user deletion asynchronously. To invoke asynchronous user deletion, pass an HTTP header
 > `Prefer: respond-async` with the request. This header is also supported by user deactivation, which is
-> performed asynchronously if the delete endpoint is invoked on a user that hasn't been deactivated.
+> performed if the delete endpoint is invoked on a user that hasn't been deactivated.
 
 ##### Response Parameters
 
