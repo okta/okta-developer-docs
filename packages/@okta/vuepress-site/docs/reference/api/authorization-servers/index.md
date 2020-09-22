@@ -678,7 +678,7 @@ curl -v -X GET \
 
 ##### Response example
 
-Returns a list of [Policy Rules](#rule-object) defined in the specified Custom Authorization Server and Policy
+Returns a list of [Policy Rules](#rule-object) that are defined in the specified Custom Authorization Server and Policy
 
 #### Get a Policy Rule
 
@@ -1688,7 +1688,7 @@ Content-Type: application/json;charset=UTF-8
 | name          | Name of the rule                                                   | String                                         | Yes                  | Yes                    |
 | status        | Status of the rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | No                   | No                     |
 | priority      | Priority of the rule                                               | Integer                                        | No                   | No                     |
-| system        | This is set to 'true' on system rules, which can't be deleted.    | Boolean                                        | No                   | No                     |
+| system        | This is set to 'true' on system rules, which can't be deleted.     | Boolean                                        | No                   | No                     |
 | created       | Timestamp when the rule was created                                | Date                                           | No                   | Assigned               |
 | lastUpdated   | Timestamp when the rule was last modified                          | Date                                           | No                   | Assigned               |
 | conditions    | Conditions for rule                                                | [Conditions object](#conditions-object)        | Yes                  | No                     |
