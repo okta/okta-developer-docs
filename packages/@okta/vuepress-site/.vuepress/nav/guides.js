@@ -5,6 +5,7 @@ module.exports = [
   { 
     title: 'Basics', 
     subLinks: [
+      { title: 'Quickstart: Signing in your first user', guideName: 'quickstart' },
       { title: 'Create an API token', guideName: 'create-an-api-token' },
       { title: 'Enable CORS', guideName: 'enable-cors' },
       { title: 'Find your Okta domain', guideName: 'find-your-domain' },
@@ -88,6 +89,12 @@ module.exports = [
       { title: 'Implement OAuth for Okta with a Service App', guideName: 'implement-oauth-for-okta-serviceapp' },
       { title: 'Protect your API endpoints', guideName: 'protect-your-api' },
       { title: 'Configure an access policy', guideName: 'configure-access-policy' },
+    ]
+  },
+  { 
+    title: 'Deploy to Production',
+    subLinks: [
+      { title: 'Deployment checklist', guideName: 'production-deployment' },
     ]
   },
   { 

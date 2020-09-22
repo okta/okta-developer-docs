@@ -31,7 +31,9 @@ guides:
  - build-sso-integration
  - sms-customization
  - submit-app
+ - production-deployment
  - protect-your-api
+ - quickstart
  - refresh-tokens
  - request-user-consent
  - revoke-tokens
