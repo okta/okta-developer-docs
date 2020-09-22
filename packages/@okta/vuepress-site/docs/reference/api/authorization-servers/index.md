@@ -1683,19 +1683,23 @@ Content-Type: application/json;charset=UTF-8
 
 | Property      | Description                                                        | Data Type                                      | Required for Create  | Required for update    |
 | :------------ | :----------------------------------------------------------------- | :--------------------------------------------- | :------------------- | :--------------------- |
-| id            | Identifier of the rule                                             | String                                         | Assigned             | Yes                    |
-| type          | Rule type. Valid values: `RESOURCE_ACCESS`                         | String (Enum)                                  | No                   | No                     |
-| name          | Name of the rule                                                   | String                                         | Yes                  | Yes                    |
-| status        | Status of the rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | No                   | No                     |
-| priority      | Priority of the rule                                               | Integer                                        | No                   | No                     |
-| system        | This is set to 'true' on system rules, which can't be deleted.     | Boolean                                        | No                   | No                     |
-| created       | Timestamp when the rule was created                                | Date                                           | No                   | Assigned               |
-| lastUpdated   | Timestamp when the rule was last modified                          | Date                                           | No                   | Assigned               |
-| conditions    | Conditions for rule                                                | [Conditions object](#conditions-object)        | Yes                  | No                     |
-| actions       | Actions for rule, dictates lifetime of granted tokens              | [Actions Objects](#actions-object)             | No                   | No                     |
-| _links        | Hyperlinks                                                         | [Links object](/docs/reference/api/policy/#links-object-2)                | Assigned             | No                     |
+| id            | Identifier of the rule                                             | String                                         | Assigned             | True                   |
+| type          | Rule type. Valid values: `RESOURCE_ACCESS`                         | String (Enum)                                  | False                | False                  |
+| name          | Name of the rule                                                   | String                                         | True                 | True                   |
+| status        | Status of the rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | False                | False                  |
+| priority      | Priority of the rule                                               | Integer                                        | False                | False                  |
+| system        | This is set to 'true' on system rules, which can't be deleted.     | Boolean                                        | False                | False                  |
+| created       | Timestamp when the rule was created                                | Date                                           | False                | Assigned               |
+| lastUpdated   | Timestamp when the rule was last modified                          | Date                                           | False                | Assigned               |
+| conditions    | Conditions for rule                                                | [Conditions object](#conditions-object)        | True                 | False                  |
+| actions       | Actions for rule, dictates lifetime of granted tokens              | [Actions Objects](#actions-object)             | False                | False                  |
+| _links        | Hyperlinks                                                         | [Links object](/docs/reference/api/policy/#links-object-2)                | Assigned             | False                  |
 
 ##### Actions object
+
+* `accessTokenLifetimeMinutes`: minimum five minutes, maximum one day
+* `refreshTokenLifetimeMinutes`: minimum access token lifetime
+* `refreshTokenWindowMinutes`: minimum 10 minutes, maximum of five years
 
 Example from a Rule object
 
