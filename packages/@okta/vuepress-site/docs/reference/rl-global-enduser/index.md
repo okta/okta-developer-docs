@@ -19,7 +19,7 @@ This page provides the API rate limits for authentication and end-user activitie
 > We enforce limits at the individual API endpoint level **as requests per minute**.
 
 | Action and Okta API Endpoint                                                                                           | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
+| ---------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
 | **Cumulative rate limit**                                                                                              | **1,600**        | **3,800**        | **4,200**| **10,650**| **13,300**            |
 | **Authenticate different end users:**<br>`/api/v1/authn`                                                               | 100              | 300              | 300     | 600        | 500                   |
 | **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only                                     | 100              | 300              | 300     | 600        | 500                   |

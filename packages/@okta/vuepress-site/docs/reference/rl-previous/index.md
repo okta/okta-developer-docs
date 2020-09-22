@@ -16,7 +16,7 @@ If your needs exceed Okta's rate limits, you can purchase the High Capacity Rate
 The following are the high capacity rate limits per minute that apply across the Okta API for these endpoints:
 
 | Endpoint                                                                   | One App   | Enterprise   |
-| -------------------------------------------------------------------------- | --------- | ------------ |
+| -------------------------------------------------------------------------- | ---------: | ------------: |
 | `/oauth2/{authorizationServerId}/v1`                                       | 3000      | 6000         |
 | `/oauth2/v1` except `/oauth2/v1/clients`                                   | 3000      | 6000         |
 | `/api/v1`                                                                  | 1500      | 3000         |
