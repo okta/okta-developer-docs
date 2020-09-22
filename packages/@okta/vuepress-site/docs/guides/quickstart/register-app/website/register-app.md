@@ -10,7 +10,7 @@ In the Developer Console, complete these steps:
 
 5. Leave **Base URI** set to the default. This is the domain where your app runs. For this quick start guide, we'll use `localhost`, which is where the sample apps run by default. You might need to change the port, depending on the default port your framework uses to serve `localhost` pages. 
 
-6. Leave **Login redirect URIs** set to the default. Okta sends OAuth authorization responses to these URIs, which are also known as callback endpoints.
+6. For **Login redirect URIs**, enter: `http://localhost:8080/login/callback`. Okta sends OAuth authorization responses to the specified URIs, which are also known as callback endpoints.
 
 5. Leave **Logout redirect URIs** set to the default. This setting lets you specify a URI to redirect the user’s browser to when they sign out.
 
