@@ -95,6 +95,7 @@ module.exports = [
     title: 'Deploy to Production',
     subLinks: [
       { title: 'Deployment checklist', guideName: 'production-deployment' },
+      { title: 'Migrate to Okta', guideName: 'migrate-to-okta'},
     ]
   },
   { 
@@ -103,5 +104,5 @@ module.exports = [
       { title: 'Set Up Event Hooks', guideName: 'set-up-event-hook' },
       { title: 'Implement a Password Import Inline Hook', guideName: 'password-import-hook' },    
     ] 
-  },
+  }
 ];
