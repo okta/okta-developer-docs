@@ -10,10 +10,10 @@ One easy way to deploy your JavaScript app to production with Okta is with Herok
 
 To begin, install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and run `heroku login`.
 
-You can deploy your JavaScript application to Heroku in 5 steps:
+You can deploy your JavaScript application to Heroku in five steps:
 
-1. Run `heroku create`
-2. Add the Git remote that's created as a remote for your project
+1. Run `heroku create`.
+2. Add the Git remote that's created as a remote for your project.
 
        git remote add heroku <heroku-repo>
 
@@ -39,7 +39,7 @@ You can deploy your JavaScript application to Heroku in 5 steps:
      }
     }
     ```
-4. For `static.json` to be read, you have to use the [Heroku static buildpack](https://github.com/heroku/heroku-buildpack-static). The static buildpack will run `npm run build` by default. For Angular, add `--prod` to the build script.
+4. For `static.json` to be read, you have to use the [Heroku static buildpack](https://github.com/heroku/heroku-buildpack-static). The static buildpack runs `npm run build` by default. For Angular, add `--prod` to the build script.
 
    ```json
    "scripts": {
@@ -68,7 +68,7 @@ If your branch isn't named `master`, run:
 git push --set-upstream heroku <branch-name>
 ```
 
-You won't be able to log in to your application until you add your Heroku app's URLs to your Login redirect URIs, Logout redirect URIs, and Trusted Origins on Okta.
+You won't be able to sign in to your application until you add your Heroku app's URLs to your Login redirect URIs, Logout redirect URIs, and Trusted Origins on Okta.
 
 For more information, see [Angular Deployment with a Side of Spring Boot](https://developer.okta.com/blog/2020/05/29/angular-deployment). This blog post includes instructions for deploying to Heroku, Firebase, Netlify, and AWS S3.
 
