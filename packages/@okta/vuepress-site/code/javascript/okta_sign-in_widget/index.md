@@ -328,9 +328,11 @@ See the [Okta React + Custom Login Example](https://github.com/okta/samples-js-r
 
 ### Vue
 
+<!--
 The [Okta Sign-In Widget and Vue guide](/code/vue/okta_vue_sign-in_widget/) shows the code you'll need to embed the Sign-In Widget in a Vue app.
 
 ^^ todo: <https://github.com/okta/okta-developer-docs/issues/1440>
+-->
 
 See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue/tree/master/custom-login) for a working example.
 
@@ -348,12 +350,15 @@ The good news is our mobile SDKs provide support for you to build your own UI.
 - iOS:
     - [Authenticate a User](https://github.com/okta/okta-auth-swift#authenticate-a-user)
     - [Okta iOS Custom Sign In Example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
+
+<!--
 - React Native
     - todo: okta-react-native has no docs like Android does - <https://github.com/okta/okta-react-native/issues/7>
     - [Okta React Native Custom Sign In Example](https://github.com/okta/samples-js-react-native/tree/master/custom-sign-in)
 - Xamarin
     - todo: link to code section of Xamarin SDK README that shows code for custom UI
     - todo: link to custom sign in example - <https://github.com/okta/okta-oidc-xamarin/issues/15>
+-->
 
 You can also develop your mobile app with frameworks like Ionic and Flutter. We currently don't have native SDKs for either, but they should work with an AppAuth library. We recommend [Ionic AppAuth](https://github.com/wi3land/ionic-appauth) and the [Flutter AppAuth Plugin](https://pub.dev/packages/flutter_appauth).
 
