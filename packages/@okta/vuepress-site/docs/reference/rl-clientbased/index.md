@@ -36,7 +36,7 @@ Bob and Alice are working from home and have distinct IP addresses. Both Bob and
 
 Let's assume the org-wide quota for the `/authorize` endpoint is a total of 2,000 requests per minute on Custom Authorization Servers. For some reason, Bob decides to run a batch job that triggers about 2,000 `/authorize` requests per minute. Without the client-based rate-limiting framework, Bob would consume the entirety of the total allowed requests per minute (2,000 requests per minute). This would result in HTTP 429 errors for both Bob and Alice, which makes the application inaccessible for everyone.
 
-With the client-based rate-limiting framework enabled, after Bob exceeds his individual limit of 60 requests per minute, requests that originate from Bob's IP address would start receiving HTTP 429 errors. Alice could continue to access the application without any issues.
+With the client-based rate-limiting framework enabled, after Bob exceeds his individual limit of 60 requests per minute, HTTP 429 errors are sent. Requests that originate from Bob's IP address, and the specific device from which the requests are made, start receiving the errors. Alice could continue to access the application without any issues.
 
 ![Client-based isolation for a unique IP address](/img/diagram1.png "Displays Bob as portal123 IP1 and Alice as portal123 IP2, both making authorize requests")
 
@@ -50,7 +50,7 @@ Alice, Bob, and Lisa all work from the same office. Since they access Okta throu
 * Bob: (NAT IP + portal123 + Device2 ID) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
 * Lisa: (NAT IP + portal123 + Device3 ID) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
 
-> **Note:** When the requests are made using a non-browser client, the device cookie isn't present. In that case, such requests fall under a common quota with the device cookie being null (NAT IP + portal123 + null).
+> **Note:** The device identifier is derived from a cookie (`dt` cookie) that Okta sets in the browser when the first request is made to Okta. When the requests are made using a non-browser client, the device cookie isn't present. In that case, such requests fall under a common quota with the device identifier being null (NAT IP + portal123 + null).
 
 #### Client-based isolation for users accessing `/authorize` through a proxy
 
@@ -74,9 +74,9 @@ When an individual user violates the per minute requests limit assigned to them,
 
 * `system.client.concurrency_rate_limit.violation`: This event is fired when the framework is in Enable mode. This event is fired when a specific client, IP address, or device identifier combination makes more than two concurrent requests. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
-* `system.client.rate_limit.violation.preview `: This event is fired when the framework is in Preview mode. This event is fired when a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the end user wouldn't see a rate-limit violation. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
+* `system.client.rate_limit.notification `: This event is fired when the framework is in Preview mode. This event is fired when a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the end user wouldn't see a rate-limit violation. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
-* `system.client.concurrency_rate_limit.violation.preview`: This event is fired when the framework is turned on in Preview mode. This event is fired when a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user wouldn't see a rate-limit violation. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
+* `system.client.concurrency_rate_limit.notification`: This event is fired when the framework is turned on in Preview mode. This event is fired when a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user wouldn't see a rate-limit violation. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
 
 ### Check your rate limits with Okta Rate Limit headers
 
@@ -99,7 +99,7 @@ X-Rate-Limit-Remaining: 35
 X-Rate-Limit-Reset: 1516307596
 ```
 
-When a specific client/IP/device identifier combination exceeds either the per minute request limit (500 request per minute) or the concurrent limit (two concurrent requests), the `/authorize` request returns an HTTP 429 error.
+When a specific client/IP/device identifier combination exceeds either the per minute request limit (60 requests per minute) or the concurrent limit (two concurrent requests), the `/authorize` request returns an HTTP 429 error.
 
 ### How to enable this feature
 
@@ -141,3 +141,6 @@ For existing orgs, to configure client-based rate limiting:
 
 **Question:** How can I find out if client-based rate limiting would be effective for my Okta tenant?<br>
 **Answer:** You can set the client-based rate limiting framework to **Preview** mode. In **Preview** mode, rate limiting is still based on the org-wide rate-limit values, but client-specific rate limiting error information is logged by firing System Log events. By analyzing the preview System Log events, you can determine if client-based rate limiting is effective for you.
+
+**Question:** Where does Okta get the device identifier from?
+**Answer:** The device is identified using the `dt` cookie that Okta sets in the browser when the first request is made to Okta from the browser.
