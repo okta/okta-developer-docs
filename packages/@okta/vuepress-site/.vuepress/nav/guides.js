@@ -95,7 +95,7 @@ module.exports = [
     title: 'Deploy to Production',
     subLinks: [
       { title: 'Deployment checklist', guideName: 'production-deployment' },
-      { title: 'Deploy your app', guideName: 'deploy-to-production' },
+      { title: 'Deploy your app', guideName: 'deploy-your-app' },
       { title: 'Migrate to Okta', guideName: 'migrate-to-okta'},
     ]
   },

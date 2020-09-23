@@ -33,6 +33,7 @@ guides:
  - sms-customization
  - submit-app
  - production-deployment
+ - deploy-your-app
  - protect-your-api
  - quickstart
  - refresh-tokens

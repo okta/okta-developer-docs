@@ -23,12 +23,16 @@ You can deploy your Java application to Heroku in five steps:
 1. Run `heroku create`.
 2. Add the Git remote that's created as a remote for your project.
 
-       git remote add heroku <heroku-repo>
+   ```
+   git remote add heroku <heroku-repo>
+   ```
 
 3. Run `heroku addons:create okta`.
 4. Create a `Procfile` that sets the `PORT` and your Okta configuration.
 
-        web: java -Dserver.port=$PORT -Dokta.oauth2.client-id=${OKTA_OAUTH2_CLIENT_ID_WEB} -Dokta.oauth2.client-secret=${OKTA_OAUTH2_CLIENT_SECRET_WEB} -jar target/*.jar
+   ```
+   web: java -Dserver.port=$PORT -Dokta.oauth2.client-id=${OKTA_OAUTH2_CLIENT_ID_WEB} -Dokta.oauth2.client-secret=${OKTA_OAUTH2_CLIENT_SECRET_WEB} -jar target/*.jar
+   ```
 
 5. Commit your changes and run `git push heroku master`.
 
