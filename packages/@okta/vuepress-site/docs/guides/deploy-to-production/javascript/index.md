@@ -15,7 +15,9 @@ You can deploy your JavaScript application to Heroku in five steps:
 1. Run `heroku create`.
 2. Add the Git remote that's created as a remote for your project.
 
-       git remote add heroku <heroku-repo>
+   ```
+   git remote add heroku <heroku-repo>
+   ```
 
 3. Create a `static.json` file with the configuration for secure headers and redirect all HTTP requests to HTTPS. Make sure to change `dist/<your-app>` to have the location of your app's built files.
 
@@ -37,8 +39,9 @@ You can deploy your JavaScript application to Heroku in five steps:
      "routes": {
        "/**": "index.html"
      }
-    }
-    ```
+   }
+   ```
+
 4. For `static.json` to be read, you have to use the [Heroku static buildpack](https://github.com/heroku/heroku-buildpack-static). The static buildpack runs `npm run build` by default. For Angular, add `--prod` to the build script.
 
    ```json
