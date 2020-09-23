@@ -2,8 +2,6 @@
 title: Overview
 ---
 
-## What is an access policy?
-
 Access policies help you secure your APIs by defining different access and refresh token lifetimes for a given combination of grant type, user, and scope. You create policy rules to determine if an application should be permitted to access specific information from your protected APIs and for how long. Access policies are specific to a particular authorization server and the client applications that you designate for the policy.
 
 For example, an access token for a banking API may include a `transactions:read` scope with a multi-hour token lifetime. By contrast, the lifetime of an access token for transferring funds should be only a matter of minutes.

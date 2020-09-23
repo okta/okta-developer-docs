@@ -21,13 +21,13 @@ You can use Okta to allow your users to sign in with a username/password or with
 
 You can use Okta to [secure your APIs](/docs/guides/protect-your-api/) and application backends so that only authorized users and applications can call them. Define [scopes](/docs/guides/customize-authz-server/create-scopes/), [claims](/docs/guides/customize-authz-server/create-claims/), and [configure policies](/docs/guides/configure-access-policy/) to determine who can have access to your API resources.
 
-##### You have more than one app, and you want to implement Single Sign-on (SSO)
+##### You have more than one app, and you want to implement Single Sign-On (SSO)
 
 Use Okta to allow your users to [sign in to other applications](/docs/guides/build-sso-integration/) instead of requiring them to remember separate sets of credentials for each application or service. Users can simply sign in once and access your full suite of applications.
 
 ##### You want to enforce multifactor authentication (MFA) when your users want to access sensitive data
 
-Use Okta to [enable a second level of security](/docs/guides/mfa/) (SMS, Email, Voice, Biometrics, Okta Verify, and so on) for every sign in or configure policies to only enforce MFA based on location, network, and device context. For instance, you can enforce MFA only if the user is signing in from a new device that is in a different country than your office.
+Use Okta to [enable a second level of security](/docs/guides/mfa/) (SMS, Email, Voice, Biometrics, Okta Verify, and so on) for every sign in or [configure policies](/docs/guides/configure-signon-policy/) to only enforce MFA based on location, network, and device context. For instance, you can enforce MFA only if the user is signing in from a new device that is in a different country than your office.
 
 ##### You want to federate your users using an existing enterprise directory
 
