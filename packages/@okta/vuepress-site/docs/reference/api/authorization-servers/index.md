@@ -640,6 +640,226 @@ curl -v -X DELETE \
 Status 204: No content
 ```
 
+### Policy Rule operations
+
+* [Policy Rule Object](#policy-rule-object)
+* [Get all Policy Rules](#get-all-policy-rules)
+* [Get a Policy Rule](#get-a-policy-rule)
+* [Create a Policy Rule](#create-a-policy-rule)
+* [Update a Policy Rule](#update-a-policy-rule)
+* [Delete a Policy Rule](#delete-a-policy-rule)
+
+#### Policy Rule Object
+
+When you use these API endpoints to create or modify a Policy Rule resource, the response looks like: [Policy Rule Object](#rule-object)
+
+#### Get all Policy Rules
+
+<ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/policies/${policyId}/rules" />
+
+Returns all the Policy Rules for the specified Custom Authorization Server and Policy
+
+##### Request parameters
+
+| Parameter               | Description                         | Type     | Required |
+| :---------------------- | :------------------------------     | :------- | :------- |
+| authServerId            | ID of a Custom Authorization Server | String   | True     |
+| policyId                | ID of a Policy                      | String   | True     |
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4/rules"
+```
+
+##### Response example
+
+Returns a list of [Policy Rules](#rule-object) that are defined in the specified Custom Authorization Server and Policy
+
+#### Get a Policy Rule
+
+<ApiOperation method="get" url="/api/v1/authorizationServers/${authServerId}/policies/${policyId}/rules/${ruleId}" />
+
+Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy
+
+##### Request parameters
+
+| Parameter               | Description                         | Type     | Required |
+| :---------------------- | :------------------------------     | :------- | :------- |
+| authServerId            | ID of a Custom Authorization Server | String   | True     |
+| policyId                | ID of a Policy                      | String   | True     |
+| ruleId                  | ID of a Rule                        | String   | True     |
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4/rules/0pruenaDjuiNy7qwo0g3"
+```
+
+##### Response example
+
+Returns the [Policy Rule](#rule-object) that you requested
+
+#### Create a Policy Rule
+
+<ApiOperation method="post" url="/api/v1/authorizationServers/${authServerId}/policies/${policyId}/rules" />
+
+Create a Policy Rule for the specified Custom Authorization Server and Policy
+
+##### Request parameters
+
+[Policy Rule Object](#rule-object)
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "type": "RESOURCE_ACCESS",
+    "name": "Default Policy Rule",
+    "priority": 1,
+    "conditions": {
+      "people": {
+        "groups": {
+          "include": [
+            "EVERYONE"
+          ]
+        }
+      },
+      "grantTypes": {
+        "include": [
+          "implicit",
+          "client_credentials",
+          "authorization_code",
+          "password"
+        ]
+      },
+      "scopes": {
+        "include": [
+          "*"
+        ]
+      }
+    },
+    "actions": {
+      "token": {
+        "accessTokenLifetimeMinutes": 60,
+        "refreshTokenLifetimeMinutes": 0,
+        "refreshTokenWindowMinutes": 10080
+      }
+    }
+}' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4/rules"
+```
+
+##### Response example
+
+Returns the [Policy Rule](#rule-object) that you created
+
+#### Update a Policy Rule
+
+<ApiOperation method="put" url="/api/v1/authorizationServers/${authServerId}/policies/${policyId}/rules/${ruleId}" />
+
+Change the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy
+
+##### Request parameters
+
+| Parameter               | Description                         | Type     | Required |
+| :---------------------- | :------------------------------     | :------- | :------- |
+| authServerId            | ID of a Custom Authorization Server | String   | True     |
+| policyId                | ID of a Policy                      | String   | True     |
+| ruleId                  | ID of a Rule                        | String   | True     |
+
+##### Request example
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "type": "RESOURCE_ACCESS",
+    "status": "ACTIVE",
+    "name": "Default Policy Rule",
+    "priority": 1,
+    "conditions": {
+      "people": {
+        "groups": {
+          "include": [
+            "EVERYONE"
+          ]
+        }
+      },
+      "grantTypes": {
+        "include": [
+          "implicit",
+          "client_credentials",
+          "authorization_code",
+          "password"
+        ]
+      },
+      "scopes": {
+        "include": [
+            "openid",
+            "email",
+            "address"
+        ]
+      }
+    },
+    "actions": {
+      "token": {
+        "accessTokenLifetimeMinutes": 60,
+        "refreshTokenLifetimeMinutes": 0,
+        "refreshTokenWindowMinutes": 10080
+      }
+    }
+}' "https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4/rules/0pruenaDjuiNy7qwo0g3"
+```
+
+##### Response example
+
+Returns the [Policy Rule](#rule-object) that you updated
+
+#### Delete a Policy Rule
+
+<ApiOperation method="DELETE" url="/api/v1/authorizationServers/${authServerId}/policies/${policyId}/rules/${ruleId}" />
+
+Delete a Policy Rule defined in the specified Custom Authorization Server and Policy
+
+##### Request parameters
+
+| Parameter               | Description                         | Type     | Required |
+| :---------------------- | :------------------------------     | :------- | :------- |
+| authServerId            | ID of a Custom Authorization Server | String   | True     |
+| policyId                | ID of a Policy                      | String   | True     |
+| ruleId                  | ID of a Rule                        | String   | True     |
+
+##### Request example
+
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/authorizationServers/ausnsopoM6vBRB3PD0g3/policies/00p5m9xrrBffPd9ah0g4/rules/0pruenaDjuiNy7qwo0g3"
+```
+
+##### Response example
+
+```json
+Status 204: No content
+```
+
 ### Scope operations
 
 * [Get all scopes](#get-all-scopes)
@@ -1382,7 +1602,7 @@ Content-Type: application/json;charset=UTF-8
 ## Shared Objects
 
 * [Rule object](#rule-object)
-* [Condition object](#condition-object)
+* [Conditions object](#conditions-object)
 
 ### Rule object
 
@@ -1461,22 +1681,42 @@ Content-Type: application/json;charset=UTF-8
 
 #### Rule properties
 
-| Property     | Description                                                                                  | Type                                    | Required for create   | Required for update |
-| :----------- | :------------------------------------------------------------------------------------------- | :-------------------------------------- | :-------------------- | :------------------ |
-| actions      | An object that contains the `tokens` array, which shows lifetime durations for the tokens    | Object                                  | System generated      | System generated    |
-| conditions   | Specifies the people, Groups, grant types, and Scopes that the rule is applied to             | [Condition object](#condition-object)   | False                 | False               |
-| id           | ID of the rule                                                                               | String                                  | False                 | True                |
-| name         | Name of the rule                                                                             | String                                  | True                  | True                |
-| status       | Specifies whether requests have access to this Claim. Valid values: `ACTIVE` or `INACTIVE`   | Enum                                    | True                  | True                |
-| system       | Specifies whether the rule was created by Okta                                        | Boolean                                 | True                  | True                |
+| Property      | Description                                                        | Data Type                                      | Required for Create  | Required for update    |
+| :------------ | :----------------------------------------------------------------- | :--------------------------------------------- | :------------------- | :--------------------- |
+| id            | Identifier of the rule                                             | String                                         | Assigned             | True                   |
+| type          | Rule type. Valid values: `RESOURCE_ACCESS`                         | String (Enum)                                  | False                | False                  |
+| name          | Name of the rule                                                   | String                                         | True                 | True                   |
+| status        | Status of the rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | False                | False                  |
+| priority      | Priority of the rule                                               | Integer                                        | False                | False                  |
+| system        | This is set to 'true' on system rules, which can't be deleted.     | Boolean                                        | False                | False                  |
+| created       | Timestamp when the rule was created                                | Date                                           | False                | Assigned               |
+| lastUpdated   | Timestamp when the rule was last modified                          | Date                                           | False                | Assigned               |
+| conditions    | Conditions for rule                                                | [Conditions object](#conditions-object)        | True                 | False                  |
+| actions       | Actions for rule, dictates lifetime of granted tokens              | [Actions Objects](#actions-object)             | False                | False                  |
+| _links        | Hyperlinks                                                         | [Links object](/docs/reference/api/policy/#links-object-2)                | Assigned             | False                  |
 
-Token limits:
+##### Actions object
 
 * `accessTokenLifetimeMinutes`: minimum five minutes, maximum one day
 * `refreshTokenLifetimeMinutes`: minimum access token lifetime
 * `refreshTokenWindowMinutes`: minimum 10 minutes, maximum of five years
 
-### Condition object
+Example from a Rule object
+
+```json
+{
+"actions": {
+    "token": {
+      "accessTokenLifetimeMinutes": 60,
+      "refreshTokenLifetimeMinutes": 0,
+      "refreshTokenWindowMinutes": 10080
+    }
+  }
+}
+```
+See also the [Policy-Rule Actions object](/docs/reference/api/policy/#actions-objects) section
+
+### Conditions object
 
 Example from a Rule object
 
@@ -1522,10 +1762,12 @@ Example from a Policy object
 
 | Property     | Description                                                                                                                                                                            | Type                            | Required for create or update |
 | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ | :---------------------------- |
-| clients      | For Policies, specifies which clients are included or excluded in the Policy                                                                                                          | `include` and `exclude` lists   | True                          |
+| clients      | For Policies, specifies which clients are included or excluded in the Policy                                                                                                           | `include` and `exclude` lists   | True                          |
 | grant_type   | Can be one of the following: `authorization_code`, `password`, `refresh_token`, or `client_credentials`. Determines the mechanism Okta uses to authorize the creation of the tokens.   | Enum                            | True                          |
-| people       | For rules, specifies which Users and Groups are included or excluded in the rule                                                                                                      | `include` and `exclude` lists   | True                          |
-| scopes       | Array of Scopes this condition includes or excludes                                                                                                                                   | `include` and `exclude` lists   | True                          |
+| people       | For rules, specifies which Users and Groups are included or excluded in the rule                                                                                                       | `include` and `exclude` lists   | True                          |
+| scopes       | Array of Scopes this condition includes or excludes                                                                                                                                    | `include` and `exclude` lists   | True                          |
+
+See also the [Policy-Rule Conditions object](/docs/reference/api/policy/#conditions-object-2) section
 
 ## Client Resource operations
 
