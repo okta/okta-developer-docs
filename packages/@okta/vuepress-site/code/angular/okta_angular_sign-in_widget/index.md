@@ -93,7 +93,7 @@ Then, update `src/app/app.component.ts` to handle the `logout()` call:
 
 ```typescript
 // src/app/app.component.ts
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OktaAuthService } from '@okta/okta-angular';
 
@@ -103,7 +103,7 @@ import { OktaAuthService } from '@okta/okta-angular';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   isAuthenticated: boolean;
 
   constructor(public oktaAuth: OktaAuthService, public router: Router) {
@@ -179,7 +179,7 @@ import * as OktaSignIn from '@okta/okta-signin-widget';
     <div id="okta-signin-container"></div>
   `
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   signIn;
   widget = new OktaSignIn({
     baseUrl: 'https://${yourOktaDomain}',
