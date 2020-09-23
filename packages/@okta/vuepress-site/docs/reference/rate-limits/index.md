@@ -37,6 +37,8 @@ If an org-wide rate limit is exceeded, an HTTP 429 status code is returned. You 
 
 * [Concurrent rate limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits): To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from the org-wide, per-minute API rate limits, which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
 
+* [Client-based rate limits](/docs/reference/rl-clientbased/): Client-based rate limiting for the `/authorize` endpoint provides granular isolation between requests made to the `/authorize` endpoint using a combination of the Client ID, user's IP address, and Okta device identifier. This framework isolates rogue OAuth clients and bad actors, thereby ensuring valid users and applications don't run into rate limit violations.
+
 * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/): If your needs exceed Okta's default rate limits for the base product subscriptions (One App or Enterprise) that you've already purchased, the  DynamicScale add-on service grants you higher limits for a variety of endpoints across different APIs.
 
 * [End-user rate limits](/docs/reference/rl-additional-limits/#end-user-rate-limits): Okta limits the number of requests from the Admin Console and End-User Dashboard to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
