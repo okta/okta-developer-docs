@@ -1,9 +1,9 @@
 const { parentPort } = require('worker_threads')
 const escape = require('escape-html')
-const readline = require('readline')
 const { chalk, fs, path, logger } = require('@vuepress/shared-utils')
 const { createBundleRenderer } = require('vue-server-renderer')
 const { normalizeHeadTag } = require('../util/index')
+const { version } = require('../../../package')
 
 /**
  * Worker file for HTML page rendering
@@ -14,7 +14,8 @@ const { normalizeHeadTag } = require('../util/index')
  * @api private
  */
 
-parentPort.once('message', async (payload) => {
+parentPort.once('message', async payload => {
+  logger.setOptions({ logLevel: payload.logLevel })
   const siteConfig = JSON.parse(payload.siteConfig)
   const ssrTemplate = JSON.parse(payload.ssrTemplate)
 
@@ -23,25 +24,20 @@ parentPort.once('message', async (payload) => {
     clientManifest: JSON.parse(payload.clientManifest),
     runInNewContext: false,
     inject: false,
-    shouldPrefetch: siteConfig.shouldPrefetch || (() => false), // changed to false to prevent prefetch. site config was not overwriting this option
+    shouldPrefetch: siteConfig.shouldPrefetch || (() => false),
     template: await fs.readFile(ssrTemplate, 'utf-8')
   })
 
   // pre-render head tags from user config
-  const userHeadTags = (siteConfig.head || [])
-    .map(renderHeadTag)
-    .join('\n  ')
+  const userHeadTags = (siteConfig.head || []).map(renderHeadTag).join('\n  ')
 
   const pages = JSON.parse(Buffer.from(payload.pages))
-  process.stdout.write(`Worker #${payload.workerNumber} beginning rendering of ${pages.length} pages\n`)
+  logger.wait(`Worker #${payload.workerNumber} beginning rendering of ${pages.length} pages`)
   const filePaths = []
+  let pagesRendered = 0
+
   for (const page of pages) {
     const pagePath = decodeURIComponent(page.path)
-    readline.clearLine(process.stdout, 0)
-    readline.cursorTo(process.stdout, 0)
-    if (payload.verbose) {
-      process.stdout.write(`Worker #${payload.workerNumber} rendering page: ${pagePath}\n`)
-    }
 
     // #565 Avoid duplicate description meta at SSR.
     const meta = ((page.frontmatter && page.frontmatter.meta) || []).filter(
@@ -55,7 +51,8 @@ parentPort.once('message', async (payload) => {
       pageMeta,
       title: 'VuePress',
       lang: 'en',
-      description: ''
+      description: '',
+      version
     }
 
     let html
@@ -63,18 +60,38 @@ parentPort.once('message', async (payload) => {
       html = await renderer.renderToString(context)
     } catch (e) {
       console.error(
-        logger.error(chalk.red(`Worker #${payload.workerNumber} error rendering ${pagePath}:\n`), false)
+        logger.error(
+          chalk.red(
+            `Worker #${payload.workerNumber} error rendering ${pagePath}:`
+          ),
+          false
+        )
       )
       throw e
     } finally {
-      const filename = pagePath.replace(/\/$/, '/index.html').replace(/^\//, '')
+      const filename = pagePath
+        .replace(/\/$/, '/index.html')
+        .replace(/^\//, '')
       const filePath = path.resolve(payload.outDir, filename)
       await fs.ensureDir(path.dirname(filePath))
       await fs.writeFile(filePath, html)
       filePaths.push(filePath)
+      pagesRendered++
+
+      if (pagesRendered % 50 === 0) {
+        parentPort.postMessage({
+          complete: false,
+          message: `Worker #${payload.workerNumber} has rendered ${pagesRendered} of ${pages.length} pages`,
+          filePaths: null
+        })
+      }
     }
   }
-  parentPort.postMessage({ filePaths })
+  parentPort.postMessage({
+    complete: true,
+    message: `Worker #${payload.workerNumber} has rendered ${pagesRendered} of ${pages.length} pages`,
+    filePaths: filePaths
+  })
 })
 
 /**

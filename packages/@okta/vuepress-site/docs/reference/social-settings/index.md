@@ -27,7 +27,7 @@ You can enter an expression to reformat the value, if desired. For example, if t
 
 ## JIT settings
 
-**Profile Master &mdash;** If selected, the social Identity Provider is the source of truth for a user's profile attributes. This means that the next time the user signs in using the social Identity Provider, Okta updates the user profile attributes for this user. If a user is assigned multiple applications with profile mastering enabled, a prioritization in **Directory > Profile Masters** decides whether this provider is the profile master for the user's attributes. See [Attribute Level Master](https://help.okta.com/en/prod/Content/Topics/Directory/Attribute_Level_Mastering.htm?Highlight=Attribute%20Level%20Mastering).
+**Profile Master &mdash;** If selected, the social Identity Provider is the source of truth for a user's profile attributes. This means that the next time the user signs in using the social Identity Provider, Okta updates the user profile attributes for this user. If a user is assigned multiple applications with profile mastering enabled, a prioritization in **Directory > Profile Masters** decides whether this provider is the profile master for the user's attributes. See [Attribute-level mastering](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Attribute_Level_Mastering).
 
 **Group Assignments &mdash;** Allows you to assign new users to one or more existing Groups. For example, new Facebook users could be added to a "Facebook" Group.
 

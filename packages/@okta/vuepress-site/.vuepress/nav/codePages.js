@@ -13,7 +13,7 @@ module.exports = [
     title: "Front End",
     subLinks: [
       { title: 'Angular', path: '/code/angular/' },
-      { title: 'Javascript', path: '/code/javascript/' },
+      { title: 'JavaScript', path: '/code/javascript/' },
       { title: 'React', path: '/code/react/' },
       { title: 'Vue', path: '/code/vue/' }
     ]

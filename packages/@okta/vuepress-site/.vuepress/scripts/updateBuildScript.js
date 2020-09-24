@@ -4,10 +4,17 @@ const EventEmitter = require('events').EventEmitter
 const webpack = require('webpack')
 const readline = require('readline')
 const { Worker } = require('worker_threads')
-const threads = 8
-const verbose = false
 
-const { chalk, fs, path, logger, env, performance } = require('@vuepress/shared-utils')
+const workerThreads = 8
+
+const {
+  chalk,
+  fs,
+  path,
+  logger,
+  env,
+  performance
+} = require('@vuepress/shared-utils')
 const createClientConfig = require('../webpack/createClientConfig')
 const createServerConfig = require('../webpack/createServerConfig')
 const { applyUserWebpackConfig } = require('../util/index')
@@ -19,7 +26,6 @@ const { applyUserWebpackConfig } = require('../util/index')
 module.exports = class Build extends EventEmitter {
   constructor (context) {
     super()
-    process.env.NODE_ENV = 'production'
     this.context = context
     this.outDir = this.context.outDir
   }
@@ -34,7 +40,9 @@ module.exports = class Build extends EventEmitter {
 
   async process () {
     if (this.context.cwd === this.outDir) {
-      throw new Error('Unexpected option: "outDir" cannot be set to the current working directory')
+      throw new Error(
+        'Unexpected option: "outDir" cannot be set to the current working directory'
+      )
     }
 
     this.context.resolveCacheLoaderOptions()
@@ -54,37 +62,53 @@ module.exports = class Build extends EventEmitter {
     // compile!
     performance.start()
     const stats = await compile([this.clientConfig, this.serverConfig])
-    const serverBundle = require(path.resolve(this.outDir, 'manifest/server.json'))
-    const clientManifest = require(path.resolve(this.outDir, 'manifest/client.json'))
+    const serverBundle = require(path.resolve(
+      this.outDir,
+      'manifest/server.json'
+    ))
+    const clientManifest = require(path.resolve(
+      this.outDir,
+      'manifest/client.json'
+    ))
 
     // remove manifests after loading them.
     await fs.remove(path.resolve(this.outDir, 'manifest'))
 
     // ref: https://github.com/vuejs/vuepress/issues/1367
-    if (!this.clientConfig.devtool && (!this.clientConfig.plugins
-      || !this.clientConfig.plugins.some(p =>
-        p instanceof webpack.SourceMapDevToolPlugin
-        || p instanceof webpack.EvalSourceMapDevToolPlugin
-      ))) {
+    if (
+      !this.clientConfig.devtool
+      && (!this.clientConfig.plugins
+        || !this.clientConfig.plugins.some(
+          p =>
+            p instanceof webpack.SourceMapDevToolPlugin
+            || p instanceof webpack.EvalSourceMapDevToolPlugin
+        ))
+    ) {
       await workaroundEmptyStyleChunk(stats, this.outDir)
     }
 
     // if the user does not have a custom 404.md, generate the theme's default
     if (!this.context.pages.some(p => p.path === '/404.html')) {
-      await this.context.addPage({ path: '/404.html' })
+      this.context.addPage({ path: '/404.html' })
     }
 
     // render pages
     logger.wait('Rendering static HTML...')
+
     let activeWorkers = 0
     const pagePaths = []
-    const pagesPerThread = this.context.pages.length / threads
+    const pagesPerThread = this.context.pages.length / workerThreads
 
-    for (let i = 0; i < threads; i++) {
-      const startIndex = i * pagesPerThread
-      const endIndex = (startIndex + pagesPerThread) > this.context.pages.length ? this.context.pages.length + 1 : startIndex + pagesPerThread
-      const pageData = this.context.pages.slice(startIndex, endIndex)
-      const pages = pageData.map(p => ({ path: p.path, frontmatter: JSON.stringify(p.frontmatter) }))
+    for (let workerNumber = 0; workerNumber < workerThreads; workerNumber++) {
+      const startIndex = workerNumber * pagesPerThread
+      const pageData = this.context.pages.slice(
+        startIndex,
+        startIndex + pagesPerThread
+      )
+      const pages = pageData.map(p => ({
+        path: p.path,
+        frontmatter: JSON.stringify(p.frontmatter)
+      }))
 
       const payload = {
         clientManifest: JSON.stringify(clientManifest),
@@ -93,36 +117,53 @@ module.exports = class Build extends EventEmitter {
         serverBundle: JSON.stringify(serverBundle),
         siteConfig: JSON.stringify(this.context.siteConfig),
         ssrTemplate: JSON.stringify(this.context.ssrTemplate),
-        verbose: verbose,
-        workerNumber: i
+        workerNumber,
+        logLevel: logger.options.logLevel
       }
 
       const worker = new Worker(path.join(__dirname, './worker.js'))
       worker.postMessage(payload)
       activeWorkers++
-      worker.on('message', (paths) => {
-        pagePaths.concat(paths)
+      worker.on('message', response => {
+        if (response.complete) {
+          pagePaths.concat(response.filePaths)
+        }
+        if (response.message) {
+          logger.wait(response.message)
+        }
       })
-      worker.on('error', (error) => {
+      worker.on('error', error => {
         console.error(
-          logger.error(chalk.red(`Worker #${i} sent error: ${error}\n\n${error.stack}\n`), false)
+          logger.error(
+            chalk.red(`Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`),
+            false
+          )
         )
       })
-      worker.on('exit', (code) => {
+      worker.on('exit', code => {
         activeWorkers--
         if (code === 0) {
-          logger.success(`Worker ${i} completed successfully.`)
+          logger.success(`Worker ${workerNumber} completed successfully.`)
         } else {
-          logger.error(chalk.red(`Worker #${i} sent exit code: ${code}`), false)
+          logger.error(
+            chalk.red(`Worker #${workerNumber} sent exit code: ${code}`),
+            false
+          )
         }
         if (activeWorkers === 0) {
           // DONE.
           readline.clearLine(process.stdout, 0)
           readline.cursorTo(process.stdout, 0)
           const relativeDir = path.relative(this.context.cwd, this.outDir)
-          logger.success(`Generated static files in ${chalk.cyan(relativeDir)}.`)
+          logger.success(
+            `Generated static files in ${chalk.cyan(relativeDir)}.`
+          )
           const { duration } = performance.stop()
-          logger.success(`It took a total of ${chalk.cyan(`${duration}ms`)} to run the ${chalk.cyan('vuepress build')}.`)
+          logger.success(
+            `It took a total of ${chalk.cyan(
+              `${duration}ms`
+            )} to run the ${chalk.cyan('vuepress build')}.`
+          )
           console.log()
         }
       })
@@ -143,8 +184,16 @@ module.exports = class Build extends EventEmitter {
 
     const userConfig = this.context.siteConfig.configureWebpack
     if (userConfig) {
-      this.clientConfig = applyUserWebpackConfig(userConfig, this.clientConfig, false)
-      this.serverConfig = applyUserWebpackConfig(userConfig, this.serverConfig, true)
+      this.clientConfig = applyUserWebpackConfig(
+        userConfig,
+        this.clientConfig,
+        false
+      )
+      this.serverConfig = applyUserWebpackConfig(
+        userConfig,
+        this.serverConfig,
+        true
+      )
     }
   }
 }

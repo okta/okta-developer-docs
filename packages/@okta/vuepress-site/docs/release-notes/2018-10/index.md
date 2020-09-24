@@ -25,7 +25,7 @@ For more information, see [OAuth 2.0 and Okta](/docs/reference/api/oidc/). <!--O
 
 The Okta System Log records system events related to your organization in order to provide an audit trail that can be used to understand platform activity and to diagnose problems.
 
-The Okta System Log API provides near real-time read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/en/prod/Content/Topics/Reports/Reports_SysLog.htm).
+The Okta System Log API provides near real-time read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/en/prod/okta_help_CSH.htm#Reports_System_Log).
 
 Often the terms "event" and "log event" are used interchangeably. In the context of this API, an "event" is an occurrence of interest within the system and "log" or "log event" is the recorded fact.
 
