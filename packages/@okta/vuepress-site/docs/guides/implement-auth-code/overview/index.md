@@ -4,6 +4,8 @@ title: Overview
 
 If you are building a server-side (or "web") application that is capable of securely storing secrets, then the authorization code flow is the recommended method for controlling access to it.
 
+>**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
+
 At a high-level, this flow has the following steps:
 
 - Your application directs the browser to the Okta Sign-In page, where the user authenticates.
