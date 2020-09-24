@@ -366,7 +366,7 @@ The following are the formal developer documentation pages of each API:
 
 The following topic provides a list of possible System Log error events that can occur related to provisioning integrations:
 
-- [Provisioning Integration Error Events](https://help.okta.com/en/prod/Content/Topics/Reference/ref-apps-events.htm)
+- [Provisioning Integration Error Events](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_ref_apps_events)
 
 ### [support.okta.com](http://support.okta.com)
 

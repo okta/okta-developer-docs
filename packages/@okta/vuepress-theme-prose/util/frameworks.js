@@ -43,7 +43,9 @@ const COMMON_NAME_TO_FANCY_NAME = {
   microsoft: 'Microsoft',
   nodeexpress: 'Node Express',
   ga: 'Authenticator',
-  sms: 'SMS'
+  sms: 'SMS',
+  cli: 'CLI',
+  website: 'Website'
 };
 
 const COMMON_NAME_TO_ICON_NAME = {

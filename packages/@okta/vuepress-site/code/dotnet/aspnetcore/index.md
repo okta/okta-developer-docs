@@ -44,27 +44,58 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 </ul>
 
 <a href='https://github.com/okta/samples-aspnetcore'>
-	<span class='fa fa-github'></span> <span>ASP.NET Core Sample App</span>
+	<span class='fa fa-github'></span> <span>ASP.NET Core MVC & Web API Sample App</span>
 </a>
 
 ## Okta ASP.NET Core Integration
 
-Okta's integration with ASP.NET Core makes it easy to add sign-in to your ASP.NET Core applications and APIs.
+Okta's OIDC middleware integration with ASP.NET Core makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
 
 
 <a href='https://www.nuget.org/packages/Okta.AspNetCore' class="language-reference">
 	<span class='icon download-16'></span>
-	<span>ASP.NET Core integration on NuGet</span>
+	<span>Okta ASP.NET Core OIDC integration on NuGet</span>
 </a>
 
 
 <a href='https://github.com/okta/okta-aspnet'>
-	<span class='fa fa-github'></span> <span>ASP.NET Core integration Source</span>
+	<span class='fa fa-github'></span> <span>Okta ASP.NET Core OIDC integration Source</span>
 </a>
 
 ## Other .NET Libraries
 
-<Card href="" :showHeaderIcon=false cardTitle="Okta management SDK for .NET" :showFooter=false>Enable your ASP.NET application to work with Okta via OAuth 2.0/OIDC</Card>
+The Okta Management SDK for .NET uses .NET Standard and will work with both .NET Framework and .NET Core. It is helpful to work with the Okta Management API to manage users, groups, apps, etc on the fly.
+
+<ul class="language-libraries">
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-sdk-dotnet">
+			 <span>Okta Management SDK for .NET</span>
+		</a>
+	</li>
+</ul>
+
+The Okta Authentication SDK for .NET is useful if you cannot use OIDC and need your server-side code to interact with the Authentication API for handling the sign in flow.
+
+<ul class="language-libraries">
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-auth-dotnet">
+			 <span>Okta .NET Authentication SDK</span>
+		</a>
+	</li>
+</ul>
+
+The Okta SDK for Xamarin follows current best practice for native apps using ODIC, the Authorization Code Flow + PKCE.
+
+<ul class="language-libraries">
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-oidc-xamarin">
+			 <span>Okta Xamarin SDK (beta)</span>
+		</a>
+	</li>
+</ul>
 
 ## Recommended Guides
 

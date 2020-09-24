@@ -14,7 +14,7 @@ title: Okta API Products Release Notes
 
 ### Interstitial Page Settings are Generally Available
 
-You can now disable the Okta loading animation that appears during a login redirect to your application. For more information, see [Manage the Okta interstitial page](https://help.okta.com/en/prod/Content/Topics/Settings/Settings_Customization.htm#CustomInterStitialPage).
+You can now disable the Okta loading animation that appears during a login redirect to your application. For more information, see [Manage the Okta interstitial page](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Settings_Customization).
 
 ### New System Log Event Type for Denied Events
 

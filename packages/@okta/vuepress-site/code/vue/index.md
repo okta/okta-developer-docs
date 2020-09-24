@@ -38,7 +38,7 @@ The Okta Vue SDK is a wrapper around the Okta Auth SDK for communicating with OA
 </a>
 
 
-<a href='https://github.com/okta/okta-oidc-js/tree/master/packages/okta-vue'>
+<a href='https://github.com/okta/okta-vue'>
 	<span class='fa fa-github'></span> <span>Vue.js SDK Source</span>
 </a>
 

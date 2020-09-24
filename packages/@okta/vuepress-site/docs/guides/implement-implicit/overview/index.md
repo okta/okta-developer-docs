@@ -13,7 +13,7 @@ At a high level, the Implicit flow has the following steps:
 - Your application extracts the tokens from the URI.
 - Your application can now use these tokens to call the resource server (for example an API) on behalf of the user.
 
-For more information on the Implicit flow, see our [OAuth 2.0 overview](/docs/concepts/auth-overview/#implicit-flow).
+For more information on the Implicit flow, see our [OAuth 2.0 overview](/docs/concepts/oauth-openid/#implicit-flow).
 
 ## Support
 

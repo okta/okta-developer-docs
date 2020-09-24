@@ -25,7 +25,7 @@ For steps to enable this Inline Hook, see below, [Enabling a Registration Inline
 
 ## About
 
-The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Self-Service Registration](https://help.okta.com/en/prod/Content/Topics/Directory/eu-self-service.htm) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
+The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Self-Service Registration](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Self_Service_Registration) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
 
 - Set or override the values that will be populated in attributes of the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
@@ -91,7 +91,7 @@ To explicitly allow or deny registration to the user, supply a type property set
 
 Commands are applied in the order in which they appear in the array. Within a single `com.okta.user.profile.update` command, attributes are updated in the order in which they appear in the `value` object.
 
-You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. Note, however, that the values of those sensistive attributes, if included as fields in the Self-Service Registration form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
+You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. Note, however, that the values of those sensitive attributes, if included as fields in the Self-Service Registration form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
 
 #### value
 
@@ -151,7 +151,7 @@ For `com.okta.action.update` commands, `value` should be an object containing th
 }
 ```
 
-Registrations are allowed by default, so setting a value of `ALLOW` for the `action` field is valid but superfluous. 
+Registrations are allowed by default, so setting a value of `ALLOW` for the `action` field is valid but superfluous.
 
 ### error
 
