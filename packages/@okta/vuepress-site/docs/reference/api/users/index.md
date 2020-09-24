@@ -2268,7 +2268,7 @@ Content-Type: application/json
 
 Deactivates a user
 
-This operation can only be performed on users that do not have a `DEPROVISIONED` status.  Deactivation of a user is an asynchronous operation.
+This operation can only be performed on users that do not have a `DEPROVISIONED` status.
 
 * The user's `transitioningToStatus` property is `DEPROVISIONED` during deactivation to indicate that the user hasn't completed the asynchronous operation.
 * The user's status is `DEPROVISIONED` when the deactivation process is complete.
@@ -2283,10 +2283,17 @@ This operation can only be performed on users that do not have a `DEPROVISIONED`
 | userId    | ID of user                                                                            | URL        | String   | TRUE     |
 | sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    |
 
+> **Note:** You can also perform user deactivation asynchronously.
+> To invoke asynchronous user deactivation, pass an HTTP header `Prefer: respond-async` with the request.
+
 ##### Response Parameters
 
 
 Returns an empty object.
+
+#### Deactivate user synchronously
+
+
 
 ##### Request Example
 
@@ -2300,6 +2307,29 @@ curl -v -X POST \
 ```
 
 ##### Response Example
+
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
+
+#### Deactivate user asynchronously
+
+
+##### Request example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-H "Prefer: respond-async" \
+"https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate?sendEmail=true"
+```
+
+##### Response example
 
 
 ```http
@@ -2417,12 +2447,19 @@ is required to delete the user.
 | id        | `id` of user                                                                          | URL        | String   | TRUE     |         |
 | sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    | FALSE   |
 
+> **Note:** You can also perform user deletion asynchronously. To invoke asynchronous user deletion, pass an HTTP header
+> `Prefer: respond-async` with the request. This header is also supported by user deactivation, which is
+> performed if the delete endpoint is invoked on a user that hasn't been deactivated.
+
 ##### Response Parameters
 
 
 `204 No Content`
 
 Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
+
+#### Delete user synchronously
+
 
 ##### Request Example
 
@@ -2432,6 +2469,28 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR?sendEmail=true"
+```
+
+##### Response Example
+
+
+```http
+`204 No Content`
+```
+
+#### Delete user asynchronously
+
+
+##### Request example
+
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-H "Prefer: respond-async" \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR?sendEmail=true"
 ```
 
