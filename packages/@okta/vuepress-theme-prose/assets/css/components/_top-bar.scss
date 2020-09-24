@@ -1,6 +1,6 @@
 $gray-900: #2f3f4a;
 
-.top-bar-new{
+.top-bar-nav{
   display: flex;
   flex-direction: row;
   padding: 30px;
@@ -12,7 +12,7 @@ $gray-900: #2f3f4a;
     height: 75px;
     justify-content: space-between;
   }
-  .logo{
+  &--logo{
     display: block;
     -ms-flex-negative: 0;
     flex-shrink: 0;
@@ -24,7 +24,7 @@ $gray-900: #2f3f4a;
       width: 91.54967px;
     }
   }
-  .header-nav{
+  .navigation{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -56,6 +56,9 @@ $gray-900: #2f3f4a;
         }
         >li{
           margin-right: 22px;
+          height: 38px;
+          display: flex;
+          align-items: center;
         }
       
         a {
@@ -64,7 +67,6 @@ $gray-900: #2f3f4a;
           color: white; 
           &.active{
             border-bottom: 2px solid white;
-            padding-bottom: 8px;
           }
           &:hover {
             color: $white;
@@ -132,7 +134,7 @@ $gray-900: #2f3f4a;
             box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
             display: block;
             position: absolute;
-            top: 36px;
+            top: 42px;
             left: 50%;
             transform: translateX(-50%);
             padding: 25px 0;
