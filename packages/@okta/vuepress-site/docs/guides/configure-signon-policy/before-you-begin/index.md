@@ -2,8 +2,6 @@
 title: Before you begin
 ---
 
-## What is a sign-on policy
-
 An Okta Sign-On Policy helps you control who can sign in and how a user is allowed to sign in to Okta, including whether they are challenged for MFA and how long they are allowed to remain signed in before re-authenticating. Additionally, you can configure App sign-on policies for each application for extra levels of authentication that you may want performed before an application can be accessed.
 
 Add a rule to the Okta Sign-On Policy, for example, when you need to make sure that only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) can access your application, or you need to exclude certain roles in your organization from accessing it. Add a rule for an App Sign-On Policy, for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes.
