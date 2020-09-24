@@ -8,7 +8,6 @@
 .SearchBar {
     top: 0px;
     left: 0;
-    
     @include media('>tablet') {
         top: 95px;
     }
