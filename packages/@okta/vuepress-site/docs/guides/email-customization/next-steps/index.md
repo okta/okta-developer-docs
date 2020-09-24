@@ -11,3 +11,4 @@ Read more on customizating and styling various Okta assets to match your company
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/overview/)
 * [SMS customization](/docs/guides/sms-customization/)
+* [Style the Widget](/docs/guides/style-the-widget/)

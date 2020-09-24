@@ -26,7 +26,7 @@ For any access token to be valid, the following are asserted:
 
 - Signature is valid (the token was signed by a private key which has a corresponding public key in the JWKS response from the authorization server).
 - Access token is not expired (requires local system time to be in sync with Okta, checks the exp claim of the access token).
-- The `aud` claim matches any expected `aud` claim passed to `verifyAccessToken()`.
+- The `aud` claim in the jwt matches any expected `aud` claim set up in the builder.
 - The `iss` claim matches the issuer the verifier is constructed with.
 - Any custom claim assertions that you add are confirmed
 
