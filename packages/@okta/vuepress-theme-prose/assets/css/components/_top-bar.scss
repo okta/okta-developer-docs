@@ -54,12 +54,13 @@ $gray-900: #2f3f4a;
             letter-spacing: 1.5px;
           }
         }
-        >li{
+        @include media('>=tablet'){
+          >li{
           margin-right: 22px;
           height: 38px;
           display: flex;
           align-items: center;
-        }
+        }}
       
         a {
           letter-spacing: 1.5px;
