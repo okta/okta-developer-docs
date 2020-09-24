@@ -19,6 +19,11 @@ meta:
 			<i class='icon code-dotnet-32'></i><span>ASP.NET</span>
 		</RouterLink>
 	</li>
+	<li>
+		<RouterLink to='/code/dotnet/blazor/'>
+			<i class='icon code-dotnet-32'></i><span>Blazor</span>
+		</RouterLink>
+	</li>
 </ul>
 
 ## Get Started with ASP.NET Core + Okta
