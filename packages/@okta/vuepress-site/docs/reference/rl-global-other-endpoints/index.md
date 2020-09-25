@@ -5,7 +5,7 @@ excerpt: >-
   resources
 ---
 
-### Other endpoints
+# Other endpoints
 
 This page provides the API rate Limits for other endpoint activities not covered in the [Authentication/End-user](/docs/reference/rl-global-enduser) and [Management](/docs/reference/rl-global-mgmt) categories and is part of Okta [rate limits](/docs/reference/rate-limits).
 
