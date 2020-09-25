@@ -1,31 +1,41 @@
 ---
-component: Reference
-title: API Reference
-top_links:
-  - name: API Concepts
-    path: /docs/reference/api-overview/
-    icon: icons/icon--docs-apiconcepts.svg
-  - name: Error Codes
-    path: /docs/reference/error-codes/
-    icon: icons/icon--docs-errorcodes.svg
-  - name: Okta Expression Language
-    path: /docs/reference/okta-expression-language/
-    icon: icons/icon--docs-expressionlang.svg
-  - name: Postman Collections
-    path: /docs/reference/postman-collections/
-    icon: icons/icon--docs-postman.svg
+title: Rate limits overview
+excerpt: >-
+  Understand rate limits at Okta and learn how to design for efficient use of resources
 ---
 
-::: slot left
-## Sign in Your Users
-API endpoints to authenticate your users, challenge for factors, recover passwords, and more. [Learn about which APIs to use.](/docs/concepts/oauth-openid/#authentication-api-vs-oauth-20-vs-openid-connect)
+#### API rate limit categories and cumulative rate limits
 
-<CategoryLinks category="authentication" class="list--with-descriptions" />
-:::
+To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
 
-::: slot right
-## Manage Okta Resources
-REST endpoints to configure resources such as users, apps, sessions, and factors whenever you need.
+> We enforce limits at the individual API endpoint level **as requests per minute**.
+| Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
+| ----------------------------------------------------------------- | ----------------:| ----------------:| -------:| ----------:| ---------------------:|
+| [Authentication/End user](/docs/reference/rl-global-enduser/)     | 1,600            | 3,800            | 4,200   | 10,600     | 13,000                |
+| [Management](/docs/reference/rl-global-mgmt/)                     | 980              | 2,400            | 2,400   | 5,200      | 7,000                 |
+| [Other endpoints](/docs/reference/rl-global-other-endpoints/)     | 1,000            | 3,000            | 3,000   | 6,000      | 10,000                |
 
-<CategoryLinks category="management" where_exp="deprecated" :showExcerpt="false" class="list--multicolumn" sort="title" />
-:::
+If an org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking [Okta's rate limiting headers](/docs/reference/rl-best-practices/#check-your-rate-limits-with-okta-s-rate-limit-headers). Additionally, if you have a One App or Enterprise organization, the Admin Console displays a banner, and you are sent an email notification when your org approaches its rate limit.
+
+> **Notes:**
+>
+> * In addition to the rate limit per API, Okta implements limits on concurrent requests, Okta-generated email messages, end user requests, and home page endpoints. These limits are described on the [Additional limits](/docs/reference/rl-additional-limits/) page.
+> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to a variety of endpoints across different APIs for customers that purchased this add-on.
+> * Rate limits may be changed to protect customers. We provide advance warning of changes when possible.
+> * You can expand the Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
+>
+## Other applicable rate limit content
+
+* [Concurrent rate limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits): To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from the org-wide, per-minute API rate limits, which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
+
+* [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/): If your needs exceed Okta's default rate limits for the base product subscriptions (One App or Enterprise) that you've already purchased, the  DynamicScale add-on service grants you higher limits for a variety of endpoints across different APIs.
+
+* [End-user rate limits](/docs/reference/rl-additional-limits/#end-user-rate-limits): Okta limits the number of requests from the Admin Console and End-User Dashboard to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
+
+* [Home page endpoints and per-minute limits](/docs/reference/rl-additional-limits/#okta-home-page-endpoints-and-per-minute-limits): These endpoints are used by the Okta home page for authentication and user sign in and have org-wide rate limits.
+
+* [Previous rate limits](/docs/reference/rl-previous/): This content covers the rate limits for orgs that were created before 2018-05-17.
+
+* [Okta API endpoints and per-user limits](/docs/reference/rl-additional-limits/#okta-api-endpoints-and-per-user-limits): API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password.
+
+* [Okta-generated email message rate limits](/docs/reference/rl-additional-limits/#okta-generated-email-message-rate-limits): These rate limits vary by email type. Okta enforces rate limits on the number of Okta-generated email messages that are sent to customers and customer users. For example, if the number of emails sent to a given user exceeds the per-minute limit for a given email type, subsequent emails of that type are dropped for that user until that minute elapses.
