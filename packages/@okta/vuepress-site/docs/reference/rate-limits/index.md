@@ -4,11 +4,18 @@ excerpt: >-
   Understand rate limits at Okta and learn how to design for efficient use of resources
 ---
 
+# Rate limits overview
+
+To protect the service for all customers, Okta APIs are subject to rate limiting. These limits mitigate denial-of-service attacks and abusive actions such as rapidly updating configurations, aggressive polling and concurrency, or excessive API calls.
+
+The Okta API rate limits are divided into three categories: authentication/end user, management, and other endpoints. Each category has APIs with rate limits that are enforced individually as well as a cumulative rate limit. The rate limits vary by [service subscription](https://developer.okta.com/pricing/).
+
 #### API rate limit categories and cumulative rate limits
 
 To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
 
 > We enforce limits at the individual API endpoint level **as requests per minute**.
+
 | Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ----------------------------------------------------------------- | ----------------:| ----------------:| -------:| ----------:| ---------------------:|
 | [Authentication/End user](/docs/reference/rl-global-enduser/)     | 1,600            | 3,800            | 4,200   | 10,600     | 13,000                |
