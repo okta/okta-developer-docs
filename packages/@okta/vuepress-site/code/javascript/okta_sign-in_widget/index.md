@@ -308,7 +308,7 @@ function error(err) {
 ```
 
 
-## Using with Okta's SDKs
+## Using with Okta SDKs
 
 Okta provides a number of SDKs that you might want to use the Sign-In Widget with, including Angular, React, and Vue.
 
@@ -316,20 +316,20 @@ Using the Sign-In Widget with our SDKs that target the web is fairly straightfor
 
 ### Angular
 
-The [Okta Sign-In Widget and Angular guide](/code/angular/okta_angular_sign-in_widget/) shows the code you'll need to embed the Sign-In Widget in an Angular app.
+The [Okta Sign-In Widget and Angular guide](/code/angular/okta_angular_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in an Angular app.
 
 See the [Okta Angular + Custom Login Example](https://github.com/okta/samples-js-angular/tree/master/custom-login) for a working example.
 
 ### React
 
-The [Okta Sign-In Widget and React guide](/code/react/okta_react_sign-in_widget/) shows the code you'll need to embed the Sign-In Widget in a React app.
+The [Okta Sign-In Widget and React guide](/code/react/okta_react_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in a React app.
 
 See the [Okta React + Custom Login Example](https://github.com/okta/samples-js-react/tree/master/custom-login) for a working example.
 
 ### Vue
 
 <!--
-The [Okta Sign-In Widget and Vue guide](/code/vue/okta_vue_sign-in_widget/) shows the code you'll need to embed the Sign-In Widget in a Vue app.
+The [Okta Sign-In Widget and Vue guide](/code/vue/okta_vue_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in a Vue app.
 
 ^^ todo: <https://github.com/okta/okta-developer-docs/issues/1440>
 -->
@@ -340,9 +340,9 @@ See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue
 
 We also have mobile SDKs for Android, React Native, iOS, and Xamarin.
 
-For mobile apps, we've found it's difficult (or impossible) to embed the Sign-In Widget. If you redirect to Okta for authentication, you can [customize the hosted sign-in widget](/docs/guides/custom-hosted-signin/overview/). However, if you want to have a custom login form and have that provided by the Sign-In Widget, you're (currently) out of luck.
+For mobile apps, embedding the Sign-In Widget is not currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted sign-in widget](/docs/guides/custom-hosted-signin/overview/). Support is provided, however, for building your own UI in mobile apps.
 
-The good news is our mobile SDKs provide support for you to build your own UI.
+See the following examples:
 
 - Android:
     - [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
