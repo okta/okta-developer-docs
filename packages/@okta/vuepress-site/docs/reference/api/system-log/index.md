@@ -508,9 +508,9 @@ Rate limit violations are sent when a rate limit is exceeded.
 
 ### Security Events
 
-| Event                    | Description                                                                                  |
-| :-------------------     | :----------------------------------                                                          |
-| security.request.blocked | A request was blocked due to a blacklist rule (such as an IP network zone or location rule). |
+| Event                    | Description                                                                                   |
+| :-------------------     | :----------------------------------                                                           |
+| security.request.blocked | A request was blocked due to a block list rule (such as an IP network zone or location rule). |
 
 ### User Events
 
