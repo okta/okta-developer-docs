@@ -3199,7 +3199,7 @@ curl -v -X POST \
 
 ### Finish Identity Provider Transaction
 
-<ApiOperation method="POST" url=" /api/v1/idps/tx/${transactionId}/finish" />
+<ApiOperation method="POST" url="/api/v1/idps/tx/${transactionId}/finish" />
 
 Finishes an IdP Transaction
 
