@@ -41,6 +41,13 @@ export default {
     watch: {
         'link'() {
             this.setData();
+        },
+        'iHaveChildrenActive' () {
+            if (this.link.path) {
+                this.$el.scrollIntoView({
+                    block: 'nearest'
+                });
+            }
         }
     },
     methods: {
