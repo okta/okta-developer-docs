@@ -3,10 +3,9 @@ $gray-900: #2f3f4a;
 .top-bar-nav{
   display: flex;
   flex-direction: row;
-  padding: 30px;
+  padding: 27px 30px;
   align-items: center;
   font-size: 14px;
-  height: 95px;
   @include media("<=tablet") {
     padding: 20px 30px;
     height: 75px;
