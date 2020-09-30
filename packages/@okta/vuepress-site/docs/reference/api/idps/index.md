@@ -4424,7 +4424,7 @@ Content-Type: application/json
 
 <ApiOperation method="POST" url="/api/v1/idps/${idpId}/users/${userId}" />
 
-Links an Okta User to an existing [social provider](#identity-provider-object). To enable persistent account linking with a SAML Identity Provider, ensure that `honorPersistentNameId` is set to `true` and the [Name Identifier Format](/docs/reference/api/idps/#saml-2-0-settings-object) of the incoming assertion is `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`.
+Links an Okta User to an existing SAML or [social provider](#identity-provider-object). The SAML Identity Provider must have `honorPersistentNameId` set to `true` to use this API. The [Name Identifier Format](/docs/reference/api/idps/#saml-2-0-settings-object) of the incoming assertion must be `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`.
 
 ##### Request parameters
 
