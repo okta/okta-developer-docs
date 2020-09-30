@@ -43,8 +43,8 @@ body {
 
 .page-body {
   padding-top: 6rem;
-  @include media("<=tablet"){
-    padding-top: 4.5rem;
+  @media(max-width:1024px){
+    padding-top: 5rem;
   }
 }
 
