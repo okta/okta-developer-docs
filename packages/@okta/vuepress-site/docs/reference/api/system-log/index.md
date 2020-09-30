@@ -611,7 +611,7 @@ Polling requests to the `/api/v1/logs` API have the following semantics:
   - They return every event that occurs in your organization.
   - The returned events are time filtered by their internal "persistence time" to avoid skipping records due to system delays (unlike [Bounded Requests](#bounded-requests)).
   - They may return events out of order according to the `published` field.
-  - They have an infinite number of pages. That is, a [`next` `Link` relation header](#next-link-response-header) is always present, even if there are no new events (the event list may be empty).
+  - They have an infinite number of pages. That is, a [`next` `link` relation header](#next-link-response-header) is always present, even if there are no new events (the event list may be empty).
 
 ###### Bounded Requests
 Bounded requests are for situations when you know the definite time period of logs you want to retrieve.
@@ -627,7 +627,7 @@ For a request to be a _bounded_ request it must meet the following request param
 Bounded requests to the `/api/v1/logs` API have the following semantics:
   - The returned events are time filtered by their associated `published` field (unlike [Polling Requests](#polling-requests)).
   - The returned events are guaranteed to be in order according to the `published` field.
-  - They have a finite number of pages. That is, the last page does not contain a [`next` `Link` relation header](#next-link-response-header).
+  - They have a finite number of pages. That is, the last page does not contain a [`next` `link` relation header](#next-link-response-header).
   - Not all events for the specified time range may be present— events may be delayed. Such delays are rare but possible.
 
 
@@ -708,29 +708,29 @@ The `after` parameter is system generated for use in ["next" links](#next-link-r
 The response contains a JSON array of [LogEvent objects](#logevent-object).
 
 ###### Self Link Response Header
-The response always includes a `self` `Link` header, which is a link to the current query that was executed.
+The response always includes a `self` `link` header, which is a link to the current query that was executed.
 
 This header is of the form:
 ```
-Link: <url>; rel="self"
+link: <url>; rel="self"
 ```
 
 For example:
 ```
-Link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T23%3A59%3A59%2B00%3A00&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="self"
+link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T23%3A59%3A59%2B00%3A00&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="self"
 ```
 
 ###### Next Link Response Header
-The response may include a `next` `Link` header, which is a link to the next page of results, if there is one. Note that while the `self` `Link` will always exist, the `next` `Link` may not exist.
+The response may include a `next` `link` header, which is a link to the next page of results, if there is one. Note that while the `self` `link` will always exist, the `next` `link` may not exist.
 
 This header is of the form:
 ```
-Link: <url>; rel="next"
+link: <url>; rel="next"
 ```
 
 For example:
 ```
-Link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T15%3A41%3A12.994Z&after=349996bd-5091-45dc-a39f-d357867a30d7&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="next"
+link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T15%3A41%3A12.994Z&after=349996bd-5091-45dc-a39f-d357867a30d7&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="next"
 ```
 
 #### Timeouts
@@ -856,6 +856,6 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/logs?since=2017-10-01T00:00:00.000Z"
 ```
 
-and retrieve the next page of events through the [`Link` response header](/docs/reference/api-overview/#link-header) value with the `next` link relation. Continue this process until no events are returned.
+and retrieve the next page of events through the [`link` response header](/docs/reference/api-overview/#link-header) value with the `next` link relation. Continue this process until no events are returned.
 
 > Do not attempt to transfer data by manually paginating using `since` and `until` as this may lead to skipped or duplicated events. Instead, always follow the `next` links.
