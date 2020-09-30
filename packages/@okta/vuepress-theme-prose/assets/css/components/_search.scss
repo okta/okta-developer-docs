@@ -8,11 +8,11 @@
 .SearchBar {
     top: 0px;
     left: 0;
-    @media(min-width: 1024px) {
+    @include media(">desktop") {
         top: 95px;
     }
 
-    @media(min-width: 859px) {
+    @include media(">859px") {
         top: 75px;
     }
 
