@@ -263,7 +263,7 @@ curl -v -X POST \
 ##### Response Types
 
 
-HTTP 200:
+HTTP 204:
 *No Content is returned when the deactivation is successful.*
 
 ## Rules Operations
