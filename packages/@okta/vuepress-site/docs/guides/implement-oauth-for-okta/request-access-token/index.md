@@ -10,6 +10,12 @@ After you have the following, you can get an access token and make a request to 
 
 Request an access token by making a request to your Okta [Org Authorization Server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
 
+This page helps you build a request in Postman. You can also manually build the request URL and paste it into a private browser window. After you authenticate, the browser returns the access token in the address bar. Your request URL should look something like this:
+
+```
+    https://{yourOktadomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.read&redirect_ur{yourConfiguredRedirectUri}&nonce=UBGW&state=1234
+```
+
 We recommend that you always use the Authorization Code grant flow. See [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/) for details on this grant type.
 
 > **Note:** If this is your first time working with the Okta APIs, read [Get Started with the Okta REST APIs](https://developer.okta.com/code/rest/) first.
@@ -35,10 +41,5 @@ We recommend that you always use the Authorization Code grant flow. See [Impleme
     > **Note:** The lifetime for this token is fixed at one hour.
 8. Click **Use Token** at the bottom of the window to use this access token in your request to the `/users` endpoint.
 9. Click **Send**. Since you requested `okta.users.read`, the response should contain an array of all the users associated with your app. This is dependent on the user's permissions.
-
-> **Note:** You can also manually build the request URL and paste it into a private browser window. After you authenticate, the browser returns the access token in the address bar. Your request URL should look something like this:<br>
-    ```
-        https://{yourOktadomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.read&redirect_uri={yourConfiguredRedirectUri}&nonce=UBGW&state=1234
-    ```
 
 <NextSectionLink/>
