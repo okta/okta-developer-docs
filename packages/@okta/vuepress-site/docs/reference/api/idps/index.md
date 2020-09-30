@@ -5082,7 +5082,7 @@ Determines the [IdP Key Credential](#identity-provider-key-credential-object) us
 | Property   | Description                                                                                                  | DataType| Nullable | Readonly | Default                                              |
 | ---------- | ------------------------------------------------------------------------------------------------------------ | ------- | -------- | -------- | ---------------------------------------------------- |
 | nameFormat | The name identifier format to use. See [SAML 2.0 Name Identifier Formats](#saml-2-0-name-identifier-formats) | String  | TRUE     | FALSE    | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified|
-| honorPersistentNameId | Determines if the IdP should persist account linking when the incoming assertion NameID format is `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`| Boolean | FALSE | FALSE | FALSE|
+| honorPersistentNameId | Determines if the IdP should persist account linking when the incoming assertion NameID format is `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`| Boolean | TRUE | FALSE | FALSE|
 
 
 ```json
