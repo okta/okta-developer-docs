@@ -6,7 +6,7 @@ $gray-900: #2f3f4a;
   padding: 27px 30px;
   align-items: center;
   font-size: 14px;
-  @include media("<=tablet") {
+  @media(max-width:1024px) {
     padding: 20px 30px;
     height: 75px;
     justify-content: space-between;
@@ -42,7 +42,7 @@ $gray-900: #2f3f4a;
         justify-content: space-between;
         align-items: center;
         // pointer-events: none !important;
-        @include media("<=tablet"){
+        @media(max-width: 1024px){
           overflow: scroll;
           flex-direction: column;
           align-items: flex-start;
@@ -53,7 +53,7 @@ $gray-900: #2f3f4a;
             letter-spacing: 1.5px;
           }
         }
-        @include media('>=tablet'){
+        @media(min-width: 1024px){
           >li{
           margin-right: 22px;
           height: 38px;
@@ -71,7 +71,7 @@ $gray-900: #2f3f4a;
           &:hover {
             color: $white;
           }
-          @include media("<=tablet"){
+          @media(max-width:1024px){
             font-size: 16px;
             font-weight: 300;
             &.active{
@@ -88,7 +88,7 @@ $gray-900: #2f3f4a;
             vertical-align: middle;
             margin-left: 6px;
             letter-spacing: 0;
-            @include media("<=tablet"){
+            @media(max-width: 1024px){
               display: none;
             }
           }
@@ -107,7 +107,7 @@ $gray-900: #2f3f4a;
               border-top: 1px solid #d2d2d6;
               margin: 10px 24px;
             }
-            @include media("<=tablet"){
+            @media(max-width: 1024px){
               display: block;
               margin-left: 10px;
 
@@ -126,7 +126,7 @@ $gray-900: #2f3f4a;
               }
             }
         }
-        @include media(">=tablet"){
+        @media(min-width: 1024px){
         &:hover{
           .submenu{
             background: #f4f4f4;
@@ -192,17 +192,17 @@ $gray-900: #2f3f4a;
           background: cv(cerise);
           color: white;
         }
-        @include media("<=tablet"){
+        @media(max-width: 1024px){
           margin: 0;
         }
       }
-      @include media("<=tablet"){
+      @media(max-width: 1024px){
         margin-left: 0;
         margin-bottom: 35px;
         justify-content: space-around;
       }
     }
-    @include media("<=tablet") {
+    @media(max-width: 1024px) {
       display: none;
 
       &.expanded{
@@ -250,7 +250,7 @@ $gray-900: #2f3f4a;
       display: flex;
       height: 40px;
   
-      @include media(">=tablet") {
+      @media(min-width: 1025px) {
         display: none;
   
       }
