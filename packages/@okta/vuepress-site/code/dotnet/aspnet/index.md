@@ -19,6 +19,11 @@ meta:
 			<i class='icon code-dotnet-32'></i><span>ASP.NET</span>
 		</RouterLink>
 	</li>
+	<li>
+		<RouterLink to='/code/dotnet/blazor/'>
+			<i class='icon code-dotnet-32'></i><span>Blazor</span>
+		</RouterLink>
+	</li>
 </ul>
 
 ## Get Started with ASP.NET + Okta
@@ -41,6 +46,7 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 <a href='https://github.com/okta/samples-aspnet'>
   <span class='fa fa-github'></span> <span>ASP.NET MVC & Web API Sample App</span>
 </a>
+</br>
 <a href='https://github.com/okta/samples-aspnet-webforms'>
   <span class='fa fa-github'></span> <span>ASP.NET Web Forms Sample App</span>
 </a>
