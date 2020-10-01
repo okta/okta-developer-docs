@@ -5,7 +5,7 @@ integration: front-end
 icon: code-vue
 meta:
   - name: description
-    content: Add user authentication to your Vue app by using our guide and the Okta Vue SDK.
+    content: Our guide helps you to add user authentication to your Vue app, integrate with Vue Router, and suggests related content.
 ---
 
 New to Okta? Our how to guide will walk you through adding user authentication to your Vue.js app in minutes.
@@ -29,14 +29,12 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 ## Okta Vue SDK
 
-The Okta Vue SDK is a wrapper around the Okta Auth SDK for communicating with OAuth 2.0 and OpenID Connect (OIDC) providers.
-
+The Okta Vue SDK makes it easy to integrate Vue Router with Okta's OpenID Connect API to authenticate your users.
 
 <a href='https://www.npmjs.com/package/@okta/okta-vue' class="language-reference">
 	<span class='icon download-16'></span>
 	<span>okta-vue on npm</span>
 </a>
-
 
 <a href='https://github.com/okta/okta-vue'>
 	<span class='fa fa-github'></span> <span>Vue.js SDK Source</span>
@@ -44,6 +42,8 @@ The Okta Vue SDK is a wrapper around the Okta Auth SDK for communicating with OA
 
 ## Recommended Guides
 
+- [Okta Vue Overview](/code/react/okta_vue/)
+- [Okta Sign-In Widget and Vue](/code/react/okta_vue_sign-in_widget/)
 - [Implementing the PKCE Flow](/docs/guides/implement-auth-code-pkce/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)

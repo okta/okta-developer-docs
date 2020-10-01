@@ -59,7 +59,7 @@ npm install @okta/okta-angular
 > If you're using **Angular 6.x**, you'll need to install `rxjs-compat`:
 
 ```bash
-npm install rxjs-compat --save
+npm install rxjs-compat
 ```
 
 ## Create Routes
@@ -251,7 +251,7 @@ import { LoginComponent } from './login.component';
 
 const config = {
   issuer: 'https://${yourOktaDomain}/oauth2/default',
-  redirectUri: 'http://localhost:4200/login/callback',
+  redirectUri: window.location.origin + '/login/callback',
   clientId: '{clientId}',
   pkce: true
 }

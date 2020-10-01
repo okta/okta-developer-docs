@@ -35,7 +35,14 @@ If you do not already have a **Developer Edition Account**, you can create one a
 
 ## Create a React App
 
-To quickly create a React app, we recommend the create-react-app CLI. Follow their guide [here](https://github.com/facebookincubator/create-react-app#quick-overview).
+To quickly create a React app, we recommend using Create React App.
+
+```bash
+npx create-react-app okta-app
+cd okta-app
+```
+
+If you need more information, see [the Create React App getting started guide](https://create-react-app.dev/docs/getting-started).
 
 ## Install Dependencies
 
@@ -43,13 +50,13 @@ A simple way to add authentication into a React app is using the [Okta Sign-In W
 
 ```bash
 cd okta-app
-npm install @okta/okta-signin-widget --save
+npm install @okta/okta-signin-widget
 ```
 
 We'll also need `@okta/okta-react` and `react-router-dom` to manage our routes:
 
 ```bash
-npm install @okta/okta-react react-router-dom --save
+npm install @okta/okta-react react-router-dom
 ```
 
 ## Create a Widget Wrapper
@@ -72,7 +79,7 @@ export default class OktaSignInWidget extends Component {
     this.widget = new OktaSignIn({
       baseUrl: this.props.baseUrl,
       authParams: {
-        // If your app is configured to use the Implicit Flow 
+        // If your app is configured to use the Implicit Flow
         // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
         // you will need to uncomment the below line
         // pkce: false
@@ -264,7 +271,7 @@ export default withRouter(class AppWithRouterAccess extends Component {
 
   render() {
 
-    // Note: If your app is configured to use the Implicit Flow 
+    // Note: If your app is configured to use the Implicit Flow
     // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
     // you will need to add the below property to what is passed to <Security>
     //
