@@ -1,4 +1,4 @@
-Define a route that handles a path like `/implicit/callback`. Here's how to do it in [vue-router](https://router.vuejs.org/):
+Define a route that handles a path like `/login/callback`. Here's how to do it in [vue-router](https://router.vuejs.org/):
 
 
 ```javascript
@@ -7,7 +7,7 @@ Define a route that handles a path like `/implicit/callback`. Here's how to do i
 import Vue from 'vue'
 import Router from 'vue-router'
 
-const CALLBACK_PATH = '/implicit/callback'
+const CALLBACK_PATH = '/login/callback'
 
 const router = new Router({
   // router will be passed to your Vue constructor
