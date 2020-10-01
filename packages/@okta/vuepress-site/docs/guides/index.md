@@ -64,7 +64,7 @@ Learn how to accomplish a task with step-by-step instructions.
 
 The following links outline what developers need to know step-by-step to successfully deploy a single app. For custom app developers, it covers planning, designing, building, deploying, and troubleshooting apps that require user management, authentication, and API authorization.
 
-If you're using Okta as an identity layer in your app for the first time, we recommend that you start with [How Okta Works](/docs/concepts/how-okta-works/) and the [Okta Data Model](/docs/concepts/okta-data-model/), Then, you can follow the sequence of guides below or jump directly to the content that you need.
+If you're using Okta as an identity layer in your app for the first time, we recommend that you start with [How Okta Works](/docs/concepts/how-okta-works/) and the [Okta Data Model](/docs/concepts/okta-data-model/). Then, you can follow the sequence of guides below or jump directly to the content that you need.
 
 1. Get the basics
 
