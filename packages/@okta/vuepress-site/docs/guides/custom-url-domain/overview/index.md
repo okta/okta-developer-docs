@@ -21,6 +21,10 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change, for example, is to [create a custom notification](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
 
+### Quick Configuration with Cloudflare
+
+See [Custom Domain with Cloudflare](/docs/guides/custom-url-domain/cloudflare/index.md) for a quick guide that makes it possible to setup a custom domain in minutes!
+
 ### Common questions
 
 **Can I add more than one domain?**
