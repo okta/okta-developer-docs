@@ -66,6 +66,8 @@ On the left side of your screen, the test appears in the **Recent Test Runs** se
 1. As the test suite runs, Runscope displays live updates of the test in progress. After the test is complete, the main panel displays the results of your test.
 1. To see the details of tests, click the name of each particular test case to expand the section. The details show you the **Request**, **Response**, and **Connection** information for each test.
 
+<!-- temporarily removing this link due to 404 on Runscope side. OKTA-332238
 For comparison and reference, here is an example of [a successful Runscope test run](https://www.runscope.com/radar/rho3mr74kof3/05da739b-a2b2-49ce-91a0-656320deab17/history/b49431ec-662f-49b5-b382-7149eec85091) for the SCIM 2.0 CRUD test suite.
+-->
 
 <NextSectionLink/>

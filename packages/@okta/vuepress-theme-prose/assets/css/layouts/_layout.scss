@@ -43,6 +43,9 @@ body {
 
 .page-body {
   padding-top: 6rem;
+  @media(max-width:1024px){
+    padding-top: 5rem;
+  }
 }
 
 a[target='_blank']:not([href^='mailto:'])::after {
