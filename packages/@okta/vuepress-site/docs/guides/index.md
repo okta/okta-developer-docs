@@ -111,7 +111,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 ## Publish an integration
 
-Partner integrations connect your app or service to our mutual customers. One of the most common integrations is Single Sign-On (SSO): giving Okta users the ability to sign in directly to your application through Okta. Integrations can also extend Okta's functionality or integrate with your service in more complex ways.
+Partner integrations connect your app or service to our mutual customers. One of the most common integrations is Single Sign-On (SSO), which gives Okta users the ability to sign in directly to your application through Okta. Many partners also build provisioning integrations (using the SCIM protocol) to automate lifecycle management use cases for their customers. Integrations can also extend Okta's functionality or integrate with your service in more complex ways.
 
 Integrations can be published publicly in the Okta Integration network catalog, but that's entirely optional.
 
