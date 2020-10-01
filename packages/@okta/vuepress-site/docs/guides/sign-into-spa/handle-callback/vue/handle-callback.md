@@ -5,13 +5,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Auth from '@okta/okta-vue'
 
-const config = { 
+const config = {
   // Configuration here
 }
 
 Vue.use(Auth, {...config})
 
-const CALLBACK_PATH = '/implicit/callback'
+const CALLBACK_PATH = '/login/callback'
 
 const router = new Router({
   mode: 'history',

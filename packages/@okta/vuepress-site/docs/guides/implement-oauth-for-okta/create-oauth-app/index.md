@@ -5,7 +5,7 @@ Create the client application that you want to use with the Okta APIs.
 
 1. Sign in to your Okta organization as a user with administrative privileges. [Create an org for free](https://developer.okta.com/signup).
 
-    > **Note:** Make sure that you are using the Developer Console. If you see Admin Console in the top left of the page, click it and select **Developer Console** to switch.
+    > **Note:** Make sure that you are using the Developer Console. If you see **Classic UI** in the top left of the page, click it and select **Developer Console** to switch.
 
 2. Click **Applications** from the menu, and then click **Add Application**.
 
