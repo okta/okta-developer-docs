@@ -10,7 +10,7 @@ title: Okta API Products Release Notes
 
 ### Bugs fixed in 2020.09.4
 
-* When an OAuth service client called the [`/v1/authorize` endpoint](/docs/reference/api/oidc/#authorize), the returned error description was inaccurate. (OKTA-252750)
+* When an OAuth service client called the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize), the returned error description was inaccurate. (OKTA-252750)
 
 * If a user was assigned to two groups having identical roles, then a call to the `/users/${userId}/roles` endpoint to [list the administrator roles assigned](/docs/reference/api/roles/#list-roles) to the user failed with an HTTP 400 error. (OKTA-325187)
 
