@@ -75,7 +75,12 @@ module.exports = [
       { title: 'Rate Limits', link: '/docs/reference/rate-limits/'},
       { title: 'Release Life Cycle', link: '/docs/reference/releases-at-okta/'},
       { title: 'SCIM Protocol', link: '/docs/reference/scim/'},
-      { title: 'WebFinger', link: '/docs/reference/webfinger/'}
+      { title: 'WebFinger', link: '/docs/reference/webfinger/'},
+      { title: 'Advanced Server Access', subLinks: [
+        { title: 'Introduction to the Advanced Server Access API', link: '/docs/reference/api/asa/introduction/'},
+        { title: 'ASA Service Users API', link: '/docs/reference/api/asa/service-users/'},
+        ]
+      }
     ]
   },
   {
