@@ -6,18 +6,18 @@ import Router from 'vue-router'
 import Auth from '@okta/okta-vue'
 import Private from '@/components/Private' // Some component you define
 
-const config = { 
+const config = {
   // Configuration here
 }
 
 Vue.use(Auth, {...config})
 
-const CALLBACK_PATH = '/implicit/callback'
+const CALLBACK_PATH = '/login/callback'
 
 const router = new Router({
   mode: 'history',
   routes: [
-    { path: CALLBACK_PATH, component: Auth.handleCallback() }, 
+    { path: CALLBACK_PATH, component: Auth.handleCallback() },
     { path: '/private', component: Private, meta: { requiresAuth: true } },
   ]
 })
