@@ -67,7 +67,7 @@
     }
 
     .mobile-on-this-page {
-      @include media('>=tablet') {
+      @include media('>=desktop') {
         display: none;
       }
     }
@@ -120,10 +120,7 @@
 
   .on-this-page {
     width: 18%;
-    @include media('>=tablet') {
-      width: 18rem;
-    }
-    @include media('<tablet') {
+    @include media('<desktop') {
       display: none;
     }
   }
