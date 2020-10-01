@@ -75,19 +75,56 @@
 
 .mobile-on-this-page {
   margin-bottom: $base-spacing;
-
-  .vs__selected-options {
-    padding: 0.5rem;
+  h3{
+    &.mobile-header{
+    font-size: 1rem;
+  }}
+  .vs--single.vs--open {
+    .vs__selected{
+      position: relative;
+    }
   }
-  .vs__actions {
-    padding-right:1rem;
+  .vs__dropdown-toggle{
+    min-height: 45px;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    .vs__selected-options{
+      flex-basis: auto;
+      padding: 0;
+      max-width: 95%;
+      .vs__selected{
+        margin: 0;
+        padding: 0;
+      }
+    }
+    .vs__actions{
+      padding: 0;
+    }
+    .vs__search{
+      height: 0;
+      margin: 0;
+      padding: 0;
+    }
   }
   .vs__dropdown-menu {
+    overflow-x: hidden;
+    border-top-style: initial;
     
     .vs__dropdown-option {
       padding: 0.7rem 1rem;
       border-bottom: 1px solid cv('gray', '100');
-
+      width: 100%;
+      .dropdown-item{
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &.subheading{
+          margin-left: 1rem;
+        }
+      }
       &:last-child {
         border-bottom: none;
       }
