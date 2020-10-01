@@ -18,7 +18,7 @@ To access the individual API limits, visit a category page by clicking the appro
 
 | Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ----------------------------------------------------------------- | ----------------:| ----------------:| -------:| ----------:| ---------------------:|
-| [Authentication/End user](/docs/reference/rl-global-enduser/)     | 1,600            | 3,800            | 4,200   | 10,600     | 13,000                |
+| [Authentication/End user](/docs/reference/rl-global-enduser/)     | 1,600            | 8,400            | 8,400   | 10,600     | 13,000                |
 | [Management](/docs/reference/rl-global-mgmt/)                     | 980              | 2,400            | 2,400   | 5,200      | 7,000                 |
 | [Other endpoints](/docs/reference/rl-global-other-endpoints/)     | 1,000            | 3,000            | 3,000   | 6,000      | 10,000                |
 
