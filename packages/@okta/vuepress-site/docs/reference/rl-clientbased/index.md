@@ -60,29 +60,29 @@ When `/authorize` requests are made from behind a proxy IP address, make sure to
 
 The client-based rate-limiting framework can exist in one of three modes:
 
-| Mode               | Description                                                                            |
-| ------------------ | -------------------------------------------------------------------------------------- |
-| Disable            | Rate limits aren't enforced at the client-specific level. Rate limiting is based on the [org-wide Rate Limit](/docs/reference/rate-limits/#org-wide-rate-limits) values. |
-| Preview            | Rate limiting is still based on the [org-wide Rate Limit](/docs/reference/rate-limits/#org-wide-rate-limits) values, but client-specific rate limiting violation information is logged by firing System Log events. |
-| Enable (recommended)| Rate Limiting is based on client-based rate-limiting values. Client-specific rate limiting violation information is logged by firing System Log events. |
+| Mode                                     | Description                                                                                                          |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **Enforce and log per client (recommended)** | Rate limiting is based on client-based rate-limiting values. Client-specific rate limiting violation information is logged by firing System Log events. |
+| **Log per client**                          | Rate limiting is still based on the [org-wide Rate Limit](/docs/reference/rate-limits/) values, but client-specific rate limiting violation information is logged by firing System Log events. |
+| **No action**                                | Rate limits aren't enforced at the client-specific level. Rate limiting is based on the [org-wide Rate Limit](/docs/reference/rate-limits/) values. |
 
 ### System Log events
 
 When an individual user violates the per minute requests limit assigned to them, depending on which mode is set, the following System Log event is fired:
 
-* `system.client.rate_limit.violation`: This event is fired when the framework is in Enable mode. This event is fired when a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
+* `system.client.rate_limit.violation`: This event is fired when the framework is in **Enforce and log per client** mode. This event is fired when a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
-* `system.client.concurrency_rate_limit.violation`: This event is fired when the framework is in Enable mode. This event is fired when a specific client, IP address, or device identifier combination makes more than two concurrent requests. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
+* `system.client.concurrency_rate_limit.violation`: This event is fired when the framework is in **Enforce and log per client** mode. This event is fired when a specific client, IP address, or device identifier combination makes more than two concurrent requests. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
-* `system.client.rate_limit.notification `: This event is fired when the framework is in Preview mode. This event is fired when a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the end user wouldn't see a rate-limit violation. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
+* `system.client.rate_limit.notification `: This event is fired when the framework is in **Log per client** mode. This event is fired when a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the end user wouldn't see a rate-limit violation. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
-* `system.client.concurrency_rate_limit.notification`: This event is fired when the framework is turned on in Preview mode. This event is fired when a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user wouldn't see a rate-limit violation. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
+* `system.client.concurrency_rate_limit.notification`: This event is fired when the framework is turned on in **Log per client** mode. This event is fired when a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user wouldn't see a rate-limit violation. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
 
 ### Check your rate limits with Okta Rate Limit headers
 
 The Rate Limit headers returned when client-based rate limiting is enabled are very similar to the headers returned today through the [org-wide rate limits](/docs/reference/rl-best-practices/). The difference is that the header value is specific to a given client/IP/device combination rather than the org-wide Rate Limit values. Okta provides three headers in each response to report client-specific rate limits.
 
-> **Note:** If client-based rate limiting is in Preview or Disable mode, headers that are returned still reflect the org-wide rate limits.
+> **Note:** If client-based rate limiting is in **Log per client** or **No action** mode, headers that are returned still reflect the org-wide rate limits.
 
 For client-specific rate limits, three headers show the limit that is being enforced, when it resets, and how close you are to hitting the limit:
 
@@ -103,21 +103,19 @@ When a specific client/IP/device identifier combination exceeds either the per m
 
 ### How to enable this feature
 
-<!-- need to see the UI to finish this section correctly and need more information on the NOTE right below-->
-
-> **Note:** For all orgs created after [Date 2020], this feature is automatically enabled.
+> **Note:** For all orgs created after September 2020, this feature is automatically set to **Enforce and log per client (recommended)** mode.
 
 For existing orgs, to configure client-based rate limiting:
 
 > **Note:** The Admin Console is required for these steps. If you see **Developer Console** in the top left of the page, click it and select **Classic UI** to switch.
 
-1. From the Admin Console select **Reports** > **Rate Limits**, and then select the **Settings** tab.
+1. From the Admin Console select **Settings** > **Account**, and then scroll down to the **Client-based rate limiting** section.
 
-2. Select **Enable**.
+2. Select **Log and enforce client (recommended)**.
 
-    * Select **Preview** to enable client-based rate limiting in Preview mode.
+    * Select **Log per client** to enable client-based rate limiting in preview mode.
 
-    * Select **Disable** to disable client-based rate limiting.
+    * Select **No action** to disable client-based rate limiting.
 
 ### Frequently asked questions
 
@@ -140,7 +138,7 @@ For existing orgs, to configure client-based rate limiting:
 **Answer:** Yes. The header value is specific to a given client/IP/device combination rather than the org-wide rate-limit values.
 
 **Question:** How can I find out if client-based rate limiting would be effective for my Okta tenant?<br>
-**Answer:** You can set the client-based rate limiting framework to **Preview** mode. In **Preview** mode, rate limiting is still based on the org-wide rate-limit values, but client-specific rate limiting error information is logged by firing System Log events. By analyzing the preview System Log events, you can determine if client-based rate limiting is effective for you.
+**Answer:** You can set the client-based rate limiting framework to **Log per client** mode. In **Log per client** mode, rate limiting is still based on the org-wide rate-limit values, but client-specific rate limiting error information is logged by firing System Log events. By analyzing these System Log events, you can determine if client-based rate limiting is effective for you.
 
-**Question:** Where does Okta get the device identifier from?
+**Question:** Where does Okta get the device identifier from?<br>
 **Answer:** The device is identified using the `dt` cookie that Okta sets in the browser when the first request is made to Okta from the browser.
