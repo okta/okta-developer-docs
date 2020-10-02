@@ -10,10 +10,10 @@
             </svg>
 
             <div v-if="link.path">
-                <router-link :to="link.path" @click="setData" :class="{'router-link-active': link.imActive, 'router-link-exact-active': link.imActive}">{{link.title}}</router-link>
+                <router-link :to="link.path" @click="setData" :class="{'router-link-active': link.imActive, 'router-link-exact-active': iHaveChildrenActive}">{{link.title}}</router-link>
             </div>
             <div v-else>
-                <div class="is-link" @click="toggle">{{link.title}}</div>
+                <div :class="{'is-link':true, 'router-link-active': iHaveChildrenActive}" @click="toggle">{{link.title}}</div>
             </div>
         </div>
 
