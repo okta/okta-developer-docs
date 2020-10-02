@@ -5,9 +5,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Security, LoginCallback } from '@okta/okta-react';
 
-const CALLBACK_PATH = '/implicit/callback';
+const CALLBACK_PATH = '/login/callback';
 
-const App = () => { 
+const App = () => {
   return (
     <Router>
       <Security {...config} >

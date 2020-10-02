@@ -12,9 +12,60 @@ module.exports = [
   {
     title: "Front End",
     subLinks: [
-      { title: 'Angular', path: '/code/angular/' },
-      { title: 'JavaScript', path: '/code/javascript/' },
-      { title: 'React', path: '/code/react/' },
+      { 
+        title: 'Angular',
+        subLinks: 
+        [
+          {
+            title: 'Add User Authentication to Your Angular App',
+            path: '/code/angular/',
+          },
+          {
+            title: 'Angular Sign-In Widget',
+            path: '/code/angular/okta_angular_sign-in_widget/',
+          },
+          {
+            title: 'Okta Auth JS and Angular',
+            path: '/code/angular/okta_angular_auth_js/',
+          }
+        ]  
+      },
+      { 
+        title: 'JavaScript',
+        subLinks: 
+        [
+          {
+            title: 'Add User Authentication to Your JavaScript App',
+            path: '/code/javascript/',
+          },
+          {
+            title: 'Okta Auth SDK Guide',
+            path: '/code/javascript/okta_auth_sdk/',
+          },
+          {
+            title: 'Okta Sign-In Widget Guide',
+            path: '/code/javascript/okta_sign-in_widget/',
+          }
+        ]
+       },
+       {
+        title: 'React',
+        subLinks: 
+        [
+          {
+            title: 'Add User Authentication to Your React App',
+            path: '/code/react/',
+          },
+          {
+            title: 'Okta React Overview',
+            path: '/code/react/okta_react/',
+          },
+          {
+            title: 'Okta Sign-In Widget and React',
+            path: '/code/react/okta_react_sign-in_widget/',
+          }
+          ]
+        },
       { title: 'Vue', path: '/code/vue/' }
     ]
   },
