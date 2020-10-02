@@ -307,7 +307,6 @@ function error(err) {
 }
 ```
 
-
 ## Using with Okta SDKs
 
 Okta provides a number of SDKs that you might want to use the Sign-In Widget with, including Angular, React, and Vue.
@@ -340,7 +339,7 @@ See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue
 
 We also have mobile SDKs for Android, React Native, iOS, and Xamarin.
 
-For mobile apps, embedding the Sign-In Widget is not currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted sign-in widget](/docs/guides/custom-hosted-signin/overview/). Support is provided, however, for building your own UI in mobile apps.
+For mobile apps, embedding the Sign-In Widget is not currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted sign-in widget](/docs/guides/style-the-widget/style-okta-hosted/). Support is provided, however, for building your own UI in mobile apps.
 
 See the following examples:
 
