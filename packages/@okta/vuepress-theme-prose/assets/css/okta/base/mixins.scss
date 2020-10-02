@@ -1,3 +1,7 @@
+
+@use 'variables' as variables;
+@use "~include-media/dist/_include-media" as includeMedia;
+
 //---------------------------------------------------------------
 // Sets color from color map
 //---------------------------------------------------------------
@@ -311,4 +315,12 @@
 
 	transition: $_result;
 	
+}
+
+@mixin media-max-width($modifier, $breakpoint, $maxWidth) {
+	@if index(map-keys(variables.$breakpoints), $breakpoint) {
+		@include includeMedia.media($modifier + map-get(variables.$breakpoints, $breakpoint)) {
+			max-width: $maxWidth;
+		}
+	}
 }
