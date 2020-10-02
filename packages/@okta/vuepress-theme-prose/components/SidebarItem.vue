@@ -2,8 +2,9 @@
     <li :class="{'subnav': link.subLinks}">
         <div class="link-wrap">
             <div v-if="link.path">
-                <router-link :to="link.path" @click="setData" :class="{'router-link-active': link.imActive, 'router-link-exact-active': iHaveChildrenActive}">{{link.title}}</router-link>
+                <router-link :to="link.path" exact @click="setData" class="tree-nav-link">{{link.title}}</router-link>
             </div>
+
             <div v-else>
                 <div class="is-link item-collapsable" @click="toggle">
                     <svg viewBox="0 0 320 512" v-if="link.subLinks && !iHaveChildrenActive">
@@ -19,7 +20,7 @@
         </div>
 
         <ul v-if="link.subLinks" class="sections" v-show="iHaveChildrenActive">
-            <SidebarItem v-for="(sublink, key) in link.subLinks" :key="key" :link="sublink" />
+            <SidebarItem v-for="sublink in link.subLinks" :key="sublink.title" :link="sublink" />
         </ul>
       </li>
 </template>
