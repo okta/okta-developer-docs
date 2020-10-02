@@ -55,5 +55,9 @@ module.exports = [
     { title: 'SCIM Protocol', path: '/docs/reference/scim/'},
     { title: 'Social IdP Settings', path: '/docs/reference/social-settings/'},
     { title: 'Token Hook', path: '/docs/reference/token-hook/'},
-    { title: 'WebFinger', path: '/docs/reference/api/webfinger/'}
+    { title: 'WebFinger', path: '/docs/reference/api/webfinger/'},
+    { title: 'Advanced Server Access', subLinks: [
+        { title: 'ASA Teams API', path: '/docs/reference/api/asa/teams/'},
+      ]
+    }
   ]
