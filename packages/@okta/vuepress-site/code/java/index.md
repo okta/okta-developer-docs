@@ -89,6 +89,12 @@ The Okta Authentication SDK can be used in scenarios where using OAuth 2.0 is no
 	</a>
 </p>
 
+## Java Servlet Sample
+
+<a href='https://github.com/okta/samples-java-servlet'>
+	<span class='fa fa-github'></span> <span>Java Servlet Sample</span>
+</a>
+
 ## Recommended Guides
 
 

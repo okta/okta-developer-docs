@@ -2,7 +2,7 @@
 title: Try our APIs and SDKs
 ---
 
-You've seen how Okta handles sign-in for your app and how you can use the Developer Console to manage users. Okta offers much more, including a large set of APIs your software can interact with, either directly, through REST calls, or by means of SDKs that support various coding languages. 
+You've seen how Okta handles sign-in for your app and how you can use the Developer Console to manage users. Okta offers much more, including a large set of APIs your software can interact with, either directly, through REST calls, or by means of SDKs that support various coding languages.
 
 #### Get an API token
 
@@ -24,9 +24,9 @@ For full details on API tokens, see [Create an API token](/docs/guides/create-an
 
 To create an additional end user in your org, you can make a REST API call to the `/users` endpoint.
 
-The full URL of the endpoint needs to begin with your Okta domain. That should be followed by the specific path for this endpoint, which is `/api/v1/users`. For example: `https://dev-l33337.okta.com/api/v1/users`.
+The full URL of the endpoint needs to begin with your Okta domain. That should be followed by the specific path for this endpoint, which is `/api/v1/users`. For example: `https://dev-133337.okta.com/api/v1/users`.
 
-To create a new user, you make a `POST` call to that endpoint, supplying information about the new user in a JSON object in the request body. 
+To create a new user, you make a `POST` call to that endpoint, supplying information about the new user in a JSON object in the request body.
 
 You need to include your API token in the `Authorization` header of the request.
 
@@ -52,7 +52,7 @@ In the above example, you'd need to replace the Okta domain in the URL with your
 
 For full details of the `/users` API and everything it can do, see the [Users](/docs/reference/api/users/) API reference page.
 
-For information on using Postman to explore Okta APIs, see [Use Postman with the Okta REST APIs](/code/rest/). 
+For information on using Postman to explore Okta APIs, see [Use Postman with the Okta REST APIs](/code/rest/).
 
 #### Create a user by SDK
 
