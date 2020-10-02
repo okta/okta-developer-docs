@@ -48,6 +48,12 @@ Auth.js is a library wrapper for the Okta Authentication API. Use it when you ne
 			<span>Okta Sign-In Widget</span>
 		</a>
 	</li>
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-oidc-js">
+			<span>Okta's OpenID Connect</span>
+		</a>
+	</li>
 </ul>
 
 ## Recommended Guides
