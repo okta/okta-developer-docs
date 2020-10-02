@@ -9,16 +9,17 @@
                 <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/>
             </svg>
 
-            <div v-if="link.path">
-                <router-link :to="link.path" @click="setData" :class="{'tree-nav-link': true, 'router-link-active': link.imActive, 'router-link-exact-active': link.imActive}">{{link.title}}</router-link>
+             <div v-if="link.path">
+                <router-link :to="link.path" exact @click="setData" class="tree-nav-link">{{link.title}}</router-link>
             </div>
+
             <div v-else>
                 <div :class="{'is-link':true, 'router-link-active': iHaveChildrenActive}" @click="toggle">{{link.title}}</div>
             </div>
         </div>
 
         <ul v-if="link.subLinks" class="sections" v-show="iHaveChildrenActive">
-            <SidebarItem v-for="(sublink, key) in link.subLinks" :key="key" :link="sublink" />
+            <SidebarItem v-for="sublink in link.subLinks" :key="sublink.title" :link="sublink" />
         </ul>
       </li>
 </template>
