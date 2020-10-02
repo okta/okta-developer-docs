@@ -111,7 +111,9 @@ For existing orgs, to configure client-based rate limiting:
 
 1. From the Admin Console select **Settings** > **Account**, and then scroll down to the **Client-based rate limiting** section.
 
-2. Select **Log and enforce client (recommended)**.
+2. Select the type of **Rate limit per client** that you want to implement:
+
+    * Select **Log and enforce client (recommended)** to enable client-based rate limiting.
 
     * Select **Log per client** to enable client-based rate limiting in preview mode.
 
