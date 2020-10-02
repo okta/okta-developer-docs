@@ -1201,8 +1201,10 @@ Adds a new Smart Card `X509` type IdP to your organization
 
 ##### Request example
 
-> **Notes:** You must first add the IdP's server certificate to the IdP key store before you can add a Smart Card `X509` IdP with a `kid` credential reference. You need to upload the whole trust chain as a single key using the [Key Store API](#add-x-509-certificate-public-key).<br>
-Depending on the information stored in the smart card, select the proper [template](/docs/reference/okta-expression-language/#idp-user-profile) `idpuser.subjectAltNameEmail` or `idpuser.subjectAltNameUpn`.
+> **Notes:** You must first add the IdP's server certificate to the IdP key store before you can add a Smart Card `X509` IdP with a `kid` credential reference.
+> You need to upload the whole trust chain as a single key using the [Key Store API](#add-x-509-certificate-public-key).
+> Depending on the information stored in the smart card, select the proper [template](/docs/reference/okta-expression-language/#idp-user-profile) `idpuser.subjectAltNameEmail` or `idpuser.subjectAltNameUpn`.
+>
 
 ```bash
 curl -v -X POST \
@@ -4420,10 +4422,9 @@ Content-Type: application/json
 
 ### Link a User to a social provider without a Transaction
 
-
 <ApiOperation method="POST" url="/api/v1/idps/${idpId}/users/${userId}" />
 
-Links an Okta User to an existing [social provider](#identity-provider-object). This endpoint doesn't support the SAML2 [Identity Provider type](#identity-provider-type).
+Links an Okta User to an existing SAML or [social provider](#identity-provider-object). The SAML Identity Provider must have `honorPersistentNameId` set to `true` to use this API. The [Name Identifier Format](/docs/reference/api/idps/#saml-2-0-settings-object) of the incoming assertion must be `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`.
 
 ##### Request parameters
 
@@ -4803,7 +4804,8 @@ Protocol settings for the [SAML 2.0 Authentication Request Protocol](http://docs
       }
     },
     "settings": {
-        "nameFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+        "nameFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
+        "honorPersistentNameId": false
     }
   }
 }
@@ -5077,16 +5079,19 @@ Determines the [IdP Key Credential](#identity-provider-key-credential-object) us
 
 ##### SAML 2.0 Settings object
 
-| Property   | Description                       | DataType    | Nullable | Readonly | DataType                                                             | Default                                               |
-| ---------- | ---------------------             | ----------- | -------- | -------- | -------------------------------------------------------------------- | ----------------------------------------------        |
-| nameFormat | The name identifier format to use | String      | TRUE     | FALSE    | [SAML 2.0 Name Identifier Formats](#saml-2-0-name-identifier-formats) | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified |
+| Property   | Description                                                                                                  | DataType| Nullable | Readonly | Default                                              |
+| ---------- | ------------------------------------------------------------------------------------------------------------ | ------- | -------- | -------- | ---------------------------------------------------- |
+| nameFormat | The name identifier format to use. See [SAML 2.0 Name Identifier Formats](#saml-2-0-name-identifier-formats) | String  | TRUE     | FALSE    | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified|
+| honorPersistentNameId | Determines if the IdP should persist account linking when the incoming assertion NameID format is `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`| Boolean | TRUE | FALSE | FALSE|
+
 
 ```json
 {
   "protocol": {
     "type": "SAML2",
     "settings": {
-      "nameFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+      "nameFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
+      "honorPersistentNameId" : false
     }
   }
 }
@@ -5469,7 +5474,7 @@ Certificate chain description for verifying assertions from the Smart Card.
 | `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
 | `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
 | `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
-| `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`                        |                       |
+| `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`, `DISABLED`            | `groups`              |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |                               |                       |
 
 > **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action. 
