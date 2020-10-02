@@ -31,7 +31,7 @@
     "js-yaml": "^3.13.1",
     "markdown-it": "^7.0.1",
     "markdown-it-attrs": "2.3.2",
-    "node-sass": "^4.9.4",
+    "sass": "^1.26.11",
     "sass-loader": "^7.1.0",
     "string-replace-loader": "^2.2.0",
     "vue": "^2.0.0",
