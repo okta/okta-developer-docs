@@ -1,3 +1,5 @@
+@use '../okta/base/mixins' as mixins;
+
 footer {
   background-color: cv('brand');
   display: flex;
@@ -11,6 +13,8 @@ footer {
     flex-direction: row;
     justify-content: space-between;
   }
+
+  @include mixins.media-max-width('>=', 'xx-large', $container-width-desktop-large);
 
   .footer--logo {
     margin-bottom: 2em;
