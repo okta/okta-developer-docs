@@ -5827,12 +5827,12 @@ There are four choices for the `connection` property.
 
 Specifies (optional) attribute statements for a SAML application
 
-| Property   | Description                                                                                  | DataType    | Nullable |
-| ---------- | -------------------------------------------------------------------------------------------- | ----------- | -------- |
-| name       | The reference name of the attribute statement                                                | String      | FALSE    |
-| namespace  | The name format of the attribute                                                             | String      | FALSE    |
-| type       | The type of attribute statements object                                                      | `GENERIC`   | FALSE    |
-| values     | The value of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)    | String      | FALSE    |
+| Property   | Description                                                                                  | DataType     | Nullable |
+| ---------- | -------------------------------------------------------------------------------------------- | ------------ | -------- |
+| name       | The reference name of the attribute statement                                                | String       | FALSE    |
+| namespace  | The name format of the attribute                                                             | String       | FALSE    |
+| type       | The type of attribute statements object                                                      | `EXPRESSION` | FALSE    |
+| values     | The value of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)    | String       | FALSE    |
 
 #### Group Attribute Statements object
 
@@ -5862,7 +5862,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
       ...
       "attributeStatements": [
         {
-          "type": "GENERIC",
+          "type": "EXPRESSION",
           "name": "Attribute One",
           "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
           "values": [
@@ -5870,7 +5870,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
           ]
         },
         {
-          "type": "GENERIC",
+          "type": "EXPRESSION",
           "name": "Attribute Two",
           "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
           "values": [
