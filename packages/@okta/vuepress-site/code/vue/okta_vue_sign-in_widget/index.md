@@ -28,7 +28,7 @@ If you do not already have a **Developer Edition Account**, you can create one a
 | -------------------  | --------------------------------------------------- |
 | App Name             | OpenId Connect App *(must be unique)*               |
 | Login redirect URIs  | http://localhost:8080/login/callback             |
-| Logout redirect URIs | http://localhost:3000/login                         |
+| Logout redirect URIs | http://localhost:8080                         |
 | Allowed grant types  | Authorization Code                                  |
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
@@ -86,7 +86,13 @@ export default {
       this.widget = new OktaSignIn({
         baseUrl: 'https://{yourOktaDomain}',
         clientId: '{clientId}',
-        redirectUri: window.location.origin + '/login/callback'
+        redirectUri: 'http://localhost:8080/login/callback',
+        authParams: {
+          pkce: true,
+          issuer: 'https://{yourOktaDomain}/oauth2/default',
+          display: 'page',
+          scopes: ['openid', 'profile', 'email']
+        }
       })
       this.widget.renderEl(
         { el: '#okta-signin-container' },
@@ -170,6 +176,10 @@ export default {
   }
 }
 </script>
+
+<style>
+nav div a { margin-right: 10px }
+</style>
 ```
 
 Then, create `src/components/Home.vue` to welcome the user after they've signed in.
@@ -198,6 +208,11 @@ Then, create `src/components/Home.vue` to welcome the user after they've signed 
 <script>
 export default {
   name: 'home',
+  data: function () {
+    return {
+      claims: ''
+    }
+  },
   created () { this.setup() },
   methods: {
     async setup () {
