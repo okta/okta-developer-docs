@@ -47,6 +47,12 @@ The Okta OpenID Connect (OIDC) Android SDK is for communicating with OAuth 2.0 a
 			<span>Okta JWT Verifier for Java</span>
 		</a>
 	</li>
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react-native/android">
+			<span>React Native app with Okta's OpenID Connect API</span>
+		</a>
+	</li>
 </ul>
 
 ## Recommended Guides

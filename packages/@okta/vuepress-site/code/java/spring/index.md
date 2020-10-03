@@ -57,6 +57,17 @@ The Okta Spring Boot Starter can be used to add OAuth 2.0 authorization to Sprin
 	</li>
 </ul>
 
+## Spring Samples
+
+<ul class="language-libraries">
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/samples-java-spring">
+			<span>Spring Security OAuth Sample Applications for Okta</span>
+		</a>
+	</li>
+</ul>
+
 ## Recommended Guides
 
 

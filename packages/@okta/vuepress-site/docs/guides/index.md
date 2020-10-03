@@ -71,7 +71,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
-    * [Quickstart: Signing in your first user](/docs/guides/quickstart/cli/create-org/)
+    * [Quickstart: Signing in your first user](/docs/guides/quickstart/)
     * [Set up self-service registration](/docs/guides/set-up-self-service-registration/before-you-begin/)
 
 2. Sign users in
