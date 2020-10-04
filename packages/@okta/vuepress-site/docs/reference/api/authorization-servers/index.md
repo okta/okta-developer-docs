@@ -49,7 +49,9 @@ When you use these API endpoints to create or modify an Authorization Server res
   "id": "ausain6z9zIedDCxB0h7",
   "name": "Sample Authorization Server",
   "description": "Authorization Server Description",
-  "audiences": ["https://api.resource.com"],
+  "audiences": [
+    "https://api.resource.com"
+  ],
   "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
   "issuerMode": "ORG_URL",
   "status": "ACTIVE",
@@ -64,29 +66,28 @@ When you use these API endpoints to create or modify an Authorization Server res
     }
   },
   "_links": {
-      "scopes": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes",
-        "hints": {
-          "allow": [
-            "GET"
-          ]
-        }
-      },
-      "claims": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims",
-        "hints": {
-          "allow": [
-            "GET"
-          ]
-        }
-      },
-      "policies": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies",
-        "hints": {
-          "allow": [
-            "GET"
-          ]
-        }
+    "scopes": {
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    },
+    "claims": {
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    },
+    "policies": {
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
       }
     },
     "self": {
@@ -128,10 +129,10 @@ When you use these API endpoints to create or modify an Authorization Server res
       }
     },
     "deactivate": {
-          "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/lifecycle/deactivate",
-          "hints": {
-            "allow": [
-              "POST"
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
         ]
       }
     }
@@ -321,7 +322,7 @@ curl -X DELETE \
 
 
 ```http
-HTTP 204: No Content
+HTTP/1.1 204 No Content
 ```
 
 #### Activate Authorization Server
@@ -352,7 +353,7 @@ curl -v -X POST \
 
 
 ```http
-HTTP 204: No Content
+HTTP/1.1 204 No Content
 ```
 
 #### Deactivate Authorization Server
@@ -384,7 +385,7 @@ curl -v -X POST \
 
 
 ```http
-HTTP 204: No Content
+HTTP/1.1 204 No Content
 ```
 
 ### Policy operations
@@ -636,8 +637,8 @@ curl -v -X DELETE \
 ##### Response example
 
 
-```json
-Status 204: No content
+```http
+HTTP/1.1 204 No Content
 ```
 
 ### Policy Rule operations
@@ -856,8 +857,8 @@ curl -v -X DELETE \
 
 ##### Response example
 
-```json
-Status 204: No content
+```http
+HTTP/1.1 204 No Content
 ```
 
 ### Scope operations
@@ -1077,7 +1078,7 @@ curl -v -X DELETE \
 
 
 ```http
-HTTP 204: No Content
+HTTP/1.1 204 No Content
 ```
 
 ### Claim operations
@@ -1304,7 +1305,7 @@ curl -v -X DELETE \
 
 
 ```http
-HTTP 204: No Content
+HTTP/1.1 204 No Content
 ```
 
 ### Key Store operations
@@ -2040,7 +2041,7 @@ curl -v -X DELETE \
 #### Response example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -2076,6 +2077,6 @@ curl -v -X DELETE \
 #### Response example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```

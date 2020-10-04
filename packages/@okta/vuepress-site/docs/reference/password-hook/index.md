@@ -49,7 +49,7 @@ The objects that you can return in the JSON payload of your response are an arra
 
 For the Password Import Inline Hook, the `commands` object lets you specify whether Okta should accept the end user's login credentials as valid or not.
 
-This object is an array. Each array element requires a `type` property and a `value` property. The `type` property is where you specify the command, and `value` is where you supply the parameter for the command. 
+This object is an array. Each array element requires a `type` property and a `value` property. The `type` property is where you specify the command, and `value` is where you supply the parameter for the command.
 
 | Property | Description                                | Data Type       |
 |----------|--------------------------------------------|-----------------|
@@ -88,7 +88,7 @@ For example, to indicate that the supplied credentials should not be accepted as
       {
          "type":"com.okta.action.update",
          "value":{
-            "credential":"UNVERIFIED",  
+            "credential":"UNVERIFIED"
          }
       }
    ]

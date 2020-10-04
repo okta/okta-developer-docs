@@ -294,7 +294,7 @@ Response body:
             "https://httpbin.org/get"
         ],
         "response_types": [
-            "code",
+            "code"
         ],
         "grant_types": [
             "authorization_code"

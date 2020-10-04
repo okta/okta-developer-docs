@@ -74,7 +74,7 @@ Let's test your access policy and get back an access token.
 
      To check the returned access token, you can copy that URL and paste it into any [JWT decoder](https://jsonwebtoken.io). Check the payload to confirm that it contains the scopes that you are expecting.
 
-```JSON
+```json
 {
   "ver": 1,
   "jti": "AT.ReRI96X_2Ny3nSf0DepnWLhbAJW5kB0nbl0WqSn22W8",

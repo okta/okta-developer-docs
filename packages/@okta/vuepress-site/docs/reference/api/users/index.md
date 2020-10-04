@@ -2454,7 +2454,9 @@ is required to delete the user.
 ##### Response Parameters
 
 
-`204 No Content`
+```http
+HTTP/1.1 204 No Content
+```
 
 Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 
@@ -2476,7 +2478,7 @@ curl -v -X DELETE \
 
 
 ```http
-`204 No Content`
+HTTP/1.1 204 No Content
 ```
 
 #### Delete user asynchronously
@@ -2498,7 +2500,7 @@ curl -v -X DELETE \
 
 
 ```http
-`204 No Content`
+HTTP/1.1 204 No Content
 ```
 
 ### Unlock User
@@ -2827,7 +2829,9 @@ Removes all active identity provider sessions. This forces the user to authentic
 #### Response Parameters
 
 
-`204 No Content`
+```http
+HTTP/1.1 204 No Content
+```
 
 #### Request Example
 
@@ -2844,7 +2848,7 @@ curl -v -X DELETE \
 
 
 ```http
-`204 No Content`
+HTTP/1.1 204 No Content
 ```
 
 ## Credential Operations
@@ -3353,7 +3357,7 @@ curl -v -X DELETE \
 #### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -3388,7 +3392,7 @@ curl -v -X DELETE \
 #### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -3423,7 +3427,7 @@ curl -v -X DELETE \
 #### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -3667,7 +3671,7 @@ curl -v -X DELETE \
 #### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -3703,7 +3707,7 @@ curl -v -X DELETE \
 #### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
