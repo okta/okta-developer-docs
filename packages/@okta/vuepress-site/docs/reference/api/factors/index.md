@@ -1852,7 +1852,9 @@ curl -v -X POST \
 
 #### Enroll Custom HOTP Factor
 
-Enrolls a user with a Custom HMAC-based One-Time Password (HOTP) Factor. The enrollment process involves passing a Factor profile ID and shared secret for a particular token.
+Enrolls a user with a Custom HMAC-based One-Time Password (HOTP) Factor. The enrollment process involves passing a `factorProfileId` and `sharedSecret` for a particular token.
+
+A Factor Profile represents a particular configuration of the Custom HOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC Algorithm, passcode length, and time interval. There can be multiple Custom HOTP factor profiles per org, but users can only be enrolled for one Custom HOTP factor. Admins can create Custom HOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
 
 > **Note:** Currently only auto-activation is supported for Custom HOTP Factor.
 
