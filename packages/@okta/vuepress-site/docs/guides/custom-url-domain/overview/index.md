@@ -23,9 +23,9 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * If you disable a custom domain, the `issuerMode` for Identity Providers, Authorization Servers, and OpenID Connect apps is set back to `ORG_URL`.
 
-### Quick Configuration with Cloudflare
+### Quick configuration with Cloudflare
 
-See [Custom Domain with Cloudflare](/docs/guides/custom-url-domain/cloudflare/index.md) for a quick guide that makes it possible to setup a custom domain in minutes!
+Want to quickly set up a custom domain? You can use the abbreviated steps on the <GuideLink link="../cloudflare">Create a custom domain with Cloudflare</GuideLink> page.
 
 ### Common questions
 
