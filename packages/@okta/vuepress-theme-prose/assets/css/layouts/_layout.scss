@@ -20,6 +20,10 @@ body {
 .container {
   max-width: $container-width;
   margin: 0 auto;
+
+  @include media('>=desktop-xx-large') {
+    max-width: $container-width-desktop-large;
+  }
 }
 
 .page-content {
@@ -32,6 +36,10 @@ body {
   padding: 0em 1.5em;
   display: flex;
   justify-content: space-between;
+
+  @include media('>=desktop-xx-large') {
+    max-width: $container-width-desktop-large;
+  }
 }
 
 .fixed-header {
