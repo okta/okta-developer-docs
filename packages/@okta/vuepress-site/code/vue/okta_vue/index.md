@@ -23,7 +23,7 @@ If you do not already have a **Developer Edition Account**, you can create one a
 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
-| App Name             | OpenID Connect App *(must be unique)*               |
+| App Name             | OpenID Connect App (must be unique)               |
 | Login redirect URIs  | http://localhost:8080/login/callback             |
 | Logout redirect URIs | http://localhost:8080/                         |
 | Allowed grant types  | Authorization Code                                  |
