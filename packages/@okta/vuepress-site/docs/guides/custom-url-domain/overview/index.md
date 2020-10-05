@@ -27,10 +27,12 @@ See [Custom Domain with Cloudflare](/docs/guides/custom-url-domain/cloudflare/in
 
 ### Common questions
 
-**Can I add more than one domain?**
+**Q: Can I add more than one domain?**
+
 No. You can only have one custom domain set up per Okta organization.
 
-**Will the existing Okta domain work?**
+**Q: Will the existing Okta domain work?**
+
 Yes. When you turn the custom domain on, the Okta domain (for example, `example.okta.com`) still works.
 
 ## Support
