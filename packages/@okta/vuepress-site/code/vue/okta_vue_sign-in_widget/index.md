@@ -276,7 +276,7 @@ You should have already created `src/components/Login.vue` at the beginning of t
 
 ### `/login/callback`
 
-The component for this route (LoginCallback) comes with `@okta/okta-vue`. It handles token parsing, token storage, and redirecting to a protected page if one triggered the login.
+The component for this route (LoginCallback) comes with `@okta/okta-vue`. It handles token parsing, token storage, and redirecting to a protected page if one triggered the sign in.
 
 ### Connect the Routes
 
