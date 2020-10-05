@@ -7,15 +7,15 @@ meta:
 
 # SAML
 
-Traditionally, enterprise applications are deployed and run within the company network. To obtain information about users such as user profile and group information, many of these applications are built to integrate with corporate directories such as Microsoft Active Directory. More importantly, a user's credentials are typically stored and validated using the directory. For example, if you use SharePoint and Exchange that are running on premises, your sign-in credentials are your Active Directory credentials.
+Traditionally, enterprise applications are deployed and run within the company network. To obtain information about users such as user profile and group information, many of these applications are built to integrate with corporate directories such as Microsoft Active Directory. More importantly, a user's credentials are typically stored and validated using the directory. For example, if you use SharePoint and Exchange that are running on-premises, your sign-in credentials are your Active Directory credentials.
 
-However, with increased collaboration and the move towards the cloud, many applications have moved beyond the boundaries of a company's domain. Federated Authentication is the solution to this problem.
+However, with increased collaboration and the move towards cloud-based environments, many applications have moved beyond the boundaries of a company's domain. Federated Authentication is the solution to this problem.
 
 ## Authentication
 
-Before diving into federated authentication, we need to understand what authentication really means. Authentication defines the way a user is identified and validated through some sort of credentials as part of a sign-in flow. Most applications present a sign-in page to an end user, allowing the user to specify a username and a password. In some cases, additional information may be required to locate the user, like a company ID or a client code. This information allows the application to narrow down the search of the username applicable to the provided info. This is often used to allow the same username to exist across multiple tenants belonging to different customers.
+Before looking at federated authentication, we need to understand what authentication really means. Authentication defines the way a user is identified and validated through some sort of credentials as part of a sign-in flow. Most applications present a sign-in page to an end user, allowing the user to specify a username and a password. In some cases, additional information may be required to locate the user, like a company ID or a client code. This information allows the application to narrow down the search of the username applicable to the provided info. This is often used to allow the same username to exist across multiple tenants belonging to different customers.
 
-Most applications have a user store (DB or LDAP) that contains, among other things, user profile information and credentials. When a user signs in, the credentials are validated against this user store. The advantage of this simple approach is that everything is managed within the application, providing a single and consistent way to authenticate an end user. However, if a user needs to access multiple applications where each one requires a different set of credentials, it becomes a hassle for the end user. First, the user needs to remember different passwords, in addition to any other corporate password (for example, their AD password) that may already exist. The user is now forced to maintain separate usernames and passwords, dealing with different password policies and expirations. Second, this also creates a headache for administrators and ISVs when application users continue to have access to applications that should have been revoked.
+Most applications have a user store (DB or LDAP) that contains, among other things, user profile information and credentials. When a user signs in, the credentials are validated against this user store. The advantage of this simple approach is that everything is managed within the application, providing a single and consistent way to authenticate an end user. However, if a user needs to access multiple applications where each one requires a different set of credentials, it becomes a problem for the end user. First, the user needs to remember different passwords, in addition to any other corporate password (for example, their AD password) that may already exist. The user is now forced to maintain separate usernames and passwords, and must handle different password policies and expirations. In addition, this scenario also creates a headache for administrators and ISVs when application users continue to have access to applications that should have been revoked.
 
 ## Federated Identity
 
@@ -23,15 +23,15 @@ Federated Identity started with the need to support application access that span
 
 In this case, BigMart (who is providing this application) will need to take care of user authentication. The simple way is to require a different user name and password from users working at JuiceCo. But think about all the users that this application will need to maintain - including all of the other suppliers and their users who need to access the application.
 
-A more elegant way to solve this problem is to allow JuiceCo and every other supplier to share or "federate" the identities with BigMart. As an employee of JuiceCo, you already have a corporate identity and credentials. What Federated Identity provides is a secure way for the supermarket chain (Service Provider) to externalize authentication by integrating with its suppliers' existing identity infrastructure (Identity Provider).
+A more elegant way to solve this problem is to allow JuiceCo and every other supplier to share or "federate" the identities with BigMart. As an employee of JuiceCo, you already have a corporate identity and credentials. What Federated Identity provides is a secure way for the supermarket chain (Service Provider) to externalize authentication by integrating with the existing identity infrastructure of its suppliers (Identity Provider).
 
-This type of use case is what led to the birth of federated protocols such as [Security Assertion Markup Languange (SAML)](http://en.wikipedia.org/wiki/Security_Assertion_Markup_Language).
+This type of use case is what led to the birth of federated protocols such as [Security Assertion Markup Language (SAML)](http://en.wikipedia.org/wiki/Security_Assertion_Markup_Language).
 
 See the [Security Assertion Markup Language (SAML) V2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) for a more in-depth overview.
 
 ## Planning for SAML
 
-SAML is mostly used as a web-based authentication mechanism inasmuch as it relies on using the browser agent to broker the authentication flow. At a high-level, the authentication flow of SAML looks like this:
+SAML is mostly used as a web-based authentication mechanism as it relies on using the browser agent to broker the authentication flow. At a high-level, the authentication flow of SAML looks like this:
 
 ![SAML Flow](/img/saml_guidance_saml_flow.png "SAML Flow")
 
