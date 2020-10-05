@@ -68,19 +68,20 @@
 
     .link-wrap {
       display: flex;
-      align-items: center;
 
-      
+      .item-collapsable {
+        display: flex;
+        align-items: center;
 
-      svg {
-        flex-shrink: 0;
-        margin-right: 0.5em;
-        fill: currentColor;
-        height: 1em;
-        margin-left: -1.2rem;
-
-        &.open {
-          margin-top: -0.5rem;
+        svg {
+          flex-shrink: 0;
+          margin-right: 0.5em;
+          fill: currentColor;
+          height: 1em;
+          margin-left: -1.2rem;
+          &.open {
+            margin-top: -0.5rem;
+          }
         }
       }
     }
@@ -95,7 +96,7 @@
     font-size: 1em;
     text-decoration: none;
     display: block;
-    padding-right: 1rem;
+    padding-right: 1.3rem;
   }
 
 
