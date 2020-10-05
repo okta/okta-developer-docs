@@ -27,6 +27,8 @@
     width: 18%;
     @include media('>=tablet') {
       width: 18rem;
+      flex-grow: 0;
+      flex-shrink: 0;
     }
 
     @include media('<tablet') {
