@@ -2,6 +2,17 @@
 
 * On the **General** tab, in the **Application** area, you can rename your integration and select which [grant type options](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1#whats-a-response-type) are allowed.
 
+  An OAuth 2.0 grant is the authorization granted to the client by the user. Each type of grant has a corresponding [grant flow](/docs/concepts/oauth-openid/#choosing-an-oauth-2-0-flow).
+
+  The grant types permitted for OIN applications depend on the application type selected:
+
+  * Web:
+    * **Authorization code** &mdash; mandatory for Web application types
+    * Optional. **Refresh token**
+    * Optional. **Implicit (Hybrid)**
+  * SPA:
+    * **Implicit (Hybrid)** &mdash; choose either **Allow ID Token with implicit grant type** or **Allow Access Token with implicit grant type**
+  >**Note:** The **Client acting on behalf of itself** grant type is not permitted in OIN app integrations.
 * If you only want to support direct SSO to your application (so the integration isn't launched from the Okta End-User Dashboard), then:
   1. Enter one or more **Login redirect URI** values where Okta sends the OAuth responses.
   1. Set the **Login initiated by** drop-down box to **App Only**.
@@ -9,11 +20,11 @@
 
 * If you want to support launching your application from the Okta dashboard:
   1. Enter one or more **Login redirect URI** values where Okta sends the OAuth responses.
-  2. (Optional). Enter one or more **Logout redirect URIs** where Okta sends relying-party initiated sign-out requests.
+  2. (Optional). Enter the **Logout redirect URIs** where Okta redirects the browser after receiving the sign out request from the relying-party and terminating its end-user session. See [Single Logout](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Single_Logout) or the [`/logout` API endpoint](/docs/reference/api/oidc/#logout).
   3. Change the **Login initiated by** field to **Either Okta or App** to give your integration an Okta tile.
       >**Note:** When you select this option, an **App Embed Link** section appears at the bottom of the page with the URL that can be used to sign in to the OIDC client from outside of Okta.
   4. Check the box for **Display application icon to users**.
-  5. Select the appropriate **Login flow** option. If you choose **Send ID Token directly to app (Okta Simplified)**, you can also choose the **Scopes** associated with the sign-in flow.
+  5. Select the **Login flow** option. For OIN application integrations, you must select **Redirect to app to initiate login (OIDC Compliant)**.
   6. Enter or change the URI used to initiate the sign-in request.
   7. Click **Save** to commit your changes.
 
@@ -42,7 +53,7 @@
 
 <!-- [ian 2020.02.25] we don't currently support OIDC SPA applications in the OIN -->
 <!--
-#### Single Page applications
+#### Single-page applications
 
 1. Select from among the different grant type options.
 1. If you only want to support direct SSO to your integration (not launched from the Okta End-User Dashboard), then you only need to set the **Login initiated by**  to App Only, enter one or more **Login redirect URI** values, and you can leave all of the remaining entries at their default values.
@@ -58,6 +69,8 @@
 * If required, you can generate a new client secret. In the **Client Credentials** section, click **Edit**, then **Generate New Client Secret**.
 -->
 
+<!-- [ian 2020.08.06] consent and group claim filters are not supported for OIN app integrations -->
+<!--
 ### Consent
 
 >**Note:** OIDC consent is an Early Access feature. To enable it, contact [Okta Support](https://support.okta.com/help/s/).
@@ -68,6 +81,8 @@
 
 * If you want to prompt your user to approve the integration access to specified resources, select the **Require consent** box. Alternatively, you can set up the consent for a scope in your custom authorization, as described in the [Create Scopes](https://help.okta.com/en/prod/okta_help_CSH.htm#create-scopes) section of the API Access Management documentation.
 
+-->
+<!--
 ### Set the Groups claims filter
 
 * You can define your own Groups claims outside the default set of claims that are contained in ID tokens and access tokens.
@@ -80,4 +95,4 @@
     >**Note:** If the value you specify in the Groups claim filter matches more than 100 groups, an error occurs when the API tries to create ID tokens.
 
 * For more detail on adding a Groups claim with tokens, see [Add a Groups claim](/docs/guides/customize-tokens-returned-from-okta/create-groups-claim/).
-  
+-->

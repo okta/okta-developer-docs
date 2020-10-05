@@ -25,4 +25,8 @@ Which JWT type that you use depends on the client authentication method configur
 
 > **Tip:** Don't know which method is configured for your client app? You can quickly check the settings by doing a GET to `https://${yourOktaDomain}/api/v1/apps/${appId}`.
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

@@ -163,7 +163,7 @@ You can specify either the `primary` name or the `associated` name.
 
 
 ```bash
-curl -X POST \
+curl -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \

@@ -23,12 +23,14 @@ Every user has an Okta user profile. The Okta user profile is the central source
 | `user.$attribute` | `user` reference to the Okta user<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
 
 ### Application User Profile
-In addition to an Okta user profile, all users have separate Application user profile for each of their applications. Application user profiles are used to store application specific information about users, such as application username or user role. To reference an App user profile attribute, just specify the application variable and the attribute variable in that application's App user profile. In specifying the application, you can either name the specific application you're referencing or use an implicit reference to an in-context application.
+In addition to an Okta user profile, all users have a separate Application user profile for each of their applications. Application user profiles are used to store application specific information about users, such as application username or user role. To reference an App user profile attribute, just specify the application variable and the attribute variable in that application's App user profile. In specifying the application, you can either name the specific application you're referencing or use an implicit reference to an in-context application.
 
 | Syntax                | Definitions                                                                                | Examples                                                              |
 | --------              | ----------                                                                                 | ------------                                                          |
 | `$appuser.$attribute` | `$appuser` explicit reference to specific app<br>`$attribute` the attribute variable name  | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
+
+**Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name).  (See [Application properties](/docs/reference/api/apps/#application-properties).)  If your organization has configured multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, e.g. `zendesk_9ao1g13`.  The name of any specific App instance can be found in the Profile Editor, where it is shown in lighter text beneath the App's label.
 
 ### IdP User Profile
 In addition to an Okta user profile, some users have separate IdP user profiles for their external Identity Provider. These IdP user profiles are used to store identity provider specific information about a user. This data can be used in an EL expression to transform an external user's username into the equivalent Okta username. To reference an IdP user profile attribute, specify the identity provider variable and the corresponding attribute variable for that identity provider's IdP user profile. This profile is only available when specifying the username transform used to generate an Okta username for the IdP user.
@@ -41,20 +43,30 @@ In addition to an Okta user profile, some users have separate IdP user profiles 
 > With Universal Directory, there are about 30 attributes in the base Okta profile and any number of custom attributes can be added. All App user profiles have a username attribute and possibly others depending on the application. To find a full list of Okta user and App user attributes and their variable names, go to People > Profile Editor. If you're not yet using Universal Directory, contact your Support or Professional Services team.
 
 ## Referencing Application and Organization Properties
-In addition to referencing user attributes, you can also reference App properties and the properties of your Organization. To reference a particular attribute, just specify the appropriate binding and the attribute variable name. Here are some examples:
+In addition to referencing user attributes, you can also reference App properties and the properties of your Organization. To reference a particular attribute, just specify the appropriate binding and the attribute variable name. The binding for an App is the name of the App with `_app` appended. The App name can be found as described above for [Application user profile attributes](#application-user-profile). Here are some examples:
 
 ### Application Properties
 
 | Syntax            | Definitions                                                                                     | Examples                                               |
 | ------            | ----------                                                                                      | ------------                                           |
-| `$app.$attribute` | `$app` explicit reference to specific app instance<br>`$attribute` the attribute variable name  | google_apps_app.domain<br>zendesk_app.companySubDomain |
+| `$app.$attribute` | `$app` explicit reference to specific app instance<br>`$attribute` the attribute variable name  | office365_app.domain<br>zendesk_app.companySubDomain |
 | `app.$attribute`  | `app` implicit reference to in-context app instance<br>`$attribute` the attribute variable name | app.domain<br>app.companySubDomain                     |
 
 ### Organization Properties
 
 | Syntax           | Definitions                                                             | Examples     |
 | --------         | ----------                                                              | ------------ |
-| `org.$attribute` | `org` reference to Okta org<br>`$attribute` the attribute variable name | org.domain   |
+| `org.$attribute` | `org` reference to Okta org<br>`$attribute` the attribute variable name | org.name<br>org.subdomain   |
+
+## Referencing Session Properties
+
+In addition to referencing User, App, and Organization properties, you can also reference user Session properties. Session properties allow you to configure Okta to pass Dynamic Authentication Context to SAML apps through the assertion using custom SAML attributes. The App can then use that information to limit access to certain App-specific behaviors and calculate the risk profile for the signed-in user.
+
+### Session Properties
+
+| Syntax            | Definitions                                                 | Evaluation Example                                     |
+| ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
+| `session.amr`     | `session` reference to a user's session<br> `amr` the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd"]` &mdash; password used by the user for authentication<br>`["mfa", "pwd", "kba"]` &mdash; password and MFA security question used by the user for authentication<br>`["mfa", "mca", "pwd", "sms"]` &mdash; password and MFA SMS used by the user for authentication |
 
 ## Functions
 
@@ -162,7 +174,13 @@ Group functions return either an array of groups or **True** or **False**.
 
 **Note:** The **Groups.contains**, **Groups.startsWith**, and **Groups.endsWith** group functions are designed to work only with group claims. You can't use these functions with property mappings.
 
-For an example using group functions and for more information on using group functions for dynamic and static whitelists, see [Create an ID Token or Access Token Containing a Groups Claim](/docs/guides/customize-tokens-returned-from-okta/).
+For an example using group functions and for more information on using group functions for dynamic and static whitelists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
+
+> **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the Group's email (for example, when using G Suite). If you are targeting groups that may have duplicate group names (such as Google Groups), use the `getFilteredGroups` Group function instead.
+>
+>Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
+>
+>See the **Parameter Examples** section of [Use group functions for static group whitelists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-whitelists) for more information on the parameters used in this Group function.
 
 ### Linked Object Function
 

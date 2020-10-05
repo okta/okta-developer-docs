@@ -171,7 +171,7 @@ We've changed the behavior of OpenID Connect scopes:
 #### Help Desk Administrator Role Generally Available
 
 The Help Desk Administrator Role (`HELP_DESK_ADMIN`) is generally available via the [Roles API](/docs/reference/api/roles/#role-properties).
-For information about this role, see the [in-app help](https://help.okta.com/en/prod/Content/Topics/Security/The_Help_Desk_Admin_Role.htm). <!-- OKTA-141867 -->
+For information about this role, see the [in-app help](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_The_Help_Desk_Admin_Role). <!-- OKTA-141867 -->
 
 #### Policy API
 

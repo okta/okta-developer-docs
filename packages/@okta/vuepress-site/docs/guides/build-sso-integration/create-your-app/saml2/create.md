@@ -1,6 +1,7 @@
 ### Create a SAML integration
 
-7. Select **SAML 2.0** in the **Sign on method** section.
+6. Select **Web** as the platform for your integration. Web is the only supported platform for SAML 2.0 applications in the OIN.
+1. Select **SAML 2.0** in the **Sign on method** section.
 1. Click **Create**.
 1. On the **General Settings** tab, enter a name for your integration and optionally upload a logo. You can also hide the integration from your end-user's Okta dashboard or mobile app.
 1. On the **Configure SAML** tab, use the SAML information that you gathered in the <GuideLink link="../before-you-begin">first step</GuideLink> to configure the settings of your integration. See [Create a SAML integration using AIW](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-saml) in the Okta product documentation.
@@ -25,7 +26,7 @@
     * If you are only creating an internal SAML integration:
         1. Select **I'm an Okta customer adding an internal app**.
         1. For the check boxes that appear, select the **App type** check box if your company created the integration and it won't be released publicly. If you check this box, you don't need to enter any further information.
-        1. Select the **Contact app vendor** check box if Okta needs to contact you to enable SAML for the integration. If you select this check box, you need to provide further general information about your integration to the Okta analyst team.
+        1. Select the **Contact app vendor** check box if Okta needs to contact you to enable SAML for the integration. If you select this check box, you need to provide further general information about your integration to the Okta OIN team.
         1. Click **Finish**.
     * For ISVs that are creating a SAML integration for the OIN:
         1. Select **I'm a software vendor. I'd like to integrate my app with Okta**.

@@ -8,7 +8,7 @@ meta:
     content: Add user authentication to your Vue app by using our guide and the Okta Vue SDK.
 ---
 
-New to Okta? Our quickstart will walk you through adding user authentication to your Vue.js app in minutes.
+New to Okta? Our how to guide will walk you through adding user authentication to your Vue.js app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -17,8 +17,8 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 		</a>
 	</li>
 	<li>
-		<a href='/quickstart/#/vue' class='Button--blue' data-proofer-ignore>
-			<span>Vue.js Quickstart</span>
+		<a href='/docs/guides/sign-into-spa/vue/before-you-begin/' class='Button--blue' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 </ul>
@@ -38,7 +38,7 @@ The Okta Vue SDK is a wrapper around the Okta Auth SDK for communicating with OA
 </a>
 
 
-<a href='https://github.com/okta/okta-oidc-js/tree/master/packages/okta-vue'>
+<a href='https://github.com/okta/okta-vue'>
 	<span class='fa fa-github'></span> <span>Vue.js SDK Source</span>
 </a>
 

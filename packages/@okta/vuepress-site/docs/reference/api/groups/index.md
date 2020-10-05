@@ -19,7 +19,7 @@ Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](htt
 
 Adds a new Group with `OKTA_GROUP` type to your organization
 
-> **Note:** Application import operations are responsible for syncing Groups with `APP_GROUP` type such as Active Directory Groups. See [Importing Groups into Okta](https://help.okta.com/en/prod/Content/Topics/Directory/Directory_Groups.htm) for more information.
+> **Note:** Application import operations are responsible for syncing Groups with `APP_GROUP` type such as Active Directory Groups. See [Importing Groups into Okta](https://help.okta.com/en/prod/okta_help_CSH.htm#Directory_Groups) for more information.
 
 ##### Request parameters
 
@@ -1043,14 +1043,15 @@ Creates a Group rule to dynamically add users to the specified Group if they mat
 ##### Request parameters
 
 
-| Parameter                           | Description                                    | ParamType | DataType                          | Required | Default |
-| ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- | ------- |
-| name                                | name of the Group                              | Body      | String                            | TRUE     |         |
-| conditions.expression.value          | Okta expression that would result in a boolean value | Body      | String                     | TRUE     |         |
-| conditions.expression.type           | `urn:okta:expression:1.0`             | Body      | String                     | TRUE     |         |
-| conditions.people.users.exclude      | userIds that would be excluded when rules are processed | Body      | String                  | FALSE    |         |
-| conditions.people.groups.exclude     | currently not supported                     | Body      | String                            | FALSE    |         |
-| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added.| Body      | String                           | TRUE     |         |
+| Parameter                           | Description                                             | ParamType | DataType                          | Required | Default |
+| ----------------------------------- | ------------------------------------------------------- | --------- | --------------------------------- | -------- | ------- |
+| name                                | name of the Group                                       | Body      | String                            | TRUE     |         |
+| type                                | `group_rule`                                            | Body      | String                            | TRUE     |         |
+| conditions.expression.value         | Okta expression that would result in a boolean value    | Body      | String                            | TRUE     |         |
+| conditions.expression.type          | `urn:okta:expression:1.0`                               | Body      | String                            | TRUE     |         |
+| conditions.people.users.exclude     | userIds that would be excluded when rules are processed | Body      | String                            | FALSE    |         |
+| conditions.people.groups.exclude    | currently not supported                                 | Body      | String                            | FALSE    |         |
+| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added.        | Body      | String                            | TRUE     |         |
 
 ##### Response parameters
 

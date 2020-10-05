@@ -1,5 +1,5 @@
 ---
-title: OIN - Build a Single Sign-On (SSO) integration
+title: Build a Single Sign-On (SSO) integration
 excerpt: Create an app integration using SAML or OIDC.
 meta:
   - name: description

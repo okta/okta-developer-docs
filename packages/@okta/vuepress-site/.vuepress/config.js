@@ -5,7 +5,6 @@ const convertReplacementStrings = require('./scripts/convert-replacement-strings
 module.exports = {
   dest: 'dist',
   theme: "@okta/vuepress-theme-prose",
-  shouldPrefetch: () => false,
   /**
    * Custom head elements here
    */
@@ -41,6 +40,16 @@ module.exports = {
         // END Google Tag Manager
 
       }
+    `],
+    ['script', {}, `
+      var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,api:2020.09, text: { 'msg': 'Your web browser ({brow_name}) is not supported. For the best site experience, we recommend updating your browser. <br> <a{up_but}>Update browser</a> <a{ignore_but}>Ignore</a>' } };
+      function $buo_f(){
+      var e = document.createElement("script");
+      e.src = "//browser-update.org/update.min.js";
+      document.body.appendChild(e);
+      };
+      try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+      catch(e){window.attachEvent("onload", $buo_f)}
     `]
   ],
   title: "Okta Developer",
@@ -54,16 +63,6 @@ module.exports = {
      * Primary Nav: Array of MenuItem components to iterate over within TopNavigation component
      */
     primary_nav: [
-      { text: 'Product', link: '/product/',
-        children: [
-          { text: 'Overview', link: '/product/' },
-          { text: 'Authentication', link: '/product/authentication/' },
-          { text: 'Authorization', link: '/product/authorization/' },
-          { text: 'User Management', link: '/product/user-management/' },
-        ]
-      },
-      { text: 'Pricing', link: '/pricing/' },
-      { text: 'Blog', link: '/blog/' },
       { text: 'Docs', link: '/docs/', active: true,
         children: [
           { text: 'Get Started', link: '/docs/' },
@@ -72,6 +71,20 @@ module.exports = {
           { text: 'Reference', link: '/docs/reference/' }
         ]
       },
+      { text: 'Use Cases', link: '/product/',
+        children: [
+          { text: 'Embed auth into your app' },
+          { text: 'Overview', link: '/product/' },
+          { text: 'Authentication', link: '/product/authentication/' },
+          { text: 'Authorization', link: '/product/authorization/' },
+          { text: 'User Management', link: '/product/user-management/' },
+          { type: 'divider' },
+          { text: 'Publish an integration' },
+          { text: 'Overview', link: '/okta-integration-network/' },
+        ]
+      },
+      { text: 'Pricing', link: '/pricing/' },
+      { text: 'Blog', link: '/blog/' },
       { text: 'Support', link: 'https://www.okta.com/contact/',
         children: [
           { text: 'Okta Developer Forums', link: 'https://devforum.okta.com/' },
@@ -184,19 +197,6 @@ module.exports = {
 
   },
 
-  plugins: [
-    [
-      'vuepress-plugin-sitemap', {
-        hostname: 'https://developer.okta.com',
-        outFile: 'docs-sitemap.xml',
-        exclude:
-          [
-            '/test_page'
-          ]
-      }
-    ],
-  ],
-
   chainWebpack(config) {
     config.module
       .rule('md')
@@ -209,7 +209,7 @@ module.exports = {
            *
            * Changes WILL require restarting `yarn dev` :(
            */
-          WIDGET_VERSION: findLatestWidgetVersion(3), // use major version
+          WIDGET_VERSION: findLatestWidgetVersion(4), // use major version
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
       })
@@ -236,7 +236,8 @@ module.exports = {
       exclude: [
         '/test_page/'
       ]
-    }
+    },
+    '@okta/vuepress-plugin-qualtrics-feedback': {}
   },
 
   extraWatchFiles: [
@@ -246,7 +247,7 @@ module.exports = {
   additionalPages: [
     ...guidesInfo.additionalPagesForGuides(),
   ],
-    
+
   extendPageData ($page) {
     const {
       _filePath,           // file's absolute path

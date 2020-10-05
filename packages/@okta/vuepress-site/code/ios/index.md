@@ -10,7 +10,7 @@ meta:
 
 ## Get Started with iOS + Okta
 
-New to Okta? Our quickstart will walk you through adding user authentication to your iOS app in minutes.
+New to Okta? Our how to guide will walk you through adding user authentication to your iOS app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -19,8 +19,8 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 		</a>
 	</li>
 	<li>
-		<a href='/quickstart/#/ios' class='Button--blue' data-proofer-ignore>
-			<span>iOS Quickstart</span>
+		<a href='/docs/guides/sign-into-mobile-app/ios/before-you-begin/' class='Button--blue' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 </ul>
@@ -62,6 +62,19 @@ Okta provides an OpenID Connect (OIDC) client library on Cocoa Pods. We recommen
                     <p>Use this library for building custom authentication flows with Okta.</p>
             </a>
         </li>
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react-native/ios">
+			<span>React Native app with Okta's OpenID Connect API</span>
+		</a>
+	</li>
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-storage-swift">
+			<span>Okta Secure Storage Library</span>
+		</a>
+	</li>
+
 </ul>
 
 ## Recommended Guides

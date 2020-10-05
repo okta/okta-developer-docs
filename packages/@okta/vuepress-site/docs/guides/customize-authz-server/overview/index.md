@@ -14,6 +14,10 @@ If you only need one authorization server, but you'd like to know more about cus
 - [Create Claims](/docs/guides/customize-authz-server/create-claims/)
 - [Test your Authorization Server](/docs/guides/customize-authz-server/test-authz-server/)
 
-> **Note:** For a high-level explanation of OAuth 2.0 and OpenID Connect see our [OAuth 2.0 Overview](/docs/concepts/auth-overview/). See [Authorization Servers](/docs/concepts/auth-servers) for more information on the types of authorization servers available to you and what you can use them for.
+> **Note:** For a high-level explanation of OAuth 2.0 and OpenID Connect see our [OAuth 2.0 Overview](/docs/concepts/oauth-openid/). See [Authorization Servers](/docs/concepts/auth-servers) for more information on the types of authorization servers available to you and what you can use them for.
+
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

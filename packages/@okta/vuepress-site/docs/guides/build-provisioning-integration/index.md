@@ -1,5 +1,5 @@
 ---
-title: OIN - Build a SCIM provisioning integration
+title: Build a SCIM provisioning integration
 excerpt: Create a provisioning integration using SCIM.
 meta:
   - name: description
@@ -10,6 +10,7 @@ sections:
  - prepare-api
  - test-scim-api
  - prepare-app
+ - configure-app
  - attribute-mapping
  - test-scim-app
  - test-qa

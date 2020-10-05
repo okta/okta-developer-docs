@@ -13,7 +13,7 @@ However, with increased collaboration and the move towards cloud-based environme
 
 ## Authentication
 
-Before diving into federated authentication, you need to understand what authentication really means. Authentication defines the way a user is identified and validated through some sort of credentials as part of a sign-in flow. Most applications present a sign-in page to end users, allowing them to specify a username and a password. In some cases, additional information may be required to locate the user - like a company ID or a client code. This information allows the application to narrow down the search of the username applicable to the provided info. This is often used to allow the same username to exist across multiple tenants belonging to different customers.
+Before diving into federated authentication, we need to understand what authentication really means. Authentication defines the way a user is identified and validated through some sort of credentials as part of a sign-in flow. Most applications present a sign-in page to an end user, allowing the user to specify a username and a password. In some cases, additional information may be required to locate the user, like a company ID or a client code. This information allows the application to narrow down the search of the username applicable to the provided info. This is often used to allow the same username to exist across multiple tenants belonging to different customers.
 
 Most applications have a user store (DB or LDAP) that contains, among other things, user profile information and credentials. When a user signs in, the credentials are validated against this user store. The advantage of this simple approach is that everything is managed within the application, providing a single and consistent way to authenticate an end user. However, if a user needs to access multiple applications where each one requires a different set of credentials, it becomes a problem for the end user. First, the user needs to remember different passwords, in addition to any other corporate password (for example, their AD password) that may already exist. The user is now forced to maintain separate usernames and passwords, and must handle different password policies and expirations. In addition, this scenario also creates a headache for administrators and ISVs when application users continue to have access to applications that should have been revoked.
 
@@ -25,7 +25,7 @@ In this case, BigMart (who is providing this application) will need to take care
 
 A more elegant way to solve this problem is to allow JuiceCo and every other supplier to share or "federate" the identities with BigMart. As an employee of JuiceCo, you already have a corporate identity and credentials. What Federated Identity provides is a secure way for the supermarket chain (Service Provider) to externalize authentication by integrating with the existing identity infrastructure of its suppliers (Identity Provider).
 
-This type of use case is what led to the birth of federated protocols such as [Security Assertion Markup Languange (SAML)](http://en.wikipedia.org/wiki/Security_Assertion_Markup_Language).
+This type of use case is what led to the birth of federated protocols such as [Security Assertion Markup Language (SAML)](http://en.wikipedia.org/wiki/Security_Assertion_Markup_Language).
 
 See the [Security Assertion Markup Language (SAML) V2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) for a more in-depth overview.
 
@@ -37,17 +37,17 @@ SAML is mostly used as a web-based authentication mechanism as it relies on usin
 
 We are now ready to introduce some common SAML terms. We will go into the technical details of these later, but it is important to understand the high-level concept during the planning stage.
 
-- **A Service Provider (SP)** is the entity providing the service, typically in the form of an application
+- A **Service Provider (SP)** is the entity providing the service, typically in the form of an application.
 
-- **An Identity Provider (IdP)** handles the user identities, including the ability to authenticate a user. The Identity Provider typically also contains the user profile: additional information about the user such as first name, last name, job code, phone number, address, and so on. Depending on the application, some service providers may require a very simple profile (username, email), while others may require a richer set of user data (job code, department, address, location, manager, and so on).
+- An **Identity Provider (IdP)** is the entity providing the identities, including the ability to authenticate a user. The Identity Provider typically also contains the user profile: additional information about the user such as first name, last name, job code, phone number, address, and so on. Depending on the application, some service providers may require a very simple profile (username, email), while others may require a richer set of user data (job code, department, address, location, manager, and so on).
 
-- **A SAML Request**, also known as an authentication request, is generated by the Service Provider to "request" an authentication.
+- A **SAML Request**, also known as an authentication request, is generated by the Service Provider to "request" an authentication.
 
-- **A SAML Response** is generated by the Identity Provider. It contains the actual assertion of the authenticated user. In addition, a SAML Response may contain additional information, such as user profile information and group/role information, depending on what the Service Provider can support.
+- A **SAML Response** is generated by the Identity Provider. It contains the actual assertion of the authenticated user. In addition, a SAML Response may contain additional information, such as user profile information and group/role information, depending on what the Service Provider can support.
 
-- **A Service Provider Initiated (SP-initiated)** sign-in describes the SAML sign-in flow when initiated by the Service Provider. This is typically triggered when the end user tries to access a resource or sign in directly on the Service Provider side, such as when the browser tries to access a protected resource on the Service Provider side.
+- A **Service Provider Initiated (SP-initiated)** sign-in describes the SAML sign-in flow when initiated by the Service Provider. This is typically triggered when the end user tries to access a resource or sign in directly on the Service Provider side, such as when the browser tries to access a protected resource on the Service Provider side.
 
-- **An Identity Provider Initiated (IdP-initiated)** sign-in describes the SAML sign-in flow initiated by the Identity Provider. Instead of the SAML flow being triggered by a redirection from the Service Provider, in this flow the Identity Provider initiates a SAML Response that is redirected to the Service Provider to assert the user's identity.
+- An **Identity Provider Initiated (IdP-initiated)** sign-in describes the SAML sign-in flow initiated by the Identity Provider. Instead of the SAML flow being triggered by a redirection from the Service Provider, in this flow the Identity Provider initiates a SAML Response that is redirected to the Service Provider to assert the user's identity.
 
 A couple of key things to note:
 
@@ -99,7 +99,7 @@ If you are an ISV building an enterprise SaaS product, or if you are building an
 
 ![Many IdPs](/img/saml_guidance_many_idp.png "Many IdPs")
 
-A key consideration involves the ACS URL endpoint on the SP side where SAML responses are posted. It is possible to expose a single endpoint even when dealing with multiple IdPs. For a single-instance multi-tenant application where the tenancy isn't defined in the URL (such as when using a subdomain), this might be a simpler way to implement. However, you must then rely on additional information in the SAML response to determine which IdP is trying to authenticate (for example, using the IssuerID). If your application is set up in a multi-tenant fashion with domain information in the URL (for example, <https://domain1.myISV.com> or <https://www.myISV.com/domain1>), then having an ACS URL endpoint for each subdomain might be a good option since the URL itself identifies the domain.
+A key consideration involves the ACS URL endpoint on the SP side where SAML responses are posted. It is possible to expose a single endpoint even when dealing with multiple IdPs. For a single-instance multi-tenant application where the tenancy isn't defined in the URL (such as when using a subdomain), this might be a simpler way to implement. However, you must then rely on additional information in the SAML response to determine which IdP is trying to authenticate (for example, using the IssuerID). If your application is set up in a multi-tenant fashion with domain information in the URL (for example, using either `https://domain1.example.com` or `https://www.example.com/domain1`), then having an ACS URL endpoint for each subdomain might be a good option since the URL itself identifies the domain.
 
 ![SPs with Subdomains](/img/saml_guidance_many_idp_subdomain.png "SPs with Subdomains")
 

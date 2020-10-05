@@ -22,7 +22,7 @@ The email factor configuration also supports optional enrollment, which is now G
 
 ### The Third-Party admin role is Generally Available in Preview
 
-The [Third-Party admin role](https://help.okta.com/en/prod/Content/Topics/Security/admin-third-party.htm?cshid=csh_admin-third) is now Generally Available in Preview. <!-- OKTA-280640 -->
+The [Third-Party admin role](https://help.okta.com/en/prod/okta_help_CSH.htm#csh_admin-third) is now Generally Available in Preview. <!-- OKTA-280640 -->
 
 ### OAuth for Okta is Generally Available in Preview
 

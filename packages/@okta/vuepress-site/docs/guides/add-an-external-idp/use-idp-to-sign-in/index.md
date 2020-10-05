@@ -6,9 +6,11 @@ To test your authorization URL, enter the complete authorization URL in a browse
 If everything is configured properly:
 
 * The user is redirected to the Identity Provider's sign-in page.
-* After successful authentication, the user is redirected to the redirect URI that you specified, along with an `#id_token=` fragment in the URL. The value of this parameter is your Okta OpenID Connect ID token.
+* After successful authentication, the user is redirected to the redirect URI that you specified, along with an `#id_token=` fragment in the URL. The value of this parameter is your Okta OpenID Connect ID token. 
 
 If something is configured incorrectly, the authorization response contains error information to help you resolve the issue.
+
+> **Note:** With Sign In with Apple, when a user signs in, Apple offers the user the option to either share their email address or hide it. If the user chooses to hide their email address, Apple generates a random email address and sends that to Okta. However, Apple maintains the mapping between this random email address and the user's original email address. The user must choose the **Share My Email** option if you want to link the user's Apple account to an existing account in Okta. A user can choose this option only when the user is signing in with Apple to Okta for the first time.
 
 There are four primary ways to kick off the sign-in flow.
 
@@ -27,7 +29,7 @@ Okta also offers an easily embeddable JavaScript widget that reproduces the look
 ```js
 config.idps= [
         {type: 'IdentityProviderName', id: 'Your_IDP_ID_Here'}
-        ]; 
+        ];
 	config.idpDisplay ="SECONDARY";
 ```
 
@@ -35,7 +37,7 @@ You can find out more about the Okta Sign-in Widget [on GitHub](https://github.c
 
 ## Custom Okta-hosted Sign-in Page
 
-If you configured a [Custom Okta-hosted Sign-in Page](/docs/guides/custom-hosted-signin/overview/), you can add a **Sign in with {IdentityProviderName}** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
+If you configured a [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/), you can add a **Sign in with {IdentityProviderName}** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
 
 ```js
 config.idps= [

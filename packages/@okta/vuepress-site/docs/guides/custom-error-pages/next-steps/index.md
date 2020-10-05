@@ -1,9 +1,9 @@
 ---
 title: Next steps
 ---
-You should now understand how to customize the error page. If you got stuck, post a question in our [Developer Forums](https://devforum.okta.com).
+You should now understand how to customize the error page.
 
 Read more about other customization options:
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-* [Customize the Okta-hosted sign-in page](/docs/guides/custom-hosted-signin/)
+* [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)

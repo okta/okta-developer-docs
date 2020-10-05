@@ -3,7 +3,9 @@ title: Create an Identity Provider in Okta
 ---
 To connect your org to the Identity Provider, add and configure that Identity Provider in Okta.
 
-1. From the developer console, hover over **Users** and then select **Social & Identity Providers** from the menu that appears. If you are using the admin console (**Classic UI**), hover over **Security** and then select **Identity Providers**.
+1. From the Developer Console, hover over **Users** and then select **Social & Identity Providers** from the menu that appears. If you are using the Admin Console (**Classic UI**), hover over **Security** and then select **Identity Providers**.
+
+> **Note:** See the [Identity Providers API](/docs/reference/api/idps/#add-identity-provider) for request and response examples of creating an Identity Provider in Okta using the API.
 
 2. Select **Add Identity Provider** and then select the appropriate Identity Provider.
 
@@ -13,7 +15,7 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 4. Click **Add Identity Provider**. The Identity Providers page appears.
 
-5. Locate the Identity Provider that you just added and expand the information.
+5. Locate the Identity Provider that you just added and click the arrow next to the Identity Provider name to expand.
 
     <StackSelector snippet="afterappidpinokta" />
 
@@ -24,6 +26,6 @@ To view and modify the mappings, access the Identity Provider that you created b
 
 If there are attributes that don't exist in your org's Universal Directory, but are a part of the user's Identity Provider profile, add the attributes by editing the Identity Provider user profile in your org.
 
-See [Manage User Profiles](https://help.okta.com/en/prod/Content/Topics/Directory/eu-profile-editor.htm?cshid=ext_Directory_Profile_Editor) for more information on custom attributes.
+See [Manage User Profiles](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) for more information on custom attributes.
 
 <NextSectionLink/>

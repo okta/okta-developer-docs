@@ -842,6 +842,8 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 
 | Parameter             | Description                                     | DataType                             | Nullable | Unique | Validation                              |
 | --------------------- | ----------------------------------------------- | ------------------------------------ | -------- | -----  | --------------------------------------  |
+| allowMultipleAcsEndpoints       | Determines whether the app allows you to configure multiple ACS URIs                                    | Boolean                                              | FALSE    | FALSE  |                                           |
+| acsEndpoints          | An array of ACS endpoints. You can configure a maximum of 100 endpoints.                                          | Array of [ACS Endpoints](#acs-endpoint-object)       | TRUE     | FALSE  |                                           |
 | assertionSigned       | Determines whether the SAML assertion is digitally signed or not                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
 | attributeStatements   | Check the [SAML Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |                                           |
 | audience              | Audience URI (SP Entity ID)                                                                                       | String                                               | FALSE    | FALSE  |                                           |
@@ -950,6 +952,17 @@ curl -v -X POST \
       "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
       "spIssuer": null,
       "requestCompressed": false,
+      "allowMultipleAcsEndpoints": true,
+      "acsEndpoints": [
+        {
+          "url": "http://testorgone.okta",
+          "index":0
+        },
+        {
+          "url": "http://testorgone.okta/1",
+          "index":1
+        }
+      ],
       "attributeStatements": [
         {
           "type": "EXPRESSION",
@@ -1028,6 +1041,17 @@ curl -v -X POST \
       "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
       "spIssuer": null,
       "requestCompressed": false,
+      "allowMultipleAcsEndpoints": true,
+      "acsEndpoints": [
+        {
+          "url": "http://testorgone.okta",
+          "index":0
+        },
+        {
+          "url": "http://testorgone.okta/1",
+          "index":1
+        }
+      ],
       "attributeStatements": [
         {
           "type": "EXPRESSION",
@@ -1583,6 +1607,8 @@ curl -v -X GET \
       "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
       "spIssuer": null,
       "requestCompressed": false,
+      "allowMultipleAcsEndpoints": false,
+      "acsEndpoints": [],
       "attributeStatements": []
     }
   },
@@ -1641,7 +1667,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | expand    | Traverses the `users` link relationship and optionally embeds the [Application User](#application-user-object) resource   | Query      | String   | FALSE    |         |
 | filter    | Filters apps by `status`, `user.id`, `group.id` or `credentials.signing.kid` expression                          | Query      | String   | FALSE    |         |
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
-| q         | Searches the `name` or `displayName` property of applications                                                    | Query      | String   | FALSE    |         |
+| q         | Searches the `name` or `label` property of applications                                                          | Query      | String   | FALSE    |         |
 
 The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
@@ -1752,6 +1778,8 @@ curl -v -X GET \
         "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
         "spIssuer": null,
         "requestCompressed": false,
+        "allowMultipleAcsEndpoints": false,
+        "acsEndpoints": [],
         "attributeStatements": []
       }
     },
@@ -1931,6 +1959,8 @@ curl -v -X GET \
         "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
         "spIssuer": null,
         "requestCompressed": false,
+        "allowMultipleAcsEndpoints": false,
+        "acsEndpoints": [],
         "attributeStatements": []
       }
     },
@@ -2242,6 +2272,8 @@ curl -v -X GET \
         "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
         "spIssuer": null,
         "requestCompressed": false,
+        "allowMultipleAcsEndpoints": false,
+        "acsEndpoints": [],
         "attributeStatements": []
       }
     },
@@ -3037,7 +3069,7 @@ curl -v -X PUT \
 
 ##### Response example (self-service application assignment not available)
 
-If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/Content/Topics/Directory/Directory_Profile_Editor.htm#Expressions) with profile mappings (Universal Directory) and how to [update user permissions](https://help.okta.com/en/prod/Content/Topics/Directory/Directory_Profile_Editor.htm#createcustomattrib) on properties in the user profile to secure your app before enabling self-service.
+If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) with profile mappings (Universal Directory) and how to update user permissions on properties in the user profile to secure your app before enabling self-service.
 
 ``` http
 HTTP/1.1 403 Forbidden
@@ -5172,7 +5204,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/${applicationId}/tokens/${tokenId}" />
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
 Gets a token for the specified application
 
@@ -5400,6 +5432,8 @@ HTTP/1.1 204 No Content
       "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
       "spIssuer": null,
       "requestCompressed": false,
+      "allowMultipleAcsEndpoints": false,
+      "acsEndpoints": [],
       "attributeStatements": []
     }
   },
@@ -5525,6 +5559,7 @@ The list of possible modes an app may support are:
 | BROWSER_PLUGIN        | Secure Web Authentication (SWA) with Okta Browser Plugin               |
 | Custom                | App-Specific SignOn Mode                                               |
 | OPENID_CONNECT        | Federated Authentication with OpenID Connect                           |
+| SAML_1_1              | Federated Authentication with SAML 1.1 WebSSO                          |
 | SAML_2_0              | Federated Authentication with SAML 2.0 WebSSO                          |
 | SECURE_PASSWORD_STORE | Secure Web Authentication (SWA) with POST (plugin not required)        |
 | WS_FEDERATION         | Federated Authentication with WS-Federation Passive Requestor Profile  |
@@ -5792,12 +5827,12 @@ There are four choices for the `connection` property.
 
 Specifies (optional) attribute statements for a SAML application
 
-| Property   | Description                                                                                  | DataType    | Nullable |
-| ---------- | -------------------------------------------------------------------------------------------- | ----------- | -------- |
-| name       | The reference name of the attribute statement                                                | String      | FALSE    |
-| namespace  | The name format of the attribute                                                             | String      | FALSE    |
-| type       | The type of attribute statements object                                                      | `GENERIC`   | FALSE    |
-| values     | The value of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)    | String      | FALSE    |
+| Property   | Description                                                                                  | DataType     | Nullable |
+| ---------- | -------------------------------------------------------------------------------------------- | ------------ | -------- |
+| name       | The reference name of the attribute statement                                                | String       | FALSE    |
+| namespace  | The name format of the attribute                                                             | String       | FALSE    |
+| type       | The type of attribute statements object                                                      | `EXPRESSION` | FALSE    |
+| values     | The value of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)    | String       | FALSE    |
 
 #### Group Attribute Statements object
 
@@ -5827,7 +5862,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
       ...
       "attributeStatements": [
         {
-          "type": "GENERIC",
+          "type": "EXPRESSION",
           "name": "Attribute One",
           "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
           "values": [
@@ -5835,7 +5870,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
           ]
         },
         {
-          "type": "GENERIC",
+          "type": "EXPRESSION",
           "name": "Attribute Two",
           "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
           "values": [
@@ -6198,3 +6233,26 @@ The application CSR object defines a certificate signing request for a signature
 | csr              | Base64 encoded CSR in DER format                             | String                                                                      | TRUE     | TRUE   | TRUE     |           |           |            |
 | id               | unique identifier for the CSR                                | String                                                                      | FALSE    | TRUE   | TRUE     |           |           |            |
 | kty              | cryptographic algorithm family for the CSR's keypair         | String                                                                      | FALSE    | FALSE  | TRUE     |           |           |            |
+
+### ACS Endpoint Object
+
+The ACS endpoint that contains the ACS URI and the index of the URI.
+
+```json
+{
+  "url": "https://www.example.com/sso/saml",
+  "index": 0
+}
+```
+
+#### ACS Endpoint properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| url              | URL of the ACS                                               | String                                                                      | FALSE    | FALSE  | FALSE    |           | 1024      | [URL](http://tools.ietf.org/html/rfc3986)           |
+| index            | index of the URL in the array of ACS endpoints               | Number                                                                      | FALSE    | TRUE   | FALSE    |           |           |            |
+
+Property details
+
+ * `url` can't have query or fragment parameters.
+ * `index` has to be a non-negative number and cannot be duplicated in a set of ACS endpoints configured for an app.

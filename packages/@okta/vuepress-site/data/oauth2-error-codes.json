@@ -1,6 +1,6 @@
 {
-  "release" : "2020.05.3",
-  "build" : "2020.05.3-begin-37-g5945cb5f044c",
+  "release" : "2020.09.2",
+  "build" : "2020.09.2-begin-18-g149a027075ea",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -106,6 +106,13 @@
     "internalErrorCode" : "mfa_attestation_login_hint_invalid",
     "errorCode" : "access_denied",
     "errorDescription" : "'login_hint' did not match a user assigned to the client app."
+  }, {
+    "title" : "Admin consent insufficient permission",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "admin_consent_insufficient_permission",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The user does not have sufficient permission to provide Administrator Consent."
   }, {
     "title" : "Invalid userinfo response",
     "statusCode" : 403,
@@ -309,6 +316,27 @@
     "internalErrorCode" : "access_token_insufficient_scopes",
     "errorCode" : "insufficient_scope",
     "errorDescription" : "The access token provided does not contain the required scopes."
+  }, {
+    "title" : "Invalid authorization details",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_authorization_details",
+    "errorCode" : "invalid_authorization_details",
+    "errorDescription" : "Invalid authorization_details."
+  }, {
+    "title" : "Invalid authorization details with errors",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_authorization_details_with_errors",
+    "errorCode" : "invalid_authorization_details",
+    "errorDescription" : "Invalid authorization_details. Errors: [{0}]."
+  }, {
+    "title" : "Invalid authorization details invalid type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_authorization_details_invalid_resource_type",
+    "errorCode" : "invalid_authorization_details",
+    "errorDescription" : "The type value {0} in authorization_details is not supported."
   }, {
     "title" : "Invalid client",
     "statusCode" : 401,
@@ -561,6 +589,20 @@
     "internalErrorCode" : "invalid_password_credentials",
     "errorCode" : "invalid_grant",
     "errorDescription" : "The credentials provided were invalid."
+  }, {
+    "title" : "Missing password enrollment",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "missing_password_enrollment",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The user does not configure a password."
+  }, {
+    "title" : "Multiple password enrollments",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "multiple_password_enrollments",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The user has multiple passwords."
   }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
@@ -842,6 +884,13 @@
     "errorCode" : "invalid_request_object",
     "errorDescription" : "The JWT signature algorithm of the authorize request object is invalid."
   }, {
+    "title" : "Invalid authorization details request response type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_response_type",
+    "errorCode" : "invalid_response_type",
+    "errorDescription" : "Invalid rich authorization request. The response_type must be 'code'."
+  }, {
     "title" : "Invalid scope",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1087,6 +1136,13 @@
     "errorCode" : "request_uri_not_supported",
     "errorDescription" : "The authorize request uri is not supported by this client."
   }, {
+    "title" : "Invalid authorization details request scope present",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "scope_present",
+    "errorCode" : "scope_present",
+    "errorDescription" : "Invalid rich authorization request. The request should not include 'scope' parameter."
+  }, {
     "title" : "Server error",
     "statusCode" : 500,
     "statusReasonPhrase" : "Internal Server Error",
@@ -1115,9 +1171,16 @@
     "errorCode" : "server_error",
     "errorDescription" : "Failed to create the access_token."
   }, {
-    "title" : "Too many groups in groups claim",
+    "title" : "Rar token not created",
     "statusCode" : 500,
     "statusReasonPhrase" : "Internal Server Error",
+    "internalErrorCode" : "rar_token_not_generated",
+    "errorCode" : "server_error",
+    "errorDescription" : "Failed to create the RAR based access_token."
+  }, {
+    "title" : "Too many groups in groups claim",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "too_many_groups_in_groups_claim",
     "errorCode" : "server_error",
     "errorDescription" : "The groups claim matched too many groups and must be configured to match fewer groups."

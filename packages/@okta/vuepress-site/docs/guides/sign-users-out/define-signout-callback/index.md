@@ -1,7 +1,8 @@
 ---
 title: Define the sign-out callback
 ---
-After you sign users out of your app and out of Okta, you have to redirect users to a specific location in your application. You need to whitelist the post sign-out URL in your Okta application settings. 
+
+Signing out of Okta requires the app to open a browser and navigate to the [end session endpoint](/docs/reference/api/oidc/#logout). Okta ends the user's session and immediately redirects the user back to your application. To do this, you must define a callback route for the sign-out process, which means that you need to whitelist the post sign-out URL in your Okta application settings. If you don't specify a `post_logout_redirect_uri`, then the browser is redirected to the Okta sign-in page.
 
 Open your Okta Developer Console:
 
@@ -11,7 +12,7 @@ Open your Okta Developer Console:
 
 2. Select **General** and click **Edit**.
 
-3. In the **Logout redirect URIs** section, add the base URI of your application. 
+3. In the **Logout redirect URIs** section, add the base URI of your application.
 
     <StackSelector snippet="addbaseuri"/>
 

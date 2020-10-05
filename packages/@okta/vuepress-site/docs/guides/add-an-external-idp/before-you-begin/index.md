@@ -10,7 +10,7 @@ We also support additional services such as directories and credential providers
 
 This guide assumes that you:
 
-* Have an Okta Developer Edition organization. (Don't have one? [Create one for free](https://developer.okta.com/signup).)
+* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * Have an application that you want to add authentication to.
 
 > **Note:** This guide doesn't explain the differences between SAML and OpenID Connect and doesn't help you choose between them. See [External Identity Providers](/docs/concepts/identity-providers/#the-big-picture) for more information.
@@ -19,6 +19,7 @@ This guide assumes that you:
 
 We support a lot of Identity Providers. This guide provides instructions for the following Identity Providers. If the provider that you need isn't listed, we may still support it through generic OpenID Connect or SAML. The Identity Provider's documentation should say which protocol you need to use.
 
+* [Apple](/docs/guides/add-an-external-idp/apple/create-an-app-at-idp/)
 * [Azure AD](/docs/guides/add-an-external-idp/azure/create-an-app-at-idp/)
 * [Facebook](/docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/)
 * [Google](/docs/guides/add-an-external-idp/google/create-an-app-at-idp/)
@@ -27,5 +28,9 @@ We support a lot of Identity Providers. This guide provides instructions for the
 * [Okta to Okta](/docs/guides/add-an-external-idp/oktatookta/create-an-app-at-idp/)
 * [OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/create-an-app-at-idp/)
 * [SAML 2.0](/docs/guides/add-an-external-idp/saml2/create-an-app-at-idp/)
+
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

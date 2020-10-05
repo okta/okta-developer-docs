@@ -5,7 +5,7 @@ icon: code-react
 integration: mobile
 ---
 
-New to Okta? Our quickstart will walk you through adding user authentication to your React Native app in minutes.
+New to Okta? Our how to guide will walk you through adding user authentication to your React Native app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -14,8 +14,8 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 		</a>
 	</li>
 	<li>
-		<a href='/quickstart/#/react-native' class='Button--blue' data-proofer-ignore>
-			<span>React Native Quickstart</span>
+		<a href='/docs/guides/sign-into-mobile-app/react-native/before-you-begin/' class='Button--blue' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 </ul>
@@ -32,7 +32,7 @@ The Okta React Native client makes it easy to add authentication to your React N
 	<span class='icon download-16'></span> <span>okta-react-native on npm</span>
 </a>
 
-<a href='https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react-native'>
+<a href='https://github.com/okta/okta-react-native'>
 	<span class='fa fa-github'></span> <span>React Native SDK Source</span>
 </a>
 

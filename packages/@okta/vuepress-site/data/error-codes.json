@@ -1,6 +1,6 @@
 {
-  "release" : "2020.05.3",
-  "build" : "2020.05.3-begin-37-g5945cb5f044c",
+  "release" : "2020.09.2",
+  "build" : "2020.09.2-begin-18-g149a027075ea",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1128,6 +1128,22 @@
     "statusReasonPhrase" : "Too Many Requests",
     "errorCode" : "E0000147",
     "errorSummary" : "Your organization has reached the limit of call requests that can be sent within a 24 hour period.",
+    "errorDescription" : null
+  }, {
+    "title" : "Policy violation exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000148",
+    "errorSummary" : "Cannot disable this authenticator because it is enabled in one or more policies. To continue, disable the authenticator in these policies.",
+    "errorDescription" : null
+  }, {
+    "title" : "HTTP request not acceptable",
+    "includesExceptionMessage" : false,
+    "statusCode" : 406,
+    "statusReasonPhrase" : "Not Acceptable",
+    "errorCode" : "E0000149",
+    "errorSummary" : "The HTTP request is not acceptable.",
     "errorDescription" : null
   } ]
 }

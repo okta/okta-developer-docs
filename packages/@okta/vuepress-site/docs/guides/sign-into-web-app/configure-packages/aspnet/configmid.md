@@ -37,6 +37,25 @@ public class Startup
     }
 }
 ```
+Okta middleware uses the default Custom Authorization Server by default. If you are using an Authorization Server other than the `default`, make sure to configure it by setting up the `AuthorizationServerId`. If you are using the [Org Authorization Server](/docs/concepts/auth-servers/), your middleware configuration should look like this: 
+
+```csharp
+public class Startup
+{
+    public void Configuration(IAppBuilder app)
+    {
+        // ...
+        app.UseOktaMvc(new OktaMvcOptions()
+        {
+            OktaDomain = ConfigurationManager.AppSettings["okta:OktaDomain"],
+            ClientId = ConfigurationManager.AppSettings["okta:ClientId"],
+            ClientSecret = ConfigurationManager.AppSettings["okta:ClientSecret"],
+            RedirectUri = ConfigurationManager.AppSettings["okta:RedirectUri"],
+            AuthorizationServerId = "",
+        });
+    }
+}
+```
 
 At the top of the file, update your `using` statements to import `Okta.AspNet` and other required namespaces:
 

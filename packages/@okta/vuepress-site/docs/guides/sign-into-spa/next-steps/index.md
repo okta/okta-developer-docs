@@ -1,12 +1,12 @@
 ---
 title: Next steps
 ---
-You should now understand how to sign users in to your single-page applications using Okta. If you got stuck, post a question in our [Developer Forum](https://devforum.okta.com).
+You should now understand how to sign users in to your single-page applications using Okta.
 
 Read more:
 
 * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
-* [Customize the Okta-hosted sign-in page](/docs/guides/custom-hosted-signin/)
+* [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
 * [Protect your API endpoints](/docs/guides/protect-your-api/)
 
 ## Sample applications

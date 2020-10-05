@@ -14,9 +14,9 @@ In the General Settings page, you need to fill in the basic information about yo
 
 ## App information
 
-* **Does your app exist in the OIN?** &mdash; If your integration already exists in the OIN, provide the **Existing OIN app name** so the App Analyst can locate it.
+* **Does your app exist in the OIN?** &mdash; If your integration already exists in the OIN, provide the **Existing OIN app name** so that the Okta OIN team can locate it.
 
-* **What changes are you making to the existing OIN integration?** &mdash; If your integration already exists in the OIN, summarize the changes that you are requesting in your update. This summary helps the Okta App Analyst to address your changes.
+* **What changes are you making to the existing OIN integration?** &mdash; If your integration already exists in the OIN, summarize the changes that you are requesting in your update. This summary helps the Okta OIN team address your changes.
 
 * **App name** &mdash; Provide a name for your integration. This is the main title used for your integration in the OIN.
 
@@ -26,7 +26,7 @@ In the General Settings page, you need to fill in the basic information about yo
 
 * **App description** &mdash; Give a general description of your application and what the Okta integration does. For examples, see the overview section for any of the integrations listed on the [OIN](https://www.okta.com/integrations/).
 
-* **App icon** &mdash; Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The image must have dimensions of less than 1400 by 400 pixels. It also must be 1 megabyte or smaller in size.
+* **App icon** &mdash; Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be smaller than 1 MB in size. For best results, use a PNG image with a transparent background, a landscape orientation, and use a minimum resolution of 420 x 120 pixels to prevent upscaling.
 
 ## Customer support
 
@@ -36,7 +36,7 @@ In the General Settings page, you need to fill in the basic information about yo
 
 ## Test account
 
-OKTA App Analysts require a dedicated account on your application to run their tests. This account needs to be kept active beyond the submission period, in case Okta needs to update or troubleshoot a submission.
+The Okta OIN team requires a dedicated account on your application to run their tests. This account needs to be kept active beyond the submission period in case Okta needs to update or troubleshoot a submission.
 
 * **Test account URL** &mdash; This is a static URL for Okta to sign on to your application. The account credentials you provide below must work for this URL.
 
@@ -44,6 +44,6 @@ OKTA App Analysts require a dedicated account on your application to run their t
 
 * **Test account password** &mdash; Password for the test account.
 
-* **Additional instructions** &mdash; Include any other information that you think the App Analysts need to know about your integration, the test account, or the testing configuration.
+* **Additional instructions** &mdash; Include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
 
 <NextSectionLink/>

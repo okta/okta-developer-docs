@@ -14,6 +14,7 @@ module.exports = [
         { title: 'Authorization Servers', path: '/docs/reference/api/authorization-servers/'},
         { title: 'Dynamic Client Registration', path: '/docs/reference/api/oauth-clients/'},
         { title: 'Event Hooks', path: '/docs/reference/api/event-hooks/'},
+        { title: 'Event Types', path: '/docs/reference/api/event-types/'},
         { title: 'Factors', path: '/docs/reference/api/factors/'},
         { title: 'Features', path: '/docs/reference/api/features/'},
         { title: 'Groups', path: '/docs/reference/api/groups/'},
@@ -31,16 +32,27 @@ module.exports = [
         { title: 'Zones', path: '/docs/reference/api/zones/'}
       ]
     },
+    { title: 'Rate Limits', subLinks: [
+      { title: 'Rate limits overview', path: '/docs/reference/rate-limits/'},
+      { title: 'Authentication/End-user rate limits', path: '/docs/reference/rl-global-enduser/'},
+      { title: 'Management rate limits', path: '/docs/reference/rl-global-mgmt/'},
+      { title: 'Other endpoint rate limits', path: '/docs/reference/rl-global-other-endpoints/'},
+      { title: 'Additional limits', path: '/docs/reference/rl-additional-limits/'},
+      { title: 'Rate limit best practices', path: '/docs/reference/rl-best-practices/'},
+      { title: 'DynamicScale', path: '/docs/reference/rl-dynamic-scale/'},
+      { title: 'Previous rate limits', path: '/docs/reference/rl-previous/'}
+      ]
+    },
     { title: 'Error Codes', path: '/docs/reference/error-codes/'},
     { title: 'Import Hook', path: '/docs/reference/import-hook/'},
-    { title: 'SAML Hook', path: '/docs/reference/saml-hook/'},
-    { title: 'Registration Hook', path: '/docs/reference/registration-hook/'},
-    { title: 'Token Hook', path: '/docs/reference/token-hook/'},
     { title: 'Okta Expression Language', path: '/docs/reference/okta-expression-language/'},
+    { title: 'Password Hook', path: '/docs/reference/password-hook/'},
     { title: 'Postman Collections', path: '/docs/reference/postman-collections/'},
-    { title: 'Rate Limits', path: '/docs/reference/rate-limits/'},
+    { title: 'Registration Hook', path: '/docs/reference/registration-hook/'},
     { title: 'Release Life Cycle', path: '/docs/reference/releases-at-okta/'},
+    { title: 'SAML Hook', path: '/docs/reference/saml-hook/'},
     { title: 'SCIM Protocol', path: '/docs/reference/scim/'},
     { title: 'Social IdP Settings', path: '/docs/reference/social-settings/'},
+    { title: 'Token Hook', path: '/docs/reference/token-hook/'},
     { title: 'WebFinger', path: '/docs/reference/api/webfinger/'}
   ]

@@ -72,7 +72,10 @@ export default class OktaSignInWidget extends Component {
     this.widget = new OktaSignIn({
       baseUrl: this.props.baseUrl,
       authParams: {
-        pkce: true
+        // If your app is configured to use the Implicit Flow 
+        // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
+        // you will need to uncomment the below line
+        // pkce: false
       }
     });
     this.widget.renderEl({el}, this.props.onSuccess, this.props.onError);
@@ -168,33 +171,18 @@ Create a new component `src/Login.js`:
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import OktaSignInWidget from './OktaSignInWidget';
-import { withAuth } from '@okta/okta-react';
+import { withOktaAuth } from '@okta/okta-react';
 
-export default withAuth(class Login extends Component {
+export default withOktaAuth(class Login extends Component {
   constructor(props) {
     super(props);
     this.onSuccess = this.onSuccess.bind(this);
     this.onError = this.onError.bind(this);
-    this.state = {
-      authenticated: null
-    };
-    this.checkAuthentication();
-  }
-
-  async checkAuthentication() {
-    const authenticated = await this.props.auth.isAuthenticated();
-    if (authenticated !== this.state.authenticated) {
-      this.setState({ authenticated });
-    }
-  }
-
-  componentDidUpdate() {
-    this.checkAuthentication();
   }
 
   onSuccess(res) {
     if (res.status === 'SUCCESS') {
-      return this.props.auth.redirect({
+      return this.props.authService.redirect({
         sessionToken: res.session.token
       });
    } else {
@@ -209,8 +197,8 @@ export default withAuth(class Login extends Component {
   }
 
   render() {
-    if (this.state.authenticated === null) return null;
-    return this.state.authenticated ?
+    if (this.props.authState.isPending) return null;
+    return this.props.authState.isAuthenticated ?
       <Redirect to={{ pathname: '/' }}/> :
       <OktaSignInWidget
         baseUrl={this.props.baseUrl}
@@ -223,7 +211,7 @@ export default withAuth(class Login extends Component {
 
 ### `/implicit/callback`
 
-The component for this route (ImplicitCallback) comes with `@okta/okta-react`. It handles token parsing, token storage, and redirecting to a protected page if one triggered the login.
+The component for this route (LoginCallback) comes with `@okta/okta-react`. It handles token parsing, token storage, and redirecting to a protected page if one triggered the login.
 
 ### Connect the Routes
 
@@ -273,14 +261,20 @@ export default withRouter(class AppWithRouterAccess extends Component {
   onAuthRequired() {
     this.props.history.push('/login')
   }
-  
+
   render() {
+
+    // Note: If your app is configured to use the Implicit Flow 
+    // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
+    // you will need to add the below property to what is passed to <Security>
+    //
+    // pkce={false}
+
     return (
         <Security issuer='https://${yourOktaDomain}/oauth2/default'
                   clientId='{clientId}'
                   redirectUri={window.location.origin + '/implicit/callback'}
-                  onAuthRequired={this.onAuthRequired}
-                  pkce={true} >
+                  onAuthRequired={this.onAuthRequired} >
           <Route path='/' exact={true} component={Home} />
           <SecureRoute path='/protected' component={Protected} />
           <Route path='/login' render={() => <Login baseUrl='https://${yourOktaDomain}' />} />
@@ -303,7 +297,7 @@ npm start
 
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
 
-Want to learn how to use the user's `access_token`? Check out our <a href='/quickstart/#/react/nodejs/generic' data-proofer-ignore>React Quickstart integrations</a> to learn about protecting routes on your server, validating the `access_token`, and more!
+Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/react/before-you-begin/' data-proofer-ignore>React how to guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
 ## Support
 

@@ -23,7 +23,7 @@ meta:
 
 ## Get Started with Spring + Okta
 
-New to Okta? Our quickstart will walk you through adding user authentication to your Spring app in minutes.
+New to Okta? Our how to guide will walk you through adding user authentication to your Spring app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -32,8 +32,8 @@ New to Okta? Our quickstart will walk you through adding user authentication to 
 		</a>
 	</li>
 	<li>
-		<a href='/quickstart/#/okta-sign-in-page/java/spring' class='Button--blue' data-proofer-ignore>
-			<span>Spring Quickstart</span>
+		<a href='/docs/guides/sign-into-web-app/springboot/before-you-begin/' class='Button--blue' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 </ul>
@@ -57,10 +57,21 @@ The Okta Spring Boot Starter can be used to add OAuth 2.0 authorization to Sprin
 	</li>
 </ul>
 
+## Spring Samples
+
+<ul class="language-libraries">
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/samples-java-spring">
+			<span>Spring Security OAuth Sample Applications for Okta</span>
+		</a>
+	</li>
+</ul>
+
 ## Recommended Guides
 
 
-- [Okta Authentication Quickstart Guides](/quickstart/#/okta-sign-in-page/java/spring)
+- [Okta Authentication How To Guide](/docs/guides/sign-into-web-app/springboot/before-you-begin/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)

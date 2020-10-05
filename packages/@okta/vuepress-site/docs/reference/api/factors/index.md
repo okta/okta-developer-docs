@@ -9,7 +9,7 @@ The Okta Factors API provides operations to enroll, manage, and verify factors f
 
 ## Get started with the Factors API
 
-Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9fdda657d134039fcaba)
+Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2e52a7def4973635840e)
 
 ## Factor operations
 
@@ -449,6 +449,163 @@ curl -v -X GET \
 ]
 ```
 
+### List YubiKey OTP Tokens
+
+<ApiOperation method="get" url="/api/v1/org/factors/yubikey_token/tokens" />
+
+Enumerates all YubiKey OTP Tokens
+
+##### Request parameters
+
+| Parameter | Description                                                                                                      | Param Type | DataType | Required | Default |
+| --------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
+| after     | Specifies the pagination cursor for the next page of tokens                                                      | Query      | String   | FALSE    |         |
+| expand    | Embeds the [User](/docs/reference/api/users/#user-object) resource if the YubiKey Token is assigned to a user and expand is set to `user` | Query      | String   | FALSE    |         |
+| filter    | Filters tokens by `profile.email`, `profile.serial`, `activated`, `user.id`, `created`, `status`, or `lastVerified` expression | Query      | String   | FALSE    |         |
+| forDownload | Returns tokens in a CSV for download instead of in the response.  Defaults `limit` to 1000.                    | Query      | Boolean  | FALSE    | false   |
+| limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
+| sortBy    | Sorts the tokens by `profile.email`, `profile.serial`, `activated`, `user.id`, `created`, `status`, or `lastVerified` | Query      | String   | FALSE    |        |
+| sortOrder | Specifies the sort order, either `ASC` or `DESC`                                                                 | Query      | String   | FALSE    |         |
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens"
+```
+
+##### Response example
+
+```json
+[
+    {
+        "id": "ykkwcx13nrDq8g4oy0g3",
+        "created": "2020-01-14T21:53:09.000Z",
+        "lastVerified": "2020-01-14T21:53:06.000Z",
+        "lastUpdated": "2020-01-14T21:53:09.000Z",
+        "status": "UNASSIGNED",
+        "profile": {
+            "serial": "000003632071"
+        },
+        "_links": {
+            "self": {
+                "href": "http://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens/ykkwcx13nrDq8g4oy0g3",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "id": "ykkxdtCA1fKVxyu6R0g3",
+        "created": "2020-06-09T23:42:05.000Z",
+        "activated": "2020-06-09T23:47:29.000Z",
+        "lastVerified": "2020-06-09T23:47:29.000Z",
+        "lastUpdated": "2020-06-09T23:47:29.000Z",
+        "status": "ACTIVE",
+        "profile": {
+            "serial": "000009508427"
+        },
+        "_links": {
+            "self": {
+                "href": "https://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens/ykkxdtCA1fKVxyu6R0g3",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            "user": {
+                "href": "https://${yourOktaDomain}/api/v1/users/00uu0x8sxTr9HcHOo0g3",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            },
+            "deactivate": {
+                "href": "https://${yourOktaDomain}/api/v1/users/00uu0x8sxTr9HcHOo0g3/factors/ykfxduQAhl89YyPrV0g3",
+                "hints": {
+                    "allow": [
+                        "DELETE"
+                    ]
+                }
+            }
+        }
+    }
+]
+```
+
+### Get a Single YubiKey OTP Token
+
+<ApiOperation method="get" url="/api/v1/org/factors/yubikey_token/tokens/${tokenId}" />
+
+Gets the specified YubiKey OTP Token
+
+##### Request parameters
+
+| Parameter    | Description                                         | Param Type | DataType | Required |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
+| tokenId       | `id` of a YubiKey Token                            | URL        | String   | TRUE     |
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens/ykkxdtCA1fKVxyu6R0g3"
+```
+
+##### Response example
+
+```json
+{
+    "id": "ykkxdtCA1fKVxyu6R0g3",
+    "created": "2020-06-09T23:42:05.000Z",
+    "activated": "2020-06-09T23:47:29.000Z",
+    "lastVerified": "2020-06-09T23:47:29.000Z",
+    "lastUpdated": "2020-06-09T23:47:29.000Z",
+    "status": "ACTIVE",
+    "profile": {
+        "serial": "000009508427"
+    },
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens/ykkxdtCA1fKVxyu6R0g3",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "user": {
+            "href": "https://${yourOktaDomain}/api/v1/users/00uu0x8sxTr9HcHOo0g3",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/users/00uu0x8sxTr9HcHOo0g3/factors/ykfxduQAhl89YyPrV0g3",
+            "hints": {
+                "allow": [
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
+
 ## Factor lifecycle operations
 
 ### Enroll Factor
@@ -465,6 +622,7 @@ Enrolls a User with a supported [Factor](#list-factors-to-enroll)
 - [Enroll Google Authenticator Factor](#enroll-google-authenticator-factor)
 - [Enroll RSA SecurID Factor](#enroll-rsa-securid-factor)
 - [Enroll Symantec VIP Factor](#enroll-symantec-vip-factor)
+- [Upload YubiKey Seed](#upload-yubikey-seed)
 - [Enroll YubiKey Factor](#enroll-yubikey-factor)
 - [Enroll Okta Email Factor](#enroll-okta-email-factor)
 - [Enroll U2F Factor](#enroll-u2f-factor)
@@ -1326,6 +1484,53 @@ curl -v -X POST \
 }
 ```
 
+#### Upload YubiKey OTP Seed
+
+<ApiOperation method="post" url="/api/v1/org/factors/yubikey_token/tokens" />
+
+Uploads a seed for a YubiKey OTP to be enrolled by a user
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "serialNumber": "7886622",
+    "publicId": "ccccccijgibu",
+    "privateId": "b74be6169486",
+    "aesKey": "1fcc6d8ce39bf1604e0b17f3e0a11067"
+}' "https://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens"
+```
+
+##### Response example
+
+```json
+{
+    "id": "ykkut4G6ti62DD8Dy0g3",
+    "created": "2020-01-10T23:04:10.000Z",
+    "lastVerified": "2020-01-10T23:04:10.000Z",
+    "lastUpdated": "2020-01-10T23:04:10.000Z",
+    "status": "UNASSIGNED",
+    "profile": {
+        "serial": "000007886622"
+    },
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens/ykkut4G6ti62DD8Dy0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        }
+    }
+}
+```
+
 #### Enroll YubiKey Factor
 
 Enrolls a user with a YubiCo Factor (YubiKey). YubiKeys must be verified with the [current passcode](#factor-verification-object) as part of the enrollment request.
@@ -1491,7 +1696,7 @@ curl -v -X POST \
 
 #### Enroll U2F Factor
 
-Enrolls a user with a U2F Factor. The enrollment process starts with getting a `nonce` from Okta and using that to get registration information from the U2F key using the U2F Javascript API.
+Enrolls a user with a U2F Factor. The enrollment process starts with getting a `nonce` from Okta and using that to get registration information from the U2F key using the U2F JavaScript API.
 
 ##### Enroll U2F request example
 
@@ -2217,7 +2422,7 @@ curl -v -X POST \
 
 Activation gets the registration information from the U2F token using the API and passes it to Okta.
 
-##### Get registration information from U2F token by calling the U2F Javascript API
+##### Get registration information from U2F token by calling the U2F JavaScript API
 
 ```html
 <!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
@@ -2343,7 +2548,7 @@ curl -v -X POST \
 
 Activation gets the registration information from the WebAuthn authenticator using the API and passes it to Okta.
 
-##### Get registration information from WebAuthn authenticator by calling the WebAuthn Javascript API
+##### Get registration information from WebAuthn authenticator by calling the WebAuthn JavaScript API
 
 ```html
 <!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
@@ -2377,7 +2582,6 @@ Activate a WebAuthn Factor by verifying the attestation and client data.
 | attestation       | Base64-encoded attestation from the WebAuthn JavaScript call        | Body       | String   | TRUE     |
 | clientData        | Base64-encoded client data from the WebAuthn JavaScript call        | Body       | String   | TRUE     |
 | factorId          | `id` of the Factor returned from enrollment                         | URL        | String   | TRUE     |
-| stateToken        | [State token](#state-token) for the current transaction             | Body       | String   | TRUE     |
 
 
 [Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
@@ -2409,9 +2613,8 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-  "attestation: "o2NmbXRmcGFja2VkZ2F0dFN0bXSiY2FsZyZjc2lnWEgwRgIhAMvf2+dzXlHZN1um38Y8aFzrKvX0k5dt/hnDu9lahbR4AiEAuwtMg3IoaElWMp00QrP/+3Po/6LwXfmYQVfsnsQ+da1oYXV0aERhdGFYxkgb9OHGifjS2dG03qLRqvXrDIRyfGAuc+GzF1z20/eVRV2wvl6tzgACNbzGCmSLCyXx8FUDAEIBvWNHOcE3QDUkDP/HB1kRbrIOoZ1dR874ZaGbMuvaSVHVWN2kfNiO4D+HlAzUEFaqlNi5FPqKw+mF8f0XwdpEBlClAQIDJiABIVgg0a6oo3W0JdYPu6+eBrbr0WyB3uJLI3ODVgDfQnpgafgiWCB4fFo/5iiVrFhB8pNH2tbBtKewyAHuDkRolcCnVaCcmQ==",
-  "clientData": "eyJjaGFsbGVuZ2UiOiJVSk5wYW9sVWt0dF9vcEZPNXJMYyIsIm9yaWdpbiI6Imh0dHBzOi8vcmFpbi5va3RhMS5jb20iLCJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIn0=",
-  "stateToken": "00eacMXqkf2pG8K3sBbWqTJNStZpEi9-1Bfwl_mfQT"
+  "attestation": "o2NmbXRmcGFja2VkZ2F0dFN0bXSiY2FsZyZjc2lnWEgwRgIhAMvf2+dzXlHZN1um38Y8aFzrKvX0k5dt/hnDu9lahbR4AiEAuwtMg3IoaElWMp00QrP/+3Po/6LwXfmYQVfsnsQ+da1oYXV0aERhdGFYxkgb9OHGifjS2dG03qLRqvXrDIRyfGAuc+GzF1z20/eVRV2wvl6tzgACNbzGCmSLCyXx8FUDAEIBvWNHOcE3QDUkDP/HB1kRbrIOoZ1dR874ZaGbMuvaSVHVWN2kfNiO4D+HlAzUEFaqlNi5FPqKw+mF8f0XwdpEBlClAQIDJiABIVgg0a6oo3W0JdYPu6+eBrbr0WyB3uJLI3ODVgDfQnpgafgiWCB4fFo/5iiVrFhB8pNH2tbBtKewyAHuDkRolcCnVaCcmQ==",
+  "clientData": "eyJjaGFsbGVuZ2UiOiJVSk5wYW9sVWt0dF9vcEZPNXJMYyIsIm9yaWdpbiI6Imh0dHBzOi8vcmFpbi5va3RhMS5jb20iLCJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIn0="
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4/lifecycle/activate"
 ```
 
@@ -2882,9 +3085,13 @@ Polls a push verification transaction for completion. The transaction result is 
 {
   "expiresAt": "2015-04-01T15:57:32.000Z",
   "factorResult": "WAITING",
+  "profile":{
+     "credentialId":"jane.doe@example.com",
+     ...
+  },
   "_links": {
     "poll": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
+      "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/v2mst.GldKV5VxTrifyeZmWSQguA",
       "hints": {
         "allow": [
           "GET"
@@ -2892,7 +3099,7 @@ Polls a push verification transaction for completion. The transaction result is 
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/mst1eiHghhPxf0yhp0g",
+      "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/transactions/v2mst.GldKV5VxTrifyeZmWSQguA",
       "hints": {
         "allow": [
           "DELETE"
@@ -2916,6 +3123,10 @@ Polls a push verification transaction for completion. The transaction result is 
 ```json
 {
   "factorResult": "REJECTED",
+  "profile":{
+     "credentialId":"jane.doe@example.com",
+     ...
+  },
   "_links": {
     "verify": {
       "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/verify",
@@ -2943,6 +3154,10 @@ Polls a push verification transaction for completion. The transaction result is 
 ```json
 {
   "factorResult": "TIMEOUT",
+  "profile":{
+     "credentialId":"jane.doe@example.com",
+     ...
+  },
   "_links": {
     "verify": {
       "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opfh52xcuft3J4uZc0g3/verify",
@@ -3156,7 +3371,7 @@ curl -v -X POST \
 }
 ```
 
-#### Get the signed assertion from the U2F token by calling the U2F Javascript API
+#### Get the signed assertion from the U2F token by calling the U2F JavaScript API
 
 ```html
 <!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
@@ -3285,7 +3500,7 @@ curl -v -X POST \
 }
 ```
 
-#### Get the signed assertion from the WebAuthn authenticator by calling the WebAuthn Javascript API
+#### Get the signed assertion from the WebAuthn authenticator by calling the WebAuthn JavaScript API
 
 ```html
 <!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
