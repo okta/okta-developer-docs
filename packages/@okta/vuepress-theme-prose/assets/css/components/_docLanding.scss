@@ -1,5 +1,3 @@
-@use '../okta/base/mixins' as mixins;
-
 .docs {
   margin-top: 3rem;
 
@@ -25,7 +23,9 @@
       margin: 0 8rem;
     }
 
-    @include mixins.media-max-width('>=', 'xx-large', $container-width-desktop-large);
+    @include media('>=desktop-xx-large') {
+      max-width: $container-width-desktop-large;
+    }
 
     h2 {
       margin: 2rem 0 0;
