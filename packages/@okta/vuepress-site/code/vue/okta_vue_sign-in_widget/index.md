@@ -270,7 +270,7 @@ export default {
 
 ### `/login`
 
-This route hosts the Sign-In Widget and redirects if the user is already logged in. If the user is coming from a protected page, they'll be redirected back to the page upon login.
+This route hosts the Sign-In Widget and redirects if the user is already logged in. If the user is coming from a protected page, they'll be redirected back to the page upon successful sign in.
 
 You should have already created `src/components/Login.vue` at the beginning of this guide.
 
