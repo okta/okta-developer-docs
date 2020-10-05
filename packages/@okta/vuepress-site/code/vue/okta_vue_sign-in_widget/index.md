@@ -182,7 +182,7 @@ nav div a { margin-right: 10px }
 </style>
 ```
 
-Then, create `src/components/Home.vue` to welcome the user after they've signed in.
+Next, create `src/components/Home.vue` to welcome the user after they've signed in.
 
 ```html
 <template>
