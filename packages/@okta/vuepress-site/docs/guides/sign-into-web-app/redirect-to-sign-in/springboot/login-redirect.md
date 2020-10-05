@@ -3,5 +3,5 @@ By default, the redirect to the login page happens automatically when users acce
 You can give the user a **Sign In** button or link. The link must navigate to `/oauth2/authorization/okta`:
 
 ```html
-<a href="/oauth/authorization/okta">Sign In</a>
+<a href="/oauth2/authorization/okta">Sign In</a>
 ```
