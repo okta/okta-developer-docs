@@ -1,8 +1,7 @@
 ---
 title: Rate limits overview
 excerpt: >-
-  Understand rate limits at Okta and learn how to design for efficient use of
-  resources
+  Understand rate limits at Okta and learn how to design for efficient use of resources
 ---
 
 # Rate limits overview
@@ -18,10 +17,10 @@ To access the individual API limits, visit a category page by clicking the appro
 > We enforce limits at the individual API endpoint level **as requests per minute**.
 
 | Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
-| ----------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
-| [Authentication/End user](/docs/reference/rl-global-enduser/)     | 1,600             | 3,800             | 4,200    | 10,650      | 13,300                 |
-| [Management](/docs/reference/rl-global-mgmt/)                     | 985              | 2,425             | 2,425    | 5,200       | 7,020                  |
-| [Other endpoints](/docs/reference/rl-global-other-endpoints/)     | 1,000             | 3,000             | 3,000    | 6,000       | 10,000                 |
+| ----------------------------------------------------------------- | ----------------:| ----------------:| -------:| ----------:| ---------------------:|
+| [Authentication/End user](/docs/reference/rl-global-enduser/)     | 1,600            | 8,400            | 8,400   | 10,600     | 13,000                |
+| [Management](/docs/reference/rl-global-mgmt/)                     | 980              | 2,400            | 2,400   | 5,200      | 7,000                 |
+| [Other endpoints](/docs/reference/rl-global-other-endpoints/)     | 1,000            | 3,000            | 3,000   | 6,000      | 10,000                |
 
 If an org-wide rate limit is exceeded, an HTTP 429 status code is returned. You can anticipate hitting the rate limit by checking [Okta's rate limiting headers](/docs/reference/rl-best-practices/#check-your-rate-limits-with-okta-s-rate-limit-headers). Additionally, if you have a One App or Enterprise organization, the Admin Console displays a banner, and you are sent an email notification when your org approaches its rate limit.
 
@@ -32,7 +31,6 @@ If an org-wide rate limit is exceeded, an HTTP 429 status code is returned. You 
 > * Rate limits may be changed to protect customers. We provide advance warning of changes when possible.
 > * You can expand the Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
-
 ## Other applicable rate limit content
 
 * [Concurrent rate limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits): To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from the org-wide, per-minute API rate limits, which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.

@@ -19,8 +19,8 @@ This page provides the API rate limits for management activities, which is part 
 > We enforce limits at the individual API endpoint level **as requests per minute**.
 
 | Action and Okta API Endpoint                                                                                                       | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | --------------------- |
-| **Cumulative rate limit**                                                                                                         | **985**          | **2,425**        | **2,425**| **5,200** | **7,020**             |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
+| **Cumulative rate limit**                                                                                                         | **980**          | **2,400**        | **2,400**| **5,200** | **7,000**             |
 | **Create or list applications:**<br>`/api/v1/apps` except `/api/v1/apps/{id}`                                                      | 20               | 25               | 25      | 100        | 100                   |
 | **Get, update, or delete an application by ID:**<br>`/api/v1/apps/{id}` only                                                       | 100              | 300              | 300     | 600        | 500                   |
 | **Create or list groups:**<br>`/api/v1/groups` except `/api/v1/groups/{id}`                                                        | 100              | 300              | 300     | 600        | 500                   |
