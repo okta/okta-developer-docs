@@ -2,7 +2,7 @@
     <li :class="{'subnav': link.subLinks}">
         <div class="link-wrap">
             <div v-if="link.path">
-                <router-link :to="link.path" @click="setData" :class="{'router-link-active': link.imActive, 'router-link-exact-active': link.imActive}">{{link.title}}</router-link>
+                <router-link :to="link.path" @click="setData" :class="{'tree-nav-link': true, 'router-link-active': link.imActive, 'router-link-exact-active': link.imActive}">{{link.title}}</router-link>
             </div>
             <div v-else>
                 <div class="is-link item-collapsable" @click="toggle">
@@ -42,6 +42,17 @@ export default {
     watch: {
         'link'() {
             this.setData();
+        },
+        'iHaveChildrenActive' (isActivated, _) {
+            if (isActivated && this.link.path) {
+                this.$el.scrollIntoView({
+                    block: 'center'
+                });
+            } else if (isActivated) {
+                this.$el.scrollIntoView({
+                    block: 'nearest'
+                });
+            }
         }
     },
     methods: {
@@ -49,7 +60,7 @@ export default {
             this.iHaveChildrenActive = !this.iHaveChildrenActive
         },
         setData: function() {
-            this.iHaveChildrenActive = this.link.imActive;
+            this.iHaveChildrenActive = Boolean(this.link.imActive);
         }
     }
 }
