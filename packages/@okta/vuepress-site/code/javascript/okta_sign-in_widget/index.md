@@ -327,11 +327,7 @@ See the [Okta React + Custom Login Example](https://github.com/okta/samples-js-r
 
 ### Vue
 
-<!--
 The [Okta Sign-In Widget and Vue guide](/code/vue/okta_vue_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in a Vue app.
-
-^^ todo: <https://github.com/okta/okta-developer-docs/issues/1440>
--->
 
 See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue/tree/master/custom-login) for a working example.
 
