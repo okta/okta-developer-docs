@@ -17,4 +17,6 @@ You need to update existing Custom Authorization Servers to return the custom do
 
 If you have applications that use Okta endpoints with the uncustomized URL domain, update them to use the custom URL domain.
 
-<NextSectionLink>Next Steps</NextSectionLink>
+> **Note:** The next page covers the steps to quickly set up a custom domain using CloudFlare. If you don't want to check that content out, move on to the <GuideLink link="../next-steps">Next steps</GuideLink> page.
+
+<NextSectionLink/>
