@@ -43,6 +43,17 @@ export default {
     watch: {
         'link'() {
             this.setData();
+        },
+        'iHaveChildrenActive' (isActivated, _) {
+            if (isActivated && this.link.path) {
+                this.$el.scrollIntoView({
+                    block: 'center'
+                });
+            } else if (isActivated) {
+                this.$el.scrollIntoView({
+                    block: 'nearest'
+                });
+            }
         }
     },
     methods: {
@@ -50,7 +61,7 @@ export default {
             this.iHaveChildrenActive = !this.iHaveChildrenActive
         },
         setData: function() {
-            this.iHaveChildrenActive = this.link.imActive;
+            this.iHaveChildrenActive = Boolean(this.link.imActive);
         }
     }
 }
