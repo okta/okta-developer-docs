@@ -1,6 +1,7 @@
 'use strict';
 
 const BasePage = require('./BasePage');
+const util = require('../shared/util');
 
 const tableOfContentsSelector = '.has-tableOfContents';
 const footerSelector = '.Footer';
@@ -16,6 +17,8 @@ const getLabelSelector = '.api-uri-get';
 const postLabelSelector = '.api-uri-post';
 const deleteLabelSelector = '.api-uri-delete';
 const promoBannerLabelSelector = '.DocsPromoBanner';
+const treeNavLinkSelector = '.tree-nav-link';
+
 
 class DocsPage extends BasePage {
   constructor(url) {
@@ -137,6 +140,11 @@ class DocsPage extends BasePage {
 
   hasPromoBanner() {
     return this.hasElements(this.getPromoBannerLabels());
+  }
+
+  async getTreeNavLink(linkText) {
+    await util.wait(element(by.css(treeNavLinkSelector)), 2000);
+    return element(by.cssContainingText(treeNavLinkSelector, linkText));
   }
 }
 
