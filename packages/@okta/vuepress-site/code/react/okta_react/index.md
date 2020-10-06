@@ -18,14 +18,14 @@ This guide will walk you through integrating authentication into a React app wit
 If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
 
 ## Add an OpenID Connect Client in Okta
-* Log into the Okta Developer Dashboard, and **Create New App**
-* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect app with values similar to:
+* Sign in to the Okta Developer Dashboard, and select **Create New App**
+* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with appropriate values for your app. For example:
 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
-| App Name             | OpenId Connect App *(must be unique)*               |
-| Login redirect URIs  | http://localhost:3000/login/callback             |
-| Logout redirect URIs | http://localhost:3000/login                         |
+| App Name             | OpenId Connect App (must be unique)                 |
+| Login redirect URIs  | `http://localhost:3000/login/callback`              |
+| Logout redirect URIs | `http://localhost:3000/login`                       |
 | Allowed grant types  | Authorization Code                                  |
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
@@ -204,7 +204,7 @@ export default withOktaAuth(class SignInForm extends Component {
 ```
 
 ## Create Routes
-Some routes require authentication in order to render. Defining those routes is easy using `SecureRoute` from `@okta/okta-react`. Lets take a look at what routes are needed for this example:
+Some routes require authentication in order to render. Defining those routes is easy using `SecureRoute` from `@okta/okta-react`. Let's take a look at what routes are needed for this example:
 
 - `/`: A default page to handle basic control of the app.
 - `/protected`: A route protected by `SecureRoute`.
@@ -293,7 +293,7 @@ export default () => <h3>Protected</h3>;
 ```
 
 ### `/login`
-This route redirects if the user is already logged in. If the user is coming from a protected page, they'll be redirected back to the page upon sign in.
+This route redirects if the user is already logged in. If the user is coming from a protected page, they'll be redirected back to the page upon successful sign in.
 
 Create a new component `src/SignIn.jsx`:
 
@@ -470,4 +470,4 @@ You have now successfully authenticated with Okta! Now what? With a user's `id_t
 Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/react/before-you-begin/' data-proofer-ignore>React How To Guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
 ## Support
-Have a question or see a bug? Post your question on [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).

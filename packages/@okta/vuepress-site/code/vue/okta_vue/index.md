@@ -15,23 +15,23 @@ This guide will walk you through integrating authentication into a Vue app with 
 7. [Start Your App](#start-your-app)
 
 ## Prerequisites
-If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
+If you do not already have a **Developer Edition Account**, you can create one at <https://developer.okta.com/signup/>.
 
 ## Add an OpenID Connect Client in Okta
 * Sign in to the Okta Developer Dashboard, and select **Create New App**
-* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect app with appropriate values for your app. For example:
+* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with appropriate values for your app. For example:
 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
-| App Name             | OpenID Connect App (must be unique)               |
-| Login redirect URIs  | http://localhost:8080/login/callback             |
-| Logout redirect URIs | http://localhost:8080/                         |
+| App Name             | OpenID Connect App (must be unique)                 |
+| Login redirect URIs  | `http://localhost:8080/login/callback`              |
+| Logout redirect URIs | `http://localhost:8080/`                            |
 | Allowed grant types  | Authorization Code                                  |
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
 
 ## Create a Vue App
-To quickly create a Vue app, we recommend the Vue CLI. Follow their guide [here](https://cli.vuejs.org/guide/installation.html) or use the steps below.
+To quickly create a Vue app, we recommend the Vue CLI. Follow [their guide](https://cli.vuejs.org/guide/installation.html) or use the steps below.
 
 ```
 npm install -g @vue/cli
@@ -42,7 +42,8 @@ cd okta-vue-auth-example
 ```
 
 ## Install Dependencies
-A simple way to add authentication to a Vue app is using the [Okta Auth JS](/code/javascript/okta_auth_sdk/) library. We can install it via `npm`:
+A simple way to add authentication to a Vue app is using the [Okta Auth JS](/code/javascript/okta_auth_sdk/) library. You can install it via `npm`:
+
 ```bash
 npm install @okta/okta-auth-js
 ```
@@ -267,12 +268,12 @@ Vue.directive('focus', {
 
 ## Create Routes
 
-Some routes require authentication in order to render. Lets take a look at what routes are needed for this example:
+Some routes require authentication in order to render. Let's take a look at what routes are needed for this example:
 
 - `/`: The default landing page.
 - `/about`: A simple about page.
 - `/dashboard`: A route that's protected.
-- `/login`: The login form.
+- `/login`: The sign-in form.
 - `/logout`: A route to logout and redirect back to the default page.
 
 Create `src/router/index.js` with the following code.
@@ -322,8 +323,13 @@ Finally, start your app:
 npm run serve
 ```
 
+<!--
+// todo: this PR hasn't been approved and DevEx isn't sure they want Auth JS
+// samples with the rest of the samples.
 ## Source Code
-The source code for this guide can be found at [in the Vue Samples](https://github.com/okta/samples-js-vue/tree/master/okta-auth-js) on GitHub.
+
+The source code for this guide can be found in [in the Vue Samples](https://github.com/okta/samples-js-vue/tree/master/okta-auth-js) on GitHub.
+-->
 
 ## Conclusion
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
@@ -331,4 +337,4 @@ You have now successfully authenticated with Okta! Now what? With a user's `id_t
 Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/vue/before-you-begin/' data-proofer-ignore>Vue How To Guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
 ## Support
-Have a question or see a bug? Post your question on [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).

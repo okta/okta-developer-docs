@@ -21,14 +21,14 @@ If you do not already have a **Developer Edition Account**, you can create one a
 
 ## Add an OpenID Connect Client in Okta
 
-* Log into the Okta Developer Dashboard, and **Create New App**
+* Sign in to the Okta Developer Dashboard, and select **Create New App**
 * Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect app with values similar to:
 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
-| App Name             | OpenId Connect App *(must be unique)*               |
-| Login redirect URIs  | http://localhost:3000/implicit/callback             |
-| Logout redirect URIs | http://localhost:3000/login                         |
+| App Name             | OpenId Connect App (must be unique)                 |
+| Login redirect URIs  | `http://localhost:3000/implicit/callback`           |
+| Logout redirect URIs | `http://localhost:3000/login`                       |
 | Allowed grant types  | Authorization Code                                  |
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
@@ -61,7 +61,7 @@ npm install @okta/okta-react react-router-dom
 
 ## Create a Widget Wrapper
 
-To provide a fully featured and customizable login experience, the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) is available to handle User Lifecycle operations, MFA, and more. To render the Sign-In Widget in React, we must create a wrapper that allows us to treat it as a React component.
+To provide a fully-featured and customizable sign-in experience, the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) is available to handle User Lifecycle operations, MFA, and more. To render the Sign-In Widget in React, we must create a wrapper that allows us to treat it as a React component.
 
 Create a `src/OktaSignInWidget.js` file:
 
@@ -100,11 +100,11 @@ export default class OktaSignInWidget extends Component {
 
 ## Create Routes
 
-Some routes require authentication in order to render. Defining those routes is easy using `SecureRoute` from `@okta/okta-react`. Lets take a look at what routes are needed for this example:
+Some routes require authentication in order to render. Defining those routes is easy using `SecureRoute` from `@okta/okta-react`. Let's take a look at what routes are needed for this example:
 
 * `/`: A default page to handle basic control of the app.
 * `/protected`: A route protected by `SecureRoute`.
-* `/login`: Show the login page.
+* `/login`: Show the sign-in page.
 * `/implicit/callback`: A route to parse tokens after a redirect.
 
 ### `/`
