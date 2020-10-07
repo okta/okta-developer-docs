@@ -1667,7 +1667,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | expand    | Traverses the `users` link relationship and optionally embeds the [Application User](#application-user-object) resource   | Query      | String   | FALSE    |         |
 | filter    | Filters apps by `status`, `user.id`, `group.id` or `credentials.signing.kid` expression                          | Query      | String   | FALSE    |         |
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
-| q         | Searches the `name` or `displayName` property of applications                                                    | Query      | String   | FALSE    |         |
+| q         | Searches the `name` or `label` property of applications                                                          | Query      | String   | FALSE    |         |
 
 The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
@@ -3069,7 +3069,7 @@ curl -v -X PUT \
 
 ##### Response example (self-service application assignment not available)
 
-If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/Content/Topics/Directory/Directory_Profile_Editor.htm#Expressions) with profile mappings (Universal Directory) and how to [update user permissions](https://help.okta.com/en/prod/Content/Topics/Directory/Directory_Profile_Editor.htm#createcustomattrib) on properties in the user profile to secure your app before enabling self-service.
+If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) with profile mappings (Universal Directory) and how to update user permissions on properties in the user profile to secure your app before enabling self-service.
 
 ``` http
 HTTP/1.1 403 Forbidden
@@ -5204,7 +5204,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/${applicationId}/tokens/${tokenId}" />
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
 Gets a token for the specified application
 
@@ -5827,12 +5827,12 @@ There are four choices for the `connection` property.
 
 Specifies (optional) attribute statements for a SAML application
 
-| Property   | Description                                                                                  | DataType    | Nullable |
-| ---------- | -------------------------------------------------------------------------------------------- | ----------- | -------- |
-| name       | The reference name of the attribute statement                                                | String      | FALSE    |
-| namespace  | The name format of the attribute                                                             | String      | FALSE    |
-| type       | The type of attribute statements object                                                      | `GENERIC`   | FALSE    |
-| values     | The value of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)    | String      | FALSE    |
+| Property   | Description                                                                                  | DataType     | Nullable |
+| ---------- | -------------------------------------------------------------------------------------------- | ------------ | -------- |
+| name       | The reference name of the attribute statement                                                | String       | FALSE    |
+| namespace  | The name format of the attribute                                                             | String       | FALSE    |
+| type       | The type of attribute statements object                                                      | `EXPRESSION` | FALSE    |
+| values     | The value of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)    | String       | FALSE    |
 
 #### Group Attribute Statements object
 
@@ -5862,7 +5862,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
       ...
       "attributeStatements": [
         {
-          "type": "GENERIC",
+          "type": "EXPRESSION",
           "name": "Attribute One",
           "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified",
           "values": [
@@ -5870,7 +5870,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
           ]
         },
         {
-          "type": "GENERIC",
+          "type": "EXPRESSION",
           "name": "Attribute Two",
           "namespace": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic",
           "values": [

@@ -246,7 +246,7 @@ curl -v -X POST \
 Adds a new `SAML2` type IdP to your organization
 
 > **Notes:** You must first add the IdP's signature certificate to the IdP key store before you can add a SAML 2.0 IdP with a `kid` credential reference.<br><br>
-Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use [SAML Deep Links](#redirecting-with-saml-deep-links). Using `fromURI` isn't tested and not supported. For more information about using deep links when signing users in using an SP-initiated flow, see [Understanding SP-Initiated Login Flow](/docs/concepts/saml/#understanding-sp-initiated-login-flow).
+Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use [SAML Deep Links](#redirect-with-saml-deep-links). Using `fromURI` isn't tested and not supported. For more information about using deep links when signing users in using an SP-initiated flow, see [Understanding SP-Initiated Login Flow](/docs/concepts/saml/#understanding-sp-initiated-login-flow).
 
 ##### Request example
 
@@ -3199,7 +3199,7 @@ curl -v -X POST \
 
 ### Finish Identity Provider Transaction
 
-<ApiOperation method="POST" url=" /api/v1/idps/tx/${transactionId}/finish" />
+<ApiOperation method="POST" url="/api/v1/idps/tx/${transactionId}/finish" />
 
 Finishes an IdP Transaction
 

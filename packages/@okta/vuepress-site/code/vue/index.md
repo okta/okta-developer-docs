@@ -5,7 +5,7 @@ integration: front-end
 icon: code-vue
 meta:
   - name: description
-    content: Add user authentication to your Vue app by using our guide and the Okta Vue SDK.
+    content: Our guide helps you to add user authentication to your Vue app, integrate with Vue Router, and suggests related content.
 ---
 
 New to Okta? Our how to guide will walk you through adding user authentication to your Vue.js app in minutes.
@@ -24,26 +24,26 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 </ul>
 
 <a href='https://github.com/okta/samples-js-vue'>
-	<span class='fa fa-github'></span> <span>Vue.js Sample App</span>
+	<span class='fa fa-github'></span> <span>Vue.js Sample Apps</span>
 </a>
 
 ## Okta Vue SDK
 
-The Okta Vue SDK is a wrapper around the Okta Auth SDK for communicating with OAuth 2.0 and OpenID Connect (OIDC) providers.
-
+The Okta Vue SDK makes it easy to integrate Vue Router with Okta's OpenID Connect API to authenticate your users.
 
 <a href='https://www.npmjs.com/package/@okta/okta-vue' class="language-reference">
 	<span class='icon download-16'></span>
 	<span>okta-vue on npm</span>
 </a>
 
-
-<a href='https://github.com/okta/okta-oidc-js/tree/master/packages/okta-vue'>
+<a href='https://github.com/okta/okta-vue'>
 	<span class='fa fa-github'></span> <span>Vue.js SDK Source</span>
 </a>
 
 ## Recommended Guides
 
+- [Okta Vue Overview](/code/vue/okta_vue/)
+- [Okta Sign-In Widget and Vue](/code/vue/okta_vue_sign-in_widget/)
 - [Implementing the PKCE Flow](/docs/guides/implement-auth-code-pkce/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
@@ -51,7 +51,7 @@ The Okta Vue SDK is a wrapper around the Okta Auth SDK for communicating with OA
 
 ## Related Blog Posts
 
-
+- [Build a CRUD App with Vue.js, Spring Boot, and Kotlin](https://developer.okta.com/blog/2020/06/26/spring-boot-vue-kotlin)
 - [The Lazy Developer's Guide to Authentication with Vue.js](https://developer.okta.com/blog/2017/09/14/lazy-developers-guide-to-auth-with-vue)
 - [Tutorial: Build a Basic CRUD App with Symfony 4 and Vue](https://developer.okta.com/blog/2018/06/14/php-crud-app-symfony-vue)
 - [Deploy Your Secure Vue.js App to AWS](https://developer.okta.com/blog/2018/07/03/deploy-vue-app-aws)

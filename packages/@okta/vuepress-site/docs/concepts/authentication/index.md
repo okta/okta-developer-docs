@@ -9,6 +9,8 @@ meta:
 
 Authentication is a crucial part in developing any application. Whether you are developing an internal IT app for your employees, building a portal for your partners, or exposing a set of APIs for developers building apps around your resources, Okta provides the right authentication support for your projects.
 
+>**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
+
 ## Building a Custom Authentication Experience for Your Application
 
 The sign-in experience is one of the most important user experiences any app developer needs to consider. To provide a seamless and attractive, yet secure authentication experience is not a trivial task. Typically, the sign-in logic accompanies other features such as password reset and registration. More importantly, enhanced security in the form of strong and adaptive authentication during the sign-in process is often critical to many implementations.
@@ -21,15 +23,15 @@ Okta provides OAuth 2.0 and OpenID Connect implementations, the Sign-In Widget, 
 
 Okta allows you to control access to your application using both the OAuth 2.0 and OpenID Connect specifications. You can use Okta as your authorization server to retain all of your user information, and grant users tokens to control their authorization and authentication. Okta also supports using social logins and pulling a user's external data into your Okta org.
 
-To find out more about Okta's OAuth 2.0 and OpenID Connect implementations, see [OAuth 2.0 and OpenID Connect](/docs/concepts/auth-overview/).
+To find out more about Okta's OAuth 2.0 and OpenID Connect implementations, see [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/).
 
 ### Sign-In Widget
 
-The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) provides an embeddable Javascript sign-in implementation that can be easily embedded into your customized sign-in page. The Sign-In Widget carries the same feature set in the standard Okta sign-in page of every tenant, along with the added flexibility to change the look and feel. Included in the widget is support for password reset, forgotten password, and strong authentication functionality - all of which are driven by policies configured in Okta. Developers don't have to write a single line of code to trigger these functions from within the widget. For consumer facing sites, social providers are also supported in the widget.
+The [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) provides an embeddable JavaScript sign-in implementation that can be easily embedded into your customized sign-in page. The Sign-In Widget carries the same feature set in the standard Okta sign-in page of every tenant, along with the added flexibility to change the look and feel. Included in the widget is support for password reset, forgotten password, and strong authentication functionality - all of which are driven by policies configured in Okta. Developers don't have to write a single line of code to trigger these functions from within the widget. For consumer facing sites, social providers are also supported in the widget.
 
 ### Auth SDK
 
-For developers building a Javascript front end or Single Page App (SPA), the light-weight, JavaScript-based [Okta Auth SDK](/code/javascript/okta_auth_sdk/) gives you additional control beyond our Sign-In Widget. This Javascript SDK provides all the standard sign-in support, including password management and strong authentication. Additionally, social providers and OpenID Connect are supported through the SDK, where the appropriate ID tokens are returned for downstream authentication and authorization needs.
+For developers building a JavaScript front end or Single Page App (SPA), the light-weight, JavaScript-based [Okta Auth SDK](/code/javascript/okta_auth_sdk/) gives you additional control beyond our Sign-In Widget. This JavaScript SDK provides all the standard sign-in support, including password management and strong authentication. Additionally, social providers and OpenID Connect are supported through the SDK, where the appropriate ID tokens are returned for downstream authentication and authorization needs.
 
 ### Authentication API
 

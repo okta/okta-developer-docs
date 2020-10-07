@@ -1696,7 +1696,7 @@ curl -v -X POST \
 
 #### Enroll U2F Factor
 
-Enrolls a user with a U2F Factor. The enrollment process starts with getting a `nonce` from Okta and using that to get registration information from the U2F key using the U2F Javascript API.
+Enrolls a user with a U2F Factor. The enrollment process starts with getting a `nonce` from Okta and using that to get registration information from the U2F key using the U2F JavaScript API.
 
 ##### Enroll U2F request example
 
@@ -1852,7 +1852,9 @@ curl -v -X POST \
 
 #### Enroll Custom HOTP Factor
 
-Enrolls a user with a Custom HMAC-based One-Time Password (HOTP) Factor. The enrollment process involves passing a Factor profile ID and shared secret for a particular token.
+Enrolls a user with a Custom HMAC-based One-Time Password (HOTP) Factor. The enrollment process involves passing a `factorProfileId` and `sharedSecret` for a particular token.
+
+A Factor Profile represents a particular configuration of the Custom HOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC Algorithm, passcode length, and time interval. There can be multiple Custom HOTP factor profiles per org, but users can only be enrolled for one Custom HOTP factor. Admins can create Custom HOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
 
 > **Note:** Currently only auto-activation is supported for Custom HOTP Factor.
 
@@ -2422,7 +2424,7 @@ curl -v -X POST \
 
 Activation gets the registration information from the U2F token using the API and passes it to Okta.
 
-##### Get registration information from U2F token by calling the U2F Javascript API
+##### Get registration information from U2F token by calling the U2F JavaScript API
 
 ```html
 <!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
@@ -2548,7 +2550,7 @@ curl -v -X POST \
 
 Activation gets the registration information from the WebAuthn authenticator using the API and passes it to Okta.
 
-##### Get registration information from WebAuthn authenticator by calling the WebAuthn Javascript API
+##### Get registration information from WebAuthn authenticator by calling the WebAuthn JavaScript API
 
 ```html
 <!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->
@@ -2582,7 +2584,6 @@ Activate a WebAuthn Factor by verifying the attestation and client data.
 | attestation       | Base64-encoded attestation from the WebAuthn JavaScript call        | Body       | String   | TRUE     |
 | clientData        | Base64-encoded client data from the WebAuthn JavaScript call        | Body       | String   | TRUE     |
 | factorId          | `id` of the Factor returned from enrollment                         | URL        | String   | TRUE     |
-| stateToken        | [State token](#state-token) for the current transaction             | Body       | String   | TRUE     |
 
 
 [Authentication Transaction object](#authentication-transaction-object) with the current [state](#transaction-state) for the authentication transaction
@@ -2614,9 +2615,8 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-  "attestation: "o2NmbXRmcGFja2VkZ2F0dFN0bXSiY2FsZyZjc2lnWEgwRgIhAMvf2+dzXlHZN1um38Y8aFzrKvX0k5dt/hnDu9lahbR4AiEAuwtMg3IoaElWMp00QrP/+3Po/6LwXfmYQVfsnsQ+da1oYXV0aERhdGFYxkgb9OHGifjS2dG03qLRqvXrDIRyfGAuc+GzF1z20/eVRV2wvl6tzgACNbzGCmSLCyXx8FUDAEIBvWNHOcE3QDUkDP/HB1kRbrIOoZ1dR874ZaGbMuvaSVHVWN2kfNiO4D+HlAzUEFaqlNi5FPqKw+mF8f0XwdpEBlClAQIDJiABIVgg0a6oo3W0JdYPu6+eBrbr0WyB3uJLI3ODVgDfQnpgafgiWCB4fFo/5iiVrFhB8pNH2tbBtKewyAHuDkRolcCnVaCcmQ==",
-  "clientData": "eyJjaGFsbGVuZ2UiOiJVSk5wYW9sVWt0dF9vcEZPNXJMYyIsIm9yaWdpbiI6Imh0dHBzOi8vcmFpbi5va3RhMS5jb20iLCJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIn0=",
-  "stateToken": "00eacMXqkf2pG8K3sBbWqTJNStZpEi9-1Bfwl_mfQT"
+  "attestation": "o2NmbXRmcGFja2VkZ2F0dFN0bXSiY2FsZyZjc2lnWEgwRgIhAMvf2+dzXlHZN1um38Y8aFzrKvX0k5dt/hnDu9lahbR4AiEAuwtMg3IoaElWMp00QrP/+3Po/6LwXfmYQVfsnsQ+da1oYXV0aERhdGFYxkgb9OHGifjS2dG03qLRqvXrDIRyfGAuc+GzF1z20/eVRV2wvl6tzgACNbzGCmSLCyXx8FUDAEIBvWNHOcE3QDUkDP/HB1kRbrIOoZ1dR874ZaGbMuvaSVHVWN2kfNiO4D+HlAzUEFaqlNi5FPqKw+mF8f0XwdpEBlClAQIDJiABIVgg0a6oo3W0JdYPu6+eBrbr0WyB3uJLI3ODVgDfQnpgafgiWCB4fFo/5iiVrFhB8pNH2tbBtKewyAHuDkRolcCnVaCcmQ==",
+  "clientData": "eyJjaGFsbGVuZ2UiOiJVSk5wYW9sVWt0dF9vcEZPNXJMYyIsIm9yaWdpbiI6Imh0dHBzOi8vcmFpbi5va3RhMS5jb20iLCJ0eXBlIjoid2ViYXV0aG4uY3JlYXRlIn0="
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4/lifecycle/activate"
 ```
 
@@ -3373,7 +3373,7 @@ curl -v -X POST \
 }
 ```
 
-#### Get the signed assertion from the U2F token by calling the U2F Javascript API
+#### Get the signed assertion from the U2F token by calling the U2F JavaScript API
 
 ```html
 <!-- Get the u2f-api.js from https://github.com/google/u2f-ref-code/tree/master/u2f-gae-demo/war/js -->
@@ -3502,7 +3502,7 @@ curl -v -X POST \
 }
 ```
 
-#### Get the signed assertion from the WebAuthn authenticator by calling the WebAuthn Javascript API
+#### Get the signed assertion from the WebAuthn authenticator by calling the WebAuthn JavaScript API
 
 ```html
 <!-- Using CryptoUtil.js from https://github.com/okta/okta-signin-widget/blob/master/src/util/CryptoUtil.js -->

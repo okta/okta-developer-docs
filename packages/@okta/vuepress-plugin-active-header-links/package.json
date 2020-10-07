@@ -7,6 +7,6 @@
     "lodash.throttle": "^4.1.1"
   },
   "peerDependencies": {
-    "vuepress": "1.2.0"
+    "vuepress": "^1.2.0"
   }
 }

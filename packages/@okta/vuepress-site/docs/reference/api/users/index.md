@@ -743,6 +743,8 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 
 >Hint: you can substitute `me` for the `id` to fetch the current user linked to an API token or session cookie.
 
+>**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
+
 ##### Response Parameters
 
 
@@ -1428,7 +1430,7 @@ Searches for users based on the properties specified in the search parameter
 
 > **Note:** Listing users with search should not be used as a part of any critical flows, such as authentication, to prevent potential data loss. Search results may not reflect the latest information, as this endpoint uses a search index which may not be up-to-date with recent updates to the object.
 
-Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.  Unlike in [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` will find `Isaac.Brock` but will not find a property whose value is `isáàc.bröck`. 
+Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.  Unlike in [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` will find `Isaac.Brock` but will not find a property whose value is `isáàc.bröck`.
 
 This operation:
 
@@ -1622,7 +1624,7 @@ in the request is deleted.
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
->**Note:** Currently, the User Type of a user can only be changed via a full replacement [PUT operation](/docs/reference/api/user-types/#update-user-type). If the Request Parameters of a partial update include the `type` element from the [User object](#user-object), the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type. 
+>**Note:** Currently, the User Type of a user can only be changed via a full replacement [PUT operation](/docs/reference/api/user-types/#update-user-type). If the Request Parameters of a partial update include the `type` element from the [User object](#user-object), the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type.
 
 ##### Response Parameters
 
@@ -2167,7 +2169,7 @@ Users who don't have a password must complete the welcome flow by visiting the a
 }
 ```
 
-If a password was set before the user was activated, then user must login with with their password or the `activationToken` and not the activation link.  More information about using the `activationToken` to login can be found in the [Authentication API](/docs/reference/api/authn/#primary-authentication-with-activation-token). 
+If a password was set before the user was activated, then user must login with with their password or the `activationToken` and not the activation link.  More information about using the `activationToken` to login can be found in the [Authentication API](/docs/reference/api/authn/#primary-authentication-with-activation-token).
 
 ##### Request Example
 
@@ -2266,7 +2268,7 @@ Content-Type: application/json
 
 Deactivates a user
 
-This operation can only be performed on users that do not have a `DEPROVISIONED` status.  Deactivation of a user is an asynchronous operation.
+This operation can only be performed on users that do not have a `DEPROVISIONED` status.
 
 * The user's `transitioningToStatus` property is `DEPROVISIONED` during deactivation to indicate that the user hasn't completed the asynchronous operation.
 * The user's status is `DEPROVISIONED` when the deactivation process is complete.
@@ -2281,10 +2283,17 @@ This operation can only be performed on users that do not have a `DEPROVISIONED`
 | userId    | ID of user                                                                            | URL        | String   | TRUE     |
 | sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    |
 
+> **Note:** You can also perform user deactivation asynchronously.
+> To invoke asynchronous user deactivation, pass an HTTP header `Prefer: respond-async` with the request.
+
 ##### Response Parameters
 
 
 Returns an empty object.
+
+#### Deactivate user synchronously
+
+
 
 ##### Request Example
 
@@ -2298,6 +2307,29 @@ curl -v -X POST \
 ```
 
 ##### Response Example
+
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
+
+#### Deactivate user asynchronously
+
+
+##### Request example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-H "Prefer: respond-async" \
+"https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate?sendEmail=true"
+```
+
+##### Response example
 
 
 ```http
@@ -2415,12 +2447,19 @@ is required to delete the user.
 | id        | `id` of user                                                                          | URL        | String   | TRUE     |         |
 | sendEmail | Sends a deactivation email to the administrator if `true`.  Default value is `false`. | Query      | Boolean  | FALSE    | FALSE   |
 
+> **Note:** You can also perform user deletion asynchronously. To invoke asynchronous user deletion, pass an HTTP header
+> `Prefer: respond-async` with the request. This header is also supported by user deactivation, which is
+> performed if the delete endpoint is invoked on a user that hasn't been deactivated.
+
 ##### Response Parameters
 
 
-Returns an empty object.
+`204 No Content`
 
 Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
+
+#### Delete user synchronously
+
 
 ##### Request Example
 
@@ -2437,10 +2476,29 @@ curl -v -X DELETE \
 
 
 ```http
-HTTP/1.1 202 ACCEPTED
-Content-Type: application/json
+`204 No Content`
+```
 
-{}
+#### Delete user asynchronously
+
+
+##### Request example
+
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-H "Prefer: respond-async" \
+"https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR?sendEmail=true"
+```
+
+##### Response Example
+
+
+```http
+`204 No Content`
 ```
 
 ### Unlock User
@@ -2699,7 +2757,7 @@ Content-Type: application/json
 
 ### Clear Current User Sessions
 
-Clears Okta sessions for the currently logged in user. By default, the current session remains active. Use this method in a browser-based application. 
+Clears Okta sessions for the currently logged in user. By default, the current session remains active. Use this method in a browser-based application.
 
 > This operation requires a session cookie for the user. API token is not allowed for this operation.
 
@@ -3023,6 +3081,8 @@ A consent represents a user's explicit permission to allow an application to acc
 Consent grants remain valid until the user manually revokes them, or until the user, application, authorization server or scope is deactivated or deleted.
 
 > Hint: For all grant operations, you can use `me` instead of the `userId` in an endpoint that contains `/users`, in an active session with no SSWS token (API token). For example: `https://${yourOktaDomain}/api/v1/users/me/grants` returns all the grants for the active session user.
+
+>**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
 
 ### List Grants
 
@@ -3918,7 +3978,7 @@ The only permitted customization of the default profile is to update permissions
 
 User profiles may be extended with custom properties but the property must first be added to the user profile schema before it can be referenced.  You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/reference/api/schemas/) to manage schema extensions.
 
-Custom attributes may contain HTML tags. It is the client's responsibility to escape or encode this data before displaying it. Use [best-practices](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) to prevent cross-site scripting.
+Custom attributes may contain HTML tags. It is the client's responsibility to escape or encode this data before displaying it. Use [best-practices](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) to prevent cross-site scripting.
 
 ### Credentials object
 

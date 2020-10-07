@@ -36,7 +36,7 @@ go get https://github.com/okta/okta-sdk-golang
 	<span class='fa fa-github'></span> <span>Go SDK Source</span>
 </a>
 
-## Java Libraries
+## Okta JWT Verifier for Go
 
 <ul class="language-libraries">
 	<li>

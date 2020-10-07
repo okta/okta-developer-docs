@@ -12,6 +12,10 @@ footer {
     justify-content: space-between;
   }
 
+  @include media('>=desktop-xx-large') {
+    max-width: $container-width-desktop-large;
+  }
+
   .footer--logo {
     margin-bottom: 2em;
     a {

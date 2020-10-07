@@ -1,14 +1,14 @@
 <template>
   <aside class="landing-navigation" :class="{active: sidebarActive}">
     <ul class="landing">
-      <SidebarItem v-for="(link, key) in navigation" :key="key" :link="link" />
+      <SidebarItem v-for="link in navigation" :key="link.title" :link="link" />
     </ul>
   </aside>
 </template>
 
 <script>
 import _ from "lodash";
-import { getGuidesInfo, guideFromPath } from "../util/guides";
+import { getGuidesInfo, guideFromPath } from "../util/guides";  
 
 export default {
   name: "Sidebar",
@@ -36,13 +36,51 @@ export default {
   },
   computed: {
     navigation() {
+      return (this.getNavigation() || []).map(nav => {
+        this.addStatesToLink(nav);
+        return nav;
+      });
+    }
+  },
+  methods: {
+    toggleSubNav: function(event) {
+      const parent = event.target.parentElement;
+      const sections = parent.querySelector(".sections");
+      if (!sections) {
+        return;
+      }
+      event.preventDefault();
+    },
+    handleScroll: function(event) {
+      let maxHeight =
+        window.innerHeight -
+        document.querySelector(".fixed-header").clientHeight -
+        60;
+
+      document.querySelector(".landing-navigation").style.height =
+        maxHeight + "px";
+    },
+    addStatesToLink(link) {
+      if (link.path) {
+        // Add state to leaf link
+        link.imActive = link.path === this.$page.regularPath;
+      }
+      if (link.subLinks) {
+        for (const subLink of link.subLinks) {
+          // Compute state to section link
+          link.imActive = link.imActive || this.addStatesToLink(subLink);
+        }
+      }
+      return link.imActive;
+    },
+    getNavigation() {
       if (this.$page.path.includes("/code/")) {
         this.usingFile = true;
-        return this.$site.themeConfig.sidebars.codePages;
+        return _.cloneDeep(this.$site.themeConfig.sidebars.codePages);
       }
       if (this.$page.path.includes("/docs/reference/")) {
         this.usingFile = true;
-        return this.$site.themeConfig.sidebars.reference;
+        return _.cloneDeep(this.$site.themeConfig.sidebars.reference);
       }
       if (this.$page.path.includes("/docs/guides")) {
         return this.getGuides();
@@ -64,30 +102,11 @@ export default {
           .sort()
           .value();
       }
-    }
-  },
-  methods: {
-    toggleSubNav: function(event) {
-      const parent = event.target.parentElement;
-      const sections = parent.querySelector(".sections");
-      if (!sections) {
-        return;
-      }
-      event.preventDefault();
-    },
-    handleScroll: function(event) {
-      let maxHeight =
-        window.innerHeight -
-        document.querySelector(".fixed-header").clientHeight -
-        60;
-
-      document.querySelector(".landing-navigation").style.height =
-        maxHeight + "px";
     },
     getGuides() {
       const pages = this.$site.pages;
       const guides = getGuidesInfo({ pages });
-      let navs = _.map(this.$site.themeConfig.sidebars.guides, _.clone);
+      let navs = _.cloneDeep(this.$site.themeConfig.sidebars.guides);
       const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
         let queue = new Array();

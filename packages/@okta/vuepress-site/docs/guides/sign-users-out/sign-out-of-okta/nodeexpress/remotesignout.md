@@ -1,7 +1,7 @@
 The `@okta/oidc-middleware` package autogenerates a `/logout` route for you.  Send a `POST` request to `/logout`:
 
 ```html
-<form method="post" action="/logout"
+<form method="post" action="/logout">
   <button id="logout-button" type="submit">Logout</button>
 </form>
 ```

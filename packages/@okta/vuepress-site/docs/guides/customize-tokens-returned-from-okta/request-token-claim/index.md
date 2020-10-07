@@ -1,7 +1,7 @@
 ---
 title: Request a token that contains a custom claim
 ---
-The sections in this guide include information on building a URL to request a claim. These sections refer you to this page for the specific steps to build that URL to request a claim and decode the JWT to verify that the claim was included in the token. Specific request and payload examples remain in the appropriate sections. Move on to the section for the claim that you want to create if you don't currently need these steps.
+There are sections in this guide that include information on building a URL to request a claim. These sections refer you to this page for the specific steps to build the URL to request a claim and decode the JWT to verify that the claim was included in the token. Specific request and payload examples remain in the appropriate sections. Move on to the section for the claim that you want to create if you don't currently need these steps.
 
 To test the full authentication flow that returns an ID token or an access token, build your request URL:
 
@@ -34,10 +34,11 @@ To test the full authentication flow that returns an ID token or an access token
 
 3. Add the following query parameters to the URL:
 
-    * Your OpenID Connect application's `client_id` and `redirect_uri`
-    * A scope, which for the purposes of the examples is `openid`. When you are adding a Groups claims, both the `openid` and the `groups` scopes are included.
+    * Your OpenID Connect application's `client_id`.
     * The response type, which for an ID token is `id_token` and an access token is `token`
-    > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/auth-overview/#implicit-flow). For the [Authorization Code flow](/docs/concepts/auth-overview/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
+    > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
+    * A scope, which for the purposes of the examples is `openid`. When you are adding a Groups claims, both the `openid` and the `groups` scopes are included.
+    * Your OpenID Connect application's `redirect_uri`.
     * Values for `state` and `nonce`, which can be anything
 
     > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize) page.
@@ -51,7 +52,7 @@ To test the full authentication flow that returns an ID token or an access token
     &scope=openid
     &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
     &state=myState
-    &nonce=${myNonceValue}"
+    &nonce=myNonceValue"
     ```
 
     > **Note:** The `response_type` for an access token looks like this: `&response_type=token`
@@ -70,6 +71,6 @@ To test the full authentication flow that returns an ID token or an access token
     https://yourRedirectUriHere.com#access_token=eyJraWQiOiIxLVN5M2w2dFl2VTR4MXBSLXR5cVZQWERX[...]YNXrsr1gTzD6C60h0UfLiLUhA&token_type=Bearer&expires_in=3600&scope=openid&state=myState
     ```
 
-5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: https://jsonwebtoken.io). Using a JWT decoder, confirm that the token contains all of the claims that you are expecting, including the custom one. If you specified a nonce, that is also included.
+5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://jsonwebtoken.io>). Using a JWT decoder, confirm that the token contains all of the claims that you are expecting, including the custom one. If you specified a nonce, that is also included.
 
 <NextSectionLink/>

@@ -1,24 +1,26 @@
 <template>
     <li :class="{'subnav': link.subLinks}">
         <div class="link-wrap">
-            <svg viewBox="0 0 320 512" v-if="link.subLinks && !(imActive || iHaveChildrenActive)">
-                <path d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"/>
-            </svg>
-
-            <svg viewBox="0 0 320 512" v-if="link.subLinks && (imActive || iHaveChildrenActive)">
-                <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/>
-            </svg>
-
             <div v-if="link.path">
-                <router-link :to="link.path" @click="setData" :class="{'router-link-active': imActive, 'router-link-exact-active': imActive}">{{link.title}}</router-link>
+                <router-link :to="link.path" exact @click="setData" class="tree-nav-link">{{link.title}}</router-link>
             </div>
+
             <div v-else>
-                <div class="is-link" @click="iHaveChildrenActive = !iHaveChildrenActive">{{link.title}}</div>
+                <div :class="{'is-link':true, 'item-collapsable': true, 'router-link-active': iHaveChildrenActive}" @click="toggle">
+                    <svg viewBox="0 0 320 512" v-if="link.subLinks && !iHaveChildrenActive">
+                        <path d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"/>
+                    </svg>
+
+                    <svg viewBox="0 0 320 512" v-if="link.subLinks && iHaveChildrenActive">
+                        <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"/>
+                    </svg>
+                    {{link.title}}
+                </div>
             </div>
         </div>
 
-        <ul v-if="link.subLinks" class="sections" v-show="iHaveChildrenActive || imActive">
-            <SidebarItem v-for="(sublink, key) in link.subLinks" :key="key" :link="sublink" />
+        <ul v-if="link.subLinks" class="sections" v-show="iHaveChildrenActive">
+            <SidebarItem v-for="sublink in link.subLinks" :key="sublink.title" :link="sublink" />
         </ul>
       </li>
 </template>
@@ -32,7 +34,6 @@ export default {
     },
     data() {
         return {
-            imActive: false,
             iHaveChildrenActive: false
         }
     },
@@ -40,35 +41,28 @@ export default {
         this.setData();
     },
     watch: {
-        '$route': function() {
+        'link'() {
             this.setData();
+        },
+        'iHaveChildrenActive' (isActivated, _) {
+            if (isActivated && this.link.path) {
+                this.$el.scrollIntoView({
+                    block: 'center'
+                });
+            } else if (isActivated) {
+                this.$el.scrollIntoView({
+                    block: 'nearest'
+                });
+            }
         }
     },
     methods: {
-        setData: function() {
-            this.imActive = false;
-            if(this.link.path) {
-                this.imActive = this.$page.regularPath == this.link.path;
-            }
-            if(this.link.activeCheck) {
-                this.imActive = this.$page.regularPath.includes(this.link.activeCheck);
-            }
-            this.$nextTick(() => {
-                this.iHaveChildrenActive = (this.$children || [] ).some((child) => {
-                    return child.imActive
-                });
-            });
+        toggle() {
+            this.iHaveChildrenActive = !this.iHaveChildrenActive
         },
-        setSubnavOpen: function (link) {
-        if(this.subnavOpen == null || this.subnavOpen != link) {
-          this.subnavOpen = link
-          return
+        setData: function() {
+            this.iHaveChildrenActive = Boolean(this.link.imActive);
         }
-        if(this.subnavOpen == link) {
-          this.subnavOpen = null
-          return
-        }
-      }
     }
 }
 </script>

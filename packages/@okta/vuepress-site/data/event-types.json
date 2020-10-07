@@ -1,15 +1,21 @@
 {
-  "release" : "2020.07.1",
-  "build" : "2020.07.1-begin-109-g80b46798ce40",
+  "release" : "2020.09.2",
+  "build" : "2020.09.2-begin-18-g149a027075ea",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
+  }, {
+    "id" : "ace",
+    "name" : "Admin Core Experience"
   }, {
     "id" : "adaptive",
     "name" : "Adaptive"
   }, {
     "id" : "aelm",
     "name" : "Admin Experience and License Management"
+  }, {
+    "id" : "agent-rotation",
+    "name" : "Agent Rotation"
   }, {
     "id" : "analytics",
     "name" : "Analytics"
@@ -25,6 +31,9 @@
   }, {
     "id" : "cred-platform",
     "name" : "Credential Platform"
+  }, {
+    "id" : "dda",
+    "name" : "Delegated and Distributed Administration"
   }, {
     "id" : "delivery",
     "name" : "Delivery"
@@ -335,10 +344,6 @@
     "description" : "Billing.",
     "tags" : [ "admin" ]
   }, {
-    "id" : "impersonation",
-    "description" : "Impersonation.",
-    "tags" : [ "admin" ]
-  }, {
     "id" : "org",
     "description" : "Org.",
     "tags" : [ "admin" ]
@@ -346,6 +351,10 @@
     "id" : "self-service-feature-management",
     "description" : "Self Service Feature Management.",
     "tags" : [ ]
+  }, {
+    "id" : "impersonation",
+    "description" : "Impersonation.",
+    "tags" : [ "admin" ]
   }, {
     "id" : "field-mapping-rule-modification",
     "description" : "",
@@ -1251,19 +1260,19 @@
       "mappings" : [ "system.agent.ad.unlock_user_account" ]
     }, {
       "id" : "app.admin.sso.bad_response",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "User attempted login to the Admin app with invalid token.",
       "tags" : [ "app" ],
       "mappings" : [ "user.session.access_admin_app" ]
     }, {
       "id" : "app.admin.sso.login.success",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "User logged in to the Admin app.",
       "tags" : [ "app" ],
       "mappings" : [ "user.session.access_admin_app" ]
     }, {
       "id" : "app.admin.sso.no_response",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "User attempted login to the Admin app with no token.",
       "tags" : [ "app" ],
       "mappings" : [ "user.session.access_admin_app" ]
@@ -1273,6 +1282,12 @@
       "description" : "",
       "tags" : [ "amazon-aws-client" ],
       "mappings" : [ "application.provision.integration.call_api" ]
+    }, {
+      "id" : "app.amazon_aws.connected.accounts.modification",
+      "category" : "oin-advanced-apps",
+      "description" : "Connected accounts property modification has been detected for AWS app instance.",
+      "tags" : [ "amazon-aws-client" ],
+      "mappings" : [ "application.integration.general_failure" ]
     }, {
       "id" : "app.api.error.activate_user",
       "category" : "oin-advanced-apps",
@@ -1513,6 +1528,12 @@
       "description" : "User was not found because user may have been deleted in the application.",
       "tags" : [ "app-api" ],
       "mappings" : [ "application.provision.user.push" ]
+    }, {
+      "id" : "app.api.generic.configuration.message",
+      "category" : "oin-advanced-apps",
+      "description" : "Generic message with an arbitrary content.",
+      "tags" : [ "app-api" ],
+      "mappings" : [ "application.configuration.update" ]
     }, {
       "id" : "app.app_editor.app.create",
       "category" : "app-platform",
@@ -2746,7 +2767,7 @@
     }, {
       "id" : "app.google.api.error.InsufficientPermission",
       "category" : "oin-advanced-apps",
-      "description" : "Permission not sufficient. New permissions might have been added that require your re-authentication. Please re-authenticate your provisioning settings.",
+      "description" : "Permission not sufficient. New permissions might have been added that require your re-authentication. Please re-authenticate on Provisioning tab.",
       "tags" : [ "google-app" ],
       "mappings" : [ "application.provision.user.push_profile" ]
     }, {
@@ -2759,6 +2780,18 @@
       "id" : "app.google.license_management.error.remove_license",
       "category" : "oin-advanced-apps",
       "description" : "Failed to remove license.",
+      "tags" : [ "google-app" ],
+      "mappings" : [ "application.provision.user.push_profile" ]
+    }, {
+      "id" : "app.google.role_management.error.assign_role",
+      "category" : "oin-advanced-apps",
+      "description" : "Failed to assign role.",
+      "tags" : [ "google-app" ],
+      "mappings" : [ "application.provision.user.push_profile" ]
+    }, {
+      "id" : "app.google.role_management.error.remove_role",
+      "category" : "oin-advanced-apps",
+      "description" : "Failed to remove role.",
       "tags" : [ "google-app" ],
       "mappings" : [ "application.provision.user.push_profile" ]
     }, {
@@ -5751,13 +5784,13 @@
       "mappings" : [ "application.appuser.mapping.invalid.expression" ]
     }, {
       "id" : "core.beta.feature.enable",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Beta feature was enabled for the Org.",
       "tags" : [ "admin", "self-service-feature-management", "system" ],
       "mappings" : [ "system.beta.feature.enable" ]
     }, {
       "id" : "core.billing.sms_usage_sent",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Indicates that a report for SMS usage was sent to the billing system.",
       "tags" : [ "admin", "billing" ],
       "mappings" : [ "system.billing.sms_usage_sent" ]
@@ -5775,19 +5808,19 @@
       "mappings" : [ "core.el.evaluate" ]
     }, {
       "id" : "core.feature.auto_enroll",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "The Org was opted into EA Auto Enroll.",
       "tags" : [ "admin", "self-service-feature-management", "system" ],
       "mappings" : [ "system.feature.ea_auto_enroll" ]
     }, {
       "id" : "core.feature.disable",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Features were disabled.",
       "tags" : [ "admin", "self-service-feature-management", "system" ],
       "mappings" : [ "system.feature.disable" ]
     }, {
       "id" : "core.feature.enable",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Features were enabled.",
       "tags" : [ "admin", "self-service-feature-management", "system" ],
       "mappings" : [ "system.feature.enable" ]
@@ -5811,25 +5844,25 @@
       "mappings" : [ "system.org.rate_limit.warning" ]
     }, {
       "id" : "core.group.admin_privilege.granted",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Privileges granted.",
       "tags" : [ "group" ],
       "mappings" : [ "group.privilege.grant" ]
     }, {
       "id" : "core.group.admin_privilege.revoked",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Revoked all administrator privileges.",
       "tags" : [ "group" ],
       "mappings" : [ "group.privilege.revoke" ]
     }, {
       "id" : "core.org.config.org_creation.failure",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Org creation failed.",
       "tags" : [ "admin", "org" ],
       "mappings" : [ "system.org.lifecycle.create" ]
     }, {
       "id" : "core.org.config.org_creation.success",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Org created.",
       "tags" : [ "admin", "org" ],
       "mappings" : [ "system.org.lifecycle.create" ]
@@ -5853,13 +5886,13 @@
       "mappings" : [ "group.user_membership.rule.add_exclusion" ]
     }, {
       "id" : "core.user.admin_privilege.granted",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Privileges granted.",
       "tags" : [ "user" ],
       "mappings" : [ "user.account.privilege.grant" ]
     }, {
       "id" : "core.user.admin_privilege.revoked",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Revoked all administrator privileges.",
       "tags" : [ "user" ],
       "mappings" : [ "user.account.privilege.revoke" ]
@@ -6069,31 +6102,31 @@
       "mappings" : [ "user.mfa.factor.update" ]
     }, {
       "id" : "core.user.impersonation.grant.enabled",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Impersonation grant enabled.",
       "tags" : [ "admin", "impersonation" ],
       "mappings" : [ "user.session.impersonation.grant" ]
     }, {
       "id" : "core.user.impersonation.grant.extended",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Impersonation grant extended.",
       "tags" : [ "admin", "impersonation" ],
       "mappings" : [ "user.session.impersonation.extend" ]
     }, {
       "id" : "core.user.impersonation.grant.revoked",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Impersonation grant revoked.",
       "tags" : [ "admin", "impersonation" ],
       "mappings" : [ "user.session.impersonation.revoke" ]
     }, {
       "id" : "core.user.impersonation.session.ended",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Impersonation session ended.",
       "tags" : [ "admin", "impersonation" ],
       "mappings" : [ "user.session.impersonation.end" ]
     }, {
       "id" : "core.user.impersonation.session.initiated",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Impersonation session initiated.",
       "tags" : [ "admin", "impersonation" ],
       "mappings" : [ "user.session.impersonation.initiate" ]
@@ -8480,13 +8513,13 @@
     }, {
       "id" : "app.oauth2.as.consent.grant",
       "category" : "federation",
-      "description" : "Consent granted.",
+      "description" : "User granted consent to app.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.grant_failure", "app.oauth2.as.consent.grant_success" ],
       "schema" : {
         "debugData" : null,
@@ -10846,6 +10879,38 @@
         "targets" : null
       }
     }, {
+      "id" : "app.radius.info_access.no_permission",
+      "category" : "hybrid-access",
+      "description" : "No permission accessing any Radius app info. This event can be used to monitor and notify admins when some users who access radius app info have no permission. Fired when users who access radius app info have no permission.",
+      "info" : {
+        "created" : "2020-07-31",
+        "release" : "2020.08.0"
+      },
+      "beta" : false,
+      "tags" : [ "app", "radius" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "app.radius.info_access.partial_permission",
+      "category" : "hybrid-access",
+      "description" : "No permission accessing info for part of Radius apps. This event can be used to monitor and notify admins when some users who access radius app info have only partial permission. Fired when users who access radius app info have partial permission.",
+      "info" : {
+        "created" : "2020-07-31",
+        "release" : "2020.08.0"
+      },
+      "beta" : false,
+      "tags" : [ "app", "radius" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "app.realtimesync.import.details.add_user",
       "category" : "directories",
       "description" : "Real time sync added new User.",
@@ -11367,7 +11432,7 @@
       },
       "beta" : false,
       "tags" : [ "app-api" ],
-      "mappings" : [ "app.api.error.api.validation", "app.api.error.download_custom_objects", "app.api.error.download_schema_enum_values", "app.boxnet.api.error.validate_parent_folder", "app.google.user_management.error.download_custom_objects", "app.hipchat.api.error.validation", "app.jira.api.error.binding", "app.jira.api.error.login", "app.jira.api.error.logout", "app.netsuite.api.error.download_custom_objects", "app.rightscale.api.error.validate", "app.sendwordnow.api.error.auth", "app.workday.api.error.validate", "app.zendesk.api.error.role.restriction", "verificationFailed" ],
+      "mappings" : [ "app.api.error.api.validation", "app.api.error.download_custom_objects", "app.api.error.download_schema_enum_values", "app.api.generic.configuration.message", "app.boxnet.api.error.validate_parent_folder", "app.google.user_management.error.download_custom_objects", "app.hipchat.api.error.validation", "app.jira.api.error.binding", "app.jira.api.error.login", "app.jira.api.error.logout", "app.netsuite.api.error.download_custom_objects", "app.rightscale.api.error.validate", "app.sendwordnow.api.error.auth", "app.workday.api.error.validate", "app.zendesk.api.error.role.restriction", "verificationFailed" ],
       "schema" : {
         "debugData" : "Office365DebugData",
         "actor" : null,
@@ -11447,7 +11512,7 @@
       },
       "beta" : false,
       "tags" : [ "app-api" ],
-      "mappings" : [ "app.api.error.generic", "app.bloomfire.api.error.generic", "app.coupa.api.error", "app.crashplanpro.api.rest.unexpected_response_status", "app.eqanalyzer.url.encoding", "app.exacttarget.api.error.init", "app.google.sso.failure.domain_not_found", "app.google.sso.failure.invalid_continue_url", "app.google.sso.failure.invalid_domain", "app.google.sso.failure.relay_state_not_found", "app.gotomeeting.user_management.config.failure.api_not_available", "app.gotomeeting.user_management.config.failure.api_url_is_malformed", "app.gotomeeting_rest.user_management.config.failure.api_not_available", "app.rightscale.api.error.idp", "app.scim.is.api.account.error", "app.sugarcrm.api.error.get.entry.list", "app.sugarcrm.api.error.hash.password", "app.sugarcrm.api.error.set.entry", "app.workday.api.error.bind", "roambi.api.error.auth.empty.account.response", "roambi.api.error.auth.empty.code", "roambi.api.error.auth.unexpected.response" ],
+      "mappings" : [ "app.amazon_aws.connected.accounts.modification", "app.api.error.generic", "app.bloomfire.api.error.generic", "app.coupa.api.error", "app.crashplanpro.api.rest.unexpected_response_status", "app.eqanalyzer.url.encoding", "app.exacttarget.api.error.init", "app.google.sso.failure.domain_not_found", "app.google.sso.failure.invalid_continue_url", "app.google.sso.failure.invalid_domain", "app.google.sso.failure.relay_state_not_found", "app.gotomeeting.user_management.config.failure.api_not_available", "app.gotomeeting.user_management.config.failure.api_url_is_malformed", "app.gotomeeting_rest.user_management.config.failure.api_not_available", "app.rightscale.api.error.idp", "app.scim.is.api.account.error", "app.sugarcrm.api.error.get.entry.list", "app.sugarcrm.api.error.hash.password", "app.sugarcrm.api.error.set.entry", "app.workday.api.error.bind", "roambi.api.error.auth.empty.account.response", "roambi.api.error.auth.empty.code", "roambi.api.error.auth.unexpected.response" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -11568,7 +11633,7 @@
     }, {
       "id" : "application.policy.sign_on.deny_access",
       "category" : "authn",
-      "description" : "Deny user access due to app sign on policy.",
+      "description" : "Deny user access due to app sign on policy. When fired due to app assurance being evaluated as unsatisfiable (the policy requirements could not be satisfied by the users' current set of available authenticator enrollments), this event contains information about the user and the app that the user is trying to authenticate into.",
       "info" : {
         "created" : "2016-03-24",
         "release" : "2016.13"
@@ -12231,7 +12296,7 @@
       },
       "beta" : false,
       "tags" : [ "app-api" ],
-      "mappings" : [ "app.api.error.manager.not_found_for_user", "app.api.error.push_profile_update", "app.bigmachines.api.error.profile.update", "app.boxnet.api.error.add.email.alias", "app.boxnet.api.error.push.profile.update", "app.boxnet.api.error.user.push.conflict_in_group", "app.confluence.api.error.convert.app.user.to.remote.user", "app.confluence.api.error.push.profile.update", "app.cornerstone.api.error.api.push_profile", "app.crashplanpro.api.user_has_invalid_fields", "app.docusign.api.error.update.inactive.user", "app.docusign.api.error.update.permission.profile", "app.dropbox.api.error.push.profile", "app.dropbox.api.error.set.user.permissions", "app.exacttarget.api.error.push_profile_update", "app.generic.user_management.error.add_manager_to_user", "app.google.api.error.InsufficientPermission", "app.google.license_management.error.assign_license", "app.google.license_management.error.remove_license", "app.google.user_management.error.push_profile_update", "app.google.user_management.error.reconcile_email_aliases", "app.hipchat.api.error.push.profile", "app.jira.api.error.convert.app.user.to.remote.user", "app.jira.api.error.push.profile.update", "app.netsuite.api.error.push_profile_update", "app.pagerduty.api.push.profile.update.unexpected.status", "app.rightscale.api.error.push.profile", "app.sendwordnow.api.error.update_user_profile", "app.servicenow.api.error.import.manager.profile", "app.servicenow.api.error.push.profile.update", "app.servicenow_app2.api.error.push.profile.update", "app.sugarcrm.api.error.push.profile.update", "app.user_management.provision_user.user_inactive", "app.user_management.push_profile_failure", "app.user_management.push_profile_success", "app.user_management.push_profile_update", "app.veeva_vault.api.error.push.profile.update", "app.workday.api.error.get-employee-personal-info", "app.workday.api.error.update-employee-personal-info", "app.workday.api.error.user-management-error-push-profile-update", "app.yammer.api.error.push.profile", "moveit_dmz.error.too.long.username.or.email" ],
+      "mappings" : [ "app.api.error.manager.not_found_for_user", "app.api.error.push_profile_update", "app.bigmachines.api.error.profile.update", "app.boxnet.api.error.add.email.alias", "app.boxnet.api.error.push.profile.update", "app.boxnet.api.error.user.push.conflict_in_group", "app.confluence.api.error.convert.app.user.to.remote.user", "app.confluence.api.error.push.profile.update", "app.cornerstone.api.error.api.push_profile", "app.crashplanpro.api.user_has_invalid_fields", "app.docusign.api.error.update.inactive.user", "app.docusign.api.error.update.permission.profile", "app.dropbox.api.error.push.profile", "app.dropbox.api.error.set.user.permissions", "app.exacttarget.api.error.push_profile_update", "app.generic.user_management.error.add_manager_to_user", "app.google.api.error.InsufficientPermission", "app.google.license_management.error.assign_license", "app.google.license_management.error.remove_license", "app.google.role_management.error.assign_role", "app.google.role_management.error.remove_role", "app.google.user_management.error.push_profile_update", "app.google.user_management.error.reconcile_email_aliases", "app.hipchat.api.error.push.profile", "app.jira.api.error.convert.app.user.to.remote.user", "app.jira.api.error.push.profile.update", "app.netsuite.api.error.push_profile_update", "app.pagerduty.api.push.profile.update.unexpected.status", "app.rightscale.api.error.push.profile", "app.sendwordnow.api.error.update_user_profile", "app.servicenow.api.error.import.manager.profile", "app.servicenow.api.error.push.profile.update", "app.servicenow_app2.api.error.push.profile.update", "app.sugarcrm.api.error.push.profile.update", "app.user_management.provision_user.user_inactive", "app.user_management.push_profile_failure", "app.user_management.push_profile_success", "app.user_management.push_profile_update", "app.veeva_vault.api.error.push.profile.update", "app.workday.api.error.get-employee-personal-info", "app.workday.api.error.update-employee-personal-info", "app.workday.api.error.user-management-error-push-profile-update", "app.yammer.api.error.push.profile", "moveit_dmz.error.too.long.username.or.email" ],
       "schema" : {
         "debugData" : "UserProvisioningDebugData",
         "actor" : null,
@@ -12895,7 +12960,7 @@
       }
     }, {
       "id" : "group.privilege.grant",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Fired when a group within Okta has been granted admin privileges. The group granted privileges can be an Okta mastered group, and AD mastered group, or an LDAP mastered group. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been granted, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
       "info" : {
         "created" : "2019-02-25",
@@ -12911,7 +12976,7 @@
       }
     }, {
       "id" : "group.privilege.revoke",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Fired when a group within Okta has had admin privileges revoked. The group with revoked privileges can be an Okta mastered group, and AD mastered group, or an LDAP mastered group. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been revoked, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
       "info" : {
         "created" : "2019-02-25",
@@ -14265,9 +14330,9 @@
       "tags" : [ "behavior-settings" ],
       "mappings" : [ "security.behavior.settings.create" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "BehaviorSettingsResourceDetails" ]
       }
     }, {
       "id" : "security.behavior.settings.delete",
@@ -14281,9 +14346,9 @@
       "tags" : [ "behavior-settings" ],
       "mappings" : [ "security.behavior.settings.delete" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "BehaviorSettingsResourceDetails" ]
       }
     }, {
       "id" : "security.behavior.settings.update",
@@ -14297,9 +14362,9 @@
       "tags" : [ "behavior-settings" ],
       "mappings" : [ "security.behavior.settings.update" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "BehaviorSettingsResourceDetails" ]
       }
     }, {
       "id" : "security.device.add_request_blacklist_policy",
@@ -15119,7 +15184,7 @@
       }
     }, {
       "id" : "system.beta.feature.enable",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Fired when an admin has enabled a BETA feature. This can be used to understand the status of the BETA Feature and identify who has enabled it for an org. When fired, this event contains information about the enabled BETA Feature, as well as the admin who enabled it.",
       "info" : {
         "created" : "2019-07-01",
@@ -15135,7 +15200,7 @@
       }
     }, {
       "id" : "system.billing.sms_usage_sent",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Indicates that a report for SMS usage was sent to the billing system.",
       "info" : {
         "created" : "2018-08-30",
@@ -15385,13 +15450,13 @@
       "tags" : [ "admin" ],
       "mappings" : [ "system.email.template.update" ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "EmailTemplateResourceDetails" ]
       }
     }, {
       "id" : "system.feature.disable",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Fired when self service features are requested to be disabled by admins. This can be used to understand who disabled the features and whether there are any limitations concerning the features. When fired, this event contains information about the requested features, their names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.enable'.",
       "info" : {
         "created" : "2019-04-30",
@@ -15407,7 +15472,7 @@
       }
     }, {
       "id" : "system.feature.ea_auto_enroll",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Fired when an org has subscribed to or unsubscribed from EA Feature Auto Enroll. This can be used to understand the status of EA Feature Auto Enroll subscription and identify who has made changes to the subscription. When fired, this event contains information about the status of EA Feature Auto enroll subscription, as well as the admin who made any subscription changes.",
       "info" : {
         "created" : "2019-03-01",
@@ -15423,7 +15488,7 @@
       }
     }, {
       "id" : "system.feature.enable",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Fired when self service features are requested to be enabled by admins. This can be used to understand who enabled the features and whether there are any limitations concerning the features. When fired, this event contains information about the requested features, their names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.disable.",
       "info" : {
         "created" : "2019-04-30",
@@ -16313,9 +16378,9 @@
       "tags" : [ "ldapi" ],
       "mappings" : [ "system.ldapi.bind" ],
       "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null
+        "debugData" : "LdapiDebugData",
+        "actor" : "LdapiResourceDetails",
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "system.ldapi.search",
@@ -16329,9 +16394,9 @@
       "tags" : [ "ldapi" ],
       "mappings" : [ "system.ldapi.search" ],
       "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null
+        "debugData" : "LdapiDebugData",
+        "actor" : "LdapiResourceDetails",
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "system.ldapi.unbind",
@@ -16345,13 +16410,13 @@
       "tags" : [ "ldapi" ],
       "mappings" : [ "system.ldapi.unbind" ],
       "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null
+        "debugData" : "LdapiDebugData",
+        "actor" : "LdapiResourceDetails",
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "system.org.lifecycle.create",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Org creation.",
       "info" : {
         "created" : "2016-12-12",
@@ -16415,7 +16480,7 @@
       }
     }, {
       "id" : "system.org.task.remove",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "Tasks removed.",
       "info" : {
         "created" : "2017-08-11",
@@ -16442,6 +16507,22 @@
       "mappings" : [ ],
       "schema" : {
         "debugData" : "PushNotificationDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.sms.receive_status",
+      "category" : "cred-platform",
+      "description" : "Fired when receiving a status update on SMS message from provider. This event can be used by Org Admins to identify users that are/aren't getting one-time passcodes delivered successfully via SMS, provider status can be obtained from status field in debug data. For any system.sms.send_* event, there should be exactly one of this event.",
+      "info" : {
+        "created" : "2020-07-06",
+        "release" : "2020.08.4"
+      },
+      "beta" : false,
+      "tags" : [ "sms" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SmsStatusDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
       }
@@ -16522,6 +16603,22 @@
       "mappings" : [ "core.user.sms.message_sent.verify" ],
       "schema" : {
         "debugData" : "SmsDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.voice.receive_status",
+      "category" : "cred-platform",
+      "description" : "Fired when receiving a status update on voice call from provider. This event can be used by Org Admins to identify users that are/aren't getting one-time passcodes delivered successfully via voice call, provider status can be obtained from status field in debug data. For any system.voice.send_* event, there should be exactly one of this event.",
+      "info" : {
+        "created" : "2020-07-06",
+        "release" : "2020.08.4"
+      },
+      "beta" : false,
+      "tags" : [ "voice" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "CallStatusDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
       }
@@ -16735,7 +16832,7 @@
       }
     }, {
       "id" : "user.account.privilege.grant",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Grant user privilege.",
       "info" : {
         "created" : "2016-04-01",
@@ -16751,7 +16848,7 @@
       }
     }, {
       "id" : "user.account.privilege.revoke",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Revoke user privilege.",
       "info" : {
         "created" : "2016-04-01",
@@ -17190,7 +17287,7 @@
         "release" : "2017.27"
       },
       "beta" : false,
-      "tags" : [ "user" ],
+      "tags" : [ "end-user-visible", "user" ],
       "mappings" : [ "user.authentication.verify" ],
       "schema" : {
         "debugData" : "UserAuthenticationDebugData",
@@ -17225,9 +17322,9 @@
       "tags" : [ "credential", "event-hook-eligible", "import", "user" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "PasswordImportResourceDetails" ]
       }
     }, {
       "id" : "user.lifecycle.activate",
@@ -17519,7 +17616,7 @@
       }
     }, {
       "id" : "user.session.access_admin_app",
-      "category" : "aelm",
+      "category" : "ace",
       "description" : "User accessing Okta admin app.",
       "info" : {
         "created" : "2016-03-31",
@@ -17583,7 +17680,7 @@
       }
     }, {
       "id" : "user.session.impersonation.end",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "End impersonation session.",
       "info" : {
         "created" : "2016-02-23",
@@ -17599,7 +17696,7 @@
       }
     }, {
       "id" : "user.session.impersonation.extend",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Extend impersonation session.",
       "info" : {
         "created" : "2016-02-23",
@@ -17615,7 +17712,7 @@
       }
     }, {
       "id" : "user.session.impersonation.grant",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Enable impersonation grant.",
       "info" : {
         "created" : "2016-02-23",
@@ -17631,7 +17728,7 @@
       }
     }, {
       "id" : "user.session.impersonation.initiate",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Initiate impersonation session.",
       "info" : {
         "created" : "2016-02-23",
@@ -17647,7 +17744,7 @@
       }
     }, {
       "id" : "user.session.impersonation.revoke",
-      "category" : "aelm",
+      "category" : "dda",
       "description" : "Revoke impersonation grant.",
       "info" : {
         "created" : "2016-02-23",
@@ -17674,7 +17771,7 @@
       "mappings" : [ "core.user_auth.invalid_certificate", "core.user_auth.login_denied", "core.user_auth.login_failed", "core.user_auth.login_failed.policy_denied", "core.user_auth.login_success", "core.user_auth.session_created_using_api_token", "core.user_auth.session_created_using_token" ],
       "schema" : {
         "debugData" : "UserAuthenticationDebugData",
-        "actor" : null,
+        "actor" : "UserAuthenticationResourceDetails",
         "targets" : [ "UserAuthenticationResourceDetails" ]
       }
     }, {
@@ -17794,6 +17891,7 @@
       "AdAgentDebugData" : {
         "name" : "AdAgentDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -17816,6 +17914,7 @@
       "AdAgentGenericDebugData" : {
         "name" : "AdAgentGenericDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -17835,6 +17934,7 @@
       "AdInstanceDebugData" : {
         "name" : "AdInstanceDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -17855,6 +17955,7 @@
       "AppExceptionsDebugData" : {
         "name" : "AppExceptionsDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -17875,6 +17976,7 @@
       "AppInstanceDebugData" : {
         "name" : "AppInstanceDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -17898,6 +18000,7 @@
       "AppInstanceKeyManagementDebugData" : {
         "name" : "AppInstanceKeyManagementDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -17923,6 +18026,7 @@
       "AppManagerDebugData" : {
         "name" : "AppManagerDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -17943,6 +18047,7 @@
       "AppManagerUserConfigDebugData" : {
         "name" : "AppManagerUserConfigDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -17971,6 +18076,7 @@
       "CallDebugData" : {
         "name" : "CallDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -17985,14 +18091,43 @@
           "original_principal" : "Resource",
           "device_fingerprint" : "String",
           "authn_request_id" : "String",
+          "phone_number" : "String",
           "transaction_id" : "String",
           "call_provider" : "String",
           "country_calling_code" : "Integer"
         }
       },
+      "CallStatusDebugData" : {
+        "name" : "CallStatusDebugData",
+        "properties" : {
+          "oag_app" : "Boolean",
+          "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
+          "behaviors" : "Map",
+          "risk" : "Map",
+          "url" : "String",
+          "request_uri" : "String",
+          "request_id" : "String",
+          "redirect_uri" : "String",
+          "original_principal" : "Resource",
+          "device_fingerprint" : "String",
+          "authn_request_id" : "String",
+          "phone_number" : "String",
+          "transaction_id" : "String",
+          "call_provider" : "String",
+          "country_calling_code" : "Integer",
+          "transaction_completed" : "String",
+          "transaction_started" : "String",
+          "provider_status" : "String"
+        }
+      },
       "ClientRateLimitDebugData" : {
         "name" : "ClientRateLimitDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18021,6 +18156,7 @@
       "CommandDebugData" : {
         "name" : "CommandDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18047,6 +18183,7 @@
       "DelAuthDebugData" : {
         "name" : "DelAuthDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18074,6 +18211,7 @@
       "DeviceTrustDebugData" : {
         "name" : "DeviceTrustDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18103,6 +18241,7 @@
       "DirectoryDebugData" : {
         "name" : "DirectoryDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18125,6 +18264,7 @@
       "EmailFactorChallengeDebugData" : {
         "name" : "EmailFactorChallengeDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18146,6 +18286,7 @@
       "EmailFactorDebugData" : {
         "name" : "EmailFactorDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18166,6 +18307,7 @@
       "FeatureToggleDebugData" : {
         "name" : "FeatureToggleDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18188,6 +18330,7 @@
       "GroupAppDebugData" : {
         "name" : "GroupAppDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18208,6 +18351,7 @@
       "GroupRoleDebugData" : {
         "name" : "GroupRoleDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18229,6 +18373,7 @@
       "GroupRuleDebugData" : {
         "name" : "GroupRuleDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18249,6 +18394,7 @@
       "IOSCommandDebugData" : {
         "name" : "IOSCommandDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18276,6 +18422,7 @@
       "IdpAuthDebugData" : {
         "name" : "IdpAuthDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18317,6 +18464,7 @@
       "InlineHookDebugData" : {
         "name" : "InlineHookDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18338,6 +18486,7 @@
       "IwaSsoDebugData" : {
         "name" : "IwaSsoDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18364,6 +18513,7 @@
       "LdapDebugData" : {
         "name" : "LdapDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18383,9 +18533,32 @@
           "agent_name" : "String"
         }
       },
+      "LdapiDebugData" : {
+        "name" : "LdapiDebugData",
+        "properties" : {
+          "oag_app" : "Boolean",
+          "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
+          "behaviors" : "Map",
+          "risk" : "Map",
+          "url" : "String",
+          "request_uri" : "String",
+          "request_id" : "String",
+          "redirect_uri" : "String",
+          "original_principal" : "Resource",
+          "device_fingerprint" : "String",
+          "authn_request_id" : "String",
+          "operationId" : "String",
+          "connectionId" : "String"
+        }
+      },
       "NetworkZoneDebugData" : {
         "name" : "NetworkZoneDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18406,6 +18579,7 @@
       "OAuth2DebugData" : {
         "name" : "OAuth2DebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18447,6 +18621,7 @@
       "OAuth2PlatformDebugData" : {
         "name" : "OAuth2PlatformDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18470,6 +18645,7 @@
       "Office365DebugData" : {
         "name" : "Office365DebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18533,6 +18709,7 @@
       "OktaELDebugData" : {
         "name" : "OktaELDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18561,6 +18738,7 @@
       "OrgLifecycleDebugData" : {
         "name" : "OrgLifecycleDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18583,6 +18761,7 @@
       "OrgRateLimitDebugData" : {
         "name" : "OrgRateLimitDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18609,6 +18788,7 @@
       "PluginDebugData" : {
         "name" : "PluginDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18632,6 +18812,7 @@
       "PolicyDebugData" : {
         "name" : "PolicyDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18652,6 +18833,7 @@
       "PolicyLifecycleDebugData" : {
         "name" : "PolicyLifecycleDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18675,6 +18857,7 @@
       "PushNotificationDebugData" : {
         "name" : "PushNotificationDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18696,6 +18879,7 @@
       "RadiusDebugData" : {
         "name" : "RadiusDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18722,6 +18906,7 @@
       "RichClientDebugData" : {
         "name" : "RichClientDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18745,6 +18930,7 @@
       "ScheduledActionDebugData" : {
         "name" : "ScheduledActionDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18766,6 +18952,7 @@
       "SmsDebugData" : {
         "name" : "SmsDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18787,9 +18974,38 @@
           "country_calling_code" : "Integer"
         }
       },
+      "SmsStatusDebugData" : {
+        "name" : "SmsStatusDebugData",
+        "properties" : {
+          "oag_app" : "Boolean",
+          "webhooks" : "List",
+          "threat_suspected" : "boolean",
+          "security_conditions" : "List",
+          "anonymizer_status" : "String",
+          "proxy_type" : "String",
+          "behaviors" : "Map",
+          "risk" : "Map",
+          "url" : "String",
+          "request_uri" : "String",
+          "request_id" : "String",
+          "redirect_uri" : "String",
+          "original_principal" : "Resource",
+          "device_fingerprint" : "String",
+          "authn_request_id" : "String",
+          "transaction_id" : "String",
+          "sms_provider" : "String",
+          "phone_number" : "String",
+          "customer_provided_account" : "Boolean",
+          "country_calling_code" : "Integer",
+          "transaction_completed" : "String",
+          "transaction_started" : "String",
+          "provider_status" : "String"
+        }
+      },
       "SuspiciousActivityDebugData" : {
         "name" : "SuspiciousActivityDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18821,6 +19037,7 @@
       "SystemDebugData" : {
         "name" : "SystemDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18840,6 +19057,7 @@
       "SystemImportDebugData" : {
         "name" : "SystemImportDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18883,6 +19101,7 @@
       "UserAccessDebugData" : {
         "name" : "UserAccessDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18909,6 +19128,7 @@
       "UserAuthenticationDebugData" : {
         "name" : "UserAuthenticationDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18932,6 +19152,7 @@
       "UserConfigDebugData" : {
         "name" : "UserConfigDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18952,6 +19173,7 @@
       "UserDiffReportDebugData" : {
         "name" : "UserDiffReportDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18972,6 +19194,7 @@
       "UserFactorDebugData" : {
         "name" : "UserFactorDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -18992,6 +19215,7 @@
       "UserLifecycleDebugData" : {
         "name" : "UserLifecycleDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -19013,6 +19237,7 @@
       "UserProvisioningDebugData" : {
         "name" : "UserProvisioningDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -19035,6 +19260,7 @@
       "UserRoleDebugData" : {
         "name" : "UserRoleDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -19056,6 +19282,7 @@
       "UserSsoAuthenticationDebugData" : {
         "name" : "UserSsoAuthenticationDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -19081,6 +19308,7 @@
       "UserTypeDebugData" : {
         "name" : "UserTypeDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -19102,6 +19330,7 @@
       "WebhooksDebugData" : {
         "name" : "WebhooksDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -19122,6 +19351,7 @@
       "YubikeyDebugData" : {
         "name" : "YubikeyDebugData",
         "properties" : {
+          "oag_app" : "Boolean",
           "webhooks" : "List",
           "threat_suspected" : "boolean",
           "security_conditions" : "List",
@@ -19143,6 +19373,19 @@
           "credential" : "String"
         }
       },
+      "LdapiResourceDetails" : {
+        "name" : "LdapiResourceDetails",
+        "properties" : {
+          "bindDN" : "String"
+        }
+      },
+      "UserAuthenticationResourceDetails" : {
+        "name" : "UserAuthenticationResourceDetails",
+        "properties" : {
+          "policy_type" : "String",
+          "login_result" : "String"
+        }
+      },
       "ApiTokenResourceDetails" : {
         "name" : "ApiTokenResourceDetails",
         "properties" : {
@@ -19160,6 +19403,12 @@
           "OAuth2ClaimClaimType" : "String",
           "AuthorizationServerId" : "String",
           "AuthorizationServerDescription" : "String"
+        }
+      },
+      "BehaviorSettingsResourceDetails" : {
+        "name" : "BehaviorSettingsResourceDetails",
+        "properties" : {
+          "behavior_type" : "String"
         }
       },
       "ConnectorAgentResourceDetails" : {
@@ -19190,6 +19439,12 @@
         "name" : "EmailResourceDetails",
         "properties" : {
           "email_address" : "String"
+        }
+      },
+      "EmailTemplateResourceDetails" : {
+        "name" : "EmailTemplateResourceDetails",
+        "properties" : {
+          "email_template_type" : "String"
         }
       },
       "ExecutePolicyResourceDetails" : {
@@ -19246,6 +19501,12 @@
           "audience" : "String"
         }
       },
+      "PasswordImportResourceDetails" : {
+        "name" : "PasswordImportResourceDetails",
+        "properties" : {
+          "import_type" : "String"
+        }
+      },
       "PolicyLifecycleResourceDetails" : {
         "name" : "PolicyLifecycleResourceDetails",
         "properties" : {
@@ -19288,13 +19549,6 @@
         "name" : "UserAccessResourceDetails",
         "properties" : {
           "username_or_email" : "String"
-        }
-      },
-      "UserAuthenticationResourceDetails" : {
-        "name" : "UserAuthenticationResourceDetails",
-        "properties" : {
-          "policy_type" : "String",
-          "login_result" : "String"
         }
       },
       "UserProvisioningResourceDetails" : {
