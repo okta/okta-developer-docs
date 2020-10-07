@@ -20,14 +20,14 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 
 ## Add an OpenID Connect Client
 
-* Log into the Okta Developer Dashboard, and **Create New App**
+* Sign in to the Okta Developer Dashboard, and select **Create New App**
 * Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values similar to:
 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
-| Application Name     | OpenId Connect App *(must be unique)*               |
-| Login redirect URIs  | http://localhost:4200/login/callback                      |
-| Logout redirect URIs | http://localhost:4200/login                         |
+| Application Name     | OpenId Connect App (must be unique)                 |
+| Login redirect URIs  | `http://localhost:4200/login/callback`              |
+| Logout redirect URIs | `http://localhost:4200/login`                       |
 | Allowed grant types  | Authorization Code                                  |
 
 ## Create an Angular App
@@ -59,16 +59,16 @@ npm install @okta/okta-angular
 > If you're using **Angular 6.x**, you'll need to install `rxjs-compat`:
 
 ```bash
-npm install rxjs-compat --save
+npm install rxjs-compat
 ```
 
 ## Create Routes
 
-Some routes require authentication in order to render. Defining these protected routes is easy with the `OktaAuthGuard` from `@okta/okta-angular`. Lets take a look at what routes are required for this example, using [Angular Router](https://angular.io/guide/router):
+Some routes require authentication in order to render. Defining these protected routes is easy with the `OktaAuthGuard` from `@okta/okta-angular`. Let's take a look at what routes are required for this example, using [Angular Router](https://angular.io/guide/router):
 
 * `/`: A default page to handle basic control of the app.
 * `/protected`: A protected route that can only be accessed by an authenticated user.
-* `/login`: A custom login page to handle signing users into your app.
+* `/login`: A custom sign-in page to handle signing users into your app.
 
 ### `/`
 
@@ -251,7 +251,7 @@ import { LoginComponent } from './login.component';
 
 const config = {
   issuer: 'https://${yourOktaDomain}/oauth2/default',
-  redirectUri: 'http://localhost:4200/login/callback',
+  redirectUri: window.location.origin + '/login/callback',
   clientId: '{clientId}',
   pkce: true
 }
@@ -316,4 +316,4 @@ Want to learn how to use the user's `access_token`? Check out our <a href='/docs
 
 ## Support
 
-Have a question or see a bug? Post your question on [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).

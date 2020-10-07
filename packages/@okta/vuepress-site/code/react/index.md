@@ -24,7 +24,7 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 </ul>
 
 <a href='https://github.com/okta/samples-js-react'>
-	<span class='fa fa-github'></span> <span>React Sample App</span>
+	<span class='fa fa-github'></span> <span>React Sample Apps</span>
 </a>
 
 ## Okta React SDK

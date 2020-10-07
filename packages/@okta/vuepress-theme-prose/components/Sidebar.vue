@@ -1,14 +1,14 @@
 <template>
   <aside class="landing-navigation" :class="{active: sidebarActive}">
     <ul class="landing">
-      <SidebarItem v-for="(link, key) in navigation" :key="key" :link="link" />
+      <SidebarItem v-for="link in navigation" :key="link.title" :link="link" />
     </ul>
   </aside>
 </template>
 
 <script>
 import _ from "lodash";
-import { getGuidesInfo, guideFromPath } from "../util/guides";
+import { getGuidesInfo, guideFromPath } from "../util/guides";  
 
 export default {
   name: "Sidebar",

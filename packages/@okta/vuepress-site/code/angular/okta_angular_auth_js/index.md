@@ -16,14 +16,14 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 
 ### Add an OpenID Connect Client
 
-* Log into the Okta Developer Dashboard, and **Create New App**
-* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values similar to:
+* Sign in to the Okta Developer Dashboard, and select **Create New App**
+* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with appropriate values for your app. For example:
 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
-| Application Name     | OpenId Connect App *(must be unique)*               |
-| Login redirect URIs  | http://localhost:4200/callback                      |
-| Logout redirect URIs | http://localhost:4200                               |
+| Application Name     | OpenId Connect App (must be unique)                 |
+| Login redirect URIs  | `http://localhost:4200/callback`                    |
+| Logout redirect URIs | `http://localhost:4200`                             |
 | Allowed grant types  | Authorization Code                                  |
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
@@ -182,7 +182,7 @@ Whenever a user attempts to access a route that is protected by `OktaAuthGuard`,
 
 ## Add Routes
 
-Lets take a look at what routes are needed:
+Let's take a look at what routes are needed:
 
 * `/`: A default page to handle basic control of the app.
 * `/callback`: Handle the response back from Okta and store the returned tokens.
@@ -361,4 +361,4 @@ Want to learn how to use the user's `access_token`? Check out our <a href='/docs
 
 ## Support
 
-Have a question or see a bug? Post your question on [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).
