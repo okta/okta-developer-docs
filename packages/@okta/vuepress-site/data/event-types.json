@@ -12961,7 +12961,7 @@
     }, {
       "id" : "group.privilege.grant",
       "category" : "dda",
-      "description" : "Fired when a group within Okta has been granted admin privileges. The group granted privileges can be an Okta mastered group, and AD mastered group, or an LDAP mastered group. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been granted, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
+      "description" : "Fired when a group within Okta has been granted admin privileges. The group granted privileges can be an Okta-backed group, and AD-backed group, or an LDAP-backed group. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been granted, and what entity backs the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
       "info" : {
         "created" : "2019-02-25",
         "release" : "2019.03.0"
@@ -12977,7 +12977,7 @@
     }, {
       "id" : "group.privilege.revoke",
       "category" : "dda",
-      "description" : "Fired when a group within Okta has had admin privileges revoked. The group with revoked privileges can be an Okta mastered group, and AD mastered group, or an LDAP mastered group. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been revoked, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
+      "description" : "Fired when a group within Okta has had admin privileges revoked. The group with revoked privileges can be an Okta-backed group, and AD-backed group, or an LDAP-backed group. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been revoked, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
       "info" : {
         "created" : "2019-02-25",
         "release" : "2019.03.0"

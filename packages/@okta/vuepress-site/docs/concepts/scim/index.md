@@ -67,14 +67,14 @@ The deletion or deprovisioning of end-user profiles in SCIM operations depends o
 
    Deactivated end-user accounts lose access to their provisioned Okta integrations. Your application can run different actions after deprovisioning a user, such as changing user access permissions, removing a license, or completely disabling the user account.
 * If an admin deletes a deactivated end-user profile inside Okta, the user resource inside your SCIM application isn't changed. The initial deactivation step already set `active=false`. Okta doesn't send a request to delete the user resource inside the customer's SCIM application.
-* Conversely, if an end-user profile is marked with `active=false` inside your SCIM application, and the Okta integration is mastered by that SCIM application, then when an import from your SCIM application is run, the user's profile is marked as deactivated inside Okta.
-* Similarly, if an end-user profile is deleted from inside your SCIM application, and the end user is mastered by that SCIM application, then when an import from your SCIM application is run, the user's profile is deleted inside Okta.
+* Conversely, if an end-user profile is marked with `active=false` inside your SCIM application, and the Okta integration is backed by that SCIM application, then when an import from your SCIM application is run, the user's profile is marked as deactivated inside Okta.
+* Similarly, if an end-user profile is deleted from inside your SCIM application, and the end user is backed by that SCIM application, then when an import from your SCIM application is run, the user's profile is deleted inside Okta.
 
 ### Sync passwords
 
 Outside of the base CRUD operations, Okta supports additional provisioning features like syncing passwords.
 
-Password synchronization helps you coordinate Okta-mastered users to ensure that a user’s Active Directory (AD) password and their Okta password always match. With password synchronization, your users have a single password to access applications and devices.
+Password synchronization helps you coordinate Okta-backed users to ensure that a user’s Active Directory (AD) password and their Okta password always match. With password synchronization, your users have a single password to access applications and devices.
 
 This option sets the user's password for your integration to match the Okta password or to be assigned a randomly generated password. For more information about this functionality and how to configure it in the Okta product, see [Synchronize passwords from Okta to Active Directory](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Using_Sync_Password).
 
@@ -88,7 +88,7 @@ Okta uses a Profile Editor to map specific user attributes from the source appli
 
 ## Lifecycle management using profile mastering
 
-Profile mastering defines the flow and maintenance of user attributes. When a profile is mastered using a source outside of Okta (for example, an HR application, Active Directory, or LDAP), then the Okta user's attributes and lifecycle state are derived exclusively from that resource. The SCIM protocol is used to handle the secure exchange of user identity data between the profile master and Okta. In this scenario, the profile isn't editable in Okta by the user or an Okta admin.
+Profile mastering defines the flow and maintenance of user attributes. When a profile is backed using a source outside of Okta (for example, an HR application, Active Directory, or LDAP), then the Okta user's attributes and lifecycle state are derived exclusively from that resource. The SCIM protocol is used to handle the secure exchange of user identity data between the profile master and Okta. In this scenario, the profile isn't editable in Okta by the user or an Okta admin.
 
 For example, if the lifecycle state of the user is changed to "Disabled" in Active Directory, then on the next SCIM read operation, the linked Okta user profile is switched and given the corresponding lifecycle state of `active=false`.
 

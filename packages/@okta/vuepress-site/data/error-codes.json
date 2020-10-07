@@ -183,7 +183,7 @@
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000023",
-    "errorSummary" : "Operation failed because user profile is mastered under another system",
+    "errorSummary" : "Operation failed because user profile is backed by another system",
     "errorDescription" : null
   }, {
     "title" : "Unsupported app metadata operation exception",
@@ -607,7 +607,7 @@
     "statusCode" : 405,
     "statusReasonPhrase" : "Method Not Allowed",
     "errorCode" : "E0000076",
-    "errorSummary" : "Cannot modify the app user because it is mastered by an external app.",
+    "errorSummary" : "Cannot modify the app user because it is backed by an external app.",
     "errorDescription" : null
   }, {
     "title" : "Read only attribute exception",

@@ -1311,7 +1311,7 @@ curl -v -X POST \
         ]
       }
     }
-  } 
+  }
 }
 ```
 
@@ -2067,7 +2067,7 @@ curl -v -X GET \
         ]
       }
     }
-  } 
+  }
 }
 ]
 ```
@@ -5472,7 +5472,7 @@ Certificate chain description for verifying assertions from the Smart Card.
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`                        |                       |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |                               |                       |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action. 
+> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action.
 
 #### Provisioning Policy object
 
@@ -5583,7 +5583,7 @@ The Group provisioning action for an IdP User:
 | `APPEND`    | Adds a User to any Group defined by the IdP as a value of the `sourceAttributeName` array that matches the name of the whitelisted Group defined in the `filter` | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `ASSIGN`    | Assigns a User to Groups defined in the `assignments` array                                                                                                          | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `NONE`      | Skips processing of Group memberships                                                                                                                              | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
-| `SYNC`      | Group memberships are mastered by the IdP as a value of the `sourceAttributeName` array that matches the name of the whitelisted Group defined in the `filter` | Removed if not defined by the IdP in `sourceAttributeName` and matching name of the Group in `filter` | Unchanged                                          | Unchanged                                    |
+| `SYNC`      | Group memberships are backed by the IdP as a value of the `sourceAttributeName` array that matches the name of the whitelisted Group defined in the `filter` | Removed if not defined by the IdP in `sourceAttributeName` and matching name of the Group in `filter` | Unchanged                                          | Unchanged                                    |
 
 > **Note:** Group provisioning action is processed independently from profile mastering. You can sync Group memberships through SAML with profile mastering disabled.
 

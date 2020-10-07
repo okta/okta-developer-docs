@@ -7472,7 +7472,7 @@ Specifies the password complexity requirements of the assigned password policy
 | minNumber       | Minimum number of numeric characters for the password          | Number   | FALSE    | FALSE  | TRUE     |
 | minSymbol       | Minimum number of symbol characters for the password           | Number   | FALSE    | FALSE  | TRUE     |
 | minUpperCase    | Minimum number of uppercase characters for the password       | Number   | FALSE    | FALSE  | TRUE     |
-> **Note:** Duplicate the minimum Active Directory (AD) requirements in these settings for AD-mastered users. No enforcement is triggered by Okta settings for AD-mastered users.
+> **Note:** Duplicate the minimum Active Directory (AD) requirements in these settings for AD-backed users. No enforcement is triggered by Okta settings for AD-backed users.
 
 #### Password age object
 

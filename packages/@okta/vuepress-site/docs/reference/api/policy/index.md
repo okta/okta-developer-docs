@@ -1232,7 +1232,7 @@ The following conditions may be applied to the rules associated with MFA Enrollm
 
 The Password policy determines the requirements for a user's password length and complexity, as well as the frequency with which a password must be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock.
 
-> **NOTE:** Password policies are enforced only for Okta and AD-mastered users. For AD-mastered users, ensure that your Active Directory policies don't conflict with the Okta policies.
+> **NOTE:** Password policies are enforced only for Okta and AD-backed users. For AD-backed users, ensure that your Active Directory policies don't conflict with the Okta policies.
 
 #### Policy Settings Example
 
@@ -1440,7 +1440,7 @@ Common Password Lookup object
 
 | Property   | Description                                                                                                                                                                            | Data Type | Required | Default |
 | ---        | ---                                                                                                                                                                                    | ---       | ---      | ---     |
-| skipUnlock | Indicates if, when performing an unlock operation on an Active Directory mastered user who is locked out of Okta, the system should also attempt to unlock the user's Windows account. | Boolean   | No       | false   |
+| skipUnlock | Indicates if, when performing an unlock operation on an Active Directory backed user who is locked out of Okta, the system should also attempt to unlock the user's Windows account. | Boolean   | No       | false   |
 
 ### Policy Conditions
 The following conditions may be applied to Password Policy
