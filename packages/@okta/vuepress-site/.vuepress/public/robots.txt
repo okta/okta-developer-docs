@@ -1,0 +1,3 @@
+# Non-public (Beta, EAP, etc) docs
+User-agent: Googlebot
+Disallow: /docs/reference/api/oie-policy-types/
