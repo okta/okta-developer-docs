@@ -320,7 +320,7 @@ Describes an activity performed by a user, app, client, or other entity (actor) 
 
 Actions that do not define any categories will have a zero element array value.
 
-```  json
+```json
 {
     "message": "User performed single sign on to app",
     "categories": [

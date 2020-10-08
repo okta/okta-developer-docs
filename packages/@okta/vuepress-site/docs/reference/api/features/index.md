@@ -657,7 +657,8 @@ Here are some links that may be available on a Feature, as determined by your po
 #### Link example
 
 ```json
-"_links": {
+{
+  "_links": {
     "helpDoc": {
       "href": "https://developer.okta.com/docs/concepts/feature-name/"
     },
@@ -679,4 +680,5 @@ Here are some links that may be available on a Feature, as determined by your po
         }
     }
   }
+}
 ```

@@ -11,7 +11,7 @@ If you left the <GuideLink link="../configure-self-service-registration-policy">
 2. Click the **Custom Sign In** tab.
 3. In the HTML editor, add the following configuration parameters directly under the `var config = OktaUtil.getSignInWidgetConfig();` line:
 
-```JavaScript
+```javascript
 config['features.registration'] = true;
 config['authScheme'] = 'SESSION';
 ```

@@ -997,34 +997,34 @@ Specifies a particular platform or device to match on.
 
 
 ```json
-  "platform": {
-    "include": [
-      {
-        "type": "MOBILE",
-        "os": {
-          "type": "IOS"
-        },
-      },
-      {
-        "type": "MOBILE",
-        "os": {
-          "type": "ANDROID"
-        },
-      },
-      {
-        "type": "DESKTOP",
-        "os": {
-          "type": "WINDOWS"
-        },
-      },
-      {
-        "type": "DESKTOP",
-        "os": {
-          "type": "OSX"
-        },
+"platform": {
+  "include": [
+    {
+      "type": "MOBILE",
+      "os": {
+        "type": "IOS"
       }
-    ]
-  }
+    },
+    {
+      "type": "MOBILE",
+      "os": {
+        "type": "ANDROID"
+      }
+    },
+    {
+      "type": "DESKTOP",
+      "os": {
+        "type": "WINDOWS"
+      }
+    },
+    {
+      "type": "DESKTOP",
+      "os": {
+        "type": "OSX"
+      }
+    }
+  ]
+}
 ```
 
 ## Type-Specific Policy Data Structures

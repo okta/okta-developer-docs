@@ -27,7 +27,7 @@ The following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-aut
 
     **Payload example**
 
-```JSON
+```json
     {
     "aud": "https://{yourOktaDomain}/oauth2/v1/token",
     "iss": "0oar95zt9zIpYuz6A0h7",
