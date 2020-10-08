@@ -6,6 +6,10 @@ This second suite of [Runscope](https://www.runscope.com) tests checks that your
 
 >**Note:** Okta doesn't delete user profiles in your application, but instead marks the user record with `active=false` to deactivate them. For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
 
+## Prerequisites
+
+The Profile Sourcing capability (formerly known as Profile Mastering) must be activated for developer orgs by Okta Developer Support. If you are testing this feature in your SCIM app integration, contact <developers@okta.com> with the name of your app integration and your org ID to have Profile Sourcing temporarily activated for your org. Developer Support automatically removes the access after two weeks. If you need a longer period to test your integration, inform Developer Support of your time requirements in your email.
+
 ## Runscope tests for CRUD
 
 If you are not familiar with Runscope, follow the detailed instructions in the [Test your SCIM API](/docs/guides/build-provisioning-integration/test-scim-api/) topic to get started.
