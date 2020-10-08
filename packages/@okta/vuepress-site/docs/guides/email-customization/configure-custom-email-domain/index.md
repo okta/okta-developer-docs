@@ -30,7 +30,7 @@ To configure a custom email domain:
 
 8. Update your DNS records using the provided values.
 
-9. When you have updated your DNS records through your Domain Name Registrar, click **I've updated the DNS records**. Okta begins polling your DNS records until it detects your updates (may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
+9. When you have updated your DNS records through your domain provider, click **I've updated the DNS records**. Okta begins polling your DNS records until it detects your updates (may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
 
     Alternatively, you can click **I will update the DNS records later** and your records aren't polled and your configuration is incomplete until you update the relevant DNS records and click **I've updated the DNS records**. You can view the list of records that require an update at any time.
 

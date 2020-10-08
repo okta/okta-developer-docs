@@ -23,7 +23,7 @@ You need to add a DNS TXT record to your domain to verify ownership of your doma
 
 3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field.
 
-> **Note**: Depending on your registrar, you may only need to enter `_oktaverification` rather than `_oktaverification.login.example.com`. If your registrar doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
+> **Note**: Depending on your domain provider, you may only need to enter `_oktaverification` rather than `_oktaverification.login.example.com`. If your domain provider doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
 >
 > You can perform a DNS lookup of your `_oktaverification` DNS record to verify that it's correctly configured. For example, you might use Google's [Dig](https://toolbox.googleapps.com/apps/dig/) tool to check your `_oktaverification.login.example.com` DNS record.
 
