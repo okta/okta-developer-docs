@@ -20,7 +20,7 @@ Your end users are modeled inside Okta as [`Users`](/docs/reference/api/users/).
 
 A [`Group`](/docs/reference/api/groups/) is made up of users found within a directory. It can be thought of as a label applied to a set of users. A user can be a member of multiple groups. Groups are useful for representing roles, relationships, and can even be used for subscription tiers.
 
-An [`Application`](/docs/reference/api/apps/) contains information about the protocol it uses to communicate with Okta. An Application holds information about the protocol in which it wants Okta to communicate, policies for accessing the application, and which users can use the application after identifying themselves.
+An [`Application`](/docs/reference/api/apps/) holds information about the protocol in which it wants Okta to communicate, policies for accessing the application, and which users can use the application after identifying themselves. An Application also contains information about the protocol it uses to communicate with Okta.
 
 The relationship between an application and a user is stored in Okta as an [`AppUser`](/docs/reference/api/apps/#assign-user-to-application-for-sso). This allows for `mappings` between profile values where they are different. For example, application1 may refer to a User's last name as `lastName` and application2 may refer to last name as `surname`.  The `AppUser` stores the value as necessary for the application.
 
