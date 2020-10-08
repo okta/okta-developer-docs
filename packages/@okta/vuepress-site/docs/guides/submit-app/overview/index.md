@@ -40,7 +40,7 @@ The service-level agreement for OIN publication time is:
 
 * Initial review by Okta - 5 business days
 * QA testing by Okta - 5 business days
-* Final publication in the OIN Catalog - 3 business days
+* Final publication in the OIN Catalog - 1 business day
 
 All submissions go through these phases. The Okta OIN team sends you an email that identifies any issues found in the initial review and QA testing phases. At any point in the process, you can check the status of your submission in the [OIN Manager](https://oinmanager.okta.com).
 
