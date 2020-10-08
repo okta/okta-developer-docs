@@ -140,14 +140,14 @@ For `com.okta.action.update` commands, `value` should be an object containing th
 
 ```json
 {
-   "commands":[
-      {
-         "type":"com.okta.action.update",
-         "value":{
-            "registration":"DENY",
-         }
+  "commands": [
+    {
+      "type": "com.okta.action.update",
+      "value": {
+        "registration": "DENY"
       }
-   ]
+    }
+  ]
 }
 ```
 

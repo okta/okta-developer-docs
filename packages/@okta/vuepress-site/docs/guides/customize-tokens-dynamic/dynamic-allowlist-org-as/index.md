@@ -50,7 +50,7 @@ The decoded JWT looks something like this:
   "nonce": "UBGW",
   "auth_time": 1574207041,
   "groups": [
-    "IT",
+    "IT"
   ]
 }
 ```

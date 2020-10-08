@@ -2471,7 +2471,7 @@ Activate a U2F Factor by verifying the registration data and client data.
 
 If the registration `nonce` is invalid or if registration data is invalid, the response is a `403 Forbidden` status code with the following error:
 
-```JSON
+```json
 HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
@@ -2590,7 +2590,7 @@ Activate a WebAuthn Factor by verifying the attestation and client data.
 
 If the attestation `nonce` is invalid, or if the attestation or client data are invalid, the response is a `403 Forbidden` status code with the following error:
 
-```JSON
+```json
 HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
@@ -2680,7 +2680,9 @@ Unenrolls an existing Factor for the specified user, allowing the user to enroll
 
 ##### Response parameters
 
-`204 No Content`
+```http
+HTTP/1.1 204 No Content
+```
 
 ##### Request example
 
@@ -2694,7 +2696,9 @@ curl -v -X DELETE \
 
 ##### Response example
 
-`204 No Content`
+```http
+HTTP/1.1 204 No Content
+```
 
 ## Factors that require a challenge and verify operation
 

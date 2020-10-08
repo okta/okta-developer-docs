@@ -39,7 +39,7 @@ This example shows the JSON body of a PUT request to an existing OpenID Connect 
 
 > **Note:** You need the `applicationId` of the app that you want to update. Do a [List Applications](/docs/reference/api/apps/#list-applications-with-defaults) to locate that ID.
 
-```JSON
+```json
 {
     "id": "0oaosna3ilNxgPTmk0h7",
     "name": "oidc_client",
@@ -93,7 +93,7 @@ This example shows the JSON body of a PUT request to an existing OpenID Connect 
         }
     }
 }
-https://${yourOktaDomain}/api/v1/apps/${applicationId}
+"https://${yourOktaDomain}/api/v1/apps/${applicationId}"
 ```
 
 To enable consent for a scope that you want to require consent for, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by setting the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`.
@@ -105,7 +105,7 @@ This example shows the JSON body for a PUT request to the default Custom Authori
 * `authServerId`: Do a [List Authorization Servers](/docs/reference/api/authorization-servers/#list-authorization-servers) to locate the appropriate ID.
 * `scopeId`: Do a [List Scopes](/docs/reference/api/authorization-servers/#get-all-scopes) to locate the appropriate ID.
 
-```JSON
+```json
 {
     "id": "scpixa2zmc8Eumvjb0h7",
     "name": "phone",
@@ -116,7 +116,7 @@ This example shows the JSON body for a PUT request to the default Custom Authori
     "consent": "REQUIRED",
     "default": false
 }
-https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}/scopes/${scopeId}
+"https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}/scopes/${scopeId}"
 ```
 
 <NextSectionLink/>

@@ -5112,7 +5112,7 @@ curl -v -X DELETE \
 
 #### Response example
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -5326,7 +5326,7 @@ curl -v -X DELETE \
 
 #### Response example
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -5357,7 +5357,7 @@ curl -v -X DELETE \
 
 #### Response example
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 

@@ -305,7 +305,7 @@ curl -v -X DELETE \
 ##### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -357,7 +357,7 @@ curl -v -X PUT \
 ##### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -497,7 +497,7 @@ curl -v -X GET \
 ##### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 

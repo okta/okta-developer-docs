@@ -42,8 +42,8 @@ The Okta Vue SDK makes it easy to integrate Vue Router with Okta's OpenID Connec
 
 ## Recommended Guides
 
-- [Okta Vue Overview](/code/vue/okta_vue/)
 - [Okta Sign-In Widget and Vue](/code/vue/okta_vue_sign-in_widget/)
+- [Okta Auth JS and Vue](/code/vue/okta_vue/)
 - [Implementing the PKCE Flow](/docs/guides/implement-auth-code-pkce/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)

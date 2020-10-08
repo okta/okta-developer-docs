@@ -200,7 +200,7 @@ For more information about these configuration options, see the [Okta Sign-In Wi
 
 If you want to display different strings depending on the user's language, you can specify this using the following structure:
 
-```json
+```javascript
 lang: {
   'key': 'value'
 }
