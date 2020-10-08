@@ -37,6 +37,7 @@ guides:
  - protect-your-api
  - quickstart
  - refresh-tokens
+ - registration-inline-hook
  - request-user-consent
  - revoke-tokens
  - saml-tracer
