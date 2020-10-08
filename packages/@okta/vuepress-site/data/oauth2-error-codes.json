@@ -1,6 +1,6 @@
 {
-  "release" : "2020.09.2",
-  "build" : "2020.09.2-begin-18-g149a027075ea",
+  "release" : "2020.10.1",
+  "build" : "2020.10.1-begin-81-gdedc4f5253dd",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -604,6 +604,27 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "The user has multiple passwords."
   }, {
+    "title" : "Invalid saml assertion",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_saml_assertion",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "'assertion' is not a valid SAML 2.0 Assertion."
+  }, {
+    "title" : "Saml assertion auth denied MFA",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "saml_assertion_auth_denied_mfa",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "SAML Assertion credentials cannot be used with MFA enabled."
+  }, {
+    "title" : "Saml assertion auth denied policy",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "saml_assertion_auth_denied_policy",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "SAML Assertion credentials authentication denied by sign on policy."
+  }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -666,6 +687,20 @@
     "internalErrorCode" : "illegal_redirect_uri",
     "errorCode" : "invalid_request",
     "errorDescription" : "The 'redirect_uri' parameter must be an absolute URI that is whitelisted in the client app settings."
+  }, {
+    "title" : "Illegal redirect URI enhanced",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "illegal_redirect_uri_enhanced",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'redirect_uri' parameter [{0}] must be an absolute URI whitelisted in the client app settings: {1}"
+  }, {
+    "title" : "Invalid client application type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_client_application_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Clients with 'application_type' of 'service' are not allowed to access the 'authorize' endpoint."
   }, {
     "title" : "Invalid state",
     "statusCode" : 400,
@@ -771,6 +806,20 @@
     "internalErrorCode" : "mfa_attestation_login_hint_required",
     "errorCode" : "invalid_request",
     "errorDescription" : "'login_hint' is required for MFA attestation."
+  }, {
+    "title" : "Invalid subject token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token_type' is invalid or not supported."
   }, {
     "title" : "Access token missing",
     "statusCode" : 400,
