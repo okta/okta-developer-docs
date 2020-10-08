@@ -12,7 +12,7 @@ Email notifications are based on templates that are generated automatically and 
 
 * Email templates must be under 64 KB. This is approximately 65,000 single-byte characters for all text, HTML, and CSS characters in the template. UTF-8 characters can be as large as 4 bytes each, so fewer characters are accepted.
 
-* Styles may be stripped out by the template.
+* Okta supports only inline CSS.
 
 * The **Subject** can't exceed 128 characters.
 
