@@ -1,13 +1,13 @@
 ---
 title: OIE Policies Updates
-category: management
+category: other
 ---
 
 # Okta Identity Engine New Types for Policy API
 
 <!-- AS OF 2020-08-19 THIS SHOULD BE A PART OF THE POLICY API. THIS MAY CHANGE -->
 
-The Identity Engine Early Adopter Program (EAP) contains many updates to Okta's existing Policy API. Specifically, it introduces two new Policy types which both start with `Okta:`: `Okta:SignOn` and `Okta:ProfileEnrollment` as well as new kinds of Rules and Conditions. This documentation will discuss only the differences between the [existing Policy API](/docs/reference/api/policy/) and the Identity Engine EAP additions.
+The Identity Engine Early Adopter Program (EAP) contains many updates to Okta's existing Policy API. Specifically, it introduces two new Policy types: `Okta:SignOn` and `Okta:ProfileEnrollment` as well as new kinds of Rules and Conditions. This documentation will discuss only the differences between the [existing Policy API](/docs/reference/api/policy/) and the Identity Engine EAP additions.
 
 ## Limitations
 
