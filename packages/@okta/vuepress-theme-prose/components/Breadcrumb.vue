@@ -17,11 +17,7 @@
 <script>
   export default {
     name: "Breadcrumb",
-    data() {
-      return {
-        treeNavOpen: false
-      }
-    },
+    inject: ['appContext'],
     computed: {
       enableShowHide() {
         if(this.$page.path == '/docs/reference/') {
@@ -30,7 +26,7 @@
         return true;
       },
       showHideContents() {
-        if(this.treeNavOpen) {
+        if(this.appContext.treeNavOpen) {
           return 'Hide Contents';
         }
         return 'Show Contents';
@@ -76,8 +72,8 @@
     },
     methods: {
       toggleTreeNav: function(value) {
-        this.treeNavOpen = !this.treeNavOpen;
-        this.$parent.$emit('toggle-tree-nav', {treeNavOpen: this.treeNavOpen});
+        const treeNavOpen = !(this.appContext.treeNavOpen);
+        this.$parent.$emit('toggle-tree-nav', {treeNavOpen: treeNavOpen});
       }
     }
   }

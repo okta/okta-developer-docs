@@ -10,19 +10,7 @@
         <component :is="$page.frontmatter.component" />
       </div>
       <div class="content" v-else>
-        <div class="content--container">
-          <div class="tree-nav">
-            <Sidebar :sidebarActive="treeNavOpen" />
-          </div>
-          <div class="content-area">
-            <PageTitle />
-            <MobileOnThisPage />
-            <Content />
-          </div>
-          <div class="on-this-page">
-            <OnThisPage />
-          </div>
-        </div>
+          <ContentGatekeeper />
       </div>
     </div>
 
@@ -32,11 +20,12 @@
 </template>
 
 <script>
-
+const tabletBreakpoint = 768;
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
     Sidebar: () => import('../components/Sidebar.vue'),
+    ContentGatekeeper: () => import('../components/ContentGatekeeper.vue'),
     OnThisPage: () => import('../components/OnThisPage.vue'),
     MobileOnThisPage: () => import('../components/MobileOnThisPage.vue'),
     PageTitle: () => import('../components/PageTitle.vue'),
@@ -48,10 +37,19 @@ export default {
   },
   data() {
     return {
-      treeNavOpen: false
+      appContext: {
+        isMobileViewport: window.innerWidth < tabletBreakpoint,
+        treeNavOpen: false
+      },
+    }
+  },
+  provide: function () {
+    return {
+      appContext: this.appContext
     }
   },
   mounted() {
+    window.addEventListener('resize', this.onResize);
     window.addEventListener('load', () => {
         window.setTimeout(() => {
           let anchor = window.location.href.split('#')[1];
@@ -61,7 +59,6 @@ export default {
               window.scrollTo(0, target.offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
             }
           }
-
           // let links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href*="/quickstart/#"])');
           let links = document.querySelectorAll('.header-anchor.header-link');
 
@@ -69,7 +66,6 @@ export default {
             link.addEventListener('click', function(event) {
 
               if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-
                 let target = document.querySelector(this.hash);
                 if (target) {
                   event.preventDefault();
@@ -85,6 +81,7 @@ export default {
 
     let that = this;
     this.$on('toggle-tree-nav', event => {
+      that.appContext.treeNavOpen = event.treeNavOpen;
       that.treeNavOpen = event.treeNavOpen;
     });
 
@@ -92,6 +89,7 @@ export default {
   },
   watch: {
     $route(to, from) {
+      this.appContext.treeNavOpen = false;
       this.redirIfRequired();
     }
   },
@@ -105,8 +103,15 @@ export default {
           this.$router.replace({ path: `${this.$page.redir}` });
         }
       }
+    },
+    onResize() {
+      this.appContext.isMobileViewport = window.innerWidth < tabletBreakpoint;
     }
-  }
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize);
+  },
 }
 </script>
 
