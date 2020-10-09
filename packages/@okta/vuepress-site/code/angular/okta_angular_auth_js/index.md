@@ -68,12 +68,10 @@ First, create `src/app/app.service.ts` as an authorization utility file and use 
 > Important: We're using Okta's organization authorization server to make setup easy, but it's less flexible than a custom authorization server. Many SPAs send access tokens to access APIs. If you're building an API that will need to accept access tokens, [create an authorization server](/docs/guides/customize-authz-server/).
 
 ```typescript
-// app.service.ts
-
 import { Observable, Observer } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import * as OktaAuth from '@okta/okta-auth-js';
+import { OktaAuth } from '@okta/okta-auth-js';
 
 @Injectable()
 export class OktaAuthService {
@@ -122,15 +120,10 @@ export class OktaAuthService {
   }
 
   async handleAuthentication() {
-    const tokens = await this.oktaAuth.token.parseFromUrl();
-    tokens.forEach(token => {
-      if (token.idToken) {
-        this.oktaAuth.tokenManager.add('idToken', token);
-      }
-      if (token.accessToken) {
-        this.oktaAuth.tokenManager.add('accessToken', token);
-      }
-    });
+    const tokenContainer = await this.oktaAuth.token.parseFromUrl();
+
+    this.oktaAuth.tokenManager.add('idToken', tokenContainer.tokens.idToken);
+    this.oktaAuth.tokenManager.add('accessToken', tokenContainer.tokens.accessToken);
 
     if (await this.isAuthenticated()) {
       this.observer.next(true);
@@ -219,12 +212,11 @@ Next, update `src/app/app.component.html` with some buttons to trigger login or 
 <!-- app.component.html -->
 
 <button routerLink="/"> Home </button>
-<button *ngIf="!isAuthenticated" (click)="oktaAuth.login()"> Login </button>
+<button *ngIf="!isAuthenticated" (click)="oktaAuth.login('/')"> Login </button>
 <button *ngIf="isAuthenticated" (click)="oktaAuth.logout()"> Logout </button>
 <button routerLink="/protected"> Protected </button>
 
 <router-outlet></router-outlet>
-
 ```
 
 ### `/callback`
@@ -263,11 +255,17 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-secure',
-  template: ``
+  templateUrl: './protected.component.html',
 })
-export class ProtectedComponent {
-  constructor() { console.log('Protected endpont!'); }
-}
+export class ProtectedComponent {}
+```
+
+Create a new template called `protected.component.html`:
+
+```html
+<!-- protected.component.html -->
+
+<h2>PROTECTED!</h2>
 ```
 
 ### Connect the Routes
