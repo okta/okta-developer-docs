@@ -12,7 +12,7 @@ To set up and activate the registration inline hook:
 4. Include authorization data if required.
 5. Click **Save**.
 
-![Registration Inline Hook set up window](/img/notsure.png "Registration Inline Hook set up window")
+![Registration Inline Hook set up window](/img/registration-inline-hook-setup.png "Registration Inline Hook set up window")
 
 > **Note:** You can also setup an inline hook using an API. See [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hook-setup) for further information.
 
