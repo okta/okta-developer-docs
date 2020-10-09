@@ -266,8 +266,6 @@ Create a new template called `protected.component.html`:
 <!-- protected.component.html -->
 
 <h2>PROTECTED!</h2>
-
-<router-outlet></router-outlet>
 ```
 
 ### Connect the Routes
