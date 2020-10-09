@@ -1244,7 +1244,6 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```json
 {
   "id": "0oa6jxasyhwM2ZHJh0g4",
@@ -2223,10 +2222,6 @@ curl -v -X GET \
 ##### Response example
 
 ```json
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/idps?limit=20>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/idps?after=0oaxdqpA88PtFNmhu0g3&limit=20>; rel="next"
 [
   {
     "id": "0oa62bc8wppPw0UGr0h7",

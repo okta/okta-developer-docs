@@ -966,11 +966,9 @@ Removes a group of `OKTA_GROUP` or `APP_GROUP` type from your organization
 
 ##### Response parameters
 
-
 N/A
 
 ##### Request example
-
 
 ```bash
 curl -v -X DELETE \
@@ -980,9 +978,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/groups/00ub0oNGTSWTBKOLGLNR"
 ```
 
-
 ##### Response example
-
 
 ```http
 HTTP/1.1 204 No Content
@@ -992,13 +988,11 @@ HTTP/1.1 204 No Content
 
 ### List Group members
 
-
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/users" />
 
 Enumerates all [users](/docs/reference/api/users/#user-object) that are a member of a Group
 
 ##### Request parameters
-
 
 | Parameter | Description                                                | ParamType | DataType | Required | Default |
 | --------- | ---------------------------------------------------------- | --------- | -------- | -------- | ------- |
@@ -1028,11 +1022,7 @@ curl -v -X GET \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/users?limit=200>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/users?after=00u1f9cMYQZFMPVXIDIZ&limit=200>; rel="next"
+```json
 [
   {
     "id": "00u1f96ECLNVOKVMUSEA",

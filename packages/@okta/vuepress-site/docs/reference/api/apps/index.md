@@ -46,7 +46,6 @@ Adds a new Bookmark application to your organization
 
 ##### Request example
 
-
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -3069,9 +3068,9 @@ curl -v -X PUT \
 
 ##### Response example (self-service application assignment not available)
 
-If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) with profile mappings (Universal Directory) and how to update user permissions on properties in the user profile to secure your app before enabling self-service.
+If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) with profile mappings (Universal Directory). You can also read about how to update user permissions on properties in the user profile to secure your app before enabling self-service.
 
-``` http
+```http
 HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
@@ -3331,13 +3330,13 @@ curl -v -X DELETE \
 
 ##### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
 If the application has an `ACTIVE` status, the response contains an error message.
 
-``` http
+```http
 HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
@@ -4167,11 +4166,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```http
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/keys/SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4
-
+```json
 {
   "created": "2015-12-10T18:56:23.000Z",
   "expiresAt": "2017-12-10T18:56:22.000Z",
@@ -4189,10 +4184,7 @@ Location: https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials
 
 If `validityYears` is out of range (2 - 10 years), you receive an error response.
 
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: generateKey",
@@ -4241,11 +4233,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```http
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/apps/0oal21k0DVN7DhS3R0g3/credentials/keys/SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4
-
+```json
 {
   "created": "2015-12-10T18:56:23.000Z",
   "expiresAt": "2017-12-10T18:56:22.000Z",
@@ -4263,10 +4251,7 @@ Location: https://${yourOktaDomain}/api/v1/apps/0oal21k0DVN7DhS3R0g3/credentials
 
 If the key is already present in the list of key credentials for the target application, you receive a 400 error response.
 
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: cloneKey",
@@ -4528,11 +4513,7 @@ MIIC4DCCAcgCAQAwcTELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNh
 
 Returns a [CSR object](#application-csr-object)
 
-```http
-HTTP/1.1 201 Created
-Location: https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50
-Content-Type: application/json
-
+```json
 {
   "id": "h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
   "created": "2017-03-28T01:11:10.000Z",
@@ -4584,7 +4565,7 @@ Returns the new [Application Key Credential](#application-key-credential-object)
 
 ##### Request example
 
-Publishes with an X.509 certificate in base64 encoded `DER``
+Publishes with an X.509 certificate in base64 encoded `DER`
 
 ```bash
 curl -v -X POST \
@@ -4620,11 +4601,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```http
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/apps/0oal21k0DVN7DhS3R0g3/credentials/keys/ZC5C-1gEUwVxiYI8xdmYYDI3Noc4zI24fLNxBpZVR04
-
+```json
 {
     "created": "2017-03-27T21:19:57.000Z",
     "lastUpdated": "2017-03-27T21:19:57.000Z",
@@ -4643,10 +4620,7 @@ Location: https://${yourOktaDomain}/api/v1/apps/0oal21k0DVN7DhS3R0g3/credentials
 
 If the certificate doesn't match the CSR or its validaty period is less than 90 days, you receive a 400 error response.
 
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: certificate",
@@ -4911,7 +4885,6 @@ curl -v -X POST \
    }
 }
 ```
-
 
 ### List scope consent grants for application
 
@@ -5856,11 +5829,9 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
 
 ```json
 {
-  ...
   "settings": {
     "signOn": {
-      ...
-      "attributeStatements": [
+        "attributeStatements": [
         {
           "type": "EXPRESSION",
           "name": "Attribute One",
