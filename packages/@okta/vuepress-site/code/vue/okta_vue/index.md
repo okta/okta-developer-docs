@@ -75,7 +75,6 @@ Create `src/components/Dashboard.vue`. This page will only be viewable to authen
 Create a `src/auth.js` file:
 
 ```js
-/* globals localStorage */
 const OktaAuth = require('@okta/okta-auth-js').OktaAuth
 const authClient = new OktaAuth({issuer: 'https://{yourOktaDomain}'})
 
