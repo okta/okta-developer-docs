@@ -23,8 +23,10 @@ echo "$NETLIFY_SITE_ID"
 echo "======="
 echo "$TRAVIS_COMMIT_MESSAGE"
 echo "======="
+git log $TRAVIS_COMMIT
+echo "======="
 
-if [ -n $NETLIFY_SITE_ID ] && echo $TRAVIS_COMMIT_MESSAGE | grep -q NFDEPLOY; then
+if [ -n $NETLIFY_SITE_ID ] && git log $TRAVIS_COMMIT | grep -q NFDEPLOY; then
     fold netlify_setup npm install -g netlify-cli
     fold netlify netlify deploy
 else
