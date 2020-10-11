@@ -26,14 +26,12 @@ echo "=======TRAVIS_COMMIT"
 echo "$TRAVIS_COMMIT"
 echo "=======TRAVIS_PULL_REQUEST_SHA"
 echo "$TRAVIS_PULL_REQUEST_SHA"
-git log $TRAVIS_PULL_REQUEST_SHA
+git log -n1 --pretty=format:"%B" $TRAVIS_PULL_REQUEST_SHA
 echo "=======TRAVIS_PULL_REQUEST_BRANCH"
 echo "$TRAVIS_PULL_REQUEST_BRANCH"
 echo "======="
-git log -n1 --pretty=format:"%B" $TRAVIS_PULL_REQUEST_BRANCH
-echo "======="
 
-if [ -n $NETLIFY_SITE_ID ] && git log $TRAVIS_COMMIT | grep -q NFDEPLOY; then
+if [ -n $NETLIFY_SITE_ID ] && git log -n1 --pretty=format:"%B" $TRAVIS_PULL_REQUEST_SHA | grep -q NFDEPLOY; then
     echo "WILL DEPLOY"
     # fold netlify_setup npm install -g netlify-cli
     # fold netlify netlify deploy
