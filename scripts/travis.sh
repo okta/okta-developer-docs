@@ -19,4 +19,8 @@ fold yarn_test yarn test
 
 npm install -g netlify-cli
 
-fold netlify netlify deploy
+if [ -n $NETLIFY_SITE_ID ] && echo $TRAVIS_COMMIT_MESSAGE | grep -q NFDEPLOY; then
+    fold netlify netlify deploy
+else
+    echo "Will not use Netlify deploy"
+fi	
