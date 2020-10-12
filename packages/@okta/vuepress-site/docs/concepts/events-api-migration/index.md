@@ -34,7 +34,7 @@ For brevity, the Events API is often referred to as `/events` and the System Log
 
 Each of the API resources has an associated data structure, also referred to as the resource "representation" or data model. The System Log API's representation is the [LogEvent object](/docs/reference/api/system-log/#logevent-object). It captures the occurrence of notable system events. The Events API's representation is the [Event object](/docs/reference/api/events/#event-model). LogEvent has more structure and a much richer set of data elements than Event. It is one of the principal improvements of the System Log API over the Events API.
 
-One of the most important attributes of an event in the Okta system is its "event type" designation. In the Events API, the [`action.objectType` attribute](/docs/reference/api/events/#action-object) denotes the event type. In the System Log API, the [`eventType` attribute](/docs/reference/api/system-log/#event-types) represents the event type. The values in each of these fields are generally different, although there is some overlap for historical purposes. In the interest of easing the transition from the Events API to the System Log API, LogEvent's [`legacyEventType` attribute](/docs/reference/api/system-log/#attributes) identifies the equivalent Event `action.objectType` value. The [Event Type Mapping](#event-type-mappings) section of this guide provides a static mapping of Events API event types to System Log API event types.
+One of the most important attributes of an event in the Okta system is its "event type" designation. In the Events API, the [`action.objectType` attribute](/docs/reference/api/events/#action-object) denotes the event type. In the System Log API, the [`eventType` attribute](/docs/reference/api/system-log/#event-types) represents the event type. The values in each of these fields are generally different, although there is some overlap for historical purposes. In the interest of easing the transition from the Events API to the System Log API, LogEvent's [`legacyEventType` attribute](/docs/reference/api/system-log/#attributes) identifies the equivalent Event `action.objectType` value. The [Event type Mapping](#event-type-mappings) section of this guide provides a static mapping of Events API event types to System Log API event types.
 
 Another essential difference between the two systems is the manner in which detailed information is encoded. The Events API textually encodes the specifics of a particular event instance into the [`action.message` attribute](/docs/reference/api/events/#action-object). This encoding burdened consumers with having to correctly parse data themselves and led to brittleness in downstream systems when wording changed. The System Log API expands and enriches the data model to support storing these values as atomic, independent attributes. Context objects, such as the [AuthenticationContext object](/docs/reference/api/system-log/#authenticationcontext-object) and [GeographicalContext objects](/docs/reference/api/system-log/#geographicalcontext-object), provide attributes that are common across event types. The [DebugContext object](/docs/reference/api/system-log/#debugcontext-object) houses event-type-specific attributes.
 
@@ -226,7 +226,7 @@ Given the above events from each API, the following compares each leaf-level att
 |                           | `/client/zone`                                           | New                                                                                |
 | `/action/requestUri`      | `/debugContext/debugData/requestUri`                     | New                                                                                |
 | `/action/message`         | `/displayMessage`                                        | Generally less content                                                             |
-| `/action/objectType`      | `/eventType`                                             | Generally contains different IDs (see [Event Type Mappings](#event-type-mappings)) |
+| `/action/objectType`      | `/eventType`                                             | Generally contains different IDs (see [Event type mappings](#event-type-mappings)) |
 |                           | `/legacyEventType`                                       | Contains `/action/objectType` as its value                                         |
 |                           | `/outcome/result`                                        | Contains a value that is encoded in `/action/objectType` suffix                      |
 | `/published`              | `/published`                                             | Contains slightly different values                                                 |
@@ -266,7 +266,7 @@ All other system identifiers are unchanged (for example: user identifiers and ap
 
 #### Outcome agnostic event types
 
-To the extent possible, event types have removed the logical outcome of the occurrence from the Event Type ID. For example, the `user.session.start` Event Type replaces the following `/events` equivalents:
+To the extent possible, event types have removed the logical outcome of the occurrence from the event type ID. For example, the `user.session.start` event type replaces the following `/events` equivalents:
 
 -  `core.user_auth.login_success`
 -  `core.user_auth.login_denied`
@@ -285,7 +285,7 @@ Instead, this information has been moved to the body of the event and is encoded
 }
 ```
 
-This general pattern results in a reduced number of Event Types making them easier to comprehend and navigate.
+This general pattern results in a reduced number of event types making them easier to comprehend and navigate.
 
 #### Vendor agnostic event types
 
@@ -342,11 +342,11 @@ When you first make an API call and get a cursor-paged list of objects, the end 
 
 See [Transferring Data to a Separate System](/docs/reference/api/system-log/#transferring-data-to-a-separate-system) and the general information on [Link Headers](/docs/reference/api-overview/#link-header) for additional details.
 
-## Event Type mappings
+## Event type mappings
 
-The listing in the [Event Type catalog](/docs/reference/api/event-types/#catalog) describes the complete relationship between the Events API and System Log API Event Type systems. It describes how Event Types of one system map to the other, making it an invaluable resource for the migration process.
+The listing in the [Event type catalog](/docs/reference/api/event-types/#catalog) describes the complete relationship between the Events API and System Log API Event type systems. It describes how event types of one system map to the other, making it an invaluable resource for the migration process.
 
-> **Important:** Going forward, the Events API isn't tracking new Event Types added to the System Log API. For this reason, we highly recommend upgrading to the System Log API.
+> **Important:** Going forward, the Events API isn't tracking new event types added to the System Log API. For this reason, we highly recommend upgrading to the System Log API.
 
 ## Resources
 
@@ -382,6 +382,6 @@ The following covers what the System Log is and where to find it, how to transla
 
 ### [github.com/OktaSecurityLabs](https://github.com/OktaSecurityLabs)
 
-The following is a listing of Okta System Log Event Types of interest for security teams:
+The following is a listing of Okta System Log event types of interest for security teams:
 
 - [Security Events](https://github.com/OktaSecurityLabs/CheatSheets/blob/master/SecurityEvents.md)
