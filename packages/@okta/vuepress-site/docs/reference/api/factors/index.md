@@ -3081,6 +3081,8 @@ Polls a push verification transaction for completion. The transaction result is 
 
 ##### Response example (waiting)
 
+> **Note:** This example is abbreviated.
+
 ```json
 {
   "expiresAt": "2015-04-01T15:57:32.000Z",
@@ -3111,7 +3113,7 @@ Polls a push verification transaction for completion. The transaction result is 
 
 ##### Response example (approved)
 
->**Note:** This example displays an abbreviated response for brevity.
+>**Note:** This example is abbreviated.
 
 ```json
 {
@@ -3120,6 +3122,8 @@ Polls a push verification transaction for completion. The transaction result is 
 ```
 
 ##### Response example (rejected)
+
+>**Note:** This example is abbreviated.
 
 ```json
 {
@@ -3151,7 +3155,7 @@ Polls a push verification transaction for completion. The transaction result is 
 
 ##### Response example (timeout)
 
->**Note:** This example displays an abbreviated response for brevity.
+>**Note:** This example is abbreviated.
 
 ```json
 {

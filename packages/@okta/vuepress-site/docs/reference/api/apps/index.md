@@ -5827,6 +5827,8 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
 | URI Reference    | urn:oasis:names:tc:SAML:2.0:attrname-format:uri         |
 | Unspecified      | urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified |
 
+> **Note:** This example is abbreviated.
+
 ```json
 {
   "settings": {
