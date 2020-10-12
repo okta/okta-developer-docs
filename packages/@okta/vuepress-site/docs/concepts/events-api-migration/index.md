@@ -260,13 +260,13 @@ The identity of a particular event distinguishes it from all other events instan
 
 All other system identifiers are unchanged (for example: user identifiers and application identifiers).
 
-### Event Types
+### Event types
 
 [Event types]() are the primary method of organization within the Okta event system. They broadly categorize classes of events by an event type identifier. The System Log API has half the number of event types of the Events API. This helps event stream consumers identify and filter events more easily.
 
-#### Outcome agnostic Event Types
+#### Outcome agnostic event types
 
-To the extent possible, Event Types have removed the logical outcome of the occurrence from the Event Type ID. For example, the `user.session.start` Event Type replaces the following `/events` equivalents:
+To the extent possible, event types have removed the logical outcome of the occurrence from the Event Type ID. For example, the `user.session.start` Event Type replaces the following `/events` equivalents:
 
 -  `core.user_auth.login_success`
 -  `core.user_auth.login_denied`
@@ -287,7 +287,7 @@ Instead, this information has been moved to the body of the event and is encoded
 
 This general pattern results in a reduced number of Event Types making them easier to comprehend and navigate.
 
-#### Vendor agnostic Event Types
+#### Vendor agnostic event types
 
 In `/events`, there are a multitude of events that include partner specific context information into the message. For example:
 
