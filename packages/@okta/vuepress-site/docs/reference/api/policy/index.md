@@ -1441,12 +1441,12 @@ The following conditions may be applied to IdP Discovery Policy:
 
 #### Policy Action Example
 
-> **Note:** Only one value is supported for `providers`.
+> **Note:** The `providers` parameter supports only one value.
 
 ```json
   "actions": {
     "idp": {
-      "providers": [ //only supports one value
+      "providers": [
         {
           "type": "SAML2",
           "id": "0oaoz0zUsohjfrWZ80g3"
