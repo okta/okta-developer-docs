@@ -3,8 +3,11 @@
     <div class="tree-nav">
       <Sidebar :sidebarActive="true" />
     </div>
-    <div class="content-area"></div>
-    <div class="on-this-page"></div>
+    <div class="content-area">
+      <PageTitle />
+      <MobileOnThisPage />
+      <Content />
+    </div>
   </div>
 
   <div class="content--container" v-else-if="appContext.isMobileViewport && !appContext.treeNavOpen">
