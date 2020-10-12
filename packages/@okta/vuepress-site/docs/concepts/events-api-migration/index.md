@@ -262,7 +262,7 @@ All other system identifiers are unchanged (for example: user identifiers and ap
 
 ### Event Types
 
-[Event types]() are the primary method of organization within the Okta event system. They broadly categorize classes of events by an event type identifier. The System Log API has half the number of Event Types of the Events API. This helps event stream consumers identify and filter events more easily.
+[Event types]() are the primary method of organization within the Okta event system. They broadly categorize classes of events by an event type identifier. The System Log API has half the number of event types of the Events API. This helps event stream consumers identify and filter events more easily.
 
 #### Outcome agnostic Event Types
 
