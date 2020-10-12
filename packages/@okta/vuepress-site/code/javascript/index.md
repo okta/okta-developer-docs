@@ -23,10 +23,6 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 	</li>
 </ul>
 
-<a href='https://github.com/okta/samples-nodejs-express-4/tree/master/custom-login'>
-	<span class='fa fa-github'></span> <span>JavaScript Sample App</span>
-</a>
-
 ## Okta JavaScript Authentication SDK
 
 Auth.js is a library wrapper for the Okta Authentication API. Use it when you need complete control of your sign in experience, or use the Okta Sign-In Widget for a pre-built, customizable experience.
