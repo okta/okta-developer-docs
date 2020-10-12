@@ -281,7 +281,7 @@ Instead, this information has been moved to the body of the event and is encoded
   "outcome": {
     "result": "FAILURE",
     "reason": "INVALID_LOGIN"
-  },
+  }
 }
 ```
 
