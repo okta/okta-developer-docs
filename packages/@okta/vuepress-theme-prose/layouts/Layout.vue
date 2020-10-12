@@ -38,7 +38,6 @@ export default {
   data() {
     return {
       appContext: {
-        isMobileViewport: window.innerWidth < tabletBreakpoint,
         treeNavOpen: false
       },
     }
@@ -49,6 +48,7 @@ export default {
     }
   },
   mounted() {
+    this.setViewportData();
     window.addEventListener('resize', this.onResize);
     window.addEventListener('load', () => {
         window.setTimeout(() => {
@@ -104,8 +104,11 @@ export default {
         }
       }
     },
-    onResize() {
+    setViewportData() {
       this.appContext.isMobileViewport = window.innerWidth < tabletBreakpoint;
+    },
+    onResize() {
+      this.setViewportData();
     }
   },
 
