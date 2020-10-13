@@ -14,6 +14,8 @@ This guide will walk you through integrating authentication into a React app wit
 6. [Connect the Routes](#connect-the-routes)
 7. [Start Your App](#start-your-app)
 
+> This guide is for @okta/okta-auth-js version 4.x and @okta/okta-react version 3.0.x.
+
 ## Prerequisites
 If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
 
@@ -25,7 +27,7 @@ If you do not already have a **Developer Edition Account**, you can create one a
 | -------------------  | --------------------------------------------------- |
 | App Name             | OpenID Connect App (must be unique)                 |
 | Login redirect URIs  | `http://localhost:3000/login/callback`              |
-| Logout redirect URIs | `http://localhost:3000/login`                       |
+| Logout redirect URIs | `http://localhost:3000/`                       |
 | Allowed grant types  | Authorization Code                                  |
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
@@ -67,7 +69,7 @@ Create a `src/SignInForm.jsx` file:
 
 ```jsx
 import React, { useState } from 'react';
-import OktaAuth from '@okta/okta-auth-js';
+import { OktaAuth } from '@okta/okta-auth-js';
 import { useOktaAuth } from '@okta/okta-react';
 
 const SignInForm = ({ issuer }) => {
@@ -135,7 +137,7 @@ export default SignInForm;
 
 ```jsx
 import React, { Component } from 'react';
-import OktaAuth from '@okta/okta-auth-js';
+import { OktaAuth } from '@okta/okta-auth-js';
 import { withOktaAuth } from '@okta/okta-react';
 
 export default withOktaAuth(class SignInForm extends Component {
