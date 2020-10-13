@@ -23,7 +23,7 @@ If you do not already have a **Developer Edition Account**, you can create one a
 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
-| App Name             | OpenId Connect App (must be unique)                 |
+| App Name             | OpenID Connect App (must be unique)                 |
 | Login redirect URIs  | `http://localhost:3000/login/callback`              |
 | Logout redirect URIs | `http://localhost:3000/login`                       |
 | Allowed grant types  | Authorization Code                                  |
@@ -31,29 +31,41 @@ If you do not already have a **Developer Edition Account**, you can create one a
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
 
 ## Create a React App
-To quickly create a React app, we recommend the create-react-app CLI. Follow their guide [here](https://github.com/facebookincubator/create-react-app#quick-overview).
 
-## Install Dependencies
-A simple way to add authentication to a React app is using the [Okta Auth JS](/code/javascript/okta_auth_sdk/) library. We can install it via `npm`:
+To create a React app, you can use [Create React App](https://create-react-app.dev/):
+
 ```bash
-npm install @okta/okta-auth-js --save
+npx create-react-app okta-app
 ```
 
-We'll also need `@okta/okta-react` and `react-router-dom` to manage your routes (`@okta/okta-react` can be used to support other router libraries, but `react-router-dom` has pre-existing support).
+This will create a new project in a folder named `okta-app` and installs all required dependencies.
+
 ```bash
-npm install @okta/okta-react react-router-dom --save
+cd okta-app
+```
+
+## Install Dependencies
+
+A simple way to add authentication to a React app is using the [Okta Auth JS](/code/javascript/okta_auth_sdk/) library. You can install it via `npm`:
+
+```bash
+npm install @okta/okta-auth-js
+```
+
+You'll also need `@okta/okta-react` and `react-router-dom` to manage your routes (`@okta/okta-react` can be used to support other router libraries, but `react-router-dom` has pre-existing support).
+
+```bash
+npm install @okta/okta-react react-router-dom
 ```
 
 ## Create a Custom Sign-In Form
-If the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) does not fit your needs, [AuthJS](/code/javascript/okta_auth_sdk/) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, we'll create a simple username and password form without MFA.
+If the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) does not fit your needs, [Okta Auth JS](/code/javascript/okta_auth_sdk/) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, you'll create a simple username and password form without MFA.
 
 Create a `src/SignInForm.jsx` file:
 
 `src/SignInForm.jsx` using a function-based component:
 
 ```jsx
-// src/SignInForm.jsx
-
 import React, { useState } from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { useOktaAuth } from '@okta/okta-react';
@@ -120,9 +132,8 @@ export default SignInForm;
 ```
 
 `src/SignInForm.jsx` using a class-based component:
-```jsx
-// src/SignInForm.jsx
 
+```jsx
 import React, { Component } from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { withOktaAuth } from '@okta/okta-react';
@@ -217,8 +228,6 @@ First, create `src/Home.jsx` to provide links to navigate our app:
 `src/Home.jsx` using a function-based component:
 
 ```jsx
-// src/Home.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
@@ -285,8 +294,6 @@ This route will only be visible to users with a valid `accessToken`.
 Create a new component `src/Protected.jsx`:
 
 ```jsx
-// src/Protected.jsx
-
 import React from 'react';
 
 export default () => <h3>Protected</h3>;
@@ -299,8 +306,6 @@ Create a new component `src/SignIn.jsx`:
 
 `src/SignIn.jsx` using a function-based component:
 ```jsx
-// src/SignIn.jsx
-
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import SignInForm from './SignInForm';
@@ -346,14 +351,12 @@ export default withOktaAuth(class SignIn extends Component {
 The component for this route (LoginCallback) comes with `@okta/okta-react`. It handles token parsing, token storage, and redirecting to a protected page if one triggered the sign in.
 
 ### Connect the Routes
-Update `src/App.jsx` to include your project components and routes. `Security` is the component that controls the authentication flows, so it requires your OpenId Connect configuration. By default, `@okta/okta-react` redirects to Okta's sign in page when the user isn't authenticated.
+Update `src/App.js` to include your project components and routes. `Security` is the component that controls the authentication flows, so it requires your OpenId Connect configuration. By default, `@okta/okta-react` redirects to Okta's sign in page when the user isn't authenticated.
 
 In this example, `onAuthRequired` is overridden to redirect to the custom sign-in route instead, which requires a component that is a descendent of Router to have access to `react-router`'s `history`.  Other router libraries will have their own methods of managing browser history:
 
-`src/App.jsx` and `src/AppWithRouterAccess.jsx` using function-based components:
+Update `src/App.js` to use function-based components:
 ```jsx
-// src/App.jsx
-
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppWithRouterAccess from './AppWithRouterAccess';
@@ -368,9 +371,10 @@ const App = () => {
 
 export default App;
 ```
-```jsx
-// src/AppWithRouterAccess.jsx
 
+And, create its companion at `src/AppWithRouterAccess.jsx`. Make sure to replace the `{...}` placeholders with your Okta values.
+
+```jsx
 import React from 'react';
 import { Route, useHistory } from 'react-router-dom';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
@@ -385,14 +389,14 @@ const AppWithRouterAccess = () => {
   };
 
   return (
-    <Security issuer='https://${yourOktaDomain}/oauth2/default'
+    <Security issuer='https://{yourOktaDomain}/oauth2/default'
               clientId='{clientId}'
               redirectUri={window.location.origin + '/login/callback'}
               onAuthRequired={onAuthRequired}
               pkce={true} >
       <Route path='/' exact={true} component={Home} />
       <SecureRoute path='/protected' component={Protected} />
-      <Route path='/login' render={() => <SignIn issuer='https://${yourOktaDomain}/oauth2/default' />} />
+      <Route path='/login' render={() => <SignIn issuer='https://{yourOktaDomain}/oauth2/default' />} />
       <Route path='/login/callback' component={LoginCallback} />
     </Security>
   );
@@ -400,10 +404,9 @@ const AppWithRouterAccess = () => {
 export default AppWithRouterAccess;
 ```
 
-`src/App.jsx` and `src/AppWithRouterAccess.jsx` using class-based components:
-```jsx
-// src/App.jsx
+You can also update `src/App.js` and `src/AppWithRouterAccess.jsx` to use class-based components:
 
+```jsx
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppWithRouterAccess from './AppWithRouterAccess';
@@ -421,8 +424,6 @@ class App extends Component {
 export default App;
 ```
 ```jsx
-// src/AppWithRouterAccess.jsx
-
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
@@ -442,14 +443,14 @@ export default withRouter(class AppWithRouterAccess extends Component {
 
   render() {
     return (
-      <Security issuer='https://${yourOktaDomain}/oauth2/default'
+      <Security issuer='https://{yourOktaDomain}/oauth2/default'
                 clientId='{clientId}'
                 redirectUri={window.location.origin + '/login/callback'}
                 onAuthRequired={this.onAuthRequired}
                 pkce={true} >
         <Route path='/' exact={true} component={Home} />
         <SecureRoute path='/protected' component={Protected} />
-        <Route path='/login' render={() => <SignIn issuer='https://${yourOktaDomain}/oauth2/default' />} />
+        <Route path='/login' render={() => <SignIn issuer='https://{yourOktaDomain}/oauth2/default' />} />
         <Route path='/login/callback' component={LoginCallback} />
       </Security>
     );
