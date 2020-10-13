@@ -2,13 +2,19 @@
 title: Overview
 ---
 
-This guide provides example code for an external service to respond to calls from the Registration Inline hook. An external service is the customer-provided piece of software that Okta calls when the Registratation Inline hook fires.
+This guide provides example code for an external service to respond to calls from a Registration Inline hook. An external service is the customer-provided software that Okta calls when the Registration Inline hook fires.
 
-* See [Registration Inline Hook](/docs/reference/registration-hook/) for a complete description of this Inline Hook type.
+In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the end user's email domain is valid and allowed to register.
 
-* See [Inline Hooks](/docs/concepts/inline-hooks/) for a general conceptual overview of how Okta Inline Hooks work.
+This guide uses the website Glitch.me to act as an external service and to implement the Registration Inline hook with an Okta org. However, you can implement this code with your own web server if it is provisioned with HTTPS with a certificate from a trusted authority.
 
-The sample code presented in this guide is meant as a simple demonstration of the steps required for any external service to implement a Registration Inline hook. In the following scenario, the code parses requests from Okta and responds to Okta with commands that indicate whether the end user email domain is valid for registration.
+>**Note:** Okta will not call a non-HTTPS external service endpoint. You must implement HTTPS in order to use Inline Hooks.
+
+For further background on Inline Hooks and the Registration Inline Hook, see:
+
+* [Registration Inline Hook](/docs/reference/registration-hook/) for a complete description of this Inline Hook type.
+
+* [Inline Hooks](/docs/concepts/inline-hooks/) for a general conceptual overview of how Okta Inline Hooks work.
 
 ## Support
 

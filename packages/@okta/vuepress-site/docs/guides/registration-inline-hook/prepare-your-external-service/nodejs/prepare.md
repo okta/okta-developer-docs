@@ -1,4 +1,4 @@
-In this implementation of an external service, the code is written for Node, and the Express framework is used. Several npm packages are required:
+In this implementation of an external service, the code is written for Node and uses the Express framework. Several npm packages are required:
 
 ```javascript
 const express = require('express');
