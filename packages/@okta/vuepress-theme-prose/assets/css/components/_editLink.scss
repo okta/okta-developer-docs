@@ -1,0 +1,8 @@
+.edit-on-github {
+
+  text-align: right;
+
+  @include media('<tablet') {
+    display: none;
+  }
+}
